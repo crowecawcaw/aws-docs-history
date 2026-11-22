@@ -1,7 +1,6 @@
 
 
 # Set up tag-based-access controls on performance evaluations
-<a name="tag-based-access-control-performance-evaluations"></a>
 
 Connect Customer enables businesses to restrict access to specific performance evaluation forms, preventing unauthorized access to evaluation form templates and completed evaluations. Businesses can provide managers access to modify or use only the evaluation form templates that are relevant to their business line or function, improving security and making it easier for managers to select the right form while completing evaluations. Additionally, both managers and agents can be restricted from viewing certain completed evaluations. For example, you can restrict agents from viewing test evaluations filled with a form template that is yet to be finalized.
 

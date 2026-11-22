@@ -1,7 +1,6 @@
 
 
 # Display contact information in the agent workspace when a contact begins
-<a name="display-contact-attributes-sg"></a>
 
 A step-by-step guide can show contact attributes to the agent when a contact starts. This gives agents the context they need before the conversation begins. This pattern is also called a screen pop.
 
@@ -46,7 +45,7 @@ The following image shows an example of a **Detail view**. It has a page heading
 
 **Input example**
 
-```
+```json
 {
   "AttributeBar": [
     {"Label": "Example", "Value": "Attribute"},
@@ -66,7 +65,7 @@ The following image shows an example of a **Detail view**. It has a page heading
 
 **Output example**
 
-```
+```json
 {
     "Action": "ActionSelected",
     "ViewResultData": {

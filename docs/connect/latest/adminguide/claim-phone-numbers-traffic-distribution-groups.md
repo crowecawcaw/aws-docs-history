@@ -1,7 +1,6 @@
 
 
 # Claim phone numbers to traffic distribution groups using Connect Customer
-<a name="claim-phone-numbers-traffic-distribution-groups"></a>
 
 **Note**  
 **New user?** Check out the [Connect Customer Global Resiliency Workshop](https://catalog.workshops.aws/amazon-connect-global-resiliency/en-US). This online course guides you through the process of onboarding and testing phone number and agent failover using new APIs through the AWS CLI.  

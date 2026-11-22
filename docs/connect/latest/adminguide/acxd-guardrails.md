@@ -1,7 +1,6 @@
 
 
 # Guardrails
-<a name="acxd-guardrails"></a>
 
 Guardrails help evaluate and control conversational behavior in agentic CX designer applications.
 

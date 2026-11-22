@@ -1,7 +1,6 @@
 
 
 # Create rules that send in-app notifications
-<a name="contact-lens-rules-in-app-notification"></a>
 
 You can create rules to automatically notify people in your organization through in-app notifications within Connect Customer's admin and agent workspaces. Example use cases include:
 + Notifying an agent when they receive a performance evaluation.

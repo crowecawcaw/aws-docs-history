@@ -1,7 +1,6 @@
 
 
 # Contact record templates in Connect Customer Customer Profiles
-<a name="ctr-contact-record-template"></a>
 
 A contact record is a profile object that captures contact trace record (CTR) data from contacts, such as phone calls or chats. Connect Customer Customer Profiles uses contact records to document and analyze your interactions with customers.
 
@@ -71,17 +70,17 @@ Because this template doesn't fall back to `_phone` for matching, it can create 
 <a name="ctr-contact-record-template-usage-examples"></a>
 + CTR-NoInferred:
 
-  ```
+  ```bash
   aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles and auto-associates profiles" --template-id CTR-NoInferred
   ```
 + CTR-AutoAssociateOnly:
 
-  ```
+  ```bash
   aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Auto-associate with profiles only" --template-id CTR-AutoAssociateOnly
   ```
 + CTR:
 
-  ```
+  ```bash
   aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles only" --template-id CTR
   ```
 

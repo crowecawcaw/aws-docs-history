@@ -1,7 +1,6 @@
 
 
 # Input and output file schema for the Speaker Enrollment Job in Connect Customer Voice ID
-<a name="speaker-enrollment-job-schema"></a>
 
 **Note**  
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID resources. For more information, visit [Amazon Connect Customer Voice ID end of support](https://docs.aws.amazon.com/connect/latest/adminguide/amazonconnect-voiceid-end-of-support.html). 
@@ -11,7 +10,7 @@ End of support notice: On May 20, 2026, AWS will end support for Amazon Connect 
 
 Following is the schema of the input manifest file for the Speaker Enrollment Job:
 
-```
+```json
 {
   "Version": "string",
   "SpeakerEnrollmentRequests": [
@@ -46,7 +45,7 @@ Following is a description of each attribute of the input schema.
 
 Following is the schema of the output file generated for the Speaker Enrollment Job:
 
-```
+```json
 {
   "Version": "string",
   "Errors": [

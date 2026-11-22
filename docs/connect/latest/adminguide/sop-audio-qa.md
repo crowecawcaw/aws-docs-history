@@ -1,7 +1,6 @@
 
 
 # Troubleshoot audio quality issues by using `QualityMetrics` in the contact record
-<a name="sop-audio-qa"></a>
 
 **Important**  
 The topics and content in this section are for IT administrators who have experience with investigating network and telephony issues.   
@@ -14,7 +13,7 @@ Connect Customer provides QualityMetrics in the contact record for each connecte
 
 QualityMetrics is part of the contact object that you get as a response when you call the [DescribeContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html) API. The following snippet from the `DescribeContact` response shows what it looks like: 
 
-```
+```json
  "QualityMetrics": { 
          "Agent": { 
             "Audio": { 

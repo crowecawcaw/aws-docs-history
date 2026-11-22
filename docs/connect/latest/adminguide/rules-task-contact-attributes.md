@@ -1,7 +1,6 @@
 
 
 # Design a flow to use contact attributes in a rule in conversational analytics
-<a name="rules-task-contact-attributes"></a>
 
 You can have up to 5 contact attributes in a rule.
 

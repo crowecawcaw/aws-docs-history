@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Check staffing
-<a name="check-staffing"></a>
 
 This topic defines the flow block for checking the current or specified customer queue to gauge agent availability.
 

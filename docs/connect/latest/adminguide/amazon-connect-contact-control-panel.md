@@ -1,7 +1,6 @@
 
 
 # Provide agents with access to the Connect Customer Contact Control Panel (CCP)
-<a name="amazon-connect-contact-control-panel"></a>
 
 **Note**  
 This is the URL to the CCP website:   

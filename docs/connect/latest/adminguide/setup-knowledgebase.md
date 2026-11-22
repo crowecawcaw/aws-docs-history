@@ -1,7 +1,6 @@
 
 
 # Set up a Connect Customer knowledge base to store quick responses
-<a name="setup-knowledgebase"></a>
 
 You must create an [Connect Customer knowledge base](connect-ai-agent.md) to store quick responses. You can use the Connect Customer admin website to create the knowledge base with a single choose. The site uses AWS owned keys to encrypt data. 
 

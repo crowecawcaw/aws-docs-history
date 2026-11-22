@@ -1,7 +1,6 @@
 
 
 # How contact attributes work in Connect Customer
-<a name="what-is-a-contact-attribute"></a>
 
 Connect Customer treats each interaction with a customer as a **contact**. The interaction can be a phone call (voice), a chat, or an automated interaction with an Amazon Lex bot.
 

@@ -1,7 +1,6 @@
 
 
 # Security profile permissions for forecasting & agent scheduling in Connect Customer
-<a name="required-optimization-permissions"></a>
 
 Assign the following security profile permissions as needed to use forecasting & agent scheduling. 
 

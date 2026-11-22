@@ -1,7 +1,6 @@
 
 
 # Enable in-flight sensitive data redaction and message processing
-<a name="redaction-message-processing"></a>
 
 Connect Customer supports message processing that intercepts and modifies chat messages before they reach any participant. This capability enables automatic redaction of sensitive data and custom message processing, helping businesses maintain compliance and security standards.
 
@@ -87,7 +86,7 @@ Connect Customer honors your Lambda function's configured timeout, which must be
 
 Your custom processor Lambda receives an input event in the following format:
 
-```
+```json
 {
   "version": "1.0",
   "instanceId": "string",
@@ -108,7 +107,7 @@ Your custom processor Lambda receives an input event in the following format:
 
 Your Lambda function must return a response in the following format:
 
-```
+```json
 {
   "status": "PROCESSED | APPROVED | REJECTED",
   "result": {

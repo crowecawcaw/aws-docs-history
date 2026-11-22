@@ -1,7 +1,6 @@
 
 
 # Dynamically select which prompts to play in Connect Customer
-<a name="dynamically-select-prompts"></a>
 
 You can dynamically select which prompt to play by using an attribute.
 

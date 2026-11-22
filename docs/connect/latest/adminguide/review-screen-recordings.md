@@ -1,7 +1,6 @@
 
 
 # Review agent screen recordings in the Connect Customer Client Application
-<a name="review-screen-recordings"></a>
 
 Use screen recordings to identify areas for agent coaching (for example, long contact handle duration or non-compliance with business processes) by watching an agent's actions while they handle a call, chat, or task contact. 
 

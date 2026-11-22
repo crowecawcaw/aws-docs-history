@@ -1,7 +1,6 @@
 
 
 # The task channel in Connect Customer
-<a name="tasks"></a>
 
 With Connect Customer Tasks, you can prioritize, assign, track, and even automate tasks across the disparate tools agents use to support customers. For example, using Tasks you can:
 + Follow-up on customer issues recorded in a customer relationship management (CRM) solution such as Salesforce.
@@ -90,7 +89,7 @@ When using tasks with the [StartTaskContact](https://docs.aws.amazon.com/connect
 
 The following code shows request syntax that includes `PreviousContactID` and `RelatedContactId`.
 
-```
+```json
 PUT /contact/task HTTP/1.1
 Content-type: application/json
 

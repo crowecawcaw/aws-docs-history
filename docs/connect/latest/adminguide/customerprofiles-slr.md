@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Connect Customer Customer Profiles
-<a name="customerprofiles-slr"></a>
 
 Connect Customer Customer Profiles uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Customer Profiles. Service-linked roles are predefined by Customer Profiles and include all the permissions that the service requires to call other AWS services on your behalf. 
 

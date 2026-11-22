@@ -1,7 +1,6 @@
 
 
 # Customize the theme of a workspace
-<a name="custom-theme"></a>
 
 You can use themes to customize the visual appearance of a workspace, so it aligns with the brand identity of your organization. Custom themes can serve multiple purposes:
 + **Support multiple brand identities:** If your organization manages multiple products or services with unique branding, you can create a unique workspace for each, so users that are assigned to more than one see the logo, font and color scheme aligned with the brand they are currently managing.

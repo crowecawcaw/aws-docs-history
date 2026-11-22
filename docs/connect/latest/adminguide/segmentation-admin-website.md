@@ -1,7 +1,6 @@
 
 
 # Set up customer segments in Connect Customer Customer Profiles
-<a name="segmentation-admin-website"></a>
 
  A *customer segment* is a group of customer profiles that share certain attributes. For example, a customer segment might contain all of your customers who live in a particular city, or all customers who are frequent callers and whose average spend is more than 500 dollars. With Connect Customer Outbound campaigns, you can send campaigns to a customer segment. 
 

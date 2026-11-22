@@ -1,7 +1,6 @@
 
 
 # Use message template helpers
-<a name="message-template-helpers"></a>
 
 With Connect Customer message templates, customers can create reusable message templates based on the Handlebars.js language. Helpers provide a variety of features like formatting a price to a specific Region's currency or adding a time zone-based location. A helper can use a specific string or integer for the value or a specific Connect Customer message variable.
 

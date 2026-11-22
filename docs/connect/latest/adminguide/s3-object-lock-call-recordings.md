@@ -1,7 +1,6 @@
 
 
 # How to set up S3 Object Lock for immutable call recordings
-<a name="s3-object-lock-call-recordings"></a>
 
 You can use Amazon S3 Object Lock in combination with your recording bucket to help prevent call recordings and IVR recordings from being deleted or overwritten for a fixed amount of time, or indefinitely. 
 

@@ -1,7 +1,6 @@
 
 
 # Stir/Shaken attestation in Connect Customer
-<a name="stirshaken"></a>
 
 Connect Customer supports STIR/SHAKEN attestation for outbound calls to help prevent caller ID spoofing. 
 

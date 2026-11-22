@@ -1,7 +1,6 @@
 
 
 # Port a current phone number to Connect Customer
-<a name="port-phone-number"></a>
 
 You can port your existing phone numbers to your Connect Customer contact center. 
 

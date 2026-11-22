@@ -1,7 +1,6 @@
 
 
 # Distribute by percentage
-<a name="journey-flow-block-distribute-by-percentage"></a>
 
 ## Description
 <a name="journey-flow-block-distribute-by-percentage-description"></a>

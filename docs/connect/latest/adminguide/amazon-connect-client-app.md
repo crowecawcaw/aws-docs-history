@@ -1,7 +1,6 @@
 
 
 # Connect Customer Client Application
-<a name="amazon-connect-client-app"></a>
 
 Connect Customer screen recording is supported in Windows and Chrome OS. This page provides the download and installation instructions for the screen recording application in each operating system, and the minimum system requirements for the agent devices.
 
@@ -153,7 +152,7 @@ Complete the following steps on the Google Enterprise Admin Console. Apply the p
    + The key name MUST be `allowListedDomain`. Domain names should not include any paths, query strings, or trailing slashes (/).
    + Replace `your-instance-alias-*` with your actual Connect Customer instance alias.
 
-   ```
+   ```json
    {
    "allowListedDomain": [
    "https://your-instance-alias-1.my.connect.aws",

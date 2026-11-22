@@ -1,7 +1,6 @@
 
 
 # Access Manage layouts
-<a name="access-manage-layouts"></a>
 
 Administrators with the required permissions (see [Security profiles needed to manage layouts](manage-layouts-security-profiles.md)) can open the layouts list from the Profile Explorer landing page.
 

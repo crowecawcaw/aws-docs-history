@@ -1,7 +1,6 @@
 
 
 # Enable attachments in your CCP so customers and agents can share and upload files
-<a name="enable-attachments"></a>
 
 You can allow customers and agents to share files using chat, email, and tasks, and allow agents to upload files to cases. After you complete the steps in this topic, an attachment icon automatically appears in your agent's Contact Control Panel so they can share attachments on chats, emails, and tasks. 
 
@@ -129,7 +128,7 @@ To allow customers and agents to upload and download files, update your cross-or
 
      Your CORS policy might look similar to the following example:
 
-     ```
+     ```json
      [
          {                               
              "AllowedMethods": [
@@ -150,7 +149,7 @@ To allow customers and agents to upload and download files, update your cross-or
 
      Your CORS policy might look similar to the following example:
 
-     ```
+     ```json
      [
          {                               
              "AllowedMethods": [

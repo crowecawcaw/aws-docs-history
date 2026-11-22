@@ -1,7 +1,6 @@
 
 
 # Create a rule in conversational analytics that ends associated tasks from a case
-<a name="contact-lens-rules-ends-tasks"></a>
 
 **To create a rule that ends associated tasks**
 

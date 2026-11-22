@@ -1,7 +1,6 @@
 
 
 # How agents enter shift preferences
-<a name="scheduling-shift-bid-agents"></a>
 
 When a bid is open, agents rank the shifts they prefer from their calendar in the agent workspace. Agents can rank shifts at any time while the bid is open, before the bidding deadline. For more information about the agent calendar, see [How agents view their schedule in the Connect Customer agent workspace](scheduling-view-schedule-agents.md).
 

@@ -1,7 +1,6 @@
 
 
 # Change a default flow in your Connect Customer contact center
-<a name="change-default-contact-flow"></a>
 
 You can override the way the default flows work by editing them directly. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot no metrics or too few rows in a queues report in Connect Customer
-<a name="troubleshoot-rtm"></a>
 
 It's possible to run a manually configured queues report and have no metrics returned, or fewer rows than expected. 
 

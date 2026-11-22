@@ -1,7 +1,6 @@
 
 
 # Create daily activities in Connect Customer for an agent's shift in your contact center
-<a name="scheduling-create-shift-activities"></a>
 
 Shift activities are daily activities that the staff (agents) does during their shift. For example:
 + **Productive**: At work activities that agents do that are counted as productive work, such as answering contacts.

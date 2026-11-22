@@ -1,7 +1,6 @@
 
 
 # Mapping Zendesk objects to the standard profile in Connect Customer Customer Profiles
-<a name="mapping-zendesk-objects"></a>
 
 This topic lists which fields in Zendesk objects map to fields in the standard profile in Customer Profiles.
 

@@ -1,11 +1,12 @@
 
 
 # How contact center agents accept or decline a time off request
-<a name="agent-accept-decline-vto"></a>
+
+This workflow applies only to VTO slots created **By Staffing group**. VTO created **By Staff** is applied directly to the agent's published schedule. It doesn't appear as a pending request, and agents can't accept or decline it. For more information, see [Create Voluntary time off slots for agents in your contact center](create-vto-slots.md).
 
 The contact center manager and agents will see the pending voluntary time off requests in the agent calendars.
 
-![The published schedule calendar tab, pending overtime requests.](https://docs.aws.amazon.com/connect/latest/adminguide/images/accept-decline-view-wfm.png)
+![The published schedule calendar tab, pending voluntary time off requests.](https://docs.aws.amazon.com/connect/latest/adminguide/images/accept-decline-view-wfm.png)
 
 
 Agents can accept or decline voluntary time off (VTO) in the Agent application schedule calendar. To do this, agents need **Edit** security profile permissions. For more information about security profile permissions, see [Update security profiles](https://docs.aws.amazon.com/connect/latest/adminguide/update-security-profiles.html).

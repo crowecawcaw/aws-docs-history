@@ -1,7 +1,6 @@
 
 
 # Activate a message template
-<a name="activate-message-templates"></a>
 
 To help you manage the development and use of individual message templates, Connect Customer supports versioning for all types of message templates. Versioning provides a way for you to create a history of changes to a template—each version is a snapshot of a template at a certain point in time. Versioning also provides a way for you to control the contents and settings of messages that use a template.
 

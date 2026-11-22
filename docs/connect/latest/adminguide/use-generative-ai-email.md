@@ -1,7 +1,6 @@
 
 
 # Use generative AI-powered email conversation overviews and suggested responses
-<a name="use-generative-ai-email"></a>
 
 To help agents to handle emails more efficiently, they can use generative AI-powered email responses. The email AI agents help agents provide faster email responses and more consistent support to customers.
 

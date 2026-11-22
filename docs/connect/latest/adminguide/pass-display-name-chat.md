@@ -1,7 +1,6 @@
 
 
 # Pass the customer display name when a Connect Customer chat starts
-<a name="pass-display-name-chat"></a>
 
 To deliver a more personalized experience for both your customers and agents, you can customize the Connect Customer communications widget to pass the customer display name during contact initialization. The name is visible to both the customer and agent throughout the chat interaction. This display name is recorded in the chat transcript.
 
@@ -23,7 +22,7 @@ To pass a customer display name, implement your callback function in the snippet
 
 1. Augment your existing widget snippet to add a `customerDisplayName` callback. It might look something like the following example:
 
-   ```
+   ```json
    amazon_connect('customerDisplayName', function(callback) {
      const displayName = '{{Jane Doe}}';
      callback(displayName);

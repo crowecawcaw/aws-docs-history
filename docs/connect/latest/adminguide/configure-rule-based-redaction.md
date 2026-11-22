@@ -1,7 +1,6 @@
 
 
 # Configure rule-based redaction in a contact flow
-<a name="configure-rule-based-redaction"></a>
 
 You configure rule-based redaction directly in the **Set recording, analytics, and processing behavior** flow block. The block contains the redaction mode (allowlist or denylist), the URL rules, and the window title rules that apply to contacts routed through the flow. Because the configuration lives in the flow, you can apply different redaction behavior to different contacts based on queue, contact attributes, or any other flow logic.
 

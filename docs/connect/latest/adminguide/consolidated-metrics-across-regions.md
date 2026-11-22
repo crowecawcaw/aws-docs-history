@@ -1,7 +1,6 @@
 
 
 # Consolidated metrics across Regions
-<a name="consolidated-metrics-across-regions"></a>
 
 **Important**  
 To enable consolidated agent and contact metrics for your ACGR instance, please reach out to [AWS Support](https://console.aws.amazon.com/support/home).

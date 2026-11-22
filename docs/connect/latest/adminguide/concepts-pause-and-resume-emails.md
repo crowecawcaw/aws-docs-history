@@ -1,7 +1,6 @@
 
 
 # Pause and resume emails in Connect Customer
-<a name="concepts-pause-and-resume-emails"></a>
 
 Amazon Connect Customer lets agents pause emails while waiting for information or approvals, freeing them to handle higher-priority contacts and resume their work later. For example, an agent waiting for a supervisor to approve a refund can pause the email and take an incoming call. Paused time is tracked separately from active handling time, giving supervisors a more accurate view of the time agents spend working on emails.
 

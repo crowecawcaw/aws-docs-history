@@ -1,7 +1,6 @@
 
 
 # Export customer segments to a CSV file in Connect Customer
-<a name="customer-segments-exporting-segments"></a>
 
  From the **Customer segments** page in the Connect Customer admin website, you can export an existing segment to a file on your computer. When you do, Customer Profiles exports all of the profile attributes that's associated with the profiles in the customer segment to a CSV file. 
 

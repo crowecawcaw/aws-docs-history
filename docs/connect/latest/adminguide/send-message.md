@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Send message
-<a name="send-message"></a>
 
 This topic defines the flow block for sending a message to a customer.
 

@@ -1,7 +1,6 @@
 
 
 # Create message templates
-<a name="create-message-templates1"></a>
 
 If you frequently design and send a certain type of message, such as a weekly email or an appointment reminder, you can create and save it as a message template. You can then use the template as a starting point each time you need to send that type of message, instead of designing and writing the message again.
 
@@ -75,7 +74,7 @@ When you create an email message that's based on a template, Connect Customer po
 
    1. Before making the template available to users, we recommend that you send a test email message to make sure the template works as intended.
 
-   1. When you are ready for the template to be available in flows, campaigns, and to agents using the agent workspace, complete the steps to [activate](#create-message-templates1) it. 
+   1. When you are ready for the template to be available in flows, campaigns, and to agents using the agent workspace, complete the steps to [activate](create-message-templates1.md) it. 
 
 **For SMS templates:**
 
@@ -85,7 +84,7 @@ When you create an email message that's based on a template, Connect Customer po
 
 1. Before making the template available to users we recommend that you send a test message to make sure the template works as intended.
 
-1. When you're ready for the SMS template to be available in the **Send message** block, or for the Email template to be available for email campaigns, complete the steps to [activate](#create-message-templates1) it. 
+1. When you're ready for the SMS template to be available in the **Send message** block, or for the Email template to be available for email campaigns, complete the steps to [activate](create-message-templates1.md) it. 
 
 **For WhatsApp templates:**
 

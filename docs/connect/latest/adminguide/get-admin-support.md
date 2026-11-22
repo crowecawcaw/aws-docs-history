@@ -1,7 +1,6 @@
 
 
 # Get administrative support for Connect Customer
-<a name="get-admin-support"></a>
 
 If you are an administrator and need to contact support for Connect Customer, choose one of the following options:
 + If you have an AWS Support account, go to [Support Center](https://console.aws.amazon.com/support/home) and submit a ticket.

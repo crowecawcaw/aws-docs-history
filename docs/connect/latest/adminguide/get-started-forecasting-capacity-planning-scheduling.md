@@ -1,7 +1,6 @@
 
 
 # Set up forecasting & agent scheduling in Connect Customer
-<a name="get-started-forecasting-capacity-planning-scheduling"></a>
 
 **Tip**  
 **New user?** Check out the [Connect Customer forecasting, capacity planning, and scheduling workshop](https://catalog.workshops.aws/amazon-connect-optimization/en-US). This online course is for Contact Center Administrators, Workforce Managers, Forecasters and Schedulers who are responsible for the forecasting and scheduling of agents.

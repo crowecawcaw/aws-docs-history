@@ -1,7 +1,6 @@
 
 
 # Investigations and recommendations in manager assist
-<a name="manager-assist-investigations"></a>
 
 When you ask a question that starts with **why**, or when you request an investigation into a metric change, an investigation runs. An investigation is a multi-step analysis that goes beyond returning a single metric value: it examines multiple related data points across your contact center to identify which factors contributed to the change, and what you can do about it.
 

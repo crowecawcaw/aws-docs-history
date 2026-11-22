@@ -1,7 +1,6 @@
 
 
 # Add an Amazon Lex bot to Connect Customer
-<a name="amazon-lex"></a>
 
 **Important**  
 **End of support notice**: On September 15, 2025, AWS will discontinue support for Amazon Lex V1. After September 15, 2025, you will no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. To learn about migrating to Amazon Lex V2, see [Migrating a bot](https://docs.aws.amazon.com/lex/latest/dg/migrate.html).

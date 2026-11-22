@@ -1,7 +1,6 @@
 
 
 # Default queue transfer flow in Connect Customer: "Now transferring"
-<a name="default-queue-transfer"></a>
 
 This flow manages what the agent experiences when they transfer a customer to another queue.
 

@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard contact object fields
-<a name="standard-contact-object-fields"></a>
 
 The standard contact object stores a customer's contact methods—phone numbers and email addresses—with history retained. Each version of a contact method is stored as a separate record, so a changed phone number doesn't overwrite the previous one. Register the built-in template with `PutProfileObjectType` using the template ID `_contact`, or create a custom object type whose fields target `_contact.*` and whose key carries the `CONTACT`, `PROFILE`, and `UNIQUE` standard identifiers.
 

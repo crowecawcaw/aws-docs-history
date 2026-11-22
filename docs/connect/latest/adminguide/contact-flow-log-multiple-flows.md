@@ -1,7 +1,6 @@
 
 
 # Track customers between multiple flows in your contact center
-<a name="contact-flow-log-multiple-flows"></a>
 
 In many cases, customers interact with multiple flows in your contact center, being passed from one flow to another to appropriately assist them with their specific issue. Flow logs help you track customers between different flows, by including the ID of the contact in each log entry. 
 

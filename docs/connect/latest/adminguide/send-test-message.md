@@ -1,7 +1,6 @@
 
 
 # Send a test message for Apple Messages for Business to test integration with Connect Customer
-<a name="send-test-message"></a>
 
 After onboarding to the Apple Messages for Business account, use the following steps to send a test message to make sure the integration is set up properly.
 

@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Cases
-<a name="cases-block"></a>
 
 **Tip**  
 Be sure to [enable](enable-cases.md) Connect Customer Cases before using this block. Otherwise, you can't configure its properties.

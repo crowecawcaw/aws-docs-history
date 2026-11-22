@@ -1,7 +1,6 @@
 
 
 # Hidden field conditions
-<a name="case-field-hidden"></a>
 
 You can create dynamic case templates that show or hide fields based on other field values, improving the user experience and reducing complexity for agents.
 

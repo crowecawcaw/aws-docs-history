@@ -1,7 +1,6 @@
 
 
 # Enable real-time chat message streaming in Connect Customer
-<a name="chat-message-streaming"></a>
 
 Connect Customer Chat provides [APIs](https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html) that you can use to subscribe to a real-time stream of chat messages. Using these APIs, you can: 
 + Stream chat messages in real time when a new chat contact is created.
@@ -54,7 +53,7 @@ Currently, the message streaming APIs only support standard SNS for real-time st
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -82,7 +81,7 @@ Currently, the message streaming APIs only support standard SNS for real-time st
 **Note**  
 The default **Access policy** comes with conditions applied to `sourceOwner` such as:   
 
-   ```
+   ```json
    "Condition": {
            "StringEquals": {
              "AWS:SourceOwner": "921772911154"
@@ -91,7 +90,7 @@ The default **Access policy** comes with conditions applied to `sourceOwner` suc
    ```
 Make sure you remove it and replace with `SourceAccount`, for example:  
 
-   ```
+   ```json
    "Condition":{
                "StringEquals":{
                   "aws:SourceAccount":"YOUR_AWS_ACCOUNT_ID"
@@ -110,7 +109,7 @@ This prevents a [cross-service confused deputy](cross-service-confused-deputy-pr
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "key-consolepolicy-3",

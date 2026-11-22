@@ -1,7 +1,6 @@
 
 
 # Monitor flow performance with metrics in flow designer analytics mode
-<a name="monitor-flow-performance"></a>
 
 You can view near real-time and historical performance data directly in the flow designer to identify bottlenecks and optimize your published flows and modules. You can see aggregate traffic through each completed and in-progress blocks in the flow. This helps you identify behavioral patterns of your customers or pinpoint where errors are being encountered.
 

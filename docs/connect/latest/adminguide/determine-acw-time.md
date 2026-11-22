@@ -1,7 +1,6 @@
 
 
 # Determine the contact center agent's ACW (After Contact Work) time
-<a name="determine-acw-time"></a>
 
 There's no event in the agent event stream that tells you how long a contact is in the After Contact Work (ACW) state, and by extension how long an agent spends doing ACW. However, there's other data in the agent event stream that you can use to figure this out. 
 
@@ -16,7 +15,7 @@ For example, in the following agent event stream output, the contact enters ACW 
 **Tip**  
 In the agent event stream, events are listed in reverse chronological order. We recommend reading through following examples by starting at the bottom of each example.
 
-```
+```json
 {
     "AWSAccountId": "012345678901",
     "AgentARN": "arn:aws:connect:us-east-1:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/agent/agent-ARN",
@@ -139,7 +138,7 @@ Next, determine when a contact left ACW. Here's how to do that:
 
 For example, in the following agent event stream file, the contact left ACW at "**EventTimestamp**": "2019-05-25T18:55:32.022Z".
 
-```
+```json
 {
     "AWSAccountId": "012345678901",
     "AgentARN": "arn:aws:connect:us-east-1:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/agent/agent-ARN",

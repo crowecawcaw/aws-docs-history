@@ -1,7 +1,6 @@
 
 
 # Check block
-<a name="testing-simulation-check-block"></a>
 
 The Check block validates that specific values or conditions in your contact flow match your expectations. It's your quality assurance tool within the test, making sure that data, attributes, and system states are exactly what they should be at any given point.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot SAML with Connect Customer
-<a name="troubleshoot-saml"></a>
 
 This article explains how to troubleshoot and resolve some of the most common issues customers encounter when using SAML with Connect Customer.
 
@@ -80,7 +79,7 @@ The role that the user has assumed has successfully authenticated using SAML. Ho
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

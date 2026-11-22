@@ -1,7 +1,6 @@
 
 
 # Additional customizations for your Connect Customer chat widget
-<a name="pass-customization-object"></a>
 
 You can add the following optional customizations to your chat user interface:
 + Display the **End chat** button in the header dropdown menu instead of in the footer.
@@ -17,7 +16,7 @@ You can add the following optional customizations to your chat user interface:
 
 This example shows how to implement some of the optional customizations. For a list of all possible customizations, see [Supported options and constraints](#customization-options-constraints). Because these customizations are optional, you can implement some or all of the fields shown in the following example. Replace the `eventNames.customer`, `eventNames.agent`, `eventNames.supervisor`, `eventMessages.participantJoined`, `eventMessages.participantDisconnect`, `eventMessages.participantLeft`, `eventMessages.participantIdle`, `eventMessages.participantReturned`, and `eventMessages.chatEnded` strings as needed. Icons must be hosted on public URLs.
 
-```
+```json
 amazon_connect('customizationObject', {
         header: { 
             dropdown: true, 

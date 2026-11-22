@@ -1,7 +1,6 @@
 
 
 # Default calculated attributes in Connect Customer Customer Profiles
-<a name="customerprofiles-default-calculated-attributes"></a>
 
 ## Default CTR calculated attributes
 <a name="customerprofiles-default-calculated-attributes-ctr"></a>
@@ -10,7 +9,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Most frequent channel**
 
-```
+```json
 {
    "CalculatedAttributeName": "_most_frequent_channel",
    "DisplayName": "Most frequent channel",
@@ -40,7 +39,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last channel**
 
-```
+```json
 {
    "CalculatedAttributeName": "_last_channel",
    "DisplayName": "Last channel",
@@ -66,7 +65,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last agent identifier**
 
-```
+```json
 {
    "CalculatedAttributeName": "_last_agent_id",
    "DisplayName": "Last agent identifier",
@@ -92,7 +91,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Frequent caller**
 
-```
+```json
 {
    "CalculatedAttributeName": "_frequent_caller",
    "DisplayName": "Frequent caller",
@@ -126,7 +125,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Average hold time**
 
-```
+```json
 {
    "CalculatedAttributeName": "_average_hold_time",
    "DisplayName": "Average hold time",
@@ -159,7 +158,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Average call duration**
 
-```
+```json
 {
    "CalculatedAttributeName": "_average_call_duration",
    "DisplayName": "Average call duration",
@@ -192,7 +191,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Customer's maximum hold time**
 
-```
+```json
 {
     "CalculatedAttributeName": "_maximum_hold_time",
     "DisplayName": "Customer's maximum hold time",
@@ -223,7 +222,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Call count**
 
-```
+```json
 {
     "CalculatedAttributeName": "_call_count",
     "DisplayName": "Call count",
@@ -257,7 +256,7 @@ Connect Customer Customer Profiles provides an out-of-the box default attribute 
 
 **New Customer**
 
-```
+```json
 {
    "CalculatedAttributeName": "_new_customer",
    "DisplayName": "New customer",
@@ -292,7 +291,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Count of assets**
 
-```
+```json
 {
     "CalculatedAttributeName": "_assets_count",
     "DisplayName": "Count of assets",
@@ -317,7 +316,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **First asset purchased date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_asset_first_occurrence",
     "DisplayName": "First asset purchased date",
@@ -342,7 +341,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last asset purchased date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_asset_last_occurrence",
     "DisplayName": "Last asset purchased date",
@@ -367,7 +366,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Total asset price**
 
-```
+```json
 {
     "CalculatedAttributeName": "_assets_price_sum",
     "DisplayName": "Total asset price",
@@ -392,7 +391,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Average asset price**
 
-```
+```json
 {
     "CalculatedAttributeName": "_assets_price_average",
     "DisplayName": "Average asset price",
@@ -417,7 +416,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **First asset name**
 
-```
+```json
 {
     "CalculatedAttributeName": "_assets_name_first_occurrence",
     "DisplayName": "First asset name",
@@ -442,7 +441,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last asset name**
 
-```
+```json
 {
     "CalculatedAttributeName": "_assets_name_last_occurrence",
     "DisplayName": "Last asset name",
@@ -472,7 +471,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Count of cases**
 
-```
+```json
 {
     "CalculatedAttributeName": "_cases_count",
     "DisplayName": "Count of cases",
@@ -497,7 +496,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **First case created date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_case_first_occurrence",
     "DisplayName": "First case created date",
@@ -522,7 +521,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last case created date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_case_last_occurrence",
     "DisplayName": "Last case created date",
@@ -547,7 +546,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Count of open cases**
 
-```
+```json
 {
     "CalculatedAttributeName": "_cases_open_status_count",
     "DisplayName": "Count of open cases",
@@ -590,7 +589,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Count of closed cases**
 
-```
+```json
 {
     "CalculatedAttributeName": "_cases_closed_status_count",
     "DisplayName": "Count of closed cases",
@@ -638,7 +637,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last email open date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_campaign_email_last_open",
     "DisplayName": "Last email open date",
@@ -685,7 +684,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Email open count**
 
-```
+```json
 {
     "CalculatedAttributeName": "_campaign_email_open_count",
     "DisplayName": "Email open count",
@@ -732,7 +731,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Email delivery count**
 
-```
+```json
 {
     "CalculatedAttributeName": "_campaign_email_delivery_count",
     "DisplayName": "Email delivery count",
@@ -779,7 +778,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **SMS delivered count**
 
-```
+```json
 {
     "CalculatedAttributeName": "_campaign_sms_delivery_count",
     "DisplayName": "SMS delivered count",
@@ -826,7 +825,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last SMS blocked date**
 
-```
+```json
   {
     "CalculatedAttributeName": "_campaign_sms_last_stop",
     "DisplayName": "Last SMS blocked date",
@@ -873,7 +872,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last SMS carrier blocked date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_campaign_sms_last_stop_carrier",
     "DisplayName": "Last SMS carrier blocked date",
@@ -925,7 +924,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Count of orders**
 
-```
+```json
 {
     "CalculatedAttributeName": "_orders_count",
     "DisplayName": "Count of orders",
@@ -950,7 +949,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **First order created date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_order_first_occurrence",
     "DisplayName": "First order created date",
@@ -975,7 +974,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Last order created date**
 
-```
+```json
 {
     "CalculatedAttributeName": "_order_last_occurrence",
     "DisplayName": "Last order created date",
@@ -1000,7 +999,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Total price of all orders**
 
-```
+```json
 {
     "CalculatedAttributeName": "_orders_total_price_sum",
     "DisplayName": "Total price of all orders",
@@ -1025,7 +1024,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Orders average of total price**
 
-```
+```json
 {
     "CalculatedAttributeName": "_orders_total_price_average",
     "DisplayName": "Orders average of total price",
@@ -1050,7 +1049,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **High lifetime value**
 
-```
+```json
 {
     "CalculatedAttributeName": "_lifetime_value_high",
     "DisplayName": "High lifetime value",
@@ -1077,7 +1076,7 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
 
 **Low lifetime value**
 
-```
+```json
 {
     "CalculatedAttributeName": "_lifetime_value_low",
     "DisplayName": "Low lifetime value",

@@ -1,7 +1,6 @@
 
 
 # Use pre-filtered tables for Routing profiles and Queues tables in Connect Customer
-<a name="one-choose-drill-downs"></a>
 
 In real-time metrics reports, for **Routing profiles** and **Queues** tables, you can open pre-filtered tables that display the associated queues, routing profiles, or agents. These one-choose filters provide a way for you to drill into the performance data.
 

@@ -1,7 +1,6 @@
 
 
 # Add personalized content to message templates
-<a name="personalize-templates"></a>
 
 To deliver dynamic, personalized content in messages that use a template, add *message variables* to the message template. A *message variable* is a placeholder that refers to a specific attribute that you or Connect Customer created to store information about your users. Each attribute typically corresponds to a characteristic of a user, such as a user's first name or the city where they live. By adding message variables to templates, you can use these attributes to deliver custom content to each recipient of a message that uses a template.
 

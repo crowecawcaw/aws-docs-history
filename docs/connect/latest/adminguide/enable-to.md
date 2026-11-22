@@ -1,7 +1,6 @@
 
 
 # Enable time off for Connect Customer contact center agents
-<a name="enable-to"></a>
 
 You enable time off management for each staffing group. The following image shows the **Request management** section of the **Edit staffing group** page where you configure time off settings.
 

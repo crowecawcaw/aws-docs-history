@@ -1,7 +1,6 @@
 
 
 # Troubleshoot contact routing and handling in Connect Customer
-<a name="troubleshoot-contact-routing"></a>
 
 Routing and contact-handling problems—contacts that don't reach the intended queue or agent, contacts routed to the wrong queue or agent, contacts stuck in a queue, contacts that disconnect before reaching an agent, contact flows that take an unexpected branch, transfers or quick connects that fail, or callbacks that reach voicemail—can originate at any point along the call path. The cause can be a routing profile, a queue, a priority or delay setting, Set routing criteria, a contact flow block, a Lambda function invoked from a flow, or a carrier or device outside Connect Customer. This page is the starting point for diagnosing them. It helps you narrow down *where* in the path the problem occurs, then directs you to the specialized topic that resolves it.
 

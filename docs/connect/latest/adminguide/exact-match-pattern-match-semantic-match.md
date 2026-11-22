@@ -1,7 +1,6 @@
 
 
 # Use a Word or phrase condition in a conversational analytics rule
-<a name="exact-match-pattern-match-semantic-match"></a>
 
 Within conversational analytics **conversational analytics** rule, you have the option to specify a Words or phrases condition. You can choose Exact Match, Semantic Match, or Pattern Match for the words or phrases. This topic explains each type of match.
 

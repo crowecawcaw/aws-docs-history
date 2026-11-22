@@ -1,7 +1,6 @@
 
 
 # Channels and concurrency for routing contacts in Connect Customer
-<a name="channels-and-concurrency"></a>
 
 Agents can handle voice, chat, tasks and email in Connect Customer. When you set up a routing profile to handle multiple channels, you have two options: 
 + Option 1: Set up agents so they can handle contacts while already on another channel. This is called *cross-channel concurrency*. 

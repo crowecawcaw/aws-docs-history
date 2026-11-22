@@ -1,7 +1,6 @@
 
 
 # Overtime for multi-skill forecast groups
-<a name="multiskill-overtime"></a>
 
 Supervisors and Managers can restrict over time slots to specific demand groups.
 

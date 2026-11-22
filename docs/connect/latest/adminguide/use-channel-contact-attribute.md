@@ -1,7 +1,6 @@
 
 
 # Personalize a contact's experience based on how they contact your contact center
-<a name="use-channel-contact-attribute"></a>
 
 You can personalize the customer's experience based on the channel that they use to contact you. Here's what you do: 
 

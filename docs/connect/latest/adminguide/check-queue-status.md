@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Check queue status
-<a name="check-queue-status"></a>
 
 This topic defines the flow block for checking the status of a customer queue based on conditions set for that queue.
 

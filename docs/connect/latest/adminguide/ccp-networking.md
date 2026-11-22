@@ -1,7 +1,6 @@
 
 
 # Set up your network to use the Connect Customer Contact Control Panel (CCP)
-<a name="ccp-networking"></a>
 
 Traditional VoIP solutions require you to allow both inbound and outbound for specific UDP port ranges and IPs, such as 80 and 443. These solutions also apply to TCP. In comparison, the network requirements for using the Contact Control Panel (CCP) with a softphone are less intrusive. You can establish persistent outbound send/receive connections through your web browser. As a result, you don't need to open a client-side port to listen for inbound traffic. 
 
@@ -145,7 +144,7 @@ The /19 IP address range isn't shared with other services. It's for the exclusiv
 
 In the AWS ip-ranges.json file, you can see the same range listed twice. For example: 
 
-```
+```json
             
                 { "ip_prefix": "15.193.0.0/19", 
                 "region": "GLOBAL", 

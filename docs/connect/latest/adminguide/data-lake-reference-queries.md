@@ -1,7 +1,6 @@
 
 
 # Reference queries for the Connect Customer data lake
-<a name="data-lake-reference-queries"></a>
 
 This topic provides Athena SQL queries (Trino engine v3) for calculating common Connect Customer metrics from data lake tables. All queries use double-quoted identifiers and assume a `connect_datalake` database name. Adjust the database name to match your Glue catalog configuration.
 
@@ -32,7 +31,7 @@ Replace `<YOUR_INSTANCE_ID>` in each query with your Connect Customer instance I
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     CAST(SUM("is_abandoned") AS DOUBLE) 
@@ -52,7 +51,7 @@ ORDER BY "abandonment_rate_pct" DESC;
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_abandoned") AS "contacts_abandoned"
@@ -70,7 +69,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM(
@@ -92,7 +91,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     AVG("abandon_time_ms") / 1000.0 AS "avg_queue_abandon_time_sec"
@@ -112,7 +111,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     AVG("queue_answer_time_ms") / 1000.0 AS "avg_queue_answer_time_sec"
@@ -132,7 +131,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM(CASE WHEN "is_handled" = 1 AND "queue_answer_time_ms" <= 20000 
@@ -155,7 +154,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_queued") AS "contacts_queued"
@@ -173,7 +172,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_handled") AS "contacts_handled"
@@ -191,7 +190,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_transferred_in") AS "contacts_transferred_in"
@@ -209,7 +208,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_transferred_out") AS "contacts_transferred_out",
@@ -229,7 +228,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     MAX("queue_duration_ms") / 1000.0 AS "max_queued_time_sec"
@@ -248,7 +247,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     AVG(
@@ -272,7 +271,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "agent_id",
     AVG("handle_time_ms") / 1000.0 AS "avg_handle_time_sec"
@@ -292,7 +291,7 @@ GROUP BY "agent_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "agent_id",
     SUM("after_contact_work_time_ms") / 1000.0 AS "total_acw_time_sec"
@@ -311,7 +310,7 @@ GROUP BY "agent_id";
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "agent_id",
     SUM("customer_hold_time_ms") / 1000.0 AS "total_hold_time_sec"
@@ -330,7 +329,7 @@ GROUP BY "agent_id";
 
 **Source table:** `agent_statistic_record`
 
-```
+```sql
 SELECT
     "user_id" AS "agent_id",
     SUM("agent_idle_time") / 1000.0 AS "total_idle_time_sec"
@@ -348,7 +347,7 @@ GROUP BY "user_id";
 
 **Source table:** `agent_statistic_record`
 
-```
+```sql
 SELECT
     "user_id" AS "agent_id",
     CAST(SUM("agent_on_contact_time") AS DOUBLE)
@@ -368,7 +367,7 @@ GROUP BY "user_id";
 
 **Source table:** `agent_queue_statistic_record`
 
-```
+```sql
 SELECT
     "user_id" AS "agent_id",
     "queue_id",
@@ -387,7 +386,7 @@ GROUP BY "user_id", "queue_id";
 
 **Source table:** `agent_queue_statistic_record`
 
-```
+```sql
 SELECT
     "user_id" AS "agent_id",
     CAST(SUM("contacts_handled") AS DOUBLE) 
@@ -406,7 +405,7 @@ GROUP BY "user_id";
 
 **Source table:** `agent_statistic_record`
 
-```
+```sql
 SELECT
     "user_id" AS "agent_id",
     SUM("online_time") / 1000.0 AS "total_online_time_sec"
@@ -427,7 +426,7 @@ GROUP BY "user_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     AVG("chat_contact_metrics_agent_first_response_time_ms") / 1000.0 
@@ -448,7 +447,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     CAST(SUM("chat_agent_metrics_total_response_time_ms") AS DOUBLE)
@@ -470,7 +469,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     AVG(CAST("chat_contact_metrics_total_messages" AS DOUBLE)) AS "avg_total_messages"
@@ -490,7 +489,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "queue_id",
     COUNT(*) AS "conversations_abandoned"
@@ -514,7 +513,7 @@ GROUP BY "queue_id";
 
 **Source table:** `contact_lens_conversational_analytics`
 
-```
+```sql
 SELECT
     AVG("talk_time_total_ms") / 1000.0 AS "avg_talk_time_sec"
 FROM "connect_datalake"."contact_lens_conversational_analytics"
@@ -531,7 +530,7 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_lens_conversational_analytics`
 
-```
+```sql
 SELECT
     AVG("non_talk_time_total_ms") / 1000.0 AS "avg_non_talk_time_sec"
 FROM "connect_datalake"."contact_lens_conversational_analytics"
@@ -548,7 +547,7 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_lens_conversational_analytics`
 
-```
+```sql
 SELECT
     AVG("sentiment_overall_score_agent") AS "avg_agent_sentiment",
     AVG("sentiment_overall_score_customer") AS "avg_customer_sentiment",
@@ -567,7 +566,7 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_lens_conversational_analytics`
 
-```
+```sql
 SELECT
     AVG(CAST("interruptions_agent_count" AS DOUBLE)) AS "avg_agent_interruptions"
 FROM "connect_datalake"."contact_lens_conversational_analytics"
@@ -587,7 +586,7 @@ WHERE "disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `ai_agent`
 
-```
+```sql
 SELECT
     "ai_agent_name",
     SUM(CASE WHEN "invocation_success" = true THEN 1 ELSE 0 END) AS "success_count",
@@ -608,7 +607,7 @@ GROUP BY "ai_agent_name";
 
 **Source table:** `ai_session`
 
-```
+```sql
 SELECT
     SUM(CASE WHEN "is_handed_off" = true THEN 1 ELSE 0 END) AS "ai_handoffs",
     COUNT(*) AS "ai_involved_contacts",
@@ -627,7 +626,7 @@ WHERE "creation_timestamp" >= CAST('2026-06-09' AS TIMESTAMP) * 1000
 
 **Source table:** `ai_session`
 
-```
+```sql
 SELECT
     AVG("goal_success_rate") AS "avg_goal_success_rate",
     AVG("faithfulness_score") AS "avg_faithfulness_score",
@@ -645,7 +644,7 @@ WHERE "creation_timestamp" >= CAST('2026-06-09' AS TIMESTAMP) * 1000
 
 **Source table:** `ai_tool`
 
-```
+```sql
 SELECT
     "ai_tool_name",
     AVG("ai_tool_parameter_accuracy") AS "avg_parameter_accuracy",
@@ -668,7 +667,7 @@ GROUP BY "ai_tool_name";
 
 **Source table:** `contact_flow_events`
 
-```
+```sql
 SELECT
     "flow_resource_id",
     "flow_type",
@@ -687,7 +686,7 @@ GROUP BY "flow_resource_id", "flow_type";
 
 **Source table:** `contact_flow_events`
 
-```
+```sql
 WITH flow_counts AS (
     SELECT
         "flow_resource_id",
@@ -717,7 +716,7 @@ ORDER BY "flow_resource_id", "outcome_pct" DESC;
 
 **Source table:** `contact_flow_events`
 
-```
+```sql
 SELECT
     "flow_resource_id",
     AVG(
@@ -741,7 +740,7 @@ GROUP BY "flow_resource_id";
 
 **Source table:** `contact_evaluation_record`
 
-```
+```sql
 SELECT
     COUNT(DISTINCT "evaluation_id") AS "evaluations_performed"
 FROM "connect_datalake"."contact_evaluation_record"
@@ -760,7 +759,7 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_evaluation_record`
 
-```
+```sql
 SELECT
     AVG("score") AS "avg_evaluation_score_pct"
 FROM "connect_datalake"."contact_evaluation_record"
@@ -779,7 +778,7 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_evaluation_record`
 
-```
+```sql
 SELECT
     CAST(
         COUNT(DISTINCT CASE WHEN "automatic_fail" = true THEN "evaluation_id" END) AS DOUBLE
@@ -804,7 +803,7 @@ WHERE "evaluation_submitted_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "campaign_id",
     COUNT(*) AS "campaign_contacts"
@@ -823,7 +822,7 @@ GROUP BY "campaign_id";
 
 **Source table:** `contact_record`
 
-```
+```sql
 SELECT
     "campaign_id",
     COUNT(*) AS "human_answered"
@@ -846,7 +845,7 @@ GROUP BY "campaign_id";
 
 **Source table:** `case_events`
 
-```
+```sql
 SELECT
     COUNT(DISTINCT "case_id") AS "cases_created"
 FROM "connect_datalake"."case_events"
@@ -863,7 +862,7 @@ WHERE "event_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `case_events`
 
-```
+```sql
 SELECT
     AVG(
         date_diff('hour', "created_timestamp", "last_closed_timestamp")
@@ -885,7 +884,7 @@ WHERE "last_closed_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 
 **Source table:** `bot_conversations`
 
-```
+```sql
 WITH bot_outcomes AS (
     SELECT
         "bot_id",
@@ -918,7 +917,7 @@ The following patterns show how to combine multiple data lake tables for compreh
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     "queue_id",
     SUM("is_queued") AS "contacts_queued",
@@ -946,7 +945,7 @@ ORDER BY "contacts_queued" DESC;
 
 **Source table:** `contact_statistic_record`
 
-```
+```sql
 SELECT
     date_trunc('hour', "disconnect_timestamp") AS "hour",
     "queue_id",
@@ -971,7 +970,7 @@ ORDER BY "hour";
 
 **Source table:** `contact_record` joined with `contact_lens_conversational_analytics`
 
-```
+```sql
 SELECT
     cr."contact_id",
     cr."queue_id",
@@ -1011,7 +1010,7 @@ WHERE cr."disconnect_timestamp" >= TIMESTAMP '2026-06-09 00:00:00'
 + Scheduled "Meeting" — agent is IN if status is Training or Meeting
 + Otherwise — OUT
 
-```
+```sql
 WITH latest_shift_versions AS (
     -- Get the latest (non-deleted) shift version per shift_id
     SELECT

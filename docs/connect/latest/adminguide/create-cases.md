@@ -1,7 +1,6 @@
 
 
 # Create a case in Connect Customer Cases or a customer profile to document a customer's issue
-<a name="create-cases"></a>
 
 You can create a case either by choosing **\+ Case** from the **Cases** page or by choosing **\+ Connect case** directly from a customer profile. If you are not on active contact, you can still create a case directly from the customer profile.
 

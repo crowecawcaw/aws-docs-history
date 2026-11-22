@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Connect assistant
-<a name="connect-assistant-block"></a>
 
 This topic defines the flow block for Connect assistant.
 

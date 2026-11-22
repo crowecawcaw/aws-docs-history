@@ -1,7 +1,6 @@
 
 
 # Inspect a forecast in Amazon Connect Customer
-<a name="inspect-forecast"></a>
 
 You can inspect your forecasts before publishing them. You can do this in the online Connect Customer admin website, or [download the forecasts](download-forecasts.md) for offline analysis.
 

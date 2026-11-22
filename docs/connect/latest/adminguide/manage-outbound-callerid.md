@@ -1,7 +1,6 @@
 
 
 # Manage caller ID for outbound calls
-<a name="manage-outbound-callerid"></a>
 
 When agents transfer calls or initiate outbound calls, your instance configuration determines which caller ID displays to the recipient. The following sections explain where caller ID comes from in each scenario and how to set the number you want to display to recipients.
 
@@ -60,7 +59,7 @@ An outbound whisper flow overrides the queue setting for direct outbound calls a
 The whisper flow caller ID takes priority over the queue setting.
 
 **Note**  
-If you haven't configured a caller ID on the queue and haven't attached a whisper flow, direct outbound calls fail with an Invalid outbound configuration error. Either the queue or the whisper flow must supply a caller ID.
+If you haven't configured a caller ID on the queue and haven't attached a whisper flow, direct outbound calls fail with an `Invalid outbound configuration` error. Either the queue or the whisper flow must supply a caller ID.
 
 ## Set caller ID for transfers
 <a name="callerid-transfers-active"></a>

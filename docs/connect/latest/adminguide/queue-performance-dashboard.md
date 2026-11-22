@@ -1,7 +1,6 @@
 
 
 # Queue and agent performance dashboard in Connect Customer
-<a name="queue-performance-dashboard"></a>
 
 The **Queue and agent performance** dashboard helps you understand the performance of your queues and agents compared over configurable periods of time. It uses key metrics such as contacts handled, service level, and average handle time. 
 
@@ -24,6 +23,7 @@ This dashboard includes:
 + [Agent status drill down](#agent-status-drill-down)
 + [Customer segment filters and groupings](#queue-performance-dashboard-customer-segments)
 + [Dashboard functionality limitations](#queue-performance-dashboard-functionality-limitations)
++ [Force agent logout](dashboard-force-agent-logout.md)
 
 ## Enable access to the dashboard
 <a name="queue-performance-dashboard-enable-access"></a>

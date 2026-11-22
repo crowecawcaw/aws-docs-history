@@ -1,7 +1,6 @@
 
 
 # Simulation example
-<a name="simulation-example"></a>
 
 **Contact flow example**
 

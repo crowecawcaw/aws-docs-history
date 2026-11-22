@@ -1,12 +1,13 @@
 
 
 # Provide agent coaching in Connect Customer
-<a name="provide-coaching"></a>
 
 Connect Customer provides integrated coaching tools that help supervisors deliver structured, data-driven feedback to agents based on performance evaluations. For upcoming one-on-one sessions with agents, supervisors can share detailed coaching feedback with concrete examples, and set performance goals directly within Connect Customer. Quality management teams can also assign coaching to supervisors with due dates when they identify improvement opportunities, such as showing greater empathy towards customer issues. After coaching is completed, agents can acknowledge the feedback in Connect Customer, making sure that they understand next steps for improvement. Past coaching feedback is centrally accessible, making it easier for agents, supervisors, and quality managers to track agent progress over time.
 
+Supervisors can set performance goals and a follow-up date to review agent progress after coaching. For scored evaluation topics, Connect Customer automatically collects performance metrics at session completion and follow-up. Supervisors can compare these metrics with the coaching goals to identify topics that need additional coaching.
+
 **Note**  
-This feature is available as part of Connect Customer performance evaluations.
+This feature is available as part of Connect Customer and Customer Basic performance evaluations.
 
 ## Assign permissions for coaching
 <a name="coaching-permissions"></a>
@@ -20,6 +21,8 @@ Permissions can be configured as follows:
 1. **Agents**: Provide **coaching – my coaching sessions – View** permission. This permission enables the agent to view and acknowledge coaching where they are the participant.
 
 In addition, admins, quality managers and supervisors can be granted **Contact Search - View** and **Evaluation forms - perform evaluations - View** permissions. With these permissions enabled, users will see automated suggestions of evaluations to coach on, based on the selected coaching topic.
+
+To automatically prefill initial scores for scored evaluation topics and view the **Current** metric, users also need **Evaluation forms - perform evaluations - View** permission and either **Real-time metrics** or **Dashboards** access.
 
 For more information, see [Assign security profile permissions for performance evaluations and coaching](evaluation-and-coaching-permissions.md).
 
@@ -41,7 +44,9 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 
 1. When creating a new coaching session, first select a participant.
 
-1. Add scored evaluation forms as session topics. For example, select the evaluation form, section, or question that contains the empathy criteria the agent scored low on. Suggestions are based on these evaluation forms.  
+1. Add scored evaluation forms as session topics. For example, select the evaluation form, section, or question that contains the empathy criteria the agent scored low on. Suggestions are based on these evaluation forms.
+
+   If you have the required [metrics permissions](#coaching-permissions), Connect Customer automatically prefills the participant's average evaluation score for the selected topic over the past two weeks. You can edit this initial score. For more information about viewing agent performance evaluation metrics, see [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md).  
 ![Adding a scored evaluation form as a coaching session topic.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-add-scored-topic.png)
 
 1. Connect Customer automatically suggests evaluations for this participant. You can choose to add suggestions as strengths or opportunities.  
@@ -52,8 +57,6 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 
 1. You can edit the coaching session by specifying dates, times, and location, providing detailed feedback, and setting improvement goals on coaching topics.  
 ![The edit coaching session page with fields for dates, times, location, feedback, and goals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
-**Note**  
-**Session due date** is mandatory.
 
 1. Choose **Submit** to save the coaching session as a draft.
 
@@ -92,8 +95,6 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 
 1. You can edit the coaching session by specifying dates, times, and location, providing detailed feedback, and setting improvement goals on coaching topics.  
 ![The edit coaching session page with fields for dates, times, location, feedback, and goals.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-edit-coaching-session.png)
-**Note**  
-**Session due date** is mandatory.
 
 1. Choose **Submit** to save the coaching session as a draft.
 
@@ -105,6 +106,18 @@ For example, if you notice in your [Agent performance evaluations dashboard](age
 
 1. Agents can acknowledge the coaching along with their own coaching notes.
 
+## Monitor post-coaching improvements
+<a name="coaching-monitor-improvements"></a>
+
+To review an agent's progress after coaching, open the session from **Analytics and Optimization** > **Coaching sessions**. The **Topics** section summarizes available performance scores, goals, and trends for each scored evaluation topic.
+
+Choose **View details** to compare the **Coaching created**, **Coaching completed**, **Follow-up**, and **Current** scores. The **Coaching goal** columns show the target score and whether the follow-up score met the goal. Use these comparisons to identify improvements and topics that need additional coaching.
+
+In the following example, the score for "Was there a greeting in the contact?" increased from 76% at coaching completion to 84% at follow-up, exceeding the 80% goal. The score for "Did agent use polite language to reply to the customer?" was 82% at follow-up, below its 90% goal.
+
+![Coaching topic cards and expanded details showing performance scores at coaching creation, completion, follow-up, and the current date, with coaching goals and goal status.](https://docs.aws.amazon.com/connect/latest/adminguide/images/coaching-follow-up.png)
+
+
 ## Search for coaching sessions
 <a name="coaching-search-sessions"></a>
 
@@ -115,6 +128,8 @@ This page provides advanced search capabilities. You can search for coaching ses
 + Where a specific agent was the participant
 + Created by a specific quality manager
 + On a specific topic
++ By whether a topic's coaching goal was met, using the **Topic goal met** filter
++ By whether all coaching goals were met, using the **All goals met** filter
 + That are past due date but not completed
 + That are pending completion (shared or draft status)
 + That are completed, but not yet acknowledged by the participant

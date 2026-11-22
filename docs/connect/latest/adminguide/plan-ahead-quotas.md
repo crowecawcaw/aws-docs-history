@@ -1,7 +1,6 @@
 
 
 # Plan ahead with Connect Customer quotas
-<a name="plan-ahead-quotas"></a>
 
 Learn how to plan for and manage service quotas during key phases of your contact center lifecycle.
 

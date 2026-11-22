@@ -1,7 +1,6 @@
 
 
 # Example conversational analytics output files for a call
-<a name="contact-lens-example-output-files"></a>
 
 The following sections provide examples of the output that results when conversational analytics detects issues, matches categories, indicates loudness, redacts sensitive data, and skipped analysis.
 
@@ -18,7 +17,7 @@ Note the following about the analyzed file:
 + If a `Redaction` section exists, it includes the offset in milliseconds. In a .wav file, the redacted portion will be silence. If desired, you can use the offset to replace the silence with something else, such as a beep. 
 + If two or more PII redactions exist in a turn, the first offset applies to the first PII, the second offset applies to the second PII, and so on.
 
-```
+```json
 {
   "Version": "1.1.0",    
   "AccountId": "your AWS account ID",
@@ -390,7 +389,7 @@ This section shows an example redacted file for a call after it's been analyzed 
 
 In this example, `RedactionMaskMode` is set to PII. When an entity is redacted, conversational analytics replaces it with `[PII]`. If it were set to `ENTITY_TYPE`, conversational analytics would replace the data with the name of the entity, for example, `[CREDIT_DEBIT_NUMBER]`.
 
-```
+```json
 {
   "Version": "1.1.0", 
   "AccountId": "your AWS account ID",

@@ -1,7 +1,6 @@
 
 
 # Customize widget launch behavior and button icon for your website hosted in Connect Customer
-<a name="customize-widget-launch"></a>
 
 To further customize how your website renders and launches the hosted widget icon, you can configure the launch behavior and hide the default icon. For example, you can programmatically launch the widget from a **Chat with us** button element that is rendered on your website.
 
@@ -16,7 +15,7 @@ To further customize how your website renders and launches the hosted widget ico
 
 To pass custom launch behavior, use the following example code block and embed it in your widget. All of the fields shown in the following example are optional and any combination can be used.
 
-```
+```json
 amazon_connect('customLaunchBehavior', {
     skipIconButtonAndAutoLaunch: true,
     alwaysHideWidgetButton: true,
@@ -53,11 +52,11 @@ The following table lists the supported custom launch behavior options. Fields a
 
 The following example shows changes you would need to make in the widget to configure programmatic launch to open only when the user chooses a custom button element rendered anywhere on your website. For example, they might choose a button named **Contact Us** or **Chat With Us**. Optionally, you can hide the default Connect Customer widget icon until the widget has been opened.
 
-```
+```json
 <button id="launch-widget-btn">Chat With Us</button>
 ```
 
-```
+```json
 <script type="text/javascript">
  (function(w, d, x, id){
     s=d.createElement("script");
@@ -91,11 +90,11 @@ The following example shows changes you would need to make in the widget to conf
 
 The following example shows changes you would need to make in the widget configure `auto-launch`, which opens the widget without waiting for the user to choose. You can deploy to a page that hosted by your website to create a shareable hyperlink.
 
-```
+```json
 https://example.com/contact-us?autoLaunchMyWidget=true
 ```
 
-```
+```json
 <script type="text/javascript">
  (function(w, d, x, id){
     s=d.createElement("script");
@@ -120,11 +119,11 @@ The following example shows changes you would need to make in the widget to make
 
 An alternative solution is to run the snippet code asynchronously (or never) on button click. 
 
-```
+```json
 <button id="launch-widget-btn">Chat With Us</button>
 ```
 
-```
+```json
 var buttonElem = document.getElementById('launch-widget-btn');
 
 buttonElem.addEventListener('click', function() {
@@ -149,11 +148,11 @@ buttonElem.addEventListener('click', function() {
 
 The following example shows changes you would need to make in the widget to launch a new browser window and auto-launch chat in a full screen.
 
-```
+```json
 <button id="openChatWindowButton">Launch a Chat</button>
 ```
 
-```
+```json
 <script> // Function to open a new browser window with specified URL and dimensions
     function openNewWindow() {
         var url = 'https://mycompany.com/support?autoLaunchChat=true';

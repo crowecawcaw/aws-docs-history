@@ -1,7 +1,6 @@
 
 
 # Common issues
-<a name="ts-common-self-service-issues"></a>
 
 ## Bundle the latest AWS SDK with your Lambda functions
 <a name="ts-lambda-sdk-bundling"></a>

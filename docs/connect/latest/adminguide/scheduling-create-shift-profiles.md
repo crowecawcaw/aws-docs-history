@@ -1,7 +1,6 @@
 
 
 # Create a template for an agent's weekly shift in Connect Customer
-<a name="scheduling-create-shift-profiles"></a>
 
 Use shift profiles to create templates for weekly shifts. The template includes the days of the week worked, the earliest start time and the latest end times the staff can be scheduled, the activities they would do during their shift, and various roles. 
 

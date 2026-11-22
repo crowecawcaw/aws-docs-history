@@ -1,7 +1,6 @@
 
 
 # Load and penetration / security testing policies for Connect Customer
-<a name="load-and-penetration-testing"></a>
 
 Connect Customer regularly performs rigorous testing to ensure our service delivers the security, reliability, and availability required to support world-class contact centers of all sizes. 
 

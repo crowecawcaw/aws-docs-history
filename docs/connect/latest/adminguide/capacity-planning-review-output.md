@@ -1,7 +1,6 @@
 
 
 # Review capacity plan output in Connect Customer
-<a name="capacity-planning-review-output"></a>
 
 To review capacity plan output, choose the hyperlink for the plan you generated. The first half of the page summarizes the input you used in scenario and capacity plan generation. 
 

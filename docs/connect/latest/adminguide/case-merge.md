@@ -1,7 +1,6 @@
 
 
 # Merge cases in Cases
-<a name="case-merge"></a>
 
 Agents can merge cases in the agent workspace. You choose a *primary case*, which stays open, and a *secondary case*, which is merged into the primary case and then closed. The merge copies field values to the primary case, moves related items such as comments and contacts, links the two cases to each other, and records the merge in the audit history of both cases.
 

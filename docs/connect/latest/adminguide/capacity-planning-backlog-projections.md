@@ -1,7 +1,6 @@
 
 
 # Manage starting backlog projections in Connect Customer
-<a name="capacity-planning-backlog-projections"></a>
 
 When you set an **Average time to complete** target for the Task or Email channel, capacity planning treats that channel as asynchronous. Contacts can accumulate in a backlog instead of agents handling them immediately. To accurately estimate staffing for an asynchronous channel, capacity planning needs to know the backlog size and age at the start of the plan. Capacity planning calls this input a starting backlog projection.
 

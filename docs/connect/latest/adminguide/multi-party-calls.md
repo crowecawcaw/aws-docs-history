@@ -1,7 +1,6 @@
 
 
 # Host multiple participants on an ongoing customer service call in the Contact Control Panel (CCP)
-<a name="multi-party-calls"></a>
 
 You can add up to four additional participants to an ongoing customer service call, for a total of six participants: you, the caller, and four other people. You can use quick connects or your number pad to add participants.
 

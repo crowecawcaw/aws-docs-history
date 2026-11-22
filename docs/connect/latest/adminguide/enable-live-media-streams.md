@@ -1,7 +1,6 @@
 
 
 # Enable live media streaming in your Connect Customer instance
-<a name="enable-live-media-streams"></a>
 
 Live media streaming (customer audio streams) is not enabled by default. You can enable customer audio streams from the settings page for your instance.
 

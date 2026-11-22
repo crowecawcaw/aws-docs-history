@@ -1,7 +1,6 @@
 
 
 # Use customer first callback mode in Connect Customer
-<a name="customer-first-cb"></a>
 
 When you set up queued callbacks, you have the additional choice of whether to use agent first callback mode or customer first callback mode.
 + **Agent first callback mode** is the default. The callback is offered to an agent to accept or reject before the call is dialed to a customer.

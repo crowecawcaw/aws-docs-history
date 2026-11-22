@@ -1,7 +1,6 @@
 
 
 # Custom slots
-<a name="acxd-custom-slots"></a>
 
 Custom slots define structured values your application can capture during a conversation.
 

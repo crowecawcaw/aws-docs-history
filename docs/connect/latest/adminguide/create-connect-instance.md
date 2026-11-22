@@ -1,7 +1,6 @@
 
 
 # Create a development or test instance for your Connect Customer contact center
-<a name="create-connect-instance"></a>
 
 You might want to create multiple contact center instances, for example, one as a Sandbox for development, another for QA, and a third for Production. 
 

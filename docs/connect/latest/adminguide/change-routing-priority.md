@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Change routing priority / age
-<a name="change-routing-priority"></a>
 
 This topic describes setting up the Change routing priority / age flow block for changing the priority or length of time of a customer in a queue.
 

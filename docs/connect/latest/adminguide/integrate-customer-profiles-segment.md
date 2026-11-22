@@ -1,7 +1,6 @@
 
 
 # Set up integration for Segment to provide periodic updates to Connect Customer Customer Profiles
-<a name="integrate-customer-profiles-segment"></a>
 
 To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Segment using Amazon EventBridge. You first set up the connection in Connect Customer and Segment, and then verify the Segment integration.
 

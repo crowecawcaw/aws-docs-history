@@ -1,7 +1,6 @@
 
 
 # List of available contact attributes in Connect Customer and their JSONPath references
-<a name="connect-attrib-list"></a>
 
 The following tables describe the contact attributes available in Connect Customer.
 
@@ -23,10 +22,11 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 + [Case contact attributes](#attribs-case-table)
 + [Lambda contact attributes](#attribs-lambda-table)
 + [External tool attributes](#external-tool-attributes)
++ [Extracted information attributes](#extracted-information-attributes)
 + [User-defined attributes](#user-defined-attributes)
 + [Flow attributes](#flow-attributes)
 + [Persisted flow attributes](#persisted-flow-attributes)
-+ [Loop Attributes](#w2aac18c56b9c45)
++ [Loop Attributes](#w2aac18c56b9c47)
 + [Flow modules attributes](#flow-modules-attributes)
 + [Data Table attributes](#data-table-attributes)
 + [Apple Messages for Business attributes](#apple-messages-for-business-attributes)
@@ -317,6 +317,21 @@ To reference attributes in JSONPath, use:
 
 The result is limited to 32 KB and is not included in contact records. To persist a value beyond the next invocation, copy it to a user-defined attribute using the [Set contact attributes](set-contact-attributes.md) block.
 
+## Extracted information attributes
+<a name="extracted-information-attributes"></a>
+
+**Note**  
+Extracted information attributes are only available in [Amazon Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/enable-nextgeneration-amazonconnect.html) instances.
+
+The [Information Extraction](information-extraction-block.md) block returns extracted information attributes from its most recent invocation. Each invocation overwrites the previous attributes.
+
+To reference attributes in JSONPath, use:
++ `$.ExtractedInformation.InvocationId` – the current extraction job ID.
++ `$.ExtractedInformation.ResultData` – the full extraction result, a JSON object.
++ `$.ExtractedInformation.ResultData.fieldName` – a specific extracted field. Each field is a list, so use an index. For example, `$.ExtractedInformation.ResultData.customerName[0]`.
+
+The result is not included in contact records. To persist a value, copy it to a user-defined attribute using the [Set contact attributes](set-contact-attributes.md) block.
+
 ## User-defined attributes
 <a name="user-defined-attributes"></a>
 
@@ -379,7 +394,7 @@ Persisted flow attributes are hidden from the contact record and the agent, but 
 To create persisted flow attributes, use the [Set contact attributes](set-contact-attributes.md) block with **Flow** as the target and **Persisted flow attributes** as the namespace.
 
 ## Loop Attributes
-<a name="w2aac18c56b9c45"></a>
+<a name="w2aac18c56b9c47"></a>
 
 The following table lists the attributes that are available with the Loop block if a LoopName is specified in the Loop block.
 

@@ -1,7 +1,6 @@
 
 
 # Customize the name of a flow block in Connect Customer
-<a name="set-custom-flow-block-name"></a>
 
 To help you distinguish blocks in a flow, you can customize the names of blocks. For example, when there are multiple **Play prompt** blocks, and you want to distinguish between them at a glance you can assign each block their own name. 
 

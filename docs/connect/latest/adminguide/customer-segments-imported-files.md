@@ -1,7 +1,6 @@
 
 
 # Create segments from imported files in Connect Customer
-<a name="customer-segments-imported-files"></a>
 
 **Note**  
 To access the segmentation builder experience in the Connect Customer admin website, make sure that the appropriate security profiles permissions are configured. For more information, see [Assign security profile permissions to manage customer segments](security-profile-customer-profile-segmentation.md).

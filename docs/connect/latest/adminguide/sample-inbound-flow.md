@@ -1,7 +1,6 @@
 
 
 # Sample inbound flow in Connect Customer for the first contact experience
-<a name="sample-inbound-flow"></a>
 
 **Note**  
 This topic explains a sample flow that is included with Connect Customer. For information about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md). 

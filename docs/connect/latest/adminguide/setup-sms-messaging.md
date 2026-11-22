@@ -1,7 +1,6 @@
 
 
 # Set up SMS messaging in Connect Customer
-<a name="setup-sms-messaging"></a>
 
 You can enable SMS messaging on Connect Customer so your customers can text you from their mobile device. With Amazon Lex V2, you can automate responses to their questions, saving agents valuable time and effort.
 
@@ -208,7 +207,7 @@ Before proceeding, your Connect Customer instance should have the following sett
 
    1. Run the following CLI command with your AWS account credentials to integrate the Lambda function created in step 2 with the Message Processing flow block:
 
-      ```
+      ```bash
       aws connect create-integration-association \
           --instance-id {{your-connect-instance-id}} \
           --integration-type MESSAGE_PROCESSOR \

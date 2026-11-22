@@ -1,7 +1,6 @@
 
 
 # Set up agent-to-agent transfers in Connect Customer
-<a name="setup-agent-to-agent-transfers"></a>
 
 We recommend using these instructions to set up agent-to-agent voice, chat, and task transfers. You use a [Set working queue](set-working-queue.md) block to transfer the contact to the agent's queue. The **Set working queue **block supports an omnichannel experience, whereas the [Transfer to agent (beta)](transfer-to-agent-block.md) block does not.
 

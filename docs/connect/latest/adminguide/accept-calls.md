@@ -1,7 +1,6 @@
 
 
 # Accept customer calls using the Connect Customer Contact Control Panel (CCP)
-<a name="accept-calls"></a>
 
 1. Whenever you set your status in the CCP to **Available**, Connect Customer can deliver calls to you, based on the settings in your [routing profile](routing-profiles.md).  
 ![The CCP set to available, incoming call.](https://docs.aws.amazon.com/connect/latest/adminguide/images/incoming-call-ccp2.png)

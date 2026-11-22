@@ -1,10 +1,9 @@
 
 
 # Set up consolidation criteria for Identity Resolution in Connect Customer
-<a name="create-consolidation-criteria"></a>
 
 **Note**  
-You must [enable Identity Resolution](#create-consolidation-criteria) in order to access the option to create consolidation criteria using the Connect Customer admin console. 
+You must [enable Identity Resolution](create-consolidation-criteria.md) in order to access the option to create consolidation criteria using the Connect Customer admin console. 
 
 When similar profiles are detected by an Identity Resolution Job, the process can automatically merge them into a unified profile based on consolidation criteria that you specify. 
 

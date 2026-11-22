@@ -1,7 +1,6 @@
 
 
 # Analyze conversations using conversational analytics in Connect Customer conversational analytics
-<a name="analyze-conversations"></a>
 
 With conversational analytics, you can analyze conversations between customers and agents or customers and conversational AI, across voice, chat, and email, using natural language processing. Conversational analytics performs sentiment analysis and detects issues. You can also automatically categorize contacts. 
 

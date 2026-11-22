@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set routing criteria
-<a name="set-routing-criteria"></a>
 
 This topic defines the flow block for routing a contact in any channel to the appropriate queue. 
 
@@ -128,7 +127,7 @@ You can set routing criteria on a contact dynamically based on the output from t
 
  The following Lambda example uses `AndExpression` to return routing criteria: 
 
-```
+```json
 export const handler = async(event) => {
   return {
    "MyRoutingCriteria": {
@@ -176,7 +175,7 @@ export const handler = async(event) => {
 
 The following Lambda example uses `OrExpression` to return routing criteria:
 
-```
+```json
 export const handler = async(event) => {
   return {
    "MyRoutingCriteria": {
@@ -214,7 +213,7 @@ export const handler = async(event) => {
 
 The following Lambda example uses `NOTAttributeCondidtion` and a range of proficiency levels to return routing criteria:
 
-```
+```json
 export const handler = async(event) => {
   const response = {
     "MyRoutingCriteria": {

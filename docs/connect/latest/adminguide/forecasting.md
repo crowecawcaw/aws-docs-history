@@ -1,7 +1,6 @@
 
 
 # Forecasting in Connect Customer
-<a name="forecasting"></a>
 
 Forecasting is the starting point for any scheduling and capacity planning activities. Before you can generate a schedule or capacity plan, you must create a corresponding forecast. 
 

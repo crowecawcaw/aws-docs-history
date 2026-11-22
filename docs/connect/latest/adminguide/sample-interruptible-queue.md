@@ -1,7 +1,6 @@
 
 
 # Sample interruptible queue flow with callback in Connect Customer
-<a name="sample-interruptible-queue"></a>
 
 **Note**  
 This topic explains a sample flow that is included with Connect Customer. For information about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md). 

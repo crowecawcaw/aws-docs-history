@@ -1,7 +1,6 @@
 
 
 # Things to know before porting a phone number to Connect Customer
-<a name="things-to-know-before-porting"></a>
 
 The topics in this section explain which numbers can be ported, how long it takes, and what fees you might incur. 
 

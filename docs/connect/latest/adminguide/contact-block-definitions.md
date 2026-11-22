@@ -1,7 +1,6 @@
 
 
 # Flow block definitions in the flow designer in Connect Customer
-<a name="contact-block-definitions"></a>
 
 Use flow blocks to create flows in the flow designer. Drag flow blocks and drop them onto a canvas to arrange a flow.
 
@@ -36,6 +35,7 @@ The following table lists all available flow blocks that you can use. Choose any
 | [Get stored content](get-stored-content.md) | Retrieves content stored in S3 and returns them as attributes to be used within flows. | 
 | [Hold customer or agent](hold-customer-agent.md) | Places a customer or agent on or off hold. | 
 | [AWS Lambda function](invoke-lambda-function-block.md) | Calls AWS Lambda, and returns key-value pairs or JSON responses that can be used in a flow. | 
+| [Information Extraction](information-extraction-block.md) | Extracts structured information from email contacts using generative AI. | 
 | [Invoke module](invoke-module-block.md) | Calls a published module. | 
 | [Interrupt agent](interrupt-agent.md) | Offers a contact to a specific agent even if the agent is at maximum concurrency or in a custom status. | 
 | [Loop](loop.md) | Loops through, or repeats, the **Looping** branch for the number of loops specified or the number of elements in the provided array. | 

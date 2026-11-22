@@ -1,7 +1,6 @@
 
 
 # Use views to customize the user interface for agents, customers, and other user personas in Connect Customer
-<a name="view-resources-sg"></a>
 
 *Views* are custom user interfaces (UIs) that you can use to customize the user experience for agents (in the agent workspace), customers (in chat conversations), and other user personas in Connect Customer. For example, you can use views to display contact attributes to an agent, provide forms for entering disposition codes, provide call notes, and present UI pages for walking agents through step-by-step guides. 
 

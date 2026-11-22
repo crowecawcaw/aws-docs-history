@@ -1,7 +1,6 @@
 
 
 # Use the flow designer in Connect Customer to create flows
-<a name="create-contact-flow"></a>
 
 The starting point for creating all flows is the flow designer. It's a drag-and-drop work surface that you can use to link together blocks of actions. For example, when a customer first enters your contact center, you can ask for some input and then play a prompt such as "Thank you."
 

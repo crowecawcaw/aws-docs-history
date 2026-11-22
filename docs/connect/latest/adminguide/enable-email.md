@@ -1,7 +1,6 @@
 
 
 # Enable email campaigns for your Connect Customer instance
-<a name="enable-email"></a>
 
 This topic is for administrators who have access to the Connect Customer console. It explains how to enable email campaigns for your instance using the console. For the APIs used to enable email campaigns programmatically, see [APIs to enable email for campaigns](#apis-email-setup1). 
 
@@ -88,7 +87,7 @@ To allow customers and agents to upload and download files, update your cross-or
 
      Your CORS policy might look similar to the following example:
 
-     ```
+     ```json
      [
          {
              "AllowedHeaders": [
@@ -110,7 +109,7 @@ To allow customers and agents to upload and download files, update your cross-or
 
      Your CORS policy might look similar to the following example:
 
-     ```
+     ```json
      [
          {                               
              "AllowedMethods": [

@@ -1,7 +1,6 @@
 
 
 # Custom widgets
-<a name="custom-widgets"></a>
 
 Create tailored dashboard components from the ground up to meet your specific business needs. With custom widgets, you can build unique visualizations without any predefined data.
 
@@ -77,7 +76,7 @@ The custom table component provides flexible configuration options for displayin
 ### Example configuration
 <a name="table-example-configuration"></a>
 
-```
+```json
 {
     "Type": "Table",
     "Props": {
@@ -149,7 +148,7 @@ Create dynamic data displays by defining custom key-value relationships. This co
 ### Example configuration
 <a name="key-value-pair-example-configuration"></a>
 
-```
+```json
 {
     "Type": "KeyValuePair",
     "Id": "UniqueId",
@@ -234,7 +233,7 @@ Create high-visibility metric displays that highlight important data points, tre
 ### Example configuration
 <a name="key-metric-example-configuration"></a>
 
-```
+```json
 {
     "Type": "KeyMetrics",
     "Props": {
@@ -320,7 +319,7 @@ Create dynamic sentiment visualizations by defining custom scoring criteria. Thi
 ### Example configuration
 <a name="donut-chart-example-configuration"></a>
 
-```
+```json
 {
     "Type": "DonutChart",
     "Props": {

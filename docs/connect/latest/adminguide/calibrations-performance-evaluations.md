@@ -1,7 +1,6 @@
 
 
 # Calibration sessions for performance evaluations
-<a name="calibrations-performance-evaluations"></a>
 
 With Connect Customer conversational analytics, you can conduct calibration sessions to drive consistency and accuracy in how managers evaluate agent performance, so that agents receive feedback that is consistent. During a calibration, multiple managers can evaluate the same contact using the same evaluation form. You can then review differences in evaluations filled by different managers to align managers on evaluation best practices and identify opportunities to improve the evaluation form, for example, rephrasing an evaluation question to be more specific, so that it is consistently answered by managers. You can also compare manager's answers with a designated expert, to measure and improve manager accuracy on evaluating agent performance. The expert is usually the quality manager who is conducting the calibration session.
 

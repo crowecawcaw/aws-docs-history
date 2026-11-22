@@ -1,7 +1,6 @@
 
 
 # Integrate in-app, web, video calling, and screen sharing natively into your application
-<a name="config-com-widget2"></a>
 
 To integrate Connect Customer in-app, web, video calling, and screen sharing with your application:
 

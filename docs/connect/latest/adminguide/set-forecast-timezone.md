@@ -1,7 +1,6 @@
 
 
 # Set the forecast time zone
-<a name="set-forecast-timezone"></a>
 
 On the **Forecasting** page, you set the time zone for your forecasts. The following image shows the **Forecast time zone** tab, and the dropdown menu where you choose the time zone.
 

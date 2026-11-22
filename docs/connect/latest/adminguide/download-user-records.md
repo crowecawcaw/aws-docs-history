@@ -1,7 +1,6 @@
 
 
 # Download a user list from your Connect Customer instance
-<a name="download-user-records"></a>
 
 You can export a list of users from Connect Customer to a CSV file. Use **Select all** to select all users from the search results, regardless of page. You can export over 1,000 users at once.
 

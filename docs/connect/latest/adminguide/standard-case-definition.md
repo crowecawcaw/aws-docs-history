@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard case object fields
-<a name="standard-case-definition"></a>
 
 The following table lists all the fields in the Customer Profiles standard case object.
 

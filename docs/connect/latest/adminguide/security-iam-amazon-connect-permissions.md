@@ -1,7 +1,6 @@
 
 
 # Required permissions for using custom IAM policies to manage access to the Connect Customer console
-<a name="security-iam-amazon-connect-permissions"></a>
 
 If you're using custom [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) policies to manage access to the Connect Customer console, your users need some or all of the permissions listed in this article, depending on the tasks they need to do. 
 
@@ -45,7 +44,7 @@ To allow full read/write access to Connect Customer, you must attach two policie
 
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 
@@ -88,7 +87,7 @@ Use the permissions listed in the following table to manage access to this page.
 | --- | --- | 
 | List instance | `connect:ListInstances`<br />`ds:DescribeDirectories` | 
 | Describe instance: View the details of the instance/ current settings | `connect:DescribeInstance`<br />`connect:ListLambdaFunctions`<br />`connect:ListLexBots`<br />`connect:ListInstanceStorageConfigs`<br />`connect:ListApprovedOrigins`<br />`connect:ListSecurityKeys`<br />`connect:DescribeInstanceAttributes`<br />`connect:DescribeInstanceStorageConfig`<br />`ds:DescribeDirectories` | 
-| Create instance | `connect:AssociateCustomerProfilesDomain`<br />`connect:CreateInstance`<br />`connect:DescribeInstance`<br />`connect:ListInstances`<br />`connect:AssociateInstanceStorageConfig`<br />`connect:UpdateInstanceAttribute`<br />`ds:CheckAlias`<br />`ds:CreateAlias`<br />`ds:AuthorizeApplication`<br />`ds:UnauthorizeApplication`<br />`ds:CreateIdentityPoolDirectory`<br />`ds:DescribeDirectories`<br />`iam:CreateServiceLinkedRole`<br />`iam:PutRolePolicy`<br />`kms:CreateGrant`<br />`kms:DescribeKey`<br />`kms:ListAliases`<br />`kms:RetireGrant`<br />`logs:CreateLogGroup`<br />`s3:CreateBucket`<br />`s3:GetBucketLocation`<br />`s3:ListAllMyBuckets`<br />`servicequotas:GetServiceQuota`<br />`profile:CreateDomain`<br />`profile:GetDomain`<br />`profile:GetProfileObjectType`<br />`profile:ListAccountIntegrations`<br />`profile:ListDomains`<br />`profile:ListProfileObjectTypeTemplates`<br />`profile:PutIntegration` | 
+| Create instance | `connect:AssociateCustomerProfilesDomain`<br />`connect:CreateInstance`<br />`connect:DescribeInstance`<br />`connect:ListInstances`<br />`connect:AssociateInstanceStorageConfig`<br />`connect:UpdateInstanceAttribute`<br />`ds:CheckAlias`<br />`ds:CreateAlias`<br />`ds:AuthorizeApplication`<br />`ds:UnauthorizeApplication`<br />`ds:CreateIdentityPoolDirectory`<br />`ds:DescribeDirectories`<br />`iam:CreateServiceLinkedRole`<br />`iam:PutRolePolicy`<br />`kms:CreateGrant`<br />`kms:DescribeKey`<br />`kms:ListAliases`<br />`kms:RetireGrant`<br />`logs:CreateLogGroup`<br />`s3:CreateBucket`<br />`s3:GetBucketLocation`<br />`s3:ListAllMyBuckets`<br />`servicequotas:GetServiceQuota`<br />`profile:CreateDomain`<br />`profile:GetDomain`<br />`profile:GetProfileObjectType`<br />`profile:ListAccountIntegrations`<br />`profile:ListDomains`<br />`profile:ListProfileObjectTypeTemplates`<br />`profile:PutIntegration`<br />To enable Cases when you create the instance, also add the permissions in [Enable Cases when you create an instance](required-permissions-iam-cases.md#instance-creation-cases-iam). | 
 | Create a replica instance (Connect Customer Global Resiliency): Replicate an instance in another AWS Region with the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API | `connect:ReplicateInstance`<br />Because this action creates a new instance in the replica AWS Region, you also need the permissions listed for **Create instance** in the preceding rows. | 
 | Delete instance | `connect:DescribeInstance`<br />`connect:DeleteInstance`<br />`connect:ListInstances`<br />`ds:DescribeDirectories`<br />`ds:DeleteDirectory`<br />`ds:UnauthorizeApplication` | 
 
@@ -314,6 +313,8 @@ To perform `Edit` actions, users also need `List` and `Describe` permissions.
 | --- | --- | 
 | View Cases domain details | `connect:ListInstances`<br />`ds:DescribeDirectories`<br />`connect:ListIntegrationAssociations`<br />`cases:GetDomain` | 
 | Onboard to Cases | `connect:ListInstances`<br />`connect:ListIntegrationAssociations`<br />`cases:GetDomain`<br />`cases:CreateDomain`<br />`connect:CreateIntegrationAssociation`<br />`connect:DescribeInstance`<br />`iam:PutRolePolicy` | 
+| View Cases integration status | The permissions to view Cases domain details, plus:<br />`cases:GetCaseEventConfiguration`<br />`events:DescribeRule`<br />`events:DescribeEventBus`<br />`app-integrations:GetEventIntegration`<br />`profile:ListAccountIntegrations`<br />`profile:ListIntegrations`<br />`profile:GetIntegration` | 
+| Configure Cases integrations | The permissions to view Cases integration status, plus:<br />`cases:PutCaseEventConfiguration`<br />`app-integrations:CreateEventIntegration`<br />`connect:CreateIntegrationAssociation`<br />`events:CreateEventBus`<br />`events:PutRule`<br />`events:PutTargets`<br />`iam:CreateRole`<br />`iam:CreatePolicy`<br />`iam:PassRole`<br />`profile:PutIntegration` | 
 
 ## Customer authentication page
 <a name="customer-authentication-page"></a>

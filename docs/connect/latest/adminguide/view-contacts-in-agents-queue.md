@@ -1,7 +1,6 @@
 
 
 # View how many contacts are in a contact center agent's queue
-<a name="view-contacts-in-agents-queue"></a>
 
 To see how many contacts are in an agent's personal queue, add an **Agent queues** table to your **Real-time metrics**, **Queues** report. Then view these two metrics: 
 + **In Queue**—how many contacts are in an agent's personal queue.

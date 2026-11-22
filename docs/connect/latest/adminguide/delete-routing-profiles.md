@@ -1,7 +1,6 @@
 
 
 # Delete a routing profile from a Connect Customer instance
-<a name="delete-routing-profiles"></a>
 
 There are three ways to delete a routing profile from your Connect Customer instance: 
 + Connect Customer admin website: On the left side menu, choose **Users**, **Routing profiles** and then select the delete icon.  

@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Check hours of operation
-<a name="check-hours-of-operation"></a>
 
 This topic defines the flow block to checks whether a contact occurs within or outside of the defined hours of operation.
 

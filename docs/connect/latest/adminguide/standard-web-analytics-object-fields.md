@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard web analytics object fields
-<a name="standard-web-analytics-object-fields"></a>
 
 
 **WebAnalytics Standard Object Schema**  
@@ -32,6 +31,7 @@
   <tr><td>Element.Text</td><td>String</td><td>Element text (Useful for buttons, input fields placeholders, etc).</td></tr>
   <tr><td>Element.AltText</td><td>String</td><td>AltText of a HTML element (generally used for images).</td></tr>
   <tr><td>Element.Source</td><td>String</td><td>Source of an video, image.</td></tr>
+  <tr><td>Element.Context</td><td>String</td><td>Surrounding context of the element, such as nearby labels and field values. It should be trimmed and processed into human-readable text from the raw HTML.<br />Size limit: 2 KB</td></tr>
   <tr><td colspan="3">Form</td></tr>
   <tr><td>Form.Id</td><td>String</td><td>Unique Identifier for an input form</td></tr>
   <tr><td>Form.Name</td><td>String</td><td>Name of the Form</td></tr>
@@ -39,6 +39,7 @@
   <tr><td>Form.ValidationErrors</td><td>Number</td><td>Number of validation errors in the form.</td></tr>
   <tr><td>Form.FieldsCompleted</td><td>Number</td><td>Number of fields completed.</td></tr>
   <tr><td>Form.FieldsRequired</td><td>Number</td><td>Number of fields required.</td></tr>
+  <tr><td>Form.Inputs</td><td>String-to-string map</td><td>Key-value pairs of the form input fields. The key is the name of the input field, and the value is the value of the input field.<br />Limit: 50 entries</td></tr>
   <tr><td colspan="3">Search</td></tr>
   <tr><td>Search.Query</td><td>String</td><td>Query string used in the input</td></tr>
   <tr><td>Search.TotalMatchingResults</td><td>Number</td><td>Total number of search results.</td></tr>

@@ -1,7 +1,6 @@
 
 
 # Request numbers or international numbers for Connect Customer
-<a name="number-request"></a>
 
 **Important**  
 To purchase and own a phone number, country or region regulations often require:   

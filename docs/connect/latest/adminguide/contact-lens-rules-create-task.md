@@ -1,7 +1,6 @@
 
 
 # Create a rule that generates a task
-<a name="contact-lens-rules-create-task"></a>
 
 With Connect Customer rules, you can generate tasks. This helps you create traceable actions with owners and provides you visibility on task completion and productivity out the box.
 

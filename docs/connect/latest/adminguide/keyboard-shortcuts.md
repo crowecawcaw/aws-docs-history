@@ -1,7 +1,6 @@
 
 
 # Keyboard shortcuts for the Connect Customer flow designer
-<a name="keyboard-shortcuts"></a>
 
 The Connect Customer flow designer includes keyboard shortcuts to help you use the designer efficiently.
 

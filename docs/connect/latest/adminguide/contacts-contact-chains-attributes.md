@@ -1,7 +1,6 @@
 
 
 # Contacts, contact chains, and contact attributes
-<a name="contacts-contact-chains-attributes"></a>
 
 This topic explains how Connect Customer organizes and tracks customer interactions while maintaining relevant contextual information throughout the customer journey.
 

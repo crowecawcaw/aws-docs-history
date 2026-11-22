@@ -1,7 +1,6 @@
 
 
 # View a shared report in Connect Customer
-<a name="view-a-shared-report"></a>
 
 To view a report that someone has shared with you, you need the following: 
 + A link to the report. 

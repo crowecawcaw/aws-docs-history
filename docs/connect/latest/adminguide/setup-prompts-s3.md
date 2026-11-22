@@ -1,7 +1,6 @@
 
 
 # Set up prompts to play from an S3 bucket in Connect Customer
-<a name="setup-prompts-s3"></a>
 
 When you configure prompts on the [Get customer input](get-customer-input.md), [Loop prompts](loop-prompts.md), [Play prompt](play.md), or [Store customer input](store-customer-input.md) blocks, you can choose an S3 bucket as the source location. You can store as many voice prompts as needed in an S3 bucket and access them in real time by using contact attributes. For examples, see the [Play prompt](play.md) block. 
 
@@ -31,7 +30,7 @@ To allow Connect Customer to play prompts from an S3 bucket, when you set up you
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -64,7 +63,7 @@ To allow Connect Customer to play prompts from an S3 bucket, when you set up you
 
 1. Encryption: Connect Customer cannot download and play prompts from an S3 bucket if an AWS managed key is enabled on that S3 bucket. However, you can use a customer managed key to allow the Connect Customer service principal ("connect.amazonaws.com") that enables your Connect Customer instance to access the S3 bucket. See the following code snippet:
 
-   ```
+   ```json
    {
                "Sid": "Enable Connect Customer",
                "Effect": "Allow",

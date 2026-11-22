@@ -1,7 +1,6 @@
 
 
 # Additional customizations for your Connect Customer web calling widget
-<a name="more-customizations-web-calling-widget"></a>
 
 You can add the following additional customizations to your web calling widget:
 + Apply [background blur](#background-blur) to your customer's video tile.

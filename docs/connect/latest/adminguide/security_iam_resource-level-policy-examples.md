@@ -1,7 +1,6 @@
 
 
 # Connect Customer resource-level policy examples
-<a name="security_iam_resource-level-policy-examples"></a>
 
 Connect Customer supports resource-level permissions for users, so you can specify actions for them for an instance, as shown in the following policies.
 
@@ -34,7 +33,7 @@ The following sample policy denies all connect actions for the instance with ins
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ Alternatively, you can deny all actions by specifying the Instance ARN followed 
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -88,7 +87,7 @@ This following sample policy denies the "delete" and "update" actions for users 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -114,7 +113,7 @@ This following sample policy denies the "delete" and "update" actions for users 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -146,7 +145,7 @@ The following sample policy allows "create users" but explicitly denies using ar
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -180,7 +179,7 @@ The following sample policy allows "start contact recording" on a contact in a s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -228,7 +227,7 @@ You can also use a wildcard to allow more resources. For example, here's how to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -272,7 +271,7 @@ For example, you're operating in the replica Region us-west-2 with account ` 123
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -303,7 +302,7 @@ For example, you're operating in the replica Region us-west-2 with account `1234
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -332,7 +331,7 @@ The following sample policy allows a specific event integrations to be fetched.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -359,7 +358,7 @@ Connect Customer Customer Profiles use `profile` as the prefix for actions inste
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -388,7 +387,7 @@ Following is an example for granting read access to the data in Connect Customer
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -415,7 +414,7 @@ The following sample policy allows querying only a specific Assistant.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -442,7 +441,7 @@ Connect Customer Voice ID uses `voiceid` as the prefix for actions instead of co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -466,7 +465,7 @@ Set up a trusted relationship with accountID to domain domainName.
 
 Outbound campaigns uses `connect-campaign` as the prefix for actions instead of `connect`. The following policy grants full access to a specific outbound campaign. 
 
-```
+```json
 {
     "Sid": "AllowConnectCampaignsOperations",
     "Effect": "Allow",
@@ -495,7 +494,7 @@ The following policy allows search and describe contacts, but denies searching a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

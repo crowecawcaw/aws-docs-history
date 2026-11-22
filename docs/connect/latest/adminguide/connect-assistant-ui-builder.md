@@ -1,7 +1,6 @@
 
 
 # Use the Connect assistant in the UI builder
-<a name="connect-assistant-ui-builder"></a>
 
 The Connect assistant is built into the UI builder. You can use it to create and modify views in natural language. Instead of manually dragging components, configuring properties, and navigating panel settings, you can describe what you need in conversational prompts. The Connect assistant generates the corresponding UI components on the canvas.
 

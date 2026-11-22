@@ -1,7 +1,6 @@
 
 
 # Set up your agent's experience with Connect Customer Global Resiliency
-<a name="overview-agent-distribution"></a>
 
 With Connect Customer Global Resiliency, you can provide a global experience for agents with global sign-in, agent distribution API, and agent workspace enhancements. With this set of features, you can:
 + Enable your agents to sign in once at the beginning of their day and process contacts from their current active Region without needing to know which Region is active at any time.

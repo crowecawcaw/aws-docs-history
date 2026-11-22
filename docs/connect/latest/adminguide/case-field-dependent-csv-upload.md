@@ -1,7 +1,6 @@
 
 
 # CSV upload for dependent field options
-<a name="case-field-dependent-csv-upload"></a>
 
 When you configure dependent field options for case templates, you can upload a CSV file. The file contains your field option mappings. This approach saves time compared to manually entering each relationship through the Amazon Connect admin website. This capability is useful when you have large datasets of hierarchical relationships. Examples include geographic hierarchies (Country → State → City) or product categorizations (Category → Subcategory).
 

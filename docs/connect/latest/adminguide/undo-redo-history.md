@@ -1,7 +1,6 @@
 
 
 # Undo and redo actions in the flow designer in Connect Customer
-<a name="undo-redo-history"></a>
 
 You can undo and redo actions in the flow designer. Choose the undo and redo items on the toolbar. Or, with your cursor on the flow designer canvas, use the shortcut keys: Ctrl\+Z to undo, Ctrl\+Y to redo. 
 

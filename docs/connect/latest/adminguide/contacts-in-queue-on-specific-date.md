@@ -1,7 +1,6 @@
 
 
 # Determine the number of contacts in a queue on a specific date
-<a name="contacts-in-queue-on-specific-date"></a>
 
 The historical metrics reports don't provide a way for you to determine how many contacts were in queue on a specific date, at a specific time. 
 

@@ -1,7 +1,6 @@
 
 
 # View the number of contacts waiting in an Connect Customer contact center queue
-<a name="view-contacts-in-queue"></a>
 
 **To view the number of contacts waiting in a queue for an agent**
 

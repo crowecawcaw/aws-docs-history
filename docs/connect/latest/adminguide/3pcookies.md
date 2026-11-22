@@ -1,7 +1,6 @@
 
 
 # Allow the Connect Customer Contact Control Panel (CCP) to access cookies
-<a name="3pcookies"></a>
 
 When logging into the CCP you might see one of these banners:
 

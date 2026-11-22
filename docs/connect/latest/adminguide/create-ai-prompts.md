@@ -1,7 +1,6 @@
 
 
 # Create AI prompts in Connect Customer
-<a name="create-ai-prompts"></a>
 
 An *AI prompt* is a task for the large language model (LLM) to do. It provides a task description or instruction for how the model should perform. For example, *Given a list of customer orders and available inventory, determine which orders can be fulfilled and which items have to be restocked*.
 
@@ -83,7 +82,7 @@ If you choose one of the following models, you must remove the assistant message
 
 To remove the assistant message prefill, delete the following two lines from the `messages` section at the end of the template:
 
-```
+```yaml
   - role: assistant
     content: <message>
 ```
@@ -158,7 +157,7 @@ Following are the required and optional YAML fields for AI prompts that use the 
 
 For example, the following AI prompt instructs the AI agent to construct appropriate queries. The second line of the AI prompt shows that the format is `messages`.
 
-```
+```yaml
 system: You are an intelligent assistant that assists with query construction.
 messages:
 - role: user
@@ -193,7 +192,7 @@ There's only one required field in AI prompts that use the `TEXT_COMPLETIONS` f
 
 The following is an example of an **Answer generation** prompt:
 
-```
+```yaml
 prompt: |
 You are an experienced multi-lingual assistant tasked with summarizing information from provided documents to provide a concise action to the agent to address the customer's intent effectively. Always speak in a polite and professional manner. Never lie. Never use aggressive or harmful language.
 
@@ -502,7 +501,7 @@ The following table lists the supported models for prompt caching. For token req
 
  For the `MESSAGES` format, invoke the API by using the following AWS CLI command.
 
-```
+```bash
 aws qconnect create-ai-prompt \
   --region us-west-2
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
@@ -521,7 +520,7 @@ aws qconnect create-ai-prompt \
 
  For the `TEXT_COMPLETIONS` format, invoke the API by using the following AWS CLI command.
 
-```
+```bash
 aws qconnect create-ai-prompt \
   --region us-west-2
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
@@ -545,7 +544,7 @@ After an AI prompt has been created, you can create a version, which is an immut
 
 Use the following AWS CLI command to create version of a prompt.
 
-```
+```bash
 aws qconnect create-ai-prompt-version \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --ai-prompt-id <YOUR_AI_PROMPT_ID>
@@ -562,7 +561,7 @@ aws qconnect create-ai-prompt-version \
 
 Use the following AWS CLI command to list system AI prompt versions. After the AI prompt versions are listed, you can use them to reset to the default experience.
 
-```
+```bash
 aws qconnect list-ai-prompt-versions \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --origin SYSTEM

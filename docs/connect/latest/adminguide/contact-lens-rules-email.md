@@ -1,7 +1,6 @@
 
 
 # Create rules that send email notifications
-<a name="contact-lens-rules-email"></a>
 
 You can create rules that send email notifications to people in your organization. This helps you to respond more expediently to potential issues in your contact center. For example, you can create a rule to notify:
 + A team supervisor when there is an account escalation or cancellation.
@@ -35,6 +34,9 @@ SAML users do not have primary email addresses or passwords. They use a username
 SAML users must have a secondary email configured in order to get it. If a secondary email is not configured, the user will not receive the email.
    + **Select recipients by tags**. Routes the email dynamically based on the agent's tag values.
    + **Select the agent who handled the contact**. Routes the email to the agent who handled the contact.
+   + **Select the agent who is assigned to the case**. Routes the email to the agent assigned to the case. Use this option for rules triggered by a case service level agreement (SLA) breach. For more information about case SLAs, see [How SLAs work in Connect Customer Cases](cases-sla.md).
+**Note**  
+Assign an agent to the case so that your rule can send the email. If you don't assign an agent before your rule runs, your rule sends no email for that case.
 
    In the following image, the rule sends a notification email to the agent who handled the contact.   
 ![The Send email notification section, the Select the agent who handled the contact option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-rules-email-tag.png)

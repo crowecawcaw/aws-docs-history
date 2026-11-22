@@ -1,7 +1,6 @@
 
 
 # Data in flow logs stored in an Amazon CloudWatch log group
-<a name="contact-flow-log-data"></a>
 
 Log entries for flows include details about the block associated with the log entry, the contact ID, and the action taken after the steps in the block were completed. Any contact interaction that occurs outside of the flow is not logged, such as time spent in a queue or interactions with an agent. 
 
@@ -13,7 +12,7 @@ Because the logs also include the flow ID, and the flow ID stays the same when y
 
 The following example log entry shows a **Set working queue** block of an inbound flow.
 
-```
+```json
 {
     "ContactId": "11111111-2222-3333-4444-555555555555",
     "ContactFlowId": "arn:aws:connect:us-west-2:0123456789012:instance/nnnnnnnnnnn-3333-4444-5555-111111111111/contact-flow/123456789000-aaaa-bbbbbbbbb-cccccccccccc",

@@ -1,7 +1,6 @@
 
 
 # Design principles for developing a secure contact center in Connect Customer
-<a name="security-bp"></a>
 
 Security includes the ability to protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies. This section provides an overview of design principles, best practices, and questions surrounding security for Connect Customer workloads. 
 

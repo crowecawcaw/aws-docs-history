@@ -1,7 +1,6 @@
 
 
 # Resource tags
-<a name="acxd-resource-tags"></a>
 
 Resource tags help you organize, search, and identify resources in an agentic CX designer workspace.
 

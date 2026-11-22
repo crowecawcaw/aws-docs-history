@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set whisper flow
-<a name="set-whisper-flow"></a>
 
 This topic defines the flow block for a message, or whisper, that displays in chat or told in a call when a conversation begins. The whisper provides the participants with pertinent information, such as telling an agent a customer's name, or telling the customer that the call is being recorded for training purposes.
 

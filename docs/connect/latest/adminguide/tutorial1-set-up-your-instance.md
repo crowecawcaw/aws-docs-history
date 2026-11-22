@@ -1,7 +1,6 @@
 
 
 # Set up your Connect Customer instance
-<a name="tutorial1-set-up-your-instance"></a>
 
 You can have multiple instances of Connect Customer. Each instance contains all the resources related to your contact center, such as phone numbers, agent accounts, and queues.
 

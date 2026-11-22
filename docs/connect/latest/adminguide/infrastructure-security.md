@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in Connect Customer
-<a name="infrastructure-security"></a>
 
 As a managed service, Connect Customer is protected by the AWS global network security procedures that are described on the [ Best Practices for Security, Identity, and Compliance](https://aws.amazon.com/architecture/security-identity-compliance/) page. 
 

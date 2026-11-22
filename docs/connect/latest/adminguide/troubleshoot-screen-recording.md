@@ -1,7 +1,6 @@
 
 
 # Troubleshoot agent screen recording issues
-<a name="troubleshoot-screen-recording"></a>
 
 ## Troubleshoot screen recording failures caused by browser Local Network Access restrictions
 <a name="troubleshoot-sr-lna"></a>

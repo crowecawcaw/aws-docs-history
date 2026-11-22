@@ -1,7 +1,6 @@
 
 
 # Create capacity plans using forecasts and scenarios in Connect Customer
-<a name="capacity-planning-use-forecast"></a>
 
 Before you can create a capacity plan, you must create a planning scenario and publish the forecasts required for your plan type. Hiring plans require a published long-term forecast and a published short-term forecast. Scheduling plans require only a published short-term forecast. For more information, see [Forecast requirements by plan type](capacity-planning-plan-types.md#capacity-planning-plan-types-forecast-requirements).
 

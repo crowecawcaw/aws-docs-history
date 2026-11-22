@@ -1,7 +1,6 @@
 
 
 # Shift bidding
-<a name="scheduling-shift-bid"></a>
 
 With shift bidding, you let agents influence their schedules by ranking the shifts they prefer, rather than assigning shifts to them directly. As a scheduler, you define the parameters for a shift bid, such as the forecast group, bidding window, scheduling period, and agent ranking. Amazon Connect Customer then generates shift patterns from the shift profiles assigned to agents and opens the bid automatically for a set period. While the bid is open, agents rank the available shift patterns from their calendar in the agent workspace. After the bid closes, Amazon Connect Customer assigns shifts based on each agent's ranked preferences and their assigned rank. This gives agents a better chance of getting the shifts they want, while your contact center still meets its forecasted demand and service level goals.
 

@@ -1,7 +1,6 @@
 
 
 # View an evaluation audit trail in Connect Customer
-<a name="evaluation-audit-trail"></a>
 
  An evaluation can be amended and submitted multiple times. When an evaluator submits changes to an existing evaluation, managers can view an audit trail that records:
 + Who submitted the original evaluation

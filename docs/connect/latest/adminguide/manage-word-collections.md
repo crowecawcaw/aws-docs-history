@@ -1,7 +1,6 @@
 
 
 # Manage word collections when you create conversational analytics rules in conversational analytics
-<a name="manage-word-collections"></a>
 
 A *word collection* is a set of pre-built words and phrases that you can use to define the exact match condition when you create conversational analytics rules. When you add exact match conditions to a rule, you can choose a list of words and phrases from a dropdown menu.
 

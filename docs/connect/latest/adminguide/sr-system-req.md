@@ -1,7 +1,6 @@
 
 
 # System and network requirements for screen recording in Connect Customer
-<a name="sr-system-req"></a>
 
 This topic provides the system requirements for using screen recording, and describes the detailed dataflow it uses in each platform.
 
@@ -114,7 +113,7 @@ This policy permits local network access to the loopback address from any site, 
 
 Example `policies.json` configuration:
 
-```
+```json
 {
   "policies": {
     "LocalNetworkAccess": {

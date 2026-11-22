@@ -1,7 +1,6 @@
 
 
 # Best practices for Connect Customer outbound campaigns
-<a name="outbound-campaign-best-practices"></a>
 
 The topics in this section explain best practices for outbound campaigns. These practices can increase agent productivity, help you comply with regulations, and help protect the integrity of your phone numbers.
 

@@ -1,7 +1,6 @@
 
 
 # Manage customer segments in Connect Customer
-<a name="customer-segments-managing-segments"></a>
 
  You can use the Connect Customer admin website to create, view, copy, and perform other management tasks for customer segments. If you open a customer segment to view its settings, you can also quickly create a campaign that uses the segment. For more information on creating segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md) in the Connect Customer Developer Guide. 
 

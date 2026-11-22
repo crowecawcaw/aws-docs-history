@@ -1,7 +1,6 @@
 
 
 # Download the transcript for your chat widget in Connect Customer
-<a name="chat-widget-download-transcript"></a>
 
 You can download a PDF of the transcript in your chat widget.
 

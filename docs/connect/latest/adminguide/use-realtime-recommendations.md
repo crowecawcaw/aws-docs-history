@@ -1,7 +1,6 @@
 
 
 # Use real-time recommendations from Connect Customer agent assist
-<a name="use-realtime-recommendations"></a>
 
 This topic explains how agents who are using Connect Customer agent assist in the agent workspace can interact with real-time recommendations that are generated for chats and emails. If conversational analytics is enabled, the recommendations appear for calls as well.
 

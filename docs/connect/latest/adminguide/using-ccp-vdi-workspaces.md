@@ -1,7 +1,6 @@
 
 
 # Optimize Connect Customer audio for Amazon WorkSpaces cloud desktops
-<a name="using-ccp-vdi-workspaces"></a>
 
 Connect Customer simplifies delivery of high-quality voice experiences for agents operating within Amazon WorkSpaces Virtual Desktop Infrastructure (VDI) environments. By using Amazon WorkSpaces with the WebRTC redirection feature, agents can redirect Connect Customer audio processing to their local devices. This approach results in enhanced audio quality, even over challenging network conditions. To take advantage of this feature, you need to do the following:
 + Use [Connect Customer open source libraries](https://github.com/amazon-connect/amazon-connect-streams) to create a new or update an existing agent user interface, such as a custom Contact Control Panel (CCP). 

@@ -1,7 +1,6 @@
 
 
 # View your resiliency readiness in Connect Customer Global Resiliency
-<a name="global-resiliency-readiness-overview"></a>
 
 Connect Customer Global Resiliency (ACGR) gives you a single view of your overall resiliency readiness status on the **Global Resiliency** page in the admin website. For example, you can confirm your instance is ready before a Region switch, so you can spot and resolve synchronization or configuration issues ahead of time.
 

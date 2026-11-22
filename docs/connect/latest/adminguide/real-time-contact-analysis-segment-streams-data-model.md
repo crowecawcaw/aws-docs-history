@@ -1,7 +1,6 @@
 
 
 # Data model for conversational analytics segment streams to analyze voice contacts in conversational analytics
-<a name="real-time-contact-analysis-segment-streams-data-model"></a>
 
 Real-time contact analysis segment streams are generated in JSON. Event JSON blobs are published to the associated stream for every contact that has real-time conversational analytics enabled. The following types of events can be published for a conversational analytics session for a voice contact:
 + STARTED events—Each conversational analytics session publishes one STARTED event at the beginning of the session.

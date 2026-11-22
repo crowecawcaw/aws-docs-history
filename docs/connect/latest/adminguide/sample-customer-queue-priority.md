@@ -1,7 +1,6 @@
 
 
 # Sample customer queue priority flow in Connect Customer
-<a name="sample-customer-queue-priority"></a>
 
 **Note**  
 This sample flow is available in previous Connect Customer instances. In new instances, you can see this functionality in [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md). 

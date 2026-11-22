@@ -1,7 +1,6 @@
 
 
 # Delete quick connects in the Connect Customer admin website
-<a name="quick-connects-delete"></a>
 
 There are two ways you can delete a quick connect:
 + Use the Connect Customer admin website. This topic provides instructions.

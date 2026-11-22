@@ -1,7 +1,6 @@
 
 
 # Access the performance dashboard directly in the agent workspace
-<a name="performance-dashboard-aw"></a>
 
 You can enable users to view queue and agent performance metrics through the agent workspace. Agents can view their own metrics for the queues and contacts they work on. For example: 
 + **Current agent performance**: [Agent duration](metrics-definitions.md#duration-real-time), [Capacity](metrics-definitions.md#capacity-real-time), [Availability](metrics-definitions.md#availability-real-time), [Active](metrics-definitions.md#active-slots).

@@ -1,7 +1,6 @@
 
 
 # Assign permissions to view dashboards and reports in Connect Customer
-<a name="dashboard-required-permissions"></a>
 
 The following security profile permissions control access to dashboards and reports in Connect Customer. These permissions are in the **Analytics and Optimization** section of the **Security profiles** page.
 

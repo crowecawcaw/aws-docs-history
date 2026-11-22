@@ -1,7 +1,6 @@
 
 
 # How Connect Customer email works
-<a name="email-capabilities"></a>
 
 Connect Customer Email provides built-in capabilities that make it easy for you to prioritize, assign, and automate the resolution of customer service emails, improving customer satisfaction and agent productivity. You can receive and respond to emails sent by customers to your [configured email addresses](create-email-address1.md), or submitted by using web forms on your website or mobile app by using the [StartEmailContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartEmailContact.html) API. 
 

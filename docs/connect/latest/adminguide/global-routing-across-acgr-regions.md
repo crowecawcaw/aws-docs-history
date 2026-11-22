@@ -1,7 +1,6 @@
 
 
 # Global routing across ACGR Regions
-<a name="global-routing-across-acgr-regions"></a>
 
 **Important**  
 Global routing is enabled for new ACGR instances created on or after September 1, 2026, by default. To enable global routing for existing ACGR instances, please reach out to [AWS Support](https://console.aws.amazon.com/support/home).
@@ -40,7 +39,7 @@ You no longer need to specify `ReplicaAlias` when creating a replica instance wi
 
 If you are using a custom CCP built with [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams), ensure that you update the `connect.core.initCCP` call to include both instance URLs (using the subdomain-based instance aliases):
 
-```
+```javascript
 connect.core.initCCP(containerDiv, {
   ccpUrl: "https://us-east-1.example.my.connect.aws/ccp-v2/",
   secondaryCCPUrl: "https://us-west-2.example.my.connect.aws/ccp-v2/",

@@ -1,7 +1,6 @@
 
 
 # Best practices for manager assist
-<a name="manager-assist-best-practices"></a>
 
 Follow these best practices to get the most accurate and useful responses.
 

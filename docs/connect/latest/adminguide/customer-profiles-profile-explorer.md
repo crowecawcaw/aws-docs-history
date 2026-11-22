@@ -1,7 +1,6 @@
 
 
 # Set up Profile Explorer in Customer Profiles
-<a name="customer-profiles-profile-explorer"></a>
 
 Profile Explorer is a dynamic, all-in-one dashboard that provides a comprehensive 360° view of your customers. It unifies fragmented customer data and allows organizations to customize data displays, track interactions, and transform customer information into actionable insights that drive business value and customer loyalty. Organizations in industries like travel and hospitality can use Profile Explorer to better understand and engage with their customers through this intuitive interface.
 + **Find customers instantly** using multiple identifiers simultaneously (email, phone, booking reference) with real-time search results.

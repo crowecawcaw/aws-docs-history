@@ -1,7 +1,6 @@
 
 
 # Agent performance evaluations dashboard
-<a name="agent-performance-evaluation-dashboard"></a>
 
 You can use the **Agent performance evaluations dashboard** to view aggregated agent performance, and get insights across agent cohorts and over time. 
 

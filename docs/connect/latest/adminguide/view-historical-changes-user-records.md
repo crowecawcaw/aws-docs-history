@@ -1,7 +1,6 @@
 
 
 # View historical changes to user records
-<a name="view-historical-changes-user-records"></a>
 
 1. Log in to the Connect Customer admin website at https://{{instance name}}.my.connect.aws/. Use an **Admin** account, or an account assigned to a security profile that has **Users and permissions - Users - View** permissions.
 

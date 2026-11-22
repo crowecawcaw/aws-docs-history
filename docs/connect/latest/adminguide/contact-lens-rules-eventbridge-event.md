@@ -1,7 +1,6 @@
 
 
 # Create a rule that generates an EventBridge event
-<a name="contact-lens-rules-eventbridge-event"></a>
 
 In real-time or post-call/chat, you can get events and use them to trigger subsequent notifications or alerts, or aggregate reports outside of Connect Customer. There's a lot you can do with this data. For example: 
 + Get real-time alerts in a QuickSight dashboard.
@@ -52,7 +51,7 @@ The following image shows these settings in the Event pattern section of the new
 
 Following is an example of what the EventBridge payload looks like when **Contact Lens Post Call Rules Matched**. 
 
-```
+```JSON
 {
  "version": "0", // set by EventBridge
  "id": "aaaaaaaa-bbbb-cccc-dddd-bf3703467718", // set by EventBridge
@@ -76,7 +75,7 @@ Following is an example of what the EventBridge payload looks like when **Contac
 
 Following is an example of what the payload looks like when **Contact Lens Realtime Rules Matched**. 
 
-```
+```JSON
 {
  "version": "0", // set by EventBridge
  "id": "aaaaaaaa-bbbb-cccc-dddd-bf3703467718", // set by EventBridge

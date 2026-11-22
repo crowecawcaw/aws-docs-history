@@ -1,7 +1,6 @@
 
 
 # Default security profiles in Connect Customer
-<a name="default-security-profiles"></a>
 
 Connect Customer includes default security profiles for general roles. You can review the permissions granted by these profiles and use them if they align with the permissions that your users need. Otherwise, create a security profile that grants your users only the permissions they need.
 

@@ -1,7 +1,6 @@
 
 
 # Journey flow block definitions
-<a name="journey-flow-block-definitions"></a>
 
 Use flow blocks to design customer journeys in the Connect Customer Flow Designer. Drag blocks onto the canvas and connect them to define how each journey progresses. The following table lists all available flow blocks that you can use. Choose any block name in the Block column for more information. 
 

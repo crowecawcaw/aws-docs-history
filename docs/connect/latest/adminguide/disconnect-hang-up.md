@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Disconnect / hang up
-<a name="disconnect-hang-up"></a>
 
 This topic defines the flow block for disconnecting a contact at the end of a call.
 

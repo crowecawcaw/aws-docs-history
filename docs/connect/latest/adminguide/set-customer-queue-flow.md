@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set customer queue flow
-<a name="set-customer-queue-flow"></a>
 
 This topic defines the flow block for specifying the flow to invoke when a customer is transferred to a queue.
 

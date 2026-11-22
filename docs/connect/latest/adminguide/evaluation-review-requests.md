@@ -1,7 +1,6 @@
 
 
 # Request reviews of (appeal) performance evaluations in Connect Customer
-<a name="evaluation-review-requests"></a>
 
 When an agent performance evaluation is submitted, you can automatically notify the agent to review their evaluation. For example, you can set up a [rule to send an email](contact-lens-rules-email.md) to the agent when an evaluation is available. After they have reviewed an evaluation, they can [acknowledge](acknowledge-evaluations.md) the evaluation. If they disagree with the feedback within an evaluation, they can request a review of (appeal) performance evaluations. When a review is requested, designated managers are automatically notified through email. They can then revise the evaluation or add additional notes that justify the original evaluation, before completing the review. Upon completion, the user who had requested the review and the agent evaluated is notified through email.
 

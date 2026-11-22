@@ -1,7 +1,6 @@
 
 
 # Quotas and limitations for agent-to-agent collaboration
-<a name="a2a-quotas"></a>
 
 This page lists the requirements, service quotas, and design constraints for agent-to-agent collaboration in Connect Customer.
 

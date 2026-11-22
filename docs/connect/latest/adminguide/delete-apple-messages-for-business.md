@@ -1,7 +1,6 @@
 
 
 # Delete an Apple Messages for Business integration with Connect Customer
-<a name="delete-apple-messages-for-business"></a>
 
 1. Open an [Support ticket](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service&serviceCode=customer-account&categoryCode=activation). 
 
@@ -9,7 +8,7 @@
 
 1. In the **Use case description** box, copy and paste the following template to indicate this is an **delete** request: 
 
-   ```
+   ```json
    Subject: Delete Apple Messages for Business Integration
    Body:
      Apple Messages for Business Account ID (required): {{enter your account ID}}   

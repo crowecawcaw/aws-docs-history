@@ -1,7 +1,6 @@
 
 
 # Accept incoming emails
-<a name="accept-emails"></a>
 
 This topic explains how agents use the Contact Control Panel (CCP) to handle email contacts. Agents can accept incoming emails, review email content and threads, compose responses, and manage email contacts throughout their lifecycle.
 

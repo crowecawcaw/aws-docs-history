@@ -1,7 +1,6 @@
 
 
 # Case layouts for developers using Connect Customer Cases APIs
-<a name="case-layouts"></a>
 
 This topic is intended for developers who are using the Connect Customer Cases APIs.
 

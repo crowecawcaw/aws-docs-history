@@ -1,7 +1,6 @@
 
 
 # Data type definitions for the Connect Customer data lake
-<a name="data-type-definitions"></a>
 
 This topic details the content in the Connect Customer data lake tables. Each table lists the column, type, and description of the content in the table.
 

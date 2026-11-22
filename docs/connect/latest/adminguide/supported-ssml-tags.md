@@ -1,7 +1,6 @@
 
 
 # SSML tags supported by Connect Customer
-<a name="supported-ssml-tags"></a>
 
 Connect Customer supports the following SSML tags. 
 

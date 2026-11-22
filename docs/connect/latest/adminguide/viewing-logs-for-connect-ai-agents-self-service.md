@@ -1,7 +1,6 @@
 
 
 # Logging and tracing for AI agents
-<a name="viewing-logs-for-connect-ai-agents-self-service"></a>
 
 To troubleshoot AI agent issues effectively, use the following logging and tracing options.
 + **ListSpans API (recommended for orchestrator AI agents)**: Use the [ListSpans](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_ListSpans.html) API to retrieve AI agent execution traces for a session. This is the recommended starting point for debugging orchestrator AI agent interactions, as it provides granular visibility into agent orchestration flows, LLM interactions, and tool invocations, allowing you to trace how the AI agent reasoned through a request and which tools it selected and executed.
@@ -9,7 +8,7 @@ To troubleshoot AI agent issues effectively, use the following logging and traci
 
   Legacy self-service interactions generate log entries with the event type `TRANSCRIPT_SELF_SERVICE_MESSAGE` in the following format:
 
-  ```
+  ```json
   {
       "assistant_id": "{UUID}",
       "event_timestamp": 1751414298692,
@@ -27,7 +26,7 @@ To troubleshoot AI agent issues effectively, use the following logging and traci
 
   Agentic self-service interactions generate log entries with the event type `TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION`. These entries include the full orchestration context such as the prompt with tool configurations, conversation history with tool calls and results, the model completion, and the AI agent configuration. The following example shows the key fields:
 
-  ```
+  ```json
   {
       "assistant_id": "{UUID}",
       "event_timestamp": 1772748470993,

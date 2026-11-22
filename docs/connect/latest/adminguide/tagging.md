@@ -1,7 +1,6 @@
 
 
 # Add tags to resources in Connect Customer
-<a name="tagging"></a>
 
 A *tag* is a custom metadata label that you can add to a resource in order to make it easier to identify, organize, and find in a search. Tags are comprised of two individual parts: A tag key and a tag value. This is referred to as a *key:value* pair.
 

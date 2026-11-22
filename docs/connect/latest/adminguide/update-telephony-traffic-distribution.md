@@ -1,7 +1,6 @@
 
 
 # Update telephony traffic distribution across Connect Customer instances and AWS Regions
-<a name="update-telephony-traffic-distribution"></a>
 
 You use the [UpdateTrafficDistribution](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html) API to distribute telephony traffic and [shift agents](update-agents-across-regions.md) across Regions.
 

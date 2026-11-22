@@ -1,7 +1,6 @@
 
 
 # Custom action
-<a name="journey-flow-block-custom-action"></a>
 
 ## Description
 <a name="journey-flow-block-custom-action-description"></a>

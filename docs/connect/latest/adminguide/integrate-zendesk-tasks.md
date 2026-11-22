@@ -1,7 +1,6 @@
 
 
 # Set up application integration for Zendesk using Amazon EventBridge
-<a name="integrate-zendesk-tasks"></a>
 
 ## Step 1: Enable the events connector for Amazon EventBridge
 <a name="enable-zendesk-in-eventbridge"></a>

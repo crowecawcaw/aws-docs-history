@@ -1,7 +1,6 @@
 
 
 # Coaching data in the Connect Customer data lake
-<a name="data-lake-coaching-data"></a>
 
 The following table contains coaching data.
 

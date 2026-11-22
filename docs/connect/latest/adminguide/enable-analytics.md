@@ -1,7 +1,6 @@
 
 
 # Enable conversational analytics in Connect Customer conversational analytics
-<a name="enable-analytics"></a>
 
 You can enable conversational analytics in a few steps:
 
@@ -35,12 +34,12 @@ For new flows, the [Set recording, analytics and processing behavior](set-record
 
 ## Important things to know
 <a name="important-set-behaviorblock"></a>
-+ **Multiple analytics flow blocks**: If your flow has multiple analytics configuration flow blocks, real-time analytics for automated interactions and agent interactions use the configuration in the first analytics configuration block executed in the flow. If you configure post-call agent analytics, it will use the configuration in the last analytics configuration block executed in the flow.
++ **Multiple analytics flow blocks**: If your flow has multiple analytics configuration flow blocks, real-time analytics (such as transcription language, sentiment analysis, and summary) uses the configuration from the first analytics configuration block executed in the flow, and post-call analytics (such as transcript and recording redaction) uses the configuration from the last analytics configuration block executed in the flow. If you configure only post-call agent analytics, it uses the configuration from the last analytics configuration block executed in the flow.
 **Important**  
-Starting October 2026, automated interaction conversational analytics is transitioning from post-contact to real-time in Connect Customer instances. If you have multiple analytics configuration flow blocks, the automated interaction analytics configuration will transition from the last to the first analytics configuration flow block. Customer Basic instances will continue to have post-contact analytics for automated interactions that use the last analytics configuration flow block.
+Customer Basic instances support only post-contact analytics for automated interactions, so the automated interaction configuration is always from the last executed analytics configuration flow block.
 + **Collect data after transferring a contact**: If you want to continue using conversational analytics to collect data after transferring a contact to another agent or queue, you need to add another [Set recording and analytics behavior](set-recording-behavior.md) block with **Enable analytics** enabled for the flow. This is because a transfer generates a second contact ID and contact record. Conversational analytics needs to run on that contact record as well.
 **Note**  
-For [queue-to-queue transfers](queue-to-queue-transfer.md) the configuration information for conversational analytics is copied to the transferred contact.
+For [queue-to-queue transfers](queue-to-queue-transfer.md), the configuration information for conversational analytics is copied to the transferred contact.
 + When you choose a language that is supported by sentiment analysis, AND select **Enable conversational analytics speech analytics**, **Enable chat analytics**, or **Enable email analytics** in the [Set recording and analytics behavior](set-recording-behavior.md) block, sentiment analysis is enabled by default. You can choose to [disable sentiment analysis](#disable-sentiment-analysis-voice-and-chat). 
 + Where you place the [Set recording and analytics behavior](set-recording-behavior.md) block in a flow affects the agent's experience with key highlights. For more information, see [Design a flow for key highlights](#call-summarization-agent).
 
@@ -225,7 +224,7 @@ You can set these attributes in the following ways:
 ![The set contact attributes block, the use text option, the value is case sensitive.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-contact-attributes-enable-redaction2.png)
 + [Use a Lambda function](attribs-with-lambda.md). This is similar to how you set up user-defined contact attributes. An AWS Lambda function can return the result as a key-value pair, depending on the language of the Lambda response. The following example shows a Lambda response in JSON: 
 
-  ```
+  ```json
   {
      'redaction_option': 'RedactedOnly',
      'language': 'en-US'

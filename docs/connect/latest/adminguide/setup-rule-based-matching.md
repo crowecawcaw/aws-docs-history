@@ -1,7 +1,6 @@
 
 
 # Set up rule-based matching for Identity Resolution in Connect Customer
-<a name="setup-rule-based-matching"></a>
 
 
 

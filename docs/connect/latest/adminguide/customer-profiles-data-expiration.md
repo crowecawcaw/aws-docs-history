@@ -1,7 +1,6 @@
 
 
 # Connect Customer Customer Profiles data expiration
-<a name="customer-profiles-data-expiration"></a>
 
 If a profile has not been updated within a specified amount of time, it will expire. This will cause the profile to be cleaned up, and removed from the Customer Profiles domain.
 

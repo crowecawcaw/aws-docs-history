@@ -1,7 +1,6 @@
 
 
 # Intraday forecast performance dashboard
-<a name="intraday-forecast-performance-dashboard"></a>
 
 The Intraday forecast performance dashboard provides forecasts for:
 + [Contact volume](metrics-definitions.md#contact-volume) and [Average handle time](metrics-definitions.md#average-handle-time) for queues that have a minimum of 2000 unique contacts per week per queue-channel for the last 5 weeks. This is evaluated every day for the trailing time period. 

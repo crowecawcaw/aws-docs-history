@@ -1,7 +1,6 @@
 
 
 # Use Identity Resolution to consolidate similar profiles in Connect Customer
-<a name="use-identity-resolution"></a>
 
 A *similar profile* is when two or more profiles are determined to be for the same contact. There can be multiple profiles when customer records are captured across multiple channels and applications for the same customer, and do not share a common unique identifier.
 

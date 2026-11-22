@@ -1,7 +1,6 @@
 
 
 # About contact states in Connect Customer
-<a name="about-contact-states"></a>
 
 Contact states are events that appear in the lifecycle of a contact. You can locate them in two places: the real-time metrics reports and the agent event stream.
 
@@ -22,7 +21,7 @@ There are different events that can appear in the lifecycle of a contact. Each o
 
 Here's what the contact state looks like in the agent event stream:
 
-```
+```json
  "Contacts": [
   {
     "Channel": "VOICE",  //This shows the agent and contact were talking on the phone. 

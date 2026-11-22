@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set logging behavior
-<a name="set-logging-behavior"></a>
 
 This topic defines the flow block for enabling flow logs to track events as contacts interact with flows.
 

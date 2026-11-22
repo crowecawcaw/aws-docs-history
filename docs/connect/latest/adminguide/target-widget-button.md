@@ -1,7 +1,6 @@
 
 
 # Target your Connect Customer widget button and frame with CSS/JavaScript
-<a name="target-widget-button"></a>
 
 The communication widget renders the open/close widget button and the widget frame directly on the host website. There are specific selectors that you can use to either target these elements using CSS or reference them in JavaScript. 
 

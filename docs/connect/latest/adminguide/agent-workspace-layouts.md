@@ -1,7 +1,6 @@
 
 
 # Choose a layout for the agent workspace
-<a name="agent-workspace-layouts"></a>
 
 A layout controls how components and applications are arranged on the agent workspace. Amazon Connect Customer provides two layouts: Classic, which matches the original layout of the agent workspace, and Modern, which optimizes screen space for different channels.
 

@@ -1,7 +1,6 @@
 
 
 # Accessibility compliance
-<a name="accessibility-compliance"></a>
 
 We strive to provide an accessible user interface for Connect Customer. See the accessibility compliance reports (ACR) that are regularly published in [AWS Artifact](https://aws.amazon.com/artifact/). For more information, see [Getting started with AWS Artifact](https://docs.aws.amazon.com/artifact/latest/ug/getting-started.html) 
 

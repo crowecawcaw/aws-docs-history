@@ -1,7 +1,6 @@
 
 
 # Add users to Connect Customer
-<a name="user-management"></a>
 
 When you add users to Connect Customer, you can configure them with information appropriate to their roles. For example, you specify their [security profile](connect-security-profiles.md), which indicates the tasks they can perform in Connect Customer admin website. For agents you specify their [routing profile](routing-profiles.md), which indicates the contacts that can be routed to them.
 

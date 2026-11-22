@@ -1,7 +1,6 @@
 
 
 # The chat/SMS channel in Connect Customer
-<a name="web-and-mobile-chat"></a>
 
 **Important**  
 **Trying to contact Amazon for support?** See [Amazon Customer Service](https://www.amazon.com/gp/help/customer/display.html?icmpid=docs_connect_messagingcap_customerservice) (Amazon orders and deliveries) or [AWS Support](https://aws.amazon.com/premiumsupport/?icmpid=docs_connect_messagingcap_premiumsupport) (Amazon Web Services).

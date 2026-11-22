@@ -1,7 +1,6 @@
 
 
 # Get started with Connect Customer Global Resiliency
-<a name="get-started-connect-global-resiliency"></a>
 
 **Important**  
 Connect Customer instances created before March 31, 2021, were assigned a domain with the following format:  

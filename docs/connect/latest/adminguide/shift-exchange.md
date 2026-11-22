@@ -1,7 +1,6 @@
 
 
 # Set up shift exchange in Connect Customer
-<a name="shift-exchange"></a>
 
 You can set up Connect Customer to allow agents to exchange shifts with each other. Agents can initiate shift trades directly from their agent calendar. They don't need to send emails their manager. This self-service functionality enables agents to manage unexpected life events and achieve better work-life balance.
 

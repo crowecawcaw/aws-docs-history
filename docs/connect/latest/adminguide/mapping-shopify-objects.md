@@ -1,7 +1,6 @@
 
 
 # Mapping Shopify objects to the standard profile object in Connect Customer Customer Profiles
-<a name="mapping-shopify-objects"></a>
 
 This topic lists which fields in Shopify objects map to fields in the standard profile object in Connect Customer Customer Profiles.
 

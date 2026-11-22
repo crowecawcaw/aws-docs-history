@@ -1,7 +1,6 @@
 
 
 # Flow modules for reusable functions in Connect Customer
-<a name="contact-flow-modules"></a>
 
 Flow modules are reusable sections of a flow. You can create them to extract repeatable logic across your flows, and create common functions. For example:
 

@@ -1,7 +1,6 @@
 
 
 # Reliability in Connect Customer
-<a name="reliability-bp"></a>
 
 Reliability includes the ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues. As resiliency is handled as part of the service, there are no reliability practices unique to Connect Customer beyond of what is covered in [Operational excellence in Connect Customer workloads](operational-excellence.md). You can ﬁnd prescriptive guidance on implementation in the [Reliability Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Reliability-Pillar.pdf) whitepaper.
 

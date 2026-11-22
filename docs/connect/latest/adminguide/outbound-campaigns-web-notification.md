@@ -1,7 +1,6 @@
 
 
 # Send web notifications with Connect Customer outbound campaigns
-<a name="outbound-campaigns-web-notification"></a>
 
 You can use Connect Customer outbound campaigns to deliver personalized notifications to website visitors through the Communications widget. Notifications are triggered by visitor activity that the web data tracker captures into Customer Profiles, such as scrolling past a portion of the page, viewing a product for an extended time, or adding an item to a cart. For an overview of how the web data tracker and web notification work together, see [Web data tracker and web notification](customer-profiles-web-tracker-and-notification.md).
 
@@ -107,7 +106,7 @@ Web notifications are delivered through outbound campaigns. Create a campaign th
 
 After embedding the Communications widget snippet on your website, initialize web notifications by calling `Notification.init()` in your page JavaScript. Call this method only after the visitor has granted appropriate consent for personalized messaging.
 
-```
+```javascript
 await window.amazon_connect.Web.Notification.init();
 ```
 

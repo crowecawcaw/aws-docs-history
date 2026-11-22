@@ -1,7 +1,6 @@
 
 
 # Bot analytics data in the Connect Customer analytics data lake
-<a name="data-lake-botdata"></a>
 
 This topic details the content in the Connect Customer data lake bot tables. The tables list the column, type, and description of the content.
 

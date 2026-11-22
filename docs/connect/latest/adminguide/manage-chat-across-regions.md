@@ -1,7 +1,6 @@
 
 
 # Manage chat in your Connect Customer instance across Regions
-<a name="manage-chat-across-regions"></a>
 
 You manage chat across AWS Regions by creating two custom chat interfaces or two out-of-the-box communication widgets: one in the source Region and another in the replica Region. You manually switch between them depending on which Region's chat interface or out-of-the-box communication widget you want to use.
 + Custom chat interfaces: Configure the chat interface in the replica Region to use the API endpoint of the replica Region. For examples of custom interfaces, see the [Connect Customer open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master) on GitHub. For more information, see [Customize chat with the Connect Customer open source example](download-chat-example.md). 

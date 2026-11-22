@@ -1,7 +1,6 @@
 
 
 # How long does it take to port phone numbers to Connect Customer?
-<a name="how-long-for-number-porting"></a>
 
 **Important**  
 Porting requests for USA DID and toll-free numbers cannot be submitted more than 30 days in advance of porting date.  

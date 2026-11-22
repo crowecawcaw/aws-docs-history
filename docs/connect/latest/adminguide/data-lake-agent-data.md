@@ -1,7 +1,6 @@
 
 
 # Agent data in the Connect Customer data lake
-<a name="data-lake-agent-data"></a>
 
 The following tables contain agent data.
 

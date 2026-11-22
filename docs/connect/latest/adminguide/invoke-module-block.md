@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Invoke a published module
-<a name="invoke-module-block"></a>
 
 This topic defines the flow block for calling a published module to create reusable sections in a flow.
 

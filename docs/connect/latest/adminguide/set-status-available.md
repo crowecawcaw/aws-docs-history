@@ -1,7 +1,6 @@
 
 
 # Set your status to "Available" in the Contact Control Panel (CCP)
-<a name="set-status-available"></a>
 
 As a call center agent, set an **Available** status when you're ready to handle contacts.
 

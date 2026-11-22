@@ -1,7 +1,6 @@
 
 
 # Iframe permissions for third-party applications
-<a name="3p-apps-iframe-permissions"></a>
 
 When you configure third-party applications, you can specify `iframe` permission settings. You can change these permissions after creating the application.
 
@@ -35,7 +34,7 @@ Configure iframe permissions with a template similar to the following.
 
 For example, to grant clipboard permissions:
 
-```
+```json
 {
     "IframeConfig": {
         "Allow": [
@@ -59,7 +58,7 @@ For example, to grant clipboard permissions:
   + allow-same-origin
   + allow-scripts
 
-  ```
+  ```json
   {
       "IframeConfig": {
           "Allow": [],
@@ -69,7 +68,7 @@ For example, to grant clipboard permissions:
   ```
 + To explicitly configure an application with no permissions, you must set empty arrays for both `Allow` and `Sandbox`:
 
-  ```
+  ```json
   {
       "IframeConfig": {
           "Allow": [],

@@ -1,7 +1,6 @@
 
 
 # Loop
-<a name="journey-flow-block-loop"></a>
 
 ## Description
 <a name="journey-flow-block-loop-description"></a>

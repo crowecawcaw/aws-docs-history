@@ -1,7 +1,6 @@
 
 
 # Observability for collaborating AI agents
-<a name="a2a-observability"></a>
 
 When an AI agent collaborates with other agents during a contact, Connect Customer collects trace data from every collaboration. This trace data provides visibility into what each collaborator did during the contact, including the messages exchanged, tools invoked, and time spent on each step. How the trace data reaches Connect Customer depends on the collaborator type:
 + **Connect AI agent collaborators.** For AI agents in your Connect Customer instance, Connect Customer publishes traces automatically. You see a trace for each AI agent that is active in the collaboration. For more information, see [AI agent traces](ai-agent-traces.md).

@@ -1,7 +1,6 @@
 
 
 # Configure agent settings in Connect Customer
-<a name="configure-agents"></a>
 
 Before you configure your agent settings, here is some info to have on hand. Of course, you can always change this information later. 
 + What is their routing profile? They can only be assigned one. 

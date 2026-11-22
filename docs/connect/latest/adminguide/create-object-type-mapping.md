@@ -1,7 +1,6 @@
 
 
 # Create an object type mapping in Connect Customer Customer Profiles
-<a name="create-object-type-mapping"></a>
 
 An object type mapping tells Customer Profiles how to ingest a specific type of data from a source application—such as Salesforce, Zendesk, or Amazon S3—into a unified standard profile object. You can then display that data (for example, customer address and email) to your agents using the [Connect Customer agent workspace](customer-profile-access.md).
 

@@ -1,7 +1,6 @@
 
 
 # Reference for standard objects in Customer Profiles
-<a name="standard-objects"></a>
 
 Connect Customer Customer Profiles defines a set of **standard objects** that represent common business entities—profiles, orders, cases, loyalty records, travel records, and others. Each standard object is a structured record with a fixed schema that downstream applications (such as the Connect Customer agent workspace) can read without knowing the original format of your data.
 

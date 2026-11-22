@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Transfer to queue
-<a name="transfer-to-queue"></a>
 
 This topic defines the flow block for transferring a current contact to the destination queue.
 
@@ -81,7 +80,7 @@ Use this configuration tab to transfer the contact to a queue. There are two pos
 
   The following code sample shows how this same configuration would be represented by the [TransferContactToQueue ](https://docs.aws.amazon.com/connect/latest/APIReference/contact-actions-transfercontacttoqueue.html) action in the Flow language:
 
-  ```
+  ```json
   {
            "Parameters": {},
            "Identifier": "a12c905c-84dd-45c1-8f53-4287d1752d59",
@@ -110,7 +109,7 @@ Use this configuration tab to transfer the contact to a queue. There are two pos
 
   The following code sample shows how this same configuration would be represented by the [DequeueContactAndTransferToQueue](https://docs.aws.amazon.com/connect/latest/APIReference/contact-actions-dequeuecontactandtransfertoqueue.html) action in the Flow language:
 
-  ```
+  ```json
   {
            "Parameters": {
                "QueueId": "arn:aws:connect:us-west-2:1111111111:instance/aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/queue/abcdef-abcd-abcd-abcd-abcdefghijkl"
@@ -161,7 +160,7 @@ If you want to specify the **Set working queue** property, you need to add a **S
 
   The callback creation flow that you select must meet the following requirements: 
   + The flow type must be the default flow type, **Contact flow (inbound)**. For information about flow types, see [Choose a flow type](create-contact-flow.md#contact-flow-types). 
-  + You need to configure a [Transfer to queue](#transfer-to-queue) block to queue the contact in the queue of your choice.
+  + You need to configure a [Transfer to queue](transfer-to-queue.md) block to queue the contact in the queue of your choice.
 
   Following are additional options for how you can configure your callback creation flow: 
   + You can evaluate contact attributes (including customer profiles) by using a [Check contact attributes](check-contact-attributes.md) block to see if the callback should be terminated because it is a duplicate or the customer issue has already been resolved.

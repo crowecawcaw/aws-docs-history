@@ -1,7 +1,6 @@
 
 
 # User roles and permissions
-<a name="acxd-roles-permissions"></a>
 
 Access in agentic CX designer is managed through Amazon Connect Customer and controlled at the workspace level.
 

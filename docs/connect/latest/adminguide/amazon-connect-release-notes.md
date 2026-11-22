@@ -1,12 +1,25 @@
 
 
 # Release notes for Connect Customer
-<a name="amazon-connect-release-notes"></a>
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox. Choose the **RSS** link (under the topic title **Release notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
 ## November 2026 Updates
 <a name="nov26-release-notes"></a>
+
+### Amazon Connect Customer analytics dashboards now show agent status metrics
+<a name="nov26-agent-status-metrics"></a>
+
+Managers can see how much time agents spend in Available, Offline, and custom non-productive statuses such as Break, Lunch, and Training. You can use these metrics to understand how agents divide their time, spot trends in auxiliary status usage, and make better staffing and scheduling decisions. For example, a contact center manager notices longer wait times every afternoon. In the dashboard, they see that time in Break and Training statuses goes up during those hours. They move training sessions to off-peak periods, which frees up more agents during peak demand.
+
+For more information, see [Agent status time](metrics-definitions.md#agent-status-time).
+
+### Resolutions for operational work
+<a name="nov26-resolutions"></a>
+
+With Resolutions, you can handle high-volume operational work such as refund requests, dispute resolution, fraud investigations, insurance claims, and loan applications. Resolutions turns your standard operating procedures (SOPs) into structured Work plans. AI agents run each Work plan from intake through verified resolution, while specialists in your organization step in for approvals and exceptions.
+
+To learn more and get started, see [Resolutions](https://docs.aws.amazon.com/connect/latest/adminguide/resolutions.html).
 
 ### Amazon Connect Customer agent assist now supports interactive responses
 <a name="nov26-agent-assist-interactive-responses"></a>
@@ -2622,7 +2635,7 @@ You can pause and resume all tasks that aren't expired, disconnected, or schedul
 
  you can create rules to automatically create a task, update a case, or send email alerts to a manager whenever a case is created or updated. In addition, you can create rules using Connect Customer conversational analytics to automatically create a case for post-conversation follow-up, such as when negative customer sentiment or specific key words are detected in a conversation.
 
-For more information, see [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md), [Allow Connect Customer Cases to send updates to conversational analytics rules](cases-rules-integration-onboarding.md), [Create a rule in conversational analytics that creates a case](contact-lens-rules-create-case.md), [Create a rule in conversational analytics that ends associated tasks from a case](contact-lens-rules-ends-tasks.md), and [Create a rule in conversational analytics that updates a case](contact-lens-rules-update-case.md).
+For more information, see [Automatically monitor and update cases in Connect Customer Cases](create-alerts-on-cases.md), [Allow Connect Customer Cases to send updates to conversational analytics rules using the CLI](cases-rules-integration-onboarding.md), [Create a rule in conversational analytics that creates a case](contact-lens-rules-create-case.md), [Create a rule in conversational analytics that ends associated tasks from a case](contact-lens-rules-ends-tasks.md), and [Create a rule in conversational analytics that updates a case](contact-lens-rules-update-case.md).
 
 #### Get a more granular view of your Connect Customer bill and usage
 <a name="granularbilling-dec23"></a>
@@ -3973,7 +3986,7 @@ At the same time, the `AgentStatus` field continues to display `Available`.
 
 The following code snippet shows what the agent event stream looks like when an agent has set their CCP to **Next status: Lunch**. 
 
-```
+```json
 "CurrentAgentSnapshot": 
 {
     "AgentStatus": {
@@ -3991,7 +4004,7 @@ The following code snippet shows what the agent event stream looks like when an 
 
 When an agent has not selected a **Next status**, the field is `null`, as shown in the following snippet:
 
-```
+```json
 "CurrentAgentSnapshot": {
     "AgentStatus": {
             "ARN": "example-ARN",

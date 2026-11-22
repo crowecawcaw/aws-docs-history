@@ -1,7 +1,6 @@
 
 
 # Default customer queue flow in Connect Customer: queue message and music
-<a name="default-customer-queue"></a>
 
 This default flow is run when a customer is placed in a queue. 
 

@@ -1,7 +1,6 @@
 
 
 # Integrate a published dashboard into the agent workspace
-<a name="integrate-published-dashboard"></a>
 
 You can create a customized dashboard, and then surface it in the agent workspace. You might want to do this if you don't want agents to have access to all the widgets or metrics on the default **Agent workspace performance dashboard**.
 

@@ -1,7 +1,6 @@
 
 
 # Optimize Connect Customer audio for Azure Virtual Desktop and Windows 365
-<a name="using-ccp-vdi-azure-step-by-step"></a>
 
 Connect Customer delivers high-quality voice experiences for agents who use Azure Virtual Desktop (AVD) or Windows 365 Cloud PC. With Microsoft Multimedia Redirection (MMR), agents offload audio processing to their local device and redirect audio directly to Connect Customer, improving audio quality over challenging networks.
 

@@ -1,7 +1,6 @@
 
 
 # What is a customer profile in Connect Customer?
-<a name="customer-profiles-what-data"></a>
 
 A *customer profile* is a record that stores contact history combined with information about customers, such as account number, additional information, birth date, email, multiple addresses, name, and party type. An *account-based profile* is expected to have underlying sub-profiles.
 

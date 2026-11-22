@@ -1,7 +1,6 @@
 
 
 # Understanding IPv6 support in Connect Customer Customer Profiles
-<a name="customerprofiles-ipv6-support"></a>
 
 ## Public Connectivity
 <a name="public-connectivity"></a>
@@ -20,7 +19,7 @@ profile.us-east-1.api.aws
 
 For AWS CLI, you'll need to use these endpoints explicitly:
 
-```
+```bash
 aws customer-profiles list-domains \
     --endpoint https://profile.us-east-1.api.aws \
     --region us-east-1

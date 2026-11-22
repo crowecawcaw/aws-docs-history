@@ -1,7 +1,6 @@
 
 
 # Set up chat timeouts for chat participants
-<a name="setup-chat-timeouts"></a>
 
 When a chat conversation between an agent and a customer has been inactive (no messages sent) for a certain amount of time, you might want to consider a chat participant to be idle. You might even want to automatically disconnect an agent from the chat.
 

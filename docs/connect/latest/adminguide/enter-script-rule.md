@@ -1,7 +1,6 @@
 
 
 # Enter a script in a conversational analytics rule for agents to follow
-<a name="enter-script-rule"></a>
 
 Enter a script in a conversational analytics rule when you need agents to use exact wording in customer calls. 
 

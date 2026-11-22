@@ -1,7 +1,6 @@
 
 
 # Create a time off request in Connect Customer
-<a name="create-time-off-to"></a>
 
 Time off requests can be created by supervisors, managers, or agents in the published schedule. Once created, time off requests are visible in both published and draft schedules. Edits to time off requests can only be done in published schedules.
 

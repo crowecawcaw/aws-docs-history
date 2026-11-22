@@ -1,7 +1,6 @@
 
 
 # Pass custom properties to override the defaults in the communications widget in Connect Customer
-<a name="pass-custom-styles"></a>
 
 To further customize your chat user interface, you can override the default properties by passing your own values. For example, you can set the widget width to 400 pixels and the height to 700 pixels (in contrast to the default size of 300 pixels by 540 pixels). You can also use your preferred font colors and sizes.
 
@@ -10,7 +9,7 @@ To further customize your chat user interface, you can override the default prop
 
 To pass custom styles, use the following example code block and embed it in your widget. Connect Customer retrieves the custom styles automatically. All of the fields shown in the following example are optional.
 
-```
+```css
 amazon_connect('customStyles', {
  global: {
      frameWidth: '400px',
@@ -118,7 +117,7 @@ Following are the elements that make up the communications widget.
 
 To override the System/Bot display name and logo configurations set in the Connect Customer admin website, embed the following code block into your widget code snippet. All of the fields shown in the following example are optional.
 
-```
+```json
 amazon_connect('customDisplayNames', {
  header: {
      headerMessage: "{{Welcome!}}",

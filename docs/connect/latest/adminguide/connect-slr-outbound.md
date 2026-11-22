@@ -1,7 +1,6 @@
 
 
 # Use service-linked roles for outbound campaigns in Connect Customer
-<a name="connect-slr-outbound"></a>
 
 Connect Customer outbound campaigns uses AWS Identity and Access Management service-linked roles. When a Connect Customer instance is enabled to use outbound campaigns, it creates a unique service linked role that allows it to perform actions on the Connect Customer instance.
 

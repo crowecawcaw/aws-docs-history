@@ -1,7 +1,6 @@
 
 
 # Create a real-time metrics report for your contact center
-<a name="create-real-time-report"></a>
 
 You can create a real-time metrics report to view real-time or near-real time metrics data for activity in your contact center. You must have permission to access metric data. The **CallCenterManager** and **QualityAnalyst** security profiles include this permission. For more information, see [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md).
 

@@ -1,7 +1,6 @@
 
 
 # Enable customers to resume chat conversations in Connect Customer
-<a name="chat-persistence"></a>
 
 Customers often start a chat, then leave the conversation and return later to continue chatting. This might happen many times over the course of several days, months, or even years. To support long running chats like these, you enable persistent chat. 
 
@@ -97,7 +96,7 @@ The customer wants to continue their past chat session but they want to hide the
 
 **Request**:
 
-```
+```json
 PUT /contact/chat HTTP/1.1
 Content-type: application/json
 {
@@ -143,7 +142,7 @@ The customer wants to continue the past chat session and see the transcript of t
 
 **Request**:
 
-```
+```json
 PUT /contact/chat HTTP/1.1
 Content-type: application/json
 {

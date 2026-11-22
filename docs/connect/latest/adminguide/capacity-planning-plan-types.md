@@ -1,7 +1,6 @@
 
 
 # Capacity plan types in Connect Customer
-<a name="capacity-planning-plan-types"></a>
 
 When you create a capacity plan, you choose a **Plan type**. Your choice sets the purpose of the plan, the forecast inputs, and the output format.
 

@@ -1,7 +1,6 @@
 
 
 # How rule-based Identity Resolution works in Connect Customer
-<a name="how-rule-based-identity-resolution-works"></a>
 
 This topic describes how rule-based Identity Resolution performs automatic profile matching and how it automatically merges similar profiles.
 

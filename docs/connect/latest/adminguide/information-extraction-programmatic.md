@@ -1,7 +1,6 @@
 
 
 # Programmatic access to extracted information
-<a name="information-extraction-programmatic"></a>
 
 Extracted information can be accessed programmatically through the following channels:
 + **Amazon S3** – Contact analysis output files (after-call work and post-contact processing)
@@ -15,7 +14,7 @@ Extracted information is included in the contact analysis output written to Amaz
 
 The following is an example of the extracted information structure in the JSON output:
 
-```
+```json
 {
   "ExtractedInformation": {
     "Extractions": [

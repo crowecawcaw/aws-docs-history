@@ -1,7 +1,6 @@
 
 
 # Widgets
-<a name="widgets"></a>
 
 Explore the different widget types available in Profile Explorer.
 

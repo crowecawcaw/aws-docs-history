@@ -1,7 +1,6 @@
 
 
 # Enable users to resume chat conversations across active Regions
-<a name="resume-chat-across-regions"></a>
 
 Customers often start a chat, then leave the conversation and return later to continue chatting. When you run Connect Customer Global Resiliency (ACGR) across your linked Regions with global routing, or in a business continuity setup, you can let users resume these conversations with the context, metadata, and transcripts carried forward across Regions. Users don't need to repeat themselves when they return to a chat, regardless of which active Region serves them.
 
@@ -39,7 +38,7 @@ In addition, grant the Amazon S3 and AWS KMS permissions described in the follow
 
 Buckets in the source and replica Regions must carry the other Region's Connect Customer service-linked role. For example, the Amazon S3 bucket in US East (N. Virginia) must include the US West (Oregon) Connect Customer instance's service-linked role (SLR) ARN; similarly, the Amazon S3 bucket in US West (Oregon) Region must include the US East (N. Virginia) Connect Customer instance's service-linked role (SLR) ARN.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -78,7 +77,7 @@ To obtain the Connect Customer SLR information, navigate to the **Account Overvi
 
 The AWS Key Management Service (AWS KMS) keys in the source and replica Regions must carry the other Region's Connect Customer service-linked role (SLR) ARN. For example, the AWS KMS key in US East (N. Virginia) must include the US West (Oregon) Connect Customer instance's service-linked role (SLR) ARN; similarly, the AWS KMS key in US West (Oregon) must include the US East (N. Virginia) Connect Customer instance's SLR ARN.
 
-```
+```json
 {
     "Sid": "OptionDCrossRegionReplicaSLRDecrypt",
     "Effect": "Allow",

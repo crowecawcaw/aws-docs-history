@@ -1,7 +1,6 @@
 
 
 # Create AI agents in Connect Customer
-<a name="create-ai-agents"></a>
 
 An *AI agent* is a resource that configures and customizes the end-to-end AI agent experience. For example, the AI agent tells the AI Assistant how to handle a manual search: which AI prompts and AI guardrails it should use, and which locale to use for the response. 
 
@@ -95,7 +94,7 @@ This section provides several sample AWS CLI commands to help you create and man
 
 Use the following sample AWS CLI command to create an AI agent that uses every customized AI prompt version for answer recommendations.
 
-```
+```bash
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
@@ -117,7 +116,7 @@ aws qconnect create-ai-agent \
 
 Use the following sample AWS CLI command to create an answer recommendation AI agent that uses a customized AI prompt version and lets the system defaults handle the rest. 
 
-```
+```bash
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_answer_recommendation_ai_agent \
@@ -137,7 +136,7 @@ The manual search AI agent type only has one AI prompt version so there is no pa
 
 Use the following sample AWS CLI command to specify an AI prompt version for manual search.
 
-```
+```bash
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_manual_search_ai_agent \
@@ -161,7 +160,7 @@ aws qconnect create-ai-agent \
 
  For example, use the following AWS CLI command to create an AI agent with a customized knowledge base configuration.
 
-```
+```bash
 aws qconnect create-ai-agent \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --name example_manual_search_ai_agent \
@@ -196,7 +195,7 @@ aws qconnect create-ai-agent \
 
 Use the following sample AWS CLI command to create an AI agent version.
 
-```
+```bash
 aws qconnect create-ai-agent-version \
   --assistant-id <YOUR_CONNECT_AI_AGENT_ASSISTANT_ID> \
   --ai-agent-id <YOUR_AI_AGENT_ID>
@@ -220,7 +219,7 @@ aws qconnect create-ai-agent-version \
 
 Use the following sample AWS CLI command to set the AI agent version as the default. After the AI agent version is set, it will be used when the next Connect Customer contact and associated agent assist session are created. 
 
-```
+```bash
 aws qconnect update-assistant-ai-agent \
   --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
   --ai-agent-type MANUAL_SEARCH \
@@ -236,7 +235,7 @@ aws qconnect update-assistant-ai-agent \
 
 Use the following sample AWS CLI command to set the AI agent version for every distinct session.
 
-```
+```bash
 aws qconnect update-session \
   --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
   --session-id {{<YOUR_CONNECT_AI_AGENT_SESSION_ID>}} \
@@ -255,7 +254,7 @@ aws qconnect update-session \
 
 Use the following sample AWS CLI command to list AI agent versions and revert to the original ones.
 
-```
+```bash
 aws qconnect list-ai-agents \
   --assistant-id {{<YOUR_CONNECT_AI_AGENT_ASSISTANT_ID>}} \
   --origin SYSTEM

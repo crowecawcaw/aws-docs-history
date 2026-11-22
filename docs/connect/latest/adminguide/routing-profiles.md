@@ -1,7 +1,6 @@
 
 
 # Create a routing profile in Connect Customer to link queues to agents
-<a name="routing-profiles"></a>
 
 This topic is for administrators and contact center managers. It explains how to create routing profiles using the Connect Customer admin website. For the APIs used to create and manage routing profiles programmatically, see [APIs to create and manage routing profiles](#apis-routing-profiles). 
 

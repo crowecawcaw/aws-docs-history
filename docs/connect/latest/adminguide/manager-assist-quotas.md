@@ -1,7 +1,6 @@
 
 
 # Service quotas
-<a name="manager-assist-quotas"></a>
 
 The following quotas apply during preview. These quotas might change as the capability matures, so check this page for updates.
 

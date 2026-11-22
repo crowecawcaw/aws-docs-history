@@ -1,7 +1,6 @@
 
 
 # Set up WhatsApp Business messaging
-<a name="whatsapp-integration"></a>
 
 The topics in this section explain how to set up and test WhatsApp Business messaging for Connect Customer. You use [AWS End User Messaging Social](https://docs.aws.amazon.com/social-messaging/latest/userguide/what-is-service.html) to link a WhatsApp Business Account and phone number to a Connect Customer instance, then import the linked phone number into Connect Customer. Customers can then use WhatsApp to send messages to your call center. 
 

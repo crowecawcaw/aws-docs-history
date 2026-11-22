@@ -1,7 +1,6 @@
 
 
 # Sample Lambda integration flow in Connect Customer
-<a name="sample-lambda-integration"></a>
 
 **Note**  
 This topic explains a sample flow that is included with Connect Customer. For information about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md). 

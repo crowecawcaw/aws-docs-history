@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Wait
-<a name="wait"></a>
 
 This topic defines the flow block for pausing the flow for the specified amount of time. 
 

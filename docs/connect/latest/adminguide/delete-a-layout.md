@@ -1,7 +1,6 @@
 
 
 # Delete a layout
-<a name="delete-a-layout"></a>
 
 Remove layouts that you no longer need from the **Profile layouts** page.
 

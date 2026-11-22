@@ -1,7 +1,6 @@
 
 
 # Create alerts on real-time metrics in Connect Customer
-<a name="rule-real-time-metrics"></a>
 
 You can create rules that automatically send emails or tasks to managers based on the values of real-time metrics. With these rules, you can alert managers on contact center operations that could potentially impact the end-customer experience. For example, you can set up an alert that sends an email to a manager when one or more agents on their team have been on break for longer than 30 minutes.
 

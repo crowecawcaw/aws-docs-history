@@ -1,7 +1,6 @@
 
 
 # Configure your external voice system for integration with conversational analytics
-<a name="configure-external-voice-system"></a>
 
 After you [create a conversational analytics connector](create-contact-lens-connector.md) you need to configure your external voice system to point to the connector. Complete the following steps.
 

@@ -1,7 +1,6 @@
 
 
 # View a contact record in the Connect Customer admin website
-<a name="sample-ctr"></a>
 
 1. Do a [contact search](contact-search.md). A list of contact IDs will be returned.
 

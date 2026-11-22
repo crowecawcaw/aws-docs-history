@@ -1,7 +1,6 @@
 
 
 # Cross-service confused deputy prevention in AWS
-<a name="cross-service-confused-deputy-prevention"></a>
 
 The confused deputy problem is a security issue where an entity that doesn't have permission to perform an action can coerce a more-privileged entity to perform the action. In AWS, cross-service impersonation can result in the confused deputy problem. Cross-service impersonation can occur when one service (the *calling service*) calls another service (the *called service*). The calling service can be manipulated to use its permissions to act on another customer's resources in a way it should not otherwise have permission to access. To prevent this, AWS provides tools that help you protect your data for all services with service principals that have been given access to resources in your account. 
 
@@ -23,7 +22,7 @@ The following examples show policies that apply to cases where someone else is s
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -61,7 +60,7 @@ The following examples show policies that apply to cases where someone else is s
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -89,7 +88,7 @@ The following examples show policies that apply to cases where someone else is s
 
 **Example Connect Customer Customer Profiles policy to protect the Amazon S3 bucket used as part of the Identity Resolution process**
 
-```
+```json
 {
     "Sid": "Allow Connect Customer Customer Profiles to put S3 objects to your bucket",
     "Effect": "Allow",
@@ -119,7 +118,7 @@ The following Voice ID example shows a resource policy to apply to prevent the c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -153,7 +152,7 @@ The following Connect Customer example shows a resource policy to apply to preve
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Customize the Connect Customer agent workspace
-<a name="agent-workspace"></a>
 
 The agent workspace integrates all of the agent-facing capabilities in Connect Customer out of the box. You can access the agent workspace at `https://{{instance-name}}.my.connect.aws/agent/`.
 

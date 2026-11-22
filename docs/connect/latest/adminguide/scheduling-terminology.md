@@ -1,7 +1,6 @@
 
 
 # Key terminology for scheduling your agents in Connect Customer
-<a name="scheduling-terminology"></a>
 
 
 

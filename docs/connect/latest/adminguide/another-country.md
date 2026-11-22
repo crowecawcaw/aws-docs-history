@@ -1,7 +1,6 @@
 
 
 # Claim for Connect Customer a phone number you already own in another country
-<a name="another-country"></a>
 
 Let's say your business is located in Germany. You also have agents in Japan to serve customers who live there, and you need a Japanese phone number for that contact center. To claim a phone number that you already own in another country, use the following steps to create a support case. 
 

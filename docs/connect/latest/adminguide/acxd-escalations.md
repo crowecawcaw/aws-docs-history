@@ -1,7 +1,6 @@
 
 
 # Managing escalations
-<a name="acxd-escalations"></a>
 
 Escalations let an agentic CX designer conversation hand control back to a flow in Amazon Connect Customer when the user needs human support or the application should leave the conversational AI experience.
 
@@ -64,6 +63,8 @@ Examples of escalation context:
 + Claim number
 + Selected product or reservation
 + Reason for escalation
+
+**State modification format**
 
 To pass data, add one or more State modifications to the Escalate node in your agentic CX designer flow that set one or more context variables.
 

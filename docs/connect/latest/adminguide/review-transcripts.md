@@ -1,7 +1,6 @@
 
 
 # Review analyzed conversations using conversational analytics
-<a name="review-transcripts"></a>
 
 By using Connect Customer conversational analytics, you can review the transcript and identify what part of the contact is of interest. You won't need to listen to an entire call or read an entire chat transcript to find out what's interesting about it. You can focus on specific parts of the audio or transcript. Both are highlighted for you wherever there are points of interest. 
 

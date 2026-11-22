@@ -1,9 +1,11 @@
 
 
-# Set up Connect Customer Cases event streams
-<a name="case-event-streams-enable"></a>
+# Set up Connect Customer Cases event streams using the CLI
 
-This topic explains how to set up and use case event streams. Some of the onboarding steps require you to call [Connect Customer Cases APIs](https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html).
+This topic explains how to set up and use case event streams using the CLI. Some of the onboarding steps require you to call [Connect Customer Cases APIs](https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html).
+
+**Note**  
+This guide walks through the creation of event streams for specific case fields via CLI. For a simpler configuration experience covering all current and future case fields and related item content, see [Enable Cases integrations](enable-cases.md#configure-cases-integrations).
 
 ## Step 1: Create a Connect Customer instance and enable Customer Profiles
 <a name="step1-case-event-streams-enable"></a>
@@ -31,9 +33,12 @@ If you want to create a case template using the API, see the [CreateTemplate](ht
 ## Step 4: Enable case event streams and setup to receive events into an SQS queue
 <a name="step4-case-event-streams-enable"></a>
 
+**Note**  
+You can enable **Case event configuration** directly from the console instead of running this command. For more information, see [Enable Cases integrations](enable-cases.md#configure-cases-integrations).
+
 Run the following command to enable case event streams for your Cases domain. After this command runs, when cases are created or updated, an event is published to the default-bus of the EventBridge service in your account (it must be in the same AWS Region as your Cases domain).
 
-```
+```bash
 aws connectcases put-case-event-configuration --domain-id {{dad5efb6-8485-4a55-8241-98a88EXAMPLE}} --event-bridge enabled=true
 ```
 
@@ -42,7 +47,7 @@ By default, the events published by Connect Customer Cases only contain metadata
 **Note**  
 If you want to include a custom field in the event, use the custom field ID. For instructions about how to locate the custom field ID, see [Find the custom field ID](cases-block.md#get-case-properties-find-uuid). 
 
-```
+```json
 # You can include any other field defined in your cases domain in the fields section.
 # To list the fields that are defined in your cases domain, call the Cases ListFields API.
 # To include case fields that you create (custom fields) in the event, enter the custom field ID.
@@ -74,7 +79,7 @@ aws connectcases put-case-event-configuration --domain-id {{YOUR_CASES_DOMAIN_ID
 
 Next, create an Amazon SQS queue and set that as a target for the Connect Customer Cases events on your EventBridge bus so that all the case events are delivered to the SQS queue for later processing.
 
-```
+```json
 # Create an SQS queue
 aws sqs create-queue --queue-name case-events-queue --attributes "{\"Policy\": \"{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": [{ \\\"Sid\\\": \\\"case-event-subscription\\\", \\\"Effect\\\": \\\"Allow\\\", \\\"Principal\\\": { \\\"Service\\\": \\\"events.amazonaws.com\\\"}, \\\"Action\\\": \\\"SQS:SendMessage\\\", \\\"Resource\\\": \\\"*\\\"}]}\"}"
 

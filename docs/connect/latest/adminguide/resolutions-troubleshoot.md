@@ -1,0 +1,34 @@
+
+
+# Troubleshoot Resolutions
+
+ This topic helps you troubleshoot common Resolutions problems with permissions, email, attachments, and external tool integrations. Most problems come from a few causes: missing permissions, a queue or flow that isn't set up to link to the Resolutions Case, Amazon SES sandbox restrictions, and attachment limits. 
+
+ Many setup problems happen outside the Work plan, in a queue, an inbound contact flow, or a flow module. Resolutions can't detect problems there, so it doesn't report an error. Instead, the Work plan waits for a Step to complete, or a value comes back blank. Use the following table to match a symptom to its cause. 
+
+
+| Symptom | Likely cause | Resolution | 
+| --- | --- | --- | 
+|  Resolutions doesn't appear in the navigation.  | The user's security profile is missing Work plans permissions. |  Assign the ResolutionsUser security profile, or add the Work plans permissions. See [Grant access to Resolutions](resolutions-grant-access.md).  | 
+| Authoring doesn't progress past the first question. |  Connect AI agents aren't enabled, or a customer managed KMS key policy is missing permissions.  |  See [AI agents](resolutions-prerequisites.md#resolutions-prereq-ai-agents).  | 
+| Work plan generation fails partway through. |  The author's security profile is missing permissions for flows, flow modules, Task templates, Case fields, Case templates, or information extraction.  |  Add the missing permissions. See [Build a custom security profile](resolutions-grant-access.md#resolutions-grant-access-build-a-custom-security-profile).  | 
+|  Case creation fails with Field(s) customer\_id are required.  | No Customer Profiles domain exists in the instance's Region. |  See [Enable Customer Profiles before Cases](resolutions-prerequisites.md#resolutions-prereq-profiles).  | 
+|  A Resolutions Case isn't created even though the inbound email arrived.  |  A field marked required in the Case template has no value when the Resolutions Case is created.  | Mark as required only the fields that are known at creation. | 
+|  Email arrives as a contact, but no Resolutions Case is created and no Work plan starts.  |  The inbound contact flow doesn't transfer the contact to the Work plan's information extraction flow.  |  See [Start Work plans from inbound email](resolutions-start-work-plan.md).  | 
+| New email starts Resolutions Cases on an old version. |  The inbound contact flow still transfers to the previous version's information extraction flow.  | Update the inbound contact flow to use the new version's flow. | 
+| Email for another use case starts a Resolutions Case. |  The inbound contact flow transfers every contact to the information extraction flow.  |  Move the transfer after the logic that determines which Work plan applies.  | 
+|  The Work plan starts, then stalls at a Step that emails the customer.  |  The account is in the Amazon SES sandbox, and the recipient isn't verified.  |  Verify the recipient, or request production access. See [Move Amazon SES out of the sandbox before you test outbound email](resolutions-prerequisites.md#resolutions-prerequisites-move-amazon-ses-out-of-the-sandbox-before-you-test-outbound-email).  | 
+|  The Work plan stops advancing after it emails the customer, and the Resolutions Case shows no record of the reply.  |  The Step sends its email through an existing queue whose Outbound email flow doesn't link the contact to the Resolutions Case.  |  Set the queue's Outbound email flow to a flow that links the contact to the Resolutions Case, or ask Resolutions to create a dedicated outbound queue. See [Outbound queue and whisper flow for Work plan email](resolutions-prerequisites.md#resolutions-prerequisites-outbound-queue-and-whisper-flow-for-work-plan-email).  | 
+|  The whole email channel stops working after you enable attachments.  | The attachments bucket has no CORS policy. |  Add the CORS policy. See [Enable attachments](enable-attachments.md).  | 
+|  Nothing appears in the instance after a customer sends an email with attachments.  |  The email exceeds the email channel's limits for message size or number of attachments.  |  Check the email limits in [Connect Customer feature specifications](feature-limits.md), and ask the customer to send fewer or smaller attachments.  | 
+|  The Resolutions Case is created, but extraction from an attachment fails.  |  The attachment is larger than 4.5 MB or isn't .pdf, .txt, .csv, .html, .md, .xls, or .xlsx.  |  See [Attachment limits for Work plans](resolutions-prerequisites.md#resolutions-prereq-attachments).  | 
+|  The gateway's tools don't appear in Connect Customer after you add the integration.  |  The gateway's allowed audience doesn't match the integration identifier, or the gateway doesn't support a 2025 MCP version.  |  Set the allowed audience to the integration identifier. A gateway's MCP version can't be changed, so create a new gateway with a 2025 version if needed. See [Call a business application with the External tool block](resolutions-integrations.md#resolutions-integrations-call-a-business-application-with-the-external-tool-block).  | 
+| The External tool block takes the error branch. |  The third-party credential or service is unavailable, such as an expired trial or a stopped database.  |  Call the API directly with the same credential to confirm that it works.  | 
+| The External tool block succeeds, but the attributes are blank. |  The flow reads the input from $.Parameters, or reads the response from $.External or $.ExternalResults.  |  Read the input from $.Attributes.{{name}} and the response from $.ExternalTool.ResultData.{{field}}. See [Build a flow module that calls an external tool](resolutions-integrations.md#resolutions-integrations-build-a-flow-module-that-calls-an-external-tool).  | 
+|  The External tool block calls the wrong tool after you edit the flow.  | Saving the block in the flow designer rewrote the tool name. |  Reset ToolName to gateway\_{{gatewayId}}\_\_{{targetName}}\_\_\_{{operationId}}.  | 
+| Transcripts and attachments disappeared from the bucket. | An S3 Lifecycle rule applies to the whole bucket. |  Scope Lifecycle rules to the staging prefix only. See [Enable attachments](enable-attachments.md).  | 
+
+## Isolate email problems from Work plan problems
+<a name="resolutions-troubleshoot-isolate-email-problems-from-work-plan-problems"></a>
+
+ Email setup problems and Work plan problems look the same from the outside. Before you troubleshoot a Work plan, send a plain test email to your Connect Customer address and confirm that a contact arrives. If no contact arrives, the problem is in the email channel. 

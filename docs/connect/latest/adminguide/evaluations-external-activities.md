@@ -1,7 +1,6 @@
 
 
 # Ingest agent activities from third-party applications to evaluate agent performance
-<a name="evaluations-external-activities"></a>
 
 You can import agent activities completed in third-party applications into Connect Customer. These activities are imported as Connect Customer tasks, which you can evaluate alongside work completed in Connect Customer. This provides managers with a unified application for quality management.
 
@@ -37,7 +36,7 @@ The following steps are typically performed by an IT admin.
 
   Following is a sample API request for ingesting a claims authorization activity that was completed in another system.
 
-  ```
+  ```json
   awscurl \
   --service connect \
   -X PUT \

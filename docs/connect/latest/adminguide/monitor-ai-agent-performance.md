@@ -1,7 +1,6 @@
 
 
 # Monitor AI agent performance with observability and analytics
-<a name="monitor-ai-agent-performance"></a>
 
 After you set up your AI agents, you can monitor their performance using AI agent observability and analytics. Connect Customer provides the following capabilities to track AI agent performance:
 + **ListSpans API:** Detailed span-level data about each AI agent invocation, including tool calls and nested operations. This data is available in real-time. To learn more, see [ListSpans API guide](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_ListSpans.html).

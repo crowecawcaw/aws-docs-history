@@ -1,7 +1,6 @@
 
 
 # Check communication status
-<a name="journey-flow-block-check-communication-status"></a>
 
 ## Description
 <a name="journey-flow-block-check-communication-status-description"></a>

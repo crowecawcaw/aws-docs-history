@@ -1,7 +1,6 @@
 
 
 # Default customer whisper flow in Connect Customer: play a beep sound
-<a name="default-customer-whisper"></a>
 
 This flow uses a [Set whisper flow](set-whisper-flow.md) block to play a message for the customer when the customer and agent are joined. It uses a "beep" sound to notify a customer that their call has been connected to an agent. 
 

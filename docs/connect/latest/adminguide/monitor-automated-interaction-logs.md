@@ -1,7 +1,6 @@
 
 
 # Monitor automated interactions (IVR) in Connect Customer
-<a name="monitor-automated-interaction-logs"></a>
 
 You can use automated interaction logs to review the automated portion of your customers' Connect Customer experience . The interaction logs appear on the **Contact details** page. They include the following information:
 + Key interaction points, that is, flows, prompts, menus, keypad selections.

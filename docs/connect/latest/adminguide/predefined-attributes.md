@@ -1,7 +1,6 @@
 
 
 # Create predefined attributes for routing contacts to agents
-<a name="predefined-attributes"></a>
 
 A predefined attributed is made up of a name-value pair. For example, a name such as `language` and values such as `English`, `French`, `Japanese`. You can use predefined attributes to route contacts to an agent or pools of agents within a queue. 
 

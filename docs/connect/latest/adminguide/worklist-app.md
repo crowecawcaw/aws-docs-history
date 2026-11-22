@@ -1,7 +1,6 @@
 
 
 # Access the Worklist app in the agent workspace
-<a name="worklist-app"></a>
 
 The Worklist app enables agents with the required permissions and routing profile settings to manually prioritize and assign queued work to themselves. The following steps explain how to provide your agents access to the Worklist app in the agent workspace.
 

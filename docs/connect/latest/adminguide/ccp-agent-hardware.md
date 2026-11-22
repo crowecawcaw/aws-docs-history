@@ -1,7 +1,6 @@
 
 
 # Agent headset and workstation requirements for using the Contact Control Panel (CCP)
-<a name="ccp-agent-hardware"></a>
 
 Agent headsets and workstations in the contact center vary widely. While the Connect Customer CCP is built to handle high levels of jitter and high latency environments, the architecture of the **workstations** that agents use, and the location and environment in which they take contacts, can impact the quality of experience.
 

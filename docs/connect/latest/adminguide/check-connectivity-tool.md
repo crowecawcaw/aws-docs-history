@@ -1,7 +1,6 @@
 
 
 # Validate connectivity to Connect Customer with the Endpoint Test Utility
-<a name="check-connectivity-tool"></a>
 
 To validate connectivity to Connect Customer, or when your agents are experiencing problems with the Contact Control Panel (CCP), we recommend using the [Connect Customer Endpoint Test Utility](https://tools.connect.aws/endpoint-test/). 
 

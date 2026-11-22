@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Get metrics
-<a name="get-queue-metrics"></a>
 
 By default, this block returns queue metrics for the current queue. You can optionally choose to return metrics for a different queue/channel combination, or contact-level metrics such as the contact's position in queue. Metrics are returned as attributes that can be referenced through JSONPath or the Check contact attributes block.
 

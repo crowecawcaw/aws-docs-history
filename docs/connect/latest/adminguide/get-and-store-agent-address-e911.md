@@ -1,7 +1,6 @@
 
 
 # Get and store an agent's validated physical address in your Connect Customer instance
-<a name="get-and-store-agent-address-e911"></a>
 
 The first step in setting up E911 for your Connect Customer instance is to get and store the agent's validated physical address. The following illustration shows the process for storing addresses.
 

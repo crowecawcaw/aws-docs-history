@@ -1,7 +1,6 @@
 
 
 # Redact PII from a guide in a contact transcript
-<a name="step-by-step-guides-pii-redaction"></a>
 
 By default, the contact transcript includes all information that passes through a guide, including personally identifiable information (PII). To redact PII from the transcript:
 

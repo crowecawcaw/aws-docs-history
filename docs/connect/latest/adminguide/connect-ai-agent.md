@@ -1,7 +1,6 @@
 
 
 # Use AI agents for real-time assistance
-<a name="connect-ai-agent"></a>
 
 
 |  | 

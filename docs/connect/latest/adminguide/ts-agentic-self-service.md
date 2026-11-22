@@ -1,7 +1,6 @@
 
 
 # Troubleshoot agentic self-service issues
-<a name="ts-agentic-self-service"></a>
 
 The following issues are specific to [agentic self-service](agentic-self-service.md).
 

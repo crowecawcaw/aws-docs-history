@@ -1,7 +1,6 @@
 
 
 # Move a Connect Customer phone number across instances
-<a name="move-phone-number-across-instances"></a>
 
 You can move a phone number from one Connect Customer instance or traffic distribution group to another Connect Customer instance or traffic distribution group in the same AWS account and Region, different AWS accounts, or different Regions. 
 

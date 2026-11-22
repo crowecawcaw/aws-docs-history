@@ -1,7 +1,6 @@
 
 
 # AI models and data processing for manager assist
-<a name="manager-assist-ai-models"></a>
 
 Manager assist is built on foundation models in Amazon Bedrock. It uses foundation models to interpret questions written in plain language, identify the relevant metrics, retrieve data, and generate responses.
 

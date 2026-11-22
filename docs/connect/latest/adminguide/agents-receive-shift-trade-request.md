@@ -1,7 +1,6 @@
 
 
 # How agents receive and approve shift trade requests
-<a name="agents-receive-shift-trade-request"></a>
 
 To view trade offers, agents go to their schedule calendar, and choose or tap on the request drawer, as shown in the following image. 
 

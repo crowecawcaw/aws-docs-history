@@ -1,7 +1,6 @@
 
 
 # Create a conversational analytics connector to integrate with your external voice system
-<a name="create-contact-lens-connector"></a>
 
 This topic explains how to create a conversational analytics connector to integrate with your external voice system. Complete the following steps.
 

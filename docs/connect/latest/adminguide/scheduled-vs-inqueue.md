@@ -1,7 +1,6 @@
 
 
 # How Initial delay affects Scheduled and In queue metrics in Connect Customer
-<a name="scheduled-vs-inqueue"></a>
 
 In the [Transfer to queue](transfer-to-queue.md) block, the **Initial delay** property affects when a callback is put in queue. For example, assume **Initial delay** is set to 30 seconds. Here's what appears in your real-time metrics report:
 

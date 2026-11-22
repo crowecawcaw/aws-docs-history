@@ -1,7 +1,6 @@
 
 
 # Set up your contact center in Connect Customer
-<a name="amazon-connect-contact-centers"></a>
 
 To get started, you [create a Connect Customer instance](amazon-connect-instances.md), which is a virtual contact center. 
 

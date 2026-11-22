@@ -1,7 +1,6 @@
 
 
 # Time off event stream
-<a name="time-off-event-stream"></a>
 
 You can use time off events to integrate Connect Customer scheduling with external HR systems, for example, to drive leave-approval workflows. Connect Customer publishes a time off event to EventBridge each time an agent's time off request changes status, directly to your account's default event bus.
 
@@ -27,7 +26,7 @@ Delivery is at-least-once, so the same event can be delivered more than once. Ea
 
 The following example shows a time off event payload:
 
-```
+```json
 {
     "version": "0",
     "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

@@ -1,7 +1,6 @@
 
 
 # Set up application integration for Salesforce using Amazon AppFlow
-<a name="integrate-salesforce-tasks"></a>
 
 If you integrate with Salesforce for event creation, Connect Customer also uses Amazon AppFlow to put the data into EventBridge. This is because of how Salesforce sends events through the Amazon AppFlow APIs. To learn more about how Connect Customer uses EventBridge and Amazon AppFlow resources to power Salesforce integrations, see this blog post: [ Building Salesforce integrations with Amazon EventBridge and Amazon AppFlow](https://aws.amazon.com/blogs/compute/building-salesforce-integrations-with-amazon-eventbridge/). 
 

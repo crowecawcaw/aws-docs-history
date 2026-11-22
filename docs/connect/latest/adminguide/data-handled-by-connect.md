@@ -1,7 +1,6 @@
 
 
 # Data handled by Connect Customer
-<a name="data-handled-by-connect"></a>
 
 Data held within Connect Customer is segregated by the AWS account ID and the Connect Customer instance ID. This makes sure that data can be accessed only by the authorized users of a specific Connect Customer instance.
 

@@ -1,7 +1,6 @@
 
 
 # Access Connect Customer data lake
-<a name="access-datalake"></a>
 
 To access the data lake, you can use the AWS console, the [AWS Command Line Interface](https://aws.amazon.com/cli/) or [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html). AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. 
 
@@ -37,7 +36,7 @@ If you are unable to access the scheduling tables by using Option 1, try using O
 
    Each value in `DataSetIds` is a data lake table name, such as `contact_record`. The following JSON file shows a subset of tables as an example. For more information about table names that you can use as `DataSetIds`, see [Data type definitions for the Connect Customer data lake](data-type-definitions.md).
 
-   ```
+   ```json
    {
    "InstanceId": your_instance_id,
    "DataSetIds": [

@@ -1,7 +1,6 @@
 
 
 # Manager and Agent view request drawer in Connect Customer
-<a name="manager-agent-view-request-drawer-to"></a>
 
 At any time supervisors can go to the request drawer under the time off tab and search for an agent by first name, last name or login ID to view all time off requests for a specific agent.
 

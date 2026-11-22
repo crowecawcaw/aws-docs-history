@@ -1,7 +1,6 @@
 
 
 # Enable Apple Messages for Business with Connect Customer
-<a name="apple-messages-for-business"></a>
 
 Your customers can engage directly with your contact center from within their Messages application on their iPhone, iPad, and Mac. 
 
@@ -75,7 +74,7 @@ Looking for technical support? [Open an Support ticket here](https://console.aws
 
 1. In the **Description** box, copy and paste the following template: 
 
-   ```
+   ```json
    Subject: Apple Messages for Business Integration request
       Body:
    

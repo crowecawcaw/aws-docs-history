@@ -1,7 +1,6 @@
 
 
 # Create a security profile in Connect Customer
-<a name="create-security-profile"></a>
 
 By creating a security profile, you can grant your users only the permissions that they need.
 

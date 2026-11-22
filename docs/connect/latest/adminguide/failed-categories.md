@@ -1,7 +1,6 @@
 
 
 # When a rule or category fails to be evaluated by Connect Customer conversational analytics
-<a name="failed-categories"></a>
 
 When Connect Customer conversational analytics evaluates a rule or category during a post-contact analysis for a voice or chat contact, it is possible that the rule or category fails to evaluate. 
 
@@ -37,7 +36,7 @@ The `SkippedAnalysis` section shows contact analysis that was marked as 'Skipped
 
 Following is an example of failed categories within `JobDetails`:
 
-```
+```json
 "JobDetails": {
     "SkippedAnalysis": [
         {

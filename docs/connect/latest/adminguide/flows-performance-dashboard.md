@@ -1,7 +1,6 @@
 
 
 # Flows and conversational bot performance dashboard
-<a name="flows-performance-dashboard"></a>
 
 The flows and conversational bot performance dashboard helps you understand the performance of your automated experiences including flows, flow modules, and conversational bots. You can compare key metrics such as flows started, average flow duration, or bot intent outcome over time. You can filter for specific bots or flows, and save reports to share across your organization. 
 

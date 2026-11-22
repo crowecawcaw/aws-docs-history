@@ -1,7 +1,6 @@
 
 
 # Create rules that generate tasks for third-party integrations in Connect Customer
-<a name="add-rules-task-creation"></a>
 
 After you set up an external application to generate tasks automatically, you need to build rules that tell Connect Customer when to create tasks, and how to route them.
 

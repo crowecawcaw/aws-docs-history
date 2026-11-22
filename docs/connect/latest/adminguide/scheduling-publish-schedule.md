@@ -1,7 +1,6 @@
 
 
 # Generate, review, and publish a schedule by using Schedule Manager in Connect Customer
-<a name="scheduling-publish-schedule"></a>
 
 Connect Customer is designed to generate the least number of shifts for agents based on the forecasted demand pattern and configured constraints to hit the optimization goal.
 

@@ -1,7 +1,6 @@
 
 
 # Contact initiation methods and flow types in your Connect Customer contact center
-<a name="contact-initiation-methods"></a>
 
 Every contact in your Connect Customer contact center is initiated by one of the following methods: 
 + INBOUND

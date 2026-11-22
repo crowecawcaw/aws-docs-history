@@ -1,7 +1,6 @@
 
 
 # Use Generative AI to semantically match contacts with natural language statements
-<a name="natural-language-semantic-match"></a>
 
 Within a conversational analytics **conversational analytics** rule, you have the option to specify a **Natural language - semantic match** condition that uses generative AI to find contacts that match a natural language statement. Natural language - Semantic match is used when you want to match contacts with context-specific criteria (for example, the customer's issue was resolved during the call) or when there are too many possible words or phrases to use the **Words or phrases** conditions. 
 

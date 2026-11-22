@@ -1,7 +1,6 @@
 
 
 # Use the CCP in Connect Customer to make a call while on a chat
-<a name="call-and-chat"></a>
 
 Let's say you're chatting with a contact and you want to consult with someone else. While you're on a chat, you can use the updated CCP to make outbound calls using the number pad and [phone number quick connects](quick-connects.md#external-quick-connect-type). 
 

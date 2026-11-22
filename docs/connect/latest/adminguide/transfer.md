@@ -1,7 +1,6 @@
 
 
 # Set up contact transfers in Connect Customer
-<a name="transfer"></a>
 
 With Connect Customer, you can set up different kinds of transfers:
 + [Agent-to-agent transfers](setup-agent-to-agent-transfers.md): For example, if you want agents to be able to transfer calls or tasks to other agents. 

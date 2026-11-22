@@ -1,7 +1,6 @@
 
 
 # What does it mean to port phone numbers to Connect Customer?
-<a name="what-is-phone-number-porting"></a>
 
 Porting a phone number is the process of moving a phone number from one telephony service provider, or carrier, to another. Many businesses and organizations already have a phone number that is advertised to their customers, so changing this number would be disruptive.
 

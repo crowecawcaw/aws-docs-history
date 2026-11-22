@@ -1,7 +1,6 @@
 
 
 # Test and simulate dashboard
-<a name="testing-simulation-analyze-test-results"></a>
 
 Connect Customer supports testing and simulation dashboards and metrics. To view these dashboards, you must set the permission in the security profiles page for Analytics and Optimization for Dashboards to all and set the permission in the security profiles for Testing and simulation for Test case to view. 
 

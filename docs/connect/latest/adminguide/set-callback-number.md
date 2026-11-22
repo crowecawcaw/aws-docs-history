@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set callback number
-<a name="set-callback-number"></a>
 
 This topic defines the flow block for setting the number to call back the customer.
 

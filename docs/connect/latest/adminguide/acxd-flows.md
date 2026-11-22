@@ -1,7 +1,6 @@
 
 
 # Working with flows
-<a name="acxd-flows"></a>
 
 Flows define the structured paths your conversational AI application follows to help users complete a task, answer a question, or move toward the right next step.
 

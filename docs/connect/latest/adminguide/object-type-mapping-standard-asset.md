@@ -1,7 +1,6 @@
 
 
 # Object type mapping for the standard asset in Customer Profiles
-<a name="object-type-mapping-standard-asset"></a>
 
 The topics in this section provide the standard asset definition, and the object type mapping from external applications to the standard asset.
 

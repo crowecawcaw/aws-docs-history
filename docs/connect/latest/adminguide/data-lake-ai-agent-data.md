@@ -1,7 +1,6 @@
 
 
 # AI agent data in the Connect Customer data lake
-<a name="data-lake-ai-agent-data"></a>
 
 The following tables contain ai agent data.
 

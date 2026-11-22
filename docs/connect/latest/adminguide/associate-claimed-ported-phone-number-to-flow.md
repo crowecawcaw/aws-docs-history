@@ -1,7 +1,6 @@
 
 
 # Attach a claimed or ported phone number to a flow in Connect Customer
-<a name="associate-claimed-ported-phone-number-to-flow"></a>
 
 After you publish a flow, you can attach a [claimed](get-connect-number.md) or [ported](port-phone-number.md) phone number to it. When a contact calls the phone number that you associate with a flow, they are connected to that flow.
 

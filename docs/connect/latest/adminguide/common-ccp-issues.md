@@ -1,7 +1,6 @@
 
 
 # Contact Control Panel (CCP) Issues
-<a name="common-ccp-issues"></a>
 
 This topic is for IT administrators who are experienced with investigating issues with their network. It discusses the most common issues agents might encounter when using the Contact Control Panel (CCP).
 

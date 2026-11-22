@@ -1,7 +1,6 @@
 
 
 # Claim and manage your phone numbers in Connect Customer
-<a name="claim-and-manage-phonenumbers"></a>
 
 The topics in this section explain how to claim a Connect Customer phone number, list phone numbers claimed to your instance, move a phone number across Connect Customer instances, and release a phone number.
 

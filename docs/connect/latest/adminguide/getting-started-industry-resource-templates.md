@@ -1,7 +1,6 @@
 
 
 # Getting started with industry resource templates
-<a name="getting-started-industry-resource-templates"></a>
 
 Connect Customer Customer Profiles provides industry resource templates to help you quickly set up your domain with calculated attributes, segments, and Profile Explorer layouts tailored to specific industries.
 

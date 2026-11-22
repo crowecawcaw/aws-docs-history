@@ -1,7 +1,6 @@
 
 
 # Set up a flow to manage contacts in a queue in Connect Customer
-<a name="queue-to-queue-transfer"></a>
 
 For inbound contacts, you can define advanced routing decisions to minimize queue wait times, or route contacts to specific queues, using blocks in your flow. For example: 
 + Use a **Check queue status** block to check staffing or agent availability for a queue before sending a contact to that queue.

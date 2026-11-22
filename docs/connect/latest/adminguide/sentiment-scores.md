@@ -1,7 +1,6 @@
 
 
 # Investigate sentiment scores during contact conversations using conversational analytics
-<a name="sentiment-scores"></a>
 
 ## What are sentiment scores?
 <a name="what-are-sentiment-scores"></a>

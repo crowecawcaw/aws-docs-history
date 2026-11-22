@@ -1,7 +1,6 @@
 
 
 # Customize your Connect Customer dashboard
-<a name="dashboard-customize-widgets"></a>
 
 You can customize specific widgets to create dashboards that best fit your business needs. For example, you can create a single line chart that combines contacts queued, average queue answer time, and abandoned contacts. You can apply filters to show your most important queues so you can quickly see how increasing contact volumes impact both wait time and customer abandonment rates.
 
@@ -10,6 +9,7 @@ You can delete or add new metrics, define widget level filters and groupings, re
 **Topics**
 + [Choose which metrics to display in a widget](#dashboard-changing-metrics)
 + [Select custom time thresholds](#select-time-thresholds)
++ [Add agent status time metrics](#add-agent-status-metrics)
 + [Re-order the metrics](#reorder-metrics)
 + [Re-size columns](#reorder-metrics)
 + [Add comparisons to the Trailing performance widgets](#add-comparisons)
@@ -62,6 +62,29 @@ You can then select and choose which time threshold you want. The limit is betwe
 ![The Add custom option for Contacts resolved by X.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-changing-metrics-5.png)
 
 
+## Add agent status time metrics
+<a name="add-agent-status-metrics"></a>
+
+You can add agent status time metrics to trailing widgets to track how much time agents spend in specific statuses. Each status you add appears as its own column/metric labeled with the status name followed by "time" (for example, "Break time").
+
+1. In the widget, choose the three-dot menu, then choose **Edit**.
+
+1. Choose **Add metric**. A new metric row appears.
+
+1. In the new row, open the dropdown list and enter `Agent status` in the search box.  
+![The Edit widget pane with the Metric dropdown open, Agent status typed in the search box, and the Agent status time group with the Add status option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-agent-status-search-add-status.png)
+
+1. Under **Agent status time**, choose **Add status**.  
+![The Add agent status time dialog box with an Agent status list that has Lunch Time selected, a second empty Agent status list, and the Cancel and Apply buttons.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-add-agent-status-time-modal.png)
+
+1. In the **Add agent status time** dialog box, for **Agent status**, choose a status. After you choose a status, another empty **Agent status** list appears so you can add more statuses. To remove a status, choose the delete (trash can) icon next to it.
+
+1. Choose **Apply**.
+
+1. In the widget's **Edit** pane, choose **Save**.
+
+The agent status metrics that you add are added to the widget.
+
 ## Re-order the metrics
 <a name="reorder-metrics"></a>
 
@@ -99,6 +122,45 @@ The following image shows two groupings for the Contact categories widget in the
 
 ![An example of groupings in the Edit pane for the Contact categories widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-groupings.png)
 
+
+### Group data by time interval
+<a name="configure-interval-grouping"></a>
+
+You can group the data in a Trailing widget by time interval to see how metrics change over time. Each interval appears as a row in the widget. You can add the **Interval** grouping to Trailing widgets, such as Trailing queue performance and Trailing agent performance. The **Interval** grouping isn't available for real-time widgets, such as Current queue performance.
+
+You can choose one of the following intervals:
++ **15 minutes**
++ **30 minutes**
++ **Hourly**
++ **Daily**
++ **Weekly**
+
+To add an interval grouping to a widget:
+
+1. On the widget, choose the Actions icon, then choose **Edit**.
+
+1. In the **Edit** pane, choose **Add grouping**.
+
+1. In the list for the new grouping, choose **Interval**, then choose the interval that you want.
+
+1. Choose **Save**.
+
+The widget shows the interval in the grouping column, for example **Interval (Hourly)**, with one row for each interval. The following image shows a widget grouped by hourly intervals.
+
+![A widget table grouped by hourly interval. The first column is Interval (Hourly), with one row for each hour. The other columns show Contacts handled, Service level 20 seconds, and Avg. handle time.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-interval-grouping.png)
+
+
+If you add the **Interval** grouping together with another grouping, such as **Queue**, the intervals appear as nested rows. Expand a row for the other grouping to see its intervals.
+
+**Note**  
+The **Show comparison** option isn't available when a widget is grouped by interval. To show a comparison, remove the **Interval** grouping.
+
+The intervals that you can choose depend on the time range that you select for the dashboard:
++ **15 minutes**, **30 minutes**, and **Hourly** are available when the time range is less than 3 days.
++ **Daily** and **Weekly** are available when the time range is less than 35 days.
+
+**Note**  
+If an interval isn't available for the time range that you select, the widget shows a message that lists the intervals that you can choose.
 
 ## Configure filters
 <a name="configure-filters"></a>

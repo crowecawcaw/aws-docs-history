@@ -1,7 +1,6 @@
 
 
 # Preview attachments in the agent workspace
-<a name="preview-attachments"></a>
 
 Agents can preview an attachment on an email contact, a chat contact, or a case directly in the agent workspace, without downloading it to their device. Previewing keeps customer files off agent machines, and it is faster than downloading a file and opening it in a separate application.
 

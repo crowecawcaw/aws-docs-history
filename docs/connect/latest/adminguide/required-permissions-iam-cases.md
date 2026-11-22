@@ -1,7 +1,6 @@
 
 
 # Required permissions for using custom IAM policies to manage Connect Customer Cases
-<a name="required-permissions-iam-cases"></a>
 
 If you're using custom IAM policies to manage access to the Connect Customer Cases, your users need some or all of the permissions listed in this article, depending on the tasks they need to do.
 
@@ -26,7 +25,7 @@ Following is a sample IAM policy with these permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -75,7 +74,7 @@ Include the [AmazonConnectReadOnlyAccess](security-iam-amazon-connect-permission
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -119,7 +118,7 @@ Following is a sample IAM policy with these permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -203,7 +202,7 @@ The following combination of policies will also work:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -229,3 +228,33 @@ The following combination of policies will also work:
   ```
 
 ------
+
+## Enable Cases when you create an instance
+<a name="instance-creation-cases-iam"></a>
+
+To enable Cases on the **Data storage** step of instance creation, users need the permissions for creating an instance in [Connect Customer console home page](security-iam-amazon-connect-permissions.md#console-home-page-permissions), plus the following permissions for the options they select.
+
+
+| Option selected | Additional permissions | 
+| --- | --- | 
+| Enable Cases | `cases:CreateDomain`<br />`cases:GetDomain`<br />`connect:CreateIntegrationAssociation` | 
+| Enable Cases event streams | `cases:PutCaseEventConfiguration`<br />`app-integrations:CreateEventIntegration`<br />`app-integrations:GetEventIntegration`<br />`connect:CreateIntegrationAssociation` | 
+| Enable Cases event streams with Customer Profiles enabled | `events:CreateEventBus`<br />`events:DescribeRule`<br />`events:PutRule`<br />`events:PutTargets`<br />`iam:CreateRole`<br />`iam:CreatePolicy`<br />`iam:PassRole`<br />`app-integrations:CreateEventIntegration`<br />`app-integrations:GetEventIntegration`<br />`profile:PutIntegration` | 
+
+Note the following:
++ `cases:PutCaseEventConfiguration` sets the event configuration to include all case fields. The user's policy must allow the action on the domain's field resource, `arn:aws:cases:{{region}}:{{account-id}}:domain/{{domain-id}}/field/*`. If the policy allows only specific fields, the request fails with an `AccessDeniedException`.
++ Scope `iam:PassRole` to `arn:aws:iam::{{account-id}}:role/service-role/AmazonConnectCasesEventBridgeRole-*` and add the condition `iam:PassedToService` = `events.amazonaws.com`.
+
+## View and configure Cases integrations
+<a name="configure-cases-integrations-iam"></a>
+
+To view integration status on the **Cases** page, users need the permissions in [View Cases domain details](#view-cases-domain-iam), plus the following:
++ `cases:GetCaseEventConfiguration`
++ `events:DescribeRule`
++ `events:DescribeEventBus`
++ `app-integrations:GetEventIntegration`
++ `profile:ListAccountIntegrations`
++ `profile:ListIntegrations`
++ `profile:GetIntegration`
+
+To choose **Configure**, users also need the permissions in [Enable Cases when you create an instance](#instance-creation-cases-iam) for the integration that they configure, except `cases:CreateDomain`.

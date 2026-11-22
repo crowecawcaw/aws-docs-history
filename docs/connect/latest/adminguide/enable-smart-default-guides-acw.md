@@ -1,7 +1,6 @@
 
 
 # Enable smart default guides for after contact work
-<a name="enable-smart-default-guides-acw"></a>
 
 Connect Customer provides a default step-by-step guide for after contact work (ACW) that automatically launches when an agent enters the ACW state. The guide shows wrap-up tasks in the agent workspace, such as disposition codes, contact summaries, and follow-up actions. You don't need to configure it.
 
@@ -36,7 +35,7 @@ After you publish the flow, agents see the ACW guide when they enter ACW on cont
 ## Flow schema
 <a name="enable-smart-default-guides-acw-schema"></a>
 
-```
+```json
 {
   "Version": "2019-10-30",
   "StartAction": "e4b91d3f-dda6-4ec8-b51a-57bc96e88c52",

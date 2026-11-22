@@ -1,7 +1,6 @@
 
 
 # Create a flow and add your conversational AI bot
-<a name="create-bot-flow"></a>
 
 This topic explains how to add a previously created conversational AI bot to a flow. 
 

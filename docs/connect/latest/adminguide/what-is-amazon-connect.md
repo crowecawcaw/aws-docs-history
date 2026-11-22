@@ -1,7 +1,6 @@
 
 
 # What is Connect Customer?
-<a name="what-is-amazon-connect"></a>
 
 **Note**  
 Amazon Connect Customer is the current name for the product previously called Amazon Connect. Amazon Connect is now a set of agentic AI solutions for different business functions. This guide covers Amazon Connect Customer.
@@ -12,8 +11,22 @@ Build and manage customer communication experiences. Connect customers to agents
 
 Connect Customer helps a variety of personas:
 
-![One application that provides a seamless experience for customers, agents, supervisors and administrators.](https://docs.aws.amazon.com/connect/latest/adminguide/images/firstcallimage.png)
+The diagram shows how Connect Customer serves four personas and the capabilities available to each:
 
+![Diagram of Connect Customer at the center, with capabilities grouped for customers, agents, supervisors, and administrators.](https://docs.aws.amazon.com/connect/latest/adminguide/images/firstcallimage.png)
+
+
+Customer: omnichannel customer experience  
+High-quality voice, conversational IVR and chatbots, chat, SMS, and messaging, in-app and web calling and video, outbound campaigns, voice authentication, task management, and email.
+
+Agent: agent empowerment and productivity  
+Agent workspace, knowledge and agent assist, unified customer view, case management, and step-by-step guides.
+
+Supervisor: analytics, insights, and optimization  
+Real-time and historical reports and dashboards, real-time conversational analytics, quality and performance management, and forecasting, capacity planning, and scheduling.
+
+Administrator: configuration and flexibility  
+A simple, self-service UI to make changes in minutes, not months; secure, reliable, and scalable operation; and modern APIs and SDKs for those who want to build.
 + **Customers** reach out to your contact center because they are having trouble with some issue they can't resolve for themselves, or resolve easily. They want the ability to contact your contact center using any method they choose. 
 + **Agents** are responsible for helping customers solve general problems, and come to a quick resolution whenever possible. They spend most of their time interacting with customers, whether through voice, chat, SMS, or other channels, and then documenting the interaction.
 + **Contact center managers and supervisors** spend most of their day monitoring their team's metrics and readjusting their configuration to be optimal for their business. They onboard most new agents, and provide coaching to help their team members grow. 

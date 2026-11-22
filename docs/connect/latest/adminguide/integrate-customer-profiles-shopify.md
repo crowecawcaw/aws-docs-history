@@ -1,7 +1,6 @@
 
 
 # Set up integration for Shopify to provide periodic updates to Connect Customer Customer Profiles
-<a name="integrate-customer-profiles-shopify"></a>
 
 To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Shopify using Amazon AppIntegrations. You first set up the connection in Connect Customer and Shopify, and then verify the Shopify integration. 
 
@@ -77,7 +76,7 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 
 1. Use the following URL to make sure your app has the required permissions: 
 
-   ```
+   ```json
    https://{shop}.myshopify.com/admin/oauth/authorize?client_id={api_key}&scope={scopes}&redirect_uri={redirect_uri}&state={nonce}
    ```
 
@@ -95,7 +94,7 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 
    You will be taken to the redirect URI that you entered with an authorization code appended to redirect URI as a query parameter. For example:
 
-   ```
+   ```json
    https://example.org/some/redirect/uri?code={authorization_code}&hmac=da9d83c171400a41f8db91a950508985&host={base64_encoded_hostname}&timestamp=1409617544&state={nonce}&shop={shop_origin}&host={host}
    ```
 
@@ -105,13 +104,13 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 
 1. To get a permanent access token, make a POST request to the Shopify `Admin` API to this endpoint:
 
-   ```
+   ```json
    https://{shop}.myshopify.com/admin/oauth/access_token
    ```
 
    with the following request body:
 
-   ```
+   ```json
    {
        "code": "authorization_code_received_from_redirect_uri",
        "client_id": "your_app_api_key",
@@ -121,7 +120,7 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 
    This request returns the following response:
 
-   ```
+   ```json
    {
        "access_token": "permanent_access_token",
        "scope": "read_customers,read_orders,read_draft_orders"
@@ -138,7 +137,7 @@ If you need historical records, you can [use Amazon S3 as an integration source 
 
    Request Body:
 
-   ```
+   ```json
    {
        "webhook": {
            "topic": "replace_this_with_one_of_the_topics_in_the_list_below",

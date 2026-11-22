@@ -1,7 +1,6 @@
 
 
 # Update the task template on an in-progress contact in Connect Customer
-<a name="update-template-contacts-admin"></a>
 
 On the **Contact details** page of an in-progress task contact that is not assigned to an agent, you can update the task template associated with the contact. This is useful when a task was created without a template, or when the task needs a different template to represent updated task data.
 

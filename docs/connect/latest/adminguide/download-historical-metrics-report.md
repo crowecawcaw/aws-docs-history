@@ -1,7 +1,6 @@
 
 
 # Download a historical metrics report in Connect Customer
-<a name="download-historical-metrics-report"></a>
 
 You can download the data included in a report as a comma-separated value (CSV) file so you can use it with other applications. If there's no data for one of the selected metrics, the field in the downloaded CSV file contains a dash.
 

@@ -1,7 +1,6 @@
 
 
 # Integrate your identity provider (IdP) with a Connect Customer Global Resiliency SAML sign in endpoint
-<a name="integrate-idp"></a>
 
 To enable your agents to sign in once and be logged into both AWS Regions to process contacts from the current active Region, you need to configure IAM settings to use the global sign in SAML endpoint. 
 
@@ -43,7 +42,7 @@ You must enable SAML for your Connect Customer instance to use Connect Customer 
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -78,7 +77,7 @@ You must enable SAML for your Connect Customer instance to use Connect Customer 
 
 ****  
 
-   ```
+   ```json
    {
    "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -114,7 +113,7 @@ You must enable SAML for your Connect Customer instance to use Connect Customer 
 
 1. Configure the Assertion Consumer Service (ACS) URL of your identity provider to point to your personalized SAML sign-in URL. Use the following example for the ACS URL:
 
-   ```
+   ```json
    https://{{instance-id}}.{{source-region}}.sign-in.connect.aws/saml?&instanceId={{instance-id}}&accountId={{your AWS account ID}}&role={{saml-federation-role}}&idp={{your SAML IDP}}&destination={{optional-destination}}
    ```
 

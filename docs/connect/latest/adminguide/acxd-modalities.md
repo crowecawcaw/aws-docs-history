@@ -1,7 +1,6 @@
 
 
 # Modalities
-<a name="acxd-modalities"></a>
 
 Modalities are reusable structured UI components that bring richer interaction into agentic CX designer conversations.
 

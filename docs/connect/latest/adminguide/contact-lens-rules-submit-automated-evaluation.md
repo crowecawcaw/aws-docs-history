@@ -1,7 +1,6 @@
 
 
 # Create a rule in conversational analytics that submits an automated evaluation
-<a name="contact-lens-rules-submit-automated-evaluation"></a>
 
 With Conversational analytics, you can automatically fill and submit evaluations by using insights and metrics from conversational analytics. 
 

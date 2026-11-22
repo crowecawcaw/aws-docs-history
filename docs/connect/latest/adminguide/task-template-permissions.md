@@ -1,7 +1,6 @@
 
 
 # Grant users permissions to create task templates in Connect Customer
-<a name="task-template-permissions"></a>
 
 Assign the **Routing**, **Task templates** permissions to enable a user to create task templates.
 

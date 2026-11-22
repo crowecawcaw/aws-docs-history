@@ -1,7 +1,6 @@
 
 
 # Troubleshoot real-time event exporting to your Kinesis Data Stream
-<a name="real-time-export-troubleshooting"></a>
 
 There might be a delay when first exporting events to your Kinesis Data Stream. This is due to the time it takes to propagate IAM permissions for the service-linked role. When an actual issue occurs, the streaming status can enter an error state.
 

@@ -1,7 +1,6 @@
 
 
 # Configuration data in the Connect Customer data lake
-<a name="data-lake-configuration-data"></a>
 
 This topic details the content in the Connect Customer data lake configuration tables. The tables list the column, type, and description of the content.
 

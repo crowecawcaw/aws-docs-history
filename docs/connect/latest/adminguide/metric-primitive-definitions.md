@@ -1,7 +1,6 @@
 
 
 # Custom metric primitives
-<a name="metric-primitive-definitions"></a>
 
 Metric primitives are used for creating custom metrics, which are personalized measurements that offer more flexibility than the standard out-of-the-box metrics. Metric primitives use metric-level filters to make them more customizable and adaptable to business needs. These metrics can be used with different statistics (such as SUM, AVG, MIN, MAX) and can be combined using arithmetic operations to devise more comprehensive measurements. The metric primitives are broadly categorized into four categories:
 + **Contact**: Helps gain insights into customer interactions and tasks.

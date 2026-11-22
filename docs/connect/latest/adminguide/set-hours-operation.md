@@ -1,7 +1,6 @@
 
 
 # Set the hours of operation and time zone for a queue using Connect Customer
-<a name="set-hours-operation"></a>
 
 This topic explains how to set hours of operating by using the Connect Customer admin website. To set hours programmatically, see [Hours of operations actions](https://docs.aws.amazon.com/connect/latest/APIReference/hours-of-operation-api.html).
 

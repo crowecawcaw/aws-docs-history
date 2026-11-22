@@ -1,7 +1,6 @@
 
 
 # Set up attachment scanning in Connect Customer
-<a name="setup-attachment-scanning"></a>
 
 **Note**  
 This topic is for developers who are familiar with Lambda. If you're new to Lambda, see [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the AWS *Lambda Developer's Guide*. 
@@ -21,7 +20,7 @@ For every attachment uploaded through Connect Customer a request is sent with in
 
 Following is an example JSON request for scanning:
 
-```
+```json
 {
     "Version": "1.0",
     "InstanceId": "{{your instance ID}}",
@@ -44,7 +43,7 @@ Following is an example JSON request for scanning:
 ### Required response
 <a name="response-scanning"></a>
 
-```
+```json
 {
    "Status": "APPROVED" | "REJECTED"
 }

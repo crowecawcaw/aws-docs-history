@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Store customer input
-<a name="store-customer-input"></a>
 
 This topic defines the flow block to store input as a contact attribute and then encrypting it.
 

@@ -1,7 +1,6 @@
 
 
 # The roles responsible for contact center scheduling in Connect Customer
-<a name="scheduling-roles"></a>
 
 There are a variety of roles for people who might create and manage schedules in a contact center, such as the following:
 

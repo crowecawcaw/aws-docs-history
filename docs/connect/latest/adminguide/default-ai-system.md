@@ -1,7 +1,6 @@
 
 
 # Default AI prompts and AI agents
-<a name="default-ai-system"></a>
 
 Connect Customer provides a set of system AI prompts and AI agents. It uses them to power the out-of-the-box experience with AI agents.
 

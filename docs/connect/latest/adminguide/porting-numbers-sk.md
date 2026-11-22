@@ -1,7 +1,6 @@
 
 
 # Guidelines for porting phone numbers to your Connect Customer project in South Korea
-<a name="porting-numbers-sk"></a>
 
 Rules for South Korea differ from those in other countries. To help with requirements in South Korea, here are some helpful hints.
 + When planning your Connect Customer project in South Korea one of the most important things you will need to do is plan and request information up front. To port numbers in South Korea, you might need to complete and submit more than 5 forms and you might need to engage with the local regulatory authority before approvals are granted to port numbers.

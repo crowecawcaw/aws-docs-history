@@ -1,7 +1,6 @@
 
 
 # Listen to live conversations or read live chats in Connect Customer
-<a name="monitor-conversations-howto"></a>
 
 Before you can listen to live conversations or read live chats, the Connect Customer admin needs to [enable](monitor-conversations.md) the feature, [assign you permissions](monitor-conversations-permissions.md), and make sure you are assigned to a routing profile that supports the channel being monitored. After that's done, you can do these steps. 
 

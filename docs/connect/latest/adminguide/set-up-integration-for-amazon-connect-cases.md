@@ -1,9 +1,15 @@
 
 
-# Set up integration for Connect Customer Cases
-<a name="set-up-integration-for-amazon-connect-cases"></a>
+# Set up integration for Connect Customer Cases using the CLI
 
 To update your Connect Customer Cases data in Connect Customer Customer Profiles and use features like calculated attributes, you can integrate using Amazon AppIntegrations. Start by setting up a Cases event stream to send system fields to an EventBridge bus, then use Amazon AppIntegrations to forward these events to Customer Profiles.
+
+**Note**  
+For a default configuration experience, follow [Enable Cases integrations](enable-cases.md#configure-cases-integrations). When you create an instance with **Enable Cases**, **Enable Cases event streams**, and **Enable Customer Profiles** selected, the console completes both sections of this topic: [Stream data from Connect Customer Cases to Event Bridge](#stream-data-from-connect-cases-to-event-bridge) and [Ingest Event Bridge case data to Customer Profiles by using AppIntegrations](#ingest-event-bridge-case-data-to-customer-profiles-via-appintegrations). For an existing instance, go to the instance's **Cases** page and, in **Integration status**, choose **Configure** next to **Customer Profiles**. The console uses the same resource names as this procedure (`connect-cases-to-customer-profiles`, `connect-cases-to-customer-profiles-rule`, and `Connect-Cases-Event-Integration`), reuses any you already created, and includes all case fields in the events, not only system fields.
+
+**Note**  
+Customer Profiles doesn't support tag-based access control (TBAC) on individual profile objects. When you set up this integration, Customer Profiles stores each case as a `Connect-case` profile object, and the [tag-based access controls](cases-tag-based-access-control.md) that you configure in Connect Customer Cases aren't applied to that object. Any user or IAM principal with permission to view profile objects in the domain can view the case fields that you include in the event configuration, such as title, status, and summary, including cases that Cases TBAC restricts.  
+The same applies to data that you ingest from any other source, such as Salesforce or ServiceNow. Customer Profiles doesn't import or enforce the source system's permissions. If you use tag-based access controls on cases, include only the fields that every user with access to Customer Profiles is allowed to view, or don't set up this integration.
 
 ## Stream data from Connect Customer Cases to Event Bridge
 <a name="stream-data-from-connect-cases-to-event-bridge"></a>
@@ -22,7 +28,7 @@ To update your Connect Customer Cases data in Connect Customer Customer Profiles
 
 1.  Using the AWS CLI, create a Case event configuration to send Connect Customer Cases Events to the default EventBridge bus for your AWS account. 
 
-```
+```bash
 // set up Case Event Configuration including all system fields
 aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID> --region <YOUR_AWS_REGION> --event-bridge "{                     
     \"enabled\": true,
@@ -80,7 +86,7 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 
 +  Event Pattern snippet: 
 
-```
+```json
 {
   "source": ["aws.cases"],
   "detail": {
@@ -101,7 +107,7 @@ aws connectcases put-case-event-configuration --domain-id <YOUR_CASES_DOMAIN_ID>
 
 1.  Using the AWS CLI, create an Event Integration with AppIntegrations and record the ARN output.  This represents a source data that a Connect Customer instance can use. 
 
-```
+```bash
 aws appintegrations create-event-integration --region
     {{<YOUR_REGION>}} --name Connect-Cases-Event-Integration
     --event-bridge-bus connect-cases-to-customer-profiles --event-filter
@@ -111,7 +117,7 @@ aws appintegrations create-event-integration --region
 
 1.  Using the AWS CLI, create an integration with Customer Profiles using the put-integration API. This will start the flow of data to Customer Profiles, replacing the placeholder values with your Event Integration ARN and Customer Profile domain name. 
 
-```
+```bash
 aws customer-profiles put-integration --region
     {{<YOUR_REGION>}} --domain-name {{<YOUR_CP_DOMAIN_NAME>}} 
     --uri {{<YOUR_EVENT_INTEGRATION_ARN>}} --object-type-name Connect-case
@@ -126,7 +132,7 @@ aws customer-profiles put-integration --region
 
 1.  Using the AWS CLI, find the Connect-case object under the profile, replacing the placeholders with the correct values. 
 
-```
+```bash
 aws customer-profiles list-profile-objects --domain-name
     {{<YOUR_CP_DOMAIN_NAME>}} --region {{<YOUR_REGION>}} 
     --object-type-name Connect-case --profile-id {{<YOUR_PROFILE_ID>}}

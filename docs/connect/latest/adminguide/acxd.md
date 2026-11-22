@@ -1,7 +1,6 @@
 
 
 # Agentic CX designer
-<a name="acxd"></a>
 
 Agentic CX designer is a service within Amazon Connect Customer and works with flows in Connect Customer for delivering AI-powered customer experiences.
 

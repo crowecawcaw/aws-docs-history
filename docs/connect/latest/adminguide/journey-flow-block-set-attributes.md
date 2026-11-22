@@ -1,7 +1,6 @@
 
 
 # Set attributes
-<a name="journey-flow-block-set-attributes"></a>
 
 This topic defines the flow block for storing key-value pairs that can be referenced throughout a journey flow. You can define and update attributes at any step to pass data between blocks or personalize later actions. 
 

@@ -1,7 +1,6 @@
 
 
 # Share saved reports in Connect Customer
-<a name="share-reports"></a>
 
 You can only share reports that you create and save. To share reports, you need the **Saved reports - Publish** permission on your security profile. 
 

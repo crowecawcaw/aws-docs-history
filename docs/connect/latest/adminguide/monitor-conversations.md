@@ -1,7 +1,6 @@
 
 
 # Enable enhanced multi-party contact monitoring in Connect Customer
-<a name="monitor-conversations"></a>
 
 Enhanced contact monitoring applies to voice calls and all supported types of chats: chat/SMS, WhatsApp, and Apple Messages for Business.
 

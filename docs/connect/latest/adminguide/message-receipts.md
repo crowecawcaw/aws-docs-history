@@ -1,7 +1,6 @@
 
 
 # Enable notifications for chat customers in Connect Customer
-<a name="message-receipts"></a>
 
 You can enable message *Delivered* and *Read* in your [chat user interface](add-chat-to-website.md) so your customers know the status of the messages they send. This provides transparency to customers, and improves the overall chat experience. 
 

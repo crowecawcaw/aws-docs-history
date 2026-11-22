@@ -1,7 +1,6 @@
 
 
 # (legacy) Use generative AI-powered self-service with AI agents
-<a name="generative-ai-powered-self-service"></a>
 
 **Important**  
 Legacy self-service is not receiving new feature updates. For new implementations, we recommend using [agentic self-service](agentic-self-service.md), which provides autonomous multi-step reasoning, MCP tool integration, and continuous conversations.

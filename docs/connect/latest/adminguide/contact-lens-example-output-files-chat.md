@@ -1,7 +1,6 @@
 
 
 # Example conversational analytics output files for a chat analyzed by conversational analytics
-<a name="contact-lens-example-output-files-chat"></a>
 
 This section shows an example schema for a chat conversation that has been analyzed by conversational analytics. The example shows inferred sentiment, matched categories, contact summary, and response time.
 
@@ -88,7 +87,7 @@ Note the following about the original analysis file for chats:
 ## Example original chat file
 <a name="chat-exampleoriginalfile"></a>
 
-```
+```json
 {
     "AccountId": "123456789012",
     "Categories": {
@@ -946,7 +945,7 @@ Note the following about the original analysis file for chats:
 ## Example redacted chat file
 <a name="chat-exampleredactedfile"></a>
 
-```
+```json
 {
     "AccountId": "123456789012",
     "Categories": {

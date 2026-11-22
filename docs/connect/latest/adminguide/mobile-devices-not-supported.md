@@ -1,7 +1,6 @@
 
 
 # Agent workspace and CCP do not support mobile phones (iPhone, Android) and iPads
-<a name="mobile-devices-not-supported"></a>
 
 The Connect Customer admin website, Contact Control Panel (CCP), and agent workspace do not support mobile browsers / mobile devices such as iPhones and iPads. 
 

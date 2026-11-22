@@ -1,7 +1,6 @@
 
 
 # Supported widget snippet fields in Connect Customer that are customizable
-<a name="supported-snippet-fields"></a>
 
 The following table lists the communications widget snippet fields that you can customize. Example code after the table shows how to use the snippet fields.
 
@@ -33,7 +32,7 @@ The following table lists the communications widget snippet fields that you can 
 
 The following example shows how to add snippet fields to the HTML script that adds the chat widget to your web site.
 
-```
+```javascript
 (function(w, d, x, id) {   /* ... */})(window, document, 
 'amazon_connect', 'widgetId');
  amazon_connect('snippetId', 'snippetId');

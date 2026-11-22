@@ -1,7 +1,6 @@
 
 
 # Sample conversational analytics streams to analyze chats in conversational analytics
-<a name="chat-sample-real-time-contact-analysis-segment-stream"></a>
 
 This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and FAILED events that occur during a chat contact. 
 
@@ -10,7 +9,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
 + EventType: STARTED
 + Published at the beginning of the conversational analytics session.
 
-```
+```json
 {
     "Version": "2.0.0",
     "Channel": "CHAT",
@@ -38,7 +37,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
 + EventType: [SEGMENTS](chat-real-time-contact-analysis-segment-streams-data-model.md#chat-segment-streams-data-model-segments-event) 
 + Published during a conversational analytics session. This event contains a list of [RealtimeContactAnalysisSegment](https://docs.aws.amazon.com/connect/latest/APIReference/API_RealtimeContactAnalysisSegment.html) objects with analyzed information. The list of segments might include `"Transcript"`, `"Categories"`, `"Issue"`, `"Event"`, `"Attachment"`, or "PostContactSummary" segments.
 
-```
+```json
 {
     "Version": "2.0.0",
     "Channel": "CHAT",
@@ -144,7 +143,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
 + EventType: COMPLETED
 + Published at the end of the conversational analytics session if the analysis completed successfully.
 
-```
+```json
 {
     "Version": "2.0.0",
     "Channel": "CHAT",
@@ -170,7 +169,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
 + EventType: FAILED
 + Published at the end of the conversational analytics session if the analysis failed.
 
-```
+```json
 {
     "Version": "2.0.0",
     "Channel": "CHAT",

@@ -1,7 +1,6 @@
 
 
 # Connect Customer Voice ID event schema
-<a name="voiceid-event-schema"></a>
 
 **Note**  
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID resources. For more information, visit [Amazon Connect Customer Voice ID end of support](https://docs.aws.amazon.com/connect/latest/adminguide/amazonconnect-voiceid-end-of-support.html). 
@@ -37,7 +36,7 @@ Following are the schemas for the events are that emitted.
 
 Emits events on stream start (after setup), stream end, and on failures.
 
-```
+```json
 {...commonfields
     "detail-type": "VoiceId Start Session Action",
     "detail": {
@@ -87,7 +86,7 @@ Emits events on stream start (after setup), stream end, and on failures.
 
  Emits events when the internal session update succeeds or fails.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Update Session Action",
 "detail": {
@@ -124,7 +123,7 @@ Emits events on stream start (after setup), stream end, and on failures.
 
 Emits events when the session evaluation succeeds or fails. Reasons can be KNOWN\_FRAUDSTER or VOICE\_SPOOFING.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Evaluate Session Action",
 "detail": {
@@ -182,7 +181,7 @@ Emits events when the session evaluation succeeds or fails. Reasons can be KNOWN
 
 Emits events on the success or failure to opt out a speaker, delete a speaker, or enroll a speaker.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Speaker Action",
 "detail": {
@@ -212,7 +211,7 @@ Emits events when a fraudster is successfully registered or deleted.
 
 Events are not sent when a fraudster is associated or disassociated with a watchlist.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Fraudster Action",
 "detail": {
@@ -241,7 +240,7 @@ Events are not sent when a fraudster is associated or disassociated with a watch
 
 Emits this event when an enrollment request is submitted. A `Speaker` event is emitted when the actual enrollment succeeds or fails.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Session Speaker Enrollment Action",
 "detail": {
@@ -265,7 +264,7 @@ Emits this event when an enrollment request is submitted. A `Speaker` event is e
 
 Emits this event when a batch enrollment request is submitted, succeeds, or fails. A `Speaker` event is emitted for each of the individual speakers to indicate if corresponding enrollment succeeds or fails.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceID Batch Speaker Enrollment Action",
 "detail": {
@@ -306,7 +305,7 @@ Emits this event when a batch enrollment request is submitted, succeeds, or fail
 
 Emits this event when a batch registration request is submitted, succeeds, or fails. A `Fraudster` event is emitted for each of the individual fraudsters to indicate if corresponding registration succeeds or fails.
 
-```
+```json
 {...commonfields
 "detail-type": "VoiceId Batch Fraudster Registration Action",
 "detail": {

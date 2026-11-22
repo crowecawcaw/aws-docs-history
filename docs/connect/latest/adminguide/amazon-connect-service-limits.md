@@ -1,7 +1,6 @@
 
 
 # Connect Customer service quotas
-<a name="amazon-connect-service-limits"></a>
 
 **Note**  
 End of support notice: On May 20, 2026, AWS will end support for Amazon Connect Customer Voice ID. After May 20, 2026, you will no longer be able to access Voice ID on the Amazon Connect Customer console, access Voice ID features on the Connect Customer admin website or Contact Control Panel, or access Voice ID resources. For more information, visit [Amazon Connect Customer Voice ID end of support](https://docs.aws.amazon.com/connect/latest/adminguide/amazonconnect-voiceid-end-of-support.html). 
@@ -82,7 +81,7 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 | Prompts per instance | 500 | Yes | Resource Level | 
 | Queues per instance | 100 | Yes | Resource Level | 
 | Maximum contacts in an agent queue per instance | 10<br />This quota applies to the maximum contacts you can have queued at once in a single [agent queue](concepts-queues-standard-and-agent.md). The same quota applies to every agent queue in your instance. | Yes | Resource Level | 
-| Queues per routing profile per instance | 50<br />This quota refers to number of queue/channel combinations per routing profile. For example, in the following image there are two queues, but there are three queue-channel combinations: Escalation queue Voice, Escalation queue Chat, and BasicQueue Voice. This counts three towards the service quota of 50.<br />This same quota also applies to manually assigned queues; each of these two types of queue have up to this limit, independent of each other. For example, it's possible to have a max of 50 queue-channel combinations for queues and another 50 queue-channel combinations for manual assignment queues.![The Routing profiles page, the routing profiles queues section, voice and chat queues.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-queue-channel-combinations.png) | Yes | Resource Level | 
+| Queues per routing profile per instance | 50<br />This quota refers to the number of queue/channel combinations per routing profile, not the number of queues. Each channel that is enabled for a queue counts as a separate combination. In the following image there are two queues, Escalation queue and BasicQueue, each enabled only for the Voice channel, which is two queue-channel combinations counting toward the service quota of 50. If a queue were also enabled for another channel, such as Chat, that would count as an additional combination.<br />This same quota also applies to manually assigned queues; each of these two types of queue have up to this limit, independent of each other. For example, it's possible to have a max of 50 queue-channel combinations for queues and another 50 queue-channel combinations for manual assignment queues.<br />The following image shows the Routing profile queues section for this example. Escalation queue and BasicQueue are each enabled for the Voice channel only, with the Chat and Task channels cleared:![The Routing profile queues section, with a Name column and a Channels column of Voice, Chat, and Task checkboxes per queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/routing-profile-queue-channel-combinations.png)+  Escalation queue — Voice selected; Chat and Task cleared <br />+  BasicQueue — Voice selected; Chat and Task cleared  | Yes | Resource Level | 
 | Quick connects per instance | 100 | Yes | Resource Level | 
 | Rate of API requests | See [Connect Customer API throttling quotas](#connect-api-quotas). | Yes | Account Level | 
 | Reports per instance | 2,000<br />Personal saved reports count towards the reports per instance. For example, if one of your supervisors saves a report every day, it will count towards your overall number of saved reports per instance.<br />As a best practice, we recommend you implement policies so reports don't pile up.  | Yes | Resource Level | 
@@ -156,32 +155,31 @@ All the Cases quotas are at the Account level.
 | Related items that can be attached to a case | 200 | Yes | 
 | Files that can be attached to a case | 50 | Yes | 
 | Case fields per case layout | 100 | No | 
-|  SLAs that can be attached to a case | 10 | Yes | 
+|  SLAs that can be attached to a case | 30 | Yes | 
 | Fields in a Custom type related item | 5 | Yes | 
 | Cases associated with a contact | 64 | No | 
 
 ## Conversational analytics service quotas
 <a name="contactlens-quotas"></a>
 
-All conversational analytics quotas are at the Account level. 
+**Note**  
+For quotas that show "Yes, through Service Quotas" in the Adjustable column, request an adjustment in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/connect/quotas). For all other adjustable quotas, contact [AWS Support](https://console.aws.amazon.com/support/home).
 
 
-| Name | Default | Adjustable | 
-| --- | --- | --- | 
-| Concurrent real-time calls with analytics | 300 | Yes | 
-| Concurrent post-call analytics jobs | 200<br /> See [Derive Concurrent post-call analytics jobs based on your Connect Customer call volume](#contactlens-concurrent-analytics-jobs).  | Yes | 
-| Concurrent chat analytics jobs | 200 | Yes | 
-| Concurrent automated interaction analytics jobs | 20 | Yes | 
-| Concurrent post-contact agent conversation summary jobs (shared between all supported channels - voice, chat) | 10 | Yes | 
-| Concurrent post-contact automated interaction summary jobs (shared between all supported channels - voice, chat) | 2 | Yes | 
-| Concurrent after-call agent conversation summary jobs (shared between all supported channels - voice, chat) | 2 | Yes | 
-| External voice analytics connectors | 0 | Yes | 
-| Maximum active recording sessions from external voice systems per instance | 10 | Yes | 
-| Number of evaluation questions answered with AI assistance on a single contact (manually initiated) | 30 | Yes\* | 
-| Number of evaluation questions on a single contact completed automatically by generative AI (automated evaluations) | 15 | Yes\* | 
-| Maximum number of evaluations (manual and automated) per contact | 10 | No | 
-
-\*Through a support ticket. 
+| Name | Default | Adjustable | Adjustability | 
+| --- | --- | --- | --- | 
+| Concurrent real-time calls with analytics | 300 | Yes | Resource Level | 
+| Concurrent post-call analytics jobs | 200<br /> See [Derive Concurrent post-call analytics jobs based on your Connect Customer call volume](#contactlens-concurrent-analytics-jobs).  | Yes | Resource Level | 
+| Concurrent chat analytics jobs | 200 | Yes | Resource Level | 
+| Concurrent automated interaction analytics jobs | 20 | Yes | Resource Level | 
+| Concurrent agent interaction summaries per instance (shared between voice and chat) | 2 | Yes, through Service Quotas | Resource Level | 
+| Concurrent automated interaction summaries per instance (shared between voice and chat) | 2 | Yes, through Service Quotas | Resource Level | 
+| Concurrent contact chain summaries per instance (email) | 2 | Yes, through Service Quotas | Resource Level | 
+| External voice analytics connectors | 0 | Yes, through Service Quotas | Account Level | 
+| Maximum active recording sessions from external voice systems per instance | 10 | Yes | Resource Level | 
+| Number of evaluation questions answered with AI assistance on a single contact (manually initiated) | 30 | Yes | Account Level | 
+| Number of evaluation questions on a single contact completed automatically by generative AI (automated evaluations) | 15 | Yes | Account Level | 
+| Maximum number of evaluations (manual and automated) per contact | 10 | No | Account Level | 
 
 ### Derive Concurrent post-call analytics jobs based on your Connect Customer call volume
 <a name="contactlens-concurrent-analytics-jobs"></a>
@@ -299,7 +297,7 @@ The resulting error message displays your quota as less than the sum of the foll
 
 For example, in the following image from the **Edit queues** page, you add 1 to the error message, to get **Concurrent calls per instance** \+ **Concurrent active chats per instance** \+ **Concurrent active tasks per instance** quota = 3010.
 
-![The edit queue page, Maximum contacts in queue.](https://docs.aws.amazon.com/connect/latest/adminguide/images/concurrent-call-quota.png)
+![The Edit queue page with the Maximum contacts in queue field set to 1,000,000 and an error stating the value exceeds the queued contacts per instance quota, which is currently 3,009.](https://docs.aws.amazon.com/connect/latest/adminguide/images/concurrent-call-quota.png)
 
 
 The error message shows 3009 because you must set always set **Maximum contacts in queue** to a number that is at least 1 *less than* your combined quota (which is the default limit).
@@ -323,6 +321,8 @@ Connect Customer throttling quotas are by account, and per Region, not by user a
 | \*[GetMetricData ](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html) | 5 | 8 | 
 | \*[GetMetricDataV2 ](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) | 10 | 10 | 
 | \*[GetCurrentMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentMetricData.html) | 5 | 8 | 
+| [DescribeInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeInstance.html) | 1 | 5 | 
+| [ListInstances](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListInstances.html) | 1 | 5 | 
 | [SearchContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContacts.html) when searching within a 2-week window by contact initiation time | 10 | 30 | 
 | [SearchContacts](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContacts.html) when searching beyond a 2-week window by contact initiation time | 1 | 1 | 
 | [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html) | 5 | 8 | 

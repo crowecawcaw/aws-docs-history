@@ -1,7 +1,6 @@
 
 
 # Testing your application
-<a name="acxd-testing"></a>
 
 Testing in agentic CX designer lets you validate how your conversational AI application behaves before it is used in a live customer experience.
 

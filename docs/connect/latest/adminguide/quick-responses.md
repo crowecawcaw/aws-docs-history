@@ -1,7 +1,6 @@
 
 
 # Add quick responses for use with chat and email contacts in Connect Customer
-<a name="quick-responses"></a>
 
 This topic explains how to add a quick response by using the Connect Customer admin website. For the APIs used to create and manage quick responses programmatically, see [APIs to create and manage quick responses](#apis-quick-responses). 
 

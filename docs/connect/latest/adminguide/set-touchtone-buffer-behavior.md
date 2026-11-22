@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set Touchtone Buffer Behavior
-<a name="set-touchtone-buffer-behavior"></a>
 
 ## Description
 <a name="set-touchtone-buffer-behavior-description"></a>
@@ -103,7 +102,7 @@ The **Set Touchtone Buffer Behavior** block is represented as a `GetParticipantI
 
 **Enable buffering:**
 
-```
+```json
 {
     "Parameters": {
         "EnableDTMFBuffer": "true"
@@ -124,7 +123,7 @@ The **Set Touchtone Buffer Behavior** block is represented as a `GetParticipantI
 
 **Stop and clear with stored encrypted input:**
 
-```
+```json
 {
     "Parameters": {
         "EnableDTMFBuffer": "false",

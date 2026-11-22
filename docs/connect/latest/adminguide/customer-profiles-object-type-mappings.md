@@ -1,7 +1,6 @@
 
 
 # Create and ingest customer data into Customer Profiles
-<a name="customer-profiles-object-type-mappings"></a>
 
 You can define data from any source using Amazon S3 and seamlessly enrich a customer profile without the need for custom or pre-built integrations. For example, say you want to provide agents with relevant purchase history information. You can import purchase transaction data from an internal application into a spreadsheet file on S3 and then link it to a customer profile.
 
@@ -63,7 +62,7 @@ A DLQ is an Amazon SQS queue where Customer Profiles reports ingestion errors. W
 
    **Example of engagement preferences with Email**:
 
-   ```
+   ```json
    [ 
     {"KeyName": "CustomerId", "KeyValue": "456", "ContactType": "PersonalEmailAddress"}, 
     {"KeyName": "CustomerId", "KeyValue": "789", "ContactType": "PersonalEmailAddress"} 
@@ -72,7 +71,7 @@ A DLQ is an Amazon SQS queue where Customer Profiles reports ingestion errors. W
 
    **Example of engagement preferences with Phone**:
 
-   ```
+   ```json
    [ 
     {"KeyName": "CustomerId", "KeyValue": "456", "ContactType": "PhoneNumber"}, 
     {"KeyName": "CustomerId", "KeyValue": "789", "ContactType": "PhoneNumber"} 
@@ -89,7 +88,7 @@ For **ProfileType** `PROFILE`, you can ingest and add engagement preferences usi
 
    **Sample object-type mapping for ingesting profiles referenced in account-based profiles**
 
-   ```
+   ```json
    {
        "AllowProfileCreation": true,
        "Description": "Standard Profile Object Type",
@@ -151,7 +150,7 @@ For **ProfileType** `PROFILE`, you can ingest and add engagement preferences usi
 
    **Sample object-type mapping for ingesting account based profiles**
 
-   ```
+   ```json
    {
        "AllowProfileCreation": true,
        "Description": "Account-based profiles Object Type",

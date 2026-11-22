@@ -1,7 +1,6 @@
 
 
 # Agent status in the Contact Control Panel (CCP)
-<a name="metrics-agent-status"></a>
 
 Agents have a status. It's manually set in the Contact Control Panel (CCP). 
 + When they're ready to handle contacts, they set their status in the CCP to **Available**. This means inbound contacts can be routed to them.
@@ -53,7 +52,7 @@ To find out what the agent status is in the real-time metrics report, look at th
 
 In the agent event stream you'll see the **AgentStatus**, for example: 
 
-```
+```json
 {
  "AWSAccountId": "012345678901",
  "AgentARN": "arn:aws:connect:us-east-1:012345678901:instance/aaaaaaaa-bbbb-cccc-dddd-111111111111/agent/agent-ARN",

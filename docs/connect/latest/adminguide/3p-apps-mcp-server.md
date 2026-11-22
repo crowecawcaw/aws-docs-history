@@ -1,7 +1,6 @@
 
 
 # Integrate an MCP server with Connect Customer
-<a name="3p-apps-mcp-server"></a>
 
 To use an MCP server with Connect Customer, you need an Amazon Bedrock AgentCore gateway. The gateway turns your APIs, Lambda functions, and services into MCP tools. AI agents can use these tools.
 

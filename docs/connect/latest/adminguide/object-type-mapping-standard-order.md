@@ -1,7 +1,6 @@
 
 
 # Object type mapping for the standard order in Connect Customer Customer Profiles
-<a name="object-type-mapping-standard-order"></a>
 
 The topics in this section provide the standard order definition, and the object type mapping from external applications to the standard order.
 

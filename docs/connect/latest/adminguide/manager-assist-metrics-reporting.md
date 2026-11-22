@@ -1,7 +1,6 @@
 
 
 # Manager assist contacts in metrics and reporting
-<a name="manager-assist-metrics-reporting"></a>
 
 When you enable the manager assist feature in Connect Customer, the system creates chat contacts for each manager session. These contacts have the subType `connect:Assistant`.
 

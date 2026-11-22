@@ -1,7 +1,6 @@
 
 
 # Configure third-party speech-to-text (STT) providers
-<a name="configure-third-party-stt"></a>
 
 Use the following instructions to configure a third-party speech-to-text (STT) provider.
 

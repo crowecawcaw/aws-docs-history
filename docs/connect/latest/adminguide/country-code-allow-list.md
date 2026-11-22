@@ -1,7 +1,6 @@
 
 
 # Countries that call centers using Connect Customer can call by default
-<a name="country-code-allow-list"></a>
 
 The Region where your instance is created determines which countries you can call by default.
 

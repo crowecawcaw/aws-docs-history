@@ -1,7 +1,6 @@
 
 
 # Set up Connect Customer outbound campaigns
-<a name="enable-outbound-campaigns"></a>
 
 This topic explains how to set up Connect Customer outbound campaigns, a feature of Connect Customer and formerly known as high-volume outbound communications.
 

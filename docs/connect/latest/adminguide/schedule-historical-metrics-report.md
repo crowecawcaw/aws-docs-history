@@ -1,7 +1,6 @@
 
 
 # Schedule a historical metrics report in Connect Customer
-<a name="schedule-historical-metrics-report"></a>
 
 Before you schedule a historical metrics report, here are a few things you need to know:
 

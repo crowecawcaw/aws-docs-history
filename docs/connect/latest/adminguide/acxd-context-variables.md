@@ -1,7 +1,6 @@
 
 
 # Context variables
-<a name="acxd-context-variables"></a>
 
 Context variables store information that should remain available throughout a conversation session.
 

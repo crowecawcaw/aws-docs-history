@@ -1,7 +1,6 @@
 
 
 # Use generative AI-powered case summarization
-<a name="use-generative-ai-case-summarization"></a>
 
 To help agents to handle cases more efficiently, they can use generative AI-powered case summarization. This AI agent and Connect Customer Cases feature – available to unlimited AI customers – helps agents gather context faster and expedites their time to resolution of customer issues.
 

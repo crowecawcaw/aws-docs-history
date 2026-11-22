@@ -1,7 +1,6 @@
 
 
 # Contact analytics data in the Connect Customer data lake
-<a name="data-lake-contact-analytics-data"></a>
 
 The following tables contain contact analytics data.
 
@@ -144,7 +143,7 @@ The following tables contain contact analytics data.
 
 The following example query in Amazon Athena returns business outcome evaluation scores by metric:
 
-```
+```sql
 SELECT
     evaluation_measurement_name,
     AVG(evaluation_measurement_score) AS avg_score,
@@ -160,7 +159,7 @@ ORDER BY evaluation_measurement_name;
 
 The following example query in Amazon Athena joins business outcome scores with customer segments:
 
-```
+```sql
 SELECT
     cp.lifetime_value_segment,
     cer.evaluation_measurement_name,
@@ -226,7 +225,7 @@ The following table describes the columns in the `evaluation_review_record` tabl
 
 The following example query in Amazon Athena returns the number of evaluation reviews by outcome. A review without an outcome is still in progress:
 
-```
+```sql
 SELECT
     COALESCE(outcome, 'IN_PROGRESS') AS review_status,
     COUNT(*) AS review_count
@@ -240,7 +239,7 @@ ORDER BY review_status;
 
 The following example query in Amazon Athena returns the percentage of completed reviews with an `APPROVED` outcome for each evaluator who submitted the original evaluation:
 
-```
+```sql
 SELECT
     evaluator_id,
     COUNT(*) AS completed_reviews,
@@ -256,7 +255,7 @@ ORDER BY approved_pct DESC;
 
 The following example query in Amazon Athena returns the average time, in hours, from the review request to the last update of a completed review:
 
-```
+```sql
 SELECT
     AVG(date_diff('second', requested_timestamp, last_modified_timestamp)) / 3600.0
         AS avg_review_completion_hours

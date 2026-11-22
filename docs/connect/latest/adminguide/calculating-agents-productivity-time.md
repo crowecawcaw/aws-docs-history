@@ -1,7 +1,6 @@
 
 
 # Examples of Agent Adherence calculations in Connect Customer
-<a name="calculating-agents-productivity-time"></a>
 
 This topic shows two examples that illustrate how Adherent time and Non-adherent time are calculated in Connect Customer. It also includes two examples that show adherence with thresholds, one within a shift and one at the start and end of a shift.
 

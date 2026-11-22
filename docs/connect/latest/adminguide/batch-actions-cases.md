@@ -1,7 +1,6 @@
 
 
 # Batch actions on Cases
-<a name="batch-actions-cases"></a>
 
 You can apply an action to multiple cases at the same time by using batch case actions, without opening and updating each case individually. You can assign cases, update their status, add a comment, or export selected cases as CSV. The actions available to you depend on your security profile permissions.
 

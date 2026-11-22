@@ -1,7 +1,6 @@
 
 
 # Retrieve an agent's address from Connect Customer when they call 911
-<a name="retrieve-agent-address-e911"></a>
 
 To retrieve an agent's validated address from the Connect Customer, create an outbound whisper flow that calls a Lambda function. Code the Lambda function to retrieve the address from the agent's customer profile, as shown in the following illustration:
 

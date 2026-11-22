@@ -1,7 +1,6 @@
 
 
 # Organize agents into teams and groups for reporting and access by creating hierarchies
-<a name="agent-hierarchy"></a>
 
  Agent hierarchies are a way for you to organize agents into teams and groups for reporting purposes. It's useful to organize them based on their location and their skill sets. For example, you might want to create large groups, such as all agents who work on a specific continent, or smaller groups such as all agents working in a specific department. 
 

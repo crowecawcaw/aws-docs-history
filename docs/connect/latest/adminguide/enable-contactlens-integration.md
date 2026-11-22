@@ -1,7 +1,6 @@
 
 
 # Enable Connect Customer conversational analytics integration
-<a name="enable-contactlens-integration"></a>
 
 After you create a conversational analytics connector, you need to enable the integration by assigning users security profile permissions so they can access it on the Connect Customer admin website.
 

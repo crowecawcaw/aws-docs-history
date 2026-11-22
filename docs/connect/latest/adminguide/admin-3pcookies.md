@@ -1,7 +1,6 @@
 
 
 # Using Connect Customer with third-party cookies
-<a name="admin-3pcookies"></a>
 
 ## Google Chrome
 <a name="admin-3pcookies-google"></a>

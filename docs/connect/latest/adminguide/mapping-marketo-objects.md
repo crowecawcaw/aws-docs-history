@@ -1,7 +1,6 @@
 
 
 # Mapping Marketo objects to the standard profile in Connect Customer Customer Profiles
-<a name="mapping-marketo-objects"></a>
 
 This topic lists which fields in Marketo objects map to fields in the standard profile object in Customer Profiles.
 

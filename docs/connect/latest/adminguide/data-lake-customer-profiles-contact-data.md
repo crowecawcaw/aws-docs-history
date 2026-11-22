@@ -1,7 +1,6 @@
 
 
 # Customer profiles contact data in the Connect Customer data lake
-<a name="data-lake-customer-profiles-contact-data"></a>
 
 The following table contains customer profiles contact data.
 
@@ -54,7 +53,7 @@ The following table contains customer profiles contact data.
 
 The following example query in Amazon Athena returns customer profiles contact events for a specific instance:
 
-```
+```sql
 SELECT
     contact_id,
     profile_id,
@@ -72,7 +71,7 @@ ORDER BY initiation_timestamp DESC;
 
 The following example query in Amazon Athena joins customer profiles data with contact records:
 
-```
+```sql
 SELECT
     cr.contact_id,
     cr.agent_username,

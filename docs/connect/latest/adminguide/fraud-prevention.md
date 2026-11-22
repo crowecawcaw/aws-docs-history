@@ -1,7 +1,6 @@
 
 
 # Service controls and fraud prevention in Connect Customer
-<a name="fraud-prevention"></a>
 
 Contact centers are frequent targets for fraud attempts such as social engineering attacks and systematic account takeover attempts. With Connect Customer, you can protect your business through comprehensive access management, real-time monitoring, and automated threat detection.
 

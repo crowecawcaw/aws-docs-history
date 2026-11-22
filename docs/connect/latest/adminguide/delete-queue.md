@@ -1,7 +1,6 @@
 
 
 # Delete a queue from your Connect Customer instance
-<a name="delete-queue"></a>
 
 There are three ways to delete a queue from your Connect Customer instance: 
 + Connect Customer admin website

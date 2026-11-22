@@ -1,7 +1,6 @@
 
 
 # Apply granular access control to historical metrics reports in Connect Customer
-<a name="hm-tag-based-access-control"></a>
 
 You can use resource tags and access control tags to apply granular access to users, queues, and routing profiles for historical metrics. For example, you can control who has access to view specific users, queues, and routing profile historical metrics. 
 

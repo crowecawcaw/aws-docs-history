@@ -1,7 +1,6 @@
 
 
 # Set up calculated attributes in Connect Customer Customer Profiles
-<a name="customerprofiles-calculated-attributes"></a>
 
 *Calculated attributes* are values that are derived from other attributes by using formulas. You can use them to identify users' aggregate behaviors.
 

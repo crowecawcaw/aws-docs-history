@@ -1,7 +1,6 @@
 
 
 # Set up Connect Customer integration with Salesforce, ServiceNow, Marketo, or Zendesk
-<a name="steps-integrate-cp-salesforce-servicenow"></a>
 
 To provide periodic updates to Connect Customer Customer Profiles, you can integrate with Salesforce, ServiceNow, Marketo, or Zendesk using Amazon AppFlow. You first set up the connection in Connect Customer and the application of your choice, and then verify the integration.
 

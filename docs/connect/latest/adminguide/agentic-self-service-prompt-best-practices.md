@@ -1,7 +1,6 @@
 
 
 # Prompt engineering best practices for AI agents
-<a name="agentic-self-service-prompt-best-practices"></a>
 
 The following best practices can help you write more effective orchestration prompts for your AI agents. Many of these practices apply broadly to both self-service and agent assistance use cases, while some are specific to managing response latency or self-service interactions.
 

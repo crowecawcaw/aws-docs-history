@@ -1,7 +1,6 @@
 
 
 # Custom views in Connect Customer
-<a name="view-resources-custom-view"></a>
 
 You can create your own views with Connect Customer APIs. Views support AWS CloudFormation, AWS CloudTrail, and tagging.
 
@@ -12,7 +11,7 @@ This view nests two cards within a container and places a **Skip** button to the
 
 The following command creates the view:
 
-```
+```userinput
 aws connect create-view --name CustomerManagedCards \
 --status PUBLISHED --content file://view-content.json \
 --instance-id $INSTANCE_ID --region $REGION
@@ -20,7 +19,7 @@ aws connect create-view --name CustomerManagedCards \
 
 The `view-content.json` file contains the following:
 
-```
+```json
 {
   "Template": <stringified-template-json>
   "Actions": ["CardSelected", "Skip"]
@@ -29,7 +28,7 @@ The `view-content.json` file contains the following:
 
 The following is the template JSON before it's stringified:
 
-```
+```json
 {
     "Head": {
         "Title": "CustomerManagedCards",
@@ -105,7 +104,7 @@ When using a view with the [Show view](show-view-block.md) block, `Action` repre
 
 **Scenario 1: Choose the **Cafe Card** Card**
 
-```
+```json
 "Action": "CardSelected"
 "Output": {
     "Heading": "CafeCard",
@@ -115,7 +114,7 @@ When using a view with the [Show view](show-view-block.md) block, `Action` repre
 
 **Scenario 2: Choose the **Skip** Button**
 
-```
+```json
 "Action": "Skip"
 "Output": {
     "action": "Button"
@@ -127,7 +126,7 @@ When using a view with the [Show view](show-view-block.md) block, `Action` repre
 
 When using the AWS managed Form view, the form data is under `FormData`.
 
-```
+```json
 {
    "FormData": {
        "email": "user@example.com"
@@ -139,7 +138,7 @@ In the Show view block, reference the data as `$.Views.ViewResultData.FormData.e
 
 When using the **Custom view (with form component)**, the form data is directly under `Output`.
 
-```
+```json
 {
     "email": "user@example.com"
 }

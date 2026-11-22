@@ -1,7 +1,6 @@
 
 
 # Screen recording with Connect Customer Global Resiliency
-<a name="screen-recording-global-resiliency"></a>
 
 Agent screen recording is supported on instances that have [Set up Connect Customer Global Resiliency](setup-connect-global-resiliency.md). With Global Resiliency, your Connect Customer instance is paired with a replica instance in another AWS Region, and agents can handle contacts in either Region. Screen recording works in both Regions of the pair, including after you shift agents from one Region to the other. However, replicating an instance does not copy every screen recording setting to the replica Region — complete the steps in this topic so that recording works in both Regions.
 

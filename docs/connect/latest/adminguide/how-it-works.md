@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="how-it-works"></a>
 
 Profile Explorer offers various widgets to display customer information, layouts are stored as JSON definitions, representing the complete structure and configuration of your dashboard. Each widget and component in your visual layout corresponds to a specific JSON block within this definition.
 
@@ -35,7 +34,7 @@ Every component in the layout definition is comprised of five common elements:
 
 The following is a sample JSON structure for a dashboard table component:
 
-```
+```json
 {
     "Id": "unique-identifier",
     "Type": "BoardItem",
@@ -77,7 +76,7 @@ For components like Key Value Pairs and Key Metrics, you can access:
 #### Standard profile information
 <a name="standard-profile-information"></a>
 
-```
+```json
 {{Customer.<StandardProfileInfo>}}
 ```
 
@@ -89,7 +88,7 @@ Example usage:
 #### Calculated Attributes
 <a name="calculated-attributes"></a>
 
-```
+```json
 {{Customer.CalculatedAttributes.<attributeDefinitionName>}}
 ```
 
@@ -103,29 +102,29 @@ Example usage:
 #### Calculated Attributes
 <a name="calculated-attributes-tabular"></a>
 
-```
+```json
 {{Customer.CalculatedAttributes.DisplayName}}
 ```
 
-```
+```json
 {{Customer.CalculatedAttributes.CalculatedAttributeDefinitionName}}
 ```
 
 #### Segments
 <a name="segments"></a>
 
-```
+```json
 {{Customer.CalculatedAttributes.DisplayName}}
 ```
 
-```
+```json
 {{Customer.CalculatedAttributes.SegmentDefinitionName}}
 ```
 
 #### Profile objects
 <a name="profile-objects"></a>
 
-```
+```json
 {{Customer.ObjectAttributes.<objectTypeName>.<fieldName>}}
 ```
 
@@ -139,7 +138,7 @@ Example usage:
 #### Single value component
 <a name="single-value-component"></a>
 
-```
+```json
 {
     "Type": "KeyValuePair",
     "Props": {
@@ -166,7 +165,7 @@ Example usage:
 #### Tabular component
 <a name="tabular-component"></a>
 
-```
+```json
 {
     "Type": "Table",
     "Props": {

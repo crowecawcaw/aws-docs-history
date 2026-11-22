@@ -1,7 +1,6 @@
 
 
 # Deploy the Connect Customer browser extension
-<a name="deploy-browser-extension"></a>
 
 The Connect Customer browser extension reports the URL of each browser window to the Connect Customer Client Application so that URL rules configured in your flow block can be evaluated. Without the extension, URLs are not reported and URL rules cannot match, so browser pages that should be redacted by URL might appear in the recording. Window title rules do not depend on the extension; they match on native window titles and work without the extension installed.
 
@@ -77,7 +76,7 @@ Configure the **ExtensionSettings** policy for each browser with the following p
 
 **Google Chrome and Microsoft Edge**
 
-```
+```json
 {
   "cjmichfmnimgeoadokmeaiclklkdccod": {
     "installation_mode": "force_installed",
@@ -88,7 +87,7 @@ Configure the **ExtensionSettings** policy for each browser with the following p
 
 **Mozilla Firefox**
 
-```
+```json
 {
   "amazon_connect_extension@amazon.com": {
     "installation_mode": "force_installed",
@@ -225,7 +224,7 @@ To actively prevent the extension from being installed or used, change the polic
 
 **Google Chrome and Microsoft Edge**
 
-```
+```json
 {
   "cjmichfmnimgeoadokmeaiclklkdccod": {
     "installation_mode": "blocked"
@@ -235,7 +234,7 @@ To actively prevent the extension from being installed or used, change the polic
 
 **Mozilla Firefox**
 
-```
+```json
 {
   "amazon_connect_extension@amazon.com": {
     "installation_mode": "blocked"

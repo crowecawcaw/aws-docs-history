@@ -1,7 +1,6 @@
 
 
 # How to port your numbers to Connect Customer
-<a name="about-porting"></a>
 
 The following steps are for a typical porting request. This process requires timely communication to make progress. If you take longer than 30 days to respond to requests for information, your porting request might be cancelled, rescheduled, or restarted from the beginning. 
 

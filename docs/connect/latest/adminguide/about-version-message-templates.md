@@ -1,7 +1,6 @@
 
 
 # About versioning message templates
-<a name="about-version-message-templates"></a>
 
 Each time you change a template, you can specify whether you want to save your changes as a new draft of the template or as an update to the most recent, existing draft of the template. As you design, develop, and refine a template, each of these versions serves as a snapshot that can help you track the progress and status of the template. That is to say, you can use versioning to store, track, and manage a template as it changes over time. You can:
 + Track the history of a template – For each template, Connect Customer provides a list of versions of the template. This list displays the name of each version. The list is sorted in descending chronological order with the most recent version listed first.

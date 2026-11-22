@@ -1,7 +1,6 @@
 
 
 # Set up bulk export for all of your unified customer profile data
-<a name="set-up-bulk-export"></a>
 
 **Note**  
 To complete the steps in this topic, you need to have developer skills, and be experienced with using AWS KMS and Amazon S3.
@@ -42,7 +41,7 @@ Add the following statement to your **key policy**.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ Following is an example resource policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ Any data that is ingested within the last 30 minutes might not be included in th
 
 The following code sample shows how to run the [create-data-integration](https://docs.aws.amazon.com/cli/latest/reference/appintegrations/create-data-integration.html) CLI command.
 
-```
+```json
 aws appintegrations create-data-integration \ 
 --region "us-west-2" \
 --name "{{bulk-export-job-01}}" \ 
@@ -157,7 +156,7 @@ aws appintegrations create-data-integration \
 
 The following code sample shows how to call the [CreateDataIntegration](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-app-integrations_CreateDataIntegration.html) API.
 
-```
+```json
 {
     "Description": "{{Data integration for _profile objects}}",
     "KmsKey": "{{arn:aws:kms:us-west-2:123456789012:key/123456789012-1234-1234-123456789012}}",
@@ -188,7 +187,7 @@ For the quota for **Concurrent bulk export jobs**, see [Connect Customer Custome
 
 The following code sample shows how to run the [create-data-integration-association](https://docs.aws.amazon.com/cli/latest/reference/appintegrations/create-data-integration-association.html) CLI command.
 
-```
+```json
 aws appintegrations create-data-integration-association \
 --region "us-west-2" \
 --data-integration-identifier "{{unique-data-integration-name-01}}" \
@@ -198,7 +197,7 @@ aws appintegrations create-data-integration-association \
 
 The following code sample shows how to call the [CreateDataIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-app-integrations_CreateDataIntegrationAssociation.html) API.
 
-```
+```json
 {
     "DataIntegrationIdentifier": "arn:aws:app-integrations:us-west-2:123456789012:data-integration/123456789012-1234-1234-123456789012",
     "DestinationURI": "s3://amzn-s3-demo-bucket1",
@@ -219,7 +218,7 @@ To view the status of your bulk export job, you can call the [ListDataIntegratio
 
 The following code sample shows how to run the [list-data-integration-associations](https://docs.aws.amazon.com/cli/latest/reference/appintegrations/list-data-integration-associations.html) CLI command.
 
-```
+```json
 aws appintegrations list-data-integration-associations \
 --region "us-west-2" \
 --data-integration-identifier "{{unique-data-integration-name-01}}"
@@ -252,7 +251,7 @@ You can call the [UpdateDataIntegrationAssociation](https://docs.aws.amazon.com/
 
 The following code sample shows how to run the [update-data-integration-association](https://docs.aws.amazon.com/cli/latest/reference/appintegrations/update-data-integration-association.html) CLI command.
 
-```
+```json
 aws appintegrations update-data-integration-association \
 --region "us-west-2" \
 --data-integration-identifier "{{unique-data-integration-name-01}}" \

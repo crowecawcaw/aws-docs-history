@@ -1,7 +1,6 @@
 
 
 # Isolate routing problems by using the contact record (CTR) and contact flow logs
-<a name="sop-routing-ctr-flowlog"></a>
 
 The contact record (CTR) and contact flow logs are the **dividing line** that tells you whether a routing or contact-handling problem occurred inside Connect Customer (routing configuration and contact flows) or outside it (carrier or device). This is the same approach that audio quality troubleshooting uses when it treats the call recording as the dividing line. This page shows you which fields to read, what to conclude from them, and where to go next.
 
@@ -109,7 +108,7 @@ Before you look for an abnormal reading, know the baseline. The following annota
 
 **Contact record (CTR)** – only the relevant fields are shown:
 
-```
+```json
 {
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "Channel": "VOICE",
@@ -137,7 +136,7 @@ In this healthy reading:
 
 **Contact flow log** – the Set working queue block logs an entry line that records the QueueId ARN it set:
 
-```
+```json
 {
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "ContactFlowModuleType": "SetQueue",
@@ -150,7 +149,7 @@ In this healthy reading:
 
 A block that reports an outcome adds a result line. In a healthy flow, the `Results` value is `Success` (not `Timeout` or `Error`):
 
-```
+```json
 {
     "Results": "Success",
     "ContactId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",

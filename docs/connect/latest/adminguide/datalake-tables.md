@@ -1,7 +1,6 @@
 
 
 # Associate tables for the Connect Customer analytics data lake
-<a name="datalake-tables"></a>
 
  Configuration of data sharing creates a RAM invitation to the consumer account. [RAM](https://aws.amazon.com/ram/) is a service to help you securely share resources across AWS accounts. Make sure that you have the required AWS Identity and Access Management (IAM) permissions to view and accept resource share invitations. 
 

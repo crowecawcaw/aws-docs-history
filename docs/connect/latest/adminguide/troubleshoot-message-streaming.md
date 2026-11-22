@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with message streaming in Connect Customer
-<a name="troubleshoot-message-streaming"></a>
 
 ## Messages are not getting published to SNS
 <a name="message-not-published-to-sns"></a>

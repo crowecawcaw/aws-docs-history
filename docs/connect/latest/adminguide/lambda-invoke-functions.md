@@ -1,7 +1,6 @@
 
 
 # Invoke Lambda functions
-<a name="lambda-invoke-functions"></a>
 
 ## Step 1: Create a Lambda function
 <a name="lambda-create-function"></a>
@@ -16,7 +15,7 @@ When your Lambda function is invoked, it will receive a JSON payload with the fo
 #### Payload Structure
 <a name="lambda-payload-structure"></a>
 
-```
+```json
 {
   "InvocationMetadata": {
     "CampaignContext": {
@@ -59,7 +58,7 @@ When your Lambda function is invoked, it will receive a JSON payload with the fo
 #### Example Request Payload
 <a name="lambda-example-request"></a>
 
-```
+```json
 {
   "InvocationMetadata": {
     "CampaignContext": {
@@ -94,7 +93,7 @@ Your Lambda function must return a JSON response with the following structure:
 #### Response Structure
 <a name="lambda-response-structure"></a>
 
-```
+```json
 {
   "Items": {
     "CustomerProfiles": [
@@ -119,7 +118,7 @@ Your Lambda function must return a JSON response with the following structure:
 #### Example Response Payload
 <a name="lambda-example-response"></a>
 
-```
+```json
 {
   "Items": {
     "CustomerProfiles": [
@@ -184,7 +183,7 @@ Your Lambda function must return a JSON response with the following structure:
 The preceding console procedure automatically adds the required resource-based policy to the Lambda function. If you use the AWS CLI or SDK, you can call the [PutConnectInstanceIntegration](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-outbound-campaigns-v2_PutConnectInstanceIntegration.html) API with the `lambda` integration configuration. This API automatically adds the required resource-based policy to your Lambda function, just as the console does.  
 If you need to add the resource-based policy manually (for example, for cross-account invocations), add a policy statement that grants the `connect-campaigns.amazonaws.com` service principal permission to invoke your function. You can optionally add a `Condition` element with `AWS:SourceAccount` and `AWS:SourceArn` to restrict access to your account and Connect Customer instance. We recommend including both conditions. The following example shows the required policy statement.  
 
-```
+```json
 {
   "Statement": [
     {

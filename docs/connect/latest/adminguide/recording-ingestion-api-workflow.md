@@ -1,7 +1,6 @@
 
 
 # API workflow
-<a name="recording-ingestion-api-workflow"></a>
 
 Recording ingestion and conversational analytics uses a workflow of three sequential API calls:
 + [CreateContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContact.html) – Create a voice contact to represent the call
@@ -15,7 +14,7 @@ Use [CreateContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_
 
 Request:
 
-```
+```bash
 aws connect create-contact \
   --instance-id "{{instance-id}}" \
   --region "{{region}}" \
@@ -33,12 +32,13 @@ aws connect create-contact \
 
 Response:
 
-```
+```json
 { "ContactId": "{{contact-id}}" }
 ```
 
 Notes:
 + `UserInfo.UserId` must be the ARN of an agent that exists in your Connect Customer instance.
++ `InitiationMethod` accepts the values `INBOUND` and `OUTBOUND`.
 + You will need the returned `ContactId` in Steps 2 and 3.
 
 ## Step 2: CreateAttachedFile
@@ -48,7 +48,7 @@ Use [CreateAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference
 
 Request:
 
-```
+```bash
 aws connect create-attached-file \
   --instance-id "{{instance-id}}" \
   --region "{{region}}" \
@@ -60,7 +60,7 @@ aws connect create-attached-file \
 
 Response:
 
-```
+```json
 {
   "CreationTime": "2026-03-31T00:00:00.000Z",
   "FileId": "{{file-id}}",
@@ -88,7 +88,7 @@ Use [StartContactConversationalAnalyticsJob](https://docs.aws.amazon.com/connect
 
 Request:
 
-```
+```bash
 aws connect start-contact-conversational-analytics-job \
   --instance-id "{{instance-id}}" \
   --contact-id "{{contact-id}}" \
@@ -107,7 +107,7 @@ aws connect start-contact-conversational-analytics-job \
 
 Response:
 
-```
+```json
 { "ContactId": "{{contact-id}}", "InstanceId": "{{instance-id}}" }
 ```
 

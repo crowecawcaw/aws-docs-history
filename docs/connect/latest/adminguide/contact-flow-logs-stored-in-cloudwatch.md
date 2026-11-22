@@ -1,7 +1,6 @@
 
 
 # Flow logs stored in an Amazon CloudWatch log group
-<a name="contact-flow-logs-stored-in-cloudwatch"></a>
 
 Flow logs are stored in an Amazon CloudWatch log group, in the same AWS Region as your Connect Customer instance. This log group is created automatically when [Enable flow logging](contact-flow-logs.md#enable-contact-flow-logs) is turned on for your instance.
 

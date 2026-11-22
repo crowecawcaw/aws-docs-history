@@ -1,7 +1,6 @@
 
 
 # Standard identifiers in Customer Profiles
-<a name="standard-identifiers"></a>
 
 Standard identifiers are tags applied to a key that describe its role during ingestion. They tell Customer Profiles how each key participates in matching an object to a profile and whether the key value is stored for future use. You set standard identifiers in the `StandardIdentifiers` array of a key definition. For more information, see [Key definitions in Customer Profiles object type mappings](mapping-key-definitions.md).
 

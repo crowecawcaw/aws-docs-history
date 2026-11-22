@@ -1,7 +1,6 @@
 
 
 # Data requests
-<a name="acxd-data-requests"></a>
 
 Data requests are custom integrations that let agentic CX designer send data to, or retrieve data from, external systems during a conversation.
 
@@ -212,7 +211,7 @@ The module's response is limited to 1 MiB (1,048,576 bytes). If a response is la
 
 Use a mock response that matches the shape of the module's response model so that your tests behave like a real invocation. The following JSON mock response returns an order status:
 
-```
+```json
 {
   "orderStatus": "SHIPPED",
   "estimatedDelivery": "2026-10-02",
@@ -226,7 +225,7 @@ In the **Payload** editor, map each required input field to a literal value or t
 
 The following JSON payload maps two values to the module's declared input fields:
 
-```
+```json
 {
   "orderId": "A12345",
   "customerId": "C67890"

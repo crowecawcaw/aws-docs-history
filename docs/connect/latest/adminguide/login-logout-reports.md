@@ -1,7 +1,6 @@
 
 
 # Login/Logout reports for agents in Connect Customer
-<a name="login-logout-reports"></a>
 
 The Login/Logout report displays the login and logout information for the users in your contact center (for example, agents, managers, and administrators). For each user session, the login and logout times are displayed as a row in the report. You can use the report to determine the time users were logged in to Connect Customer. The report also displays the amount of time for each session that user was logged in to Connect Customer.
 

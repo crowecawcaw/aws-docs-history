@@ -1,7 +1,6 @@
 
 
 # Scheduling data in the Connect Customer analytics data lake
-<a name="data-lake-scheduling"></a>
 
 This topic details the content in the Connect Customer data lake scheduling tables. The tables list the column, type, and description of the content.
 

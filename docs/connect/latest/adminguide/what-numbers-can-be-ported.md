@@ -1,7 +1,6 @@
 
 
 # Phone numbers that you can port to Connect Customer
-<a name="what-numbers-can-be-ported"></a>
 
 Not all phone numbers can be ported. The ability to port a specific phone number depends on several factors. For example:
 + The regulations in the country or region of the phone number. 

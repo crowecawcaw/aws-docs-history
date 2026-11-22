@@ -1,7 +1,6 @@
 
 
 # Detailed network paths for Connect Customer
-<a name="detailed-network-paths"></a>
 
 ## Voice calls
 <a name="detailed-network-paths-voice"></a>

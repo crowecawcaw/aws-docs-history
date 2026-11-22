@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon AppIntegrations
-<a name="appintegrations-slr"></a>
 
 Amazon AppIntegrations uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon AppIntegrations. Service-linked roles are predefined by Amazon AppIntegrations and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -26,7 +25,7 @@ The role permissions policy named AppIntegrationsServiceLinkedRolePolicy allows 
 
 ****  
 
-```
+```json
      {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

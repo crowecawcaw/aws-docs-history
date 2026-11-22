@@ -1,7 +1,6 @@
 
 
 # Create a custom historical metrics report in Connect Customer
-<a name="create-historical-metrics-report"></a>
 
 Create your own customized historical metrics reports to look at specific data. 
 

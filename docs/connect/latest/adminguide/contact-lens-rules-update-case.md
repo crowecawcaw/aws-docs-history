@@ -1,7 +1,6 @@
 
 
 # Create a rule in conversational analytics that updates a case
-<a name="contact-lens-rules-update-case"></a>
 
 **To create a rule that updates a case**
 

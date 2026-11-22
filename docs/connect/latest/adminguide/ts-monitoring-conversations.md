@@ -1,7 +1,6 @@
 
 
 # Troubleshoot agent conversation monitoring ability in Connect Customer
-<a name="ts-monitoring-conversations"></a>
 
 The following table explains how to resolve error messages (exception messages) that might be displayed when you use Connect Customer to monitor live agent conversations with contacts. 
 

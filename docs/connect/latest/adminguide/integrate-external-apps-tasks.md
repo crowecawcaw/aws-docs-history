@@ -1,7 +1,6 @@
 
 
 # Set up application integration to create tasks in Connect Customer
-<a name="integrate-external-apps-tasks"></a>
 
 Set up application integration to create tasks, without needing to code.
 

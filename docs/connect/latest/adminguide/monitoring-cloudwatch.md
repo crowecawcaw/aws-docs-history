@@ -1,7 +1,6 @@
 
 
 # Monitoring your Connect Customer instance using CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 Connect Customer sends data about your instance to CloudWatch metrics so that you can collect, view, and analyze CloudWatch metrics for your Connect Customer virtual contact center. You can use this data to monitor key operational metrics and set up alarms. Data about your contact center is sent to CloudWatch every 1 minute.
 
@@ -10,7 +9,7 @@ When you view the CloudWatch metrics dashboard, you can specify the refresh inte
 **Note**  
 If your Connect Customer instance was created on or before October 2018, you need to provide Connect Customer with permission to begin publishing chat metrics to your CloudWatch account. To do so, create an IAM policy with the following permission and attach it to the Connect Customer service role. You can find the Connect Customer service role on the **Account overview** page for your Connect Customer instance.  
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "cloudwatch:PutMetricData",

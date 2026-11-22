@@ -1,7 +1,6 @@
 
 
 # Object type mapping for the standard loyalty
-<a name="object-type-mapping-standard-loyalty"></a>
 
 The topics in this section provide the standard loyalty definition.
 

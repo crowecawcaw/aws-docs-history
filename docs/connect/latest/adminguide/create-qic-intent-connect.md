@@ -1,7 +1,6 @@
 
 
 # Create an agent assist intent from a Connect Customer instance
-<a name="create-qic-intent-connect"></a>
 
 You can use the generative AI capabilities powered by agent assist for your bot by enabling the [AMAZON.QinConnectIntent](https://docs.aws.amazon.com/lexv2/latest/dg/built-in-intent-qinconnect.html) in your bot. This is an Amazon Lex built-in intent. 
 

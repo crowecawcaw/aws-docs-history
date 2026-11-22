@@ -1,7 +1,6 @@
 
 
 # Set up in-app, web, video calling, and screen sharing capabilities
-<a name="inapp-calling"></a>
 
 The Connect Customer in-app, web, and video calling capabilities enable your customers to contact you without ever leaving your web or mobile application. You can use these capabilities to pass contextual information to Connect Customer. With this contextual information, you can personalize the customer experience based on attributes such as the customer's profile or other information, like actions previously taken within the app.
 

@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Interrupt agent
-<a name="interrupt-agent"></a>
 
 This topic defines the flow block for routing a contact to a specific agent, overriding their normal routing configuration.
 
@@ -77,18 +76,26 @@ After the **Success** branch is taken, the caller remains in the queue flow whil
 ## Configuration tips
 <a name="interrupt-agent-tips"></a>
 
+****Voice contacts – personal extension (DID) routing****
+
 A common use case for this block is routing calls to an agent's personal or direct inward dial (DID) extension, even when the agent is already on another call.
 
 If you have already implemented personal extension routing in Connect Customer – for example, a flow that transfers the caller to a specific agent queue and then forwards to voicemail after a timeout – you might want to add interrupt behavior as follows:
 + In the **Customer queue flow** that executes when the contact is placed in the agent queue, add the **Interrupt agent** block as the first block.
 + Configure your voicemail transfer logic to wait **at least 30 seconds** before transferring the caller to voicemail. Because the interrupt call rings for 30 seconds before timing out, a shorter voicemail timeout might start to route the caller to voicemail before the agent has had a chance to accept.
 
+****Chat, task, and email contacts****
+
 You can use this block to offer a chat, task, or email contact to an agent even if the agent is already at maximum concurrency for that channel, or is in a custom status.
 
 **Tip**  
 When using this block with chat, do not place the **Interrupt agent** block as the first block in the queue flow. Instead, add a [Wait](wait.md) block directly before it to wait for 3 seconds and ensure the chat contact has been fully enqueued before it is offered to the agent.
 
+****Restricting interrupts to agents in Available status only****
+
 By default, this block offers the contact to the agent regardless of whether they are in Available status or a custom status. If you want to offer the contact only when the agent is in Available status, use a [Check staffing](check-staffing.md) block before this block to verify that the agent queue is staffed, and branch to the **Interrupt agent** block only when staffed.
+
+****Auto-accept behavior****
 
 If the agent has auto-accept enabled, the following behavior applies when the **Interrupt agent** block is used:
 
@@ -98,6 +105,8 @@ If the agent has auto-accept enabled, the following behavior applies when the **
 | Available status, below max concurrency | Yes | 
 | Available status, at max concurrency | No | 
 | Custom status | No | 
+
+****Agent comes online after the block has already executed****
 
 If the agent is offline when the block executes, the block takes the **Error** branch and the contact is routed using standard queueing behavior. This means that if the agent subsequently comes back online while the contact is still enqueued, the contact is only offered to the agent if the agent sets themselves to **Available** status.
 

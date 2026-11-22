@@ -1,7 +1,6 @@
 
 
 # Assign a security profile for Connect Customer to a contact center user
-<a name="assign-security-profile"></a>
 
 ## Required permissions to assign security profiles
 <a name="assign-security-profiles-required-permissions"></a>

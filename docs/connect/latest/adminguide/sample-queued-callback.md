@@ -1,7 +1,6 @@
 
 
 # Sample queued callback flow in Connect Customer
-<a name="sample-queued-callback"></a>
 
 **Note**  
 This sample flow is available in previous Connect Customer instances. In new instances, you can see examples of queued callback in [Sample interruptible queue flow with callback in Connect Customer](sample-interruptible-queue.md) and [Sample queue configurations flow in Connect Customer](sample-queue-configurations.md).

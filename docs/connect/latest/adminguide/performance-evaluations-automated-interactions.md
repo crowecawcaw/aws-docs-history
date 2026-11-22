@@ -1,7 +1,6 @@
 
 
 # Performance evaluations of self-service interactions in Connect Customer
-<a name="performance-evaluations-automated-interactions"></a>
 
 Connect Customer provides you with the ability to automatically evaluate the quality of self-service interactions and get aggregated insights to improve customer experience. Managers can define custom criteria to assess the quality of self-service interactions, that can be filled manually or automatically using insights from conversational analytics, and other Connect Customer data. For example, you can automatically assess if the AI agent repeatedly fails to understand the customer, resulting in poor customer sentiment and transfer to a human agent. Managers can review these insights in aggregate and on individual contacts, alongside self-service interaction recordings and transcripts, to identify opportunities to improve bot or AI agent performance.
 

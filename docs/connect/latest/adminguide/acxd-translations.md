@@ -1,7 +1,6 @@
 
 
 # Translations
-<a name="acxd-translations"></a>
 
 Translations help you create multilingual conversational AI applications in agentic CX designer.
 

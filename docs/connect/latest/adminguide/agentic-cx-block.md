@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Agentic CX
-<a name="agentic-cx-block"></a>
 
 This topic defines the flow block for Agentic CX.
 

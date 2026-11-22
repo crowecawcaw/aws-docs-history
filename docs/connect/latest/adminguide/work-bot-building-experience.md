@@ -1,7 +1,6 @@
 
 
 # Create a bot by using the Connect Customer admin website
-<a name="work-bot-building-experience"></a>
 
 You can build complete Lex bots in the Connect Customer admin website without ever leaving the Connect Customer interface. There is no charge for building or editing bots in Connect Customer. Instead, you are billed by Amazon Lex for usage. For pricing information, see the [Amazon Lex pricing](https://aws.amazon.com/lex/pricing/) page.
 

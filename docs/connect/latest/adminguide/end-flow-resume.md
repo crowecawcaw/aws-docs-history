@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: End flow / Resume
-<a name="end-flow-resume"></a>
 
 ## Description
 <a name="end-flow-resume-description"></a>

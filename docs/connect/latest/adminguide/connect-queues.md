@@ -1,7 +1,6 @@
 
 
 # Set up routing in Connect Customer
-<a name="connect-queues"></a>
 
 In Connect Customer, routing consists of three parts: queues, routing profiles, and flows. This topic discusses queues and routing profiles. For information about flows, see [Flows in Connect Customer](connect-contact-flows.md).
 

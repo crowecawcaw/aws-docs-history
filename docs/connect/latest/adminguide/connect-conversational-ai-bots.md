@@ -1,7 +1,6 @@
 
 
 # Create conversational AI bots in Connect Customer
-<a name="connect-conversational-ai-bots"></a>
 
 You can use the Connect Customer admin website to create, edit, and continuously improve conversational AI bots for interactive voice response (IVR) and chatbot self-service experiences. The bots are powered by Amazon Lex.
 

@@ -1,7 +1,6 @@
 
 
 # Investigate non-talk time during calls using Connect Customer conversational analytics
-<a name="non-talk-time"></a>
 
 ## What is non-talk time?
 <a name="what-is-non-talk-time"></a>

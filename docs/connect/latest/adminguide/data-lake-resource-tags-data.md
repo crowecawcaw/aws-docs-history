@@ -1,7 +1,6 @@
 
 
 # Resource tags data in the Connect Customer data lake
-<a name="data-lake-resource-tags-data"></a>
 
 The following table contains resource tag data.
 

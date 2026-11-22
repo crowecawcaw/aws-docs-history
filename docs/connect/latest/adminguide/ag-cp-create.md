@@ -1,7 +1,6 @@
 
 
 # Create a new customer profile in the Connect Customer agent workspace
-<a name="ag-cp-create"></a>
 
 Let's say you're on a chat and there's no customer profile for the contact. You can create a new customer profile for them.
 

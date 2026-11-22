@@ -1,7 +1,6 @@
 
 
 # Default customer hold: hold music
-<a name="default-customer-hold"></a>
 
 This flow starts when the customer is put on hold. It plays the audio that the customer hears while on hold. 
 

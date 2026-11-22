@@ -1,7 +1,6 @@
 
 
 # Example conversational analytics output files for an email analyzed by conversational analytics
-<a name="contact-lens-example-output-files-email"></a>
 
 This section shows an example schema for an email contact that has been analyzed by conversational analytics. The example shows matched categories and a contact chain summary.
 
@@ -18,7 +17,7 @@ Note the following about email analytics output files:
 
 The following example shows the output for an email contact with categorization, redaction, and contact chain summary enabled.
 
-```
+```json
 {
   "Version": "EMAIL-2026-01-01",
   "AccountId": "123456789012",

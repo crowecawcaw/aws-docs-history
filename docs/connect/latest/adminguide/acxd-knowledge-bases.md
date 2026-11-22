@@ -1,7 +1,6 @@
 
 
 # Knowledge bases
-<a name="acxd-knowledge-bases"></a>
 
 Knowledge bases are reusable libraries of trusted content that your agentic CX designer applications can use to answer user questions.
 

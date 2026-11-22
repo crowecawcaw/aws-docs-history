@@ -1,7 +1,6 @@
 
 
 # Customize the home page
-<a name="custom-dashboard"></a>
 
 Administrators can:
 + Use views to create home page layouts

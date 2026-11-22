@@ -1,7 +1,6 @@
 
 
 # Create an outbound campaign using the API or CLI
-<a name="create-campaigns-api-cli"></a>
 
 You can create and manage outbound campaigns programmatically using the AWS CLI or the [Amazon Connect Outbound Campaigns API](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Outbound_Campaigns_V2.html). This topic explains how to create a Connect Customer outbound campaign, define campaign flows, and reference lifecycle commands using the CLI.
 
@@ -29,7 +28,7 @@ Campaign flows define the sequence of actions that run for each recipient. You c
 
 A simple flow sends a single communication to each recipient without checking delivery status. This is the simplest flow structure:
 
-```
+```json
 {
   "Version": "2019-10-30",
   "StartAction": "SendSMS",
@@ -89,7 +88,7 @@ The key actions in a retry flow are:
 
 The following example shows a flow for a `MANAGED` campaign that sends an SMS, waits for a delivery receipt, checks the status, and retries with an email if the message bounced:
 
-```
+```json
 {
   "Version": "2019-10-30",
   "StartAction": "SendSMS",
@@ -229,7 +228,7 @@ For flows used in campaigns with type `MANAGED` that check delivery status, the 
 The `OutboundCommunicationIds` parameter in `GetOutboundCommunicationStatus` must reference `$.OutboundCommunication.Latest.Id`. Delivery receipt references in `Compare` actions must use the same key. For example: `$.DeliveryReceipts['`$.OutboundCommunication.Latest.Id`'].Bounce`.
 `MANAGED` campaigns that use voice channels require `dialCriteriaRules` in the `PutDialRequest` action:  
 
-  ```
+  ```json
   {
     "Identifier": "PutDialRequest",
     "Type": "PutDialRequest",
@@ -259,7 +258,7 @@ For more information, see the [create-contact-flow-version CLI reference](https:
 
 Use the `create-campaign` command to create a campaign. The following example creates an SMS campaign with agentless outbound mode:
 
-```
+```bash
 aws connectcampaignsv2 create-campaign \
   --name "My SMS Campaign" \
   --connect-instance-id "your-instance-id" \
@@ -295,7 +294,7 @@ aws connectcampaignsv2 create-campaign \
 
 On success, the command returns the campaign ID and ARN:
 
-```
+```json
 {
   "id": "campaign-id",
   "arn": "arn:aws:connect-campaigns:us-east-1:123456789012:campaign/campaign-id"

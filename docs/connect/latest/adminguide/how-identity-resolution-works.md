@@ -1,7 +1,6 @@
 
 
 # How machine learning Identity Resolution works in Connect Customer
-<a name="how-identity-resolution-works"></a>
 
 This topic describes how Identity Resolution performs automatic profile matching, and if set up, how it automatically merges similar profiles.
 

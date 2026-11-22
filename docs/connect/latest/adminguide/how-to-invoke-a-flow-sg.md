@@ -1,7 +1,6 @@
 
 
 # Invoke a guide at the start of a contact in Connect Customer
-<a name="how-to-invoke-a-flow-sg"></a>
 
 After you create your flows, you can choose which guide each user sees. To do this:
 

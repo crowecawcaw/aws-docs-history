@@ -1,7 +1,6 @@
 
 
 # Best practices for PCI compliance in Connect Customer
-<a name="compliance-validation-best-practices-PCI"></a>
 
 Following this list of best practices can help you ensure your Connect Customer contact center is PCI-compliant. 
 + Conduct compliance eligibility audits for all services used in your contact center, as well as any third party integration points.

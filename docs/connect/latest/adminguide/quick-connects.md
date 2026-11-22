@@ -1,7 +1,6 @@
 
 
 # Create quick connects in Connect Customer
-<a name="quick-connects"></a>
 
 Quick connects are a way for you to create a list of destinations for common transfers. For example, you might create a quick connect for Tier 2 support. If agents in Tier 1 support can't solve the issue, they will transfer the contact to Tier 2. 
 

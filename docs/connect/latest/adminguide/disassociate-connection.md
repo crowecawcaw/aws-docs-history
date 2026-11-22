@@ -1,7 +1,6 @@
 
 
 # Disconnect Connect Customer from a third-party connection
-<a name="disassociate-connection"></a>
 
 At any time you can disassociate a connection, and stop the automatic generation of tasks based on events from the external application. 
 

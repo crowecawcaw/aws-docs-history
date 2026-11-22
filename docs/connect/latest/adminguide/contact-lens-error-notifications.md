@@ -1,7 +1,6 @@
 
 
 # Error notifications: When conversational analytics can't analyze a contact
-<a name="contact-lens-error-notifications"></a>
 
 It's possible that conversational analytics can't analyze a contact file, even though analysis is enabled on the flow. When this happens, conversational analytics sends error notifications using Amazon EventBridge events. 
 
@@ -18,7 +17,7 @@ You can also add to the pattern to be notified when a specific event code occurs
 
 The format of a notification looks like the following sample: 
 
-```
+```JSON
 {
     "version": "0", // set by CloudWatch Events
     "id": "55555555-1111-1111-1111-111111111111", // set by CloudWatch Events

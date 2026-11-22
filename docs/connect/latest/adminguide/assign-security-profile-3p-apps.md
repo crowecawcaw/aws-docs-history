@@ -1,7 +1,6 @@
 
 
 # Assign permissions to use third-party applications
-<a name="assign-security-profile-3p-apps"></a>
 
 Agents need specific security profile permissions to access third-party applications that you have added and associated with your instance. For a list of third-party application permissions and their API names, see [List of security profile permissions in Connect Customer](security-profile-list.md).
 

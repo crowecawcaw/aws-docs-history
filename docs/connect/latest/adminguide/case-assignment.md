@@ -1,7 +1,6 @@
 
 
 # Set up a case assignment in Connect Customer Cases
-<a name="case-assignment"></a>
 
 To help your organization clearly track ownership of cases and resolve them faster, you can ensure every case has an assigned owner who is responsible for case resolution. The owner can be a queue or an individual user.
 

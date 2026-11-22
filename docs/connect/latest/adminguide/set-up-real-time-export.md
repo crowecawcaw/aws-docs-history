@@ -1,7 +1,6 @@
 
 
 # Export your unified customer profile data
-<a name="set-up-real-time-export"></a>
 
 Connect Customer Customer Profiles provides real-time data export of unified customer profiles to an Amazon Kinesis Data Stream. You can enable data streaming and automatically receive data for new profiles and updates to existing profiles into your Amazon Kinesis Data Stream.
 
@@ -39,7 +38,7 @@ To set this up, you need to enable **Data export** in the Customer Profiles cons
 
 **Sample output event in JSON**
 
-```
+```json
 {
     "SchemaVersion": 0,
     "EventId": "eventId",
@@ -100,7 +99,7 @@ Flag to inform if the message is real-time or was re-driven.
 
 **Sample payload in JSON**
 
-```
+```json
 {
     "SchemaVersion": 0,
     "EventId": "6049bf39-0000-0000-0000-b75656dd51a8",

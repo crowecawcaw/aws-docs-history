@@ -1,7 +1,6 @@
 
 
 # Managing secrets and resource policies
-<a name="managing-secrets-resource-policies"></a>
 
 When you [configure a third-party speech provider](configure-third-party-speech-providers.md), you will need to create a secret in Secrets Manager that contains the speech provider's API key. Creating the secret is a two step process:
 + Create the secret containing the API key. For instructions, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html).
@@ -18,7 +17,7 @@ Make sure that the resource-based policy for the secret includes the `aws:Source
 
 The following is an example of a resource-based policy that you can attach to your secret.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	                    
   "Statement": [
@@ -49,7 +48,7 @@ The following is an example of a resource-based policy that you can attach to yo
 
 The following is an example of a resource-based policy that you can attach to your KMS key.
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	                    
   "Statement": [

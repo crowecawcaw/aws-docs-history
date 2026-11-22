@@ -1,7 +1,6 @@
 
 
 # Use Connect Customer contact attributes
-<a name="connect-contact-attributes"></a>
 
 One way to make your customers feel cared for is to create personalized experiences for them in your contact center. For example, you can deliver one welcome message for customers who are using a phone and another for customers using chat. To do this, you need a way to store information about the contact and then make a decision based on the value.
 

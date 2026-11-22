@@ -1,7 +1,6 @@
 
 
 # Enable data streaming for your Connect Customer instance
-<a name="data-streaming"></a>
 
 You can export contact records and agent events from Connect Customer and perform real-time analysis on contacts. Data streaming sends data to Amazon Kinesis.
 
@@ -66,7 +65,7 @@ You can use the Connect Customer console or the AWS CLI to obtain the ARN.
 
 Construct a policy statement that gives permission to the ARN of the Connect Customer service-link role to generate data keys. The following code shows a sample policy.
 
-```
+```json
 {
     "Sid": "Allow use of the key for Connect Customer streaming",
     "Effect": "Allow",

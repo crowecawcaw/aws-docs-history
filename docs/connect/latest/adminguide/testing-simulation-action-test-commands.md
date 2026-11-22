@@ -1,7 +1,6 @@
 
 
 # Test control actions
-<a name="testing-simulation-action-test-commands"></a>
 
 Test Control actions manage the test execution itself, providing debugging capabilities and explicit control over when tests end.
 

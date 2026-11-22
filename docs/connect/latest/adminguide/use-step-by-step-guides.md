@@ -1,7 +1,6 @@
 
 
 # Use step-by-step guides
-<a name="use-step-by-step-guides"></a>
 
 A flow starts a step-by-step guide. To start a guide in the agent workspace, set one of the following events on the [Set event flow](set-event-flow.md) block:
 + **Default flow for Agent UI** – Starts the guide when a contact arrives in the agent workspace.

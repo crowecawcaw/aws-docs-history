@@ -1,7 +1,6 @@
 
 
 # Delete your Connect Customer instance
-<a name="delete-connect-instance"></a>
 
 If you no longer need your Connect Customer instance, you can delete it. Here's what happens when you delete it: 
 + Its claimed phone number is released back to inventory.

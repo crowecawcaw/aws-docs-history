@@ -1,7 +1,6 @@
 
 
 # Amazon Connect Customer service improvement and how to opt out of using your data
-<a name="data-opt-out"></a>
 
 When you enable Amazon Connect Customer, we might use Your Content processed by Amazon Connect Customer to develop and improve your experience.
 

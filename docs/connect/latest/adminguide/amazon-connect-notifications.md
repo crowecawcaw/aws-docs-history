@@ -1,7 +1,6 @@
 
 
 # Notifications in the workspace header
-<a name="amazon-connect-notifications"></a>
 
 ## Understanding in-app notifications
 <a name="understanding-notifications"></a>

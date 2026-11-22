@@ -1,7 +1,6 @@
 
 
 # Troubleshoot contacts that are not routed, misrouted, or not reaching an agent in Connect Customer
-<a name="troubleshoot-routing-not-reached"></a>
 
 Contacts that don't reach the intended queue or agent, that are routed to the wrong queue or agent, that get stuck in a queue, or that disconnect before reaching an agent can originate at any of several points on the call path: the routing profile, the queue, a priority or delay setting, Set routing criteria (proficiency), the per-channel concurrency, a contact flow branch, or a carrier, device, or authentication method outside Connect Customer. This page covers the cause-based resolution steps for the *routing-configuration* side. To narrow down *where* the problem occurs, start from the hub, [Troubleshoot contact routing and handling in Connect Customer](troubleshoot-contact-routing.md).
 

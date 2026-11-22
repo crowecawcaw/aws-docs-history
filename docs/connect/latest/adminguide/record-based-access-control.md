@@ -1,7 +1,6 @@
 
 
 # Apply record-based access control in Connect Customer
-<a name="record-based-access-control"></a>
 
 With record-based access control, you specify primary attributes and, for each, which primary values a user may access. The rule is applied by attribute name: wherever a data table has a primary attribute with that name, the user is limited to records whose value for it is in your allowed set. Other data tables are unaffected.
 

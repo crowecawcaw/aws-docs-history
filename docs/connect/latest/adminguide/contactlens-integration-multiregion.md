@@ -1,7 +1,6 @@
 
 
 # Set up multi-region redundancy for conversational analytics integration
-<a name="contactlens-integration-multiregion"></a>
 
 With multi-region redundancy, you can scale your external voice system for highest reliability, performance, and efficiency. You can support multi-region redundancy using Connect Customer replica instance. 
 

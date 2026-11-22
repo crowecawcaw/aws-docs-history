@@ -1,7 +1,6 @@
 
 
 # Search for content using Connect Customer agent assist
-<a name="search-for-answers"></a>
 
 
 |  | 

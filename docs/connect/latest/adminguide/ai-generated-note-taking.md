@@ -1,7 +1,6 @@
 
 
 # Use AI-generated note taking
-<a name="ai-generated-note-taking"></a>
 
 Connect AI agents can on-demand generate contact summaries and notes for voice and chat interactions. AI-generated note taking boosts agent productivity by eliminating manual note-taking and bookkeeping tasks, creating a draft summary based on the conversation transcript.
 

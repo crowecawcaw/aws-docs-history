@@ -1,7 +1,6 @@
 
 
 # Real-time metrics reports in Connect Customer
-<a name="real-time-metrics-reports"></a>
 
 Real-time metrics reports show real-time or near-real time metrics information about activity in your contact center. Metrics such as **Online** show the number of agents currently online in real-time, updating every 15 seconds. Metrics such as **Handled** and **Abandoned** reflect near real-time values for your contact center.
 

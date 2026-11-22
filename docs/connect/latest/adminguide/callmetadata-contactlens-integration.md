@@ -1,7 +1,6 @@
 
 
 # Provide call metadata for conversational analytics integration
-<a name="callmetadata-contactlens-integration"></a>
 
 In Connect Customer, each interaction with a customer is a Connect Customer contact. Each voice session that comes through the conversational analytics connector creates a Connect Customer contact. The connector creates a Connect Customer contact using the fields provided in the call metadata. The call metadata includes the agent user ID and agent queue ID for the streamed call in the call metadata. 
 

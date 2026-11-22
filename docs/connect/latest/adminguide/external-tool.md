@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: External Tool
-<a name="external-tool"></a>
 
 This topic defines the flow block for invoking a tool from an external application directly from a flow.
 

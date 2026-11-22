@@ -1,7 +1,6 @@
 
 
 # Troubleshoot call disconnects by using DisconnectDetails in the contact record
-<a name="troubleshoot-call-disconnects"></a>
 
 ## Step 1: Observe the issue
 <a name="observations-disconnect"></a>

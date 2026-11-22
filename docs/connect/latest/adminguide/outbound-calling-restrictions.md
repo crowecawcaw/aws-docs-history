@@ -1,7 +1,6 @@
 
 
 # Outbound calling restrictions in Connect Customer
-<a name="outbound-calling-restrictions"></a>
 
 This topic explains restrictions that are in place for outbound calling with Connect Customer.
 

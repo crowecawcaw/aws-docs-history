@@ -1,7 +1,6 @@
 
 
 # Manage saved reports as an admin in Connect Customer
-<a name="manage-saved-reports-admin"></a>
 
 You can view and delete all saved reports in your instance, including reports that were not created by you or that are not currently published. 
 

@@ -1,7 +1,6 @@
 
 
 # Set up integration for external applications using Amazon AppFlow
-<a name="integrate-external-applications-appflow"></a>
 
 These integrations use Amazon AppFlow to provide periodic updates to Connect Customer Customer Profiles. The below steps provide guidance on configuring a connector of your choosing using Amazon AppFlow, configure data mappings, and configure integrations to ingest your customer data.
 

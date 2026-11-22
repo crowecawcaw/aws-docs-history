@@ -1,7 +1,6 @@
 
 
 # Connect Customer Global Resiliency requirements
-<a name="connect-global-resiliency-requirements"></a>
 
 If you have decided that Connect Customer Global Resiliency is the appropriate deployment for you, make sure you adhere to the following pre-requisites before onboarding:
 + [Port](about-porting.md) all phone numbers you want to enable to be multi-region to Connect Customer.

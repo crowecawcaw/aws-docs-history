@@ -1,7 +1,6 @@
 
 
 # Customize AI agents
-<a name="customize-connect-ai-agents"></a>
 
 You can customize how AI agents work by using the Connect Customer admin website, no coding required. For example, you can customize the tone or format of the responses, the language, or the behavior.
 

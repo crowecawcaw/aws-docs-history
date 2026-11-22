@@ -1,7 +1,6 @@
 
 
 # Create a layout
-<a name="create-a-layout"></a>
 
 Create additional layouts to design new dashboard configurations without affecting the layout currently shown to your users.
 

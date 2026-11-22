@@ -1,7 +1,6 @@
 
 
 # Build conditional UIs with views
-<a name="ui-conditions-on-views"></a>
 
 UI conditions change a component's properties based on how users interact with other components in the same view. For example, when a user changes a dropdown, a container can be hidden. Use conditions to tailor a view for agents, end customers, or supervisors, based on the task.
 

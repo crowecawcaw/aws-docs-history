@@ -1,7 +1,6 @@
 
 
 # Create AI guardrails for AI agents
-<a name="create-ai-guardrails"></a>
 
 An *AI guardrail* is a resource that you can use to implement safeguards based on your use cases and responsible AI policies. 
 
@@ -90,7 +89,7 @@ Following are examples of how to configure the AI guardrail policies by using th
 
 Use the following sample AWS CLI command to block undesirable topics.
 
-```
+```json
 aws qconnect update-ai-guardrail
 --cli-input-json {
     "assistantId": "a0a81ecf-6df1-4f91-9513-3bdcb9497e32",
@@ -116,7 +115,7 @@ aws qconnect update-ai-guardrail
 
  Use the following sample AWS CLI command to filter harmful and inappropriate content. 
 
-```
+```json
 aws qconnect update-ai-guardrail
 --cli-input-json {
     "assistantId": "a0a81ecf-6df1-4f91-9513-3bdcb9497e32",
@@ -141,7 +140,7 @@ aws qconnect update-ai-guardrail
 
 Use the following sample AWS CLI command to filter harmful and inappropriate words.  
 
-```
+```json
 aws qconnect update-ai-guardrail
 --cli-input-json {
     "assistantId": "a0a81ecf-6df1-4f91-9513-3bdcb9497e32",
@@ -164,7 +163,7 @@ aws qconnect update-ai-guardrail
 
 Use the following sample AWS CLI command to detect hallucinations in the model response.  
 
-```
+```json
 aws qconnect update-ai-guardrail
 --cli-input-json {
     "assistantId": "a0a81ecf-6df1-4f91-9513-3bdcb9497e32",
@@ -188,7 +187,7 @@ aws qconnect update-ai-guardrail
 
 Use the following sample AWS CLI command to redact sensitive information such as personal identifiable information (PII).
 
-```
+```json
 aws qconnect update-ai-guardrail
 --cli-input-json {
     "assistantId": "a0a81ecf-6df1-4f91-9513-3bdcb9497e32",

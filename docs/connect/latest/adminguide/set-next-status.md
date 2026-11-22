@@ -1,7 +1,6 @@
 
 
 # Set your "Next status" in the Contact Control Panel (CCP)
-<a name="set-next-status"></a>
 
 **Note**  
 "Next status" is available only to customers who are using the latest Contact Control Panel (CCP). The URL for the latest CCP ends with **ccp-v2**.  

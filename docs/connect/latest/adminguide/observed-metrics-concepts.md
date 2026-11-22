@@ -1,7 +1,6 @@
 
 
 # Observed metrics
-<a name="observed-metrics-concepts"></a>
 
 Observed metrics are state-based metrics. They report on the states a contact passes through while it is still active, not only after it ends. The model maps each state to a segment, which makes that state measurable across a reporting interval. Because a segment exists as soon as a state begins, a contact that is in a given state during the interval is counted, without waiting for the contact to disconnect.
 

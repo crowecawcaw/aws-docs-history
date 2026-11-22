@@ -1,7 +1,6 @@
 
 
 # Assign permissions to manage quick responses in Connect Customer
-<a name="quick-response-permissions"></a>
 
 To create and manage quick responses in the Connect Customer admin website, users need the Content Management security profile permissions. The following image shows these permissions on the **Security profiles** page.
 

@@ -1,7 +1,6 @@
 
 
 # Enable customer authentication for hosted communication widgets
-<a name="enable-connect-managed-auth"></a>
 
 This topic explains how to set up authentication if you're using the Connect Customer hosted communication widget for chat. You enable customer authentication for your Connect Customer instance, and then enable an authentication message that displays a link which opens a popup to the Amazon Cognito hosted UI. 
 

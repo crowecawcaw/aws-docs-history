@@ -1,7 +1,6 @@
 
 
 # Manage contact center agent shortages during a contact surge
-<a name="scheduling-voluntary-time-off"></a>
 
 Simultaneously achieving Service Level (SL), Average Speed of Answer (ASA), and cost targets requires matching supply (\# of agents) and demand (\# of contacts \* handle time).
 

@@ -1,7 +1,6 @@
 
 
 # Assigning security profile permissions to AI agents
-<a name="ai-agent-security-profile-permissions"></a>
 
 ## Security Profiles
 <a name="security-profiles-overview"></a>

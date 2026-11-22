@@ -1,7 +1,6 @@
 
 
 # Time off management in Connect Customer
-<a name="scheduling-time-off"></a>
 
 With Connect Customer time off management capabilities, you can manage agent time off requests that comply with pre-configured regional labor and business rules.
 

@@ -1,7 +1,6 @@
 
 
 # Secrets
-<a name="acxd-secrets"></a>
 
 Secrets let you securely store reusable values that may be needed when configuring Data requests in agentic CX designer.
 

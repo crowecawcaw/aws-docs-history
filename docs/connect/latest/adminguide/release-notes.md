@@ -1,7 +1,6 @@
 
 
 # Release notes
-<a name="release-notes"></a>
 
 ## Version summary
 <a name="version-summary"></a>

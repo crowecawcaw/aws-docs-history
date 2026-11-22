@@ -1,7 +1,6 @@
 
 
 # Assign security profile permissions to manage customer segments
-<a name="security-profile-customer-profile-segmentation"></a>
 
 Assign the following customer segments permissions as needed to the user’s security profile. For more details on security profiles, see [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md).
 

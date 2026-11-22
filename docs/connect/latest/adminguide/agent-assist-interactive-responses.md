@@ -1,7 +1,6 @@
 
 
 # Use interactive responses in agent assist
-<a name="agent-assist-interactive-responses"></a>
 
 Agent assist can send interactive responses, not just text. During a voice or chat contact, the AI agent can respond in-line in the conversation with a view containing details from the conversation and buttons that open step-by-step guides, cases, and customer profiles. Agents can click to respond, without leaving the conversation.
 

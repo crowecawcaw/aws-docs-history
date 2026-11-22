@@ -1,7 +1,6 @@
 
 
 # How to set up your agentic self service chat experience end to end
-<a name="setup-agentic-selfservice-end-to-end"></a>
 
 **Note**  
 Orchestration AI Agents require chat streaming to be enabled for chat contacts. Without chat streaming enabled, some messages will fail to render. See [Enable message streaming for AI-powered chat](message-streaming-ai-chat.md).
@@ -155,7 +154,7 @@ To test the widget locally, you'll create a simple HTML file that loads the Comm
 
 1. Create a new file called `index.html` in your test folder with the following content:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>

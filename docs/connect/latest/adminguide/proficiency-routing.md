@@ -1,7 +1,6 @@
 
 
 # Set up routing in Connect Customer based on agent proficiencies
-<a name="proficiency-routing"></a>
 
 Following is an overview of the steps to set up routing based on agent proficiencies: 
 

@@ -1,7 +1,6 @@
 
 
 # AI agent metrics
-<a name="ai-agent-metrics"></a>
 
 The following metrics are available for monitoring AI agent performance. For information about creating AI agents, see [Create AI agents](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-agents.html). For information about creating AI prompts, see [Create AI prompts](https://docs.aws.amazon.com/connect/latest/adminguide/create-ai-prompts.html). For information about AI agent MCP tools, see [AI agent MCP tools](ai-agent-mcp-tools.md).
 

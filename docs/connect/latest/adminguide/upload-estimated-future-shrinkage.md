@@ -1,7 +1,6 @@
 
 
 # Import estimated future shrinkage and available full-time employees in Connect Customer
-<a name="upload-estimated-future-shrinkage"></a>
 
 You can increase capacity planning accuracy by providing estimated future data for your existing forecast groups. You can import data for either plan type: Hiring plans use day-level Available FTE and shrinkage data, and Scheduling plans use interval-level available headcount and shrinkage data. Providing this data is optional. Connect Customer can generate a capacity plan without it, but providing it improves the accuracy of your plan.
 

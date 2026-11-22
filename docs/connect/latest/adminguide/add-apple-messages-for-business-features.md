@@ -1,7 +1,6 @@
 
 
 # Add Apple Messages for Business features
-<a name="add-apple-messages-for-business-features"></a>
 
 ## Deflect calls with Apple’s Message Suggest
 <a name="call-deflection"></a>

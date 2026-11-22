@@ -1,7 +1,6 @@
 
 
 # Add a pre-contact or pre-chat form
-<a name="add-precontact-form"></a>
 
 You can capture customer information before starting a contact:
 + **Pre-contact form**: Add to capture information from the customer before starting a task or email contact.

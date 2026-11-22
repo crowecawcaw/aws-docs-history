@@ -1,7 +1,6 @@
 
 
 # Enable Audio Enhancement for agents in Connect Customer
-<a name="audio-enhancement"></a>
 
 Audio Enhancement improves audio quality and reliability on the agent's side by reducing background noise and isolating the agent's voice during calls. This feature includes two enhancement modes: noise suppression and voice isolation.
 
@@ -88,7 +87,7 @@ If you are using the Connect Customer APIs, you can set the Audio Enhancement mo
 
 For example, the body of the `UpdateUserConfig` request should be:
 
-```
+```json
 POST /users/InstanceId/UserId/config HTTP/1.1
 Content-type: application/json
 {
@@ -110,12 +109,12 @@ For both endpoints, the accepted values of `VoiceEnhancementMode` are `VOICE_ISO
 If you are using a custom CCP with the Connect Customer Streams API, you can set the Audio Enhancement mode in either of the following ways:
 + **Using agent.setVoiceEnhancementMode API**
 
-  ```
+  ```javascript
   agent.setVoiceEnhancementMode("VOICE_ISOLATION");
   ```
 + **Using agent.setConfiguration API**
 
-  ```
+  ```javascript
   const configuration = agent.getConfiguration();
   agent.setConfiguration({
     ...configuration,

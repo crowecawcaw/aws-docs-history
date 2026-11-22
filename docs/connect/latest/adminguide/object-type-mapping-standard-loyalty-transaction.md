@@ -1,7 +1,6 @@
 
 
 # Object type mapping for the standard loyalty transaction
-<a name="object-type-mapping-standard-loyalty-transaction"></a>
 
 The topics in this section provide the standard loyalty transaction definition.
 

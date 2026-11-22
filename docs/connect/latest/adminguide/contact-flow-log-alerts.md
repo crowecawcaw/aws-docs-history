@@ -1,7 +1,6 @@
 
 
 # Create alerts for events in your flow logs stored in an Amazon CloudWatch log group
-<a name="contact-flow-log-alerts"></a>
 
 You can configure CloudWatch to define a filter pattern that looks for specific events in your flow logs and then creates an alert when an entry for that event is added to the log. 
 

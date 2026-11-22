@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AI agent issues
-<a name="ts-ai-agents-self-service"></a>
 
 Use this topic to help diagnose and resolve common issues with AI agents.
 

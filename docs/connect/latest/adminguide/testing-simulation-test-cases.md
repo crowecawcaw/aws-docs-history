@@ -1,7 +1,6 @@
 
 
 # Create test cases
-<a name="testing-simulation-test-cases"></a>
 
 ## Create test case
 <a name="testing-simulation-test-case-procedure"></a>

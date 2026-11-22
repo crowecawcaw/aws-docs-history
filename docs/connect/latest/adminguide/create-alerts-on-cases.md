@@ -1,7 +1,6 @@
 
 
 # Automatically monitor and update cases in Connect Customer Cases
-<a name="create-alerts-on-cases"></a>
 
 You can easily set up case notifications and automation. You can create rules that automatically run whenever a case is created or updated. You can create rules that: 
 + Assign service level agreements to cases
@@ -13,7 +12,7 @@ You can easily set up case notifications and automation. You can create rules th
 For example, you can set up an alert that automatically sends an email to a manager when a high-priority case is created or updated.
 
 **Tip**  
-A developer needs to enable this feature. For instructions, see [Allow Connect Customer Cases to send updates to conversational analytics rules](cases-rules-integration-onboarding.md). 
+A developer needs to enable this feature. For instructions, see [Allow Connect Customer Cases to send updates to conversational analytics rules using the CLI](cases-rules-integration-onboarding.md). 
 
 **Topics**
 + [Step 1: Define rule conditions](#conditions-alerts-on-cases)

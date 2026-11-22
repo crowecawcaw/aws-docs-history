@@ -1,7 +1,6 @@
 
 
 # Edit a layout
-<a name="editing-explorer-layout"></a>
 
 Customize your Profile Explorer layout through simple, intuitive controls for managing widgets and their placement.
 

@@ -1,7 +1,6 @@
 
 
 # Flows in Connect Customer
-<a name="connect-contact-flows"></a>
 
 A *flow* defines the customer experience with your contact center from start to finish. Connect Customer includes a set of [default flows](contact-flow-default.md) so you can quickly set up and run a contact center. However, you might want to create custom flows for your specific scenario.
 

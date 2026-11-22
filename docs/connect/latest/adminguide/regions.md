@@ -1,7 +1,6 @@
 
 
 # Availability of Connect Customer features by Region
-<a name="regions"></a>
 
 This topic lists the AWS Regions where Connect Customer features are available.
 

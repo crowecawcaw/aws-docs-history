@@ -1,7 +1,6 @@
 
 
 # Add the Connect Customer widget to your website to accept chat, task, email, and web calling contacts
-<a name="connect-widget-on-website"></a>
 
 The topics in this section explain how to create and customize a communications widget for your website. You'll create a contact form that determines the behavior for contacts created through your widget, and then customize the widget's appearance and functionality.
 
@@ -123,7 +122,7 @@ We recommend using https:// for your production websites and applications.
 
      You must implement the callback function in the embedded snippet, as shown in the following example.
 
-     ```
+     ```json
      amazon_connect('authenticate', function(callback) {
        window.fetch('/token').then(res => {
          res.json().then(data => {
@@ -170,7 +169,7 @@ When your customers interact with the communications widget on your website, the
 
 The following code snippet shows an example of how to generate a JWT in Python:
 
-```
+```python
 import jwt 
 import datetime 
 CONNECT_SECRET = "{{your-securely-stored-jwt-secret}}" 

@@ -1,7 +1,6 @@
 
 
 # Contact data in the Connect Customer data lake
-<a name="data-lake-contact-data"></a>
 
 The following tables contain contact data.
 

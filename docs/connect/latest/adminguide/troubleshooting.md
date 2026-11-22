@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Issues with the Contact Control Panel (CCP)
-<a name="troubleshooting"></a>
 
 Troubleshooting Contact Control Panel (CCP) issues requires support from your network operations, system administrator, and virtual desktop (VDI) solution teams to collect the appropriate level of information to identify root cause and drive resolution. To help determine the appropriate resources to engage, it's important to categorize issues with similar symptoms. The following guidance has been helpful in assisting Connect Customer customers in resolving CCP issues with their operations support teams.
 

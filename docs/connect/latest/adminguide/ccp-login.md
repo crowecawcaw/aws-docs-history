@@ -1,7 +1,6 @@
 
 
 # Log in and log out of the Connect Customer CCP
-<a name="ccp-login"></a>
 
 Before you can log in to the Contact Control Panel (CCP), your administrator must give you the following information: 
 + The URL to launch the CCP:

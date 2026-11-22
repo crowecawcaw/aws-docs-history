@@ -1,7 +1,6 @@
 
 
 # Working with nodes
-<a name="acxd-nodes"></a>
 
 Nodes are the building blocks of a flow in agentic CX designer.
 

@@ -1,7 +1,6 @@
 
 
 # Cases performance dashboard
-<a name="cases-performance-dashboard"></a>
 
 Use the **Cases performance dashboard** to monitor case volume, resolution rates, and SLA compliance in one place. The dashboard helps you identify bottlenecks, track team performance over time, and prioritize process improvements across case templates.
 

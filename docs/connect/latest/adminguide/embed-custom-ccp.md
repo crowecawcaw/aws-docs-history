@@ -1,7 +1,6 @@
 
 
 # Embed a custom Connect Customer Contact Control Panel (CCP)
-<a name="embed-custom-ccp"></a>
 
 The [Connect Customer Streams](https://github.com/aws/amazon-connect-streams) documentation describes how to integrate your existing web applications with Connect Customer. Streams gives you the power to embed the Contact Control Panel (CCP) UI components into your page, or handle agent and contact state events directly giving you the power to control agent and contact state through an object oriented event driven interface. You can use the built in interface or build your own from scratch: Streams gives you the power to choose.
 

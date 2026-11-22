@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Transfer to phone number
-<a name="transfer-to-phone-number"></a>
 
 This topic defines the flow block for transferring the customer to an external phone number outside of your Connect Customer instance.
 
@@ -60,7 +59,7 @@ If you are using Connect Customer outside of the United States, we recommend cho
 + **Caller ID name**: You can set a caller ID name, but there's no guarantee it will appear correctly to the customer. For more information, see [Outbound caller ID number](queues-callerid.md#using-call-number-block).
 **Note**  
 Per SIP protocol RFC3261, the following characters are reserved: **; / ? : @ & = \+ $ ,**. Do not use these characters in the caller ID name. When these characters are included, outbound calls might fail or the caller ID name might display inaccurately. 
-When [Transfer to phone number](#transfer-to-phone-number) block is used without specifying a custom caller ID, the caller ID of the caller is passed as the caller ID. For example, if you transfer to an external number and no custom caller ID is used to specify that the call is coming from your organization, then the contact's caller ID is displayed to the external party.
+When [Transfer to phone number](transfer-to-phone-number.md) block is used without specifying a custom caller ID, the caller ID of the caller is passed as the caller ID. For example, if you transfer to an external number and no custom caller ID is used to specify that the call is coming from your organization, then the contact's caller ID is displayed to the external party.
 
 ## Configuration tips
 <a name="transfer-to-phone-number-tips"></a>

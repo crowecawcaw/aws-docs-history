@@ -1,7 +1,6 @@
 
 
 # Create an outbound campaign using the admin website
-<a name="how-to-create-campaigns"></a>
 
 The Connect Customer admin website provides two builders for creating outbound campaigns:
 + [Guided Campaign Builder](guided-campaign-builder.md)—Create single-channel campaigns with step-by-step guidance. Best for straightforward outreach on a single channel.

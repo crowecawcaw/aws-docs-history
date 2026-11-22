@@ -1,7 +1,6 @@
 
 
 # Getting started with calculated attributes in Connect Customer Customer Profiles
-<a name="customerprofiles-calculated-attributes-admin-website"></a>
 
 Use calculated attributes to define your own business logic to transform your customer profile data into actionable data points to personalize automated experiences, such as interactive voice responses.
 

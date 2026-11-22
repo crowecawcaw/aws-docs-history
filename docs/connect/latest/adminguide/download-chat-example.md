@@ -1,7 +1,6 @@
 
 
 # Customize chat with the Connect Customer open source example
-<a name="download-chat-example"></a>
 
 You can further customize the chat experience customers use to interact with agents. Use the [Connect Customer open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/blob/master/cloudformationTemplates/startChatContactAPI/README.md) on GitHub. It's a platform to help you get started quickly. Here's how it works:
 + The GitHub repository links to a CloudFormation template, which starts the Amazon API Gateway endpoint that initiates a Lambda function. You can use this template as an example.

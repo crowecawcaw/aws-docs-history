@@ -1,7 +1,6 @@
 
 
 # Working with resources
-<a name="acxd-resources"></a>
 
 Resources are reusable building blocks that help you create, manage, and scale experiences in agentic CX designer.
 

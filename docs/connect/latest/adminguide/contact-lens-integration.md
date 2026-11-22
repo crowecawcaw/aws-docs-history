@@ -1,7 +1,6 @@
 
 
 # Integrate Connect Customer conversational analytics with external voice systems
-<a name="contact-lens-integration"></a>
 
 Migrating a contact center from an external system to the cloud can be complicated. It requires moving many different components such as telephony, IVR, ACD, call recording, call analytics, and more. By integrating your external system with conversational analytics for analytics, however, you can accelerate your migration to Connect Customer. Here's how this first step can benefit your business:
 + Conversational analytics integration enhances your existing external contact center recording and analytics capabilities.

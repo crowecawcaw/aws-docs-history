@@ -1,7 +1,6 @@
 
 
 # Set up your channels
-<a name="set-channels"></a>
 
 Connect Customer is a unified omnichannel solution built to empower personalized, efficient and proactive experiences across customers' preferred channels. You can tailor seamless experiences for your customers, whether it's over the phone, through in-app and web calling, video, chat, Short Message Service (SMS), or email. Customers can keep working with the same agent across channels, but if it's a different agent their interaction history is preserved, so they don't have to repeat themselves. The omnichannel contact center improves customer experiences while reducing resolution time.
 

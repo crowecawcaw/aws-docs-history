@@ -1,7 +1,6 @@
 
 
 # Enable Customer Profiles for your Connect Customer instance
-<a name="enable-customer-profiles"></a>
 
 Connect Customer provides pre-built integrations so you can quickly combine customer information from multiple external applications, with contact history from Connect Customer. With these integrations, you can create a customer profile that has all the information agents need during customer interactions in a single place.
 
@@ -56,7 +55,7 @@ Amazon AppFlow handles connecting to the external application and moving data fr
 
 When you enable Customer Profiles, you have the option of specifying an Amazon SQS queue as your dead-letter queue. If you select this option, add the following resource policy to Amazon SQS so Customer Profiles has permissions to send messages to that queue:
 
-```
+```json
 {
       "Sid": "Customer Profiles SQS policy",
       "Effect": "Allow",
@@ -134,7 +133,7 @@ You can't enable Data Store if Customer Profiles detects naming conflicts. After
 ![The Access policy section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-create-dlq-statement.png)
    +  Then copy and paste the following code:
 
-     ```
+     ```json
      {
            "Sid": "Customer Profiles SQS policy",
            "Effect": "Allow",

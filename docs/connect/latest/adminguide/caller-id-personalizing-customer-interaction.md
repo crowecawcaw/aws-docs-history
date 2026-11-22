@@ -1,7 +1,6 @@
 
 
 # Use caller identification to personalize customer interaction
-<a name="caller-id-personalizing-customer-interaction"></a>
 
 You can provide a personalized experience for your customers by using metadata attributes that provide information related to call origination. For example, you can look up a customer's contact ID, and welcome them with a personalized greeting.
 

@@ -1,7 +1,6 @@
 
 
 # Publish a capacity plan in Connect Customer
-<a name="publish-capacity-plan"></a>
 
 When you are satisfied with the capacity plan outputs, choose **Publish plan** to finalize your plan. 
 

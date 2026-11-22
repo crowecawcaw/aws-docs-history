@@ -1,7 +1,6 @@
 
 
 # Get started with Predictive Insights
-<a name="predictive-insights-get-started"></a>
 
 To start using Predictive Insights, follow these steps: 
 

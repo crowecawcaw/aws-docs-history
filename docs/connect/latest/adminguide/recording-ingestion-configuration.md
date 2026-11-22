@@ -1,7 +1,6 @@
 
 
 # Configuration
-<a name="recording-ingestion-configuration"></a>
 
 Before you can use the recording ingestion APIs, configure the following:
 + **Amazon S3 source bucket policy** – Grant Connect Customer permission to read recordings from your bucket
@@ -15,7 +14,7 @@ Your source Amazon S3 bucket must grant Connect Customer permission to read reco
 
 Add the following policy to your source bucket, replacing the placeholder values:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -38,7 +37,7 @@ The destination bucket is the Amazon S3 bucket configured in the **Call Recordin
 
 Add the following policy to your destination bucket, replacing the placeholder values:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -64,7 +63,7 @@ If your Connect Customer instance has call recording encryption enabled, you mus
 
 Example key policy statement:
 
-```
+```json
 {
   "Sid": "AllowConnectServiceKMSAccess",
   "Effect": "Allow",

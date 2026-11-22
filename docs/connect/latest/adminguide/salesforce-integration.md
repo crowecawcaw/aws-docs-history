@@ -1,7 +1,6 @@
 
 
 # Embed the Connect Customer Contact Control Panel (CCP) into Salesforce
-<a name="salesforce-integration"></a>
 
 The core functionality of the Connect Customer CTI Adapter provides a WebRTC browser-based Contact Control Panel (CCP) within Salesforce. The Connect Customer CTI integration consists of two components: 
 + [A managed Salesforce package](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EJH4yUAH)

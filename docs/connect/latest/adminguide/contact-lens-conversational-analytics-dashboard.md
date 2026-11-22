@@ -1,7 +1,6 @@
 
 
 # Connect Customer conversational analytics dashboard
-<a name="contact-lens-conversational-analytics-dashboard"></a>
 
 When conversational analytics is [enabled](enable-analytics.md) on your contacts, you can analyze conversations between customers and agents by using speech and chat transcriptions, natural language processing, and intelligent search capabilities. conversational analytics performs sentiment analysis and detects issues. You can also automatically categorize contacts. 
 

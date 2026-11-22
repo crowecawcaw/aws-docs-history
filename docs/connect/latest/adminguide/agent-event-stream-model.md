@@ -1,7 +1,6 @@
 
 
 # Agent event streams data model in Connect Customer
-<a name="agent-event-stream-model"></a>
 
 Agent event streams are created in JavaScript Object Notation (JSON) format. For each event type, a JSON blob is sent to the Kinesis data stream. The following event types are included in agent event streams:
 + LOGIN—An agent login to the contact center.
@@ -134,7 +133,7 @@ Type: String
 
 The following shows the `AgentCrossRegionRoutingConfiguration` object for an agent signed in to us-east-1 and configured to handle contacts from both us-west-2 and us-east-1.
 
-```
+```json
 "AgentCrossRegionRoutingConfiguration": {
     "ConfiguredRegions": ["us-west-2", "us-east-1"],
     "CurrentRegion": "us-east-1"

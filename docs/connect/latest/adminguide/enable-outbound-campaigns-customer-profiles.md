@@ -1,7 +1,6 @@
 
 
 # Enable outbound campaigns and Customer Profiles
-<a name="enable-outbound-campaigns-customer-profiles"></a>
 
  **To enable Connect Customer Customer Profiles and Connect Customer outbound campaigns** 
 

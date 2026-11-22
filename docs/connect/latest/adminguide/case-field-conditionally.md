@@ -1,7 +1,6 @@
 
 
 # Conditionally required
-<a name="case-field-conditionally"></a>
 
 You can streamline how agents populate case fields, and reduce data entry errors, by conditionally requiring specific fields.
 

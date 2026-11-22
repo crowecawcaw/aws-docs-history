@@ -1,7 +1,6 @@
 
 
 # Add comments to a flow block in the flow designer in Connect Customer
-<a name="add-notes-to-block"></a>
 
 To add notes to a block, on the toolbar choose **Annotation**. Or, with your cursor on the flow designer canvas, use the shortcut keys: Ctrl \+ Alt \+N. A yellow box opens for you to type up to 1000 characters. With annotations, you can leave comments that others can view.
 

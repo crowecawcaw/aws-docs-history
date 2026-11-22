@@ -1,7 +1,6 @@
 
 
 # Enable authentication for Apple Messages for Business
-<a name="enabling-authentication-for-apple-messages-for-business"></a>
 
 To begin the setup process, first navigate to your Identity Provider.
 
@@ -10,7 +9,7 @@ To begin the setup process, first navigate to your Identity Provider.
 
  The following Connect Customer domain must be registered as an allowed Redirect URI for the Identity Provider(s) used for authentication: 
 
-```
+```html
 https://participant.connect.{{region}}.amazonaws.com/participant/authentication/update
 ```
 
@@ -21,7 +20,7 @@ https://participant.connect.{{region}}.amazonaws.com/participant/authentication/
 
  Within this user pool you can create an [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html) and select some or all of your Identity Providers. Take note of the app client's client ID. For this app client, the following Connect Customer domain must be added as an Allowed callback URL: 
 
-```
+```html
 https://participant.connect.{{region}}.amazonaws.com/participant/authentication/update
 ```
 

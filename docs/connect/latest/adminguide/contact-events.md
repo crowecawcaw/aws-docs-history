@@ -1,7 +1,6 @@
 
 
 # Connect Customer contact events
-<a name="contact-events"></a>
 
 With Connect Customer, you can subscribe to a near real-time stream of contact (voice calls, chat, task, and email) events (for example, call is queued) in your Connect Customer contact center.
 
@@ -792,7 +791,7 @@ To subscribe to Connect Customer contact events:
 
 The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED` event from Connect Customer to EventBridge.
 
-```
+```json
 {
   "source": [
     "aws.connect"
@@ -815,7 +814,7 @@ The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED` event 
 ## Sample contact event for when a voice call is connected to an agent
 <a name="sample-contact-event"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "abcabcab-abca-abca-abca-abcabcabcabc",
@@ -876,7 +875,7 @@ The following sample shows how to stop streaming a `CONTACT_DATA_UPDATED` event 
 
 Connect Customer Global Resiliency supports routing contacts to agents across linked ACGR Region pairs (for more details, see [Global routing across ACGR Regions](global-routing-across-acgr-regions.md)). The following shows a `COMPLETED` event for a contact that originated in us-east-1 and was handled by an agent in us-west-2. This event was delivered through the us-west-2 stream. Note that `agentInfo.activeRegion` (us-west-2) differs from `globalResiliencyMetadata.originRegion` (us-east-1), and the top-level `region` field shows which regional stream delivered this copy of the event.
 
-```
+```json
 {
     "version": "0",
     "id": "c3ef0c5d-289c-0167-c8d2-df76c1744c65",
@@ -927,7 +926,7 @@ Connect Customer Global Resiliency supports routing contacts to agents across li
 
 The following sample event shows a contact that has a user-defined tag with **Dept** as the key. Note that `queueInfo` is not included in events received by EventBridge when `initiationMethod` is `OUTBOUND`.
 
-```
+```json
 {
     "version": "0",
     "id": "{{the event ID}}",
@@ -990,7 +989,7 @@ The following sample event shows a contact that has a user-defined tag with **De
 ## Sample event for when contact properties are updated
 <a name="sample-updated-event"></a>
 
-```
+```json
 {
 "version": "0",
     "id": "the event ID",
@@ -1063,7 +1062,7 @@ The following sample event shows a contact that has a user-defined tag with **De
 ## Sample contact event for when a voice call is connected to an agent using routing criteria
 <a name="sample-routing-criteria-event-connected"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "abcabcab-abca-abca-abca-abcabcabcabc",
@@ -1139,7 +1138,7 @@ The following sample event shows a contact that has a user-defined tag with **De
 ## Sample event for when routing step expires on a contact
 <a name="sample-routing-step-expires"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "the event ID",
@@ -1221,7 +1220,7 @@ The following sample event shows a contact that has a user-defined tag with **De
 ## Sample contact event for when a voice call is connected to an agent provided by the customer using routing criteria
 <a name="sample-contact-event-voice-call-routing-criteria"></a>
 
-```
+```json
 {
     "version": "0",
     "id": "abcabcab-abca-abca-abca-abcabcabcabc",

@@ -1,7 +1,6 @@
 
 
 # Error notifications when a Connect Customer rule fails to run
-<a name="error-notifications-rule-fails-to-run"></a>
 
 It's important to know when a specific rule action has failed in a production environment, and what caused the failure. Then you can proactively mitigate such failures in future.
 
@@ -20,7 +19,7 @@ You can also add to the pattern to be notified when a specific event code occurs
 
 The format of a notification looks like the following sample: 
 
-```
+```JSON
 {
   "version": "0",
   "id": "8d122163-6c07-f8cb-06e7-373a1bcf8fc6",

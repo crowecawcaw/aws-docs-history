@@ -1,7 +1,6 @@
 
 
 # Historical metrics reports in Connect Customer
-<a name="historical-metrics"></a>
 
 Historical metrics reports include data about past, completed activity and performance in your contact center. Connect Customer includes built-in historical reports that you can start using right away. You can also build your own custom reports. 
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot object type mappings in Customer Profiles
-<a name="object-type-mapping-troubleshooting"></a>
 
 This topic covers common issues when creating mappings, ingesting objects, and generating mappings with AI.
 

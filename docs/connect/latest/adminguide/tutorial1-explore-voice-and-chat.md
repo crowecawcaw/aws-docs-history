@@ -1,7 +1,6 @@
 
 
 # Test the sample voice and chat experience in Connect Customer
-<a name="tutorial1-explore-voice-and-chat"></a>
 
 To better understand what the voice and chat experiences are like for your agents and customers, you can test them without doing any development. 
 

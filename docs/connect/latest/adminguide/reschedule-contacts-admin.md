@@ -1,7 +1,6 @@
 
 
 # Reschedule contacts from the Contact details page in Connect Customer
-<a name="reschedule-contacts-admin"></a>
 
 On the **Contact details** page of an in-progress contact, you can reschedule a contact that was previously scheduled. This capability is currently supported only for task contacts.
 

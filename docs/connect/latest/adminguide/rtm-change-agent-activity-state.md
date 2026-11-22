@@ -1,7 +1,6 @@
 
 
 # Change the "Agent activity" status in a metrics report in the Contact Control Panel (CCP)
-<a name="rtm-change-agent-activity-state"></a>
 
 Agents manually set their status in the Contact Control Panel (CCP). However, on the real-time metrics report and analytics dashboard, managers can manually change the **Agent Activity** status of an agent. This overrides what the agent has set in the CCP.
 

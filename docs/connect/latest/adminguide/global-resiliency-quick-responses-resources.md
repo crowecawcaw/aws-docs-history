@@ -1,7 +1,6 @@
 
 
 # What quick response resources are mirrored in the replica instance
-<a name="global-resiliency-quick-responses-resources"></a>
 
 Connect Customer Global Resiliency mirrors the following resources across your linked AWS Regions:
 + Quick responses, including their tags

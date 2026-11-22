@@ -1,7 +1,6 @@
 
 
 # Build views with the UI builder in Connect Customer
-<a name="no-code-ui-builder"></a>
 
 You can use the UI builder to create views for step-by-step guides and workspace pages. With the UI builder, you can:
 + Drag and drop UI components onto a canvas.

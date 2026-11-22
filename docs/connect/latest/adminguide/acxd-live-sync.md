@@ -1,7 +1,6 @@
 
 
 # Using the Live Sync agent node
-<a name="acxd-live-sync"></a>
 
 Live Sync enables bidirectional web or mobile conversations where the AI can respond to the user and coordinate actions on the frontend experience.
 

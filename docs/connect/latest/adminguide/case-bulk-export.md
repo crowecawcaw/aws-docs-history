@@ -1,7 +1,6 @@
 
 
 # Export cases to CSV in Connect Customer Cases
-<a name="case-bulk-export"></a>
 
 When you search for cases in the agent workspace, you can select one or more cases and export them to a CSV file. The exported file contains the case field values you choose, formatted for use in spreadsheet applications such as Microsoft Excel or Google Sheets. This is useful for generating reports, sharing case data with stakeholders, or performing offline analysis.
 

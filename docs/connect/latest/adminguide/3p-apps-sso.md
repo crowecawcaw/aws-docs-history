@@ -1,7 +1,6 @@
 
 
 # Set up SSO federation for third-party applications
-<a name="3p-apps-sso"></a>
 
 With single sign-on (SSO), a user can federate into multiple third-party applications set up in the agent workspace, without having to authenticate separately for each application.
 

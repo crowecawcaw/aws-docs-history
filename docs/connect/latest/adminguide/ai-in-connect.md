@@ -1,7 +1,6 @@
 
 
 # AI in Connect Customer
-<a name="ai-in-connect"></a>
 
 Connect Customer includes features that use AI, such as contact summarization, semantic rule matching, and performance evaluations. These features use AI models through [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html).
 

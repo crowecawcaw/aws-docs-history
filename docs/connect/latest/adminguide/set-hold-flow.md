@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set hold flow
-<a name="set-hold-flow"></a>
 
 This topic defines the flow block for specifying the flow to invoke when a customer or agent is put on hold.
 

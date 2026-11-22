@@ -1,7 +1,6 @@
 
 
 # Sample secure customer data entry input in a call with no contact center agent
-<a name="sample-secure-input-with-noagent"></a>
 
 **Note**  
 This topic explains a sample flow that is included with Connect Customer. For information about locating the sample flows in your instance, see [Sample flows in Connect Customer](contact-flow-samples.md). 

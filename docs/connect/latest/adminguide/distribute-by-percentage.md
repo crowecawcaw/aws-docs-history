@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Distribute by percentage
-<a name="distribute-by-percentage"></a>
 
 This topic defines the flow block for routing customers randomly to a queue based on a percentage.
 

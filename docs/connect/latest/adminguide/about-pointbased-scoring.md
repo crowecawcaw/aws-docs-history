@@ -1,7 +1,6 @@
 
 
 # How point-based scoring is calculated in Connect Customer
-<a name="about-pointbased-scoring"></a>
 
 The overall evaluation score in point-based mode is calculated as follows:
 

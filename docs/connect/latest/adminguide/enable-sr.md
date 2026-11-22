@@ -1,7 +1,6 @@
 
 
 # Enable screen recording for your Connect Customer instance
-<a name="enable-sr"></a>
 
 This topic provides steps to enable screen recording for your Connect Customer instance, download and install the Connect Customer Client Application, and perform key configuration steps. 
 

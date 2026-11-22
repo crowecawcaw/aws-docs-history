@@ -1,7 +1,6 @@
 
 
 # Set IP address restrictions and session timeouts in Connect Customer
-<a name="authentication-profiles"></a>
 
 **Note**  
 This feature is in preview release and subject to change. To obtain access to this feature, contact your Connect Customer Solutions Architect, Technical Account Manager, or Support.
@@ -26,13 +25,13 @@ You need your Connect Customer instance ID to run these commands. For instructio
 
    Following is an example `list-authentication-profiles` command:
 
-   ```
+   ```json
    aws connect list-authentication-profiles --instance-id {{your-instance-id}}
    ```
 
    Following is an example of the default authentication profile that is returned by the `list-authentication-profiles` command.
 
-   ```
+   ```json
    {
        "AuthenticationProfileSummaryList": [
            {
@@ -52,13 +51,13 @@ You need your Connect Customer instance ID to run these commands. For instructio
 
    Following is an example `describe-authentication-profile` command:
 
-   ```
+   ```json
    aws connect describe-authentication-profile --instance-id {{your-instance-id}} --authentication-profile-id {{authentication-profile-id}}
    ```
 
    Following is an example of the information returned by the `describe-authentication-profile` command.
 
-   ```
+   ```json
    {
        "AuthenticationProfile": {
        "AllowedIps": [],
@@ -85,7 +84,7 @@ You need your Connect Customer instance ID to run these commands. For instructio
 
    Following is an example `update-authentication-profile` command. It configures the default authentication profile that's automatically assigned to all users. It allows some IP addresses, blocks others, enables automatic logouts on user inactivity, and sets the [session inactivity duration](#configure-session-timeouts) to 60 minutes.
 
-   ```
+   ```json
    aws connect update-authentication-profile 
        --instance-id {{your-instance-id}} 
        --authentication-profile-id {{authentication-profile-id}}
@@ -193,7 +192,7 @@ If the user is determined to be inactive, a pop-up will appear on the screen war
 
 To opt-in to automatic logout on user inactivity, perform the following API calls on an authentication profile in your instance using the Connect Customer SDK.
 
-```
+```bash
 aws connect update-authentication-profile 
     --instance-id {{your-instance-id}} 
     --authentication-profile-id {{authentication-profile-id}}

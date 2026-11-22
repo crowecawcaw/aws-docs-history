@@ -1,7 +1,6 @@
 
 
 # EventBridge events emitted by Connect Customer
-<a name="connect-eventbridge-events"></a>
 
 Connect Customer emits a variety of events related to the contact center, including but not limited to the following types of events:
 +  [Contact events](contact-events.md) - contact (voice calls, chat, and task) events.

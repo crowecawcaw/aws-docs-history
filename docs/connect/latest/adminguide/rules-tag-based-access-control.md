@@ -1,7 +1,6 @@
 
 
 # Granular access controls on rules
-<a name="rules-tag-based-access-control"></a>
 
 With granular access controls on rules, you can:
 + Restrict users from accessing the rules of another business line or function.

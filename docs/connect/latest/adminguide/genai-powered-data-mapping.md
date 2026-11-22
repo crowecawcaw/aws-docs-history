@@ -1,7 +1,6 @@
 
 
 # Generate a mapping with generative AI in Customer Profiles
-<a name="genai-powered-data-mapping"></a>
 
 With the generative AI-powered data mapping capability in Connect Customer Customer Profiles, you can reduce the time needed to create unified profiles and deliver more personalized customer experiences.
 

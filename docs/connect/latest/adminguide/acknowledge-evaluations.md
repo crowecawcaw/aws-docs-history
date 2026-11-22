@@ -1,7 +1,6 @@
 
 
 # Acknowledge performance evaluations in Connect Customer
-<a name="acknowledge-evaluations"></a>
 
 When an agent performance evaluation is submitted, you can automatically notify the agent to review their evaluation. For example, you can set up a [rule to send an email](contact-lens-rules-email.md) to the agent when an evaluation is available. You can also walk an agent through their evaluation during coaching.
 

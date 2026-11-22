@@ -1,7 +1,6 @@
 
 
 # Working with applications
-<a name="acxd-applications"></a>
 
 An application is the control center for the conversational AI application your users interact with. You might think of it as your "bot."
 

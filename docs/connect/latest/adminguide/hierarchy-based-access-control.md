@@ -1,7 +1,6 @@
 
 
 # Apply hierarchy-based access control in Connect Customer
-<a name="hierarchy-based-access-control"></a>
 
 You can restrict access to contacts based on the agent hierarchy assigned to a user. You do this by using security profile permissions such as [Restrict contact access](contact-search.md#required-permissions-search-contacts). In addition to these permissions, you can also use hierarchies enforce granular access controls for resources such as users, and use tags. 
 

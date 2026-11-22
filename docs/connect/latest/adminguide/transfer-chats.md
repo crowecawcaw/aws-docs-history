@@ -1,7 +1,6 @@
 
 
 # Transfer a chat to an agent's queue, with all context preserved
-<a name="transfer-chats"></a>
 
 You can transfer a contact from a bot to an agent, or to another agent's queue, with all context preserved. 
 

@@ -1,7 +1,6 @@
 
 
 # Plan for live media streaming from Connect Customer to Kinesis Video Streams
-<a name="plan-live-media-streams"></a>
 
 **Important**  
 If you want to use the audio streaming feature, you need to retain the streams that are created by Connect Customer. Don't delete them, unless you're going to stop using the streaming feature.

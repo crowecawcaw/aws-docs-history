@@ -1,7 +1,6 @@
 
 
 # Plan your identity management in Connect Customer
-<a name="connect-identity-management"></a>
 
 Before you [set up your Connect Customer instance](amazon-connect-instances.md), you should decide how you want to manage your Connect Customer users. A user is anyone who needs a Connect Customer account: agents, call center managers, analysts, and more.
 

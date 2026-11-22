@@ -1,7 +1,6 @@
 
 
 # Update settings for your Connect Customer instance
-<a name="update-instance-settings"></a>
 
 To update the instance settings: 
 

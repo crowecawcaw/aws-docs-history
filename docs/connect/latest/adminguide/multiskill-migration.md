@@ -1,7 +1,6 @@
 
 
 # Migration from non multi-skill to multi-skil
-<a name="multiskill-migration"></a>
 
 When upgrading from non multi-skill to multi-skill in Amazon Connect forecasting capacity planning and scheduling, you might fall into two possible categories: either you have existing large forecast groups and need to create demand groups for independent agent scheduling, or you have multiple small forecast groups that require consolidation into a single forecast group. Both scenarios are detailed below.
 

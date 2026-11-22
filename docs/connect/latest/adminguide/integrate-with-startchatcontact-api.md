@@ -1,7 +1,6 @@
 
 
 # Start chats in your applications by using Connect Customer APIs
-<a name="integrate-with-startchatcontact-api"></a>
 
 Use the StartChatContact API in Connect Customer APIs to start chats in your own applications.
 

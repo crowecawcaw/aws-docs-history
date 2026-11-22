@@ -1,7 +1,6 @@
 
 
 # Analytics dashboards
-<a name="acxd-analytics-dashboards"></a>
 
 Analytics dashboards help you view, organize, and monitor performance data for deployed agentic CX designer applications.
 

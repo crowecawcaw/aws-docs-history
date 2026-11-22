@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard hotel preference object fields
-<a name="standard-hotel-preference-object-fields"></a>
 
 The following table lists all the fields in the Customer Profiles standard hotel preference object.
 

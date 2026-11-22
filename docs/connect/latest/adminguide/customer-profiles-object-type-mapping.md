@@ -1,7 +1,6 @@
 
 
 # Object type mapping in Connect Customer Customer Profiles
-<a name="customer-profiles-object-type-mapping"></a>
 
 Object type mapping tells Customer Profiles how to ingest a specific type of data into a unified customer profile. A mapping provides Customer Profiles with two essential pieces of information:
 + How values from a source object populate **standard objects**—the standard profile, and (optionally) other standard objects such as assets, orders, cases, and loyalty records. For more information, see [Reference for standard objects in Customer Profiles](standard-objects.md).

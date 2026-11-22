@@ -1,7 +1,6 @@
 
 
 # Execute test cases
-<a name="testing-simulation-execute-test-cases"></a>
 
 When you run a test, you are simulating a real interaction with your contact center experience. A new contact is created to simulate inputs (for example, DTMF, text/utterance), and your interaction groups begin executing. Each interaction group is expected to execute exactly once.
 

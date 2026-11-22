@@ -1,7 +1,6 @@
 
 
 # Supported channels for flow blocks in Connect Customer
-<a name="block-support-by-channel"></a>
 
 The following table lists all available flow blocks, and whether they support routing a contact through the specified channels. 
 

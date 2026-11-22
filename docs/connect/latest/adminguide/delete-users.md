@@ -1,7 +1,6 @@
 
 
 # Delete users from your Connect Customer instance
-<a name="delete-users"></a>
 
 **Important**  
 You can't undo a deletion.

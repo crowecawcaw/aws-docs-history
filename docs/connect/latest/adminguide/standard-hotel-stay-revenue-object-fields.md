@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard hotel stay revenue object fields
-<a name="standard-hotel-stay-revenue-object-fields"></a>
 
 The following table lists all the fields in the Customer Profiles standard hotel stay revenue object.
 

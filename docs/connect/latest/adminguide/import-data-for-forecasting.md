@@ -1,7 +1,6 @@
 
 
 # Import historical data for forecasting in Connect Customer
-<a name="import-data-for-forecasting"></a>
 
 Connect Customer requires sufficient historical data to learn the contact pattern and make good forecasts. By default, it uses historical contact data in Connect Customer for forecasting. You can import historical data from external applications for Connect Customer to use for forecasting. When you import data, Connect Customer uses both its data and the imported data for forecasting. However, *the imported data takes precedence over the Connect Customer data*. 
 

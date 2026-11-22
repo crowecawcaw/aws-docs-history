@@ -1,7 +1,6 @@
 
 
 # Use screen pop functionality of third-party applications in the Connect Customer agent workspace
-<a name="no-code-ui-builder-app-integration"></a>
 
 To screen pop a third-party application, use step-by-step guides. For more information, see [Access 3P apps in the agent workspace](3p-apps-agent-workspace.md). When a contact arrives, the **Guides** tab opens first in the agent workspace. You can [configure the step-by-step guides](how-to-invoke-a-flow-sg.md) using flows.
 

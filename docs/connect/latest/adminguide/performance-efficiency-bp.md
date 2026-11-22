@@ -1,7 +1,6 @@
 
 
 # Performance efficiency for Amazon Connect workloads
-<a name="performance-efficiency-bp"></a>
 
 Performance eﬃciency includes the ability to use computing resources eﬃciently to meet system requirements, and to maintain that eﬃciency as demand changes and technologies evolve. This section provides an overview of design principles, best practices, and questions surrounding performance efficiency for Connect Customer workloads. You can ﬁnd prescriptive guidance on implementation in the [Performance Eﬃciency Pillar](https://d0.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf) whitepaper.
 

@@ -1,7 +1,6 @@
 
 
 # Access third-party applications in the agent workspace
-<a name="3p-apps-agent-workspace"></a>
 
 ## Launch third-party applications
 <a name="security-profile-perms-3p-apps"></a>

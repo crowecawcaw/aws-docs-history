@@ -1,7 +1,6 @@
 
 
 # Wait
-<a name="journey-flow-block-wait"></a>
 
 ## Description
 <a name="journey-flow-block-wait-description"></a>

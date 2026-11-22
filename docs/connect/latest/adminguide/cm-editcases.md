@@ -1,7 +1,6 @@
 
 
 # Edit a case in Connect Customer
-<a name="cm-editcases"></a>
 
 To edit a case, the agent chooses **Edit** and **Save** to save any changes.
 

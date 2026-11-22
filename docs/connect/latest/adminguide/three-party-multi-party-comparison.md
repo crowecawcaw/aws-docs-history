@@ -1,7 +1,6 @@
 
 
 # Comparison of enhanced contact monitoring (multi-party) and three-party functionality in Connect Customer
-<a name="three-party-multi-party-comparison"></a>
 
 This topic describes how the agent's experience differs when [enhanced contact monitoring](monitor-conversations.md) (multi-party) is enabled instead of the default three-party capability.
 

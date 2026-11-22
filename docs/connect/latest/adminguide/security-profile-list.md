@@ -1,7 +1,6 @@
 
 
 # List of security profile permissions in Connect Customer
-<a name="security-profile-list"></a>
 
 This topic is for administrators and contact center managers who assign and manage security profile permissions in Connect Customer. 
 
@@ -185,6 +184,7 @@ The following tables list:
 | Rules - Generative AI | RulesGenerativeAI.Create<br />RulesGenerativeAI.View<br />RulesGenerativeAI.Edit<br />RulesGenerativeAI.Delete | Manage rules that use generative AI. To create generative AI-powered rules, you additionally need the **Rules** permission.  | 
 | Rules - View | Rules.View | View rules.  | 
 | Login/Logout report - View | AgentTimeCard.View |  [View Login/Logout reports](login-logout-reports.md).  | 
+| Force Logout | ForceLogout.Access | Sign out agents from the **Current agent performance** widget on the [Queue and agent performance dashboard](queue-performance-dashboard.md). For more information, see [Force agent logout](dashboard-force-agent-logout.md). | 
 | Real-time contact monitoring- Enable/Disable | ManagerListenIn | [Monitor live conversations](monitor-conversations.md) and [listen to recordings of past conversations](review-recorded-conversations.md). Be sure to assign managers to the Agent security profile so they can access the Contact Control Panel (CCP). This enables them to monitor the conversation through the CCP. | 
 | Real-time contact barge-in - Enable/Disable | ManagerBargeIn | Enables supervisors and managers to barge into live conversations between agents and customers. To learn more about Barge for live conversations, see [Barge into live voice and chat conversations between contact center agents and customers](monitor-barge.md). | 
 | Saved reports - View | MetricsReports.View | [View a shared report](view-a-shared-report.md). | 

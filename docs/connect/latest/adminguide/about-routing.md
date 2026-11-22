@@ -1,7 +1,6 @@
 
 
 # How routing works in Connect Customer
-<a name="about-routing"></a>
 
 Contacts are routed through your contact center based on these factors: 
 + The routing profile assigned to the agent.

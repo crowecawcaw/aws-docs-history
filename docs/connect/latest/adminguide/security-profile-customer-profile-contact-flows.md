@@ -1,7 +1,6 @@
 
 
 # Update Customer Profiles permissions for flows
-<a name="security-profile-customer-profile-contact-flows"></a>
 
 1. Go to the Security profiles page, choose the security profile you would like to edit, or choose **Add new security profile**.  
 ![Security profiles page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/security-profile-customer-profile-contact-flows-1.png)

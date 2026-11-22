@@ -1,7 +1,6 @@
 
 
 # Standard asset definition in Connect Customer Customer Profiles
-<a name="standard-asset-definition"></a>
 
 The following table lists all the fields in the Customer Profiles standard asset object.
 

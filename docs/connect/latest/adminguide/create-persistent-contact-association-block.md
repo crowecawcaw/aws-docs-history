@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Create persistent contact association
-<a name="create-persistent-contact-association-block"></a>
 
 This topic defines the flow block for creating a persistent contact association, enabling conversations with contacts to continue where they left off.
 

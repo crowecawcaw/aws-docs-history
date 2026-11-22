@@ -1,7 +1,6 @@
 
 
 # Enable push notifications for mobile chat
-<a name="enable-push-notifications-for-mobile-chat"></a>
 
 Push notifications for mobile chat are configured through [AWS End User Messaging](https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html). You can enable push notifications for mobile chat on iOS or Android devices, allowing you to alert customers about new messages even when they aren't actively using your mobile application. You can enable this feature in your existing app integrated with the [Connect Customer mobile SDKs](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-chat-with-mobile.html), a [webview solution](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/mobileChatExamples), or a custom native solution. 
 

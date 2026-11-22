@@ -1,7 +1,6 @@
 
 
 # Update security profiles in Connect Customer
-<a name="update-security-profiles"></a>
 
 You can update a security profile at any time to add or remove permissions.
 

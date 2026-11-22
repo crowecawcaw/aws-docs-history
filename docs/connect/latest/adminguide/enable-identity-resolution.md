@@ -1,7 +1,6 @@
 
 
 # Enable Identity Resolution for your Connect Customer Customer Profiles domain
-<a name="enable-identity-resolution"></a>
 
 When you enable Identity Resolution you specify the following information:
 + When the Identity Resolution Job should run on a weekly basis. By default, it runs Saturdays at 12AM UTC.

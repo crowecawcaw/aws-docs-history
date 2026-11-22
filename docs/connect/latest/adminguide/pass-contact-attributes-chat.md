@@ -1,7 +1,6 @@
 
 
 # Pass contact attributes to an agent in the Contact Control Panel (CCP) when a chat starts
-<a name="pass-contact-attributes-chat"></a>
 
 You can use [contact attributes](what-is-a-contact-attribute.md) to capture information about the contact who is using the communications widget. Then, you can display that information to the agent through the Contact Control Panel (CCP), or use it elsewhere in the flow.
 
@@ -22,7 +21,7 @@ For example, you can customize your flow to say the name of the customer in your
 **Note**  
 JWT should be installed as a prerequisite. To install it, run `pip install PyJWT` in your terminal.
 
-   ```
+   ```python
    import jwt 
    import datetime 
    CONNECT_SECRET = "{{your-securely-stored-jwt-secret}}" 
@@ -55,7 +54,7 @@ Although these attributes are scoped with the `HostedWidget-` prefix, they are s
 
 The following example shows how to pass contact attributes directly from snippet code without enabling widget security. 
 
-```
+```javascript
 <script type="text/javascript">
   (function(w, d, x, id){ /* ... */ })(window, document, 'amazon_connect', '{{widgetId}}');
   amazon_connect('snippetId', '{{snippetId}}');
@@ -81,7 +80,7 @@ The [Check contact attributes](check-contact-attributes.md) flow block provides 
 + The communications widget has a 6144 bytes limit for the entire encoded token. Because JavaScript uses UTF-16 encoding, 2 bytes are used per character, so the maximum size of the `encoded_token` should be around 3000 characters.
 + The encoded\_token should be passed in to `callback(data)`. The `authenticate` snippet does not need any additional changes. For example:
 
-  ```
+  ```json
   amazon_connect('authenticate', function(callback) {
     window.fetch('/token').then(res => {
       res.json().then(data => {

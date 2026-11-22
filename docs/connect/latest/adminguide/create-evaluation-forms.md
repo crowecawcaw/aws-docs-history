@@ -1,7 +1,6 @@
 
 
 # Create an evaluation form in Connect Customer
-<a name="create-evaluation-forms"></a>
 
 In Connect Customer, you can create [many different evaluation forms](feature-limits.md#evaluationforms-feature-specs). For example, you might need a different evaluation form for each business unit, and for different queues. You can also create different evaluation forms for evaluating the agent interaction and the self-service interaction with a Lex bot or AI agent.
 
@@ -406,7 +405,7 @@ The following in-Region model versions for agent evaluations are available only 
 | AGENT\_EVALUATION\_IN\_REGION\_2026-10-07 | Active | Reduces the rate of automated evaluations that fail to generate a suggested answer, so more questions receive an automated suggestion and fewer are left unanswered. | 
 | AGENT\_EVALUATION\_IN\_REGION\_2026-10-06 | Active | The first in-Region version. Introduces agent evaluation on an in-Region model so accounts not enrolled in cross-Region inference can use Gen AI automated evaluations. | 
 
-In the Canada (Central) Region, in-Region model versions for agent evaluations are available to customers that have disabled cross-Region inference for Connect Customer generative AI capabilities. The two **Preview** versions use an upgraded generative AI model that processes your data only within Canada. If you choose **Preview**, your form uses the most recent Preview version (`AGENT_EVALUATION_IN_REGION_2026-11-07`). To use the other Preview version, choose **Specific version** and select `AGENT_EVALUATION_IN_REGION_2026-11-06`. The following table lists the in-Region model versions available in Canada (Central).
+In the Canada (Central) Region, in-Region model versions for agent evaluations are available to customers that have disabled cross-Region inference for Connect Customer generative AI capabilities. These versions use an upgraded generative AI model that processes your data only within Canada. If you choose **Latest**, your form uses the version marked **Latest**. If you choose **Preview**, your form uses the version marked **Preview**. The version `AGENT_EVALUATION_IN_REGION_2025-11-12` has been removed and no longer appears in the list. Forms that used it automatically use the latest version. The following table lists the in-Region model versions available in Canada (Central).
 
 
 **In-Region model versions for agent evaluations in Canada (Central)**  
@@ -414,8 +413,7 @@ In the Canada (Central) Region, in-Region model versions for agent evaluations a
 | Version | State | What changed | 
 | --- | --- | --- | 
 | AGENT\_EVALUATION\_IN\_REGION\_2026-11-07 | Preview | Upgraded model that processes data within Canada. Adjusts how strictly the model scores answers, so that automated suggestions are less strict where earlier versions were too harsh. | 
-| AGENT\_EVALUATION\_IN\_REGION\_2026-11-06 | Preview | Upgraded model that processes data within Canada. | 
-| AGENT\_EVALUATION\_IN\_REGION\_2025-11-12 | Latest | The current in-Region version in Canada (Central). This version is scheduled to reach end of life on November 27, 2026. | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-11-06 | Latest | Latest in-Region version in Canada (Central). Upgraded model that processes data within Canada. | 
 
 The following automated interaction (self-service) evaluation model versions are available for automated interaction evaluation forms when your account is enrolled in cross-Region inference.
 

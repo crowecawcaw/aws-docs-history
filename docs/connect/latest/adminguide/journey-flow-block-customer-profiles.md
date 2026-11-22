@@ -1,7 +1,6 @@
 
 
 # Customer profiles
-<a name="journey-flow-block-customer-profiles"></a>
 
 ## Description
 <a name="journey-flow-block-customer-profiles-description"></a>

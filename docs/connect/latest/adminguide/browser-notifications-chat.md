@@ -1,7 +1,6 @@
 
 
 # Send browser notifications to customers when chat messages arrive
-<a name="browser-notifications-chat"></a>
 
 The communications widget supports browser notifications for your customers through their desktop devices. Specifically, your customers will receive a notification through their web browser when they receive a new message, but are not active on the web page that contains the chat window. When your customers choose or tap this notification, they are automatically redirected to the web page containing the chat window. Your customers can enable or disable notifications at the start of each chat conversation. 
 

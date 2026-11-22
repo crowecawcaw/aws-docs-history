@@ -1,7 +1,6 @@
 
 
 # Link related cases in Connect Customer
-<a name="cm-linked-cases"></a>
 
 The **Linked Cases** tab of a case lists the cases that are linked to it, with their reference number, title, status, assigned user, and last updated date. Choose a case title to open the linked case in a new tab.
 

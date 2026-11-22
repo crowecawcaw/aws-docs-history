@@ -1,7 +1,6 @@
 
 
 # End flow
-<a name="journey-flow-block-end-flow"></a>
 
 ## Description
 <a name="journey-flow-block-end-flow-description"></a>

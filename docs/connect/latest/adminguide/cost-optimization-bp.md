@@ -1,7 +1,6 @@
 
 
 # Cost optimization for Connect Customer workloads
-<a name="cost-optimization-bp"></a>
 
 Cost Optimization includes the ability to run systems to deliver business value at the lowest price point. This section provides an overview of design principles, best practices, and questions surrounding cost optimization for Connect Customer workloads. You can ﬁnd prescriptive guidance on implementation in the [Cost Optimization Pillar - AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) . 
 

@@ -1,7 +1,6 @@
 
 
 # Update integrations (3p apps) across Linked AWS regions
-<a name="update-integrations-across-regions"></a>
 
 **Warning**  
 Connect Customer Global Resiliency instances created after November 5, 2026, will support replication of native integrations (3p app) and their security profile permissions. To enable this for ACGR instances created before November 5, 2026, contact [AWS Support](https://console.aws.amazon.com/support/home).
@@ -52,7 +51,7 @@ To update the access URL by using the AWS CLI, call [UpdateApplication](https://
 
 The following AWS CLI command updates the access URL:
 
-```
+```bash
 aws appintegrations update-application \
     --region {{replica-region}} \
     --arn {{application-arn}} \
@@ -91,7 +90,7 @@ The following procedure shows you how to create an AgentCore gateway in the repl
    + Open the Connect Customer [console](https://console.aws.amazon.com/connect/) (https://console.aws.amazon.com/connect/) in the Region of your replica instance, choose **Integrations**, select the MCP server, and edit it. Under **Integration details**, select the gateway that you created in the replica Region, and save your changes.
    + Call UpdateApplication in the Region of your replica instance. Set the access URL to the URL of the new gateway. The following AWS CLI command points the MCP server to the new gateway. Replace the placeholder values as described after the command.
 
-     ```
+     ```bash
      aws appintegrations update-application \
          --region {{replica-region}} \
          --arn {{application-arn}} \

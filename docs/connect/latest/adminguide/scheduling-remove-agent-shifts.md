@@ -1,7 +1,6 @@
 
 
 # Remove agent shifts
-<a name="scheduling-remove-agent-shifts"></a>
 
 Contact center managers, supervisors, and schedulers can remove agent shifts, for either one agent at a time or multiple agents simultaneously. For example: 
 + Remove all shifts for next Monday.

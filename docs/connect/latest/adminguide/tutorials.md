@@ -1,7 +1,6 @@
 
 
 # Tutorials: An introduction to Connect Customer
-<a name="tutorials"></a>
 
 The tutorials in this section are provided to help you start using Connect Customer. They show you how to set up your first instance, and test a sample voice and chat experience. Next, they show you how to set up an IT Help Desk contact center that uses the features in Amazon Lex. 
 

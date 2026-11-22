@@ -1,7 +1,6 @@
 
 
 # Collect disposition codes from agents when a contact ends
-<a name="disposition-codes-sg"></a>
 
 A step-by-step guide can ask agents for a disposition code, or other after contact work, when a contact ends. Create a flow with one [Show view](show-view-block.md) block and one [Set contact attributes](set-contact-attributes.md) block.
 + Use the [Show view](show-view-block.md) block to show a **Form** view with the required input field.

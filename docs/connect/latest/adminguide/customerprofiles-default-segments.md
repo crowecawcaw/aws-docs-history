@@ -1,7 +1,6 @@
 
 
 # Default segments in Connect Customer
-<a name="customerprofiles-default-segments"></a>
 
 With Connect Customer, you have access to out-of-the-box default segments on every domain. You can use these segments immediately without any configuration. Connect Customer builds default segments from the default calculated attributes it provides. For more information about the calculated attributes that these segments reference, see [Default calculated attributes in Connect Customer Customer Profiles](customerprofiles-default-calculated-attributes.md).
 
@@ -21,7 +20,7 @@ Important: Always configure the high threshold to be greater than the low thresh
 
 The following example shows the High lifetime value default segment definition:
 
-```
+```json
 {
    "SegmentDefinitionName": "_default_lifetime_value_high",
    "DisplayName": "High lifetime value",
@@ -52,7 +51,7 @@ The following example shows the High lifetime value default segment definition:
 
 The following example shows the Medium lifetime value default segment definition:
 
-```
+```json
 {
    "SegmentDefinitionName": "_default_lifetime_value_medium",
    "DisplayName": "Medium lifetime value",
@@ -91,7 +90,7 @@ The following example shows the Medium lifetime value default segment definition
 
 The following example shows the Low lifetime value default segment definition:
 
-```
+```json
 {
    "SegmentDefinitionName": "_default_lifetime_value_low",
    "DisplayName": "Low lifetime value",
@@ -129,7 +128,7 @@ To change how many contacts qualify a profile as a repeat caller, update the thr
 
 The following example shows the Repeat caller default segment definition:
 
-```
+```json
 {
    "SegmentDefinitionName": "_default_repeat_caller",
    "DisplayName": "Repeat caller",

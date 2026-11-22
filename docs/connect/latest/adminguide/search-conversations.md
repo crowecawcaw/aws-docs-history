@@ -1,7 +1,6 @@
 
 
 # Search conversations analyzed by conversational analytics
-<a name="search-conversations"></a>
 
 You can search the analyzed and transcribed recordings based on: 
 + Speaker (agent or customer)

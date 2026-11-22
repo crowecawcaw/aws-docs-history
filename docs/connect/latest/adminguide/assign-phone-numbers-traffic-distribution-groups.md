@@ -1,7 +1,6 @@
 
 
 # Assign claimed phone numbers to traffic distribution groups in Connect Customer
-<a name="assign-phone-numbers-traffic-distribution-groups"></a>
 + You created a new traffic distribution group and it's status is `ACTIVE`. We recommend using the [DescribeTrafficDistributionGroup](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeTrafficDistributionGroup.html) API to verify the status.
 + You have already claimed phone numbers to instances or other traffic distribution groups.
 

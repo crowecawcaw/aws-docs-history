@@ -1,7 +1,6 @@
 
 
 # Edit users in bulk in Amazon Connect Customer
-<a name="edit-users-in-bulk"></a>
 
 With bulk edit mode, you can quickly edit the attributes that are common across user records, such as routing profiles, security profiles, and tags.
 

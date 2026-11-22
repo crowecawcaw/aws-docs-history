@@ -1,7 +1,6 @@
 
 
 # Historical metrics report limits in Connect Customer
-<a name="historical-reporting-limits"></a>
 
 Historical metrics reports have the following limits:
 

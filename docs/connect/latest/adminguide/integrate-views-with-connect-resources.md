@@ -1,7 +1,6 @@
 
 
 # Integrate views with Connect Customer resources
-<a name="integrate-views-with-connect-resources"></a>
 
 With view integrations, a view in a guide can poll a live data source at set intervals. You configure integrations for the whole view, in the global settings of the **Customize** panel in the UI builder.
 

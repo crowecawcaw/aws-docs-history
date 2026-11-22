@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard loyalty object fields
-<a name="standard-loyalty-object-fields"></a>
 
 The following table lists all the fields in the Customer Profiles standard loyalty object.
 

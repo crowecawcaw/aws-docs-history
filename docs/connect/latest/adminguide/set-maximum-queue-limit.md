@@ -1,7 +1,6 @@
 
 
 # Set the limit of maximum contacts in a queue using Connect Customer
-<a name="set-maximum-queue-limit"></a>
 
 By default a queue can contain up to your [service quota](amazon-connect-service-limits.md) for voice, chat, tasks, and email: 
 + **Concurrent active calls per instance**

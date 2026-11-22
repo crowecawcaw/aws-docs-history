@@ -1,7 +1,6 @@
 
 
 # Queued callbacks in real-time metrics in Connect Customer
-<a name="about-queued-callbacks"></a>
 
 This topic explains how queued callbacks appear in your real-time metrics reports and the contact record.
 

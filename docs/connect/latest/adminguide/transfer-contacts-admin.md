@@ -1,7 +1,6 @@
 
 
 # Transfer in progress contacts to a quick connect agent or a queue in Connect Customer
-<a name="transfer-contacts-admin"></a>
 
 On the **Contact details** page of an in-progress contact, you can transfer a contact to a quick connect agent or queue. This capability supports task, email, or chat contacts.
 

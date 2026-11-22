@@ -1,7 +1,6 @@
 
 
 # Conversation transcripts
-<a name="acxd-conversation-history"></a>
 
 Conversation transcripts let you review the exact exchanges from past sessions with a deployed application — what the user asked, how the application responded, and where a conversation succeeded or broke down. You open these past conversations from the **Observe** tab.
 

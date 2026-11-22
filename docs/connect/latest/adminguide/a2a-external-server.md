@@ -1,7 +1,6 @@
 
 
 # Build an external AI agent server
-<a name="a2a-external-server"></a>
 
 This page contains information on how to build and host an external AI agent, including an agent that you host on Amazon Bedrock AgentCore. It describes what your agent server must do, and what Connect Customer does, in each collaboration mode. For account setup, see [Set up an external AI agent integration](a2a-setup-external.md).
 

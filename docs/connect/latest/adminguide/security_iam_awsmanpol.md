@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Connect Customer
-<a name="security_iam_awsmanpol"></a>
 
 To add permissions to users, groups, and roles, it is more efficient to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) policies that provide your team with only the permissions that they need. To get started quickly, you can use AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html) in the *IAM User Guide*.
 
@@ -23,7 +22,7 @@ To view the permissions for the `AmazonConnect_FullAccess` policy, see [AmazonCo
 
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 
@@ -84,7 +83,7 @@ To view the permissions for the `AmazonConnectVoiceIDFullAccess` policy, see [Am
 
 ****  
 
-```
+```json
 { 
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 

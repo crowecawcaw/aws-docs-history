@@ -1,7 +1,6 @@
 
 
 # Key management in Connect Customer
-<a name="key-management"></a>
 
 You can specify AWS KMS keys, including bring your own keys (BYOK), to use for envelope encryption with Amazon S3 input/output buckets.
 

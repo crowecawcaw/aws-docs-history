@@ -1,7 +1,6 @@
 
 
 # View calendar that illustrates effective hours of operation
-<a name="view-hours-of-operation-calendar"></a>
 
 You can review operating hours and overrides together in a calendar. Select the **View in Calendar** button on the top of the detail page.
 

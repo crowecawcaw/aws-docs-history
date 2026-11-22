@@ -1,7 +1,6 @@
 
 
 # Update an Apple Messages for Business integration with Connect Customer
-<a name="update-apple-messages-for-business"></a>
 
 You will need to update your Apple Messages for Business integration if you want to change the flow ID or other information. 
 
@@ -11,7 +10,7 @@ You will need to update your Apple Messages for Business integration if you want
 
 1. In the **Use case description** box, copy and paste the following template to indicate this is an **update **request: 
 
-   ```
+   ```json
    Subject: Update Apple Messages for Business Integration request
    Body:
       Apple Messages for Business Account ID (required): {{enter your current account ID}} change to {{new account ID}}

@@ -1,7 +1,6 @@
 
 
 # Can I cancel a scheduled phone number porting in Connect Customer?
-<a name="cancel-port-request"></a>
 
 **Important**  
 If you need to cancel or reschedule your porting, let us know immediately.

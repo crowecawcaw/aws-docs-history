@@ -1,7 +1,6 @@
 
 
 # Manage Apple Messages for Business chats in your Connect Customer instance
-<a name="manage-customer-chats"></a>
 
 When you integrate Apple Messages for Business with your Connect Customer instance, messages from Apple Messages for Business behave exactly like any other chat messages arriving to your contact center.
 

@@ -1,7 +1,6 @@
 
 
 # Pre-chat authentication using the Connect Customer StartChatContact API
-<a name="pre-chat-auth"></a>
 
 Customers who authenticate in your website or mobile application before starting a chat can be recognized as authenticated when a chat is initiated. You can do this by using the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API.
 

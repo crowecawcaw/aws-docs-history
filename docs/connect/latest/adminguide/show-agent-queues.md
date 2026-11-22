@@ -1,7 +1,6 @@
 
 
 # Show agent queues in a Queues table for historical metrics
-<a name="show-agent-queues"></a>
 
 By default agent queues don't appear in a Queues table in a historical metrics report. You can choose to show them.
 

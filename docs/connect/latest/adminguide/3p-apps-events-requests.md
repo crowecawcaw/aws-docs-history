@@ -1,7 +1,6 @@
 
 
 # Events and requests for 3P apps
-<a name="3p-apps-events-requests"></a>
 
 **Note**  
 If you are a developer, review how to create applications that react to events: [Integrate application with Connect Customer agent workspace agent data](https://docs.aws.amazon.com/agentworkspace/latest/devguide/integrate-with-agent-data.html).

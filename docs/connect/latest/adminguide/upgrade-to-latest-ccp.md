@@ -1,7 +1,6 @@
 
 
 # Upgrade to the latest Connect Customer Contact Control Panel (CCP).
-<a name="upgrade-to-latest-ccp"></a>
 
 The URL for the latest Contact Control Panel (CCP) ends with **ccp-v2**
 

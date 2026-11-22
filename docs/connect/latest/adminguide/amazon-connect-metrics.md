@@ -1,7 +1,6 @@
 
 
 # Metrics, dashboards, and insights in Connect Customer
-<a name="amazon-connect-metrics"></a>
 
 In Connect Customer, data about contacts are captured in contact records. This data can include the amount of time a contact spends in each state: customer on hold, customer in queue, agent interaction time. 
 

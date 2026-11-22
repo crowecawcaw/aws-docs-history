@@ -1,7 +1,6 @@
 
 
 # Create conversational analytics rules using the Connect Customer admin website
-<a name="build-rules-for-contact-lens"></a>
 
 With Conversational analytics rules, you can automatically categorize contacts, receive alerts, or generate tasks based on keywords that are used during a call, chat, or email, sentiment scores, customer attributes, and other criteria. 
 

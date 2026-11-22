@@ -1,7 +1,6 @@
 
 
 # Enable forecasting & agent scheduling in Connect Customer
-<a name="enable-forecasting-capacity-planning-scheduling"></a>
 
 You must enable forecasting & agent scheduling at the Connect Customer instance level. After you enable forecasting & agent scheduling, it might take up to 24 hours for the feature to be available for use in your AWS account.
 

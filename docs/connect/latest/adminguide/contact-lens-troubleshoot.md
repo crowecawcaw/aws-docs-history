@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues in Connect Customer conversational analytics
-<a name="contact-lens-troubleshoot"></a>
 
 ## Why don't I see or hear unredacted content?
 <a name="where-is-unredacted-content"></a>

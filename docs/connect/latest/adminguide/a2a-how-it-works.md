@@ -1,7 +1,6 @@
 
 
 # How agent-to-agent collaboration works
-<a name="a2a-how-it-works"></a>
 
 Agent-to-agent collaboration lets your Connect AI agent bring in another AI agent during a live contact. The collaborating agent performs work or talks to the customer, and then returns control to your Connect AI agent.
 

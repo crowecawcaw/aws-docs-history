@@ -1,7 +1,6 @@
 
 
 # Connect Customer agent event streams
-<a name="agent-event-streams"></a>
 
 Connect Customer agent event streams are Amazon Kinesis data streams that provide you with near real-time reporting of agent activity within your Connect Customer instance. The events published to the stream include these CCP events: 
 + Agent login

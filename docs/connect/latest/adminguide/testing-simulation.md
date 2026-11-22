@@ -1,7 +1,6 @@
 
 
 # Connect Customer Testing and Simulation
-<a name="testing-simulation"></a>
 
 With Connect Customer Testing and Simulation capabilities, you can simulate your contact center experiences, including self-service interactions and post-contact activities such as automated surveys. With minimal configuration within Connect Customer, you can set up and run automated tests using the new visual test configuration experience. With the test designer, you can specify which experiences to observe, what attributes to assert and validate when the test reaches the expected interaction, and whether the validation of the experience passes or fails.
 

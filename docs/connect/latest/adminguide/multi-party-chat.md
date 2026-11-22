@@ -1,7 +1,6 @@
 
 
 # Host multiple participants on an ongoing customer service chat in the agent workspace or CCP
-<a name="multi-party-chat"></a>
 
 You can add up to four additional participants to an ongoing customer service chat, for a total of six participants: you, the customer, and four other people. You can use quick connects to add participants.
 

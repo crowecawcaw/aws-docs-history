@@ -1,7 +1,6 @@
 
 
 # How to set up Global Resiliency for quick responses
-<a name="global-resiliency-quick-responses-onboard"></a>
 
 Set up Global Resiliency for quick responses so that agents can search for and use the same quick responses in either Region, even if one Region becomes unavailable. This task is part of setting up Connect Customer Global Resiliency for your instance. For more information, see [Set up Connect Customer Global Resiliency](setup-connect-global-resiliency.md).
 

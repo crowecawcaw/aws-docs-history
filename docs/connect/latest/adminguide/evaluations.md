@@ -1,7 +1,6 @@
 
 
 # Evaluate agent and self-service interaction performance in Connect Customer
-<a name="evaluations"></a>
 
 **Tip**  
 **New user?** Check out the [Connect Customer Contact Lens Workshop](https://catalog.workshops.aws/amazon-connect-contact-lens/en-US). This online course includes guidance on creating evaluation forms.  

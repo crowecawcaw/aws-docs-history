@@ -1,7 +1,6 @@
 
 
 # Pause and resume tasks in Connect Customer Tasks
-<a name="concepts-pause-and-resume-tasks"></a>
 
 You can pause and resume all tasks that aren't expired, disconnected, or scheduled for a later time. The benefit of pausing and resuming tasks is that it enables agents to free up an active slot so they can receive more critical tasks when their current task is stalled, for example, because of a missing approval or waiting on an external input. 
 

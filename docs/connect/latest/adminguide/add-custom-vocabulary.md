@@ -1,7 +1,6 @@
 
 
 # Add custom vocabularies to conversational analytics using the Connect Customer admin website
-<a name="add-custom-vocabulary"></a>
 
 You can improve the accuracy of speech recognition for product names, brand names, and domain-specific terminology, by expanding and tailoring the vocabulary of the speech-to-text engine in conversational analytics. 
 

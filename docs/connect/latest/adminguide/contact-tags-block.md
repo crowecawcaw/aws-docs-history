@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Contact tags
-<a name="contact-tags-block"></a>
 
 This topic defines the flow block for creating and applying tags to your contacts.
 

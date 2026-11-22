@@ -1,7 +1,6 @@
 
 
 # Security profile permissions for conversational analytics rules
-<a name="permissions-for-rules"></a>
 
 To view, edit, or add rules for automatic categorization, you must be assigned to a security profile that has **Analytics and Optimization: Rules** permissions.
 

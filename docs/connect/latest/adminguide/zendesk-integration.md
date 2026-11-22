@@ -1,7 +1,6 @@
 
 
 # Embed the Connect Customer Contact Control Panel (CCP) into Zendesk
-<a name="zendesk-integration"></a>
 
 To integrate Connect Customer and Zendesk, you need:
 + An Connect Customer instance.

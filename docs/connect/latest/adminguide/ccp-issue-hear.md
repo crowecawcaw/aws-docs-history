@@ -1,7 +1,6 @@
 
 
 # How to troubleshoot the agent's headset in the Contact Control Panel (CCP)
-<a name="ccp-issue-hear"></a>
 
 Problems with the agent's headset are usually caused by two issues: 
 + The connection between the agent's headset and computer.

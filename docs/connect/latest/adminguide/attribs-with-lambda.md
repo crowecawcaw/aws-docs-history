@@ -1,7 +1,6 @@
 
 
 # Store a value from a Lambda functions as a contact attribute in Connect Customer
-<a name="attribs-with-lambda"></a>
 
 Retrieve data from a system that your organization uses internally, such as an ordering system or other database with a Lambda function, and store the values as attributes that can then be referenced in a flow.
 

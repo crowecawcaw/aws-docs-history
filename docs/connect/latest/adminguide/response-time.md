@@ -1,7 +1,6 @@
 
 
 # Investigate response time during chats in conversational analytics
-<a name="response-time"></a>
 
 Use the response time metric to understand the responsiveness of the agent or customer during a chat contact.
 

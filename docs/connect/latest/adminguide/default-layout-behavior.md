@@ -1,7 +1,6 @@
 
 
 # Default layout behavior
-<a name="default-layout-behavior"></a>
 
 Each Connect Customer Customer Profiles domain has a single default Profile Explorer layout. This is the layout that all users with view access see when they open Profile Explorer for a customer profile. Only one layout can be the default at a time—setting a new layout as default automatically removes default status from the previous one.
 

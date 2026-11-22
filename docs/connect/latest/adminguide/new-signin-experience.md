@@ -1,7 +1,6 @@
 
 
 # Testing the new Connect Customer sign-in experience
-<a name="new-signin-experience"></a>
 
 ## Overview
 <a name="new-signin-overview"></a>
@@ -32,18 +31,24 @@ The migration to the new sign-in experience will occur in the following phases:
 ## Testing instructions
 <a name="new-signin-testing"></a>
 
-Before testing the new sign-in experience, allowlist the following endpoints to make sure they are accessible from your network:
-+ `*.apps.signin.aws`
+Before testing the new sign-in experience, allowlist the following endpoints to make sure they are accessible from your network.
+
+If your instance is in an AWS Region other than AWS GovCloud (US), add:
 + `*.signin.aws`
++ `*.apps.signin.aws`
 + `*.threat-mitigation.aws.amazon.com`
-+ `*.s3.dualstack.{{[Region]}}.amazonaws.com`
++ `amcs-captcha-prod-{{[Region]}}.s3.dualstack.{{[Region]}}.amazonaws.com`
++ `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
 
-  Replace {{[Region]}} with us-east-1, us-west-2, and the location of your Connect Customer instance.
-
-If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
+If your instance is in an AWS GovCloud (US) Region, add:
 + `*.signin-fips.amazonaws-us-gov.com`
-+ `*.apps.signin-fips.aws-us-gov.com`
 + `*.apps.signin.aws-us-gov.com`
++ `*.apps.signin-fips.aws-us-gov.com`
++ `*.threat-mitigation.aws.amazon.com`
++ `amcs-captcha-prod-{{[Region]}}.s3.dualstack.{{[Region]}}.amazonaws.com`
++ `amcs-captcha-prod-us-east-1.s3.dualstack.us-east-1.amazonaws.com`
+
+Replace {{[Region]}} with the Region of your Connect Customer instance, for example ap-northeast-1.
 
 **To test the new sign-in experience**
 
@@ -58,7 +63,7 @@ If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
    You can find this in the AWS console as shown in the following image.  
 ![The Connect Customer instances page showing the instance access URL.](https://docs.aws.amazon.com/connect/latest/adminguide/images/new-signin-instance-url.png)
 
-1. **Add the testing parameter** – To access the new sign-in experience, append `?use-new-experience=true` to your instance's login URL:
+1. **Add the testing parameter** – To access the new sign-in experience, append `/login?use-new-experience=true` to your instance access URL:
    + `https://{{[instance-alias]}}.my.connect.aws/login?use-new-experience=true`
 
    or
@@ -121,6 +126,6 @@ Yes, you'll receive reset password emails from `no-reply@signin.aws` going forwa
 ### Do I need to add new IP ranges to my allowlist for the new sign-in endpoints?
 <a name="new-signin-faq-ip-ranges"></a>
 
-Yes. You need to add the S3 IP ranges to your allowlist for us-east-1, us-west-2, and the Region where your Connect Customer instance is located. The existing EC2 and CLOUDFRONT IP ranges in the AWS [ip-ranges.json](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html) file already cover the other new sign-in endpoints (`*.apps.signin.aws`, `*.signin.aws`, `*.threat-mitigation.aws.amazon.com`).
+Yes. You need to add the S3 IP ranges to your allowlist for us-east-1 and the Region where your Connect Customer instance is located. The existing EC2 and CLOUDFRONT IP ranges in the AWS [ip-ranges.json](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html) file already cover the other new sign-in endpoints (`*.apps.signin.aws`, `*.signin.aws`, `*.threat-mitigation.aws.amazon.com`).
 
 For more information about IP-based allowlisting for Connect Customer, see [Set up your network to use the Connect Customer Contact Control Panel (CCP)](ccp-networking.md).

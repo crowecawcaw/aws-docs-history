@@ -1,7 +1,6 @@
 
 
 # Connect Customer Cases metrics
-<a name="case-management-metrics"></a>
 
 The following case driven metrics are available on the Historical metrics reports. To access these metrics on a report, Cases needs to be [enabled](enable-cases.md) for your instance, and at least one [case template](case-templates.md) is created.
 

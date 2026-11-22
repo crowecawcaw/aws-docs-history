@@ -1,7 +1,6 @@
 
 
 # Search for in-progress contacts in Connect Customer
-<a name="search-in-progress-contacts"></a>
 
 For a contact that is handled by an agent, a contact is considered **In Progress** until the agent completes After Contact Work. For a contact that is never handled by an agent, a contact is considered **In Progress** until the contact is disconnected.
 

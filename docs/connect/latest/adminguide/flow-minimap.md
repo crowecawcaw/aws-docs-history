@@ -1,7 +1,6 @@
 
 
 # Use the mini-map in Connect Customer to navigate a flow
-<a name="flow-minimap"></a>
 
 In the lower left corner of the flow designer, there's a miniaturize view of the entire flow. Use this view to help you easily navigate the flow. The drag-to-move mini-map has visual highlights that you can use to quickly move to any point in the flow.
 

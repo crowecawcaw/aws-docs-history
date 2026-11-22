@@ -1,7 +1,6 @@
 
 
 # Configure voice and chat information extraction
-<a name="information-extraction-configure"></a>
 
 Configuring information extraction requires two steps:
 + **Create information extraction definitions** – Define what information to extract from contacts
@@ -110,3 +109,24 @@ If you want information extraction to occur on most contacts, set the condition 
    To insert extracted information, use the variable picker (or type `@`) and select from the available information names.
 
 1. Choose **Save**.
+
+## Configure email information extraction using a flow block
+<a name="information-extraction-configure-email-flow"></a>
+
+In addition to rules-based extraction for voice and chat, you can extract information from email contacts within a flow by using the [Information Extraction](information-extraction-block.md) block. Use this approach when you need the extraction result within the flow to make a routing decision.
+
+**To configure email extraction in a flow**
+
+1. Create an extraction definition, as described in [Step 1: Create information extraction definition](#information-extraction-step1).
+
+1. In the flow designer, add an **Information Extraction** block and set the action to **Invoke information extraction**.
+
+1. Select the extraction definition that you created.
+
+1. Add a **Wait** block with a 60-second timeout.
+
+1. Add a second **Information Extraction** block and set the action to **Load extraction result**.
+
+1. On the **Success** branch, use a **Set contact attributes** block or **Check contact attributes** block to read the extracted fields from `$.ExtractedInformation.ResultData`.
+
+For more information, see [Information Extraction](information-extraction-block.md) and [Configure voice and chat information extraction](information-extraction-configure.md).

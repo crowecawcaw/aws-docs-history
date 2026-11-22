@@ -1,7 +1,6 @@
 
 
 # Import and export flows between flow designers in Connect Customer
-<a name="contact-flow-import-export"></a>
 
 Use the procedures described in this topic to import/export a flows from the previous flow designer to the new one, from one instance to another, or from one Region to another as you expand your customer service organization.
 

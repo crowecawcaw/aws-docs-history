@@ -1,7 +1,6 @@
 
 
 # Set up machine learning for Identity Resolution in Connect Customer
-<a name="setup-machine-learning-matching"></a>
 
 
 

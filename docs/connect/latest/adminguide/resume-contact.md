@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Resume contact
-<a name="resume-contact"></a>
 
 This topic defines the flow block for resuming a task or email contact from a paused state.
 

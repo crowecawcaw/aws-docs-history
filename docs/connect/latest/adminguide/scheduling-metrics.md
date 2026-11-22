@@ -1,7 +1,6 @@
 
 
 # Schedule Adherence metrics in Connect Customer
-<a name="scheduling-metrics"></a>
 
 This section describes the metrics used when calculating Historical Schedule Adherence.
 

@@ -1,7 +1,6 @@
 
 
 # Set up integration for featured applications in Connect Customer
-<a name="integrate-customer-profiles-appflow"></a>
 
 These integrations use Connect Customer featured applications to provide periodic updates to Connect Customer Customer Profiles.
 
@@ -40,7 +39,7 @@ If you want to create your own IAM role, we recommend using the permissions show
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

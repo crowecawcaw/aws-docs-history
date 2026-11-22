@@ -1,7 +1,6 @@
 
 
 # Set up tasks in Connect Customer
-<a name="concepts-getting-started-tasks"></a>
 
 1. [Update your agent's routing profile](routing-profiles.md) so they can manage and create tasks.
 

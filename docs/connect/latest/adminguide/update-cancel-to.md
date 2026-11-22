@@ -1,7 +1,6 @@
 
 
 # Update or cancel a time off request in Connect Customer
-<a name="update-cancel-to"></a>
 
 A supervisor can cancel or edit a time off request by choosing the **Cancel Request** or **Edit Request** buttons at the bottom of the request drawer window. The following image shows the time off requests from Nikki Wolfe. 
 

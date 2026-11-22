@@ -1,7 +1,6 @@
 
 
 # Flow block in Connect Customer: Set working queue
-<a name="set-working-queue"></a>
 
 This topic defines the flow block for specifying the queue to transfer a contact when **Transfer to queue** is invoked.
 

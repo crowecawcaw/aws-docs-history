@@ -1,7 +1,6 @@
 
 
 # Save a layout
-<a name="saving-explorer-layout"></a>
 
 How to save and manage your Profile Explorer layout configurations.
 

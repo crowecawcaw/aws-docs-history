@@ -1,7 +1,6 @@
 
 
 # Create dynamic text strings in Play prompt blocks in Connect Customer
-<a name="create-dynamic-text-strings"></a>
 
 Use a [Play prompt](play.md) block to use an audio file to play as a greeting or message to callers. You can also use contact attributes to specify the greeting or message delivered to callers. To use the values of a contact attribute to personalize a message for a customer, include references to stored or external contact attributes in the text-to-speech message. 
 

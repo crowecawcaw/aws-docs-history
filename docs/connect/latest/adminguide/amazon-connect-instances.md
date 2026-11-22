@@ -1,7 +1,6 @@
 
 
 # Create a Connect Customer instance
-<a name="amazon-connect-instances"></a>
 
 The first step in setting up your Connect Customer contact center is to create a virtual contact center instance. Each instance contains all the resources and settings related to your contact center. 
 
@@ -111,7 +110,22 @@ For voice artifacts (analysis files and redacted audio), conversational analytic
 
 **By default, Connect Customer creates a Customer Profiles domain**, which stores profiles that combine customer contact history with customer information such as account number, address, billing address, and birth date. Data is encrypted using AWS Key Management Service. You can configure Customer Profiles to use your own customer managed key after your instance is set up. For more information, see [Create a KMS key to be used by Customer Profiles to encrypt data (required)](enable-customer-profiles.md#enable-customer-profiles-awsmanagedkey). 
 
-**Review and copy the location of the S3 bucket, flow logs, and whether you want to enable Customer Profiles.**
+**By default, Connect Customer enables Cases.** When **Enable Cases** is selected, Connect Customer creates a Cases domain named `amazon-connect-{{instance-alias}}` and associates it with your instance. You can change the domain name under **Customize data storage (advanced)**. To skip Cases, clear **Enable Cases**. You can enable Cases later from the instance's **Cases** page. For more information, see [Enable Cases using the Connect Customer console](enable-cases.md).
+
+**Enable Cases event streams** is selected by default when Cases is enabled. When it's selected, Connect Customer completes the following manual procedures for you:
++ **Enable case event streams.** Connect Customer turns on case event streams for the domain, so an event is published to the default Amazon EventBridge event bus in your account each time a case is created, updated, or deleted. Events include all current and future case fields and related item content. You can also set this up after instance creation by following the steps in [Enable Cases integrations](enable-cases.md#configure-cases-integrations).
++ **Send case updates to conversational analytics rules.** Connect Customer creates the `amazon-connect-cases` event integration and associates it with your instance, so you can create rules that run when a case is created or updated. For instructions on setting this up manually, see [Allow Connect Customer Cases to send updates to conversational analytics rules using the CLI](cases-rules-integration-onboarding.md).
++ **Send case data to Customer Profiles.** If Customer Profiles is also enabled, Connect Customer streams case events to a dedicated event bus and uses Amazon AppIntegrations to forward them to Customer Profiles, so cases appear on customer profiles. For instructions on setting this up manually, see [Set up integration for Connect Customer Cases using the CLI](set-up-integration-for-amazon-connect-cases.md). Connect Customer creates the same resources as that procedure:
+  + An event bus named `connect-cases-to-customer-profiles`.
+  + A rule named `connect-cases-to-customer-profiles-rule` on the default event bus that matches `CASE.CREATED`, `CASE.UPDATED`, and `CASE.DELETED` events from `aws.cases` and sends them to the dedicated event bus.
+  + An IAM role named `service-role/AmazonConnectCasesEventBridgeRole-{{region}}` that the rule uses to send events to the dedicated event bus.
+  + An event integration named `Connect-Cases-Event-Integration` on the dedicated event bus, registered with your Customer Profiles domain for the `Connect-case` object type.
+
+**Note**  
+The event bus, rule, IAM role, and event integrations are shared by all instances in the account and Region. If you already created them manually, or one of them already exists, Connect Customer reuses it as is and doesn't update or replace it. The IAM role can publish events only to the `connect-cases-to-customer-profiles` event bus in the same Region, and only EventBridge (`events.amazonaws.com`) can assume it.  
+To create these resources, the IAM principal that creates the instance needs additional permissions. For more information, see [Enable Cases when you create an instance](required-permissions-iam-cases.md#instance-creation-cases-iam). If a permission is missing, the instance is still created, and the console shows which step failed. You can finish setting up Cases from the instance's **Cases** page.
+
+**Review and copy the location of the S3 bucket, flow logs, and whether you want to enable Customer Profiles and Cases.**
 
 1. If desired, copy the location of the S3 bucket where your data encryption is stored, and the location of the flow logs in CloudWatch.
 
@@ -123,6 +137,8 @@ For voice artifacts (analysis files and redacted audio), conversational analytic
 **To create your instance**
 
 1. Review the configuration choices. Remember that you cannot change the identity management options after you create the instance.
+
+1. If you enabled Cases, review the **Cases** section. It lists the resources that Connect Customer creates or reuses: the Cases domain, the Cases event integration, and, if Customer Profiles is enabled, the dedicated event bus, forwarding rule, EventBridge delivery role, and Customer Profiles integration. After the instance is created, this section shows the ARNs of these resources, which you can copy.
 
 1. (Optional) To change any of the configuration options, choose **Edit**.
 

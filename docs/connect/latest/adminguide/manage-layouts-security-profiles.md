@@ -1,7 +1,6 @@
 
 
 # Security profiles needed to manage layouts
-<a name="manage-layouts-security-profiles"></a>
 
 Access to Manage layouts is controlled by the same Profile Explorer permissions described in [Enable Profile Explorer](enabling-profile-explorer.md). The following permissions determine what a user can do:
 + **Profile explorer - View**: Required to open Profile Explorer and view the currently active default layout.

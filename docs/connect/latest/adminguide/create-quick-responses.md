@@ -1,7 +1,6 @@
 
 
 # Create quick responses for use with chat and email contacts in Connect Customer
-<a name="create-quick-responses"></a>
 
 Quick responses provide contact center agents with pre-written responses in English that they can use during chat and email contacts. Quick responses are especially useful for answering common customer inquiries. They help improve agent productivity, reduce handle times, and improve customer satisfaction scores. Quick responses are available in English only.
 

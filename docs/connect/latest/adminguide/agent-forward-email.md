@@ -1,7 +1,6 @@
 
 
 # Forward email contacts to external email addresses
-<a name="agent-forward-email"></a>
 
 Agents can forward email contacts to external email addresses (for example, `firstname.lastname@anycompany.com`) or distribution lists (for example, `support-team-distro@anycompany.com`) when they need to involve other parties outside of Connect Customer. This feature allows agents to share customer emails with external teams, partners, or systems while maintaining the email thread within Connect Customer.
 

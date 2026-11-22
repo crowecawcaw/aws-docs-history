@@ -1,7 +1,6 @@
 
 
 # Create a Kinesis Integration with Connect Customer Customer Profiles
-<a name="customer-profiles-kinesis-integration"></a>
 
  The following steps outline the process of streaming objects from an Amazon Kinesis Data Stream into Connect Customer Customer Profiles. First complete the prerequisite, then complete the two integration steps: 
 
@@ -45,7 +44,7 @@ A DLQ is an Amazon SQS queue where Customer Profiles reports errors from streame
 
 1.  Set the target input transformer as follows: 
 
-```
+```json
 {
     "data": <$.data>
 }

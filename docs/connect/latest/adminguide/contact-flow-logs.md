@@ -1,7 +1,6 @@
 
 
 # Enable Connect Customer flow logs in an Amazon CloudWatch log group
-<a name="contact-flow-logs"></a>
 
 By default when you create a new Connect Customer instance, an Amazon CloudWatch log group is created automatically to store the logs for your instance.
 

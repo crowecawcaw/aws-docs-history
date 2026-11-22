@@ -1,7 +1,6 @@
 
 
 # Connect Customer Cases
-<a name="cases"></a>
 
 **Tip**  
 **New user?** Check out the [Connect Customer Cases Workshop](https://catalog.workshops.aws/amazon-connect-cases/en-US/1-introduction). This online course guides you through setting up and using Connect Customer Cases.

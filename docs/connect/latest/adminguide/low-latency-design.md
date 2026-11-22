@@ -1,7 +1,6 @@
 
 
 # Design your Connect Customer contact center for low latency to help ensure call quality
-<a name="low-latency-design"></a>
 
 **Note**  
 As of July 2023 we have simplified requirements to claim phone numbers that are located in countries outside of the AWS Region where your Connect Customer instance is located. The process has been simplified to remove the need for the opt-in approval. Instead we provide best practice design guidance. This makes it easier for you to use an Connect Customer instance that is created in the US-East Region, for example, and then request numbers in Japan. Or, if your instance is created in Asia Pacific (Singapore), you don't need to contact AWS Support to claim phone numbers based in Europe or US Regions.   

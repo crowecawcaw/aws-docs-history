@@ -1,7 +1,6 @@
 
 
 # View key highlights of customer conversations in Connect Customer
-<a name="key-highlights"></a>
 
 It can be time-consuming to review contact transcripts that are hundreds of lines long. To make this process faster and more efficient, conversational analytics automatically identifies and labels key parts of customer conversations, then displays highlights of the conversations. Managers can view those highlights on the **Contact details** page. Agents can view the highlights in the Contact Control Panel (CCP). 
 

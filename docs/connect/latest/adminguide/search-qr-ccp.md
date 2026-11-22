@@ -1,7 +1,6 @@
 
 
 # Search for quick responses to customers in the Contact Control Panel (CCP)
-<a name="search-qr-ccp"></a>
 
 Use any of the following methods to search for quick responses:
 + Use **/\#{search term}** to search for the quick response. For example, enter **/\#** in the box used to compose messages to bring up the quick response you want.

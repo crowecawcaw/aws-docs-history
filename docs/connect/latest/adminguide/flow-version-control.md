@@ -1,7 +1,6 @@
 
 
 # Flow version control: Roll back a flow
-<a name="flow-version-control"></a>
 
 ## View a previous version of a flow
 <a name="how-to-view-previous-flows"></a>

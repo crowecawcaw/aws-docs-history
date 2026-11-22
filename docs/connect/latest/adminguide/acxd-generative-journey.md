@@ -1,7 +1,6 @@
 
 
 # Using the Generative Journey agent node
-<a name="acxd-generative-journey"></a>
 
 Generative Journey is an agent node that uses a large language model to complete a task through natural conversation, data capture, and tool use.
 

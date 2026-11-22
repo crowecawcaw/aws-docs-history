@@ -1,7 +1,6 @@
 
 
 # Review recorded conversations between agents and customers using Connect Customer
-<a name="review-recorded-conversations"></a>
 
 Managers can review past conversations between agents and customers. To set this up, you need to [set up recording behavior](set-up-recordings.md), assign managers the appropriate permissions, and then show them how to access the recorded conversations. 
 

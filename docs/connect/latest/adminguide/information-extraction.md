@@ -1,7 +1,6 @@
 
 
 # Information extraction
-<a name="information-extraction"></a>
 
 Information extraction uses generative AI to extract information from conversations. That information could be verbatim — such as preferred name, invoice number, or reservation ID. Alternatively, it could be derived – such as reason for contact, resolution provided, or next steps promised. Information can be extracted from chat contacts or voice contacts with human agents. The extracted information is associated with the contact as structured data.
 
@@ -55,3 +54,8 @@ Information extraction operates on the raw contact content, before redaction is 
 <a name="information-extraction-pricing"></a>
 
 Information extraction is available in Amazon Connect Customer at no additional cost for voice and chat contacts.
+
+## Email extraction using a flow block
+<a name="information-extraction-email-block"></a>
+
+For email contacts, you can also extract information within a flow by using the [Information Extraction](information-extraction-block.md) block. With this block, you can extract structured data from the email body and supported attachments (PDF, JPEG, PNG, and TXT) using generative AI. Use this block when you need the result within the flow to make a routing decision.

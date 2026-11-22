@@ -1,7 +1,6 @@
 
 
 # Access agent assist in the agent workspace
-<a name="access-connect-assistant-in-workspace"></a>
 
 To give agents access to agent assist, assign the following **Workspace Applications** permission to their security profile:
 + **Connect assistant - View**

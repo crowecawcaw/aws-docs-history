@@ -1,7 +1,6 @@
 
 
 # Send instruction actions
-<a name="testing-simulation-action-send-instruction"></a>
 
 Send Instruction actions to simulate customer inputs during your test, allowing you to mimic how a real customer would interact with your contact center experience.
 

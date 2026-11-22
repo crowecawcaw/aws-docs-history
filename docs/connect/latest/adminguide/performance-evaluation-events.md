@@ -1,7 +1,6 @@
 
 
 # Monitor performance evaluation failure events
-<a name="performance-evaluation-events"></a>
 
 You can monitor failures of automated evaluations as well as S3 exports of contact evaluations using EventBridge and CloudWatch. You can use these events to investigate and fix failures. The following guide is a walk through of the process of creating custom EventBridge rules to monitor performance evaluation failure events.
 
@@ -43,7 +42,7 @@ This is a guide on how to create an EventBridge rule to log Connect Customer fai
 
 The following is an example EventBridge payload when the rule is matched:
 
-```
+```json
 {  
   "version": "0",  
   "id": "00005435-d12d-c93b-d9d2-b64cba85fbb6",

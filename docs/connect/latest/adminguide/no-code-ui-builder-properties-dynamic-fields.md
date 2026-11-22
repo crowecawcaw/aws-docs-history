@@ -1,7 +1,6 @@
 
 
 # Configure dynamic fields in a view
-<a name="no-code-ui-builder-properties-dynamic-fields"></a>
 
 Some data changes from contact to contact, so you can't hardcode it. For example, a screen pop might show the customer's name and profile ID.
 

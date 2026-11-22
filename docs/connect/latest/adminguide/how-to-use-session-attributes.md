@@ -1,7 +1,6 @@
 
 
 # How flow blocks use Amazon Lex session attributes
-<a name="how-to-use-session-attributes"></a>
 
 When a customer starts a conversation with your bot, Amazon Lex creates a *session*. With *session attributes*, also known as *Lex attributes*, you can pass information between the bot and Connect Customer during the session. For a list of Amazon Lex attributes that you can use, see [Amazon Lex contact attributes](connect-attrib-list.md#attribs-lex-table).
 

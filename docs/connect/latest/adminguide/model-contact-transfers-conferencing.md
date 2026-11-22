@@ -1,7 +1,6 @@
 
 
 # Model contact transfers and conferencing in Connect Customer
-<a name="model-contact-transfers-conferencing"></a>
 
 This topic is for developers who have integrated their external voice system with Connect Customer conversational analytics. 
 

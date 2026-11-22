@@ -1,7 +1,6 @@
 
 
 # Troubleshoot contact flows that don't behave as expected in Connect Customer
-<a name="troubleshoot-contact-flow-behavior"></a>
 
 A contact flow can look correct in the visual editor and still behave unexpectedly: it takes an unexpected branch, contact attributes don't take effect or aren't passed, a contact disconnects when you didn't intend it to, the contact enters the wrong queue, or an announcement plays to only one party. The cause is usually a block's behavior, prerequisites, published state, channel compatibility, an edit made outside the UI (through the API or an import), or a dependency such as a Lambda function. Some symptoms come from a block's design constraints, a known issue, or a service-side regression. This page covers the resolution steps by block and dependency. To first isolate *where* the problem occurs, start from the hub.
 

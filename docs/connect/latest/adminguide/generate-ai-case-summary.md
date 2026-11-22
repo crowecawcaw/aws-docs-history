@@ -1,7 +1,6 @@
 
 
 # Generate AI-powered Case summary
-<a name="generate-ai-case-summary"></a>
 
 Agents have the ability to generate an AI-powered Case summary by choosing Generate.
 

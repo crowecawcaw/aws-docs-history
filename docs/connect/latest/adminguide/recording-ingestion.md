@@ -1,7 +1,6 @@
 
 
 # Recording ingestion and conversational analytics
-<a name="recording-ingestion"></a>
 
 This guide provides instructions for importing voice recordings from third-party voice systems into Connect Customer and generating conversational analytics.
 
@@ -75,7 +74,7 @@ To retrieve details about the contact—such as its channel, initiation method, 
 
 In the following AWS CLI command, replace `{{instance-id}}`, `{{contact-id}}`, and `{{region}}` with your own values.
 
-```
+```bash
 aws connect describe-contact \
   --instance-id "{{instance-id}}" \
   --contact-id "{{contact-id}}" \

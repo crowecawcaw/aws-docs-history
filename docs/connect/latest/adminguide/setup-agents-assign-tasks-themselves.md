@@ -1,7 +1,6 @@
 
 
 # Set up agents in Connect Customer to assign tasks to themselves
-<a name="setup-agents-assign-tasks-themselves"></a>
 
 For an agent to be able receive a task, they need a quick connect created for them. With this quick connect, agents will be able to assign tasks to themselves, and other agents will be able to assign tasks to them. 
 

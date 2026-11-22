@@ -1,7 +1,6 @@
 
 
 # Connect Customer bot metrics and analytics
-<a name="bot-metrics"></a>
 
 The following flow driven metrics are available on the [Flows and conversational bot performance dashboard](flows-performance-dashboard.md) and the [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html).
 

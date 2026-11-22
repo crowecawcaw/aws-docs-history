@@ -1,7 +1,6 @@
 
 
 # Mapping Salesforce objects to the standard profile in Connect Customer Customer Profiles
-<a name="mapping-salesforce-objects"></a>
 
 This topic lists which fields in Salesforce objects map to fields in the standard profile object in Customer Profiles.
 

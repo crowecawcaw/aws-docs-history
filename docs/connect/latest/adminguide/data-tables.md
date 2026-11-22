@@ -1,7 +1,6 @@
 
 
 # Create and configure data tables
-<a name="data-tables"></a>
 
 ## What are data tables?
 <a name="understanding-data-tables"></a>

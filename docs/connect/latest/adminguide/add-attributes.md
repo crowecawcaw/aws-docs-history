@@ -1,7 +1,6 @@
 
 
 # Add attributes for personalizing quick responses in Connect Customer
-<a name="add-attributes"></a>
 
 You can personalize quick responses by adding user-defined attributes. To do so, you use the Connect Customer admin website to create responses that include [Connect Customer contact attributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-contact-attributes.html). You can also use the [Set contact attributes](set-contact-attributes.md) block to create user-defined attributes in flows.
 

@@ -1,7 +1,6 @@
 
 
 # Metric definitions in Connect Customer
-<a name="metrics-definitions"></a>
 
 This topic lists all metrics in alphabetical order. For lists of metrics that apply only to a specific feature area, see these topics: 
 + [Custom metric primitives](metric-primitive-definitions.md)
@@ -293,6 +292,29 @@ This metric measures the average time (in seconds) elapsed from the chat session
   + If `QueueInfo.EnqueueTimestamp` and `ChatMetrics.ContactMetrics.AgentFirstResponseTimestamp` attributes are not present, skip the contact record
   + If present, set result = difference between `QueueInfo.EnqueueTimestamp` and `ChatMetrics.ContactMetrics.AgentFirstResponseTimestamp` (in milliseconds)
 + For the final result, average of the result values across all contact records not skipped.
+
+## Agent status time
+<a name="agent-status-time"></a>
+
+This metric measures the total time that agents spent in a specific agent status.
+
+**Metric type**: String (*hh:mm:ss*)
+
+**Metric category**: Agent activity-driven metric
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `SUM_STATUS_TIME_AGENT`
+
+  This metric can be retrieved by using a [MetricFilters](https://docs.aws.amazon.com/connect/latest/APIReference/API_MetricV2.html) parameter set as follows:
+  + `MetricFilterKey = AGENT_STATUS`
+  + `MetricFilterValues = ` `agent-status-ARN`
+
+To get the ARN of an agent status, use one of the following API operations:
++ [ListAgentStatuses](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAgentStatuses.html), to list the agent statuses in your instance
++ [DescribeAgentStatus](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeAgentStatus.html), to describe a specific agent status
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: Agent status time (on trailing widgets). When you add this metric, you select an agent status from your instance's configured statuses, and the widget shows the corresponding total time that agents spent in that status.
 
 ## Agent callback connecting time
 <a name="agent-callback-connecting-time"></a>
@@ -3202,6 +3224,8 @@ This metric counts the outbound campaign calls that were connected to a live cus
 
 **How to access using the Connect Customer admin website**: 
 + Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md), Campaign contacts abandoned after x from greeting end seconds rate
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3227,6 +3251,8 @@ This metric measures the percentage of outbound campaign calls that were connect
 
 **Calculation logic**:
 + (Campaign contacts abandoned after X from greeting end / Campaign contacts connected) \* 100.0
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3247,6 +3273,8 @@ This metric counts the outbound campaign calls that were connected to a live cus
 
 **How to access using the Connect Customer admin website**: 
 + Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md), Campaign contacts abandoned after x from greeting start seconds rate
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3272,6 +3300,8 @@ This metric measures the percentage of outbound campaign calls that were connect
 
 **Calculation logic**:
 + (Campaign contacts abandoned after X from greeting start / Campaign contacts connected) \* 100.0
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3292,6 +3322,8 @@ This metric counts the outbound campaign calls that were connected to a live cus
 
 **How to access using the Connect Customer admin website**: 
 + Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md), Campaign contacts abandoned after x from system connection seconds rate
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3317,6 +3349,8 @@ This metric measures the percentage of outbound campaign calls that were connect
 
 **Calculation logic**:
 + (Campaign contacts abandoned after X from system connection / Campaign contacts connected) \* 100.0
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted in both the numerator and denominator. For AMD-disabled campaigns, all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.
@@ -3337,6 +3371,8 @@ This metric counts the outbound campaign contacts that were connected to the Con
 
 **How to access using the Connect Customer admin website**: 
 + Dashboard: [Outbound campaigns performance dashboard](outbound-campaigns-performance-dashboard.md), Campaign contacts connected
+
+**Notes**
 + For AMD-enabled campaigns, only contacts with an answering machine detection status of `HUMAN_ANSWERED` are counted. For AMD-disabled campaigns (where the answering machine detection status field is absent), all connected contacts are counted.
 + This metric is available only for outbound campaigns using the agent assisted voice delivery mode.
 + Data for this metric is available starting from June 29, 2026, 04:43:45 UTC.

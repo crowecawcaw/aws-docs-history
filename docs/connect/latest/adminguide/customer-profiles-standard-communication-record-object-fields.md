@@ -1,7 +1,6 @@
 
 
 # Customer Profiles standard communication record object fields
-<a name="customer-profiles-standard-communication-record-object-fields"></a>
 
  The following table lists all the fields in the Customer Profiles standard communication record object. 
 

@@ -1,7 +1,6 @@
 
 
 # Dependent field options
-<a name="case-field-dependent"></a>
 
 You can create cascading dropdown fields where the options in a single-select field (target) depend on the selection made in another field (source), providing a more intuitive and organized experience for agents.
 

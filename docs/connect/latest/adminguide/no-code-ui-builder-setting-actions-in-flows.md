@@ -1,7 +1,6 @@
 
 
 # Set actions that appear as flow branches in the Show view block
-<a name="no-code-ui-builder-setting-actions-in-flows"></a>
 
 In step-by-step guides, users choose a button to move to the next page. You configure these buttons in the UI builder by setting an **Action** for each button. For example, you can configure a button to submit a form.
 

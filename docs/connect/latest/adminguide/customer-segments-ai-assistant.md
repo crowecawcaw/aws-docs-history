@@ -1,7 +1,6 @@
 
 
 # Use the segment AI assistant in Connect Customer
-<a name="customer-segments-ai-assistant"></a>
 
  Connect Customer Customer Profiles supports generative AI-powered segmentation, enabling non-technical business users to build audiences using natural language queries ([segment AI assistant](#generating-a-segment-by-prompt)), and to receive recommendations based on trends in the customer data ([inspiration cards for segment creation](#inspiration-cards-for-segment-creation)). These capabilities use advanced AI algorithms from [Amazon Bedrock](https://aws.amazon.com/bedrock/) that help you improve customer satisfaction and drive revenue through proactive and personalized outreach. For example, you can create a segment of customers who reached out to customer support frequently last week with personalized service offers. You can also identify customers whose total spending increased and offer personalized discounts, fostering loyalty and also driving growth. 
 

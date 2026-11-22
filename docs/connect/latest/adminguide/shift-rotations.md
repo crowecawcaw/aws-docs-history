@@ -1,7 +1,6 @@
 
 
 # Set up shift rotation patterns in Connect Customer
-<a name="shift-rotations"></a>
 
 Use shift rotation patterns to create a set of shift profiles that are rotated based on sequential order and a defined set of weeks. The shift rotation pattern includes the rotation step, shift profile, the time zone assigned to the shift profile, and a duration defined in weeks. 
 

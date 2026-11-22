@@ -1,7 +1,6 @@
 
 
 # Set up queued callback by creating flows, queues, and routing profiles in Connect Customer
-<a name="setup-queued-cb"></a>
 
 You can allow your customers to maintain their position in queue without requiring them to stay on the call during high wait times, and get a callback from an available agent when it's their turn.
 
@@ -164,7 +163,7 @@ You can also configure the **Transfer to Callback** option in the [Transfer to q
 
 The following video shows how to use conversational analytics to allow customers who contact you through Connect Customer chat to request a callback. This creates a more personalized customer experience. It shows how to configure this capability that allows customers to request callbacks from any channel, not just voice calls.
 
-
+[![AWS Videos](https://img.youtube.com/vi/XihssR_rU3s/0.jpg)](https://www.youtube.com/watch?v=XihssR_rU3s)
 
 
 ## Learn more about queued callbacks

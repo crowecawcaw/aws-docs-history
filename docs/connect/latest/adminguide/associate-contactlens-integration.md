@@ -1,7 +1,6 @@
 
 
 # Associate a conversational analytics connector with a flow
-<a name="associate-contactlens-integration"></a>
 
 After you have [configured](configure-external-voice-system.md) your external SBC to point to the conversational analytics integration connector host, you need to configure how the audio will be processed when it reaches Connect Customer conversational analytics. To do this, you define the audio processing steps in an Connect Customer flow. It specifies what steps the call audio will go through, including invoking conversational analytics.
 

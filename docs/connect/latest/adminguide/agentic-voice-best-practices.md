@@ -1,7 +1,6 @@
 
 
 # Agentic voice best practices
-<a name="agentic-voice-best-practices"></a>
 
 Amazon Connect agentic voice combines advanced speech recognition (ASR) with expressive, natural-sounding voices to deliver a complete voice AI experience. Advanced ASR provides natural, low-latency turn taking in real-time conversations, while the voice engine delivers lifelike speech across 50\+ locales. Together, these components power seamless, human-like interactions between callers and Amazon Connect AI agents. This guide covers configuration and best practices for both components, so you can get the most out of the full agentic voice experience.
 
@@ -63,6 +62,8 @@ Default: `true`
 
 **Keep barge-in enabled when:**
 + The caller might want to correct or short-cut the bot mid-prompt — the normal conversational case.
+
+**Example**
 
 For a self-service AI agent, leave barge-in on everywhere by default. Disable it only where a prompt must be heard in full — for example, a legal or compliance disclaimer. Set the attributes when you start the conversation. Keep the default on with a `*:*` entry, and turn barge-in off only for the intent that plays the disclaimer:
 
@@ -158,6 +159,8 @@ Default: not set — Advanced ASR biases recognition toward the language of the 
 **Important**  
 Unlike the other controls in this section, this attribute is not scoped to an intent and slot. Use the attribute name exactly as shown, with no `:<intentName>:<slotToElicit>` suffix. Adding a suffix such as `:*:*` prevents Advanced ASR from applying the hints, and the conversation proceeds with the default bias toward the bot locale instead. Hints apply to every turn in the conversation.
 
+**Value format**
+
 Set the value to the language codes you want to bias toward, most likely first. Use a comma-separated list, optionally wrapped in brackets and quotes if that is easier to produce from your flow or Lambda function. Advanced ASR ignores surrounding whitespace and treats underscores as hyphens, so `pt_BR` and `pt-BR` are equivalent.
 
 The hints you set replace the default bias toward the bot locale rather than adding to it. If callers might also speak the bot locale's language, include that language in your list.
@@ -174,10 +177,14 @@ The following table shows example attribute values and the languages each one bi
 | ["ja"] | Japanese | 
 | [ "es" , "en" ] | Spanish, then English | 
 | fr, de , it | French, then German, then Italian | 
+
+**Validation**
 + Each entry must be a valid language code. Use a two- or three-letter base code, optionally followed by a hyphen and a region subtag — for example `es`, `en-US`, or `pt-BR`.
 + Entries that do not match that form are dropped, and the remaining valid entries are still applied. If no valid entry remains, the conversation falls back to the default bias toward the bot locale instead of failing.
 + Advanced ASR passes through and ignores a well-formed code that it does not recognize. The code does not produce an error, but it does not bias recognition either, so verify the codes you send.
 + Advanced ASR removes duplicates. It applies at most 10 hints and ignores any beyond the tenth.
+
+**Example**
 
 The following example biases recognition for a line whose callers speak Spanish or English, with Spanish the more common language:
 
@@ -190,9 +197,13 @@ The following example biases recognition for a line whose callers speak Spanish 
   }
 }
 ```
+
+**Do**
 + Leave the attribute unset when your callers speak the language of the bot locale. The default bias already matches them.
 + Set hints when a line is genuinely multilingual, or when callers speak a language other than the bot locale.
 + List only the languages your callers actually speak, most likely first. If callers might also speak the bot locale's language, include it in the list.
+
+**Don't**
 + List languages beyond those your callers actually speak. A long list dilutes the bias and removes the benefit of setting hints at all.
 + Send a single hint to lock the conversation to one language. A hint biases recognition; it does not restrict it. To restrict the languages the AI agent responds in, see [Restricting to specific languages](#agentic-voice-multilingual-restricting).
 

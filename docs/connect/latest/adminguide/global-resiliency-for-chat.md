@@ -1,7 +1,6 @@
 
 
 # Global Resiliency for chat
-<a name="global-resiliency-for-chat"></a>
 
 By adopting Connect Customer Global Resiliency for the chat channel, you can provide customers and agents a consistent chat experience across your linked AWS Regions.
 

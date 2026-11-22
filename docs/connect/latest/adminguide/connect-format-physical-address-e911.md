@@ -1,7 +1,6 @@
 
 
 # Format a physical address for E911 to pass to Connect Customer
-<a name="connect-format-physical-address-e911"></a>
 
 This topic explains how to format a physical address so it can be passed to Connect Customer.
 

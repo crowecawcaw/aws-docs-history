@@ -1,7 +1,6 @@
 
 
 # Configure third-party text-to-speech (TTS) providers
-<a name="configure-third-party-tts"></a>
 
 Use the following instructions to configure a third-party text-to-speech (TTS) provider.
 

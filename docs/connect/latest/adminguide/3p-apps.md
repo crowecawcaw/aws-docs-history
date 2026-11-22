@@ -1,7 +1,6 @@
 
 
 # Integrate third-party applications in the agent workspace
-<a name="3p-apps"></a>
 
 The Connect Customer agent workspace gives your agents the tools and step-by-step guidance to resolve issues quickly and provide better customer experiences with less training required. The agent workspace includes native, first-party applications, such as Customer Profiles, Cases, and agent assist. You can also integrate third-party applications.
 
@@ -45,7 +44,7 @@ If you use custom IAM policies to manage access to third-party applications, you
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -172,7 +171,7 @@ Update your IAM policy to include the following permissions:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

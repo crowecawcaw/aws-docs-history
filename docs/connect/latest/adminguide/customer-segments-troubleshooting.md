@@ -1,7 +1,6 @@
 
 
 # Troubleshooting customer segments in Connect Customer
-<a name="customer-segments-troubleshooting"></a>
 
 ## The Customer segments option doesn't appear in the left navigation panel
 <a name="customer-segments-does-not-exist-in-the-left-navigation-panel"></a>

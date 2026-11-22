@@ -1,7 +1,6 @@
 
 
 # Set up a flow in Connect Customer to resume a call with a customer after a transfer
-<a name="contact-flow-resume"></a>
 
 Let's say you need to transfer a contact to an external department that's not using Connect Customer. For example, maybe you need to transfer the caller to a shipping provider to check the status of their delivery. After the contact is disconnected from the phone number, you want them to be returned to your agent, for example, when the delivery company couldn't resolve their issue. 
 + For advanced creation, send tracking information as DTMF digits when the call is transferred, so that the shipment information is retrieved with the transferred call before the customer is connected.

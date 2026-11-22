@@ -1,7 +1,6 @@
 
 
 # Use predefined attributes in dashboards
-<a name="use-predefined-attributes-dashboards"></a>
 
 Predefined attributes are available to use on dashboards for grouping and filtering different real-time and historical contact-related metrics. Some system defined attributes have been enabled by default for grouping and filtering. Filtering by user defined attributes is only available for historical contact metrics in instances that are enabled for Amazon Connect with unlimited AI capabilities. To set up analytics for filtering with user defined predefined attributes, see [Use contact segment attributes](use-contact-segment-attributes.md).
 

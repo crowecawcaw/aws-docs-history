@@ -1,7 +1,6 @@
 
 
 # Enable persistent connection for Connect Customer agents
-<a name="enable-persistent-connection"></a>
 
 When you select **Enable persistent connection** for an agent, the agent's softphone maintains its media connection to Connect Customer for a few minutes after login and after each call ends. This enables subsequent calls to connect faster. If the agent remains idle for an extended period of time, the softphone drops the media connection to reduce agent workstation and network resource consumption. This does not impact the agent's ability to receive calls. The media connection is re-established when the agent receives the next call.
 

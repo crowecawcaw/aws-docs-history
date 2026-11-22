@@ -1,7 +1,6 @@
 
 
 # Object type mapping for Item Catalog
-<a name="standard-loyalty-promotion-object-mapping-item-catalog"></a>
 
 
 | Field | Type | Description | 

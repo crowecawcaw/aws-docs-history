@@ -1,7 +1,6 @@
 
 
 # Integrate external applications with Connect Customer Customer Profiles
-<a name="integrate-external-apps-customer-profiles"></a>
 
 Connect Customer provides a set of pre-built integrations powered by Amazon AppFlow and Amazon EventBridge. After you enable Connect Customer Customer Profiles, you can use these integrations to combine information from external applications such as Salesforce or Zendesk, with contact history from Connect Customer. This creates a customer profile that has all the information agents need during customer interactions in a single place.
 

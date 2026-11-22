@@ -1,7 +1,6 @@
 
 
 # Optimize Connect Customer audio for Omnissa cloud desktops
-<a name="using-ccp-vdi-omnissa-step-by-step"></a>
 
 Connect Customer makes it easier to deliver high-quality voice experiences when your agents are using Omnissa Virtual Desktop Infrastructure (VDI) environments. Your agents can use their Omnissa remote desktop applications, such as Omnissa Horizon Client, to offload audio processing to the agent's local device and to automatically redirect audio to Connect Customer, resulting in improved audio quality over challenging networks. 
 
@@ -199,7 +198,7 @@ The following image shows IP ranges for .
 
       Following is an example of what the confirmation message looks like. 
 
-      ```
+      ```json
       {
               "component": "softphone",
               "level": "LOG",

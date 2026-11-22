@@ -1,7 +1,6 @@
 
 
 # Set up customer authentication in Connect Customer for chat contacts
-<a name="customer-auth"></a>
 
 You can prompt your customers to sign in and authenticate during a chat. For example, unauthenticated customers engaged with a chat bot can be prompted to sign in before to being routed to an agent. 
 
