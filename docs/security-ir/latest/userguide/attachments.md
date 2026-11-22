@@ -1,7 +1,6 @@
 
 
 # Attachments
-<a name="attachments"></a>
 
  Your incident responders can add attachments to a case that help other incident responders with their investigation for self-managed cases. 
 

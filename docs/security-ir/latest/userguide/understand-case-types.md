@@ -1,7 +1,6 @@
 
 
 # Step 3: Understand case types and management
-<a name="understand-case-types"></a>
 
  AWS Security Incident Response provides two types of cases to manage security events: proactive cases that are automatically created when threats are detected, and reactive cases that you create when you need assistance from Security Incident Response Engineering. You can also grant case visibility to external parties such as partners, legal teams, or subject matter experts. 
 

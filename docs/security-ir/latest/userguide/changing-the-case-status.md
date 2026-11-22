@@ -1,7 +1,6 @@
 
 
 # Changing the case status
-<a name="changing-the-case-status"></a>
 
  A case is in one of the following states: 
 +  Submitted: This is the initial status of a case. Cases in this status have been submitted by a requested, but are not yet being worked on. 

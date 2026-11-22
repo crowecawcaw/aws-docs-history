@@ -1,7 +1,6 @@
 
 
 # Containment only
-<a name="containment-only-template"></a>
 
 Use this template if you want the service to isolate compromised resources during an incident but don't need forensic data collection from running instances.
 
@@ -11,7 +10,7 @@ This template creates two IAM roles:
 
 These roles enable three containment actions: isolating Amazon EC2 instances from network traffic, revoking IAM principal access, and restricting Amazon S3 bucket access.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Template for production SIR containment roles'
 

@@ -1,7 +1,6 @@
 
 
 # Your role during the investigation
-<a name="your-role-during-investigation"></a>
 
  While AWS Security Incident Response engineers lead the investigation, your participation is essential. You're responsible for the following actions: 
 + Providing timely responses to information requests

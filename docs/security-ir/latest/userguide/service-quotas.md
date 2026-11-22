@@ -1,7 +1,6 @@
 
 
 # Service Quotas
-<a name="service-quotas"></a>
 
 ## AWS Security Incident Response
 <a name="aws-security-incident-response-service"></a>

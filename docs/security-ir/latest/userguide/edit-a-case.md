@@ -1,7 +1,6 @@
 
 
 # Edit a case
-<a name="edit-a-case"></a>
 
  Choose **Edit** to change the details of a case. 
 

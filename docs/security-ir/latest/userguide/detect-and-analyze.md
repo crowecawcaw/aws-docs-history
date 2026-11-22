@@ -1,7 +1,6 @@
 
 
 # Detect and Analyze
-<a name="detect-and-analyze"></a>
 
 
 

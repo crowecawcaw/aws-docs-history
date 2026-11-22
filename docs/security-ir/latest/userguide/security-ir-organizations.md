@@ -1,7 +1,6 @@
 
 
 # Managing AWS Security Incident Response accounts with AWS Organizations
-<a name="security-ir-organizations"></a>
 
 AWS Security Incident Response is integrated with AWS Organizations. The AWS Organizations management account for the organization can designate an account as the delegated administrator for AWS Security Incident Response. This action enables AWS Security Incident Response as a trusted service in AWS Organizations. For information about how these permissions are granted, see [ Using AWS Organizations with other AWS services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
 

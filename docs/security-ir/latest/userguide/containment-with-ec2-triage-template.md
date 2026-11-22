@@ -1,7 +1,6 @@
 
 
 # Containment with EC2 Triage
-<a name="containment-with-ec2-triage-template"></a>
 
 Use this template if you want both containment capabilities and the ability for AWS Security Incident Response engineers to investigate running instances during an incident.
 
@@ -13,7 +12,7 @@ This template creates everything included in the containment-only template and a
 
 EC2 Triage allows AWS Security Incident Response engineers to collect volatile forensic data from running Amazon EC2 instances during an active security incident. This data can include running processes, network connections, logged-in users, and other operating system artifacts that would be lost if the instance were terminated or stopped.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Template for AWS Security Incident Response containment roles'
 

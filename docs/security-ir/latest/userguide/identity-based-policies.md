@@ -1,7 +1,6 @@
 
 
 # Identity-based policies for AWS Security Incident Response
-<a name="identity-based-policies"></a>
 
  Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*. 
 

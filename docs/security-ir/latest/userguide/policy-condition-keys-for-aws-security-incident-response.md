@@ -1,7 +1,6 @@
 
 
 # Policy condition keys for AWS Security Incident Response
-<a name="policy-condition-keys-for-aws-security-incident-response"></a>
 
  **Supports service-specific policy condition keys:** No 
 

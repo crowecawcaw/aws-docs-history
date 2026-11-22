@@ -1,7 +1,6 @@
 
 
 # Issues
-<a name="issues"></a>
 
  **Not sending requests from the correct context.** 
 

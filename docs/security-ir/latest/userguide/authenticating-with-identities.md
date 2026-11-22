@@ -1,7 +1,6 @@
 
 
 # Authenticating with identities
-<a name="authenticating-with-identities"></a>
 
  Authentication is how you sign in to AWS using your identity credentials. You must be *authenticated* (signed in to AWS) as the AWS account root user, as an IAM user, or by assuming an IAM role. 
 

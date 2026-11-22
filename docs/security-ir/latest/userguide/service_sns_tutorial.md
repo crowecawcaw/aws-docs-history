@@ -1,7 +1,6 @@
 
 
 # Tutorial: Sending Amazon Simple Notification Service alerts for `Membership Updated` events
-<a name="service_sns_tutorial"></a>
 
 In this tutorial, you configure an Amazon EventBridge event rule that only captures events where the your subscription enters a `Membership Updated` status.
 

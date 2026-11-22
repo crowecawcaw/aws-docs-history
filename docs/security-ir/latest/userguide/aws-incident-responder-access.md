@@ -1,7 +1,6 @@
 
 
 # AWS incident responder access
-<a name="aws-incident-responder-access"></a>
 
  AWS operates Security Incident Response as a "follow the sun" service, providing 24/7 coverage through incident responders located in the Americas, Europe, and Asia-Pacific. When you open a security incident case, the responder assigned to your case may be located in any of these regions. All AWS incident responders undergo background checks and complete security training before gaining access to customer data. 
 

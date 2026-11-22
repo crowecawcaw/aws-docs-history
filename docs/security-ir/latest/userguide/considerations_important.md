@@ -1,7 +1,6 @@
 
 
 # Considerations and recommendations for using AWS Security Incident Response with AWS Organizations
-<a name="considerations_important"></a>
 
 The following considerations and recommendations can help you understand how a delegated Security Incident Response administrator account operates in AWS Security Incident Response:
 

@@ -1,7 +1,6 @@
 
 
 # Deploy the IAM roles with a StackSet
-<a name="deploy-iam-roles-stackset"></a>
 
 ## Prerequisites for deploying IAM roles with a StackSet
 <a name="stackset-prerequisites"></a>

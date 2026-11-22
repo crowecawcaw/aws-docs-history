@@ -1,7 +1,6 @@
 
 
 # Membership Events
-<a name="case-membership-events"></a>
 
 Membership Created
 

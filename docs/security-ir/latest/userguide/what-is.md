@@ -1,7 +1,6 @@
 
 
 # What is AWS Security Incident Response?
-<a name="what-is"></a>
 
  AWS Security Incident Response is a managed security service that monitors your AWS environment for threats, triages security findings on your behalf, and engages you only when action is required. When a genuine security incident occurs, the Security Incident Response Engineering team investigates, helps contain the threat, and provides guidance toward recovery. 
 

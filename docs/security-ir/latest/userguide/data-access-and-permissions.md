@@ -1,7 +1,6 @@
 
 
 # Data access and permissions
-<a name="data-access-and-permissions"></a>
 
  Two groups can access your AWS Security Incident Response data: 
 +  **Your authorized users** — IAM users and roles that you grant Security Incident Response permissions. 

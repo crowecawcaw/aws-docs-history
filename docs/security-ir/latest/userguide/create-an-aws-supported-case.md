@@ -1,7 +1,6 @@
 
 
 # Create an AWS supported case
-<a name="create-an-aws-supported-case"></a>
 
  You can create an AWS supported case for AWS Security Incident Response through the Console, the API, or the AWS Command Line Interface. AWS supported cases allow you to receive support from Security Incident Response engineers. 
 

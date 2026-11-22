@@ -1,7 +1,6 @@
 
 
 # Investigative agent processing
-<a name="investigative-agent-processing"></a>
 
  The AWS Security Incident Response investigative agent uses Amazon Bedrock to analyze the metadata from your cases and findings. The agent helps you: 
 + Identify patterns

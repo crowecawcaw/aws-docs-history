@@ -1,7 +1,6 @@
 
 
 # Security findings data storage and movement
-<a name="findings-data-storage-and-movement"></a>
 
  Security findings metadata traverses Regions regardless of where the findings originate. Security Incident Response ingests findings from Amazon GuardDuty andAWS Security Hub CSPM across all Regions where you have enabled these services and correlates this metadata across Regions to identify distributed threats and attack patterns. 
 

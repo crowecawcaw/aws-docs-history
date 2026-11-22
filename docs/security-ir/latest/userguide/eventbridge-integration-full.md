@@ -1,7 +1,6 @@
 
 
 # Managing Security Incident Response events using Amazon EventBridge
-<a name="eventbridge-integration-full"></a>
 
 Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. Event-driven architecture is a style of building loosely-coupled software systems that work together by emitting and responding to events. Events represent a change in a resource or environment. 
 

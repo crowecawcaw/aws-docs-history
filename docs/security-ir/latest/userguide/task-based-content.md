@@ -1,7 +1,6 @@
 
 
 # User tasks
-<a name="task-based-content"></a>
 
 **Topics**
 + [Security Incident Response dashboard](dashboard.md)

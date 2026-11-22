@@ -1,7 +1,6 @@
 
 
 # Triaging metrics
-<a name="triaging-metrics"></a>
 +  Findings received 
   +  Unit: Count 
   +  Description: The number of findings sent to triaging. 

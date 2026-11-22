@@ -1,7 +1,6 @@
 
 
 # Step 1: Enable and configure AWS Security Incident Response
-<a name="deploy-configure"></a>
 
  The onboarding process takes approximately 10 to 15 minutes per AWS organization. For a walkthrough, see the [Getting Started video](https://docs.aws.amazon.com/security-ir/latest/userguide/getting-started.html). 
 

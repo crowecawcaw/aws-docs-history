@@ -1,7 +1,6 @@
 
 
 # Onboarding prerequisites
-<a name="onboarding-prerequisites"></a>
 
  The only required prerequisite is enabling [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) with **All Features** enabled. Consolidated billing alone is not sufficient. 
 

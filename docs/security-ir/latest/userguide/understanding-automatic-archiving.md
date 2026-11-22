@@ -1,7 +1,6 @@
 
 
 # Understanding Automatic Archiving with Proactive Response
-<a name="understanding-automatic-archiving"></a>
 
 When you enable proactive response and alert triaging, AWS Security Incident Response automatically monitors and triages security findings from Amazon GuardDuty and Security Hub CSPM. As part of this auto-triage workflow, findings are automatically archived based on the following criteria:
 

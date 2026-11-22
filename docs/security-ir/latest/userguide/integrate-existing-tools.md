@@ -1,7 +1,6 @@
 
 
 # Step 4: Integrate with your existing tools
-<a name="integrate-existing-tools"></a>
 
  AWS Security Incident Response integrates with your existing security tools and workflows to streamline incident response operations. You can configure automatic finding ingestion from GuardDuty, set up event-driven workflows with EventBridge, connect to ITSM platforms like Jira and ServiceNow, and collaborate with your SIEM and MDR providers. 
 

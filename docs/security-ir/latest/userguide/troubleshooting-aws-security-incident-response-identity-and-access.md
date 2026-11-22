@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Security Incident Response identity and access
-<a name="troubleshooting-aws-security-incident-response-identity-and-access"></a>
 
  Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Security Incident Response and IAM. 
 

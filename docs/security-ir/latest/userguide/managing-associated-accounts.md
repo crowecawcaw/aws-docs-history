@@ -1,7 +1,6 @@
 
 
 # Account association to AWS Organizations
-<a name="managing-associated-accounts"></a>
 
  When you enable AWS Security Incident Response, you will be given the option of selecting your entire organization or specific organizational units (OUs). If specific OUs are selected, your membership will only cover the accounts that fall under those selected OUs. If the entire organization is selected, then your membership will cover all the accounts within your organization. 
 

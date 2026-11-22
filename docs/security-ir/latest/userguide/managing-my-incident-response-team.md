@@ -1,7 +1,6 @@
 
 
 # Managing my Incident Response Team
-<a name="managing-my-incident-response-team"></a>
 
  Your incident response teams contains stakeholders for the incident response process. You can configure up to ten stakeholders as part of your membership. 
 

@@ -1,7 +1,6 @@
 
 
 # Case metrics
-<a name="case-metrics"></a>
 +  Cases created 
   +  Dimension name: Type 
   +  Dimension values: AWS supported, self supported 

@@ -1,7 +1,6 @@
 
 
 # Case data storage and movement
-<a name="case-data-storage-and-movement"></a>
 
  Case data remains in the AWS Region where you open the security incident case. When you create a case in a specific Region, all logs, metadata, and case information collected for that investigation are stored in that Region. This data doesn't move to other Regions. 
 

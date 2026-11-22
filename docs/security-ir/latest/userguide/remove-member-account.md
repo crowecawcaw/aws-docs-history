@@ -1,7 +1,6 @@
 
 
 # Removing members from AWS Security Incident Response
-<a name="remove-member-account"></a>
 
 To remove an account from your membership, you can remove a member account from your organization, move accounts out of your selected OUs, or remove OUs from your membership. 
 

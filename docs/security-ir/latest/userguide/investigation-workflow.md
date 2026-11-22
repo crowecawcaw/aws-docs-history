@@ -1,7 +1,6 @@
 
 
 # Investigation workflow
-<a name="investigation-workflow"></a>
 
  AWS Security Incident Response engineers follow a structured incident response process aligned with the NIST 800-61r2 framework. During your investigation, you can expect the following phases: 
 

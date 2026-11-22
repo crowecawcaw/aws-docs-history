@@ -1,7 +1,6 @@
 
 
 # Create a self-managed case
-<a name="create-a-self-managed-case"></a>
 
  You can create a self-managed for AWS Security Incident Response through the Console, API, or AWS Command Line Interface. This type of case *DOES NOT* engage the AWS Security Incident Response engineers. The following example covers use of the console. 
 

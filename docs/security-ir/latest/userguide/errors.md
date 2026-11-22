@@ -1,7 +1,6 @@
 
 
 # Errors
-<a name="errors"></a>
 
  **AccessDeniedException** 
 

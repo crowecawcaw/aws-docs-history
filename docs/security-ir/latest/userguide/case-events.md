@@ -1,7 +1,6 @@
 
 
 # Case Events
-<a name="case-events"></a>
 
 Case Created by AWS Responder
 

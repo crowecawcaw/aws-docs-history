@@ -1,7 +1,6 @@
 
 
 # Policy Actions
-<a name="policy-actions"></a>
 
  ***Policy actions for AWS Security Incident Response*** 
 

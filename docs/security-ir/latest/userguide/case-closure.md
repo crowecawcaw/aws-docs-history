@@ -1,7 +1,6 @@
 
 
 # Case closure
-<a name="case-closure"></a>
 
  AWS Security Incident Response engineers close your case when: 
 + The incident has been contained and remediated

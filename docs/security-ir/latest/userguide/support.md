@@ -1,7 +1,6 @@
 
 
 # Support
-<a name="support"></a>
 
  If you need additional assistance, contact [Support Center](https://console.aws.amazon.com/support/home#/) for troubleshooting purposes. Please have the following information available: 
 +  The AWS Region that you used 

@@ -1,7 +1,6 @@
 
 
 # Using the AWS Security Incident Response console
-<a name="using-the-amazon-aws-security-incident-response-console"></a>
 
  To access https://console.aws.amazon.com/security-ir/, you must have a minimum set of permissions. These permissions must allow you to list and view details about the AWS Security Incident Response resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities (users or roles) with that policy. 
 

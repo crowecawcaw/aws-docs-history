@@ -1,7 +1,6 @@
 
 
 # Managing Cases
-<a name="managing-cases"></a>
 
 **Topics**
 + [Changing the case status](changing-the-case-status.md)

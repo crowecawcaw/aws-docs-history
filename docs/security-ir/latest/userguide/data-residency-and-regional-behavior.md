@@ -1,7 +1,6 @@
 
 
 # Data residency and regional behavior
-<a name="data-residency-and-regional-behavior"></a>
 
  The three categories of data in Security Incident Response have different storage locations and regional movement patterns. Understanding these patterns is critical for organizations with data residency requirements. 
 

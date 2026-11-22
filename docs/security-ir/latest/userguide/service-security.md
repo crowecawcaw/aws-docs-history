@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="service-security"></a>
 
 **Topics**
 + [Data Protection in AWS Security Incident Response](data-protection.md)

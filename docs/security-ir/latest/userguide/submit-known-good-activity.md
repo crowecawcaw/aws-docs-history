@@ -1,7 +1,6 @@
 
 
 # Step 5: Submit known-good activity to reduce false positives
-<a name="submit-known-good-activity"></a>
 
  As part of onboarding to AWS Security Incident Response, you can tell the service about activity in your environment that is expected and authorized. Providing information about this known-good activity in advance helps reduce repeated notifications for expected behavior, so that responders can focus on findings that need your attention. 
 

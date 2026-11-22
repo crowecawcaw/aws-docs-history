@@ -1,7 +1,6 @@
 
 
 # What to expect from AWS Security Incident Response engineers
-<a name="what-to-expect-from-aws-sir-engineers"></a>
 
  When you open an AWS supported case, a Security Incident Response engineer is assigned to your incident. Your assigned responder will: 
 + Review the initial information you provided in the case

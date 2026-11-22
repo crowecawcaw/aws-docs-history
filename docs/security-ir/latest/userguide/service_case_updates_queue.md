@@ -1,7 +1,6 @@
 
 
 # Alternate rule: Security Incident Response Case Updates
-<a name="service_case_updates_queue"></a>
 
 To create an event rule that monitors for all case updates, repeat these tutorials with the following alterations:
 
@@ -9,7 +8,7 @@ To create an event rule that monitors for all case updates, repeat these tutoria
 
 1. **In [Tutorial: Register an event rule](service_sns_reg_rule.md) **, use the following pattern in the JSON editor:
 
-   ```
+   ```json
                               {
                                 "source": ["aws.security-ir"],
                                 "detail-type": [

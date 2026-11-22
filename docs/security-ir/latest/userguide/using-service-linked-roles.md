@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles
-<a name="using-service-linked-roles"></a>
 
  ***Service-linked roles for AWS Security Incident Response*** 
 

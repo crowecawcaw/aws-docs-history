@@ -1,7 +1,6 @@
 
 
 # Responding to an AWS generated case
-<a name="responding-to-an-aws-generated-case"></a>
 
  AWS Security Incident Response might create an outbound notification or case when you need to act on or be aware of something that potentially impacts your account or resources. This only occurs if you enabled the proactive response and alert triaging workflows as part of your subscription. 
 

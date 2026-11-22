@@ -1,7 +1,6 @@
 
 
 # Investigative agent processing location
-<a name="agent-processing-location"></a>
 
  The investigative agent runs in the Region where you create your case. Amazon Bedrock then sends model requests based on that Region's *inference profile*. An inference profile determines where your data can be processed. There are two types: 
 + **Geographic**: Processing stays within a specific geography, such as the US or the EU. Your data doesn't leave that geography.

@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="document-history-for-the-aws-security-incident-response-user-guide"></a>
 
 The following table describes important additions to the AWS Security Incident Response documentation, beginning January 1, 2026. For notification about updates to this documentation, you can subscribe to the RSS feed.
 
@@ -41,7 +40,7 @@ The following table describes important additions to the AWS Security Incident R
 | [Data collection, Regional behavior, and compliance guidance for regulated customers](https://docs.aws.amazon.com/security-ir/latest/userguide/data-collection-and-usage.html) | Added new sections on data collection and usage, data residency and Regional behavior, and data access and permissions. Expanded the compliance validation section with shared responsibility and metadata classification guidance for customers in regulated industries. | April 17, 2026 | 
 | [Updated onboarding guide](https://docs.aws.amazon.com/security-ir/latest/userguide/onboarding-guide.html) | Updated the onboarding guide with a new step-by-step structure, including preparation steps, prerequisites, and streamlined configuration workflows for incident response teams, case types, and tool integrations. | April 7, 2026 | 
 | [Update policy description for AWS Security Incident Response Triage Service Role Policy](https://docs.aws.amazon.com/security-ir/latest/userguide/aws-managed-policies.html) | Update policy description for AWS Security Incident Response Triage Service Role Policy to reflect changes that allow the service to improve service tuning and gather information to investigate potential incidents. | March 27, 2026 | 
-| [Submit metadata](#document-history-for-the-aws-security-incident-response-user-guide) | Added instructions for submitting metadata through AWS Support cases. | March 27, 2026 | 
+| [Submit metadata](document-history-for-the-aws-security-incident-response-user-guide.md) | Added instructions for submitting metadata through AWS Support cases. | March 27, 2026 | 
 | [Submit containment preferences](https://docs.aws.amazon.com/security-ir/latest/userguide/submit-containment-preferences.html) | Added instructions for submitting containment preferences through AWS Support cases. | March 27, 2026 | 
 | [Containment StackSet template](https://docs.aws.amazon.com/security-ir/latest/userguide/working-with-stacksets.html) | Updated the containment StackSet CloudFormation template. | March 27, 2026 | 
 | [Clarified AWS Region considerations for delegated administrator accounts](https://docs.aws.amazon.com/security-ir/latest/userguide/considerations_important.html) | Clarified that while you designate a delegated AWS Security Incident Response administrator account in one AWS Region during initial setup, the service provides organization-wide coverage across all supported AWS Regions. | March 20, 2026 | 

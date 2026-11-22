@@ -1,7 +1,6 @@
 
 
 # Validating your AWS Security Incident Response configuration
-<a name="config-validation"></a>
 
  After you complete onboarding, you can validate that enrollment, detection sources, AWS Identity and Access Management (IAM) permissions, containment, and notifications are configured correctly before a real security event occurs. This section provides step-by-step verification procedures using both the AWS Management Console and the AWS CLI. 
 
@@ -43,7 +42,7 @@ To complete these validation steps, make sure that you have the following:
 
 Use the following command to verify that Amazon GuardDuty is active in your accounts:
 
-```
+```bash
 aws guardduty list-detectors
 ```
 
@@ -73,7 +72,7 @@ aws guardduty list-detectors
 
 Run the following command from your delegated administrator account:
 
-```
+```bash
 aws security-ir list-memberships
 ```
 
@@ -81,7 +80,7 @@ aws security-ir list-memberships
 
 To get full membership details including your incident response team configuration, run the following command: 
 
-```
+```bash
 aws security-ir get-membership --membership-id {{membership-id}}
 ```
 
@@ -95,7 +94,7 @@ Use the command output to verify the following information.
 
  To confirm that the correct account is registered as the delegated administrator for Security Incident Response, run the following command:
 
-```
+```bash
 aws organizations list-delegated-administrators \
   --service-principal security-ir.amazonaws.com
 ```
@@ -188,7 +187,7 @@ To verify that EventBridge rules are deployed in member accounts, complete the f
 
 1. Run the following command:
 
-   ```
+   ```bash
    dig guarddutyc2activityb.com
    ```
 
@@ -213,7 +212,7 @@ To verify that EventBridge rules are deployed in member accounts, complete the f
 
 Or, run the following command to verify using the AWS CLI:
 
-```
+```bash
 aws security-ir get-membership --membership-id {{membership-id}}
 ```
 

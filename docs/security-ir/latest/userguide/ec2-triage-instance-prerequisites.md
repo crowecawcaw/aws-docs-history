@@ -1,7 +1,6 @@
 
 
 # Instance prerequisites for EC2 Triage
-<a name="ec2-triage-instance-prerequisites"></a>
 
 For EC2 Triage to collect investigative data from an Amazon EC2 instance, the instance must meet the following requirements:
 + The Systems Manager Agent (SSM Agent) must be installed and running on the instance. For more information, see [Working with SSM Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) in the *AWS Systems Manager User Guide*.

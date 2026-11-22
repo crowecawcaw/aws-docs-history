@@ -1,7 +1,6 @@
 
 
 # Viewing proactive response metrics
-<a name="viewing-proactive-response-metrics"></a>
 
 The **Dashboard** page in the AWS Security Incident Response console includes a **Proactive response** section that shows finding-lifecycle metrics for your membership over a selected time period. These metrics help you understand how AWS Security Incident Response monitors, triages, investigates, and escalates the findings ingested from Amazon GuardDuty and Security Hub CSPM.
 

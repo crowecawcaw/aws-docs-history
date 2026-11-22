@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started"></a>
 
 [![AWS Videos](https://img.youtube.com/vi/-GfiHIbfGfI/0.jpg)](https://www.youtube.com/watch?v=-GfiHIbfGfI)
 

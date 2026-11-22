@@ -1,7 +1,6 @@
 
 
 # Contain
-<a name="contain"></a>
 
 When AWS Security Incident Response identifies an active threat in your environment, containment is the immediate priority: stop the threat actor from causing further damage while preserving evidence for investigation. The service runs containment through reversible, automated actions that isolate compromised resources without destroying them. To enable these capabilities, you must first configure the required permissions and preferences. See [Deploy containment and EC2 Triage roles](working-with-stacksets.md).
 

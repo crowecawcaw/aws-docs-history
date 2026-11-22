@@ -1,7 +1,6 @@
 
 
 # Case Comment Events
-<a name="case-comment-events"></a>
 
 Case Comment Added by AWS Responder
 

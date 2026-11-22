@@ -1,7 +1,6 @@
 
 
 # Managing membership with organizational units (OUs) for AWS Security Incident Response
-<a name="managing-membership-with-ou"></a>
 
  AWS Security Incident Response supports membership coverage for individual organizational units (OUs). You can update your membership to cover specific OUs at any time. All accounts within the selected OUs, including accounts under child OUs, will be covered by your membership. 
 

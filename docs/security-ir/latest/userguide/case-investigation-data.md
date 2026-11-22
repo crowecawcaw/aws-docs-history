@@ -1,7 +1,6 @@
 
 
 # Case investigation data
-<a name="case-investigation-data"></a>
 
  When you open a security incident case, Security Incident Response collects logs and metadata from your AWS environment to support the investigation. This case-specific data includes API logs, VPC Flow Logs, Amazon Route 53 DNS queries, Amazon S3 access events, resource metadata (names, tags, and configuration details), and case information such as comments and investigation notes. 
 

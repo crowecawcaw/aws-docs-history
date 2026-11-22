@@ -1,7 +1,6 @@
 
 
 # Action Items
-<a name="action-items"></a>
 
  An AWS Security Incident Response engineer working on the case may request actions from your internal team. 
 

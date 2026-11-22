@@ -1,7 +1,6 @@
 
 
 # Updating OU Associations
-<a name="updating-ou-associations"></a>
 
 To manage your membership coverage:
 

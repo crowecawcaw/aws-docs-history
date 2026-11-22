@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Security Incident Response
-<a name="logging-and-monitoring-in-aws-security-incident-response"></a>
 
  Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Security Incident Response and your other AWS solutions. AWS Security Incident Response currently supports the following AWS services to monitor your organization and the activity that happens within it. 
 
