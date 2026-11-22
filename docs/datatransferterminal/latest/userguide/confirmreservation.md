@@ -1,7 +1,6 @@
 
 
 # Review and confirm your reservation
-<a name="confirmreservation"></a>
 
 After specifying the details of your reservation, select the **Next** button to continue to see the overview page. Review the details of your Data Transfer Terminal reservation request on the **Review and create** page.
 + If you are satisfied with the request, select the **Create** button.

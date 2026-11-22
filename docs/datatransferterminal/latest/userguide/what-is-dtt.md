@@ -1,7 +1,6 @@
 
 
 # What is Data Transfer Terminal?
-<a name="what-is-dtt"></a>
 
  AWS Data Transfer Terminal is a network-ready, physical location you can bring your data storage devices for fast data transfer to and from your AWS Cloud service. Upload data captured remotely to making it easier to access data captured remotely.
 

@@ -1,7 +1,6 @@
 
 
 # Scheduling considerations
-<a name="scheduling"></a>
 
 Reservations can be made in Data Transfer Terminal console for one to six hours in length, for any day of the week, throughout the year. Individual reservations can be scheduled consecutively, with a minimum of one hour separation between reservations. All reservations must be made at least 24 hours in advance.
 

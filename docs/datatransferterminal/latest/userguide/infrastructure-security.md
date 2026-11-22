@@ -1,7 +1,6 @@
 
 
 # Infrastructure Security in AWS Data Transfer Terminal
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Data Transfer Terminal is protected by the AWS global network security procedures that are described in the {https---d0-awsstatic-com-whitepapers-Security-AWS-Security-Whitepaper-pdf}[Amazon Web Services: Overview of Security Processes] whitepaper.
 

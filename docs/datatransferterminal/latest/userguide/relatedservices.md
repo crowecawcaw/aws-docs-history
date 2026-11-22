@@ -1,7 +1,6 @@
 
 
 # Related services
-<a name="relatedservices"></a>
 
 The following AWS services provide an optimal experience while using Data Transfer Terminal.
 

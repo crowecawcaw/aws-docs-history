@@ -1,7 +1,6 @@
 
 
 # Use cases
-<a name="usecases"></a>
 
 While any AWS Enterprise Support customer can access the Data Transfer Terminal system, certain use case scenarios may find greater benefit from it.
 

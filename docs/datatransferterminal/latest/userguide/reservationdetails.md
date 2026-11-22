@@ -1,7 +1,6 @@
 
 
 # Specify reservation details
-<a name="reservationdetails"></a>
 
 The following instructions walk you through how to schedule your Data Transfer Terminal reservation in the AWS Management Console. For information about using the Data Transfer Terminal facility, see [Make a data transfer](accessing-site.md).
 

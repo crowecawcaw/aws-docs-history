@@ -1,7 +1,6 @@
 
 
 # Make a data transfer at the Data Transfer Terminal facility
-<a name="accessing-site"></a>
 
 The Data Transfer Terminal is a secure, co-owned location that provides secure access to the AWS network. To access the Data Transfer Terminal facility, ensure that you have a confirmation email with the location description and access instructions. Refer to the topics below for more information about accessing and using the Data Transfer Terminal facility.
 

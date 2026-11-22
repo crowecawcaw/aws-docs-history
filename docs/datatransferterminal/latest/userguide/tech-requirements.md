@@ -1,7 +1,6 @@
 
 
 # Technical requirements for using Data Transfer Terminal
-<a name="tech-requirements"></a>
 
 Before scheduling a reservation at a Data Transfer Terminal, you’ll need to ensure you have the equipment and configurations necessary to connect to the network. Refer to the following guidelines for optimal network connectivity and experience.
 

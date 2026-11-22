@@ -1,7 +1,6 @@
 
 
 # Create a Transfer team
-<a name="createteam"></a>
 
 To access a Data Transfer Terminal facility you’ll need to schedule a reservation in the AWS Management Console. Log into your AWS account to access the Data Transfer Terminal console and complete the following steps to schedule your reservation.
 

@@ -1,7 +1,6 @@
 
 
 # Security of AWS Data Transfer Terminal
-<a name="security"></a>
 
  AWS Data Transfer Terminal provides a secure environment for making data transfers to and from the AWS Cloud. Like any other physical network fiber connection, the Data Transfer Terminal connection does not provide default encryption. Therefore, you will be responsible for enforcing data encryption best practices to ensure your data transfer is secure.
 

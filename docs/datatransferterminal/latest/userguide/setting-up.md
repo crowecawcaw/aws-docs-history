@@ -1,7 +1,6 @@
 
 
 # Schedule a Data Transfer Terminal reservation
-<a name="setting-up"></a>
 
 To get started using AWS Data Transfer Terminal, you need to have an AWS account and logged into your Data Transfer Terminal console at https://console.aws.amazon.com/datatransferterminal. Once you’re logged into your Data Transfer Terminal console, you can see existing reservations or make a new one. To schedule a reservation, you’ll need to do the following:
 
