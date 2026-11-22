@@ -1,7 +1,6 @@
 
 
 # Serverless Notifications for Mobile Games with Step Functions
-<a name="serverless-notifications-step-functions"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#notif-sf-history))**
 

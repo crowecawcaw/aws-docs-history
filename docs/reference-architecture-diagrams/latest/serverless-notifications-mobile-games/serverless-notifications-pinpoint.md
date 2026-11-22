@@ -1,7 +1,6 @@
 
 
 # Serverless Notifications for Mobile Games with Amazon Pinpoint
-<a name="serverless-notifications-pinpoint"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#notif-pin-history))**
 
