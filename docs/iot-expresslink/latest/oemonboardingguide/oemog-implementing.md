@@ -1,7 +1,6 @@
 
 
 # Claim implementation
-<a name="oemog-implementing"></a>
 
 The actual claim is implemented in the claim-script (a function of the registration application). To do this, it publishes a specific, JSON formatted message on the unique device configuration topic. This operation requires the script to obtain access to the ExpressLink module staging account which is managed by AWS. While AWS does not share such credentials with customers/OEMs, upon request the AWS IoT Device service team allows the customer/OEM to create a "claim-thing" within the staging account registry. The claim-thing can then be controlled by the OEM registration application (using an MQTT client API) to publish the endpoint update message. To request and obtain control of a claim-thing follow the configuration steps indicated in [Appendix A - Steps to obtain a claim-thing](oemog-claim-thing.md).
 

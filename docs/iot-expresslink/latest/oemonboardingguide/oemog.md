@@ -1,7 +1,6 @@
 
 
 # AWS IoT ExpressLink Onboarding-by-Claim Customer/OEM Guide
-<a name="oemog"></a>
 
  AWS IoT ExpressLink modules are hardware modules that enable easy cloud connectivity and security for AWS IoT devices. OEMs can integrate ExpressLink modules into their products to accelerate IoT development. ExpressLink modules come pre-provisioned with unique credentials to authenticate with AWS IoT Core. There are several options for onboarding ExpressLink devices, including individual/batch uploads, just-in-time provisioning, and fleet provisioning. The description focuses on a novel "onboarding-by-claim" process specific to ExpressLink. This leverages the module's unique capabilities to provide a more secure and streamlined onboarding experience. 
 

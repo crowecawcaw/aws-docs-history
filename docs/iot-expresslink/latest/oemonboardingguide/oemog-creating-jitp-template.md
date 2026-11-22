@@ -1,7 +1,6 @@
 
 
 # Appendix C - Create a JITP template
-<a name="oemog-creating-jitp-template"></a>
 
  Create a JITP template so that new devices directed to the account are automatically associated with a desired policy, and given a proper thing-name on the AWS console. Follow the steps below to create a template. 
 

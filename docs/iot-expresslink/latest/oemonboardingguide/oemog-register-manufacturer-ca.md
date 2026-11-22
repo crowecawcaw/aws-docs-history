@@ -1,7 +1,6 @@
 
 
 # Appendix B - Register the ExpressLink manufacturer certificate authority (CA)
-<a name="oemog-register-manufacturer-ca"></a>
 
  After a claim-thing certificate is obtained, the next steps is to register the ExpressLink certificate with the manufacturer certificate authority (CA). This four step process walks the user through registering with the certificate authority (CA). 
 
@@ -11,7 +10,7 @@
 
 1. Register the root CA on your AWS account with the following AWS CLI command (replace {{path-to-manufacturer-CA}} with the local path of the the root CA):
 
-   ```
+   ```bash
    aws iot register-ca-certificate --ca-certificate file://{{path-to-manufacturer-CA}} --certificate-mode SNI_ONLY --set-as-active --allow-auto-registration 
    ```
 
