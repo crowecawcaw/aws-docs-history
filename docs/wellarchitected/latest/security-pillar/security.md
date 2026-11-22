@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Security foundations
-<a name="security"></a>
 
 The security pillar describes how to take advantage of cloud technologies to protect data, systems, and assets in a way that can improve your security posture. This paper provides in-depth, best-practice guidance for architecting secure workloads on AWS.
 
@@ -21,7 +24,7 @@ In the cloud, there are a number of principles that can help you strengthen your
 <a name="definition"></a>
 
 Security in the cloud is composed of seven areas:
-+ [Security foundations](#security)
++ [Security foundations](security.md)
 + [Identity and access management](identity-and-access-management.md)
 + [Detection](detection.md)
 + [Infrastructure protection](infrastructure-protection.md)

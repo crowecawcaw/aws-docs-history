@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC10-BP01 Identify key personnel and external resources
-<a name="sec_incident_response_identify_personnel"></a>
 
  Identify internal and external personnel, resources, and legal obligations to help your organization respond to an incident. 
 

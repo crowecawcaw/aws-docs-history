@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Operating your workloads securely
-<a name="operating-your-workload-securely"></a>
 
 Operating workloads securely covers the whole lifecycle of a workload from design, to build, to run, and to ongoing improvement. One of the ways to improve your ability to operate securely in the cloud is by taking an organizational approach to governance. Governance is the way that decisions are guided consistently without depending solely on the good judgment of the people involved. Your governance model and process are the way you answer the question “How do I know that the control objectives for a given workload are met and are appropriate for that workload?” Having a consistent approach to making decisions speeds up the deployment of workloads and helps raise the bar for the security capability in your organization. 
 

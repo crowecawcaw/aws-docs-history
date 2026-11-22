@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC10-BP05 Pre-provision access
-<a name="sec_incident_response_pre_provision_access"></a>
 
 Verify that incident responders have the correct access pre-provisioned in AWS to reduce the time needed for investigation through to recovery.
 

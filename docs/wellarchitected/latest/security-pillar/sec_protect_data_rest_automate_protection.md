@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC08-BP03 Automate data at rest protection
-<a name="sec_protect_data_rest_automate_protection"></a>
 
  Use automation to validate and enforce data at rest controls.  Use automated scanning to detect misconfiguration of your data storage solutions, and perform remediations through automated programmatic response where possible.  Incorporate automation in your CI/CD processes to detect data storage misconfigurations before they are deployed to production. 
 

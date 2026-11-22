@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC07-BP01 Understand your data classification scheme
-<a name="sec_data_classification_identify_data"></a>
 
  Understand the classification of data your workload is processing, its handling requirements, the associated business processes, where the data is stored, and who the data owner is.  Your data classification and handling scheme should consider the applicable legal and compliance requirements of your workload and what data controls are needed. Understanding the data is the first step in the data classification journey.  
 

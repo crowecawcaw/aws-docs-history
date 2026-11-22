@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC05-BP03 Implement inspection-based protection
-<a name="sec_network_protection_inspection"></a>
 
  Set up traffic inspection points between your network layers to make sure data in transit matches the expected categories and patterns.  Analyze traffic flows, metadata, and patterns to help identify, detect, and respond to events more effectively. 
 

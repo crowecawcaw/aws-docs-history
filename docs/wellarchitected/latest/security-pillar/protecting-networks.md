@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Protecting networks
-<a name="protecting-networks"></a>
 
 Users, both in your workforce and your customers, can be located anywhere. You need to pivot from traditional models of trusting anyone and anything that has access to your network. When you follow the principle of applying security at all layers, you employ a [Zero Trust](https://aws.amazon.com/blogs/security/zero-trust-architectures-an-aws-perspective/) approach. Zero Trust security is a model where application components or microservices are considered discrete from each other and no component or microservice trusts any other.
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC01-BP06 Automate deployment of standard security controls
-<a name="sec_securely_operate_automate_security_controls"></a>
 
  Apply modern DevOps practices as you develop and deploy security controls that are standard across your AWS environments.  Define standard security controls and configurations using Infrastructure as Code (IaC) templates, capture changes in a version control system, test changes as part of a CI/CD pipeline, and automate the deployment of changes to your AWS environments. 
 

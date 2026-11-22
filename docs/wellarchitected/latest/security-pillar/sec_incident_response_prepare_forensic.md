@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC10-BP03 Prepare forensic capabilities
-<a name="sec_incident_response_prepare_forensic"></a>
 
 Ahead of a security incident, consider developing forensics capabilities to support security event investigations. 
 
@@ -33,6 +36,8 @@ Ahead of a security incident, consider developing forensics capabilities to supp
  The following diagram displays a sample account structure including a forensics OU with per-Region forensics accounts: 
 
 ![Flow diagram showing a per-Region account structure for incident response, forking into a security and forensics OU.](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/region-account-structure.png)
+
+*Per-Region account structure for incident response*
 
 
  **Capture backups and snapshots** 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC07-BP02 Apply data protection controls based on data sensitivity
-<a name="sec_data_classification_define_protection"></a>
 
  Apply data protection controls that provide an appropriate level of control for each class of data defined in your classification policy.  This practice can allow you to protect sensitive data from unauthorized access and use, while preserving the availability and use of data. 
 

@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # Design goals of cloud response
-<a name="design-goals-of-cloud-response"></a>
 
 Although the general processes and mechanisms of incident response, such as those defined in the [NIST SP 800-61 Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final), remain true, we encourage you to evaluate these specific design goals that are relevant to responding to security incidents in a cloud environment: 
 + **Establish response objectives:** Work with stakeholders, legal counsel, and organizational leadership to determine the goal of responding to an incident. Some common goals include containing and mitigating the issue, recovering the aﬀected resources, preserving data for forensics, returning to known safe operations, and ultimately learning from incidents.

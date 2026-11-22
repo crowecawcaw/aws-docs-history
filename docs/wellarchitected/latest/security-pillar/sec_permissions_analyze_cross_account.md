@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC03-BP07 Analyze public and cross-account access
-<a name="sec_permissions_analyze_cross_account"></a>
 
 Continually monitor findings that highlight public and cross-account access. Reduce public access and cross-account access to only the specific resources that require this access.
 

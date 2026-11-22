@@ -1,7 +1,10 @@
 
 
+This whitepaper is for historical reference only and will be deprecated in the future.
+
+All updated guidance and best practices now live in the [Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) whitepaper.
+
 # SEC07-BP04 Define scalable data lifecycle management
-<a name="sec_data_classification_lifecycle_management"></a>
 
  Understand your data lifecycle requirements as they relate to your different levels of data classification and handling.  This can include how data is handled when it first enters your environment, how data is transformed, and the rules for its destruction. Consider factors such as retention periods, access, auditing, and tracking provenance. 
 
