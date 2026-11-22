@@ -1,7 +1,6 @@
 
 
 # Backend for Frontend Using AppSync
-<a name="backend-for-frontend-appsync"></a>
 
 Publication date: **May 6, 2022 ([Diagram history](#diagram-history))**
 
