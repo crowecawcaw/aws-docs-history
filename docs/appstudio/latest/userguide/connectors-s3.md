@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon Simple Storage Service (Amazon S3)
-<a name="connectors-s3"></a>
 
 To connect App Studio with Amazon S3 to enable builders to access and use Amazon S3 resources in applications, perform the following steps:
 
@@ -86,7 +85,7 @@ The following policies apply to all Amazon S3 resources using the wildcard (`*`)
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -115,7 +114,7 @@ The following policies apply to all Amazon S3 resources using the wildcard (`*`)
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -170,7 +169,7 @@ We recommend creating at least one IAM role per service and policy.
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

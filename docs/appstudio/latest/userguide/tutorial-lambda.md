@@ -1,7 +1,6 @@
 
 
 # Invoking Lambda functions in an App Studio app
-<a name="tutorial-lambda"></a>
 
 This tutorial shows you how to connect App Studio to Lambda and invoke Lambda functions from your apps.
 

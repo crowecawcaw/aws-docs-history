@@ -1,7 +1,6 @@
 
 
 # Duplicating components
-<a name="duplicating-components"></a>
 
 Use the following procedure to duplicate a component in an App Studio app. Duplicated components contain any linked automations or entities from the original component.
 

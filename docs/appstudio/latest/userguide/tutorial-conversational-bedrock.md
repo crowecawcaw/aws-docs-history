@@ -1,7 +1,6 @@
 
 
 # Build an AI text summarizer app with Amazon Bedrock
-<a name="tutorial-conversational-bedrock"></a>
 
 In this tutorial, you will build an application in App Studio that uses Amazon Bedrock to provide concise summaries of text input from end users. The application contains a simple user interface where users can input any text they want summarized. This could be meeting notes, article content, research findings, or any other textual information. After users enter the text, they can press a button to send the text to Amazon Bedrock, which will process it using the Claude 3 Sonnet model and return a summarized version.
 

@@ -1,7 +1,6 @@
 
 
 # Components reference
-<a name="components-reference"></a>
 
 This topic details each of App Studio's components, their properties, and includes configuration examples.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to services with OpenAPI
-<a name="connectors-openapi"></a>
 
 To connect App Studio with services using OpenAPI to enable builders to build applications that send requests and receive responses from the services, perform the following steps:
 

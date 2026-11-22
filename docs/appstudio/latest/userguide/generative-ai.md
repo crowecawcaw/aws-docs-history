@@ -1,7 +1,6 @@
 
 
 # Building your App Studio app with generative AI
-<a name="generative-ai"></a>
 
 AWS App Studio provides integrated generative AI capabilities to accelerate development and streamline common tasks. You can leverage generative AI to generate and edit apps, data models, sample data, and even get contextual help while building apps.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing or updating your app's content security settings
-<a name="app-content-security-settings-csp"></a>
 
 Every application in App Studio has content security settings that can be used to restrict external media or resources such as images, iFrames, and PDFs from being loaded, or only permitted from specified domains or URLs (including Amazon S3 buckets). You can also specify the domains that your app can upload objects to Amazon S3 to.
 

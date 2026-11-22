@@ -1,7 +1,6 @@
 
 
 # Creating an entity in an App Studio app
-<a name="data-entities-create"></a>
 
 There are four methods for creating an entity in an App Studio app. The following list contains each method, its benefits, and a link to the instructions for using that method to create and then configure the entity.
 + [Creating an entity from an existing data source](#data-entities-create-existing-data-source): Automatically create an entity and its fields from an existing data source table and map the fields to the data source table columns. This option is preferable if you have an existing data source that you want to use in your App Studio app.

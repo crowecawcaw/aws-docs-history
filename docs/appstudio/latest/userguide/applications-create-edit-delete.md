@@ -1,7 +1,6 @@
 
 
 # Creating, editing, and deleting applications
-<a name="applications-create-edit-delete"></a>
 
 **Contents**
 + [Creating an application](applications-create.md)

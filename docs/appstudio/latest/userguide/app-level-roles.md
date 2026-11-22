@@ -1,7 +1,6 @@
 
 
 # Configuring role-based visibility of pages
-<a name="app-level-roles"></a>
 
 You can create roles within an App Studio app and configure the visbility of pages based on those roles. For example, you can create roles based on user needs or access levels, such as administrator, manager, or user for apps that provide features such as project approvals or claims processing and make certain pages visible to specific roles. In this example, administrators may have full access, managers might have access to view reporting dashboards, and users may have access to tasks pages with input forms.
 

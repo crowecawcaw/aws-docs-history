@@ -1,7 +1,6 @@
 
 
 # Connect to third-party services
-<a name="add-connector-third-party"></a>
 
 **Topics**
 + [OpenAPI Connector vs. API Connector](#add-connector-third-party-openapi-vs-api)

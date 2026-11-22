@@ -1,7 +1,6 @@
 
 
 # AWS App Studio concepts
-<a name="concepts"></a>
 
 Get familiar with the key App Studio concepts to help speed up creating applications and automating processes for your team. These concepts include terms used throughout App Studio for both administrators and builders.
 

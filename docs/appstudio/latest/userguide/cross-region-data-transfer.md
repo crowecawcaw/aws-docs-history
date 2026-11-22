@@ -1,7 +1,6 @@
 
 
 # Cross-Region data transfer in AWS App Studio
-<a name="cross-region-data-transfer"></a>
 
 AWS App Studio transfers data across AWS Regions to enable certain generative AI features in the service. This topic contains information about the features enabled by cross-Region data transfers, the type of data that moves across Regions, and how to opt out.
 

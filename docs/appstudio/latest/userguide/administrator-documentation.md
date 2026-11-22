@@ -1,7 +1,6 @@
 
 
 # Administrator documentation
-<a name="administrator-documentation"></a>
 
 The following topics contain information to help users who are managing third-party service connections and access, users, and roles in App Studio.
 

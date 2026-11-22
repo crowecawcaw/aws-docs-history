@@ -1,7 +1,6 @@
 
 
 # Editing or building an application
-<a name="applications-edit"></a>
 
 Use the following procedure to edit an application in App Studio.
 

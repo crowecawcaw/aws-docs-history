@@ -1,7 +1,6 @@
 
 
 # Deleting an application
-<a name="applications-delete"></a>
 
 Use the following procedure to delete an application in App Studio.
 

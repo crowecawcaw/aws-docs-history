@@ -1,7 +1,6 @@
 
 
 # Managing access and roles in App Studio
-<a name="managing-access-and-roles"></a>
 
 One of the responsibilities of administrators in App Studio is to manage access, roles, and permissions. The following topics contain information about the roles in App Studio, and how to add users, remove users, or change their role.
 

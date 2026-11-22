@@ -1,7 +1,6 @@
 
 
 # Managing pages
-<a name="pages"></a>
 
 Use the following procedures to create, edit, or delete pages from your AWS App Studio application.
 

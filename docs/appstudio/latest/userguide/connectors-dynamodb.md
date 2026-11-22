@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon DynamoDB
-<a name="connectors-dynamodb"></a>
 
 To connect App Studio with DynamoDB to enable builders to access and use DynamoDB resources in applications, you must perform the following steps:
 
@@ -76,7 +75,7 @@ The following policies apply to all DynamoDB resources using the wildcard (`*`).
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -106,7 +105,7 @@ The following policies apply to all DynamoDB resources using the wildcard (`*`).
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -139,7 +138,7 @@ The following policies apply to all DynamoDB resources using the wildcard (`*`).
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -178,7 +177,7 @@ The following policies apply to all DynamoDB resources using the wildcard (`*`).
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -242,7 +241,7 @@ Now, create an IAM role that uses the policy you previously created. App Studio 
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

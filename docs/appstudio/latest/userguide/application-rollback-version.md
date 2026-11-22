@@ -1,7 +1,6 @@
 
 
 # Rolling back to a previously published version
-<a name="application-rollback-version"></a>
 
 Use the following procedure to roll back the Production environment of your App Studio app to a previously published version. Your application end users will be impacted and see the rolled back version of your app after it is deployed. When you roll back an application, it also rolls back the component code to the version from the previous publish time and affects the entire app deployment stack (user code, component configuration state). This means that any updates that App Studio made to component code, such as field or other config changes, will be rolled back to ensure the rolled-back application version operates as it did when it was originally published.
 

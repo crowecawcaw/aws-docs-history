@@ -1,7 +1,6 @@
 
 
 # Viewing and editing page properties
-<a name="pages-edit"></a>
 
 Use the following procedure to edit a page in an application in App Studio. You can edit properties such as the page's name, its parameters, and its layout.
 

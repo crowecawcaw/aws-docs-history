@@ -1,7 +1,6 @@
 
 
 # Building an app with multiple users
-<a name="builder-collaboration"></a>
 
 Multiple users can work on a single App Studio app, however only one user can edit an app at one time. See the following sections to information about inviting other users to edit an app, and the behavior when multiple users try to edit an app at the same time.
 

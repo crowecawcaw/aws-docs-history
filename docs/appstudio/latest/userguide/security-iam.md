@@ -1,7 +1,6 @@
 
 
 # AWS App Studio and AWS Identity and Access Management (IAM)
-<a name="security-iam"></a>
 
 In AWS App Studio, you manage access and permissions in the service by assigning groups in IAM Identity Center to the appropriate role in App Studio. The permissions of the group members are determined by the role that is assigned, and not by configuring users, roles, or permissions directly in AWS Identity and Access Management (IAM). For more information about managing access and permissions in App Studio, see [Managing access and roles in App Studio](managing-access-and-roles.md).
 

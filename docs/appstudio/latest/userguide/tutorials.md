@@ -1,7 +1,6 @@
 
 
 # Tutorials
-<a name="tutorials"></a>
 
 **Topics**
 + [Build an AI text summarizer app with Amazon Bedrock](tutorial-conversational-bedrock.md)

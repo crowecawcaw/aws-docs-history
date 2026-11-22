@@ -1,7 +1,6 @@
 
 
 # Troubleshooting previewing apps
-<a name="troubleshooting-preview"></a>
 
 This topic contains information about troubleshooting issues when trying to preview apps.
 

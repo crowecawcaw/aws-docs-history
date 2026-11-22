@@ -1,7 +1,6 @@
 
 
 # Renaming an application
-<a name="applications-rename"></a>
 
 Use the following procedure to rename an application in App Studio. You can rename an application from the list of applications, or from the Development environment while building the app.
 

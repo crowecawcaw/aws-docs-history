@@ -1,7 +1,6 @@
 
 
 # Accepting an invitation to join App Studio
-<a name="setting-up-signing-in"></a>
 
 Access to App Studio is managed by IAM Identity Center. That means that each user who wants to use App Studio must configure a user in IAM Identity Center and belong to a group that has been added to App Studio by an administrator. When an administrator invites you to join IAM Identity Center, you'll receive an email asking you to accept the invitation and activate your user credentials. After they are activated, you can use those credentials to sign in to App Studio.
 

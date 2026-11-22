@@ -1,7 +1,6 @@
 
 
 # Supported browsers for AWS App Studio
-<a name="supported-browsers"></a>
 
 This topic contains information about the supported and recommended browsers for AWS App Studio, including browser support for both end users accessing published applications, and application builders.
 

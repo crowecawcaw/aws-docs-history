@@ -1,7 +1,6 @@
 
 
 # Deleting an entity
-<a name="data-entities-delete"></a>
 
 Use the following procedure to delete an entity from an App Studio application.
 

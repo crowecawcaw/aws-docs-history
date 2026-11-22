@@ -1,7 +1,6 @@
 
 
 # Add or edit connected data source and map fields
-<a name="data-entities-edit-connection"></a>
 
 **Tip**  
 You can press CTRL\+Z to undo the most recent change to your entity.

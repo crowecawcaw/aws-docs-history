@@ -1,7 +1,6 @@
 
 
 # Connect to AWS services using the Other AWS services connector
-<a name="connectors-aws"></a>
 
 While App Studio offers some connectors that are specific to certain AWS services, you can also connect to other AWS services using the **Other AWS services** connector.
 
@@ -38,7 +37,7 @@ To use AWS services and resources with App Studio, administrators must create an
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

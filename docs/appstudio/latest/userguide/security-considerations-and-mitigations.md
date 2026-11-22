@@ -1,7 +1,6 @@
 
 
 # Security considerations and mitigations
-<a name="security-considerations-and-mitigations"></a>
 
 ## Security considerations
 <a name="security-considerations"></a>

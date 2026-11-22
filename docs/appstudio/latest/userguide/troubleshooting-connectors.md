@@ -1,7 +1,6 @@
 
 
 # Troubleshooting connectors
-<a name="troubleshooting-connectors"></a>
 
 This topic contains troubleshooting guidance for common connector issues. You must be a member of an admin group to view or edit connectors.
 
@@ -17,7 +16,7 @@ While setting up the IAM role for your connector, ensure that the custom trust p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

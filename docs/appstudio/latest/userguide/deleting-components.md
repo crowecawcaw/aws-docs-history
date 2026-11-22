@@ -1,7 +1,6 @@
 
 
 # Deleting components
-<a name="deleting-components"></a>
 
 1. If necessary, navigate to the Development environment of your application by editing it.
 

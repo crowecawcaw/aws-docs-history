@@ -1,7 +1,6 @@
 
 
 # Connect to AWS Lambda
-<a name="connectors-lambda"></a>
 
 To connect App Studio with Lambda to enable builders to access and use Lambda resources in applications, you must perform the following steps:
 
@@ -42,7 +41,7 @@ We recommend creating at least one IAM role per service and policy.
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

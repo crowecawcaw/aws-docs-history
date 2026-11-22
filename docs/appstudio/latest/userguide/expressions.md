@@ -1,7 +1,6 @@
 
 
 # Using JavaScript to write expressions in App Studio
-<a name="expressions"></a>
 
 In AWS App Studio, you can use JavaScript expressions to dynamically control the behavior and appearance of your applications. Single-line JavaScript expressions are written within double curly braces, `{{ }}`, and can be used in various contexts such as automations, UI components, and data queries. These expressions are evaluated at runtime and can be used to perform calculations, manipulate data, and control application logic.
 

@@ -1,7 +1,6 @@
 
 
 # Builder documentation
-<a name="builder-documentation"></a>
 
 The following topics contain information to help users in App Studio who are creating, editing, and publishing applications.
 

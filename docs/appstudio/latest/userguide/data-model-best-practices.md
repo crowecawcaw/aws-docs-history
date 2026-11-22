@@ -1,7 +1,6 @@
 
 
 # Best practices when designing data models
-<a name="data-model-best-practices"></a>
 
 Use the following best practices to create a robust, scalable, and secure relational data model in AWS for use in your App Studio application that meets your application's requirements and ensures the long-term reliability and performance of your data infrastructure.
 + **Choose the right AWS data service: ** Depending on your requirements, choose the appropriate AWS data service. For example, for an Online Transaction Processing (OLTP) application, you could consider a database (DB) such as Amazon Aurora which is a cloud-native, relational, and fully-managed database service that supports various database engines like MySQL and PostgreSQL. For a full list of Aurora versions supported by App Studio, see [Connect to Amazon Aurora](connectors-aurora.md). On the other hand, for Online Analytical Processing (OLAP) use cases, consider using Amazon Redshift, which is a cloud data warehouse that lets you run complex queries against very large datasets. These queries can often take time (many seconds) to complete, making Amazon Redshift less suitable for OLTP applications that require low-latency data access.

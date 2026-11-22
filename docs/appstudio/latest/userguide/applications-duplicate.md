@@ -1,7 +1,6 @@
 
 
 # Duplicating applications
-<a name="applications-duplicate"></a>
 
 Application owners and co-owners can duplicate their apps to create an exact copy of the app. Duplicating apps is helpful if you want to preserve the current state for testing purposes, or use the duplicated app as a starter to create a new app.
 

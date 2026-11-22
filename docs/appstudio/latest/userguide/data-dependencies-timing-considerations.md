@@ -1,7 +1,6 @@
 
 
 # Data dependencies and timing considerations
-<a name="data-dependencies-timing-considerations"></a>
 
 When building complex applications in App Studio, it's crucial to understand and manage data dependencies between different data components, such as forms, detail views, and automation-powered components. Data components and automations may not complete their data retrieval or execution at the same time, which can lead to timing issues, errors, and unexpected behavior. By being aware of potential timing issues and following best practices, you can create more reliable and consistent user experiences in your App Studio applications.
 

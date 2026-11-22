@@ -1,7 +1,6 @@
 
 
 # Debugging with logs from published apps in Amazon CloudWatch Logs
-<a name="troubleshooting-cloudwatch"></a>
 
 Amazon CloudWatch Logs monitors your AWS resources and the applications you run on AWS in real time. You can use CloudWatch Logs to collect and track metrics, which are variables you can measure for your resources and applications.
 

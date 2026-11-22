@@ -1,7 +1,6 @@
 
 
 # Creating an application
-<a name="applications-create"></a>
 
 Use the following procedure to create an application in App Studio.
 

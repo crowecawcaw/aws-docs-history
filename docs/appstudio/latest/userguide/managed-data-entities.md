@@ -1,7 +1,6 @@
 
 
 # Managed data entities in AWS App Studio
-<a name="managed-data-entities"></a>
 
 Typically, you configure an entity in App Studio with a connection to an external database table, and you must create and map each entity field with a column in the connected database table. When you make a change to the data model, both the external database table and the entity must be updated, and the changed fields must be remapped. While this method is flexible and enables the use of different types of data sources, it takes more up-front planning and ongoing maintenance.
 

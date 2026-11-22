@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AI builder assistant and chat
-<a name="troubleshooting-ai-builder-assistant"></a>
 
 This topic contains troubleshooting guidance for common issues when using the AI builder assistant.
 

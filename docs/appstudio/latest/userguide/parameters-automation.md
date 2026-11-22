@@ -1,7 +1,6 @@
 
 
 # Automation parameters
-<a name="parameters-automation"></a>
 
 Automation parameters are a powerful feature in App Studio that can be used to create flexible and reusable automations by passing dynamic values from various sources, such as the UI, other automations, or data actions. They act as placeholders that are replaced with actual values when the automation is run, allowing you to use the same automation with different inputs each time. 
 

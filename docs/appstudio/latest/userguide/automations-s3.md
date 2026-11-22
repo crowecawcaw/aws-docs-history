@@ -1,7 +1,6 @@
 
 
 # Interacting with Amazon Simple Storage Service with components and automations
-<a name="automations-s3"></a>
 
 You can invoke various Amazon S3 operations from an App Studio app. For example, you could create a simple admin panel to manage your users and orders and display your media from Amazon S3. While you can invoke any Amazon S3 operation using the **Invoke AWS** action, there are four dedicated Amazon S3 actions that you can add to automations in your app to perform common operations on Amazon S3 buckets and objects. The four actions and their operations are as follows:
 + **Put Object**: Uses the `Amazon S3 PutObject` operation to add an object an Amazon S3 bucket.

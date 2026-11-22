@@ -1,7 +1,6 @@
 
 
 # Adding, editing, or deleting entity fields
-<a name="data-entities-edit-fields"></a>
 
 **Tip**  
 You can press CTRL\+Z to undo the most recent change to your entity.

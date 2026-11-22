@@ -1,7 +1,6 @@
 
 
 # Pages and components: Build your app's user interface
-<a name="pages-components-ux"></a>
 
 **Topics**
 + [Managing pages](pages.md)

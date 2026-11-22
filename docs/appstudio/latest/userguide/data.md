@@ -1,7 +1,6 @@
 
 
 # Entities and data actions: Configure your app's data model
-<a name="data"></a>
 
 **Entities** are data tables in App Studio. Entities interact directly with tables in data sources. Entities include fields to describe the data in them, queries to locate and return data, and mapping to connect the entity's fields to a data source's columns.
 

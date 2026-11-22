@@ -1,7 +1,6 @@
 
 
 # Tutorial: Generate an app using AI
-<a name="getting-started-tutorial-ai"></a>
 
 AWS App Studio contains generative AI features throughout the service to help speed up application building. In this tutorial, you'll learn how to generate an app using AI by describing your app using natural language. 
 

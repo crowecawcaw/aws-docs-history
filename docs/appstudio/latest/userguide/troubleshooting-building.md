@@ -1,7 +1,6 @@
 
 
 # Troubleshooting in the application studio
-<a name="troubleshooting-building"></a>
 
 This topic contains troubleshooting and debugging guidance for issues when building applications.
 

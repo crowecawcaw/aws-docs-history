@@ -1,7 +1,6 @@
 
 
 # Viewing, editing, and deleting connectors
-<a name="viewing-deleting-connectors"></a>
 
 **To view, edit, or delete existing connectors**
 

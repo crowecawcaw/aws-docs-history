@@ -1,7 +1,6 @@
 
 
 # Viewing and editing component properties
-<a name="editing-component-properties"></a>
 
 1. If necessary, navigate to the Development environment of your application by editing it.
 

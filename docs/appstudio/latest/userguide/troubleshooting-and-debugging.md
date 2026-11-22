@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and debugging App Studio
-<a name="troubleshooting-and-debugging"></a>
 
 **Topics**
 + [Troubleshooting App Studio setup, permissions, and onboarding](troubleshooting-permissions-onboarding.md)

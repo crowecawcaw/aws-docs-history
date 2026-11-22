@@ -1,7 +1,6 @@
 
 
 # Duplicating a page
-<a name="pages-duplicate"></a>
 
 Use the following procedure to duplicate a page in an application in App Studio.
 

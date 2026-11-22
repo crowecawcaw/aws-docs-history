@@ -1,7 +1,6 @@
 
 
 # Automations concepts
-<a name="automations-concepts"></a>
 
 Here are some concepts and terms to know when defining and configuring your app's business logic using automations in App Studio.
 

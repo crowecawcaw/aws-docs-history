@@ -1,7 +1,6 @@
 
 
 # Connect to Amazon Simple Email Service
-<a name="connectors-ses"></a>
 
 To connect App Studio with Amazon SES to enable builders to use it to send email notifications from their apps, you must perform the following steps:
 
@@ -47,7 +46,7 @@ The following policies apply to all Amazon SES resources using the wildcard (`*`
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -95,7 +94,7 @@ Now, create an IAM role that uses the policy you previously created. App Studio 
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

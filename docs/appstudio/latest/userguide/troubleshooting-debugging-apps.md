@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and debugging apps
-<a name="troubleshooting-debugging-apps"></a>
 
 The following topics include information for troubleshooting and debugging App Studio apps.
 

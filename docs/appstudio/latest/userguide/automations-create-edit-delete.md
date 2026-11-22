@@ -1,7 +1,6 @@
 
 
 # Creating, editing, and deleting automations
-<a name="automations-create-edit-delete"></a>
 
 **Contents**
 + [Creating an automation](#automations-create)

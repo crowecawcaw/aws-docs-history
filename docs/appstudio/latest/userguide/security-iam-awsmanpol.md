@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS App Studio
-<a name="security-iam-awsmanpol"></a>
 
 
 
@@ -46,7 +45,7 @@ This policy includes permissions to do the following:
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [

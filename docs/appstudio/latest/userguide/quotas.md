@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS App Studio
-<a name="quotas"></a>
 
 The following table describes quotas and limits for AWS App Studio.
 
