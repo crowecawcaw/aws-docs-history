@@ -1,7 +1,6 @@
 
 
 # Disabling transitive matching
-<a name="disable-transitive-matching"></a>
 
 The `enableTransitiveMatching` setting is immutable. You cannot change this setting after you create a workflow.
 

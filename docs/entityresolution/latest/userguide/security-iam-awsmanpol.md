@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Entity Resolution
-<a name="security-iam-awsmanpol"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Deleting an ID namespace
-<a name="delete-id-namespace"></a>
 
 You can't delete an ID namespace when it's associated to an ID mapping workflow. You must first remove the schema mapping from all associated ID mapping workflows before you can delete it. 
 

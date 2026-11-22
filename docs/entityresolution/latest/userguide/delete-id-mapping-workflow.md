@@ -1,7 +1,6 @@
 
 
 # Deleting an ID mapping workflow
-<a name="delete-id-mapping-workflow"></a>
 
 If you no longer use an ID mapping workflow, deleting it can help streamline your workflow management. In addition, deleting redundant or less efficient ID mapping workflows that serve similar purposes can help you consolidate your processes.
 

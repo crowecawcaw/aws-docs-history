@@ -1,7 +1,6 @@
 
 
 # Running a custom ID mapping workflow
-<a name="run-workflow-new-output-destination"></a>
 
 **Note**  
 This procedure is available for [workflows within a single AWS account](creating-id-mapping-workflow-same-account.md) or [workflows that span two AWS accounts](creating-id-mapping-workflow-two-accounts.md) with incremental processing enabled.

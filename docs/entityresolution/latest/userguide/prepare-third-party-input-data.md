@@ -1,7 +1,6 @@
 
 
 # Preparing third-party input data
-<a name="prepare-third-party-input-data"></a>
 
 Third-party data services provide identifiers that can be matched with your known identifiers. 
 

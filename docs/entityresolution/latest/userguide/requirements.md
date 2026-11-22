@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="requirements"></a>
 
 Before integrating as a provider service with AWS Entity Resolution, complete the following requirements. 
 

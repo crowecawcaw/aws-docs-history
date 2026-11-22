@@ -1,7 +1,6 @@
 
 
 # Editing a matching workflow
-<a name="edit-matching-workflow"></a>
 
 Editing the matching workflow allows you to keep your entity resolution processes up-to-date and responsive to your organization's changing requirements over time. You may want to adjust the matching criteria, techniques, or data outputs to improve the accuracy and efficiency of the entity resolution process. If you identify problems or errors in the results of the current workflow, editing it can help you diagnose and resolve those issues. 
 

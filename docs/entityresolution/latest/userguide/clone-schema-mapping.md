@@ -1,7 +1,6 @@
 
 
 # Cloning a schema mapping
-<a name="clone-schema-mapping"></a>
 
 You can clone a schema mapping if you want to use an existing configuration to create a new schema mapping.
 

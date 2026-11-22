@@ -1,7 +1,6 @@
 
 
 # AWS Entity Resolution Glossary
-<a name="glossary"></a>
 
 ## Amazon Resource Name (ARN)
 <a name="arn-definition"></a>

@@ -1,7 +1,6 @@
 
 
 # Running an ID mapping workflow
-<a name="run-id-mapping-workflow"></a>
 
 After you [create an ID mapping workflow for one AWS account](creating-id-mapping-workflow-same-account.md) or [create an ID mapping workflow across two AWS accounts](creating-id-mapping-workflow-two-accounts.md), you can run the ID mapping workflow. The ID mapping workflow outputs a CSV file.
 

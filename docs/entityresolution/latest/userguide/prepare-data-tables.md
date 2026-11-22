@@ -1,7 +1,6 @@
 
 
 # Prepare input data tables
-<a name="prepare-data-tables"></a>
 
 In AWS Entity Resolution, each of your *input data tables* contain source records. These records contain consumer identifiers such as first name, last name, email address, or phone number. These source records can be matched with other source records that you provide within the same or other input data tables. Each record must have a unique Record ID ([Unique ID](glossary.md#unique-id-defn)) and you must define it as a primary key while creating a schema mapping within AWS Entity Resolution.
 

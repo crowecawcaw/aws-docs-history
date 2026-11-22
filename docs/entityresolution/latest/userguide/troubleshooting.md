@@ -1,7 +1,6 @@
 
 
 # Troubleshooting matching workflows
-<a name="troubleshooting"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when running matching workflows.
 

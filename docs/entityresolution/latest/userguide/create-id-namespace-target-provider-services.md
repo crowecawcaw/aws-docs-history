@@ -1,7 +1,6 @@
 
 
 # Creating an ID namespace target (provider services method)
-<a name="create-id-namespace-target-provider-services"></a>
 
 This topic describes the process of creating an ID namespace target using the **Provider services** method. This method uses a provider service called LiveRamp. LiveRamp translates third-party encoded data from a source to a target during an ID mapping workflow.
 

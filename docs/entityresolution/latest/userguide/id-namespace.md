@@ -1,7 +1,6 @@
 
 
 # Define input data using an ID namespace
-<a name="id-namespace"></a>
 
 An *ID namespace* is a wrapper around your input data table. You use an ID namespace to provide metadata explaining your input data and matching techniques and how to use them in an [ID mapping workflow](create-id-mapping-workflow.md).
 

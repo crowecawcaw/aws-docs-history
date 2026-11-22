@@ -1,7 +1,6 @@
 
 
 # Testing a provider integration
-<a name="testing-provider-integration"></a>
 
 While AWS Entity Resolution hosts data matching services, a provider integration is a crucial third-party component for the end-to-end matching workflow. There are several tests that AWS Entity Resolution has defined for the providers that adds a safeguard when this integration fails. This approach provides an opportunity for providers to monitor their service health according to these end-to-end test cases.
 
@@ -40,7 +39,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a schema mapping for a data source that contains `id` and `email`:
 
-   ```
+   ```json
    [
      {
        "fieldName": "id",
@@ -56,7 +55,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a schema mapping for a data source that contains `id` and `email` using the Java SDK:
 
-   ```
+   ```java
    EntityResolutionClient.createSchemaMapping(
                CreateSchemaMappingRequest.builder()
                                          .schemaName(<schema-name>)
@@ -74,7 +73,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a matching workflow using the Java SDK:
 
-   ```
+   ```java
    EntityResolutionClient.createMatchingWorkflow(
                CreateMatchingWorkflowRequest.builder()
                                             .workflowName(<workflow-name>)
@@ -105,7 +104,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a running matching workflow using the Java SDK:
 
-   ```
+   ```java
    EntityResolutionClient.startMatchingJob(StartMatchingJobRequest.builder()
                    .workflowName(<name-of-workflow-from-step3)
                    .build()
@@ -119,7 +118,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a monitoring a matching workflow job using the Java SDK:
 
-   ```
+   ```java
    EntityResolutionClient.getMatchingJob(GetMatchingJobRequest.builder()
                    .workflowName(<name-of-workflow-from-step3)
                    .jobId(jobId-from-startMatchingJob)
@@ -143,7 +142,7 @@ The following diagram shows a typical end-to-end workflow test case.
 
    The following is an example of a schema mapping for a data source that contains `id` and `email`:
 
-   ```
+   ```json
    [
      {
        "fieldName": "id",

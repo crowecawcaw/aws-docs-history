@@ -1,7 +1,6 @@
 
 
 # Creating a workflow job role for AWS Entity Resolution
-<a name="create-workflow-job-role"></a>
 
 AWS Entity Resolution uses a *workflow job role* to run a workflow. You can create this role using the console if you have the necessary IAM permissions. If you don't have `CreateRole` permissions, ask your administrator to create the role. 
 
@@ -24,7 +23,7 @@ AWS Entity Resolution uses a *workflow job role* to run a workflow. You can crea
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -60,7 +59,7 @@ You don't need to grant AWS KMS permissions if your data sources aren't encrypte
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

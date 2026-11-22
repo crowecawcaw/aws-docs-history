@@ -1,7 +1,6 @@
 
 
 # ID namespace source
-<a name="create-id-namespace-source"></a>
 
 The *ID namespace source* is the source of the data in an [ID mapping workflow](create-id-mapping-workflow.md).
 

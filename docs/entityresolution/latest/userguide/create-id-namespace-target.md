@@ -1,7 +1,6 @@
 
 
 # ID namespace target
-<a name="create-id-namespace-target"></a>
 
 The *ID namespace target* is the target of the data in an [ID mapping workflow](create-id-mapping-workflow.md). All sources resolve to the target.
 

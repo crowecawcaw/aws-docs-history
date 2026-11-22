@@ -1,7 +1,6 @@
 
 
 # How transitive matching works
-<a name="transitive-matching-how-it-works"></a>
 
 Transitive matching uses the following match ID resolution process for each match group on the current rule:
 + The system checks if any record in the group already has a match ID from an earlier rule level.

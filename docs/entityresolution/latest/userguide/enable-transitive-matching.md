@@ -1,7 +1,6 @@
 
 
 # Enabling transitive matching (API)
-<a name="enable-transitive-matching"></a>
 
 **Important**  
 Transitive matching is an API-only feature. You cannot enable transitive matching through the AWS Entity Resolution console.
@@ -10,7 +9,7 @@ To use transitive matching, you must create a new matching workflow with the Adv
 
 Include the `matchingConfig` parameter with `enableTransitiveMatching` set to `true` in the request body. The following example shows a complete `CreateMatchingWorkflow` request body with transitive matching enabled:
 
-```
+```json
 {
    "workflowName": "{{my-transitive-workflow}}",
    "inputSourceConfig": [

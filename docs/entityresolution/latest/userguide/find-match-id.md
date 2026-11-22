@@ -1,7 +1,6 @@
 
 
 # Looking up a Match ID for a rule-based matching workflow
-<a name="find-match-id"></a>
 
 After completing a rule-based matching workflow, you can retrieve the Match ID and associated rule for each processed record. This information helps you understand how records were matched and which rules were applied. The following procedure demonstrates how to access this data using either the AWS Entity Resolution console or the `GetMatchID` API.
 

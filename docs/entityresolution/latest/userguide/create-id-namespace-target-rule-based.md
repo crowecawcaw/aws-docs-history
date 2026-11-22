@@ -1,7 +1,6 @@
 
 
 # Creating an ID namespace target (rule-based method)
-<a name="create-id-namespace-target-rule-based"></a>
 
 This topic describes the process of creating an ID namespace target using the **rule-based** method. This method uses matching rules to translate first-party data from a source to a target during an ID mapping workflow.
 

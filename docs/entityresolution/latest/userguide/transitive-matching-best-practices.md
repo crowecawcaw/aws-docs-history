@@ -1,7 +1,6 @@
 
 
 # Best practices for rule ordering
-<a name="transitive-matching-best-practices"></a>
 
 When you use transitive matching, rule ordering is critical. Follow these best practices:
 + Order rules from most specific (highest confidence) to least specific.

@@ -1,7 +1,6 @@
 
 
 # Creating a machine learning-based matching workflow
-<a name="create-matching-workflow-ml"></a>
 
 *[Machine learning-based matching](glossary.md#ml-matching-defn)* is a preset process that attempts to match records across all of the data that you input. The machine learning-based matching workflow enables you to compare cleartext data to find a broad range of matches using a machine learning model.
 

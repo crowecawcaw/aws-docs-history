@@ -1,7 +1,6 @@
 
 
 # Using transitive matching
-<a name="transitive-matching"></a>
 
 By default, AWS Entity Resolution uses a waterfall matching approach where records that match at a higher rule level are excluded from subsequent rules. This means that only unmatched records are evaluated by the next rule. While this approach works well for single-source matching, it can cause problems when you have multiple data sources with different attributes.
 

@@ -1,7 +1,6 @@
 
 
 # Map input data using an ID mapping workflow
-<a name="create-id-mapping-workflow"></a>
 
 An *ID mapping workflow* is a data processing job that maps data from an input data source to an input data target based on the specified ID mapping method. It produces an ID mapping table. 
 

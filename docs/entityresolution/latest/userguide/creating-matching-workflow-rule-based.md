@@ -1,7 +1,6 @@
 
 
 # Creating a rule-based matching workflow
-<a name="creating-matching-workflow-rule-based"></a>
 
 *[Rule-based matching](glossary.md#rule-based-matching-defn)* is a hierarchical set of waterfall matching rules, suggested by AWS Entity Resolution, based upon the data that you input and is completely configurable by you. The rule-based matching workflow enables you to compare cleartext or hashed data to find exact matches based on criteria that you customize.
 

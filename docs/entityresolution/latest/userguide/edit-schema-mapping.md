@@ -1,7 +1,6 @@
 
 
 # Editing a schema mapping
-<a name="edit-schema-mapping"></a>
 
 You can only edit a schema mapping before you associate it to a workflow. After you've associated a schema mapping to a workflow, you can't edit it. You can clone a schema mapping if you want to use an existing configuration to create a new schema mapping.
 

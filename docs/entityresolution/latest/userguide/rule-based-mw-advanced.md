@@ -1,7 +1,6 @@
 
 
 # Creating a rule-based matching workflow with the Advanced rule type
-<a name="rule-based-mw-advanced"></a>
 
 **Prerequisites**
 
@@ -220,7 +219,7 @@ For a complete list of supported programming languages, see the *[AWS Entity Res
 
 1. For the request body, provide the following required JSON parameters: 
 
-   ```
+   ```json
    {
       "description": "{{string}}",
       "incrementalRunConfig": { 

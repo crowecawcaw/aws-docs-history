@@ -1,7 +1,6 @@
 
 
 # Deleting a matching workflow
-<a name="delete-matching-workflow"></a>
 
 If a matching workflow is no longer being used or has become obsolete, deleting it can help keep your workspace organized and uncluttered. If you've developed a new, improved workflow that replaces an older one, deleting the old workflow can help ensure you're only using the most up-to-date processes.
 

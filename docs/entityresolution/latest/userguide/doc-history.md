@@ -1,7 +1,6 @@
 
 
 # Document history for the AWS Entity Resolution User Guide
-<a name="doc-history"></a>
 
 The following table describes the documentation releases for AWS Entity Resolution. 
 
@@ -38,4 +37,4 @@ For notification about updates to this documentation, you can subscribe to the R
 | [ID mapping workflow](https://docs.aws.amazon.com/entityresolution/latest/userguide/create-id-mapping-workflow.html) | Customers can use this new workflow to specify ID mapping details, choose your desired ID mapping method, and specify data input and output fields. | October 16, 2023 | 
 | [CloudFormation integration](https://docs.aws.amazon.com/entityresolution/latest/userguide/creating-resources-with-cloudformation.html) | AWS Entity Resolution now integrates with CloudFormation. | August 24, 2023 | 
 | [AWS managed policy update - New policies](https://docs.aws.amazon.com/entityresolution/latest/userguide/security-iam-awsmanpol.html) | AWS Entity Resolution added two new managed policies. | August 18, 2023 | 
-| [Initial release](#doc-history) | Initial release of the AWS Entity Resolution User Guide | July 26, 2023 | 
+| [Initial release](doc-history.md) | Initial release of the AWS Entity Resolution User Guide | July 26, 2023 | 

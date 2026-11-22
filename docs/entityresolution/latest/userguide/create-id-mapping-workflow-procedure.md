@@ -1,7 +1,6 @@
 
 
 # Creating an ID mapping workflow (rule-based)
-<a name="create-id-mapping-workflow-procedure"></a>
 
 After you've completed the [prerequisites](create-idmw-two-accounts-prerequisite.md), you can create one or more ID mapping workflows to use matching rules to translate first-party data from a source to a target.
 

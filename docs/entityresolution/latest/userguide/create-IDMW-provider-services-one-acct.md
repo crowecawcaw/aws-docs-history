@@ -1,7 +1,6 @@
 
 
 # Creating an ID mapping workflow (provider services)
-<a name="create-IDMW-provider-services-one-acct"></a>
 
 This topic describes the process of creating an ID mapping workflow for one AWS account using a provider service called LiveRamp. LiveRamp translates a set of source RampIDs to another set using either maintained or derived RampIDs.
 
