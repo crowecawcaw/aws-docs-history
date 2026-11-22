@@ -1,7 +1,6 @@
 
 
 # Understanding ElastiCache and Amazon VPCs
-<a name="VPCs.EC"></a>
 
 ElastiCache is fully integrated with the Amazon Virtual Private Cloud (Amazon VPC). For ElastiCache users, this means the following:
 + If your AWS account supports only the EC2-VPC platform, ElastiCache always launches your cluster in an Amazon VPC.

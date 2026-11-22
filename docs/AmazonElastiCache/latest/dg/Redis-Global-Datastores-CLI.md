@@ -1,7 +1,6 @@
 
 
 # Using global datastores (CLI)
-<a name="Redis-Global-Datastores-CLI"></a>
 
 You can use the AWS Command Line Interface (AWS CLI) to control multiple AWS services from the command line and automate them through scripts. You can use the AWS CLI for ad hoc (one-time) operations. 
 

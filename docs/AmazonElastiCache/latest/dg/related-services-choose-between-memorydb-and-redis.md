@@ -1,7 +1,6 @@
 
 
 # Related services
-<a name="related-services-choose-between-memorydb-and-redis"></a>
 
 [MemoryDB](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html) 
 

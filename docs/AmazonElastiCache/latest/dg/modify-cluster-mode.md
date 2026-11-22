@@ -1,7 +1,6 @@
 
 
 # Modifying cluster mode
-<a name="modify-cluster-mode"></a>
 
 Valkey and Redis OSS are a distributed in-memory databases that supports sharding and replication. ElastiCache Valkey and Redis OSS clusters are the distributed implementation that allows data to be partitioned across multiple nodes. An ElastiCache for Redis OSS cluster has two modes of operation, Cluster mode enabled (CME) and cluster mode disabled (CMD). In CME, a Valkey and Redis OSS engine works as a distributed database with multiple shards and nodes, while in CMD, Valkey and Redis OSS work as a single node.
 
@@ -38,7 +37,7 @@ In compatible mode, other modification operations such as scaling and engine ver
 
    To change the cluster mode to enabled, follow the steps below:
 
-   Before you begin, make sure your Valkey or Redis OSS clients have migrated to using cluster protocol and that the cluster's configuration endpoint is not in use.
+   Before you begin, make sure your Valkey or Redis OSS clients use cluster protocol and connect through the cluster's configuration endpoint.
 
    1. Using the AWS Management Console, see [Modifying a replication group](Replication.Modify.md) and set the cluster mode to **Enabled**.
 

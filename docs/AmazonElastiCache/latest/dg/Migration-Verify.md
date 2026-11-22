@@ -1,7 +1,6 @@
 
 
 # Verifying the data migration progress
-<a name="Migration-Verify"></a>
 
 After data migration to your node-based ElastiCache cluster has begun, you can do the following to track its progress:
 + Verify that Valkey or Redis OSS `master_link_status` is `up` in the `INFO` command on ElastiCache primary node(s). You can also find this information in the ElastiCache console. Select the cluster and under **CloudWatch metrics**, observe **Primary Link Health Status**. After the value reaches 1, the data is in sync. 

@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon ElastiCache
-<a name="IAM"></a>
 
 
 

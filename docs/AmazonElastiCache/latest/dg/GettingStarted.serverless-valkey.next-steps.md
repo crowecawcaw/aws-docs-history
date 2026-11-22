@@ -1,7 +1,6 @@
 
 
 # Next Steps
-<a name="GettingStarted.serverless-valkey.next-steps"></a>
 
 For more information about ElastiCache see the following pages:
 + [Working with ElastiCache](WorkingWithElastiCache.md)

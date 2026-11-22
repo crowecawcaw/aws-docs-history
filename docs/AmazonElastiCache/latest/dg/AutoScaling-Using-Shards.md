@@ -1,7 +1,6 @@
 
 
 # Using Auto Scaling with shards
-<a name="AutoScaling-Using-Shards"></a>
 
 With ElastiCache's AutoScaling you can use tracking and scheduled policies with your Valkey or Redis OSS engine. 
 

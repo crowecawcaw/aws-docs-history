@@ -1,11 +1,10 @@
 
 
 # Use CloudFormation for Auto Scaling policies
-<a name="AutoScaling-with-Cloudformation-Shards"></a>
 
 This snippet shows how to create a target tracking policy and apply it to an [AWS::ElastiCache::ReplicationGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html) resource using the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource. It uses the [Fn::Join](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.html) and [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) intrinsic functions to construct the `ResourceId` property with the logical name of the `AWS::ElastiCache::ReplicationGroup` resource that is specified in the same template. 
 
-```
+```json
 ScalingTarget:
    Type: 'AWS::ApplicationAutoScaling::ScalableTarget'
    Properties:

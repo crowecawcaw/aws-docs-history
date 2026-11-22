@@ -1,7 +1,6 @@
 
 
 # Viewing a Valkey or Redis OSS (Cluster Mode Disabled) with replicas
-<a name="Replication.ViewDetails.Redis"></a>
 
 You can view the details of a Valkey or Redis OSS (cluster mode disabled) cluster with replicas (API/CLI: *replication group*) using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
 

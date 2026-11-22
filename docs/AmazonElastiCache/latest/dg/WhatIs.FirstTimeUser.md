@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache resources for first time users
-<a name="WhatIs.FirstTimeUser"></a>
 
 We recommend that first time users begin by reading the following sections, and refer to them as needed.
 + **Service highlights and pricing** – The [product detail page](https://aws.amazon.com/elasticache/) provides a general product overview of ElastiCache, service highlights, and pricing.

@@ -1,13 +1,12 @@
 
 
 # Distributing reads to replicas (cluster mode disabled)
-<a name="BestPractices.Clients-lettuce-cmd-readfrom"></a>
 
 For cluster mode disabled clusters with replicas, you can use Lettuce's `StaticMasterReplicaTopologyProvider` with the `ReadFrom` setting to direct writes to the primary node and distribute reads across replicas. This improves read throughput by offloading reads from the primary.
 
 Use the primary endpoint for writes and the reader endpoint for reads. The reader endpoint automatically load-balances connections across available replicas.
 
-```
+```java
 // Primary endpoint for writes, reader endpoint for read distribution
 RedisURI primaryURI = RedisURI.Builder.redis("primary-endpoint.cache.amazonaws.com")
     .withPort(6379).withSsl(true).build();

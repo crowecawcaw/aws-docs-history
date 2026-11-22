@@ -1,7 +1,6 @@
 
 
 # Getting started with durability
-<a name="Durability.GettingStarted"></a>
 
 You can create a durable ElastiCache cluster using the AWS Management Console or the AWS CLI.
 
@@ -17,7 +16,7 @@ For more information on creating a cluster, see [Creating a cluster for Valkey o
 
 To create a new durable cluster with synchronous writes:
 
-```
+```bash
 aws elasticache create-replication-group \
   --replication-group-id my-durable-cluster \
   --replication-group-description "ElastiCache durable cluster" \
@@ -32,7 +31,7 @@ aws elasticache create-replication-group \
 
 To create a cluster with asynchronous writes, set `--durability async`:
 
-```
+```bash
 aws elasticache create-replication-group \
   --replication-group-id my-durable-cluster \
   --replication-group-description "ElastiCache durable cluster" \
@@ -47,7 +46,7 @@ aws elasticache create-replication-group \
 
 To switch an existing cluster between synchronous and asynchronous writes, use `modify-replication-group`:
 
-```
+```bash
 aws elasticache modify-replication-group \
   --replication-group-id my-durable-cluster \
   --durability async

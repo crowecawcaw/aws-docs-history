@@ -1,7 +1,6 @@
 
 
 # Connecting to nodes in a Valkey or Redis OSS cluster
-<a name="ClientConfig.ReplicationGroup"></a>
 
 **Note**  
 At this time, clusters (API/CLI: replication groups) that support replication and read replicas are only supported for clusters running Valkey or Redis OSS.
@@ -29,7 +28,7 @@ aws elasticache describe-replication-groups {{redis2x2}}
 
 This command should produce output similar to the following:
 
-```
+```json
 {
     "ReplicationGroups": [
         {

@@ -1,7 +1,6 @@
 
 
 # AWS Regions and Availability Zones
-<a name="WhatIs.AZs"></a>
 
 Amazon cloud computing resources are housed in highly available data center facilities in different areas of the world (for example, North America, Europe, or Asia). Each data center location is called an AWS Region.
 

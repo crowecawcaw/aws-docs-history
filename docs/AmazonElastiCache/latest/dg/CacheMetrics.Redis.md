@@ -1,7 +1,6 @@
 
 
 # Metrics for Valkey and Redis OSS
-<a name="CacheMetrics.Redis"></a>
 
 The `AWS/ElastiCache` namespace includes the following Valkey and Redis OSS metrics. These metrics are the same when using the Valkey engine.
 
@@ -27,16 +26,16 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Count
 
 - **`BytesUsedForCache`**
-  - **Description:** The total number of bytes allocated by Valkey or Redis OSS for all purposes, including the dataset, buffers, and so on.  / **Unit:** Bytes
+  - **Description:** The total number of bytes allocated by Valkey or Redis OSS for all purposes, including the dataset, buffers, and so on. On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).  / **Unit:** Bytes
   - **Description:** Dimension: Tier=Memory for Valkey or Redis OSS clusters using [Data tiering in ElastiCache](data-tiering.md): The total number of bytes used for cache by memory. This is the value of used\_memory statistic at [INFO](https://valkey.io/commands/info).  / **Unit:** Bytes
   - **Description:** Dimension: Tier=SSD for Valkey or Redis OSS clusters using [Data tiering in ElastiCache](data-tiering.md): The total number of bytes used for cache by SSD. / **Unit:** Bytes
 
 - **`BytesReadFromDisk`**
-  - **Description:** The total number of bytes read from disk per minute. Supported only for clusters using [Data tiering in ElastiCache](data-tiering.md).
+  - **Description:** The total number of bytes read from disk per minute. Supported only for clusters using [Data tiering in ElastiCache](data-tiering.md). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Bytes
 
 - **`BytesWrittenToDisk`**
-  - **Description:** The total number of bytes written to disk per minute. Supported only for clusters using [Data tiering in ElastiCache](data-tiering.md).
+  - **Description:** The total number of bytes written to disk per minute. Supported only for clusters using [Data tiering in ElastiCache](data-tiering.md). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Bytes
 
 - **`CacheHits`**
@@ -81,7 +80,7 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Count
 
 - **`DatabaseCapacityUsagePercentage`**
-  - **Description:** Percentage of the total data capacity for the cluster that is in use.<br />On Data Tiered instances, the metric is calculated as `(used_memory - mem_not_counted_for_evict + SSD used) / (maxmemory + SSD total capacity)`, where `used_memory` and `maxmemory` are taken from [INFO](https://valkey.io/commands/info/).<br />In all other cases, the metric is calculated using `used_memory/maxmemory`.
+  - **Description:** Percentage of the total data capacity for the cluster that is in use.<br />On Data Tiered instances, the metric is calculated as `(used_memory - mem_not_counted_for_evict + SSD used) / (maxmemory + SSD total capacity)`, where `used_memory` and `maxmemory` are taken from [INFO](https://valkey.io/commands/info/).<br />In all other cases, the metric is calculated using `used_memory/maxmemory`.<br />On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Percent
 
 - **`DatabaseCapacityUsageCountedForEvictPercentage`**
@@ -89,7 +88,7 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Percent
 
 - **`DatabaseMemoryUsagePercentage`**
-  - **Description:**  Percentage of the memory for the cluster that is in use. This is calculated using used\_memory/maxmemory from [INFO](https://valkey.io/commands/info). 
+  - **Description:**  Percentage of the memory for the cluster that is in use. This is calculated using used\_memory/maxmemory from [INFO](https://valkey.io/commands/info). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics). 
   - **Unit:** Percent
 
 - **`DatabaseMemoryUsageCountedForEvictPercentage`**
@@ -105,7 +104,7 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Percent
 
 - **`Evictions`**
-  - **Description:** The number of keys that have been evicted due to the maxmemory limit. This is derived from the evicted\_keys statistic at [INFO](https://valkey.io/commands/info).
+  - **Description:** The number of keys that have been evicted due to the maxmemory limit. This is derived from the evicted\_keys statistic at [INFO](https://valkey.io/commands/info). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Count
 
 - **`GlobalDatastoreReplicationLag`**
@@ -132,8 +131,20 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Description:**  The number of keys being tracked by Valkey or Redis OSS key tracking as a percentage of tracking-table-max-keys. Key tracking is used to aid client-side caching and notifies clients when keys are modified. 
   - **Unit:** Count
 
+- **`LargeObjectDiskUsedBytes`**
+  - **Description:** The Non-Volatile Memory Express (NVMe) storage used by large objects. Available on distributed KV caching clusters. Use the Average statistic. For more information, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md).
+  - **Unit:** Bytes
+
+- **`LargeObjectDiskUtilization`**
+  - **Description:** The NVMe storage used by large objects, as a percentage of the NVMe storage available to large objects on the node. Available on distributed KV caching clusters. Use the Average statistic. For more information, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md).
+  - **Unit:** Percent
+
+- **`LargeObjectDRAMHitRate`**
+  - **Description:** The percentage of large object reads that the dynamic random-access memory (DRAM) cache serves without reading from NVMe storage. This is not the KV cache hit rate of the inference engine. Available on distributed KV caching clusters. Use the Average statistic. For more information, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md).
+  - **Unit:** Percent
+
 - **`MemoryFragmentationRatio`**
-  - **Description:**  Indicates the efficiency in the allocation of memory of the Valkey or Redis OSS engine. Certain thresholds signify different behaviors. The recommended value is to have fragmentation above 1.0. This is calculated from the mem\_fragmentation\_ratio statistic of [INFO](https://valkey.io/commands/info). 
+  - **Description:**  Indicates the efficiency in the allocation of memory of the Valkey or Redis OSS engine. Certain thresholds signify different behaviors. The recommended value is to have fragmentation above 1.0. This is calculated from the mem\_fragmentation\_ratio statistic of [INFO](https://valkey.io/commands/info). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics). 
   - **Unit:** Number
 
 - **`NewConnections`**
@@ -217,11 +228,11 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Bytes
 
 - **`AllocatorFragmentationBytes`**
-  - **Description:** The amount of memory in bytes wasted due to allocator fragmentation. Unlike MemoryFragmentationRatio, which reflects total process RSS overhead including non-actionable OS-level factors, this metric isolates fragmentation that the activedefrag engine parameter can address. This is derived from the allocator\_frag\_bytes field at [INFO](https://valkey.io/commands/info).
+  - **Description:** The amount of memory in bytes wasted due to allocator fragmentation. Unlike MemoryFragmentationRatio, which reflects total process RSS overhead including non-actionable OS-level factors, this metric isolates fragmentation that the activedefrag engine parameter can address. This is derived from the allocator\_frag\_bytes field at [INFO](https://valkey.io/commands/info). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Bytes
 
 - **`AllocatorFragmentationRatio`**
-  - **Description:** The ratio of allocator fragmentation relative to total allocated memory. Values above 1.0 represent fragmentation; the higher the value, the more severe the fragmentation. Unlike MemoryFragmentationRatio, which reflects total process RSS overhead including non-actionable OS-level factors, this metric isolates fragmentation that the activedefrag engine parameter can address. This is derived from the allocator\_frag\_ratio field at [INFO](https://valkey.io/commands/info).
+  - **Description:** The ratio of allocator fragmentation relative to total allocated memory. Values above 1.0 represent fragmentation; the higher the value, the more severe the fragmentation. Unlike MemoryFragmentationRatio, which reflects total process RSS overhead including non-actionable OS-level factors, this metric isolates fragmentation that the activedefrag engine parameter can address. This is derived from the allocator\_frag\_ratio field at [INFO](https://valkey.io/commands/info). On distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
   - **Unit:** Number
 
 - **`ProcessedCommands`**
@@ -244,7 +255,7 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
 
 The following are aggregations of certain kinds of commands, derived from **info commandstats**. The commandstats section provides statistics based on the command type, including the number of calls, the total CPU time consumed by these commands, and the average CPU consumed per command execution. For each command type, the following line is added: `cmdstat_XXX: calls=XXX,usec=XXX,usec_per_call=XXX`.
 
-The latency metrics listed following are calculated using commandstats statistic from [INFO](https://valkey.io/commands/info). They are calculated in the following way: `delta(usec)/delta(calls)`. `delta` is calculated as the diff within one minute. Latency is defined as CPU time taken by ElastiCache to process the command. Note that for clusters using data tiering, the time taken to fetch items from SSD is not included in these measurements.
+The latency metrics listed following are calculated using commandstats statistic from [INFO](https://valkey.io/commands/info). They are calculated in the following way: `delta(usec)/delta(calls)`. `delta` is calculated as the diff within one minute. Latency is defined as CPU time taken by ElastiCache to process the command. Note that for clusters using data tiering, the time taken to fetch items from SSD is not included in these measurements. For distributed KV caching clusters, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md).
 
 For a full list of available commands, see [commands](https://valkey.io/commands) in the Valkey documentation. 
 
@@ -257,8 +268,8 @@ For a full list of available commands, see [commands](https://valkey.io/commands
 | EvalBasedCmdsLatency | Latency of eval-based commands. | Microseconds | 
 | GeoSpatialBasedCmds | The total number of commands for geospatial-based commands. This is derived from the commandstats statistic. It's derived by summing all of the geo type of commands: geoadd, geodist, geohash, geopos, georadius, and georadiusbymember. | Count | 
 | GeoSpatialBasedCmdsLatency | Latency of geospatial-based commands.  | Microseconds | 
-| GetTypeCmds | The total number of read-only type commands. This is derived from the commandstats statistic by summing all of the read-only type commands (get, hget, scard, lrange, and so on.) | Count | 
-|  GetTypeCmdsLatency |  Latency of read commands.  | Microseconds | 
+| GetTypeCmds | The total number of read-only type commands. This is derived from the commandstats statistic by summing all of the read-only type commands (get, hget, scard, lrange, and so on.) On distributed KV caching clusters, this metric includes the large object read commands, and BLOB.INFO counts as a read command. | Count | 
+|  GetTypeCmdsLatency |  Latency of read commands. On distributed KV caching clusters, this metric includes the large object read commands.  | Microseconds | 
 | HashBasedCmds | The total number of commands that are hash-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more hashes (hget, hkeys, hvals, hdel, and so on). | Count | 
 |  HashBasedCmdsLatency |  Latency of hash-based commands.  | Microseconds | 
 | HyperLogLogBasedCmds | The total number of HyperLogLog-based commands. This is derived from the commandstats statistic by summing all of the pf type of commands (pfadd, pfcount, pfmerge, and so on.). | Count | 
@@ -271,6 +282,8 @@ For a full list of available commands, see [commands](https://valkey.io/commands
 | JsonBasedSetCmdsLatency | Latency of JSON write commands. | Microseconds | 
 | KeyBasedCmds | The total number of commands that are key-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more keys across multiple data structures (del, expire, rename, and so on.). | Count | 
 |  KeyBasedCmdsLatency |  Latency of key-based commands.  | Microseconds | 
+| LargeObjectBasedCmds | The total number of large object commands, including read and write commands over TCP and remote direct memory access (RDMA). Available on distributed KV caching clusters. Use the Sum statistic. For more information, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md). | Count | 
+| LargeObjectBasedCmdsLatency | The latency of all large object commands. This metric isn't limited to CPU time. It includes the time spent on disk and RDMA transfers. Available on distributed KV caching clusters. Use the Average statistic. For more information, see [Monitoring distributed KV caching](distributed-kv-caching-monitoring.md). | Microseconds | 
 | ListBasedCmds | The total number of commands that are list-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more lists (lindex, lrange, lpush, ltrim, and so on). | Count | 
 |  ListBasedCmdsLatency |  Latency of list-based commands.  | Microseconds | 
 | NonKeyTypeCmds | The total number of commands that are not key-based. This is derived from the commandstats statistic by summing all of the commands that do not act upon a key, for example, acl, dbsize or info. | Count | 
@@ -279,8 +292,8 @@ For a full list of available commands, see [commands](https://valkey.io/commands
 | PubSubBasedCmdsLatency | Latency of pub/sub-based commands. | Microseconds | 
 | SetBasedCmds | The total number of commands that are set-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more sets (scard, sdiff, sadd, sunion, and so on). | Count | 
 |  SetBasedCmdsLatency |  Latency of set-based commands.  | Microseconds | 
-| SetTypeCmds | The total number of write types of commands. This is derived from the commandstats statistic by summing all of the mutative types of commands that operate on data (set, hset, sadd, lpop, and so on.) | Count | 
-|  SetTypeCmdsLatency |  Latency of write commands.  | Microseconds | 
+| SetTypeCmds | The total number of write types of commands. This is derived from the commandstats statistic by summing all of the mutative types of commands that operate on data (set, hset, sadd, lpop, and so on.) On distributed KV caching clusters, this metric includes the large object write commands. | Count | 
+|  SetTypeCmdsLatency |  Latency of write commands. On distributed KV caching clusters, this metric includes the large object write commands.  | Microseconds | 
 | SortedSetBasedCmds | The total number of commands that are sorted set-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more sorted sets (zcount, zrange, zrank, zadd, and so on). | Count | 
 |  SortedSetBasedCmdsLatency |  Latency of sorted-based commands.  | Microseconds | 
 | StringBasedCmds | The total number of commands that are string-based. This is derived from the commandstats statistic by summing all of the commands that act upon one or more strings (strlen, setex, setrange, and so on). | Count | 

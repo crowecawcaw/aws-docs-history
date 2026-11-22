@@ -1,7 +1,6 @@
 
 
 # Search write throttling
-<a name="Durability.SearchThrottling"></a>
 
 Search write throttling applies only to node-based clusters with durability enabled. On ElastiCache Serverless, search commands follow the same ElastiCache Processing Unit (ECPU) limits as all other commands. To maintain optimal performance and data durability, ElastiCache in **durable mode** implements write throttling on search traffic when necessary. Throttling helps ensure that automatic backup mechanisms operate effectively without falling behind during periods of high write activity. By temporarily reducing write throughput, the system preserves the integrity of the Multi-AZ transactional log, which is essential for fast database recovery and restart.
 

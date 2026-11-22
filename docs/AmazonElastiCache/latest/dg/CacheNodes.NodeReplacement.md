@@ -1,7 +1,6 @@
 
 
 # Replacing nodes (Valkey and Redis OSS)
-<a name="CacheNodes.NodeReplacement"></a>
 
 Amazon ElastiCache frequently upgrades its fleet with patches and upgrades being applied to instances seamlessly. However, from time to time we need to relaunch your ElastiCache nodes to apply mandatory OS updates to the underlying host. These replacements are required to apply upgrades that strengthen security, reliability, and operational performance.
 

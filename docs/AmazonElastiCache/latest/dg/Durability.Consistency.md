@@ -1,7 +1,6 @@
 
 
 # Consistency
-<a name="Durability.Consistency"></a>
 
 **Synchronous writes**
 

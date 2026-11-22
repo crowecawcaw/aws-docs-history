@@ -1,7 +1,6 @@
 
 
 # Adding Auto Discovery to your Memcached client library
-<a name="AutoDiscovery.AddingToYourClientLibrary"></a>
 
 The configuration information for Auto Discovery is stored redundantly in each Memcached cluster node. Client applications can query any cache node and obtain the configuration information for all of the nodes in the cluster.
 

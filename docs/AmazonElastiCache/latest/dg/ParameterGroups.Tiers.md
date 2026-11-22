@@ -1,7 +1,6 @@
 
 
 # Cache parameter group tiers in ElastiCache
-<a name="ParameterGroups.Tiers"></a>
 
 Amazon ElastiCache has three tiers of cache parameter groups as shown following.
 

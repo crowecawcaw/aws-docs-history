@@ -1,7 +1,6 @@
 
 
 # Deleting a read replica for Valkey or Redis OSS (Cluster Mode Disabled)
-<a name="Replication.RemoveReadReplica"></a>
 
 Information in the following topic applies to Valkey or Redis OSS (cluster mode disabled) replication groups only.
 

@@ -1,7 +1,6 @@
 
 
 # Finding connection endpoints in ElastiCache
-<a name="Endpoints"></a>
 
 Your application connects to your ElastiCache cluster using endpoints. An endpoint is a node or cluster's unique address.
 
@@ -206,7 +205,7 @@ aws elasticache describe-cache-clusters ^
 ```
 Output from the above operation should look something like this (JSON format).  
 
-```
+```json
 {
    "CacheClusters": [
    {
@@ -294,7 +293,7 @@ aws elasticache describe-cache-clusters ^
 ```
 Output from the above operation should look something like this (JSON format).  
 
-```
+```json
 {
     "CacheClusters": [
         {
@@ -368,7 +367,7 @@ aws elasticache describe-replication-groups ^
 
 Output from this operation should look something like this (JSON format).
 
-```
+```json
 {
    "ReplicationGroups": [
      {

@@ -1,7 +1,6 @@
 
 
 # Role-Based Access Control (RBAC)
-<a name="Clusters.RBAC"></a>
 
 With the Valkey and Redis OSS AUTH command as described in [Authenticating with the Valkey and Redis OSS AUTH command](auth.md) you can use Role-Based Access Control (RBAC). RBAC is also the only way to control access to serverless caches. This is available for Valkey 7.2 and onward, and Redis OSS 6.0 to 7.2. 
 
@@ -375,7 +374,7 @@ Any open connections belonging to a user removed from a user group are ended by 
 
 To see a list of user groups, you can call the [describe-user-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-user-groups.html) operation.
 
-```
+```json
 aws elasticache describe-user-groups \
   --user-group-id test-group
 ```

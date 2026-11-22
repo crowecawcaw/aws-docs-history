@@ -1,7 +1,6 @@
 
 
 # Auto Scaling Valkey and Redis OSS clusters
-<a name="AutoScaling"></a>
 
 ## Prerequisites
 <a name="AutoScaling-Prerequisites"></a>
@@ -12,6 +11,7 @@ ElastiCache Auto Scaling is limited to the following:
 + Instance sizes - Large, XLarge, 2XLarge
 + Instance type families - R8g, R8gd, R7g, R7gd, R6g, R6gd, R5, M8g, M7g, M6g, M5, C8gn, C7gn
 + Auto Scaling in ElastiCache is not supported for clusters running in Global datastores, Outposts or Local Zones.
++ Auto Scaling is not supported for distributed KV caching clusters (`cache.i8ge.48xlarge`). For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 
 ## Managing Capacity Automatically with ElastiCache Auto Scaling with Valkey or Redis OSS
 <a name="AutoScaling-Managing"></a>
@@ -58,7 +58,7 @@ ElastiCache for Valkey and Redis OSS Auto Scaling is made possible by a combinat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

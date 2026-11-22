@@ -1,7 +1,6 @@
 
 
 # Scaling ElastiCache
-<a name="Scaling"></a>
 
 You can scale your ElastiCache cache to suit your needs. Serverless caches and node-based clusters offer several different scaling options.
 + [Considerations](Scaling-considerations.md)

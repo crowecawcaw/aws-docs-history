@@ -1,7 +1,6 @@
 
 
 # Monitoring CloudWatch Cluster and Node Metrics
-<a name="CloudWatchMetrics"></a>
 
 ElastiCache and CloudWatch are integrated so you can gather a variety of metrics. You can monitor these metrics using CloudWatch. 
 

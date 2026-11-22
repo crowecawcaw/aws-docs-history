@@ -1,7 +1,6 @@
 
 
 # Deleting a replication group
-<a name="Replication.DeletingRepGroup"></a>
 
 If you no longer need one of your clusters with replicas (called *replication groups* in the API/CLI), you can delete it. When you delete a replication group, ElastiCache deletes all of the nodes in that group.
 

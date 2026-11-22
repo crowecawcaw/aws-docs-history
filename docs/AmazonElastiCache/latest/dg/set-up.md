@@ -1,7 +1,6 @@
 
 
 # Setting up ElastiCache
-<a name="set-up"></a>
 
 To use the ElastiCache web service, follow these steps.
 

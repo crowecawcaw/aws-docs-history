@@ -1,7 +1,6 @@
 
 
 # Managing your node-based cluster in ElastiCache
-<a name="manage-self-designed-cluster"></a>
 
 ElastiCache offers two deployment options, serverless caches and node-based clusters. Each have their own capabilities and requirements.
 

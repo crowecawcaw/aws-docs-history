@@ -1,13 +1,12 @@
 
 
 # JSON.TYPE
-<a name="json-type"></a>
 
 Reports the type of values at the given path.
 
 Syntax
 
-```
+```json
 JSON.TYPE <key> [path]
 ```
 + key (required) – A Valkey or Redis OSS key of JSON document type.
@@ -29,7 +28,7 @@ If the path is restricted syntax:
 
 Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[1, 2.3, "foo", true, null, {}, []]'
 OK
 127.0.0.1:6379> JSON.TYPE k1 $[*]
@@ -44,7 +43,7 @@ OK
 
 Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"firstName":"John","lastName":"Smith","age":27,"weight":135.25,"isAlive":true,"address":{"street":"21 2nd Street","city":"New York","state":"NY","zipcode":"10021-3100"},"phoneNumbers":[{"type":"home","number":"212 555-1234"},{"type":"office","number":"646 555-4567"}],"children":[],"spouse":null}'
 OK
 127.0.0.1:6379> JSON.TYPE k1

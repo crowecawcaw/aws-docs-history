@@ -1,7 +1,6 @@
 
 
 # Managing ElastiCache cluster maintenance
-<a name="maintenance-window"></a>
 
 Every cluster has a weekly maintenance window during which any system changes are applied. With Valkey and Redis OSS, replication groups have this same weekly maintenance window. If you don't specify a preferred maintenance window when you create or modify a cluster or replication group, ElastiCache assigns a 60-minute maintenance window within your region's maintenance window on a randomly chosen day of the week.
 

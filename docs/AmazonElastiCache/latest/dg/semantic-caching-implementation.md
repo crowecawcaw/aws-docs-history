@@ -1,7 +1,6 @@
 
 
 # Implementing a semantic cache with ElastiCache for Valkey
-<a name="semantic-caching-implementation"></a>
 
 The following walkthrough shows how to implement a read-through semantic cache using ElastiCache for Valkey with Amazon Bedrock.
 
@@ -10,7 +9,7 @@ The following walkthrough shows how to implement a read-through semantic cache u
 
 Create an ElastiCache for Valkey cluster with version 8.2 or later using the AWS CLI:
 
-```
+```bash
 aws elasticache create-replication-group \
   --replication-group-id "valkey-semantic-cache" \
   --cache-node-type cache.r7g.large \
@@ -25,7 +24,7 @@ aws elasticache create-replication-group \
 
 From your application code running on your Amazon EC2 instance, connect to the ElastiCache cluster and set up the embedding model:
 
-```
+```python
 from valkey.cluster import ValkeyCluster
 from langchain_aws import BedrockEmbeddings
 
@@ -50,7 +49,7 @@ Replace the host value with your ElastiCache cluster's configuration endpoint. F
 
 Configure a ValkeyStore that automatically embeds queries using an HNSW index with COSINE distance for vector search:
 
-```
+```python
 from langgraph_checkpoint_aws import ValkeyStore
 from hashlib import md5
 
@@ -80,7 +79,7 @@ ElastiCache for Valkey uses an index to provide fast and accurate vector search.
 
 Create functions to search the cache for semantically similar queries and to store new query-response pairs:
 
-```
+```python
 def search_cache(user_message: str, k: int = 3, min_similarity: float = 0.8):
     """Look up a semantically similar cached response from ElastiCache."""
     hits = store.search(
@@ -120,7 +119,7 @@ def store_cache(user_message: str, result_message: str):
 
 Integrate the cache into your application's request handling:
 
-```
+```python
 import time
 
 def handle_query(user_message: str) -> dict:

@@ -1,7 +1,6 @@
 
 
 # Durability options
-<a name="Durability.Options"></a>
 
 ElastiCache for Valkey offers two durability options: synchronous and asynchronous writes.
 

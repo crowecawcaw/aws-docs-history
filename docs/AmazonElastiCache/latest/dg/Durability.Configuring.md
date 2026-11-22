@@ -1,7 +1,6 @@
 
 
 # Configuring durability
-<a name="Durability.Configuring"></a>
 
 When creating an ElastiCache cluster, you can set the `--durability` parameter to one of the following values:
 

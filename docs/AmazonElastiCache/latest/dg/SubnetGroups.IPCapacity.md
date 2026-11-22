@@ -1,7 +1,6 @@
 
 
 # IP address capacity for scaling operations
-<a name="SubnetGroups.IPCapacity"></a>
 
 When you scale out a cluster by adding shards or replicas, Amazon ElastiCache provisions new nodes. Each node requires an available IP address in a subnet within the target Availability Zone. If the subnets in an Availability Zone don't have enough free IP addresses, the scaling operation fails.
 

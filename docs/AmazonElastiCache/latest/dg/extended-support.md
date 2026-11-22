@@ -1,7 +1,6 @@
 
 
 # ElastiCache Extended Support
-<a name="extended-support"></a>
 
 With ElastiCache Extended Support, you can continue running your cache on a major engine version past the end of standard support date for an additional cost. If you don't upgrade after the end of standard support date, you will be charged. 
 

@@ -1,7 +1,6 @@
 
 
 # Log delivery
-<a name="Log_Delivery"></a>
 
 **Note**  
 Log delivery is not supported for serverless caches.  
@@ -73,7 +72,7 @@ Slow log supports both JSON and TEXT
 
 The following shows a JSON format example:
 
-```
+```json
 {
   "CacheClusterId": "logslowxxxxmsxj", 
   "CacheNodeId": "0001", 
@@ -99,7 +98,7 @@ Engine log supports both JSON and TEXT
 
 The following shows a JSON format example:
 
-```
+```json
 { 
   "CacheClusterId": "xxxxxxxxxzy-engine-log-test", 
   "CacheNodeId": "0001", 

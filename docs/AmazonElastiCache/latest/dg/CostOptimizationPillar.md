@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache Well-Architected Lens Cost Optimization Pillar
-<a name="CostOptimizationPillar"></a>
 
 The cost optimization pillar focuses on avoiding unnecessary costs. Key topics include understanding and controlling where money is being spent, selecting the most appropriate node type (use instances that support data tiering based on workload needs), the right number of resource types (how many read replicas) , analyzing spend over time, and scaling to meet business needs without overspending.
 

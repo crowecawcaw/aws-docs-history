@@ -1,7 +1,6 @@
 
 
 # ElastiCache in-transit encryption (TLS)
-<a name="in-transit-encryption"></a>
 
 To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server. By providing in-transit encryption capability, ElastiCache gives you a tool you can use to help protect your data when it is moving from one location to another. 
 
@@ -53,6 +52,7 @@ The following constraints on Amazon ElastiCache in-transit encryption should be 
 + In-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`.
 + Ensure that your caching client supports TLS connectivity and that you have enabled it in client configuration. 
 + Starting April 28, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs. 
++ Distributed KV caching clusters require in-transit encryption with `TransitEncryptionMode` set to `required`. You can't turn off in-transit encryption or change this mode on these clusters. The data of `BLOB.RDMA_*` commands moves over Elastic Fabric Adapter (EFA), not TLS. The Nitro hardware encrypts this traffic for supported client instance types in the same VPC. For more information, see [Security in distributed KV caching](distributed-kv-caching-security.md).
 
 **Note**  
 Caches with a public endpoint require TLS 1.3. TLS 1.2 and earlier are not supported for public endpoint connections.

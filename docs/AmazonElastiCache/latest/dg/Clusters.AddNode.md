@@ -1,7 +1,6 @@
 
 
 # Adding nodes to an ElastiCache cluster
-<a name="Clusters.AddNode"></a>
 
 Adding nodes to a Memcached cluster increases the number of your cluster's partitions. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node. Remapping key spaces temporarily increases the number of cache misses on the cluster. For more information, see [Configuring your ElastiCache client for efficient load balancing (Memcached)](BestPractices.LoadBalancing.md).
 
@@ -116,7 +115,7 @@ aws elasticache modify-cache-cluster ^
 
 This operation produces output similar to the following (JSON format):
 
-```
+```json
 {
     "CacheCluster": {
         "Engine": "memcached", 
@@ -187,7 +186,7 @@ aws elasticache increase-replica-count ^
 
 This operation produces output similar to the following (JSON format):
 
-```
+```json
 {
     "ReplicationGroup": {
         "ReplicationGroupId": "node-test",

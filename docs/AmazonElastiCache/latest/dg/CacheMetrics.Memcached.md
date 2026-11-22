@@ -1,7 +1,6 @@
 
 
 # Metrics for Memcached
-<a name="CacheMetrics.Memcached"></a>
 
 The `AWS/ElastiCache` namespace includes the following Memcached metrics.
 

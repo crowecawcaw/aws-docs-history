@@ -1,7 +1,6 @@
 
 
 # Overview of semantic caching
-<a name="semantic-caching-overview"></a>
 
 Unlike traditional caches that rely on exact string matches, a semantic cache retrieves data based on semantic similarity. A semantic cache uses vector embeddings produced by models like Amazon Titan Text Embeddings to capture semantic meaning in a high-dimensional vector space.
 

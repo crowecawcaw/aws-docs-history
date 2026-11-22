@@ -1,7 +1,6 @@
 
 
 # On-demand scaling for Memcached clusters
-<a name="Scaling-self-designed.mem-heading"></a>
 
 ElastiCache for Memcached offers a fully managed, in-memory caching service that deploys, operates, and vertically scales Memcached in the AWS cloud. 
 

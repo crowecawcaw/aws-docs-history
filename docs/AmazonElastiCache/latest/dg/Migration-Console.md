@@ -1,7 +1,6 @@
 
 
 # Performing online data migration using the Console
-<a name="Migration-Console"></a>
 
 You can use the AWS Management Console to migrate your data from a self-managed Valkey or Redis OSS source on Amazon EC2 to a node-based ElastiCache cluster.
 

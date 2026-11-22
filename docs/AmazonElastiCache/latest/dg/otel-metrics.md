@@ -1,9 +1,8 @@
 
 
 # Monitoring ElastiCache with OpenTelemetry metrics
-<a name="otel-metrics"></a>
 
-Amazon ElastiCache emits OpenTelemetry (OTLP) metrics for node-based Valkey replication groups to Amazon CloudWatch. These metrics give you a detailed view of your replication group, with a broad set of metrics from the cache engine and the host, rich attributes for filtering and aggregation, and support for querying with PromQL.
+Amazon ElastiCache emits OpenTelemetry Protocol (OTLP) metrics for node-based Valkey replication groups to Amazon CloudWatch. These metrics give you a detailed view of your replication group, with a broad set of metrics from the cache engine and the host. They include rich attributes for filtering and aggregation, and you can query them with Prometheus Query Language (PromQL).
 
 A core set of vended metrics is emitted automatically, at 60-second granularity, at no additional cost. You can also select any metric with a [resource metrics configuration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/resource-metrics-configuration.html) to be emitted at 15-second granularity. Selected metrics are charged by CloudWatch. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
@@ -182,12 +181,15 @@ A query is a metric name followed by any number of attribute matchers, enclosed 
 100 * {"valkey.memory.used",
        "@resource.aws.elasticache.replication_group.id"="my-cluster",
        "@resource.aws.elasticache.node.id"="my-cluster-0001-001"}
-    / {"valkey.memory.max",
+    / on ("@resource.aws.elasticache.node.id") group_left
+      {"valkey.memory.max",
        "@resource.aws.elasticache.replication_group.id"="my-cluster",
        "@resource.aws.elasticache.node.id"="my-cluster-0001-001"}
 ```
 
-PromQL pairs up time series that have identical attributes and calculates a result for each pair. Both metrics here are emitted by the same node, so they pair up; if the two sides carried different attributes, the query would return no result.
+PromQL matches two series only if all their attributes, except the metric name, are the same. Two ElastiCache metrics from the same node can still differ. Each series carries attributes for its OpenTelemetry type. For example, `valkey.memory.used` is an UpDownCounter (a value that can increase or decrease) and `valkey.memory.max` is a gauge. Each series also carries an attribute, `vended` or `detailed`, that shows whether you selected the metric for detailed monitoring.
+
+`on ("@resource.aws.elasticache.node.id")` matches the two sides on the node alone. `group_left` keeps the attributes of the left-hand series in the result, so the query works whatever the metric types and selections are.
 
 #### Convert a counter to a rate: Inbound network throughput of each node
 <a name="otel-metrics.querying.key-promql-capabilities.convert-a-counter-to-a-rate-inbound-network-throughput-of-each-node"></a>
@@ -337,8 +339,9 @@ Three characteristics of a PromQL alarm affect how you write the query.
 **The threshold is part of the query.** You add a comparison operator and a value to the query, and the query returns only the series that satisfy the comparison. For example, this query returns a series only for nodes that are using more than 90 percent of their memory limit:
 
 ```
-100 * {"valkey.memory.used",    "@resource.aws.elasticache.replication_group.id"="my-cluster"}
-    / {"valkey.memory.max",     "@resource.aws.elasticache.replication_group.id"="my-cluster"}
+100 * {"valkey.memory.used", "@resource.aws.elasticache.replication_group.id"="my-cluster"}
+    / on ("@resource.aws.elasticache.node.id") group_left
+      {"valkey.memory.max",  "@resource.aws.elasticache.replication_group.id"="my-cluster"}
     > 90
 ```
 

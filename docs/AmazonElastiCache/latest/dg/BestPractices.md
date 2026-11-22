@@ -1,7 +1,6 @@
 
 
 # ElastiCache best practices and caching strategies
-<a name="BestPractices"></a>
 
 Below you can find recommended best practices for Amazon ElastiCache. Following these improves your cache's performance and reliability. 
 

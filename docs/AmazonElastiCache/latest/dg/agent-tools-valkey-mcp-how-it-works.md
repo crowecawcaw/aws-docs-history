@@ -1,7 +1,6 @@
 
 
 # How Valkey MCP Server works
-<a name="agent-tools-valkey-mcp-how-it-works"></a>
 
 The Valkey MCP server gives your agent a set of structured tools for working with the configured Valkey datastore. When you make a request, the agent selects the appropriate tool, provides the required parameters, and receives the result directly from Valkey. The server handles command construction and validation, so the agent does not need to generate client code or manually format Valkey commands.
 

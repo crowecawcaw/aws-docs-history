@@ -1,7 +1,6 @@
 
 
 # Why ElastiCache for Valkey for semantic caching
-<a name="semantic-caching-why-elasticache"></a>
 
 Semantic caching workloads continuously write, search, and evict cache entries to serve the stream of incoming user queries while keeping responses fresh. The cache store must meet the following requirements:
 + **Real-time vector updates** – New queries and responses must be immediately available in the cache to maintain hit rates.

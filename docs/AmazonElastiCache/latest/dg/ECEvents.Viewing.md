@@ -1,7 +1,6 @@
 
 
 # Viewing ElastiCache events
-<a name="ECEvents.Viewing"></a>
 
 ElastiCache logs events that relate to your cluster instances, security groups, and parameter groups. This information includes the date and time of the event, the source name and source type of the event, and a description of the event. You can easily retrieve events from the log using the ElastiCache console, the AWS CLI `describe-events` command, or the ElastiCache API action `DescribeEvents`. 
 
@@ -41,7 +40,7 @@ aws elasticache describe-events --source-type cache-cluster --duration 1440
 
 The output from the `describe-events` command looks something like this.
 
-```
+```json
 aws elasticache describe-events --source-type cache-cluster --max-items 40  
 {
     "Events": [

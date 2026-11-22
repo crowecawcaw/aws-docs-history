@@ -1,7 +1,6 @@
 
 
 # Getting started with Bloom filters
-<a name="BloomFilters"></a>
 
 ElastiCache supports the Bloom filter data structure, which provides a space efficient probabilistic data structure to check if an element is a member of a set. When using Bloom filters, false positives are possible—a filter can incorrectly indicate that an element exists, even though that element was not added to the set. However, using Bloom filters will prevent false *negatives*—incorrect indications that an element does *not* exist, even though that element was added to the set. 
 

@@ -1,7 +1,6 @@
 
 
 # Choosing your node size
-<a name="CacheNodes.SelectSize"></a>
 
 The node size you select for your ElastiCache cluster impacts costs, performance, and fault tolerance. 
 
@@ -19,6 +18,9 @@ Answering the following questions can help you determine the minimum node type y
   If this is the case, you can leverage data tiering by choosing a data tiering node type. The r7gd and r8gd families require Valkey 7.2 or later. The r6gd family requires Valkey 7.2 or later, or Redis OSS 6.2 or later. With data tiering, least-recently used data is stored in SSD. When it is retrieved there is a small latency cost, which is balanced by cost savings. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
++ Do you cache key-value (KV) state for self-hosted large language model (LLM) inference?
+
+  If this is the case, choose the `cache.i8ge.48xlarge` node type. For more information, see [Distributed KV caching](distributed-kv-caching.md).
 + How much total memory do you need for your data?
 
   To get a general estimate, take the size of the items that you want to cache. Multiply this size by the number of items that you want to keep in the cache at the same time. To get a reasonable estimation of the item size, first serialize your cache items, then count the characters. Then divide this over the number of shards in your cluster.

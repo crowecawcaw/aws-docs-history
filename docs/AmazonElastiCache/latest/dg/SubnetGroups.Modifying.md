@@ -1,7 +1,6 @@
 
 
 # Modifying a subnet group
-<a name="SubnetGroups.Modifying"></a>
 
 You can modify a subnet group's description, or modify the list of subnet IDs associated with the subnet group. You cannot delete a subnet ID from a subnet group if a cache is currently using that subnet.
 
@@ -49,7 +48,7 @@ aws elasticache modify-cache-subnet-group ^
 
 This command should produce output similar to the following:
 
-```
+```json
 {
     "CacheSubnetGroup": {
         "VpcId": "vpc-73cd3c17", 

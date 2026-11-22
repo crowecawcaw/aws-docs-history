@@ -1,7 +1,6 @@
 
 
 # Common ElastiCache Use Cases and How ElastiCache Can Help
-<a name="elasticache-use-cases"></a>
 
 Whether serving the latest news, a top-10 leaderboard, a product catalog, or selling tickets to an event, speed is the name of the game. The success of your website and business is greatly affected by the speed at which you deliver content. 
 
@@ -19,6 +18,7 @@ The following examples illustrate some of the ways using ElastiCache can improve
 + [Messaging (Pub/Sub)](#elasticache-for-redis-use-cases-messaging)
 + [Recommendation Data (Hashes)](#elasticache-for-redis-use-cases-recommendations)
 + [Semantic caching for generative AI applications](#elasticache-for-redis-use-cases-semantic-caching)
++ [KV caching for LLM inference](#elasticache-for-redis-use-cases-kv-caching)
 + [Durability for system-of-record workloads](#elasticache-use-cases-durability)
 + [ElastiCache Customer Testimonials](#elasticache-use-cases-testimonials)
 + [Using Amazon ElastiCache for Valkey for semantic caching](semantic-caching.md)
@@ -216,6 +216,11 @@ The following diagram illustrates an example architecture using ElastiCache to i
 **Semantic Search**
 
 Vector search retrieves the most relevant text, speech, image, or video data based on closeness in meaning or features. This capability enables machine learning applications that rely on similarity search across diverse data modalities, including recommendation engines, anomaly detection, personalization, and knowledge management systems. Recommendation systems use vector representations to capture complex patterns in user behavior and item characteristics, enabling them to suggest the most relevant content. Vector search for ElastiCache is well suited for these applications because of its near real-time updates and low latency, enabling similarity comparisons that deliver instant, highly relevant recommendations based on live user interactions.
+
+## KV caching for LLM inference
+<a name="elasticache-for-redis-use-cases-kv-caching"></a>
+
+When you host your own LLM inference engines, such as vLLM or SGLang, each GPU host computes the key-value (KV) cache of each prompt. You can use ElastiCache for Valkey as a shared KV cache for a fleet of GPU hosts. With LMCache, the inference engine stores the KV cache of a prompt prefix in the cluster. Other GPU hosts then load it instead of computing it again. For more information, see [Distributed KV caching](distributed-kv-caching.md).
 
 ## Durability for system-of-record workloads
 <a name="elasticache-use-cases-durability"></a>

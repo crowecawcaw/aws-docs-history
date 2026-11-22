@@ -1,7 +1,6 @@
 
 
 # Increasing the number of replicas in a shard
-<a name="increase-replica-count"></a>
 
 You can increase the number of replicas in a Valkey or Redis OSS (cluster mode enabled) shard or Valkey or Redis OSS (cluster mode disabled) replication group up to a maximum of five. You can do so using the AWS Management Console, the AWS CLI, or the ElastiCache API.
 

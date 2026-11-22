@@ -1,7 +1,6 @@
 
 
 # Changing the number of replicas
-<a name="increase-decrease-replica-count"></a>
 
 You can dynamically increase or decrease the number of read replicas in your Valkey or Redis OSS replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API. If your replication group is a Valkey or Redis OSS (cluster mode enabled) replication group, you can choose which shards (node groups) to increase or decrease the number of replicas.
 

@@ -1,7 +1,6 @@
 
 
 # Metrics and events for node-based Valkey and Redis OSS clusters
-<a name="self-designed-metrics-events.valkey-and-redis"></a>
 
 ElastiCache offers a wide variety of metrics and events for monitoring node-based Valkey and Redis OSS clusters. This includes host-level metrics, command level metrics, and event logs available via the AWS CLI and the Amazon Simple Notification Service (SNS).
 

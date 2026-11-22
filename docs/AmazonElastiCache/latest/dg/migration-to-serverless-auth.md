@@ -1,7 +1,6 @@
 
 
 # Source authentication for online migration to ElastiCache Serverless
-<a name="migration-to-serverless-auth"></a>
 
 If your source cache requires authentication, ElastiCache needs credentials to connect to it. You store the credentials in AWS Secrets Manager and give ElastiCache the secret's ARN when you prepare the migration. ElastiCache does not accept credentials directly.
 
@@ -10,28 +9,22 @@ Your target cache must also accept the credentials that your application uses on
 If your source cache accepts unauthenticated connections, you can skip the authentication configuration.
 
 ## Storing source credentials
-<a name="w2aac20c13c37b9"></a>
+<a name="migration-to-serverless-store-credentials"></a>
 
 Store your source cache credentials in a Secrets Manager secret. You can use a secret you already manage, or create one for the migration. If you create the secret from the ElastiCache console as part of setting up the migration, ElastiCache configures its access for you.
 
 In the console, you choose one of three authentication methods:
-
-Use an existing secret  
-Choose an existing secret from Secrets Manager.
-
-Create and use a new secret  
-ElastiCache will create a secret to store your specified credentials.
-
-None  
-Source doesn't require authentication.
++ **Use an existing secret** – Choose an existing secret from Secrets Manager.
++ **Create and use a new secret** – ElastiCache creates a secret to store your specified credentials.
++ **None** – Source doesn't require authentication.
 
 When you create and use a new secret, you also choose the AWS KMS key that encrypts it: "Choose an existing customer managed KMS key for the new secret. The KMS key you choose must be configured to grant ElastiCache decrypt access."
 
 The secret's contents depend on how your source authenticates.
 
-If your source authenticates users by name, store a user name and a password in the following format:
+If your source authenticates users by name, store a user name and a password in the following JSON format:
 
-```
+```json
 {"username":"migration_user","password":"your-password"}
 ```
 
@@ -41,21 +34,21 @@ Where:
 
 If your source uses a single password with no user names, store the password on its own:
 
-```
+```json
 {"password":"your-password"}
 ```
 
 Where:
 + `your-password` is the password for your source cache. It must be 16-128 characters and can contain only letters, digits, and the characters `! & # $ ^ < > -`.
 
-The prepare step validates the secret's format, whether you created the secret or ElastiCache created it for you. An empty secret, a secret that is not valid JSON, a secret with no `password` field, or a user name or password that does not meet the requirements above each fail with a specific message. If your source password does not meet them, change it on your source before you prepare the migration.
+The prepare step validates the secret's format, whether you created the secret or ElastiCache created it for you. An empty secret, a secret that is not valid JSON, a secret with no `password` field, or a user name or password that does not meet the preceding requirements each fail with a specific message. If your source password does not meet them, change it on your source before you prepare the migration.
 
 ### Granting ElastiCache access to the secret
-<a name="w2aac20c13c37b9c31"></a>
+<a name="migration-to-serverless-grant-secret-access"></a>
 
 ElastiCache reads the secret with its own service credentials, so the secret needs a resource policy. Grant `secretsmanager:GetSecretValue` to the `elasticache.amazonaws.com` service principal.
 
-The following permissions are required:
+The following permissions are required.
 
 
 | Who | Permission | Where you grant it | 
@@ -64,9 +57,9 @@ The following permissions are required:
 | The elasticache.amazonaws.com service principal | kms:Decrypt | The key policy | 
 | Your IAM identity | secretsmanager:GetSecretValue, kms:Decrypt, ec2:DescribeSubnets | Your IAM identity's permissions policy | 
 
-The following resource policy grants ElastiCache read access to the secret.
+The following resource policy grants ElastiCache read access to the secret:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -82,9 +75,9 @@ The following resource policy grants ElastiCache read access to the secret.
 
 If the secret is encrypted with a customer managed AWS KMS key, grant that service principal permission to use the key in the key policy.
 
-Add the following statement to the key policy of the customer managed key that encrypts the secret.
+Add the following statement to the key policy of the customer managed key that encrypts the secret:
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": { "Service": "elasticache.amazonaws.com" },
@@ -108,9 +101,9 @@ The credentials you store decide which user ElastiCache connects as. What that u
 
 If your source uses a single password and no user names, ElastiCache connects with that password and there is nothing further to configure.
 
-If your source authenticates users by name and controls what each one can do, create a user for the migration and grant it the following permissions. Run this command against every node in your source, or use whatever mechanism your source has for applying access control across the cluster:
+If your source authenticates users by name and controls what each one can do, create a user for the migration and grant it the following permissions. Run this valkey-cli command against every node in your source, or use whatever mechanism your source has for applying access control across the cluster:
 
-```
+```bash
 valkey-cli ACL SETUSER migration_user on '>your-password' -@all \
   +ping +info +hello \
   +cluster|nodes +cluster|shards +cluster|slots +cluster|info \
@@ -145,27 +138,27 @@ Your application's own users must exist on both your source and your target. Dur
 If your source accepts connections without authentication, keep the default user on your target enabled with no password. A client that does not authenticate gets a `NOAUTH` error from the migration endpoint when the default user on your target is disabled or has a password.
 
 ## Providing the secret when you prepare a migration
-<a name="w2aac20c13c37c15"></a>
+<a name="migration-to-serverless-provide-secret"></a>
 
 Pass the secret ARN in the source authentication configuration:
 
-```
+```bash
 aws elasticache prepare-migration \
     --serverless-cache-name {{my-cache}} \
-    --customer-node-endpoint-list "Address='{{10.0.0.10}}',Port={{6379}}" \
+    --customer-node-endpoint-list "Address='{{192.0.2.10}}',Port={{6379}}" \
     --source-authentication-configuration \
         SecretManagerConfig={SecretArn={{arn:aws:secretsmanager:region:account:secret:my-secret}}}
 ```
 
 Where:
 + `my-cache` is the name of the ElastiCache Serverless cache you are migrating into.
-+ `10.0.0.10` and `6379` are the private address and port of one node in your source cache. ElastiCache discovers the rest of your topology from this node.
++ `192.0.2.10` and `6379` are the private address and port of one node in your source cache. ElastiCache discovers the rest of your topology from this node.
 + `arn:aws:secretsmanager:region:account:secret:my-secret` is the ARN of the secret that holds your source credentials.
 
 ElastiCache validates connectivity and credentials during the prepare step. If it cannot connect, the prepare step fails. ElastiCache reports a failure event on the cache that names the reason. The migration is rolled back, so the `Migration` object is removed and your cache returns to `available`. Correct the address, the network configuration, or the secret access, then try again.
 
 ## Encryption in transit
-<a name="w2aac20c13c37c17"></a>
+<a name="migration-to-serverless-encryption-in-transit"></a>
 
 If your source cache requires TLS, set `SourceTlsMode` to `verify-ca` in the `SourceTlsConfiguration` parameter when you prepare the migration, and pass your CA certificates in `SourceTlsCertificate`.
 
@@ -177,10 +170,10 @@ The prepare step validates the certificate value. It fails if the value is not a
 
 ElastiCache verifies that your source's server certificate chains to a CA certificate you provided. It does not check the host name in the certificate, so your source address can be an IP address or a host name that resolves through public DNS.
 
-```
+```bash
 aws elasticache prepare-migration \
     --serverless-cache-name {{my-cache}} \
-    --customer-node-endpoint-list "Address='{{10.0.0.10}}',Port={{6379}}" \
+    --customer-node-endpoint-list "Address='{{192.0.2.10}}',Port={{6379}}" \
     --source-tls-configuration SourceTlsMode=verify-ca,SourceTlsCertificate="$(cat {{ca.pem}})"
 ```
 
@@ -190,10 +183,3 @@ Where:
 If your source also requires authentication, add the `--source-authentication-configuration` parameter shown earlier on this page.
 
 If your source accepts unencrypted connections, set `SourceTlsMode` to `none`. Provide a certificate only with `verify-ca`. A certificate with `none`, or with no TLS mode set, fails the prepare step.
-
-## Related topics
-<a name="w2aac20c13c37c19"></a>
-+ [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md)
-+ [Online migration to ElastiCache Serverless](migration-to-serverless.md)
-+ [Migrate your data to ElastiCache Serverless](migration-to-serverless-procedure.md)
-+ [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md)

@@ -1,7 +1,6 @@
 
 
 # Creating a Valkey or Redis OSS replication group from scratch
-<a name="Replication.CreatingReplGroup.NoExistingCluster"></a>
 
 Following, you can find how to create a Valkey or Redis OSS replication group without using an existing Valkey or Redis OSS cluster as the primary. You can create a Valkey or Redis OSS (cluster mode disabled) or Valkey or Redis OSS (cluster mode enabled) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="agentic-memory-prerequisites"></a>
 
 To implement agentic memory with ElastiCache for Valkey, you need:
 
@@ -13,7 +12,7 @@ To implement agentic memory with ElastiCache for Valkey, you need:
 
 1. Python 3.11 or later with the following packages:
 
-   ```
+   ```bash
    pip install strands-agents strands-agents-tools strands-agents-builder
    pip install mem0ai "mem0ai[vector_stores]"
    ```

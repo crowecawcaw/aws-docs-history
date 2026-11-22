@@ -1,7 +1,6 @@
 
 
 # Using Amazon ElastiCache for Valkey for semantic caching
-<a name="semantic-caching"></a>
 
 Large language models (LLMs) are the foundation for generative AI and agentic AI applications that power use cases from chatbots and search assistants to code generation tools and recommendation engines. As the use of AI applications in production grows, customers seek ways to optimize cost and performance. Most AI applications invoke the LLM for every user query, even when queries are repeated or semantically similar. Semantic caching is a method to reduce cost and latency in generative AI applications by reusing responses for identical or semantically similar requests using vector embeddings.
 

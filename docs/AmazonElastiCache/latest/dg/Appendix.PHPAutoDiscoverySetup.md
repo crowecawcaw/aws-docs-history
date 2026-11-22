@@ -1,7 +1,6 @@
 
 
 # Installing the ElastiCache cluster client for PHP
-<a name="Appendix.PHPAutoDiscoverySetup"></a>
 
 This section describes how to install, update, and remove the PHP components for the ElastiCache Cluster Client on Amazon EC2 instances. For more information about Auto Discovery, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md). For sample PHP code to use the client. see [Using the ElastiCache Cluster Client for PHP](AutoDiscovery.Using.ModifyApp.PHP.md).
 

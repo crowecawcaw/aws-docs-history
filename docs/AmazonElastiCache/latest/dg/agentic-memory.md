@@ -1,7 +1,6 @@
 
 
 # Using Amazon ElastiCache for Valkey for agentic memory
-<a name="agentic-memory"></a>
 
 Agentic AI applications use external tools, APIs, and multi-step reasoning to complete complex tasks. However, by default, agents don't retain memory between conversations, which limits their ability to provide personalized responses or maintain context across sessions. Amazon ElastiCache for Valkey provides the high-performance, low-latency infrastructure that agentic memory systems require to store, retrieve, and manage persistent memory for AI agents.
 

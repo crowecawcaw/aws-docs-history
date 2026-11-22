@@ -1,7 +1,6 @@
 
 
 # Testing the data migration
-<a name="Migration-Test"></a>
 
 After all prerequisites are complete, you can validate the migration setup for your node-based ElastiCache cluster using the AWS Management Console, ElastiCache API, or AWS CLI. The following example shows using the CLI.
 

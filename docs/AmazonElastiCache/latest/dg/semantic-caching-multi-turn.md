@@ -1,7 +1,6 @@
 
 
 # Multi-turn conversation caching
-<a name="semantic-caching-multi-turn"></a>
 
 For applications with multi-turn conversations, the same user message can mean different things depending on context. For example, "Tell me more" in a conversation about Valkey means something different from "Tell me more" in a conversation about Python.
 
@@ -10,7 +9,7 @@ For applications with multi-turn conversations, the same user message can mean d
 
 Single-prompt caching works well for stateless queries. In multi-turn conversations, you must cache the full conversation context, not just the last message:
 
-```
+```python
 # "Tell me more" means nothing without context
 # Conversation A: "What is Valkey?" -> "Tell me more"  (about Valkey)
 # Conversation B: "What is Python?" -> "Tell me more"  (about Python)
@@ -21,7 +20,7 @@ Single-prompt caching works well for stateless queries. In multi-turn conversati
 
 Instead of embedding only the last user message, embed a summary of the full conversation context. This way, similar follow-up questions in similar conversation flows can reuse cached answers.
 
-```
+```python
 def build_context_string(messages: list) -> str:
     """Build a cacheable context string from conversation messages."""
     # Use last 3 turns (6 messages: user + assistant pairs)
@@ -39,7 +38,7 @@ def build_context_string(messages: list) -> str:
 
 Use TAG fields to isolate cached conversations by user, session, or other dimensions. This prevents one user's cached conversations from being returned for another user:
 
-```
+```python
 # Create index with TAG field for per-user isolation
 valkey_client.execute_command(
     "FT.CREATE", "conv_cache_idx",
@@ -57,7 +56,7 @@ valkey_client.execute_command(
 
 Search with hybrid filtering (TAG \+ KNN):
 
-```
+```python
 def lookup_conversation_cache(messages: list, user_id: str, threshold: float = 0.12):
     """Search cache for similar conversation contexts, scoped to a user.
 

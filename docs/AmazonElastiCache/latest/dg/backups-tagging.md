@@ -1,7 +1,6 @@
 
 
 # Tagging backups
-<a name="backups-tagging"></a>
 
 You can assign your own metadata to each backup in the form of tags. Tags enable you to categorize your backups in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type—you can quickly identify a specific resource based on the tags that you've assigned to it. For more information, see [Resources you can tag](Tagging-Resources.md#Tagging-your-resources).
 

@@ -1,7 +1,6 @@
 
 
 # ElastiCache clients with auto discovery
-<a name="Clients"></a>
 
 Cluster client programs can automatically identify and connect to all cluster nodes that are running the Memcached engine.
 

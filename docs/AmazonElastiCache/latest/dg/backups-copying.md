@@ -1,7 +1,6 @@
 
 
 # Copying backups
-<a name="backups-copying"></a>
 
 You can create a copy of any backup, whether it was created automatically or manually. You can also export your backup so you can access it from outside ElastiCache. For guidance on exporting your backup, see [Exporting a backup](backups-exporting.md).
 

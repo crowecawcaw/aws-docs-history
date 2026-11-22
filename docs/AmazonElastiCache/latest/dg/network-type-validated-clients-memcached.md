@@ -1,7 +1,6 @@
 
 
 # Validated clients with Memcached
-<a name="network-type-validated-clients-memcached"></a>
 
 The following clients have specifically been validated to work with all supported network type configurations for Memcached.
 

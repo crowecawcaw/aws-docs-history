@@ -1,7 +1,6 @@
 
 
 # Choosing the appropriate configuration
-<a name="choosing-configuration"></a>
 
 ## Choosing between Serverless and node-based
 <a name="serverless-or-node-based"></a>

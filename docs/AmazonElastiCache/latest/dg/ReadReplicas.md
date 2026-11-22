@@ -1,7 +1,6 @@
 
 
 # Best Practices for using Read Replicas
-<a name="ReadReplicas"></a>
 
 Many applications, such as session stores, leaderboards, and recommendation engines, require high availability and handle significantly more read operations than write operations. These applications can often tolerate slightly stale data (eventual consistency), meaning that it's acceptable if different users momentarily see slightly different versions of the same data. For example:
 + Cached query results can often tolerate slightly stale data, especially for cache-aside patterns where the source of truth is external.

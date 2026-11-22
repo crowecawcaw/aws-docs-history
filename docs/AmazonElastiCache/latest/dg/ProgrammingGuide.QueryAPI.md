@@ -1,7 +1,6 @@
 
 
 # Using the query API
-<a name="ProgrammingGuide.QueryAPI"></a>
 
 ## Query parameters
 <a name="query-parameters"></a>

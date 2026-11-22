@@ -1,7 +1,6 @@
 
 
 # Read and write data to the cache
-<a name="read-write-cache-mem"></a>
 
 This section assumes that you've created an Amazon EC2 instance and can connect to it. For instructions on how to do this, see the [Amazon EC2 Getting Started Guide](https://aws.amazon.com/ec2/getting-started/). 
 

@@ -1,7 +1,6 @@
 
 
 # Create a Valkey serverless cache in a VPC
-<a name="getting-started-valkey-vpc"></a>
 
 **AWS Management Console**
 

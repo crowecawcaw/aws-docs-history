@@ -1,7 +1,6 @@
 
 
 # Configure a client-side timeout (Valkey and Redis OSS)
-<a name="BestPractices.Clients.Redis.ClientTimeout"></a>
 
 **Configuring the client-side timeout**
 
@@ -19,7 +18,7 @@ The following are code examples for implementing a client-side timeout in redis-
 
 The following is a code example with redis-py:
 
-```
+```python
 # connect to Redis server with a 100 millisecond timeout
 # give every Redis command a 2 second timeout
 client = redis.Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10,socket_connect_timeout=0.1,socket_timeout=2))
@@ -36,7 +35,7 @@ print(res)
 
 The following is a code example with PHPRedis:
 
-```
+```php
 // connect to Redis server with a 100ms timeout
 // give every Redis command a 2s timeout
 $client = new Redis();
@@ -55,9 +54,11 @@ $res = $client->blpop("list", 1); // will timeout after 1 second
 print "$res\n";                   // less than the 2 second socket timeout
 ```
 
+**Timeout config sample 2b: PHPRedis with TLS**
+
 When connecting to ElastiCache with in-transit encryption enabled (required for serverless), configure the TLS connection. In the following PHP code example, replace `{{HOST}}` with your cluster endpoint and `{{PORT}}` with your cluster's port number:
 
-```
+```php
 // Connect to Amazon ElastiCache with TLS enabled.
 $client = new Redis();
 $timeout = 2; // 2 second connection timeout.
@@ -79,7 +80,7 @@ print "$res\n";
 
 The following is a code example with Lettuce:
 
-```
+```java
 // connect to Redis server and give every command a 2 second timeout
 public static void main(String[] args)
 {

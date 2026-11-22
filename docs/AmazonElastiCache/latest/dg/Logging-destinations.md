@@ -1,7 +1,6 @@
 
 
 # ElastiCache logging destinations
-<a name="Logging-destinations"></a>
 
 This section describes the logging destinations that you can choose for your ElastiCache logs. Each section provides guidance for configuring logging for the destination type and information about any behavior that's specific to the destination type. After you've configured your logging destination, you can provide its specifications to the ElastiCache logging configuration to start logging to it.
 
@@ -24,7 +23,7 @@ You must have the following permissions settings to configure ElastiCache to sen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ You must have the following permissions to configure ElastiCache to send logs to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

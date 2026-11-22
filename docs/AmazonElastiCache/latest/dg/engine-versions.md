@@ -1,7 +1,6 @@
 
 
 # Engine versions and upgrading in ElastiCache
-<a name="engine-versions"></a>
 
 This section covers the supported Valkey, Memcached, and Redis OSS engines and how to upgrade. Note that all features available with Redis OSS 7.2 are available in Valkey 7.2 and above by default. You can also upgrade from some existing ElastiCache for Redis OSS engines to a Valkey engine.
 
@@ -12,6 +11,7 @@ Here are some of the new features introduced in Valkey 9.1 (compared to ElastiCa
 + **Up to 20% memory reduction for common string patterns** – Strings under 128 bytes now use 20% less memory. Sorted sets see up to a 10% memory reduction. Bulk delete operations (SREM, ZREM, HDEL) pause auto-shrink during bulk ops for faster execution.
 + **HGETDEL, MSETEX, and CLUSTERSCAN commands** – Three new commands: `HGETDEL` atomically retrieves and deletes hash fields, `MSETEX` sets multiple keys with a shared expiration in a single call, and `CLUSTERSCAN` provides cluster-wide key scanning across all nodes.
 + **Database-level ACL access control** – Per-database permissions via `ACL SETUSER ... db=0,1` syntax give you fine-grained access control at the database level for multi-tenant workloads on a single cluster.
++ **Distributed KV caching** – Node-based clusters of the `cache.i8ge.48xlarge` node type, with Valkey 9.1 or later, store the key-value (KV) cache of LLM inference engines with the large object data type, over TCP or RDMA over Elastic Fabric Adapter (EFA). For more information, see [Distributed KV caching](distributed-kv-caching.md).
 + Over 70 additional enhancements including reduced rehashing latency spikes, CLUSTER SHARDS availability-zone field, HSETEX NX/XX flags, hardware clock enabled by default, JSON logging format, and main/IO thread cumulative usage metrics through INFO ALL. For the complete list, see [Valkey 9.1 Release Notes](https://github.com/valkey-io/valkey/releases/tag/9.1.0).
 
 For more information on Valkey, see [Valkey](https://valkey.io/).

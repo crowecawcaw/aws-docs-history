@@ -1,7 +1,6 @@
 
 
 # JSON.ARRTRIM
-<a name="json-arrtrim"></a>
 
 Trims an arrays at the path so that it becomes a subarray [start, end], both inclusive.
 + If the array is empty, do nothing, return 0.
@@ -11,7 +10,7 @@ Trims an arrays at the path so that it becomes a subarray [start, end], both inc
 
 Syntax
 
-```
+```json
 JSON.ARRTRIM <key> <path> <start> <end>
 ```
 + key (required) – A Valkey or Redis OSS key of JSON document type.
@@ -37,7 +36,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"], ["a", "b", "c"]]'
 OK
 127.0.0.1:6379> JSON.ARRTRIM k1 $[*] 0 1
@@ -51,7 +50,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"children": ["John", "Jack", "Tom", "Bob", "Mike"]}'
 OK
 127.0.0.1:6379> JSON.ARRTRIM k1 .children 0 1

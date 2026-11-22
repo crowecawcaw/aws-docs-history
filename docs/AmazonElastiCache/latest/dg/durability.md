@@ -1,7 +1,6 @@
 
 
 # Durability in ElastiCache
-<a name="durability"></a>
 
 Amazon ElastiCache for Valkey now supports durability. This capability enables you to use ElastiCache for both caching and data store workloads with microsecond read latency. Durability provides data protection through a Multi-AZ transactional log, enabling fast recovery and restart during failures. ElastiCache offers two durability options: synchronous writes designed for zero data loss at single-digit millisecond write latency, and asynchronous writes for microsecond write latency. Durability is currently supported with node-based ElastiCache.
 

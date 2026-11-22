@@ -1,7 +1,6 @@
 
 
 # Supported Valkey and Redis OSS commands
-<a name="json-list-commands"></a>
 
 ElastiCache supports the following Valkey and Redis OSS JSON commands:
 

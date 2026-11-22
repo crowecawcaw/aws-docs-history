@@ -1,7 +1,6 @@
 
 
 # Connecting to nodes
-<a name="nodes-connecting"></a>
 
 ## Connecting to Valkey or Redis OSS nodes
 <a name="nodes-connecting.val"></a>

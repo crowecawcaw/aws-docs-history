@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache Well-Architected Lens Operational Excellence Pillar
-<a name="OperationalExcellencePillar"></a>
 
 The operational excellence pillar focuses on running and monitoring systems to deliver business value, and continually improving processes and procedures. Key topics include automating changes, responding to events, and defining standards to manage daily operations.
 

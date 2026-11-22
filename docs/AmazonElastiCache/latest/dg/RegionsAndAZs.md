@@ -1,7 +1,6 @@
 
 
 # Choosing regions and availability zones for ElastiCache
-<a name="RegionsAndAZs"></a>
 
 You can provide additional scalability and reliability to your ElastiCache clusters by designating Regions and Availability Zones using the corresponding endpoint.
 
@@ -80,7 +79,7 @@ You can specify an AZ for each node when you create a cluster, or by adding node
 
 Amazon ElastiCache is available in multiple AWS Regions. This means that you can launch ElastiCache clusters in locations that meet your requirements. For example, you can launch in the AWS Region closest to your customers, or launch in a particular AWS Region to meet certain legal requirements.
 
-Each Region is designed to be completely isolated from the other Regions. Within each Region are multiple Availability Zones (AZ). ElastiCache Serverless caches automatically replicate data across multiple availability zones (except `us-west-1`, where data is replicated in two availability zones) for high availability. When designing your own ElastiCache cluster, you can choose to launch your nodes in different AZs to achieve fault tolerance. For more information on Regions and Availability Zones, see [Choosing regions and availability zones for ElastiCache](#RegionsAndAZs) at the top of this topic.
+Each Region is designed to be completely isolated from the other Regions. Within each Region are multiple Availability Zones (AZ). ElastiCache Serverless caches automatically replicate data across multiple availability zones (except `us-west-1`, where data is replicated in two availability zones) for high availability. When designing your own ElastiCache cluster, you can choose to launch your nodes in different AZs to achieve fault tolerance. For more information on Regions and Availability Zones, see [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md) at the top of this topic.
 
 
 **Regions where ElastiCache is supported**  
@@ -104,6 +103,8 @@ Each Region is designed to be completely isolated from the other Regions. Within
   <tr><td>Asia Pacific (Osaka) Region<br /><code>ap-northeast-3</code></td><td><code>elasticache.ap-northeast-3.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
   <tr><td>Asia Pacific (Singapore) Region<br /><code>ap-southeast-1</code></td><td><code>elasticache.ap-southeast-1.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
   <tr><td>Asia Pacific (Sydney) Region<br /><code>ap-southeast-2</code></td><td><code>elasticache.ap-southeast-2.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
+  <tr><td>Asia Pacific (Malaysia) Region<br /><code>ap-southeast-5</code></td><td><code>elasticache.ap-southeast-5.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
+  <tr><td>Asia Pacific (Thailand) Region<br /><code>ap-southeast-7</code></td><td><code>elasticache.ap-southeast-7.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
   <tr><td>Europe (Frankfurt) Region<br /><code>eu-central-1</code></td><td><code>elasticache.eu-central-1.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
   <tr><td>Europe (Zurich) Region<br /><code>eu-central-2</code></td><td><code>elasticache.eu-central-2.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>
   <tr><td>Europe (Stockholm) Region<br /><code>eu-north-1</code></td><td><code>elasticache.eu-north-1.amazonaws.com</code></td><td>HTTPS</td><td></td></tr>

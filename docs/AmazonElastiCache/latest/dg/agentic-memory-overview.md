@@ -1,7 +1,6 @@
 
 
 # Overview of agentic memory
-<a name="agentic-memory-overview"></a>
 
 An agentic AI application is a system that takes actions and makes decisions based on input. These agents use external tools, APIs, and multi-step reasoning to complete complex tasks. Without persistent memory, agents forget everything between conversations, making it impossible to deliver personalized experiences or complete multi-step tasks effectively.
 

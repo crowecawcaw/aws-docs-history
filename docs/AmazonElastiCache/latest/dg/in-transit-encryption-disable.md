@@ -1,7 +1,6 @@
 
 
 # Disabling access control on an ElastiCache Valkey or Redis OSS cache
-<a name="in-transit-encryption-disable"></a>
 
 Follow the instructions below to disable access control on a Valkey or Redis OSS TLS-enabled cache. Your cache will have one of two different types of configurations: AUTH default user access or User group access control list (RBAC). If your cache was created with the AUTH configuration, you have to change it to the RBAC configuration before you can disable the cache by removing the user groups. If your cache was created with the RBAC configuration, you can go straight into disabling it.
 

@@ -1,7 +1,6 @@
 
 
 # Related resources
-<a name="semantic-caching-related-resources"></a>
 + [Search for ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/search.html)
 + [Common ElastiCache use cases](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/elasticache-use-cases.html)
 + [Lower cost and latency for AI using Amazon ElastiCache as a semantic cache with Amazon Bedrock](https://aws.amazon.com/blogs/database/lower-cost-and-latency-for-ai-using-amazon-elasticache-as-a-semantic-cache-with-amazon-bedrock/) (AWS Database Blog)

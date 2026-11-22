@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache (Valkey) for e-commerce applications
-<a name="ecommerce-caching-valkey"></a>
 
 An e-commerce application benefits from an in-memory cache layer between the application servers and the database. Amazon ElastiCache running Valkey provides sub-millisecond read latency for frequently accessed data — product catalog entries, inventory counts, search results, and user sessions — reducing database load and improving response times during traffic spikes.
 

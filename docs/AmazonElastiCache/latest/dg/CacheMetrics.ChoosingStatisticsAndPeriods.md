@@ -1,7 +1,6 @@
 
 
 # Choosing Metric Statistics and Periods
-<a name="CacheMetrics.ChoosingStatisticsAndPeriods"></a>
 
 While CloudWatch will allow you to choose any statistic and period for each metric, not all combinations will be useful. For example, the Average, Minimum, and Maximum statistics for CPUUtilization are useful, but the Sum statistic is not.
 

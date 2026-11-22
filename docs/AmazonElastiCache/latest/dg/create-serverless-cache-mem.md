@@ -1,7 +1,6 @@
 
 
 # Create a Memcached serverless cache
-<a name="create-serverless-cache-mem"></a>
 
 **AWS Management Console**
 

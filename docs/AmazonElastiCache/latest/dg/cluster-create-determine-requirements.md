@@ -1,7 +1,6 @@
 
 
 # Determining your ElastiCache cluster requirements
-<a name="cluster-create-determine-requirements"></a>
 
 **Preparation**  
 Knowing the answers to the following questions helps make creating your ElastiCache cluster go smoother:

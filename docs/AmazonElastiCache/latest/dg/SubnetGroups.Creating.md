@@ -1,7 +1,6 @@
 
 
 # Creating a subnet group
-<a name="SubnetGroups.Creating"></a>
 
 A *cache subnet group* is a collection of subnets that you may want to designate for your caches in a VPC. When launching a cache in a VPC, you need to select a cache subnet group. Then ElastiCache uses that cache subnet group to assign IP addresses within that subnet to each cache node in the cache.
 
@@ -66,7 +65,7 @@ aws elasticache create-cache-subnet-group ^
 
 This command should produce output similar to the following:
 
-```
+```json
 {
     "CacheSubnetGroup": {
         "VpcId": "vpc-37c3cd17", 

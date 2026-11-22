@@ -1,7 +1,6 @@
 
 
 # Benefits of Auto Discovery with Memcached
-<a name="AutoDiscovery.Benefits"></a>
 
 When using Memcached, Auto Discovery offers the following benefits:
 + When you increase the number of nodes in a cluster, the new nodes register themselves with the configuration endpoint and with all of the other nodes. When you remove nodes from the cache cluster, the departing nodes deregister themselves. In both cases, all of the other nodes in the cluster are updated with the latest cache node metadata.

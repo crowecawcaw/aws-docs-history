@@ -1,7 +1,6 @@
 
 
 # Impact and benchmarks
-<a name="semantic-caching-benchmarks"></a>
 
 AWS evaluated the approach on 63,796 real user chatbot queries and their paraphrased variants from the public SemBenchmarkLmArena dataset. This dataset captures user interactions with the Chatbot Arena platform across general assistant use cases such as question answering, writing, and analysis.
 

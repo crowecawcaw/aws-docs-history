@@ -1,7 +1,6 @@
 
 
 # Canceling pending add or delete node operations in ElastiCache
-<a name="Clusters.CancelPending"></a>
 
 If you elected to not apply an ElastiCache cluster change immediately, the operation has **pending** status until it is performed at your next maintenance window. You can cancel any pending add or delete operation.
 

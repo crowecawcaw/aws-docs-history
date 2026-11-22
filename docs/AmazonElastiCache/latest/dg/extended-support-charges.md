@@ -1,7 +1,6 @@
 
 
 # ElastiCache Extended Support charges
-<a name="extended-support-charges"></a>
 
 You will incur charges for all engines enrolled in ElastiCache Extended Support beginning the day after the end of standard support. For the ElastiCache end of standard support date, see [Versions with ElastiCache Extended Support](extended-support-versions.md).
 

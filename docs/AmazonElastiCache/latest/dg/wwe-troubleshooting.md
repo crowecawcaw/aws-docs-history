@@ -1,7 +1,6 @@
 
 
 # Common troubleshooting steps and best practices with ElastiCache
-<a name="wwe-troubleshooting"></a>
 
 The following topics provide troubleshooting advice for errors and issues that you could encounter when using ElastiCache. If you find an issue that isn't listed here, you can use the feedback button on this page to report it.
 
@@ -83,3 +82,4 @@ When requests are throttled in ElastiCache Serverless, you should see an increas
 ## Related Topics
 <a name="wwe-troubleshooting.related"></a>
 + [ElastiCache best practices and caching strategies](BestPractices.md)
++ For distributed KV caching errors, see [Troubleshooting distributed KV caching](distributed-kv-caching-troubleshooting.md).

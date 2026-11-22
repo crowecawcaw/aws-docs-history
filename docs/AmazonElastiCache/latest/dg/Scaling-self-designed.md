@@ -1,7 +1,6 @@
 
 
 # Scaling node-based clusters
-<a name="Scaling-self-designed"></a>
 
 The amount of data your application needs to process is seldom static. It increases and decreases as your business grows or experiences normal fluctuations in demand. If you self-manage your cache, you need to provision sufficient hardware for your demand peaks, which can be expensive. By using Amazon ElastiCache you can scale to meet current demand, paying only for what you use. ElastiCache enables you to scale your cache to match demand.
 

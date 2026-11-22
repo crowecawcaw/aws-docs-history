@@ -1,7 +1,6 @@
 
 
 # Other ElastiCache tutorials and videos
-<a name="Tutorials"></a>
 
 The following tutorials address tasks of interest to the Amazon ElastiCache user.
 + [ElastiCache Videos](#tutorial-videos)

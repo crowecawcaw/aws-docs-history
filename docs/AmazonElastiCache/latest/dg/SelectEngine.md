@@ -1,7 +1,6 @@
 
 
 # Comparing node-based Valkey, Memcached, and Redis OSS clusters
-<a name="SelectEngine"></a>
 
 Amazon ElastiCache supports the Valkey, Memcached, and Redis OSS cache engines. Each engine provides some advantages. Use the information in this topic to help you choose the engine and version that best meets your requirements.
 
@@ -17,6 +16,9 @@ On the surface, the engines look similar. Each of them is an in-memory key-value
 + You need to cache objects.
 
 **Choose Valkey or Redis OSS with ElastiCache if the following apply for you:**
++ **ElastiCache version 9.1 for Valkey**
+
+  You want a shared key-value (KV) cache for self-hosted LLM inference on the `cache.i8ge.48xlarge` node type. This node type requires Valkey 9.1 or later. For more information, see [Distributed KV caching](distributed-kv-caching.md) and [Valkey 9.1](engine-versions.md#valkey-version-9.1.main).
 + **ElastiCache version 9.0 for Valkey**
 
   You want built-in [full-text search, aggregations, and hybrid search](https://github.com/valkey-io/valkey-search) capabilities that extend the vector search introduced in Valkey 8.2, [hash field expiration](https://github.com/valkey-io/valkey/pull/2089) for per-field TTLs, [multi-database support in cluster mode](https://github.com/valkey-io/valkey/pull/1671), [polygon-based geospatial queries](https://github.com/valkey-io/valkey/pull/1809), up to [40% higher throughput with pipelining](https://github.com/valkey-io/valkey/pull/2092), or [atomic slot migration](https://github.com/valkey-io/valkey/pull/1949) for safer cluster scaling, or *durability* via a Multi-AZ transactional log for zero data loss during failures. For more information, see [Valkey 9.0](engine-versions.md#valkey-version-9.0.main).
@@ -63,6 +65,7 @@ On the surface, the engines look similar. Each of them is an in-memory key-value
 | Hash field expiration | No | Valkey 9.0 and later | Valkey 9.0 and later | 
 | Numbered databases in cluster mode | No | N/A | Valkey 9.0 and later | 
 | Durability | No | No | Valkey 9.0 and later (sync/async) | 
+| Large objects (distributed KV caching) | No | No | Valkey 9.1 and later (cache.i8ge.48xlarge only) | 
 | Compliance certifications | 
 | --- |
 | Compliance Certification     FedRAMP<br />    HIPAA<br />    PCI DSS |   Yes - 1.6.12 and later<br />Yes - 1.6.12 and later<br />Yes |   4.0.10 and later<br />4.0.10 and later<br />4.0.10 and later |   4.0.10 and later<br />4.0.10 and later<br />4.0.10 and later | 

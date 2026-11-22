@@ -1,7 +1,6 @@
 
 
 # Troubleshooting applications
-<a name="Troubleshooting"></a>
 
 ElastiCache provides specific and descriptive errors to help you troubleshoot problems while interacting with the ElastiCache API. 
 
@@ -12,7 +11,7 @@ Typically, you want your application to check whether a request generated an err
 
 XPath syntax provides a simple way to search for the presence of an `Error` node, as well as an easy way to retrieve the error code and message. The following code snippet uses Perl and the XML::XPath module to determine if an error occurred during a request. If an error occurred, the code prints the first error code and message in the response. 
 
-```
+```perl
 use XML::XPath; 
 my $xp = XML::XPath->new(xml =>$response); 
 if ( $xp->find("//Error") ) 

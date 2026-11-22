@@ -1,7 +1,6 @@
 
 
 # Configuring engine parameters using ElastiCache parameter groups
-<a name="ParameterGroups"></a>
 
 Amazon ElastiCache uses parameters to control the runtime properties of your nodes and clusters. Generally, newer engine versions include additional parameters to support the newer functionality. For tables of Memcached parameters, see [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached). For tables of Valkey and Redis OSS parameters, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis). 
 

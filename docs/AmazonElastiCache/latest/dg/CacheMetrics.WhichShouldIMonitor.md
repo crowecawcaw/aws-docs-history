@@ -1,7 +1,6 @@
 
 
 # Which Metrics Should I Monitor?
-<a name="CacheMetrics.WhichShouldIMonitor"></a>
 
 The following CloudWatch metrics offer good insight into ElastiCache performance. In most cases, we recommend that you set CloudWatch alarms for these metrics so that you can take corrective action before performance issues occur.
 
@@ -64,6 +63,8 @@ This is a cache engine metric. We recommend that you determine your own alarm th
 
 If you are using Memcached and exceed your chosen threshold, scale your cluster up by using a larger node type or scale out by adding more nodes.
 
+For evictions on distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
+
 ## CurrConnections
 <a name="metrics-curr-connections"></a>
 
@@ -78,12 +79,16 @@ For more information, see the **Connections** section at [Monitoring best practi
 
 Memory is a core aspect of Valkey and Redis OSS. Understanding the memory utilization of your cluster is necessary to avoid data loss and accommodate future growth of your dataset. Statistics about the memory utilization of a node are available in the memory section of the [INFO](https://valkey.io/commands/info) command.
 
+For memory metrics on distributed KV caching clusters, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
+
 For more information, see the **Memory** section at [Monitoring best practices with Amazon ElastiCache for Redis OSS using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/).
 
 ## Network
 <a name="metrics-network"></a>
 
 One of the determining factors for the network bandwidth capacity of your cluster is the node type you have selected. For more information about the network capacity of your node, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/).
+
+On distributed KV caching clusters, the network metrics don't include Elastic Fabric Adapter (EFA) traffic. For more information, see [How existing metrics apply to distributed KV caching](distributed-kv-caching-monitoring.md#distributed-kv-caching-monitoring.existing-metrics).
 
 For more information, see the **Network** section at [Monitoring best practices with Amazon ElastiCache for Redis OSS using Amazon CloudWatch](https://aws.amazon.com/blogs/database/monitoring-best-practices-with-amazon-elasticache-for-redis-using-amazon-cloudwatch/).
 

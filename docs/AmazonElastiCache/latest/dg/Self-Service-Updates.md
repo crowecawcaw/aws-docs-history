@@ -1,7 +1,6 @@
 
 
 # Service updates in ElastiCache
-<a name="Self-Service-Updates"></a>
 
 ElastiCache automatically monitors your fleet of caches, clusters, and nodes to apply service updates as they become available. Service updates for serverless caches are automatically and transparently applied. For node-based clusters, you set up a predefined maintenance window. Critical security updates will automatically be applied in these maintenance windows. All other updates will be available via a self-service update. 
 
@@ -19,6 +18,9 @@ You control when to apply an update before an auto-update starts. There are thre
 + **security-update**: Includes the latest security patches. We strongly recommend that you apply security updates as soon as possible to ensure that your ElastiCache clusters are always up-to-date with the latest security patches.
 + **engine-update**: Includes patches or minor engine version updates related to performance or stability optimizations for your current engine version.
 + **engine-major-version-update**: Includes a major version or engine type change, typically due to your current engine version reaching its end of life. We recommend that you carefully review the version compatibility notes from the [Engine versions and upgrading in ElastiCache](engine-versions.md) before applying such updates.
+
+**Note**  
+On distributed KV caching clusters (`cache.i8ge.48xlarge`), a service update or engine upgrade removes all stored objects. Apply updates in a maintenance window, and expect the cache to be empty after the update. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 
 The following sections explore these options in detail.
 

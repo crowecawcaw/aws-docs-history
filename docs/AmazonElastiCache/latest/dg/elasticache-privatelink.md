@@ -1,7 +1,6 @@
 
 
 # ElastiCache API and interface VPC endpoints (AWS PrivateLink)
-<a name="elasticache-privatelink"></a>
 
 You can establish a private connection between your VPC and Amazon ElastiCache API endpoints by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink). AWS PrivateLink allows you to privately access Amazon ElastiCache API operations without an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. 
 
@@ -90,7 +89,7 @@ For more information, see [Controlling access to services with VPC endpoints](ht
 **Example VPC endpoint policy for ElastiCache API actions with Valkey or Redis OSS**  
 The following is an example of an endpoint policy for the ElastiCache API. When attached to an endpoint, this policy grants access to the listed ElastiCache API actions for all principals on all resources.  
 
-```
+```json
 {
 	"Statement": [{
 		"Principal": "*",
@@ -108,7 +107,7 @@ The following is an example of an endpoint policy for the ElastiCache API. When 
 **Example VPC endpoint policy for ElastiCache for Memcached API actions**  
 The following is an example of an endpoint policy for the ElastiCache API. When attached to an endpoint, this policy grants access to the listed ElastiCache API actions for all principals on all resources.  
 
-```
+```json
 {
 	"Statement": [{
 		"Principal": "*",
@@ -125,7 +124,7 @@ The following is an example of an endpoint policy for the ElastiCache API. When 
 **Example VPC endpoint policy that denies all access from a specified AWS account**  
 The following VPC endpoint policy denies AWS account {{123456789012}} all access to resources using the endpoint. The policy allows all actions from other accounts.  
 
-```
+```json
 {
 	"Statement": [{
 			"Action": "*",

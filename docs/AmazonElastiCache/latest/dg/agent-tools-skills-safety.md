@@ -1,7 +1,6 @@
 
 
 # Guardrails and tracking usage
-<a name="agent-tools-skills-safety"></a>
 
 The ElastiCache skill includes safety guidance for high-impact operations so agents do not treat destructive or disruptive changes as routine setup steps. The skill identifies high-impact operations that must not be run automatically, including cache deletion, flushing data, snapshot deletion, production credential or AUTH token changes, security group rule removal, user or user group deletion, migration cutover execution, and manual failover on production caches. For such operations, the skill instructs agents to explain the expected impact and require direct user confirmation before proceeding. For changes that can affect availability, such as engine upgrades, scaling changes, security group updates, failover tests, or migration cutovers, the skill instructs agents to explain the expected impact, recommend staging validation or a maintenance window where appropriate, and prefer safer alternatives when available.
 

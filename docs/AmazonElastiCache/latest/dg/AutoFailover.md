@@ -1,7 +1,6 @@
 
 
 # Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS
-<a name="AutoFailover"></a>
 
 There are a number of instances where ElastiCache for Valkey and Redis OSS may need to replace a primary node; these include certain types of planned maintenance and the unlikely event of a primary node or Availability Zone failure. 
 
@@ -18,6 +17,9 @@ You can enable Multi-AZ using the ElastiCache Management Console, the AWS CLI, o
 
 **Note**  
 **Durability-enabled clusters:** For Valkey 9.0\+ clusters with durability enabled, failover behavior differs from the scenarios described below. With durability, all committed data is persisted in a Multi-AZ transactional log. During failovers, synchronous writes ensure zero data loss, while asynchronous writes may lose up to 10 seconds of uncommitted data. Failed nodes restore all committed data from the transactional log without requiring a full synchronization from the primary. For more information, see [Durability in ElastiCache](durability.md).
+
+**Note**  
+Distributed KV caching clusters (`cache.i8ge.48xlarge`) don't support replicas or Multi-AZ. You must still enable automatic failover, because cluster mode requires it. With 0 replicas, there is no replica to promote. When a node fails, ElastiCache replaces it and the objects on the node are lost. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md) and [Resilience and data persistence](distributed-kv-caching-how-it-works.md#distributed-kv-caching-how-it-works.resilience).
 
 Enabling ElastiCache Multi-AZ on your Valkey or Redis OSS cluster (in the API and CLI, replication group) improves your fault tolerance. This is true particularly in cases where your cluster's read/write primary cluster becomes unreachable or fails for any reason. Multi-AZ is only supported on Valkey and Redis OSS clusters with more than one node in each shard.
 
@@ -110,7 +112,7 @@ aws elasticache modify-replication-group ^
 
 The JSON output from this command should look something like the following.
 
-```
+```json
 {
     "ReplicationGroup": {
         "Status": "modifying", 
@@ -387,7 +389,7 @@ aws elasticache test-failover ^
 
 Output from the preceding command looks something like the following.
 
-```
+```json
 {
     "ReplicationGroup": {
         "Status": "available", 

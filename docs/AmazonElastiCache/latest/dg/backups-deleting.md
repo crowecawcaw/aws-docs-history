@@ -1,7 +1,6 @@
 
 
 # Deleting a backup
-<a name="backups-deleting"></a>
 
 An automatic backup is automatically deleted when its retention limit expires. If you delete a cluster, all of its automatic backups are also deleted. If you delete a replication group, all of the automatic backups from the clusters in that group are also deleted.
 

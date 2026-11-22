@@ -1,7 +1,6 @@
 
 
 # Enabling in-transit encryption
-<a name="in-transit-encryption-enable"></a>
 
 All serverless caches have in-transit encryption enabled. On a node-based cluster, you can enable in-transit encryption using the AWS Management Console, the AWS CLI, or the ElastiCache API.
 

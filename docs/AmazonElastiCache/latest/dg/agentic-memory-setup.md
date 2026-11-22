@@ -1,7 +1,6 @@
 
 
 # Setting up ElastiCache for Valkey as a vector store for agentic memory
-<a name="agentic-memory-setup"></a>
 
 The following walkthrough shows how to build a memory-enabled AI agent using Mem0 with ElastiCache for Valkey as the vector store.
 
@@ -10,13 +9,13 @@ The following walkthrough shows how to build a memory-enabled AI agent using Mem
 
 First, install Strands Agents and create a basic agent:
 
-```
+```bash
 pip install strands-agents strands-agents-tools strands-agents-builder
 ```
 
 Initialize a basic agent with an HTTP tool for web browsing:
 
-```
+```python
 from strands import Agent
 from strands.tools import http_request
 
@@ -41,13 +40,13 @@ Without memory, the agent performs the same research tasks repeatedly for each r
 
 Install the Mem0 library with the Valkey vector store connector:
 
-```
+```bash
 pip install mem0ai "mem0ai[vector_stores]"
 ```
 
 Configure Valkey as the vector store. ElastiCache for Valkey supports vector search capabilities starting with version 8.2:
 
-```
+```python
 from mem0 import Memory
 
 # Configure Mem0 with ElastiCache for Valkey
@@ -73,7 +72,7 @@ Replace {{your-elasticache-cluster.cache.amazonaws.com}} with your ElastiCache c
 
 Create memory tools that the agent can use to store and retrieve information. The `@tool` decorator transforms regular Python functions into tools the agent can invoke:
 
-```
+```python
 from strands import Agent, tool
 from strands.tools import http_request
 
@@ -106,7 +105,7 @@ agent = Agent(tools=[http_request, store_memory_tool, search_memory_tool])
 
 With memory enabled, the agent stores information from its interactions and retrieves it in subsequent requests:
 
-```
+```python
 # First request - agent searches the web and stores results in memory
 formatted_messages = [
     {

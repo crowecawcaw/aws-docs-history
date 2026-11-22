@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="agent-tools-valkey-mcp-getting-started"></a>
 
 ## Installation
 <a name="agent-tools-valkey-mcp-installation"></a>
@@ -10,7 +9,7 @@
 
 **Configure your MCP client:** Add the following to your MCP client configuration:
 
-```
+```json
 {
   "mcpServers": {
     "valkey": {

@@ -1,7 +1,6 @@
 
 
 # How the ElastiCache skill works
-<a name="agent-tools-skills-how-it-works"></a>
 
 The ElastiCache skill routes your request to the appropriate workflow area based on your intent. It loads only the reference material needed for the current task. The following table describes the workflow areas included in the skill.
 

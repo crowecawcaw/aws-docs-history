@@ -1,7 +1,6 @@
 
 
 # Viewing a replication group: Valkey or Redis OSS (Cluster Mode Enabled)
-<a name="Replication.ViewDetails.RedisCluster"></a>
 
 ## Viewing a Valkey or Redis OSS (Cluster Mode Enabled) cluster (Console)
 <a name="Replication.ViewDetails.RedisCluster.CON"></a>

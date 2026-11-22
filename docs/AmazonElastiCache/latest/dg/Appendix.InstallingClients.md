@@ -1,7 +1,6 @@
 
 
 # Installing & compiling cluster clients
-<a name="Appendix.InstallingClients"></a>
 
 This section covers installing, configuring, and compiling the PHP and .NET Amazon ElastiCache auto discovery cluster clients. 
 

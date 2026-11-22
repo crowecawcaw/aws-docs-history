@@ -1,12 +1,11 @@
 
 
 # Example: Lettuce config for cluster mode disabled, TLS enabled
-<a name="BestPractices.Clients-lettuce-cmd"></a>
 
 **Note**  
 Timeouts in the following example are for tests that ran SET/GET commands with keys and values up to 20 bytes long. The processing time can be longer when the commands are complex or the keys and values are larger. You should set the timeouts based on the use case of your application. 
 
-```
+```java
 // Set DNS cache TTL
 public void setJVMProperties() {
     java.security.Security.setProperty("networkaddress.cache.ttl", "10");

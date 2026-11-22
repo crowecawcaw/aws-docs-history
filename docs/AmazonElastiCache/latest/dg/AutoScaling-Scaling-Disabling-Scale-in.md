@@ -1,7 +1,6 @@
 
 
 # Disabling scale-in activity
-<a name="AutoScaling-Scaling-Disabling-Scale-in"></a>
 
 You can prevent the target-tracking scaling policy configuration from scaling in your cluster by disabling scale-in activity. Disabling scale-in activity prevents the scaling policy from deleting shards, while still allowing the scaling policy to create them as needed. 
 

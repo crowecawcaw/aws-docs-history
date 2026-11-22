@@ -1,7 +1,6 @@
 
 
 # Finding node endpoints and port numbers
-<a name="ClientConfig.FindingEndpointsAndPorts"></a>
 
 To connect to a cache node, your application needs to know the endpoint and port number for that node.
 

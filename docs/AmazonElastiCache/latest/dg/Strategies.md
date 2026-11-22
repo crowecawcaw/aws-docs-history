@@ -1,7 +1,6 @@
 
 
 # Caching strategies for Memcached
-<a name="Strategies"></a>
 
 In the following topic, you can find strategies for populating and maintaining your Memcached cache.
 

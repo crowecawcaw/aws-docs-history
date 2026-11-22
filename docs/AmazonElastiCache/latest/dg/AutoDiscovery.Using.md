@@ -1,7 +1,6 @@
 
 
 # Using Auto Discovery
-<a name="AutoDiscovery.Using"></a>
 
 To begin using Auto Discovery with ElastiCache for Memcached, follow these steps:
 + [Obtain the Configuration Endpoint](#AutoDiscovery.Using.ConfigEndpoint)
@@ -34,7 +33,7 @@ aws elasticache describe-cache-clusters ^
 ```
 This operation produces output similar to the following (JSON format):  
 
-```
+```json
 {
     "CacheClusters": [
         {

@@ -1,7 +1,6 @@
 
 
 # Best practices for clients (Memcached)
-<a name="BestPractices.Clients.memcached"></a>
 
 Learn best practices for common scenarios with ElastiCache for Memcached clusters.
 

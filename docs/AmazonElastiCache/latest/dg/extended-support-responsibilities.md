@@ -1,7 +1,6 @@
 
 
 # ElastiCache and customer responsibilities with ElastiCache Extended Support
-<a name="extended-support-responsibilities"></a>
 
 Following are the responsibilities of Amazon ElastiCache, and your responsibilities with ElastiCache Extended Support.
 

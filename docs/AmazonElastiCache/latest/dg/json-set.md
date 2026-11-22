@@ -1,7 +1,6 @@
 
 
 # JSON.SET
-<a name="json-set"></a>
 
 Sets JSON values at the path.
 
@@ -22,7 +21,7 @@ If the path calls for an object or array, the value (object or array) will be re
 
 Syntax
 
-```
+```json
 JSON.SET <key> <path> <json> [NX | XX] 
 ```
 
@@ -40,7 +39,7 @@ JSON.SET <key> <path> <json> [NX | XX]
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"a":{"a":1, "b":2, "c":3}}'
 OK
 127.0.0.1:6379> JSON.SET k1 $.a.* '0'
@@ -58,7 +57,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"c":{"a":1, "b":2}, "e": [1,2,3,4,5]}'
 OK
 127.0.0.1:6379> JSON.SET k1 .c.a '0'

@@ -1,7 +1,6 @@
 
 
 # Prerequisites and limitations
-<a name="Redis-Global-Datastores-Getting-Started"></a>
 
 Before getting started with global datastores, be aware of the following:
 + Global datastores are supported in the following AWS Regions:
@@ -15,6 +14,7 @@ Before getting started with global datastores, be aware of the following:
   + **Middle East** - Bahrain and UAE
   + **US** - East (N. Virginia and Ohio) and US West (N. California and Oregon)
   + **South America** - Mexico (Central) and São Paulo
++ Global datastores aren't supported for distributed KV caching clusters. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 +  All clusters—primary and secondary—in your global datastore should have the same number of primary nodes, node type, engine version, and number of shards (in case of cluster-mode enabled). Each cluster in your global datastore can have a different number of read replicas to accommodate the read traffic local to that cluster. 
 
   Replication must be enabled if you plan to use an existing single-node cluster.

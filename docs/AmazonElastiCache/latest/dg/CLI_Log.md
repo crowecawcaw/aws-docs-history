@@ -1,7 +1,6 @@
 
 
 # Specifying log delivery using the AWS CLI
-<a name="CLI_Log"></a>
 
 **Slow Log**
 

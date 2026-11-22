@@ -1,7 +1,6 @@
 
 
 # Upgrading engine versions including cross engine upgrades
-<a name="VersionManagement.HowTo"></a>
 
 **Valkey and Redis OSS**
 

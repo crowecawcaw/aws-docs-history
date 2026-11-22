@@ -1,14 +1,13 @@
 
 
 # Online migration to ElastiCache node-based clusters
-<a name="OnlineMigration"></a>
 
 With online migration, you can migrate your data from self-managed Valkey or Redis OSS on Amazon EC2 to a node-based Amazon ElastiCache cluster.
 
 This refers to migration from a self-managed instance to the ElastiCache service. For information on upgrading from Redis OSS to Valkey on ElastiCache see [Upgrading engine versions including cross engine upgrades](VersionManagement.HowTo.md).
 
 **Note**  
-This page covers online migration to node-based clusters. To migrate to an ElastiCache Serverless cache, see [Online migration to ElastiCache Serverless](migration-to-serverless.md). Online migration to node-based clusters doesn't support clusters that use a data tiering node type.
+This page covers online migration to node-based clusters. To migrate to an ElastiCache Serverless cache, see [Online migration to ElastiCache Serverless](migration-to-serverless.md). Online migration to node-based clusters doesn't support clusters that use a data tiering node type. You also can't use online migration to change or migrate an existing cluster to the `cache.i8ge.48xlarge` node type. To use this node type, create a new cluster. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 
 ## Overview
 <a name="Migration-Overview"></a>

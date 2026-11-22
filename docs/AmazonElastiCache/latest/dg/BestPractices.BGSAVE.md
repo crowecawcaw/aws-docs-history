@@ -1,7 +1,6 @@
 
 
 # Ensuring you have enough memory to make a Valkey or Redis OSS snapshot
-<a name="BestPractices.BGSAVE"></a>
 
 **Snapshots and synchronizations**  
 Valkey and Redis OSS support snapshots and synchronizations using a forkless save process that allows you to allocate more of your memory to your application's use without incurring increased swap usage during synchronizations and saves.

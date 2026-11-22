@@ -1,7 +1,6 @@
 
 
 # Creating an ElastiCache parameter group
-<a name="ParameterGroups.Creating"></a>
 
 You need to create a new parameter group if there is one or more parameter values that you want changed from the default values. You can create a parameter group using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 
@@ -78,7 +77,7 @@ aws elasticache create-cache-parameter-group ^
 ```
 The output from this command should look something like this.  
 
-```
+```json
 {
     "CacheParameterGroup": {
         "CacheParameterGroupName": "myMem14", 
@@ -108,7 +107,7 @@ aws elasticache create-cache-parameter-group ^
 ```
 The output from this command should look something like this.  
 
-```
+```json
 {
     "CacheParameterGroup": {
         "CacheParameterGroupName": "myRed7", 

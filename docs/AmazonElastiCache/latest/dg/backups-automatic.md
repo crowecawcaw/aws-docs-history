@@ -1,9 +1,8 @@
 
 
 # Scheduling automatic backups
-<a name="backups-automatic"></a>
 
-You can enable automatic backups for any Valkey or Redis OSS serverless cache or node-based cluster. When automatic backups are enabled, ElastiCache creates a backup of the cache on a daily basis. There is no impact on the cache and the change is immediate. Automatic backups can help guard against data loss. In the event of a failure, you can create a new cache, restoring your data from the most recent backup. The result is a warm-started cache, preloaded with your data and ready for use. For more information, see [Restoring from a backup into a new cache](backups-restoring.md).
+You can enable automatic backups for any Valkey or Redis OSS serverless cache or node-based cluster, except distributed KV caching clusters (`cache.i8ge.48xlarge`). For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md). When automatic backups are enabled, ElastiCache creates a backup of the cache on a daily basis. There is no impact on the cache and the change is immediate. Automatic backups can help guard against data loss. In the event of a failure, you can create a new cache, restoring your data from the most recent backup. The result is a warm-started cache, preloaded with your data and ready for use. For more information, see [Restoring from a backup into a new cache](backups-restoring.md).
 
 You can enable automatic backups for any Memcached Serverless cache. When automatic backups are enabled, ElastiCache creates a backup of the cache on a daily basis. There is no impact on the cache and the change is immediate. Automatic backups can help guard against data loss. In the event of a failure, you can create a new cache, restoring your data from the most recent backup. The result is a warm-started cache, preloaded with your data and ready for use. For more information, see [Restoring from a backup into a new cache](backups-restoring.md).
 

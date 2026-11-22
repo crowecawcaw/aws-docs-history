@@ -1,7 +1,6 @@
 
 
 # Changing durability on an existing cluster
-<a name="Durability.ChangingDurability"></a>
 
 You can switch an existing ElastiCache for Valkey cluster between the `sync`, `async`, and `disabled` durability modes without recreating it. ElastiCache applies the change to the live cluster while it continues to serve traffic. For information about tracking the change, see [Monitor the durability change](#Durability.ChangingDurability.Monitor).
 
@@ -40,7 +39,7 @@ To change the durability mode, set the `--durability` parameter to `sync`, `asyn
 
 The following AWS CLI command sets synchronous writes:
 
-```
+```bash
 aws elasticache modify-replication-group \
   --replication-group-id my-valkey-cluster \
   --durability sync \
@@ -61,7 +60,7 @@ Setting durability to `disabled` removes the Multi-AZ transactional-log durabili
 
 The following AWS CLI command sets the disabled mode:
 
-```
+```bash
 aws elasticache modify-replication-group \
   --replication-group-id my-durable-cluster \
   --durability disabled \
@@ -73,7 +72,7 @@ aws elasticache modify-replication-group \
 
 The following AWS CLI command checks the status of a durability change:
 
-```
+```bash
 aws elasticache describe-replication-groups \
   --replication-group-id my-durable-cluster \
   --query "ReplicationGroups[0].{Id:ReplicationGroupId,Status:Status,Durability:Durability,EffectiveDurability:EffectiveDurability}" \
@@ -82,7 +81,7 @@ aws elasticache describe-replication-groups \
 
 To block until the change finishes, use the `replication-group-available` waiter. The waiter polls until the cluster `Status` is `available`, which means the modification finished running.
 
-```
+```bash
 aws elasticache wait replication-group-available \
   --replication-group-id my-durable-cluster \
   --region us-east-1

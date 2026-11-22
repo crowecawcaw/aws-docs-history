@@ -1,7 +1,6 @@
 
 
 # Listing ElastiCache parameter groups by name
-<a name="ParameterGroups.ListingGroups"></a>
 
 You can list the parameter groups using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 
@@ -37,7 +36,7 @@ aws elasticache describe-cache-parameter-groups ^
 ```
 The output of this command will look something like this, listing the name, family, and description for the parameter group.  
 
-```
+```json
 {
     "CacheParameterGroups": [
 	    {
@@ -65,7 +64,7 @@ aws elasticache describe-cache-parameter-groups ^
 ```
 The output of this command will look something like this, listing the name, family, and description for the parameter group.  
 
-```
+```json
 {
     "CacheParameterGroups": [
 	    {
@@ -93,7 +92,7 @@ aws elasticache describe-cache-parameter-groups ^
 ```
 The output of this command will look something like this, listing the name, family, isGlobal and description for the parameter group.  
 
-```
+```json
 {
     "CacheParameterGroups": [
 	    {
@@ -114,7 +113,7 @@ aws elasticache describe-cache-parameter-groups --max-records {{10}}
 ```
 The JSON output of this command will look something like this, listing the name, family, description and, in the case of redis5.6 whether the parameter group is part of a global datastore (isGlobal), for each parameter group.  
 
-```
+```json
 {
     "CacheParameterGroups": [
         {

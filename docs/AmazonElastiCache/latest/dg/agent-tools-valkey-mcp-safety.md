@@ -1,7 +1,6 @@
 
 
 # Guardrails and tracking usage
-<a name="agent-tools-valkey-mcp-safety"></a>
 
 The Valkey MCP server uses a risk-tiered execution model that separates read, write, and administrative operations. The read tier is always available and provides the lowest-risk level of access. The write tier allows agents to modify data while continuing to block destructive operations such as `FLUSHALL`. The admin tier covers high-impact operations and is disabled by default. Enabling it requires both a server-level setting and explicit confirmation for each call.
 

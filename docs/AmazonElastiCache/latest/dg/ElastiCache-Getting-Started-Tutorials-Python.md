@@ -1,7 +1,6 @@
 
 
 # Python and ElastiCache
-<a name="ElastiCache-Getting-Started-Tutorials-Python"></a>
 
 In this tutorial, you use the AWS SDK for Python (Boto3) to write simple programs to perform the following ElastiCache operations:
 + Create ElastiCache for Redis OSS clusters (cluster mode enabled and cluster mode disabled)

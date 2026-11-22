@@ -1,7 +1,6 @@
 
 
 # Applying a scaling policy
-<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy"></a>
 
 After registering your cluster with ElastiCache for Valkey and Redis OSS auto scaling and defining a scaling policy, you apply the scaling policy to the registered cluster. To apply a scaling policy to an ElastiCache for Redis OSS cluster, you can use the AWS CLI or the Application Auto Scaling API. 
 
@@ -20,7 +19,7 @@ In the following example, you apply a target-tracking scaling policy named `mysc
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws application-autoscaling put-scaling-policy \
     --policy-name myscalablepolicy \
     --policy-type TargetTrackingScaling \
@@ -32,7 +31,7 @@ aws application-autoscaling put-scaling-policy \
 
 For Windows:
 
-```
+```json
 aws application-autoscaling put-scaling-policy ^
     --policy-name myscalablepolicy ^
     --policy-type TargetTrackingScaling ^
@@ -54,7 +53,7 @@ To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, 
 
 In the following example, you apply a target-tracking scaling policy named `myscalablepolicy` to an ElastiCache cluster named `myscalablecluster` with ElastiCache auto scaling. You use a policy configuration based on the `ElastiCachePrimaryEngineCPUUtilization` predefined metric. 
 
-```
+```json
 POST / HTTP/1.1
 Host: autoscaling.us-east-2.amazonaws.com
 Accept-Encoding: identity

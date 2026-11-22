@@ -1,7 +1,6 @@
 
 
 # Large number of connections (Valkey and Redis OSS)
-<a name="BestPractices.Clients.Redis.Connections"></a>
 
 Serverless caches and individual ElastiCache for Redis OSS nodes support up to 65,000 concurrent client connections. However, to optimize for performance, we advise that client applications do not constantly operate at that level of connections. Valkey and Redis OSS each have a single-threaded process based on an event loop where incoming client requests are handled sequentially. That means the response time of a given client becomes longer as the number of connected clients increases.
 
@@ -14,7 +13,7 @@ In general, creating a TCP connection is a computationally expensive operation c
 
 The following code example of PHPRedis shows that a new connection is created for each new user request:
 
-```
+```php
 $redis = new Redis();
 if ($redis->connect($HOST, $PORT) != TRUE) {
 	//ERROR: connection failed
@@ -29,7 +28,7 @@ We benchmarked this code in a loop on an Amazon Elastic Compute Cloud (Amazon EC
 
 When we updated the code and used persistent connections and a connection pool, the average latency of the entire operation was 0.21 milliseconds:
 
-```
+```php
 $redis = new Redis();
 if ($redis->pconnect($HOST, $PORT) != TRUE) {
 	// ERROR: connection failed
@@ -46,14 +45,14 @@ Required redis.ini configurations:
 
 The following code is an example of a [Redis-py connection pool](https://redis.readthedocs.io/en/stable/):
 
-```
+```python
 conn = Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10))
 conn.set(key, value)
 ```
 
 The following code is an example of a [Lettuce connection pool](https://lettuce.io/core/release/reference/#_connection_pooling):
 
-```
+```java
 RedisClient client = RedisClient.create(RedisURI.create(HOST, PORT));
 GenericObjectPool<StatefulRedisConnection> pool = ConnectionPoolSupport.createGenericObjectPool(() -> client.connect(), new GenericObjectPoolConfig());
 pool.setMaxTotal(10); // Configure max connections to 10

@@ -1,7 +1,6 @@
 
 
 # Caching database query results
-<a name="caching-database-query-results"></a>
 
 A common pattern to reduce database query latencies is query caching. Applications implement query caching by querying the cache for results associated with a database query, returning those results if they are cached. If no cached results are found, the query is executed on the database, the results are populated in the cache, and the results are then returned to the application initiating the query. Subsequent database queries will then return cached results as long as they remain in the cache.
 
@@ -49,7 +48,7 @@ To use the Remote Query Cache Plugin in your application, you need an ElastiCach
 
 The following example shows how to enable the plugin and cache a query result for 300 seconds (5 minutes) with an ElastiCache for Valkey serverless cache:
 
-```
+```java
 import java.sql.*;
 import java.util.Properties;
 

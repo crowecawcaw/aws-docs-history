@@ -1,7 +1,6 @@
 
 
 # Tagging your ElastiCache resources
-<a name="Tagging-Resources"></a>
 
 To help you manage your clusters and other ElastiCache resources, you can assign your own metadata to each resource in the form of tags. Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This is useful when you have many resources of the same type—you can quickly identify a specific resource based on the tags that you've assigned to it. This topic describes tags and shows you how to create them.
 
@@ -208,7 +207,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -237,7 +236,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -273,7 +272,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -305,7 +304,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -334,7 +333,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -364,7 +363,7 @@ For more information on ElastiCache resources you can tag, see [Resources you ca
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

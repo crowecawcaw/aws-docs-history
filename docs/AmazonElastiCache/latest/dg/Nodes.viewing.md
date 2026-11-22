@@ -1,7 +1,6 @@
 
 
 # Viewing ElastiCache Node Status
-<a name="Nodes.viewing"></a>
 
 Using the [ElastiCache console](https://console.aws.amazon.com/elasticache/), you can quickly access the status of your ElastiCache node. The status of an ElastiCache node indicates the health of the node. You can use the following procedures to view the ElastiCache node status in the Amazon ElastiCache console, the AWS CLI command, or the API operation. 
 

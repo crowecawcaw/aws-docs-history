@@ -1,7 +1,6 @@
 
 
 # Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch
-<a name="Replication.CreatingReplGroup.NoExistingCluster.Classic"></a>
 
 You can create a Valkey or Redis OSS (cluster mode disabled) replication group from scratch using the ElastiCache console, the AWS CLI, or the ElastiCache API. A Valkey or Redis OSS (cluster mode disabled) replication group always has one node group, a primary cluster, and up to five read replicas. Valkey or Redis OSS (cluster mode disabled) replication groups don't support partitioning your data.
 
@@ -86,7 +85,7 @@ aws elasticache create-replication-group ^
 
 Output from the this command is something like this.
 
-```
+```json
 {
     "ReplicationGroup": {
         "Status": "creating",

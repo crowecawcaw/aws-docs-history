@@ -1,7 +1,6 @@
 
 
 # Completing the data migration
-<a name="Migration-Complete"></a>
 
 When you are ready to cut over to your node-based ElastiCache cluster, use the `complete-migration` CLI command with the following parameters:
 + `--replication-group-id` – The identifier for the replication group.

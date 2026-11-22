@@ -1,7 +1,6 @@
 
 
 # Viewing a replication group's details
-<a name="Replication.ViewDetails"></a>
 
 There are times you may want to view the details of a replication group. You can use the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API. The console process is different for Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled).
 

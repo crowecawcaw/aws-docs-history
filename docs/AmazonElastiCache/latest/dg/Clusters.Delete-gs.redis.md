@@ -1,7 +1,6 @@
 
 
 # Deleting a cluster
-<a name="Clusters.Delete-gs.redis"></a>
 
 As long as a cluster is in the *available* state, you are being charged for it, whether or not you are actively using it. To stop incurring charges, delete the cluster.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a cluster for Valkey or Redis OSS
-<a name="Clusters.Create"></a>
 
 The following examples show how to create a Valkey or Redis OSS cluster using the AWS Management Console, AWS CLI and ElastiCache API.
 
@@ -67,9 +66,11 @@ When you select a parameter group to set the engine configuration values, that p
 
          If you choose a data tiering node type, ElastiCache automatically enables data tiering. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
+         If you choose `cache.i8ge.48xlarge`, use Valkey 9.1 or later, cluster mode enabled, 0 replicas, and one Availability Zone. Encryption in transit is required, and encryption at rest is always on. You can't turn off or change either of them. Multi-AZ and automatic backups are off by default, and you can't turn them on for this node type. For more information, see [Cluster requirements](distributed-kv-caching-limits.md#distributed-kv-caching-limits.requirements) and [Getting started with distributed KV caching](distributed-kv-caching-getting-started.md).
+
       1. For **Number of shards**, choose the number of shards (partitions/node groups) that you want for this Valkey or Redis OSS (cluster mode enabled) cluster.
 
-         You can change the number of shards in your cluster dynamically. For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md).
+         You can change the number of shards in your cluster dynamically, except on `cache.i8ge.48xlarge` clusters (see [Sizing and scaling](distributed-kv-caching-limits.md#distributed-kv-caching-limits.scaling)). For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md).
 
       1. For **Replicas per shard**, choose the number of read replica nodes that you want in each shard.
 
@@ -126,7 +127,7 @@ RBAC is available on Valkey, and on Redis OSS version 6.0 and later. On earlier 
 
            For more information on security groups, see [Security groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide.*
 
-   1. For regularly scheduled automatic backups, select **Enable automatic backups** and then enter the number of days that you want each automatic backup retained before it is automatically deleted. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box. In either case, you always have the option to create manual backups.
+   1. For regularly scheduled automatic backups, select **Enable automatic backups** and then enter the number of days that you want each automatic backup retained before it is automatically deleted. If you don't want regularly scheduled automatic backups, clear the **Enable automatic backups** check box. In either case, you always have the option to create manual backups. For `cache.i8ge.48xlarge`, automatic backups are off and you can't turn them on, and manual backups aren't supported.
 
       For more information on backup and restore, see [Snapshot and restore](backups.md).
 

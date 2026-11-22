@@ -1,7 +1,6 @@
 
 
 # Versions with ElastiCache Extended Support
-<a name="extended-support-versions"></a>
 
 Redis Open Source Software (OSS) versions 4 and 5 reached their community End of Life in 2020 and 2022, respectively. This means no further updates, bug fixes, or security patches are being released by the community. Standard support for ElastiCache Redis OSS versions 4 and 5 on ElastiCache will end on January 31, 2026. Continuing to use unsupported versions of Redis OSS could leave your data vulnerable to known [Common Vulnerabilities and Exposures](https://nvd.nist.gov/vuln-metrics/cvss) (CVEs).
 

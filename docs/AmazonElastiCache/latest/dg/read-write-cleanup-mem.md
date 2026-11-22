@@ -1,7 +1,6 @@
 
 
 # (Optional) Clean up
-<a name="read-write-cleanup-mem"></a>
 
 **Using the AWS Management Console**
 

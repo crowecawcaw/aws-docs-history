@@ -1,7 +1,6 @@
 
 
 # Considerations
-<a name="Scaling-considerations"></a>
 
 ## Potential impact on CPU utilization when scaling
 <a name="Scaling-considerations-cpu"></a>

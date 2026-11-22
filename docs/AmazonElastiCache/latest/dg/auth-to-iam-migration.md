@@ -1,7 +1,6 @@
 
 
 # Migrating from password-based authentication (AUTH) to IAM authentication
-<a name="auth-to-iam-migration"></a>
 
 This guide describes how to migrate your Amazon ElastiCache node-based cluster or serverless cache from password-based authentication (AUTH) to AWS Identity and Access Management (IAM) authentication without service interruption.
 
@@ -214,7 +213,7 @@ After completing Step 2, your cache supports both authentication methods. Verify
 
 Generate a short-lived IAM authentication token using an [AWS SigV4 pre-signed request](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html). The following Python example demonstrates token generation.
 
-```
+```python
 import boto3
 from botocore.auth import SigV4QueryAuth
 from botocore.awsrequest import AWSRequest

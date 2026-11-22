@@ -1,7 +1,6 @@
 
 
 # How Auto Discovery Works
-<a name="AutoDiscovery.HowAutoDiscoveryWorks"></a>
 
 **Topics**
 + [Connecting to Cache Nodes](#AutoDiscovery.HowAutoDiscoveryWorks.Connecting)

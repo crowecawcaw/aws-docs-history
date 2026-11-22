@@ -1,7 +1,6 @@
 
 
 # (Optional) Clean up
-<a name="GettingStarted.serverless-valkey.step3"></a>
 
 If you no longer need the Amazon ElastiCache cache that you created, you can delete it. This step helps ensure that you are not charged for resources that you are not using. You can use the ElastiCache console, the AWS CLI, or the ElastiCache API to delete your cache.
 

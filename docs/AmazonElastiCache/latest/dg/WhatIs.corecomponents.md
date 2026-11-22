@@ -1,7 +1,6 @@
 
 
 # How ElastiCache works
-<a name="WhatIs.corecomponents"></a>
 
 Here you can find an overview of the major components of an ElastiCache deployment.
 

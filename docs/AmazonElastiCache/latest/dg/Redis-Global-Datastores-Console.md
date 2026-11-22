@@ -1,7 +1,6 @@
 
 
 # Using global datastores (console)
-<a name="Redis-Global-Datastores-Console"></a>
 
 To create a global datastore using the console, follow this two-step process:
 

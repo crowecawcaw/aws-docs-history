@@ -1,7 +1,6 @@
 
 
 # Engine specific parameters
-<a name="ParameterGroups.Engine"></a>
 
 **Valkey and Redis OSS**
 
@@ -57,6 +56,18 @@ New parameter group families for Valkey 9.1 and Valkey 9.0:
 | Parameter | Description | Values | Default | Modifiable | 
 | --- | --- | --- | --- | --- | 
 | cluster-databases | Number of databases available in cluster mode. Set at cluster creation time. | 1 to 10,000 | 0 | No (set at creation) | 
+
+**Parameters for distributed KV caching (`cache.i8ge.48xlarge`)**
+
+On clusters that use the `cache.i8ge.48xlarge` node type, ElastiCache manages the settings of the large object module, and you can't change them. The following parameters apply. For more information, see [Configuring distributed KV caching](distributed-kv-caching-configuration.md).
+
+
+**Parameters for distributed KV caching**  
+
+| Parameter | Description | Values | Default | Modifiable | 
+| --- | --- | --- | --- | --- | 
+| cluster-enabled | Must be yes. Distributed KV caching clusters require cluster mode. | yes, no | no (custom parameter group) | Yes | 
+| maxmemory-policy | Controls which keys can be evicted when the node storage is full. The default parameter group uses volatile-lru, which evicts only keys with a time to live (TTL). With noeviction, writes fail with an out-of-memory (OOM) error when the node is full. Objects are always evicted in least recently used (LRU) order, whatever the policy. We recommend allkeys-lru. | allkeys-\*, volatile-\*, noeviction | volatile-lru | Yes | 
 
 ### Valkey 8.2 parameter changes
 <a name="ParameterGroups.Valkey.8.2"></a>
@@ -635,7 +646,8 @@ If you do not specify a parameter group for your Redis OSS 2.6.13 cluster, then 
 The value of `maxmemory` is the maximum number of bytes available for data storage on the node. For more information, see [Available memory](https://aws.amazon.com/premiumsupport/knowledge-center/available-memory-elasticache-redis-node/).
 
 **Note**  
-The `maxmemory` parameter cannot be modified.
+The `maxmemory` parameter cannot be modified.  
+On `cache.i8ge.48xlarge` nodes, `maxmemory` is the DRAM limit. Large objects are stored on the NVMe storage of the node, and `maxmemory` doesn't limit them. For more information, see [Eviction and memory management](distributed-kv-caching-configuration.md#distributed-kv-caching-configuration.tiering).
 
 
 |  Node type  | Maxmemory (bytes) | 
@@ -743,6 +755,7 @@ The `maxmemory` parameter cannot be modified.
 | cache.c8gn.8xlarge | 65856864256 | 
 | cache.c8gn.12xlarge | 99847503872 | 
 | cache.c8gn.16xlarge | 133838143488 | 
+| cache.i8ge.48xlarge | 1629426286592 | 
 
 ### Redis OSS node-type specific parameters
 <a name="ParameterGroups.Redis.NodeSpecific"></a>

@@ -1,7 +1,6 @@
 
 
 # Creating a node-based ElastiCache cluster for Redis OSS
-<a name="SubnetGroups.designing-cluster-pre.redis"></a>
 
 Following are the one-time actions you must take in order to create a node-based ElastiCache cluster for Redis OSS. 
 
@@ -75,7 +74,7 @@ aws elasticache create-cache-subnet-group ^
 
 This command should produce output similar to the following:
 
-```
+```json
 {
     "CacheSubnetGroup": {
         "VpcId": "vpc-37c3cd17", 
@@ -151,6 +150,8 @@ When you select a parameter group to set the engine configuration values, that p
          For more information, see [Choosing your node size](CacheNodes.SelectSize.md).
 
          If you choose a data tiering node type, ElastiCache automatically enables data tiering. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+
+         You can't use `cache.i8ge.48xlarge` in a cluster mode disabled cluster. To create a distributed KV caching cluster, see [Getting started with distributed KV caching](distributed-kv-caching-getting-started.md).
 
       1. For **Number of replicas**, choose the number of read replicas you want. If you enabled Multi-AZ, the number must be between 1-5.
 

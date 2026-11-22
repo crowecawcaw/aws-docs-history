@@ -1,7 +1,6 @@
 
 
 # Creating a replication group in Valkey or Redis OSS (Cluster Mode Enabled) from scratch
-<a name="Replication.CreatingReplGroup.NoExistingCluster.Cluster"></a>
 
 You can create a Valkey or Redis OSS (cluster mode enabled) cluster (API/CLI: *replication group*) using the ElastiCache console, the AWS CLI, or the ElastiCache API. A Valkey or Redis OSS (cluster mode enabled) replication group has from 1 to 500 shards (API/CLI: node groups), a primary node in each shard, and up to 5 read replicas in each shard. You can create a cluster with higher number of shards and lower number of replicas totaling up to 90 nodes per cluster. This cluster configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number of replicas allowed.
 
@@ -104,7 +103,7 @@ aws elasticache create-replication-group ^
 
 The preceding command generates the following output.
 
-```
+```json
 {
     "ReplicationGroup": {
         "Status": "creating", 
@@ -180,7 +179,7 @@ aws elasticache create-replication-group ^
 
 The preceding operation generates the following output.
 
-```
+```json
 {
     "ReplicationGroup": {
         "Status": "creating", 

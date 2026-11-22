@@ -1,7 +1,6 @@
 
 
 # Getting started with data aggregations
-<a name="aggregations"></a>
 
 Amazon ElastiCache for Valkey supports aggregation queries, enabling you to filter, group, transform, and summarize data stored in your cache with a single query. Aggregations run server-side in memory, performing computations directly on indexed data and returning only the final results to the client. This eliminates the need to transfer large datasets to the application layer for processing, reducing network overhead and enabling response latencies as low as microseconds over terabytes of data.
 

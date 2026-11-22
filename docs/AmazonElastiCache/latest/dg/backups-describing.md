@@ -1,7 +1,6 @@
 
 
 # Describing backups
-<a name="backups-describing"></a>
 
 The following procedures show you how to display a list of your backups. If you desire, you can also view the details of a particular backup.
 

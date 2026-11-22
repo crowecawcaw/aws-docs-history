@@ -1,7 +1,6 @@
 
 
 # Choosing between deployment options
-<a name="WhatIs.deployment"></a>
 
 Amazon ElastiCache has two deployment options:
 + Serverless caching
@@ -55,6 +54,7 @@ Create your own node-based cluster if:
 | Global Data Store  | Not supported  | Supports Global Data Store, which enables cross region replication with single region writes and multi-region reads | 
 | Data Tiering | Not supported | When you create a cluster with nodes from the r6gd, r7gd, or r8gd families, your data is tiered between memory and local solid state drive (SSD) storage. Data tiering provides a price-performance option for Valkey and Redis OSS workloads by utilizing lower-cost solid state drives (SSDs) in each cluster node, in addition to storing data in memory. | 
 | Durability | Not supported | Supported for Valkey 9.0 and higher. Provides synchronous or asynchronous writes through a Multi-AZ transactional log. | 
+| Distributed KV caching | Not supported | Supported on the `cache.i8ge.48xlarge` node type with Valkey 9.1 or later. For more information, see [Distributed KV caching](distributed-kv-caching.md). | 
 | Pricing model | Pay-per-use, based on data stored in GB-hours and requests in ElastiCache Processing Units (ECPU). See pricing details [here](https://aws.amazon.com/elasticache/pricing/). | Pay-per-hour, based on cache node usage. See pricing details [here](https://aws.amazon.com/elasticache/pricing/). | 
 
 Related topics:

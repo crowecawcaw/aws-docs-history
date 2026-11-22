@@ -1,7 +1,6 @@
 
 
 # ElastiCache terminology
-<a name="WhatIs.Terms"></a>
 
 Amazon ElastiCache supports partitioning your data across up to 500 shards (called node groups in the ElastiCache API and AWS CLI).
 

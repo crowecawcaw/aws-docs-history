@@ -1,9 +1,8 @@
 
 
 # Tutorial: Seeding a new node-based cluster with an externally created backup
-<a name="backups-seeding-redis"></a>
 
-When you create a new Valkey or Redis OSS node-based cluster, you can seed it with data from a Valkey or Redis OSS .rdb backup file. Seeding the cluster is useful if you currently manage a Valkey or Redis OSS instance outside of ElastiCache and want to populate your new ElastiCache for Redis OSS node-based cluster with your existing Valkey or Redis OSS data.
+When you create a new Valkey or Redis OSS node-based cluster, you can seed it with data from a Valkey or Redis OSS .rdb backup file. Seeding the cluster is useful if you currently manage a Valkey or Redis OSS instance outside of ElastiCache and want to populate your new ElastiCache for Redis OSS node-based cluster with your existing Valkey or Redis OSS data. You can't seed a `cache.i8ge.48xlarge` cluster from an .rdb file.
 
 To seed a new Valkey or Redis OSS node-based cluster from a Valkey or Redis OSS backup created within Amazon ElastiCache, see [Restoring from a backup into a new cache](backups-restoring.md).
 
@@ -143,7 +142,7 @@ AWS Regions introduced before March 20, 2019, are enabled by default. You can be
 
 1. Add a bucket policy that grants ElastiCache the required permissions. The following example grants the ElastiCache service principal read access to the bucket and its objects. Replace {{amzn-s3-demo-bucket}} with the name of your S3 bucket. Replace {{region-full-name}} with the AWS Region identifier where your cluster is located (for example, `us-east-1`).
 
-   ```
+   ```JSON
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [
@@ -204,7 +203,7 @@ Now, grant ElastiCache read access to your .rdb backup file.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -250,7 +249,7 @@ If your Amazon S3 bucket uses AWS KMS server-side encryption (SSE-KMS), you must
 
 1. Add the following statement to the key policy to grant ElastiCache decrypt permissions:
 
-   ```
+   ```JSON
    {
        "Sid": "AllowElastiCacheDecrypt",
        "Effect": "Allow",

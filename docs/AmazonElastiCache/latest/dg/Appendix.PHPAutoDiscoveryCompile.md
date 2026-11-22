@@ -1,7 +1,6 @@
 
 
 # Compiling the source code for the ElastiCache cluster client for PHP
-<a name="Appendix.PHPAutoDiscoveryCompile"></a>
 
 This section covers how to obtain and compile the source code for the ElastiCache Cluster Client for PHP.
 

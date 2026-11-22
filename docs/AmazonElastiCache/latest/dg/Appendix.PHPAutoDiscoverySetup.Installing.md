@@ -1,7 +1,6 @@
 
 
 # Installation steps for new users
-<a name="Appendix.PHPAutoDiscoverySetup.Installing"></a>
 
 **Topics**
 + [Installing PHP 7.x for new users](#Appendix.PHPAutoDiscoverySetup.Installing.PHP7x)

@@ -1,7 +1,6 @@
 
 
 # Lettuce client configuration (Valkey and Redis OSS)
-<a name="BestPractices.Clients-lettuce"></a>
 
 This section describes the recommended Java and Lettuce configuration options, and how they apply to ElastiCache clusters.
 
@@ -91,7 +90,7 @@ Using dynamic refresh queries all discovered nodes for the cluster topology and 
 
 When it's enabled, however, we use all of the cluster nodes that are received from the cluster view to query for their current view. Because we filter out failed nodes from that view, the topology refresh will be successful. However, when dynamicRefreshSources is true, Lettuce queries all nodes to get the cluster view, and then compares the results. So it can be expensive for clusters with a lot of nodes. We suggest that you turn off this feature for clusters with many nodes. 
 
-```
+```java
 final ClusterTopologyRefreshOptions topologyOptions = 
     ClusterTopologyRefreshOptions.builder()
     .enableAllAdaptiveRefreshTriggers()
@@ -106,7 +105,7 @@ Starting with Lettuce 6.7, Lettuce uses Netty's `DnsAddressResolverGroup` by def
 
 Configure [reconnectDelay](https://javadoc.io/doc/io.lettuce/lettuce-core/latest/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay-) with exponential backoff and full jitter. Lettuce has built-in retry mechanisms based on the exponential backoff strategies.. For details, see [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter) on the AWS Architecture Blog. For more information about the importance of having a retry backoff strategy, see the backoff logic sections of the [Best practices blog post](https://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/) on the AWS Database Blog.
 
-```
+```java
 ClientResources clientResources = DefaultClientResources.builder()
     .reconnectDelay(
         Delay.fullJitter(
@@ -125,7 +124,7 @@ Use a dynamic command timeout for different commands. We recommend that you set 
 **Note**  
 Timeouts that are configured in the following example are for tests that ran SET/GET commands with keys and values up to 20 bytes long. The processing time can be longer when the commands are complex or the keys and values are larger. You should set the timeouts based on the use case of your application. 
 
-```
+```java
 private static final Duration META_COMMAND_TIMEOUT = Duration.ofMillis(1000);
 private static final Duration DEFAULT_COMMAND_TIMEOUT = Duration.ofMillis(250);
 // Socket connect timeout should be lower than command timeout for Lettuce

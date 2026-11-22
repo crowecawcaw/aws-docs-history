@@ -1,7 +1,6 @@
 
 
 # Authentication and Authorization
-<a name="auth-redis"></a>
 
 AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. ElastiCache supports authenticating users using IAM and the Valkey and Redis OSS AUTH command, and authorizing user operations using Role-Based Access Control (RBAC).
 

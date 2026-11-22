@@ -1,7 +1,6 @@
 
 
 # Configuring your ElastiCache client for efficient load balancing (Memcached)
-<a name="BestPractices.LoadBalancing"></a>
 
 **Note**  
 This section applies to node-based multi-node Memcached clusters.

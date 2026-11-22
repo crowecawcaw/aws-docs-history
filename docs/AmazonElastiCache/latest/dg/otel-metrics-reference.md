@@ -1,7 +1,6 @@
 
 
 # OpenTelemetry metrics reference for Amazon ElastiCache
-<a name="otel-metrics-reference"></a>
 
 This topic lists the OpenTelemetry metrics that Amazon ElastiCache emits for node-based Valkey replication groups, along with the attributes that accompany them. For an introduction to the feature, including how to enable it, see [Monitoring ElastiCache with OpenTelemetry metrics](otel-metrics.md).
 

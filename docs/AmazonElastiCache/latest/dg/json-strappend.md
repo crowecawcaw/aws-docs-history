@@ -1,13 +1,12 @@
 
 
 # JSON.STRAPPEND
-<a name="json-strappend"></a>
 
 Appends a string to the JSON strings at the path.
 
 Syntax
 
-```
+```json
 JSON.STRAPPEND <key> [path] <json_string>
 ```
 + key (required) – A Valkey or Redis OSS key of JSON document type.
@@ -33,7 +32,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 $ '{"a":{"a":"a"}, "b":{"a":"a", "b":1}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":3}}'
 OK
 127.0.0.1:6379> JSON.STRAPPEND k1 $.a.a '"a"'
@@ -56,7 +55,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"a":{"a":"a"}, "b":{"a":"a", "b":1}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":3}}'
 OK
 127.0.0.1:6379> JSON.STRAPPEND k1 .a.a '"a"'

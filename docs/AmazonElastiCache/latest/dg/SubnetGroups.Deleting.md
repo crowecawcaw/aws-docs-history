@@ -1,7 +1,6 @@
 
 
 # Deleting a subnet group
-<a name="SubnetGroups.Deleting"></a>
 
 If you decide that you no longer need your subnet group, you can delete it. You cannot delete a subnet group if it is currently in use by a cache.
 

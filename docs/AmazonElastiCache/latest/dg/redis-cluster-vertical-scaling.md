@@ -1,12 +1,14 @@
 
 
 # Online vertical scaling by modifying node type
-<a name="redis-cluster-vertical-scaling"></a>
 
 By using online vertical scaling with Valkey and Redis OSS, you can scale your Valkey or Redis OSS clusters dynamically with minimal downtime. This allows your Valkey or Redis OSS cluster to serve requests even while scaling.
 
 **Note**  
 Scaling is not supported between a data tiering cluster (for example, a cluster using an r6gd node type) and a cluster that does not use data tiering (for example, a cluster using an r6g node type). For more information, see [Data tiering in ElastiCache](data-tiering.md).
+
+**Note**  
+You can't change or migrate an existing cluster to or from the `cache.i8ge.48xlarge` node type. To use this node type, create a new cluster. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 
 You can do the following:
 + **Scale up** – Increase read and write capacity by adjusting the node type of your Valkey or Redis OSS cluster to use a larger node type.
@@ -89,7 +91,7 @@ The following procedure describes how to scale up a Valkey or Redis OSS cluster 
 
    Output from the above command looks something like this (JSON format).
 
-   ```
+   ```json
    {
    	    "ScaleUpModifications": [
    	        "cache.m5.2xlarge", 
@@ -142,7 +144,7 @@ The following procedure describes how to scale up a Valkey or Redis OSS cluster 
 
    Output from the above command looks something like this (JSON format).
 
-   ```
+   ```json
    {
    		"ReplicationGroup": {
            "Status": "modifying",
@@ -316,7 +318,7 @@ The following procedure describes how to scale down a Valkey or Redis OSS cluste
 
    Output from the above command looks something like this (JSON format).
 
-   ```
+   ```json
    {
    	    "ScaleUpModifications": [
    	        "cache.m5.2xlarge", 
@@ -370,7 +372,7 @@ The following procedure describes how to scale down a Valkey or Redis OSS cluste
 
    Output from the above command looks something like this (JSON format).
 
-   ```
+   ```json
    {	
    		"ReplicationGroup": {
            "Status": "modifying",

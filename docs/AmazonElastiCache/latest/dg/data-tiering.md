@@ -1,17 +1,19 @@
 
 
 # Data tiering in ElastiCache
-<a name="data-tiering"></a>
 
 ElastiCache for Valkey or Redis OSS clusters that comprise a replication group and use a node type from the r6gd, r7gd, or r8gd families have their data tiered between memory and local SSD (solid state drives) storage. Data tiering provides a new price-performance option for Valkey or Redis OSS workloads by utilizing lower-cost solid state drives (SSDs) in each cluster node in addition to storing data in memory. It is ideal for workloads that access up to 20 percent of their overall dataset regularly, and for applications that can tolerate additional latency when accessing data on SSD.
 
-On ElastiCache clusters with data tiering, ElastiCache monitors the last access time of every item it stores. When available memory (DRAM) is fully consumed, ElastiCache uses a least-recently used (LRU) algorithm to automatically move infrequently accessed items from memory to SSD. When data on SSD is subsequently accessed, ElastiCache automatically and asynchronously moves it back to memory before processing the request. If you have a workload that accesses only a subset of its data regularly, data tiering is an optimal way to scale your capacity cost-effectively.
+On ElastiCache clusters with data tiering, ElastiCache monitors the last access time of every item it stores. When available dynamic random-access memory (DRAM) is fully consumed, ElastiCache uses a least-recently used (LRU) algorithm to automatically move infrequently accessed items from memory to SSD. When data on SSD is subsequently accessed, ElastiCache automatically and asynchronously moves it back to memory before processing the request. If you have a workload that accesses only a subset of its data regularly, data tiering is an optimal way to scale your capacity cost-effectively.
 
 Note that when using data tiering, keys themselves always remain in memory, while the LRU governs the placement of values on memory vs. disk. In general, we recommend that your key sizes are smaller than your value sizes when using data tiering.
 
 Data tiering is designed to have minimal performance impact to application workloads. For example, assuming 500-byte String values, you can expect an additional 300 microseconds of latency on average for requests to data stored on SSD compared to requests to data in memory.
 
 With the largest data tiering node size (cache.r6gd.16xlarge), you can store up to 1 petabyte in a single 500-node cluster (500 TB when using 1 read replica). Data tiering is compatible with all Valkey or Redis OSS commands and data structures supported in ElastiCache. You don't need any client-side changes to use this feature. 
+
+**Note**  
+The `cache.i8ge.48xlarge` node type isn't a data tiering node type. Its Non-Volatile Memory Express (NVMe) storage holds large objects for distributed KV caching. For more information, see [Distributed KV caching](distributed-kv-caching.md).
 
 **Topics**
 + [Best practices](#data-tiering-best-practices)
@@ -44,7 +46,7 @@ Data tiering has the following limitations:
 + Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later.
 + Items larger than 128 MiB are not moved to SSD.
 + For Valkey 8.1 and later, items with a combined key and value size of less than 40 bytes are not moved to SSD.
-+ For Valkey 9.0 and later, hash items with field-level TTLs are not moved to SSD.
++ For Valkey 9.0 and later, hash items with field-level time to live (TTL) values are not moved to SSD.
 + Data tiering is not supported with durability-enabled clusters.
 
 ## Pricing
@@ -57,9 +59,9 @@ Data tiering offers a lower-cost way to scale your cache capacity by using local
 
 ElastiCache offers metrics designed specifically to monitor the performance clusters that use data tiering. To monitor the ratio of items in DRAM compared to SSD, you can use the `CurrItems` metric at [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md). You can calculate the percentage as: *(CurrItems with Dimension: Tier = Memory \* 100) / (CurrItems with no dimension filter)*. 
 
- If the configured eviction policy allows, then ElastiCache will start evicting items when less than 5 percent of available memory (DRAM) remains. On nodes configured with noeviction policy, write operations will receive an out of memory error. 
+ After a node reaches `maxmemory`, ElastiCache keeps at least 5 percent of items that can move to SSD with their values in memory (DRAM). This threshold counts items, not bytes. It leaves room to write new data and to move values back from SSD without first removing data. If fewer than 5 percent of items have values in DRAM, ElastiCache evicts items when the configured eviction policy allows it. If the policy can't evict, ElastiCache rejects writes with an out of memory (OOM) error, even when SSD space is available. This includes `noeviction`, and `volatile-lru` or `volatile-lfu` when few or no keys have a TTL. 
 
- It is still recommended that you consider scaling out for Cluster Mode Enabled clusters or scaling up for Cluster Mode disabled clusters when less than 5 percent of available memory (DRAM) remains. For more information on scaling see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md). For more information on metrics for Valkey or Redis OSS clusters that use data tiering see [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md).
+ Because the threshold counts items, large values can fill DRAM even though only a small share of items keep their values there. Aim for 10 to 20 percent of items with values in DRAM, and keep at least 5 percent. If the share approaches 5 percent, consider scaling out for Cluster Mode Enabled clusters or scaling up for Cluster Mode Disabled clusters. For more information on scaling see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md). For more information on metrics for Valkey or Redis OSS clusters that use data tiering see [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md).
 
 ## Using data tiering
 <a name="data-tiering-enabling"></a>
@@ -80,7 +82,7 @@ Data tiering node types always use data tiering. If you set the `--no-data-tieri
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws elasticache create-replication-group \
    --replication-group-id redis-dt-cluster \
    --replication-group-description "Redis OSS cluster with data tiering" \
@@ -95,7 +97,7 @@ aws elasticache create-replication-group \
 
 For Windows:
 
-```
+```json
 aws elasticache create-replication-group ^
    --replication-group-id redis-dt-cluster ^
    --replication-group-description "Redis OSS cluster with data tiering" ^
@@ -110,7 +112,7 @@ aws elasticache create-replication-group ^
 
 After running this operation, you will see a response similar to the following:
 
-```
+```json
 {
     "ReplicationGroup": {
         "ReplicationGroupId": "redis-dt-cluster",
@@ -185,7 +187,7 @@ Data tiering node types always use data tiering. If you set the `--no-data-tieri
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws elasticache create-replication-group \
    --replication-group-id redis-dt-cluster \
    --replication-group-description "Redis OSS cluster with data tiering" \
@@ -201,7 +203,7 @@ aws elasticache create-replication-group \
 
 For Linux, macOS, or Unix:
 
-```
+```json
 aws elasticache create-replication-group ^
    --replication-group-id redis-dt-cluster ^
    --replication-group-description "Redis OSS cluster with data tiering" ^
@@ -217,7 +219,7 @@ aws elasticache create-replication-group ^
 
 After running this operation, you will see a response similar to the following:
 
-```
+```json
 {
     "ReplicationGroup": {
         "ReplicationGroupId": "redis-dt-cluster",

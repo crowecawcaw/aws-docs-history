@@ -1,7 +1,6 @@
 
 
 # Snapshot and restore
-<a name="backups"></a>
 
 Amazon ElastiCache caches running Valkey, Redis OSS, or Serverless Memcached can back up their data by creating a snapshot. You can use the backup to restore a cache or seed data to a new cache. The backup consists of the cache’s metadata, along with all of the data in the cache. All backups are written to Amazon Simple Storage Service (Amazon S3), which provides durable storage. At any time, you can restore your data by creating a new Valkey, Redis OSS, or Serverless Memcached cache and populating it with data from a backup. With ElastiCache, you can manage backups using the AWS Management Console, the AWS Command Line Interface (AWS CLI), and the ElastiCache API.
 
@@ -26,12 +25,13 @@ If you plan to delete a cache and it's important to preserve the data, you can t
 
 Consider the following constraints when planning or making backups:
 + Backup and restore are supported only for caches running on Valkey, Redis OSS or Serverless Memcached.
-+ For Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters, backup and restore are supported for all node types.
++ For Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters, backup and restore are supported for all node types except `cache.i8ge.48xlarge`.
 + During any contiguous 24-hour period, you can create no more than 24 manual backups per serverless cache. For Valkey and Redis OSS node-based clusters, you can create no more than 20 manual backups per node in the cluster. 
 + Valkey or Redis OSS (cluster mode enabled) only supports taking backups on the cluster level (for the API or CLI, the replication group level). Valkey or Redis OSS (cluster mode enabled) doesn't support taking backups at the shard level (for the API or CLI, the node group level).
 + During the backup process, you can't run any other API or CLI operations on serverless cache. You can run API or CLI operations on a node-based cluster during backup.
 + If you are using Valkey or Redis OSS caches with data tiering, you cannot export a backup to Amazon S3.
 + You can restore a backup from a data tiering cluster to another cluster that also uses data tiering.
++ Clusters that use the `cache.i8ge.48xlarge` node type for distributed KV caching don't support backups, snapshots, or restore. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
 
 ## Performance impact of backups of node-based clusters
 <a name="backups-performance"></a>

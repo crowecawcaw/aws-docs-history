@@ -1,13 +1,12 @@
 
 
 # JSON.ARRAPPEND
-<a name="json-arrappend"></a>
 
 Appends one or more values to the array values at the path.
 
 Syntax
 
-```
+```json
 JSON.ARRAPPEND <key> <path> <json> [json ...]
 ```
 + key (required) – A Valkey or Redis OSS key of JSON document type.
@@ -32,7 +31,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
 OK
 127.0.0.1:6379> JSON.ARRAPPEND  k1 $[*] '"c"'
@@ -45,7 +44,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
 OK
 127.0.0.1:6379> JSON.ARRAPPEND  k1 [-1] '"c"'

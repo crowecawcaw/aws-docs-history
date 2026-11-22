@@ -1,7 +1,6 @@
 
 
 # Registering a Scalable Target
-<a name="AutoScaling-Scaling-Registering-Policy-CLI"></a>
 
 Before you can use Auto Scaling with an ElastiCache for Valkey and Redis OSS cluster, you register your cluster with ElastiCache auto scaling. You do so to define the scaling dimension and limits to be applied to that cluster. ElastiCache auto scaling dynamically scales the cluster along the `elasticache:replication-group:NodeGroups` scalable dimension, which represents the number of cluster shards. 
 
@@ -18,7 +17,7 @@ To register your ElastiCache for Valkey and Redis OSS cluster, use the [register
  In the following example, you register an ElastiCache cluster named `myscalablecluster`. The registration indicates that the cluster should be dynamically scaled to have from one to ten shards.   
 For Linux, macOS, or Unix:  
 
-```
+```json
 aws application-autoscaling register-scalable-target \
     --service-namespace elasticache \
     --resource-id replication-group/myscalablecluster \
@@ -28,7 +27,7 @@ aws application-autoscaling register-scalable-target \
 ```
 For Windows:  
 
-```
+```json
 aws application-autoscaling register-scalable-target ^
     --service-namespace elasticache ^
     --resource-id replication-group/myscalablecluster ^

@@ -1,7 +1,6 @@
 
 
 # Removing nodes from an ElastiCache cluster
-<a name="Clusters.DeleteNode"></a>
 
 You can delete a node from a Valkey, Memcached, or Redis OSS cluster using the AWS Management Console, the AWS CLI, or the ElastiCache API.
 
@@ -83,7 +82,7 @@ You can pass only one of `--replicas-to-remove` or `--new-replica-count` paramet
 
    This operation produces output similar to the following (JSON format):
 
-   ```
+   ```json
    {
        "ReplicationGroup": {
            "ReplicationGroupId": "node-test",

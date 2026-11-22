@@ -1,7 +1,6 @@
 
 
 # Modifying an ElastiCache cluster
-<a name="Clusters.Modify"></a>
 
 In addition to adding or removing nodes from an ElastiCache cluster, there can be times where you need to make other changes such as adding a security group, changing the maintenance window or a parameter group.
 
@@ -41,6 +40,8 @@ You can upgrade to newer engine versions. If you upgrade major engine versions, 
    + Node Type
 **Note**  
 If the cluster is using a data tiering node type, you can only choose a different node size from within the same data tiering node family. If you choose a data tiering node type, data tiering is automatically enabled. For more information, see [Data tiering](data-tiering.md).
+**Note**  
+You can't change or migrate an existing cluster to or from the `cache.i8ge.48xlarge` node type. To use this node type, create a new cluster. For more information, see [Requirements and limits for distributed KV caching](distributed-kv-caching-limits.md).
    + Multi-AZ
    + Auto failover (cluster mode disabled only)
    + Enable Automatic Backups

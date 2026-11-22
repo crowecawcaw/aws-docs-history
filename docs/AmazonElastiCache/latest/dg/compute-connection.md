@@ -1,7 +1,6 @@
 
 
 # Connecting an EC2 instance and an ElastiCache cache automatically
-<a name="compute-connection"></a>
 
 You can use the ElastiCache console to simplify setting up a connection between an Amazon Elastic Compute Cloud (Amazon EC2) instance and an ElastiCache cache. Often, your cache is in a private subnet and your EC2 instance is in a public subnet within a VPC. You can use a SQL client on your EC2 instance to connect to your ElastiCache cache. The EC2 instance can also run web servers or applications that access your private ElastiCache cache. 
 

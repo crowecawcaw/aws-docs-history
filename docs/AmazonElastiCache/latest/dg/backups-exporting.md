@@ -1,7 +1,6 @@
 
 
 # Exporting a backup
-<a name="backups-exporting"></a>
 
 Amazon ElastiCache supports exporting your ElastiCache for Redis OSS backup to an Amazon Simple Storage Service (Amazon S3) bucket, which gives you access to it from outside ElastiCache. You can export a backup using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 
@@ -59,7 +58,7 @@ Add the following bucket policy to your Amazon S3 bucket. Replace `{{amzn-s3-dem
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ To call the export operation, you must have permissions to call `elasticache:Cop
 
 The following IAM policy shows the minimum permissions that you need. Replace `{{amzn-s3-demo-bucket}}` with the name of your target Amazon S3 bucket.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

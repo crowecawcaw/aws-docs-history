@@ -1,7 +1,6 @@
 
 
 # Types of agentic memory
-<a name="agentic-memory-types"></a>
 
 ## Short-term memory
 <a name="agentic-memory-short-term"></a>

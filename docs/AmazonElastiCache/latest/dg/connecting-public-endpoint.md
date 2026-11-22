@@ -1,7 +1,6 @@
 
 
 # Connect to a cache with a public endpoint
-<a name="connecting-public-endpoint"></a>
 
 All public endpoint connections require IAM authentication and TLS 1.3. There are three ways to generate the IAM authentication token:
 
@@ -26,7 +25,7 @@ Before you connect, your IAM user or role needs permission to call `elasticache:
 
 Create an IAM policy that allows the `elasticache:Connect` action on the ElastiCache cache and ElastiCache user:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -50,7 +49,7 @@ GLIDE 2.2 and later include built-in IAM authentication support. You configure y
 ### Python
 <a name="connecting-public-endpoint-glide-python"></a>
 
-```
+```python
 from glide import (
     GlideClusterClient, GlideClusterClientConfiguration, NodeAddress,
     ServerCredentials, IamAuthConfig, ServiceType,
@@ -78,7 +77,7 @@ print(result)  # b"value"
 ### Java
 <a name="connecting-public-endpoint-glide-java"></a>
 
-```
+```java
 import glide.api.GlideClusterClient;
 import glide.api.models.configuration.IamAuthConfig;
 import glide.api.models.configuration.ServiceType;
@@ -125,14 +124,14 @@ The Developer Toolkit for ElastiCache (`developer-toolkit-elasticache`) is a sta
 ### Install
 <a name="connecting-public-endpoint-toolkit-install"></a>
 
-```
+```bash
 pip install developer-toolkit-elasticache
 ```
 
 ### Python with valkey-py
 <a name="connecting-public-endpoint-toolkit-python"></a>
 
-```
+```python
 import valkey
 from valkey.credentials import CredentialProvider
 
@@ -170,7 +169,7 @@ The Developer Toolkit does not automatically refresh tokens. IAM authentication 
 
 To connect with valkey-cli or redis-cli, use the Developer Toolkit CLI to generate a token:
 
-```
+```bash
 export VALKEYCLI_AUTH=$(developer-toolkit-elasticache generate_iam_auth_token \
     --serverless-cache-name my-public-cache \
     --user-id default.iam-user \

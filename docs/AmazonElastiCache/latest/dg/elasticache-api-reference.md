@@ -1,7 +1,6 @@
 
 
 # Reference
-<a name="elasticache-api-reference"></a>
 
 The topics in this section cover working with the Amazon ElastiCache API and the ElastiCache section of the AWS CLI. Also included in this section are common error messages and service notifications.
 + [Using the ElastiCache API](ProgrammingGuide.md)

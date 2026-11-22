@@ -1,11 +1,10 @@
 
 
 # Getting started
-<a name="agent-tools-skills-getting-started"></a>
 
 Install the ElastiCache skill using the following command:
 
-```
+```bash
 npx skills add aws/agent-toolkit-for-aws/skills/specialized-skills/database-skills/amazon-elasticache -g -a <agent-id> --full-depth
 ```
 

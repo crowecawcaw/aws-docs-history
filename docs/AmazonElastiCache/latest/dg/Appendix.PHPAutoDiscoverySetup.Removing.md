@@ -1,7 +1,6 @@
 
 
 # Removing the PHP cluster client
-<a name="Appendix.PHPAutoDiscoverySetup.Removing"></a>
 
 **Topics**
 + [Removing an earlier version of PHP 7](#Appendix.PHPAutoDiscoverySetup.Removing.PHP7x)

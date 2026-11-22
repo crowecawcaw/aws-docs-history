@@ -1,7 +1,6 @@
 
 
 # Managing ElastiCache Amazon SNS notifications
-<a name="ECEvents.SNS"></a>
 
 You can configure ElastiCache to send notifications for important cluster events using Amazon Simple Notification Service (Amazon SNS). In these examples, you will configure a cluster with the Amazon Resource Name (ARN) of an Amazon SNS topic to receive notifications. 
 
@@ -28,7 +27,7 @@ To receive event notifications, you must grant ElastiCache permission to publish
 
 The following policy grants ElastiCache the required permission:
 
-```
+```JSON
 {
   "Version": "2012-10-17",
   "Statement": [

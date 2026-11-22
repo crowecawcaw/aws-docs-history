@@ -1,7 +1,6 @@
 
 
 # Cluster client discovery and exponential backoff (Valkey and Redis OSS)
-<a name="BestPractices.Clients.Redis.Discovery"></a>
 
 When connecting to an ElastiCache Valkey or Redis OSS cluster in cluster mode enabled, the corresponding client library must be cluster aware. The clients must obtain a map of hash slots to the corresponding nodes in the cluster in order to send requests to the right nodes and avoid the performance overhead of handing cluster redirections. As a result, the client must discover a complete list of slots and the mapped nodes in two different situations:
 + The client is initialized and must populate the initial slots configuration
@@ -24,7 +23,7 @@ The following are some code examples for exponential backoff retry logic in redi
 
 redis-py has a built-in retry mechanism that supports exponential backoff with jitter. If no `retry` parameter is provided, redis-py defaults to `ExponentialWithJitterBackoff` with 3 retries. You can customize the retry behavior through the `retry` and `retry_on_error` arguments when creating a [Redis](https://redis.readthedocs.io/en/stable/retry.html) client.
 
-```
+```python
 from redis.backoff import ExponentialBackoff
 from redis.retry import Retry
 from redis.client import Redis
@@ -49,7 +48,7 @@ For more information about retry configuration options, see [Retry Helpers](http
 
 PHPRedis has a built-in retry mechanism that retries a (non-configurable) maximum of 10 times. There is a configurable delay between tries (with a jitter from the second retry onwards). For more information, see the following [sample code](https://github.com/phpredis/phpredis/blob/b0b9dd78ef7c15af936144c1b17df1a9273d72ab/library.c#L335-L368). We've submitted a pull request to natively implement exponential backoff in [PHPredis (\#1986)](https://github.com/phpredis/phpredis/pull/1986) that has since been merged and [documented](https://github.com/phpredis/phpredis/blob/develop/README.md#retry-and-backoff). For those on the latest release of PHPRedis, it won't be necessary to implement manually but we've included the reference here for those on previous versions. For now, the following is a code example that configures the delay of the retry mechanism:
 
-```
+```php
 $timeout = 0.1; // 100 millisecond connection timeout
 $retry_interval = 100; // 100 millisecond retry interval
 $client = new Redis();
@@ -63,7 +62,7 @@ $client->set($key, $value);
 
 Lettuce has built-in retry mechanisms based on the exponential backoff strategies described in the post [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/). The following is a code excerpt showing the full jitter approach:
 
-```
+```java
 public static void main(String[] args)
 {
 	ClientResources resources = null;

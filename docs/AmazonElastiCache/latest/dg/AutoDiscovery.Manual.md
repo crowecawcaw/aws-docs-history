@@ -1,7 +1,6 @@
 
 
 # Connecting to Memcached Cache Nodes Manually
-<a name="AutoDiscovery.Manual"></a>
 
 If your client program does not use Auto Discovery, it can manually connect to each of the Memcached cache nodes. This is the default behavior for Memcached clients.
 
@@ -10,7 +9,7 @@ You can obtain a list of cache node hostnames and port numbers from the [AWS Man
 **Example**  
 The following Java code snippet shows how to connect to all of the nodes in a four-node cluster:  
 
-```
+```java
 ...
 
 ArrayList<String> cacheNodes = new ArrayList<String>(

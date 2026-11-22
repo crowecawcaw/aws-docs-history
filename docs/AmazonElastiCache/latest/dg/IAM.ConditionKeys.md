@@ -1,7 +1,6 @@
 
 
 # Using condition keys
-<a name="IAM.ConditionKeys"></a>
 
 You can specify conditions that determine how an IAM policy takes effect. In ElastiCache, you can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html).
 
@@ -23,7 +22,7 @@ If you do not add both Principals for ElastiCache, the intended “Allow” or �
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@ The following shows an example of this permissions policy when using Valkey or R
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -110,7 +109,7 @@ The following shows an example of this permissions policy when using Memcached.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -162,7 +161,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -208,7 +207,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -251,7 +250,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -299,7 +298,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -344,7 +343,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -386,7 +385,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -431,7 +430,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -476,7 +475,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -518,7 +517,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -563,7 +562,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -608,7 +607,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -652,7 +651,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -696,7 +695,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -729,7 +728,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -771,7 +770,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -815,7 +814,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -857,7 +856,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -903,7 +902,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -951,7 +950,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -994,7 +993,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1040,7 +1039,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1083,7 +1082,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1143,7 +1142,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -1191,7 +1190,7 @@ This section shows example policies for implementing fine-grained access control
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -1233,7 +1232,7 @@ This section shows example policies for implementing fine-grained access control
 
 1. **elasticache:ConnectionType**: Deny creating serverless caches with a public connection type. Using the provided condition, administrators can prevent users from creating caches with public endpoints.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Taking manual backups
-<a name="backups-manual"></a>
 
 In addition to automatic backups, you can create a *manual* backup at any time. Unlike automatic backups, which are automatically deleted after a specified retention period, manual backups do not have a retention period after which they are automatically deleted. Even if you delete the cache, any manual backups from that cache are retained. If you no longer want to keep a manual backup, you must explicitly delete it yourself.
 
@@ -134,7 +133,7 @@ aws elasticache create-snapshot ^
 
 Output from the operation looks something like the following.
 
-```
+```json
 {
     "Snapshot": {
         "Engine": "redis", 
@@ -192,7 +191,7 @@ aws elasticache create-snapshot ^
 
 Output from this operation looks something like the following.
 
-```
+```json
 {
     "Snapshot": {
         "Engine": "redis", 

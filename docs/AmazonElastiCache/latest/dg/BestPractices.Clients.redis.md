@@ -1,7 +1,6 @@
 
 
 # Best practices for clients (Valkey and Redis OSS)
-<a name="BestPractices.Clients.redis"></a>
 
 Learn best practices for common scenarios and follow along with code examples of some of the most popular open source Valkey and Redis OSS client libraries (redis-py, PHPRedis, and Lettuce), as well as best practices for interacting with ElastiCache resources with commonly used open-source Memcached client libraries.
 

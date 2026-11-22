@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon ElastiCache
-<a name="security-iam-awsmanpol"></a>
 
 
 

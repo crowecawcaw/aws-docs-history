@@ -1,7 +1,6 @@
 
 
 # Working with ElastiCache
-<a name="WorkingWithElastiCache"></a>
 
  In this section you can find details about how to manage the various components of your ElastiCache implementation. 
 
@@ -15,6 +14,8 @@
 + [Scaling ElastiCache](Scaling.md)
 + [Getting started with Bloom filters](BloomFilters.md)
 + [Getting started with Watch in Serverless](ServerlessWatch.md)
++ [DynamoDB caching](ddb-caching.md)
++ [Distributed KV caching](distributed-kv-caching.md)
 + [Getting started with Search](search.md)
 + [Getting started with data aggregations](aggregations.md)
 + [Getting started with JSON for Valkey and Redis OSS](json-gs.md)

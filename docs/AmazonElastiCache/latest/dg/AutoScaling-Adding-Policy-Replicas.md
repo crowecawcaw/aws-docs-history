@@ -1,7 +1,6 @@
 
 
 # Adding a scaling policy
-<a name="AutoScaling-Adding-Policy-Replicas"></a>
 
 You can add a scaling policy using the AWS Management Console. 
 

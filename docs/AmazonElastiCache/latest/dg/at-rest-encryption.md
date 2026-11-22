@@ -1,11 +1,10 @@
 
 
 # At-Rest Encryption in ElastiCache
-<a name="at-rest-encryption"></a>
 
 To help keep your data secure, Amazon ElastiCache and Amazon S3 provide different ways to restrict access to data in your cache. For more information, see [Amazon VPCs and ElastiCache security](VPCs.md) and [Identity and Access Management for Amazon ElastiCache](IAM.md).
 
-ElastiCache at-rest encryption is a feature to increase data security by encrypting on-disk data. It is always enabled on a serverless cache and on clusters with durability enabled. When enabled, it encrypts the following aspects:
+ElastiCache at-rest encryption is a feature to increase data security by encrypting on-disk data. It is always enabled on a serverless cache, on clusters with durability enabled, and on clusters that use the `cache.i8ge.48xlarge` node type. When enabled, it encrypts the following aspects:
 + Disk during sync, backup and swap operations
 + Backups stored in Amazon S3 
 + Multi-AZ transactional durability logs (for clusters with durability enabled)
@@ -37,12 +36,14 @@ The following constraints on ElastiCache at-rest encryption should be kept in mi
   + M8g, M7g, M6g, M5, M4
   + T4g, T3
   + C8gn, C7gn
+  + I8ge (distributed KV caching only)
 
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)
 + At-rest encryption is enabled by setting the parameter `AtRestEncryptionEnabled` to `true`. For Valkey, this parameter defaults to `true` if not specified.
 + You can enable at-rest encryption on a replication group only when creating the replication group. You cannot toggle at-rest encryption on and off by modifying a replication group. For information on implementing at-rest encryption on an existing replication group, see [Enabling At-Rest Encryption](#at-rest-encryption-enable).
 + If a cluster is using a data tiering node type, data stored on a solid state drive (SSD) is encrypted whether at-rest encryption is enabled or not.
 + If a cluster is using a data tiering node type, data stored on SSD is encrypted with the chosen customer managed AWS KMS key.
++ On the `cache.i8ge.48xlarge` node type, the instance hardware always encrypts large object data on Non-Volatile Memory Express (NVMe) storage with an XTS-AES-256 cipher. Encryption at rest is always on for this node type, and you can't turn it off. The NVMe data is also encrypted at rest with an AWS owned key or with the customer managed AWS KMS key that you choose. For more information, see [Security in distributed KV caching](distributed-kv-caching-security.md).
 + With Memcached, at-rest encryption is supported only on serverless caches.
 
 Implementing at-rest encryption can reduce performance during backup and node sync operations. Benchmark at-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation.
@@ -249,7 +250,7 @@ You can check the at-rest encryption status of an existing cluster using the `St
 ### Checking status for a node-based replication group (AWS CLI)
 <a name="viewing-encryption-replication-group"></a>
 
-```
+```bash
 aws elasticache describe-replication-groups \
     --replication-group-id {{my-replication-group}} \
     --query 'ReplicationGroups[0].StorageEncryptionType'
@@ -264,7 +265,7 @@ Example output:
 ### Checking status for a serverless cache (AWS CLI)
 <a name="viewing-encryption-serverless-cache"></a>
 
-```
+```bash
 aws elasticache describe-serverless-caches \
     --serverless-cache-name {{my-serverless-cache}} \
     --query 'ServerlessCaches[0].StorageEncryptionType'

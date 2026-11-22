@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache Well-Architected Lens Security Pillar
-<a name="SecurityPillar"></a>
 
 The security pillar focuses on protecting information and systems. Key topics include confidentiality and integrity of data, identifying and managing who can do what with privilege-based management, protecting systems, and establishing controls to detect security events.
 

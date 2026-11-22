@@ -1,7 +1,6 @@
 
 
 # Why ElastiCache for Valkey for agentic memory
-<a name="agentic-memory-why-elasticache"></a>
 
 ElastiCache for Valkey provides several capabilities that make it well suited as the storage layer for agentic memory:
 + **Sub-millisecond latency** – ElastiCache for Valkey delivers microsecond-level latency for memory operations, making it suitable for real-time agent interactions where memory lookups must not add perceptible delay to the user experience.

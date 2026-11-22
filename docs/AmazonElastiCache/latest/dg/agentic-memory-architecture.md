@@ -1,7 +1,6 @@
 
 
 # Solution architecture
-<a name="agentic-memory-architecture"></a>
 
 The following architecture implements persistent memory for agentic AI applications using ElastiCache for Valkey as the vector storage component.
 

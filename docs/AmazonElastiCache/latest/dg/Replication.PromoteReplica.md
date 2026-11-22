@@ -1,7 +1,6 @@
 
 
 # Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups
-<a name="Replication.PromoteReplica"></a>
 
 Information in the following topic applies to only Valkey or Redis OSS (cluster mode disabled) replication groups.
 

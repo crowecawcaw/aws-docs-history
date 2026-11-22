@@ -1,11 +1,10 @@
 
 
 # Using the ElastiCache Cluster Client for Java
-<a name="AutoDiscovery.Using.ModifyApp.Java"></a>
 
 The program below demonstrates how to use the ElastiCache Cluster Client to connect to a cluster configuration endpoint and add a data item to the cache. Using Auto Discovery, the program connects to all of the nodes in the cluster without any further intervention.
 
-```
+```java
 package com.amazon.elasticache;
 
 import java.io.IOException;

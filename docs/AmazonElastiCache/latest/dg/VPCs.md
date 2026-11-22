@@ -1,7 +1,6 @@
 
 
 # Amazon VPCs and ElastiCache security
-<a name="VPCs"></a>
 
 Because data security is important, ElastiCache provides means for you to control who has access to your data. How you control access to your data is dependent upon whether or not you launched your clusters in an Amazon Virtual Private Cloud (Amazon VPC) or Amazon EC2-Classic.
 

@@ -1,7 +1,6 @@
 
 
 # Quotas for ElastiCache
-<a name="quota-limits"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific. You can request increases for some quotas, and other quotas cannot be increased.
 

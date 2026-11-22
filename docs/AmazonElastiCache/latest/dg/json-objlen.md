@@ -1,13 +1,12 @@
 
 
 # JSON.OBJLEN
-<a name="json-objlen"></a>
 
 Gets the number of keys in the object values at the path.
 
 Syntax
 
-```
+```json
 JSON.OBJLEN <key> [path]
 ```
 + key (required) – A Valkey or Redis OSS key of JSON document type.
@@ -31,7 +30,7 @@ If the path is restricted syntax:
 
  Enhanced path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 $ '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
 OK
 127.0.0.1:6379> JSON.OBJLEN k1 $.a
@@ -63,7 +62,7 @@ OK
 
  Restricted path syntax:
 
-```
+```json
 127.0.0.1:6379> JSON.SET k1 . '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
 OK
 127.0.0.1:6379> JSON.OBJLEN k1 .a
