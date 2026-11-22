@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Manage your private re:Post in the re:Post Private console
-<a name="manage-repost-console"></a>
 
 This section explains how you can manage your private re:Post in the AWS re:Post Private console. 
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # re:Post Private quotas
-<a name="quotas"></a>
 
 AWS re:Post Private provides private re:Posts that you can use in your account in a given AWS Region. When you sign up for re:Post Private, AWS sets default quotas (formerly referred to as limits) on the number of private re:Posts that you can create and size of the private re:Posts.
 

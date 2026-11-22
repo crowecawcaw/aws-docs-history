@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Invite users and groups to your private re:Post
-<a name="invite-users"></a>
 
 **Note**  
 Inviting users and groups to your private re:Post is optional. The users and groups that you've added will receive an onboarding email from your private re:Post. Your private re:Post reviews the list of users and groups once every day to make sure that an onboarding email is sent to those that didn't already receive one.

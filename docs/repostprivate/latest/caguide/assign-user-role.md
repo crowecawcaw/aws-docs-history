@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Assign a role to a user in your private re:Post
-<a name="assign-user-role"></a>
 
 You can assign your private re:Post users one of the following permissions:
 + **Administrator:** A user who has permissions to modify the configuration of your private re:Post

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Manage access to Support case creation and management in re:Post Private
-<a name="repost-manage-permissions"></a>
 
 You must create an AWS Identity and Access Management (IAM) role to manage access to Support case creation and management from AWS re:Post Private. This role performs the following Support actions for you:
 + [CreateCase](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html)
@@ -69,7 +68,7 @@ You can attach the following example policy to your IAM role. This policy allows
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -122,7 +121,7 @@ After you create the policy, you must create an IAM role, and then attach the po
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [
