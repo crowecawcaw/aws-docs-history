@@ -1,7 +1,6 @@
 
 
 # Robotic Processing: Automation and VDI on AWS
-<a name="robotic-processing-automation-vdi"></a>
 
 Publication date: **December 7, 2021 ([Diagram history](#rpa-diagram-history))**
 
