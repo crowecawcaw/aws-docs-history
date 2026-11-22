@@ -1,7 +1,6 @@
 
 
 # Viewing Lambda function recommendations
-<a name="view-lambda-recommendations"></a>
 
 AWS Compute Optimizer generates memory size recommendations for AWS Lambda functions. Recommendations for your functions are displayed in the following pages of the Compute Optimizer console:
 + The **Lambda functions recommendations** page lists each of your current functions, their [finding classifications](#lambda-recommendations-findings), finding reasons, current configured memory, current usage, and current cost. The top recommendation from Compute Optimizer is listed next to each of your functions, and it includes the recommended configured memory, recommended cost, and the price difference between your current function and the recommendation. Note that the recommended cost is a range that is displayed under the **Recommended cost (high)** and **Recommended cost (low)** columns in the console. Use the recommendations page to compare your current functions with their top recommendation, which can help you to decide if you should up-size or down-size the configured memory of your function.

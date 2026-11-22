@@ -1,7 +1,6 @@
 
 
 # EC2 instance metrics
-<a name="ec2-metrics-analyzed"></a>
 
 **Topics**
 + [Metrics analyzed for EC2 instances](#ec2-metrics-list)

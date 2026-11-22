@@ -1,7 +1,6 @@
 
 
 # Opting out of Compute Optimizer
-<a name="account-opt-out"></a>
 
 Use the following procedure to opt your account out of Compute Optimizer using the AWS CLI. This procedure also deletes your account's recommendations and related metrics data from Compute Optimizer. For more information, see [update-enrollment-status](https://docs.aws.amazon.com/cli/latest/reference/compute-optimizer/update-enrollment-status.html) in the *AWS CLI Command Reference*. 
 
@@ -19,7 +18,7 @@ You can't opt out using the Compute Optimizer console.
 
 1. Enter the following command.
 
-   ```
+   ```bash
    aws compute-optimizer update-enrollment-status --status Inactive
    ```
 **Note**  

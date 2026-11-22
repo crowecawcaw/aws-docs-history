@@ -1,7 +1,6 @@
 
 
 # View automation events details
-<a name="automation-events-view"></a>
 
 Select an automation event ID to view more details and step history on **Event details** page.
 

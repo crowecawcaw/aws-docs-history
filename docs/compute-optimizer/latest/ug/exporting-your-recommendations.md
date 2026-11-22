@@ -1,7 +1,6 @@
 
 
 # Exporting your recommendations
-<a name="exporting-your-recommendations"></a>
 
 This section provides you with instructions on how to export your AWS Compute Optimizer recommendations. Recommendations are exported in a CSV file, and its metadata in a JSON file.
 
@@ -53,21 +52,21 @@ If you export recommendations for multiple AWS Regions at one time, they're trea
 
 Your recommendations export job might take up to a few hours to complete. Check the status of your export jobs by viewing the **Exports** page. For more information, see [Viewing your export jobs](viewing-your-exports.md). Your recommendations export file and its associated metadata file are saved to the specified S3 bucket when the export job is complete. The following are examples of the full Amazon S3 object key for the export file and its associated metadata file. The account ID in the object keys is the account of the requester of the export job. For more information, see [Exported files](exported-files.md).
 
-```
+```text
 s3://{{amzn-s3-demo-bucket}}/{{OptionalPrefix}}/compute-optimizer/{{AccountId}}/{{AWSRegion}}-{{CreatedTimestamp}}-{{UniqueJobID}}.csv
 ```
 
-```
+```text
 s3://{{amzn-s3-demo-bucket}}/{{OptionalPrefix}}/compute-optimizer/{{AccountId}}/{{AWSRegion}}-{{CreatedTimestamp}}-{{UniqueJobID}}-metadata.json
 ```
 
 **Example:**
 
-```
+```text
 s3://{{compute-optimizer-exports}}/{{ec2-instance-recommendations}}/compute-optimizer/{{111122223333}}/{{us-west-2}}-{{2020-03-03T133027}}-{{3e496c549301c8a4dfcsdX}}.csv
 ```
 
-```
+```text
 s3://{{compute-optimizer-exports}}/{{ec2-instance-recommendations}}/compute-optimizer/{{111122223333}}/{{us-west-2}}-{{2020-03-03T133027}}-{{3e496c549301c8a4dfcsdX}}-metadata.json
 ```
 

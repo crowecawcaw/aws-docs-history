@@ -1,7 +1,6 @@
 
 
 # What is AWS Compute Optimizer?
-<a name="what-is-compute-optimizer"></a>
 
 With AWS Compute Optimizer, you can analyze the configuration and utilization metrics of your AWS resources to get rightsizing recommendations and find idle resources. You can see whether your resources are optimal, and apply recommendations that lower your costs and improve the performance of your workloads.
 

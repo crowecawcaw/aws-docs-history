@@ -1,7 +1,6 @@
 
 
 # Activating enhanced infrastructure metrics at the organization or account level
-<a name="activating-eim-level"></a>
 
 This section provides you with instructions on how to activate or deactivate enhanced infrastructure metrics for member accounts of an AWS Organization or an individual AWS account holder.
 

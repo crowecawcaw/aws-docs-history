@@ -1,7 +1,6 @@
 
 
 # Opting in to AWS Compute Optimizer
-<a name="account-opt-in"></a>
 
 Use the following procedure to opt in your account, or the accounts within your organization, to AWS Compute Optimizer. You can opt in using the Compute Optimizer console or the AWS Command Line Interface (AWS CLI).
 
@@ -54,12 +53,12 @@ When you complete the opt in process, it can up to 24 hours for the opted-in acc
 1. Enter one of the following commands. Choose if you want to opt in your individual account or the management account of your organization and all its member accounts.
    + To opt in your individual account:
 
-     ```
+     ```bash
      aws compute-optimizer update-enrollment-status --status Active
      ```
    + To opt in the management account of an organization and include all member accounts within the organization:
 
-     ```
+     ```bash
      aws compute-optimizer update-enrollment-status --status Active --include-member-accounts
      ```
 

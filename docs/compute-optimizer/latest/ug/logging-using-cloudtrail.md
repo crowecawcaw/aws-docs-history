@@ -1,7 +1,6 @@
 
 
 # Logging AWS Compute Optimizer Automation API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Compute Optimizer Automation is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Compute Optimizer Automation as events. The calls captured include calls from the Compute Optimizer Automation console and code calls to the Compute Optimizer Automation API operations. Using the information collected by CloudTrail, you can determine the request that was made to Compute Optimizer Automation, the IP address from which the request was made, when it was made, and additional details.
 
@@ -37,7 +36,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail event that demonstrates the `ThrottlingException` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -86,7 +85,7 @@ The following example shows a CloudTrail event that demonstrates the `Throttling
 
 The following example shows a CloudTrail event that demonstrates the `AccessDenied` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -136,7 +135,7 @@ The following example shows a CloudTrail event that demonstrates the `AccessDeni
 
 The following example shows a CloudTrail event that demonstrates the `NetworkEvent` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -188,7 +187,7 @@ The following example shows a CloudTrail event that demonstrates the `NetworkEve
 
 The following example shows a CloudTrail event that demonstrates the `GetEnrollmentConfiguration` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -236,7 +235,7 @@ The following example shows a CloudTrail event that demonstrates the `GetEnrollm
 
 The following example shows a CloudTrail event that demonstrates the `ListAccounts` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -286,7 +285,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAccoun
 
 The following example shows a CloudTrail event that demonstrates the `GetAutomationRule` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -336,7 +335,7 @@ The following example shows a CloudTrail event that demonstrates the `GetAutomat
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationRules` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -384,7 +383,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `ListTagsForResource` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -434,7 +433,7 @@ The following example shows a CloudTrail event that demonstrates the `ListTagsFo
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationRulePreview` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -509,7 +508,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationRulePreviewSummaries` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -563,7 +562,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `ListRecommendedActions` operation.
 
-```
+```JSON
 {      
     "eventVersion": "1.11",      
     "userIdentity": {        
@@ -611,7 +610,7 @@ The following example shows a CloudTrail event that demonstrates the `ListRecomm
 
 The following example shows a CloudTrail event that demonstrates the `ListRecommendedActionSummaries` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -659,7 +658,7 @@ The following example shows a CloudTrail event that demonstrates the `ListRecomm
 
 The following example shows a CloudTrail event that demonstrates the `GetAutomationEvent` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -709,7 +708,7 @@ The following example shows a CloudTrail event that demonstrates the `GetAutomat
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationEvents` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -757,7 +756,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationEventSteps` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -806,7 +805,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `ListAutomationEventSummaries` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -854,7 +853,7 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
 
 The following example shows a CloudTrail event that demonstrates the `UpdateEnrollmentConfiguration` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -908,7 +907,7 @@ The following example shows a CloudTrail event that demonstrates the `UpdateEnro
 
 The following example shows a CloudTrail event that demonstrates the `AssociateAccounts` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -963,7 +962,7 @@ The following example shows a CloudTrail event that demonstrates the `AssociateA
 
 The following example shows a CloudTrail event that demonstrates the `DisassociateAccounts` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1020,7 +1019,7 @@ The following example shows a CloudTrail event that demonstrates the `Disassocia
 
 The following example shows a CloudTrail event that demonstrates the `CreateAutomationRule` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1100,7 +1099,7 @@ The following example shows a CloudTrail event that demonstrates the `CreateAuto
 
 The following example shows a CloudTrail event that demonstrates the `DeleteAutomationRule` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1150,7 +1149,7 @@ The following example shows a CloudTrail event that demonstrates the `DeleteAuto
 
 The following example shows a CloudTrail event that demonstrates the `UpdateAutomationRule` operation.
 
-```
+```JSON
         {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1203,7 +1202,7 @@ The following example shows a CloudTrail event that demonstrates the `UpdateAuto
 
 The following example shows a CloudTrail event that demonstrates the `TagResource` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1258,7 +1257,7 @@ The following example shows a CloudTrail event that demonstrates the `TagResourc
 
 The following example shows a CloudTrail event that demonstrates the `UntagResource` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1312,7 +1311,7 @@ The following example shows a CloudTrail event that demonstrates the `UntagResou
 
 The following example shows a CloudTrail event that demonstrates the `RollbackAutomationEvent` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1366,7 +1365,7 @@ The following example shows a CloudTrail event that demonstrates the `RollbackAu
 
 The following example shows a CloudTrail event that demonstrates the `StartAutomationEvent` operation.
 
-```
+```JSON
 {    
     "eventVersion": "1.11",    
     "userIdentity": {        
@@ -1414,6 +1413,220 @@ The following example shows a CloudTrail event that demonstrates the `StartAutom
         "tlsVersion": "TLSv1.3",
         "cipherSuite": "TLS_AES_128_GCM_SHA256",
         "clientProvidedHostHeader": "aco-automation-gamma.us-east-1.amazonaws.com"
+    }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `PutOrganizationEnrollmentConfiguration` operation.
+
+```JSON
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "EXAMPLEAIZ5FYRFP3POCC:john-doe",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",
+        "accountId": "111122223333",
+        "accessKeyId": "{{ACCESS KEY ID}}",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "EXAMPLEAIZ5FYRFP3POCC",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2026-11-19T19:06:46Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2026-11-19T19:09:26Z",
+    "eventSource": "aco-automation.amazonaws.com",
+    "eventName": "PutOrganizationEnrollmentConfiguration",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "100.26.200.255",
+    "userAgent": "aws-sdk-java/2.37.0 ua/2.1 api/ComputeOptimizerAutomation#2.37.0 os/Linux lang/java#17.0.16",
+    "requestParameters": {
+        "target": {
+            "organizationalUnitId": "ou-a1b2-c3d4e5f6"
+        },
+        "organizationRuleMode": "NoneAllowed",
+        "clientToken": "12345abc-12ab-1234-123a-EXAMPLEeb16b"
+    },
+    "requestID": "1a2b3c4d-5e6f-7a8b-9c0d-EXAMPLE11111",
+    "eventID": "2b3c4d5e-6f7a-8b9c-0d1e-EXAMPLE22222",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::Organizations::OrganizationalUnit",
+            "ARN": "arn:aws:organizations::111122223333:ou/o-a1b2c3d4e5/ou-a1b2-c3d4e5f6"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "aco-automation.us-east-1.amazonaws.com"
+    }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `DeleteOrganizationEnrollmentConfiguration` operation.
+
+```JSON
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "EXAMPLEAIZ5FYRFP3POCC:john-doe",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",
+        "accountId": "111122223333",
+        "accessKeyId": "{{ACCESS KEY ID}}",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "EXAMPLEAIZ5FYRFP3POCC",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2026-11-19T19:06:46Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2026-11-19T19:09:27Z",
+    "eventSource": "aco-automation.amazonaws.com",
+    "eventName": "DeleteOrganizationEnrollmentConfiguration",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "100.26.200.255",
+    "userAgent": "aws-sdk-java/2.37.0 ua/2.1 api/ComputeOptimizerAutomation#2.37.0 os/Linux lang/java#17.0.16",
+    "requestParameters": {
+        "target": {
+            "organizationalUnitId": "ou-a1b2-c3d4e5f6"
+        },
+        "configurationTypes": [
+            "OrganizationRuleMode"
+        ],
+        "clientToken": "23456bcd-23bc-2345-234b-EXAMPLEfc27c"
+    },
+    "requestID": "3c4d5e6f-7a8b-9c0d-1e2f-EXAMPLE33333",
+    "eventID": "4d5e6f7a-8b9c-0d1e-2f3a-EXAMPLE44444",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::Organizations::OrganizationalUnit",
+            "ARN": "arn:aws:organizations::111122223333:ou/o-a1b2c3d4e5/ou-a1b2-c3d4e5f6"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "aco-automation.us-east-1.amazonaws.com"
+    }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `ListOrganizationEnrollmentConfigurations` operation.
+
+```JSON
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "EXAMPLEAIZ5FYRFP3POCC:john-doe",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",
+        "accountId": "111122223333",
+        "accessKeyId": "{{ACCESS KEY ID}}",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "EXAMPLEAIZ5FYRFP3POCC",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2026-11-19T19:39:59Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2026-11-19T19:40:30Z",
+    "eventSource": "aco-automation.amazonaws.com",
+    "eventName": "ListOrganizationEnrollmentConfigurations",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "100.26.200.255",
+    "userAgent": "aws-sdk-java/2.37.0 ua/2.1 api/ComputeOptimizerAutomation#2.37.0 os/Linux lang/java#17.0.16",
+    "requestID": "5e6f7a8b-9c0d-1e2f-3a4b-EXAMPLE55555",
+    "eventID": "6f7a8b9c-0d1e-2f3a-4b5c-EXAMPLE66666",
+    "readOnly": true,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "aco-automation.us-east-1.amazonaws.com"
+    }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `ListOrganizationalUnits` operation.
+
+```JSON
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "EXAMPLEAIZ5FYRFP3POCC:john-doe",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",
+        "accountId": "111122223333",
+        "accessKeyId": "{{ACCESS KEY ID}}",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "EXAMPLEAIZ5FYRFP3POCC",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "attributes": {
+                "creationDate": "2026-11-19T19:39:59Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2026-11-19T19:40:18Z",
+    "eventSource": "aco-automation.amazonaws.com",
+    "eventName": "ListOrganizationalUnits",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "100.26.200.255",
+    "userAgent": "aws-sdk-java/2.37.0 ua/2.1 api/ComputeOptimizerAutomation#2.37.0 os/Linux lang/java#17.0.16",
+    "requestID": "7a8b9c0d-1e2f-3a4b-5c6d-EXAMPLE77777",
+    "eventID": "8b9c0d1e-2f3a-4b5c-6d7e-EXAMPLE88888",
+    "readOnly": true,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "aco-automation.us-east-1.amazonaws.com"
     }
 }
 ```

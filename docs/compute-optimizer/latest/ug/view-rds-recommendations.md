@@ -1,35 +1,34 @@
 
 
 # Viewing Aurora and RDS database recommendations
-<a name="view-rds-recommendations"></a>
 
-Compute Optimizer generates DB instances, RDS DB instance storage, and Aurora DB cluster storage recommendations for RDS for MySQL, RDS for PostgreSQL, Amazon Aurora databases. These recommendations are displayed on the **Recommendations for Aurora and RDS databases** and **Aurora and RDS databases details** pages of the Compute Optimizer console. Both of these pages are divided into two separate tabs: **Instance** and **Storage**.
+Compute Optimizer gives recommendations for DB instances, RDS DB instance storage, and Aurora DB cluster storage. It covers RDS for MySQL, RDS for PostgreSQL, and Amazon Aurora databases. You can see these recommendations on two pages in the Compute Optimizer console: the **Recommendations for Aurora and RDS databases** page and the **Aurora and RDS databases details** page. Each page has two tabs: **Instance** and **Storage**.
 
-For more information about the metrics that Compute Optimizer analyzes for these databases, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
+To learn which metrics Compute Optimizer uses for these databases, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 + **Recommendations for Aurora and RDS databases** page
 
   **Instance**
 
-  This tab displays each of your current Aurora and RDS DB instances, finding classifications, finding reasons, current instance type, estimated savings, and saving opportunities. The top recommendation from Compute Optimizer is listed next to each of your instances. This recommendation includes the recommended instance type, On-Demand pricing, and the price difference between your current instance. Use the recommendations page to compare your current instances with the top recommendation. Doing this can help you to decide if you want to upsize or downsize your instances.
+  This tab lists each of your current Aurora and RDS DB instances. For each one, it shows the finding, the finding reasons, the current instance type, the estimated savings, and the savings opportunity. Next to each instance, Compute Optimizer shows its top recommendation. The recommendation includes the instance type, the On-Demand price, and the price change from your current instance. Use this tab to compare each instance with its top recommendation. This can help you decide whether to size up or size down.
 
   **Storage**
 
-  This tab displays each of your current RDS instance storage volumes and Aurora DB cluster storage configurations, finding classifications, current storage type, and current price. The top recommendation from Compute Optimizer is listed next to each of your volumes or clusters. For RDS DB instance storage, it includes the recommended volume type, recommended IOPS, the price of the recommendation, and the price difference between your current volume and the recommendation. For Aurora DB clusters, it includes the recommended storage type, estimated cluster costs (instance, storage, and I/O), and potential savings. You can use the recommendations page to compare your current storage configurations with their top recommendation, which can help you to decide if you should change your storage type.
+  This tab lists each of your current RDS instance storage volumes and Aurora DB cluster storage setups. For each one, it shows the finding, the current storage type, and the current price. Next to each volume or cluster, Compute Optimizer shows its top recommendation. For RDS DB instance storage, the recommendation includes the volume type, the IOPS, the price, and the price change from your current volume. For Aurora DB clusters, it includes the storage type, the estimated cluster costs for instance, storage, and I/O, and the potential savings. Use this tab to compare each storage setup with its top recommendation. This can help you decide whether to change your storage type.
 
-  For more information about how to view your Aurora and RDS database recommendations, see [Accessing Aurora and RDS database recommendations and details](rds-view-recommendations.md).
+  To learn how to view these recommendations, see [Accessing Aurora and RDS database recommendations and details](rds-view-recommendations.md).
 + **Aurora and RDS database details** page
 
   **Instance**
 
-  This tab displays optimization recommendations for a specific RDS DB instance or Aurora DB instance. It lists the specifications for each recommendation including performance risk, price difference, and On-Demand pricing. 
+  This tab shows the recommendations for one RDS DB instance or Aurora DB instance. For each recommendation, it lists the specs, such as the performance risk, the price change, and the On-Demand price.
 
   **Storage**
 
-  This tab displays the optimization recommendation for an RDS DB instance storage or Aurora DB cluster storage. For RDS DB instance storage, it lists the specifications for each recommendation including allocated storage, provisioned IOPS, throughput, and storage price difference. For Aurora DB clusters, it shows storage type recommendations with estimated costs broken down by instance, storage, and I/O components, along with I/O cost variability information when enhanced infrastructure metrics is enabled.
+  This tab shows the recommendation for one RDS DB instance storage or Aurora DB cluster storage. For RDS DB instance storage, it lists the specs for each recommendation, such as the allocated storage, the provisioned IOPS, the throughput, and the storage price change. For Aurora DB clusters, it shows storage type recommendations. It breaks the estimated costs down by instance, storage, and I/O. It also shows how much the I/O cost can vary when enhanced infrastructure metrics is turned on.
 
-  Both detail pages display utilization metric graphs that you can use to compare the current instance or storage with the projected utilization metrics for the recommendation options. The graphs can help you to better understand the impact of these recommendations.
+  Both details tabs show utilization graphs. Use them to compare your current instance or storage with the projected use for each recommendation. The graphs help you see the impact of a recommendation.
 
-  For more information about how to view your Aurora and RDS database details, see [Accessing Aurora and RDS database details page](rds-view-recommendations.md#rds-viewing-details).
+  To learn how to view these details, see [Accessing Aurora and RDS database details page](rds-view-recommendations.md#rds-viewing-details).
 
 The recommendations are refreshed daily and they can take up to 12 hours to generate. Keep in mind that Compute Optimizer requires at least 30 hours of Amazon CloudWatch metrics to generate recommendations for Amazon RDS DB instances. For more information, see [Resource requirements](requirements.md).
 
@@ -75,7 +74,7 @@ The following findings classifications apply to RDS DB storage.
 | Over-provisioned | When Compute Optimizer detects that there is excessive IOPS or EBS throughput, an RDS DB instance storage volume is considered over-provisioned. Compute Optimizer displays a finding reason of **EBS volume IOPS over-provisioned** or **EBS volume throughput over-provisioned**. An over-provisioned DB instance storage volume might result in additional infrastructure costs. | 
 | Optimized | When the specifications of your RDS DB instance storage volume meet the performance requirements of your workload, the storage is considered optimized. For optimized DB instance storage, Compute Optimizer might recommend a new generation storage type. | 
 
-For more information about under and over-provisioned RDS DB instances, see [Finding reasons](#rds-finding-reasons) in the [Viewing Aurora and RDS database recommendations](#view-rds-recommendations) topic.
+For more information about under and over-provisioned RDS DB instances, see [Finding reasons](#rds-finding-reasons) in the [Viewing Aurora and RDS database recommendations](view-rds-recommendations.md) topic.
 
 ------
 #### [ Aurora DB clusters ]

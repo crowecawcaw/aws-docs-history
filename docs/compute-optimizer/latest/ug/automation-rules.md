@@ -1,7 +1,6 @@
 
 
 # Automation rules
-<a name="automation-rules"></a>
 
 Automation rules automatically implement recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. You can create, update, and delete automation rules from any AWS Region where Compute Optimizer Automation is available.
 
@@ -15,7 +14,29 @@ There are two types of rules:
 + Organization rules: Rules that centrally apply recommended actions across member accounts. 
 
 **Note**  
-Only the management account or delegated administrator can create organization rules. You can select only member accounts that have Automation enabled and that allow organization rules. Member accounts can view the details of organization rules that apply to their account but cannot edit them. Organization rules can be configured to apply before or after member account rules.
+Only the management account or delegated administrator can create organization rules. You can scope an organization rule to member accounts, organizational units (OUs), or the organization root. The rule applies only to accounts in its scope that have Automation enabled and the organization rule mode **Any allowed**. Member accounts can view the details of organization rules that apply to their account but cannot edit them. Organization rules can be configured to apply before or after member account rules.
+
+## Rule scope
+<a name="automation-rules-scope"></a>
+
+An organization rule applies to the accounts in its scope. You can scope a rule to specific accounts, to organizational units (OUs), or to your whole organization. In the console, you choose accounts and OUs from the same list in the **Include** and **Exclude** fields. The following table lists the API fields that define a rule scope and the console field for each.
+
+
+| Field | Console | Maximum | 
+| --- | --- | --- | 
+| `accountIds` | **Include** | Up to 50 account IDs | 
+| `organizationalUnitIds` | **Include** | Up to 150 OU or root IDs | 
+| `excludedAccountIds` | **Exclude** | Up to 50 account IDs | 
+| `excludedOrganizationalUnitIds` | **Exclude** | Up to 150 OU or root IDs | 
++ A rule that includes an OU applies to every account in the OU and in all of its child OUs, including accounts added later. An included OU can contain any number of accounts.
++ Each OU or root that you include must have the organization rule mode **Any allowed**, from an enrollment configuration on it or on a parent. For more information, see [Organization enrollment configurations](automation-org-enrollment.md).
++ You must include at least one account or OU. To apply a rule to your whole organization, include the root.
++ A rule never applies to the management account, even when you include the root.
++ An exclusion takes precedence. An account in an excluded OU is out of scope, even if you also include the account.
++ An ID can't appear in both an include list and an exclude list.
++ You can exclude an account or OU that is outside the included scope. The exclusion applies if the account or OU moves into scope later.
++ Compute Optimizer checks OU membership each time the rule runs. When an account moves into or out of an included OU, the rule scope changes to match.
++ To see the recommended actions that a rule would apply, preview the rule before you activate it. The preview shows only accounts that have matching recommended actions.
 
 ## Rule criteria
 <a name="automation-rules-criteria"></a>

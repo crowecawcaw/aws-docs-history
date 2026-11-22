@@ -1,7 +1,6 @@
 
 
 # Viewing EC2 instance recommendations
-<a name="view-ec2-recommendations"></a>
 
 AWS Compute Optimizer generates instance type recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances. Recommendations for your Amazon EC2 instances are displayed on the following pages of the Compute Optimizer console:
 + The **EC2 instances recommendations** page lists each of your current instances, their [finding classifications](#ec2-recommendations-findings), [finding reasons](#ec2-finding-reasons), [platform differences](#ec2-platform-differences), current instance type, and current hourly price for the selected purchasing option. The top recommendation from Compute Optimizer is listed next to each of your instances. This recommendation includes the recommended instance type, the hourly price for the selected purchasing option, and the price difference between your current instance. Use the recommendations page to compare your current instances with their top recommendation. Doing this can help you to decide if you want to up-size or down-size your instances.

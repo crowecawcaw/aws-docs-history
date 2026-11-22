@@ -1,7 +1,6 @@
 
 
 # Opting out of external metrics ingestion
-<a name="deactivate-external-metrics-ingestion"></a>
 
 This section provides you with instructions on how to opt out of external metric ingestion. You can opt out external metric ingestion using the Compute Optimizer console or the AWS CLI.
 
@@ -38,7 +37,7 @@ This section provides you with instructions on how to opt out of external metric
    + Replace {{myRegion}} with the source AWS Region.
    + Replace {{123456789012}} with your account ID.
 
-   ```
+   ```bash
    aws compute-optimizer delete-recommendation-preferences --region {{myRegion}} --resource-type=Ec2Instance --recommendation-preference-names='["ExternalMetricsPreference"]' --scope='{"name":"AccountId", "value":"{{123456789012}}"}'
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Exporting AWS Compute Optimizer recommendations
-<a name="exporting-recommendations"></a>
 
 You can export your recommendations to record them over time, and share the data with others. Recommendations are exported in a CSV file, and its metadata in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify.
 

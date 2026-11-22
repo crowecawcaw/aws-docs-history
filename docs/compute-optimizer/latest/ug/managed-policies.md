@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Compute Optimizer
-<a name="managed-policies"></a>
 
 To add permissions to users, groups, and roles, consider using AWS managed policies rather than to writing your own policies. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. To get started quickly, you can use AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
@@ -27,118 +26,12 @@ You can't attach `ComputeOptimizerServiceRolePolicy` to your IAM entities.
 
 This policy includes the following permissions.
 + `compute-optimizer` – Grants full administrative permissions to all resources in Compute Optimizer.
-+ `organizations` – Allows the management account of an AWS organization to opt in member accounts of the organization to Compute Optimizer.
++ `organizations` – Allows Compute Optimizer to describe organizational units and to list the parents and children of accounts and organizational units in your organization.
 + `cloudwatch` – Grants access to CloudWatch resource metrics for the purpose of analyzing them and generating Compute Optimizer resource recommendations.
 + `autoscaling` – Grants access to EC2 Auto Scaling groups and the instances in EC2 Auto Scaling groups for validation purposes.
 + `Ec2` – Grants access to Amazon EC2 instances and volumes.
 
-------
-#### [ JSON ]
-
-****  
-
-```
-{
-	"Version":"2012-10-17",		 	 	 
-	"Statement": [
-		{
-			"Sid": "ComputeOptimizerFullAccess",
-			"Effect": "Allow",
-			"Action": [
-				"compute-optimizer:*"
-			],
-			"Resource": "*"
-		},
-		{
-			"Sid": "AwsOrgsAccess",
-			"Effect": "Allow",
-			"Action": [
-				"organizations:DescribeOrganization",
-				"organizations:ListAccounts",
-				"organizations:ListAWSServiceAccessForOrganization",
-                                "organizations:ListDelegatedAdministrators"
-			],
-			"Resource": [
-				"*"
-			]
-		},
-		{
-			"Sid": "CloudWatchAccess",
-			"Effect": "Allow",
-			"Action": [
-				"cloudwatch:GetMetricData",
-				"cloudwatch:DescribeAlarms"
-			],
-			"Resource": "*"
-		},
-		{
-			"Sid": "AutoScalingAccess",
-			"Effect": "Allow",
-			"Action": [
-				"autoscaling:DescribeAutoScalingInstances",
-				"autoscaling:DescribeAutoScalingGroups",
-				"autoscaling:DescribePolicies",
-                                "autoscaling:DescribeScheduledActions"
-			],
-			"Resource": "*"
-		},
-		{
-                        "Sid": "Ec2Access",
-                        "Effect": "Allow",
-                        "Action": [
-                                "ec2:DescribeInstances",
-                                "ec2:DescribeVolumes"
-                        ],
-                        "Resource": "*"
-                }
-	]
-}
-```
-
-------
-
-------
-#### [ JSON ]
-
-****  
-
-```
-{
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Sid": "ComputeOptimizerFullAccess",
-            "Effect": "Allow",
-            "Action": [
-                "compute-optimizer:*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "AwsOrgsAccess",
-            "Effect": "Allow",
-            "Action": [
-                "organizations:DescribeOrganization",
-                "organizations:ListAccounts",
-                "organizations:ListAWSServiceAccessForOrganization"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "CloudWatchAccess",
-            "Effect": "Allow",
-            "Action": [
-                "cloudwatch:GetMetricData"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-
-------
+To view the permissions for this policy, see [ComputeOptimizerServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ComputeOptimizerServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: ComputeOptimizerReadOnlyAccess
 <a name="security-iam-awsmanpol-ComputeOptimizerReadOnlyAccess"></a>
@@ -164,7 +57,7 @@ This policy includes the following:
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -216,7 +109,7 @@ This policy includes the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -261,7 +154,7 @@ The following policy statement only grants read-only access to Compute Optimizer
 ## AWS managed policy: ComputeOptimizerAutomationServiceRolePolicy
 <a name="security-iam-awsmanpol-ComputeOptimizerAutomationServiceRolePolicy"></a>
 
-The `ComputeOptimizerAutomationServiceRolePolicy` managed policy is attached to a service-linked role that allows Compute Optimizer to to implement optimization recommendations by managing AWS resources in your account. . For more information, see [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md).
+The `ComputeOptimizerAutomationServiceRolePolicy` managed policy is attached to a service-linked role that allows Compute Optimizer to implement optimization recommendations by managing AWS resources in your account. For more information, see [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md).
 
 **Note**  
 You can't attach `ComputeOptimizerAutomationServiceRolePolicy` to your IAM entities.
@@ -270,12 +163,12 @@ You can't attach `ComputeOptimizerAutomationServiceRolePolicy` to your IAM entit
 
 This policy includes the following permissions:
 + `ec2:DescribeVolumes`, `ec2:DescribeSnapshots`, `ec2:DescribeVolumesModifications` – Grants read-only access to view Amazon EBS volumes, snapshots, and volume modification status for monitoring and validation purposes.
-+ `ec2:ModifyVolume`, `ec2:DeleteVolume` – Allows modification and deletion of Amazon EBS volumes, but only for resources that do not have the `exclude-from-compute-optimizer-automation`tag. This allows you to exclude resources from automated optimization actions.
++ `ec2:ModifyVolume`, `ec2:DeleteVolume` – Allows modification and deletion of Amazon EBS volumes, but only for resources that do not have the `exclude-from-compute-optimizer-automation` tag. This allows you to exclude resources from automated optimization actions.
 + `ec2:CreateSnapshot` – Grants permission to create snapshots of Amazon EBS volumes for backup purposes before performing optimization actions.
 + `ec2:CreateVolume` – Allows creation of Amazon EBS volumes from snapshots to support rollback operations in case optimization actions need to be reverted.
 + `ec2:CreateTags` – Grants permission to add tags to Amazon EBS resources for tracking automation events and maintaining resource metadata.
 
-To view the permissions for this policy, see [ComputeOptimizerAutomationServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ComputeOptimizerAutomationServiceRolePolicy.html) in the in the *AWS Managed Policy Reference*.
+To view the permissions for this policy, see [ComputeOptimizerAutomationServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ComputeOptimizerAutomationServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## Compute Optimizer updates to AWS managed policies
 <a name="security-iam-awsmanpol-updates"></a>
@@ -287,6 +180,7 @@ View details about updates to AWS managed policies for Compute Optimizer since t
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Edit to the `ComputeOptimizerServiceRolePolicy` managed policy | Added the `organizations:ListParents`, `organizations:ListChildren`, and `organizations:DescribeOrganizationalUnit` actions. These actions allow Compute Optimizer to get the organizational unit structure of your organization. | November 6, 2026 | 
 | Added new `ComputeOptimizerAutomationServiceRolePolicy` managed policy | Added a new `ComputeOptimizerAutomationServiceRolePolicy` service-linked role policy. | November 19, 2025 | 
 | Edit to the `ComputeOptimizerServiceRolePolicy` managed policy | Added the `cloudwatch:DescribeAlarms`, `autoscaling:DescribePolicies`, and `autoscaling:DescribeScheduledActions` actions to the `ComputeOptimizerServiceRolePolicy` managed policy. | January 9, 2025 | 
 | Edit to the `ComputeOptimizerReadOnlyAccess` managed policy | Added the `compute-optimizer:GetIdleRecommendations` actions to the `ComputeOptimizerReadOnlyAccess` managed policy. | November 20, 2024 | 

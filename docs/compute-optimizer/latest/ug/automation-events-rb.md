@@ -1,7 +1,6 @@
 
 
 # Roll back automation events
-<a name="automation-events-rb"></a>
 
 You can also initiate rollback for automation events if necessary. You can select and roll back up to 10 automation events at a time. You can only initiate rollback for events with Complete status. 
 

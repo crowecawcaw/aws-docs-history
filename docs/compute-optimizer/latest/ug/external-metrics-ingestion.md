@@ -1,7 +1,6 @@
 
 
 # External metrics ingestion
-<a name="external-metrics-ingestion"></a>
 
 You can use the external metrics ingestion feature to configure AWS Compute Optimizer to ingest EC2 memory utilization metrics from one of the four observability products: Datadog, Dynatrace, Instana, and New Relic. When you enable external metrics ingestion, Compute Optimizer analyzes your external EC2 memory utilization metrics in addition to your CPU, disk, network, IO, and throughput data to generate EC2 rightsizing recommendations. These recommendations can provide you with additional savings and enhanced performance. For more information, see [Configuring external metrics ingestion](configure-external-metrics-ingestion.md).
 

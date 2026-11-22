@@ -1,7 +1,6 @@
 
 
 # Activating savings estimation mode
-<a name="activate-savings-estimation-mode"></a>
 
 This section explains how to activate or deactivate the savings estimation mode preference. You can turn this preference on or off for member accounts within specific AWS Regions.
 

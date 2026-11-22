@@ -1,7 +1,6 @@
 
 
 # Activating inferred workload type
-<a name="activating-inferred-workload-type-steps"></a>
 
 This section provides you with instructions on how to activate the inferred workload type feature for member accounts of an AWS Organization or an individual AWS account holder.
 

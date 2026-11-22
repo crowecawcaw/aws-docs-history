@@ -1,7 +1,6 @@
 
 
 # Metrics analyzed by AWS Compute Optimizer
-<a name="metrics"></a>
 
 After you [opt in](getting-started.md), AWS Compute Optimizer analyzes the specifications, such as vCPUs, memory, or storage, and the Amazon CloudWatch metrics of your running resources from a period over the last 14 days. If you activate the [enhanced infrastructure metrics recommendation preference](enhanced-infrastructure-metrics.md), AWS Compute Optimizer analyzes your resources for up to 93 days. 
 

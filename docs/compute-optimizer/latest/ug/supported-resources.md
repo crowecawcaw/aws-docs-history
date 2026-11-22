@@ -1,7 +1,6 @@
 
 
 # AWS resources supported by Compute Optimizer
-<a name="supported-resources"></a>
 
 This chapter outlines the AWS resources that Compute Optimizer generates recommendations for. It also provides you with the specific resource types supported by Compute Optimizer.
 

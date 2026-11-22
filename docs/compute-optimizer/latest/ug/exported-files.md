@@ -1,7 +1,6 @@
 
 
 # Exported files
-<a name="exported-files"></a>
 
 Recommendations are exported in a CSV file, and the metadata in a JSON file, to the Amazon S3 bucket that you specified when you created the export job.
 
@@ -12,15 +11,15 @@ Recommendations are exported in a CSV file, and the metadata in a JSON file, to 
 ## Recommendations file
 <a name="recommendations-file"></a>
 
-The recommendations file includes the recommendation data for the recommendation columns that you choose to include when you create the export job. The following tables list all of the recommendation columns that can be included in the export file for each resource type.
+The recommendations file includes the recommendation data for the columns that you choose to include when you create the export job. The following tables list all of the columns that can be included in the export file for each resource type.
 
-In the following tables, *API field name* column represents the fields that you can specify when requesting a recommendations export using the API. The *Description* column describes the data of each field, the name of the column as displayed in the Compute Optimizer console, and the name of the column as listed in the export CSV file. The recommendation data columns in the CSV file are numbered when multiple recommendations are generated for each resource. Ranked recommendation columns, in which {{<rank>}} is replaced with a ranking, correspond to each other. For example, recommendationOptions\_{{1}}\_memory, recommendationOptions\_{{1}}\_network, and recommendationOptions\_{{1}}\_vcpus correspond to each other, and are for the same recommendation.
+In the following tables, the *API field name* column shows the fields that you can request through the API. The *Description* column describes each field, its column name in the Compute Optimizer console, and its column name in the export CSV file. In the CSV file, the data columns are numbered when a resource has more than one recommendation. Ranked columns use a number in place of {{<rank>}}, and columns with the same number go together. For example, `recommendationOptions_{{1}}_memory`, `recommendationOptions_{{1}}_network`, and `recommendationOptions_{{1}}_vcpus` are for the same recommendation.
 
 **Note**  
 By default, all export files include the following columns:  
-**recommendations\_count** - The number of recommendations included in the export file.
-**errorCode** - The error code for when a recommendation wasn't generated for a resource.
-**errorMessage** - The error message that corresponds to the error in the errorCode column.
+`recommendations_count` - The number of recommendations in the export file.
+`errorCode` - The error code for when a resource has no recommendation.
+`errorMessage` - The message for the error in the `errorCode` column.
 
 ### EC2 instance recommendation fields
 <a name="recommendations-file-ec2"></a>
@@ -399,7 +398,7 @@ The metadata file includes the following properties for each exported column or 
 
 The following is an example of the information that's included in the metadata file.
 
-```
+```json
 {
   "@context": [
     "http://www.w3.org/ns/csvw"

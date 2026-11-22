@@ -1,7 +1,6 @@
 
 
 # Accessing EC2 instance recommendations and details
-<a name="ec2-view-recommendations"></a>
 
 AWS Compute Optimizer (Compute Optimizer) helps you find the right size for your Amazon Elastic Compute Cloud (Amazon EC2) instances. You can view these recommendations on two pages in the AWS Console.
 

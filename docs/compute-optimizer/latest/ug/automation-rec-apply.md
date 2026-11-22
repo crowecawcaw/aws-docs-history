@@ -1,7 +1,6 @@
 
 
 # Apply recommended actions
-<a name="automation-rec-apply"></a>
 
 You can select up to 10 recommended actions at a time to apply. Once you apply the recommended action, it will be removed from the Recommended action page and an automation event will be created. You can view and monitor the status of the action in the [Automation events](automation-events.md) page. Automation events awaiting execution will be in Ready status. You can have up to 100 automation events in Ready status per account per region.
 

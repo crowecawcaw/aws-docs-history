@@ -1,7 +1,6 @@
 
 
 # Enabling Automation
-<a name="automation-enable"></a>
 
 When you access the Automation section of the Compute Optimizer console for the first time, you're asked to enable the feature using the account that you’re signed in with. You can also opt in using the Compute Optimizer Automation API, AWS Command Line Interface (AWSCLI), or SDKs.
 
@@ -19,9 +18,11 @@ To enable Automation, you need specific permissions to update the Automation enr
 
 1. When prompted, review the note on service-linked role permissions and choose **Enable Automation**.
 
-To enable Automation using IAM policies, see [Enabling Automation](#automation-enable).
+After you enable Automation, the management account or a delegated administrator can create enrollment configurations on the **Account management** page to enable Automation for member accounts. For more information, see [Managing organization enrollment configurations](automation-org-ou-configure.md).
 
-If you're enabling Automation for member accounts in your organization, the management account also needs permissions to associate and disassociate accounts. These permissions allow the management account to enable Automation for member accounts and configure whether the management account can implement optimizations on behalf of the member account. For more information, see [Enabling Automation for your organization](automation-org.md). 
+To enable Automation using IAM policies, see [Enabling Automation](automation-enable.md).
+
+If you use AWS Organizations, you can enable Automation for member accounts from the management account or a delegated administrator account. Create an organization enrollment configuration on the root, an organizational unit (OU), or an account. The enrollment configuration enables Automation for every eligible account that it applies to. For more information, see [Enabling Automation for your organization](automation-org.md).
 
 After you enable Automation, you can create automation rules with CloudFormation. For more information, see [Creating automation rules with CloudFormation](creating-automation-rules-with-cloudformation.md).
 
@@ -30,7 +31,7 @@ After you enable Automation, you can create automation rules with CloudFormation
 
 The following policy statement enables Automation for your account.
 
-```
+```JSON
 {
     "Version": "2012-10-17",                   
     "Statement": [

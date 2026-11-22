@@ -1,7 +1,6 @@
 
 
 # Viewing automation rules
-<a name="automation-rules-view"></a>
 
 In AWS Compute Optimizer, you can view, create, and manage your automation rules on the **Automation rules** page. You can choose a rule to view more details. This includes the specific rule criteria used to match recommended actions.
 

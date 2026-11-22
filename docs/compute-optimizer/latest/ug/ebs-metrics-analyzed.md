@@ -1,7 +1,6 @@
 
 
 # EBS volume metrics
-<a name="ebs-metrics-analyzed"></a>
 
 Compute Optimizer analyzes the following CloudWatch metrics of your EBS volumes.
 

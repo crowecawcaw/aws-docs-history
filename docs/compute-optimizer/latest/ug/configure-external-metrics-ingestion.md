@@ -1,7 +1,6 @@
 
 
 # Configuring external metrics ingestion
-<a name="configure-external-metrics-ingestion"></a>
 
 With external metrics ingestion, Compute Optimizer factors in memory utilization data from your external metrics provider to generate more accurate EC2 rightsizing recommendations. You can configure external metrics ingestion using the Compute Optimizer console or the AWS CLI.
 
@@ -52,7 +51,7 @@ If you don't complete the configuration process with your external metrics provi
    + Replace {{123456789012}} with your account ID.
    + Replace {{ExternalMetricsProvider}} with your external metrics provider.
 
-   ```
+   ```bash
    aws compute-optimizer put-recommendation-preferences --region {{myRegion}} --resource-type=Ec2Instance --scope='{"name":"AccountId", "value":"{{123456789012}}"}' --external-metrics-preference='{"source":"{{ExternalMetricsProvider}}"}'
    ```
 

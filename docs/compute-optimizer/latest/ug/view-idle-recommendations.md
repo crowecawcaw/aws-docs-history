@@ -1,7 +1,6 @@
 
 
 # Viewing idle resource recommendations
-<a name="view-idle-recommendations"></a>
 
 Compute Optimizer helps you find idle resources. You can delete or stop these resources to reduce your AWS cloud costs. You can access idle recommendations through the Compute Optimizer console and our [ set of APIs](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetIdleRecommendations.html). Idle recommendations are available for the following supported AWS resources:
 + Amazon EC2 instances

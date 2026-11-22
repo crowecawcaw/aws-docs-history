@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Compute Optimizer
-<a name="security-iam"></a>
 
 You can use AWS Identity and Access Management (IAM) to create identities (users, groups, or roles), and give those identities permissions to access the AWS Compute Optimizer console and APIs.
 
@@ -61,7 +60,7 @@ This IAM role is required to opt in to AWS Compute Optimizer.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -92,7 +91,7 @@ This IAM role is required to opt in to AWS Compute Optimizer.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -133,7 +132,7 @@ The following policy statement grants full access to Compute Optimizer for stand
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -166,7 +165,7 @@ The following policy statement grants read-only access to Compute Optimizer for 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -220,7 +219,7 @@ The following policy statement grants full access to Compute Optimizer for a man
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -260,7 +259,7 @@ The following policy statement grants read-only access to Compute Optimizer for 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -318,7 +317,7 @@ The following policy statements grant access to view and edit recommendation pre
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -350,7 +349,7 @@ The following policy statements grant access to view and edit recommendation pre
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -382,7 +381,7 @@ The following policy statements grant access to view and edit recommendation pre
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -420,7 +419,7 @@ For Compute Optimizer to generate license recommendations, attach the following 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -444,7 +443,7 @@ Additionally, to enable and receive license recommendations, attach the followin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -474,7 +473,7 @@ The following policy statement denies access to Compute Optimizer.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -505,7 +504,7 @@ The following policy statement denies access to Compute Optimizer.
 
 The following policy statement enables Automation for your account.
 
-```
+```json
 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -537,7 +536,7 @@ The following policy statement enables Automation for your account.
 
 The following policy statement enables Automation across your organization.
 
-```
+```json
                 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -572,6 +571,16 @@ The following policy statement enables Automation across your organization.
         },
         {
             "Effect": "Allow",
+            "Action": [
+                "aco-automation:PutOrganizationEnrollmentConfiguration",
+                "aco-automation:DeleteOrganizationEnrollmentConfiguration",
+                "aco-automation:ListOrganizationEnrollmentConfigurations",
+                "aco-automation:ListOrganizationalUnits"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
             "Action": "aco-automation:ListAccounts",
             "Resource": "*"
         }
@@ -584,7 +593,7 @@ The following policy statement enables Automation across your organization.
 
 The following policy grants full access to Compute Optimizer Automation for standalone AWS accounts.
 
-```
+```json
                 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -605,7 +614,7 @@ The following policy grants full access to Compute Optimizer Automation for stan
 
 The following policy grants read-only access to Compute Optimizer Automation for standalone AWS accounts.
 
-```
+```json
                 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -637,7 +646,7 @@ The following policy grants read-only access to Compute Optimizer Automation for
 
 The following policy grants full access to Compute Optimizer Automation for a management account of an organization.
 
-```
+```json
                 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -665,7 +674,7 @@ The following policy grants full access to Compute Optimizer Automation for a ma
 
 The following policy grants read-only access to Compute Optimizer Automation for a management account of an organization.
 
-```
+```json
                 {
     "Version": "2012-10-17",                   
     "Statement": [
@@ -685,6 +694,8 @@ The following policy grants read-only access to Compute Optimizer Automation for
                "aco-automation:ListRecommendedActions",
                "aco-automation:ListRecommendedActionSummaries",
                "aco-automation:ListTagsForResource",
+               "aco-automation:ListOrganizationEnrollmentConfigurations",
+               "aco-automation:ListOrganizationalUnits",
                "ec2:DescribeVolumes"
             ],
             "Resource": "*"

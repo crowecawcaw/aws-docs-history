@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for AWS Compute Optimizer
-<a name="using-service-linked-roles"></a>
 
 AWS Compute Optimizer uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that's linked directly to Compute Optimizer. Service-linked roles are predefined by Compute Optimizer and include all of the permissions that the service requires to call other on your behalf. 
 
@@ -33,6 +32,9 @@ The role permissions policy allows Compute Optimizer to complete the following a
 + Action: `organizations:ListAccounts` on all AWS resources.
 + Action: `organizations:ListAWSServiceAccessForOrganization` on all AWS resources.
 + Action: `organizations:ListDelegatedAdministrators` on all AWS resources.
++ Action: `organizations:ListParents` on all AWS resources.
++ Action: `organizations:ListChildren` on all AWS resources.
++ Action: `organizations:DescribeOrganizationalUnit` on all AWS resources.
 + Action: `autoscaling:DescribeAutoScalingInstances` on all AWS resources.
 + Action: `autoscaling:DescribeAutoScalingGroups` on all AWS resources.
 + Action: `autoscaling:DescribePolicies` on all AWS resources.
@@ -72,7 +74,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +105,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -138,7 +140,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 Add the following statement to the permissions policy for the IAM entity that needs to create a service-linked role, or any service role that includes the needed policies. This policy attaches a policy to the role.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:CreateServiceLinkedRole",

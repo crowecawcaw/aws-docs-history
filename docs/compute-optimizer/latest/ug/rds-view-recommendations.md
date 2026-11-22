@@ -1,7 +1,6 @@
 
 
 # Accessing Aurora and RDS database recommendations and details
-<a name="rds-view-recommendations"></a>
 
 You can use one of the following procedures to access either the **Aurora and RDS database recommendations** or the **Aurora and RDS database details** pages in the AWS Console.
 

@@ -1,7 +1,6 @@
 
 
 # Rightsizing recommendation preferences
-<a name="rightsizing-preferences"></a>
 
 With rightsizing recommendation preferences, you can customize the settings that Compute Optimizer uses to generate your recommendations. These preferences apply to your Amazon EC2, EC2 Auto Scaling group, Amazon EBS volumes, Amazon ECS service, and Aurora and Amazon RDS database recommendations. You can do the following:
 + Adjust both the headroom and threshold of your CPU utilization

@@ -1,7 +1,6 @@
 
 
 # Automation events
-<a name="automation-events"></a>
 
 The Automation events page is centralized dashboard that displays information about the automated actions initiated through Compute Optimizer. You can review summary information and get details for individual automation events. By default, the dashboard shows information automation events from the last 6 months. You can view events from the past year using the date filter.
 

@@ -1,7 +1,6 @@
 
 
 # Metrics for Amazon ECS services on Fargate
-<a name="ecs-fargate-metrics-analyzed"></a>
 
 Compute Optimizer analyzes the following CloudWatch and Amazon ECS utilization metrics of your Amazon ECS services on Fargate.
 

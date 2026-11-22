@@ -1,7 +1,6 @@
 
 
 # Savings estimation mode
-<a name="savings-estimation-mode"></a>
 
 With savings estimation mode, Compute Optimizer analyzes your specific pricing discounts when it estimates the cost savings of rightsizing recommendations. This gives you more accurate savings estimates that reflect your actual pricing. Compute Optimizer offers the savings estimation mode for the following pricing discounts per AWS resource:
 + Amazon EC2 and EC2 Auto Scaling group instances — Savings Plans and Reserved Instances pricing discounts.

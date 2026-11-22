@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Compute Optimizer
-<a name="getting-started"></a>
 
 When you first open the AWS Compute Optimizer console, you must opt in with the account that you're signed in with. You must opt in or out before you can use the service. You can also opt in or out with the Compute Optimizer API, the AWS Command Line Interface (AWS CLI), or the AWS SDKs.
 

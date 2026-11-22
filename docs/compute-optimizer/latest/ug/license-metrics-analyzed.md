@@ -1,7 +1,6 @@
 
 
 # Metrics for commercial software licenses
-<a name="license-metrics-analyzed"></a>
 
 Compute Optimizer analyzes the following metric to generate recommendations for commercial software licenses.
 

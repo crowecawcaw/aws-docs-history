@@ -1,7 +1,6 @@
 
 
 # Delegating an administrator account
-<a name="delegate-administrator-account"></a>
 
 With AWS Compute Optimizer, you can make one member account in your organization the delegated administrator. This account can view and manage Compute Optimizer recommendations for the whole organization. It can do this without signing in to the management account.
 
@@ -54,7 +53,7 @@ Use the following procedures to register, update, or remove a delegated administ
 
 1. Call the following API operation. Replace {{123456789012}} with your account ID.
 
-   ```
+   ```bash
    aws organizations register-delegated-administrator \
                                            --account-id {{123456789012}} \
                                            --service-principal compute-optimizer.amazonaws.com
@@ -91,7 +90,7 @@ Use the following procedures to register, update, or remove a delegated administ
 
 1. Call the following API operation. Replace {{123456789012}} with your account ID.
 
-   ```
+   ```bash
    aws organizations deregister-delegated-administrator \ 
                                            --account-id {{123456789012}} \
                                            --service-principal compute-optimizer.amazonaws.com

@@ -1,7 +1,6 @@
 
 
 # Creating automation rules
-<a name="automation-rules-create"></a>
 
 You can use an automation rule to manage automated implementation of recommended actions in Compute Optimizer. For background information about how automation rules work, see [Automation rules](automation-rules.md).
 
@@ -22,7 +21,7 @@ When you create an organization rule in the management account and apply it to m
 
 1. Choose **Create Automation rule**.
 
-1. If you are creating a rule in the management account or delegated administrator, you can choose the **rule type**, the **member accounts** you want to apply the rule, and whether to apply the rule **before** or **after member account rules**. You can select only member accounts that have Automation enabled and that allow organization rules.
+1. If you are creating a rule in the management account or delegated administrator, choose the **rule type** and the **rule scope**. Then choose whether to apply the rule **before** or **after member account rules**. For the rule scope, in **Include**, choose the member accounts, organizational units (OUs), or the organization root. Optionally, in **Exclude**, choose the accounts and OUs to exclude. You can include only OUs with the organization rule mode **Any allowed**. The rule applies only to accounts in its scope that have Automation enabled and the organization rule mode **Any allowed**. For more information, see [Rule scope](automation-rules.md#automation-rules-scope).
 
 1. Choose the **action types** you want this rule to implement.
 

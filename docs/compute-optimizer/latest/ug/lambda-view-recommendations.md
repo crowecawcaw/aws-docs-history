@@ -1,7 +1,6 @@
 
 
 # Accessing Lambda function recommendations and details
-<a name="lambda-view-recommendations"></a>
 
 You can use one of the following procedures to access either the **Lambda function recommendations** or the **Lambda function details** pages in the AWS Console.
 

@@ -1,7 +1,6 @@
 
 
 # Accessing EC2 Auto Scaling group recommendations and details
-<a name="asg-view-recommendations"></a>
 
 You can use one of the following procedures to access either the **EC2 Auto Scaling groups recommendations** or the **EC2 Auto Scaling group details** pages in the AWS Console.
 

@@ -1,7 +1,6 @@
 
 
 # Viewing EC2 Auto Scaling group recommendations
-<a name="view-asg-recommendations"></a>
 
 AWS Compute Optimizer generates instance type recommendations for Amazon EC2 Auto Scaling groups. Recommendations for your EC2 Auto Scaling groups are displayed on the following pages of the AWS Compute Optimizer console.
 + **EC2 Auto Scaling group recommendations**

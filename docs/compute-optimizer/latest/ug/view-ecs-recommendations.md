@@ -1,7 +1,6 @@
 
 
 # Viewing Amazon ECS services on Fargate recommendations
-<a name="view-ecs-recommendations"></a>
 
 AWS Compute Optimizer generates recommendations for Amazon ECS services on Fargate. These recommendations are displayed on the following pages of the Compute Optimizer console.
 
@@ -50,7 +49,7 @@ The following findings classifications apply to Amazon ECS services on Fargate.
 | Over-provisioned | When Compute Optimizer detects that there’s excessive memory or CPU, an Amazon ECS service is considered over-provisioned. Compute Optimizer displays a finding reason of **CPU over-provisioned** or ** Memory over-provisioned**. An over-provisioned Amazon ECS service might result in additional infrastructure costs. | 
 | Optimized | When both the CPU and memory of your Amazon ECS service meet the performance requirements of your workload, the service is considered optimized. | 
 
-For more information about under-provisioned and over-provisioned Amazon ECS services on Fargate, see [Finding reasons](#ecs-finding-reasons) in the [Viewing Amazon ECS services on Fargate recommendations](#view-ecs-recommendations) topic.
+For more information about under-provisioned and over-provisioned Amazon ECS services on Fargate, see [Finding reasons](#ecs-finding-reasons) in the [Viewing Amazon ECS services on Fargate recommendations](view-ecs-recommendations.md) topic.
 
 ## Finding reasons
 <a name="ecs-finding-reasons"></a>
