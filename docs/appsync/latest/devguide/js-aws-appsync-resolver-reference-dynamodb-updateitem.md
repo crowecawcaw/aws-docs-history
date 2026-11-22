@@ -1,7 +1,6 @@
 
 
 # UpdateItem
-<a name="js-aws-appsync-resolver-reference-dynamodb-updateitem"></a>
 
 The `UpdateItem` request enables you to tell the AWS AppSync DynamoDB function to make a `UpdateItem` request to DynamoDB and allows you to specify the following:
 + The key of the item in DynamoDB
@@ -10,7 +9,7 @@ The `UpdateItem` request enables you to tell the AWS AppSync DynamoDB function t
 
 The `UpdateItem` request has the following structure:
 
-```
+```TypeScript
 type DynamoDBUpdateItemRequest = {
   operation: 'UpdateItem';
   key: { [key: string]: any };
@@ -75,7 +74,7 @@ The following example is a function request handler for the GraphQL mutation `up
 
 In this example, an item in DynamoDB has its `upvotes` and `version` fields incremented by 1.
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 export function request(ctx) {
   const { id } = ctx.args;
@@ -98,7 +97,7 @@ The following example is a function request handler for a GraphQL mutation `upda
 
 This is a complex example that inspects the arguments and dynamically generates the update expression that only includes the arguments that have been provided by the client. For example, if `title` and `author` are omitted, they are not updated. If an argument is specified but its value is `null`, then that field is deleted from the object in DynamoDB. Finally, the operation has a condition, which verifies whether the item currently in DynamoDB has the `version` field set to `expectedVersion`:
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 export function request(ctx) {
   const { args: { input: { id, ...values } } } = ctx;

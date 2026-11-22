@@ -1,7 +1,6 @@
 
 
 # Taking a tour of the AWS AppSync console
-<a name="console-tour"></a>
 
 Before we add data to our DynamoDB table, we should review the basic features of the AWS AppSync console experience. The AWS AppSync console tab on the left-hand side of the page allows users to easily navigate to any of the major components or configuration options that AWS AppSync provides:
 
@@ -13,7 +12,7 @@ Before we add data to our DynamoDB table, we should review the basic features of
 
 Choose **Schema** to view the schema you just created. If you review the schema's contents, you'll notice that it has already been loaded with a bunch of helper operations to streamline the development process. In the **Schema** editor, if you scroll through the code, you'll eventually reach the model you defined in the previous section:
 
-```
+```SDL
 type Todo {
 	id: ID!
 	name: String

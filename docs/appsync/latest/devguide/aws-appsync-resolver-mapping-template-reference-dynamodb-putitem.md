@@ -1,7 +1,6 @@
 
 
 # PutItem
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-putitem"></a>
 
 The `PutItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `PutItem` request to DynamoDB, and enables you to specify the following:
 + The key of the item in DynamoDB
@@ -10,7 +9,7 @@ The `PutItem` request mapping document lets you tell the AWS AppSync DynamoDB re
 
 The `PutItem` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "PutItem",
@@ -75,7 +74,7 @@ The following example is a mapping template for a GraphQL mutation `updateThing(
 
 If no item with the specified key exists, it’s created. If an item already exists with the specified key, it’s overwritten.
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "PutItem",
@@ -97,7 +96,7 @@ The following example is a mapping template for a GraphQL mutation `updateThing(
 
 This example checks to be sure the item currently in DynamoDB has the `version` field set to `expectedVersion`.
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "PutItem",

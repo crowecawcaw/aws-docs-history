@@ -1,13 +1,12 @@
 
 
 # Filters
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-filter"></a>
 
 When querying objects in DynamoDB using the `Query` and `Scan` operations, you can optionally specify a `filter` that evaluates the results and returns only the desired values.
 
 The filter mapping section of a `Query` or `Scan` mapping document has the following structure:
 
-```
+```TypeScript
 "filter" : {
     "expression" : "filter expression"
     "expressionNames" : {
@@ -35,7 +34,7 @@ The substitutions for expression attribute *value* placeholders, in the form of 
 
 The following example is a filter section for a mapping template, where entries retrieved from DynamoDB are only returned if the title starts with the `title` argument.
 
-```
+```TypeScript
 "filter" : {
     "expression" : "begins_with(#title, :title)",
     "expressionNames" : {

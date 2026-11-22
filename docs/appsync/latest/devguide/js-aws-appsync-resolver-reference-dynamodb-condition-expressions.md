@@ -1,7 +1,6 @@
 
 
 # Condition expressions
-<a name="js-aws-appsync-resolver-reference-dynamodb-condition-expressions"></a>
 
 When you mutate objects in DynamoDB by using the `PutItem`, `UpdateItem`, and `DeleteItem` DynamoDB operations, you can optionally specify a condition expression that controls whether the request should succeed or not, based on the state of the object already in DynamoDB before the operation is performed.
 
@@ -12,7 +11,7 @@ The AWS AppSync DynamoDB function allows a condition expression to be specified 
 
 The following `PutItem` request object doesn’t have a condition expression. As a result, it puts an item in DynamoDB even if an item with the same key already exists, thereby overwriting the existing item.
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 export function request(ctx) {
   const { foo, bar, ...values} = ctx.args
@@ -29,7 +28,7 @@ export function request(ctx) {
 
 The following `PutItem` object does have a condition expression that allows the operation succeed only if an item with the same key does *not* exist in DynamoDB.
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 export function request(ctx) {
   const { foo, bar, ...values} = ctx.args
@@ -59,7 +58,7 @@ The `PutItem`, `UpdateItem`, and `DeleteItem` request objects all allow an optio
 
 A `condition` section has the following structure:
 
-```
+```TypeScript
 type ConditionCheckExpression = {
   expression: string;
   expressionNames?: { [key: string]: string};
@@ -123,7 +122,7 @@ When the condition check fails, the AWS AppSync DynamoDB function performs a `Ge
 
   For example, if the `PutItem` request object looked like the following:
 
-  ```
+  ```TypeScript
   import { util } from '@aws-appsync/utils';
   export function request(ctx) {
     const { id, name, version} = ctx.args
@@ -142,7 +141,7 @@ When the condition check fails, the AWS AppSync DynamoDB function performs a `Ge
 
   And the item currently in DynamoDB looked like the following:
 
-  ```
+  ```TypeScript
   {
      "id" : { "S" : "1" },
      "name" : { "S" : "Steve" },
@@ -163,7 +162,7 @@ When following the `Reject` strategy, the AWS AppSync DynamoDB function returns 
 
 For example, given the following mutation request:
 
-```
+```TypeScript
 mutation {
     updatePerson(id: 1, name: "Steve", expectedVersion: 1) {
         Name
@@ -174,7 +173,7 @@ mutation {
 
 If the item returned from DynamoDB looks like the following:
 
-```
+```TypeScript
 {
    "id" : { "S" : "1" },
    "name" : { "S" : "Steve" },
@@ -184,7 +183,7 @@ If the item returned from DynamoDB looks like the following:
 
 And the function response handler looks like the following:
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 export function response(ctx) {
   const { version, ...values } = ctx.result;
@@ -200,7 +199,7 @@ export function response(ctx) {
 
 The GraphQL response looks like the following:
 
-```
+```TypeScript
 {
   "data": null,
   "errors": [
@@ -227,7 +226,7 @@ When following the `Custom` strategy, the AWS AppSync DynamoDB function invokes 
 
 The AWS AppSync DynamoDB function invokes the Lambda function specified in the `lambdaArn`. It uses the same `service-role-arn` configured on the data source. The payload of the invocation has the following structure:
 
-```
+```TypeScript
 {
     "arguments": { ... },
     "requestMapping": {... },
@@ -256,7 +255,7 @@ Information about the caller. This is the same as the identity information avail
 
 A full example of the payload:
 
-```
+```TypeScript
 {
     "arguments": {
         "id": "1",
@@ -307,7 +306,7 @@ A full example of the payload:
 The Lambda function can inspect the invocation payload and apply any business logic to decide how the AWS AppSync DynamoDB function should handle the failure. There are three options for handling the condition check failure:
 +  `reject` the mutation. The response payload for this option must have this structure:
 
-  ```
+  ```TypeScript
   {
       "action": "reject"
   }
@@ -316,7 +315,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
   This tells the AWS AppSync DynamoDB function to behave as if the configured strategy was `Reject`, returning an error for the mutation and the current value of the object in DynamoDB, as described in the section above.
 +  `discard` the mutation. The response payload for this option must have this structure:
 
-  ```
+  ```TypeScript
   {
       "action": "discard"
   }
@@ -325,7 +324,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
   This tells the AWS AppSync DynamoDB function to silently ignore the condition check failure and returns the value in DynamoDB.
 +  `retry` the mutation. The response payload for this option must have this structure:
 
-  ```
+  ```TypeScript
   {
       "action": "retry",
       "retryMapping": { ... }
@@ -336,7 +335,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
 
   For `PutItem`, the `retryMapping` section has the following structure. For a description of the `attributeValues` field, see [PutItem](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html#aws-appsync-resolver-mapping-template-reference-dynamodb-putitem).
 
-  ```
+  ```TypeScript
   {
       "attributeValues": { ... },
       "condition": {
@@ -348,7 +347,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
 
   For `UpdateItem`, the `retryMapping` section has the following structure. For a description of the `update` section, see [UpdateItem](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference-dynamodb.html#aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem).
 
-  ```
+  ```TypeScript
   {
       "update" : {
           "expression" : "someExpression"
@@ -367,7 +366,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
 
   For `DeleteItem`, the `retryMapping` section has the following structure.
 
-  ```
+  ```TypeScript
   {
       "condition": {
           "consistentRead" = true
@@ -379,7 +378,7 @@ The Lambda function can inspect the invocation payload and apply any business lo
 
 Here is an example Lambda function to deal with a failed `PutItem` request. The business logic looks at who made the call. If it was made by `jeffTheAdmin`, it retries the request, updating the `version` and `expectedVersion` from the item currently in DynamoDB. Otherwise, it rejects the mutation.
 
-```
+```TypeScript
 exports.handler = (event, context, callback) => {
     console.log("Event: "+ JSON.stringify(event));
 

@@ -1,7 +1,6 @@
 
 
 # Building a real-time WebSocket client in AWS AppSync
-<a name="real-time-websocket-client"></a>
 
 **Important**  
 As of Mar 13, 2025, you can build a real-time PubSub API powered by WebSockets using AWS AppSync Events. For more information, see [Publish events via WebSocket](https://docs.aws.amazon.com/appsync/latest/eventapi/publish-websocket.html) in the *AWS AppSync Events Developer Guide*..
@@ -90,7 +89,7 @@ The following sections demonstrate the header formats for each authorization mod
 
 **Example**
 
-```
+```json
 {
     "host":"example1234567890000.appsync-api.us-east-1.amazonaws.com",
     "x-api-key":"da2-12345678901234567890123456"
@@ -151,7 +150,7 @@ Header contents:
 
 Example:
 
-```
+```json
 {
     "Authorization":"eyEXAMPLEiJjbG5xb3A5eW5MK09QYXIrMTJHWEFLSXBieU5WNHhsQjEXAMPLEnM2WldvPSIsImFsZyI6IlEXAMPLEn0.eyEXAMPLEiJhNmNmMjcwNy0xNjgxLTQ1NDItOWYxOC1lNjY0MTg2NjlkMzYiLCJldmVudF9pZCI6ImVkMzM5MmNkLWNjYTMtNGM2OC1hNDYyLTJlZGI3ZTNmY2FjZiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1Njk0NTc3MTgsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aGVhc3QtMi5hbWF6b25hd3MuY29tXC9hcC1zb3V0aGVhc3QtMl83OHY0SVZibVAiLCJleHAiOjE1Njk0NjEzMjAsImlhdCI6MTU2OTQ1NzcyMCwianRpIjoiNTgzZjhmYmMtMzk2MS00YzA4LWJhZTAtYzQyY2IxMTM5NDY5IiwiY2xpZW50X2lkIjoiM3FlajVlMXZmMzd1N3RoZWw0dG91dDJkMWwiLCJ1c2VybmFtZSI6ImVsb3EXAMPLEn0.B4EXAMPLEFNpJ6ikVp7e6DRee95V6Qi-zEE2DJH7sHOl2zxYi7f-SmEGoh2AD8emxQRYajByz-rE4Jh0QOymN2Ys-ZIkMpVBTPgu-TMWDyOHhDUmUj2OP82yeZ3wlZAtr_gM4LzjXUXmI_K2yGjuXfXTaa1mvQEBG0mQfVd7SfwXB-jcv4RYVi6j25qgow9Ew52ufurPqaK-3WAKG32KpV8J4-Wejq8t0c-yA7sb8EnB551b7TU93uKRiVVK3E55Nk5ADPoam_WYE45i3s5qVAP_-InW75NUoOCGTsS8YWMfb6ecHYJ-1j-bzA27zaT9VjctXn9byNFZmEXAMPLExw",
     "host":"example1234567890000.appsync-api.us-east-1.amazonaws.com"
@@ -217,7 +216,7 @@ The request headers would include the following:
 
 The SigV4 signing HTTP request includes a canonical URL, which is the AWS AppSync GraphQL endpoint with `/connect` appended. The service endpoint AWS Region is same Region where you're using the AWS AppSync API, and the service name is 'appsync'. The HTTP request to sign is the following:
 
-```
+```json
 {
   url: "https://example1234567890000.appsync-api.us-east-1.amazonaws.com/graphql/connect",
   data: "{}",
@@ -232,7 +231,7 @@ The SigV4 signing HTTP request includes a canonical URL, which is the AWS AppSyn
 
 **Example**
 
-```
+```json
 {
   "accept": "application/json, text/javascript",
   "content-encoding": "amz-1.0",
@@ -293,7 +292,7 @@ The request headers would include the following:
 
 To sign the request using a custom domain:
 
-```
+```TypeScript
 {
   url: "https://api.example.com/graphql/connect",
   data: "{}",
@@ -308,7 +307,7 @@ To sign the request using a custom domain:
 
 **Example**
 
-```
+```TypeScript
 {
   "accept": "application/json, text/javascript",
   "content-encoding": "amz-1.0",
@@ -322,7 +321,7 @@ To sign the request using a custom domain:
 
 **Request URL with query string**
 
-```
+```TypeScript
 wss://api.example.com/graphql?header=eyEXAMPLEHQiOiJhcHBsaWNhdGlvbi9qc29uLCB0ZXh0L2phdmFEXAMPLEQiLCJjb250ZW50LWVuY29kaW5nIjoEXAMPLEEuMCIsImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9EXAMPLE47IGNoYXJzZXQ9VVRGLTgiLCJob3N0IjoiZXhhbXBsZEXAMPLENjc4OTAwMDAuYXBwc3luYy1hcGkudXMtZWFzdC0xLmFtYEXAMPLEcy5jb20iLCJ4LWFtei1kYXRlIjoiMjAyMDA0MDFUMDAxMDEwWiIsIlgtEXAMPLElY3VyaXR5LVRva2VuIjoiQWdvSmIzSnBaMmx1WDJWakVBb2FEbUZ3TFhOdmRYUm9aV0Z6ZEMweUlrY3dSUUlnQWg5N0NsanE3d09QTDhLc3hQM1l0RHV5Yy85aEFqOFBoSjdGdmYzOFNnb0NJUURoSllKYkpsbmpQc3Bpb096dGorK3BFYWdXQ3ZlWlVqS0VuMHp5VWhCbXhpck5CUWpqLy8vLy8vLy8vLzhCRUFBYUREY3hPRGsyTkRneU56ZzFOU0lNbzFtV25wRVNXVW9ZdzRCa0txRUZTcm0zRFh1TDh3K1piVmM0SktqRFA0dlVDS05SNkxlOUM5cFpwOVBzVzBOb0Z5M3ZMQlVkQVh3dDZQSld1T1ZHOGZlWGZpRUVBKzFraGdGSy93RXR3Uis5ekY3TmFNTU1zZTA3d04yZ0cydEgwZUtNVFhuOEF3QVFYK3NNYnl0UW84aWVwUDlQWk96bFpzU0ZiL2RQNVE4aGs2WWpHVGFMMWVZY0tac1RrREFxMnVLRlE4bVlVVkE5RXRRbk5SaUZMRVk4M2FLdkcvdHFMV05uR2xTTlZ4N1NNY2ZvdmtGRHFRYW1tKzg4eTFPd3dBRVlLN3Fjb2NlWDZaN0dHY2FZdUlmR3BhWDJNQ0NFTGVRdlorOFd4RWdPbklmejdHWXZzWU5qTFpTYVJuVjRHK0lMWTFGMFFOVzY0UzlOdmorQndEZzNodDJDck52cHdqVllsajlVM25teEUwVUc1bmU4M0xMNWhocU1wbTI1a21MN2VuVmd3MmtRem1VMmlkNElLdTBDL1dhb0RSdU8yRjV6RTYzdkpieE44QVlzNzMzOCs0QjRIQmI2Qlo2T1VnZzk2UTE1UkE0MS9nSXF4YVZQeHlUcERmVFU1R2ZTTHhvY2RZZW5pcXFwRk10WkcybjlkMHU3R3NRTmNGa05jRzNxRFptNHREbzh0WmJ1eW0wYTJWY0YyRTVoRkVnWEJhK1hMSkNmWGkvNzdPcUFFalAweDdRZGszQjQzcDhLRy9CYWlvUDVSc1Y4ekJHdkgxekFneVBoYTJyTjcwL3RUMTN5cm1QZDVRWUVmd3pleGpLclY0bVdJdVJnOE5USFlTWkpVYWV5Q3dUb204MFZGVUpYRytHWVRVeXY1VzIyYUJjbm9SR2lDaUtFWVRMT2tnWGVjZEtGVEhtY0lBZWpROVdlbHIwYTE5NktxODd3NUtOTUNrY0NHRm53Qk5GTG1mbmJwTnFUNnJVQnh4czNYNW50WDlkOEhWdFNZSU5Uc0dYWE1aQ0o3Zm5iV2FqaGcvYW94MEZ0SFgyMWVGNnFJR1Q4ajF6K2wyb3BVK2dnd1Vna2hVVWdDSDJUZnFCaitNTE1WVnZwZ3FKc1BLdDU4MmNhRktBcklGSXZPKzlRdXB4TG5FSDJoejA0VE1UZm5VNmJRQzZ6MWJ1VmU3aCt0T0xuaDFZUEZzTFE4OGFuaWIvN1RUQzhrOURzQlRxMEFTZThSMkdiU0VzbU85cWJiTXdnRWFZVWhPS3RHZXlRc1NKZGhTazZYeFhUaHJXTDlFbndCQ1hEa0lDTXFkbnRBeHl5TTluV3NaNGJMOUpIcUV4Z1dVbWZXQ2h6UEZBcW4zRjR5ODk2VXFIVFp4bHEzV0d5cG41SEhjZW0ySHFmM0lWeEtIMWluaHFkVnRrcnlFaVRXckk3WmRqYnFucVJibCtXZ3RQdEtPT3dlRGxDYVJzM1IycVhjYk5nVmhsZU1rNElXbkY4RDE2OTVBZW5VMUx3SGpPSkxrQ2p4Z05GaVdBRkVQSDlhTklhcXMvWnhBPT0iLCJBdXRob3JpemF0aW9uIjoiQVdTNC1ITUFDLVNIQTI1NiBDcmVkZW50aWFsPVhYWFhYWFhYWFhYWFhYWFhYWFgvMjAxOTEwMDIvdXMtZWFzdC0xEXAMPLE5bmMvYXdzNF9yZXF1ZXN0LCBTaWduZWRIZWFkZXJzPWFjY2VwdDtjb250ZWEXAMPLE29kaW5nO2NvbnRlbnQtdHlwZTtob3EXAMPLEW16LWRhdGU7eC1hbXotc2VjdXJpdHktdG9rZW4sIFNpZ25hdHVyZT04MzE4EXAMPLEiY2MxZmUzZWU2OWY3NWNkEXAMPLE0Y2I0ZjE1MGU0Zjk5Y2VjODY5ZjE0OWM1ZDAzNDEXAMPLEn0=&payload=e30=
 ```
 
@@ -341,7 +340,7 @@ One WebSocket connection can have multiple subscriptions (even with different au
 
 **Example**
 
-```
+```json
 {
     "Authorization":"M0UzQzM1MkQtMkI0Ni00OTZCLUI1NkQtMUM0MTQ0QjVBRTczCkI1REEzRTIxLTk5NzItNDJENi1BQjMwLTFCNjRFNzQ2NzlCNQo=",
     "host":"example1234567890000.appsync-api.us-east-1.amazonaws.com"
@@ -422,7 +421,7 @@ To successfully initiate, establish, register, and process the subscription requ
 
 (Optional) After a successful handshake, the client can send the `connection_init` message to start communicating with the AWS AppSync real-time endpoint. The message is a string obtained by stringifying the JSON object as follows:
 
-```
+```json
 { "type": "connection_init" }
 ```
 
@@ -431,7 +430,7 @@ To successfully initiate, establish, register, and process the subscription requ
 
 After sending the `connection_init` message, the client must wait for the `connection_ack` message. All messages sent before receiving `connection_ack` are ignored. The message should read as follows:
 
-```
+```json
 {
   "type": "connection_ack",
   "payload": {
@@ -446,7 +445,7 @@ After sending the `connection_init` message, the client must wait for the `conne
 
 In addition to the connection acknowledgment message, the client periodically receives keep-alive messages. If the client doesn't receive a keep-alive message within the connection timeout period, the client should close the connection. AWS AppSync keeps sending these messages and servicing the registered subscriptions until it shuts down the connection automatically (after 24 hours). Keep-alive messages are heartbeats and do not need the client to acknowledge them.
 
-```
+```json
 { "type": "ka" }
 ```
 
@@ -470,7 +469,7 @@ The same rules in the [Header parameter format based on AWS AppSync API authoriz
 
 Example using Amazon Cognito user pools:
 
-```
+```json
 {
   "id": "ee849ef0-cf23-4cb8-9fcb-152ae4fd1e69",
   "payload": {
@@ -488,7 +487,7 @@ Example using Amazon Cognito user pools:
 
 Example using IAM:
 
-```
+```json
 {
   "id": "eEXAMPLE-cf23-1234-5678-152EXAMPLE69",
   "payload": {
@@ -511,7 +510,7 @@ Example using IAM:
 
 Example using a custom domain name:
 
-```
+```json
 {
   "id": "key-cf23-4cb8-9fcb-152ae4fd1e69",
   "payload": {
@@ -529,7 +528,7 @@ Example using a custom domain name:
 
 The SigV4 signature does not need `/connect` to be appended to the URL, and the JSON stringified GraphQL operation replaces `data`. The following is an example of a SigV4 signature request:
 
-```
+```json
 {
   url: "https://example1234567890000.appsync-api.us-east-1.amazonaws.com/graphql",
   data: "{\"query\":\"subscription onCreateMessage {\\n onCreateMessage {\\n __typename\\n message\\n }\\n }\",\"variables\":{}}",
@@ -549,7 +548,7 @@ After sending the subscription start message, the client should wait for AWS App
 
 Subscription acknowledgment example:
 
-```
+```json
 {
   "type": "start_ack",
   "id": "eEXAMPLE-cf23-1234-5678-152EXAMPLE69"
@@ -566,7 +565,7 @@ If connection init or subscription registration fails, or if a subscription is e
 
 Example:
 
-```
+```json
 {
   "type": "error",
   "payload": {
@@ -590,7 +589,7 @@ When a client submits a mutation, AWS AppSync identifies all of the subscribers 
 
 Example:
 
-```
+```json
 {
   "type": "data",
   "id": "ee849ef0-cf23-4cb8-9fcb-152ae4fd1e69",
@@ -614,7 +613,7 @@ When the app wants to stop listening to the subscription events, the client shou
 
 Example:
 
-```
+```json
 {
   "type":"stop",
   "id":"ee849ef0-cf23-4cb8-9fcb-152ae4fd1e69"
@@ -629,7 +628,7 @@ After the client receives the confirmation message, it receives no more messages
 
 Example:
 
-```
+```json
 {
   "type":"complete",
   "id":"eEXAMPLE-cf23-1234-5678-152EXAMPLE69"

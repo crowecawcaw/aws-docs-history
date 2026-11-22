@@ -1,7 +1,6 @@
 
 
 # GraphQL and AWS AppSync architecture
-<a name="graphql-overview"></a>
 
 **Note**  
 This guide assumes the user has a working knowledge of the REST architectural style. We recommend reviewing this and other front-end topics before working with GraphQL and AWS AppSync.

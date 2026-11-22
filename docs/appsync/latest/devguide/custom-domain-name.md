@@ -1,7 +1,6 @@
 
 
 # Configuring custom domain names for GraphQL and real-time APIs
-<a name="custom-domain-name"></a>
 
 With AWS AppSync, you can use custom domain names to configure a single, memorable domain that works for both your GraphQL and real-time APIs.
 
@@ -45,7 +44,7 @@ To set up the custom domain name or to update its certificate, you must have per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

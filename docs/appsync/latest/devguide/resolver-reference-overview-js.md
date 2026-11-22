@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolvers overview
-<a name="resolver-reference-overview-js"></a>
 
 AWS AppSync lets you respond to GraphQL requests by performing operations on your data sources. For each GraphQL field you wish to run a query, mutation, or subscription on, a resolver must be attached.
 
@@ -19,7 +18,7 @@ The AWS AppSync JavaScript runtime provides a subset of JavaScript libraries, ut
 
 A unit resolver is composed of code that defines a request and response handler that are executed against a data source. The request handler takes a context object as an argument and returns the request payload used to call your data source. The response handler receives a payload back from the data source with the result of the executed request. The response handler transforms the payload into a GraphQL response to resolve the GraphQL field. In the example below, a resolver retrieves an item from an DynamoDB data source:
 
-```
+```TypeScript
 import * as ddb from '@aws-appsync/utils/dynamodb'
 
 export function request(ctx) {
@@ -108,7 +107,7 @@ The `runtime.earlyReturn` function allows you to prematurely return from any req
 
 A pipeline resolver also has a request and a response handler surrounding the run of the functions in the pipeline: its request handler is run before the first function’s request, and its response handler is run after the last function’s response. The resolver request handler can set up data to be used by functions in the pipeline. The resolver response handler is responsible for returning data that maps to the GraphQL field output type. In the example below, a resolver request handler, defines `allowedGroups`; the data returned should belong to one of these groups. This value can be used by the resolver’s functions to request data. The resolver’s response handler conducts a final check and filters the result to make sure that only items that belong to the allowed groups are returned.
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 
 /**

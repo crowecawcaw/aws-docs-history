@@ -1,7 +1,6 @@
 
 
 # Conflict detection and resolution in AWS AppSync
-<a name="conflict-detection-and-resolution"></a>
 
 When concurrent writes happen with AWS AppSync, you can configure Conflict Detection and Conflict Resolution strategies to handle updates appropriately. Conflict Detection determines if the mutation is in conflict with the actual written item in the data source. Conflict Detection is enabled by setting the value in the SyncConfig for the `conflictDetection` field to `VERSION`.
 

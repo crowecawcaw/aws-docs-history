@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template overview
-<a name="resolver-mapping-template-reference-overview"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).

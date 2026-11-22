@@ -1,7 +1,6 @@
 
 
 # Scalar types in GraphQL
-<a name="scalars"></a>
 
 A GraphQL object type has a name and fields, and those fields can have sub-fields. Ultimately, an object type's fields must resolve to *scalar* types, which represent the leaves of the query. For more information about object types and scalars, see [Schemas and types](https://graphql.org/learn/schema/) on the GraphQL website.
 

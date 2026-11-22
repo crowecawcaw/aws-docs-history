@@ -1,7 +1,6 @@
 
 
 # HTTP helpers in util.http
-<a name="http-helpers-in-utils-http-js"></a>
 
 The `util.http` utility provides helper methods that you can use to manage HTTP request parameters and to add response headers.
 

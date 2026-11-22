@@ -1,7 +1,6 @@
 
 
 # Configuration and settings in AWS AppSync
-<a name="configuration-and-settings"></a>
 
 AWS AppSync enables you to:
 + Cache data that's requested often but unlikely to change from request to request. This can reduce the load on your resolvers. For more information, see [Configuring server-side caching and API payload compression in AWS AppSync](enabling-caching.md).

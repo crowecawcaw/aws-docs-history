@@ -1,7 +1,6 @@
 
 
 # Comparing REST and GraphQL
-<a name="comparing-rest-graphql"></a>
 
 APIs (Application Programming Interfaces) play a crucial role in facilitating data exchange between applications. As stated earlier, two prominent approaches for designing APIs have emerged: GraphQL and REST. While both serve the fundamental purpose of enabling client-server communication, they differ significantly in their implementation and use cases.
 

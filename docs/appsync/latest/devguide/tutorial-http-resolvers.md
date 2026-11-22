@@ -1,7 +1,6 @@
 
 
 # Using HTTP resolvers in AWS AppSync
-<a name="tutorial-http-resolvers"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -56,7 +55,7 @@ The AWS AppSync console creates a new GraphQL API for you using the API key auth
 
 Now that you have a GraphQL API, let’s create a GraphQL schema. From the schema editor in the AWS AppSync console, make sure you schema matches the following schema:
 
-```
+```sh
 schema {
     query: Query
     mutation: Mutation
@@ -114,7 +113,7 @@ To set up the resolver:
 + In **Data source name**, choose **HTTP**.
 + In **Configure the request mapping template**, paste the following code:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "method": "GET",
@@ -128,7 +127,7 @@ To set up the resolver:
 ```
 + In **Configure the response mapping template**, paste the following code:
 
-```
+```sh
 ## return the body
 #if($ctx.result.statusCode == 200)
     ##if response is 200
@@ -140,7 +139,7 @@ To set up the resolver:
 ```
 + Choose the **Query** tab, and then run the following query:
 
-```
+```sh
 query GetUser{
     getUser(id:1){
         id
@@ -151,7 +150,7 @@ query GetUser{
 
 This should return the following response:
 
-```
+```sh
 {
     "data": {
         "getUser": {
@@ -166,7 +165,7 @@ This should return the following response:
 + In **Data source name**, choose **HTTP**.
 + In **Configure the request mapping template**, paste the following code:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "method": "POST",
@@ -181,7 +180,7 @@ This should return the following response:
 ```
 + In **Configure the response mapping template**, paste the following code:
 
-```
+```sh
 ## Raise a GraphQL field error in case of a datasource invocation error
 #if($ctx.error)
     $util.error($ctx.error.message, $ctx.error.type)
@@ -197,7 +196,7 @@ This should return the following response:
 ```
 + Choose the **Query** tab, and then run the following query:
 
-```
+```sh
 mutation addUser{
     addUser(userInput:{
         id:"2",
@@ -211,7 +210,7 @@ mutation addUser{
 
 This should return the following response:
 
-```
+```sh
 {
     "data": {
         "getUser": {
@@ -238,7 +237,7 @@ For example, if you want to call the [ListGraphqlApis operation](https://docs.aw
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -257,7 +256,7 @@ For example, if you want to call the [ListGraphqlApis operation](https://docs.aw
 
 Next, create the HTTP data source for AWS AppSync. In this example, you call AWS AppSync in the US West (Oregon) Region. Set up the following HTTP configuration in a file named `http.json`, which includes the signing region and service name:
 
-```
+```sh
 {
     "endpoint": "https://appsync.us-west-2.amazonaws.com/",
     "authorizationConfig": {
@@ -272,7 +271,7 @@ Next, create the HTTP data source for AWS AppSync. In this example, you call AWS
 
 Then, use the AWS CLI to create the data source with an associated role as follows:
 
-```
+```sh
 aws appsync create-data-source --api-id <API-ID> \
                                --name AWSAppSync \
                                --type HTTP \
@@ -282,7 +281,7 @@ aws appsync create-data-source --api-id <API-ID> \
 
 When you attach a resolver to the field in the schema, use the following request mapping template to call AWS AppSync:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "method": "GET",

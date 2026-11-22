@@ -1,7 +1,6 @@
 
 
 # Getting started: Creating your first GraphQL API in AWS AppSync
-<a name="quickstart"></a>
 
 You can use the AWS AppSync console to configure and launch a GraphQL API. GraphQL APIs generally require three components:
 

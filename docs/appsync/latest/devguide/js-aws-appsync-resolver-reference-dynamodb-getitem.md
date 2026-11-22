@@ -1,7 +1,6 @@
 
 
 # GetItem
-<a name="js-aws-appsync-resolver-reference-dynamodb-getitem"></a>
 
 The `GetItem` request lets you tell the AWS AppSync DynamoDB function to make a `GetItem` request to DynamoDB, and enables you to specify:
 + The key of the item in DynamoDB
@@ -9,7 +8,7 @@ The `GetItem` request lets you tell the AWS AppSync DynamoDB function to make a 
 
 The `GetItem` request has the following structure:
 
-```
+```TypeScript
 type DynamoDBGetItem = {
   operation: 'GetItem';
   key: { [key: string]: any };
@@ -52,7 +51,7 @@ For more information about JavaScript resolvers, see [JavaScript resolvers overv
 
 The following example is a function request handler for a GraphQL query `getThing(foo: String!, bar: String!)`:
 
-```
+```TypeScript
 export function request(ctx) {
   const {foo, bar} = ctx.args
   return {

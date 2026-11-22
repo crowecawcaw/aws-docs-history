@@ -1,7 +1,6 @@
 
 
 # Using local resolvers in AWS AppSync
-<a name="tutorial-local-resolvers"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -17,7 +16,7 @@ Local resolvers are useful for several use cases. The most popular use case is t
 
 In our paging application, clients can subscribe to an inbox, and send pages to other clients. Each page includes a message. Here is the schema:
 
-```
+```sh
 schema {
     query: Query
     mutation: Mutation
@@ -49,7 +48,7 @@ Let’s attach a resolver on the `Mutation.page` field. In the **Schema** pane, 
 
 For the request mapping template, enter:
 
-```
+```sh
 {
   "version": "2017-02-28",
   "payload": {
@@ -70,7 +69,7 @@ For clients to receive pages, they must first be subscribed to an inbox.
 
 In the **Queries** pane let’s execute the `inbox` subscription:
 
-```
+```sh
 subscription Inbox {
     inbox(to: "Nadia") {
         body
@@ -83,7 +82,7 @@ subscription Inbox {
 
  *Nadia* will receive pages whenever the `Mutation.page` mutation is invoked. Let’s invoke the mutation by executing the mutation:
 
-```
+```sh
 mutation Page {
     page(to: "Nadia", body: "Hello, World!") {
         body

@@ -1,7 +1,6 @@
 
 
 # Using local resolvers in AWS AppSync
-<a name="tutorial-local-resolvers-js"></a>
 
 AWS AppSync allows you to use supported data sources (AWS Lambda, Amazon DynamoDB, or Amazon OpenSearch Service) to perform various operations. However, in certain scenarios, a call to a supported data source might not be necessary.
 
@@ -16,7 +15,7 @@ First, create a blank GraphQL API by choosing the **Design from scratch** option
 
 In our pub/sub application, clients can subscribe to and publish messages. Each published message includes a name and data. Add this to the schema:
 
-```
+```sh
 type Channel {
 	name: String!
 	data: AWSJSON!
@@ -42,7 +41,7 @@ Create a *None* data source and name it *PageDataSource*. Attach it to your reso
 
 Add your resolver implementation using the following snippet:
 
-```
+```sh
 export function request(ctx) {
   return { payload: ctx.args };
 }
@@ -61,7 +60,7 @@ For clients to receive messages, they must first be subscribed to an inbox.
 
 In the **Queries** pane, execute the `SubscribeToData` subscription:
 
-```
+```SDL
 subscription SubscribeToData {
     subscribe(name:"channel") {
         name
@@ -75,7 +74,7 @@ subscription SubscribeToData {
 **Note**  
 We're using valid JSON strings in this example.
 
-```
+```SDL
 mutation PublishData {
     publish(data: "{\"msg\": \"hello world!\"}", name: "channel") {
         data

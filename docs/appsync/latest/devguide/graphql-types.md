@@ -1,7 +1,6 @@
 
 
 # GraphQL types
-<a name="graphql-types"></a>
 
 GraphQL supports many different types. As you saw in the previous section, types define the shape or behavior of your data. They are the fundamental building blocks of a GraphQL schema. 
 
@@ -24,7 +23,7 @@ GraphQL objects are the main type you will see in production code. In GraphQL, y
 
 Object types are declared using the `Type` keyword. Let's modify our schema example slightly:
 
-```
+```SDL
 type Person {
   id: ID!
   name: String
@@ -44,7 +43,7 @@ The object types here are `Person` and `Occupation`. Each object has its own fie
 
 Scalars are essentially primitive types that hold values. In AWS AppSync, there are two types of scalars: the default GraphQL scalars and AWS AppSync scalars. Scalars are typically used to store field values within object types. Default GraphQL types include `Int`, `Float`, `String`, `Boolean`, and `ID`. Let's use the previous example again:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -66,7 +65,7 @@ Due to the concept of input and output types, there are certain restrictions in 
 
 Inputs are defined using the `input` keyword:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -92,7 +91,7 @@ input occupationInput {
 
 As you can see, we can have separate inputs that mimic the original type. These inputs will often be used in your field operations like this:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -133,7 +132,7 @@ Queries are very similar to `GET` operations in that they perform a read-only fe
 
 Here are the `Query` and modified object types we used in our previous schema example:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -150,7 +149,7 @@ type Query {
 
 Our `Query` contains a field called `people` that returns a list of `Person` instances from the data source. Let's say we need to change the behavior of our application, and now we need to return a list of only the `Occupation` instances for some separate purpose. We could simply add it to the query:
 
-```
+```SDL
 type Query {                                   
   people: [Person]
   occupations: [Occupation]
@@ -161,7 +160,7 @@ In GraphQL, we can treat our query as the single source of requests. As you can 
 
 Assuming we have a resolver implementation for this query, we can now perform an actual query. While the `Query` type exists, we have to explicitly call it for it to run in the application's code. This can be done using the `query` keyword:
 
-```
+```SDL
 query getItems {
    people {
       name
@@ -174,7 +173,7 @@ query getItems {
 
 As you can see, this query is called `getItems` and returns `people` (a list of `Person` objects) and `occupations` (a list of `Occupation` objects). In `people`, we're returning only the `name` field of each `Person`, while we're returning the `title` field of each `Occupation`. The response may look like this:
 
-```
+```SDL
 {
   "data": {
     "people": [
@@ -205,7 +204,7 @@ As you can see, this query is called `getItems` and returns `people` (a list of 
 
 The example response shows how the data follows the shape of the query. Each entry retrieved is listed within the scope of the field. `people` and `occupations` are returning things as separate lists. Though useful, it might be more convenient to modify the query to return a list of people's names and occupations:
 
-```
+```SDL
 query getItems {
    people {
       name   
@@ -217,7 +216,7 @@ query getItems {
 
 This is a legal modification because our `Person` type contains an `occupation` field of type `Occupation`. When listed within the scope of `people`, we're returning each `Person`'s `name` along with their associated `Occupation` by `title`. The response may look like this:
 
-```
+```SDL
 }
   "data": {
     "people": [
@@ -246,7 +245,7 @@ This is a legal modification because our `Person` type contains an `occupation` 
 
 Mutations are similar to state-changing operations like `PUT` or `POST`. They perform a write operation to modify data in the source, then fetch the response. They define your entry points for data modification requests. Unlike queries, a mutation may or may not be included in the schema depending on the project's needs. Here's the mutation from the schema example:
 
-```
+```SDL
 type Mutation {
   addPerson(id: ID!, name: String, age: Int): Person
 }
@@ -254,7 +253,7 @@ type Mutation {
 
 The `addPerson` field represents one entry point that adds a `Person` to the data source. `addPerson` is the field name; `id`, `name`, and `age` are the parameters; and `Person` is the return type. Looking back at the `Person` type:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -265,7 +264,7 @@ type Person {
 
 We added the `occupation` field. However, we cannot set this field to `Occupation` directly because objects cannot be passed in as arguments; they are strictly output types. We should instead pass an input with the same fields as an argument:
 
-```
+```SDL
 input occupationInput {
   title: String
 }
@@ -273,7 +272,7 @@ input occupationInput {
 
  We can also easily update our `addPerson` to include this as a parameter when making new `Person` instances:
 
-```
+```SDL
 type Mutation {
   addPerson(id: ID!, name: String, age: Int, occupation: occupationInput): Person
 }
@@ -281,7 +280,7 @@ type Mutation {
 
 Here's the updated schema:
 
-```
+```SDL
 type Person { 
   id: ID!
   name: String
@@ -304,7 +303,7 @@ type Mutation {
 
 Note that `occupation` will pass in the `title` field from `occupationInput` to complete the creation of the `Person` instead of the original `Occupation` object. Assuming we have a resolver implementation for `addPerson`, we can now perform an actual mutation. While the `Mutation` type exists, we have to explicitly call it for it to run in the application's code. This can be done using the `mutation` keyword:
 
-```
+```SDL
 mutation createPerson {
   addPerson(id: ID!, name: String, age: Int, occupation: occupationInput) {
     name
@@ -318,7 +317,7 @@ mutation createPerson {
 
 This mutation is called `createPerson`, and `addPerson` is the operation. To create a new `Person`, we can enter the arguments for `id`, `name`, `age`, and `occupation`. In the scope of `addPerson`, we can also see other fields like `name`, `age`, etc. This is your response; these are the fields that will be returned after the `addPerson` operation is complete. Here's the final part of the example:
 
-```
+```SDL
 mutation createPerson {
   addPerson(id: "1", name: "Steve Powers", age: "50", occupation: "Miner") {
     id
@@ -333,7 +332,7 @@ mutation createPerson {
 
 Using this mutation, a result might look like this:
 
-```
+```SDL
 {
   "data": {
     "addPerson": {
@@ -357,7 +356,7 @@ Subscriptions use [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/
 
 Here's an example of a `Subscription` that we could add to the schema example:
 
-```
+```SDL
 type Subscription {                                   
   personAdded: Person
 }
@@ -365,7 +364,7 @@ type Subscription {
 
 The `personAdded` field will send a message to subscribed clients whenever a new `Person` is added to the data source. Assuming we have a resolver implementation for `personAdded`, we can now use the subscription. While the `Subscription` type exists, we have to explicitly call it for it to run in the application's code. This can be done using the `subscription` keyword:
 
-```
+```SDL
 subscription personAddedOperation {
   personAdded {
     id
@@ -376,13 +375,13 @@ subscription personAddedOperation {
 
 The subscription is called `personAddedOperation`, and the operation is `personAdded`. `personAdded` will return the `id` and `name` fields of new `Person` instances. Looking at the mutation example, we added a `Person` using this operation:
 
-```
+```SDL
 addPerson(id: "1", name: "Steve Powers", age: "50", occupation: "Miner")
 ```
 
 If our clients were subscribed to updates to the newly added `Person`, they might see this after `addPerson` runs:
 
-```
+```SDL
 {
   "data": {
     "personAdded": {
@@ -410,7 +409,7 @@ One thing that wasn't mentioned in our schema example was the fact that your spe
 ------
 #### [ schema.graphql ]
 
-```
+```SDL
 schema {
   query: Query
   mutation: Mutation
@@ -441,7 +440,7 @@ Enumerations, or enums, are special scalars that limit the legal arguments a typ
 
 Enums are defined using the `enum` keyword. Here's an example:
 
-```
+```SDL
 enum trafficSignals {
   solidRed
   solidYellow

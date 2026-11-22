@@ -1,7 +1,6 @@
 
 
 # XML helpers in util.xml
-<a name="xml-helpers-in-util-xml-js"></a>
 
  `util.xml` contains methods to help with XML string conversion. 
 
@@ -12,7 +11,7 @@
 Converts a XML string to a dictionary.  
 **Example 1:**  
 
-```
+```TypeScript
 Input:
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,7 +35,7 @@ Output (object):
 ```
 **Example 2:**  
 
-```
+```TypeScript
 Input:
 
 <?xml version="1.0" encoding="UTF-8"?>

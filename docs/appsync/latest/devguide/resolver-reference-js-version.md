@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver reference (JavaScript)
-<a name="resolver-reference-js-version"></a>
 
 The following sections contain the `APPSYNC_JS` runtime and JavaScript resolver reference:
 +  [ JavaScript resolvers overview ](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-overview-js.html) - Learn more about how resolvers work in AWS AppSync.

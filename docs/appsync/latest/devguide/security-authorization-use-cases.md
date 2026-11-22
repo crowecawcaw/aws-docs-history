@@ -1,7 +1,6 @@
 
 
 # Access control use cases for securing requests and responses
-<a name="security-authorization-use-cases"></a>
 
 In the [Security](security-authz.md#aws-appsync-security) section you learned about the different Authorization modes for protecting your API and an introduction was given on Fine Grained Authorization mechanisms to understand the concepts and flow. Since AWS AppSync allows you to perform logic full operations on data through the use of GraphQL Resolver [Mapping templates](resolver-mapping-template-reference-overview.md#aws-appsync-resolver-mapping-template-reference-overview), you can protect data on read or write in a very flexible manner using a combination of user identity, conditionals, and data injection.
 

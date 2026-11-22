@@ -1,11 +1,10 @@
 
 
 # GraphQL fields
-<a name="graphql-fields"></a>
 
 Fields exist within the scope of a type and hold the value that's requested from the GraphQL service. These are very similar to variables in other programming languages. For example, here's a `Person` object type:
 
-```
+```SDL
 type Person {                                  
    name: String                                  
    age: Int
@@ -14,7 +13,7 @@ type Person {
 
 The fields in this case are `name` and `age` and hold a `String` and `Int` value, respectively. Object fields like the ones shown above can be used as the inputs in the fields (operations) of your queries and mutations. For example, see the `Query` below:
 
-```
+```SDL
 type Query {                                   
   people: [Person]
 }
@@ -22,7 +21,7 @@ type Query {
 
 The `people` field is requesting all instances of `Person` from the data source. When you add or retrieve a `Person` in your GraphQL server, you can expect the data to follow the format of your types and fields, that is, the structure of your data in the schema determines how it'll be structured in your response:
 
-```
+```SDL
 }
   "data": {
     "people": [
@@ -49,7 +48,7 @@ Fields play an important role in structuring data. There are a couple of additio
 
 Lists return all items of a specified type. A list can be added to a field's type using brackets `[]`: 
 
-```
+```SDL
 type Person { 
   name: String
   age: Int
@@ -61,7 +60,7 @@ type Query {
 
 In `Query`, the brackets surrounding `Person` indicate that you want to return all instances of `Person` from the data source as an array. In the response, the `name` and `age` values of each `Person` will be returned as a single, delimited list:
 
-```
+```SDL
 }
   "data": {
     "people": [
@@ -88,7 +87,7 @@ You aren't limited to special object types. You can also use lists in the fields
 
 Non-nulls indicate a field that cannot be null in the response. You can set a field to non-null by using the `!` symbol:
 
-```
+```SDL
 type Person { 
   name: String!
   age: Int
@@ -102,7 +101,7 @@ The `name` field cannot be explicitly null. If you were to query the data source
 
 You can combine lists and non-nulls. Compare these queries:
 
-```
+```SDL
 type Query {                                   
   people: [Person!]      # Use case 1
 }

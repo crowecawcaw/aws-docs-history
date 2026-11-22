@@ -1,7 +1,6 @@
 
 
 # Using AWS AppSync Private APIs
-<a name="using-private-apis"></a>
 
 If you use Amazon Virtual Private Cloud (Amazon VPC), you can create AWS AppSync Private APIs, which are APIs that can only be accessed from a VPC. With a Private API, you can restrict API access to your internal applications and connect to your GraphQL and Realtime endpoints without exposing data publicly.
 

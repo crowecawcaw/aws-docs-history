@@ -1,7 +1,6 @@
 
 
 # String helpers in util.str
-<a name="str-helpers-in-util-str-js"></a>
 
  `util.str` contains methods to help with common String operations. 
 

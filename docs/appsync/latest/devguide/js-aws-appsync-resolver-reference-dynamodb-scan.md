@@ -1,7 +1,6 @@
 
 
 # Scan
-<a name="js-aws-appsync-resolver-reference-dynamodb-scan"></a>
 
 The `Scan` request lets you tell the AWS AppSync DynamoDB function to make a `Scan` request to DynamoDB, and enables you to specify the following:
 + A filter to exclude results
@@ -13,7 +12,7 @@ The `Scan` request lets you tell the AWS AppSync DynamoDB function to make a `Sc
 
 The `Scan` request object has the following structure:
 
-```
+```TypeScript
 type DynamoDBScanRequest = {
   operation: 'Scan';
   index?: string;
@@ -86,7 +85,7 @@ For more information about JavaScript resolvers, see [JavaScript resolvers overv
 
 The results have the following structure:
 
-```
+```TypeScript
 {
     items = [ ... ],
     nextToken = "a pagination token",
@@ -112,7 +111,7 @@ The following example is a function request handler for the GraphQL query: `allP
 
 In this example, all entries in the table are returned.
 
-```
+```TypeScript
 export function request(ctx) {
   return { operation: 'Scan' };
 }
@@ -125,7 +124,7 @@ The following example is a function request handler for the GraphQL query: `post
 
 In this example, all entries in the table are returned where the title starts with the `title` argument.
 
-```
+```TypeScript
 export function request(ctx) {
   const { title } = ctx.args;
   const filter = { filter: { beginsWith: title } };

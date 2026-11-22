@@ -1,7 +1,6 @@
 
 
 # Configuring resolvers in AWS AppSync
-<a name="resolver-config-overview"></a>
 
 In the previous sections, you learned how to create your GraphQL schema and data source, then linked them together in the AWS AppSync service. In your schema, you may have established one or more fields (operations) in your query and mutation. While the schema described the kinds of data the operations would request from the data source, it never implemented how those operations would behave around the data. 
 

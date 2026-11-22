@@ -1,7 +1,6 @@
 
 
 # Built-in modules
-<a name="built-in-modules-js"></a>
 
 Modules are a part of the `APPSYNC_JS` runtime and provide utilities to help write JavaScript resolvers and functions. For samples and examples, see the [aws-appsync-resolver-samples](https://github.com/aws-samples/aws-appsync-resolver-samples) GitHub repository.
 
@@ -12,7 +11,7 @@ DynamoDB module functions provide an enhanced experience when interacting with D
 
 Modules are imported using `@aws-appsync/utils/dynamodb`:
 
-```
+```TypeScript
 // Modules are imported using @aws-appsync/utils/dynamodb
 import * as ddb from '@aws-appsync/utils/dynamodb';
 ```
@@ -27,7 +26,7 @@ import * as ddb from '@aws-appsync/utils/dynamodb';
 See [Inputs](#built-in-ddb-modules-inputs) for information about GetInput.
 Generates a `DynamoDBGetItemRequest` object to make a [GetItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-getitem) request to DynamoDB.  
 
-```
+```TypeScript
 import { get } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -38,7 +37,7 @@ export function request(ctx) {
  **`put<T>(payload): DynamoDBPutItemRequest`**  
 Generates a `DynamoDBPutItemRequest` object to make a [PutItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-putitem) request to DynamoDB.  
 
-```
+```TypeScript
 import * as ddb from '@aws-appsync/utils/dynamodb'
 
 export function request(ctx) {
@@ -49,7 +48,7 @@ export function request(ctx) {
 **`remove<T>(payload): DynamoDBDeleteItemRequest`**  
 Generates a `DynamoDBDeleteItemRequest` object to make a [DeleteItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-deleteitem) request to DynamoDB.  
 
-```
+```TypeScript
 import * as ddb from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -60,7 +59,7 @@ export function request(ctx) {
 **`scan<T>(payload): DynamoDBScanRequest`**  
 Generates a `DynamoDBScanRequest` to make a [Scan](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-scan) request to DynamoDB.  
 
-```
+```TypeScript
 import * as ddb from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -72,7 +71,7 @@ export function request(ctx) {
 **`sync<T>(payload): DynamoDBSyncRequest`**  
 Generates a `DynamoDBSyncRequest` object to make a [Sync](https://docs.aws.amazon.com/appsync/latest/devguide/js-resolver-reference-dynamodb.html#js-aws-appsync-resolver-reference-dynamodb-sync) request. The request only receives the data altered since the last query (delta updates). Requests can only be made to versioned DynamoDB data sources.  
 
-```
+```TypeScript
 import * as ddb from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -89,7 +88,7 @@ Generates a `DynamoDBUpdateItemRequest` object to make an [UpdateItem](https://d
 
 Operation helpers allow you to take specific actions on parts of your data during updates. To get started, import `operations` from `@aws-appsync/utils/dynamodb`:
 
-```
+```TypeScript
 // Modules are imported using operations
 import {operations} from '@aws-appsync/utils/dynamodb';
 ```
@@ -102,7 +101,7 @@ A helper function that adds a new attribute item when updating DynamoDB.
 **Example**  
 To add an address (street, city, and zip code) to an existing DynamoDB item using the ID value:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -122,7 +121,7 @@ A helper function that appends a payload to the existing list in DynamoDB.
 **Example**  
 To append newly added friend IDs (`newFriendIds`) to an existing friends list (`friendsIds`) during an update:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -139,7 +138,7 @@ A helper function that decrements the existing attribute value in the item when 
 **Example**  
 To decrement a friends counter (`friendsCount`) by 10:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -155,7 +154,7 @@ A helper function that increments the existing attribute value in the item when 
 **Example**  
 To increment a friends counter (`friendsCount`) by 10:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -171,7 +170,7 @@ A helper function that prepends to the existing list in DynamoDB.
 **Example**  
 To prepend newly added friend IDs (`newFriendIds`) to an existing friends list (`friendsIds`) during an update:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -188,7 +187,7 @@ A helper function that replaces an existing attribute when updating an item in D
 **Example**  
 To replace an address (street, city, and zip code) in an `info` object:  
 
-```
+```TypeScript
 import { update, operations } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -210,7 +209,7 @@ A helper function that replaces an item in a list.
 **Example**  
 In the scope of the update (`newFriendIds`), this example used `updateListItem` to update the ID values of the second item (index: `1`, new ID: `102`) and third item (index: `2`, new ID: `112`) in a list (`friendsIds`).  
 
-```
+```TypeScript
 import { update, operations as ops } from '@aws-appsync/utils/dynamodb';
 
 export function request(ctx) {
@@ -230,7 +229,7 @@ export function request(ctx) {
 
  **`Type GetInput<T>`**  
 
-```
+```TypeScript
 GetInput<T>: { 
     consistentRead?: boolean; 
     key: DynamoDBKey<T>; 
@@ -246,7 +245,7 @@ GetInput<T>: {
 
 **`Type PutInput<T>`**  
 
-```
+```TypeScript
 PutInput<T>: { 
     _version?: number; 
     condition?: DynamoDBFilterObject<T> | null; 
@@ -276,7 +275,7 @@ PutInput<T>: {
 
 **`Type QueryInput<T>`**  
 
-```
+```TypeScript
 QueryInput<T>: ScanInput<T> & { 
     query: DynamoDBKeyCondition<Required<T>>; 
 }
@@ -290,7 +289,7 @@ QueryInput<T>: ScanInput<T> & {
 
   Take the `User` type below:
 
-  ```
+  ```TypeScript
   type User = {
     id: string;
     name: string;
@@ -302,7 +301,7 @@ QueryInput<T>: ScanInput<T> & {
 
   The query can only include the following fields: `id`, `name`, and `age`:
 
-  ```
+  ```TypeScript
   const query: QueryInput<User> = {
       name: { eq: 'John' },
       age: { gt: 20 },
@@ -311,7 +310,7 @@ QueryInput<T>: ScanInput<T> & {
 
 **`Type RemoveInput<T>`**  
 
-```
+```TypeScript
 RemoveInput<T>: { 
     _version?: number; 
     condition?: DynamoDBFilterObject<T>; 
@@ -330,7 +329,7 @@ RemoveInput<T>: {
 
   The following example is a `DeleteItem` expression containing a condition that allows the operation succeed only if the owner of the document matches the user making the request.
 
-  ```
+  ```TypeScript
   type Task = {
     id: string;
     title: string;
@@ -360,7 +359,7 @@ RemoveInput<T>: {
 
   If a `User` only has the hash key with a user `id`, then the key would look like this:
 
-  ```
+  ```TypeScript
   type User = {
   	id: number
   	name: string
@@ -374,7 +373,7 @@ RemoveInput<T>: {
 
   If the table user has a hash key (`id`) and sort key (`name`), then the key would look like this:
 
-  ```
+  ```TypeScript
   type User = {
   	id: number
   	name: string
@@ -394,7 +393,7 @@ RemoveInput<T>: {
 
 **`Type ScanInput<T>`**  
 
-```
+```TypeScript
 ScanInput<T>: { 
     consistentRead?: boolean | null; 
     filter?: DynamoDBFilterObject<T> | null; 
@@ -443,7 +442,7 @@ ScanInput<T>: {
 
 **`Type DynamoDBSyncInput<T>`**  
 
-```
+```TypeScript
 DynamoDBSyncInput<T>: { 
     basePartitionKey?: string; 
     deltaIndexName?: string; 
@@ -473,7 +472,7 @@ DynamoDBSyncInput<T>: {
 
 **`Type DynamoDBUpdateInput<T>`**  
 
-```
+```TypeScript
 DynamoDBUpdateInput<T>: { 
     _version?: number; 
     condition?: DynamoDBFilterObject<T>; 
@@ -506,7 +505,7 @@ DynamoDBUpdateInput<T>: {
 
 Amazon RDS module functions provide an enhanced experience when interacting with databases configured with the Amazon RDS Data API. The module is imported using `@aws-appsync/utils/rds`: 
 
-```
+```TypeScript
 import * as rds from '@aws-appsync/utils/rds';
 ```
 

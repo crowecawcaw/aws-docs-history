@@ -1,7 +1,6 @@
 
 
 # Merging APIs in AWS AppSync
-<a name="merged-api"></a>
 
 As the use of GraphQL expands within an organization, trade-offs between API ease-of-use and API development velocity can arise. On the one hand, organizations adopt AWS AppSync and GraphQL to simplify application development. This gives developers a flexible API they can use to securely access, manipulate, and combine data from one or more data domains with a single network call. On the other hand, teams within an organization that are responsible for the different data domains combined into a single GraphQL API endpoint may want the ability to create, manage, and deploy API updates independent of each other. This increases their development velocities. 
 
@@ -378,7 +377,11 @@ If your source API owns the field's resolver, annotate the field in that source 
 
 Two conditions apply:
 
+**Declare the authorization directive on the field**
+
 *@canonical* preserves the field as declared. A field annotated *@canonical* with no authorization directive of its own takes your source API's primary authorization mode, which might be more permissive than you intend.
+
+**Annotate a field in only one source API**
 
 If two source APIs annotate the same field as *canonical*, the merge fails with the error `Multiple subschemas cannot declare the same field as canonical`.
 
@@ -426,7 +429,7 @@ AWS AppSync supports allowing or denying this permission on specific top-level f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -448,7 +451,7 @@ If you want to limit the access to only a specific top-level field, you can use 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

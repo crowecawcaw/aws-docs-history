@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template reference for EventBridge
-<a name="resolver-mapping-template-reference-eventbridge"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -13,7 +12,7 @@ The AWS AppSync resolver mapping template used with the EventBridge data source 
 
 The `PutEvents` request mapping template allows you to send multiple custom events to an EventBridge event bus. The mapping document has the following structure:
 
-```
+```sh
 {
     "version" : "2018-05-29", 
     "operation" : "PutEvents",

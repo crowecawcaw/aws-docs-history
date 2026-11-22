@@ -1,7 +1,6 @@
 
 
 # UpdateItem
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-updateitem"></a>
 
 The `UpdateItem` request mapping document enables you to tell the AWS AppSync DynamoDB resolver to make a `UpdateItem` request to DynamoDB and allows you to specify the following:
 + The key of the item in DynamoDB
@@ -10,7 +9,7 @@ The `UpdateItem` request mapping document enables you to tell the AWS AppSync Dy
 
 The `UpdateItem` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "UpdateItem",
@@ -88,7 +87,7 @@ The following example is a mapping template for the GraphQL mutation `upvote(id:
 
 In this example, an item in DynamoDB has its `upvotes` and `version` fields incremented by 1.
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "UpdateItem",
@@ -114,7 +113,7 @@ The following example is a mapping template for a GraphQL mutation `updateItem(i
 
 This is a complex example that inspects the arguments and dynamically generates the update expression that only includes the arguments that have been provided by the client. For example, if `title` and `author` are omitted, they are not updated. If an argument is specified but its value is `null`, then that field is deleted from the object in DynamoDB. Finally, the operation has a condition, which verifies whether the item currently in DynamoDB has the `version` field set to `expectedVersion`:
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
 

@@ -1,7 +1,6 @@
 
 
 # TransactGetItems
-<a name="js-aws-appsync-resolver-reference-dynamodb-transact-get-items"></a>
 
 The `TransactGetItems` request object lets you to tell the AWS AppSync DynamoDB function to make a `TransactGetItems` request to DynamoDB to retrieve multiple items, potentially across multiple tables. For this request object, you must specify the following:
 + The table name of each request item where to retrieve the item from
@@ -11,7 +10,7 @@ The DynamoDB `TransactGetItems` limits apply and **no condition expression** can
 
 The `TransactGetItems` request object has the following structure:
 
-```
+```TypeScript
 type DynamoDBTransactGetItemsRequest = {
   operation: 'TransactGetItems';
   transactItems: { table: string; key: { [key: string]: any }; projection?: { expression: string; expressionNames?: { [key: string]: string }; }[];
@@ -48,7 +47,7 @@ Things to remember:
 
 For the following example function request handler:
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -71,7 +70,7 @@ export function request(ctx) {
 
 If the transaction succeeds and only the first requested item is retrieved, the invocation result available in `ctx.result` is as follows:
 
-```
+```TypeScript
 {
     "items": [
        {
@@ -89,7 +88,7 @@ If the transaction succeeds and only the first requested item is retrieved, the 
 
 If the transaction fails due to *TransactionCanceledException* caused by the first request item, the invocation result available in `ctx.result` is as follows:
 
-```
+```TypeScript
 {
     "items": null,
     "cancellationReasons": [

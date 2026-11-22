@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB sync operations on versioned data sources in AWS AppSync
-<a name="aws-appsync-conflict-detection-and-sync-sync-operations"></a>
 
 Versioned data sources support `Sync` operations that allow you to retrieve all the results from a DynamoDB table and then receive only the data altered since your last query (the delta updates). When AWS AppSync receives a request for a `Sync` operation, it uses the fields specified in the request to determine if the *Base* table or the *Delta* table should be accessed.
 + If the `lastSync` field is not specified, a `Scan` on the *Base* table is performed.

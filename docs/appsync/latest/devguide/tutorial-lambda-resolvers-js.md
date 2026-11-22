@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda resolvers in AWS AppSync
-<a name="tutorial-lambda-resolvers-js"></a>
 
 You can use AWS Lambda with AWS AppSync to resolve any GraphQL field. For example, a GraphQL query might send a call to an Amazon Relational Database Service (Amazon RDS) instance, and a GraphQL mutation might write to an Amazon Kinesis stream. In this section, we'll show you how to write a Lambda function that performs business logic based on the invocation of a GraphQL field operation.
 
@@ -17,7 +16,7 @@ The Powertools for AWS Lambda GraphQL event handler simplifies the routing and p
 
 The following example shows a Lambda function written in `Node.js` (runtime: Node.js 18.x) that performs different operations on blog posts as part of a blog post application. Note that the code should be saved in a file name with a .mis extension.
 
-```
+```javascript
 export const handler = async (event) => {
 console.log('Received event {}', JSON.stringify(event, 3))
 
@@ -82,7 +81,7 @@ After choosing your Lambda function, you can either create a new AWS Identity an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -106,7 +105,7 @@ You must also set up a trust relationship with AWS AppSync for the IAM role as f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -130,7 +129,7 @@ Now that the data source is connected to your Lambda function, create a GraphQL 
 
 From the schema editor in the AWS AppSync console, make sure that your schema matches the following schema:
 
-```
+```sh
 schema {
     query: Query
     mutation: Mutation
@@ -195,7 +194,7 @@ On the left side of the AWS AppSync console, choose **Queries**, and then paste 
 ### addPost Mutation
 <a name="addpost-mutation-js"></a>
 
-```
+```sh
 mutation AddPost {
     addPost(
         id: 6
@@ -218,7 +217,7 @@ mutation AddPost {
 ### getPost Query
 <a name="getpost-query-js"></a>
 
-```
+```sh
 query GetPost {
     getPost(id: "2") {
         id
@@ -235,7 +234,7 @@ query GetPost {
 ### allPosts Query
 <a name="allposts-query-js"></a>
 
-```
+```sh
 query AllPosts {
     allPosts {
         id
@@ -267,7 +266,7 @@ To raise intentional errors, you can use the `util.error` utility method. It tak
 
 The following example shows how to use it in the `Post.relatedPosts: [Post]` resolver response handler.
 
-```
+```sh
 // the Post.relatedPosts response handler
 export function response(ctx) {
     util.error("Failed to fetch relatedPosts", "LambdaFailure", ctx.result)
@@ -277,7 +276,7 @@ export function response(ctx) {
 
 This yields a GraphQL response similar to the following:
 
-```
+```json
 {
     "data": {
         "allPosts": [
@@ -331,7 +330,7 @@ If your Lambda function raises an *unhandled* error, AWS AppSync uses the error 
 
 The following Lambda function raises an error:
 
-```
+```javascript
 export const handler = async (event) => {
   console.log('Received event {}', JSON.stringify(event, 3))
   throw new Error('I always fail.')
@@ -340,7 +339,7 @@ export const handler = async (event) => {
 
 The error is received in your response handler. You can send it back in the GraphQL response by appending the error to the response with `util.appendError`. To do so, change your AWS AppSync function response handler to this:
 
-```
+```json
 // the lambdaInvoke response handler
 export function response(ctx) {
   const { error, result } = ctx;
@@ -384,7 +383,7 @@ This returns a GraphQL response similar to the following:
 
 The Lambda function in this example has a `relatedPosts` field that returns a list of related posts for a given post. In the example queries, the `allPosts` field invocation from the Lambda function returns five posts. Because we specified that we also want to resolve `relatedPosts` for each returned post, the `relatedPosts` field operation is invoked five times.
 
-```
+```sh
 query {
     allPosts {   // 1 Lambda invocation - yields 5 Posts
         id
@@ -406,7 +405,7 @@ While this might not sound substantial in this specific example, this compounded
 
 If you were to fetch `relatedPosts` again on the returned related `Posts` in the same query, the number of invocations would increase dramatically.
 
-```
+```sh
 query {
     allPosts {   // 1 Lambda invocation - yields 5 Posts
         id
@@ -437,7 +436,7 @@ One approach to solving this issue is to batch similar field resolver requests t
 
 To demonstrate this, let's update the resolver for `relatedPosts` to handle batching.
 
-```
+```sh
 import { util } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -461,7 +460,7 @@ The code now changes the operation from `Invoke` to `BatchInvoke` when the `fiel
 
 With this change, when resolving `relatedPosts`, the Lambda function receives the following as input:
 
-```
+```sh
 [
     {
         "field": "relatedPosts",
@@ -485,7 +484,7 @@ Specifically, the list of results must match the size and order of the request p
 
 In this batching example, the Lambda function returns a batch of results as follows:
 
-```
+```sh
 [
     [{"id":"2","title":"Second book"}, {"id":"3","title":"Third book"}],   // relatedPosts for id=1
     [{"id":"3","title":"Third book"}]                                     // relatedPosts for id=2
@@ -494,7 +493,7 @@ In this batching example, the Lambda function returns a batch of results as foll
 
 You can update your Lambda code to handle batching for `relatedPosts`:
 
-```
+```sh
 export const handler = async (event) => {
   console.log('Received event {}', JSON.stringify(event, 3))
   //throw new Error('I fail. always')
@@ -553,7 +552,7 @@ For example, if the Lambda function is expected to return a batch of related pos
 
 The following code shows how you could update the Lambda function:
 
-```
+```javascript
 export const handler = async (event) => {
 console.log('Received event {}', JSON.stringify(event, 3))
   // throw new Error('I fail. always')

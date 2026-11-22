@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolver and function reference for Amazon Bedrock runtime
-<a name="resolver-reference-bedrock-js"></a>
 
 You can use AWS AppSync functions and resolvers to invoke models on Amazon Bedrock in your AWS account. You can shape your request payloads and the response from your model invocations functions before returning them to your clients. You can use the Amazon Bedrock runtime’s `InvokeModel` API or the `Converse` API. This section describes the requests for the supported Amazon Bedrock operations.
 

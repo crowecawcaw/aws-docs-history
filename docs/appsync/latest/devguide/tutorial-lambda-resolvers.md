@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda resolvers in AWS AppSync
-<a name="tutorial-lambda-resolvers"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -13,7 +12,7 @@ You can use AWS Lambda with AWS AppSync to resolve any GraphQL field. For exampl
 
 The following example shows a Lambda function written in `Node.js` that performs different operations on blog posts as part of a blog post application.
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     console.log("Received event {}", JSON.stringify(event, 3));
     var posts = {
@@ -73,7 +72,7 @@ This Lambda function retrieves a post by ID, adds a post, retrieves a list of po
 
 Create this Lambda function using the AWS Management Console or an AWS CloudFormation stack. To create the function from a CloudFormation stack, you can use the following AWS Command Line Interface (AWS CLI) command:
 
-```
+```sh
 aws cloudformation create-stack --stack-name AppSyncLambdaExample \
 --template-url https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml \
 --capabilities CAPABILITY_NAMED_IAM
@@ -97,7 +96,7 @@ After choosing your Lambda function, you can either create a new AWS Identity an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ You must also set up a trust relationship with AWS AppSync for the IAM role as f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ Now that the data source is connected to your Lambda function, create a GraphQL 
 
 From the schema editor in the AWS AppSync console, make sure that your schema matches the following schema:
 
-```
+```sh
 schema {
     query: Query
     mutation: Mutation
@@ -191,7 +190,7 @@ Afterward, choose your Lambda data source. In the **request mapping template** s
 
 Modify the `payload` object to add the field name. Your template should look like the following:
 
-```
+```sh
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -206,7 +205,7 @@ In the **response mapping template** section, choose **Return Lambda Result**.
 
 In this case, use the base template as-is. It should look like the following:
 
-```
+```sh
 $utils.toJson($context.result)
 ```
 
@@ -214,7 +213,7 @@ Choose **Save**. You have successfully attached your first resolver. Repeat this
 
 For `addPost(id: ID!, author: String!, title: String, content: String, url: String): Post!` request mapping template:
 
-```
+```sh
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -227,13 +226,13 @@ For `addPost(id: ID!, author: String!, title: String, content: String, url: Stri
 
 For `addPost(id: ID!, author: String!, title: String, content: String, url: String): Post!` response mapping template:
 
-```
+```sh
 $utils.toJson($context.result)
 ```
 
 For `allPosts: [Post]` request mapping template:
 
-```
+```sh
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -245,13 +244,13 @@ For `allPosts: [Post]` request mapping template:
 
 For `allPosts: [Post]` response mapping template:
 
-```
+```sh
 $utils.toJson($context.result)
 ```
 
 For `Post.relatedPosts: [Post]` request mapping template:
 
-```
+```sh
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -264,7 +263,7 @@ For `Post.relatedPosts: [Post]` request mapping template:
 
 For `Post.relatedPosts: [Post]` response mapping template:
 
-```
+```sh
 $utils.toJson($context.result)
 ```
 
@@ -278,7 +277,7 @@ On the left side of the AWS AppSync console, choose **Queries**, and then paste 
 ### addPost Mutation
 <a name="addpost-mutation"></a>
 
-```
+```sh
 mutation addPost {
     addPost(
         id: 6
@@ -301,7 +300,7 @@ mutation addPost {
 ### getPost Query
 <a name="getpost-query"></a>
 
-```
+```sh
 query getPost {
     getPost(id: "2") {
         id
@@ -318,7 +317,7 @@ query getPost {
 ### allPosts Query
 <a name="allposts-query"></a>
 
-```
+```sh
 query allPosts {
     allPosts {
         id
@@ -350,13 +349,13 @@ To raise intentional errors, you can use the `$utils.error` helper method from t
 
 The following example shows how to use it in the `Post.relatedPosts: [Post]` response mapping template:
 
-```
+```sh
 $utils.error("Failed to fetch relatedPosts", "LambdaFailure", $context.result)
 ```
 
 This yields a GraphQL response similar to the following:
 
-```
+```json
 {
     "data": {
         "allPosts": [
@@ -409,7 +408,7 @@ AWS AppSync also understands errors that the Lambda function throws. The Lambda 
 
 The following Lambda function raises an error:
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     console.log("Received event {}", JSON.stringify(event, 3));
     callback("I fail. Always.");
@@ -418,7 +417,7 @@ exports.handler = (event, context, callback) => {
 
 This returns a GraphQL response similar to the following:
 
-```
+```json
 {
     "data": {
         "allPosts": [
@@ -455,7 +454,7 @@ This returns a GraphQL response similar to the following:
 
 The Lambda function in this example has a `relatedPosts` field that returns a list of related posts for a given post. In the example queries, the `allPosts` field invocation from the Lambda function returns five posts. Because we specified that we also want to resolve `relatedPosts` for each returned post, the `relatedPosts` field operation is invoked five times.
 
-```
+```sh
 query allPosts {
     allPosts {   // 1 Lambda invocation - yields 5 Posts
         id
@@ -477,7 +476,7 @@ While this might not sound substantial in this specific example, this compounded
 
 If you were to fetch `relatedPosts` again on the returned related `Posts` in the same query, the number of invocations would increase dramatically.
 
-```
+```sh
 query allPosts {
     allPosts {   // 1 Lambda invocation - yields 5 Posts
         id
@@ -510,7 +509,7 @@ To demonstrate this, let's switch the `Post.relatedPosts: [Post]` resolver to a 
 
 On the right side of the AWS AppSync console, choose the existing `Post.relatedPosts: [Post]` resolver. Change the request mapping template to the following:
 
-```
+```sh
 {
     "version": "2017-02-28",
     "operation": "BatchInvoke",
@@ -523,7 +522,7 @@ On the right side of the AWS AppSync console, choose the existing `Post.relatedP
 
 Only the `operation` field has changed from `Invoke` to `BatchInvoke`. The payload field now becomes an array of whatever is specified in the template. In this example, the Lambda function receives the following as input:
 
-```
+```sh
 [
     {
         "field": "relatedPosts",
@@ -547,7 +546,7 @@ Specifically, the list of results must match the size and order of the request p
 
 In this batching example, the Lambda function returns a batch of results as follows:
 
-```
+```sh
 [
     [{"id":"2","title":"Second book"}, {"id":"3","title":"Third book"}],   // relatedPosts for id=1
     [{"id":"3","title":"Third book"}]                                                             // relatedPosts for id=2
@@ -556,7 +555,7 @@ In this batching example, the Lambda function returns a batch of results as foll
 
 The following Lambda function in Node.js demonstrates this batching functionality for the `Post.relatedPosts` field as follows:
 
-```
+```sh
 exports.handler = (event, context, callback) => {
     console.log("Received event {}", JSON.stringify(event, 3));
     var posts = {
@@ -605,7 +604,7 @@ For example, if the Lambda function is expected to return a batch of related pos
 
 The following code shows how you could update the Lambda function:
 
-```
+```javascript
 exports.handler = (event, context, callback) => {
     console.log("Received event {}", JSON.stringify(event, 3));
     var posts = {
@@ -645,7 +644,7 @@ exports.handler = (event, context, callback) => {
 
 For this example, the following response mapping template parses each item of the Lambda function and raises any errors that occur:
 
-```
+```sh
 #if( $context.result && $context.result.errorMessage )
     $utils.error($context.result.errorMessage, $context.result.errorType, $context.result.data)
 #else
@@ -655,7 +654,7 @@ For this example, the following response mapping template parses each item of th
 
 This example returns a GraphQL response similar to the following:
 
-```
+```json
 {
   "data": {
     "allPosts": [

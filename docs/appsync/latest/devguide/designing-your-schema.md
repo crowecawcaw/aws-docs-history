@@ -1,7 +1,6 @@
 
 
 # Designing your GraphQL schema
-<a name="designing-your-schema"></a>
 
 The GraphQL schema is the foundation of any GraphQL server implementation. Each GraphQL API is defined by a **single** schema that contains types and fields describing how the data from requests will be populated. The data flowing through your API and the operations performed must be validated against the schema.
 
@@ -40,7 +39,7 @@ To put this into perspective, imagine you're creating a service that stores auth
 
 In GraphQL, the entities `Author` and `Book` represent two different object types in your schema:
 
-```
+```SDL
 type Author {
 }
 
@@ -50,7 +49,7 @@ type Book {
 
 `Author` contains `authorName` and `Books`, while `Book` contains `bookName` and `Authors`. These can be represented as the fields within the scope of your types:
 
-```
+```SDL
 type Author {
   authorName: String
   Books: [Book]
@@ -66,7 +65,7 @@ As you can see, the type representations are very close to the diagram. However,
 
 Because `getAuthor` and `getBook` are both requesting data, they will be placed in a `Query` special object type:
 
-```
+```SDL
 type Author {
   authorName: String
   Books: [Book]
@@ -85,7 +84,7 @@ type Query {
 
 The operations are linked to the query, which itself is linked to the schema. Adding a schema root will define the special object type (`Query` in this case) as one of your entry points. This can be done using the `schema` keyword:
 
-```
+```SDL
 schema {
   query: Query
 }
@@ -108,7 +107,7 @@ type Query {
 
 Looking at the final two methods, `addAuthor` and `addBook` are adding data to your database, so they will be defined in a `Mutation` special object type. However, from the [Types](https://docs.aws.amazon.com/appsync/latest/devguide/graphql-types.html#input-components) page, we also know that inputs directly referencing Objects aren't allowed because they're strictly output types. In this case, we can't use `Author` or `Book`, so we need to make an input type with the same fields. In this example, we added `AuthorInput` and `BookInput`, both of which accept the same fields of their respective types. Then, we create our mutation using the inputs as our parameters:
 
-```
+```SDL
 schema {
   query: Query
   mutation: Mutation
@@ -322,7 +321,7 @@ These next few sections will be using the **schema editor**, so keep this open.
 #### [ Console ]
 + You can create an object type using the `type` keyword along with the type's name:
 
-  ```
+  ```sh
   type {{Type_Name_Goes_Here}} {}
   ```
 
@@ -359,7 +358,7 @@ We recommend reading the console version first if you haven't done so already.
 
   1. The `definition`, or the content of your type. In the console example, this was:
 
-     ```
+     ```sh
      type {{Obj_Type_1}} {
      {{  id: ID!
        title: String
@@ -427,7 +426,7 @@ On the topic of special object types, the next step could be to add one or more 
 #### [ Console ]
 + To create a query, you can simply add it to the schema file like any other type. A query would require a `Query` type and an entry in the root like this:
 
-  ```
+  ```sh
   schema {
     query: {{Name_of_Query}}
   }
@@ -640,7 +639,7 @@ You've now seen an example of creating both objects and special objects (queries
 
   Here's an example:
 
-  ```
+  ```sh
   schema {
     query: Query
     {{mutation: Mutation}}
@@ -828,7 +827,7 @@ enum PostStatus {
 
 The full schema might look like this:
 
-```
+```sh
 schema {
   query: Query
   mutation: Mutation
@@ -871,7 +870,7 @@ Suppose you had a million `Posts` stored in a DynamoDB table, and you wanted to 
 + Add a new `PostIterator` type containing `Posts` (retrieves the list of `Post` objects) and `nextToken` (iterator) fields.
 + Change `getPosts` so that it returns `PostIterator` and not a list of `Post` objects.
 
-```
+```sh
 schema {
   query: Query
   mutation: Mutation

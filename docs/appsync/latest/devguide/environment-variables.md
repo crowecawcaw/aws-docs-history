@@ -1,7 +1,6 @@
 
 
 # Using environment variables in AWS AppSync
-<a name="environment-variables"></a>
 
 You can use environment variables to adjust your AWS AppSync resolvers' and functions' behavior without updating your code. Environment variables are pairs of strings stored with your API configuration that are made available to your resolvers and functions to leverage at runtime. They're particularly useful for situations in which you must reference configuration data that's only available during the initial setup but needs to be used by your resolvers and functions during the run. Environment variables expose configuration data in your code, thereby reducing the need to hard-code those values.
 
@@ -53,7 +52,7 @@ To retrieve an environment variable using APIs, you can use `GetGraphqlApiEnviro
 
 The command must contain the API ID and list of environment variables:
 
-```
+```SH
 aws appsync put-graphql-api-environment-variables \  
   --api-id "<api-id>" \
   --environment-variables '{"key1":"value1","key2":"value2", …}'
@@ -61,7 +60,7 @@ aws appsync put-graphql-api-environment-variables \
 
 The following example sets two environment variables in an API with the ID of `abcdefghijklmnopqrstuvwxyz` using the `put-graphql-api-environment-variables` command:
 
-```
+```SH
 aws appsync put-graphql-api-environment-variables \  
   --api-id "{{abcdefghijklmnopqrstuvwxyz}}" \
   --environment-variables '{"{{USER_TABLE}}":"{{users_prod}}","{{DEBUG}}":"{{true}}"}'
@@ -69,7 +68,7 @@ aws appsync put-graphql-api-environment-variables \
 
 Note that when you apply environment variables with the `put-graphql-api-environment-variables` command, the contents of the environment variables' structure are overwritten; this means existing environment variables will be lost. To retain existing environment variables when adding new ones, **include all existing key-value pairs** along with the new ones in your request. Using the example above, if you wanted to add `"EMPTY":""`, you could do the following:
 
-```
+```SH
 aws appsync put-graphql-api-environment-variables \  
   --api-id "{{abcdefghijklmnopqrstuvwxyz}}" \
   --environment-variables '{"{{USER_TABLE}}":"{{users_prod}}","{{DEBUG}}":"{{true}}", "{{EMPTY}}":""}'
@@ -77,19 +76,19 @@ aws appsync put-graphql-api-environment-variables \
 
 To retrieve the current configuration, use the `get-graphql-api-environment-variables` command:
 
-```
+```SH
 aws appsync get-graphql-api-environment-variables --api-id "<api-id>"
 ```
 
 Using the example above, you could use the following command:
 
-```
+```SH
 aws appsync get-graphql-api-environment-variables --api-id "{{abcdefghijklmnopqrstuvwxyz}}"
 ```
 
 The result will show the list of environment variables along with their key values:
 
-```
+```SH
 {
     "environmentVariables": {
         "USER_TABLE": "users_prod",
@@ -104,7 +103,7 @@ The result will show the list of environment variables along with their key valu
 
 You can use the template below to create environment variables:
 
-```
+```SH
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   GraphQLApiWithEnvVariables:
@@ -132,7 +131,7 @@ To retrieve environment variables in your function code, retrieve the value from
 
 In this example, our HTTP resolver sends a message to an Amazon SNS topic. The ARN of the topic is only known after the stack that defines the GraphQL API and the topic has been deployed.
 
-```
+```TypeScript
 /**
  * Sends a publish request to the SNS topic
  */

@@ -1,7 +1,6 @@
 
 
 # Versioning, conflict detection, and sync operations for DynamoDB data sources in AWS AppSync
-<a name="conflict-detection-and-sync"></a>
 
 AWS AppSync's advanced data management capabilities for DynamoDB leverages three key features: versioned data sources, conflict detection and resolution, and sync operations. These tools enable robust, scalable applications that efficiently handle concurrent data modifications and synchronization in distributed environments. 
 

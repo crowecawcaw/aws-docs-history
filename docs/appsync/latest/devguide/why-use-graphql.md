@@ -1,7 +1,6 @@
 
 
 # Why Use GraphQL over REST?
-<a name="why-use-graphql"></a>
 
 REST is one of the cornerstone architectural styles of web APIs. However, as the world becomes more interconnected, the need to develop robust and scalable applications will become a more pressing issue. While REST is often used to build web APIs, there are several recurring drawbacks to RESTful implementations that have been identified:
 

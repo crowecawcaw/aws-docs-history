@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB batch operations in AWS AppSync
-<a name="tutorial-dynamodb-batch"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -26,7 +25,7 @@ Like other resolvers, you need to create a data source in AWS AppSync and either
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -549,7 +548,7 @@ We will implement error handling using the `Query.getReadings` field configurati
 
 The following JSON represents the serialized context after the DynamoDB batch invocation but before the response mapping template was evaluated.
 
-```
+```json
 {
   "arguments": {
     "sensorId": "1",
@@ -612,7 +611,7 @@ $util.toJson($ctx.result.data)
 
 GraphQL response:
 
-```
+```json
 {
   "data": {
     "getReadings": [
@@ -653,7 +652,7 @@ $util.toJson($ctx.result.data)
 
 GraphQL response:
 
-```
+```json
 {
   "data": {
     "getReadings": null
@@ -708,7 +707,7 @@ We forwarded both the invocation error and unprocessedKeys element inside the er
 
 GraphQL response:
 
-```
+```json
 {
   "data": {
     "getReadings": [

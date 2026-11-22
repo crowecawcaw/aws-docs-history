@@ -1,7 +1,6 @@
 
 
 # Using AWS WAF to protect your AWS AppSync APIs
-<a name="WAF-Integration"></a>
 
 AWS WAF is a web application firewall that helps protect web applications and APIs from attacks. It allows you to configure a set of rules, called a web access control list (web ACL), that allow, block, or monitor (count) web requests based on customizable web security rules and conditions that you define. When you integrate your AWS AppSync API with AWS WAF, you gain more control and visibility into the HTTP traffic accepted by your API. To learn more about AWS WAF, see [How AWS WAF Works](https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html) in the AWS WAF Developer Guide. 
 
@@ -59,7 +58,7 @@ Rules define how to inspect web requests and what to do when a web request match
 **Example web ACL rule to limit request body size**  
 The following is an example of a rule that limits the body size of requests. This would be entered into the **Rule JSON editor** when creating a web ACL in the AWS WAF Console.  
 
-```
+```json
 {
     "Name": "BodySizeRule", 
     "Priority": 1, 
@@ -99,7 +98,7 @@ After you create a new web ACL in the AWS WAF Console, it can take a few minutes
 **Example web ACL rule to limit requests from a single IP address**  
 The following is an example of a rule that throttles an AppSync API to 100 requests from a single IP address. This would be entered into the **Rule JSON editor** when creating a web ACL with a rate-based rule in the AWS WAF Console.  
 
-```
+```json
 {
   "Name": "Throttle",
   "Priority": 0,
@@ -128,7 +127,7 @@ aws waf associate-web-acl --web-acl-id {{waf-web-acl-arn}} --resource-arn {{apps
 **Example web ACL rule to prevent GraphQL \_\_schema introspection queries to an API**  
 The following is an example of a rule that prevents GraphQL \_\_schema introspection queries to an API. Any HTTP body that includes the string "\_\_schema" will be blocked. This would be entered into the **Rule JSON editor** when creating a web ACL in the AWS WAF Console.  
 
-```
+```json
 {
   "Name": "BodyRule",
   "Priority": 5,

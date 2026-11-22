@@ -1,7 +1,6 @@
 
 
 # Transaction condition expressions
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-transaction-condition-expressions"></a>
 
 Transaction condition expressions are available in request mapping templates of all four types of operations in `TransactWriteItems`, namely, `PutItem`, `DeleteItem`, `UpdateItem`, and `ConditionCheck`.
 
@@ -12,7 +11,7 @@ For `PutItem`, `DeleteItem`, and `UpdateItem`, the transaction condition express
 
 The following transactional `DeleteItem` mapping document does not have a condition expression. As a result, it deletes the item in DynamoDB.
 
-```
+```TypeScript
 {
    "version": "2018-05-29",
    "operation": "TransactWriteItems",
@@ -33,7 +32,7 @@ The following transactional `DeleteItem` mapping document does not have a condit
 
 The following transactional `DeleteItem` mapping document does have a transaction condition expression that allows the operation succeed only if the author of that post equals a certain name.
 
-```
+```TypeScript
 {
    "version": "2018-05-29",
    "operation": "TransactWriteItems",
@@ -64,7 +63,7 @@ The `PutItem`, `UpdateItem`, and `DeleteItem` request mapping documents all allo
 
 A `condition` section has the following structure:
 
-```
+```TypeScript
 "condition": {
     "expression": "someExpression",
     "expressionNames": {

@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolver function reference for `None` data source
-<a name="resolver-reference-none-js"></a>
 
 The AWS AppSync resolver function request and response with the data source of type *None* enables you to shape requests for AWS AppSync local operations.
 
@@ -10,7 +9,7 @@ The AWS AppSync resolver function request and response with the data source of t
 
 The request handler can be simple and enables you to pass as much contextual information as possible via the `payload` field.
 
-```
+```sh
 type NONERequest = {
   payload: any;
 };
@@ -18,7 +17,7 @@ type NONERequest = {
 
 Here is an example where the field arguments are passed to the payload:
 
-```
+```sh
 export function request(ctx) {
   return {
     payload: context.args
@@ -42,7 +41,7 @@ Because there is no data source, the value of the `payload` field will be forwar
 
 If the shape of the `payload` field value exactly matches the shape of the GraphQL type, you can forward the response using the following response handler:
 
-```
+```sh
 export function response(ctx) {
   return ctx.result;
 }

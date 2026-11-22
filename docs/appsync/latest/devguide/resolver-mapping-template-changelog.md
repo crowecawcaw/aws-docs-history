@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template changelog
-<a name="resolver-mapping-template-changelog"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -53,7 +52,7 @@ For Unit resolvers, the version is specified as part of the body of the request 
 
 For example, to update the version on the AWS Lambda template:
 
-```
+```velocity
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -66,7 +65,7 @@ For example, to update the version on the AWS Lambda template:
 
 You need to update the version field from `2017-02-28` to `2018-05-29` as follows:
 
-```
+```velocity
 {
     "version": "2018-05-29", ## Note the version
     "operation": "Invoke",
@@ -110,13 +109,13 @@ aws appsync update-function \
 
 Given the following response mapping template:
 
-```
+```velocity
 $util.toJson($ctx.result)
 ```
 
 Previously with `2017-02-28`, if `$ctx.result` came back null, the response mapping template was not executed. With `2018-05-29`, we can now handle this scenario. For example, we can choose to raise an authorization error as follows:
 
-```
+```velocity
 # throw an unauthorized error if the result is null
 #if ( $util.isNull($ctx.result) )
     $util.unauthorized()
@@ -128,7 +127,7 @@ $util.toJson($ctx.result)
 
 Given the following response mapping template:
 
-```
+```velocity
 $util.toJson($ctx.result)
 ```
 
@@ -139,7 +138,7 @@ Previously, with `2017-02-28`, in case of an invocation error, the response mapp
 
 In the following response template, we raise the same error that came back from the data source.
 
-```
+```velocity
 #if ( $ctx.error )
     $util.error($ctx.error.message, $ctx.error.type)
 #end
@@ -148,7 +147,7 @@ $util.toJson($ctx.result)
 
 In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
-```
+```json
 {
     "data": {
         "getPost": null
@@ -176,7 +175,7 @@ In case of an invocation error (for example, `$ctx.error` is present) the respon
 
 In the following response template, we raise our own custom error after processing the error that came back from the data source.
 
-```
+```velocity
 #if ( $ctx.error )
     #if ( $ctx.error.type.equals("ConditionalCheckFailedException") )
         ## we choose here to change the type and message of the error for ConditionalCheckFailedExceptions
@@ -190,7 +189,7 @@ $util.toJson($ctx.result)
 
 In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
-```
+```json
 {
     "data": {
         "getPost": null
@@ -218,7 +217,7 @@ In case of an invocation error (for example, `$ctx.error` is present) the respon
 
 In the following response template, we append the same error that came back from the data source while returning data back inside the response. This is also known as a partial response.
 
-```
+```velocity
 #if ( $ctx.error )
     $util.appendError($ctx.error.message, $ctx.error.type)
     #set($defaultPost = {id: "1", title: 'default post'})
@@ -230,7 +229,7 @@ In the following response template, we append the same error that came back from
 
 In case of an invocation error (for example, `$ctx.error` is present) the response looks like the following:
 
-```
+```json
 {
     "data": {
         "getPost": {
@@ -271,7 +270,7 @@ In some cases, it is possible to retain the same execution behavior as the **201
 
 Given the following **2017-02-28** DynamoDB PutItem request template:
 
-```
+```velocity
 {
     "version" : "2017-02-28",
     "operation" : "PutItem",
@@ -290,13 +289,13 @@ Given the following **2017-02-28** DynamoDB PutItem request template:
 
 And the following response template:
 
-```
+```velocity
 $util.toJson($ctx.result)
 ```
 
 Migrating to **2018-05-29** changes these templates as follows:
 
-```
+```velocity
 {
     "version" : "2018-05-29", ## Note the new 2018-05-29 version
     "operation" : "PutItem",
@@ -315,7 +314,7 @@ Migrating to **2018-05-29** changes these templates as follows:
 
 And changes the response template as follows:
 
-```
+```velocity
 ## If there is a datasource invocation error, we choose to raise the same error
 ## the field data will be set to null.
 #if($ctx.error)
@@ -337,7 +336,7 @@ Now that it is your responsibility to handle errors, we chose to raise the same 
 
 Given the following **2017-02-28** DynamoDB GetItem request template:
 
-```
+```velocity
 {
     "version" : "2017-02-28",
     "operation" : "GetItem",
@@ -351,7 +350,7 @@ Given the following **2017-02-28** DynamoDB GetItem request template:
 
 And the following response template:
 
-```
+```velocity
 ## map table attribute postId to field Post.id
 $util.qr($ctx.result.put("id", $ctx.result.get("postId")))
 
@@ -360,7 +359,7 @@ $util.toJson($ctx.result)
 
 Migrating to **2018-05-29** changes these templates as follows:
 
-```
+```velocity
 {
     "version" : "2018-05-29", ## Note the new 2018-05-29 version
     "operation" : "GetItem",
@@ -374,7 +373,7 @@ Migrating to **2018-05-29** changes these templates as follows:
 
 And changes the response template as follows:
 
-```
+```velocity
 ## If there is a datasource invocation error, we choose to raise the same error
 #if($ctx.error)
   $util.error($ctx.error.message, $ctx.error.type)

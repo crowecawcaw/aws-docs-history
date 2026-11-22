@@ -1,7 +1,6 @@
 
 
 # Using Aurora Serverless v2 with AWS AppSync
-<a name="tutorial-rds-resolvers"></a>
 
 Connect your GraphQL API to Aurora Serverless databases using AWS AppSync. This integration lets you execute SQL statements through GraphQL queries, mutations, and subscriptions - giving you a flexible way to interact with your relational data.
 
@@ -46,7 +45,7 @@ In this tutorial, you will learn the following.
 
 Before adding an Amazon RDS data source to AWS AppSync, you must first enable a Data API on an Aurora Serverless v2 cluster and **configure a secret** using *AWS Secrets Manager*. You can create an Aurora Serverless v2 cluster using the AWS CLI:
 
-```
+```sh
 aws rds create-db-cluster \
     --db-cluster-identifier appsync-tutorial \
     --engine aurora-mysql \
@@ -61,7 +60,7 @@ This will return an ARN for the cluster.
 
 After creating the cluster, you must add an Aurora Serverless v2 instance using the following command.
 
-```
+```sh
 aws rds create-db-instance \
     --db-cluster-identifier appsync-tutorial \
     --db-instance-identifier appsync-tutorial-instance-1 \
@@ -72,7 +71,7 @@ aws rds create-db-instance \
 **Note**  
 These endpoints take time to activate. You can check their status in the Amazon RDS console in the **Connectivity & security** tab for the cluster. You can also check the status of your cluster with the following AWS CLI command.   
 
-```
+```sh
 aws rds describe-db-clusters \
     --db-cluster-identifier appsync-tutorial \
     --query "DBClusters[0].Status"
@@ -80,7 +79,7 @@ aws rds describe-db-clusters \
 
 You can create a *Secret* using the AWS Secrets Manager Console or the AWS CLI with an input file such as the following using the `USERNAME` and `COMPLEX_PASSWORD` from the previous step.
 
-```
+```json
 {
     "username": "USERNAME",
     "password": "COMPLEX_PASSWORD"
@@ -89,7 +88,7 @@ You can create a *Secret* using the AWS Secrets Manager Console or the AWS CLI w
 
 Pass this as a parameter to the AWS CLI:
 
-```
+```sh
 aws secretsmanager create-secret --name HttpRDSSecret --secret-string file://creds.json --region us-east-1
 ```
 
@@ -107,7 +106,7 @@ You can enable the Data API on your cluster by [following the instructions in th
 
 Once you have enabled your Data API you can ensure it works with the `aws rds-data execute-statement` command in the AWS CLI. This will ensure that your Aurora Serverless cluster is configured correctly before adding it to your AppSync API. First create a database called *TESTDB* with the `--sql` parameter like so:
 
-```
+```sh
 aws rds-data execute-statement --resource-arn "arn:aws:rds:us-east-1:123456789000:cluster:http-endpoint-test" \
 --schema "mysql"  --secret-arn "arn:aws:secretsmanager:us-east-1:123456789000:secret:testHttp2-AmNvc1"  \
 --region us-east-1 --sql "create DATABASE TESTDB"
@@ -115,7 +114,7 @@ aws rds-data execute-statement --resource-arn "arn:aws:rds:us-east-1:12345678900
 
 If this runs without error, add a table with the *create table* command:
 
-```
+```sh
 aws rds-data execute-statement --resource-arn "arn:aws:rds:us-east-1:123456789000:cluster:http-endpoint-test" \
  --schema "mysql"  --secret-arn "arn:aws:secretsmanager:us-east-1:123456789000:secret:testHttp2-AmNvc1" \
  --region us-east-1 \
@@ -129,7 +128,7 @@ If everything has run without issue you can move forward to adding the cluster a
 
 Now that your Aurora Serverless Data API is up and running with a table, we will create a GraphQL schema and attach resolvers for performing mutations and subscriptions. Create a new API in the AWS AppSync console and navigate to the **Schema** page, and enter the following:
 
-```
+```sh
 type Mutation {
     createPet(input: CreatePetInput!): Pet
     updatePet(input: UpdatePetInput!): Pet
@@ -184,7 +183,7 @@ schema {
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -222,7 +221,7 @@ Note there are two **Statements** in this policy which you are granting role acc
 
 Pass this as a parameter to the AWS CLI.
 
-```
+```json
 aws secretsmanager create-secret \
   --name HttpRDSSecret \
   --secret-string file://creds.json \
@@ -236,7 +235,7 @@ This will return an ARN for the secret. Take note of the ARN of your Aurora Serv
 
 Once you have enabled your Data API you can ensure it works with the `aws rds-data execute-statement` command in the AWS CLI. This will ensure that your Aurora Serverless v2 cluster is configured correctly before adding it to your AWS AppSync API. First, create a database called *TESTDB* with the `--sql` parameter as follows.
 
-```
+```sh
 aws rds-data execute-statement \
                 --resource-arn "arn:aws:rds:us-east-1:{{111122223333}}:cluster:{{appsync-tutorial}}" \
                 --secret-arn "arn:aws:secretsmanager:us-east-1:{{111122223333}}:secret:{{appsync-tutorial-rds-secret}}"  \
@@ -246,7 +245,7 @@ aws rds-data execute-statement \
 
 If this runs without errors, add a table with the following *create table* command.
 
-```
+```sh
 aws rds-data execute-statement \
       --resource-arn "arn:aws:rds:us-east-1:{{111122223333}}:cluster:{{http-endpoint-test}}" \
       --secret-arn "arn:aws:secretsmanager:us-east-1:{{111122223333}}:secret:{{testHttp2-AmNvc1}}" \
@@ -260,7 +259,7 @@ aws rds-data execute-statement \
 
 After Aurora Serverless v2 Data API is up and running with a table, create a GraphQL schema and attach resolvers for performing mutations and subscriptions. Create a new API in the AWS AppSync console and navigate to the **Schema** page in the console, and enter the following.
 
-```
+```sh
 type Mutation {
         createPet(input: CreatePetInput!): Pet
         updatePet(input: UpdatePetInput!): Pet
@@ -315,7 +314,7 @@ type Mutation {
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -373,7 +372,7 @@ Now that we have a valid GraphQL schema and an RDS data source, you can attach r
 
 From the schema editor in the AWS AppSync console, on the right side choose **Attach Resolver** for `createPet(input: CreatePetInput!): Pet`. Choose your RDS data source. In the **request mapping template** section, add the following template:
 
-```
+```json
 #set($id=$utils.autoId())
 {
 "version": "2018-05-29",
@@ -393,7 +392,7 @@ The system executes SQL statements sequentially, based on the order in the **sta
 
 In the **response mapping template** section, add the following template:
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
 ```
 
@@ -404,7 +403,7 @@ Because the *statements* has two SQL queries, we need to specify the second resu
 
 From the schema editor in the AWS AppSync console, choose **Attach Resolver** for `updatePet(input: UpdatePetInput!): Pet`. Choose your **RDS data source**. In the **request mapping template** section, add the following template.
 
-```
+```json
 {
 "version": "2018-05-29",
     "statements": [
@@ -421,7 +420,7 @@ From the schema editor in the AWS AppSync console, choose **Attach Resolver** fo
 
 In the **response mapping template** section, add the following template.
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
 ```
 
@@ -430,7 +429,7 @@ $utils.toJson($utils.rds.toJsonObject($ctx.result)[1][0])
 
 From the schema editor in the AWS AppSync console, choose **Attach Resolver** for `deletePet(input: DeletePetInput!): Pet`. Choose your **RDS data source**. In the **request mapping template** section, add the following template.
 
-```
+```json
 {
 "version": "2018-05-29",
     "statements": [
@@ -445,7 +444,7 @@ From the schema editor in the AWS AppSync console, choose **Attach Resolver** fo
 
 In the **response mapping template** section, add the following template.
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[0][0])
 ```
 
@@ -454,7 +453,7 @@ $utils.toJson($utils.rds.toJsonObject($ctx.result)[0][0])
 
 Now that the mutations are created for your schema, connect the three queries to showcase how to get individual items, lists, and apply SQL filtering. From the **schema editor** in the AWS AppSync console, choose **Attach Resolver** for `getPet(id: ID!): Pet`. Choose your **RDS data source**. In the **request mapping template** section, add the following template.
 
-```
+```json
 {
 "version": "2018-05-29",
         "statements": [
@@ -468,7 +467,7 @@ Now that the mutations are created for your schema, connect the three queries to
 
 In the **response mapping template** section, add the following template:
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[0][0])
 ```
 
@@ -477,7 +476,7 @@ $utils.toJson($utils.rds.toJsonObject($ctx.result)[0][0])
 
 From the schema editor in the AWS AppSync console, on the right side choose **Attach Resolver** for `getPet(id: ID!): Pet`. Choose your **RDS data source**. In the **request mapping template** section, add the following template.
 
-```
+```json
 {
     "version": "2018-05-29",
     "statements": [
@@ -488,7 +487,7 @@ From the schema editor in the AWS AppSync console, on the right side choose **At
 
 In the **response mapping template** section, add the following template.
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
 ```
 
@@ -497,7 +496,7 @@ $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
 
 From the schema editor in the AWS AppSync console, on the right side choose **Attach Resolver** for `getPet(id: ID!): Pet`. Choose your **RDS data source**. In the **request mapping template** section, add the following template.
 
-```
+```json
 {
     "version": "2018-05-29",
     "statements": [
@@ -513,7 +512,7 @@ From the schema editor in the AWS AppSync console, on the right side choose **At
 
 In the **response mapping template** section, add the following template:
 
-```
+```velocity
 $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
 ```
 
@@ -522,7 +521,7 @@ $utils.toJson($utils.rds.toJsonObject($ctx.result)[0])
 
 Now that you have configured all of your resolvers with SQL statements and connected your GraphQL API to your Serverless Aurora Data API, you can begin performing mutations and queries. In AWS AppSync console, choose the **Queries** tab and enter the following to create a Pet:
 
-```
+```graphql
 mutation add {
     createPet(input : { type:fish, price:10.0 }){
         id
@@ -534,7 +533,7 @@ mutation add {
 
 The response should contain the *id*, *type*, and *price* like so:
 
-```
+```json
 {
   "data": {
     "createPet": {
@@ -548,7 +547,7 @@ The response should contain the *id*, *type*, and *price* like so:
 
 You can modify this item by running the *updatePet* mutation:
 
-```
+```graphql
 mutation update {
     updatePet(input : {
         id: ID_PLACEHOLDER,
@@ -564,7 +563,7 @@ mutation update {
 
 Note that we used the *id* which was returned from the *createPet* operation earlier. This will be a unique value for your record as the resolver leveraged `$util.autoId()`. You could delete a record in a similar manner:
 
-```
+```graphql
 mutation delete {
     deletePet(input : {id:ID_PLACEHOLDER}){
         id
@@ -581,7 +580,7 @@ Create a few records with the first mutation with different values for *price* a
 
 Still in the **Queries** tab of the console, use the following statement to list all of the records you’ve created.
 
-```
+```graphql
 query allpets {
     listPets {
         id
@@ -620,7 +619,7 @@ query onePet {
 
 SQL injection is a security vulnerability in database applications. It occurs when attackers insert malicious SQL code through user input fields. This can allow unauthorized access to database data. We recommend that you carefully validate and sanitize all user inputs before processing using `variableMap` for protection against SQL injection attacks. If variable maps are not used, you are responsible for sanitizing the arguments of their GraphQL operations. One way to do this is to provide input specific validation steps in the request mapping template before execution of a SQL statement against your Data API. Let’s see how we can modify the request mapping template of the `listPetsByPriceRange` example. Instead of relying solely on the user input you can do the following:
 
-```
+```velocity
 #set($validMaxPrice = $util.matches("\d{1,3}[,\\.]?(\\d{1,2})?",$ctx.args.maxPrice))
 
 #set($validMinPrice = $util.matches("\d{1,3}[,\\.]?(\\d{1,2})?",$ctx.args.minPrice))
@@ -644,7 +643,7 @@ SQL injection is a security vulnerability in database applications. It occurs wh
 
 Another way to protect against rogue input when executing resolvers against your Data API is to use prepared statements together with stored procedure and parameterized inputs. For example, in the resolver for `listPets` define the following procedure that executes the *select* as a prepared statement:
 
-```
+```sql
 CREATE PROCEDURE listPets (IN type_param VARCHAR(200))
   BEGIN
      PREPARE stmt FROM 'SELECT * FROM Pets where type=?';
@@ -665,7 +664,7 @@ aws rds-data execute-statement --resource-arn "arn:aws:rds:us-east-1:xxxxxxxxxxx
 
 The resulting resolver code for listPets is simplified since we now simply call the stored procedure. At a minimum, any string input should have single quotes [escaped](#escaped).
 
-```
+```velocity
 #set ($validType = $util.isString($ctx.args.type) && !$util.isNullOrBlank($ctx.args.type))
 #if (!$validType)
     $util.error("Input for 'type' is not valid.", "ValidationError")
@@ -687,6 +686,6 @@ The resulting resolver code for listPets is simplified since we now simply call 
 
 Use single quotes to mark the start and end of string literals in an SQL statement e.g.. `'some string value'`. To allow string values with one or more single quote characters ( `'`) to be used within a string, each must be replaced with two single quotes (`''`). For example, if the input string is `Nadia's dog`, you would escape it for the SQL statement like
 
-```
+```sql
 update Pets set type='Nadia''s dog' WHERE id='1'
 ```

@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template reference for Lambda
-<a name="resolver-mapping-template-reference-lambda"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -13,7 +12,7 @@ You can use AWS AppSync functions and resolvers to invoke Lambda functions locat
 
 The Lambda request mapping template handles fields related to your Lambda function:
 
-```
+```sh
 {
   "version": string,
   "operation": Invoke|BatchInvoke,
@@ -24,7 +23,7 @@ The Lambda request mapping template handles fields related to your Lambda functi
 
 This is the JSON schema representation of the Lambda request mapping template when resolved:
 
-```
+```sh
 {
   "definitions": {},
   "$schema": "https://json-schema.org/draft-06/schema#",
@@ -74,7 +73,7 @@ This is the JSON schema representation of the Lambda request mapping template wh
 
 Here's an example that uses an `invoke` operation with its payload data being the `getPost` field from a GraphQL schema along with its arguments from the context:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -87,7 +86,7 @@ Here's an example that uses an `invoke` operation with its payload data being th
 
 The entire mapping document is passed as the input to your Lambda function so that the previous example now looks like this:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -105,7 +104,7 @@ The entire mapping document is passed as the input to your Lambda function so th
 
 Common to all request mapping templates, the `version` defines the version that the template uses. The `version` is required and is a static value:
 
-```
+```sh
 "version": "2018-05-29"
 ```
 
@@ -116,7 +115,7 @@ The Lambda data source lets you define two operations in the `operation` field: 
 
 For `Invoke`, the resolved request mapping template matches the input payload of the Lambda function. Let's modify the example above:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -128,7 +127,7 @@ For `Invoke`, the resolved request mapping template matches the input payload of
 
 This is resolved and passed to the Lambda function, which could look something like this:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -142,7 +141,7 @@ This is resolved and passed to the Lambda function, which could look something l
 
 For `BatchInvoke`, the mapping template is applied to every field resolver in the batch. For conciseness, AWS AppSync merges all the resolved mapping template `payload` values into a list under a single object matching the mapping template. The following example template shows the merge:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "BatchInvoke",
@@ -152,7 +151,7 @@ For `BatchInvoke`, the mapping template is applied to every field resolver in th
 
 This template is resolved into the following mapping document:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "BatchInvoke",
@@ -166,7 +165,7 @@ This template is resolved into the following mapping document:
 
 Each element of the `payload` list corresponds to a single batch item. The Lambda function is also expected to return a list-shaped response matching the order of the items sent in the request:
 
-```
+```sh
 [
   { "data": {...}, "errorMessage": null, "errorType": null }, // result for batch item 1
   { "data": {...}, "errorMessage": null, "errorType": null }, // result for batch item 2
@@ -186,7 +185,7 @@ The Lambda data source allows you to define two invocation types: `RequestRespon
 
 For any `invocationType` field, the resolved request matches the input payload of the Lambda function. Let's modify the example above:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -199,7 +198,7 @@ For any `invocationType` field, the resolved request matches the input payload o
 
 This is resolved and passed to the Lambda function, which could look something like this:
 
-```
+```sh
 {
   "version": "2018-05-29",
   "operation": "Invoke",
@@ -223,7 +222,7 @@ The result of the Lambda function is set on the `context` object that is availab
 
 If the shape of your Lambda function response exactly matches the shape of the GraphQL type, you can forward the response using the following response mapping template:
 
-```
+```sh
 $util.toJson($context.result)
 ```
 
@@ -249,7 +248,7 @@ When the request mapping template is not provided, AWS AppSync will send the `Co
 
 When the response mapping template is not provided, AWS AppSync does one of two things upon receiving your Lambda function's response. If you did not provide a request mapping template or if you provided a request mapping template with the version `2018-05-29`, the response will be equivalent to the following response mapping template:
 
-```
+```sh
 #if($ctx.error)
      $util.error($ctx.error.message, $ctx.error.type, $ctx.result)
  #end
@@ -258,7 +257,7 @@ When the response mapping template is not provided, AWS AppSync does one of two 
 
 If you provided a template with the version `2017-02-28`, the response logic functions equivalently to the following response mapping template:
 
-```
+```sh
 $util.toJson($ctx.result)
 ```
 
@@ -269,7 +268,7 @@ Superficially, the mapping template bypass operates similarly to using certain m
 
 You can customize error responses from Lambda functions that Direct Lambda Resolvers invoke by raising a custom exception. The following example demonstrates how to create a custom exception using JavaScript:
 
-```
+```js
 class CustomException extends Error {
   constructor(message) {
     super(message);
@@ -286,7 +285,7 @@ If `errorType` is `UnauthorizedException`, AWS AppSync returns the default messa
 
 The following snippet is an example GraphQL response that demonstrates a custom `errorType`:
 
-```
+```js
 {
   "data": {
     "query": null

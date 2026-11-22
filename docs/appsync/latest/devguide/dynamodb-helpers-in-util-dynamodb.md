@@ -1,7 +1,6 @@
 
 
 # DynamoDB helpers in $util.dynamodb
-<a name="dynamodb-helpers-in-util-dynamodb"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).

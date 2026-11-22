@@ -1,7 +1,6 @@
 
 
 # Designing GraphQL APIs with AWS AppSync
-<a name="designing-a-graphql-api"></a>
 
 AWS AppSync allows you to create GraphQL APIs using the console experience. You caught a glimpse of this in the [Launching a sample schema](https://docs.aws.amazon.com/appsync/latest/devguide/quickstart.html) section. However, that guide didn't show the entire catalog of options and configurations that you could leverage in AWS AppSync. 
 

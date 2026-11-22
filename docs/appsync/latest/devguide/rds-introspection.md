@@ -1,7 +1,6 @@
 
 
 # Building GraphQL APIs with RDS introspection
-<a name="rds-introspection"></a>
 
 AWS AppSync's introspection utility can discover models from database tables and propose GraphQL types. The AWS AppSync console's Create API wizard can instantly generate an API from an Aurora MySQL or PostgreSQL database. It automatically creates types and JavaScript resolvers to read and write data.
 
@@ -87,7 +86,7 @@ To use `StartDataSourceIntrospection`, provide your Aurora cluster Amazon Resour
 
  For example, if you have the following Data definition language (DDL) statement for a simple `Todos` table:
 
-```
+```DDL
 create table if not exists public.todos  
 (  
 id serial constraint todos_pk primary key,  
@@ -99,14 +98,14 @@ due timestamp,
 
 You start the introspection with the following.
 
-```
+```Sh
 aws appsync start-data-source-introspection \ 
   --rds-data-api-config resourceArn=<cluster-arn>,secretArn=<secret-arn>,databaseName=database
 ```
 
 Next, use the `GetDataSourceIntrospection` command to retrieve the result.
 
-```
+```Sh
 aws appsync get-data-source-introspection \
   --introspection-id a1234567-8910-abcd-efgh-identifier \
   --include-models-sdl
@@ -114,7 +113,7 @@ aws appsync get-data-source-introspection \
 
 This returns the following result.
 
-```
+```Sh
 {
     "introspectionId": "a1234567-8910-abcd-efgh-identifier",
     "introspectionStatus": "SUCCESS",

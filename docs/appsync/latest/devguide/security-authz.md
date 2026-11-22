@@ -1,7 +1,6 @@
 
 
 # Configuring authorization and authentication to secure your GraphQL APIs
-<a name="security-authz"></a>
 
 AWS AppSync offers the following authorization types to secure GraphQL APIs: API keys, Lambda, IAM, OpenID Connect, and Cognito User Pools. Each option provides a different method of security: 
 
@@ -115,7 +114,7 @@ On the client, the API key is specified by the header `x-api-key`.
 
 For example, if your `API_KEY` is `'ABC123'`, you can send a GraphQL query via `curl` as follows:
 
-```
+```sh
 $ curl -XPOST -H "Content-Type:application/graphql" -H "x-api-key:ABC123" -d '{ "query": "query { movies { id } }" }' https://YOURAPPSYNCENDPOINT/graphql
 ```
 
@@ -310,7 +309,7 @@ If you want a role that has access to perform all data operations:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -338,7 +337,7 @@ If you want to restrict access to just certain GraphQL operations, you can do th
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -362,7 +361,7 @@ If you want to restrict access to just certain GraphQL operations, you can do th
 
 For example, suppose you have the following schema and you want to restrict access to getting all posts:
 
-```
+```sh
 schema {
    query: Query
    mutation: Mutation
@@ -384,7 +383,7 @@ The corresponding IAM policy for a role (that you could attach to an Amazon Cogn
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -446,7 +445,7 @@ When using Amazon Cognito User Pools, you can create groups that users belong to
 
 For example, suppose you have the following GraphQL schema:
 
-```
+```sh
 schema {
    query: Query
    mutation: Mutation
@@ -464,14 +463,14 @@ type Mutation {
 
 If you have two groups in Amazon Cognito User Pools - bloggers and readers - and you want to restrict the readers so that they cannot add new entries, then your schema should look like this:
 
-```
+```sh
 schema {
    query: Query
    mutation: Mutation
 }
 ```
 
-```
+```sh
 type Query {
    posts:[Post!]!
    @aws_auth(cognito_groups: ["Bloggers", "Readers"])
@@ -486,7 +485,7 @@ type Mutation {
 
 Note that you can omit the `@aws_auth` directive if you want to default to a specific grant-or-deny strategy on access. You can specify the grant-or-deny strategy in the user pool configuration when you create your GraphQL API via the console or via the following CLI command:
 
-```
+```sh
 $ aws appsync --region us-west-2 create-graphql-api --authentication-type AMAZON_COGNITO_USER_POOLS  --name userpoolstest --user-pool-config '{ "userPoolId":"test", "defaultEffect":"ALLOW", "awsRegion":"us-west-2"}'
 ```
 
@@ -506,7 +505,7 @@ You can't use the `@aws_auth` directive along with additional authorization mode
 
 To understand how the additional authorization modes work and how they can be specified on a schema, let’s have a look at the following schema:
 
-```
+```sh
 schema {
    query: Query
    mutation: Mutation
@@ -547,7 +546,7 @@ To further restrict access to fields in the `Post` type you can use directives a
 
 For example, you can add a `restrictedContent` field to the `Post` type and restrict access to it by using the `@aws_iam` directive. `AWS_IAM` authenticated requests could access `restrictedContent`, however, `API_KEY` requests wouldn’t be able to access it.
 
-```
+```sh
 type Post @aws_api_key @aws_iam{
    id: ID!
    author: String
@@ -579,7 +578,7 @@ In the following example using DynamoDB, suppose you’re using the preceding bl
 
 To add this functionality, add a GraphQL field of `editPost` as follows:
 
-```
+```sh
 schema {
    query: Query
    mutation: Mutation
@@ -598,7 +597,7 @@ type Mutation {
 
 The resolver mapping template for `editPost` (shown in an example at the end of this section) needs to perform a logical check against your data store to allow only the user that created a post to edit it. Since this is an edit operation, it corresponds to an `UpdateItem` in DynamoDB. You can perform a conditional check before performing this action, using context passed through for user identity validation. This is stored in an `Identity` object that has the following values:
 
-```
+```sh
 {
    "accountId" : "12321434323",
    "cognitoIdentityPoolId" : "",
@@ -614,7 +613,7 @@ To use this object in a DynamoDB`UpdateItem` call, you need to store the user id
 
 Here is an example of the resolver code for `addPost` that stores the user identity as an `Author` column:
 
-```
+```sh
 import { util, Context } from '@aws-appsync/utils';
 import { put } from '@aws-appsync/utils/dynamodb';
 
@@ -634,7 +633,7 @@ Note that the `Author` attribute is populated from the `Identity` object, which 
 
 Finally, here is an example of the resolver code for `editPost`, which only updates the content of the blog post if the request comes from the user that created the post:
 
-```
+```sh
 import { util, Context } from '@aws-appsync/utils';
 import { put } from '@aws-appsync/utils/dynamodb';
 
@@ -659,7 +658,7 @@ There may be cases where you cannot control the response from your data source, 
 
 For example, suppose you don’t have an appropriate index on your blog post DynamoDB table (such as an index on `Author`). You could use the following resolver:
 
-```
+```sh
 import { util, Context } from '@aws-appsync/utils';
 import { get } from '@aws-appsync/utils/dynamodb';
 
@@ -687,7 +686,7 @@ AWS AppSync communicates with data sources using Identity and Access Management 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

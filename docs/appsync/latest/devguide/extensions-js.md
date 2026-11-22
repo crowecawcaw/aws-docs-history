@@ -1,7 +1,6 @@
 
 
 # Extensions
-<a name="extensions-js"></a>
 
 `extensions` contains a set of methods to make additional actions within your resolvers.
 

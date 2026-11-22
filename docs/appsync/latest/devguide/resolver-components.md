@@ -1,7 +1,6 @@
 
 
 # Resolvers
-<a name="resolver-components"></a>
 
 From the previous sections, you learned about the components of the schema and data source. Now, we need to address how the schema and data sources interact. It all begins with the resolver.
 
@@ -44,7 +43,7 @@ When implementing pipeline resolvers, there is a general structure they follow:
 
 Handlers are typically functions called `Request` and `Response`:
 
-```
+```TypeScript
 export function request(ctx) {
     // Code goes here
 }
@@ -56,7 +55,7 @@ export function response(ctx) {
 
 In a unit resolver, there will only be one set of these functions. In a pipeline resolver, there will be a set of these for the before and after step and an additional set per function. To visualize how this could look, let's review a simple `Query` type:
 
-```
+```SDL
 type Query {
 	helloWorld: String!
 }
@@ -64,7 +63,7 @@ type Query {
 
 This is a simple query with one field called `helloWorld` of type `String`. Let's assume we always want this field to return the string "Hello World". To implement this behavior, we need to add the resolver to this field. In a unit resolver, we could add something like this:
 
-```
+```TypeScript
 export function request(ctx) {
     return {}
 }
@@ -76,7 +75,7 @@ export function response(ctx) {
 
 The `request` can just be left blank because we're not requesting or processing data. We can also assume our data source is `None`, indicating this code doesn't need to perform any invocations. The response simply returns "Hello World". To test this resolver, we need to make a request using the query type:
 
-```
+```SDL
 query helloWorldTest {
   helloWorld
 }
@@ -84,7 +83,7 @@ query helloWorldTest {
 
 This is a query called `helloWorldTest` that returns the `helloWorld` field. When executed, the `helloWorld` field resolver also executes and returns the response:
 
-```
+```SDL
 {
   "data": {
     "helloWorld": "Hello World"
@@ -107,7 +106,7 @@ type Query {
 
 Here we're returning a list of `Books`. Let's assume we're using a DynamoDB table to store book data. Our handlers may look like this:
 
-```
+```TypeScript
 /**
  * Performs a scan on the dynamodb data source
  */

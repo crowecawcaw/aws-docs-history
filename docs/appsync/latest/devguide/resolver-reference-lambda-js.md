@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolver function reference for Lambda
-<a name="resolver-reference-lambda-js"></a>
 
 You can use AWS AppSync functions and resolvers to invoke Lambda functions located in your account. You can shape your request payloads and the response from your Lambda functions before returning them to your clients. You can also specify the type of operation to perform in your request object. This section describes the requests for the supported Lambda operations.
 
@@ -10,7 +9,7 @@ You can use AWS AppSync functions and resolvers to invoke Lambda functions locat
 
 The Lambda request object handles fields related to your Lambda function:
 
-```
+```sh
 export type LambdaRequest = {
   operation: 'Invoke' | 'BatchInvoke';
   invocationType?: 'RequestResponse' | 'Event';
@@ -20,7 +19,7 @@ export type LambdaRequest = {
 
 Here's an example that uses an `invoke` operation with its payload data being the `getPost` field from a GraphQL schema along with its arguments from the context:
 
-```
+```sh
 export function request(ctx) {
   return {
     operation: 'Invoke',
@@ -31,7 +30,7 @@ export function request(ctx) {
 
 The entire mapping document is passed as the input to your Lambda function so that the previous example now looks like this:
 
-```
+```sh
 {
   "operation": "Invoke",
   "payload": {
@@ -52,7 +51,7 @@ The Lambda data source lets you define two operations in the `operation` field: 
 
 For `Invoke`, the resolved request matches the input payload of the Lambda function. Let's modify the example above:
 
-```
+```sh
 export function request(ctx) {
   return {
     operation: 'Invoke',
@@ -63,7 +62,7 @@ export function request(ctx) {
 
 This is resolved and passed to the Lambda function, which could look something like this:
 
-```
+```sh
 {
   "operation": "Invoke",
   "payload": {
@@ -76,7 +75,7 @@ This is resolved and passed to the Lambda function, which could look something l
 
 For `BatchInvoke`, the request is applied to every field resolver in the batch. For conciseness, AWS AppSync merges all the request `payload` values into a list under a single object matching the request object. The following example request handler shows the merge:
 
-```
+```sh
 export function request(ctx) {
   return {
     operation: 'Invoke',
@@ -87,7 +86,7 @@ export function request(ctx) {
 
 This request is evaluated and resolved into the following mapping document:
 
-```
+```sh
 {
   "operation": "BatchInvoke",
   "payload": [
@@ -100,7 +99,7 @@ This request is evaluated and resolved into the following mapping document:
 
 Each element of the `payload` list corresponds to a single batch item. The Lambda function is also expected to return a list-shaped response matching the order of the items sent in the request:
 
-```
+```sh
 [
   { "data": {...}, "errorMessage": null, "errorType": null }, // result for batch item 1
   { "data": {...}, "errorMessage": null, "errorType": null }, // result for batch item 2
@@ -120,7 +119,7 @@ The Lambda data source allows you to define two invocation types: `RequestRespon
 
 For any `invocationType` field, the resolved request matches the input payload of the Lambda function. Let's modify the example above:
 
-```
+```sh
 export function request(ctx) {
   return {
     operation: 'Invoke',
@@ -132,7 +131,7 @@ export function request(ctx) {
 
 This is resolved and passed to the Lambda function, which could look something like this:
 
-```
+```sh
 {
   "operation": "Invoke",
   "invocationType": "Event",
@@ -146,7 +145,7 @@ This is resolved and passed to the Lambda function, which could look something l
 
 When the `BatchInvoke` operation is used in conjunction with the `Event` invocation type field, AWS AppSync merges the field resolver in the same way mentioned above, and the request is passed to your Lambda function as an asynchronous event with the `payload` being a list of values. The response from an `Event` invocation type request results in a `null` value without a response handler:
 
-```
+```sh
 {
   "data": {
     "field": null
@@ -163,7 +162,7 @@ As with other data sources, your Lambda function sends a response to AWS AppSync
 
 If the shape of your Lambda function response matches the shape of the GraphQL type, you can forward the response using the following function response handler:
 
-```
+```sh
 export function response(ctx) {
   return ctx.result
 }

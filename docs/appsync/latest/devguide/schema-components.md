@@ -1,7 +1,6 @@
 
 
 # GraphQL schemas
-<a name="schema-components"></a>
 
 The GraphQL schema is the foundation of a GraphQL API. It serves as the blueprint that defines the shape of your data. It's also a contract between your client and server that defines how your data will be retrieved and/or modified.
 
@@ -14,7 +13,7 @@ To visualize what a schema would look like, let's review the contents of a simpl
 ------
 #### [ schema.graphql ]
 
-```
+```SDL
 type Person {                                  
    id: ID!
    name: String                                  

@@ -1,7 +1,6 @@
 
 
 # Security best practices for AWS AppSync
-<a name="best-practices"></a>
 
 Securing AWS AppSync is more than simply turning on a few levers or setting up logging. The following sections discuss security best practices that vary depending on how you use the service.
 

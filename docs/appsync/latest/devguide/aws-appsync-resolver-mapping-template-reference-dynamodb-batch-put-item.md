@@ -1,7 +1,6 @@
 
 
 # BatchPutItem
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-batch-put-item"></a>
 
 The `BatchPutItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `BatchWriteItem` request to DynamoDB to put multiple items, potentially across multiple tables. For this request template, you must specify the following:
 + The table names where to put the items in
@@ -11,7 +10,7 @@ The DynamoDB `BatchWriteItem` limits apply and **no condition expression** can b
 
 The `BatchPutItem` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "BatchPutItem",
@@ -69,7 +68,7 @@ Things to remember:
 
 For the following example request mapping template:
 
-```
+```TypeScript
 {
   "version": "2018-05-29",
   "operation": "BatchPutItem",
@@ -103,7 +102,7 @@ For the following example request mapping template:
 
 The invocation result available in `$ctx.result` is as follows:
 
-```
+```TypeScript
 {
    "data": {
      "authors": [

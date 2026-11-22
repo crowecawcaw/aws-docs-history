@@ -1,7 +1,6 @@
 
 
 # Time helpers in util.time
-<a name="time-helpers-in-util-time-js"></a>
 
 The `util.time` variable contains datetime methods to help generate timestamps, convert between datetime formats, and parse datetime strings. The syntax for datetime formats is based on [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) which you can reference for further documentation.
 

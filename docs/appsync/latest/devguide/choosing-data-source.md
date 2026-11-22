@@ -1,7 +1,6 @@
 
 
 # Choosing between direct data source access and proxying via a Lambda data source
-<a name="choosing-data-source"></a>
 
 With AWS AppSync and the `APPSYNC_JS` runtime, you can write your own code that implements your custom business logic by using AWS AppSync functions to access your data sources. This makes it easy for you to directly interact with data sources like Amazon DynamoDB, Aurora Serverless, OpenSearch Service, HTTP APIs, and other AWS services without having to deploy additional computational services or infrastructure. AWS AppSync also makes it easy to interact with an AWS Lambda function by configuring a Lambda data source. Lambda data sources allow you to run complex business logic using AWS Lambda’s full set capabilities to resolve a GraphQL request. In most cases, an AWS AppSync function directly connected to its target data source will provide all of the functionality you need. In situations where you need to implement complex business logic that is not supported by the `APPSYNC_JS` runtime, you can use a Lambda data source as a proxy to interact with your target data source.
 

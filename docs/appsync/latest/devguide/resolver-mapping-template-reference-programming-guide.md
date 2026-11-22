@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template programming guide
-<a name="resolver-mapping-template-reference-programming-guide"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -27,7 +26,7 @@ A common technique when learning a language is to print out results (for example
 
 Start by creating the following GraphQL schema:
 
-```
+```default
 type Query {
     get(id: ID, meta: String): Thing
 }
@@ -45,7 +44,7 @@ schema {
 
 Now create the following AWS Lambda function, using Node.js as the language:
 
-```
+```default
 exports.handler = (event, context, callback) => {
     console.log('VTL details: ', event);
     callback(null, event);
@@ -56,7 +55,7 @@ In the **Data Sources** pane of the AWS AppSync console, add this Lambda functio
 
 Open Amazon CloudWatch Logs for your Lambda function in one location, and from the **Queries** tab of the AWS AppSync console, run the following GraphQL query:
 
-```
+```default
 query test {
   get(id:123 meta:"testing"){
     id
@@ -72,19 +71,19 @@ The GraphQL response should contain `id:123` and `meta:testing`, because the Lam
 
 VTL uses [references](https://velocity.apache.org/engine/1.7/user-guide.html#references), which you can use to store or manipulate data. There are three types of references in VTL: variables, properties, and methods. Variables have a `$` sign in front of them and are created with the `#set` directive:
 
-```
+```default
 #set($var = "a string")
 ```
 
 Variables store similar types that you’re familiar with from other languages, such as numbers, strings, arrays, lists, and maps. You might have noticed a JSON payload being sent in the default request template for Lambda resolvers:
 
-```
+```default
 "payload": $util.toJson($context.arguments)
 ```
 
 A couple of things to notice here - first, AWS AppSync provides several convenience functions for common operations. In this example, `$util.toJson` converts a variable to JSON. Second, the variable `$context.arguments` is automatically populated from a GraphQL request as a map object. You can create a new map as follows:
 
-```
+```default
 #set( $myMap = {
   "id": $context.arguments.id,
   "meta": "stuff",
@@ -99,7 +98,7 @@ You have now created a variable named `$myMap`, which has keys of `id`, `meta`, 
 
 Put the previous code at the top of your request template and change the `payload` to use the new `$myMap` variable:
 
-```
+```default
 "payload": $util.toJson($myMap)
 ```
 
@@ -107,7 +106,7 @@ Run your Lambda function, and you can see the response change as well as this da
 
 You can also set *properties\_* on your variables. These could be simple strings, arrays, or JSON:
 
-```
+```default
 #set($myMap.myProperty = "ABC")
 #set($myMap.arrProperty = ["Write", "Some", "GraphQL"])
 #set($myMap.jsonProperty = {
@@ -121,7 +120,7 @@ You can also set *properties\_* on your variables. These could be simple strings
 
 Because VTL is a templating language, by default, every reference you give it will do a `.toString()`. If the reference is undefined, it prints the actual reference representation, as a string. For example:
 
-```
+```default
 #set($myValue = 5)
 ##Prints '5'
 $myValue
@@ -132,7 +131,7 @@ $somethingelse
 
 To address this, VTL has a *quiet reference* or *silent reference* syntax, which tells the template engine to suppress this behavior. The syntax for this is `$!{}`. For example, if we changed the previous code slightly to use `$!{somethingelse}`, the printing is suppressed:
 
-```
+```default
 #set($myValue = 5)
 ##Prints '5'
 $myValue
@@ -146,7 +145,7 @@ $!{somethingelse}
 
 In an earlier example, we showed you how to create a variable and simultaneously set values. You can also do this in two steps by adding data to your map as shown following:
 
-```
+```default
 #set ($myMap = {})
 #set ($myList = [])
 
@@ -162,14 +161,14 @@ $!{myList.add("something")}
 
 The workaround to this is sometimes to call the methods using a `#set` directive and ignore the variable. For example:
 
-```
+```default
 #set ($myMap = {})
 #set($discard = $myMap.put("id", "first value"))
 ```
 
 You might use this technique in your templates, as it prevents the unexpected strings from being printed in the template. AWS AppSync provides an alternative convenience function that offers the same behavior in a more succinct notation. This enables you to not have to think about these implementation specifics. You can access this function under `$util.quiet()` or its alias `$util.qr()`. For example:
 
-```
+```default
 #set ($myMap = {})
 #set ($myList = [])
 
@@ -186,7 +185,7 @@ As with many programming languages, strings can be difficult to deal with, espec
 
 Suppose you are inserting data as a string to a data source like DynamoDB, but it is populated from a variable, like a GraphQL argument. A string will have double quotation marks, and to reference the variable in a string you just need `"${}"` (so no `!` as in [quiet reference notation](https://velocity.apache.org/engine/1.7/user-guide.html#quiet-reference-notation)). This is similar to a template literal in JavaScript: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template\_literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 
 
-```
+```default
 #set($firstname = "Jeff")
 $!{myMap.put("Firstname", "${firstname}")}
 ```
@@ -195,7 +194,7 @@ You can see this in DynamoDB request templates, like `"author": { "S" : "${conte
 
 You can also use public methods of the Java [String class](https://docs.oracle.com/javase/6/docs/api/java/lang/String.html), such as pulling out a substring:
 
-```
+```default
 #set($bigstring = "This is a long string, I want to pull out everything after the comma")
 #set ($comma = $bigstring.indexOf(','))
 #set ($comma = $comma +2)
@@ -206,7 +205,7 @@ $util.qr($myMap.put("substring", "${substring}"))
 
 String concatenation is also a very common task. You can do this with variable references alone or with static values:
 
-```
+```default
 #set($s1 = "Hello")
 #set($s2 = " World")
 
@@ -221,7 +220,7 @@ Now that you have created variables and called methods, you can add some logic t
 
 Loops are created with a `#foreach` and require you to supply a **loop variable** and an **iterable object** such as an array, list, map, or collection. A classic programming example with a `#foreach` loop is to loop over the items in a collection and print them out, so in our case we pluck them out and add them to the map:
 
-```
+```default
 #set($start = 0)
 #set($end = 5)
 #set($range = [$start..$end])
@@ -239,7 +238,7 @@ Notice that `$i` is an integer, so you can call a `.toString()` method. For Grap
 
 You can also use a range operator directly, for example:
 
-```
+```default
 #foreach($item in [1..5])
     ...
 #end
@@ -250,7 +249,7 @@ You can also use a range operator directly, for example:
 
 You have been manipulating a map up to this point, but arrays are also common in VTL. With arrays you also have access to some underlying methods such as `.isEmpty()`, `.size()`, `.set()`, `.get()`, and `.add()`, as shown below:
 
-```
+```default
 #set($array = [])
 #set($idx = 0)
 
@@ -272,7 +271,7 @@ $util.qr($myMap.put("get", $array.get(0)))
 
 The previous example used array index notation to retrieve an element with `arr2[$idx]`. You can look up by name from a Map/dictionary in a similar way:
 
-```
+```default
 #set($result = {
     "Author" : "Nadia",
     "Topic" : "GraphQL"
@@ -288,7 +287,7 @@ This is very common when filtering results coming back from data sources in Resp
 
 The earlier section with `#foreach` showcased some examples of using logic to transform data with VTL. You can also apply conditional checks to evaluate data at runtime:
 
-```
+```default
 #if(!$array.isEmpty())
     $util.qr($myMap.put("ifCheck", "Array not empty"))
 #else
@@ -298,7 +297,7 @@ The earlier section with `#foreach` showcased some examples of using logic to tr
 
 The above `#if()` check of a Boolean expression is nice, but you can also use operators and `#elseif()` for branching:
 
-```
+```default
 #if ($arr2.size() == 0)
     $util.qr($myMap.put("elseIfCheck", "You forgot to put anything into this array!"))
 #elseif ($arr2.size() == 1)
@@ -310,7 +309,7 @@ The above `#if()` check of a Boolean expression is nice, but you can also use op
 
 These two examples showed negation(\!) and equality (==). We can also use \|\|, &&, >, <, >=, <=, and \!=.
 
-```
+```default
 #set($T = true)
 #set($F = false)
 
@@ -351,7 +350,7 @@ $util.qr($myMap.put("x|y", $xMODy))
 
 It is very common when transforming data in VTL, such as before writing or reading from a data source, to loop over objects and then perform checks before performing an action. Combining some of the tools from the previous sections gives you a lot of functionality. One handy tool is knowing that `#foreach` automatically provides you with a `.count` on each item:
 
-```
+```default
 #foreach ($item in $arr2)
   #set($idx = "item" + $foreach.count)
   $util.qr($myMap.put($idx, $item))
@@ -360,7 +359,7 @@ It is very common when transforming data in VTL, such as before writing or readi
 
 For example, maybe you want to just pluck out values from a map if it is under a certain size. Using the count along with conditionals and the `#break` statement allows you to do this:
 
-```
+```default
 #set($hashmap = {
   "DynamoDB" : "https://aws.amazon.com/dynamodb/",
   "Amplify" : "https://github.com/aws/aws-amplify",
@@ -378,7 +377,7 @@ For example, maybe you want to just pluck out values from a map if it is under a
 
 The previous `#foreach` is iterated over with `.keySet()`, which you can use on maps. This gives you access to get the `$key` and reference the value with a `.get($key)`. GraphQL arguments from clients in AWS AppSync are stored as a map. They can also be iterated through with `.entrySet()`, which you can then access both keys and values as a Set, and either populate other variables or perform complex conditional checks, such as validation or transformation of input:
 
-```
+```default
 #foreach( $entry in $context.arguments.entrySet() )
 #if ($entry.key == "XYZ" && $entry.value == "BAD")
     #set($myvar = "...")
@@ -390,7 +389,7 @@ The previous `#foreach` is iterated over with `.keySet()`, which you can use on 
 
 Other common examples are automatically populating default information, like the initial object versions when synchronizing data (very important in conflict resolution) or the default owner of an object for authorization checks - Mary created this blog post, so:
 
-```
+```default
 #set($myMap.owner ="Mary")
 #set($myMap.defaultOwners = ["Admins", "Editors"])
 ```
@@ -400,7 +399,7 @@ Other common examples are automatically populating default information, like the
 
 Now that you are more familiar with performing logical checks in AWS AppSync resolvers with VTL, take a look at the context object:
 
-```
+```default
 $util.qr($myMap.put("context", $context))
 ```
 
@@ -411,13 +410,13 @@ This contains all of the information that you can access in your GraphQL request
 
 So far in this tutorial all information from your Lambda function has been returned to the GraphQL query with a very simple JSON transformation:
 
-```
+```default
 $util.toJson($context.result)
 ```
 
 The VTL logic is just as powerful when you get responses from a data source, especially when doing authorization checks on resources. Let’s walk through some examples. First try changing your response template like so:
 
-```
+```default
 #set($data = {
     "id" : "456",
     "meta" : "Valid Response"
@@ -428,7 +427,7 @@ $util.toJson($data)
 
 No matter what happens with your GraphQL operation, hardcoded values are returned back to the client. Change this slightly so that the `meta` field is populated from the Lambda response, set earlier in the tutorial in the `elseIfCheck` value when learning about conditionals:
 
-```
+```default
 #set($data = {
     "id" : "456"
 })
@@ -444,7 +443,7 @@ $util.toJson($data)
 
  `$context.result` is a map, so you can use `entrySet()` to perform logic on either the keys or the values returned. Because `$context.identity` contains information on the user that performed the GraphQL operation, if you return authorization information from the data source, then you can decide to return all, partial, or no data to a user based on your logic. Change your response template to look like the following:
 
-```
+```default
 #if($context.result["id"] == 123)
     $util.toJson($context.result)
   #else
@@ -463,7 +462,7 @@ If you followed along with the tutorial, you may have built out this template st
 
  **Request Template** 
 
-```
+```default
 #set( $myMap = {
   "id": $context.arguments.id,
   "meta": "stuff",
@@ -601,7 +600,7 @@ $util.qr($myMap.put("context", $context))
 
  **Response Template** 
 
-```
+```default
 #set($data = {
 "id" : "456"
 })

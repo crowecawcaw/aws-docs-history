@@ -1,7 +1,6 @@
 
 
 # Projections
-<a name="js-aws-appsync-resolver-reference-dynamodb-projections"></a>
 
 When reading objects in DynamoDB using the `GetItem`, `Scan`, `Query`, `BatchGetItem`, and `TransactGetItems` operations, you can optionally specify a projection that identifies the attributes that you want. The projection property has the following structure, which is similar to filters: 
 
@@ -25,7 +24,7 @@ The substitutions for expression attribute *name* placeholders in the form of ke
 
 The following example is a projection section for a JavaScript function in which only the attributes `author` and `id` are returned from DynamoDB:
 
-```
+```TypeScript
 projection : {
     expression : "#author, id",
     expressionNames : {

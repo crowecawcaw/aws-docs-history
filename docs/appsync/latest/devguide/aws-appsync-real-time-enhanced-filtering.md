@@ -1,7 +1,6 @@
 
 
 # Defining enhanced subscriptions filters in AWS AppSync
-<a name="aws-appsync-real-time-enhanced-filtering"></a>
 
 **Important**  
 As of Mar 13, 2025, you can build a real-time PubSub API powered by WebSockets using AWS AppSync Events. For more information, see [Publish events via WebSocket](https://docs.aws.amazon.com/appsync/latest/eventapi/publish-websocket.html) in the *AWS AppSync Events Developer Guide*.
@@ -19,7 +18,7 @@ The following sections explain how to configure enhanced subscription filters an
 
 To use enhanced subscription filters, you define the subscription in the GraphQL schema then define the enhanced filter using a filtering extension. To illustrate how enhanced subscription filtering works in AWS AppSync, use the following GraphQL schema, which defines a ticket management system API, as an example:
 
-```
+```TypeScript
 type Ticket {
 	id: ID
 	createdAt: AWSDateTime
@@ -66,7 +65,7 @@ input TicketInput {
 
 Suppose you create a `NONE` data source for your API, then attach a resolver to the `createTicket` mutation using this data source. Your handlers may look like this:
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -97,7 +96,7 @@ The following section explains how to use filtering extensions to implement enha
 
 Enhanced filters are written in JSON in the response handler of the subscription's resolvers. Filters can be grouped together in a list called a `filterGroup`. Filters are defined using at least one rule, each with fields, operators, and values. Let’s define a new resolver for `onSpecialTicketCreated` that sets up an enhanced filter. You can configure multiple rules in a filter that are evaluated using AND logic, while multiple filters in a filter group are evaluated using OR logic:
 
-```
+```TypeScript
 import { util, extensions } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -175,7 +174,7 @@ mutation CreateTicket {
 
 Subscribed clients listen for the data to be automatically pushed via WebSockets as soon as a ticket is created with the `createTicket` mutation:
 
-```
+```TypeScript
 subscription OnGroup {
   onGroupTicketCreated(group: "aws") {
     category
@@ -251,7 +250,7 @@ input TicketInput {
 
 With this schema, you can use a `.` separator to represent nesting. The following example adds a filter rule for a nested schema field under `location.address.country`. The subscription will be triggered if the ticket's address is set to `USA`:
 
-```
+```TypeScript
 import { util, extensions } from '@aws-appsync/utils';
 
 export const request = (ctx) => ({ payload: null });
@@ -300,7 +299,7 @@ You can use basic filtering in GraphQL with [subscriptions arguments](https://do
 
 Configure dynamic, client-defined enhanced filters using a `filter` argument in the subscription. When you configure these filters, you must update the GraphQL schema to reflect the new argument:
 
-```
+```TypeScript
 ...
 type Subscription {
     onSpecialTicketCreated(filter: String): Ticket
@@ -311,7 +310,7 @@ type Subscription {
 
 The client can then send a subscription query like in the following example:
 
-```
+```TypeScript
 subscription onSpecialTicketCreated($filter: String) {
      onSpecialTicketCreated(filter: $filter) {
         id
@@ -325,13 +324,13 @@ subscription onSpecialTicketCreated($filter: String) {
 
 You can configure the query variable like the following example:
 
-```
+```TypeScript
 {"filter" : "{\"severity\":{\"le\":2}}"}
 ```
 
 The `util.transform.toSubscriptionFilter()` resolver utility can be implemented in the subscription response mapping template to apply the filter defined in the subscription argument for each client:
 
-```
+```TypeScript
 import { util, extensions } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -355,7 +354,7 @@ Below are several use cases where additional restrictions are placed on enhanced
 + Enhanced filters don't support filtering for top-level object lists. In this use case, published data from the mutation will be ignored for enhanced subscriptions.
 + AWS AppSync supports up to five levels of nesting. Filters on schema fields past nesting level five will be ignored. Take the GraphQL response below. The `continent` field in `venue.address.country.metadata.continent` is allowed because it's a level five nest. However, `financial` in `venue.address.country.metadata.capital.financial` is a level six nest, so the filter won't work:
 
-  ```
+  ```TypeScript
   {
       "data": {
           "onCreateFilterEvent": {

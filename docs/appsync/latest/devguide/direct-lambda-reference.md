@@ -1,7 +1,6 @@
 
 
 # Disabling VTL mapping templates with direct Lambda resolvers (VTL)
-<a name="direct-lambda-reference"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/configuring-resolvers-js.html).
@@ -48,7 +47,7 @@ Before you can activate direct Lambda resolvers, you must add a Lambda data sour
 
 ****  
 
-      ```
+      ```json
       { 
            "Version":"2012-10-17",		 	 	  
            "Statement": [ 

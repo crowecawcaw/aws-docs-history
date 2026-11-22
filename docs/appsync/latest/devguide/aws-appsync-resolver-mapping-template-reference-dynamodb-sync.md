@@ -1,7 +1,6 @@
 
 
 # Sync
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-sync"></a>
 
 The `Sync` request mapping document lets you retrieve all the results from a DynamoDB table and then receive only the data altered since your last query (the delta updates). `Sync` requests can only be made to versioned DynamoDB data sources. You can specify the following:
 + A filter to exclude results
@@ -11,7 +10,7 @@ The `Sync` request mapping document lets you retrieve all the results from a Dyn
 
 The `Sync` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "Sync",
@@ -66,7 +65,7 @@ For more information about response mapping templates, see [Resolver mapping tem
 
 The results have the following structure:
 
-```
+```TypeScript
 {
     items = [ ... ],
     nextToken = "a pagination token",
@@ -96,7 +95,7 @@ The following example is a mapping template for the GraphQL query: `syncPosts(ne
 
 In this example, if `lastSync` is omitted, all entries in the base table are returned. If `lastSync` is supplied, only the entries in the delta sync table that have changed since `lastSync` are returned.
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "Sync",

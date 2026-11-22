@@ -1,7 +1,6 @@
 
 
 # Using an AWS AppSync API with the AWS CDK
-<a name="using-your-api"></a>
 
 **Tip**  
 Before you use the CDK, we recommend reviewing the CDK's [official documentation](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) along with AWS AppSync's [CDK reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_appsync-readme.html).  
@@ -17,20 +16,20 @@ These steps may not be completely accurate depending on your environment. We're 
 
 The first step is installing the AWS CDK. In your CLI, you can enter the following command:
 
-```
+```TypeScript
 npm install -g aws-cdk
 ```
 
 Next, you need to create a project directory, then navigate to it. An example set of commands to create and navigate to a directory is:
 
-```
+```TypeScript
 mkdir example-cdk-app
 cd example-cdk-app
 ```
 
 Next, you need to create an app. Our service primarily uses TypeScript. In your project directory, enter the following command:
 
-```
+```TypeScript
 cdk init app --language typescript
 ```
 
@@ -51,7 +50,7 @@ You'll notice we have several important directories:
 
 Our initial stack file may contain something like this:
 
-```
+```TypeScript
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -74,7 +73,7 @@ This is the boilerplate code to create a stack in our app. Most of our code in t
 
 To verify that your stack file is in the app, in your app's directory, run the following command in the terminal:
 
-```
+```TypeScript
 cdk ls
 ```
 
@@ -82,19 +81,19 @@ A list of your stacks should appear. If it doesn't, then you may need to run thr
 
 If you want to build your code changes before deploying, you can always run the following command in the terminal:
 
-```
+```TypeScript
 npm run build
 ```
 
 And, to see the changes before deploying:
 
-```
+```TypeScript
 cdk diff
 ```
 
 Before we add our code to the stack file, we're going to perform a bootstrap. Bootstrapping allows us to provision resources for the CDK before the app deploys. More information about this process can be found [here](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html). To create a bootstrap, the command is:
 
-```
+```TypeScript
 cdk bootstrap aws://ACCOUNT-NUMBER/REGION
 ```
 
@@ -120,14 +119,14 @@ The same can be said for the bucket:
 
 To import the services we need in our stack file, we can use the following command:
 
-```
+```TypeScript
 npm install aws-cdk-lib # V2 command
 ```
 
 **Tip**  
 If you're having trouble with V2, you could install the individual libraries using V1 commands:  
 
-```
+```TypeScript
 npm install @aws-cdk/aws-appsync @aws-cdk/aws-dynamodb
 ```
 We don't recommend this because V1 has been deprecated.
@@ -137,7 +136,7 @@ We don't recommend this because V1 has been deprecated.
 
 We can now start implementing our code. First, we must create our schema. You can simply create a `.graphql` file in your app:
 
-```
+```TypeScript
 mkdir schema
 touch schema.graphql
 ```
@@ -149,7 +148,7 @@ In our example, we included a top-level directory called `schema` containing our
 
 Inside our schema, let's include a simple example:
 
-```
+```SDL
 input CreatePostInput {
     title: String
     content: String
@@ -172,7 +171,7 @@ type Query {
 
 Back in our stack file, we need to make sure the following import directives are defined:
 
-```
+```TypeScript
 import * as cdk from 'aws-cdk-lib';
 import * as appsync from 'aws-cdk-lib/aws-appsync';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
@@ -181,7 +180,7 @@ import { Construct } from 'constructs';
 
 Inside the class, we'll add code to make our GraphQL API and connect it to our `schema.graphql` file:
 
-```
+```TypeScript
 export class ExampleCdkAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -197,7 +196,7 @@ export class ExampleCdkAppStack extends cdk.Stack {
 
 We'll also add some code to print out the GraphQL URL, API key, and Region:
 
-```
+```TypeScript
 export class ExampleCdkAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -228,7 +227,7 @@ export class ExampleCdkAppStack extends cdk.Stack {
 
 At this point, we'll use deploy our app again:
 
-```
+```TypeScript
 cdk deploy
 ```
 
@@ -262,7 +261,7 @@ When we deploy our CDK app, it goes through CloudFormation to spin up resources 
 
 Next, we need to add our data source. Our example will use a DynamoDB table. Inside the stack class, we'll add some code to create a new table:
 
-```
+```TypeScript
 export class ExampleCdkAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -301,7 +300,7 @@ export class ExampleCdkAppStack extends cdk.Stack {
 
 At this point, let's deploy again:
 
-```
+```TypeScript
 cdk deploy
 ```
 
@@ -320,7 +319,7 @@ Our stack name is correct, and the table name matches our code. If we check our 
 
 This example will use two resolvers: one to query the table and one to add to it. Since we're using pipeline resolvers, we'll need to declare two pipeline resolvers with one function in each. In the query, we'll add the following code:
 
-```
+```TypeScript
 export class ExampleCdkAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -435,7 +434,7 @@ In this snippet, we added a pipeline resolver called `pipeline-resolver-create-p
 
 We'll deploy this to add it to the AWS AppSync service:
 
-```
+```TypeScript
 cdk deploy
 ```
 
@@ -485,7 +484,7 @@ To test our app in the AWS AppSync console, we made one query and one mutation:
 
 `MyMutation` contains a `createPost` operation with the arguments `1970-01-01T12:30:00.000Z` and `first post`. It returns the `date` and `title` that we passed in as well as the automatically generated `id` value. Running the mutation yields the result:
 
-```
+```TypeScript
 {
   "data": {
     "createPost": {
@@ -504,7 +503,7 @@ If we check the DynamoDB table quickly, we can see our entry in the table when w
 
 Back in the AWS AppSync console, if we run the query to retrieve this `Post`, we get the following result:
 
-```
+```TypeScript
 {
   "data": {
     "getPost": [

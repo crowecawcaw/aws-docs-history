@@ -1,7 +1,6 @@
 
 
 # Bundling, TypeScript, and source maps for the `APPSYNC_JS` runtime
-<a name="additional-utilities"></a>
 
 TypeScript enhances AWS AppSync development by providing type safety and early error detection. You can write TypeScript code locally and transpile it to JavaScript before using it with the `APPSYNC_JS` runtime. The process starts with installing TypeScript and configuring tsconfig.json for the `APPSYNC_JS` environment. You can then use bundling tools like esbuild to compile and bundle the code. The Amplify CLI will generate types from the GraphQL schema, allowing you to use these types in resolver code. 
 
@@ -22,7 +21,7 @@ When bundling your code, keep the following in mind:
 
 For example, to bundle your resolver code located at `src/appsync/getPost.resolver.js`, you can use the following esbuild CLI command:
 
-```
+```Sh
 $ esbuild --bundle \
 --sourcemap=inline \
 --sources-content=false \
@@ -43,7 +42,7 @@ The `APPSYNC_JS` runtime doesn't support TypeScript directly. You must first tra
 
 To get started, make sure you have [TypeScript](https://www.typescriptlang.org/download) installed in your project. Then, configure your TypeScript transcompilation settings to work with the `APPSYNC_JS` runtime using [TSConfig](https://www.typescriptlang.org/tsconfig). Here’s an example of a basic `tsconfig.json` file that you can use:
 
-```
+```JSON
 // tsconfig.json
 {
   "compilerOptions": {
@@ -57,7 +56,7 @@ To get started, make sure you have [TypeScript](https://www.typescriptlang.org/d
 
 You can then use a bundling tool like esbuild to compile and bundle your code. For example, given a project with your AWS AppSync code located at `src/appsync`, you can use the following command to compile and bundle your code:
 
-```
+```Sh
 $ esbuild --bundle \
 --sourcemap=inline \
 --sources-content=false \
@@ -74,19 +73,19 @@ $ esbuild --bundle \
 
 You can use the [Amplify CLI](https://docs.amplify.aws/cli/) to generate the types for your schema. From the directory where your `schema.graphql` file is located, run the following command and review the prompts to configure your codegen:
 
-```
+```Sh
 $  npx @aws-amplify/cli codegen add
 ```
 
 To regenerate your codegen under certain circumstances (e.g., when your schema is updated), run the following command:
 
-```
+```Sh
 $ npx @aws-amplify/cli codegen
 ```
 
 You can then use the generated types in your resolver code. For example, given the following schema:
 
-```
+```SDL
 type Todo {
   id: ID!
   title: String!
@@ -104,7 +103,7 @@ type Query {
 
 You could use the generated types in the following example AWS AppSync function:
 
-```
+```TypeScript
 import { Context, util } from '@aws-appsync/utils'
 import * as ddb from '@aws-appsync/utils/dynamodb'
 import { CreateTodoMutationVariables, Todo } from './API' // codegen
@@ -124,7 +123,7 @@ export function response(ctx) {
 
 You can use generics with several of the provided types. For example, the snippet below is a `Todo` type:
 
-```
+```TypeScript
 export type Todo = {
   __typename: "Todo",
   id: string,
@@ -135,7 +134,7 @@ export type Todo = {
 
 You can write a resolver for a subscription that makes use of `Todo`. In your IDE, type definitions and auto-complete hints will guide you into properly using the `toSubscriptionFilter` transform utility:
 
-```
+```TypeScript
 import { util, Context, extensions } from '@aws-appsync/utils'
 import { Todo } from './API'
 
@@ -158,7 +157,7 @@ export function response(ctx: Context) {
 
 You can automatically lint your bundles by importing the `esbuild-plugin-eslint` plugin. You can then enable it by providing a `plugins` value that enables eslint capabilities. Below is a snippet that uses the esbuild JavaScript API in a file called `build.mjs`:
 
-```
+```TypeScript
 /* eslint-disable */
 import { build } from 'esbuild'
 import eslint from 'esbuild-plugin-eslint'
@@ -184,19 +183,19 @@ You can provide an inline source map (`sourcemap`) with your JavaScript code. So
 
 Your `sourcemap` must appear at the end of your code. It is defined by a single comment line that follows the following format:
 
-```
+```TypeScript
 //# sourceMappingURL=data:application/json;base64,<base64 encoded string>
 ```
 
 Here's an example:
 
-```
+```TypeScript
 //# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsibGliLmpzIiwgImNvZGUuanMiXSwKICAibWFwcGluZ3MiOiAiO0FBQU8sU0FBUyxRQUFRO0FBQ3RCLFNBQU87QUFDVDs7O0FDRE8sU0FBUyxRQUFRLEtBQUs7QUFDM0IsU0FBTyxNQUFNO0FBQ2Y7IiwKICAibmFtZXMiOiBbXQp9Cg==
 ```
 
 Source maps can be created with esbuild. The example below shows you how to use the esbuild JavaScript API to include an inline source map when code is built and bundled:
 
-```
+```TypeScript
 /* eslint-disable */
 import { build } from 'esbuild'
 import eslint from 'esbuild-plugin-eslint'
@@ -224,7 +223,7 @@ To illustrate how source maps work, review the following example in which a reso
 
 **./src/default.resolver.ts** (your resolver)
 
-```
+```TypeScript
 import { Context } from '@aws-appsync/utils'
 import { hello, logit } from './helper'
 
@@ -243,7 +242,7 @@ export function response(ctx: Context): boolean {
 
 **.src/helper.ts** (a helper file)
 
-```
+```TypeScript
 export const logit = (...rest: any[]) => {
   // a special logger
   console.log('[logger]', ...rest.map((r) => `<${r}>`))

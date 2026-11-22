@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolver function reference for Amazon RDS
-<a name="resolver-reference-rds-js"></a>
 
 The AWS AppSync RDS function and resolver allows developers to send SQL queries to an Amazon Aurora cluster database using the RDS Data API and get back the result of these queries. You can write SQL statements that are sent to the Data API by using AWS AppSync's `rds` module `sql`-tagged template or by using the `rds` module's `select`, `insert`, `update`, and `remove` helper functions. AWS AppSync utilizes the RDS Data Service's [`ExecuteStatement`](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_ExecuteStatement.html) action to run SQL statements against the database. 
 

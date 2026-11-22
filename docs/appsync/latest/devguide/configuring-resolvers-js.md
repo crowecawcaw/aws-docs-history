@@ -1,7 +1,6 @@
 
 
 # Creating basic queries (JavaScript)
-<a name="configuring-resolvers-js"></a>
 
 GraphQL resolvers connect the fields in a type’s schema to a data source. Resolvers are the mechanism by which requests are fulfilled.
 
@@ -698,7 +697,7 @@ AWS AppSync also supports test and debug workflows for editing resolvers. You ca
 
 If you are following the optional pagination section in [Designing your schema](designing-your-schema.md#aws-appsync-designing-your-schema), you still need to add your resolver to your request to make use of pagination. Our example used a query pagination called `getPosts` to return only a portion of the things requested at a time. Our resolver's code on that field may look like this:
 
-```
+```sh
 /**
  * Performs a scan on the dynamodb data source
  */

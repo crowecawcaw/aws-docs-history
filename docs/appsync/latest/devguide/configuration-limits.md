@@ -1,7 +1,6 @@
 
 
 # Configuring GraphQL run complexity, query depth, and introspection with AWS AppSync
-<a name="configuration-limits"></a>
 
 AWS AppSync allows you to enable or disable introspection features and set limits to the amount of nested levels and resolvers in a single query.
 

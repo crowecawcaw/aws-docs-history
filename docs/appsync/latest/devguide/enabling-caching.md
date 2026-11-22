@@ -1,7 +1,6 @@
 
 
 # Configuring server-side caching and API payload compression in AWS AppSync
-<a name="enabling-caching"></a>
 
 AWS AppSync's server-side data caching capabilities make data available in a high speed, in-memory cache, improving performance and decreasing latency. This reduces the need to directly access data sources. Caching is available for both unit and pipeline resolvers.
 
@@ -125,7 +124,7 @@ To evict an item from the cache, use the `evictFromApiCache` extensions utility.
 
 For example, see the following schema:
 
-```
+```SDL
 type Note {
   id: ID!
   title: String
@@ -149,7 +148,7 @@ When you update a `Note`, you must evict the entry for the specific note to make
 
 The following example shows one way to handle the eviction using this method:
 
-```
+```TypeScript
 import { util, Context } from '@aws-appsync/utils';
 import { update } from '@aws-appsync/utils/dynamodb';
 
@@ -165,7 +164,7 @@ Alternatively, you can also handle the eviction in the response handler.
 
 When the `updateNote` mutation is processed, AWS AppSync tries to evict the entry. If an entry is successfully cleared, the response contains an `apiCacheEntriesDeleted` value in the `extensions` object that shows how many entries were deleted:
 
-```
+```TypeScript
 "extensions": {  "apiCacheEntriesDeleted": 1}
 ```
 
@@ -176,7 +175,7 @@ You can create caching keys based on multiple values from the `context` object.
 
 For example, take the following schema that uses Amazon Cognito user pools as the default auth mode and is backed by an Amazon DynamoDB data source:
 
-```
+```SDL
 type Note {
   id: ID! # a slug; e.g.: "my-first-note-on-graphql"
   title: String
@@ -198,7 +197,7 @@ Since this is a read-heavy system, the `getNote` query is cached using per-resol
 
 The following example shows this:
 
-```
+```TypeScript
 import { util, Context } from '@aws-appsync/utils';
 import { update } from '@aws-appsync/utils/dynamodb';
 
@@ -215,7 +214,7 @@ export const response = (ctx) => ctx.result;
 
 A backend system can also update the `Note` and evict the entry. For example, take this mutation:
 
-```
+```SDL
 type Mutation {
   updateNoteFromBackend(id: ID!, content: String!, username: ID!): Note @aws_iam
 }
@@ -225,7 +224,7 @@ You can evict the entry, but add the components of the caching key to the `cachi
 
 In the following example, the eviction occurs in the response of the resolver:
 
-```
+```TypeScript
 import { util, Context } from '@aws-appsync/utils';
 import { update } from '@aws-appsync/utils/dynamodb';
 

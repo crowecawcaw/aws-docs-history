@@ -1,7 +1,6 @@
 
 
 # Sharing AWS AppSync GraphQL APIs
-<a name="sharing-graphql-apis"></a>
 
 AWS AppSync integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service that enables you to share invoke actions (query, mutation, and subscription operations and connect requests to your real-time WebSocket endpoint) on AWS AppSync GraphQL APIs with other AWS accounts or through AWS Organizations. With AWS RAM, you share resources that you own by creating a resource share. A resource share specifies the resources to share, and the consumers with whom to share them. Consumers can include the following.
 + Specific AWS accounts inside or outside of its organization in AWS Organizations

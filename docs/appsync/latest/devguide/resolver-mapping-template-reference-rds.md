@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template reference for RDS
-<a name="resolver-mapping-template-reference-rds"></a>
 
 The AWS AppSync RDS resolver mapping templates allow developers to send SQL queries to a Data API for Amazon Aurora Serverless and get back the result of these queries.
 
@@ -10,7 +9,7 @@ The AWS AppSync RDS resolver mapping templates allow developers to send SQL quer
 
 The RDS request mapping template is fairly simple:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "statements": [],
@@ -21,7 +20,7 @@ The RDS request mapping template is fairly simple:
 
 Here is the JSON schema representation of the RDS request mapping template, once resolved.
 
-```
+```sh
 {
     "definitions": {},
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -78,7 +77,7 @@ Here is the JSON schema representation of the RDS request mapping template, once
 
 The following is an example of the request mapping template with a static query:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "statements": [
@@ -92,7 +91,7 @@ The following is an example of the request mapping template with a static query:
 
 Common to all request mapping templates, the version field defines the version that the template uses. The version field is required. The value “2018-05-29” is the only version supported for the Amazon RDS mapping templates.
 
-```
+```sh
 "version": "2018-05-29"
 ```
 
@@ -101,7 +100,7 @@ Common to all request mapping templates, the version field defines the version t
 
 The statements array is a placeholder for the developer-provided queries. Currently, up to two queries per request mapping template are supported. The `variableMap` is an optional field that contains aliases that can be used to make the SQL statements shorter and more readable. For example, the following is possible:
 
-```
+```json
 {
 "version": "2018-05-29",
     "statements": [
@@ -123,7 +122,7 @@ AWS AppSync will use the variable map values to construct the **[SqlParameterize
 
 The `variableTypeHintMap` is an optional field containing aliased types that can be used to send [SQL parameter](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/API_SqlParameter.html) type hints. These type hints avoid explicit casting in the SQL statements, making them shorter. For example, the following is possible:
 
-```
+```json
 {
     "version": "2018-05-29",
     "statements": [

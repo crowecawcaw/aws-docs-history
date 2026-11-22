@@ -1,7 +1,6 @@
 
 
 # Testing and debugging resolvers in AWS AppSync (VTL)
-<a name="test-debug-resolvers"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/configuring-resolvers-js.html).
@@ -118,7 +117,7 @@ You can use the `EvaluateMappingTemplate` API command to remotely test your mapp
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template context reference
-<a name="resolver-context-reference"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -13,7 +12,7 @@ AWS AppSync defines a set of variables and functions for working with resolver m
 
 The `$context` variable is a map that holds all of the contextual information for your resolver invocation. It has the following structure:
 
-```
+```json
 {
    "arguments" : { ... },
    "source" : { ... },
@@ -48,7 +47,7 @@ The stash is a map that is made available inside each resolver and function mapp
 A container for the results of this resolver. This field is available only to response mapping templates.  
 For example, if you're resolving the `author` field of the following query:  
 
-```
+```graphql
 query {
     getPost(id: 1234) {
         postId
@@ -63,7 +62,7 @@ query {
 ```
 Then the full `$context` variable that is available when processing a response mapping template might be:  
 
-```
+```json
 {
   "arguments" : {
     id: "1234"
@@ -112,7 +111,7 @@ The `identity` contains the `resolverContext` key, containing the same `resolver
 ** `AWS_IAM` authorization**  
 The `identity` has the following form:  
 
-```
+```json
 {
     "accountId" : "string",
     "cognitoIdentityPoolId" : "string",
@@ -128,7 +127,7 @@ The `identity` has the following form:
 ** `AMAZON_COGNITO_USER_POOLS` authorization**  
 The `identity` has the following form:  
 
-```
+```json
 {
     "sub" : "uuid",
     "issuer" : "string",
@@ -190,13 +189,13 @@ AWS AppSync supports passing custom headers from clients and accessing them in y
 
 Suppose you set a header of `custom` with a value of `nadia` like the following:
 
-```
+```sh
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
 This could then be accessed with `$context.request.headers.custom`. For example, it might be in the following VTL for DynamoDB:
 
-```
+```json
 "custom": $util.dynamodb.toDynamoDBJson($context.request.headers.custom)
 ```
 
@@ -204,7 +203,7 @@ This could then be accessed with `$context.request.headers.custom`. For example,
 
 You can also pass multiple headers in a single request and access these in the resolver mapping template. For example, if the `custom` header is set with two values:
 
-```
+```sh
 curl -XPOST -H "Content-Type:application/graphql" -H "custom:bailey" -H "custom:nadia" -H "x-api-key:<API-KEY-VALUE>" -d '{"query":"mutation { createEvent(name: \"demo\", when: \"Next Friday!\", where: \"Here!\") {id name when where description}}"}' https://<ENDPOINT>/graphql
 ```
 
@@ -225,7 +224,7 @@ When using the default GraphQL endpoint domain name, the value is `null`.
 
 The `info` section contains information about the GraphQL request. This section has the following form:
 
-```
+```json
 {
     "fieldName": "string",
     "parentTypeName": "string",
@@ -257,7 +256,7 @@ When using `$utils.toJson()` on `context.info`, the values that `selectionSetGra
 
 For example, if you are resolving the `getPost` field of the following query:
 
-```
+```graphql
 query {
   getPost(id: $postId) {
     postId
@@ -289,7 +288,7 @@ fragment postFrag on Post {
 
 Then the full `$context.info` variable that is available when processing a mapping template might be:
 
-```
+```json
 {
   "fieldName": "getPost",
   "parentTypeName": "Query",
@@ -318,7 +317,7 @@ Then the full `$context.info` variable that is available when processing a mappi
 
 `selectionSetList` exposes only fields that belong to the current type. If the current type is an interface or union, only selected fields that belong to the interface are exposed. For example, given the following schema:
 
-```
+```graphql
 type Query {
     node(id: ID!): Node
 }
@@ -342,7 +341,7 @@ type Blog implements Node {
 
 And the following query:
 
-```
+```graphql
 query {
     node(id: "post1") {
         id
@@ -359,7 +358,7 @@ query {
 
 When calling `$ctx.info.selectionSetList` at the `Query.node` field resolution, only `id` is exposed:
 
-```
+```json
 "selectionSetList": [
     "id"
 ]
@@ -374,7 +373,7 @@ Since mapping templates represent JSON, input sanitization takes the form of esc
 
 For example, in the following Lambda request mapping template, because we accessed an unsafe customer input string (`$context.arguments.id`), we wrapped it with `$util.toJson()` to prevent unescaped JSON characters from breaking the JSON template.
 
-```
+```json
 {
     "version": "2017-02-28",
     "operation": "Invoke",
@@ -387,7 +386,7 @@ For example, in the following Lambda request mapping template, because we access
 
 As opposed to the mapping template below, where we directly insert `$context.arguments.id` without sanitization. This does not work for strings containing unescaped quotation marks or other JSON reserved characters, and can leave your template open to failure.
 
-```
+```json
 ## DO NOT DO THIS
 {
     "version": "2017-02-28",

@@ -1,7 +1,6 @@
 
 
 # Unsubscribing WebSocket connections using filters in AWS AppSync
-<a name="aws-appsync-real-time-invalidation"></a>
 
 **Important**  
 As of Mar 13, 2025, you can build a real-time PubSub API powered by WebSockets using AWS AppSync Events. For more information, see [Publish events via WebSocket](https://docs.aws.amazon.com/appsync/latest/eventapi/publish-websocket.html) in the *AWS AppSync Events Developer Guide*.
@@ -21,7 +20,7 @@ For more information about invalidation filtering extensions, see [JavaScript re
 
 To see how subscription invalidation works in AWS AppSync, use the following GraphQL schema:
 
-```
+```TypeScript
 type User {
   userId: ID!
   groupId: ID!
@@ -56,7 +55,7 @@ type Query {
 
 Define an invalidation filter in the `removeUserFromGroup` mutation resolver code:
 
-```
+```TypeScript
 import { extensions } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -100,7 +99,7 @@ Note that the subscription response handler can have both subscription filters a
 
 For example, assume that client A subscribes a new user with the ID `{{user-1}}` to the group with the ID `{{group-1}}` using the following subscription request:
 
-```
+```TypeScript
 onGroupMessageCreated(userId : "{{user-1}}", groupId: :"{{group-1}}"){...}
 ```
 
@@ -108,7 +107,7 @@ AWS AppSync runs the subscription resolver, which generates subscription and inv
 
 Now assume that client B subscribes a user with the ID `{{user-2}}` to a group with the ID `{{group-2}}` using the following subscription request:
 
-```
+```TypeScript
 onGroupMessageCreated(userId : "{{user-2}}", groupId: :"{{group-2}}"){...}
 ```
 
@@ -116,14 +115,14 @@ AWS AppSync runs the subscription resolver, which generates subscription and inv
 
 Next, assume that a new group message with the ID `{{message-1}}` is created using a mutation request like in the following example:
 
-```
+```TypeScript
 createGroupMessage(id: "{{message-1}}", groupId :
       "{{group-1}}", message: "test message"){...}
 ```
 
 Subscribed clients matching the defined filters automatically receive the following data payload via WebSockets:
 
-```
+```TypeScript
 {
   "data": {
     "onGroupMessageCreated": {
@@ -139,7 +138,7 @@ Client A receives the message because the filtering criteria match the defined s
 
 Finally, assume that `{{user-1}}` is removed from `{{group-1}}` using the following mutation request:
 
-```
+```TypeScript
 removeUserFromGroup(userId: "user-1", groupId : "group-1"){...}
 ```
 
@@ -147,7 +146,7 @@ The mutation initiates a subscription invalidation as defined in its `extensions
 
 When AWS AppSync invalidates a connection, the client receives a message confirming that they are unsubscribed:
 
-```
+```TypeScript
 {
   "message": "Subscription complete."
 }

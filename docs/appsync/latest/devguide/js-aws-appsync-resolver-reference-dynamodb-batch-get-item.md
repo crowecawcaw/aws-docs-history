@@ -1,7 +1,6 @@
 
 
 # BatchGetItem
-<a name="js-aws-appsync-resolver-reference-dynamodb-batch-get-item"></a>
 
 The `BatchGetItem` request object lets you tell the AWS AppSync DynamoDB function to make a `BatchGetItem` request to DynamoDB to retrieve multiple items, potentially across multiple tables. For this request object, you must specify the following:
 + The table names where to retrieve the items from
@@ -11,7 +10,7 @@ The DynamoDB `BatchGetItem` limits apply and **no condition expression** can be 
 
 The `BatchGetItem` request object has the following structure:
 
-```
+```TypeScript
 type DynamoDBBatchGetItemRequest = {
   operation: 'BatchGetItem';
   tables: {
@@ -55,7 +54,7 @@ Things to remember:
 
 For the following example function request handler:
 
-```
+```TypeScript
 import { util } from '@aws-appsync/utils';
 
 export function request(ctx) {
@@ -72,7 +71,7 @@ export function request(ctx) {
 
 The invocation result available in `ctx.result` is as follows:
 
-```
+```TypeScript
 {
    "data": {
      "authors": [null],

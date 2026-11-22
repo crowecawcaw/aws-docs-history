@@ -1,7 +1,6 @@
 
 
 # Using Delta Sync operations on versioned data sources in AWS AppSync
-<a name="tutorial-delta-sync"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -136,7 +135,7 @@ For more information on executing Sync Queries, see the [Sync Operation document
 
 Let’s start first by calling a `createPost` mutation to create an item:
 
-```
+```graphql
 mutation create {
   createPost(input: {author: "Nadia", title: "My First Post", content: "Hello World"}) {
     id
@@ -152,7 +151,7 @@ mutation create {
 
 The return value of this mutation will look as follows:
 
-```
+```json
 {
   "data": {
     "createPost": {
@@ -170,7 +169,7 @@ The return value of this mutation will look as follows:
 
 If you examine the contents of the *Base* table, you will see a record that looks like:
 
-```
+```json
 {
   "_lastChangedAt": {
     "N": "1574469356331"
@@ -195,7 +194,7 @@ If you examine the contents of the *Base* table, you will see a record that look
 
 If you examine the contents of the *Delta* table, you will see a record that looks like:
 
-```
+```json
 {
   "_lastChangedAt": {
     "N": "1574469356331"
@@ -229,7 +228,7 @@ If you examine the contents of the *Delta* table, you will see a record that loo
 
 Now we can simulate a *Base* query that a client will run to hydrate its local data store using a `syncPosts` query like:
 
-```
+```graphql
 query baseQuery {
   syncPosts(limit: 100, lastSync: null, nextToken: null) {
     items {
@@ -248,7 +247,7 @@ query baseQuery {
 
 The return value of this *Base* query will look as follows:
 
-```
+```json
 {
   "data": {
     "syncPosts": {
@@ -271,7 +270,7 @@ The return value of this *Base* query will look as follows:
 
 We’ll save the `startedAt` value later to simulate a *Delta* query, but first we need to make a change to our table. Let’s use the `updatePost` mutation to modify our existing Post:
 
-```
+```graphql
 mutation updatePost {
   updatePost(input: {id: "81d36bbb-1579-4efe-92b8-2e3f679f628b", _version: 1, title: "Actually this is my Second Post"}) {
     id
@@ -287,7 +286,7 @@ mutation updatePost {
 
 The return value of this mutation will look as follows:
 
-```
+```json
 {
   "data": {
     "updatePost": {
@@ -305,7 +304,7 @@ The return value of this mutation will look as follows:
 
 If you examine the contents of the *Base* table now, you should see the updated item:
 
-```
+```json
 {
   "_lastChangedAt": {
     "N": "1574469851417"
@@ -336,7 +335,7 @@ If you examine the contents of the *Delta* table now, you should see two records
 
 The new item will look like:
 
-```
+```json
 {
   "_lastChangedAt": {
     "N": "1574469851417"
@@ -370,7 +369,7 @@ The new item will look like:
 
 Now we can simulate a *Delta* query to retrieve modifications that occurred when a client was offline. We will use the `startedAt` value returned from our *Base* query to make the request:
 
-```
+```graphql
 query delta {
   syncPosts(limit: 100, lastSync: 1574469602238, nextToken: null) {
     items {
@@ -388,7 +387,7 @@ query delta {
 
 The return value of this *Delta* query will look as follows:
 
-```
+```json
 {
   "data": {
     "syncPosts": {

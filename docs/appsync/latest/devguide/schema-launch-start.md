@@ -1,7 +1,6 @@
 
 
 # Launching a schema in the AWS AppSync console
-<a name="schema-launch-start"></a>
 
 In this example, you will create a `Todo` API that allows users to create `Todo` items for daily chore reminders like {{Finish task}} or {{Pick up groceries}}. This API will demonstrate how to use GraphQL operations where the state persists in a DynamoDB table.
 
@@ -29,7 +28,7 @@ This means we are going to create a new DynamoDB table to attach as a data sourc
 **Note**  
 Our first requirement is to define our schema. This **Model Name** will be the type name, so what you're really doing is creating a `type` called `Todo` that will exist in the schema:  
 
-      ```
+      ```SDL
       type Todo {}
       ```
 
@@ -39,7 +38,7 @@ Our first requirement is to define our schema. This **Model Name** will be the t
 **Note**  
 These are the fields that will exist within the scope of your `Todo` type. Your field name here will be called `id` with a type of `ID!`:  
 
-         ```
+         ```SDL
          type Todo {
          	id: ID!
          }
@@ -51,7 +50,7 @@ AWS AppSync supports multiple scalar values for different use cases.
 **Note**  
 The full type and its fields will look like this:  
 
-         ```
+         ```SDL
          type Todo {
          	id: ID!
          	name: String

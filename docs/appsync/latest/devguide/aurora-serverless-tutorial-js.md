@@ -1,7 +1,6 @@
 
 
 # Using Aurora PostgreSQL with Data API in AWS AppSync
-<a name="aurora-serverless-tutorial-js"></a>
 
  
 
@@ -30,7 +29,7 @@ Before adding an Amazon RDS data source to AWS AppSync, do the following.
 
 1. Create the cluster using the following AWS CLI command.
 
-   ```
+   ```sh
    aws rds create-db-cluster \
                --db-cluster-identifier appsync-tutorial \
                --engine aurora-postgresql \
@@ -43,7 +42,7 @@ Before adding an Amazon RDS data source to AWS AppSync, do the following.
 
 This will return an ARN for the cluster. After creating a cluster, you must add a Serverless v2 instance with the following AWS CLI command.
 
-```
+```sh
 aws rds create-db-instance \
     --db-cluster-identifier appsync-tutorial \
     --db-instance-identifier appsync-tutorial-instance-1 \
@@ -86,7 +85,7 @@ This will return an ARN for the secret. **Take note** of the ARN of your Aurora 
 
 First, create a database named `TESTDB`. In PostgreSQL, a database is a container that holds tables and other SQL objects. Validate that your Aurora Serverless v2 cluster is configured correctly before adding it to your AWS AppSync API. First, create a *TESTDB* database with the `--sql` parameter as follows.
 
-```
+```sh
 aws rds-data execute-statement \
     --resource-arn "arn:aws:rds:us-east-1:111122223333 ISN:cluster:appsync-tutorial" \
     --secret-arn "arn:aws:secretsmanager:us-east-1:111122223333 ISN:secret:appsync-tutorial-rds-secret" \
@@ -153,7 +152,7 @@ To begin:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -239,7 +238,7 @@ export function response(ctx) {
 
 Save the resolver. The type hint marks the `due` properly in our input object as a `DATE` type. This allows the Postgres engine to properly interpret the value. Next, update your schema to remove the `id` from the `CreateTodo` input. Because our Postgres database can return the generated ID, you can rely on it for creation and returning the result as a single request as follows.
 
-```
+```velocity
 input CreateTodoInput {
     due: AWSDate!
     createdAt: String
@@ -249,7 +248,7 @@ input CreateTodoInput {
 
 Make the change and update your schema. Head to the **Queries** editor to add an item to the database as follows.
 
-```
+```velocity
 mutation CreateTodo {
   createTodo(input: {description: "Hello World!", due: "2023-12-31"}) {
     id
@@ -262,7 +261,7 @@ mutation CreateTodo {
 
 You get the following result.
 
-```
+```json
 {
   "data": {
     "createTodo": {
@@ -297,7 +296,7 @@ export function request(ctx) {
 
 We want to filter `todos` based on the `due` date. Let's update the resolver to cast `due` values to `DATE`. Update the list of imports and the request handler as follows.
 
-```
+```javascript
 import { util } from '@aws-appsync/utils';
 import * as rds from '@aws-appsync/utils/rds';
 
@@ -345,7 +344,7 @@ export function response(ctx) {
 
 In the **Queries** editor do the following.
 
-```
+```velocity
 query LIST {
   listTodos(limit: 10, filter: {due: {between: ["2021-01-01", "2025-01-02"]}}) {
     items {
@@ -362,7 +361,7 @@ query LIST {
 
 You can also `update` a `Todo`. From the **Queries** editor, let's update our first `Todo` item of `id` `1`.
 
-```
+```velocity
 mutation UPDATE {
   updateTodo(input: {id: 1, description: "edits"}) {
     description
@@ -374,7 +373,7 @@ mutation UPDATE {
 
 Note that you must specify the `id` of the item you are updating. You can also specify a condition to only update an item that meets specific conditions. For example, we may only want to edit the item if the description starts with `edits` as follows.
 
-```
+```velocity
 mutation UPDATE {
   updateTodo(input: {id: 1, description: "edits: make a change"}, condition: {description: {beginsWith: "edits"}}) {
     description
@@ -450,7 +449,7 @@ mutation UPDATE {
 
 You can `delete` a `Todo` with the `deleteTodo` mutation. This works like the `updateTodo` mutation, and you must specify the `id` of the item you want to delete as follows.
 
-```
+```velocity
 mutation DELETE {
   deleteTodo(input: {id: 1}) {
     description
@@ -484,13 +483,13 @@ mutation TASKS {
 
 Create a new field in your `Query` type called `getTodoAndTasks`as follows.
 
-```
+```javascript
 getTodoAndTasks(id: Int!): Todo
 ```
 
 Add a `tasks` field to the `Todo` type as follows.
 
-```
+```velocity
 type Todo {
     due: AWSDate!
     id: Int!
@@ -524,7 +523,7 @@ export function response(ctx) {
 
 In this code, we use the `sql` tag template to write a SQL statement that we can safely pass a dynamic value to at run time. `createPgStatement` can take up to two SQL requests at a time. We use that to send one query for our `todo` and another for our `tasks`. You could have done this with a `JOIN` statement or any other method for that matter. The idea is being able to write your own SQL statement to implement your business logic. To use the query in the **Queries** editor, do the following.
 
-```
+```velocity
 query TodoAndTasks {
   getTodosAndTasks(id: 2) {
     id

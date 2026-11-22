@@ -1,7 +1,6 @@
 
 
 # What is REST?
-<a name="what-is-rest"></a>
 
 At a high level, representational State Transfer (REST) is a software architecture that imposes conditions on how an API should work. REST was initially created as a guideline to manage communication on a complex network like the internet. You can use REST-based architecture to support high-performing and reliable communication at scale. You can easily implement and modify it, bringing visibility and cross-platform portability to any API system.
 

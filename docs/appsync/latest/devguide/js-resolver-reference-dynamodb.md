@@ -1,7 +1,6 @@
 
 
 # AWS AppSync JavaScript resolver function reference for DynamoDB
-<a name="js-resolver-reference-dynamodb"></a>
 
 The AWS AppSync DynamoDB function allows you to use [GraphQL](https://graphql.org) to store and retrieve data in existing Amazon DynamoDB tables in your account by mapping an incoming GraphQL request into a DynamoDB call, and then mapping the DynamoDB response back to GraphQL. This section describes the request and response handlers for supported DynamoDB operations:
 +  [GetItem](https://docs.aws.amazon.com/appsync/latest/devguide/js-aws-appsync-resolver-reference-dynamodb-getitem.html) - The GetItem request lets you tell the DynamoDB function to make a GetItem request to DynamoDB, and enables you to specify the key of the item in DynamoDB and whether to use a consistent read or not.

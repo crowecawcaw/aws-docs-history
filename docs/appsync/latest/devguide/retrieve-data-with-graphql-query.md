@@ -1,7 +1,6 @@
 
 
 # Using GraphQL queries to retrieve data from a DynamoDB table in the AWS AppSync console
-<a name="retrieve-data-with-graphql-query"></a>
 
 Now that a record exists in your database, you'll get results when you run a query. A query is one of the other fundamental operations of GraphQL. It's used to parse and retrieve information from your data source. In terms of REST APIs, this is similar to the `GET` operation. The main advantage of GraphQL queries is the ability to specify your application's exact data requirements so that you fetch the relevant data at the right time. 
 
@@ -18,7 +17,7 @@ Now that a record exists in your database, you'll get results when you run a que
 
 1. In the code editor, you should see the operation code:
 
-   ```
+   ```SDL
    query listTodos {
      getTodo(id: "") {
        description
@@ -31,7 +30,7 @@ Now that a record exists in your database, you'll get results when you run a que
 
    In `(id:"")`, fill in the value that you saved in the result from the mutation operation. In our example, this would be:
 
-   ```
+   ```SDL
    query listTodos {
      getTodo(id: "{{abcdefgh-1234-1234-1234-abcdefghijkl}}") {
        description
@@ -44,7 +43,7 @@ Now that a record exists in your database, you'll get results when you run a que
 
 1. Choose **Run**, then **listTodos**. The result will appear to the right of the editor. Our example looked like this:
 
-   ```
+   ```SDL
    {
      "data": {
        "getTodo": {
@@ -60,7 +59,7 @@ Now that a record exists in your database, you'll get results when you run a que
 **Note**  
 Queries only return the fields you specify. You can deselect the fields you don't need by deleting them from the return field:  
 
-   ```
+   ```SDL
    {
        description
        id
@@ -73,7 +72,7 @@ You can also uncheck the box in the **Explorer** tab next to the field you want 
 
 1. You can also try the `listTodos` operation by repeating the steps to create an entry in your data source, then repeating the query steps with the `listTodos` operation. Here's an example where we added a second task:
 
-   ```
+   ```SDL
    {
      "createtodoinput": {
        "name": "Second Task",
@@ -86,7 +85,7 @@ You can also uncheck the box in the **Explorer** tab next to the field you want 
 
    By calling the `listTodos` operation, it returned both the old and new entries:
 
-   ```
+   ```SDL
    {
      "data": {
        "listTodos": {

@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS AppSync
-<a name="security-iam"></a>
 
 
 

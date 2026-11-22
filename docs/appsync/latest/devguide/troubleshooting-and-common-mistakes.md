@@ -1,7 +1,6 @@
 
 
 # Troubleshooting and common mistakes in AWS AppSync
-<a name="troubleshooting-and-common-mistakes"></a>
 
 This section discusses some common errors and how to troubleshoot them.
 
@@ -10,13 +9,13 @@ This section discusses some common errors and how to troubleshoot them.
 
 If your GraphQL operation returns the following error message, it may be because your request mapping template structure doesn’t match the Amazon DynamoDB key structure:
 
-```
+```sh
 The provided key element does not match the schema (Service: AmazonDynamoDBv2; Status Code: 400; Error Code
 ```
 
 For example, if your DynamoDB table has a hash key called `"id"` and your template says `"PostID"`, as in the following example, this results in the preceding error, because `"id"` doesn’t match `"PostID"`.
 
-```
+```sh
 {
     "version" : "2017-02-28",
     "operation" : "GetItem",
@@ -33,7 +32,7 @@ If you execute a GraphQL operation, such as a query, and get a null response, th
 
 For example, if you import a schema that defines a `getCustomer(userId: ID!):` field, and you haven’t configured a resolver for this field, then when you execute a query such as `getCustomer(userId:"ID123"){...}`, you’ll get a response such as the following:
 
-```
+```sh
 {
     "data": {
     "getCustomer": null
@@ -50,7 +49,7 @@ If your mapping template isn’t properly configured, you’ll receive a GraphQL
 
 For example, if you don’t have an `operation` field in your request mapping template, or if the `operation` field name is incorrect, you’ll get a response like the following:
 
-```
+```sh
 {
     "data": {
         "searchPosts": null
@@ -100,7 +99,7 @@ type Query {
 
 Which expects a LIST of `[Posts]` objects. For example if you had a Lambda function in Node.JS with something like the following:
 
-```
+```javascript
 const result = { data: data.Items.map(item => { return item ; }) };
 callback(err, result);
 ```

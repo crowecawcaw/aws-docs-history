@@ -1,7 +1,6 @@
 
 
 # Interfaces and unions in GraphQL
-<a name="interfaces-and-unions"></a>
 
 The GraphQL type system supports [Interfaces](https://graphql.org/learn/schema/#interfaces). An interface exposes a certain set of fields that a type must include to implement the interface. 
 
@@ -16,7 +15,7 @@ We could represent an `Event` interface that represents any kind of activity or 
 
 In Schema Definition Language (SDL), the `Event` interface is defined as follows:
 
-```
+```sh
 interface Event {
         id: ID!
         name : String!
@@ -29,7 +28,7 @@ interface Event {
 
 And each of the types implements the `Event` interface as follows:
 
-```
+```sh
 type Concert implements Event {
     id: ID!
     name: String!
@@ -64,7 +63,7 @@ type Conference implements Event {
 
 Interfaces are useful to represent elements that might be of several types. For example, we could search for all events happening at a specific venue. Let’s add a `findEventsByVenue` field to the schema as follows:
 
-```
+```sh
 schema {
     query: Query
 }
@@ -126,7 +125,7 @@ The `findEventsByVenue` returns a list of `Event`. Because GraphQL interface fie
 
 Let’s examine an example of a GraphQL query that uses the interface.
 
-```
+```sh
 query {
   findEventsAtVenue(venueId: "Madison Square Garden") {
     id
@@ -152,7 +151,7 @@ query {
 
 The previous query yields a single list of results, and the server could sort the events by start date by default.
 
-```
+```sh
 {
   "data": {
     "findEventsAtVenue": [
@@ -198,7 +197,7 @@ Since results are returned as a single collection of events, using interfaces to
 
 As stated earlier, unions don't define common sets of fields. A search result might represent many different types. Using the `Event` schema, you can define a `SearchResult` union as follows:
 
-```
+```sh
 type Query {
     # Retrieve Events at a specific Venue
     findEventsAtVenue(venueId: ID!): [Event]
@@ -211,7 +210,7 @@ union SearchResult = Conference | Festival | Concert | Venue
 
 In this case, to query any field on our `SearchResult` union, you must use fragments:
 
-```
+```sh
 query {
   search(query: "Madison") {
     ... on Venue {
@@ -256,7 +255,7 @@ With AWS AppSync, this hint is represented by a meta field named `__typename`, w
 
 Let’s reuse the previous schema. You can follow along by navigating to the console and adding the following under the **Schema** page:
 
-```
+```sh
 schema {
     query: Query
 }
@@ -322,7 +321,7 @@ Let’s attach a resolver to the `Query.search` field. In the `Resolvers` sectio
 
 In the request mapping template pane, enter the following:
 
-```
+```sh
 {
     "version" : "2018-05-29",
     "payload":
@@ -359,7 +358,7 @@ If the application returns the type name as part of the `id` field, the type res
 **Note**  
 You can also perform this task as part of your Lambda function, if you are using the Lambda data source.
 
-```
+```sh
 #foreach ($result in $context.result)
     ## Extract type name from the id field.
     #set( $typeName = $result.id.split("-")[0] )
@@ -370,7 +369,7 @@ $util.toJson($context.result)
 
 Run the following query:
 
-```
+```sh
 query {
   search(query: "Madison") {
     ... on Venue {
@@ -401,7 +400,7 @@ query {
 
 The query yields the following results:
 
-```
+```sh
 {
   "data": {
     "search": [

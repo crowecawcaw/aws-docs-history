@@ -1,7 +1,6 @@
 
 
 # AWS AppSync resolver mapping template reference for HTTP
-<a name="resolver-mapping-template-reference-http"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html).
@@ -11,7 +10,7 @@ The AWS AppSync HTTP resolver mapping templates enable you to send requests from
 ## Request mapping template
 <a name="request-mapping-template"></a>
 
-```
+```sh
 {
     "version": "2018-05-29",
     "method": "PUT|POST|GET|DELETE|PATCH",
@@ -26,7 +25,7 @@ The AWS AppSync HTTP resolver mapping templates enable you to send requests from
 
 After the HTTP request mapping template is resolved, the JSON schema representation of the request mapping template looks like the following:
 
-```
+```sh
 {
     "$id": "https://aws.amazon.com/appsync/request-mapping-template.json",
     "type": "object",
@@ -102,7 +101,7 @@ After the HTTP request mapping template is resolved, the JSON schema representat
 
 Following is an example of an HTTP POST request, with a `text/plain` body:
 
-```
+```sh
 {
     "version": "2018-05-29",
     "method": "POST",
@@ -124,7 +123,7 @@ This applies only to the Request mapping template.
 
 Defines the version that the template uses. `version` is common to all request mapping templates and is required.
 
-```
+```sh
 "version": "2018-05-29"
 ```
 
@@ -136,7 +135,7 @@ This applies only to the Request mapping template.
 
 HTTP method or verb (GET, POST, PUT, PATCH, or DELETE) that AWS AppSync sends to the HTTP endpoint.
 
-```
+```sh
 "method": "PUT"
 ```
 
@@ -148,13 +147,13 @@ This applies only to the Request mapping template.
 
 The resource path that you want to access. Along with the endpoint in the HTTP data source, the resource path forms the URL that the AWS AppSync service makes a request to.
 
-```
+```sh
 "resourcePath": "/v1/users"
 ```
 
 When the mapping template is evaluated, this path is sent as part of the HTTP request, including the HTTP endpoint. For example, the previous example might translate to the following:
 
-```
+```sh
 PUT <endpoint>/v1/users
 ```
 
@@ -170,14 +169,14 @@ Used to specify what action your search performs, most commonly by setting the *
 The header information, as key-value pairs. Both the key and the value must be strings.  
 For example:  
 
-```
+```sh
 "headers" : {
     "Content-Type" : "application/json"
 }
 ```
 Currently supported `Content-Type` headers are:  
 
-```
+```sh
 text/*
 application/xml
 application/json
@@ -189,7 +188,7 @@ application/x-ndjson
 ```
  **Note**: You can’t set the following HTTP headers:  
 
-```
+```sh
 HOST
 CONNECTION
 USER-AGENT
@@ -201,7 +200,7 @@ CONTENT_LENGTH
 ** **query** **  
 Key-value pairs that specify common options, such as code formatting for JSON responses. Both the key and the value must be a string. The following example shows how you can send a query string as `?type=json`:  
 
-```
+```sh
 "query" : {
     "type" : "json"
 }
@@ -210,7 +209,7 @@ Key-value pairs that specify common options, such as code formatting for JSON re
 ** **body** **  
 The body contains the HTTP request body that you choose to set. The request body is always a UTF-8 encoded string unless the content type specifies the charset.  
 
-```
+```sh
 "body":"body string"
 ```
 

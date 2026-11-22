@@ -1,7 +1,6 @@
 
 
 # TransactWriteItems
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-transact-write-items"></a>
 
 The `TransactWriteItems` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `TransactWriteItems` request to DynamoDB to write multiple items, potentially to multiple tables. For this request template, you must specify the following:
 + The destination table name of each request item
@@ -12,7 +11,7 @@ The DynamoDB `TransactWriteItems` limits apply.
 
 The `TransactWriteItems` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version": "2018-05-29",
     "operation": "TransactWriteItems",
@@ -169,7 +168,7 @@ Things to remember:
 
 For the following example request mapping template:
 
-```
+```TypeScript
 {
     "version": "2018-05-29",
     "operation": "TransactWriteItems",
@@ -222,7 +221,7 @@ For the following example request mapping template:
 
 If the transaction succeeds, the invocation result available in `$ctx.result` is as follows:
 
-```
+```TypeScript
 {
     "keys": [
        // Key of the PutItem request
@@ -240,7 +239,7 @@ If the transaction succeeds, the invocation result available in `$ctx.result` is
 
 If the transaction fails due to condition check failure of the `PutItem` request, the invocation result available in `$ctx.result` is as follows:
 
-```
+```TypeScript
 {
     "keys": null,
     "cancellationReasons": [

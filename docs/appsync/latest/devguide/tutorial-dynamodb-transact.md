@@ -1,7 +1,6 @@
 
 
 # Performing DynamoDB transactions in AWS AppSync
-<a name="tutorial-dynamodb-transact"></a>
 
 **Note**  
 We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS runtime and its guides [here](https://docs.aws.amazon.com/appsync/latest/devguide/tutorials-js.html).
@@ -22,7 +21,7 @@ Like other resolvers, you need to create a data source in AWS AppSync and either
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ For this tutorial, any role with the following inline policy will work. Replace 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

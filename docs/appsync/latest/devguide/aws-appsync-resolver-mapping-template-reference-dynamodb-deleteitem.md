@@ -1,7 +1,6 @@
 
 
 # DeleteItem
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-deleteitem"></a>
 
 The `DeleteItem` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `DeleteItem` request to DynamoDB, and enables you to specify the following:
 + The key of the item in DynamoDB
@@ -9,7 +8,7 @@ The `DeleteItem` request mapping document lets you tell the AWS AppSync DynamoDB
 
 The `DeleteItem` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2018-05-29",
     "operation" : "DeleteItem",
@@ -66,7 +65,7 @@ For more information about response mapping templates, see [Resolver mapping tem
 
 The following example is a mapping template for a GraphQL mutation `deleteItem(id: ID!)`. If an item exists with this ID, it’s deleted.
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "DeleteItem",
@@ -81,7 +80,7 @@ The following example is a mapping template for a GraphQL mutation `deleteItem(i
 
 The following example is a mapping template for a GraphQL mutation `deleteItem(id: ID!, expectedVersion: Int!)`. If an item exists with this ID, it’s deleted, but only if its `version` field set to `expectedVersion`:
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "DeleteItem",

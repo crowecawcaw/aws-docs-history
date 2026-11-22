@@ -1,13 +1,12 @@
 
 
 # Filters
-<a name="js-aws-appsync-resolver-reference-dynamodb-filter"></a>
 
 When querying objects in DynamoDB using the `Query` and `Scan` operations, you can optionally specify a `filter` that evaluates the results and returns only the desired values.
 
 The filter property of a `Query` or `Scan` request has the following structure:
 
-```
+```TypeScript
 type DynamoDBExpression = {
   expression: string;
   expressionNames?: { [key: string]: string};
@@ -33,7 +32,7 @@ The following example is a filter section for a request, where entries retrieved
 
 Here we use the `util.transform.toDynamoDBFilterExpression` to automatically create a filter from an object:
 
-```
+```TypeScript
 const filter = util.transform.toDynamoDBFilterExpression({
   title: { beginsWith: 'far away' },
 });

@@ -1,7 +1,6 @@
 
 
 # Structuring a GraphQL API (blank or imported APIs)
-<a name="blank-import-api"></a>
 
 Before you create your GraphQL API from a blank template, it would help to review the concepts surrounding GraphQL. There are three fundamental components of a GraphQL API:
 

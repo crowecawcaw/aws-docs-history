@@ -1,7 +1,6 @@
 
 
 # Query
-<a name="aws-appsync-resolver-mapping-template-reference-dynamodb-query"></a>
 
 The `Query` request mapping document lets you tell the AWS AppSync DynamoDB resolver to make a `Query` request to DynamoDB, and enables you to specify the following:
 + Key expression
@@ -14,7 +13,7 @@ The `Query` request mapping document lets you tell the AWS AppSync DynamoDB reso
 
 The `Query` mapping document has the following structure:
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "Query",
@@ -103,7 +102,7 @@ For more information about response mapping templates, see [Resolver mapping tem
 
 The results have the following structure:
 
-```
+```TypeScript
 {
     items = [ ... ],
     nextToken = "a pagination token",
@@ -129,7 +128,7 @@ The following example is a mapping template for a GraphQL query `getPosts(owner:
 
 In this example, a global secondary index on a table is queried to return all posts owned by the specified ID.
 
-```
+```TypeScript
 {
     "version" : "2017-02-28",
     "operation" : "Query",
