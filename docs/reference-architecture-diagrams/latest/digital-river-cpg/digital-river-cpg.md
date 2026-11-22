@@ -1,7 +1,6 @@
 
 
 # Digital River for CPG, B2B, and DTC on AWS
-<a name="digital-river-cpg"></a>
 
 Publication date: **March 28, 2022 ([Diagram history](#dr-history))**
 
