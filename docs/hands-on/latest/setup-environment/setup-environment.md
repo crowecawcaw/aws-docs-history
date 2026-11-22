@@ -1,7 +1,6 @@
 
 
 # Setting Up Your AWS Environment
-<a name="setup-environment"></a>
 
 
 |  |  | 

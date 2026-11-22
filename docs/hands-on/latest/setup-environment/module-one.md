@@ -1,7 +1,6 @@
 
 
 # Module 1: Create Your AWS Account
-<a name="module-one"></a>
 
 
 |  |  | 

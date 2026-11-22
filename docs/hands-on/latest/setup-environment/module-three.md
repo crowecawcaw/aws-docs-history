@@ -1,7 +1,6 @@
 
 
 # Module 3: (Optional) Set Up the AWS CLI
-<a name="module-three"></a>
 
 
 |  |  | 

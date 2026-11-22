@@ -1,7 +1,6 @@
 
 
 # Module 2: (Optional) For Multiple AWS Accounts Managed Through AWS Organizations
-<a name="module-two"></a>
 
 ## Overview
 <a name="overview"></a>
