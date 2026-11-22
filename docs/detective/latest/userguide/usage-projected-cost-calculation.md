@@ -1,7 +1,6 @@
 
 
 # How Amazon Detective calculates projected cost
-<a name="usage-projected-cost-calculation"></a>
 
 To calculate the projected cost values that it displays on the **Usage** page, Detective does the following.
 

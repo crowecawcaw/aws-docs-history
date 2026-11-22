@@ -1,7 +1,6 @@
 
 
 # Step 2: Adding the required IAM permissions to your account in Detective
-<a name="iam-permissions"></a>
 
 This topic explains the details of the AWS Identity and Access Management (IAM) permissions policy that you must add to your IAM identity.
 
@@ -16,7 +15,7 @@ If you do not have the required permissions to attach this policy to your IAM id
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

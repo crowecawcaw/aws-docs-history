@@ -1,7 +1,6 @@
 
 
 # Inviting individual accounts to a behavior graph
-<a name="accounts-invited-members-add-individual"></a>
 
 You can manually specify the member accounts to invite to contribute their data to a behavior graph.
 

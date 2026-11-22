@@ -1,7 +1,6 @@
 
 
 # Source data used in a Detective behavior graph
-<a name="detective-source-data-about"></a>
 
 To populate a behavior graph, Amazon Detective uses source data from the behavior graph administrator account and member accounts.
 

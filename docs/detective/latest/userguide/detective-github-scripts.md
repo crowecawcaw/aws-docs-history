@@ -1,7 +1,6 @@
 
 
 # Using Detective Python scripts to manage accounts
-<a name="detective-github-scripts"></a>
 
 Amazon Detective provides a set of open-source Python scripts in the GitHub repository [amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts). The scripts require Python 3.
 
@@ -68,7 +67,7 @@ The role trust relationship must allow your instance or local credentials to ass
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

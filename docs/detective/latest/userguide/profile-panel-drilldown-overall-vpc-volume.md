@@ -1,7 +1,6 @@
 
 
 # Activity details for overall VPC flow volume
-<a name="profile-panel-drilldown-overall-vpc-volume"></a>
 
 For an EC2 instance, the activity details for **Overall VPC flow volume** show the interactions between the EC2 instance and IP addresses during a selected time range.
 

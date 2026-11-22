@@ -1,7 +1,6 @@
 
 
 # Viewing your list of behavior graph invitations
-<a name="member-view-graph-invitations"></a>
 
 From the Amazon Detective console, Detective API, or AWS Command Line Interface, a member account can see their behavior graph invitations.
 

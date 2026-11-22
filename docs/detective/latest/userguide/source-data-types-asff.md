@@ -1,7 +1,6 @@
 
 
 # **AWS security findings**
-<a name="source-data-types-asff"></a>
 
 **AWS security findings** is an optional data source package that can be added to your Detective behavior graph.
 

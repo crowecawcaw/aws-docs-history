@@ -1,7 +1,6 @@
 
 
 # Viewing details for associated findings in Detective
-<a name="entity-finding-list"></a>
 
 Each entity profile contains an associated findings panel that lists the findings that involved the entity during the current scope time. One indication that an entity has been compromised is its involvement in multiple findings. The types of findings can also provide insight into the type of activity to be concerned about.
 

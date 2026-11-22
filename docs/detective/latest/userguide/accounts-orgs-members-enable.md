@@ -1,7 +1,6 @@
 
 
 # Enabling organization accounts as Detective member accounts
-<a name="accounts-orgs-members-enable"></a>
 
 If you do not automatically enable new organization accounts, then you can enable those accounts manually. You must also manually enable accounts that you disassociated.
 

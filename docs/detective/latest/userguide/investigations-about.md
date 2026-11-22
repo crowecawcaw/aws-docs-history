@@ -1,7 +1,6 @@
 
 
 # Detective Investigation
-<a name="investigations-about"></a>
 
 You can use Amazon Detective Investigation to investigate IAM users and IAM roles using indicators of compromise, which can help you determine if a resource is involved in a security incident. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. With Detective Investigations you can maximize efficiency, focus on the security threats, and strengthen incidence response capabilities. 
 

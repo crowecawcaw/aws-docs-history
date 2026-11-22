@@ -1,7 +1,6 @@
 
 
 # How Amazon Detective works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Detective resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. A Detective administrator must have AWS Identity and Access Management (IAM) policies that grant IAM users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the principal that require those permissions.
 

@@ -1,7 +1,6 @@
 
 
 # How Detective is used for investigation
-<a name="detective-investigation-about"></a>
 
 Amazon Detective makes it easy to analyze, investigate, and quickly identify the root cause of security findings or suspicious activity. Detective provides tools to support the overall investigation process. An investigation in Detective can start from a finding, a finding group, or an entity. 
 

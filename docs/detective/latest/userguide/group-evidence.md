@@ -1,7 +1,6 @@
 
 
 # Informational findings in finding groups
-<a name="group-evidence"></a>
 
 Amazon Detective identifies additional information related to a finding group based on data in your behavior graph collected within the last 45 days. Detective presents this information as a finding with the **Informational** severity. Evidence provides supporting information that highlights an unusual activity or unknown behavior that is potentially suspicious when viewed within a finding group. This might include newly observed geolocations or API calls observed within the scope time of a finding. Evidence findings are only viewable in Detective and are not sent to AWS Security Hub CSPM.
 

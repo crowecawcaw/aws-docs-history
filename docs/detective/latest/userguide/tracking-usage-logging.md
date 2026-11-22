@@ -1,7 +1,6 @@
 
 
 # Forecasting and monitoring Detective costs
-<a name="tracking-usage-logging"></a>
 
 To help you to track your Detective activity, the **Usage** page shows the amount of data ingested and the projected cost.
 + For administrator accounts, the **Usage** page shows the data volume and projected cost across the entire behavior graph.

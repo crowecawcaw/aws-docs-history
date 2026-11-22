@@ -1,7 +1,6 @@
 
 
 # Enabling Detective
-<a name="detective-enabling"></a>
 
 You can enable Detective from the Detective console, the Detective API, or the AWS Command Line Interface.
 

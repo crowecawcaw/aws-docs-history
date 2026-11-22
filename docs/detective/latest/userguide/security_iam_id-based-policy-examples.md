@@ -1,7 +1,6 @@
 
 
 # Amazon Detective identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Detective resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API.
 
@@ -50,7 +49,7 @@ To use the Detective console to perform any member account actions, the user or 
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ This example policy is intended for administrator account users who are only res
 
 ****  
 
-```
+```json
 {"Version":"2012-10-17",		 	 	 
   "Statement":[
    {
@@ -124,7 +123,7 @@ This example policy is intended for administrator account users who use the beha
 
 ****  
 
-```
+```json
 {"Version":"2012-10-17",		 	 	 
   "Statement":[
    {
@@ -153,7 +152,7 @@ This example policy is intended for users belonging to a member account. In the 
 
 ****  
 
-```
+```json
 {"Version":"2012-10-17",		 	 	 
   "Statement":[
    {
@@ -185,7 +184,7 @@ The following policy allows the user to use a behavior graph for investigation i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -221,7 +220,7 @@ The following policy prevents the users from using a behavior graph for investig
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":[ {

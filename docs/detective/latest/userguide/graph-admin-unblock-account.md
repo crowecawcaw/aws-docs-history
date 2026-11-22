@@ -1,7 +1,6 @@
 
 
 # Enabling a member account that is Not enabled
-<a name="graph-admin-unblock-account"></a>
 
 After a member account accepts an invitation, Amazon Detective checks the number of member accounts. The maximum number of member accounts for a behavior graph is 1,200. If your behavior graph already contains 1,200 member accounts, then new accounts cannot be enabled. If Detective cannot enable the member account, then it sets the member account status to **Not enabled**. 
 

@@ -1,7 +1,6 @@
 
 
 # Using Organizations to manage behavior graph accounts
-<a name="accounts-orgs-transition"></a>
 
 You might have an existing behavior graph with member accounts that accepted a manual invitation. If you are enrolled in AWS Organizations, use the following steps to use Organizations to enable and manage member accounts instead of using the manual invitation process:
 

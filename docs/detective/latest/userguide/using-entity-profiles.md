@@ -1,7 +1,6 @@
 
 
 # Using entity profiles
-<a name="using-entity-profiles"></a>
 
 An entity profile appears when you perform one of the following actions:
 + From the Amazon GuardDuty console, choose the option to investigate an entity that is related to a selected finding.

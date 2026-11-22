@@ -1,7 +1,6 @@
 
 
 # Overall Kubernetes API activity involving EKS cluster
-<a name="profile-panel-drilldown-kubernetes-api-volume"></a>
 
 The activity details for **Overall Kubernetes API activity involving EKS cluster** show the number of successful and failed Kubernetes API calls that were issued during a selected time range.
 

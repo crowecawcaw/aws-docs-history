@@ -1,7 +1,6 @@
 
 
 # Analyzing a finding overview in Detective
-<a name="finding-overview"></a>
 
 A Detective finding overview provides detailed information about the finding. It also displays a summary of the involved entities, with links to the associated entity profiles.
 

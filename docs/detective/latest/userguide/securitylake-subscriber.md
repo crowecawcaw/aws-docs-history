@@ -1,7 +1,6 @@
 
 
 # Step 1: Creating a Security Lake subscriber in Detective
-<a name="securitylake-subscriber"></a>
 
 This topic explains how to use the Detective console to create a Security Lake subscriber.
 

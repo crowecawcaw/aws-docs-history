@@ -1,7 +1,6 @@
 
 
 # Recommendations to enable Detective
-<a name="detective-recommendations"></a>
 
 Consider following these recommendations before enabling Detective
 

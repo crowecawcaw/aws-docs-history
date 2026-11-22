@@ -1,7 +1,6 @@
 
 
 # Archiving an Amazon GuardDuty finding
-<a name="finding-update-status"></a>
 
 When you complete your investigation of an Amazon GuardDuty finding, you can archive the finding from Amazon Detective. This saves you the trouble of having to return to GuardDuty to make the update. Archiving a finding indicates that you have finished your investigation of it.
 

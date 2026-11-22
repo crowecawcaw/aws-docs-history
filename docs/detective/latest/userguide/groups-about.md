@@ -1,7 +1,6 @@
 
 
 # Analyzing finding groups
-<a name="groups-about"></a>
 
 Amazon Detective finding groups let you examine multiple activities as they relate to a potential security event. A finding group in Amazon Detective is created when Detective detects a pattern or relationship among multiple findings that suggest they are related to the same potential security incident. This grouping helps in managing and investigating related findings more efficiently.
 

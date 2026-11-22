@@ -1,7 +1,6 @@
 
 
 # Detective Investigations report summary
-<a name="investigations-summary"></a>
 
 Investigations summary highlights anomalous indicators that require attention, for the selected scope time. Using the summary, you can more quickly identify the root cause of potential security issues, identify patterns, and understand the resources impacted by security events. 
 

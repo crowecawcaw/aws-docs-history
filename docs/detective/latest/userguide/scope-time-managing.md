@@ -1,7 +1,6 @@
 
 
 # Managing the scope time
-<a name="scope-time-managing"></a>
 
 Customize the scope time used to limit the data displayed on entity profiles.
 

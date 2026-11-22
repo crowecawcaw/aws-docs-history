@@ -1,7 +1,6 @@
 
 
 # Prerequisites to enable Detective
-<a name="detective-prerequisites"></a>
 
 Make sure that the following requirements are met before enabling Detective.
 

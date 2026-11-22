@@ -1,7 +1,6 @@
 
 
 # Key management for Amazon Detective
-<a name="key-management"></a>
 
 Because Detective does not store any personally identifiable customer data, it uses AWS managed keys.
 

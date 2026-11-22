@@ -1,7 +1,6 @@
 
 
 # Removing the Detective administrator account
-<a name="accounts-remove-admin-overview"></a>
 
 The organization management account can remove the current Detective administrator account in a Region. When you remove the Detective administrator account, Detective only removes it from the current Region. It does not change the delegated administrator account in Organizations.
 

@@ -1,7 +1,6 @@
 
 
 # Types of profile panel visualizations
-<a name="profile-panel-display-types"></a>
 
 Profile panel content can take one of the following forms.
 

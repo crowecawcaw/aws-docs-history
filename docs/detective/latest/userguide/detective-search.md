@@ -1,7 +1,6 @@
 
 
 # Searching for a finding or entity in Detective
-<a name="detective-search"></a>
 
 With the Amazon Detective search function, you can search for a finding or entity. From the search results, you can navigate to an entity profile or a finding overview. If your search returns more than 10,000 results, only the top 10,000 results are displayed. Changing the sorting order changes the returned results. 
 

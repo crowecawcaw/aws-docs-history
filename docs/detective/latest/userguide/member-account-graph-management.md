@@ -1,7 +1,6 @@
 
 
 # For member accounts: Managing behavior graph invitations and memberships
-<a name="member-account-graph-management"></a>
 
 Amazon Detective charges each member account for the ingested data for each behavior graph that it contributes to.
 

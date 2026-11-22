@@ -1,7 +1,6 @@
 
 
 # Finding group profiles
-<a name="group-profile"></a>
 
 When you select a group title, a finding group profile opens with additional details about that group. The details panel in the finding groups profile page supports the display of up to 1000 entities and findings for finding groups parent and children.
 

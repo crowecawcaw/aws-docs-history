@@ -1,7 +1,6 @@
 
 
 # Downloading a Detective Investigations report
-<a name="download-investigation"></a>
 
 You can download the Detective Investigations report in JSON format, to analyze it further or store it to your preferred storage solution such as an Amazon S3 bucket. 
 

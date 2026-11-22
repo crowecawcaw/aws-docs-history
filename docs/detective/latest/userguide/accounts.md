@@ -1,7 +1,6 @@
 
 
 # Managing accounts in Detective
-<a name="accounts"></a>
 
 When an account enables Detective, it becomes the administrator account for the behavior graph, and it chooses the member accounts for the behavior graph. An administrator account can invite accounts to join a behavior graph. When the account accepts the invitation, Detective enables the account as a member account. Member accounts that are added by invitation can remove themselves from the behavior graph.
 

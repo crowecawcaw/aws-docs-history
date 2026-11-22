@@ -1,7 +1,6 @@
 
 
 # Responding to a behavior graph invitation
-<a name="member-invitation-response"></a>
 
 After you accept an invitation, Detective checks the number of member accounts. The maximum number of member accounts for a behavior graph is 1,200. If your behavior graph already contains 1,200 member accounts, then new accounts cannot be enabled.
 

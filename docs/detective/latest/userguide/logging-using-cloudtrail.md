@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Detective API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Detective is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Detective. CloudTrail captures all API calls for Detective as events. The calls captured include calls from the Detective console and code calls to the Detective API operations.
 + If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Detective.
@@ -51,7 +50,7 @@ An event represents a single request from any source. Events include information
 
 The following example shows a CloudTrail log entry that demonstrates the `AcceptInvitation` action.
 
-```
+```json
       {
             "EventId": "f2545ee3-170f-4340-8af4-a983c669ce37",
             "Username": "JaneRoe",

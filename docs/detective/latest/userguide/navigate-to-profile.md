@@ -1,7 +1,6 @@
 
 
 # Navigating directly to an entity profile or finding overview
-<a name="navigate-to-profile"></a>
 
 To navigate directly to an entity profile or finding overview in Amazon Detective, you can use one of these options.
 + From Amazon GuardDuty or AWS Security Hub CSPM, you can pivot from a GuardDuty finding to the corresponding Detective finding profile.

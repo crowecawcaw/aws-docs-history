@@ -1,7 +1,6 @@
 
 
 # How Detective populates a behavior graph
-<a name="behavior-graph-population-about"></a>
 
 To provide the raw data for investigations, Detective brings together data from across your AWS environment and beyond, including the following:
 + Log data, including Amazon Virtual Private Cloud (Amazon VPC) and AWS CloudTrail

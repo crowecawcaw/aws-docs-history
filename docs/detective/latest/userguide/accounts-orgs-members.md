@@ -1,7 +1,6 @@
 
 
 # Managing organization accounts as Detective member accounts
-<a name="accounts-orgs-members"></a>
 
 In the organization behavior graph, the Detective administrator account determines which organization accounts to enable as member accounts. By default, new organization accounts are not enabled as member accounts. Their status is **Not a member**. The Detective administrator account can configure Detective to automatically enable new organization accounts as member accounts in the organization behavior graph.
 

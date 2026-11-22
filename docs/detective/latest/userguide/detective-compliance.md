@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon Detective
-<a name="detective-compliance"></a>
 
 Amazon Detective is in Scope of the AWS assurance program. For more information, see [Health Information Trust Alliance Common Security Framework (HITRUST) CSF](https://aws.amazon.com/compliance/services-in-scope/HITRUST-CSF/). 
 

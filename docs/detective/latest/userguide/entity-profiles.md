@@ -1,7 +1,6 @@
 
 
 # Analyzing entities in Amazon Detective
-<a name="entity-profiles"></a>
 
 An entity is a single object extracted from the source data. Examples include a specific IP address, Amazon EC2 instance, or AWS account. For a list of entity types, see [Types of entities in the behavior graph data structure](graph-data-structure-overview.md#entity-types).
 

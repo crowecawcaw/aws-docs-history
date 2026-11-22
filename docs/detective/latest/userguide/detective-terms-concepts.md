@@ -1,7 +1,6 @@
 
 
 # Amazon Detective concepts and terminology
-<a name="detective-terms-concepts"></a>
 
 The following terms and concepts are important for understanding Amazon Detective and how it works.
 

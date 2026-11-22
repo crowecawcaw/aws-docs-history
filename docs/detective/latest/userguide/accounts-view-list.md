@@ -1,7 +1,6 @@
 
 
 # Viewing the list of accounts
-<a name="accounts-view-list"></a>
 
 The administrator account can use the Detective console or API to view a list of accounts. The list can include:
 + Accounts that the administrator account invited to join the behavior graph. These accounts have a type of **By invitation**.

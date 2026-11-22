@@ -1,7 +1,6 @@
 
 
 # Amazon Detective Regions and quotas
-<a name="regions-limitations"></a>
 
 When using Amazon Detective, be aware of these quotas.
 

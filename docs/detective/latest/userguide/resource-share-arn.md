@@ -1,7 +1,6 @@
 
 
 # Step 3: Accepting the Resource Share ARN invitation
-<a name="resource-share-arn"></a>
 
 This topic explains the steps to accept the Resource Share ARN invitation using a AWS CloudFormation template, which is a required step before you enable Detective integration with Security Lake.
 
@@ -41,7 +40,7 @@ You must create an CloudFormation service role to create a stack using the Cloud
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -146,7 +145,7 @@ In the following policy, `CFN-DetectiveSecurityLakeIntegration` used in this pol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -228,7 +227,7 @@ In the following policy, `CFN-DetectiveSecurityLakeIntegration` used in this pol
 
 1. Review and check all the **I Acknowledge** boxes and then click the **Create stack** button. For more details, review the following IAM resources that will be created.
 
-```
+```json
 * ResourceShareAcceptorCustomResourceFunction
     - ResourceShareAcceptorLambdaRole
     - ResourceShareAcceptorLogsAccessPolicy
@@ -247,7 +246,7 @@ In the following policy, `CFN-DetectiveSecurityLakeIntegration` used in this pol
 
 (Optional) If you let this template generate an `AthenaResultsBucket` for you, you must attach the following policy to the IAM principals in `LakeFormationPrincipals`.
 
-```
+```json
 {
   "Sid": "S3ObjectPermissions",
   "Effect": "Allow",

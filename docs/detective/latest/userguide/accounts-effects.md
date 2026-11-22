@@ -1,7 +1,6 @@
 
 
 # Effect of account actions on behavior graphs
-<a name="accounts-effects"></a>
 
 These actions have the following effects on Amazon Detective data and access.
 

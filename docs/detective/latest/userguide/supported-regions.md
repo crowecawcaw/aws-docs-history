@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions for integrating Detective with Security Lake
-<a name="supported-regions"></a>
 
 You can integrate Detective with Security Lake in the following AWS Regions.
 

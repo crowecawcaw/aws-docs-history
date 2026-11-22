@@ -1,7 +1,6 @@
 
 
 # Designating a Detective administrator
-<a name="accounts-designate-admin-console"></a>
 
 The organization management account can use the Detective console to designate the Detective administrator account.
 

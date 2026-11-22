@@ -1,7 +1,6 @@
 
 
 # Overview of the behavior graph data structure
-<a name="graph-data-structure-overview"></a>
 
 The behavior graph data structure defines the structure of the extracted and analyzed data. It also defines how the source data is mapped to the behavior graph.
 

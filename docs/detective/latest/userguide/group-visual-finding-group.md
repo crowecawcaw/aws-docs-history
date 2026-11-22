@@ -1,7 +1,6 @@
 
 
 # Finding group visualization
-<a name="group-visual-finding-group"></a>
 
 Amazon Detective provides an interactive visualization of finding groups. This visualization is designed to help you investigate issues faster and more thoroughly with less effort. The finding group **Visualization** panel displays the findings and entities involved in a finding group. You can use this interactive visualization to analyze, understand, and triage the impact of the finding group. This panel helps visualize the information presented in the **Involved entities** and **Involved findings** table. From the visual presentation, you can select findings or entities for further analysis.
 

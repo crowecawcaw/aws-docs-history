@@ -1,7 +1,6 @@
 
 
 # Removing your account from a behavior graph
-<a name="member-remove-self-from-graph"></a>
 
 After you accept an invitation, you can remove your account from a behavior graph at any time. When you remove your account from a behavior graph, Amazon Detective stops ingesting data from your account into the behavior graph. Existing data remains in the behavior graph.
 
