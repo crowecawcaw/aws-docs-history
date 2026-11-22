@@ -1,7 +1,6 @@
 
 
 # Testing your gateway's network connectivity
-<a name="MaintenanceTestGatewayConnectivity-fgw"></a>
 
 You can use your gateway's local console to test your network connectivity. This test can be useful when you are troubleshooting network issues with your gateway.
 

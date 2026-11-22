@@ -1,7 +1,6 @@
 
 
 # Deploying and configuring the gateway VM host
-<a name="resource-vm-setup"></a>
 
 The following topics provide information about setting up the virtual machine host platform for your gateway.
 

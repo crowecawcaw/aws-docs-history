@@ -1,7 +1,6 @@
 
 
 # Deploy a customized Amazon EC2 host for S3 File Gateway
-<a name="ec2-gateway-file"></a>
 
 You can deploy and activate an Amazon S3 File Gateway on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The AWS Storage Gateway Amazon Machine Image (AMI) is available as a community AMI.
 

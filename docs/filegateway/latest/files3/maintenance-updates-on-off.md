@@ -1,7 +1,6 @@
 
 
 # Turn maintenance updates on or off
-<a name="maintenance-updates-on-off"></a>
 
 When maintenance updates are turned on, your gateway automatically applies these updates according to the configured maintenance window schedule. For more information, see [Modify the gateway maintenance window schedule](https://docs.aws.amazon.com/filegateway/latest/files3/MaintenanceManagingUpdate-common.html#configure-maintenance-window-schedule).
 

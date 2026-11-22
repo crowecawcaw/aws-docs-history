@@ -1,7 +1,6 @@
 
 
 # Configuring an HTTP proxy
-<a name="MaintenanceRoutingProxy-fgw"></a>
 
  File Gateways support configuration of an HTTP proxy. 
 

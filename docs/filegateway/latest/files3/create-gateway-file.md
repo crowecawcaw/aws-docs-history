@@ -1,7 +1,6 @@
 
 
 # Create and activate an Amazon S3 File Gateway
-<a name="create-gateway-file"></a>
 
 In this section, you can find instructions on how to create, deploy, and activate a File Gateway in AWS Storage Gateway.
 

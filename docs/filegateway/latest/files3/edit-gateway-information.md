@@ -1,7 +1,6 @@
 
 
 # Edit basic information for an S3 File Gateway
-<a name="edit-gateway-information"></a>
 
 You can use the Storage Gateway console to edit basic information for an existing gateway, including the gateway name, time zone, and CloudWatch log group.
 

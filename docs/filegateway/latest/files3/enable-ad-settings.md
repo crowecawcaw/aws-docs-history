@@ -1,7 +1,6 @@
 
 
 # Use Active Directory to authenticate users
-<a name="enable-ad-settings"></a>
 
 To use your corporate Active Directory or AWS Managed Microsoft AD for user authenticated access to your SMB file share, edit the SMB settings for your gateway with your Microsoft AD domain credentials. Doing this allows your gateway to join your Active Directory domain and allows members of the domain to access the SMB file share.
 

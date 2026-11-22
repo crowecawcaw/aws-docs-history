@@ -1,7 +1,6 @@
 
 
 # Performing maintenance tasks using the local console
-<a name="manage-on-premises"></a>
 
 This section contains the following topics, which provide information about how to perform maintenance tasks using the gateway appliance local console. You can perform these tasks by accessing the local console through the on-premises virtual machine or Amazon EC2 instance that hosts your gateway appliance. Most of the tasks are common across the different host platforms, but there are also some differences.
 

@@ -1,7 +1,6 @@
 
 
 # Mount your SMB file share on your client
-<a name="using-smb-fileshare"></a>
 
 Use the following procedures to mount your SMB file share and map to a drive accessible to your client. The console's File Gateway section shows the supported mount commands that you can use for SMB clients. Following, you can find some additional options to try.
 

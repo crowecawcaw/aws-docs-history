@@ -1,7 +1,6 @@
 
 
 # Edit settings for your NFS file share
-<a name="edit-storage-class"></a>
 
 Use the following procedure to edit settings for an existing NFS file share after you create it.
 

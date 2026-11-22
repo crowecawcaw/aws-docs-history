@@ -1,7 +1,6 @@
 
 
 # Additional Storage Gateway resources
-<a name="Resources"></a>
 
 This section contains the following topics, which provide additional information and resources related to setting up and using AWS Storage Gateway:
 

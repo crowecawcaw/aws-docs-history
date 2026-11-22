@@ -1,7 +1,6 @@
 
 
 # Edit settings for your SMB file share
-<a name="edit-smbfileshare-settings"></a>
 
 You can edit the following settings for an existing SMB file share:
 + **File share name** - choose a name for the file share

@@ -1,7 +1,6 @@
 
 
 # Set a security level for your gateway
-<a name="security-strategy"></a>
 
 By using a S3 File Gateway, you can specify a security level for your gateway. By specifying this security level, you can set whether your gateway should require Server Message Block (SMB) signing or SMB encryption, or whether you want to allow SMB version 1.
 

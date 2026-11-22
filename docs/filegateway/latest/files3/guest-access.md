@@ -1,7 +1,6 @@
 
 
 # Provide guest access to your file share
-<a name="guest-access"></a>
 
 You can configure your S3 File Gateway to allow guest access for any user that is able to provide the correct guest account username and password. If you want this to be the only method by which users can access your file gateway, then you do not need to join the gateway to a Microsoft Active Directory domain. You can also use this guest access method to create file shares on an S3 File Gateway that is a member of an Active Directory domain.
 

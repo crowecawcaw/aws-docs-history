@@ -1,7 +1,6 @@
 
 
 # Using S3 Object Lock with Amazon S3 File Gateway
-<a name="s3-object-lock"></a>
 
 Amazon S3 File Gateway supports accessing S3 buckets that have Amazon S3 Object Lock turned on. Amazon S3 Object Lock allows you to store objects using a "Write Once Read Many" (WORM) model. When you use Amazon S3 Object Lock, you can prevent an object in your S3 bucket from being deleted or overwritten. Amazon S3 Object Lock works together with object versioning to protect your data.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: high availability issues
-<a name="troubleshooting-ha-issues"></a>
 
 You can find information following about actions to take if you experience availability issues.
 

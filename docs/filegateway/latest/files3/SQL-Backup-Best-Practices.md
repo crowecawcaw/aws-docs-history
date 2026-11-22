@@ -1,7 +1,6 @@
 
 
 # Optimizing S3 File Gateway for SQL Server database backups
-<a name="SQL-Backup-Best-Practices"></a>
 
 Database backups are a common and recommended use case for S3 File Gateway, which provides cost-effective short and long term retention by storing database backups in Amazon S3, with the ability to lifecycle to lower cost storage tiers as needed. With this solution, you can reduce the need for enterprise backup applications using built-in tools such as SQL Server Management Studio and Oracle RMAN.
 

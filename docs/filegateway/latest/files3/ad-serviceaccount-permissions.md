@@ -1,7 +1,6 @@
 
 
 # Active Directory service account permission requirements
-<a name="ad-serviceaccount-permissions"></a>
 
 If you plan to use Microsoft Active directory to provide user authenticated access to the file shares on your AWS Storage Gateway, you need to make sure that you have an Active Directory service account, and that the service account has delegated permissions to join computers to your domain. A service account is an Active Directory user account that has been delegated permission to perform certain tasks. You provide the username and password credentials for this account when you join a Storage Gateway to your Active Directory domain.
 

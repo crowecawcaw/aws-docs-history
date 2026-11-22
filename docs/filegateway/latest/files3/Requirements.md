@@ -1,7 +1,6 @@
 
 
 # File Gateway setup requirements
-<a name="Requirements"></a>
 
 Unless otherwise noted, the following requirements are common to all File Gateway types in AWS Storage Gateway. Your setup must meet the requirements in this section. Review the requirements that apply to your gateway setup before you deploy your gateway.
 

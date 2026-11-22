@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: file share issues
-<a name="troubleshooting-file-share-issues"></a>
 
 You can find information following about actions to take if you experience unexpected issues with your file share.
 

@@ -1,7 +1,6 @@
 
 
 # Managing your Amazon S3 File Gateway
-<a name="managing-gateway-file"></a>
 
 The topics in this section provide information about how to manage your Amazon S3 File Gateway resources. Gateway management includes granting permissions for your gateway to access file shares and Amazon S3 buckets, editing information and settings for gateways and file shares, deleting file shares, refreshing cached objects, and understanding operational status indicators for gateways and file shares.
 

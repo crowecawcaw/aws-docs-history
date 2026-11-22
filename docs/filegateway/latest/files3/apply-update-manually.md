@@ -1,7 +1,6 @@
 
 
 # Apply an update manually
-<a name="apply-update-manually"></a>
 
 If a software update is available for your gateway, you can apply it manually by following the procedure below. This manual update process ignores the maintenance window schedule and applies the update immediately, even if maintenance updates are turned off.
 

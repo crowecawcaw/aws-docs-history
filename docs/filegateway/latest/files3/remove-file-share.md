@@ -1,7 +1,6 @@
 
 
 # Delete a file share
-<a name="remove-file-share"></a>
 
 If you no longer need a file share, you can delete it from the Storage Gateway console. When you delete a file share, the gateway is detached from the Amazon S3 bucket that the file share maps to. However, the S3 bucket and its contents aren't deleted.
 

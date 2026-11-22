@@ -1,7 +1,6 @@
 
 
 # Release notes for gateway appliance software
-<a name="release-notes"></a>
 
 These release notes describe the new and updated features, improvements, and fixes that are included with each version of the Amazon S3 File Gateway appliance. Each software version is identified by its release date and a unique version number.
 
@@ -34,6 +33,7 @@ Gateway versions 1.x.x can't be updated to 2.x.x.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-11-16 | 2.1.16 |  +  Updates operating system components and software packages to improve security and performance. <br />+  Add LDAPS capability for Active Directory communication.   | 
 | 2026-11-03 | **2.1.15** | **{{Urgent Security Update}}:**+  Urgent kernel patch applied to address CVE-2026-98432.  | 
 | 2026-10-15 | 2.1.14 |  +  Updates operating system components and software packages to improve security and performance. <br />+  Improved NFS compatibility for Linux clients running kernel 6.19 or later, resolving an issue that could cause input/output errors when accessing NFS file shares.   | 
 | 2026-09-15 | 2.1.13 |  +  Updates operating system components and software packages to improve security and performance.   | 
@@ -66,6 +66,7 @@ The following table lists the release notes for gateways based on AL2.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-11-16 | 1.28.16 |  +  Updates operating system components and software packages to improve security and performance. <br />+  Add LDAPS capability for Active Directory communication.   | 
 | 2026-11-03 | **1.28.15** | **{{Urgent Security Update}}:**+  Urgent kernel patch applied to address CVE-2026-98432.  | 
 | 2026-10-15 | 1.28.14 |  +  Updates operating system components and software packages to improve security and performance.   | 
 | 2026-09-15 | 1.28.13 |  +  Updates operating system components and software packages to improve security and performance.   | 

@@ -1,7 +1,6 @@
 
 
 # Create an NFS file share with a custom configuration
-<a name="CreatingAnNFSFileShare"></a>
 
 Use the following procedure to create a Network File System (NFS) file share with a custom configuration. To create an NFS file share using default configuration settings, see [Create an NFS file share using the default configuration](https://docs.aws.amazon.com/filegateway/latest/files3/nfs-fileshare-quickstart-settings.html). 
 

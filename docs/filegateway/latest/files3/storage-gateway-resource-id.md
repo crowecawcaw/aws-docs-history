@@ -1,7 +1,6 @@
 
 
 # Understanding Storage Gateway resources and resource IDs
-<a name="storage-gateway-resource-id"></a>
 
 In Storage Gateway, the primary resource is a *gateway* but other resource types is *file share*. File shares are referred to as *subresources* and they don't exist unless they are associated with a gateway.
 

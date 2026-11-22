@@ -1,7 +1,6 @@
 
 
 # Configuring additional cache storage
-<a name="ConfiguringLocalDiskStorage"></a>
 
 As your application needs change, you can increase the gateway's cache storage capacity. You can add storage capacity to your gateway without interrupting functionality or causing downtime. When you add more storage, you do so with the gateway VM turned on.
 

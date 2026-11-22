@@ -1,7 +1,6 @@
 
 
 # Running Storage Gateway commands on the local console for an Amazon EC2 gateway
-<a name="EC2_MaintenanceGatewayConsole-fgw"></a>
 
 The AWS Storage Gateway console helps provide a secure environment for configuring and diagnosing issues with your gateway. Using the console commands, you can perform maintenance tasks such as saving routing tables or connecting to Support. 
 

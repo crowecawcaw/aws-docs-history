@@ -1,7 +1,6 @@
 
 
 # Accessing the gateway local console
-<a name="accessing-local-console"></a>
 
 How you access your VM's local console depends on the type of the Hypervisor you deployed your gateway VM on. In this section, you can find information on how to access the VM local console using Linux Kernel-based Virtual Machine (KVM), VMware ESXi, and Microsoft Hyper-V Manager.
 

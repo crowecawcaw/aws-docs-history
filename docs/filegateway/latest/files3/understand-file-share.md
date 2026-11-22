@@ -1,7 +1,6 @@
 
 
 # Understanding file share status
-<a name="understand-file-share"></a>
 
 You can view the health of a file share at a glance by looking at its status. If the status indicates that the file share is functioning normally, no action is needed on your part. If the status indicates that there's a problem, you can investigate to determine whether action could be required.
 

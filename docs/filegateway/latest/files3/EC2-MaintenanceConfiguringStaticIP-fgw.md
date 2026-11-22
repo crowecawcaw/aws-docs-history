@@ -1,7 +1,6 @@
 
 
 # Configuring your Amazon EC2 gateway network settings
-<a name="EC2-MaintenanceConfiguringStaticIP-fgw"></a>
 
 You can view and configure the network settings for your Amazon EC2 File Gateway by using the gateway local console.
 

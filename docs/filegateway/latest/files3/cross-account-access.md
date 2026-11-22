@@ -1,7 +1,6 @@
 
 
 # Using a file share for cross-account access
-<a name="cross-account-access"></a>
 
 *Cross-account* access is when an Amazon Web Services account and users for that account are granted access to resources that belong to another Amazon Web Services account. With File Gateways, you can use a file share in one Amazon Web Services account to access objects in an Amazon S3 bucket that belongs to a different Amazon Web Services account.
 

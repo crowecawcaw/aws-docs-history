@@ -1,7 +1,6 @@
 
 
 # Viewing your gateway system resource status
-<a name="EC2_system-resource-check-fgw"></a>
 
 When your File Gateway starts, it checks its virtual CPU cores, root volume size, and RAM. It then determines whether the available system resources are sufficient for your gateway to function properly. You can view the results of the system resource check by using the gateway local console.
 

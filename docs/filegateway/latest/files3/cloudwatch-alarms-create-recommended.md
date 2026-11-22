@@ -1,7 +1,6 @@
 
 
 # Creating recommended CloudWatch alarms for your gateway
-<a name="cloudwatch-alarms-create-recommended"></a>
 
 When you create a new gateway using the Storage Gateway console, you can choose to create all recommended CloudWatch alarms automatically as part of the initial setup process. For more information, see [Configure your Amazon S3 File Gateway](https://docs.aws.amazon.com/filegateway/latest/files3/create-gateway-file.html#configure-gateway-s3-file). If you want to add or update recommended CloudWatch alarms for an existing gateway after you have already completed the first-time setup, use the following procedure.
 

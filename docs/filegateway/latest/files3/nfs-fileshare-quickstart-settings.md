@@ -1,7 +1,6 @@
 
 
 # Create an NFS file share using the default configuration
-<a name="nfs-fileshare-quickstart-settings"></a>
 
 This section explains how to create a new Network File System (NFS) file share using preconfigured default settings. Use this method for basic deployments, personal use, testing, or as a way to quickly deploy multiple file shares that you plan to edit and customize later. For a list of the default settings for file shares that you create using this procedure, see [Default configuration settings for NFS file shares](https://docs.aws.amazon.com/filegateway/latest/files3/nfs-fileshare-quickstart-settings.html#quickstart-default-settings). If you need more granular control or want to use advanced settings for your file share, see [Create an NFS file share using a custom configuration](https://docs.aws.amazon.com/filegateway/latest/files3/CreatingAnNFSFileShare.html).
 

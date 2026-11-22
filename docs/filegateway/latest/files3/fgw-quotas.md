@@ -1,7 +1,6 @@
 
 
 # Limits and quotas for Amazon S3 File Gateway
-<a name="fgw-quotas"></a>
 
 ## Quotas for file shares
 <a name="resource-file-limits"></a>

@@ -1,7 +1,6 @@
 
 
 # Working with SMB CSI drivers
-<a name="use-smb-csi"></a>
 
 Follow the procedures in this section to install, configure, or delete the CSI drivers that are required to use an SMB file share on an Amazon S3 File Gateway for storage in your Kubernetes cluster. For more information, see the open-source SMB CSI driver documentation on GitHub at [https://github.com/kubernetes-csi/csi-driver-smb/blob/master/docs/install-csi-driver-master.md](https://github.com/kubernetes-csi/csi-driver-smb/blob/master/docs/install-csi-driver-master.md).
 

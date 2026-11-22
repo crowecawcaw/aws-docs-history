@@ -1,7 +1,6 @@
 
 
 # AWS Storage Gateway Terraform module
-<a name="sgw-terraform"></a>
 
 [HashiCorp](https://www.hashicorp.com/)[Terraform](https://www.terraform.io/) is an open-source Infrastructure as Code (IaC) engine developed using the HashiCorp Configuration Language (HCL). Terraform provides a consistent command line interface (CLI) workflow that, in conjunction with Amazon S3 File Gateway for the back-end infrastructure, can manage hundreds of cloud services and codify cloud APIs into declarative configuration files.
 

@@ -1,7 +1,6 @@
 
 
 # Create a cache report for your S3 File Gateway
-<a name="create-cache-report"></a>
 
 S3 File Gateway can generate a report of the metadata for files that are currently in the local upload cache for a specific file share. You can apply filters and additional criteria that determine which specific types of cached files appear in the report. You can use this report to help identify and resolve gateway issues. For example, if you have files failing upload from your gateway to Amazon S3, you can generate a report that lists the specific files that are failing to upload, and the reasons for upload failure. The report is a CSV file containing a list of files which match the set of filter parameters you specify. The output file is stored as an Amazon S3 object in a bucket location that you specify when you configure the report. To create a cache report using the AWS Storage Gateway API, see [StartCacheReport](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartCacheReport.html) in the *Storage Gateway API Reference*. To create a cache report in the Storage Gateway console, use the following procedure.
 

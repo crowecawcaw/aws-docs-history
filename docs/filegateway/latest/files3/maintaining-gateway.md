@@ -1,7 +1,6 @@
 
 
 # Maintaining your gateway
-<a name="maintaining-gateway"></a>
 
 Maintaining your Amazon S3 File Gateway involves doing general maintenance to optimize your gateway's performance. These tasks are common to all gateway types.
 

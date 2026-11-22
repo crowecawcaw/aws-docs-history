@@ -1,7 +1,6 @@
 
 
 # Replacing your existing S3 File Gateway with a new instance
-<a name="migrate-data"></a>
 
 **Note**  
 If you are performing a Storage Gateway AL2 to AL2023 migration, before you begin, ensure you have completed all items in the **Pre-migration Checklist** in [Storage Gateway AL2 to AL2023 Migration Campaign](https://docs.aws.amazon.com/filegateway/latest/files3/al2-to-al2023-migration.html).

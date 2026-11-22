@@ -1,7 +1,6 @@
 
 
 # Configuring a Network Time Protocol (NTP) server for your gateway
-<a name="MaintenanceTimeSync-fgw"></a>
 
 You can view and edit Network Time Protocol (NTP) server configurations and synchronize the VM time on your gateway with your hypervisor host.
 

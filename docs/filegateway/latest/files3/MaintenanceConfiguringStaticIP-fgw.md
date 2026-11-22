@@ -1,7 +1,6 @@
 
 
 # Configuring your gateway network settings
-<a name="MaintenanceConfiguringStaticIP-fgw"></a>
 
 The default network configuration for the gateway is Dynamic Host Configuration Protocol (DHCP). With DHCP, your gateway is automatically assigned an IP address. In some cases, you might need to manually assign your gateway's IP as a static IP address, as described following.
 

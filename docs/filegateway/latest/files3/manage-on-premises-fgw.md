@@ -1,7 +1,6 @@
 
 
 # Performing tasks on the virtual machine local console
-<a name="manage-on-premises-fgw"></a>
 
 For a File Gateway deployed on-premises, you can perform the following maintenance tasks using the VM host's local console. These tasks are common to VMware, Microsoft Hyper-V, and Linux Kernel-based Virtual Machine (KVM) hypervisors.
 

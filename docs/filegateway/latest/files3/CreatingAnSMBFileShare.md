@@ -1,7 +1,6 @@
 
 
 # Create an SMB file share with a custom configuration
-<a name="CreatingAnSMBFileShare"></a>
 
 Use the following procedure to create a Server Message Block (SMB) file share with a custom configuration. To create an SMB file share using default configuration settings, see [Create an SMB file share using the default configuration](https://docs.aws.amazon.com/filegateway/latest/files3/smb-fileshare-quickstart-settings.html).
 

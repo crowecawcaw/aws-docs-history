@@ -1,7 +1,6 @@
 
 
 # Deleting your gateway and removing associated resources
-<a name="deleting-gateway-common"></a>
 
 If you don't plan to continue using your gateway, consider deleting the gateway and its associated resources. Removing resources avoids incurring charges for resources you don't plan to continue using and helps reduce your monthly bill. 
 

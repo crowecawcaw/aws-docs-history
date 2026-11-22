@@ -1,7 +1,6 @@
 
 
 # API Reference for Storage Gateway
-<a name="AWSStorageGatewayAPI"></a>
 
 In addition to using the console, you can use the AWS Storage Gateway API to programmatically configure and manage your gateways. This section describes the AWS Storage Gateway operations, request signing for authentication and the error handling. For information about the regions and endpoints available for Storage Gateway, see [AWS Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*.
 
@@ -45,7 +44,7 @@ The following are the headers that must include with your POST requests to AWS S
 | Content-Type | Use `application/x-amz-json-1.1` as the content type for all requests to AWS Storage Gateway.<br /> <pre>Content-Type: application/x-amz-json-1.1</pre> | 
 | Host | Use the host header to specify the AWS Storage Gateway endpoint where you send your request. For example, `storagegateway.us-east-2.amazonaws.com` is the endpoint for the US East (Ohio) region. For more information about the endpoints available for AWS Storage Gateway, see [AWS Storage Gateway Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/sg.html) in the *AWS General Reference*.<br /> <pre>Host: storagegateway.{{region}}.amazonaws.com</pre> | 
 | x-amz-date | You must provide the time stamp in either the HTTP `Date` header or the AWS `x-amz-date` header. (Some HTTP client libraries don't let you set the `Date` header.) When an `x-amz-date` header is present, the AWS Storage Gateway ignores any `Date` header during the request authentication. The `x-amz-date` format must be ISO8601 Basic in the YYYYMMDD'T'HHMMSS'Z' format. If both the `Date` and `x-amz-date` header are used, the format of the Date header does not have to be ISO8601.<br /> <pre>x-amz-date: {{YYYYMMDD'T'HHMMSS'Z'}}</pre> | 
-| x-amz-target | This header specifies the version of the API and the operation that you are requesting. The target header values are formed by concatenating the API version with the API name and are in the following format.<br /> <pre>x-amz-target: StorageGateway_{{APIversion}}.{{operationName}}</pre><br />The *operationName* value (e.g. "ActivateGateway") can be found from the API list, [API Reference for Storage Gateway](#AWSStorageGatewayAPI). | 
+| x-amz-target | This header specifies the version of the API and the operation that you are requesting. The target header values are formed by concatenating the API version with the API name and are in the following format.<br /> <pre>x-amz-target: StorageGateway_{{APIversion}}.{{operationName}}</pre><br />The *operationName* value (e.g. "ActivateGateway") can be found from the API list, [API Reference for Storage Gateway](AWSStorageGatewayAPI.md). | 
 
 ## Signing Requests
 <a name="AWSStorageGatewaySigningRequests"></a>

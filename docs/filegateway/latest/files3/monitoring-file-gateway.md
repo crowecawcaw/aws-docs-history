@@ -1,7 +1,6 @@
 
 
 # Monitoring your S3 File Gateway
-<a name="monitoring-file-gateway"></a>
 
 You can monitor your S3 File Gateway and associated resources in AWS Storage Gateway by using Amazon CloudWatch metrics and audit logs. You can also use CloudWatch Events to get notified when your file operations are done.
 

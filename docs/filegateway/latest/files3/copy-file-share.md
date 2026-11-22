@@ -1,7 +1,6 @@
 
 
 # Copy a file share
-<a name="copy-file-share"></a>
 
 **Note**  
 The copy file share feature is available only through the Storage Gateway console. There is no corresponding AWS CLI command or API action for this feature.

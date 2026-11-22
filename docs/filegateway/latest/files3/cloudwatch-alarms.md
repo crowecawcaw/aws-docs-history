@@ -1,7 +1,6 @@
 
 
 # Understanding CloudWatch alarms
-<a name="cloudwatch-alarms"></a>
 
 CloudWatch alarms monitor information about your gateway based on metrics and expressions. You can add CloudWatch alarms for your gateway and view their statuses in the Storage Gateway console. For more information about the metrics that are used to monitor S3 File Gateway, see [Understanding gateway metrics](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#understanding-file-gateway-metrics) and [Understanding file share metrics](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#monitoring-file-gateway-resources). For each alarm, you specify conditions that will activate its ALARM state. Alarm status indicators in the Storage Gateway console turn red when in the ALARM state, making it easier for you to monitor status proactively. You can configure alarms to invoke actions automatically based on sustained changes in state. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 

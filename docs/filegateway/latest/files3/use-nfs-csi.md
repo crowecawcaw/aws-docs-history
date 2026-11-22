@@ -1,7 +1,6 @@
 
 
 # Working with NFS CSI drivers
-<a name="use-nfs-csi"></a>
 
 Follow the procedures in this section to install, configure, or delete the CSI drivers that are required to use an NFS file share on an Amazon S3 File Gateway for storage in your Kubernetes cluster. For more information, see the open-source NFS CSI driver documentation on GitHub at [https://github.com/kubernetes-csi/csi-driver-nfs/blob/master/docs/install-csi-driver-master.md](https://github.com/kubernetes-csi/csi-driver-nfs/blob/master/docs/install-csi-driver-master.md).
 

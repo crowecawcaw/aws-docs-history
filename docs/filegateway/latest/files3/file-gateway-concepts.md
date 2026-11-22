@@ -1,7 +1,6 @@
 
 
 # How Amazon S3 File Gateway works
-<a name="file-gateway-concepts"></a>
 
 To use an S3 File Gateway, you start by downloading a VM image for the gateway. You then activate the gateway from the AWS Management Console or through the Storage Gateway API. You can also create an S3 File Gateway using an Amazon EC2 image.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for File Gateway
-<a name="best-practices"></a>
 
 This section contains the following topics, which provide information about the best practices for working with gateways, file shares, buckets, and data. We recommend that you familiarize yourself with the information outlined in this section, and attempt to follow these guidelines in order to avoid problems with your AWS Storage Gateway. For additional guidance on diagnosing and solving common issues you might encounter with your deployment, see [Troubleshooting problems with your Storage Gateway deployment](troubleshooting-gateway-issues.md).
 
@@ -98,7 +97,7 @@ When you configure a single Amazon S3 bucket to allow multiple gateways or file 
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement":[

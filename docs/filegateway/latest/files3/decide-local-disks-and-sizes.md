@@ -1,7 +1,6 @@
 
 
 # Deciding the amount of local disk storage
-<a name="decide-local-disks-and-sizes"></a>
 
 
 

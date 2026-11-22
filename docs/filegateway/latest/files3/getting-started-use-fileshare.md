@@ -1,7 +1,6 @@
 
 
 # Mounting and using your file share
-<a name="getting-started-use-fileshare"></a>
 
 The topics in this section provide instructions about how to mount your file share on your client, use your file share, test your File Gateway, and clean up resources that are no longer needed, such as the gateways, Amazon EC2 instances, or and on-premises VMs that you might create for testing purposes. For more information about supported Network File System (NFS) and Service Message Block (SMB) clients, see [Supported NFS and SMB clients for File Gateway](Requirements.md#requirements-s3-fgw-clients).
 

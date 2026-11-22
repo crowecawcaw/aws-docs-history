@@ -1,7 +1,6 @@
 
 
 # Troubleshooting: gateway offline in the Storage Gateway console
-<a name="troubleshooting-gateway-offline"></a>
 
 Use the following troubleshooting information to determine what to do if the AWS Storage Gateway console shows that your gateway is offline.
 

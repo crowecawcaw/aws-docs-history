@@ -1,7 +1,6 @@
 
 
 # Change the server-side encryption method for an existing file share
-<a name="edit-file-share-encryption"></a>
 
 The following procedure describes how to change the server-side encryption method for an existing NFS or SMB file share using the Storage Gateway console. To perform this action using the Storage Gateway API, see see [UpdateNFSFileShare](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateNFSFileShare.html) or [UpdateSMBFileShare](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSMBFileShare.html) in the *AWS Storage Gateway API Reference*.
 

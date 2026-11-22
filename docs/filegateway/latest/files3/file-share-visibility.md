@@ -1,7 +1,6 @@
 
 
 # Set file share visibility
-<a name="file-share-visibility"></a>
 
 File share visibility controls whether the shares on a gateway are visible when listing shares to users, such as in a net view or browse list. If the file shares on a gateway are visible, then clients can easily discover the shares using a file browser if they know the gateway IP address or DNS name. If the file shares are not visible, then clients need to know the file share name in addition to the gateway IP or DNS name to be able to discover the shares.
 
