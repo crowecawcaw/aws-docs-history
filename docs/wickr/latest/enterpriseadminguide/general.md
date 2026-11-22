@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # General
-<a name="general"></a>
 
 The **General** section has the following available options:
 + **Wickr Open Access**: Connects to a series of global proxy servers to enable the best path for your data

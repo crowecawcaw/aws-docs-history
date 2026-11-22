@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Regional domains
-<a name="regional-domains"></a>
 
 Allow list the following domains to ensure your Wickr network functions correctly. The domains require allow listing if the Enterprise deployment is planned to federate with AWS Wickr in those regions.
 

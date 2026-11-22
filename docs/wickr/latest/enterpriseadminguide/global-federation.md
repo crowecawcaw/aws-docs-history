@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Global Federation
-<a name="global-federation"></a>
 
 Global Federation (GF) allows Wickr Enterprise to communicate with other Enterprise deployments as well as Wickr Pro, AWS Wickr, and guest users.
 

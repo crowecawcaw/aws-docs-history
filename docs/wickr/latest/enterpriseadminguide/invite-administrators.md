@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Invite administrators
-<a name="invite-administrators"></a>
 
 Network administrators can add an existing administrator to a network they manage. 
 + Network administrators cannot create brand new administrators.

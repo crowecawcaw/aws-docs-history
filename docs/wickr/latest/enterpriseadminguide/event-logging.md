@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Event logging
-<a name="event-logging"></a>
 
 Event logging changes the default verbosity level for several backend services. It only effects the information in the Admin, Admin-API, Switchboard, and Messaging containers.
 + **Activity:** Shows the least amount of information and is the default.

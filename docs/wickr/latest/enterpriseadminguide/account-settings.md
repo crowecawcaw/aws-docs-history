@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Account settings
-<a name="account-settings"></a>
 
 In the **My Account** section of the Network administrator console, you can change your first and last names, change your password, or enable 2 Factor Authentication.
 

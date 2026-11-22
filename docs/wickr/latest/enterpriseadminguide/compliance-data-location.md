@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Compliance data location
-<a name="compliance-data-location"></a>
 
 The compliance bot will save messages and output by default to the following:
 

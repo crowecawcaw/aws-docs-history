@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Security tags
-<a name="security-tags"></a>
 
 Security tags are used to classify and organize users to prevent information leakage between classified and unclassified systems.
 

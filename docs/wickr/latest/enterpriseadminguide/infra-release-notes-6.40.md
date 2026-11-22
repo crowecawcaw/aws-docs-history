@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Infrastructure 6.40 release
-<a name="infra-release-notes-6.40"></a>
 
 The following release notes include information for infrastructure release 6.40. For information on the release timeline, see [Change log](#infra-release-notes-6.40-change-log).
 

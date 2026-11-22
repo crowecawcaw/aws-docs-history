@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Administrator provisioning
-<a name="admin-provisioning"></a>
 
 Once logged into the super administration panel, you can create network administrators. Network administrators will be able to configure their own networks, security groups, and manage end users.
 

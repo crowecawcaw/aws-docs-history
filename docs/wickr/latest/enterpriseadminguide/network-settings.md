@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Network settings
-<a name="network-settings"></a>
 
 In the ** Network Settings** section of the Wickr Network Administrator Console, Wickr network name, security groups, and SSO configuration.
 

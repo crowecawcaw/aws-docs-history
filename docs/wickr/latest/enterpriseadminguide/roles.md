@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Role Based Access Control
-<a name="roles"></a>
 
 Roles are a group of permissions that can be assigned to a member or an admin by a super administrator.
 

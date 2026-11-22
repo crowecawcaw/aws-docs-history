@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Migration to disable certificate pinning
-<a name="disable-certificate-pinning"></a>
 
 **Important**  
 Do not disable certificate pinning if you are using a self-signed certificate.

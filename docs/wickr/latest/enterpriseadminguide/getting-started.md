@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Getting started with Wickr Enterprise
-<a name="getting-started"></a>
 
 In this guide, we show you how to get started with Wickr Enterprise by signing in as a Super Administrator.
 

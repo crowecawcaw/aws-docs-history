@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Read receipts
-<a name="read-receipts"></a>
 
 Read receipts on Wickr are notifications sent to the sender to show when their message has been read. These receipts are available in one-on-one conversations. A single check mark will appear for sent messages, and a solid circle with a check mark will appear for read messages. To see read receipts on messages during external conversations, both networks should have read receipts enabled.
 

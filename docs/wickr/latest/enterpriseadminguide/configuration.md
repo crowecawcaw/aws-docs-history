@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # SSO configuration
-<a name="configuration"></a>
 
 SSO configuration allows a super administrator to add SSO authentication to a network administrator sign in. If using ADFS it is also possible to sync Wickr security groups with active directory user groups.
 + **Network Endpoint:** This is the URL of the Enterprise endpoint to enter into your SSO system. This is pre-filled based on the supplied install hostname and may not be what your physical networking requires.

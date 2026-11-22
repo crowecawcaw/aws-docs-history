@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Bulk delete/suspend user
-<a name="bulk-delete-suspend"></a>
 
 You can bulk delete and bulk suspend Wickr network users in the **User** section of the Wickr Admin Console for Wickr.
 

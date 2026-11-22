@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Messaging
-<a name="messaging"></a>
 
 The **Messaging** section has the following available features for users:
 + **Send Link Preview:** This allows a user to send or receive previews for URLs sent within Wickr. The preview is generated from the sending device. Recipients will not connect to the underlying URL until selected.

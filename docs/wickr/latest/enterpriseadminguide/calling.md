@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Calling
-<a name="calling"></a>
 
 The **Calling** section has the following available features for users:
 + **Audio Calling Control:** Disables calling for users. At a minimum users must be able to share audio to start or join a call. Enabled by default.

@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Team directory
-<a name="directory"></a>
 
 If SSO is not enabled on the network, network admins can create individual users. With SSO enabled, users are provisioned in the SSO provider.
 

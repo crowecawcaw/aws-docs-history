@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Federation
-<a name="federation"></a>
 
 The **Federation** section has available options for communications internal to the Enterprise deployment and external communications with other Wickr Enterprise, or guest users. Federation is available only if a super admin provisions it.
 + **Local Federation:** Choose **Edit** next to Local Federation to view the available options. Available options are **Disable federation**, **Enable federation**, and **Restricted federation**.

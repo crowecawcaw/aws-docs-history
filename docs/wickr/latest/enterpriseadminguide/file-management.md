@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # File management
-<a name="file-management"></a>
 
  Enterprise users can begin to take advantage of the File management feature. Networks with this feature enabled will see a new **Files** tab in all Rooms and Groups for improved file organization and access. Room moderators can now upload files, view files that are saved from messages (previously “pinned files”), delete files, and organize them into folders. Room users can also view and download files.
 

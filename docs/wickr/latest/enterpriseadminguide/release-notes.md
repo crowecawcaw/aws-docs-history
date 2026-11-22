@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Release notes
-<a name="release-notes"></a>
 
 The release notes provide details about new features, fixes, and improvements related to the service, platforms, and testing versions that Wickr Enterprise supports.
 

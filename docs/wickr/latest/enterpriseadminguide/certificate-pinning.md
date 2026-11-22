@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Certificate pinning
-<a name="certificate-pinning"></a>
 
 Certificate pinning is an online application security technique that accepts only authorized pinned certificates for authentication of client-server connections. With certificate pinning, the SSL certificate is hard-coded into application code. When the application communicates with the server, it checks whether the same certificate is present.
 + If certificate pinning is enabled, Wickr clients will ONLY trust and connect to Enterprise service hosts that present the specified certificate(s).

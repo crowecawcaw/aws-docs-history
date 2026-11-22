@@ -3,9 +3,10 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Bots 6.66 release
-<a name="bots-release-notes-6.66"></a>
 
 The following release notes include information for bots release 6.66. For information on the release timeline, see [Change log for Bots 6.66](#bots-release-notes-6.66-change-log).
+
+**Platform versions**
 
 
 | Component | Version | 

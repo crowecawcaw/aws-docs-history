@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Client configuration
-<a name="client-configuration"></a>
 
 Config file or deeplinks created on the Client Configuration screen are the second most important thing an end user needs to successfully register and use Wickr Enterprise.
 

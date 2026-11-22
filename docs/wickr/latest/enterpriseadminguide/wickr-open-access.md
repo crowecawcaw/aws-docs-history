@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Wickr Open Access (WOA) configuration
-<a name="wickr-open-access"></a>
 
 Wickr Open Access (WOA) is an additional layer of network obfuscation that uses various connection methods deployed through our external partner.
 

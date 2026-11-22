@@ -3,7 +3,6 @@
 This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Compliance container upgrades
-<a name="compliance-container-upgrades"></a>
 
 If already running the compliance bot within a container, the upgrade process is very simple and will not result in any downtime. Any messages received while the bot is offline will be downloaded once the new version is up and running.
 
