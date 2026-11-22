@@ -1,7 +1,6 @@
 
 
 # GetSchedule
-<a name="rest-op-getschedule"></a>
 
 Gets your own schedule for an event. This includes the sessions you reserved, your favorites, your personal time entries, and the sessions you are invited to. You must sign in.
 
@@ -9,11 +8,11 @@ Invited sessions may not be in the session catalog, so each one is returned whol
 
 It is the source of truth for your own data. Read it back after any change. This confirms the result and returns IDs the write operations do not.
 
-```
+```http
 GET /v1/events/{eventId}/schedule
 ```
 
-```
+```bash
 curl -H "Authorization: Bearer $ACCESS_TOKEN" \
   https://api.awsevents.com/v1/events/reinvent2026/schedule
 ```

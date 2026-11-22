@@ -1,7 +1,6 @@
 
 
 # Endpoints and values
-<a name="auth-endpoints"></a>
 
  Sign-in uses the following endpoints and values. They are the same for every caller. The client ID is public and shared. The flow is protected by Proof Key for Code Exchange (PKCE), not a client secret, so there is no secret to hold. 
 

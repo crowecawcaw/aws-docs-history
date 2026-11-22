@@ -1,11 +1,10 @@
 
 
 # Keeping the attendee signed in
-<a name="auth-refreshing"></a>
 
  When the access token expires, exchange the refresh token for a new one, rather than a fresh sign-in: 
 
-```
+```bash
 curl -X POST https://oauth.awsevents.com/oauth2/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=refresh_token" \

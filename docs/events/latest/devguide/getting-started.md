@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="getting-started"></a>
 
  Listing events needs no credentials. Whether you can go on to read an event's sessions depends on that event. 
 
@@ -10,7 +9,7 @@
 
  Every event currently ongoing or upcoming: 
 
-```
+```bash
 curl https://api.awsevents.com/v1/events
 ```
 
@@ -18,7 +17,7 @@ curl https://api.awsevents.com/v1/events
 
  Each entry reports whether that event requires registration. For an event that does not, read its sessions the same way, a page at a time: 
 
-```
+```bash
 curl https://api.awsevents.com/v1/events/$EVENT_ID/sessions
 ```
 
@@ -38,7 +37,7 @@ curl https://api.awsevents.com/v1/events/$EVENT_ID/sessions
 
 1.  Send the token as a bearer token on each request: 
 
-   ```
+   ```bash
    curl -H "Authorization: Bearer $ACCESS_TOKEN" \
      https://api.awsevents.com/v1/events/reinvent2026/schedule
    ```

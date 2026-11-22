@@ -1,21 +1,20 @@
 
 
 # ListSessions
-<a name="rest-op-listsessions"></a>
 
 Lists an event's sessions, a page at a time. The service sets the page size. Pass `nextToken` to continue. Every page reports `totalCount`, the number of sessions in the catalog, so you can size a walk from the first page. Set `includeAbstracts=false` to omit each session's `abstract`, the largest field, when you only need enough to choose between sessions. An optional `locale` query parameter takes a language tag. If it is unavailable or omitted, the catalog is served in `en-US`. The `Content-Language` response header reports what was actually served. No sign-in is needed, unless the event requires registration.
 
-```
+```http
 GET /v1/events/{eventId}/sessions
 ```
 
-```
+```bash
 curl https://api.awsevents.com/v1/events/reinvent2026/sessions
 ```
 
 To fetch the next page, pass the `nextToken` from the previous response:
 
-```
+```bash
 curl "https://api.awsevents.com/v1/events/reinvent2026/sessions?nextToken=$NEXT_TOKEN"
 ```
 

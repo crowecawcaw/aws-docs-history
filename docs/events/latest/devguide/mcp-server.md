@@ -1,7 +1,6 @@
 
 
 # Using the MCP server
-<a name="mcp-server"></a>
 
  The MCP server offers the same operations as the REST API, as tools that an AI assistant can call. 
 
@@ -23,7 +22,7 @@
 
  Add the server to your MCP configuration file: 
 
-```
+```json
 {
   "mcpServers": {
     "awsevents": {
@@ -43,7 +42,7 @@
 ### Claude Code
 <a name="mcp-connecting-claude-code"></a>
 
-```
+```bash
 claude mcp add --transport http --scope user awsevents \
   https://api.awsevents.com/mcp \
   --callback-port 8484 --client-id 7vmom55m1qstvq8i71ph127bfq

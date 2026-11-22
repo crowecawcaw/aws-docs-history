@@ -1,7 +1,6 @@
 
 
 # Access token and event registration
-<a name="auth-two-requirements"></a>
 
  To read the catalog of an event that requires registration, or to reach your own schedule, you need both of the following. Each fails in its own way. 
 +  *A valid access token.* A missing, expired, or malformed token produces `401`. The `WWW-Authenticate` header names where to sign in. 

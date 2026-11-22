@@ -1,14 +1,13 @@
 
 
 # GetSession
-<a name="rest-op-getsession"></a>
 
 Gets one session in an event. The session has the same shape as a list entry. See [What a session contains](rest-op-listsessions.md#rest-session-shape). Session IDs come from `ListSessions`. It takes the same optional `locale` query parameter and reports the served language the same way. No sign-in is needed, unless the event requires registration.
 
-```
+```http
 GET /v1/events/{eventId}/sessions/{sessionId}
 ```
 
-```
+```bash
 curl https://api.awsevents.com/v1/events/reinvent2026/sessions/$SESSION_ID
 ```

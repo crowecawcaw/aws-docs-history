@@ -1,7 +1,6 @@
 
 
 # What is the AWS Events API?
-<a name="what-is-events-api"></a>
 
  AWS re:Invent, AWS Summits, and other AWS conferences publish session catalogs listing talks, workshops, and labs. 
 

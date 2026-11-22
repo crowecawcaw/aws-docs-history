@@ -1,13 +1,12 @@
 
 
 # Signing an attendee out
-<a name="auth-signing-out"></a>
 
  Discarding your copy of the tokens is not a sign-out. Three pieces of state are involved: your tokens, the AWS Builder ID browser session, and the session that brokers it. A complete sign-out clears all three. 
 
 1. Revoke the refresh token, then delete both tokens from wherever you keep them:
 
-   ```
+   ```bash
    curl -X POST https://oauth.awsevents.com/oauth2/revoke \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "client_id=7vmom55m1qstvq8i71ph127bfq" \
@@ -18,7 +17,7 @@
 
 1.  End both browser sessions. Build the URL in two parts. The inner URL ends the brokering session and returns to your application: 
 
-   ```
+   ```text
    https://oauth.awsevents.com/logout
      ?client_id=7vmom55m1qstvq8i71ph127bfq
      &logout_uri=http://localhost:8484/logout
@@ -26,7 +25,7 @@
 
     Percent-encode that whole URL as the `redirect_uri` value on the Builder ID sign-out endpoint, and send the attendee there: 
 
-   ```
+   ```text
    https://idp.awsevents.com/oidc/logout?redirect_uri={{encoded-url}}
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Signing an attendee in
-<a name="auth-signing-in"></a>
 
  Sign-in is the OAuth 2.0 authorization code flow with PKCE. 
 
@@ -11,7 +10,7 @@
 
 1. Redirect the attendee's browser to the authorization endpoint:
 
-   ```
+   ```text
    https://oauth.awsevents.com/oauth2/authorize
      ?response_type=code
      &client_id=7vmom55m1qstvq8i71ph127bfq
@@ -27,7 +26,7 @@
 
 1.  Check that `state` matches what you stored, then exchange the code for tokens: 
 
-   ```
+   ```bash
    curl -X POST https://oauth.awsevents.com/oauth2/token \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "grant_type=authorization_code" \
