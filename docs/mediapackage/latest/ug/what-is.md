@@ -1,7 +1,6 @@
 
 
 # What is AWS Elemental MediaPackage?
-<a name="what-is"></a>
 
 AWS Elemental MediaPackage (MediaPackage) is a just-in-time video packaging and origination service that runs in the AWS Cloud. With MediaPackage, you can deliver highly secure, scalable, and reliable video streams to a wide variety of playback devices and content delivery networks (CDNs). 
 

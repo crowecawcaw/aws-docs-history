@@ -1,7 +1,6 @@
 
 
 # Creating a packaging configuration
-<a name="pkg-cfig-create"></a>
 
 Create a packaging configuration to define how AWS Elemental MediaPackage prepares content for delivery from an asset. 
 

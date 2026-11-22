@@ -1,7 +1,6 @@
 
 
 # Getting started with live content delivery in AWS Elemental MediaPackage
-<a name="getting-started-live"></a>
 
 This Getting Started tutorial shows you how to use the AWS Elemental MediaPackage (MediaPackage) console to create a channel and endpoints for streaming live videos.
 

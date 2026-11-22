@@ -1,7 +1,6 @@
 
 
 # Live-to-VOD supported codecs and input types
-<a name="supported-inputs-ltov"></a>
 
 The following sections describe supported input types, input codecs, and output codecs for live-to-VOD assets that are harvested from streaming content in AWS Elemental MediaPackage.
 

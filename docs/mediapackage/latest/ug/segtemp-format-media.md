@@ -1,7 +1,6 @@
 
 
 # `media` Attribute in `SegmentTemplate`
-<a name="segtemp-format-media"></a>
 
 The `media` attribute in the `SegmentTemplate` properties defines the URL where playback devices send segment requests. By default, this URL uses a `$Number$` variable to identify the specific segment that's requested. When a playback device requests the segment, it replaces the variable with the number identifier of the segment. For the first segment in the representation, replace this identifier with the value of the `startNumber` from the `SegmentTemplate` properties. Each additional segment increments by one.
 

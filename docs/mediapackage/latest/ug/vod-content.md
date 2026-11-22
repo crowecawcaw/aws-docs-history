@@ -1,7 +1,6 @@
 
 
 # Delivering VOD content from AWS Elemental MediaPackage
-<a name="vod-content"></a>
 
 AWS Elemental MediaPackage uses the following resources for video on demand (VOD) content:
 + *Packaging groups* hold one or more packaging configurations. The group enables you to apply multiple output configurations to an asset at the same time. You can associate a group to multiple assets so that they all have the same configurations for their outputs.

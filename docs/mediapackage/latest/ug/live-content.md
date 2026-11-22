@@ -1,7 +1,6 @@
 
 
 # Delivering live content from AWS Elemental MediaPackage
-<a name="live-content"></a>
 
 AWS Elemental MediaPackage uses the following resources for live content:
 + *Channels* are the entry point for your live streams from upstream encoders.

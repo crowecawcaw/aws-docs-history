@@ -1,7 +1,6 @@
 
 
 # Viewing harvest job details
-<a name="hj-view"></a>
 
 View all harvest jobs that you created within the last 90 days. After 90 days, a harvest job expires from your account.
 

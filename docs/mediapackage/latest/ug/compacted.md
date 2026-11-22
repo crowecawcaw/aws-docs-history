@@ -1,7 +1,6 @@
 
 
 # Compacted DASH manifests
-<a name="compacted"></a>
 
 The ability to compact DASH manifests to improve performance and processing on low-power devices for both VOD and live is available in AWS Elemental MediaPackage.
 

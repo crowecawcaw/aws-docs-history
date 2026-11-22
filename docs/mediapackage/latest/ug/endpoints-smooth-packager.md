@@ -1,7 +1,6 @@
 
 
 # Packager settings fields
-<a name="endpoints-smooth-packager"></a>
 
 The Packager settings fields hold general information about the endpoint.
 

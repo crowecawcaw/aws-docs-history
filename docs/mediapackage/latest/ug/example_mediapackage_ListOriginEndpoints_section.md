@@ -1,7 +1,6 @@
 
 
 # Use `ListOriginEndpoints` with an AWS SDK or CLI
-<a name="example_mediapackage_ListOriginEndpoints_section"></a>
 
 The following code examples show how to use `ListOriginEndpoints`.
 
@@ -86,7 +85,7 @@ For more information, see [Viewing all Endpoints Associated with a Channel](http
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples). 
 List your endpoint descriptions and URLs.  
 
-```
+```rust
 async fn show_endpoints(client: &Client) -> Result<(), Error> {
     let or_endpoints = client.list_origin_endpoints().send().await?;
 

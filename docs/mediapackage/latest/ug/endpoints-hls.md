@@ -1,7 +1,6 @@
 
 
 # Creating an HLS endpoint
-<a name="endpoints-hls"></a>
 
 Create an endpoint that formats content for devices that support Apple HLS.
 
@@ -24,4 +23,4 @@ Create an endpoint that formats content for devices that support Apple HLS.
 
    The endpoint is active and can deliver content as soon as requests are sent to its URL endpoints. MediaPackage scales resources up and down to allow the right amount of capacity for your traffic.
 
-   When you're creating an endpoint, you will receive an error if you exceed the quotas on the account. An error similar to Too many requests, please try again. Resource limit exceeded means that either you've exceeded the API request quotas, or you've already reached the maximum number of endpoints allowed on this channel. If you think you received this error wrongfully, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas). For more information about quotas in MediaPackage, see [Quotas in AWS Elemental MediaPackage](quotas.md).
+   When you're creating an endpoint, you will receive an error if you exceed the quotas on the account. An error similar to `Too many requests, please try again. Resource limit exceeded` means that either you've exceeded the API request quotas, or you've already reached the maximum number of endpoints allowed on this channel. If you think you received this error wrongfully, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas). For more information about quotas in MediaPackage, see [Quotas in AWS Elemental MediaPackage](quotas.md).

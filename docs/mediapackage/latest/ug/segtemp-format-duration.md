@@ -1,7 +1,6 @@
 
 
 # `duration` Attribute in the `SegmentTemplate`
-<a name="segtemp-format-duration"></a>
 
 In a default DASH manifest, `SegmentTemplate` holds a `SegmentTimeline`. The timeline describes all the segments in `Representation`, including their duration and their start time. With live events, AWS Elemental MediaPackage adds segments to the timeline as it receives them from your encoder. To be aware of newly available segments, the playback device must regularly request an updated manifest from MediaPackage.
 

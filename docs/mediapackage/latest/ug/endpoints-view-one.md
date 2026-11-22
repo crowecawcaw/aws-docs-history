@@ -1,7 +1,6 @@
 
 
 # Viewing a single endpoint
-<a name="endpoints-view-one"></a>
 
 View the details about a specific endpoint to obtain its playback URL and to view the packaging settings that it's currently using.
 

@@ -1,7 +1,6 @@
 
 
 # SCTE-35 message options in AWS Elemental MediaPackage
-<a name="scte"></a>
 
 This section describes the options that AWS Elemental MediaPackage (MediaPackage) offers for configuring how SCTE-35 messages are handled in live HLS, DASH, and CMAF outputs. For live-to-VOD assets, MediaPackage passes the SCTE-35 messages from the live stream through to the harvested asset. These options don't apply to Microsoft Smooth Streaming or video on demand (VOD) outputs. 
 

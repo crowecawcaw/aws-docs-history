@@ -1,7 +1,6 @@
 
 
 # Adding a packaging configuration to a packaging group
-<a name="pkg-group-add-cfig"></a>
 
  To define how AWS Elemental MediaPackage formats outputs from an asset, add a packaging configuration to a packaging group.
 

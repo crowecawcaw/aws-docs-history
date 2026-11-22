@@ -1,7 +1,6 @@
 
 
 # Editing a packaging group
-<a name="pkg-group-edit"></a>
 
 Edit the packaging group to configure access control settings.
 

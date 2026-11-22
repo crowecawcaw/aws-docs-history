@@ -1,7 +1,6 @@
 
 
 # Setting up CDN authorization
-<a name="cdn-auth-setup"></a>
 
 Complete the following steps to set up CDN authorization.
 

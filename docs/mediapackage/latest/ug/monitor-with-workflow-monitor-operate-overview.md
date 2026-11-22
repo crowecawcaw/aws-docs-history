@@ -1,7 +1,6 @@
 
 
 # Workflow monitor overview
-<a name="monitor-with-workflow-monitor-operate-overview"></a>
 
 The **Overview** section of the workflow monitor console is a dashboard that provides at-a-glance information about your signal maps. In the overview section, you can see the current state of each signal map's monitoring, as well as CloudWatch metrics and any associated CloudWatch logs. You can select any signal map to be taken to that signal maps console page.
 

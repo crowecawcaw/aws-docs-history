@@ -1,7 +1,6 @@
 
 
 # Concepts and terminology
-<a name="what-is-terms"></a>
 
 AWS Elemental MediaPackage (MediaPackage) includes the following components:
 

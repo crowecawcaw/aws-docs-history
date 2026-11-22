@@ -1,7 +1,6 @@
 
 
 # Deleting a channel
-<a name="channels-delete"></a>
 
 Delete a channel to stop AWS Elemental MediaPackage from receiving further content. You must delete the channel's endpoints (as described in [Deleting an endpoint](endpoints-delete.md)) before you can delete the channel.
 

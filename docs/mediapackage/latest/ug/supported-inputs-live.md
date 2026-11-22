@@ -1,7 +1,6 @@
 
 
 # Live supported codecs and input types
-<a name="supported-inputs-live"></a>
 
 The following sections describe supported input types, input codecs, and output codecs for live streaming content.
 

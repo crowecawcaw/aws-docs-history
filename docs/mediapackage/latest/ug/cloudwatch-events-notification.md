@@ -1,7 +1,6 @@
 
 
 # Creating event notifications
-<a name="cloudwatch-events-notification"></a>
 
 You can use Amazon CloudWatch Events and Amazon Simple Notification Service (Amazon SNS) to notify you of new events. In CloudWatch Events, the rule describes which events you're notified about. In Amazon SNS, the topic describes what kind of notification you receive. This section provides high-level steps for creating a topic and rule for events from AWS Elemental MediaPackage. For detailed information about topics and rules, see the following:
 + [Create a topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) and [Subscribe to a topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#SubscribeTopic) in the *Amazon Simple Notification Service Developer Guide*

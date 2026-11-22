@@ -1,7 +1,6 @@
 
 
 # Features of AWS Elemental MediaPackage
-<a name="what-is-features"></a>
 
 MediaPackage supports the following features:
 

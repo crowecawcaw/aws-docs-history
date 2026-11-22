@@ -1,7 +1,6 @@
 
 
 # Viewing channel details
-<a name="channels-view"></a>
 
 View all channels that are configured in AWS Elemental MediaPackage, or view the details of a specific channel, including the endpoints that are associated with it.
 

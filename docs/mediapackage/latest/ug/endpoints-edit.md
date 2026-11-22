@@ -1,7 +1,6 @@
 
 
 # Editing an endpoint
-<a name="endpoints-edit"></a>
 
 Edit the packaging preferences on an endpoint to optimize the viewing experience. You can't change the packager type after you save an endpoint. To serve content with a different packager, create a different endpoint.
 

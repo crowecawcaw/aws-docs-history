@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage live content metrics
-<a name="metrics"></a>
 
 The `AWS/MediaPackage` namespace includes the following metrics for live content. AWS Elemental MediaPackage publishes metrics to CloudWatch every minute, if not sooner.
 

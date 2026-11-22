@@ -1,7 +1,6 @@
 
 
 # Stream selection fields
-<a name="endpoints-cmaf-include-streams"></a>
 
 Define the streams to include.
 

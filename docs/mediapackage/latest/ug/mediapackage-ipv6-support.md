@@ -1,7 +1,6 @@
 
 
 # IPv6 support for AWS Elemental MediaPackage control plane
-<a name="mediapackage-ipv6-support"></a>
 
 AWS Elemental MediaPackage control plane APIs support dual-stack (IPv4 and IPv6) endpoints for both Live and VOD services. This enables you to make API requests using either IPv4 or IPv6 protocols for management operations such as creating channels, endpoints, packaging groups, packaging configurations, and assets.
 

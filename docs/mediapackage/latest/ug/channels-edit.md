@@ -1,7 +1,6 @@
 
 
 # Editing a channel
-<a name="channels-edit"></a>
 
 Edit a channel's description for easier identification later.
 

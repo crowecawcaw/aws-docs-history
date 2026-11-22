@@ -1,7 +1,6 @@
 
 
 # Removing tags from the parent manifest from AWS Elemental MediaPackage
-<a name="drm-query-param"></a>
 
 MediaPackage signals in the parent manifest the `#EXT-X-SESSION-KEY` tag for every track type on an HLS or CMAF endpoint. This tag enables playback devices to pre-fetch keys when a key is shared across multiple streams. There are times when you might not want this optional tag, such as when you’re using only a subset of the tracks and don’t want all of the keys referenced in the parent manifest. With SPEKE v2, you can append a query parameter to your manifest requests that will remove all `#EXT-X-SESSION-KEY `tags from the parent manifest. Because each child manifest has its own `#EXT-X-KEY` tag for obtaining a decryption key, the `#EXT-X-SESSION-KEY ` is often superfluous. 
 

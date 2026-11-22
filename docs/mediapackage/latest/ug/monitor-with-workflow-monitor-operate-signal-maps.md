@@ -1,7 +1,6 @@
 
 
 # Using workflow monitor signal maps
-<a name="monitor-with-workflow-monitor-operate-signal-maps"></a>
 
 From the **overview** section of the console, you can select a specific signal map to view more information about that signal map and its attached monitoring resources.
 

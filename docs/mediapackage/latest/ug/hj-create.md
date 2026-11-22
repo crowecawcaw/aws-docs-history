@@ -1,7 +1,6 @@
 
 
 # Creating a harvest job
-<a name="hj-create"></a>
 
 Create a harvest job to extract a live-to-VOD asset from an encrypted or clear (unencrypted) live HLS or DASH stream.
 

@@ -1,7 +1,6 @@
 
 
 # Rendition groups reference in AWS Elemental MediaPackage
-<a name="rendition-groups"></a>
 
 *Rendition groups* are used in HLS and CMAF outputs. A rendition group collects all subtitle or audio tracks and makes them available for all video renditions in the stream. When you enable rendition groups, MediaPackage pulls together all audio variants (such as different languages or codecs) and groups them for use with any video rendition. MediaPackage automatically puts subtitles into a rendition group. 
 

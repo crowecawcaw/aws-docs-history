@@ -1,7 +1,6 @@
 
 
 # Access control settings fields
-<a name="endpoints-hls-access-control"></a>
 
 Define the access control values.
 

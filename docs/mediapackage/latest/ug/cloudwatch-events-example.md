@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage events
-<a name="cloudwatch-events-example"></a>
 
 AWS Elemental MediaPackage integrates with Amazon CloudWatch Events to notify you of certain events that affect your channels and endpoints. Each event is represented in [JSON (JavaScript Object Notation)](http://json.org) and contains the event name, the date and time when the event occurred, the channel or endpoint affected, and more. MediaPackage emits events on a best effort basis. You can use CloudWatch Events to collect these events and set up rules that route them to one or more *targets* such as AWS Lambda functions, Amazon SNS topics, Amazon SQS queues, streams in Amazon Kinesis Data Streams, or built-in targets.
 
@@ -30,7 +29,7 @@ For live content, a channel in MediaPackage exceeds the quota for the number of 
 
 **Example**  
 
-```
+```json
 {
    "id": "7bf73129-1428-4cd3-a780-95db273d1602",
    "detail-type": "MediaPackage Input Notification",
@@ -55,7 +54,7 @@ For information about input redundancy and what causes inputs to switch, see [Li
 
 **Example**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce",
    "detail-type": "MediaPackage Input Notification",
@@ -86,7 +85,7 @@ For video on demand (VOD) content, an asset in MediaPackage changes ingest statu
 
 **Example**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce",
    "detail-type": "MediaPackage Input Notification",
@@ -112,7 +111,7 @@ For VOD content, an asset in MediaPackage is available for playback. There is a 
 
 **Example**  
 
-```
+```json
 {
    "id": "81e896e4-d9e5-ec79-f82a-b4cf3246c567",
    "detail-type": "MediaPackage Input Notification",
@@ -163,7 +162,7 @@ You get key provider notification events when you're using content encryption on
 
 **Example Live key provider notification event**  
 
-```
+```json
 {
    "id": "7bf73129-1428-4cd3-a780-98ds273d1602",
    "detail-type": "MediaPackage Key Provider Notification",
@@ -183,7 +182,7 @@ You get key provider notification events when you're using content encryption on
 
 **Example VOD key provider notification event**  
 
-```
+```json
 {
    "id": "7bf73129-1428-4cd3-a780-98ds273d1602",
    "detail-type": "MediaPackage Key Provider Notification",
@@ -208,7 +207,7 @@ You get harvest job status events when you export a clip from a live stream to c
 
 **Example Successful harvest job event**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce",
    "detail-type": "MediaPackage HarvestJob Notification",
@@ -240,7 +239,7 @@ You get harvest job status events when you export a clip from a live stream to c
 
 **Example Failed harvest job event**  
 
-```
+```json
 {
    "id": "8f9b8e72-0b31-e883-f19c-aec84742f3ce",
    "detail-type": "MediaPackage HarvestJob Notification",

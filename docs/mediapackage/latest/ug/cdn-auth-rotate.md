@@ -1,7 +1,6 @@
 
 
 # Rotating the CDN header value
-<a name="cdn-auth-rotate"></a>
 
 If you change the CDN custom origin HTTP header value, you need to rotate the stored secret value in Secrets Manager. The following procedure describes how to rotate your value in Secrets Manager to make sure that your CDN's HTTP header value and the Secrets Manager stored secret value are in sync.
 

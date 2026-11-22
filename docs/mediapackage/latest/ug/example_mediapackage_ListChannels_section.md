@@ -1,7 +1,6 @@
 
 
 # Use `ListChannels` with an AWS SDK or CLI
-<a name="example_mediapackage_ListChannels_section"></a>
 
 The following code examples show how to use `ListChannels`.
 
@@ -54,7 +53,7 @@ For more information, see [Viewing Channel Details](https://docs.aws.amazon.com/
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/mediapackage#code-examples). 
 List channel ARNs and descriptions.  
 
-```
+```rust
 async fn show_channels(client: &Client) -> Result<(), Error> {
     let list_channels = client.list_channels().send().await?;
 

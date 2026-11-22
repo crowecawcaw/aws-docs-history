@@ -1,7 +1,6 @@
 
 
 # Deleting a packaging configuration
-<a name="pkg-cfig-delete"></a>
 
 To remove a playback endpoint from an asset, delete the packaging configuration.
 

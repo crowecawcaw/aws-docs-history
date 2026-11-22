@@ -1,7 +1,6 @@
 
 
 # Viewing packaging group details
-<a name="pkg-group-view"></a>
 
 You can view all packaging groups that are configured in AWS Elemental MediaPackage or the details of a specific packaging group, including the packaging configurations that are associated with it.
 

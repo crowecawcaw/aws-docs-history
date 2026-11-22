@@ -1,7 +1,6 @@
 
 
 # Related services
-<a name="related-services"></a>
 + **Amazon CloudFront** is a global content delivery network (CDN) service that securely delivers data and videos to your viewers. Use CloudFront to deliver content with the best possible performance. For more information, see [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 + **Amazon CloudWatch** is a monitoring service for AWS Cloud resources and the applications that you run on AWS. Use CloudWatch to track metrics such as content input and output request counts. For more information, see [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/).
 + **AWS Elemental MediaLive (MediaLive)** is a live video processing service that encodes high-quality live video streams for broadcast television and multi-screen devices. Use MediaLive to encode content streams and send them to MediaPackage for packaging. For more information about how encoders (such as MediaLive) work with MediaPackage, see [How MediaPackage works](what-is-flow.md).

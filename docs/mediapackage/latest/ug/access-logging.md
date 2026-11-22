@@ -1,7 +1,6 @@
 
 
 # Access logging
-<a name="access-logging"></a>
 
 MediaPackage provides access logs that capture detailed information about requests sent to your MediaPackage channel or packaging group. MediaPackage generates *ingress access logs* for requests sent to the channel's input endpoints, and *egress access logs* for requests sent to your channel's endpoints or packaging group's assets. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze service performance and troubleshoot issues. They can also help you learn about your customer base and understand your MediaPackage bill.
 

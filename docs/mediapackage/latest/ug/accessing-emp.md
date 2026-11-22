@@ -1,7 +1,6 @@
 
 
 # Accessing MediaPackage
-<a name="accessing-emp"></a>
 
 You can access MediaPackage using any of the following methods.
 + **AWS Management Console** - The procedures throughout this guide explain how to use the AWS Management Console to perform tasks for MediaPackage.

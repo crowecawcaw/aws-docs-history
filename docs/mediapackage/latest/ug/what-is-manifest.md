@@ -1,7 +1,6 @@
 
 
 # Live and VOD manifest reference
-<a name="what-is-manifest"></a>
 
 AWS Elemental MediaPackage delivers live and video on demand (VOD) manifests to requesting devices. A live manifest indicates that the content isn't complete. New content continually becomes available through the playback endpoint. Alternatively, a VOD manifest indicates that the program is complete, or will be complete at a specified time in the future. 
 

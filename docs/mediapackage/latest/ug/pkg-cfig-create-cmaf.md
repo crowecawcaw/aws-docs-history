@@ -1,7 +1,6 @@
 
 
 # Creating a CMAF packaging configuration
-<a name="pkg-cfig-create-cmaf"></a>
 
 Create a packaging configuration that formats content for devices that support Apple HLS fragmented MP4 (fMP4).
 
@@ -25,4 +24,4 @@ Create a packaging configuration that formats content for devices that support A
 
 1. Choose **Save**.
 
-If you exceed the quotas for your account when you're creating a packaging configuration, you get an error. If you get an error similar to Too many requests, please try again. Resource limit exceeded, either you have exceeded the API request quotas, or you have already reached the maximum number of packaging groups allowed on your account. If this is your first group, or if you think you mistakenly received this error, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas). For more information about quotas in MediaPackage, see [Quotas in AWS Elemental MediaPackage](quotas.md).
+If you exceed the quotas for your account when you're creating a packaging configuration, you get an error. If you get an error similar to `Too many requests, please try again. Resource limit exceeded`, either you have exceeded the API request quotas, or you have already reached the maximum number of packaging groups allowed on your account. If this is your first group, or if you think you mistakenly received this error, use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas). For more information about quotas in MediaPackage, see [Quotas in AWS Elemental MediaPackage](quotas.md).

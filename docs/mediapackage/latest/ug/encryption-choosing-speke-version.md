@@ -1,7 +1,6 @@
 
 
 # Choosing the right SPEKE Version
-<a name="encryption-choosing-speke-version"></a>
 
 [SPEKE Version 1](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api.html) supports the use of a single encryption key for all audio and video tracks, and uses [CPIX Version 2.0](https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf). For audio and video tracks, [SPEKE Version 2.0](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2.html) supports the use of multiple, distinct encryption keys and uses [CPIX Version 2.3](https://dashif.org/docs/CPIX2.3/Cpix.html). For more information about SPEKE Version 2.0 encryption configurations, see [SPEKE Version 2.0 presets](drm-content-speke-v2-presets.md).
 

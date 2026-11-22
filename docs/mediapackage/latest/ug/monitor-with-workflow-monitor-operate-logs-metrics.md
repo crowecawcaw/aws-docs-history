@@ -1,7 +1,6 @@
 
 
 # Overview logs and metrics for workflow monitor
-<a name="monitor-with-workflow-monitor-operate-logs-metrics"></a>
 
 To view CloudWatch metrics and logs for a signal map, select the radio button next to the name of the signal map. A tabbed interface for both metrics and logs will appear beneath the signal map list. 
 

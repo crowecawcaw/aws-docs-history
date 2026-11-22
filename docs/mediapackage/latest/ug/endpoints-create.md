@@ -1,7 +1,6 @@
 
 
 # Creating an endpoint
-<a name="endpoints-create"></a>
 
 Create an endpoint on a channel to define how AWS Elemental MediaPackage prepares content for delivery. Content can't be served from a channel until it has an endpoint. If you're using input redundancy, each endpoint receives content from one input URL at a time. If MediaPackage performs a failover on the inputs for one input URL, the endpoints automatically start receiving content from the other input URL. For more information about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
 

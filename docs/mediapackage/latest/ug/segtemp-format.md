@@ -1,7 +1,6 @@
 
 
 # DASH manifest segment template format
-<a name="segtemp-format"></a>
 
 The ability to select the format of the DASH segment template is available with only live workflows in AWS Elemental MediaPackage.
 

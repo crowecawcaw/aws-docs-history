@@ -1,7 +1,6 @@
 
 
 # Document history for User Guide
-<a name="doc-history"></a>
 
 The following table describes important changes in each release of the *AWS Elemental MediaPackage User Guide* after May 2018. For notification about updates to this documentation, you can subscribe to an RSS feed.
 + **API version:** latest

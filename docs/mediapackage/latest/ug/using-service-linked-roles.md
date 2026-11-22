@@ -1,7 +1,6 @@
 
 
 # Using Service-Linked Roles for MediaPackage
-<a name="using-service-linked-roles"></a>
 
 AWS Elemental MediaPackage uses IAM [ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that's linked directly to MediaPackage. Service-linked roles are predefined by MediaPackage and include all the permissions that the service requires to call other AWS services on your behalf. 
 

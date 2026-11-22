@@ -1,7 +1,6 @@
 
 
 # Editing a Distribution
-<a name="cdns-edit"></a>
 
 Edit an Amazon CloudFront distribution from the CloudFront console.
 

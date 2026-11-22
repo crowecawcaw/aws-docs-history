@@ -1,7 +1,6 @@
 
 
 # Viewing signal maps of AWS media workflows
-<a name="monitor-with-workflow-monitor-configure-signal-maps-view"></a>
 
 Workflow monitor signal maps allow you to see a visual mapping of all connected AWS resources in your media workflow. 
 

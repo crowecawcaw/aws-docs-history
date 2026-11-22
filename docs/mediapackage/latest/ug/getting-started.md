@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Elemental MediaPackage
-<a name="getting-started"></a>
 
 The following sections describe how to quickly get started receiving and sending content with AWS Elemental MediaPackage.
 

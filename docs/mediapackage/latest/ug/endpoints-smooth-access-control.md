@@ -1,7 +1,6 @@
 
 
 # Access control settings fields
-<a name="endpoints-smooth-access-control"></a>
 
 Define the access control values.
 

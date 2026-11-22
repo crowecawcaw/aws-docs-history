@@ -1,7 +1,6 @@
 
 
 # Access control settings fields
-<a name="endpoints-cmaf-access-control"></a>
 
 Define the access control values.
 
