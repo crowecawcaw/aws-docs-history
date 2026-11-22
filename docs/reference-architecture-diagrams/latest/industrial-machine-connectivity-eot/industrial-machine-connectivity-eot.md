@@ -1,7 +1,6 @@
 
 
 # Accelerate Industrial Machine Connectivity on AWS
-<a name="industrial-machine-connectivity-eot"></a>
 
 Publication date: **April 22, 2021 ([Diagram history](#eot-diagram-history))**
 
