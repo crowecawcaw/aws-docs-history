@@ -1,7 +1,6 @@
 
 
 # Access Microsoft Entra ID-joined WorkSpaces Personal
-<a name="access-entra-id"></a>
 
 You can create Windows 10 or 11 BYOL personal WorkSpaces that are Microsoft Entra ID-joined and enrolled to Intune. For more details, see [Create a dedicated Microsoft Entra ID directory with WorkSpaces Personal](launch-entra-id.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Identify the computer name for your WorkSpaces Personal directory
-<a name="wsp-directory-identify-computer"></a>
 
 The **Computer Name** value shown for a WorkSpace in the Amazon WorkSpaces console varies, depending on which type of WorkSpace you've launched (Amazon Linux, Ubuntu, or Windows). The computer name for a WorkSpace can be in one of these formats: 
 + **Amazon Linux**: A-{{xxxxxxxxxxxxx}}

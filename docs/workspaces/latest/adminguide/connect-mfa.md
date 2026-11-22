@@ -1,7 +1,6 @@
 
 
 # Multi-factor authentication (AD Connector) for WorkSpaces Personal
-<a name="connect-mfa"></a>
 
 You can enable multi-factor authentication (MFA) for your AD Connector directory. For more information about using multi-factor authentication with AWS Directory Service, see [ Enable multi-factor authentication for AD Connector](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_mfa.html) and [ AD Connector prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html). 
 

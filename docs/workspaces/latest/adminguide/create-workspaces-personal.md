@@ -1,7 +1,6 @@
 
 
 # Create a WorkSpace in WorkSpaces Personal
-<a name="create-workspaces-personal"></a>
 
 WorkSpaces enables you to provision virtual, cloud-based Windows and Linux desktops for your users, known as *WorkSpaces*.
 

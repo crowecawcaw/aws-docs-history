@@ -1,7 +1,6 @@
 
 
 # Set up Android for Chromebook for WorkSpaces Personal
-<a name="set-up-android-chromebook"></a>
 
 Version 2.4.13 is the final release of the Amazon WorkSpaces Chromebook client application. Because [ Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html), there will be no further updates to the WorkSpaces Chromebook client application, and its use is unsupported.
 

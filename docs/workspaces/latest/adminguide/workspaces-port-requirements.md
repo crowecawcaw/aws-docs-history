@@ -1,7 +1,6 @@
 
 
 # IP address and port requirements for WorkSpaces Personal
-<a name="workspaces-port-requirements"></a>
 
 To connect to your WorkSpaces, the network that your WorkSpaces clients are connected to must have certain ports open to the IP address ranges for the various AWS services (grouped in subsets). These address ranges vary by AWS Region. These same ports must also be open on any firewall running on the client. For more information about the AWS IP address ranges for different Regions, see [AWS IP Address Ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*.
 

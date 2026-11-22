@@ -1,7 +1,6 @@
 
 
 # Configure SAML 2.0 and create a WorkSpaces Pools directory
-<a name="create-directory-pools"></a>
 
 You can enable WorkSpaces client application registration and signing in to WorkSpaces in a WorkSpaces Pool by setting up identity federation using SAML 2.0. To do this, you use an AWS Identity and Access Management (IAM) role and a relay state URL to configure your SAML 2.0 identity provider (IdP) and enable it for AWS. This grants your federated users access to a WorkSpace Pool directory. The relay state is the WorkSpaces directory endpoint to which users are forwarded after successfully signing in to AWS.
 
@@ -153,7 +152,7 @@ Complete the following procedure to create a SAML 2.0 federation IAM role in the
 
 ****  
 
-   ```
+   ```json
    {
        "Version": "2012-10-17", 		 	 	 
        "Statement": [

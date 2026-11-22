@@ -1,7 +1,6 @@
 
 
 # Update a custom bundle for WorkSpaces Personal
-<a name="update-custom-bundle"></a>
 
 You can update an existing custom WorkSpaces bundle by modifying a WorkSpace that is based on the bundle, creating an image from the WorkSpace, and updating the bundle with the new image. You can then launch new WorkSpaces using the updated bundle.
 

@@ -1,7 +1,6 @@
 
 
 # Set up PCoIP zero clients for WorkSpaces Personal
-<a name="set-up-pcoip-zero-client"></a>
 
 PCoIP zero clients are compatible only with WorkSpaces bundles that are using the PCoIP protocol.
 

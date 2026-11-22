@@ -1,7 +1,6 @@
 
 
 # Enable and configure WorkSpaces Web Access for WorkSpaces Personal
-<a name="web-access"></a>
 
 Most WorkSpaces bundles support Amazon WorkSpaces Web Access. For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support Web Access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience).
 

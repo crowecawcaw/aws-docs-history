@@ -1,7 +1,6 @@
 
 
 # Access to WorkSpaces and scripts on WorkSpaces Pool instances
-<a name="using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances"></a>
 
 In this topic, *WorkSpaces Pool instances* are the streaming instances that run your WorkSpaces Pools. This topic applies to WorkSpaces Pools and does not apply to WorkSpaces Personal.
 
@@ -63,7 +62,7 @@ To perform the following steps, you must sign into the account as an IAM user wh
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

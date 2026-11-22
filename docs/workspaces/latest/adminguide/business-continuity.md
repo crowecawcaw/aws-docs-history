@@ -1,7 +1,6 @@
 
 
 # Business continuity for WorkSpaces Personal
-<a name="business-continuity"></a>
 
 Amazon WorkSpaces is built on the AWS global infrastructure, which is organized into AWS Regions and Availability Zones. These Regions and Availability Zones provide resiliency in terms of both physical isolation and data redundancy. For more information, see [Resilience in Amazon WorkSpaces](disaster-recovery-resiliency.md).
 

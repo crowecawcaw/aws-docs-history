@@ -1,7 +1,6 @@
 
 
 # Administer the VHDs for your users' application settings
-<a name="administer-app-settings-vhds"></a>
 
 **Topics**
 + [Amazon S3 bucket storage](#app-persistence-s3-buckets)

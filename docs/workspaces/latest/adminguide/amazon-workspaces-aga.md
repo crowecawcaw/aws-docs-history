@@ -1,7 +1,6 @@
 
 
 # Configure AWS Global Accelerator (AGA) for WorkSpaces Personal
-<a name="amazon-workspaces-aga"></a>
 
 You can enable AWS Global Accelerator (AGA) either at the WorkSpaces directory level or for individual WorkSpaces running DCV protocol. When enabled, the service automatically routes the streaming traffic through the nearest AWS edge location and across the AWS global network, which is congestion-free and redundant. This helps deliver a more responsive and stable streaming experience. The WorkSpaces service fully manages AGA usage and is subject to outbound data volume limits.
 

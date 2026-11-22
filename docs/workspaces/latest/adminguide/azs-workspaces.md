@@ -1,7 +1,6 @@
 
 
 # Availability Zones for WorkSpaces Personal
-<a name="azs-workspaces"></a>
 
 When you are creating a virtual private cloud (VPC) for use with Amazon WorkSpaces, your VPC's subnets must reside in different Availability Zones in the Region where you're launching WorkSpaces. Availability Zones are distinct locations that are engineered to be isolated from failures in other Availability Zones. By launching instances in separate Availability Zones, you can protect your applications from the failure of a single location. Each subnet must reside entirely within one Availability Zone and cannot span zones.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to WorkSpaces using a client application
-<a name="connect-client"></a>
 
 You can connect to your WorkSpaces by using the client application for a supported device through a supported web browser on a supported operating system.
 

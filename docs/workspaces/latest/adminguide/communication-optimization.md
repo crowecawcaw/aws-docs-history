@@ -1,7 +1,6 @@
 
 
 # Optimize WorkSpaces for real-time communication in WorkSpaces Personal
-<a name="communication-optimization"></a>
 
 Amazon WorkSpaces offers a diverse range of techniques to facilitate the deployment of Unified Communication (UC) applications like Microsoft Teams, Zoom, Webex and others. In contemporary application landscapes, most UC applications consist of a variety of features, including 1:1 chat rooms, collaborative group chat channels, seamless file storage and exchange, live events, webinars, broadcasts, interactive screen sharing and control, whiteboarding, and offline audio/video messaging capabilities. Most of this functionality is seamlessly available on WorkSpaces as standard features, without the need for additional fine-tuning or enhancement. However, it's worth noting that real-time communication elements, particularly one-on-one calling and collective group meetings, represent an exception to this rule. The successful incorporation of such functionality frequently demands dedicated focus and planning during the process of WorkSpaces deployment.
 

@@ -1,7 +1,6 @@
 
 
 # Enable Connect Customer audio optimization for your users in WorkSpaces Personal
-<a name="enable-amazon-connect-audio-optimization"></a>
 
 In the WorkSpaces management console, you can enable Connect Customer Contact Control Panel (CCP) audio optimization for your WorkSpaces fleets to enhance security and to enable native-quality audio. After enabling CCP audio optimization, the CCP audio will be processed by the client endpoints, while WorkSpaces users can interact with the CCP from within their WorkSpaces.
 

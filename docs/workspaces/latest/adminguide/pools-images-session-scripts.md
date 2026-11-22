@@ -1,7 +1,6 @@
 
 
 # Use session scripts to manage your users' streaming experience
-<a name="pools-images-session-scripts"></a>
 
 WorkSpaces Pool provides on-instance session scripts. You can use these scripts to run your own custom scripts when specific events occur in users' streaming sessions. For example, you can use custom scripts to prepare your WorkSpaces Pools environment before your users' streaming sessions begin. You can also use custom scripts to clean up streaming instances after users complete their streaming sessions.
 
@@ -98,7 +97,7 @@ To locate the session scripts configuration file in a Windows instance, navigate
 **Note**  
 The configuration file is in JSON format. Verify that any text you type in this file is in valid JSON format.
 
-```
+```json
 {
   "SessionStart": {
     "executables": [

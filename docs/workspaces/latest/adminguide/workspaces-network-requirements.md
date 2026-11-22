@@ -1,7 +1,6 @@
 
 
 # Client network requirements for WorkSpaces Personal
-<a name="workspaces-network-requirements"></a>
 
 Your WorkSpaces users can connect to their WorkSpaces by using the client application for a supported device. Alternatively, they can use a web browser to connect to WorkSpaces that support this form of access. For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support web access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience).
 

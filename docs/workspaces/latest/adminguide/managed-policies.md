@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for WorkSpaces
-<a name="managed-policies"></a>
 
 Using AWS managed policies makes adding permissions to users, groups, and roles easier than writing policies yourself. It takes time and expertise to create [ IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. Use AWS managed policies to get started quickly. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
@@ -24,7 +23,7 @@ This policy provides access to Amazon WorkSpaces administrative actions. It prov
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ This managed policy provides access to AWS Certificate Manager Private Certifica
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ This policy provides access to the Amazon WorkSpaces service to perform WorkSpac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -151,7 +150,7 @@ This policy provides customer account access to the Amazon WorkSpaces service fo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ The following policy JSON applies to the commercial AWS Regions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -251,7 +250,7 @@ The following policy JSON applies to the commercial AWS GovCloud (US) Regions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

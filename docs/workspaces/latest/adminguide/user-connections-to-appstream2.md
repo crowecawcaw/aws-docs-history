@@ -1,7 +1,6 @@
 
 
 # User connections to WorkSpaces Pools
-<a name="user-connections-to-appstream2"></a>
 
 Users can connect to WorkSpaces in WorkSpaces Pools through the default public internet endpoint. 
 

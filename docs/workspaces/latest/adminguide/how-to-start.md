@@ -1,7 +1,6 @@
 
 
 # Options for creating a WorkSpace with WorkSpaces Personal
-<a name="how-to-start"></a>
 
 There are several methods to create a WorkSpace. You can use the quick setup instructions, the advanced setup instructions, or choose from the following options:
 + [Create a WorkSpace in WorkSpaces Personal](create-workspaces-personal.md)

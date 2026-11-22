@@ -1,7 +1,6 @@
 
 
 # Configure automatic public IP addresses for WorkSpaces Personal
-<a name="automatic-assignment"></a>
 
 After you enable automatic assignment of public IP addresses, each WorkSpace that you launch is assigned a public IP address from the Amazon-provided pool of public addresses. A WorkSpace in a public subnet can access the internet through the internet gateway if it has a public IP address. WorkSpaces that already exist before you enable automatic assignment do not receive public addresses until you rebuild them.
 

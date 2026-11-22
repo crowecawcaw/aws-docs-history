@@ -1,7 +1,6 @@
 
 
 # Administer users in WorkSpaces Personal
-<a name="administer-workspace-users"></a>
 
 Each WorkSpace is assigned to a single user and cannot be shared by multiple users. By default, only one WorkSpace per user per directory is allowed.
 

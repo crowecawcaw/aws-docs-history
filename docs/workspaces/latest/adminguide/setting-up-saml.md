@@ -1,7 +1,6 @@
 
 
 # Set up SAML 2.0 for WorkSpaces Personal
-<a name="setting-up-saml"></a>
 
 Enable WorkSpaces client application registration and signing in to WorkSpaces for your users by using their SAML 2.0 identity provider (IdP) credentials and authentication methods by setting up identity federation using SAML 2.0. To set up identity federation using SAML 2.0, use an IAM role and a relay state URL to configure your IdP and enable AWS. This grants your federated users access to a WorkSpaces directory. The relay state is the WorkSpaces directory endpoint to which users are forwarded after successfully signing in to AWS. 
 
@@ -111,7 +110,7 @@ To create an IAM role for SAML IdP
 
 1. Add the `sts:TagSession` permission to your new IAM role's trust policy. For more information, see [Passing session tags in AWS STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html). In your new IAM role's details, choose the **Trust relationships** tab, and then choose **Edit trust policy**. When the Edit trust policy editor opens, add the `sts:TagSession` permission so that the policy matches the following:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -158,7 +157,7 @@ IAM policies to manage access to AWS based on the source IP are not supported fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

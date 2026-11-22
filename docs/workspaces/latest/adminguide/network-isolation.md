@@ -1,7 +1,6 @@
 
 
 # Network isolation
-<a name="network-isolation"></a>
 
 A virtual private cloud (VPC) is a virtual network in your own logically isolated area in the AWS Cloud. You can deploy your WorkSpaces in a private subnet in your VPC. For more information, see [Configure a VPC for WorkSpaces Personal](amazon-workspaces-vpc.md).
 

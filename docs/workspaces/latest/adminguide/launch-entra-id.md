@@ -1,7 +1,6 @@
 
 
 # Create a dedicated Microsoft Entra ID directory with WorkSpaces Personal
-<a name="launch-entra-id"></a>
 
 In this tutorial, we create Bring Your Own License (BYOL) Windows 10 and 11 personal WorkSpaces that are Microsoft Entra ID joined and enrolled to Microsoft Intune. Before creating such WorkSpaces, you need to first create a dedicated WorkSpaces Personal directory for Entra ID-joined WorkSpaces.
 
@@ -199,7 +198,7 @@ You must create a secret in AWS Secrets Manager to securely store the informatio
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement" : [ {

@@ -1,7 +1,6 @@
 
 
 # Monitor WorkSpaces Personal
-<a name="amazon-workspaces-monitoring"></a>
 
 You can use the following features to monitor your WorkSpaces.
 

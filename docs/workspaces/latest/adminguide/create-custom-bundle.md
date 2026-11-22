@@ -1,7 +1,6 @@
 
 
 # Create a custom WorkSpaces image and bundle for WorkSpaces Personal
-<a name="create-custom-bundle"></a>
 
 If you've launched a Windows or Linux WorkSpace and have customized it, you can create a custom image and custom bundles from that WorkSpace.
 
@@ -29,7 +28,7 @@ Custom bundles cost the same as the public bundles they are created from. For mo
 + [Requirements to create Linux custom images](#linux_custom_image_requirements)
 + [Best practices](#custom_image_best_practices)
 + [(Optional) Step 1: Specify a custom computer name format for your image](#custom_computer_name)
-+ [Step 2: Run the Image Checker](#run_image_checker)
++ [Step 2: Run the Image Compatibility Checker](#run_image_checker)
 + [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle)
 + [What's included with Windows WorkSpaces custom images](#image_creation_windows)
 + [What's included with Linux WorkSpace custom images](#image_creation_linux)
@@ -47,7 +46,7 @@ Windows currently defines 1 GB as 1,073,741,824 bytes. Customers will need to en
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials.
 + The WorkSpace must not be encrypted. Image creation from an encrypted WorkSpace is not currently supported.
 + The following components are required in an image. Without these components, the WorkSpaces that you launch from the image will not function correctly. For more information, see [Required configuration and service components for WorkSpaces Personal](required-service-components.md).
-  + Windows PowerShell version 3.0 or later
+  + Windows PowerShell version 5.0 or later
   + Remote Desktop Services
   + AWS PV drivers
   + Windows Remote Management (WinRM)
@@ -132,48 +131,54 @@ Both <RegisteredOrganization> and <RegisteredOwner> are required values.
 
 1. If you are using Windows 10, save your changes to the `Sysprep2008.xml` file. If you are using Windows 11, save your changes to `OOBE_unattend.xml`
 
-## Step 2: Run the Image Checker
+## Step 2: Run the Image Compatibility Checker
 <a name="run_image_checker"></a>
 
 **Note**  
-The Image Checker is available only for Windows WorkSpaces. If you are creating an image from a Linux WorkSpace, skip to [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle).
+The Image Compatibility Checker is available only for Windows WorkSpaces. If you are creating an image from a Linux WorkSpace, skip to [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle).
 
-To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Checker. The Image Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds.
+To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Compatibility Checker. The Image Compatibility Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds.
 
 **Important**  
-The WorkSpace must pass all of the tests run by the Image Checker before you can use it for image creation. 
-Before you run the Image Checker, verify that the latest Windows security and cumulative updates are installed on your WorkSpace.
+The WorkSpace must have no tests with a status of **FAILED** before you can use it for image creation.
+Before you run the Image Compatibility Checker, verify that the latest Windows security and cumulative updates are installed on your WorkSpace.
 
-To get the Image Checker, do one of the following:
-+ [Reboot your WorkSpace](reboot-workspaces.md). The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`.
-+ Download the Amazon WorkSpaces Image Checker from [https://tools.amazonworkspaces.com/ImageChecker.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file. Copy this file to `C:\Program Files\Amazon\`.
+To get the Image Compatibility Checker, do one of the following:
++ [Reboot your WorkSpace](reboot-workspaces.md). The Image Compatibility Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageCompatibilityChecker\ImageCompatibilityChecker.exe`.
++ Download the Amazon WorkSpaces Image Compatibility Checker from [https://tools.amazonworkspaces.com/ImageCompatibilityChecker.zip](https://tools.amazonworkspaces.com/ImageCompatibilityChecker.zip) and extract all of the files to `C:\Program Files\Amazon\ImageCompatibilityChecker\`.
 
-**To run the Image Checker**
+When you run the Image Compatibility Checker on a WorkSpace, it detects the WorkSpace and runs the Create Image checks. These checks only validate the WorkSpace and don't change it.
 
-1. Open the `C:\Program Files\Amazon\ImageChecker.exe` file.
+**To run the Image Compatibility Checker**
 
-1. In the **Amazon WorkSpaces Image Checker** dialog box, choose **Run**.
+1. Open the context menu (right-click) for `C:\Program Files\Amazon\ImageCompatibilityChecker\ImageCompatibilityChecker.exe`, and choose **Run as administrator**.
+
+1. In the **Amazon WorkSpaces Image Validation** dialog box, confirm that the banner says **Amazon WorkSpace detected - running Create Image checks**.
+
+   If the banner says **No Amazon WorkSpace detected - running Import Image checks**, close the tool and contact [AWS Support Center](https://console.aws.amazon.com/support/home#/). Don't choose **Fix Warnings** or **Run Sysprep**; those options are for importing images and make changes to the system.
+
+1. Leave **User-Decoupled WorkSpace** cleared unless the WorkSpace has no assigned user, and then choose **Run Tests**.
 
 1. After each test is completed, you can view the status of the test.
 
-   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure. For more information about how to resolve these issues, see [Tips for resolving issues detected by the Image Checker](#image_checker_tips).
+   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure. For more information about how to resolve these issues, see [Tips for resolving issues detected by the Image Compatibility Checker](#image_checker_tips).
 
-   If any tests display a status of **WARNING**, choose the **Fix All Warnings** button.
+   If a test displays a status of **WARNING**, the WorkSpace can still be used for image creation, but we recommend that you resolve the issue to avoid failures during image creation.
 
-   The tool generates an output log file in the same directory where the Image Checker is located. By default, this file is located at `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log`.
+   The tool generates an output log file in the same directory where the Image Compatibility Checker is located. By default, this file is located at `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt`.
 **Tip**  
 Do not delete this log file. If an issue occurs, this log file might be helpful in troubleshooting.
 
-1. If applicable, resolve any issues that cause test failures and warnings, and repeat the process of running the Image Checker until the WorkSpace passes all tests. All failures and warnings must be resolved before you can create an image.
+1. If applicable, resolve any issues that cause test failures, and then choose **Re-run Tests**. Repeat until no tests have a status of **FAILED**.
 
-1. After your WorkSpace passes all tests, you see a **Validation Successful** message. You are now ready to create a custom bundle.
+1. When no tests have a status of **FAILED**, you are ready to create a custom bundle.
 
-### Tips for resolving issues detected by the Image Checker
+### Tips for resolving issues detected by the Image Compatibility Checker
 <a name="image_checker_tips"></a>
 
-In addition to consulting the following tips for resolving issues that are detected by the Image Checker, be sure to review the Image Checker log file at `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log`.<a name="tips_powershell"></a>
+In addition to consulting the following tips for resolving issues that are detected by the Image Compatibility Checker, you can also review the Image Compatibility Checker log file for further diagnostics and troubleshooting. By default, this file is located at `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt`.<a name="tips_powershell"></a>
 
-#### PowerShell version 3.0 or later must be installed
+#### PowerShell version 5.0 or later must be installed
 <a name="tips_powershell"></a>
 
 Install the latest version of [ Microsoft Windows PowerShell](https://docs.microsoft.com/powershell).
@@ -213,7 +218,7 @@ To run the Create Image process, no services on the WorkSpace can be running und
 
 **To run services under a local account**
 
-1. Open `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log` and find the list of services that are running under a domain account.
+1. Open `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt` and find the list of services that are running under a domain account.
 
 1. In the Windows search box, enter **services.msc** to open the Windows Services Manager.
 
@@ -381,15 +386,15 @@ One or more AppX packages are in a staged state. This might cause a Sysprep erro
 
 1. In the Windows PowerShell window, enter the following commands to list all staged AppX packages, and press Enter after each one.
 
-   ```
+   ```powershell
    $workSpaceUserName = $env:username
    ```
 
-   ```
+   ```powershell
    $allAppxPackages = Get-AppxPackage -AllUsers
    ```
 
-   ```
+   ```powershell
    $packages = $allAppxPackages |    Where-Object { `
                                    (($_.PackageUserInformation -like "*S-1-5-18*" -and !($_.PackageUserInformation -like "*$workSpaceUserName*")) -and `
                                    ($_.PackageUserInformation -like "*Staged*" -or $_.PackageUserInformation -like "*Installed*")) -or `
@@ -400,13 +405,13 @@ One or more AppX packages are in a staged state. This might cause a Sysprep erro
 
 1. Execute the following command with elevated SYSTEM privileges to remove all staged AppX package provisioning entries, and press Enter.
 
-   ```
+   ```powershell
    $packages | Remove-AppxPackage -ErrorAction SilentlyContinue
    ```
 
-1. Run the Image Checker again. If this test still fails, enter the following commands to remove all AppX packages, and press Enter after each one.
+1. Run the Image Compatibility Checker again. If this test still fails, enter the following commands to remove all AppX packages, and press Enter after each one.
 
-   ```
+   ```powershell
    Get-AppxProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
    ```
 
@@ -439,10 +444,10 @@ To reset the rearm count to a value other than 0, see [ Sysprep (Generalize) a W
 #### Other troubleshooting tips
 <a name="images_troubleshooting_tips"></a>
 
-If your WorkSpace passes all of the tests run by the Image Checker, but you are still unable to create an image from the WorkSpace, check for the following issues:
+If no Image Compatibility Checker tests have a status of **FAILED**, but you are still unable to create an image from the WorkSpace, check for the following issues:
 + Make sure that the WorkSpace isn't assigned to a user within a **Domain Guests** group. To check if there are any domain accounts, run the following PowerShell command.
 
-  ```
+  ```powershell
   Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:USERDOMAIN*" }
   ```
 + For Windows 7 WorkSpaces only: If problems occur while the user profile is being copied during image creation, check for the following issues:

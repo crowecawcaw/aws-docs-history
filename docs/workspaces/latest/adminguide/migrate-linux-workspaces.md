@@ -1,7 +1,6 @@
 
 
 # Migrate a Linux WorkSpace to a different operating system
-<a name="migrate-linux-workspaces"></a>
 
 You can migrate an existing Linux WorkSpace to a different Linux operating system bundle while preserving the user's home directory, files, and data. Migration replaces the root volume (operating system) with a new bundle while keeping the user volume (`/home`) intact. This is different from a rebuild, which refreshes the root volume with the same OS bundle.
 
@@ -75,7 +74,7 @@ Before migrating a Linux WorkSpace, verify the following:
 
 Use the `migrate-workspace` command to migrate a WorkSpace to a different bundle:
 
-```
+```bash
 aws workspaces migrate-workspace \
     --source-workspace-id ws-1234567890abcdef0 \
     --bundle-id wsb-jttwgmx20 \
@@ -84,7 +83,7 @@ aws workspaces migrate-workspace \
 
 To find available target bundle IDs:
 
-```
+```bash
 aws workspaces describe-workspace-bundles \
     --query 'Bundles[?contains(Name, `Ubuntu`) || contains(Name, `Rocky`) || contains(Name, `RHEL`)].{Name:Name,BundleId:BundleId}' \
     --output table
@@ -95,7 +94,7 @@ aws workspaces describe-workspace-bundles \
 
 Migration typically takes 20–30 minutes. Monitor the WorkSpace status:
 
-```
+```bash
 aws workspaces describe-workspaces \
     --workspace-ids ws-1234567890abcdef0 \
     --query 'Workspaces[0].State' \
@@ -121,7 +120,7 @@ Have the user log in to the WorkSpace and confirm the desktop loads correctly.
 
 For AL2 migrations, review the migration log for details on what was changed:
 
-```
+```bash
 cat ~/workspace-migration-log-*/user-id-migration.txt
 ```
 
@@ -131,7 +130,7 @@ This log shows the old and new user IDs, the number of files changed in each pha
 
 To verify whether the background migration has completed:
 
-```
+```bash
 # Check if the Phase 2 service is still running
 systemctl is-active ws-migrate-phase2.service 2>/dev/null
 
@@ -267,7 +266,7 @@ To restore RFC 2307 home directory paths:
 
 **Step 1: Determine the AD-specified home directory path**
 
-```
+```bash
 # Query the AD unixHomeDirectory attribute
 ldapsearch -H ldap://your-dc.example.com -b "dc=example,dc=com" \
     "(sAMAccountName=jsmith)" unixHomeDirectory
@@ -275,26 +274,26 @@ ldapsearch -H ldap://your-dc.example.com -b "dc=example,dc=com" \
 
 **Step 2: Move the user's data to the AD-specified path**
 
-```
+```bash
 sudo mkdir -p /home/CORP
 sudo mv /home/jsmith /home/CORP/jsmith
 ```
 
 **Step 3: Remove the override\_homedir setting from /etc/sssd/sssd.conf**
 
-```
+```bash
 sudo sed -i '/^override_homedir/d' /etc/sssd/sssd.conf
 ```
 
 **Step 4: Restart SSSD**
 
-```
+```bash
 sudo systemctl restart sssd
 ```
 
 **Step 5: Verify the home directory resolves correctly**
 
-```
+```bash
 getent passwd jsmith
 # Should show /home/CORP/jsmith as the home directory
 ```
@@ -398,7 +397,7 @@ For always-on WorkSpaces:
 
 If the migration fails and the WorkSpace returns to `ERROR` state, the control plane automatically attempts to restore the original WorkSpace. Check the provisioning logs:
 
-```
+```bash
 # Connect to the WorkSpace (if accessible) and check the domain-join log
 sudo cat /var/log/skylight/domain-join.log
 ```
@@ -420,7 +419,7 @@ Common causes:
 
 This typically occurs when migrating from AL2 and some MATE configuration files were not cleaned up. To reset the desktop to defaults:
 
-```
+```bash
 # Remove remaining desktop configuration
 rm -rf ~/.config/dconf/user
 rm -rf ~/.gconf
@@ -433,7 +432,7 @@ rm -rf ~/.gconf
 
 If files in the home directory are inaccessible after an AL2 migration, Phase 2 may still be running:
 
-```
+```bash
 # Check Phase 2 status
 systemctl is-active ws-migrate-phase2.service 2>/dev/null
 
@@ -443,7 +442,7 @@ cat ~/workspace-migration-log-*/user-id-migration.txt
 
 If Phase 2 has completed but some files still have incorrect ownership, you can manually fix them:
 
-```
+```bash
 # Find files with the old UID and change ownership
 sudo find /home/{{username}} -uid {{old-uid}} -exec chown {{username}} {} +
 sudo find /home/{{username}} -gid {{old-gid}} -exec chgrp {{username}} {} +

@@ -1,7 +1,6 @@
 
 
 # Delete a pool
-<a name="set-up-pools-finish"></a>
 
 You can delete pools to free up resources and to avoid unintended charges to your account. We recommend stopping any unused, running pools.
 

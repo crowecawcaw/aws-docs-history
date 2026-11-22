@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues for WorkSpaces Personal
-<a name="amazon-workspaces-troubleshooting"></a>
 
 The following information can help you troubleshoot issues with your WorkSpaces.
 

@@ -1,7 +1,6 @@
 
 
 # Microsoft 365 Bring Your Own License (BYOL) in WorkSpaces Personal
-<a name="byol-microsoft365-licenses"></a>
 
 Amazon WorkSpaces allows you to bring your own Microsoft 365 licenses if they meet Microsoft's licensing requirements. These licenses allow you to install and activate Microsoft 365 Apps for enterprise software on WorkSpaces that are powered by the following operating systems:
 + Windows 10 (Bring Your Own License)

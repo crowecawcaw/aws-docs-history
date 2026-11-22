@@ -1,7 +1,6 @@
 
 
 # Delete a WorkSpaces Pools directory
-<a name="delete-directory-pools"></a>
 
 Complete the following procedures to delete a WorkSpaces Pools directory.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding AWS sign-in events for WorkSpaces Personal users
-<a name="signin-events"></a>
 
 AWS CloudTrail logs successful and unsuccessful sign-in events for WorkSpaces Personal users. These events are generated for all authentication methods supported by the WorkSpaces Personal user login flow, including password-based authentication and smart cards. Each event captures when a user is prompted to solve a specific credential challenge or factor, as well as the status of that particular credential verification request. A user is signed in only after completing all required credential challenges, which results in a `UserAuthentication` event being logged.
 
@@ -45,7 +44,7 @@ The following sequence of events captures an example of a successful password-ba
 
 **CredentialChallenge**  
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -83,7 +82,7 @@ The following sequence of events captures an example of a successful password-ba
 
 **Successful CredentialVerification**  
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -121,7 +120,7 @@ The following sequence of events captures an example of a successful password-ba
 
 **Successful UserAuthentication**  
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -165,7 +164,7 @@ The following sequence of events captures an example of a successful smart card 
 
 **CredentialChallenge**  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -202,7 +201,7 @@ The following sequence of events captures an example of a successful smart card 
 
 **Successful CredentialVerification**  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -239,7 +238,7 @@ The following sequence of events captures an example of a successful smart card 
 
 **Successful UserAuthentication**  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -282,7 +281,7 @@ The following sequence of events captures an example of failed smart card sign-i
 
 **CredentialChallenge**  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -319,7 +318,7 @@ The following sequence of events captures an example of failed smart card sign-i
 
 **Failed CredentialVerification**  
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

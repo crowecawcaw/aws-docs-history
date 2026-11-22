@@ -1,7 +1,6 @@
 
 
 # Integrate SAML 2.0 with WorkSpaces Personal
-<a name="amazon-workspaces-saml"></a>
 
 **Note**  
 SAML 2.0 is available only when your WorkSpaces Personal directories are managed through Directory Service including Simple AD, AD Connector, and AWS Managed Microsoft AD directory. The feature doesn't apply to directories that are managed by Amazon WorkSpaces, which normally use IAM Identity Center for user authentication instead of SAML 2.0 federation.

@@ -1,7 +1,6 @@
 
 
 # Administer WorkSpaces Personal
-<a name="administer-workspaces"></a>
 
 You can administer your WorkSpaces using the WorkSpaces console.
 

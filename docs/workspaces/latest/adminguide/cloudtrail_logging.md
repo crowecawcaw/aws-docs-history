@@ -1,7 +1,6 @@
 
 
 # Logging WorkSpaces API Calls by Using CloudTrail
-<a name="cloudtrail_logging"></a>
 
 The WorkSpaces API is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in WorkSpaces. CloudTrail captures API calls for WorkSpaces as events. The calls captured include calls from the WorkSpaces console and code calls to the WorkSpaces API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for WorkSpaces. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to WorkSpaces, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -29,7 +28,7 @@ Any sensitive information, such as passwords, authentication tokens, file commen
 
 The following shows an example of a CloudTrail log entry for WorkSpaces.
 
-```
+```json
 {
   "Records" : [
     {

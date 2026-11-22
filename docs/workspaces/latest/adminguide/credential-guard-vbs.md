@@ -1,7 +1,6 @@
 
 
 # Credential Guard / Virtualization-Based Security (VBS)
-<a name="credential-guard-vbs"></a>
 
 Windows WorkSpaces can utilize Credential Guard and Virtualization-Based Security (VBS) to provide hardware-based isolation and protect credentials within the operating system. You can disable Credential Guard or VBS through Group Policy settings.
 
@@ -15,5 +14,4 @@ Disabling VBS reduces the security posture of your Windows WorkSpace. Only disab
 + **Reduced kernel-level protection** – The OS kernel becomes more vulnerable to malicious code.
 + **Increased risk of credential theft** – Attackers may more easily extract credentials from the lsass.exe process.
 + **Disabled code integrity checks** – Hypervisor-Enforced Code Integrity (HVCI) will not function, allowing unsigned drivers to run in kernel mode. HVCI isn't supported on Amazon Elastic Compute Cloud (Amazon EC2) instances. For more information, see [Credential Guard for Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#credential-guard-prerequisites).
-+ **Increased vulnerability to exploits** – The system becomes more susceptible to attacks that could result in full system compromise.
 + **Loss of advanced security features** – Features such as Windows Defender Credential Guard and System Guard cannot operate as intended.

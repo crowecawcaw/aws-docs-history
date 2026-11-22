@@ -1,7 +1,6 @@
 
 
 # Create a dedicated Custom directory with WorkSpaces Personal
-<a name="launch-custom"></a>
 
 Before you create Windows 10 and 11 BYOL personal WorkSpaces and assign them to your users, managed with AWS IAM Identity Center Identity Providers (IdPs), you must create a dedicated Custom WorkSpaces directory. Personal WorkSpaces are not joined to any Microsoft Active Directory but can be managed with a Mobile Device Management (MDM) solution of your choice, such as JumpCloud. For more information about JumpCloud, see [this article](https://jumpcloud.com/support/integrate-with-aws-workspaces). For tutorials that use the other options, see [Create a directory for WorkSpaces Personal](launch-workspaces-tutorials.md).
 

@@ -1,7 +1,6 @@
 
 
 # Modify a WorkSpace in WorkSpaces Personal
-<a name="modify-workspaces"></a>
 
 After you launch a WorkSpace, you can modify its configuration in three ways: 
 + You can change the size of its root volume (for Windows, drive C; for Linux, /) and its user volume (for Windows, drive D; for Linux /home).
@@ -226,7 +225,7 @@ Use the [modify-workspace-properties](https://docs.aws.amazon.com/cli/latest/ref
 
 To enable:
 
-```
+```bash
 aws workspaces modify-workspace-properties \
     --workspace-id {{ws-example123456}} \
     --region {{us-west-2}} \
@@ -235,7 +234,7 @@ aws workspaces modify-workspace-properties \
 
 To disable:
 
-```
+```bash
 aws workspaces modify-workspace-properties \
     --workspace-id {{ws-example123456}} \
     --region {{us-west-2}} \

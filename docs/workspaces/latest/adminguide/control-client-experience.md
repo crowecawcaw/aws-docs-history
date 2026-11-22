@@ -1,7 +1,6 @@
 
 
 # Control the WorkSpaces client experience for your users
-<a name="control-client-experience"></a>
 
 Starting on August 25, 2026, Amazon WorkSpaces is introducing a new WorkSpaces Windows client with an updated interface, designed to be easier to use, with a simplified connection flow, easier-to-find settings and session tools, more helpful error messaging, and a new Session Health feature.
 

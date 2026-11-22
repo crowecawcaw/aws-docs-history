@@ -1,7 +1,7 @@
 
 
 # List of SysPrep error messages and error fixes
-<a name="images-errors-sysprep"></a><a name="windows-images-errors-sysprep"></a><a name="AppXInstalled"></a>
+<a name="windows-images-errors-sysprep"></a><a name="AppXInstalled"></a>
 
 ## The AMI you are importing has AppX packages installed. Remove them and re-import the image.
 <a name="AppXInstalled-collapsed"></a>

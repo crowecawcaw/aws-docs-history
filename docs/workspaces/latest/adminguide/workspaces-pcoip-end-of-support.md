@@ -1,7 +1,6 @@
 
 
 # PCoIP-based WorkSpaces Personal end of support
-<a name="workspaces-pcoip-end-of-support"></a>
 
 After careful consideration, we decided to end support for PCoIP-based WorkSpaces Personal, effective October 31, 2027. PCoIP-based WorkSpaces Personal will no longer accept new customers beginning July 31, 2026. As an existing customer with an account signed up for the service before July 30, 2026, you can continue to use PCoIP-based WorkSpaces Personal features. After October 31, 2027, you will no longer be able to use PCoIP-based WorkSpaces Personal.
 

@@ -1,7 +1,6 @@
 
 
 # Configure a VPC with Private Subnets and a NAT Gateway
-<a name="managing-network-internet-NAT-gateway"></a>
 
 If you plan to provide your WorkSpaces in WorkSpaces Pools with access to the internet, we recommend that you configure a VPC with two private subnets for your WorkSpaces and a NAT gateway in a public subnet. You can create and configure a new VPC to use with a NAT gateway, or add a NAT gateway to an existing VPC. For additional VPC configuration recommendations, see [VPC Setup Recommendations for WorkSpaces Pools](vpc-setup-recommendations.md).
 

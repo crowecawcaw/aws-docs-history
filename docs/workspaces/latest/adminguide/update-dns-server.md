@@ -1,7 +1,6 @@
 
 
 # Update DNS servers for WorkSpaces Personal
-<a name="update-dns-server"></a>
 
 If you need to update the DNS server IP addresses for your Active Directory after launching your WorkSpaces, you must also update your WorkSpaces with the new DNS server settings.
 
@@ -68,7 +67,7 @@ The following procedure uses PowerShell commands to update your registry and res
 
 1. In the PowerShell window, run the following command to retrieve the current DNS server IP addresses.
 
-   ```
+   ```powershell
    Get-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS
    ```
 
@@ -85,13 +84,13 @@ The following procedure uses PowerShell commands to update your registry and res
 
 1. In the PowerShell window, run the following command to change `{{OldIP1}}` to `{{NewIP1}}`. Be sure to leave `{{OldIP2}}` as is for now.
 
-   ```
+   ```powershell
    Set-ItemProperty -Path HKLM:\SOFTWARE\Amazon\SkyLight -Name DomainJoinDNS -Value "{{NewIP1}},{{OldIP2}}"
    ```
 
 1. Run the following command to restart the service SkyLightWorkspaceConfigService.
 
-   ```
+   ```powershell
    restart-service -Name SkyLightWorkspaceConfigService
    ```
 **Note**  

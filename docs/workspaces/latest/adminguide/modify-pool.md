@@ -1,7 +1,6 @@
 
 
 # Modify a pool
-<a name="modify-pool"></a>
 
 After creating a WorkSpaces Pool, you can modify the following:
 + Directory ID (if the WorkSpaces Pool is stopped)

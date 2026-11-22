@@ -1,7 +1,6 @@
 
 
 # Bundle options for WorkSpaces Personal
-<a name="bundle-options"></a>
 
 Before selecting a bundle, ensure the bundle you want to select is compatible with your WorkSpaces' protocol, operating system, network, and compute type. For more information about protocols, see [Protocols for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html). For more information about networks, see [Amazon WorkSpaces client network requirements](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-network-requirements.html). 
 

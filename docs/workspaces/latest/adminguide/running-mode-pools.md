@@ -1,7 +1,6 @@
 
 
 # Running mode for WorkSpaces Pools
-<a name="running-mode-pools"></a>
 
 The running mode of a WorkSpaces Pool determines its immediate availability and how you pay for it. You can choose between the following running modes when you create a WorkSpaces Pool:
 + **AutoStop** — Instances of a WorkSpaces Pool are billed an hourly usage fee based on the bundle chosen, only for the instances that are connected to users. Instances within a WorkSpaces Pool that are not connected to users are billed a low stopped-instance hourly fee. When users initiate their session, they start streaming after 1-2 minutes.

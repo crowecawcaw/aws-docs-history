@@ -1,7 +1,6 @@
 
 
 # Create a custom image and bundle for WorkSpaces Pools
-<a name="pools-images-custom-image"></a>
 
 WorkSpaces Pool supports Windows images and bundles only. If you've launched a Windows or WorkSpace and have customized it, you can create a custom image and custom bundles from that WorkSpace.
 
@@ -19,7 +18,7 @@ Custom bundles cost the same as the public bundles they are created from. For mo
 **Topics**
 + [Requirements to create Windows custom images](#pools-windows_custom_image_requirements)
 + [Best practices](#pools-custom_image_best_practices)
-+ [Step 1: Run the Image Checker](#pools-run_image_checker)
++ [Step 1: Run the Image Compatibility Checker](#pools-run_image_checker)
 + [Step 2: Create a custom image and custom bundle](#pools-create_custom_image_bundle)
 + [What's included with Windows WorkSpaces custom images](#pools-image_creation_windows)
 
@@ -34,7 +33,7 @@ Windows currently defines 1 GB as 1,073,741,824 bytes. You must ensure they have
 + All application services running on the WorkSpace must use a local system account instead of domain user credentials. For example, you cannot have a Microsoft SQL Server Express installation running with a domain user's credentials.
 + The WorkSpace must not be encrypted. Image creation from an encrypted WorkSpace is not currently supported.
 + The following components are required in an image. Without these components, the WorkSpaces that you launch from the image will not function correctly. For more information, see [Required configuration and service components for WorkSpaces Personal](required-service-components.md).
-  + Windows PowerShell version 3.0 or later
+  + Windows PowerShell version 5.0 or later
   + Remote Desktop Services
   + AWS PV drivers
   + Windows Remote Management (WinRM)
@@ -65,43 +64,49 @@ Before you create an image from a WorkSpace, do the following:
 + Ensure you update networking dependency drivers like ENA, NVMe, and PV drivers on your WorkSpaces. You should do this at least once every 6 months. For more information, see [ Install or upgrade Elastic Network Adapter (ENA) driver ](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking-ena.html#ena-adapter-driver-install-upgrade-win), [AWS NVMe drivers for Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/aws-nvme-drivers.html), and [Upgrade PV drivers on Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Upgrading_PV_drivers.html).
 + Ensure you update the EC2Config, EC2Launch, and EC2Launch V2 agents to the latest versions periodically. You should do this at least once every 6 months. For more information, see [Update EC2Config and EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/migrating-latest-types.html#upgdate-ec2config-ec2launch).
 
-## Step 1: Run the Image Checker
+## Step 1: Run the Image Compatibility Checker
 <a name="pools-run_image_checker"></a>
 
-To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Checker application. The Image Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds. The Image Checker is available only for Windows WorkSpaces.
+To confirm that your Windows WorkSpace meets the requirements for image creation, we recommend running the Image Compatibility Checker application. The Image Compatibility Checker performs a series of tests on the WorkSpace that you want to use to create your image, and provides guidance on how to resolve any issues it finds. The Image Compatibility Checker is available only for Windows WorkSpaces.
 
 **Important**  
-The WorkSpace must pass all of the tests run by the Image Checker before you can use it for image creation. 
-Before you run the Image Checker, verify that the latest Windows security and cumulative updates are installed on your WorkSpace.
+The WorkSpace must have no tests with a status of **FAILED** before you can use it for image creation.
+Before you run the Image Compatibility Checker, verify that the latest Windows security and cumulative updates are installed on your WorkSpace.
 
-To get the Image Checker, do one of the following:
-+ [Reboot your WorkSpace](reboot-workspaces.md). The Image Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageChecker.exe`.
-+ Download the Amazon WorkSpaces Image Checker from [https://tools.amazonworkspaces.com/ImageChecker.zip](https://tools.amazonworkspaces.com/ImageChecker.zip) and extract the `ImageChecker.exe` file. Copy this file to `C:\Program Files\Amazon\`.
+To get the Image Compatibility Checker, do one of the following:
++ [Reboot your WorkSpace](reboot-workspaces.md). The Image Compatibility Checker is downloaded automatically during the reboot and installed at `C:\Program Files\Amazon\ImageCompatibilityChecker\ImageCompatibilityChecker.exe`.
++ Download the Amazon WorkSpaces Image Compatibility Checker from [https://tools.amazonworkspaces.com/ImageCompatibilityChecker.zip](https://tools.amazonworkspaces.com/ImageCompatibilityChecker.zip) and extract all of the files to `C:\Program Files\Amazon\ImageCompatibilityChecker\`.
 
-**To run the Image Checker**
+When you run the Image Compatibility Checker on a WorkSpace, it detects the WorkSpace and runs the Create Image checks. These checks only validate the WorkSpace and don't change it.
 
-1. Open the `C:\Program Files\Amazon\ImageChecker.exe` file.
+**To run the Image Compatibility Checker**
 
-1. In the **Amazon WorkSpaces Image Checker** dialog box, choose **Run**.
+1. Open the context menu (right-click) for `C:\Program Files\Amazon\ImageCompatibilityChecker\ImageCompatibilityChecker.exe`, and choose **Run as administrator**.
+
+1. In the **Amazon WorkSpaces Image Validation** dialog box, confirm that the banner says **Amazon WorkSpace detected - running Create Image checks**.
+
+   If the banner says **No Amazon WorkSpace detected - running Import Image checks**, close the tool and contact [AWS Support Center](https://console.aws.amazon.com/support/home#/). Don't choose **Fix Warnings** or **Run Sysprep**; those options are for importing images and make changes to the system.
+
+1. Leave **User-Decoupled WorkSpace** cleared unless the WorkSpace has no assigned user, and then choose **Run Tests**.
 
 1. After each test is completed, you can view the status of the test.
 
-   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure. For more information about how to resolve these issues, see [Tips for resolving issues detected by the Image Checker](#pools-image_checker_tips).
+   For any test with a status of **FAILED**, choose **Info** to display information about how to resolve the issue that caused the failure. For more information about how to resolve these issues, see [Tips for resolving issues detected by the Image Compatibility Checker](#pools-image_checker_tips).
 
-   If any tests display a status of **WARNING**, choose the **Fix All Warnings** button.
+   If a test displays a status of **WARNING**, the WorkSpace can still be used for image creation, but we recommend that you resolve the issue to avoid failures during image creation.
 
-   The tool generates an output log file in the same directory where the Image Checker is located. By default, this file is located at `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log`. Don't delete this log file. If an issue occurs, this log file might be helpful in troubleshooting.
+   The tool generates an output log file in the same directory where the Image Compatibility Checker is located. By default, this file is located at `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt`. Don't delete this log file. If an issue occurs, this log file might be helpful in troubleshooting.
 
-1. If applicable, resolve any issues that cause test failures and warnings, and repeat the process of running the Image Checker until the WorkSpace passes all tests. All failures and warnings must be resolved before you can create an image.
+1. If applicable, resolve any issues that cause test failures, and then choose **Re-run Tests**. Repeat until no tests have a status of **FAILED**.
 
-1. After your WorkSpace passes all tests, you see a **Validation Successful** message. You are now ready to create a custom bundle.
+1. When no tests have a status of **FAILED**, you are ready to create a custom bundle.
 
-### Tips for resolving issues detected by the Image Checker
+### Tips for resolving issues detected by the Image Compatibility Checker
 <a name="pools-image_checker_tips"></a>
 
-In addition to consulting the following tips for resolving issues that are detected by the Image Checker, be sure to review the Image Checker log file at `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log`.
+In addition to consulting the following tips for resolving issues that are detected by the Image Compatibility Checker, you can also review the Image Compatibility Checker log file for further diagnostics and troubleshooting. By default, this file is located at `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt`.
 
-#### PowerShell version 3.0 or later must be installed
+#### PowerShell version 5.0 or later must be installed
 <a name="pools-tips_powershell"></a>
 
 Install the latest version of [ Microsoft Windows PowerShell](https://docs.microsoft.com/powershell).
@@ -141,7 +146,7 @@ To run the Create Image process, no services on the WorkSpace can be running und
 
 **To run services under a local account**
 
-1. Open `C:\Program Files\Amazon\ImageChecker_{{yyyyMMddhhmmss}}.log` and find the list of services that are running under a domain account.
+1. Open `C:\Program Files\Amazon\ImageCompatibilityChecker\WorkSpacesImageCompatibilityCheckLog{{yyyy-MM-dd_hhmmss}}.txt` and find the list of services that are running under a domain account.
 
 1. In the Windows search box, enter **services.msc** to open the Windows Services Manager.
 
@@ -309,15 +314,15 @@ One or more AppX packages are in a staged state. This might cause a Sysprep erro
 
 1. In the Windows PowerShell window, enter the following commands to list all staged AppX packages, and press Enter after each one.
 
-   ```
+   ```powershell
    $workSpaceUserName = $env:username
    ```
 
-   ```
+   ```powershell
    $allAppxPackages = Get-AppxPackage -AllUsers
    ```
 
-   ```
+   ```powershell
    $packages = $allAppxPackages |    Where-Object { `
                                    (($_.PackageUserInformation -like "*S-1-5-18*" -and !($_.PackageUserInformation -like "*$workSpaceUserName*")) -and `
                                    ($_.PackageUserInformation -like "*Staged*" -or $_.PackageUserInformation -like "*Installed*")) -or `
@@ -328,13 +333,13 @@ One or more AppX packages are in a staged state. This might cause a Sysprep erro
 
 1. Execute the following command with elevated SYSTEM privileges to remove all staged AppX package provisioning entries, and press Enter.
 
-   ```
+   ```powershell
    $packages | Remove-AppxPackage -ErrorAction SilentlyContinue
    ```
 
-1. Run the Image Checker again. If this test still fails, enter the following commands to remove all AppX packages, and press Enter after each one.
+1. Run the Image Compatibility Checker again. If this test still fails, enter the following commands to remove all AppX packages, and press Enter after each one.
 
-   ```
+   ```powershell
    Get-AppxProvisionedPackage -Online | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
    ```
 
@@ -367,10 +372,10 @@ To reset the rearm count to a value other than 0, see [ Sysprep (Generalize) a W
 #### Other troubleshooting tips
 <a name="pools-images_troubleshooting_tips"></a>
 
-If your WorkSpace passes all of the tests run by the Image Checker, but you are still unable to create an image from the WorkSpace, check for the following issues:
+If no Image Compatibility Checker tests have a status of **FAILED**, but you are still unable to create an image from the WorkSpace, check for the following issues:
 + Make sure that the WorkSpace isn't assigned to a user within a **Domain Guests** group. To check if there are any domain accounts, run the following PowerShell command.
 
-  ```
+  ```powershell
   Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:USERDOMAIN*" }
   ```
 + Some Group Policy Objects (GPOs) restrict access to the RDP certificate thumbprint when it is requested by the EC2Config service or the EC2Launch scripts during Windows instance configuration. Before you try to create an image, move the WorkSpace to a new organizational unit (OU) with blocked inheritance and no GPOs applied.

@@ -1,7 +1,6 @@
 
 
 # Delete a custom bundle or image in WorkSpaces Personal
-<a name="delete_bundle"></a>
 
 You can delete unused custom bundles or custom images as needed.
 

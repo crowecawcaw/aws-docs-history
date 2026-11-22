@@ -1,7 +1,6 @@
 
 
 # Manage your Amazon Linux 2 WorkSpaces in WorkSpaces Personal
-<a name="manage_linux_workspace"></a>
 
 **Important**  
 **Amazon Linux 2 reaches end-of-life on June 30, 2026.** No new Amazon Linux 2 WorkSpaces can be created. Existing Amazon Linux 2 WorkSpaces should be migrated to Ubuntu, Red Hat Enterprise Linux, or Rocky Linux before this date. For migration instructions, see [Migrate a Linux WorkSpace to a different operating system](migrate-linux-workspaces.md).

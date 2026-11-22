@@ -1,7 +1,6 @@
 
 
 # Use the Default VPC, Public Subnet, and Security Group
-<a name="default-vpc-with-public-subnet"></a>
 
 Your Amazon Web Services account, if it was created after 2013-12-04, has a default VPC in each AWS Region. The default VPC includes a default public subnet in each Availability Zone and an internet gateway that is attached to your VPC. The VPC also includes a default security group. If you are new to WorkSpaces Pools and want to get started using the service, you can keep the default VPC and security group selected when you create a WorkSpaces Pool. Then, you can select at least one default subnet.
 

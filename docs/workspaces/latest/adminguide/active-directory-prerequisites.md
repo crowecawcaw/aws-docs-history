@@ -1,7 +1,6 @@
 
 
 # Before You Begin Using Active Directory with WorkSpaces Pools
-<a name="active-directory-prerequisites"></a>
 
 Before you use Microsoft Active Directory domains with WorkSpaces Pools, be aware of the following requirements and considerations.
 

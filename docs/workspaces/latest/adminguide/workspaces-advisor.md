@@ -1,126 +1,24 @@
 
 
 # What is Amazon WorkSpaces Advisor?
-<a name="workspaces-advisor"></a>
 
-Amazon WorkSpaces Advisor is an AI-powered feature that helps you identify and resolve issues impacting your WorkSpaces Personal resources. You start an investigation by describing the problem you're experiencing in your own words. WorkSpaces Advisor then reviews telemetry, knowledge bases, and best practices, anchored to your description. It surfaces the most relevant issues, along with recommended remediation actions, directly in the Amazon WorkSpaces console.
+Amazon WorkSpaces Advisor (Advisor) is an AI-powered agent that helps you keep your WorkSpaces Personal environment running smoothly. Advisor detects issues, diagnoses their likely cause, and recommends actions to resolve them, whether an issue affects one WorkSpace, a group of WorkSpaces across your fleet, or a user's session.
 
-With WorkSpaces Advisor, you can:
-+ Describe the issue you're experiencing so Advisor can focus its investigation
-+ Investigate a WorkSpace and receive the issues most relevant to what you described
-+ Review supporting telemetry data, including Amazon CloudWatch metrics, for each issue
-+ Take recommended remediation actions
-+ Chat with WorkSpaces Advisor for follow-up questions through the AWS assistant
-+ Create a support case pre-populated with investigation context
+With proactive troubleshooting capabilities, it also helps your users resolve common problems themselves, within the self-service permissions you set, and gives them a clear cause to share with you when they need your help.
 
-WorkSpaces Advisor is available in all AWS Regions that support Amazon WorkSpaces Personal at no additional cost.
+WorkSpaces Advisor has the following capabilities:
+
+
+| Capability | What it does | Where results appear | Availability | 
+| --- | --- | --- | --- | 
+| Investigate a WorkSpace | You describe a problem with one WorkSpace. Advisor investigates and returns the most relevant issues, with recommended actions. | WorkSpaces console | Generally available | 
+| Proactive troubleshooting for your WorkSpaces fleet | Advisor continuously monitors your fleet, detects issues that affect groups of WorkSpaces that share a configuration, diagnoses the likely cause, and recommends actions. | WorkSpaces console | Preview | 
+| Proactive troubleshooting for your WorkSpaces users | Advisor continuously monitors each user's session, before they connect, while they're connected, and after a disconnect. It shows the user the likely cause of a problem and what to do next. | WorkSpaces client, for your users | Preview | 
+
+Advisor recommends actions. It makes a change only when you, or your users, choose a recommended action. For the AWS Regions where each capability is available, see the page for that capability.
 
 **Topics**
-+ [How investigations work](#workspaces-advisor-how-it-works)
-+ [Investigate a WorkSpace](#workspaces-advisor-investigate)
-+ [Required permissions](#workspaces-advisor-permissions)
-+ [Cross-Region Inference](#workspaces-advisor-cross-region-inference)
-+ [Opting out of using your data for service improvement](#workspaces-advisor-opt-out)
-
-## How investigations work
-<a name="workspaces-advisor-how-it-works"></a>
-
-To start an investigation, select a WorkSpace and choose **Investigate**. On the **Investigate with Advisor** screen, describe the problem you're experiencing, for example, the symptoms or any error messages observed, so WorkSpaces Advisor can focus its investigation. Do not include personally identifiable or confidential information. When you choose **Investigate**, WorkSpaces Advisor deploys AI agents to analyze data from the selected WorkSpace. The analysis typically completes in under 60 seconds.
-
-WorkSpaces Advisor returns the issues most relevant to what you reported. For each issue, WorkSpaces Advisor provides at least one recommended action, describes the risk and impact to your resources, and might offer alternative actions.
-
-Describing the issue is optional. If you leave the description blank, WorkSpaces Advisor runs a broad scan of the WorkSpace instead.
-
-If WorkSpaces Advisor cannot identify your issue, it tells you the issue needs a specialist and offers to create an AWS Support case pre-populated with the investigation context. You can also provide feedback through the console.
-
-### Investigation limits
-<a name="workspaces-advisor-limits"></a>
-+ You can investigate one WorkSpace at a time.
-
-### Data accessed by WorkSpaces Advisor
-<a name="workspaces-advisor-data"></a>
-
-WorkSpaces Advisor accesses the following data to perform investigations:
-+ [Amazon CloudWatch metrics](https://docs.aws.amazon.com/workspaces/latest/adminguide/cloudwatch-metrics.html) (for example, CPU usage, memory usage, and disk usage)
-+ WorkSpaces resource configuration (WorkSpace ID, VPC, subnet, bundle type)
-+ Service telemetry
-+ Application names running on the WorkSpace, including their CPU and memory usage
-+ AWS documentation and knowledge bases
-
-## Investigate a WorkSpace
-<a name="workspaces-advisor-investigate"></a>
-
-1. Open the [Amazon WorkSpaces console](https://console.aws.amazon.com/workspaces/v2/home).
-
-1. In the navigation pane, choose **WorkSpaces**, then **Personal**.
-
-1. Select the WorkSpace that you want to investigate.
-
-1. Choose **Investigate**.
-
-1. On the **Investigate with Advisor** screen, describe the issue you're experiencing. Include any symptoms or error messages observed so WorkSpaces Advisor can focus its investigation. Do not include personally identifiable or confidential information. (This step is optional; leave it blank to run a broad scan.)
-
-1. Choose **Investigate** to start the investigation.
-
-1. Review the identified issues, which are focused on what you described. Choose an issue to view details, including supporting telemetry and the recommended action.
-
-1. Review the risk and impact information for the recommended action, then choose the action to initiate it.
-
-### Get additional help with AWS assistant
-<a name="workspaces-advisor-additional-help"></a>
-+ **Chat with WorkSpaces Advisor** — Choose **Chat with WorkSpaces Advisor** on the issue details page to ask follow-up questions through AWS Console chat. The chat session automatically includes the full context of the issue.
-+ **Create a support case** — Choose **Create support case** to contact AWS Support. The support case is pre-populated with the investigation context.
-+ In both cases you will need [permissions to use AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/getting-started.html#permissions-overview) in the console. For more information about using the AWS assistant, see [Using AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/using-assistant.html).
-
-## Required permissions
-<a name="workspaces-advisor-permissions"></a>
-
-WorkSpaces Advisor uses [Forward access sessions (FAS)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html) to perform actions using your IAM identity and permissions.
-
-### Permissions for investigations
-<a name="workspaces-advisor-permissions-read"></a>
-
-Your IAM role must have the following [permissions for WorkSpaces Advisor](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonworkspaces.html) to initiate investigations and retrieve recommendations. These include `workspaces:InvokeTroubleshootingInvestigation`, `workspaces:GetTroubleshootingRecommendation`, and `workspaces:ListTroubleshootingRecommendations`.
-
-Your IAM role must have read permissions for WorkSpaces and Amazon CloudWatch APIs, such as `workspaces:DescribeWorkSpaces` and `cloudwatch:GetMetricData`. If your role is missing permissions for specific checks, WorkSpaces Advisor skips those checks and displays a message so you can update your permissions.
-
-### Permissions for remediation actions
-<a name="workspaces-advisor-permissions-write"></a>
-
-Your IAM role must have permission to perform the specific action (for example, `workspaces:RebootWorkSpaces` or `workspaces:ModifyWorkSpaceProperties`). If your role does not have the required permission, WorkSpaces Advisor returns an error.
-
-## Cross-Region Inference
-<a name="workspaces-advisor-cross-region-inference"></a>
-
-Model inference is the process of a model generating an output (response) from a given input (prompt). To use an optimal model for each feature, WorkSpaces Advisor may use [cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) for data processing. This means WorkSpaces Advisor will automatically select the optimal AWS Region to process inference requests. The available AWS Regions vary based on the region of your WorkSpaces resource. All data is transmitted encrypted across Amazon's secure network and does not traverse the public internet.
-
-The following table lists the inference regions that WorkSpaces Advisor may use:
-
-
-| Amazon WorkSpaces resource Region | Inference Regions | 
-| --- | --- | 
-| US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
-| Africa (Cape Town) (af-south-1) | Africa (Cape Town) (af-south-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Malaysia) (ap-southeast-5) | Asia Pacific (Malaysia) (ap-southeast-5)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Mumbai) (ap-south-1) | Asia Pacific (Mumbai) (ap-south-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Seoul) (ap-northeast-2) | Asia Pacific (Seoul) (ap-northeast-2)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Singapore) (ap-southeast-1) | Asia Pacific (Singapore) (ap-southeast-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Asia Pacific (Tokyo) (ap-northeast-1) | Asia Pacific (Tokyo) (ap-northeast-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| Canada (Central) (ca-central-1) | Canada (Central) (ca-central-1)<br />US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
-| Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Paris) (eu-west-3)<br />Europe (Spain) (eu-south-2)<br />Europe (Stockholm) (eu-north-1) | 
-| Europe (London) (eu-west-2) | Europe (London) (eu-west-2)<br />Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Paris) (eu-west-3)<br />Europe (Spain) (eu-south-2)<br />Europe (Stockholm) (eu-north-1) | 
-| Israel (Tel Aviv) (il-central-1) | Israel (Tel Aviv) (il-central-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-| South America (Sao Paulo) (sa-east-1) | South America (Sao Paulo) (sa-east-1)<br />[Commercial AWS Regions](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions) | 
-
-## Opting out of using your data for service improvement
-<a name="workspaces-advisor-opt-out"></a>
-
-You can choose to opt out of having your data used to develop and improve WorkSpaces Advisor and its underlying technology by using the AWS Organizations opt-out policy. You can choose to opt out even if WorkSpaces Advisor doesn't currently collect any such data. For more information about how to opt out, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) in the *AWS Organizations User Guide*.
-
-**Note**  
-For you to use the opt-out policy, your AWS accounts must be centrally managed by AWS Organizations. If you haven't already created an organization for your AWS accounts, see [Creating and managing an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org.html) in the *AWS Organizations User Guide*.
-
-Opting out has the following effects:
-+ WorkSpaces Advisor will delete the data that it collected and stored for service improvement purposes prior to your opt out (if any).
-+ After you opt out, WorkSpaces Advisor will no longer collect or store this data for service improvement purposes.
++ [Investigate a WorkSpace](workspaces-advisor-investigate.md)
++ [Proactive troubleshooting for your WorkSpaces fleet (Preview)](workspaces-advisor-fleet.md)
++ [Proactive troubleshooting for your WorkSpaces users (Preview)](workspaces-advisor-users.md)
++ [Security in WorkSpaces Advisor](workspaces-advisor-security.md)

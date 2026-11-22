@@ -1,7 +1,6 @@
 
 
 # Enabling application settings persistence
-<a name="enabling-app-settings-persistence"></a>
 
 **Topics**
 + [Prerequisites for enabling application settings persistence](#prerequisites-app-settings-persistence)

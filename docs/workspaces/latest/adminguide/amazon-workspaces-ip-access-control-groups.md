@@ -1,7 +1,6 @@
 
 
 # IP access control groups for WorkSpaces Personal
-<a name="amazon-workspaces-ip-access-control-groups"></a>
 
 Amazon WorkSpaces allows you to control which IP addresses your WorkSpaces can be accessed from. By using IP address-based control groups, you can define and manage groups of trusted IP addresses, and only allow users to access their WorkSpaces when they're connected to a trusted network.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces quotas
-<a name="workspaces-limits"></a>
 
 Amazon WorkSpaces provides different resources that you can use in your account in a given Region, including WorkSpaces, images, bundles, directories, connection aliases, and IP control groups. When you create your Amazon Web Services account, we set default quotas (also referred to as limits) on the number of resources that you can create.
 

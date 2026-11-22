@@ -1,7 +1,6 @@
 
 
 # Create a directory for WorkSpaces Personal
-<a name="launch-workspaces-tutorials"></a>
 
 WorkSpaces Personal allows you to use directories managed through Directory Service to store and manage information for your WorkSpaces and users. Use the following options to create a WorkSpaces Personal directory:
 + Create a Simple AD directory.

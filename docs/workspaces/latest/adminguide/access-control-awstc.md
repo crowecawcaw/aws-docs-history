@@ -1,7 +1,6 @@
 
 
 # Configure WorkSpaces Thin Client
-<a name="access-control-awstc"></a>
 
 Most WorkSpaces bundles support Amazon WorkSpaces Thin Client Access. For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support Thin Client Access?" in [ Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience).
 

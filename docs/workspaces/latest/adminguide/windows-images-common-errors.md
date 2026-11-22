@@ -1,7 +1,7 @@
 
 
 # Common error messages and their solutions
-<a name="windows-images-common-errors"></a><a name="windows-images-errors"></a><a name="OfficeInstalled"></a>
+<a name="windows-images-errors"></a><a name="OfficeInstalled"></a>
 
 ## BYOL import does not support systems with active Standalone Microsoft Office installed. BYOL import only supports Microsoft Office 365 applications to be present on the source before starting the import process.
 <a name="OfficeInstalled-collapsed"></a>

@@ -1,7 +1,6 @@
 
 
 # Multi-Region Resilience for WorkSpaces Personal
-<a name="multi-region-resilience"></a>
 
 Amazon WorkSpaces Multi-Region Resilience (MRR) enables you to redirect users to a secondary Region when your primary WorkSpaces Region is unreachable due to disruptive events, without requiring your users to switch registration codes when logging to their standby WorkSpaces. Standby WorkSpaces is a feature of Amazon WorkSpaces Multi-Region Resilience that streamlines the standby deployment creation and management. After setting up a user directory in your secondary Region, select the WorkSpace in your primary Region that you want to create a standby WorkSpace for. The system automatically mirrors the primary WorkSpace bundle images to the secondary Region. It then automatically provisions a new standby WorkSpace in your secondary Region
 

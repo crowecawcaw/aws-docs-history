@@ -1,7 +1,6 @@
 
 
 # Manage users in WorkSpaces Personal
-<a name="manage-workspaces-users"></a>
 
 As an administrator for WorkSpaces, you can perform the following tasks to manage WorkSpaces users.
 

@@ -1,7 +1,6 @@
 
 
 # Certificate-Based Authentication
-<a name="pools-certificate-based-authentication"></a>
 
 You can use certificate-based authentication with WorkSpaces Pools joined to Microsoft Active Directory. This removes the user prompt for the Active Directory domain password when a user logs in. By using certificate-based authentication with your Active Directory domain, you can:
 + Rely on your SAML 2.0 identity provider to authenticate the user and provide SAML assertions to match the user in Active Directory.

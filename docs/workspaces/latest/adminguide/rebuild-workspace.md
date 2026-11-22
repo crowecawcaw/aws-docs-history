@@ -1,7 +1,6 @@
 
 
 # Rebuild a WorkSpace in WorkSpaces Personal
-<a name="rebuild-workspace"></a>
 
 Rebuilding a WorkSpace recreates the root volume of the most recent image of the bundle that the WorkSpace was launched from, its user volume, and its primary elastic network interface. Rebuilding a WorkSpace deletes more data than restoring a WorkSpace, but it only requires you to have a snapshot of the user volume. To restore a WorkSpace, see [Restore a WorkSpace in WorkSpaces Personal](restore-workspace.md).
 

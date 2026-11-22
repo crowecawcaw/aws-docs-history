@@ -1,7 +1,6 @@
 
 
 # Update management in WorkSpaces
-<a name="update-management"></a>
 
 We recommend that you regularly patch, update, and secure the operating system and applications on your WorkSpaces. You can configure your WorkSpaces to be updated by WorkSpaces during a regular maintenance window or you can update them yourself. For more information, see [Maintenance in WorkSpaces Personal](workspace-maintenance.md).
 

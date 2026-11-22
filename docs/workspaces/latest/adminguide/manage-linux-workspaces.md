@@ -1,7 +1,6 @@
 
 
 # Manage your Linux WorkSpaces in WorkSpaces Personal
-<a name="manage-linux-workspaces"></a>
 
 Amazon WorkSpaces supports the following Linux operating systems for WorkSpaces Personal:
 + Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 26.04 LTS

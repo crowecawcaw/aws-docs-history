@@ -1,7 +1,6 @@
 
 
 # Use smart cards for authentication in WorkSpaces Personal
-<a name="smart-cards"></a>
 
 Windows and Linux WorkSpaces on DCV bundles allow the use of [Common Access Card (CAC)](https://www.cac.mil/Common-Access-Card) and [Personal Identity Verification (PIV)](https://www.idmanagement.gov/university/piv/) smart cards for authentication.
 

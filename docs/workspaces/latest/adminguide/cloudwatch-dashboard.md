@@ -1,7 +1,6 @@
 
 
 # Monitor your WorkSpaces health using the CloudWatch automatic dashboard
-<a name="cloudwatch-dashboard"></a>
 
 You can monitor WorkSpaces using CloudWatch automatic dashboard, which collects raw data and processes it into readable, near real-time metrics. The metrics are kept for 15 months to access historical information and to monitor the performance of your web application or service. You can also set alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

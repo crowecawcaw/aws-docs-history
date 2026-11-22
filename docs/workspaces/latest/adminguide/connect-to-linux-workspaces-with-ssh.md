@@ -1,7 +1,6 @@
 
 
 # Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal
-<a name="connect-to-linux-workspaces-with-ssh"></a>
 
 If you or your users want to connect to your Linux WorkSpaces by using the command line, you can enable SSH connections. You can enable SSH connections to all WorkSpaces in a directory or to individual WorkSpaces in a directory. 
 

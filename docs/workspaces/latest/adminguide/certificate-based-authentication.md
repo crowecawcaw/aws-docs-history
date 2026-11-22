@@ -1,7 +1,6 @@
 
 
 # Certificate-based authentication and WorkSpaces Personal
-<a name="certificate-based-authentication"></a>
 
 You can use certificate-based authentication with WorkSpaces to remove the user prompt for the Active Directory domain password. By using certificate-based authentication with your Active Directory domain, you can:
 + Rely on your SAML 2.0 identity provider to authenticate the user and provide SAML assertions to match the user in Active Directory.
@@ -118,7 +117,7 @@ You can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/us
 
 **To use a shared Private CA resource with WorkSpaces CBA**
 
-1. Configure the Private CA for CBA in a centralized AWS account. For more information, see [Certificate-based authentication and WorkSpaces Personal](#certificate-based-authentication).
+1. Configure the Private CA for CBA in a centralized AWS account. For more information, see [Certificate-based authentication and WorkSpaces Personal](certificate-based-authentication.md).
 
 1.  Share the Private CA with the resource AWS accounts where WorkSpaces resources utilize CBA by following the steps in [ How to use AWS RAM to share your ACM Private CA cross-account](https://aws.amazon.com/blogs/security/how-to-use-aws-ram-to-share-your-acm-private-ca-cross-account/). You don't need to complete step 3 to create a certificate. You can either share the Private CA with individual AWS accounts, or share through AWS Organizations. To share with individual accounts, you need to accept the shared Private CA in your resource account by using the Resource Access Manager (RAM) console or APIs. When configuring the share, confirm that the RAM resource share for the Private CA in the resource account is using the `AWSRAMBlankEndEntityCertificateAPICSRPassthroughIssuanceCertificateAuthority` managed permission template. This template aligns with the PCA template used by the WorkSpaces service role when issuing CBA certificates. 
 

@@ -1,7 +1,6 @@
 
 
 # Monitor your WorkSpaces using Amazon EventBridge
-<a name="cloudwatch-events"></a>
 
 You can use events from Amazon WorkSpaces to view, search, download, archive, analyze, and respond to successful logins to your WorkSpaces. For example, you can use events for the following purposes:
 + Store or archive WorkSpaces login events as logs for future reference, analyze the logs to look for patterns, and take action based on those patterns.
@@ -21,7 +20,7 @@ Events emitted for WorkSpaces using DCV require the WorkSpaces client applicatio
 
 Events are represented as JSON objects. The following is example data for a `WorkSpaces Access` event.
 
-```
+```json
 {
     "version": "0",
     "id": "{{64ca0eda-9751-dc55-c41a-1bd50b4fc9b7}}",

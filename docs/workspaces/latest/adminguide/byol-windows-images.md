@@ -1,7 +1,6 @@
 
 
 # Bring Your Own Windows desktop licenses in WorkSpaces
-<a name="byol-windows-images"></a>
 
 If your licensing agreement with Microsoft allows it, you can bring and deploy your Windows 10 or 11 desktop on your WorkSpaces. To do this, you must enable Bring Your Own License (BYOL) and provide a Windows 10 or 11 license that meets the requirements below. For more information about using Microsoft software on AWS, see [Amazon Web Services and Microsoft](https://aws.amazon.com/windows/faq/).
 
@@ -90,7 +89,6 @@ The above list is not exhaustive, and it is recommended to use a VPC that has pu
 <a name="windows_images_supported_versions"></a>
 
 Your VM must run one of the following Windows versions with the x64 architecture:
-+ Windows 10 Version 22H2 (November 2022 Update)
 + Windows 10 Enterprise LTSC 2019 (1809)
 + Windows 10 Enterprise LTSC 2021 (21H2)
 + Windows 11 Enterprise LTSC 2024 (24H2)
@@ -99,7 +97,7 @@ Your VM must run one of the following Windows versions with the x64 architecture
 + Windows 11 Enterprise 26H2 (September 2026 release)
 
 **Note**  
-Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, GraphicsPro.g6, Graphics.g7, or GraphicsPro.g7 bundles.
+Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, or GraphicsPro.g6 bundles.
 
  You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
 +  Download an Enterprise edition ISO image by signing into the [ Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew). Sign in to your subscription on the [ Visual Studio Subscriptions portal](https://my.visualstudio.com/downloads) for available downloads. Do not use an ISO file downloaded from the [ public Windows 11 download website](https://www.microsoft.com/en-us/software-download/windows11) which does not provide an Enterprise edition ISO.
@@ -277,7 +275,7 @@ Perform these steps to import your image and create a WorkSpaces BYOL image:
    + **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
    + **OS version** – Choose the Windows operating system version of the image
 **Note**  
-Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, GraphicsPro.g6, Graphics.g7, or GraphicsPro.g7 bundles.
+Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, or GraphicsPro.g6 bundles.
    + **Semantic version** – Define a semantic version for the image, which will be stored in EC2 Image Builder. For more information, see [Semantic versioning in Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/ibhow-semantic-versioning.html) in the *EC2 Image Builder User Guide*
 
 **Note**  

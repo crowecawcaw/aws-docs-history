@@ -1,7 +1,6 @@
 
 
 # Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal
-<a name="enable-user-self-service-workspace-management"></a>
 
 In WorkSpaces, you can enable self-service WorkSpace management capabilities for your users to provide them with more control over their experience. It can also reduce your IT support staff workload for WorkSpaces. When you enable self-service capabilities, users can perform one or more of the following tasks directly from their WorkSpaces client:
 + Cache their credentials on their client. This lets them reconnect to their WorkSpace without re-entering their credentials.
@@ -9,6 +8,7 @@ In WorkSpaces, you can enable self-service WorkSpace management capabilities for
 + Increase the size of the root and user volumes on their WorkSpace. 
 + Change the compute type (bundle) for their WorkSpace.
 + Switch the running mode of their WorkSpace.
++ Enable or disable nested virtualization on their WorkSpace.
 + Rebuild their WorkSpace.
 
 **Supported clients**
@@ -39,6 +39,7 @@ If users change their WorkSpace compute type, this changes the billing rate for 
    + **Switch running mode** — Users can switch their WorkSpace between the **AlwaysOn** and **AutoStop** running modes. For more information, see [Manage the running mode in WorkSpaces Personal](running-mode.md).
 **Note**  
 If users switch the running mode of their WorkSpace, this changes the billing rate for their WorkSpace.
+   + **Nested virtualization** — Users can enable or disable nested virtualization on their WorkSpace directly from their client. For more information about nested virtualization, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md).
    + **Rebuild WorkSpace from client** — Users can rebuild the operating system of a WorkSpace to its original state. When a WorkSpace is rebuilt, the user volume (D: drive) is recreated from the latest backup. Because backups are completed every 12 hours, users' data might be up to 12 hours old. For a newly created WorkSpace, users must wait 12 hours before they can rebuild their WorkSpace. When a WorkSpace rebuild is in progress, users are disconnected from their WorkSpace, and they can't use or make changes to their WorkSpace. This process might take up to an hour. 
    + **Diagnostic log uploads** — Users can upload WorkSpaces client log files directly to WorkSpaces to troubleshoot issues without interrupting use of the WorkSpaces client. If you enable diagnostic log uploads for your users, or let your users do so themselves, the log files are sent to WorkSpaces automatically. You can enable diagnostic log uploads before or during a WorkSpaces streaming session.
 

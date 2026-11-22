@@ -1,7 +1,6 @@
 
 
 # End of life policy for WorkSpaces client applications
-<a name="workspaces-eol"></a>
 
 The Amazon WorkSpaces end of life (EOL) policy is applicable to specific major versions (and all of their minor versions) of WorkSpaces clients for WorkSpaces Personal and WorkSpaces Pools.
 

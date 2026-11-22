@@ -1,7 +1,6 @@
 
 
 # Configure a VPC for WorkSpaces Personal
-<a name="amazon-workspaces-vpc"></a>
 
 WorkSpaces launches your WorkSpaces in a virtual private cloud (VPC).
 

@@ -1,7 +1,6 @@
 
 
 # Nested virtualization for WorkSpaces Personal
-<a name="nested-virtualization"></a>
 
 Nested virtualization allows you to run hypervisors such as Hyper-V and KVM inside your WorkSpace. This enables you to use development tools and workflows that require hardware virtualization support, including:
 + Docker Desktop
@@ -16,10 +15,10 @@ For more information about how nested virtualization works at the infrastructure
 **Topics**
 + [Supported configurations](#nested-virt-supported-configurations)
 + [Prerequisites](#nested-virt-prerequisites)
-+ [Enable or disable nested virtualization](#nested-virt-enable-disable)
 + [Recommendations](#nested-virt-recommendations)
 + [Known limitations](#nested-virt-known-limitations)
 + [Behavior during lifecycle operations](#nested-virt-lifecycle-operations)
++ [Enable or disable nested virtualization](#nested-virt-enable-disable)
 
 ## Supported configurations
 <a name="nested-virt-supported-configurations"></a>
@@ -62,6 +61,26 @@ Before you enable nested virtualization on a WorkSpace, ensure the following req
 + The WorkSpace must not use the Value bundle size.
 + The WorkSpace must run a supported operating system: Windows Server 2019 or later, Windows 11, Ubuntu 22.04 or later, Red Hat Enterprise Linux 8 or later, or Rocky 8 or later. WorkSpaces based on Windows Server 2016, Windows 10, and Amazon Linux 2 do not support nested virtualization.
 
+## Recommendations
+<a name="nested-virt-recommendations"></a>
++ **Use Power (4 vCPU) or higher bundle sizes.** While nested virtualization is supported on most non-GPU bundle sizes, hypervisors and nested virtual machines consume additional compute resources. For the best experience, we recommend Power or larger bundles.
++ **Validate application performance.** Test and validate your workloads with nested virtualization enabled to make sure they meet your performance requirements.
+
+## Known limitations
+<a name="nested-virt-known-limitations"></a>
++ **Credential Guard and Virtualization-Based Security (VBS)** — Enabling nested virtualization automatically disables Credential Guard and VBS, because nested virtualization uses the hardware virtualization extensions that VBS relies on. For more information, see [Credential Guard / Virtualization-Based Security (VBS)](credential-guard-vbs.md) and [Credential Guard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html) in the *Amazon EC2 User Guide*.
++ **GPU-based bundles** — Nested virtualization is not supported on GPU WorkSpaces.
++ **Unsupported operating systems** — Nested virtualization is not supported on WorkSpaces running Windows Server 2016, Windows 10, or Amazon Linux 2.
++ **Standby WorkSpaces** — Nested virtualization is not supported on Standby WorkSpaces.
+
+## Behavior during lifecycle operations
+<a name="nested-virt-lifecycle-operations"></a>
+
+The nested virtualization setting is preserved during the following WorkSpace lifecycle operations:
++ **Restore** — When you restore a WorkSpace, the nested virtualization setting is preserved and applied to the restored WorkSpace.
++ **Rebuild** — When you rebuild a WorkSpace, the nested virtualization setting is preserved and applied to the rebuilt WorkSpace.
++ **Migrate** — When you migrate a WorkSpace to a new bundle, the nested virtualization setting is carried over to the migrated WorkSpace, as long as the new bundle is compatible with nested virtualization.
+
 ## Enable or disable nested virtualization
 <a name="nested-virt-enable-disable"></a>
 
@@ -99,7 +118,7 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
 1. (Optional) Use the `describe-workspaces` command to verify the current state of the WorkSpace. The response includes a `NestedVirtualizationEnabled` property with a value of `true` or `false`.
 
-   ```
+   ```bash
    aws workspaces describe-workspaces \
        --workspace-id {{ws-example123456}} \
        --region {{us-west-2}}
@@ -107,7 +126,7 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
    Example output (relevant fields):
 
-   ```
+   ```json
    {
        "Workspaces": [
            {
@@ -134,7 +153,7 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
    To enable:
 
-   ```
+   ```bash
    aws workspaces modify-workspace-properties \
        --workspace-id {{ws-example123456}} \
        --region {{us-west-2}} \
@@ -143,7 +162,7 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
    To disable:
 
-   ```
+   ```bash
    aws workspaces modify-workspace-properties \
        --workspace-id {{ws-example123456}} \
        --region {{us-west-2}} \
@@ -157,7 +176,7 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
 1. (Optional) Use the `Get-WKSWorkspace` cmdlet to check the current nested virtualization state:
 
-   ```
+   ```powershell
    (Get-WKSWorkspace -WorkspaceId {{$WORKSPACE_ID}} -Region {{$REGION}}).WorkspaceProperties.NestedVirtualizationEnabled
    ```
 
@@ -167,21 +186,21 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 
    To enable:
 
-   ```
+   ```powershell
    Edit-WKSWorkspaceProperty -Region {{$REGION}} -WorkspaceId {{$WORKSPACE_ID}} `
        -WorkspaceProperties_NestedVirtualizationEnabled $true
    ```
 
    To disable:
 
-   ```
+   ```powershell
    Edit-WKSWorkspaceProperty -Region {{$REGION}} -WorkspaceId {{$WORKSPACE_ID}} `
        -WorkspaceProperties_NestedVirtualizationEnabled $false
    ```
 
 1. Use the `Get-WKSWorkspace` cmdlet to verify the modification completed successfully:
 
-   ```
+   ```powershell
    (Get-WKSWorkspace -WorkspaceId {{$WORKSPACE_ID}} -Region {{$REGION}}).WorkspaceProperties.NestedVirtualizationEnabled
    ```
 
@@ -189,23 +208,3 @@ To verify the current nested virtualization state of a WorkSpace, select it in t
 Use the `ModifyWorkspaceProperties` API action with the `NestedVirtualizationEnabled` parameter set to `true` or `false`.
 
 To check the current state, use the `DescribeWorkspaces` API action and inspect the `NestedVirtualizationEnabled` property in the response.
-
-## Recommendations
-<a name="nested-virt-recommendations"></a>
-+ **Use Power (4 vCPU) or higher bundle sizes.** While nested virtualization is supported on most non-GPU bundle sizes, hypervisors and nested virtual machines consume additional compute resources. For the best experience, we recommend Power or larger bundles.
-+ **Validate application performance.** Test and validate your workloads with nested virtualization enabled to make sure they meet your performance requirements.
-
-## Known limitations
-<a name="nested-virt-known-limitations"></a>
-+ **AutoStop mode with Windows Server 2025 and Windows 11 24H2/25H2/26H2** — WorkSpaces configured with AutoStop running mode that have nested virtualization enabled on Windows Server 2025 or Windows 11 24H2/25H2/26H2 perform a full reboot instead of hibernating when the WorkSpace times out. This results in longer resume times and loss of the user's prior session, including any unsaved work. If you require fast resume and/or session persistence, use AlwaysOn running mode for these WorkSpaces.
-+ **GPU-based bundles** — Nested virtualization is not supported on GPU WorkSpaces.
-+ **Unsupported operating systems** — Nested virtualization is not supported on WorkSpaces running Windows Server 2016, Windows 10, or Amazon Linux 2.
-+ **Standby WorkSpaces** — Nested virtualization is not supported on Standby WorkSpaces.
-
-## Behavior during lifecycle operations
-<a name="nested-virt-lifecycle-operations"></a>
-
-The nested virtualization setting is preserved during the following WorkSpace lifecycle operations:
-+ **Restore** — When you restore a WorkSpace, the nested virtualization setting is preserved and applied to the restored WorkSpace.
-+ **Rebuild** — When you rebuild a WorkSpace, the nested virtualization setting is preserved and applied to the rebuilt WorkSpace.
-+ **Migrate** — When you migrate a WorkSpace to a new bundle, the nested virtualization setting is carried over to the migrated WorkSpace, as long as the new bundle is compatible with nested virtualization.

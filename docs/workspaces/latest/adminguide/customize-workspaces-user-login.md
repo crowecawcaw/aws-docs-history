@@ -1,7 +1,6 @@
 
 
 # Customize how users log in to their WorkSpaces in WorkSpaces Personal
-<a name="customize-workspaces-user-login"></a>
 
 Customize your users' access to WorkSpaces by using uniform resource identifiers (URIs) to provide a simplified login experience that integrates with existing workflows in your organization. For example, you can automatically generate login URIs that register your users by using their WorkSpaces registration code. As a result: 
 + Users can bypass the manual registration process.

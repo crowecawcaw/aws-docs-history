@@ -1,7 +1,6 @@
 
 
 # Bundles and images for WorkSpaces Personal
-<a name="amazon-workspaces-bundles"></a>
 
 A *WorkSpace bundle* is a combination of an operating system, and storage, compute, and software resources. When you launch a WorkSpace, you select the bundle that meets your needs. The default bundles available for WorkSpaces are called *public bundles*. For more information about the various public bundles available for WorkSpaces, see [Bundle options for WorkSpaces Personal](bundle-options.md).
 

@@ -1,7 +1,6 @@
 
 
 # Manage your Windows WorkSpaces in WorkSpaces Personal
-<a name="group_policy"></a>
 
 You can use Group Policy Objects (GPOs) to apply settings to manage Windows WorkSpaces or users that are part of your Windows WorkSpaces directory.
 
@@ -1642,7 +1641,7 @@ If you continue to experience difficulty, contact Support using the [Support Cen
 You can use the following examples to apply a GPO as an administrator of your directory.
 + **WSE.adml**
 
-  ```
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
       <!-- 'displayName' and 'description' don't appear anywhere. All Windows native GPO template files have them set like this. -->

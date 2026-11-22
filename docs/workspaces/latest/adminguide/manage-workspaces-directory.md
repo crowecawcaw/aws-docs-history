@@ -1,12 +1,11 @@
 
 
 # Manage directories for WorkSpaces Personal
-<a name="manage-workspaces-directory"></a>
 
 WorkSpaces uses a directory to store and manage information for your WorkSpaces and users. You can use one of the following options:
 + AD Connector — Use your existing on-premises Microsoft Active Directory. Users can sign into their WorkSpaces using their on-premises credentials and access on-premises resources from their WorkSpaces.
 + AWS Managed Microsoft AD — Create a Microsoft Active Directory hosted on AWS.
-+ Simple AD — Create a directory that is compatible with Microsoft Active Directory, powered by Samba 4, and hosted on AWS.
++ IAM Identity Center instance — When you go through quick setup, we create an IAM Identity Center instance for you with multi-factor authentication (MFA) and standard authentication enabled. With standard authentication, you sign in to the AWS access portal with your user name and password. With email-based MFA enabled, IAM Identity Center sends a one-time passcode (verification code) to your email address as a second factor at sign-in.
 + Cross trust — Create a trust relationship between your AWS Managed Microsoft AD directory and your on-premises domain.
 + Microsoft Entra ID — Create a directory that uses Microsoft Entra ID as its identity source (through IAM Identity Center). Personal WorkSpaces in the directory are joined using Microsoft Entra's native authentication and are enrolled into Microsoft Intune through Microsoft Windows Autopilot user-driven mode. Directories using Microsoft Entra ID only support Windows 10 and 11 Bring Your Own Licenses WorkSpaces.
 + Custom — Create a directory that use an identity provider of your choice (through IAM Identity Center). WorkSpaces in the directory are managed using the device management solution of your choice such as JumpCloud. Directories using custom identity providers only support Windows 10 and 11 Bring Your Own Licenses WorkSpaces.

@@ -1,7 +1,6 @@
 
 
 # Create multiple WorkSpaces for a user in WorkSpaces Personal
-<a name="create-multiple-workspaces-for-user"></a>
 
 By default, you can create only one WorkSpace per user per directory. However, if needed, you can create more than one WorkSpace for a user, depending on your directory setup. 
 + If you have only one directory for your WorkSpaces, create multiple usernames for the user. For example, a user named Mary Major can have mmajor1, mmajor2, and so on as usernames. Each username is associated with a different WorkSpace in the same directory, but the WorkSpaces have the same registration code, as long as the WorkSpaces are all created in the same directory in the same AWS Region.

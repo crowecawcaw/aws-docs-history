@@ -1,7 +1,6 @@
 
 
 # Maintenance in WorkSpaces Personal
-<a name="workspace-maintenance"></a>
 
 We recommend that you maintain your WorkSpaces on a regular basis. WorkSpaces schedules default maintenance windows for your WorkSpaces. During the maintenance window, the WorkSpace installs important updates from Amazon WorkSpaces and reboots as necessary. If available, operating system updates are also installed from the OS update server that the WorkSpace is configured to use. During maintenance, your WorkSpaces might be unavailable.
 

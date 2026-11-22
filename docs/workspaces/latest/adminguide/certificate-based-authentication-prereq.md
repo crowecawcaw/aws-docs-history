@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="certificate-based-authentication-prereq"></a>
 
 Complete the following steps before you use certificate-based authentication.
 

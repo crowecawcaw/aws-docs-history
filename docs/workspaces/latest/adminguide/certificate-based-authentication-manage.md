@@ -1,7 +1,6 @@
 
 
 # Manage Certificate-based Authentication
-<a name="certificate-based-authentication-manage"></a>
 
 After you enable certificate-based authentication, review the following tasks.
 

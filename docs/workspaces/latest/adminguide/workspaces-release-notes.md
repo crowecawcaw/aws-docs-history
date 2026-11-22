@@ -1,7 +1,6 @@
 
 
 # DCV host agent versions in WorkSpaces Personal
-<a name="workspaces-release-notes"></a>
 
 DCV host agent is a host agent that runs inside your WorkSpace. It streams the pixels of your WorkSpace to a client application and includes in-session features, such as two-way audio and video, and printing. For more information about DCV, see [Protocols for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html).
 
@@ -14,6 +13,7 @@ The following table describes the changes in each version of the DCV host agent 
 
 | Release | Date | Changes | 
 | --- | --- | --- | 
+|  + Windows WorkSpaces - 2.2.0.2566  | November 5, 2026 |  + Fixed an issue with smart card redirection. This issue could cause the October 2026 Windows cumulative update (KB5126868) to leave the WorkSpace in an unhealthy state.<br />+ Bug fixes and improvements.  | 
 |  + Windows WorkSpaces - 2.2.0.2519  | September 21, 2026 |  + Bug fixes and improvements including fixes in the agent installer.  | 
 |  + Windows WorkSpaces - 2.2.0.2484  | August 31, 2026 |  + Fixed an issue with smart card redirection. This issue could cause the July 2026 Windows cumulative update (KB5101650) to leave the WorkSpace in an unhealthy state.<br />+ Bug fixes and improvements including URL redirection, WebRTC extension, and Group Policy Object (GPO) compatibility with Intune.  | 
 |  + Windows WorkSpaces - 2.2.0.2365  | July 15, 2026 |  + Added support for URL redirection, enabling URLs accessed in the remote WorkSpace to open in the local client browser.<br />+ Bug fixes and performance improvements including in USB redirection, smartcard redirection, WebRTC redirection and keyboard input handling.  | 

@@ -1,7 +1,6 @@
 
 
 # Copy a custom image in WorkSpaces Personal
-<a name="copy-custom-image"></a>
 
 You can copy a custom WorkSpaces image within or across AWS Regions. Copying an image results in the creation of an identical image with its own unique identifier.
 
@@ -26,7 +25,7 @@ The following example policy allows the user to copy the specified image to the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -51,7 +50,7 @@ If you are creating an IAM policy for copying shared images for accounts that do
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
