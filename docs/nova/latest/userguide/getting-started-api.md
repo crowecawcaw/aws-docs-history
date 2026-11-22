@@ -1,7 +1,6 @@
 
 
 # Getting started with the API
-<a name="getting-started-api"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information on how to get started with Amazon Nova 2, visit [Getting started with the API](https://docs.aws.amazon.com/nova/latest/nova2-userguide/getting-started-api.html).
@@ -79,7 +78,7 @@ IAM recommends that you limit your access keys to 12 hours.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -128,7 +127,7 @@ After setting up credentials for programmatic access, you need to configure perm
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -165,7 +164,7 @@ To install the AWS CLI, follow the steps at [Install or update to the latest ver
 
 To generate a response for a text prompt in Amazon Nova Lite by using the AWS CLI, run the following command in a terminal:
 
-```
+```bash
 aws bedrock-runtime converse \
     --model-id us.amazon.nova-lite-v1:0 \
     --messages '[{"role": "user", "content": [{"text": "Write a short poem"}]}]'
@@ -178,7 +177,7 @@ To install Boto3, follow the steps at [Quickstart](https://boto3.amazonaws.com/v
 
 To create an Amazon Bedrock Runtime client and generate a response for a text prompt in Amazon Nova Lite by using the Python SDK (Boto3), run the following Python script:
 
-```
+```python
 import boto3
 import json
 
@@ -207,7 +206,7 @@ To install LangChain for AWS, follow the steps at [AWS](https://python.langchain
 
 To generate a response for a text prompt in Amazon Nova Lite by using LangChain, run the following script:
 
-```
+```python
 from langchain_aws import ChatBedrockConverse
 
 llm = ChatBedrockConverse(model="us.amazon.nova-lite-v1:0")

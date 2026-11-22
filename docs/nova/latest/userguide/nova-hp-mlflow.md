@@ -1,7 +1,6 @@
 
 
 # Monitoring HyperPod jobs with MLflow
-<a name="nova-hp-mlflow"></a>
 
 You can use MLflow to track and monitor your training jobs on SageMaker HyperPod. Follow these steps to set up MLflow and connect it to your training recipes.
 

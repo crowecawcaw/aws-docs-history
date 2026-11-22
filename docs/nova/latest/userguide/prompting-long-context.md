@@ -1,7 +1,6 @@
 
 
 # Utilizing long context windows
-<a name="prompting-long-context"></a>
 
 Amazon Nova Premier has a supported context length of 1 million tokens, which translates to 1M tokens of text, 500 images, or 90 minutes of video. Amazon Nova Premier excels at code understanding and question answering on long documents. It's performance can decline slightly as the context size increases, so for best results consider the following guidelines:
 + **Put long-form data at the beginning**: Place your long documents and inputs near the beginning of your prompt. They should be placed before your query, instructions, and examples. 

@@ -1,7 +1,6 @@
 
 
 # Inference Container Features
-<a name="nova-sagemaker-inference-container-features"></a>
 
 The Amazon Nova SageMaker inference container includes a set of features that you can enable to customize model behavior during inference. Each feature is introduced in a specific container version and may require environment variables, request parameters, or both to activate.
 
@@ -63,7 +62,7 @@ Float between `0` and `2` (inclusive)
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "DEFAULT_TEMPERATURE": "0.7"
 }
@@ -96,7 +95,7 @@ Float between `1e-10` and `1` (inclusive)
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "DEFAULT_TOP_P": "0.9"
 }
@@ -129,7 +128,7 @@ Integer, `-1` or greater. Use `-1` to consider all tokens.
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "DEFAULT_TOP_K": "50"
 }
@@ -162,7 +161,7 @@ Integer, `1` or greater
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "DEFAULT_MAX_NEW_TOKENS": "512"
 }
@@ -195,7 +194,7 @@ Integer between `1` and `20` (inclusive)
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "DEFAULT_LOGPROBS": "5"
 }
@@ -230,7 +229,7 @@ Valid values
 
 The following example disables Eagle3 speculative decoding:
 
-```
+```python
 "Environment": {
     "DISABLE_SPECULATIVE_DECODING": "true"
 }
@@ -260,7 +259,7 @@ Valid values
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "KV_CACHE_DTYPE": "fp8"
 }
@@ -293,7 +292,7 @@ Valid values
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "QUANTIZATION_DTYPE": "fp8"
 }
@@ -329,7 +328,7 @@ Integer between `1` and `10` (inclusive)
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "NUM_SPECULATIVE_TOKENS": "5"
 }
@@ -362,7 +361,7 @@ Valid values
 
 **Environment variable**
 
-```
+```python
 "Environment": {
     "SPECULATIVE_DECODING_METHOD": "suffix"
 }

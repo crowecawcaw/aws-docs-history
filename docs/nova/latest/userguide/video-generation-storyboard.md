@@ -1,7 +1,6 @@
 
 
 # Storyboarding videos with Amazon Nova Reel
-<a name="video-generation-storyboard"></a>
 
 Amazon Nova Reel includes the ability to create videos in six second increments that are up to two minutes long. From the Amazon Bedrock playground, you can provide a single prompt that will generate a video of a specified length. However, if you want more control over subjects and direction of the video, you can use the storyboard.
 

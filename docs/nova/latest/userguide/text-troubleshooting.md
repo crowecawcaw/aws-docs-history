@@ -1,7 +1,6 @@
 
 
 # Understanding models
-<a name="text-troubleshooting"></a>
 
 The way errors are communicated back to the client varies depending on the type of error that occurs. In this section, we focus only on the error conditions that are unique to the Amazon Nova model. The three primary types of errors you will want to handle in your application code are **input validation** errors, **Responsible AI (RAI) input deflection** errors, and **RAI output deflection** errors.
 

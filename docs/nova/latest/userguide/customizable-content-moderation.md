@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Lite and Pro Customizable Content Moderation Settings
-<a name="customizable-content-moderation"></a>
 
 Content generation for Amazon Nova models is moderated by multiple [responsible AI (RAI) controls](https://www.amazon.science/blog/amazon-nova-and-our-commitment-to-responsible-ai). Two key controls are the alignment of the core model to RAI pillars, and a runtime control – called an output model – that moderates core model responses to ensure alignment with these pillars.
 

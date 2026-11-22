@@ -1,7 +1,6 @@
 
 
 # Virtual try-on
-<a name="image-gen-vto"></a>
 
 *Virtual try-on* is an image-guided use case of inpainting in which the contents of a reference image are superimposed into a source image based on the guidance of a mask image. Amazon Nova Canvas has been tuned for garments, accessories, furniture, and related objects. The model also generalizes well to other cases, such as adding a logo or text into an image. 
 

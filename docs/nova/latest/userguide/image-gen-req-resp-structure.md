@@ -1,7 +1,6 @@
 
 
 # Request and response structure for image generation
-<a name="image-gen-req-resp-structure"></a>
 
 **Image generation**  
 The following examples present different image generation use cases. Each example provides an explanation of the fields that are used for the image generation.
@@ -9,7 +8,7 @@ The following examples present different image generation use cases. Each exampl
 ------
 #### [ Text-to-image request ]
 
-```
+```JSON
 {
     "taskType": "TEXT_IMAGE",
     "textToImageParams": {
@@ -43,7 +42,7 @@ Avoid using negating words (“no”, “not”, “without”, etc.) in your `t
 ------
 #### [ Text-to-image request with image conditioning ]
 
-```
+```JSON
 {
     "taskType": "TEXT_IMAGE",
     "textToImageParams": {
@@ -85,7 +84,7 @@ Avoid using negating words (“no”, “not”, “without”, etc.) in your `t
 ------
 #### [ Color guided image generation request ]
 
-```
+```JSON
 {
     "taskType": "COLOR_GUIDED_GENERATION",
     "colorGuidedGenerationParams": {
@@ -117,7 +116,7 @@ Avoid using negating words (“no”, “not”, “without”, etc.) in your `t
 ------
 #### [ Image variation request ]
 
-```
+```JSON
 {
     "taskType": "IMAGE_VARIATION",
     "imageVariationParams": {
@@ -153,7 +152,7 @@ The following examples present different image editing use cases. Each example p
 ------
 #### [ Inpainting request ]
 
-```
+```JSON
 {
     "taskType": "INPAINTING",
     "inPaintingParams": {
@@ -190,7 +189,7 @@ Avoid using negating words (“no”, “not”, “without”, etc.) in your `t
 ------
 #### [ Outpainting request ]
 
-```
+```JSON
 {
     "taskType": "OUTPAINTING",
     "outPaintingParams": {
@@ -233,7 +232,7 @@ Avoid using negating words (“no”, “not”, “without”, etc.) in your `t
 ------
 #### [ Background removal request ]
 
-```
+```JSON
 {
     "taskType": "BACKGROUND_REMOVAL",
     "backgroundRemovalParams": {
@@ -250,7 +249,7 @@ The `BACKGROUND_REMOVAL` task will return a PNG image with full 8-bit transparen
 ------
 #### [ Virtual try-on ]
 
-```
+```JSON
 {
     "taskType": "VIRTUAL_TRY_ON",
     "virtualTryOnParams": {
@@ -322,7 +321,7 @@ The following `virtualTryOnParams` fields are used in this request:
 **Response body**  
 The response body will contain one or more of the following fields:
 
-```
+```JSON
 {
     "images": "images": string[] (list of Base64 encoded images),
     "maskImage": string (Base64 encoded image),

@@ -1,7 +1,6 @@
 
 
 # Invoking a tool
-<a name="tool-use-invocation"></a>
 
 If Amazon Nova decides to call a tool, a tool use block will be returned as a part of the assistant message and the stop reason will be "tool\_use". The tool block will contain the name of the tool and it's inputs.
 
@@ -9,7 +8,7 @@ If Amazon Nova decides to call a tool, a tool use block will be returned as a pa
 To improve the accuracy of tool calls, the default behavior of Amazon Nova models is to use chain-of-thought reasoning for tool calling. The thought process will be made available to you in the assistant message and will be contained in <thinking> tags. It is possible to have multiple tool calls and thinking blocks in a response so your application should take this into account.  
 If tool choice is configured to `any` or `tool`, this will override the chain-of-thought behavior and the response will only contain the necessary tool calls.
 
-```
+```JSON
 {
    "toolUse": 
     {
@@ -26,7 +25,7 @@ To actually call the tool, the tool name and arguments can be extracted from the
 
 Here is an example for how you can process a tool call.
 
-```
+```JSON
 def get_top_song(sign):
     print(f"Getting the top song at {sign}")
     return ("Espresso", "Sabrina Carpenter")

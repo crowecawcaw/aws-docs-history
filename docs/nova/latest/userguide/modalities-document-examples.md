@@ -1,11 +1,10 @@
 
 
 # Using Nova's Document Understanding via API
-<a name="modalities-document-examples"></a>
 
 To illustrate how to use Amazon Nova for document QA (Question-Answering) or analysis, here’s a simplified example in Python. We’ll use the AWS Bedrock API (via Boto3 SDK) to send a PDF document along with a question for the model to answer.
 
-```
+```Python
             
 import base64
 import base64

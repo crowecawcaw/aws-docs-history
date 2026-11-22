@@ -1,7 +1,6 @@
 
 
 # Content moderation
-<a name="prompting-content-moderation"></a>
 
 This guide provides best practices for prompting Amazon Nova models to perform content moderation using the [MLCommons® AILuminate Assessment Standard](https://mlcommons.org/ailuminate/safety-resources/) — a comprehensive framework with 12 hazard categories for AI safety. While this guide uses the MLCommons standard as an example to illustrate best practices, the prompting techniques work with any free-form or customizable content moderation categories and definitions you specify.
 

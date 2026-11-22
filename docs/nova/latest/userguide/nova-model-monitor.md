@@ -1,7 +1,6 @@
 
 
 # Monitoring Progress Across Iterations
-<a name="nova-model-monitor"></a>
 
 You can track metrics via MLflow.
 
@@ -25,7 +24,7 @@ To enable your SageMaker HyperPod environment to output metrics to MLFlow, it is
 
 1. On the HyperPod cluster execution role, add the following policy. This will allow the HyperPod cluster to call the MLFlow API to publish metrics.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ Command line
 
 yaml:
 
-```
+```yaml
 ## Run config
 run:
   mlflow_tracking_uri: "arn:aws:sagemaker:us-east-1:925548216816:mlflow-app/app-B6XOUNCHQM4W" 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon Nova
-<a name="monitoring-overview"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information about monitoring Amazon Nova 2, visit [Monitoring Amazon Nova 2](https://docs.aws.amazon.com/nova/latest/nova2-userguide/monitoring-overview.html).

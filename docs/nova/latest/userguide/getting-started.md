@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Nova
-<a name="getting-started"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information about getting started with Amazon Nova 2, visit [Getting started with Amazon Nova 2](https://docs.aws.amazon.com/nova/latest/nova2-userguide/getting-started-nova-2.html).

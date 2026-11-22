@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Nova Sonic
-<a name="speech-code-examples"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Code examples](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-code-examples.html).

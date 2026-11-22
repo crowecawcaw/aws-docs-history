@@ -1,7 +1,6 @@
 
 
 # SFT on Nova 1.0
-<a name="nova-sft-1"></a>
 
 Supervised fine-tuning (SFT) is the process of providing a collection of prompt-response pairs to a foundation model to improve the performance of a pre-trained foundation model on a specific task. The labeled examples are formatted as prompt-response pairs and phrased as instructions. This fine-tuning process modifies the weights of the model.
 

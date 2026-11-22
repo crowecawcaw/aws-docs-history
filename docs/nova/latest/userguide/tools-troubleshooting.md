@@ -1,7 +1,6 @@
 
 
 # Tool usage
-<a name="tools-troubleshooting"></a>
 
 You might see different errors when working with tools and Amazon Nova models. Here are a few examples and tips to help you troubleshoot.
 
@@ -12,7 +11,7 @@ You might see different errors when working with tools and Amazon Nova models. H
 
 **Validate your inference parameters** - Amazon Nova models have more success calling tools when using greedy decoding. To enable greedy decoding, set the temperature parameters to 0.
 
-```
+```JSON
 inferenceConfig={
     "temperature": 0
 }
@@ -22,7 +21,7 @@ additionalModelRequestFields={"inferenceConfig": {"topK": 1}}
 
 **Increase the maximum token count** - It is common for tool outputs to require a large token output, ensure that the max tokens set is large enough to accommodate the expected return schema. If the model response is larger than your max token count, it will trigger an exception. You can set the maximum tokens in the `inferenceConfig` parameter:
 
-```
+```JSON
 inferenceConfig={
     "maxTokens": 3000
 }
@@ -48,7 +47,7 @@ If it looks like tools are being ignored by the model, make sure you are followi
 If a tool is not being returned when expected, it is recommended to leverage the `tool_choice` API parameter.
 + **Tool**: The specified tool will be called once.
 
-  ```
+  ```JSON
   {
      "toolChoice": {
           "tool": {
@@ -59,7 +58,7 @@ If a tool is not being returned when expected, it is recommended to leverage the
   ```
 + **Any**: One of the provided tools will be called at least once.
 
-  ```
+  ```JSON
   {
      "toolChoice": {
           "any": {}

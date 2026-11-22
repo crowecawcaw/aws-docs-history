@@ -1,7 +1,6 @@
 
 
 # Negative prompts
-<a name="prompting-image-negative"></a>
 
 Negative prompts, represented by the `negativeText` parameter, can be surprisingly useful. Use negative prompts to exclude objects or style characteristics that might otherwise naturally occur as a result of your main prompt. Here is an example.
 

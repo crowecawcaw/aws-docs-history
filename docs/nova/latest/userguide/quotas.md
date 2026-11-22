@@ -1,7 +1,6 @@
 
 
 # Quotas for Amazon Nova
-<a name="quotas"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information about quotas for Amazon Nova 2, visit [Quotas for Amazon Nova 2](https://docs.aws.amazon.com/nova/latest/nova2-userguide/quotas.html).

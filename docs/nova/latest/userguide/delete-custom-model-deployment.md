@@ -1,7 +1,6 @@
 
 
 # Delete a custom model deployment
-<a name="delete-custom-model-deployment"></a>
 
 After you are finished using your model for on-demand inference, you can delete the deployment. After you delete the deployment, you can't use it for on-demand inference but it doesn't delete the underlying custom model.
 
@@ -48,7 +47,7 @@ aws bedrock delete-custom-model-deployment \
 
 To delete a custom model deployment programmatically, use the [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html) API operation with the deployment's Amazon Resource Name (ARN) or name. The following code shows how to use the AWS SDK for Python (Boto3) to delete a custom model deployment. 
 
-```
+```python
 def delete_custom_model_deployment(bedrock_client):
     """Delete a custom model deployment
  

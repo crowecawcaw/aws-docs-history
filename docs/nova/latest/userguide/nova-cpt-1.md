@@ -1,7 +1,6 @@
 
 
 # CPT on Nova 1.0
-<a name="nova-cpt-1"></a>
 
 You should use CPT in the following scenarios:
 + You have large-scale, unlabeled data that's specific to a domain (for example medicine or finance).

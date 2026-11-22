@@ -1,7 +1,6 @@
 
 
 # Visual Styles
-<a name="image-gen-styles"></a>
 
 Amazon Nova Canvas allows you to generate images in a variety of predefined styles. With the `"TEXT_TO_IMAGE"` task type, use the `style` parameter to pick a predefined visual style. Choose from these available styles:
 + `"3D_ANIMATED_FAMILY_FILM"` - A style that alludes to 3D animated films. Featuring realistic rendering and characters with cartoonish or exaggerated physical features. This style is capable of producing character-focused images, object- or prop-focused images, and environment- or setting-focused images of both interiors and exteriors.

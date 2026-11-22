@@ -1,7 +1,6 @@
 
 
 # Continued pre-training (CPT)
-<a name="nova-cpt"></a>
 
 Continued pre-training (CPT) is a training technique that extends the pre-training phase of a foundation model by exposing it to additional unlabeled text from specific domains or corpora. Unlike supervised fine-tuning, which requires labeled input-output pairs, CPT trains on raw documents to help the model acquire deeper knowledge of new domains, learn domain-specific terminology and writing patterns, and adapt to particular content types or subject areas.
 

@@ -1,14 +1,13 @@
 
 
 # Complete request schema
-<a name="complete-request-schema"></a>
 
 The request schema is nearly identical between the Invoke API (streaming and non-streaming) and the Converse API. There are subtle differences related to image and video payload encoding. Because Amazon Nova Micro does not support images or videos as input, those parts of the request schema do not apply to Amazon Nova Micro. Otherwise, the request schema is the same for all Amazon Nova understanding models.
 
 **Important**  
 The timeout period for inference calls to Amazon Nova is 60 minutes. By default, AWS SDK clients timeout after 1 minute. We recommend that you increase the read timeout period of your AWS SDK client to at least 60 minutes. For example, in the AWS Python botocore SDK, change the value of the `read_timeout`field in [botocore.config](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html#) to at least 3600.  
 
-```
+```Python
 client = boto3.client(
     "bedrock-runtime",
     region_name="us-east-1",
@@ -20,7 +19,7 @@ client = boto3.client(
 )
 ```
 
-```
+```json
 {
   "system": [
     {

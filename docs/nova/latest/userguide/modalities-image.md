@@ -1,7 +1,6 @@
 
 
 # Image understanding
-<a name="modalities-image"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 image understanding guide, visit [Image understanding](https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-multimodal-models.html#image-understanding).

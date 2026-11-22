@@ -1,11 +1,10 @@
 
 
 # Response structure highlights
-<a name="complete-request-schema-response"></a>
 
 The following shows the key elements of the response structure returned by the non-streaming `Converse` and `InvokeModel` functions. For details on the full response structure as well as the request and response structures for the streaming functions, see the API documentation.
 
-```
+```json
 {
     "ResponseMetadata": {
         "RequestId": {{string}},

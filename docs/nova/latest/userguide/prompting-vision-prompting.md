@@ -1,7 +1,6 @@
 
 
 # Vision understanding prompting techniques
-<a name="prompting-vision-prompting"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information about how to prompt multimodal understanding in Amazon Nova 2, visit [Prompting multimodal inputs](https://docs.aws.amazon.com/nova/latest/nova2-userguide/prompting-multimodal.html).
@@ -26,7 +25,7 @@ We recommend that you place media files (such as images or videos) before adding
 
 The following template can be used to place media files before text when performing vision understanding.
 
-```
+```JSON
 {
       "role": "user",
       "content": [
@@ -61,7 +60,7 @@ In situations where you provide multiple media files across turns, introduce eac
 
 The following template can be used to place multiple media files:
 
-```
+```JSON
 messages = [
         {
             "role": "user",
@@ -97,7 +96,7 @@ For video understanding, the number of tokens in-context makes the recommendatio
 
 The following template can be used to for improved instructions:
 
-```
+```JSON
 {
     "role": "user",
     "content": [
@@ -140,7 +139,7 @@ If you need to identify bounding box coordinates for an object, you can utilize 
 
 The following is a sample prompt for bounding box detection:
 
-```
+```JSON
 Detect bounding box of objects in the image, only detect {item_name} category objects with high confidence, output in a list of bounding box format.
 Output example:
 [

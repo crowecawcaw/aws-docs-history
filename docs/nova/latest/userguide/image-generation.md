@@ -1,7 +1,6 @@
 
 
 # Generating images with Amazon Nova Canvas
-<a name="image-generation"></a>
 
 With the Amazon Nova Canvas model, you can generate realistic, studio-quality images by using text prompts. You can use Amazon Nova Canvas for text-to-image and imaging editing applications.
 

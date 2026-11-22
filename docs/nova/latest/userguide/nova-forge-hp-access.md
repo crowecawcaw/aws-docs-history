@@ -1,7 +1,6 @@
 
 
 # Nova Forge access and setup for SageMaker HyperPod
-<a name="nova-forge-hp-access"></a>
 
 To set up Amazon Nova Forge for use with SageMaker HyperPod Jobs, you need to:
 + Subscribe to Amazon Nova Forge

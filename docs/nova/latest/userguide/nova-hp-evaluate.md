@@ -1,7 +1,6 @@
 
 
 # Evaluating your trained model
-<a name="nova-hp-evaluate"></a>
 
 An evaluation recipe is a YAML configuration file that defines how your Amazon Nova model evaluation job is executed. With this recipe, you can assess the performance of a base or trained model against common benchmarks or your own custom datasets. Metrics can be stored in Amazon S3 or TensorBoard. The evaluation provides quantitative metrics that help you assess model performance across various tasks to determine if further customization is needed.
 

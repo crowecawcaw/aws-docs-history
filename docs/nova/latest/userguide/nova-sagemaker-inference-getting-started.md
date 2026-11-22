@@ -1,7 +1,6 @@
 
 
 # Getting Started
-<a name="nova-sagemaker-inference-getting-started"></a>
 
 This guide shows you how to deploy customized Amazon Nova models on SageMaker real-time endpoints, configure inference parameters, and invoke your models for testing.
 
@@ -28,7 +27,7 @@ Configure your AWS credentials using one of the following methods:
 
 **Option 1: AWS CLI (Recommended)**
 
-```
+```sh
 aws configure
 ```
 
@@ -46,7 +45,7 @@ aws_secret_access_key = YOUR_SECRET_KEY
 
 **Option 3: Environment variables**
 
-```
+```sh
 export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 ```
@@ -58,7 +57,7 @@ For more information about AWS credentials, see [Configuration and credential fi
 
 Create a Python script or notebook with the following code to initialize the AWS SDK and verify your credentials:
 
-```
+```python
 import boto3
 
 # AWS Configuration - Update these for your environment
@@ -96,7 +95,7 @@ Creating IAM roles requires `iam:CreateRole` and `iam:AttachRolePolicy` permissi
 
 The following code creates an IAM role with the necessary permissions for deploying Amazon Nova customized models:
 
-```
+```python
 import json
 
 # Create SageMaker Execution Role
@@ -141,14 +140,14 @@ print(f"Created SageMaker execution role: {SAGEMAKER_EXECUTION_ROLE_ARN}")
 
 If you already have a SageMaker execution role, you can use it instead:
 
-```
+```python
 # Replace with your existing role ARN
 SAGEMAKER_EXECUTION_ROLE_ARN = "arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_EXISTING_ROLE_NAME"
 ```
 
 To find existing SageMaker roles in your account:
 
-```
+```python
 iam = boto3.client('iam', region_name=REGION)
 response = iam.list_roles()
 sagemaker_roles = [role for role in response['Roles'] if 'SageMaker' in role['RoleName']]
@@ -173,7 +172,7 @@ Configure the deployment parameters for your Amazon Nova model. These settings c
 
 **Configure your deployment**
 
-```
+```python
 # AWS Configuration
 REGION = "us-east-1"  # Must match region from Step 1
 
@@ -214,7 +213,7 @@ Now configure the specific parameters for your Amazon Nova model deployment, inc
 
 **Set deployment identifier**
 
-```
+```python
 # Deployment identifier - use a descriptive name for your use case
 JOB_NAME = "my-nova-deployment"
 ```
@@ -223,7 +222,7 @@ JOB_NAME = "my-nova-deployment"
 
 Provide the Amazon S3 URI where your trained Amazon Nova model artifacts are stored. This should be the output location from your model training or fine-tuning job.
 
-```
+```python
 # S3 location of your trained Nova model artifacts
 # Replace with your model's S3 URI - must end with /
 MODEL_S3_LOCATION = "s3://your-bucket-name/path/to/model/artifacts/"
@@ -231,7 +230,7 @@ MODEL_S3_LOCATION = "s3://your-bucket-name/path/to/model/artifacts/"
 
 **Select model variant and instance type**
 
-```
+```python
 # Configure model variant and instance type
 TESTCASE = {
     "model": "micro",              # Options: micro, lite, lite2
@@ -272,7 +271,7 @@ With inference components, you first create an endpoint, then deploy your model 
 
 Create an endpoint configuration that defines the infrastructure without specifying a model. The instance type and count are managed at the endpoint level:
 
-```
+```python
 # Create Endpoint Configuration for inference components
 INFERENCE_COMPONENT_NAME = MODEL_NAME + "-IC"
 
@@ -305,7 +304,7 @@ except sagemaker.exceptions.ClientError as e:
 
 **Create and deploy the endpoint**
 
-```
+```python
 import time
 
 try:
@@ -350,7 +349,7 @@ while True:
 
 Once the endpoint is InService, deploy your Amazon Nova model as an inference component:
 
-```
+```python
 try:
     ic_response = sagemaker.create_inference_component(
         InferenceComponentName=INFERENCE_COMPONENT_NAME,
@@ -392,7 +391,7 @@ Key parameters:
 
 **Monitor inference component deployment**
 
-```
+```python
 # Wait for inference component to be InService
 print("Waiting for inference component deployment...")
 print("This typically takes 10-20 minutes as the model is loaded...\n")
@@ -435,7 +434,7 @@ With single model endpoints, you create a SageMaker model object, an endpoint co
 
 The following code creates a SageMaker model that references your Amazon Nova model artifacts:
 
-```
+```python
 try:
     model_response = sagemaker.create_model(
         ModelName=MODEL_NAME,
@@ -472,7 +471,7 @@ Key parameters:
 
 Next, create an endpoint configuration that defines your deployment infrastructure:
 
-```
+```python
 # Create Endpoint Configuration
 try:
     production_variant = {
@@ -501,7 +500,7 @@ Key parameters:
 
 **Deploy the endpoint**
 
-```
+```python
 import time
 
 try:
@@ -519,7 +518,7 @@ except Exception as e:
 
 The following code polls the endpoint status until deployment is complete:
 
-```
+```python
 # Monitor endpoint creation progress
 print("Waiting for endpoint creation to complete...")
 print("This typically takes 15-30 minutes...\n")
@@ -557,7 +556,7 @@ while True:
 
 You can verify that your resources were created successfully:
 
-```
+```python
 # Describe the model
 model_info = sagemaker.describe_model(ModelName=MODEL_NAME)
 print(f"Model Status: {model_info['ModelName']} created")
@@ -571,7 +570,7 @@ print(f"Endpoint Config Status: {config_info['EndpointConfigName']} created")
 
 Regardless of which approach you chose, you can verify the endpoint configuration:
 
-```
+```python
 # Get detailed endpoint information
 endpoint_info = sagemaker.describe_endpoint(EndpointName=ENDPOINT_NAME)
 
@@ -613,7 +612,7 @@ Common failure reasons:
 **Note**  
 If you need to delete a failed endpoint and start over:  
 
-```
+```python
 sagemaker.delete_endpoint(EndpointName=ENDPOINT_NAME)
 ```
 
@@ -626,7 +625,7 @@ Once your endpoint is InService, you can send inference requests to generate pre
 
 Create a SageMaker Runtime client with appropriate timeout settings:
 
-```
+```python
 import json
 import boto3
 import botocore
@@ -647,7 +646,7 @@ runtime_client = boto3.client('sagemaker-runtime', config=config, region_name=RE
 
 The following function handles both streaming and non-streaming requests. It uses the `INFERENCE_COMPONENT_NAME` variable defined in Step 4. If you deployed using inference components (Option A), this was set to `MODEL_NAME + "-IC"`. If you deployed using single model endpoints (Option B), this was not defined, so set it to `None` before running this step:
 
-```
+```python
 # Only needed if you followed Option B (single model endpoints) in Step 4:
 # INFERENCE_COMPONENT_NAME = None
 
@@ -712,7 +711,7 @@ def invoke_nova_endpoint(request_body):
 
 Use the chat format for conversational interactions:
 
-```
+```python
 # Non-streaming chat request
 chat_request = {
     "messages": [
@@ -736,7 +735,7 @@ response = invoke_nova_endpoint(chat_request)
 
 **Sample response:**
 
-```
+```python
 {
     "id": "chatcmpl-123456",
     "object": "chat.completion",
@@ -778,7 +777,7 @@ response = invoke_nova_endpoint(chat_request)
 
 Use the completion format for simple text generation:
 
-```
+```python
 # Simple completion request
 completion_request = {
     "prompt": "The capital of France is",
@@ -798,7 +797,7 @@ response = invoke_nova_endpoint(completion_request)
 
 **Sample response:**
 
-```
+```python
 {
     "id": "cmpl-789012",
     "object": "text_completion",
@@ -829,7 +828,7 @@ response = invoke_nova_endpoint(completion_request)
 
 **Example 3: Streaming chat completion**
 
-```
+```python
 # Streaming chat request
 streaming_request = {
     "messages": [
@@ -867,7 +866,7 @@ Chunk: data: [DONE]
 
 Use multimodal format for image and text inputs:
 
-```
+```python
 # Multimodal chat request (if supported by your model)
 multimodal_request = {
     "messages": [
@@ -890,7 +889,7 @@ response = invoke_nova_endpoint(multimodal_request)
 
 **Sample response:**
 
-```
+```python
 {
     "id": "chatcmpl-345678",
     "object": "chat.completion",
@@ -924,7 +923,7 @@ Deleting resources is permanent and cannot be undone. Ensure you no longer need 
 
 **Initialize the cleanup client**
 
-```
+```python
 import boto3
 import time
 
@@ -936,7 +935,7 @@ sagemaker = boto3.client('sagemaker', region_name=REGION)
 
 If you deployed using inference components, delete the inference component first before deleting the endpoint:
 
-```
+```python
 # Delete inference component (Option A only)
 try:
     print("Deleting inference component...")
@@ -962,7 +961,7 @@ while True:
 
 **Delete the endpoint**
 
-```
+```python
 try:
     print("Deleting endpoint...")
     sagemaker.delete_endpoint(EndpointName=ENDPOINT_NAME)
@@ -975,7 +974,7 @@ except Exception as e:
 **Note**  
 The endpoint deletion is asynchronous. You can monitor the deletion status:  
 
-```
+```python
 import time
 
 print("Monitoring endpoint deletion...")
@@ -998,7 +997,7 @@ while True:
 
 After the endpoint is deleted, remove the endpoint configuration:
 
-```
+```python
 try:
     print("Deleting endpoint configuration...")
     sagemaker.delete_endpoint_config(EndpointConfigName=ENDPOINT_CONFIG_NAME)
@@ -1011,7 +1010,7 @@ except Exception as e:
 
 If you used single model endpoints, remove the SageMaker model object:
 
-```
+```python
 try:
     print("Deleting model...")
     sagemaker.delete_model(ModelName=MODEL_NAME)

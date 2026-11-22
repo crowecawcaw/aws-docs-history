@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon Nova in the Amazon Bedrock console
-<a name="getting-started-console"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. For information on how to get started with Amazon Nova 2, visit [Getting started with Amazon Nova 2 in the Amazon Bedrock console](https://docs.aws.amazon.com/nova/latest/nova2-userguide/getting-started-console.html).

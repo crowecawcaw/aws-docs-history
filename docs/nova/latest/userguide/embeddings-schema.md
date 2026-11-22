@@ -1,14 +1,13 @@
 
 
 # Complete embeddings request and response schema
-<a name="embeddings-schema"></a>
 
 ## Complete synchronous schema
 <a name="embeddings-schema-sync"></a>
 
 
 
-```
+```json
 {
     "schemaVersion": "nova-multimodal-embed-v1",
     "taskType": "SINGLE_EMBEDDING",
@@ -110,7 +109,7 @@ The following list includes all of the parameters for the request:
 **InvokeModel Response Body**  
 When [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModel.html) returns a successful result, the body of the response will have the following structure:
 
-```
+```json
 {
    "embeddings": [
       {
@@ -140,7 +139,7 @@ You can generate embeddings asynchronously using the Amazon Bedrock Runtime API 
 
 When calling [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StartAsyncInvoke.html), you must provide `modelId`, `outputDataConfig`, and `modelInput` parameters.
 
-```
+```json
 response = bedrock_runtime.start_async_invoke(
     modelId="amazon.nova-2-multimodal-embeddings-v1:0",
     outputDataConfig={{Data Config}},
@@ -150,7 +149,7 @@ response = bedrock_runtime.start_async_invoke(
 
 `outputDataConfig` specifies the S3 bucket to which you'd like to save the generated output. It has the following structure:
 
-```
+```json
 {
     "s3OutputDataConfig": {
         "s3Uri": "s3://your-s3-bucket"
@@ -162,7 +161,7 @@ The `s3Uri` is the S3 URI of the destination bucket. For additional optional par
 
 The following structure is used for the `modelInput` parameter.
 
-```
+```json
 {
     "schemaVersion": "nova-multimodal-embed-v1",
     "taskType": "SEGMENTED_EMBEDDING",
@@ -289,7 +288,7 @@ The following list includes all of the parameters for the request:
 **StartAsyncInvoke Response**  
 The response from a call to [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StartAsyncInvoke.html) will have the structure below. The `invocationArn` can be used to query the status of the asynchronous job using the [GetAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetAsyncInvoke.html) function.
 
-```
+```json
 {
     "invocationArn": "arn:aws:bedrock:us-east-1:xxxxxxxxxxxx:async-invoke/lvmxrnjf5mo3",
 }
@@ -313,7 +312,7 @@ When asynchronous embeddings generation is complete, output artifacts are writte
 
 The `segmented-embedding-result.json` will contain the overall job result and reference to the corresponding jsonl files which contain actual embeddings per modality. Below is a truncated example of a file:
 
-```
+```json
 {
     "sourceFileUri": string, 
     "embeddingDimension": 256 | 384 | 1024 | 3072,
@@ -332,7 +331,7 @@ The `segmented-embedding-result.json` will contain the overall job result and re
 
 The `embedding-{{modality}}.json` will be jsonl files which contain the embedding output for each modality. Each line in the jsonl file will adhere to the following schema:
 
-```
+```json
 {
     "embedding": number[], // The generated embedding vector
     "segmentMetadata": {

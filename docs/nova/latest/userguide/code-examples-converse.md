@@ -1,7 +1,6 @@
 
 
 # Send a message with the Converse API
-<a name="code-examples-converse"></a>
 
 The following code examples show how to send a text message to Amazon Nova, using Bedrock's Converse API.
 
@@ -12,7 +11,7 @@ The following code examples show how to send a text message to Amazon Nova, usin
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```csharp
 // Use the Converse API to send a text message to Amazon Nova.
 
 using System;
@@ -67,7 +66,7 @@ catch (AmazonBedrockRuntimeException e)
 ```
 Send a conversation of messages to Amazon Nova using Bedrock's Converse API with a tool configuration.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for interacting with the Amazon Bedrock Converse API.
 /// </summary>
@@ -148,7 +147,7 @@ public class BedrockActionsWrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```go
 func (wrapper ConverseWrapper) ConverseNova(ctx context.Context, prompt string) (string, error) {
 	var content = types.ContentBlockMemberText{
 		Value: prompt,
@@ -182,7 +181,7 @@ func (wrapper ConverseWrapper) ConverseNova(ctx context.Context, prompt string) 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova using Bedrock's Converse API with the async Java client.  
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.bedrockruntime.BedrockRuntimeAsyncClient;
@@ -267,7 +266,7 @@ public class ConverseAsync {
 ```
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.exception.SdkClientException;
 import software.amazon.awssdk.regions.Region;
@@ -356,7 +355,7 @@ public class Converse {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```javascript
 // This example demonstrates how to use the Amazon Nova foundation models to generate text.
 // It shows how to:
 // - Set up the Amazon Bedrock runtime client
@@ -423,7 +422,7 @@ try {
 ```
 Send a conversation of messages to Amazon Nova using Bedrock's Converse API with a tool configuration.  
 
-```
+```javascript
 // This example demonstrates how to send a conversation of messages to Amazon Nova using Bedrock's Converse API with a tool configuration.
 // It shows how to:
 // - 1. Set up the Amazon Bedrock runtime client
@@ -620,7 +619,7 @@ await SendConversationtoBedrock(modelId, message, system_prompt, tool_config);
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```kotlin
 import aws.sdk.kotlin.services.bedrockruntime.BedrockRuntimeClient
 import aws.sdk.kotlin.services.bedrockruntime.model.ContentBlock
 import aws.sdk.kotlin.services.bedrockruntime.model.ConversationRole
@@ -685,7 +684,7 @@ suspend fun converse(): String {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```php
 // Use the Conversation API to send a text message to Amazon Nova.
 
 use Aws\BedrockRuntime\BedrockRuntimeClient;
@@ -747,7 +746,7 @@ echo $demo->converse();
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```python
 # Use the Conversation API to send a text message to Amazon Nova.
 
 import boto3
@@ -793,7 +792,7 @@ except (ClientError, Exception) as e:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
 Send a text message to Amazon Nova, using Bedrock's Converse API.  
 
-```
+```swift
 // An example demonstrating how to use the Conversation API to send 
 // a text message to Amazon Nova.
 

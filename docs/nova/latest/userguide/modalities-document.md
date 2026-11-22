@@ -1,7 +1,6 @@
 
 
 # Document understanding
-<a name="modalities-document"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 document understanding guide, visit [Document understanding](https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-multimodal-models.html#document-understanding).

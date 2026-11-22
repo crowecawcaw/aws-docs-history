@@ -1,7 +1,6 @@
 
 
 # Prompting best practices for Amazon Nova understanding models
-<a name="prompting"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 prompt engineering guide, visit [Prompt engineering guide](https://docs.aws.amazon.com/nova/latest/nova2-userguide/prompt-engineering-guide.html).

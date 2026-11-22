@@ -1,7 +1,6 @@
 
 
 # Multi-shot video generation code examples
-<a name="video-gen-code-examples2"></a>
 
 The following examples provide sample code for various multi-shot (longer than 6 seconds) video generation tasks.
 
@@ -10,7 +9,7 @@ The following examples provide sample code for various multi-shot (longer than 6
 
 In this example, all shots in the video are generated from a single prompt and no input image is provided.
 
-```
+```Python
 import json
 import os
 

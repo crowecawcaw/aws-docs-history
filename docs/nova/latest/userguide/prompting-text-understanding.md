@@ -1,7 +1,6 @@
 
 
 # Text understanding prompting best practices
-<a name="prompting-text-understanding"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information on how to prompt Amazon Nova 2 text understanding models, visit [General best practices](https://docs.aws.amazon.com/nova/latest/nova2-userguide/prompting-best-practices.html).

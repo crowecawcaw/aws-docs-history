@@ -1,7 +1,6 @@
 
 
 # Defining a tool
-<a name="tool-use-definition"></a>
 
 A critical step in the tool calling workflow is defining the tool. The tool definition must include all of the necessary context to guide the model on when it is appropriate to invoke the tool.
 
@@ -12,7 +11,7 @@ Amazon Nova supports the `auto`, `any`, and `tool` options for `toolChoice`. For
 
 Here is an example of how to define a tool:
 
-```
+```JSON
 tool_config = {
     "tools": [
         {
@@ -50,7 +49,7 @@ For tool calling, we recommend setting the temperature to 0 to enable greedy dec
 
 Here is an example of calling a tool with the Converse API:
 
-```
+```Python
 import json
 import boto3
 

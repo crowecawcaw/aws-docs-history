@@ -1,7 +1,6 @@
 
 
 # Creating precise prompts
-<a name="prompting-precision"></a>
 
 Crafting specific user queries is crucial in prompt engineering. Well-crafted queries direct Amazon Nova text understanding models to generate accurate and pertinent responses. To craft such queries, it is essential to start by providing contextual information in the query. The context provided helps situate the model better by aligning to clear target-user scenarios, thereby enhancing the relevance and coherence of the output.
 

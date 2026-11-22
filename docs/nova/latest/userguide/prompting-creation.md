@@ -1,7 +1,6 @@
 
 
 # Prompting best practices for Amazon Nova content creation models
-<a name="prompting-creation"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information on prompt engineering for Amazon Nova 2, visit [Prompt engineering guide](https://docs.aws.amazon.com/nova/latest/nova2-userguide/prompt-engineering-guide.html).

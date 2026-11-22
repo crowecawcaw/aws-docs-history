@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information on how to troubleshoot Amazon Nova 2, visit [Troubleshooting](https://docs.aws.amazon.com/nova/latest/nova2-userguide/troubleshooting.html).

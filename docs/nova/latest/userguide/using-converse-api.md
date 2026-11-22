@@ -1,7 +1,6 @@
 
 
 # Using the Converse API
-<a name="using-converse-api"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information on how to use the Converse API with Amazon Nova 2, visit [Using the Converse API](https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-converse-api.html).
@@ -19,7 +18,7 @@ One method of invoking the Amazon Nova understanding models (Amazon Nova Micro, 
 **Important**  
 The timeout period for inference calls to Amazon Nova is 60 minutes. By default, AWS SDK clients timeout after 1 minute. We recommend that you increase the read timeout period of your AWS SDK client to at least 60 minutes. For example, in the AWS Python botocore SDK, change the value of the `read_timeout`field in [botocore.config](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/config.html#) to at least 3600.  
 
-```
+```Python
 client = boto3.client(
     "bedrock-runtime",
     region_name="us-east-1",
@@ -48,7 +47,7 @@ The additional parameter "topK" can be passed through the `additionalModelReques
 
 Here's an example of how to use Converse API with boto3, the AWS SDK for Python with Amazon Nova Lite:
 
-```
+```Python
 import boto3
 import json
 

@@ -1,7 +1,6 @@
 
 
 # Speech-to-speech Example
-<a name="s2s-example"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-getting-started.html).
@@ -21,7 +20,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Amazon Bedrock SDK components for streaming
    + Audio constants define the format of audio capture (16kHz sample rate, mono channel)
 
-   ```
+   ```Python
    import os
    import asyncio
    import base64
@@ -51,7 +50,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Unique IDs for prompt and content tracking
    + An asynchronous queue for audio playback
 
-   ```
+   ```Python
    class SimpleNovaSonic:
        def __init__(self, model_id='amazon.nova-sonic-v1:0', region='us-east-1'):
            self.model_id = model_id
@@ -76,7 +75,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Authentication information using environment variables for AWS credentials
    + The SigV4 authentication scheme for the AWS API calls
 
-   ```
+   ```Python
        def _initialize_client(self):
            """Initialize the Bedrock client."""
            config = Config(
@@ -95,7 +94,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
 
    This helper method sends JSON events to the bidirectional stream, which is used for all communication with the Amazon Nova Sonic model:
 
-   ```
+   ```Python
        async def send_event(self, event_json):
            """Send an event to the stream."""
            event = InvokeModelWithBidirectionalStreamInputChunk(
@@ -110,7 +109,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
 
    This method initiates the session and setups the remaining events to start audio streaming. These events need to be sent in the same order.
 
-   ```
+   ```Python
        async def start_session(self):
            """Start a new session with Nova Sonic."""
            if not self.client:
@@ -225,7 +224,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + `send_audio_chunk`: Encodes and sends audio chunks to the model
    + `end_audio_input`: Properly closes the audio input stream
 
-   ```
+   ```Python
       async def start_audio_input(self):
            """Start audio input stream."""
            audio_content_start = f'''
@@ -294,7 +293,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Sending a `sessionEnd` event
    + Closing the input stream
 
-   ```
+   ```Python
        async def end_session(self):
            """End the session."""
            if not self.is_active:
@@ -333,7 +332,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Handles text output by printing to the console with automatic speech recognition and transcription.
    + Handles audio output by decoding and queuing for playback.
 
-   ```
+   ```Python
        async def _process_responses(self):
            """Process responses from the stream."""
            try:
@@ -387,7 +386,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Plays the audio through the speakers
    + Properly cleans up resources when done
 
-   ```
+   ```Python
       async def play_audio(self):
            """Play audio responses."""
            p = pyaudio.PyAudio()
@@ -421,7 +420,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Sends each chunk to the Amazon Nova Sonic model
    + Properly cleans up resources when done
 
-   ```
+   ```Python
        async def capture_audio(self):
            """Capture audio from microphone and send to Nova Sonic."""
            p = pyaudio.PyAudio()
@@ -464,7 +463,7 @@ You can access the following example in our [Amazon Nova samples GitHub repo](ht
    + Waits for the user to press **Enter** to stop
    + Properly ends the session and cleans up tasks
 
-   ```
+   ```Python
    async def main():
        # Create Nova Sonic client
        nova_client = SimpleNovaSonic()

@@ -1,7 +1,6 @@
 
 
 # Image generation and editing
-<a name="image-gen-access"></a>
 
 Amazon Nova Canvas is available through the Bedrock [InvokeModel API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and supports the following inference parameters and model responses when carrying out model inference.
 

@@ -1,14 +1,13 @@
 
 
 # Using tools
-<a name="speech-tools-use"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-tool-configuration.html).
 
 In order to use a tool, it must be defined as part of the `promptStart` event in your session configuration. This is demonstrated in the following code:
 
-```
+```JSON
 {
   "event": {
     "promptStart": {
@@ -59,7 +58,7 @@ Each tool specification requires the following elements:
 
 Here's an example of a simple tool that retrieves information about the current date. For more information on how to define a tool, see [Defining a tool](https://docs.aws.amazon.com/nova/latest/userguide/tool-use-definition.html).
 
-```
+```JSON
 // A simple tool with no required parameters
 const dateTool = {
   toolSpec: {
@@ -78,7 +77,7 @@ const dateTool = {
 
 And here is what the `promptStart` event would look like:
 
-```
+```JSON
 {
   event: {
     promptStart: {

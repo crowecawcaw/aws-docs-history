@@ -1,7 +1,6 @@
 
 
 # Video generation models
-<a name="video-troubleshooting"></a>
 
 There are three primary types of errors that you want to handle in your application code. These are input validation errors, AWS Responsible AI (RAI) input deflection errors, and RAI output deflection errors. These errors are unique to Amazon Nova Reel.
 

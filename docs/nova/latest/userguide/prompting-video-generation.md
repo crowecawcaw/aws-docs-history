@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Reel prompting best practices
-<a name="prompting-video-generation"></a>
 
 Prompting for video generation models differs from prompting for large language models (LLMs). Video generation models do not have the ability to reason or interpret explicit commands. Therefore, it's best to phrase your prompt as if it were an image caption or summary of the video rather than a command or conversation. You may want to include details about the subject, action, environment, lighting, style, and camera motion.
 

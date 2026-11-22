@@ -1,7 +1,6 @@
 
 
 # Using the Amazon Nova Sonic Speech-to-Speech model
-<a name="speech"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Speech-to-Speech](https://docs.aws.amazon.com/nova/latest/nova2-userguide/using-conversational-speech.html).

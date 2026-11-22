@@ -1,7 +1,6 @@
 
 
 # Build your own RAG
-<a name="prompting-tools-rag"></a>
 
 When constructing your own *retrieval augmented generation* (RAG) system, you can leverage a retriever system and a generator system. The retriever can be an embedding model that identifies the relevant chunks from the vector database based on similarity scores. The generator can be a Large Language Model (LLM) that utilizes the model's capability to answer questions based on the retrieved results (also known as chunks). In the following sections, we will provide additional tips on how to optimize the prompts for your RAG system.
 

@@ -1,7 +1,6 @@
 
 
 # Nova Forge Region Availability
-<a name="nova-forge-region-availability"></a>
 
 Nova Forge is available in the following AWS Regions.
 

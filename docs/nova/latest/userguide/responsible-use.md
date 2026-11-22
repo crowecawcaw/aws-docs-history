@@ -1,7 +1,6 @@
 
 
 # Responsible use
-<a name="responsible-use"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For information about responsible use with Amazon Nova 2, visit [Responsible use](https://docs.aws.amazon.com/nova/latest/nova2-userguide/responsible-use.html).

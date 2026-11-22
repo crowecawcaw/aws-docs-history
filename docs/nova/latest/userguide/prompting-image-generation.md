@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Canvas prompting best practices
-<a name="prompting-image-generation"></a>
 
 Prompting for image generation models differs from prompting for large language models (LLMs). Image generation models do not have the ability to reason or interpret explicit commands. Therefore, it's best to phrase your prompt as if it were an image caption rather than a command or conversation. You might want to include details about the subject, action, environment, lighting, style, and camera position.
 

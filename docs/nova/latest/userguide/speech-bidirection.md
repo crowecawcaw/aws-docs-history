@@ -1,7 +1,6 @@
 
 
 # Using the Bidirectional Streaming API
-<a name="speech-bidirection"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-getting-started.html).
@@ -30,7 +29,7 @@ The following examples can be used to set up the client and begin using the bidi
 ------
 #### [ Python ]
 
-```
+```Python
 def _initialize_client(self):
     """Initialize the Bedrock client."""
     config = Config(
@@ -46,7 +45,7 @@ def _initialize_client(self):
 ------
 #### [ Java ]
 
-```
+```Java
 // The nettyBuilder is optional and mentioned here for clarity, all our APIs support http2
 // and will default to the protocol if the netty builder is not specified.
 NettyNioAsyncHttpClient.Builder nettyBuilder = NettyNioAsyncHttpClient.builder()
@@ -66,7 +65,7 @@ BedrockRuntimeAsyncClient client = BedrockRuntimeAsyncClient.builder()
 ------
 #### [ Node.js ]
 
-```
+```JS
 const { BedrockRuntimeClient } = require("@aws-sdk/client-bedrock-runtime");
 const { NodeHttp2Handler } = require("@smithy/node-http-handler");
 const { fromIni } = require("@aws-sdk/credential-provider-ini");
@@ -98,14 +97,14 @@ The following examples can be used to handle events with the bidirectional API.
 ------
 #### [ Python ]
 
-```
+```Python
 self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional_stream(
                 InvokeModelWithBidirectionalStreamInput(model_id=self.model_id)
             )
 self.is_active = True
 ```
 
-```
+```Python
 async def _process_responses(self):
         """Process incoming responses from Bedrock."""
         try:            
@@ -190,7 +189,7 @@ async def _process_responses(self):
 ------
 #### [ Java ]
 
-```
+```Java
 public class ResponseHandler implements InvokeModelWithBidirectionalStreamResponseHandler {
     @Override
     public void responseReceived(InvokeModelWithBidirectionalStreamResponse response) {
@@ -237,7 +236,7 @@ public class ResponseHandler implements InvokeModelWithBidirectionalStreamRespon
 ------
 #### [ Node.js ]
 
-```
+```JS
 for await (const event of response.body) {
         if (!session.isActive) {
           console.log(`Session ${sessionId} is no longer active, stopping response processing`);
@@ -330,7 +329,7 @@ The following examples can be used to create a request with the bidirectional AP
 ------
 #### [ Python ]
 
-```
+```Python
 self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional_stream(
                 InvokeModelWithBidirectionalStreamInput(model_id="amazon.nova-sonic-v1:0")
             )
@@ -339,7 +338,7 @@ self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional
 ------
 #### [ Java ]
 
-```
+```Java
 InvokeModelWithBidirectionalStreamRequest request = 
    InvokeModelWithBidirectionalStreamRequest.builder()
    .modelId("amazon.nova-sonic-v1:0")
@@ -349,7 +348,7 @@ InvokeModelWithBidirectionalStreamRequest request =
 ------
 #### [ Node.js ]
 
-```
+```JS
 const request = new InvokeModelWithBidirectionalStreamCommand({
             modelId: "amazon.nova-sonic-v1:0",
             body: generateOrderedStream(), //initial request
@@ -366,7 +365,7 @@ The following examples can be used to initiate a request with the bidirectional 
 ------
 #### [ Python ]
 
-```
+```Python
     START_SESSION_EVENT = '''{
         "event": {
             "sessionStart": {
@@ -391,7 +390,7 @@ The following examples can be used to initiate a request with the bidirectional 
 ------
 #### [ Java ]
 
-```
+```Java
 // Create ReplayProcessor with time-based expiry (cleans up messages after 1 minute)
 ReplayProcessor<InvokeModelWithBidirectionalStreamInput> publisher = ReplayProcessor.createWithTime(
                 1, TimeUnit.MINUTES, Schedulers.io()
@@ -439,7 +438,7 @@ publisher.onNext(
 ------
 #### [ Node.js ]
 
-```
+```JS
 const command = new InvokeModelWithBidirectionalStreamCommand({
         modelId: "amazon.nova-sonic-v1:0",
         body: generateChunks(),

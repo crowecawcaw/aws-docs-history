@@ -1,7 +1,6 @@
 
 
 # Voice-specific prompting techniques
-<a name="prompting-speech-voice-language"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-system-prompts.html).
@@ -33,7 +32,7 @@ To specify British English usage, add the following line to your prompt:
 **How to Specify a Voice Id**  
 To select a specific voice for your interaction, include the `voiceId` parameter in your configuration. For example, to use the British English voice `amy`, use the following `audioOutputConfiguration`:
 
-```
+```JSON
 "audioOutputConfiguration": {
     "mediaType": "audio/lpcm",
     "sampleRateHertz": 24000,
@@ -58,7 +57,7 @@ To specify Spanish as the response language, add the following line to your prom
 **How to Specify a Voice Id**  
 To select a specific voice for your interaction, include the `voiceId` parameter in your configuration. For example, to use the Spanish voice `carlos`, use the following `audioOutputConfiguration`:
 
-```
+```JSON
 "audioOutputConfiguration": {
     "mediaType": "audio/lpcm",
     "sampleRateHertz": 24000,
@@ -83,7 +82,7 @@ To specify French as the response language, add the following line to your promp
 **How to Specify a Voice Id**  
 To select a specific voice for your interaction, include the `voiceId` parameter in your configuration. For example, to use the French voice `ambre`, use the following `audioOutputConfiguration`:
 
-```
+```JSON
 "audioOutputConfiguration": {
     "mediaType": "audio/lpcm",
     "sampleRateHertz": 24000,
@@ -108,7 +107,7 @@ To specify Italian as the response language, add the following line to your prom
 **How to Specify a Voice Id**  
 To select a specific voice for your interaction, include the `voiceId` parameter in your configuration. For example, to use the Italian voice `lorenzo`, use the following `audioOutputConfiguration`:
 
-```
+```JSON
 "audioOutputConfiguration": {
     "mediaType": "audio/lpcm",
     "sampleRateHertz": 24000,
@@ -133,7 +132,7 @@ To specify German as the response language, add the following line to your promp
 **How to Specify a Voice Id**  
 To select a specific voice for your interaction, include the `voiceId` parameter in your configuration. For example, to use the German voice `greta`, use the following `audioOutputConfiguration`:
 
-```
+```JSON
 "audioOutputConfiguration": {
     "mediaType": "audio/lpcm",
     "sampleRateHertz": 24000,

@@ -1,7 +1,6 @@
 
 
 # Video understanding limitations
-<a name="modalities-video-limitations"></a>
 
 Understand the following limitations for Amazon Nova:
 + **Multilingual Image Understanding:** The models have limited understanding of multilingual images and video frames and can struggle or hallucinate on similar tasks.

@@ -1,7 +1,6 @@
 
 
 # Handling output events with the bidirectional API
-<a name="output-events"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Handling output events with the bidirectional API](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-output-events.html).
@@ -32,7 +31,7 @@ The structure of the output event flow is described in this section.
 
 1. `UsageEvent`
 
-   ```
+   ```JSON
    "event": {
        "usageEvent": {
            "completionId": "string", // unique identifier for completion
@@ -69,7 +68,7 @@ The structure of the output event flow is described in this section.
 
 1. `CompleteStartEvent`
 
-   ```
+   ```JSON
    "event": {
            "completionStart": {
                "sessionId": "string", // unique identifier
@@ -82,7 +81,7 @@ The structure of the output event flow is described in this section.
 1. `TextOutputContent`
    + `ContentStart`
 
-     ```
+     ```JSON
      "event": {
              "contentStart": {
                  "additionalModelFields": "{\"generationStage\":\"FINAL\"}" | "{\"generationStage\":\"SPECULATIVE\"}",
@@ -100,7 +99,7 @@ The structure of the output event flow is described in this section.
      ```
    + `TextOutput`
 
-     ```
+     ```JSON
      "event": {
              "textOutput": {
                  "sessionId": "string", // unique identifier
@@ -113,7 +112,7 @@ The structure of the output event flow is described in this section.
      ```
    + `ContentEnd`
 
-     ```
+     ```JSON
      "event": {
          "contentEnd": {
                  "sessionId": "string", // unique identifier
@@ -130,7 +129,7 @@ The structure of the output event flow is described in this section.
 
    1. `ContentStart`
 
-      ```
+      ```JSON
       "event": {
           "contentStart": {
             "sessionId": "string", // unique identifier
@@ -148,7 +147,7 @@ The structure of the output event flow is described in this section.
 
    1. `ToolUse`
 
-      ```
+      ```JSON
       "event": {
           "toolUse": {
             "sessionId": "string", // unique identifier
@@ -164,7 +163,7 @@ The structure of the output event flow is described in this section.
 
    1. `ContentEnd`
 
-      ```
+      ```JSON
       "event": {
           "contentEnd": {
             "sessionId": "string", // unique identifier
@@ -181,7 +180,7 @@ The structure of the output event flow is described in this section.
 
    1. `ContentStart`
 
-      ```
+      ```JSON
       "event": {
           "contentStart": {
             "sessionId": "string", // unique identifier
@@ -203,7 +202,7 @@ The structure of the output event flow is described in this section.
 
    1. `AudioOutput`
 
-      ```
+      ```JSON
       "event": {
               "audioOutput": {
                   "sessionId": "string", // unique identifier
@@ -217,7 +216,7 @@ The structure of the output event flow is described in this section.
 
    1. `ContentEnd`
 
-      ```
+      ```JSON
       "event": {
           "contentEnd": {
             "sessionId": "string", // unique identifier
@@ -232,7 +231,7 @@ The structure of the output event flow is described in this section.
 
 1. `CompletionEndEvent`
 
-   ```
+   ```JSON
    "event": {
        "completionEnd": {
          "sessionId": "string", // unique identifier

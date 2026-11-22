@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock inference
-<a name="nova-model-bedrock-inference"></a>
 
 Once you've trained and tested your Amazon Nova model, you can deploy it to Amazon Bedrock for production-scale inference. The deployment process involves creating an Amazon Bedrock model with the CreateCustomModel API, exporting your model artifacts to it from a managed Amazon S3 bucket, and then once the model is ACTIVE configuring an endpoint with on-demand or provisioned-throughput inference.
 

@@ -1,7 +1,6 @@
 
 
 # Using built-in tools
-<a name="tool-built-in"></a>
 
 Built-in tools are fully managed tools that are available out of the box, with no need for custom implementation. These can be enabled in the Converse API with a simple toggle. 
 

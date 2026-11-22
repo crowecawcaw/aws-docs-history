@@ -1,7 +1,6 @@
 
 
 # Deploy a custom model
-<a name="deploying-custom-model"></a>
 
 You can deploy a custom model with the Amazon Bedrock console, AWS Command Line Interface, or AWS SDKs. For information about using the deployment for inference, see [Use a deployment for on-demand inference](https://docs.aws.amazon.com/bedrock/latest/userguide/use-custom-model-on-demand.html). 
 
@@ -67,7 +66,7 @@ To deploy a custom model for on-demand inference, use the [CreateCustomModelDepl
 
 The following code shows how to use the AWS SDK for Python (Boto3) to deploy a custom model. 
 
-```
+```python
 def create_custom_model_deployment(bedrock_client):
     """Create a custom model deployment
     Args:

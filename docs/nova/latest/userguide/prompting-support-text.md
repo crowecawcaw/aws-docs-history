@@ -1,7 +1,6 @@
 
 
 # Provide supporting text
-<a name="prompting-support-text"></a>
 
 We recommend that you provide the model with trusted information relevant to the input query. This information, along with the input query, is generally a part of the system called *retrieval augmented generation (RAG)*. In this process some relevant, contextual document or information is augmented to the actual user prompt so that the model gets trustworthy content to generate a relevant and accurate response. Instructing Amazon Nova to answer using a reference text from a trusted source can guide it to compose its response based on the provided material and ensure that its response is grounded in accurate and relevant information, enhancing the reliability and credibility of the generated content.
 

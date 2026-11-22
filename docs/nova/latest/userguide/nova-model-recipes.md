@@ -1,7 +1,6 @@
 
 
 # Amazon Nova recipes
-<a name="nova-model-recipes"></a>
 
 You can get an Amazon Nova recipe from the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes) repository. An Amazon Nova recipe is a [YAML](https://yaml.org/) configuration file that provides details to SageMaker on how to run your model customization job. It provides the base model name, sets training hyperparameters, defines optimization settings, and includes any additional options required to fine-tune or train the model successfully.
 
@@ -14,7 +13,7 @@ To access the recipes pages in Amazon SageMaker Studio, the execution role must 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@ To execute the sample notebooks on SageMaker training jobs and SageMaker HyperPo
 
 To get a base Amazon Nova recipe, clone the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes) repository by running the following command.
 
-```
+```sh
 git clone https://github.com/aws/sagemaker-hyperpod-recipes.git
 ```
 

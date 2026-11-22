@@ -1,7 +1,6 @@
 
 
 # Provide examples (few-shot prompting)
-<a name="prompting-examples"></a>
 
 By including a few examples of your task within the prompt, you can build a structured template for Amazon Nova to follow. This reduces ambiguity and enhances the accuracy and quality of the output. The technique of providing clear examples to make the model's responses more aligned with the desired outcome is called *few-shot prompting*.
 

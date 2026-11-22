@@ -1,7 +1,6 @@
 
 
 # Using Nova Embeddings
-<a name="nova-embeddings"></a>
 
 Amazon Nova Multimodal Embeddings is a state-of-the-art multimodal embeddings model for agentic RAG and semantic search applications. It is the first unified embeddings model that supports text, documents, images, video, and audio through a single model, to enable cross-modal retrieval with leading accuracy. Nova Multimodal Embeddings maps each of these content types into a unified semantic space enabling developers to conduct unimodal, cross-modal and multimodal vector operations.
 

@@ -1,11 +1,10 @@
 
 
 # Video understanding examples
-<a name="modalities-video-examples"></a>
 
 The following example shows how to send a video prompt to Amazon Nova Model with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html).
 
-```
+```Python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 import base64
@@ -71,7 +70,7 @@ print(content_text)
 
 The following example shows how to send a video using an Amazon S3 location to Amazon Nova with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html).
 
-```
+```Python
 import base64
 import boto3
 import json

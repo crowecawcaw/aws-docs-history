@@ -1,7 +1,6 @@
 
 
 # Speech models
-<a name="speech-troubleshooting"></a>
 
 When errors occur, we recommend trying the following steps:
 

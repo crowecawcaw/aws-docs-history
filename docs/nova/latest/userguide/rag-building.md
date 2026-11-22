@@ -1,12 +1,11 @@
 
 
 # Building a custom RAG system with Amazon Nova
-<a name="rag-building"></a>
 
 **Note**  
 Amazon Nova Premier is not yet available via the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API. To use the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API with Amazon Nova Premier, you need to provide a custom prompt when calling the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API. This is done by supplying the `promptTemplate` in the `generationConfiguration` argument in the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API call as shown below:  
 
-```
+```JSON
 'generationConfiguration': {
                         'promptTemplate': {
                             'textPromptTemplate': promptTemplate
@@ -25,7 +24,7 @@ When Using Amazon Nova within any RAG system there are two general approaches
 
 Define a tool that allows the model to invoke a retriever. The definition of the tool is a JSON schema that you pass in the `toolConfig` ([ToolConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ToolConfiguration.html)) request parameter to the `Converse` operation.
 
-```
+```JSON
 {
     "tools": [
         {
@@ -58,7 +57,7 @@ After the tool is defined you can pass the tool configuration as a parameter in 
 
 You will receive a response from the model as a JSON under the assistant "role" with the content type being "toolUse" or as a context type being "text" if the model chooses not to use the retriever tool. If the model chooses to use the retriever tool, the response will identify the tool (tool\_name). Information about how the requested tool should be used is in the message that the model returns in the `output` ([ConverseOutput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseOutput.html)) field. Specifically, the `toolUse` ([ToolUseBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ToolUseBlock.html)) field. You use the `toolUseId` field to identify the tool request in later calls.
 
-```
+```JSON
 {
     "output": {
         "message": {
@@ -86,7 +85,7 @@ From the `toolUse` field in the model response, you can use the `name` field to 
 
 To rerun the retrieved results back to Amazon Nova, you can now construct a Tool Block message that includes a `toolResult` ([ToolResultBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ToolResultBlock.html)) content block within the user role. In the content block, include the response from the tool and the ID for the tool request that you got in the previous step.
 
-```
+```JSON
 {
     "role": "user",
     "content": [

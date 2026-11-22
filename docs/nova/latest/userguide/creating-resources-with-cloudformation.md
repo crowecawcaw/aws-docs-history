@@ -1,7 +1,6 @@
 
 
 # Create Amazon Bedrock resources with AWS CloudFormation
-<a name="creating-resources-with-cloudformation"></a>
 
 **Note**  
 This documentation is for Version 1. is now available with new models and enhanced capabilities. New features and documentation updates are published in the User Guide. For information about CloudFormation with , visit [Create resources with CloudFormation](https://docs.aws.amazon.com/nova/latest/nova2-userguide/creating-resources-with-cloudformation.html).

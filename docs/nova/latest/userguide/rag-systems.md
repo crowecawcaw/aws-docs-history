@@ -1,7 +1,6 @@
 
 
 # Building RAG systems with Amazon Nova
-<a name="rag-systems"></a>
 
 **Note**  
 This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available with new models and enhanced capabilities. New features and documentation updates are published in the Amazon Nova 2 User Guide. For information, visit [What's new in Amazon Nova 2](https://docs.aws.amazon.com/nova/latest/nova2-userguide/whats-new.html).

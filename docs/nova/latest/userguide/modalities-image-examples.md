@@ -1,11 +1,10 @@
 
 
 # Image understanding examples
-<a name="modalities-image-examples"></a>
 
 The following example shows how to send a image prompt to Amazon Nova Model with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html).
 
-```
+```Python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 import base64
@@ -70,7 +69,7 @@ print(content_text)
 
 For passing large image files or multiple image files, where the overall payload is greater than 25 MB, you can use Amazon S3. The following example demonstrates how to use Amazon S3 to upload images to Amazon Nova:
 
-```
+```Python
 import boto3
 import json
 import base64
