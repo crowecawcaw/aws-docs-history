@@ -1,7 +1,6 @@
 
 
 # Amazon Application Recovery Controller (ARC) Region switch events
-<a name="events-ref-arc-region-switch"></a>
 
 ARC Region switch sends service events directly to EventBridge.
 

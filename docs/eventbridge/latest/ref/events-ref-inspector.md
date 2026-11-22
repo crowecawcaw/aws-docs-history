@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector Classic events
-<a name="events-ref-inspector"></a>
 
 Amazon Inspector Classic sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

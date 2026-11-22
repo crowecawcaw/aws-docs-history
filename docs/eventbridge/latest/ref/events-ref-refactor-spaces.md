@@ -1,7 +1,6 @@
 
 
 # AWS Migration Hub Refactor Spaces events
-<a name="events-ref-refactor-spaces"></a>
 
 Refactor Spaces sends service events to EventBridge via AWS CloudTrail.
 

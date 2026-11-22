@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Systems Manager events
-<a name="events-ref-ssm"></a>
 
 SSM sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Storage Gateway events
-<a name="events-ref-storagegateway"></a>
 
 Storage Gateway sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

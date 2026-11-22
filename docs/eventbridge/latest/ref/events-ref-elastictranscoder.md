@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Transcoder events
-<a name="events-ref-elastictranscoder"></a>
 
 Elastic Transcoder sends service events to EventBridge via AWS CloudTrail.
 

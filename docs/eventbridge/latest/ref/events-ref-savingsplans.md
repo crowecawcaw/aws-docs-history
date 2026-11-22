@@ -1,7 +1,6 @@
 
 
 # Savings Plans events
-<a name="events-ref-savingsplans"></a>
 
 Savings Plans sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

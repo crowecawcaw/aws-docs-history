@@ -1,7 +1,6 @@
 
 
 # AWS Global Accelerator events
-<a name="events-ref-globalaccelerator"></a>
 
 Global Accelerator sends service events to EventBridge via AWS CloudTrail.
 

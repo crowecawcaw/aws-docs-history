@@ -1,7 +1,6 @@
 
 
 # Recycle Bin Service events
-<a name="events-ref-rbin"></a>
 
 Recycle Bin Service sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

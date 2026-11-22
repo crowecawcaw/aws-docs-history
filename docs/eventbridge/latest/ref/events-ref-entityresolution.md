@@ -1,7 +1,6 @@
 
 
 # AWS Entity Resolution events
-<a name="events-ref-entityresolution"></a>
 
 AWS Entity Resolution sends service events to EventBridge via AWS CloudTrail.
 

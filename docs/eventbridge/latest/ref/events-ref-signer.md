@@ -1,7 +1,6 @@
 
 
 # AWS Signer events
-<a name="events-ref-signer"></a>
 
 Signer sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

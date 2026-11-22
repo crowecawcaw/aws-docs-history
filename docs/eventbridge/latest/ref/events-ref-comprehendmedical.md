@@ -1,7 +1,6 @@
 
 
 # Amazon Comprehend Medical events
-<a name="events-ref-comprehendmedical"></a>
 
 Amazon Comprehend Medical sends service events to EventBridge via AWS CloudTrail.
 

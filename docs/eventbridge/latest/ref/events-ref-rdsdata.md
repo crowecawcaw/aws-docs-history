@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Data API events
-<a name="events-ref-rdsdata"></a>
 
 Amazon RDS Data API sends service events to EventBridge via AWS CloudTrail.
 

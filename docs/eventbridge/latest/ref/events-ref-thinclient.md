@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Thin Client events
-<a name="events-ref-thinclient"></a>
 
 WorkSpaces Thin Client sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Web events
-<a name="events-ref-workspaces-web"></a>
 
 WorkSpaces Web sends service events to EventBridge via AWS CloudTrail.
 

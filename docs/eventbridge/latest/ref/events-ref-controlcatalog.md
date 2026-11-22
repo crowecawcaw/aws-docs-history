@@ -1,7 +1,6 @@
 
 
 # AWS Central Governance Controls Platform events
-<a name="events-ref-controlcatalog"></a>
 
 AWS Central Governance Controls Platform sends service events to EventBridge via AWS CloudTrail.
 

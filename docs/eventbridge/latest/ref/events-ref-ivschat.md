@@ -1,7 +1,6 @@
 
 
 # Amazon Interactive Video Service Chat events
-<a name="events-ref-ivschat"></a>
 
 Amazon IVS Chat sends service events to EventBridge via AWS CloudTrail.
 

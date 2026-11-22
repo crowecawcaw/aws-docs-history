@@ -1,7 +1,6 @@
 
 
 # AWS Backup gateway events
-<a name="events-ref-backup-gateway"></a>
 
 Backup gateway sends service events to EventBridge via AWS CloudTrail.
 

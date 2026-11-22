@@ -1,7 +1,6 @@
 
 
 # AWS WAFV2 events
-<a name="events-ref-wafv2"></a>
 
 AWS WAFV2 sends service events to EventBridge via AWS CloudTrail.
 

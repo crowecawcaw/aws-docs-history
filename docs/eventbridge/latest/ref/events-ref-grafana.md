@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Grafana events
-<a name="events-ref-grafana"></a>
 
 Amazon Managed Grafana sends service events to EventBridge via AWS CloudTrail.
 

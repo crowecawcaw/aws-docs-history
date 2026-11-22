@@ -1,7 +1,6 @@
 
 
 # Amazon Connect Campaigns events
-<a name="events-ref-connect-campaigns"></a>
 
 Amazon Connect Campaigns sends service events to EventBridge via AWS CloudTrail.
 

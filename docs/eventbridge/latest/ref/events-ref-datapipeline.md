@@ -1,7 +1,6 @@
 
 
 # AWS Data Pipeline events
-<a name="events-ref-datapipeline"></a>
 
 AWS Data Pipeline sends service events to EventBridge via AWS CloudTrail.
 

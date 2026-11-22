@@ -1,7 +1,6 @@
 
 
 # AWS Price List events
-<a name="events-ref-pricelist"></a>
 
 AWS Price List sends service events to EventBridge via AWS CloudTrail.
 

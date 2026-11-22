@@ -1,7 +1,6 @@
 
 
 # AWS Transform events
-<a name="events-ref-transform"></a>
 
 AWS Transform sends service events to EventBridge via AWS CloudTrail.
 

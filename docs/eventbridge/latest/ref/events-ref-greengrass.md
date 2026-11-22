@@ -1,7 +1,6 @@
 
 
 # AWS IoT Greengrass events
-<a name="events-ref-greengrass"></a>
 
 AWS IoT Greengrass sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

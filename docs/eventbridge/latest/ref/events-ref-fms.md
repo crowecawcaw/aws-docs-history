@@ -1,7 +1,6 @@
 
 
 # AWS Firewall Manager events
-<a name="events-ref-fms"></a>
 
 Firewall Manager sends service events to EventBridge via AWS CloudTrail.
 

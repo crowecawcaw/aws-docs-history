@@ -1,7 +1,6 @@
 
 
 # Network Access Analyzer events
-<a name="events-ref-networkaccessanalyzer"></a>
 
 Network Access Analyzer sends service events directly to EventBridge.
 

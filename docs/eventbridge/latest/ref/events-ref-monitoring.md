@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Monitoring events
-<a name="events-ref-monitoring"></a>
 
 CloudWatch Monitoring sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

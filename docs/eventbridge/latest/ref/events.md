@@ -1,7 +1,6 @@
 
 
 # Events
-<a name="events"></a>
 
 The following AWS services send events to EventBridge, either directly or via CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Catalog API events
-<a name="events-ref-marketplacecatalog"></a>
 
 AWS Marketplace Catalog API sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

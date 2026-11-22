@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Workflows for Apache Airflow events
-<a name="events-ref-airflow"></a>
 
 Amazon MWAA sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service events
-<a name="events-ref-ecs"></a>
 
 Amazon ECS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

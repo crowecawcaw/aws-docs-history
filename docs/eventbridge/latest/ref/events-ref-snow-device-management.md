@@ -1,7 +1,6 @@
 
 
 # AWS Snowball Edge Device Management events
-<a name="events-ref-snow-device-management"></a>
 
 Snowball Edge Device Management sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon CodeWhisperer events
-<a name="events-ref-codewhisperer"></a>
 
 CodeWhisperer sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Inspector Scan events
-<a name="events-ref-inspector-scan"></a>
 
 Amazon Inspector Scan sends service events to EventBridge via AWS CloudTrail.
 

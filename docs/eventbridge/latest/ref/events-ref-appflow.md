@@ -1,7 +1,6 @@
 
 
 # Amazon AppFlow events
-<a name="events-ref-appflow"></a>
 
 Amazon AppFlow sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

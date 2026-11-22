@@ -1,7 +1,6 @@
 
 
 # AWS Transform MGN events
-<a name="events-ref-mgn"></a>
 
 MGN sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # ExpertQ events
-<a name="events-ref-expertq"></a>
 
 ExpertQ sends service events to EventBridge via AWS CloudTrail.
 

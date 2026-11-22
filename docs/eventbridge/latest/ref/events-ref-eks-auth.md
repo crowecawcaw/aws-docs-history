@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Kubernetes Service Auth events
-<a name="events-ref-eks-auth"></a>
 
 Amazon EKS Auth sends service events to EventBridge via AWS CloudTrail.
 

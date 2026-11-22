@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Commerce Analytics events
-<a name="events-ref-marketplace-commerce-analytics"></a>
 
 AWS Marketplace Commerce Analytics sends service events to EventBridge via AWS CloudTrail.
 

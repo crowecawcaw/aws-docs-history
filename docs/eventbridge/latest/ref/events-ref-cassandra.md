@@ -1,7 +1,6 @@
 
 
 # Amazon Keyspaces (for Apache Cassandra) events
-<a name="events-ref-cassandra"></a>
 
 Amazon Keyspaces sends service events to EventBridge via AWS CloudTrail.
 

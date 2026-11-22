@@ -1,7 +1,6 @@
 
 
 # Amazon Macie events
-<a name="events-ref-macie"></a>
 
 Macie sends service events directly to EventBridge.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty events
-<a name="events-ref-guardduty"></a>
 
 GuardDuty sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

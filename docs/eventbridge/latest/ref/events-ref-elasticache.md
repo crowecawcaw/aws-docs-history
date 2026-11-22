@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache events
-<a name="events-ref-elasticache"></a>
 
 ElastiCache sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

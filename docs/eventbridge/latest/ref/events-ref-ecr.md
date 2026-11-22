@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Registry events
-<a name="events-ref-ecr"></a>
 
 Amazon ECR sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

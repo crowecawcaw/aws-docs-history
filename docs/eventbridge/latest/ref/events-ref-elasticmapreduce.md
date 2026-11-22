@@ -1,7 +1,6 @@
 
 
 # Amazon EMR events
-<a name="events-ref-elasticmapreduce"></a>
 
 Amazon EMR sends service events to EventBridge via AWS CloudTrail.
 

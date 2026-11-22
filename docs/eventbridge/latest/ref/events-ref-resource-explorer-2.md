@@ -1,7 +1,6 @@
 
 
 # AWS Resource Explorer events
-<a name="events-ref-resource-explorer-2"></a>
 
 Resource Explorer sends service events to EventBridge via AWS CloudTrail.
 

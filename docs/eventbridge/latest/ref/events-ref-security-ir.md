@@ -1,7 +1,6 @@
 
 
 # AWS Security Incident Response events
-<a name="events-ref-security-ir"></a>
 
 Security Incident Response sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

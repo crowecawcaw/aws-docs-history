@@ -1,7 +1,6 @@
 
 
 # Amazon ECR Public Gallery events
-<a name="events-ref-ecr-public"></a>
 
 Amazon ECR Public Gallery sends service events to EventBridge via AWS CloudTrail.
 

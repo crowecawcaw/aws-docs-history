@@ -1,7 +1,6 @@
 
 
 # AWS Support events
-<a name="events-ref-support"></a>
 
 Support sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

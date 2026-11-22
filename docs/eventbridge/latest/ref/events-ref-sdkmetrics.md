@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch SDK Metrics events
-<a name="events-ref-sdkmetrics"></a>
 
 CloudWatch SDK Metrics sends service events to EventBridge via AWS CloudTrail.
 

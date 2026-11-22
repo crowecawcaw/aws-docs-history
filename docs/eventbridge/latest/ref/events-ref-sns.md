@@ -1,7 +1,6 @@
 
 
 # Amazon Simple Notification Service events
-<a name="events-ref-sns"></a>
 
 Amazon SNS sends service events to EventBridge via AWS CloudTrail.
 

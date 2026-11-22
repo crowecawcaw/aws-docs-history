@@ -1,7 +1,6 @@
 
 
 # Amazon MWAA Serverless events
-<a name="events-ref-airflow-serverless"></a>
 
 MWAA Serverless sends service events directly to EventBridge.
 

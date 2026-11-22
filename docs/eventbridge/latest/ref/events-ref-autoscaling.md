@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Auto Scaling events
-<a name="events-ref-autoscaling"></a>
 
 Auto Scaling sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

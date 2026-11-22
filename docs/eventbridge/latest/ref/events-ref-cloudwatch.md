@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch events
-<a name="events-ref-cloudwatch"></a>
 
 CloudWatch sends service events directly to EventBridge.
 

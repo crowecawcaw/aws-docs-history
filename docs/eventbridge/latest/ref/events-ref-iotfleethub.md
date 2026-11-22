@@ -1,7 +1,6 @@
 
 
 # AWS IoT Fleet Hub events
-<a name="events-ref-iotfleethub"></a>
 
 AWS IoT Fleet Hub sends service events to EventBridge via AWS CloudTrail.
 

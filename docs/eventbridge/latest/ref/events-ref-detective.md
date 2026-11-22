@@ -1,7 +1,6 @@
 
 
 # Amazon Detective events
-<a name="events-ref-detective"></a>
 
 Detective sends service events to EventBridge via AWS CloudTrail.
 

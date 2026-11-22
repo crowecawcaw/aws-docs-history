@@ -1,7 +1,6 @@
 
 
 # AWS Glue events
-<a name="events-ref-glue"></a>
 
 AWS Glue sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

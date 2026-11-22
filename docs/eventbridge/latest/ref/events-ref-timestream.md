@@ -1,7 +1,6 @@
 
 
 # Amazon Timestream events
-<a name="events-ref-timestream"></a>
 
 Timestream sends service events to EventBridge via AWS CloudTrail.
 

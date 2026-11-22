@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaPackage events
-<a name="events-ref-mediapackagev2"></a>
 
 MediaPackage sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

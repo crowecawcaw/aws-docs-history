@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams events
-<a name="events-ref-kinesisvideo"></a>
 
 Kinesis Video Streams sends service events to EventBridge via AWS CloudTrail.
 

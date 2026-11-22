@@ -1,7 +1,6 @@
 
 
 # AWS Security Hub CSPM events
-<a name="events-ref-securityhub"></a>
 
 Security Hub CSPM sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

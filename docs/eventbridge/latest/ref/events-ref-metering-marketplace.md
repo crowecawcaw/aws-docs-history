@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Metering Service events
-<a name="events-ref-metering-marketplace"></a>
 
 AWS Marketplace Metering Service sends service events to EventBridge via AWS CloudTrail.
 

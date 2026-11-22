@@ -1,7 +1,6 @@
 
 
 # Amazon WorkMail events
-<a name="events-ref-workmail"></a>
 
 Amazon WorkMail sends service events to EventBridge via AWS CloudTrail.
 

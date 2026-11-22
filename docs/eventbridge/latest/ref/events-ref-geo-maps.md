@@ -1,7 +1,6 @@
 
 
 # Amazon Location Service Maps events
-<a name="events-ref-geo-maps"></a>
 
 Amazon Location Maps sends service events directly to EventBridge.
 

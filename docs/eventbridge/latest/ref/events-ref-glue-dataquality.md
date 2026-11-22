@@ -1,7 +1,6 @@
 
 
 # AWS Glue Data Quality events
-<a name="events-ref-glue-dataquality"></a>
 
 AWS Glue Data Quality sends service events directly to EventBridge.
 

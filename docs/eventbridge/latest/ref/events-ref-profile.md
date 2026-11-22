@@ -1,7 +1,6 @@
 
 
 # Amazon Connect Customer Profiles events
-<a name="events-ref-profile"></a>
 
 Amazon Connect Customer Profiles sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service events
-<a name="events-ref-opensearchservice"></a>
 
 OpenSearch Service sends service events to EventBridge via AWS CloudTrail.
 

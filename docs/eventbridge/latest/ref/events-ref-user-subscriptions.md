@@ -1,7 +1,6 @@
 
 
 # Amazon Q Subscriptions events
-<a name="events-ref-user-subscriptions"></a>
 
 Amazon Q Subscriptions sends service events to EventBridge via AWS CloudTrail.
 

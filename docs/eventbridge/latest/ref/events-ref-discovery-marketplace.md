@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Discovery events
-<a name="events-ref-discovery-marketplace"></a>
 
 AWS Marketplace Discovery sends service events to EventBridge via AWS CloudTrail.
 

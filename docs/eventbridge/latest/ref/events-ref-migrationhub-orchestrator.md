@@ -1,7 +1,6 @@
 
 
 # AWS Migration Hub Orchestrator events
-<a name="events-ref-migrationhub-orchestrator"></a>
 
 Migration Hub Orchestrator sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

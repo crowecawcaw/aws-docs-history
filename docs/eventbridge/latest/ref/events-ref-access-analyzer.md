@@ -1,7 +1,6 @@
 
 
 # AWS Identity and Access Management Access Analyzer events
-<a name="events-ref-access-analyzer"></a>
 
 IAM Access Analyzer sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

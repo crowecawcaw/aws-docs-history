@@ -1,7 +1,6 @@
 
 
 # AWS Organizations events
-<a name="events-ref-organizations"></a>
 
 Organizations sends service events to EventBridge via AWS CloudTrail.
 

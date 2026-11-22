@@ -1,7 +1,6 @@
 
 
 # AWS Payment Cryptography Controlplane events
-<a name="events-ref-payment-cryptography"></a>
 
 AWS Payment Cryptography Controlplane sends service events to EventBridge via AWS CloudTrail.
 

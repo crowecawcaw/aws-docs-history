@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Streaming for Apache Kafka Connect events
-<a name="events-ref-kafkaconnect"></a>
 
 Amazon MSK Connect sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon AppStream events
-<a name="events-ref-appstream"></a>
 
 Amazon AppStream sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

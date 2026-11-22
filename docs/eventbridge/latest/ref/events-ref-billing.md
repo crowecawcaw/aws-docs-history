@@ -1,7 +1,6 @@
 
 
 # AWS Billing events
-<a name="events-ref-billing"></a>
 
 Billing sends service events to EventBridge via AWS CloudTrail.
 

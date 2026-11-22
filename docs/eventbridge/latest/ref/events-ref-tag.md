@@ -1,7 +1,6 @@
 
 
 # Tags events
-<a name="events-ref-tag"></a>
 
 Tags sends service events directly to EventBridge.
 

@@ -1,7 +1,6 @@
 
 
 # AWS CodeArtifact events
-<a name="events-ref-codeartifact"></a>
 
 CodeArtifact sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

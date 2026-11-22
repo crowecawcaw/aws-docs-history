@@ -1,7 +1,6 @@
 
 
 # Amazon Kendra events
-<a name="events-ref-kendra"></a>
 
 Amazon Kendra sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

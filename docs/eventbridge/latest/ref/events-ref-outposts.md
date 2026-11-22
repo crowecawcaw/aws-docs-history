@@ -1,7 +1,6 @@
 
 
 # AWS Outposts events
-<a name="events-ref-outposts"></a>
 
 AWS Outposts sends service events to EventBridge via AWS CloudTrail.
 

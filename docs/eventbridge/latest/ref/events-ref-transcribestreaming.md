@@ -1,7 +1,6 @@
 
 
 # Amazon Transcribe Streaming events
-<a name="events-ref-transcribestreaming"></a>
 
 Amazon Transcribe Streaming sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Amplify events
-<a name="events-ref-amplify"></a>
 
 Amplify sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

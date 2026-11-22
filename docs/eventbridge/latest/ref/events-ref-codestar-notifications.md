@@ -1,7 +1,6 @@
 
 
 # AWS CodeStar Notifications events
-<a name="events-ref-codestar-notifications"></a>
 
 AWS CodeStar Notifications sends service events to EventBridge via AWS CloudTrail.
 

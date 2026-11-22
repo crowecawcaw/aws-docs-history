@@ -1,7 +1,6 @@
 
 
 # AWS IoT Core Device Advisor events
-<a name="events-ref-iotdeviceadvisor"></a>
 
 Device Advisor sends service events to EventBridge via AWS CloudTrail.
 

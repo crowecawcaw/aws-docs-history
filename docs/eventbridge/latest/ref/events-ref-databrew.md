@@ -1,7 +1,6 @@
 
 
 # AWS Glue DataBrew events
-<a name="events-ref-databrew"></a>
 
 DataBrew sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

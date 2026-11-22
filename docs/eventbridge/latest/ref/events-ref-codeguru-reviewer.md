@@ -1,7 +1,6 @@
 
 
 # Amazon CodeGuru Reviewer events
-<a name="events-ref-codeguru-reviewer"></a>
 
 CodeGuru Reviewer sends service events to EventBridge via AWS CloudTrail.
 

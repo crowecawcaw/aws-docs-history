@@ -1,7 +1,6 @@
 
 
 # AWS Transfer Family events
-<a name="events-ref-transfer"></a>
 
 Transfer Family sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Clean Rooms events
-<a name="events-ref-cleanrooms"></a>
 
 AWS Clean Rooms sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

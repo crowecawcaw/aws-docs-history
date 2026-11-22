@@ -1,7 +1,6 @@
 
 
 # Amazon EMR Serverless events
-<a name="events-ref-emr-serverless"></a>
 
 EMR Serverless sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

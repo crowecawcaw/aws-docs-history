@@ -1,7 +1,6 @@
 
 
 # AWS Application Discovery Service events
-<a name="events-ref-discovery"></a>
 
 Application Discovery Service sends service events to EventBridge via AWS CloudTrail.
 

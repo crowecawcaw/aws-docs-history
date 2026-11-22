@@ -1,7 +1,6 @@
 
 
 # AWS CodeConnections events
-<a name="events-ref-codestar-connections"></a>
 
 AWS CodeConnections sends service events to EventBridge via AWS CloudTrail.
 

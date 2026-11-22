@@ -1,7 +1,6 @@
 
 
 # AWS Migration Hub events
-<a name="events-ref-migrationhub"></a>
 
 Migration Hub sends service events to EventBridge via AWS CloudTrail.
 

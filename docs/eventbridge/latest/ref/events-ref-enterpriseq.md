@@ -1,7 +1,6 @@
 
 
 # EnterpriseQ events
-<a name="events-ref-enterpriseq"></a>
 
 EnterpriseQ sends service events to EventBridge via AWS CloudTrail.
 

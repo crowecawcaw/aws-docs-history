@@ -1,7 +1,6 @@
 
 
 # Amazon Translate events
-<a name="events-ref-translate"></a>
 
 Amazon Translate sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

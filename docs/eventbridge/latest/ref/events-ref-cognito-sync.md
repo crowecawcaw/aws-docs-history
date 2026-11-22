@@ -1,7 +1,6 @@
 
 
 # Amazon Cognito Sync events
-<a name="events-ref-cognito-sync"></a>
 
 Amazon Cognito Sync sends service events to EventBridge via AWS CloudTrail.
 

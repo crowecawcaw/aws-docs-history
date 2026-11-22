@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge Scheduler events
-<a name="events-ref-scheduler"></a>
 
 EventBridge Scheduler sends service events to EventBridge via AWS CloudTrail.
 

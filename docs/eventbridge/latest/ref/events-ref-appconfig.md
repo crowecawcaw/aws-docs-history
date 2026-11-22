@@ -1,7 +1,6 @@
 
 
 # AWS AppConfig events
-<a name="events-ref-appconfig"></a>
 
 AWS AppConfig sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Data Firehose events
-<a name="events-ref-firehose"></a>
 
 Firehose sends service events to EventBridge via AWS CloudTrail.
 

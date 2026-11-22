@@ -1,7 +1,6 @@
 
 
 # AWS Amplify UI Builder events
-<a name="events-ref-amplifyuibuilder"></a>
 
 Amplify UI Builder sends service events to EventBridge via AWS CloudTrail.
 

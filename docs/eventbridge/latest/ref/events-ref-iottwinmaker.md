@@ -1,7 +1,6 @@
 
 
 # AWS IoT TwinMaker events
-<a name="events-ref-iottwinmaker"></a>
 
 AWS IoT TwinMaker sends service events to EventBridge via AWS CloudTrail.
 

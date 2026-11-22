@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Observability Access Manager events
-<a name="events-ref-oam"></a>
 
 Amazon CloudWatch Observability Access Manager sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

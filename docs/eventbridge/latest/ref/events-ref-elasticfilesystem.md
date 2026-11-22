@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic File System events
-<a name="events-ref-elasticfilesystem"></a>
 
 Amazon EFS sends service events to EventBridge via AWS CloudTrail.
 

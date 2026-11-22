@@ -1,7 +1,6 @@
 
 
 # Amazon Personalize events
-<a name="events-ref-personalize"></a>
 
 Amazon Personalize sends service events to EventBridge via AWS CloudTrail.
 

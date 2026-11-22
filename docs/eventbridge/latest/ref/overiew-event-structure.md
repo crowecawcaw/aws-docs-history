@@ -1,7 +1,6 @@
 
 
 # Event structure
-<a name="overiew-event-structure"></a>
 
 Events are represented as JSON objects, and they all have a similar structure, and the same top-level fields. These top-level fields contain the event's metadata, such as the source of the event, the account and region in which it occurred, and the time at which it occurred. For more information about event metadata, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *EventBridge User Guide*.
 

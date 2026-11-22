@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 Public Data Plane events
-<a name="events-ref-route53"></a>
 
 Route 53 Public Data Plane sends service events to EventBridge via AWS CloudTrail.
 

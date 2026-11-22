@@ -1,7 +1,6 @@
 
 
 # AWS AppFabric events
-<a name="events-ref-fabric"></a>
 
 AppFabric sends service events to EventBridge via AWS CloudTrail.
 

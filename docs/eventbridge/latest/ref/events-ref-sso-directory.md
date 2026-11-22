@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center directory events
-<a name="events-ref-sso-directory"></a>
 
 IAM Identity Center directory sends service events to EventBridge via AWS CloudTrail.
 

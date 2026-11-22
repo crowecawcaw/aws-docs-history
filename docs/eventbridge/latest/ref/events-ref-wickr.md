@@ -1,7 +1,6 @@
 
 
 # AWS Wickr events
-<a name="events-ref-wickr"></a>
 
 Wickr sends service events to EventBridge via AWS CloudTrail.
 

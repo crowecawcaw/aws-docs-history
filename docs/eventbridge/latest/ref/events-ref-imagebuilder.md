@@ -1,7 +1,6 @@
 
 
 # EC2 Image Builder events
-<a name="events-ref-imagebuilder"></a>
 
 Image Builder sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

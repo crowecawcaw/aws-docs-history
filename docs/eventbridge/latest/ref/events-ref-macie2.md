@@ -1,7 +1,6 @@
 
 
 # Amazon Macie events
-<a name="events-ref-macie2"></a>
 
 Macie sends service events to EventBridge via AWS CloudTrail.
 

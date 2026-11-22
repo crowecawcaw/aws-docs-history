@@ -1,7 +1,6 @@
 
 
 # Amazon Cloud Directory events
-<a name="events-ref-clouddirectory"></a>
 
 Cloud Directory sends service events to EventBridge via AWS CloudTrail.
 

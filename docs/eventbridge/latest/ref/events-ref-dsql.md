@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora DSQL events
-<a name="events-ref-dsql"></a>
 
 Aurora DSQL sends service events to EventBridge via AWS CloudTrail.
 

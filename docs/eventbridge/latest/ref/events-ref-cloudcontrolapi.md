@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Control API events
-<a name="events-ref-cloudcontrolapi"></a>
 
 Cloud Control API sends service events to EventBridge via AWS CloudTrail.
 

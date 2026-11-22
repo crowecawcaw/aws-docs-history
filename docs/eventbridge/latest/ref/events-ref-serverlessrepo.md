@@ -1,7 +1,6 @@
 
 
 # AWS Serverless Application Repository events
-<a name="events-ref-serverlessrepo"></a>
 
 AWS Serverless Application Repository sends service events to EventBridge via AWS CloudTrail.
 

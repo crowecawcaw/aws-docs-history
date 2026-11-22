@@ -1,7 +1,6 @@
 
 
 # AWS Key Management Service events
-<a name="events-ref-kms"></a>
 
 AWS KMS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

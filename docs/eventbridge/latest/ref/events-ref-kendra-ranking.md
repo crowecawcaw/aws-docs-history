@@ -1,7 +1,6 @@
 
 
 # Amazon Kendra Intelligent Ranking events
-<a name="events-ref-kendra-ranking"></a>
 
 Amazon Kendra Intelligent Ranking sends service events to EventBridge via AWS CloudTrail.
 

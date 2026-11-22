@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 Resolver events
-<a name="events-ref-route53resolver"></a>
 
 Route 53 Resolver sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

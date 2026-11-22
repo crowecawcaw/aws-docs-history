@@ -1,7 +1,6 @@
 
 
 # AWS HealthOmics events
-<a name="events-ref-omics"></a>
 
 HealthOmics sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

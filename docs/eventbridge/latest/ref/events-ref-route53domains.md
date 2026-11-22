@@ -1,7 +1,6 @@
 
 
 # Amazon Route 53 domain registration events
-<a name="events-ref-route53domains"></a>
 
 Route 53 domain registration sends service events to EventBridge via AWS CloudTrail.
 

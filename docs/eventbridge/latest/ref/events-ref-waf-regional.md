@@ -1,7 +1,6 @@
 
 
 # AWS WAF events
-<a name="events-ref-waf-regional"></a>
 
 AWS WAF sends service events to EventBridge via AWS CloudTrail.
 

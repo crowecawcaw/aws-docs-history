@@ -1,7 +1,6 @@
 
 
 # AWS Partner Central Selling events
-<a name="events-ref-partnercentral-selling"></a>
 
 Partner Central Selling sends service events directly to EventBridge.
 

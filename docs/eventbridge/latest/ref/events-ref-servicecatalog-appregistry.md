@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog AppRegistry events
-<a name="events-ref-servicecatalog-appregistry"></a>
 
 AppRegistry sends service events to EventBridge via AWS CloudTrail.
 

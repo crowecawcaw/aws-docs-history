@@ -1,7 +1,6 @@
 
 
 # AWS Sign-In events
-<a name="events-ref-signin"></a>
 
 AWS Sign-In sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

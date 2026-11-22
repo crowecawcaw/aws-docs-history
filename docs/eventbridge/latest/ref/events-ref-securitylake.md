@@ -1,7 +1,6 @@
 
 
 # Amazon Security Lake events
-<a name="events-ref-securitylake"></a>
 
 Security Lake sends service events to EventBridge via AWS CloudTrail.
 

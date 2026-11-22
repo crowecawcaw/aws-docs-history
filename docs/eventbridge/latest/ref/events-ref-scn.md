@@ -1,7 +1,6 @@
 
 
 # AWS Supply Chain events
-<a name="events-ref-scn"></a>
 
 Supply Chain sends service events to EventBridge via AWS CloudTrail.
 

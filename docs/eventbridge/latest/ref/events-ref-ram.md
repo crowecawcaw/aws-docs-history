@@ -1,7 +1,6 @@
 
 
 # AWS Resource Access Manager events
-<a name="events-ref-ram"></a>
 
 AWS RAM sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

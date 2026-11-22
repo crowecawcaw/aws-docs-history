@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Express events
-<a name="events-ref-s3express"></a>
 
 Amazon S3 Express sends service events to EventBridge via AWS CloudTrail.
 

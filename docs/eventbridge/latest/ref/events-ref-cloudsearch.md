@@ -1,7 +1,6 @@
 
 
 # Amazon CloudSearch events
-<a name="events-ref-cloudsearch"></a>
 
 Amazon CloudSearch sends service events to EventBridge via AWS CloudTrail.
 

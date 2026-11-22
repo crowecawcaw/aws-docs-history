@@ -1,7 +1,6 @@
 
 
 # Amazon Lightsail events
-<a name="events-ref-lightsail"></a>
 
 Lightsail sends service events to EventBridge via AWS CloudTrail.
 

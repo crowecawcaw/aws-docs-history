@@ -1,7 +1,6 @@
 
 
 # Amazon S3 on Outposts events
-<a name="events-ref-s3-outposts"></a>
 
 S3 on Outposts sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

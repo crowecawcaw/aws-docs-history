@@ -1,7 +1,6 @@
 
 
 # AWS HealthImaging events
-<a name="events-ref-medical-imaging"></a>
 
 HealthImaging sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

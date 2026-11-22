@@ -1,7 +1,6 @@
 
 
 # AWS SimSpace Weaver events
-<a name="events-ref-simspaceweaver"></a>
 
 SimSpace Weaver sends service events to EventBridge via AWS CloudTrail.
 

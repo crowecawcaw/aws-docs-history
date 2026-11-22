@@ -1,7 +1,6 @@
 
 
 # AWS Cloud9 events
-<a name="events-ref-cloud9"></a>
 
 AWS Cloud9 sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Beanstalk events
-<a name="events-ref-elasticbeanstalk"></a>
 
 Elastic Beanstalk sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

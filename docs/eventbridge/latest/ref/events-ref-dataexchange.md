@@ -1,7 +1,6 @@
 
 
 # AWS Data Exchange events
-<a name="events-ref-dataexchange"></a>
 
 AWS Data Exchange sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

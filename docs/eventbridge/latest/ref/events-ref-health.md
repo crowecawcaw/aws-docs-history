@@ -1,7 +1,6 @@
 
 
 # AWS Health events
-<a name="events-ref-health"></a>
 
 AWS Health sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

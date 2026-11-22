@@ -1,7 +1,6 @@
 
 
 # Amazon CloudFront KeyValueStore events
-<a name="events-ref-edgekeyvaluestore"></a>
 
 CloudFront KeyValueStore sends service events to EventBridge via AWS CloudTrail.
 

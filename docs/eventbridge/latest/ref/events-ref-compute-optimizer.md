@@ -1,7 +1,6 @@
 
 
 # AWS Compute Optimizer events
-<a name="events-ref-compute-optimizer"></a>
 
 Compute Optimizer sends service events to EventBridge via AWS CloudTrail.
 

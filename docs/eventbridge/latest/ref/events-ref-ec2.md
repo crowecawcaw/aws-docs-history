@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud events
-<a name="events-ref-ec2"></a>
 
 Amazon EC2 sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Elemental MediaConvert events
-<a name="events-ref-mediaconvert"></a>
 
 MediaConvert sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

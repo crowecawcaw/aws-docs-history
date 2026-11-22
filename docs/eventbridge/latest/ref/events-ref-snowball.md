@@ -1,7 +1,6 @@
 
 
 # AWS Snowball events
-<a name="events-ref-snowball"></a>
 
 Snowball sends service events to EventBridge via AWS CloudTrail.
 

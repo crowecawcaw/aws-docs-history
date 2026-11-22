@@ -1,7 +1,6 @@
 
 
 # AWS Telco Network Builder events
-<a name="events-ref-tnb"></a>
 
 AWS TNB sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS DeepRacer events
-<a name="events-ref-deepracer"></a>
 
 AWS DeepRacer sends service events to EventBridge via AWS CloudTrail.
 

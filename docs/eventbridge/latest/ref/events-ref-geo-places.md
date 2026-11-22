@@ -1,7 +1,6 @@
 
 
 # Amazon Location Service Places events
-<a name="events-ref-geo-places"></a>
 
 Amazon Location Places sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS License Manager events
-<a name="events-ref-license-manager"></a>
 
 License Manager sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

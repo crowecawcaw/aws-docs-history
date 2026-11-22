@@ -1,7 +1,6 @@
 
 
 # Amazon Textract events
-<a name="events-ref-textract"></a>
 
 Amazon Textract sends service events to EventBridge via AWS CloudTrail.
 

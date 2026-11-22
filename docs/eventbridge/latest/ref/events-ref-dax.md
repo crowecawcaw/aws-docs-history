@@ -1,7 +1,6 @@
 
 
 # DynamoDB Accelerator events
-<a name="events-ref-dax"></a>
 
 DAX sends service events to EventBridge via AWS CloudTrail.
 

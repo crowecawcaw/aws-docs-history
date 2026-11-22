@@ -1,7 +1,6 @@
 
 
 # AWS Managed Services for Amazon EKS Monitoring events
-<a name="events-ref-ams-k8s"></a>
 
 AMS for Amazon EKS Monitoring sends service events to EventBridge via AWS CloudTrail.
 

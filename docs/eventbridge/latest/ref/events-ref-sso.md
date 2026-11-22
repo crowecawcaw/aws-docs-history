@@ -1,7 +1,6 @@
 
 
 # AWS IAM Identity Center events
-<a name="events-ref-sso"></a>
 
 IAM Identity Center sends service events to EventBridge via AWS CloudTrail.
 

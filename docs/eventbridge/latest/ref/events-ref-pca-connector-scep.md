@@ -1,7 +1,6 @@
 
 
 # AWS Private CA Connector for SCEP events
-<a name="events-ref-pca-connector-scep"></a>
 
 Connector for SCEP sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

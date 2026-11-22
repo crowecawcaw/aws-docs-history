@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager GUI Connect events
-<a name="events-ref-ssm-guiconnect"></a>
 
 Systems Manager GUI Connect sends service events to EventBridge via AWS CloudTrail.
 

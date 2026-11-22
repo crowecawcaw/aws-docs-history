@@ -1,7 +1,6 @@
 
 
 # Managed Blockchain Query events
-<a name="events-ref-managedblockchain-query"></a>
 
 Managed Blockchain Query sends service events to EventBridge via AWS CloudTrail.
 

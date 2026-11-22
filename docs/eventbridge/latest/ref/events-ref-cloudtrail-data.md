@@ -1,7 +1,6 @@
 
 
 # AWS CloudTrail Data Service events
-<a name="events-ref-cloudtrail-data"></a>
 
 CloudTrail Data Service sends service events to EventBridge via AWS CloudTrail.
 

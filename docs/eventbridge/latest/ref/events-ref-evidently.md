@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Evidently events
-<a name="events-ref-evidently"></a>
 
 Amazon CloudWatch Evidently sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

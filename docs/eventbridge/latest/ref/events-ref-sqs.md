@@ -1,7 +1,6 @@
 
 
 # Amazon Simple Queue Service events
-<a name="events-ref-sqs"></a>
 
 Amazon SQS sends service events to EventBridge via AWS CloudTrail.
 

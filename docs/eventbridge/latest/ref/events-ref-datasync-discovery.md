@@ -1,7 +1,6 @@
 
 
 # AWS DataSync Discovery events
-<a name="events-ref-datasync-discovery"></a>
 
 DataSync Discovery sends service events directly to EventBridge.
 

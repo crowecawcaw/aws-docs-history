@@ -1,7 +1,6 @@
 
 
 # AWS re:Post Private events
-<a name="events-ref-repostspace"></a>
 
 re:Post Private sends service events to EventBridge via AWS CloudTrail.
 

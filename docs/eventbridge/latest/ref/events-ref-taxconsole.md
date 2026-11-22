@@ -1,7 +1,6 @@
 
 
 # AWS Tax Console Routing Service events
-<a name="events-ref-taxconsole"></a>
 
 AWS Tax Console Routing Service sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Verified Permissions events
-<a name="events-ref-verifiedpermissions"></a>
 
 Verified Permissions sends service events to EventBridge via AWS CloudTrail.
 

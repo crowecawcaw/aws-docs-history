@@ -1,7 +1,6 @@
 
 
 # Amazon Q Business events
-<a name="events-ref-qbusiness"></a>
 
 Amazon Q sends service events to EventBridge via AWS CloudTrail.
 

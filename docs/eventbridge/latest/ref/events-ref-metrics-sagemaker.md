@@ -1,7 +1,6 @@
 
 
 # SageMaker metrics events
-<a name="events-ref-metrics-sagemaker"></a>
 
 Amazon SageMaker metrics sends service events to EventBridge via AWS CloudTrail.
 

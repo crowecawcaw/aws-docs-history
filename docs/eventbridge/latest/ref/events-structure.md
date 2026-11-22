@@ -1,11 +1,10 @@
 
 
 # AWS service event metadata
-<a name="events-structure"></a>
 
 The following fields appear in all events delivered to an event bus, and comprise the event's *metadata*:
 
-```
+```json
 {
   "version": "0",
   "id": "{{UUID}}",
@@ -66,7 +65,7 @@ AWS API call events have detail objects with approximately 50 fields nested seve
 **Example: Amazon EC2 instance state-change notification**  
 The following event in Amazon EventBridge indicates an Amazon EC2 instance being terminated.  
 
-```
+```json
 {
   "version": "0",
   "id": "6a7e8feb-b491-4cf7-a9f1-bf3703467718",
@@ -93,7 +92,7 @@ When you create custom events they must include the following fields:
 + `detail-type`
 + `source`
 
-```
+```json
 {
   "detail-type": "{{event name}}",
   "source": "{{event source}}",

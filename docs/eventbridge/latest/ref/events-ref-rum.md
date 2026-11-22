@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch RUM events
-<a name="events-ref-rum"></a>
 
 CloudWatch RUM sends service events to EventBridge via AWS CloudTrail.
 

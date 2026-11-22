@@ -1,7 +1,6 @@
 
 
 # Service Quotas events
-<a name="events-ref-servicequotas"></a>
 
 Service Quotas sends service events to EventBridge via AWS CloudTrail.
 

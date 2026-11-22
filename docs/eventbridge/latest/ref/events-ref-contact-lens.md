@@ -1,7 +1,6 @@
 
 
 # Amazon Connect Customer Contact Lens events
-<a name="events-ref-contact-lens"></a>
 
 Connect Customer Contact Lens sends service events to EventBridge via AWS CloudTrail.
 

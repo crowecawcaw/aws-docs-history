@@ -1,7 +1,6 @@
 
 
 # Amazon Simple Storage Service events
-<a name="events-ref-s3"></a>
 
 Amazon S3 sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

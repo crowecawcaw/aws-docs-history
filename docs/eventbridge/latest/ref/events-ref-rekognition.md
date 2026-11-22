@@ -1,7 +1,6 @@
 
 
 # Amazon Rekognition events
-<a name="events-ref-rekognition"></a>
 
 Amazon Rekognition sends service events to EventBridge via AWS CloudTrail.
 

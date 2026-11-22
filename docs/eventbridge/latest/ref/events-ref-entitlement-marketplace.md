@@ -1,7 +1,6 @@
 
 
 # AWS Marketplace Entitlement Service events
-<a name="events-ref-entitlement-marketplace"></a>
 
 AWS Marketplace Entitlement Service sends service events to EventBridge via AWS CloudTrail.
 

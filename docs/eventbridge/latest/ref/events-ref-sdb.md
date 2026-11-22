@@ -1,7 +1,6 @@
 
 
 # Amazon SimpleDB events
-<a name="events-ref-sdb"></a>
 
 Amazon SimpleDB sends service events to EventBridge via AWS CloudTrail.
 

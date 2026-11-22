@@ -1,7 +1,6 @@
 
 
 # Amazon FinSpace events
-<a name="events-ref-finspace"></a>
 
 FinSpace sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

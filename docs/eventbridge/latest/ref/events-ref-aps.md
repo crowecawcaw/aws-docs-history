@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus events
-<a name="events-ref-aps"></a>
 
 Amazon Managed Service for Prometheus sends service events to EventBridge via AWS CloudTrail.
 

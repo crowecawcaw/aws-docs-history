@@ -1,7 +1,6 @@
 
 
 # Application Auto Scaling events
-<a name="events-ref-application-autoscaling"></a>
 
 Application Auto Scaling sends service events directly to EventBridge.
 

@@ -1,7 +1,6 @@
 
 
 # AWS App Mesh events
-<a name="events-ref-appmesh"></a>
 
 App Mesh sends service events to EventBridge via AWS CloudTrail.
 

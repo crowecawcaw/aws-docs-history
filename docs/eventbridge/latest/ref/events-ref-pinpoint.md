@@ -1,7 +1,6 @@
 
 
 # Amazon Pinpoint events
-<a name="events-ref-pinpoint"></a>
 
 Amazon Pinpoint sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Network Flow Monitor events
-<a name="events-ref-networkflowmonitor"></a>
 
 Network Flow Monitor sends service events to EventBridge via AWS CloudTrail.
 

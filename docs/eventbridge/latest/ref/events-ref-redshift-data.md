@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift Data API events
-<a name="events-ref-redshift-data"></a>
 
 Redshift Data API sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

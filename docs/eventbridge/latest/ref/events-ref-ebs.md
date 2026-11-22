@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Block Store events
-<a name="events-ref-ebs"></a>
 
 Amazon EBS sends service events to EventBridge via AWS CloudTrail.
 

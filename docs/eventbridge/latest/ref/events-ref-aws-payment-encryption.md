@@ -1,7 +1,6 @@
 
 
 # AWS Payment Encryption Service events
-<a name="events-ref-aws-payment-encryption"></a>
 
 AWS Payment Encryption Service sends service events to EventBridge via AWS CloudTrail.
 

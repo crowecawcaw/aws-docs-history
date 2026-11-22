@@ -1,7 +1,6 @@
 
 
 # AWS Billing Conductor events
-<a name="events-ref-billingconductor"></a>
 
 Billing Conductor sends service events to EventBridge via AWS CloudTrail.
 

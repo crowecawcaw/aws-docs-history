@@ -1,7 +1,6 @@
 
 
 # AWS Private Certificate Authority events
-<a name="events-ref-acm-pca"></a>
 
 AWS Private CA sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

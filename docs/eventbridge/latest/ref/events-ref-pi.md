@@ -1,7 +1,6 @@
 
 
 # Amazon RDS Performance Insights events
-<a name="events-ref-pi"></a>
 
 Amazon RDS Performance Insights sends service events to EventBridge via AWS CloudTrail.
 

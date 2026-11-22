@@ -1,7 +1,6 @@
 
 
 # AWS Budgets events
-<a name="events-ref-budgets"></a>
 
 AWS Budgets sends service events to EventBridge via AWS CloudTrail.
 

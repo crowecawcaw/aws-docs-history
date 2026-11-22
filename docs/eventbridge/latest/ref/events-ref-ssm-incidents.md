@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Incident Manager events
-<a name="events-ref-ssm-incidents"></a>
 
 Incident Manager sends service events to EventBridge via AWS CloudTrail.
 

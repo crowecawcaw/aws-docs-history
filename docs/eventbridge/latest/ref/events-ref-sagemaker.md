@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI events
-<a name="events-ref-sagemaker"></a>
 
 SageMaker AI sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

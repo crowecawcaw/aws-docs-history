@@ -1,7 +1,6 @@
 
 
 # Amazon Chime SDK Telephony Service events
-<a name="events-ref-chime-sdk-voice"></a>
 
 Amazon Chime SDK Telephony Service sends service events to EventBridge via AWS CloudTrail.
 

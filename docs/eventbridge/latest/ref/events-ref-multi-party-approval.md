@@ -1,7 +1,6 @@
 
 
 # Multi-party approval events
-<a name="events-ref-multi-party-approval"></a>
 
 Multi-party approval sends service events to EventBridge via AWS CloudTrail.
 

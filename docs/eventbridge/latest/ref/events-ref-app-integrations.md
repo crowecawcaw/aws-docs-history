@@ -1,7 +1,6 @@
 
 
 # Amazon App Integration Service events
-<a name="events-ref-app-integrations"></a>
 
 Amazon App Integration Service sends service events to EventBridge via AWS CloudTrail.
 

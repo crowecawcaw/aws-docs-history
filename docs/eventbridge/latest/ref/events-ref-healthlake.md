@@ -1,7 +1,6 @@
 
 
 # AWS HealthLake events
-<a name="events-ref-healthlake"></a>
 
 HealthLake sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

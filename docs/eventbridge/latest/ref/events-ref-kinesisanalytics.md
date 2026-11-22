@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Apache Flink events
-<a name="events-ref-kinesisanalytics"></a>
 
 Managed Service for Apache Flink sends service events to EventBridge via AWS CloudTrail.
 

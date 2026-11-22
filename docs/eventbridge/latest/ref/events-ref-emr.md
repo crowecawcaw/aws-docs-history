@@ -1,7 +1,6 @@
 
 
 # Amazon EMR events
-<a name="events-ref-emr"></a>
 
 Amazon EMR sends service events directly to EventBridge.
 

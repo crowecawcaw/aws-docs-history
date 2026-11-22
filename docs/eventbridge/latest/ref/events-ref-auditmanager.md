@@ -1,7 +1,6 @@
 
 
 # AWS Audit Manager events
-<a name="events-ref-auditmanager"></a>
 
 Audit Manager sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

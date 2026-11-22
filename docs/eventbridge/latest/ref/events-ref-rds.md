@@ -1,7 +1,6 @@
 
 
 # Amazon Relational Database Service events
-<a name="events-ref-rds"></a>
 
 Amazon RDS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch Network Monitor events
-<a name="events-ref-networkmonitor"></a>
 
 Amazon CloudWatch Network Monitor sends service events to EventBridge via AWS CloudTrail.
 

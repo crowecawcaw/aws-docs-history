@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Observability Admin events
-<a name="events-ref-observabilityadmin"></a>
 
 CloudWatch Observability Admin sends service events to EventBridge via AWS CloudTrail.
 

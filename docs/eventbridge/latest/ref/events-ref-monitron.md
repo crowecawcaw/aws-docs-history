@@ -1,7 +1,6 @@
 
 
 # Amazon Monitron events
-<a name="events-ref-monitron"></a>
 
 Amazon Monitron sends service events to EventBridge via AWS CloudTrail.
 

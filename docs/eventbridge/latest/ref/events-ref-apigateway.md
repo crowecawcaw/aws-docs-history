@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway events
-<a name="events-ref-apigateway"></a>
 
 API Gateway sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

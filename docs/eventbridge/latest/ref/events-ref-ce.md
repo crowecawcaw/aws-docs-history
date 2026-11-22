@@ -1,7 +1,6 @@
 
 
 # AWS Cost Explorer events
-<a name="events-ref-ce"></a>
 
 Cost Explorer sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

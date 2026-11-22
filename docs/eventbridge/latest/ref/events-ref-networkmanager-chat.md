@@ -1,7 +1,6 @@
 
 
 # Network Manager Chat events
-<a name="events-ref-networkmanager-chat"></a>
 
 Network Manager Chat sends service events to EventBridge via AWS CloudTrail.
 

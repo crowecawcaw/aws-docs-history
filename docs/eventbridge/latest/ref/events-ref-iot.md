@@ -1,7 +1,6 @@
 
 
 # AWS IoT events
-<a name="events-ref-iot"></a>
 
 AWS IoT sends service events to EventBridge via AWS CloudTrail.
 

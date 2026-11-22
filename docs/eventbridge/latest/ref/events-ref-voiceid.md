@@ -1,7 +1,6 @@
 
 
 # Amazon Voice ID events
-<a name="events-ref-voiceid"></a>
 
 Amazon Voice ID sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

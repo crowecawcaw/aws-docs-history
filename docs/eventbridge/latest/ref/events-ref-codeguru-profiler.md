@@ -1,7 +1,6 @@
 
 
 # Amazon CodeGuru Profiler events
-<a name="events-ref-codeguru-profiler"></a>
 
 CodeGuru Profiler sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

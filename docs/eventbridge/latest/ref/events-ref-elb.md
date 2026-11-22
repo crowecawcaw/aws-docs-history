@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing events
-<a name="events-ref-elb"></a>
 
 Elastic Load Balancing sends service events to EventBridge via AWS CloudTrail.
 

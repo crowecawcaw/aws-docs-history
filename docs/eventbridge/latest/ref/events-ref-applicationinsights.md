@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch Application Insights events
-<a name="events-ref-applicationinsights"></a>
 
 CloudWatch Application Insights sends service events directly to EventBridge.
 

@@ -1,7 +1,6 @@
 
 
 # AWS B2B Data Interchange events
-<a name="events-ref-b2bi"></a>
 
 B2B Data Interchange sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

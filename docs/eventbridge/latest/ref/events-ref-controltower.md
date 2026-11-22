@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower events
-<a name="events-ref-controltower"></a>
 
 AWS Control Tower sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

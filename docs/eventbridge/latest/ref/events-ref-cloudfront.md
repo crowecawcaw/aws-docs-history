@@ -1,7 +1,6 @@
 
 
 # Amazon CloudFront events
-<a name="events-ref-cloudfront"></a>
 
 CloudFront sends service events to EventBridge via AWS CloudTrail.
 

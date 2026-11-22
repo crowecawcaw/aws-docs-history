@@ -1,7 +1,6 @@
 
 
 # Amazon Mechanical Turk events
-<a name="events-ref-mturk-requester"></a>
 
 Mechanical Turk sends service events to EventBridge via AWS CloudTrail.
 

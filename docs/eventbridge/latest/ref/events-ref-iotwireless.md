@@ -1,7 +1,6 @@
 
 
 # AWS IoT Wireless events
-<a name="events-ref-iotwireless"></a>
 
 AWS IoT Wireless sends service events to EventBridge via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Fault Injection Service events
-<a name="events-ref-fis"></a>
 
 AWS FIS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Database Migration Service events
-<a name="events-ref-dms"></a>
 
 AWS DMS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

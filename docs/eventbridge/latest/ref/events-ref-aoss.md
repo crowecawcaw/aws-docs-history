@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Serverless events
-<a name="events-ref-aoss"></a>
 
 Amazon OpenSearch Serverless sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

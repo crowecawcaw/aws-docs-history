@@ -1,7 +1,6 @@
 
 
 # AWS RoboMaker events
-<a name="events-ref-robomaker"></a>
 
 AWS RoboMaker sends service events to EventBridge via AWS CloudTrail.
 

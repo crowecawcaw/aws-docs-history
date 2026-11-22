@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer in chat applications events
-<a name="events-ref-chatbot"></a>
 
 Amazon Q Developer in chat applications sends service events to EventBridge via AWS CloudTrail.
 

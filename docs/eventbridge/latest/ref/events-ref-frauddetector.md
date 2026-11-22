@@ -1,7 +1,6 @@
 
 
 # Amazon Fraud Detector events
-<a name="events-ref-frauddetector"></a>
 
 Amazon Fraud Detector sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

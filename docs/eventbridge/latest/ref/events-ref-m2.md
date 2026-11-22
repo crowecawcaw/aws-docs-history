@@ -1,7 +1,6 @@
 
 
 # AWS Mainframe Modernization events
-<a name="events-ref-m2"></a>
 
 AWS Mainframe Modernization sends service events to EventBridge via AWS CloudTrail.
 

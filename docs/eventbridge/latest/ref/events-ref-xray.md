@@ -1,7 +1,6 @@
 
 
 # AWS X-Ray events
-<a name="events-ref-xray"></a>
 
 X-Ray sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

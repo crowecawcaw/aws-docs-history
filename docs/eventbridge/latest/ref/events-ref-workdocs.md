@@ -1,7 +1,6 @@
 
 
 # Amazon WorkDocs events
-<a name="events-ref-workdocs"></a>
 
 WorkDocs sends service events to EventBridge via AWS CloudTrail.
 

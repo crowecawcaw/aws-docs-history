@@ -1,7 +1,6 @@
 
 
 # Amazon VPC Lattice events
-<a name="events-ref-vpc-lattice"></a>
 
 VPC Lattice sends service events to EventBridge via AWS CloudTrail.
 

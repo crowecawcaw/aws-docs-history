@@ -1,7 +1,6 @@
 
 
 # AWS Lake Formation events
-<a name="events-ref-lakeformation"></a>
 
 Lake Formation sends service events to EventBridge via AWS CloudTrail.
 

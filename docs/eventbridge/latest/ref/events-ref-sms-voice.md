@@ -1,7 +1,6 @@
 
 
 # AWS End User Messaging SMS-Voice events
-<a name="events-ref-sms-voice"></a>
 
 AWS End User Messaging SMS-Voice sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge events
-<a name="events-ref-events"></a>
 
 EventBridge sends service events directly to EventBridge, as well as via AWS CloudTrail.
 

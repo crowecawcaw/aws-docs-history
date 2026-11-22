@@ -1,7 +1,6 @@
 
 
 # Amazon Interactive Video Service events
-<a name="events-ref-ivs"></a>
 
 Amazon IVS sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
