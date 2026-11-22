@@ -1,7 +1,6 @@
 
 
 # Replaying Parallel Requests to Break a Monolith
-<a name="replaying-parallel-requests"></a>
 
 Publication date: **June 24, 2022 ([Diagram history](#diagram-history))**
 
