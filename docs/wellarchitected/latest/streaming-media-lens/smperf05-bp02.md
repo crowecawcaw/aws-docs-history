@@ -1,7 +1,6 @@
 
 
 # SMPERF05-BP02 Select appropriate encoding settings for your content type and quality targets
-<a name="smperf05-bp02"></a>
 
 Choose encoding parameters matched to your content characteristics
 

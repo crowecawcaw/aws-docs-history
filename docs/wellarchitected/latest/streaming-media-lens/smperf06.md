@@ -1,7 +1,6 @@
 
 
 # Latency optimization
-<a name="smperf06"></a>
 
 Live streaming latency affects viewer engagement, especially for interactive content and live events. Reducing latency requires coordinated optimization across encoding, packaging, delivery, and player layers, and involves trade-offs with quality and reliability.
 

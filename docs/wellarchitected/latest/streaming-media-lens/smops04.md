@@ -1,7 +1,6 @@
 
 
 # Operational procedures
-<a name="smops04"></a>
 
 Streaming systems are susceptible to encoding failures, delivery issues, and quality degradation. Documented, repeatable response procedures reduce resolution time and limit viewer impact during incidents.
 

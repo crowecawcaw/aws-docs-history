@@ -1,7 +1,6 @@
 
 
 # SMSEC04-BP04 Encrypt content at rest when delivering via physical medium
-<a name="smsec04-bp04"></a>
 
 Deploy secure physical media delivery solutions for large-scale content transfer using hardware-encrypted storage devices and secure logistics processes.
 

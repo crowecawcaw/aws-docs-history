@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
 The sustainability pillar provides design principles, operational guidance, and best practices to reduce the environmental impact of your streaming media workloads on AWS. Streaming media is resource-intensive by nature. Encoding, storage, and delivery consume compute, network, and storage at scale. The practices in this pillar help you align that consumption with the work actually being done, so resources track demand rather than sitting idle or over-provisioned. You can find prescriptive guidance on implementation in the [Sustainability Pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) whitepaper.
 

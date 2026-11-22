@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
 In the cloud, there are several principles that can help you create and run streaming media workloads. Keep these in mind as we discuss best practices:
 + **Keep a glass-to-glass perspective:** From camera to viewer device, consider how changes impact the critical path of media delivery. Identify key health and diagnostic metrics for video, audio, captions, and metadata that affect Quality of Experience (QoE).

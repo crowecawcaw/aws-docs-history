@@ -1,7 +1,6 @@
 
 
 # SMCOST01-BP02 Optimize content delivery using edge caching and just-in-time packaging
-<a name="smcost01-bp02"></a>
 
 Content delivery is typically the largest cost component for organizations streaming to large audiences. A 60-minute video streamed to 1,000 concurrent viewers can generate over 2,700 GB of data transfer per hour. Reducing how often content is fetched from origin and how much content needs to be stored in multiple formats directly reduces this cost while improving viewer experience through lower latency.
 

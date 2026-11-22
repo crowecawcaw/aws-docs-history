@@ -1,7 +1,6 @@
 
 
 # SMOPS02-BP04 Instrument your streaming application code and infrastructure for observability
-<a name="smops02-bp04"></a>
 
 Instrument your streaming application code and infrastructure to emit detailed, structured logs and metrics to achieve full visibility into streaming video workloads. This structured approach enables teams to detect, diagnose, and resolve issues quickly, optimizing performance and reliability of streaming video delivery.
 

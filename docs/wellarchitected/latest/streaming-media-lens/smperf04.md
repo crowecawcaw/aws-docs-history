@@ -1,7 +1,6 @@
 
 
 # Viewer experience measurement
-<a name="smperf04"></a>
 
 Infrastructure monitoring provides only part of the picture. Real user monitoring and client-side metrics are necessary to understand what viewers actually experience and to correlate client-side issues with infrastructure events.
 

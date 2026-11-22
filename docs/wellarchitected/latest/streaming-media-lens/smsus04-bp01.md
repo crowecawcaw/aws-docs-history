@@ -1,7 +1,6 @@
 
 
 # SMSUS04-BP01 Design efficient, scalable live streaming workflows
-<a name="smsus04-bp01"></a>
 
 Run live streaming workflows so that processing resources are provisioned for the duration and audience of each event, not held continuously at peak capacity. Live workloads are uniquely wasteful when left running between events or over-provisioned for a latency target the use case doesn't need, because encode and packaging resources are consumed for the whole window whether viewers are watching.
 

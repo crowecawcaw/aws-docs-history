@@ -1,7 +1,6 @@
 
 
 # SMCOST03-BP02 Optimize encoder settings based on content type
-<a name="smcost03-bp02"></a>
 
 Traditional encoding allocates the same target bit rate regardless of content complexity. Low-complexity content receives more bits than it needs while complex content may not receive enough. Content-aware encoding analyzes source complexity and allocates bits accordingly, delivering equivalent perceptual quality at lower average bitrates. The bit rate reduction translates directly to proportional savings in CDN delivery cost for every viewer session.
 

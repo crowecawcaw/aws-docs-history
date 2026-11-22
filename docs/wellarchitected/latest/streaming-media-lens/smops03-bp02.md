@@ -1,7 +1,6 @@
 
 
 # SMOPS03-BP02 Conduct thorough pre-event testing for large-scale streaming events
-<a name="smops03-bp02"></a>
 
 Before high-profile streaming events, conduct thorough testing to validate the entire workflow's capacity, reliability, and performance under expected load conditions. This testing helps identify potential issues before they impact viewers during the actual event.
 

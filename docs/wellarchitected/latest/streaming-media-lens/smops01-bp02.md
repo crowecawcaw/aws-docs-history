@@ -1,7 +1,6 @@
 
 
 # SMOPS01-BP02 Create RACI matrices for streaming video operations
-<a name="smops01-bp02"></a>
 
 Define clear roles and responsibilities for each stakeholder involved in streaming video operations. By implementing RACI (responsible, accountable, consulted, and informed) matrices, organizations can establish a clear framework for accountability and decision-making across the entire streaming workflow.
 

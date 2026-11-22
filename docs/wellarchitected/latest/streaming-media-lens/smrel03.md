@@ -1,7 +1,6 @@
 
 
 # Content distribution
-<a name="smrel03"></a>
 
 Content distribution is the final step before viewers. Failures here directly cause buffering, playback errors, or complete outages. Distribution reliability covers origin redundancy, CDN failover, and multi-tier caching.
 

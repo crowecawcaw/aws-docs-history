@@ -1,7 +1,6 @@
 
 
 # SMPERF01-BP01 Select origin technology appropriate for your workload
-<a name="smperf01-bp01"></a>
 
 Select origin technology that matches your streaming media workload's
 

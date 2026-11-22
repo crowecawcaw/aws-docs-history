@@ -1,7 +1,6 @@
 
 
 # SMCOST02-BP01 Establish baseline metrics for media processing tasks
-<a name="smcost02-bp01"></a>
 
 Consumer demand for more content at higher resolution and quality puts ongoing pressure on processing infrastructure. As transcoding, quality control, and packaging workloads grow, so do their costs. Without measured baselines, teams can't distinguish between expected cost growth and inefficiency, can't forecast accurately, and can't evaluate whether infrastructure changes improve or degrade cost performance.
 

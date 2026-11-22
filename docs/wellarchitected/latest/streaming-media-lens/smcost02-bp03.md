@@ -1,7 +1,6 @@
 
 
 # SMCOST02-BP03 Optimize AWS Elemental Media Services pricing models
-<a name="smcost02-bp03"></a>
 
 AWS Elemental Media Services offer multiple pricing models that deliver significant savings over on-demand rates when matched to appropriate workload patterns. Organizations that run all workloads at on-demand rates without evaluating reservations, tier selection, or infrastructure lifecycle management leave substantial savings unrealized. Selecting the right pricing model for each workload pattern requires understanding usage characteristics and commitment trade-offs.
 

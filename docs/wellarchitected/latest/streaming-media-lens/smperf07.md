@@ -1,7 +1,6 @@
 
 
 # Advertising integration
-<a name="smperf07"></a>
 
 Ad insertion affects streaming performance, viewer experience, and monetization. SSAI and CSAI have different performance characteristics. Proper ad integration maintains playback continuity while maximizing fill rate.
 

@@ -1,7 +1,6 @@
 
 
 # Encoding and adaptive bit rate
-<a name="smperf05"></a>
 
 Encoding settings and the ABR ladder determine the balance between quality, bandwidth, and device compatibility. These decisions affect both viewer experience and delivery cost at scale.
 

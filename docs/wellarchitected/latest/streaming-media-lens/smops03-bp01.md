@@ -1,7 +1,6 @@
 
 
 # SMOPS03-BP01 Implement thorough capacity planning for high-viewership events
-<a name="smops03-bp01"></a>
 
 Large-scale streaming events require thorough capacity planning across all components of the streaming workflow to maintain reliable delivery during peak viewership. This planning must account for potential viewership patterns, regional distribution, and engagement behaviors.
 

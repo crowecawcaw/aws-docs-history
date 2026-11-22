@@ -1,7 +1,6 @@
 
 
 # Storage and lifecycle
-<a name="smsus05"></a>
 
 Media catalogs grow continuously. Masters, mezzanines, renditions, and archives accumulate, and storage becomes a steadily rising resource cost unless tiering and lifecycle rules tie retention to actual use.
 

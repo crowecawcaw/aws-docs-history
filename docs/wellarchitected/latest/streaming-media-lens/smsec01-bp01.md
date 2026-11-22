@@ -1,7 +1,6 @@
 
 
 # SMSEC01-BP01 Use an identity provider to authenticate viewers and access policies to implement least privilege access to protected content
-<a name="smsec01-bp01"></a>
 
 Protect content and infrastructure from access by outside personnel, as unauthorized access could lead to content theft. Even internal access should be controlled to reduce the risk of unauthorized access or accidental deletion or loss of data.
 

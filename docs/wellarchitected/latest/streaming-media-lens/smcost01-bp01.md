@@ -1,7 +1,6 @@
 
 
 # SMCOST01-BP01 Implement lifecycle management for media assets
-<a name="smcost01-bp01"></a>
 
 Media assets can reach hundreds of gigabytes per file. Without active lifecycle management, storage costs grow linearly with content volume regardless of whether assets are still accessed. Organizations that produce or acquire content continuously accumulate source, mezzanine, and distribution files that remain in high-cost storage tiers long after their access frequency drops to near zero.
 

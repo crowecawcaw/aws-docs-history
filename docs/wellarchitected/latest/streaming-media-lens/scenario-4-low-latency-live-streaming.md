@@ -1,7 +1,6 @@
 
 
 # Low-latency live streaming
-<a name="scenario-4-low-latency-live-streaming"></a>
 
 There are use cases where the overall latency (often referred to as glass-to-glass latency) of the video delivery is of critical importance. Examples include simulcast with terrestrial TV, and betting or auction platforms. While specialized workflows can deliver low latency streaming (for example, WebRTC based transmission) they can be difficult to scale for high-viewership events. Therefore, it's desirable to use existing streaming workflows and optimize them to reduce overall latency as much as practicable.
 

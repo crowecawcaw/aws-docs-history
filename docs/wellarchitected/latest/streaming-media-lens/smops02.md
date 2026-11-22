@@ -1,7 +1,6 @@
 
 
 # Observability
-<a name="smops02"></a>
 
 Streaming workflows are distributed systems spanning ingest, processing, origin, CDN, and client. Detecting, diagnosing, and resolving issues requires visibility into metrics, events, and dependencies across all of these layers.
 

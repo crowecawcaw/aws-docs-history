@@ -1,7 +1,6 @@
 
 
 # Streaming architecture
-<a name="streaming-architecture"></a>
 
 A streaming media workload consists of two layers: the *streaming media layer*, which handles the end-to-end path from content ingest through delivery to the viewer, and the *application layer*, which provides supporting services such as authentication, content management, analytics, and interactivity. The best practices in this lens apply across both layers. Understanding how they interact helps you identify where a design decision in one layer affects cost, reliability, or performance in the other.
 

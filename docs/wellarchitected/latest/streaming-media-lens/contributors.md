@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
 Contributors to this document include:
 + Umang Sharma, Sr. Technical Account Manager, Media Specialist, Amazon Web Services

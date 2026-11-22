@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="smsec05"></a>
 
 Content origins need protection from DDoS attacks at both network and application layers, unauthorized direct access bypassing the CDN, and application-level exploits.
 

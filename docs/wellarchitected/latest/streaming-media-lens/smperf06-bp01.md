@@ -1,7 +1,6 @@
 
 
 # SMPERF06-BP01 Optimize processing, origination, delivery, and client for low latency
-<a name="smperf06-bp01"></a>
 
 Implement low-latency optimizations across the entire streaming pipeline while carefully managing tradeoffs with quality and reliability.
 

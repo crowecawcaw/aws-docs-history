@@ -1,7 +1,6 @@
 
 
 # SMSEC04-BP03 Use private connectivity when working with partners
-<a name="smsec04-bp03"></a>
 
 Using private connectivity from your location or other datacenters can help avoid transmission of data across unknown or unprotected networks, and allows content to be delivered directly to AWS.
 

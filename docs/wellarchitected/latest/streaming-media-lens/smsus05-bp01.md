@@ -1,7 +1,6 @@
 
 
 # SMSUS05-BP01 Implement intelligent storage tiering and content lifecycle management
-<a name="smsus05-bp01"></a>
 
 Store streaming media so that each asset occupies the storage tier its access pattern justifies, and retire assets when their value ends. Media catalogs grow without bound, masters, mezzanines, deliverable renditions, and archives accumulate, so storage becomes a steadily rising resource cost unless tiering and lifecycle rules tie retention to actual use.
 

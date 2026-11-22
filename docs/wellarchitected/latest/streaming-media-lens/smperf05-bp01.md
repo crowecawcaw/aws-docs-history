@@ -1,7 +1,6 @@
 
 
 # SMPERF05-BP01 Optimize the number of adaptive bit rate renditions for your workload
-<a name="smperf05-bp01"></a>
 
 Size your adaptive bit rate (ABR) ladder to your target devices, network
 

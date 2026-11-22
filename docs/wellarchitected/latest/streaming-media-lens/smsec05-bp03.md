@@ -1,7 +1,6 @@
 
 
 # SMSEC05-BP03 Use a web application firewall to monitor and control content access
-<a name="smsec05-bp03"></a>
 
 Implement web application firewall to protect content origins and content delivery network (CDN) distributions from common exploits like SQL Injection or Cross Site Scripting (XSS), filter malicious traffic, and create custom rules while maintaining full logging and monitoring.
 

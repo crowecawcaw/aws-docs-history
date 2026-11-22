@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
 The operational excellence pillar covers running and monitoring streaming video systems to deliver business value and continually improve supporting processes. Streaming media workflows require high automation, deep observability, and thorough testing to maintain quality across encoding, packaging, and delivery at scale.
 

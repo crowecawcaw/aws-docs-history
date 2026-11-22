@@ -1,7 +1,6 @@
 
 
 # Encoding and quality optimization
-<a name="smcost03"></a>
 
 Encoding decisions directly determine delivery cost. Lower bit rate at equivalent quality means fewer bytes to store and transfer. Content-aware encoding matches spend to complexity rather than applying uniform high bitrates.
 

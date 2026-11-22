@@ -1,7 +1,6 @@
 
 
 # SMPERF06-BP02 Implement ultra-low latency streaming for real-time interactive experiences
-<a name="smperf06-bp02"></a>
 
 Implement Web Real-Time Communication (WebRTC) based streaming solutions to achieve sub-second latency for interactive streaming applications that require real-time viewer engagement.
 

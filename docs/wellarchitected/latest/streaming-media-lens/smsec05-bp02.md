@@ -1,7 +1,6 @@
 
 
 # SMSEC05-BP02 Restrict content origin access to only allow known entities
-<a name="smsec05-bp02"></a>
 
 Even for live streaming delivery, controlling who is allowed to request content is important. Configure origin access controls so that content can only be accessed by authorized content delivery networks and trusted entities.
 

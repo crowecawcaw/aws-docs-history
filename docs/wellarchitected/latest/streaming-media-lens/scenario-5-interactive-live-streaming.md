@@ -1,7 +1,6 @@
 
 
 # Interactive live streaming
-<a name="scenario-5-interactive-live-streaming"></a>
 
 Some content is particularly well-suited to interactive delivery, where the audience is providing direct textual feedback or other interaction as the program is happening (livestreamed gaming, for example). In these cases, not only is delivery latency a concern, but also a low-latency mechanism for delivery of feedback in a many-to-one model. Some use cases also call for the ability to have multiple video participants, perhaps in a host and guest or multi-party chat configuration.
 

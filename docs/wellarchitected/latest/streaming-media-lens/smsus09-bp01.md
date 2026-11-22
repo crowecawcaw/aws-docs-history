@@ -1,7 +1,6 @@
 
 
 # SMSUS09-BP01 Adopt sustainable development and deployment practices
-<a name="smsus09-bp01"></a>
 
 Run the development and deployment process so that it consumes resources only when work is actually happening. Build fleets, test environments, and non-production stacks are often left running indefinitely, so the engineering process behind a streaming service can carry a large, invisible resource footprint that has nothing to do with serving viewers.
 

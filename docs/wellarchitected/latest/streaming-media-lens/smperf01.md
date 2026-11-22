@@ -1,7 +1,6 @@
 
 
 # Media origination
-<a name="smperf01"></a>
 
 Origin technology selection directly affects delivery performance. The choice between pass-through origins and just-in-time packaging origins depends on workload characteristics. These include live compared to VOD, viewer count, latency targets, and format diversity.
 

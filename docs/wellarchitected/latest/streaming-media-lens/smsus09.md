@@ -1,7 +1,6 @@
 
 
 # Development and deployment
-<a name="smsus09"></a>
 
 The engineering process behind a streaming service carries its own resource footprint, dominated by idle non-production environments.
 

@@ -1,7 +1,6 @@
 
 
 # SMSUS02-BP01 Implement adaptive infrastructure scaling based on viewer patterns
-<a name="smsus02-bp01"></a>
 
 Provision streaming infrastructure to follow actual viewer demand rather than a fixed peak assumption. Streaming demand is highly variable across the day, the week, and individual events, so capacity sized for the highest conceivable peak spends most of its life idle, consuming resources for an audience that isn't watching.
 

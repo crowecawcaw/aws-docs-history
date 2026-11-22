@@ -1,7 +1,6 @@
 
 
 # SMSEC04-BP01 Use Access Control Lists to restrict content to trusted providers only
-<a name="smsec04-bp01"></a>
 
 Control access from the start so that you are the only one that can send content into your workflow from the beginning.
 

@@ -1,7 +1,6 @@
 
 
 # SMSEC01-BP02 Restrict content origin access to allow only authorized content distribution networks
-<a name="smsec01-bp02"></a>
 
 Even authenticated users can act maliciously with your workloads, so consider how to secure the data path of your video streams. Tokenization schemes such as signed-URLs, signed-cookies, or JWTs (JSON Web Tokens) should be used to grant only temporary access to content by approved frontend applications. Amazon CloudFront can protect access to content origin through signed URLs and signed cookies with a short duration to live, and Lambda@Edge can validate bearer tokens during viewer request.
 

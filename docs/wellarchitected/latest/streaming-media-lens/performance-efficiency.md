@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
 The performance efficiency pillar focuses on efficient use of computing resources to meet requirements and maintaining that efficiency as demand changes and technologies evolve. Viewers expect low latency, high quality, and consistent experiences that load immediately.
 

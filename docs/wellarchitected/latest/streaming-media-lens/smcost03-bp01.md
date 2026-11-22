@@ -1,7 +1,6 @@
 
 
 # SMCOST03-BP01 Implement thorough video quality assessment
-<a name="smcost03-bp01"></a>
 
 Every bit saved in encoding translates directly to reduced delivery cost. A 20% bit rate reduction across a content catalog means 20% lower CDN spend. The challenge is identifying where those bits can be removed without degrading what viewers actually perceive. Organizations that don't measure quality systematically either overspend on delivery (encoding at higher bitrates than necessary) or underdeliver on experience (encoding too aggressively without knowing it).
 

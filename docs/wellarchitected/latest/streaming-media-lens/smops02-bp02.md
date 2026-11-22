@@ -1,7 +1,6 @@
 
 
 # SMOPS02-BP02 Implement comprehensive monitoring and collect granular metrics across all layers of your streaming stack
-<a name="smops02-bp02"></a>
 
 Streaming video workloads require a complete approach to monitoring that spans all layers of the streaming stack i.e., infrastructure, encoding, packaging, delivery, and playback while collecting granular, scenario-specific metrics with near real-time latency. By combining full stack-wide monitoring with advanced analytics and anomaly detection, you can proactively identify and resolve issues before they impact viewer experience, even during high-demand periods.
 

@@ -1,7 +1,6 @@
 
 
 # Encoding and delivery
-<a name="smsus03"></a>
 
 Every avoidable bit in an encode is multiplied across millions of viewing sessions in network transfer and client decode energy.
 

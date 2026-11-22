@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="smsec07"></a>
 
 Streaming media incidents include both standard security events and media-specific scenarios such as unauthorized content redistribution. Response plans should cover both.
 

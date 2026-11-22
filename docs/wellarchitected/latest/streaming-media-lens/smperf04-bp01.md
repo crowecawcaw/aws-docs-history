@@ -1,7 +1,6 @@
 
 
 # SMPERF04-BP01 Collect and analyze real user logs and metrics
-<a name="smperf04-bp01"></a>
 
 Collect client-side telemetry alongside content delivery network (CDN)
 

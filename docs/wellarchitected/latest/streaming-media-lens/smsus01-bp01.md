@@ -1,7 +1,6 @@
 
 
 # SMSUS01-BP01 Optimize regional distribution of streaming workloads to reduce waste, unnecessary use of resources and use of non-renewable energy
-<a name="smsus01-bp01"></a>
 
 Place streaming workloads in the Regions that best balance proximity to viewers against the carbon intensity of the location. Region selection sets a floor on the environmental cost of a streaming service, because the energy mix of the Region and the distance content travels to viewers are decided before any other optimization takes effect.
 

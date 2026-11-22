@@ -1,7 +1,6 @@
 
 
 # SMSEC06-BP01 Collaborate with business and legal stakeholders to align on content protection requirements
-<a name="smsec06-bp01"></a>
 
 Content protection requirements must be established through collaboration between technical, business, and legal teams so that the implemented solution meets commercial obligations, regulatory requirements, and business objectives. This alignment is critical when serving copyrighted materials or high-value content that requires protection from unlawful access, replication, and redistribution.
 

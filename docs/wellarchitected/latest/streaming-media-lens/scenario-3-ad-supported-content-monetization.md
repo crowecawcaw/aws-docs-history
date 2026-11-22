@@ -1,7 +1,6 @@
 
 
 # Ad-supported content monetization
-<a name="scenario-3-ad-supported-content-monetization"></a>
 
 Advertising supported monetization is achieved by either inserting or replacing advertisements in the content. Targeted and personalized advertisements lead to higher engagement and maximize the return on investment for advertisers. With a well-designed ad insertion service, you can deliver a streaming media experience to millions of concurrent viewers across a range of multiscreen devices with personalized ad content, creating a smooth, broadcast-like experience.
 

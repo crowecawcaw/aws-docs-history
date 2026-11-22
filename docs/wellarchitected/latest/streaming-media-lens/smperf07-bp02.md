@@ -1,7 +1,6 @@
 
 
 # SMPERF07-BP02 Implement ad prefetching to optimize ad decision server performance and improve fill rates
-<a name="smperf07-bp02"></a>
 
 Prefetch ad inventory ahead of predictable ad breaks to reduce real-time load on the ad decision server and improve fill rates.
 

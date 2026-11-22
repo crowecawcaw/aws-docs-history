@@ -1,7 +1,6 @@
 
 
 # SMSUS07-BP01 use energy-efficient computing resources
-<a name="smsus07-bp01"></a>
 
 Run each streaming workload on the most energy-efficient hardware that can do the job. Media processing is compute-intensive, so the processor family, accelerator, and instance type you select directly determine how much energy a given amount of transcoding, inference, or delivery work consumes.
 

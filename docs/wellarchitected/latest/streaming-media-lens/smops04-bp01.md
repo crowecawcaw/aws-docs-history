@@ -1,7 +1,6 @@
 
 
 # SMOPS04-BP01 Create runbooks for common streaming video operational events
-<a name="smops04-bp01"></a>
 
 Develop incident response runbooks that provide a structured framework to manage common operational events and incidents in streaming video workflows. These playbooks outline step-by-step procedures tailored to specific types of incidents, which helps your teams act swiftly and consistently and reduces the likelihood of human error.
 

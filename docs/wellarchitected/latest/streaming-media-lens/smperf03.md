@@ -1,7 +1,6 @@
 
 
 # Content delivery
-<a name="smperf03"></a>
 
 CDN configuration and cache strategy determine whether viewers are served from nearby edge locations or generate repeated requests back to origin. Cache hit ratio is the primary performance and efficiency metric for delivery.
 

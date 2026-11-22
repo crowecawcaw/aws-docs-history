@@ -1,7 +1,6 @@
 
 
 # SMPERF07-BP01 Implement Server-Side Ad Insertion (SSAI) for smooth viewer experience
-<a name="smperf07-bp01"></a>
 
 Use AWS Elemental MediaTailor to implement SSAI that provides smooth ad integration without client-side complexity while maintaining streaming performance and quality.
 

@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="smsec02"></a>
 
 Viewer access patterns provide a data source for identifying unauthorized access. A combination of client and infrastructure logging baselines expected behavior and alerts on deviations.
 

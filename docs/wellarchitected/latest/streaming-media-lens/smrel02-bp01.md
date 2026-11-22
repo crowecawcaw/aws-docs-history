@@ -1,7 +1,6 @@
 
 
 # SMREL02-BP01 Design processing workflows with redundancy and automatic error recovery
-<a name="smrel02-bp01"></a>
 
 Implement processing workflows that can withstand individual component failures through redundant processing pipelines, automatic retry mechanisms, and quality validation at each stage.
 

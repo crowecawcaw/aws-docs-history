@@ -1,7 +1,6 @@
 
 
 # SMCOST02-BP02 Implement parallel processing for media tasks
-<a name="smcost02-bp02"></a>
 
 Media processing tasks are inherently parallelizable. Video content can be split on I-frame boundaries, processed as independent segments, and reassembled. Sequential processing on vertically-scaled instances limits you to expensive large instance types and means a single interruption wastes the entire job. Parallel processing across many smaller workers accesses cheaper compute, completes faster, and limits the scope of impact of any single failure.
 

@@ -1,7 +1,6 @@
 
 
 # Live streaming efficiency
-<a name="smsus04"></a>
 
 Live workflow resource cost is governed by event duration and concurrent audience rather than catalog size. Channels that run idle between events or default to ultra-low latency for every stream consume resources without corresponding value.
 

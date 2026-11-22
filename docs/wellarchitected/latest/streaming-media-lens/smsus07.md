@@ -1,7 +1,6 @@
 
 
 # Efficient hardware
-<a name="smsus07"></a>
 
 The processor family and accelerator you select directly determine how much energy a given amount of work consumes.
 

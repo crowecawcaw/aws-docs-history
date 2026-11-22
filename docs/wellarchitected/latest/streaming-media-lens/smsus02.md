@@ -1,7 +1,6 @@
 
 
 # Alignment to demand
-<a name="smsus02"></a>
 
 Streaming demand varies by orders of magnitude across the day and across events. Infrastructure sized for a theoretical peak sits idle most of its life.
 

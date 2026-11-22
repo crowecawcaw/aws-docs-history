@@ -1,7 +1,6 @@
 
 
 # Data protection
-<a name="smsec06"></a>
 
 High-value content requires protection through Digital Rights Management (DRM) and encryption. The protection scheme must balance security requirements with device coverage and operational complexity.
 

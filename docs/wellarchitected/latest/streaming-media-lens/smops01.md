@@ -1,7 +1,6 @@
 
 
 # Organization
-<a name="smops01"></a>
 
 Streaming workflows cross multiple teams (encoding, delivery, client, and operations) and require clear ownership at each stage.
 

@@ -1,7 +1,6 @@
 
 
 # Scenarios
-<a name="scenarios"></a>
 
 This section addresses common streaming media scenarios, with a focus on how each scenario affects the architecture of your workload. These examples are not exhaustive, but encompass common patterns we encounter in practice. We present a background on each scenario, general considerations for the design of the workload, and a reference architecture of how the scenarios should be implemented.
 

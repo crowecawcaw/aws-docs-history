@@ -1,7 +1,6 @@
 
 
 # SMSUS10-BP01 Establish sustainability KPIs and ongoing optimization processes
-<a name="smsus10-bp01"></a>
 
 Measure the sustainability of your streaming workload with metrics you can actually obtain, assign ownership for acting on them, and review them on a regular cadence. Without measurement and accountability, sustainability improvements are one-time efforts that decay as the catalog, audience, and architecture change.
 

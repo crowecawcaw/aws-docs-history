@@ -1,7 +1,6 @@
 
 
 # SMOPS02-BP03 Implement centralized logging to aggregate logs from all components of your streaming stack
-<a name="smops02-bp03"></a>
 
 To provide full visibility and operational efficiency across your streaming video stack, implement a centralized logging solution. By aggregating logs from all components of your streaming stack, including third-party integrations and custom applications, you gain a complete view of your system's performance and behavior.
 

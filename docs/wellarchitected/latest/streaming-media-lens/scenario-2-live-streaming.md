@@ -1,7 +1,6 @@
 
 
 # Live streaming
-<a name="scenario-2-live-streaming"></a>
 
 Live video streaming is core to many exciting events, news, and interactive experiences. It is used extensively in social media, sporting events, corporate streaming, e-sports, broadcast TV, and IoT and security camera applications. Because of the real-time nature of live content, special considerations must be taken when architecting live streaming solutions. As with other streaming media workflows, the fundamental architecture components include ingest, processing, origination, and delivery.
 

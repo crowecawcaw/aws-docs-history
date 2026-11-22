@@ -1,7 +1,6 @@
 
 
 # Measurement and optimization
-<a name="smsus10"></a>
 
 Without measurement and ownership, sustainability improvements are one-time efforts that decay.
 
