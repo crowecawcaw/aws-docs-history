@@ -1,7 +1,6 @@
 
 
 # Observability with Logs, Traces, and Metrics
-<a name="observability-logs-traces-metrics"></a>
 
 Publication date: **November 15, 2022 ([Diagram history](#diagram-history))**
 
