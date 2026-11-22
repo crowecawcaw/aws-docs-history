@@ -1,7 +1,6 @@
 
 
 # In-Scope AWS Services
-<a name="dva-03-in-scope-services"></a>
 
 The following list contains AWS services and features that are in scope for the exam. This list is non-exhaustive and is subject to change. AWS offerings appear in categories that align with the offerings' primary functions:
 

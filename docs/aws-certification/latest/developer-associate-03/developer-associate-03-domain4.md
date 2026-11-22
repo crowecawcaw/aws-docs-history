@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Troubleshooting and Optimization
-<a name="developer-associate-03-domain4"></a>
 
 **Topics**
 + [Task 4.1: Assist in a root cause analysis.](#dva-03-task4.1)

@@ -1,7 +1,6 @@
 
 
 # AWS Certified Developer - Associate (DVA-C03)
-<a name="developer-associate-03"></a>
 
 The AWS Certified Developer - Associate (DVA-C03) exam is intended for individuals who perform a developer role. The exam validates a candidate's ability to demonstrate proficiency in developing, testing, deploying, and debugging AWS Cloud-based applications, including using AI-assisted development tools.
 

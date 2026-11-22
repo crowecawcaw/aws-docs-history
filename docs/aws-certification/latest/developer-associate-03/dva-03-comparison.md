@@ -1,7 +1,6 @@
 
 
 # Comparison of DVA-C02 and DVA-C03
-<a name="dva-03-comparison"></a>
 
 ## Side-by-side comparison
 <a name="dva-03-side-by-side"></a>

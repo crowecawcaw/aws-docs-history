@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Testing and Deployment
-<a name="developer-associate-03-domain3"></a>
 
 **Topics**
 + [Task 3.1: Prepare application artifacts to be deployed to AWS.](#dva-03-task3.1)

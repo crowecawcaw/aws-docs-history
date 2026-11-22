@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Security
-<a name="developer-associate-03-domain2"></a>
 
 **Topics**
 + [Task 2.1: Implement authentication and authorization mechanisms for applications and AWS services.](#dva-03-task2.1)
