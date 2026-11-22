@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step C: Install the AWS Elemental Software
-<a name="install-cf-ig-install-sw"></a>
 
 These steps must be performed on each node where you are installing AWS Elemental software, either directly at the machine or from your workstation via SSH. 
 

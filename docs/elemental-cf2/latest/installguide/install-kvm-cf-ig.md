@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Installing AWS Elemental Conductor File Node-locked Licenses on a Kernel-based Virtual Machine (KVM)
-<a name="install-kvm-cf-ig"></a>
 
 This section is for IT administrators who perform the first-time installation of AWS Elemental Conductor File software on a kernel-based virtual machine (KVM).
 

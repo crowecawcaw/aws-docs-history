@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step B: Deploy the VM and Install AWS Elemental Conductor File
-<a name="install-vm-p-cf-ig-install-vm"></a>
 
 Set-up the AWS Elemental Conductor File nodes before setting up the worker AWS Elemental Server nodes. 
 

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step c: Download Licenses from the AWS Elemental User Community
-<a name="install-vm-p-cf-ig-licensing-dl-lic"></a>
 
 **Important**  
 You must perform these steps for the system that will act as the primary AWS Elemental Conductor File node first and then for the secondary.

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step b: Generate a License Activation Key File
-<a name="install-cf-ig-licensing-gen-lic"></a>
 
 The operating system that you installed on your hardware has a utility you can use to generate an activation key file. 
 

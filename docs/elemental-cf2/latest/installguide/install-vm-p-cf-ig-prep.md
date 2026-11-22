@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step A: Prepare the Hardware and Download Files
-<a name="install-vm-p-cf-ig-prep"></a>
 
 ## Determine the Primary Conductor Node
 <a name="install-vm-p-cf-ig-cond"></a>

@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step a: Retrieve Activation Code
-<a name="install-vm-cf-ig-licensing-ret-act"></a>
 
 You should have received an email containing an activation code. If you're installing software for more than one VM guest, you will have received a separate code for each one.
 

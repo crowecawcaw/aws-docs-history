@@ -3,7 +3,6 @@
 This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step D: Deploy the VM and Install AWS Elemental Server
-<a name="install-vm-p-cf-ig-install-vm-w"></a>
 
 After you've installed the AWS Elemental Conductor File nodes, perform these steps on each individual blade that you're adding to the cluster in order to deploy a VM and install the AWS Elemental Server worker software.
 
