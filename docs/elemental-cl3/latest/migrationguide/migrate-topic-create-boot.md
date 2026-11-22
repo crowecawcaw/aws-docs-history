@@ -1,7 +1,6 @@
 
 
 # Create a boot USB drive
-<a name="migrate-topic-create-boot"></a>
 
 Only Dell servers support the ability to install RHEL 9 from a boot USB drive. SuperMicro servers don't support this ability.
 

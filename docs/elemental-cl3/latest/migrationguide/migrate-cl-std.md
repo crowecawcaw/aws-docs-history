@@ -1,7 +1,6 @@
 
 
 # Performing a standard cluster migration on an AWS Elemental Conductor Live cluster
-<a name="migrate-cl-std"></a>
 
 This procedure describes how to take the nodes in a AWS Elemental Conductor Live cluster from a version below x.26.0 and migrate them to version x.26.1 or higher. The nodes in the cluster might be the following:
 + A primary Conductor node and, optionally, a secondary Conductor node.

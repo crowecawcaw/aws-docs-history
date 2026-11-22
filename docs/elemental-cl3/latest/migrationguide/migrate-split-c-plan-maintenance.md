@@ -1,7 +1,6 @@
 
 
 # Plan maintenance windows
-<a name="migrate-split-c-plan-maintenance"></a>
 
 You should plan to perform the cluster migration in several phases.
 

@@ -1,7 +1,6 @@
 
 
 # Step D: Upgrade node X
-<a name="migrate-split-c-upgrade-primary"></a>
 
 Now that node X is not controlling the cluster, you can upgrade it.
 

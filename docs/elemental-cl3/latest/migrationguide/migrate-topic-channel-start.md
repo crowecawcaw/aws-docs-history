@@ -1,7 +1,6 @@
 
 
 # Restarting channels
-<a name="migrate-topic-channel-start"></a>
 
 **To restart one channel**
 

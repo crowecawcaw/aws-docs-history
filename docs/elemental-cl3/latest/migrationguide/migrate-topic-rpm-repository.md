@@ -1,7 +1,6 @@
 
 
 # Working with RPM repository
-<a name="migrate-topic-rpm-repository"></a>
 
 AWS Elemental maintains an RPM repository for use with RHEL 9. The repository contains the following types of third-party packages:
 + Packages that are stored in the Red Hat BaseOS repository, and that are required to run AWS Elemental software.

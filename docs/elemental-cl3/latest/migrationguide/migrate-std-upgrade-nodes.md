@@ -1,7 +1,6 @@
 
 
 # Step E: Upgrade nodes
-<a name="migrate-std-upgrade-nodes"></a>
 
 ## Upgrade the worker nodes
 <a name="migrate-std-upgrade-workers"></a>

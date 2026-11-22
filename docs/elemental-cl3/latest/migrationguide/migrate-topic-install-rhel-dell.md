@@ -1,7 +1,6 @@
 
 
 # Installing on a Dell
-<a name="migrate-topic-install-rhel-dell"></a>
 
 You can install RHEL 9 on a Dell chassis either from the iDRAC interface or using a USB stick.
 

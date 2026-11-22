@@ -1,7 +1,6 @@
 
 
 # Important notes
-<a name="migration-notes"></a>
 
 Following is some key advice about migration.
 

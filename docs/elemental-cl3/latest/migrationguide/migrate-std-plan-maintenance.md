@@ -1,7 +1,6 @@
 
 
 # Plan maintenance windows for migrating an AWS Elemental Conductor Live cluster
-<a name="migrate-std-plan-maintenance"></a>
 
 You should plan to perform the cluster migration in several phases:
 

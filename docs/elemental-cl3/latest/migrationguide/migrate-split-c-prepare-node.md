@@ -1,7 +1,6 @@
 
 
 # Step B: Prepare each node
-<a name="migrate-split-c-prepare-node"></a>
 
 Prepare the nodes during one or more maintenance windows. The number of windows depends on the number of nodes you can complete in one maintenance window.
 

@@ -1,7 +1,6 @@
 
 
 # Adding the secondary Conductor node to the cluster
-<a name="migrate-topic-add-conductor"></a>
 
 Add the secondary node back to the cluster, and then to the redundancy group.
 

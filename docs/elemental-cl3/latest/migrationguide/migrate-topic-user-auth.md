@@ -1,7 +1,6 @@
 
 
 # Enabling user authentication
-<a name="migrate-topic-user-auth"></a>
 
 This section applies only if you had previously enabled user authentication on the cluster. User authentication is already set up in the cluster, because the configuration information was included when you restored the database. But you must apply it (enable it) again, to push user authentication to every worker node.
 

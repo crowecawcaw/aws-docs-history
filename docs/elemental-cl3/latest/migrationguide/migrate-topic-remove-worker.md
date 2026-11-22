@@ -1,7 +1,6 @@
 
 
 # Removing a worker node from the cluster
-<a name="migrate-topic-remove-worker"></a>
 
 To remove a worker node from the cluster, first you remove channel assignments from the node. Then you remove the worker node from its redundancy group, if it is in one. Finally, you remove the node from the cluster.
 

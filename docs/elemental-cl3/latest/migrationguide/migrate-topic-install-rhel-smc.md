@@ -1,7 +1,6 @@
 
 
 # Installing on a SuperMicro
-<a name="migrate-topic-install-rhel-smc"></a>
 
 You install RHEL 9 on a SuperMicro chassis from the IPMI interface.
 

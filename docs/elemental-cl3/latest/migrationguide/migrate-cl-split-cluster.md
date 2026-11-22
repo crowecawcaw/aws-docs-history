@@ -1,7 +1,6 @@
 
 
 # Performing a split cluster migration
-<a name="migrate-cl-split-cluster"></a>
 
 This procedure describes how to take the nodes in a AWS Elemental Conductor Live cluster from a version below x.26.0 and migrate them to version x.26.1 or higher. The nodes in the cluster might be the following:
 + Both a primary Conductor node and a secondary Conductor node.

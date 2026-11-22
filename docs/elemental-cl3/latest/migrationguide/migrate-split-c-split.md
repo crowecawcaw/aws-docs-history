@@ -1,7 +1,6 @@
 
 
 # Step C: Split the cluster
-<a name="migrate-split-c-split"></a>
 
 **Note**  
 In this procedure, the Conductor nodes change their roles. Therefore, the node that is originally the primary node is called node X. The node that is originally the secondary node is called node Y.

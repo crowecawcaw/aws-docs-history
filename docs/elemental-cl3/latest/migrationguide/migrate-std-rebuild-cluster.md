@@ -1,7 +1,6 @@
 
 
 # Step F: Rebuild the cluster
-<a name="migrate-std-rebuild-cluster"></a>
 
 ## Step F1: Add and configure the worker nodes
 <a name="migrate-std-rebuild-worker"></a>

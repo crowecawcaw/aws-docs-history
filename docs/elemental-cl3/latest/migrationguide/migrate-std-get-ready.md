@@ -1,7 +1,6 @@
 
 
 # Step A: Get ready to migrate an AWS Elemental Conductor Live cluster
-<a name="migrate-std-get-ready"></a>
 
 ## Read the essential notes
 <a name="migrate-std-essential-notes"></a>

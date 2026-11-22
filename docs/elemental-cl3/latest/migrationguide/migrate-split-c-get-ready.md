@@ -1,7 +1,6 @@
 
 
 # Step A: Get ready
-<a name="migrate-split-c-get-ready"></a>
 
 ## Read the essential notes
 <a name="migrate-split-c-essential-notes"></a>

@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="migration-guide-about"></a>
 
 This guide describes how to upgrade a Conductor cluster consisting of AWS Elemental Conductor Live nodes and worker nodes (AWS Elemental Live and AWS Elemental Statmux). It describes how to perform an upgrade to a version in the range of 3.26.1 (2.26.1) to 3.26.5 (2.26.5) of the AWS Elemental software. 
 

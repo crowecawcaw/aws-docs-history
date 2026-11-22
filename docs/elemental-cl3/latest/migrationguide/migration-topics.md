@@ -1,7 +1,6 @@
 
 
 # Tasks for migrating an AWS Elemental Conductor Live cluster
-<a name="migration-topics"></a>
 
 This section lists the tasks that are part of migrating the nodes in a cluster. The tasks are listed alphabetically.
 

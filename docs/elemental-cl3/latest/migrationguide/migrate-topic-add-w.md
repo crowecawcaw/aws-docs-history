@@ -1,7 +1,6 @@
 
 
 # Adding worker nodes
-<a name="migrate-topic-add-w"></a>
 
 **Topics**
 + [Step A: Add worker nodes to the cluster](#migrate-topic-add-w-cluster)

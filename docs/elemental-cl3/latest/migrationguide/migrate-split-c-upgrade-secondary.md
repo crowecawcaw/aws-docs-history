@@ -1,7 +1,6 @@
 
 
 # Step F: Upgrade node Y
-<a name="migrate-split-c-upgrade-secondary"></a>
 
 After you remove the last worker node, the original cluster no longer exists. Node Y is no longer controlling any worker nodes. The deployment now looks like the following diagram.
 

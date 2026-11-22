@@ -1,7 +1,6 @@
 
 
 # Removing a Conductor node from the cluster
-<a name="migrate-topic-remove-c-node"></a>
 
 You can remove a Conductor node that is not acting as the primary Conductor node — that isn't controlling the cluster. To remove a Conductor node, you first remove the node from the redundancy group, and then remove the node from the cluster.
 

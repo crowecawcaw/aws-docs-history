@@ -1,7 +1,6 @@
 
 
 # Switching to Legacy on a Dell
-<a name="migrate-topic-bios-dell"></a>
 
 There are three ways to switch the boot mode from UEFI back to BIOS (Legacy mode).
 

@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling high availability (HA)
-<a name="migrate-topic-disable-ha"></a>
 
 To enable or disable HA in a cluster, follow these steps.
 

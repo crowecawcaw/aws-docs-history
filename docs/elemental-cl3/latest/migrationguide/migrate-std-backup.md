@@ -1,7 +1,6 @@
 
 
 # Step D: Create backups
-<a name="migrate-std-backup"></a>
 
 Create a backup of the data on every node — the primary Conductor node, the secondary Conductor node, and all the workers.
 
