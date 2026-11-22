@@ -1,7 +1,6 @@
 
 
 # What are AWS service views
-<a name="aws-service-views"></a>
 
 AWS service views are pre-defined views (cannot be modified or deleted) that enable controlled resource data access by AWS service teams. AWS Resource Explorer is a platform service that other service teams can take a dependency on to provide value-added services to customers, while providing access and usage transparency to customers. Service views represent one of three integration patterns (user views, AWS managed views, and AWS service views) that other AWS services can use to integrate with Resource Explorer.
 

@@ -1,7 +1,6 @@
 
 
 # Considerations for AWS opt-in Regions
-<a name="opt-in-region-considerations"></a>
 
 Opt-in Regions have higher security requirements than commercial Regions as it pertains to sharing IAM data through accounts in opt-in Regions. All of the data managed through the IAM service is considered identity data.
 

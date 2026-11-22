@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer in chat applications to search for resources
-<a name="using-chatbot"></a>
 
 You can search and discover information about AWS services and your AWS resources by asking Amazon Q Developer in chat applications natural language questions. Amazon Q Developer in chat applications answers service-related questions directly in your chat channels with relevant AWS documentation and support article excerpts. Amazon Q Developer in chat applications uses Resource Explorer to search and find answers to your resource related questions.
 

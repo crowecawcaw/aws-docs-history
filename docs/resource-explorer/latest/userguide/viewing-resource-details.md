@@ -1,7 +1,6 @@
 
 
 # Viewing resource details
-<a name="viewing-resource-details"></a>
 
 In the Resource Explorer console, you can view the details of a selected resource, including information about the resource provided by other AWS services. To view a resource's details, open the **Resources** page, and select the checkbox of the desired resource. Review each of the tabs to learn more about the resource. 
 

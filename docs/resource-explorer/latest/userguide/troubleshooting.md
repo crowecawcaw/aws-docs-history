@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Resource Explorer
-<a name="troubleshooting"></a>
 
 If you encounter issues when working with Resource Explorer, consult the topics in this section. Also see [Troubleshooting AWS Resource Explorer permissions](security_iam_troubleshoot.md) in the **Security** section of this guide.
 
@@ -35,7 +34,7 @@ The minimum policy to achieve this might look like this example:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

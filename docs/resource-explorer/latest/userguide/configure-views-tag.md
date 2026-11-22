@@ -1,7 +1,6 @@
 
 
 # Adding tags to views
-<a name="configure-views-tag"></a>
 
 You can add tags to your views to categorize them. Tags are customer-supplied metadata that take the form of a key name string and an associated optional value string. For general information about tagging AWS resources, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
 
@@ -33,7 +32,7 @@ You can also delete a tag by choosing the **X** next to the tag.
 **To add tags to a view**  
 Run the following command to add tags to a view. The following example add tags with the key name `environment` and the value `production` to the specified view.
 
-```
+```bash
 $ aws resource-explorer-2 tag-resource \
     --resource-id arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyViewName/1a2b3c4d-5d6e-7f8a-9b0c-abcd11111111 \
     --tags environment=production

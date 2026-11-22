@@ -1,7 +1,6 @@
 
 
 # Granting access to Resource Explorer views for search
-<a name="configure-views-grant-access"></a>
 
 Before users can search with a new view, you must grant access to AWS Resource Explorer views. To do this, use an identity-based permission policy to the AWS Identity and Access Management (IAM) principals that need to search with the view.
 
@@ -27,7 +26,7 @@ You can use either of the following methods:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

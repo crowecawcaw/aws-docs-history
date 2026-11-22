@@ -1,7 +1,6 @@
 
 
 # Turning on multi-account search
-<a name="manage-service-multi-account"></a>
 
 With multi-account search, you can search for resources across accounts with active indexes in your AWS Organizations or organizational unit (OU).
 

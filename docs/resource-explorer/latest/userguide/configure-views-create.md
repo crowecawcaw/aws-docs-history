@@ -1,7 +1,6 @@
 
 
 # Creating Resource Explorer views to use for search
-<a name="configure-views-create"></a>
 
 All searches must use a [*view*](customer-views.md#configure-views). A view defines filters that determine which resources can be returned by queries that use the view. Views also control who can search for resources.
 
@@ -60,7 +59,7 @@ To run this procedure, you must have the following permissions. Note that with R
 **To create a view**  
 Run the following command to create a view in the specified AWS Region. The following example creates a view that returns only resources related to the Amazon EC2 service that are tagged with a `Stage` key and the value `prod`.
 
-```
+```bash
 $ aws resource-explorer-2 create-view \
     --region us-west-2 \
     --view-name "My-EC2-Prod-Resources" \
@@ -91,7 +90,7 @@ $ aws resource-explorer-2 create-view \
 
 1. Run the following command to create a view for the specified organization.
 
-   ```
+   ```bash
    $ aws resource-explorer-2 create-view \
        --region us-west-2 \
        --view-name entire-org-view \
@@ -117,7 +116,7 @@ $ aws resource-explorer-2 create-view \
 
 1. Run the following command to create a view for the specified organizational unit.
 
-   ```
+   ```bash
    $ aws resource-explorer-2 create-view \
        --region us-west-2 \
        --view-name entire-ou-view \

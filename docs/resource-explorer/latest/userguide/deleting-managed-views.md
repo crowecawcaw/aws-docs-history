@@ -1,7 +1,6 @@
 
 
 # Deleting managed views
-<a name="deleting-managed-views"></a>
 
 Managed views can only be deleted by the AWS service that manages them. Before the managing service can delete the view, you may need to perform service-specific tasks to remove a managed view from your account. 
 

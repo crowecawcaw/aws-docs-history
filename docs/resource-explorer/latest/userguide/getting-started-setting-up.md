@@ -1,7 +1,6 @@
 
 
 # Setting up and configuring Resource Explorer
-<a name="getting-started-setting-up"></a>
 
 AWS Resource Explorer is available immediately when you have the appropriate permissions. Users with, at minimum, the permissions in the `[AWSResourceExplorerReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerReadOnlyAccess.html)` managed policy can start searching for resources right away without any setup. Users with the permissions in the `[AWSResourceExplorerReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerReadOnlyAccess.html)` managed policy and `iam:CreateServiceLinkedRole` permissions (included in the [AWSResourceExplorerFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.html) managed policy) get complete search results with automatic infrastructure creation on first search. 
 

@@ -1,7 +1,6 @@
 
 
 # AWS Resource Explorer identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, AWS Identity and Access Management (IAM) principals, such as roles, groups, and users, don't have permission to create or modify Resource Explorer resources. They also can't perform tasks using the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS API. An IAM administrator must create IAM policies that grant principals permission to perform specific API operations on the specified resources they need. Then, the administrator must assign those policies to the IAM principals that require those permissions.
 
@@ -56,7 +55,7 @@ In this example, you want to grant access to a Resource Explorer view in your AW
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ Now you're ready to grant permissions to create a view. You can add the statemen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ Now you're ready to grant permissions to create a view. You can add the statemen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	  
     "Statement": [

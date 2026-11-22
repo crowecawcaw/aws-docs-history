@@ -1,7 +1,6 @@
 
 
 # AWS managed views
-<a name="aws-managed-views"></a>
 
 A *managed view* is how other AWS services can access resource information indexed by Resource Explorer for your AWS account or organization with your consent. 
 
@@ -26,7 +25,7 @@ Resource Explorer uses a [resource-based policy](https://docs.aws.amazon.com/IAM
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Search query syntax reference for Resource Explorer
-<a name="using-search-query-syntax"></a>
 
 AWS Resource Explorer helps you to find individual AWS resources in your AWS accounts. To help you find the exact resources you're looking for, Resource Explorer accepts search query strings that support the syntax described in this topic. For example queries that demonstrate how to use the features described here, see [Example Resource Explorer search queries](using-search-query-examples.md).
 

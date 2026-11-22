@@ -1,7 +1,6 @@
 
 
 # Creating Resource Explorer resources with CloudFormation
-<a name="cloudformation-support"></a>
 
 AWS Resource Explorer is integrated with AWS CloudFormation, a service that helps you model and set up your AWS resources. This integration helps you spend less time creating and managing your resources and infrastructure. You create a template that describes all the AWS resources that you want, and CloudFormation provisions and configures those resources for you. Examples of resources include indexes, views, or the assignment of a default view for an AWS Region.
 

@@ -1,7 +1,6 @@
 
 
 # Promoting a local index to be the aggregator index for the account
-<a name="manage-aggregator-region-turn-on"></a>
 
 For cross-region search functionality, Resource Explorer provides a streamlined banner workflow that allows you to enable cross-region search with a single click. If you see a **Complete setup and enable cross-Region search** banner, you can choose **Enable cross-Region search in all Regions** for automatic setup or **Customize Region setup** for granular control. Alternatively, you have the option to manually create an aggregator index in one AWS Region by promoting an existing user-owned (local) index from the **Settings** page . This procedure describes the manual process for promoting a user-owned (local) index to be the aggregator index for the account.
 
@@ -34,7 +33,7 @@ After deleting or changing which Region contains the aggregator index, you must 
 **To promote a user-owned (local) index to be the aggregator index for the account**  
 The following example command updates the index in the specified AWS Region from type `LOCAL` to type `AGGREGATOR`. You must call the operation from the AWS Region that you want to contain the aggregator index. For information about the banner workflow option, see the Console tab above.
 
-```
+```bash
 $ aws resource-explorer-2 update-index-type \
     --arn arn:aws:resource-explorer-2:us-east-1:123456789012:index/1a2b3c4d-5d6e-7f8a-9b0c-abcd11111111 \
     --type AGGREGATOR \

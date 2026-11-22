@@ -1,7 +1,6 @@
 
 
 # Prerequisites to using Resource Explorer
-<a name="getting-started-setting-up-prereqs"></a>
 
 Before you use AWS Resource Explorer for the first time, complete the following tasks as required.
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Resource Explorer
-<a name="compliance-validation"></a>
 
 To learn whether an AWS service is within the scope of specific compliance programs, see [AWS services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/). For general information, see [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/).
 

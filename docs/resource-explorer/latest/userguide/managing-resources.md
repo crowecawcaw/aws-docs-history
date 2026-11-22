@@ -1,7 +1,6 @@
 
 
 # Managing resources in the Resource Explorer console
-<a name="managing-resources"></a>
 
 The Resource Explorer console supports resource quick-actions and integrations with several other AWS services, allowing you to perform the most common resource management tasks and providing additional resource information from one console. 
 

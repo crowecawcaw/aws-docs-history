@@ -1,7 +1,6 @@
 
 
 # Terms and concepts for Resource Explorer
-<a name="getting-started-terms-and-concepts"></a>
 
 AWS Resource Explorer is a resource search and discovery service. With Resource Explorer, you can explore your resources by using an internet search engine-like experience. You can search for your resources, such as Amazon Elastic Compute Cloud instances, Amazon Kinesis streams, or Amazon DynamoDB tables by using resource metadata like names, tags, and IDs. Resource Explorer works across AWS Regions in your account to simplify your cross-Region workloads.
 

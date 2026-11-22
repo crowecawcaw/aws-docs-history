@@ -1,7 +1,6 @@
 
 
 # Using Unified Search in the AWS Management Console
-<a name="using-unified-search"></a>
 
 The AWS Management Console includes a search bar at the top of every AWS console page. This search bar can search the AWS service documentation and blog topics, and take you directly to AWS service console pages. It can also return the resources in your AWS account when you have appropriate Resource Explorer permissions.
 

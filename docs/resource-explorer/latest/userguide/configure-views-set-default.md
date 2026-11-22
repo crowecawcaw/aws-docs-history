@@ -1,7 +1,6 @@
 
 
 # Setting a default view in an AWS Region
-<a name="configure-views-set-default"></a>
 
 In AWS Resource Explorer, you can define many views in an AWS Region, where each view addresses different search requirements. We recommend that you set ***one*** view in each Region as the *default view* for that Region.
 
@@ -31,7 +30,7 @@ You can specify a view as the default for its Region by using the AWS Management
 **To set a default view**  
 Run the following command to set the specified view as the default for its Region. The following example sets the specified view to be the default for all searches performed in the us-east-1 Region. That view must exist in the Region in which you run the command.
 
-```
+```bash
 $ aws resource-explorer-2 associate-default-view \
     --region us-east-1 \
     --view-arn arn:aws:resource-explorer-2:us-east-1:123456789012:view/MyViewName/1a2b3c4d-5d6e-7f8a-9b0c-abcd11111111

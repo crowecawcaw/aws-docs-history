@@ -1,7 +1,6 @@
 
 
 # Deploying Resource Explorer to the accounts in an organization
-<a name="manage-service-all-org-with-stacksets"></a>
 
 By using AWS CloudFormation StackSets, you can define and deploy to all of the accounts managed in an organization by AWS Organizations. When you define a stack set, you specify AWS resources that you want created across your AWS Regions and across all of the target accounts that you specify. When all of the accounts are part of the same organization, you can take advantage of CloudFormation integration with Organizations and let those services handle the cross-account role creation. You can enable automatic deployment in an organization, which automatically deploys stack instances to new accounts that you might add to the target organization or an organizational unit (OU) in the future. If you remove an account from the organization, then CloudFormation automatically deletes any resources that were deployed as part of an organization stack instance. For more information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*.
 
@@ -47,7 +46,7 @@ The following sample template creates the account's aggregator index and a defau
 ------
 #### [ YAML ]
 
-```
+```yaml
 Description: >-
   CFN Stack setting up ResourceExplorer with an Aggregator index, and a new default view.
 Resources:
@@ -75,7 +74,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Description": "CFN Stack setting up Resource Explorer with an Aggregator index, and a new default view.",
     "Resources": {
@@ -120,7 +119,7 @@ The following sample template creates a local index in each enabled Region in al
 ------
 #### [ YAML ]
 
-```
+```yaml
 Description: >-
   CFN Stack setting up ResourceExplorer with a local index and a new default view.
 Resources:
@@ -148,7 +147,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Description": "CFN Stack setting up ResourceExplorer with a local index and a new default view.",
     "Resources": {

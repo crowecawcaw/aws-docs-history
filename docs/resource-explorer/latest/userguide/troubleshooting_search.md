@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Resource Explorer search issues
-<a name="troubleshooting_search"></a>
 
 Use the information here to help you diagnose and fix common errors that can occur when you search for resources by using Resource Explorer.
 

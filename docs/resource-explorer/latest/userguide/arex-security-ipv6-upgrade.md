@@ -1,7 +1,6 @@
 
 
 # Upgrade IAM policies to IPv6
-<a name="arex-security-ipv6-upgrade"></a>
 
 AWS Resource Explorer customers use IAM policies to set an allowed range of IP addresses and prevent any IP addresses outside the configured range from being able to access Resource Explorer APIs.
 

@@ -1,7 +1,6 @@
 
 
 # Supporting Unified Search in the AWS Management Console
-<a name="manage-service-unified-search"></a>
 
 The AWS Management Console has a search bar at the top of every console page. This provides a [Unified Search](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/using-search.html) experience across all AWS services. Unified Search results can include such things as:
 + AWS service and feature console pages.

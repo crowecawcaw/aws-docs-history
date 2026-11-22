@@ -1,7 +1,6 @@
 
 
 # Working with views
-<a name="views"></a>
 
 A *view* is the mechanism used to query the resources listed in an index. The view defines what information in the index is visible and available for search and discovery purposes. A user never directly queries the Resource Explorer index. Instead, queries must always go through a view which lets the view creator limit which resources the user can see in search results. 
 

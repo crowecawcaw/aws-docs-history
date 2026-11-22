@@ -1,7 +1,6 @@
 
 
 # Understanding the immediate resource discovery experience
-<a name="manage-immediate-resource-discovery-experience"></a>
 
 ## Immediate resource discovery experience
 <a name="immediate-overview"></a>

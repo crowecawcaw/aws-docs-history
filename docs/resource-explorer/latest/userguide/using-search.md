@@ -1,7 +1,6 @@
 
 
 # Using AWS Resource Explorer to search for resources
-<a name="using-search"></a>
 
 AWS Resource Explorer provides immediate search capabilities for your AWS resources without requiring manual setup. When you access Resource Explorer with the appropriate permissions, the service automatically enables resource search functionality in your account. You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to search for resources using Resource Explorer.
 
@@ -98,7 +97,7 @@ After submitting your search query, Resource Explorer displays a results table. 
 **To search for resources using Resource Explorer**  
 Run the following command to search for resources using the specified view. That view must exist in the Region in which you run the operation. The following example searches for Amazon EC2 instances that are tagged `env=production` in the US East (Ohio) (us-east-2). For information about all of the available syntax options for the `query-string` parameter, see [Search query syntax reference for Resource Explorer](using-search-query-syntax.md).
 
-```
+```bash
 $ aws resource-explorer-2 search \
     --region us-east-1 \
     --query-string "resourcetype:AWS::EC2::Instance tag:env=production"

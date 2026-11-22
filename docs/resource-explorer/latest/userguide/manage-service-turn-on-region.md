@@ -1,7 +1,6 @@
 
 
 # Creating user-owned indexes for enhanced Resource Explorer functionality
-<a name="manage-service-turn-on-region"></a>
 
 AWS Resource Explorer automatically enables basic search functionality when you search with appropriate permissions. However, you may need to manually complete setup in specific scenarios, such as when you lack required permissions, have previously deleted an index in a Region, or need to manage existing aggregator configurations. For enhanced functionality like cross-Region search, you can use the **[Quick setup](getting-started-setting-up.md#getting-started-setting-up-quick)** option or one-click cross-Region banner to create indexes in all [AWS Regions that are turned on in your AWS account](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html). When you use the Quick Setup option, Resource Explorer promotes the specified Region to be the [aggregator index](manage-aggregator-region.md) for the account. If you use the **[Advanced setup](getting-started-setting-up.md#getting-started-setting-up-advanced)** option, you can specify the Regions in which to create indexes.
 
@@ -79,7 +78,7 @@ However, if you want users to be able to search for resources in ***only*** the 
 **To create a Resource Explorer index in an AWS Region**  
 Run the following command for each AWS Region in which you want to create an index to support searching that Region's resources. The following example command registers Resource Explorer in the US East (N. Virginia) (`us-east-1`).
 
-```
+```bash
 $ aws resource-explorer-2 create-index \
     --region us-east-1
 {

@@ -1,7 +1,6 @@
 
 
 # Effect of account actions on Resource Explorer multi-account search
-<a name="manage-service-account-actions"></a>
 
 **Note**  
 It takes up to 24 hours to remove accounts and resources from multi-account search results.

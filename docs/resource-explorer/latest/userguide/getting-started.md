@@ -1,7 +1,6 @@
 
 
 # Getting started with Resource Explorer
-<a name="getting-started"></a>
 
 Use the topics in this section to get a basic understanding of the concepts and terms used by AWS Resource Explorer. Learn how Resource Explorer is automatically enabled based on your permissions and how to access enhanced features for your AWS account.
 

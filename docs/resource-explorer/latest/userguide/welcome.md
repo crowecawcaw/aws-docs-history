@@ -1,7 +1,6 @@
 
 
 # What is AWS Resource Explorer?
-<a name="welcome"></a>
 
 AWS Resource Explorer is a resource search and discovery service. With Resource Explorer, you can explore your resources, such as Amazon Elastic Compute Cloud instances, Amazon Kinesis streams, or Amazon DynamoDB tables, using an internet search engine-like experience. Resource Explorer allows you to easily search for your resources using resource metadata like names, tags, and IDs, and displays additional resource details from other AWS services, such as AWS Config and AWS Cloud Control. You can add resource metadata using [tags](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging-resources.html), and collectively manage resources in an [application](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/myApp-manage-apps.html). Resource Explorer works across AWS Regions in your account to simplify your cross-Region workloads.
 
