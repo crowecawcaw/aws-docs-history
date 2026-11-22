@@ -1,7 +1,6 @@
 
 
 # Deal with Pod IP Exhaustion
-<a name="expose-microservices-eks-custom-networking"></a>
 
 This architecture shows how to deal with pod IP exhaustion by adding secondary CIDR blocks from the [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) address space to your [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html). Using the [CNI Custom Networking](https://docs.aws.amazon.com/eks/latest/userguide/cni-custom-network.html) feature, pods no longer consume [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) IP addresses in the VPC.
 

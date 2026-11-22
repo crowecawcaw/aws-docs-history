@@ -1,7 +1,6 @@
 
 
 # Expose Microservices in a Hybrid Scenario Using Amazon EKS
-<a name="expose-microservices-eks-ipv4"></a>
 
 Publication date: **February 22, 2022 ([Diagram history](#diagram-history))**
 
