@@ -1,7 +1,6 @@
 
 
 # Using DMS Schema Conversion
-<a name="schema-conversion"></a>
 
 DMS Schema Conversion converts your existing database schemas and a majority of the database code objects to a format compatible with the target database.
 

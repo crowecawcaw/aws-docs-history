@@ -1,7 +1,6 @@
 
 
 # Creating multiple tasks
-<a name="CHAP_Tasks.ReplicationTasks.MultipleTasks"></a>
 
 In some migration scenarios, you might have to create several migration tasks. Tasks work independently and can run concurrently. Each task has its own initial load, CDC, and log reading process. Tables that are related through data manipulation language (DML) must be part of the same task.
 

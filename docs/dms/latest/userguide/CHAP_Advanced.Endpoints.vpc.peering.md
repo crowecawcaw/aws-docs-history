@@ -1,7 +1,6 @@
 
 
 # VPC peering configuration for AWS DMS.
-<a name="CHAP_Advanced.Endpoints.vpc.peering"></a>
 
 VPC peering enables private network connectivity between two VPCs, allowing AWS DMS replication instances and database endpoints to communicate across different VPCs as if they were in the same network. This is crucial when your DMS replication instance resides in one VPC while source or target databases exist in separate VPCs, enabling direct, secure data migration without traversing the public internet.
 

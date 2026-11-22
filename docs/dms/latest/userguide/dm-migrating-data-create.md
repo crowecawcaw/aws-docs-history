@@ -1,7 +1,6 @@
 
 
 # Creating a data migration in AWS DMS
-<a name="dm-migrating-data-create"></a>
 
 After you create a migration project with compatible data providers of the same type, you can use this project for homogeneous data migrations. For more information, see [ Creating migration projects](migration-projects-create.md).
 

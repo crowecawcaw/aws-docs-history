@@ -1,7 +1,6 @@
 
 
 # Built-in function and system object rules
-<a name="sc-default-rules-builtins-oracle"></a>
 
 DMS Schema Conversion applies default rules to convert Oracle built-in functions, packages, procedures, and system objects when it converts a source schema to Amazon Aurora PostgreSQL-Compatible Edition or Amazon RDS for PostgreSQL. The following sections list the source objects in each package and show how DMS Schema Conversion converts each one.
 

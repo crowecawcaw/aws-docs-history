@@ -1,7 +1,6 @@
 
 
 # AWS DMS data resync
-<a name="CHAP_Validating.DataResync"></a>
 
 AWS Database Migration Service (AWS DMS) Data resync automatically fixes data inconsistencies identified through data validation between your source and target databases. This feature works as part of your existing DMS migration tasks, ensuring proper updates occur based on your task configurations, connection settings, table mappings, and transformations.
 

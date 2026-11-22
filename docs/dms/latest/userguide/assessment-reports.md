@@ -1,7 +1,6 @@
 
 
 # Conversion assessment reports with DMS Schema Conversion
-<a name="assessment-reports"></a>
 
 An important part of DMS Schema Conversion is the report that it generates to help you convert your schema. This *conversion assessment report* analyzes the database objects in your source schema and identifies which objects DMS Schema Conversion can convert automatically and which objects require manual action. You can view the report in the AWS DMS console or save a copy as a PDF or comma-separated value (CSV) files.
 
@@ -49,7 +48,7 @@ After you create a migration project, use one of the following methods to run an
 
 The following example uses [start-metadata-model-assessment](https://docs.aws.amazon.com/cli/latest/reference/dms/start-metadata-model-assessment.html) to queue an assessment of the conversion complexity for all objects in the {{ExampleSchema}} schema.
 
-```
+```bash
 aws dms start-metadata-model-assessment \
         --migration-project-identifier "{{arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS}}" \
         --selection-rules '{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "{{source-server}}", "schema-name": "{{ExampleSchema}}"}, "rule-action": "explicit"}]}'
@@ -60,7 +59,7 @@ The `--selection-rules` parameter takes a JSON string that specifies which datab
 
 The response contains a `RequestIdentifier` that identifies the assessment request.
 
-```
+```json
 {
     "RequestIdentifier": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 }
@@ -68,7 +67,7 @@ The response contains a `RequestIdentifier` that identifies the assessment reque
 
 Because an assessment runs asynchronously, use [aws dms wait metadata-model-assessed](https://docs.aws.amazon.com/cli/latest/reference/dms/wait/metadata-model-assessed.html) to block until the assessment completes before proceeding.
 
-```
+```bash
 aws dms wait metadata-model-assessed \
         --migration-project-identifier "{{arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS}}"
 ```
@@ -87,6 +86,8 @@ After you run an assessment or a conversion, you can save a copy of the conversi
 ------
 #### [ AWS Management Console ]
 
+<a name="assessment-reports-save-pdf"></a>**PDF report**
+
 **To save a conversion assessment report as a PDF file**
 
 1. Choose **Export**, then choose **PDF**. Review the dialog box, and choose **Export to PDF**. 
@@ -95,6 +96,8 @@ After you run an assessment or a conversion, you can save a copy of the conversi
 
 1. Open the assessment report file in your Amazon S3 bucket.
 
+<a name="assessment-reports-save-csv"></a>**CSV export**
+
 **To save a conversion assessment report as CSV files**
 
 1. Choose **Export**, then choose **CSV**. Review the dialog box, and choose **Export to CSV**. 
@@ -102,6 +105,8 @@ After you run an assessment or a conversion, you can save a copy of the conversi
 1. DMS Schema Conversion stores a ZIP archive containing the CSV files in the Amazon S3 bucket that you configured under **S3 bucket access settings** in your migration project.
 
 1. Download and extract the ZIP archive from your Amazon S3 bucket to access the CSV files.
+
+**S3 bucket and file names**
 
 The Amazon S3 bucket where DMS Schema Conversion stores exported reports is the bucket that you specified under **S3 bucket access settings** when you created your migration project.
 
@@ -118,7 +123,7 @@ The CSV archive contains at least three files organized under a two-level direct
 
 The following example uses [export-metadata-model-assessment](https://docs.aws.amazon.com/cli/latest/reference/dms/export-metadata-model-assessment.html) to export the conversion assessment report for a migration project as both a PDF file and a CSV archive to your Amazon S3 bucket.
 
-```
+```bash
 aws dms export-metadata-model-assessment \
         --migration-project-identifier "{{arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS}}" \
         --selection-rules '{"rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"explicit","object-locator":{"server-name":"{{source-server}}","schema-name":"{{ExampleSchema}}"}}]}' \
@@ -132,7 +137,7 @@ The response contains the Amazon S3 object key and download URL for each report 
 
 When you do not specify `--file-name`, files are stored under a folder matching your migration project name, using a timestamp as the file name: `{{project-name}}/{{YYYY-MM-DD-HH-MM-SS}}.pdf` and `{{project-name}}/{{YYYY-MM-DD-HH-MM-SS}}.zip` — for example, `sqlserver-pg-pma/2026-07-15-10-08-12.zip`. Specify `--file-name` to override the timestamp prefix within that folder.
 
-```
+```json
 {
     "PdfReport": {
         "S3ObjectKey": "{{project-name}}/{{YYYY-MM-DD-HH-MM-SS}}.pdf",
@@ -166,6 +171,8 @@ After you run an assessment or a conversion, DMS Schema Conversion adds informat
 + **Summary**
 + **Action items**
 
+**Summary tab**
+
 The **Summary** tab displays the summary information from the conversion assessment report. It shows the number of database objects that DMS Schema Conversion can automatically convert for database storage objects and database code objects.
 
 DMS Schema Conversion converts many database objects automatically and identifies those that require manual action to complete the conversion to the target database engine. The **Summary** tab provides an estimate of the required effort to create database objects in your target DB instance that are equivalent to those in your source.
@@ -176,9 +183,13 @@ To see the conversion summary for database code objects such as procedures, func
 
 To change the scope of the assessment report, select the required node in the source database tree. DMS Schema Conversion updates the assessment report summary to match the selected scope.
 
+**Action items tab**
+
 The **Action items** tab contains a list of action items for database objects that DMS Schema Conversion cannot automatically convert to a format compatible with the target database engine. For each action item, DMS Schema Conversion provides the description of the issue and the recommended action. DMS Schema Conversion groups similar action items and displays the number of occurrences.
 
 To view the code for the related database object, select an action item in the list.
+
+**Generative AI**
 
 DMS Schema Conversion with generative AI streamlines the database migration process by offering recommendations to help you convert previously unconverted code objects that typically require complex manual conversion. Currently, this feature is available for Oracle, SQL Server, SAP ASE (Sybase ASE), IBM Db2 for LUW, and IBM Db2 for z/OS as source databases, converting to PostgreSQL or Aurora PostgreSQL.
 
@@ -210,7 +221,9 @@ To export the report as a PDF, see [Saving assessment reports](#assessment-repor
 ------
 #### [ CSV report ]
 
-When you export your assessment report to CSV, DMS Schema Conversion creates an archive containing at least three CSV files. The archive uses a two-level directory structure: the top-level directory is the **source server name** exactly as configured in your source data provider (hostname or IP address), and the subdirectory and file names use the **target database hostname**.{{}}
+When you export your assessment report to CSV, DMS Schema Conversion creates an archive containing at least three CSV files. The archive uses a two-level directory structure: the top-level directory is the **source server name** exactly as configured in your source data provider (hostname or IP address), and the subdirectory and file names use the **target database hostname**.
+
+<a name="assessment-reports-save-csv-fields"></a>**Action items file ({{target-host}}.csv)**
 
 The main CSV file (no suffix) contains one row per action item occurrence. It contains the following columns:
 + **Category** — The type of database object that the action item applies to, such as `procedure` or `view-constraint`.
@@ -230,7 +243,9 @@ The main CSV file (no suffix) contains one row per action item occurrence. It co
 + **Server IP address and port** — The host and port of the source database server.
 + **Database name** — The name of the source database.
 + **Schema name** — The name of the source schema containing the affected object.
-+ **AI/ML Recommendation** — The generative AI recommendation for converting this object, when generative AI conversion was enabled and produced a result for this occurrence.{{}}
++ **AI/ML Recommendation** — The generative AI recommendation for converting this object, when generative AI conversion was enabled and produced a result for this occurrence.
+
+**Action items summary file ({{target-host}}\_Action\_Items\_Summary.csv)**
 
 Contains one row per action item type with the following columns:
 + **Schema** — The name of the source schema containing the affected objects.
@@ -239,7 +254,9 @@ Contains one row per action item type with the following columns:
 + **Learning curve efforts** — The one-time effort required to design a conversion approach for this action item type. You incur this cost once per action item type regardless of the number of occurrences. Values use a weighted scale ranging from low (least effort) to high (most effort).
 + **Efforts to convert an occurrence** — The effort required to resolve each individual occurrence of this action item type, following the designed conversion approach. Values use the same weighted scale as learning curve efforts.
 + **Action item description** — A description of the incompatibility that this action item type represents.
-+ **Recommended action** — The suggested manual conversion step to resolve this action item type.{{}}
++ **Recommended action** — The suggested manual conversion step to resolve this action item type.
+
+**Summary file ({{target-host}}\_Summary.csv)**
 
 Contains one row per database object type with the following columns:
 + **Category** — The database object type that the row summarizes, such as `TABLE`, `VIEW`, `PROCEDURE`, `TRIGGER`, `INDEX`, `CONSTRAINT`, `SEQUENCE`, or `FUNCTION`. The file also includes aggregate metric rows with a `Category` value of `Storage_objects_count`, `Code_objects_count`, or `SQL_syntax_elements_number`. For more information about these aggregate values, see [Conversion statistics and SQL metrics](assessment-reports-understanding.md#assessment-reports-understanding-statistics).
@@ -250,7 +267,9 @@ Contains one row per database object type with the following columns:
 + **Objects with complex actions** — The number of objects that require significant manual effort to convert.
 + **Total lines of code** — The total number of lines of source code across all objects of this type.
 
-To export the report as CSV, see [Saving assessment reports](#assessment-reports-save).{{}}
+To export the report as CSV, see [Saving assessment reports](#assessment-reports-save).
+
+**Stub objects file ({{target-host}}\_Stub\_Objects.csv)**
 
 This file is present only when **Convert unsupported built-in objects to stub objects** is enabled in your migration project settings. It contains one row per stub object generated for an unsupported built-in, with the following columns:
 + **Category** — The type of the stub object, such as `scalar-function`.

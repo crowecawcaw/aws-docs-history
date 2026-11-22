@@ -1,7 +1,6 @@
 
 
 # Using an Amazon Redshift database as a target for AWS Database Migration Service
-<a name="CHAP_Target.Redshift"></a>
 
 You can migrate data to Amazon Redshift databases using AWS Database Migration Service. Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. With an Amazon Redshift database as a target, you can migrate data from all of the other supported source databases.
 
@@ -11,7 +10,7 @@ You can use Amazon Redshift Serverless as a target for AWS DMS. For more informa
 
 During a database migration to Amazon Redshift, AWS DMS first moves data to an Amazon S3 bucket. When the files reside in an Amazon S3 bucket, AWS DMS then transfers them to the proper tables in the Amazon Redshift data warehouse. AWS DMS creates the S3 bucket in the same AWS Region as the Amazon Redshift database. The AWS DMS replication instance must be located in that same AWS Region . 
 
-If you use the AWS CLI or DMS API to migrate data to Amazon Redshift, set up an AWS Identity and Access Management (IAM) role to allow S3 access. For more information about creating this IAM role, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
+If you use the AWS CLI or DMS API to migrate data to Amazon Redshift, set up an AWS Identity and Access Management (IAM) role to allow S3 access. For more information about creating this IAM role, including role naming restrictions, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
 
 The Amazon Redshift endpoint provides full automation for the following:
 + Schema generation and data type mapping
@@ -232,7 +231,7 @@ When you create this key, you can only create a symmetric key, because all AWS s
 
 ****  
 
-   ```
+   ```json
    {
        "Id": "key-consolepolicy-3",
        "Version":"2012-10-17",		 	 	 
@@ -520,7 +519,7 @@ When using Amazon Redshift Serverless as a target endpoint, you must add the fol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 as a target for AWS Database Migration Service
-<a name="CHAP_Target.S3"></a>
 
 You can migrate data to Amazon S3 using AWS DMS from any of the supported database sources. When using Amazon S3 as a target in an AWS DMS task, both full load and change data capture (CDC) data is written to comma-separated value (.csv) format by default. For more compact storage and faster query options, you also have the option to have the data written to Apache Parquet (.parquet) format. 
 
@@ -75,14 +74,14 @@ Before using Amazon S3 as a target, check that the following are true:
 + The IAM role has DMS (dms.amazonaws.com) added as *trusted entity*. 
 + For AWS DMS version 3.4.7 and higher, DMS must access the source bucket through a VPC endpoint or a public route. For information about VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md).
 
-To set up this account access, ensure that the IAM role used to create the target endpoint has the following set of permissions.
+To set up this account access, ensure that the IAM role used to create the target endpoint has the following set of permissions. For role naming restrictions, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -395,7 +394,7 @@ The following procedures describe how to do this.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -472,7 +471,7 @@ When you create this key, you can only create a symmetric key, because all AWS s
 
 ****  
 
-   ```
+   ```json
    {
        "Id": "key-consolepolicy-3",
        "Version":"2012-10-17",		 	 	 
@@ -742,7 +741,7 @@ For Amazon Athena to index your Amazon S3 data, and for you to query your data u
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	  
     "Statement": [ 
@@ -871,7 +870,7 @@ Here, in addition to parameters for several standard S3 bucket options and the `
 ### Capturing data changes (CDC) including transaction order on the S3 target
 <a name="CHAP_Target.S3.EndpointSettings.CdcPath"></a>
 
-By default when AWS DMS runs a CDC task, it stores all the row changes logged in your source database (or databases) in one or more files for each table. Each set of files containing changes for the same table reside in a single target directory associated with that table. AWS DMS creates as many target directories as database tables migrated to the Amazon S3 target endpoint. The files are stored on the S3 target in these directories without regard to transaction order. For more information on the file naming conventions, data contents, and format, see [Using Amazon S3 as a target for AWS Database Migration Service](#CHAP_Target.S3).
+By default when AWS DMS runs a CDC task, it stores all the row changes logged in your source database (or databases) in one or more files for each table. Each set of files containing changes for the same table reside in a single target directory associated with that table. AWS DMS creates as many target directories as database tables migrated to the Amazon S3 target endpoint. The files are stored on the S3 target in these directories without regard to transaction order. For more information on the file naming conventions, data contents, and format, see [Using Amazon S3 as a target for AWS Database Migration Service](CHAP_Target.S3.md).
 
 To capture source database changes in a manner that also captures the transaction order, you can specify S3 endpoint settings that direct AWS DMS to store the row changes for *all* database tables in one or more .csv files created depending on transaction size. These .csv *transaction files* contain all row changes listed sequentially in transaction order for all tables involved in each transaction. These transaction files reside together in a single *transaction directory* that you also specify on the S3 target. In each transaction file, the transaction operation and the identity of the database and source table for each row change is stored as part of the row data as follows. 
 

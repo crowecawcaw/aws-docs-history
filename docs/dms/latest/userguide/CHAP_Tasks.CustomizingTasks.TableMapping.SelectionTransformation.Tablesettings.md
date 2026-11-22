@@ -1,7 +1,6 @@
 
 
 # Table and collection settings rules and operations
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings"></a>
 
 Use table settings to specify any settings that you want to apply to a selected table or view for a specified operation. Table-settings rules are optional, depending on your endpoint and migration requirements. 
 

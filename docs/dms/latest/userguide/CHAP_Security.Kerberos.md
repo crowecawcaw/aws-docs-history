@@ -1,7 +1,6 @@
 
 
 # Using Kerberos Authentication with AWS Database Migration Service
-<a name="CHAP_Security.Kerberos"></a>
 
 Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source endpoint to connect to your database instance using Kerberos authentication. DMS supports Directory Service for Microsoft Active Directory and Kerberos authentication. For more information about AWS-managed access to Microsoft Active Directory Services, see [ What is Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html).
 
@@ -68,7 +67,7 @@ The following example shows an IAM role policy with the Secrets Manager `GetSecr
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

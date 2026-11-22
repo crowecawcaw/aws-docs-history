@@ -1,7 +1,6 @@
 
 
 # Configuring AWS DMS secrets manager VPC Endpoint
-<a name="CHAP_Advanced.Endpoints.secretsmanager"></a>
 
 You must create a VPC endpoint to access the AWS Secrets Manager from a replication instance in a private subnet. This allows the replication instance access the Secrets Manager directly through the private network without sending traffic over the public internet.
 

@@ -1,7 +1,6 @@
 
 
 # Using an Amazon DynamoDB database as a target for AWS Database Migration Service
-<a name="CHAP_Target.DynamoDB"></a>
 
 You can use AWS DMS to migrate data to an Amazon DynamoDB table. Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. AWS DMS supports using a relational database or MongoDB as a source.
 
@@ -47,14 +46,14 @@ NULL data from the source are ignored on the target.
 ## Prerequisites for using DynamoDB as a target for AWS Database Migration Service
 <a name="CHAP_Target.DynamoDB.Prerequisites"></a>
 
-Before you begin to work with a DynamoDB database as a target for AWS DMS, make sure that you create an IAM role. This IAM role should allow AWS DMS to assume and grant access to the DynamoDB tables that are being migrated into. The minimum set of access permissions is shown in the following IAM policy.
+Before you begin to work with a DynamoDB database as a target for AWS DMS, make sure that you create an IAM role. This IAM role should allow AWS DMS to assume and grant access to the DynamoDB tables that are being migrated into. The minimum set of access permissions is shown in the following IAM policy. For role naming restrictions, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -79,7 +78,7 @@ The role that you use for the migration to DynamoDB must have the following perm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

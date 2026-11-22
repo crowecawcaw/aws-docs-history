@@ -1,7 +1,6 @@
 
 
 # Converting database schemas in DMS Schema Conversion: step-by-step guide
-<a name="schema-conversion-convert"></a>
 
 After you create the migration project and connect to your source and target databases, you can convert your source database objects to a format compatible with your target database. DMS Schema Conversion displays your source database schema in the left panel in a tree-view format.
 

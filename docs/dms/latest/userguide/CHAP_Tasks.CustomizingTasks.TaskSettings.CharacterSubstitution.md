@@ -1,7 +1,6 @@
 
 
 # Character substitution task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.CharacterSubstitution"></a>
 
 You can specify that your replication task perform character substitutions on the target database for all source database columns with the AWS DMS `STRING` or `WSTRING` data type. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example). 
 

@@ -1,7 +1,6 @@
 
 
 # Assessments for all endpoint types
-<a name="CHAP_Tasks.AssessmentReport.Assessments.All"></a>
 
 This section describes individual premigration assessments for all endpoint types.
 

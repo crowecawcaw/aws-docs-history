@@ -1,7 +1,6 @@
 
 
 # IP addressing and network types
-<a name="CHAP_ReplicationInstance.IPAddressing"></a>
 
 AWS DMS always creates your replication instance in an Amazon Virtual Private Cloud (VPC). When you create your VPC, you can determine the IP addressing to use: either IPv4 or IPv6, or both. Then, when you create or modify a replication instance, you can specify use of an IPv4 address protocol or an IPv6 address protocol using *dual-stack mode*. 
 

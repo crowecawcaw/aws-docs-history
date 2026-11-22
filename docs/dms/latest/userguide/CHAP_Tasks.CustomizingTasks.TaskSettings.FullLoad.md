@@ -1,7 +1,6 @@
 
 
 # Full-load task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.FullLoad"></a>
 
 Full-load settings include the following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 + To indicate how to handle loading the target at full-load startup, specify one of the following values for the `TargetTablePrepMode` option: 

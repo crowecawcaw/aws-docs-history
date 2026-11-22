@@ -1,7 +1,6 @@
 
 
 # Troubleshooting assessment runs
-<a name="CHAP_Tasks.AssessmentReport.Troubleshooting"></a>
 
 Following, you can find topics about troubleshooting issues with running assessment reports with AWS Database Migration Service. These topics can help you to resolve common issues.
 
@@ -34,7 +33,7 @@ If you encounter this exception, create the **dms-access-for-tasks** role by doi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

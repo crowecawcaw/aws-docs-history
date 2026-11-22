@@ -1,7 +1,6 @@
 
 
 # Data type rules
-<a name="sc-default-rules-data-types-sqlserver"></a>
 
 The following rules apply when you convert a Microsoft SQL Server database to Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL.
 

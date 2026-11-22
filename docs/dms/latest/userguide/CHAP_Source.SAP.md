@@ -1,7 +1,6 @@
 
 
 # Using an SAP ASE database as a source for AWS DMS
-<a name="CHAP_Source.SAP"></a>
 
 You can migrate data from an SAP Adaptive Server Enterprise (ASE) database—formerly known as Sybase—using AWS DMS. With an SAP ASE database as a source, you can migrate data to any of the other supported AWS DMS target databases. 
 

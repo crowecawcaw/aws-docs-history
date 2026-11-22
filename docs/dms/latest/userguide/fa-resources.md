@@ -1,7 +1,6 @@
 
 
 # Creating required AWS resources for AWS DMS Fleet Advisor
-<a name="fa-resources"></a>
 
 **Important**  
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
@@ -155,7 +154,7 @@ To make sure that your data collector works correctly and uploads the collected 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -200,7 +199,7 @@ To make sure that your data collector works correctly and uploads the collected 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -268,7 +267,7 @@ To make sure that your data collector works correctly and uploads the collected 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -337,7 +336,7 @@ The minimum required permissions to create the service-linked role are specified
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

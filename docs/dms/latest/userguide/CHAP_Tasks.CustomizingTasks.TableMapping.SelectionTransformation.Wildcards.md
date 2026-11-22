@@ -1,7 +1,6 @@
 
 
 # Wildcards in table mapping
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Wildcards"></a>
 
 This section describes wildcards you can use when specifying the schema and table names for table mapping.
 

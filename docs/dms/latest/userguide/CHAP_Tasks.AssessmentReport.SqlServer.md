@@ -1,7 +1,6 @@
 
 
 # Sql Server assessments
-<a name="CHAP_Tasks.AssessmentReport.SqlServer"></a>
 
 This section describes individual premigration assessments for migration tasks that use a Microsoft SQL Server source endpoint.
 

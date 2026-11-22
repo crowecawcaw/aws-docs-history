@@ -1,7 +1,6 @@
 
 
 # Target metadata task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata"></a>
 
 Target metadata settings include the following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 + `TargetSchema` – The target table schema name. If this metadata option is empty, the schema from the source table is used. AWS DMS automatically adds the owner prefix for the target database to all tables if no source schema is defined. This option should be left empty for MySQL-type target endpoints. For Oracle target endpoints, if you leave this option empty, AWS DMS uses the connection user's schema as the default target schema. A schema-rename transformation rule in your table mapping takes precedence over this setting.

@@ -1,7 +1,6 @@
 
 
 # Using table mapping to specify task settings
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping"></a>
 
 Table mapping uses several types of rules to specify the data source, source schema, data, and any transformations that should occur during the task. You can use table mapping to specify individual tables in a database to migrate and the schema to use for the migration. 
 

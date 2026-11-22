@@ -1,7 +1,6 @@
 
 
 # Migrating data from MongoDB databases with homogeneous data migrations in AWS DMS
-<a name="dm-migrating-data-mongodb"></a>
 
 You can use [Homogeneous data migrations](data-migrations.md) to migrate a self-managed MongoDB database to Amazon DocumentDB. AWS DMS creates a serverless environment for your data migration. For different types of data migrations, AWS DMS uses different native MongoDB database tools.
 

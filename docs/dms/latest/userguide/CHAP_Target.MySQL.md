@@ -1,7 +1,6 @@
 
 
 # Using a MySQL-compatible database as a target for AWS Database Migration Service
-<a name="CHAP_Target.MySQL"></a>
 
 You can migrate data to any MySQL-compatible database using AWS DMS, from any of the source data engines that AWS DMS supports. If you are migrating to an on-premises MySQL-compatible database, then AWS DMS requires that your source engine reside within the AWS ecosystem. The engine can be on an AWS-managed service such as Amazon RDS, Amazon Aurora, or Amazon S3. Or the engine can be on a self-managed database on Amazon EC2. 
 
@@ -52,7 +51,7 @@ Before you begin to work with a MySQL-compatible database as a target for AWS DM
 + Set the database parameter `local_infile = 1` to enable AWS DMS to load data into the target database.
 + Grant the following privileges if you use MySQL-specific premigration assessments.
 
-  ```
+  ```sql
   grant select on mysql.user to <dms_user>;
   grant select on mysql.db to <dms_user>;
   grant select on mysql.tables_priv to <dms_user>;

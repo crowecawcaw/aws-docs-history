@@ -1,7 +1,6 @@
 
 
 # Using an Amazon DocumentDB database as a target for homogeneous data migrations in AWS DMS
-<a name="dm-data-providers-target-docdb"></a>
 
 You can use an Amazon DocumentDB (with MongoDB compatibility) database and DocumentDB Elastic cluster as a migration target for homogeneous data migrations in AWS DMS. 
 

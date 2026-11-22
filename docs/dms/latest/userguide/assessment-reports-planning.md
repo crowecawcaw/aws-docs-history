@@ -1,7 +1,6 @@
 
 
 # Using the conversion assessment report for migration planning
-<a name="assessment-reports-planning"></a>
 
 The conversion assessment report is the first step in your database migration journey. Organizations use the report to evaluate migration complexity and make informed go/no-go decisions before committing to a full-scale migration project.
 
@@ -15,6 +14,8 @@ The `Action_Items_Summary` CSV file provides three values for each action item t
 
 **Note**  
 The effort values in the CSV are relative units on a weighted scale, not hours. To convert to person-hours or person-days, multiply by a calibration factor derived from your team's historical velocity on similar migration work.
+
+**Conservative upper-bound estimate**
 
 The simplest estimate treats every occurrence as equally difficult. Use this formula as a worst-case upper bound:
 
@@ -32,6 +33,8 @@ Total effort (upper bound) =
 ```
 
 For example, action item 5028 in a sample Oracle-to-PostgreSQL assessment has a learning curve effort of 40, a per-occurrence effort of 8, and 12 occurrences. Its upper-bound total is 40 \+ (8 × 12) = 136.
+
+**Realistic scenario-based estimate**
 
 The upper-bound formula overstates effort because it assumes every occurrence takes the same amount of work. In practice, once your team has resolved the first few occurrences of an action item type, subsequent occurrences become faster — the solution is known and the conversion is routine. A more realistic model discounts the majority of occurrences.
 

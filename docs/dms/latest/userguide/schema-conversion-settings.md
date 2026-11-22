@@ -1,7 +1,6 @@
 
 
 # Specifying schema conversion settings for migration projects
-<a name="schema-conversion-settings"></a>
 
 Schema conversion settings let you customize two things: how DMS Schema Conversion converts source database objects into target-compatible SQL, and which schemas and databases appear in the schema conversion view. Settings that apply to all conversion paths are documented in the sections below. For settings specific to a conversion path, see the corresponding topic in the navigation.
 
@@ -96,7 +95,7 @@ You can pass the conversion configuration to `--conversion-configuration` in the
 
 The full JSON structure looks like this:
 
-```
+```json
 {
   "Common project settings": {
     "ShowSeverityLevelInSql": "CRITICAL",

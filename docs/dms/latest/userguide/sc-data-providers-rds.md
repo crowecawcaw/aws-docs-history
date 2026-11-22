@@ -1,7 +1,6 @@
 
 
 # Using Amazon RDS for Db2 database as a target in DMS Schema Conversion
-<a name="sc-data-providers-rds"></a>
 
 You can use Amazon RDS for Db2 databases as a migration target in DMS Schema Conversion.
 

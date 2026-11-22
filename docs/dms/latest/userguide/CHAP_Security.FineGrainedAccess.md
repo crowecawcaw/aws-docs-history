@@ -1,7 +1,6 @@
 
 
 # Fine-grained access control using resource names and tags
-<a name="CHAP_Security.FineGrainedAccess"></a>
 
 You can use resource names and resource tags based on Amazon Resource Names (ARNs) to manage access to AWS DMS resources. You do this by defining permitted action or including conditional statements in IAM policies. 
 
@@ -17,7 +16,7 @@ The following policy denies access to the AWS DMS replication instance with the 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ The following policy limits access to an AWS DMS endpoint using the endpoint's A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ The following policy limits access to an AWS DMS task using the task's ARN.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -196,7 +195,7 @@ The following policy limits access to a replication instance where the tag value
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -272,7 +271,7 @@ The following policy limits access to an AWS DMS endpoint where the tag value is
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -348,7 +347,7 @@ The following policy limits access to a replication task where the tag value is 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # IBM Db2 for z/OS to Amazon RDS for PostgreSQL conversion settings
-<a name="schema-conversion-db2-zos-postgresql"></a>
 
 **Important**  
 DMS Schema Conversion doesn't provide a AWS Management Console experience for the IBM Db2 for z/OS to Amazon RDS for PostgreSQL conversion path. You can't create or configure these migration projects in the AWS Management Console, so you configure every setting on this page with the AWS CLI or the AWS Database Migration Service API. Because there is no AWS Management Console for this conversion path, each setting is identified only by its API and AWS CLI parameter name, not by a AWS Management Console label.
@@ -11,6 +10,8 @@ The following settings apply when the source is IBM Db2 for z/OS and the target 
 This topic covers settings specific to the IBM Db2 for z/OS to PostgreSQL conversion path. In addition to these settings, DMS Schema Conversion provides settings that apply to all source and target pairs, such as the severity level for action-item comments in converted SQL and the option to use generative AI for conversion. For those settings, see [Common conversion settings](schema-conversion-settings.md#schema-conversion-settings-common).
 
 When you use the API or AWS CLI, specify conversion path settings under the section names `DB2ZOS_TO_POSTGRESQL`, `DB2ZOS_TO_POSTGRESQL_14`, or `DB2ZOS_TO_POSTGRESQL_15`. All three versioned sections accept the same keys. To find which section names your project uses, call [DescribeConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first and update only the sections present in the response.
+
+**Data type and schema settings**
 
 `ConvertNumberToBigint`  
 Controls how IBM Db2 for z/OS numeric columns without explicit precision are mapped on the target.  
@@ -37,6 +38,8 @@ Controls how the target PostgreSQL schema name is generated from the IBM Db2 for
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 
+**Code and constraint settings**
+
 `GenerateUniqueNamesForConstraints`  
 Controls whether constraint names are made unique across all schemas on the target.  
 + `true` — DMS Schema Conversion appends a hash suffix to each constraint name to guarantee uniqueness across schemas.
@@ -57,6 +60,8 @@ Controls how IBM Db2 for z/OS stored procedures that return dynamic result sets 
 + `true` — Dynamic result sets are converted using a PostgreSQL `refcursor` array, which lets the caller iterate over multiple result sets.
 **Type:** Boolean (`true` \| `false`)  
 **Default:** `false`
+
+**Partition settings**
 
 `ExcludeTablePartitions`  
 Controls whether table partition definitions are included in the converted DDL.  
@@ -102,6 +107,8 @@ Controls whether DMS Schema Conversion scales the number of generated partitions
 **Type:** Boolean (`true` \| `false`)  
 **Default:** `false`
 
+**Date and time format settings**
+
 `StringRepresentationOfDate`  
 Controls the string format used when representing IBM Db2 `DATE` values in converted code.  
 
@@ -140,6 +147,8 @@ Controls the string format used when representing IBM Db2 `TIME` values in conve
 **Type:** String (enum)  
 **Default:** `ISO`
 
+**Schema tree view settings**
+
 The following settings control which schemas and databases appear in the schema tree view. They affect what you can select for conversion; they don't change the converted SQL output.
 
 `TreeSettingsHideEmpty`  
@@ -168,7 +177,7 @@ Controls whether system schemas appear in the schema tree view alongside user sc
 
 The following example sets the partition count and the date format. Apply the same settings to each section name that your project uses (check the output of [DescribeConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first).
 
-```
+```json
 {
   "DB2ZOS_TO_POSTGRESQL_15": {
     "PartitionCount": 20,

@@ -1,7 +1,6 @@
 
 
 # Working with Amazon SNS events and notifications in AWS Database Migration Service
-<a name="CHAP_Events"></a>
 
 Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommend that you use Amazon EventBridge to provide notifications when an AWS DMS event occurs. For more information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md).
 
@@ -21,7 +20,7 @@ To run the `update-subscriptions-to-event-bridge` CLI command, an AWS Identity a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

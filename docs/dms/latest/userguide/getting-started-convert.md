@@ -1,7 +1,6 @@
 
 
 # Convert your source code in DMS Schema Conversion
-<a name="getting-started-convert"></a>
 
 You can convert your source database schema using the following procedure. Then you can save the converted code as SQL scripts in a text file.
 

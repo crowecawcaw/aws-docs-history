@@ -1,7 +1,6 @@
 
 
 # Using Redis OSS as a target for AWS Database Migration Service
-<a name="CHAP_Target.Redis"></a>
 
 Redis OSS is an open-source in-memory data structure store used as a database, cache, and message broker. Managing data in-memory can result in read or write operations taking less than a millisecond, and hundreds of millions of operations performed each second. As an in-memory data store, Redis OSS powers the most demanding applications requiring sub-millisecond response times.
 

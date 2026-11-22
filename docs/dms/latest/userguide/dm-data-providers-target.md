@@ -1,7 +1,6 @@
 
 
 # Creating and setting a target database to work with AWS DMS schema conversion
-<a name="dm-data-providers-target"></a>
 
 You can use MySQL-compatible, PostgreSQL, and Amazon DocumentDB databases as a target data provider for homogeneous data migrations in AWS DMS.
 

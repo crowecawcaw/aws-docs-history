@@ -1,7 +1,6 @@
 
 
 # VPC peering network configurations
-<a name="vpc-peering"></a>
 
 With AWS DMS, you can create a serverless environment for homogeneous data migrations in a virtual private cloud (VPC) based on the Amazon VPC service. When you create your instance profile, you specify the VPC to use. You can use your default VPC for your account and AWS Region, or you can create a new VPC.
 

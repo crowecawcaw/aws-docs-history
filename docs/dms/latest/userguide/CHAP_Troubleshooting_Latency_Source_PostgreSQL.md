@@ -1,7 +1,6 @@
 
 
 # PostgreSQL Endpoint Troubleshooting
-<a name="CHAP_Troubleshooting_Latency_Source_PostgreSQL"></a>
 
 This section contains replication scenarios specific to PostgreSQL.
 

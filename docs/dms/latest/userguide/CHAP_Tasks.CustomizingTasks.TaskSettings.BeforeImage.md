@@ -1,7 +1,6 @@
 
 
 # Before image task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.BeforeImage"></a>
 
 When writing CDC updates to a data-streaming target like Kinesis or Apache Kafka, you can view a source database row's original values before change by an update. To make this possible, AWS DMS populates a *before image* of update events based on data supplied by the source database engine. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 

@@ -1,7 +1,6 @@
 
 
 # Configuring VPC endpoints for AWS DMS
-<a name="CHAP_VPC_Endpoints"></a>
 
 AWS DMS supports Amazon virtual private cloud (VPC) endpoints as sources and targets. AWS DMS can connect to any AWS source or target database with Amazon VPC endpoints as long as explicitly defined routes to these source and target databases are defined in their AWS DMS VPC.
 

@@ -1,7 +1,6 @@
 
 
 # Using an IBM Db2 for z/OS database as a source in DMS Schema Conversion
-<a name="sc-data-providers-db2zos"></a>
 
 You can use an IBM Db2 for z/OS databases as a migration source in DMS Schema Conversion.
 

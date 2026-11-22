@@ -1,7 +1,6 @@
 
 
 # Troubleshooting for homogeneous data migrations in AWS DMS
-<a name="dm-troubleshooting"></a>
 
 In the following list, you can find actions to take when you encounter issues with homogeneous data migrations in AWS DMS.
 

@@ -1,7 +1,6 @@
 
 
 # Using a MySQL compatible database as a source for homogeneous data migrations in AWS DMS
-<a name="dm-data-providers-source-mysql"></a>
 
 You can use a MySQL-compatible database (MySQL or MariaDB) as a source for [Homogeneous data migrations](data-migrations.md) in AWS DMS. In this case, your source data provider can be an on-premises, Amazon EC2, or RDS for MySQL or MariaDB database.
 

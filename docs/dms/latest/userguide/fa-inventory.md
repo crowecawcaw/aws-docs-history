@@ -1,7 +1,6 @@
 
 
 # Using inventories for analysis in AWS DMS Fleet Advisor
-<a name="fa-inventory"></a>
 
 **Important**  
 End of support notice: On May 20, 2026, AWS will end support for AWS Database Migration Service Fleet Advisor. After May 20, 2026, you will no longer be able to access the AWS DMS Fleet Advisor console or AWS DMS Fleet Advisor resources. For more information, see [AWS DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).

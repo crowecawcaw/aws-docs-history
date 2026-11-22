@@ -1,7 +1,6 @@
 
 
 # Using a MySQL database as a source in DMS Schema Conversion
-<a name="sc-data-providers-mysql"></a>
 
 You can use MySQL databases as a migration source in DMS Schema Conversion.
 

@@ -1,7 +1,6 @@
 
 
 # Using a MySQL-compatible database as a source for AWS DMS
-<a name="CHAP_Source.MySQL"></a>
 
 You can migrate data from any MySQL-compatible database (MySQL, MariaDB, or Amazon Aurora MySQL) using AWS Database Migration Service. 
 
@@ -48,7 +47,7 @@ The AWS DMS user must also have SELECT privileges for the source tables designat
 
 Grant the following privileges if you use MySQL-specific premigration assessments:
 
-```
+```sql
 grant select on mysql.user to <dms_user>;
 grant select on mysql.db to <dms_user>;
 grant select on mysql.tables_priv to <dms_user>;
@@ -58,7 +57,7 @@ grant select on performance_schema.replication_connection_status to <dms_user>; 
 
 If you're using an RDS source and plan to run MySQL-specific premigration assessments, add the following permission:
 
-```
+```sql
 grant select on mysql.rds_configuration to <dms_user>;  #Required for binary log retention check
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Public and private replication instances
-<a name="CHAP_ReplicationInstance.PublicPrivate"></a>
 
 You can specify if a replication instance has a public or private IP address that the instance uses to connect to the source and target databases.
 

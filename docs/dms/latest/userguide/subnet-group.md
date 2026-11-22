@@ -1,7 +1,6 @@
 
 
 # Creating a subnet group for an AWS DMS migration project
-<a name="subnet-group"></a>
 
 Before you create an instance profile, configure a subnet group for your instance profile.
 

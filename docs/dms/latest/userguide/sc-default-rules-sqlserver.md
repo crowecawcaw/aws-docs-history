@@ -1,7 +1,6 @@
 
 
 # SQL Server to PostgreSQL
-<a name="sc-default-rules-sqlserver"></a>
 
 This section describes the default rules that DMS Schema Conversion applies when it converts a Microsoft SQL Server source database to Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL.
 

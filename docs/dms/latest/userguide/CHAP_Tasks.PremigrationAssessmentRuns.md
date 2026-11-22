@@ -1,7 +1,6 @@
 
 
 # Specifying, starting, and viewing premigration assessment runs
-<a name="CHAP_Tasks.PremigrationAssessmentRuns"></a>
 
 A premigration assessment specifies one or more individual assessments to run based on a new or existing migration task configuration. Each individual assessment evaluates a specific element of the source or target database depending on considerations such as the migration type, supported objects, index configuration, and other task settings, such as table mappings to identify the schemas and tables to migrate. For example, an individual assessment might evaluate what source data types or primary key formats can and cannot be migrated.
 

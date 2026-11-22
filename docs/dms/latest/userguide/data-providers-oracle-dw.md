@@ -1,7 +1,6 @@
 
 
 # Using an Oracle Data Warehouse database as a source in DMS Schema Conversion
-<a name="data-providers-oracle-dw"></a>
 
 You can use Oracle Data Warehouse databases as a migration source in DMS Schema Conversion to convert database code objects and application code to Amazon Redshift.
 

@@ -1,7 +1,6 @@
 
 
 # Creating tasks for ongoing replication using AWS DMS
-<a name="CHAP_Task.CDC"></a>
 
 You can create an AWS DMS task that captures ongoing changes from the source data store. You can do this capture while you are migrating your data. You can also create a task that captures ongoing changes after you complete your initial (full-load) migration to a supported target data store. This process is called ongoing replication or change data capture (CDC). AWS DMS uses this process when replicating ongoing changes from a source data store. This process works by collecting changes to the database logs using the database engine's native API. 
 

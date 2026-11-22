@@ -1,7 +1,6 @@
 
 
 # Setting up a network for a replication instance
-<a name="CHAP_ReplicationInstance.VPC"></a>
 
 AWS DMS always creates the replication instance in a VPC based on Amazon VPC. You specify the VPC where your replication instance is located. You can use your default VPC for your account and AWS Region, or you can create a new VPC. 
 
@@ -103,6 +102,8 @@ The VPC route table must include routing rules that send traffic not destined fo
 ### Configuration with an RDS DB instance not in a VPC to a DB instance in a VPC using ClassicLink
 <a name="CHAP_ReplicationInstance.VPC.Configurations.ClassicLink"></a>
 
+
+**EC2-Classic retirement notice**  
 
 |  | 
 | --- |
@@ -299,6 +300,8 @@ You create a replication subnet group to define which subnets to use. You must s
 
 1. On the **Create replication subnet group** page, specify your replication subnet group information. The following table describes the settings.
 
+
+**Replication subnet group settings**  
 
 <table>
 <thead>

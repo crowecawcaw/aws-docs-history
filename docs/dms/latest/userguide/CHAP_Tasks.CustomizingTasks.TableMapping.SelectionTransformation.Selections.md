@@ -1,13 +1,14 @@
 
 
 # Selection rules and actions
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections"></a>
 
 Using table mapping, you can specify what tables, views, and schemas you want to work with by using selection rules and actions. For table-mapping rules that use the selection rule type, you can apply the following values. 
 
 **Warning**  
 Do not to include any sensitive data within these rules.
 
+
+**Selection rule parameters**  
 
 | Parameter | Possible values | Description | 
 | --- | --- | --- | 

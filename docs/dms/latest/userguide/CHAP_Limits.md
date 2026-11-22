@@ -1,7 +1,6 @@
 
 
 # Quotas for AWS Database Migration Service
-<a name="CHAP_Limits"></a>
 
 Following, you can find the resource quotas and naming constraints for AWS Database Migration Service (AWS DMS).
 

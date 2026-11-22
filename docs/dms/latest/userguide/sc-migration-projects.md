@@ -1,7 +1,6 @@
 
 
 # Managing migration projects in DMS Schema Conversion
-<a name="sc-migration-projects"></a>
 
 After you create an instance profile and compatible data providers for schema conversion, create a migration project. For more information, see [ Creating migration projects](migration-projects-create.md).
 

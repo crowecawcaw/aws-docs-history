@@ -1,7 +1,6 @@
 
 
 # PostgreSQL diagnostic support scripts
-<a name="CHAP_SupportScripts.PostgreSQL"></a>
 
 Following, you can find the diagnostic support scripts available to analyze any PostgreSQL RDBMS (on-premises, Amazon RDS, or Aurora PostgreSQL) in your AWS DMS migration configuration. These scripts work with either a source or target endpoint. The scripts are all written to run in the psql command-line utility. 
 

@@ -1,7 +1,6 @@
 
 
 # Using an Amazon Redshift cluster as a target in DMS Schema Conversion
-<a name="data-providers-redshift"></a>
 
 You can use Amazon Redshift databases as a migration target in DMS Schema Conversion. For information about supported target databases, see [Target data providers for DMS Schema Conversion](CHAP_Introduction.Targets.md#CHAP_Introduction.Targets.SchemaConversion). 
 
@@ -17,7 +16,7 @@ Using Amazon Redshift as a target for DMS Schema Conversion requires the followi
 
 You can use the following code example to create a database user and grant it permissions. Replace the example values with your values.
 
-```
+```sql
 CREATE USER {{user_name}} PASSWORD {{your_password}};
 GRANT CREATE ON DATABASE {{db_name}} TO {{user_name}};
 GRANT CREATE ON SCHEMA {{schema_name}} TO {{user_name}};

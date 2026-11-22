@@ -1,7 +1,6 @@
 
 
 # Creating required IAM resources for homogeneous data migrations in AWS DMS
-<a name="dm-iam-resources"></a>
 
 To run homogeneous data migrations, you must create an IAM policy and an IAM role in your account to interact with other AWS services. In this section, you create these required IAM resources.
 
@@ -33,7 +32,7 @@ In this step, you create an IAM policy that provides AWS DMS with access to Amaz
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

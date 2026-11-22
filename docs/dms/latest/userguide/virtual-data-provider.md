@@ -1,7 +1,6 @@
 
 
 # Virtual mode for offline source and virtual target
-<a name="virtual-data-provider"></a>
 
 AWS Database Migration Service (DMS) offers **Virtual Mode** for data providers in schema conversion. **Virtual Mode** supports two use cases:
 + Offline source – Convert schemas from exported script files without connecting to your source database. Use this when direct connectivity to your source database is not available. **Virtual Mode** for offline source is currently available for Microsoft SQL Server and Oracle source databases.

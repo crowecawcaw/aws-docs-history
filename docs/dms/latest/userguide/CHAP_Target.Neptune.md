@@ -1,7 +1,6 @@
 
 
 # Using Amazon Neptune as a target for AWS Database Migration Service
-<a name="CHAP_Target.Neptune"></a>
 
 Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Neptune is a purpose-built, high-performance graph database engine. This engine is optimized for storing billions of relationships and querying the graph with milliseconds latency. Neptune supports the popular graph query languages Apache TinkerPop Gremlin and W3C's SPARQL. For more information on Amazon Neptune, see [What is Amazon Neptune?](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html) in the *Amazon Neptune User Guide*. 
 
@@ -97,7 +96,7 @@ The `--neptune-settings` option request parameters follow:
 ## Creating an IAM service role for accessing Amazon Neptune as a target
 <a name="CHAP_Target.Neptune.ServiceRole"></a>
 
-To access Neptune as a target, create a service role using IAM. Depending on your Neptune endpoint configuration, attach to this role some or all of the following IAM policy and trust documents. When you create the Neptune endpoint, you provide the ARN of this service role. Doing so enables AWS DMS and Amazon Neptune to assume permissions to access both Neptune and its associated Amazon S3 bucket.
+To access Neptune as a target, create a service role using IAM. Depending on your Neptune endpoint configuration, attach to this role some or all of the following IAM policy and trust documents. When you create the Neptune endpoint, you provide the ARN of this service role. Doing so enables AWS DMS and Amazon Neptune to assume permissions to access both Neptune and its associated Amazon S3 bucket. For role naming restrictions, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
 
 If you set the `IAMAuthEnabled` parameter in `NeptuneSettings` to `true` in your Neptune endpoint configuration, attach an IAM policy like the following to your service role. If you set `IAMAuthEnabled` to `false`, you can ignore this policy.
 
@@ -168,7 +167,7 @@ Edit the trust relationship and attach the following IAM role to your service ro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

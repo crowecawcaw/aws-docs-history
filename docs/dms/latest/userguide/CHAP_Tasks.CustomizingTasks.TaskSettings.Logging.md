@@ -1,7 +1,6 @@
 
 
 # Logging task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.Logging"></a>
 
 Logging uses Amazon CloudWatch to log information during the migration process. Using logging task settings, you can specify which component activities are logged and what amount of information is written to the log. Logging task settings are written to a JSON file. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example). 
 

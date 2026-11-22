@@ -1,7 +1,6 @@
 
 
 # Error handling task settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling"></a>
 
 You can set the error handling behavior of your replication task using the following settings. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.TaskSettings.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 + `DataErrorPolicy` – Determines the action AWS DMS takes when there is an error related to data processing at the record level. Some examples of data processing errors include conversion errors, errors in transformation, and bad data. The default is `LOG_ERROR`.

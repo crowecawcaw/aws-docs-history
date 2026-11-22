@@ -1,7 +1,6 @@
 
 
 # Oracle to Amazon Redshift conversion settings
-<a name="schema-conversion-oracle-redshift"></a>
 
 The following settings apply when the source is Oracle and the target is Amazon Redshift. You can configure these settings using the AWS Management Console or the [ModifyConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 

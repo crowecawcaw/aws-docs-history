@@ -1,7 +1,6 @@
 
 
 # DDL statements supported by AWS DMS
-<a name="CHAP_Introduction.SupportedDDL"></a>
 
 You can execute data definition language (DDL) statements on the source database during the data migration process. These statements are replicated to the target database by the replication server. 
 

@@ -1,7 +1,6 @@
 
 
 # Overview of the homogeneous data migration process in AWS DMS
-<a name="dm-getting-started"></a>
 
 You can use homogeneous data migrations in AWS DMS to migrate data between two databases of the same type. Use the following workflow to create and run a data migration.
 

@@ -1,7 +1,6 @@
 
 
 # Using a PostgreSQL database as a source in DMS Schema Conversion
-<a name="sc-data-providers-postgresql"></a>
 
 You can use PostgreSQL databases as a migration source in DMS Schema Conversion. 
 

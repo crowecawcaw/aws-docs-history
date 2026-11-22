@@ -1,7 +1,6 @@
 
 
 # Target table preparation mode
-<a name="dm-migrating-data-table-prep"></a>
 
 You can select Target table preparation mode when you choose to a create data migration task under the **Advanced Settings** tab in the AWS DMS console for PostgreSQL, MongoDB, and Amazon DocumentDB migrations.
 

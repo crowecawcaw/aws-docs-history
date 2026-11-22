@@ -1,7 +1,6 @@
 
 
 # Using Amazon DocumentDB as a target for AWS Database Migration Service
-<a name="CHAP_Target.DocumentDB"></a>
 
  For information about what versions of Amazon DocumentDB (with MongoDB compatibility) that AWS DMS supports, see [Targets for AWS DMS](CHAP_Introduction.Targets.md). You can use AWS DMS to migrate data to Amazon DocumentDB (with MongoDB compatibility) from any of the source data engines that AWS DMS supports. The source engine can be on an AWS managed service such as Amazon RDS, Aurora, or Amazon S3. Or the engine can be on a self-managed database, such as MongoDB running on Amazon EC2 or on-premises.
 
@@ -89,7 +88,7 @@ To coerce a data type, you can prefix the source column name with `json_` (that 
 
 For example, suppose that you want to migrate the following document from a MongoDB source endpoint.
 
-```
+```json
 {
     "_id": "1", 
     "FirstName": "John", 
@@ -100,7 +99,7 @@ For example, suppose that you want to migrate the following document from a Mong
 
 If you don't coerce any of the source data types, the embedded `ContactDetails` document is migrated as a string.
 
-```
+```json
 {
     "_id": "1", 
     "FirstName": "John", 
@@ -134,7 +133,7 @@ However, you can add a transformation rule to coerce `ContactDetails` to a JSON 
 
 AWS DMS replicates the ContactDetails field as nested JSON, as follows. 
 
-```
+```json
 {
     "_id": "1",
     "FirstName": "John",
@@ -159,7 +158,7 @@ To coerce a data type, you can prefix a column name with `array_` (that is, `arr
 
 Suppose that you want to migrate the following document from a MongoDB source endpoint.
 
-```
+```json
 {
     "_id" : "1",
     "FirstName": "John",
@@ -171,7 +170,7 @@ Suppose that you want to migrate the following document from a MongoDB source en
 
 If you don't coerce any of the source data types, the embedded `ContactDetails` document is migrated as a string.
 
-```
+```json
 {
     "_id": "1",
     "FirstName": "John",
@@ -192,7 +191,7 @@ If you don't coerce any of the source data types, the embedded `ContactDetails` 
 
 AWS DMS replicates `ContactAddress` and `ContactPhoneNumbers` as follows.
 
-```
+```json
 {
     "_id": "1",
     "FirstName": "John",

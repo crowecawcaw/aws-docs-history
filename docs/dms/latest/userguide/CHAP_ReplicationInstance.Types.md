@@ -1,7 +1,6 @@
 
 
 # Choosing the right AWS DMS replication instance for your migration
-<a name="CHAP_ReplicationInstance.Types"></a>
 
 AWS DMS creates the replication instance on an Amazon EC2 instance. AWS DMS currently supports the T3, C5, C6i, R5, and R6i Amazon EC2 instance classes for replication instances:
 + T3 instances are the next-generation burstable general-purpose instance type. This type provides a baseline level of CPU performance with the ability to burst CPU usage at any time for as long as required. T3 instances offer a balance of compute, memory, and network resources and are designed for applications with moderate CPU usage that experience temporary spikes in use. T3 instances accumulate CPU credits when a workload is operating below baseline threshold. Each earned CPU credit provides the T3 instance the opportunity to burst with the performance of a full CPU core for one minute when needed. 
@@ -19,6 +18,8 @@ Each replication instance has a specific configuration of memory and vCPU. The f
 **General Purpose Replication Instance Types**
 
 
+**General-purpose replication instance types**  
+
 |  Type  |  vCPU  |  Memory (GiB)  | 
 | --- | --- | --- | 
 | dms.t3.micro | 2 | 1 | 
@@ -28,6 +29,8 @@ Each replication instance has a specific configuration of memory and vCPU. The f
 
 **Compute Optimized Replication Instance Types**
 
+
+**Compute-optimized replication instance types**  
 
 |  Type  |  vCPU  |  Memory (GiB)  | 
 | --- | --- | --- | 
@@ -60,6 +63,8 @@ Each replication instance has a specific configuration of memory and vCPU. The f
 
 **Memory Optimized Replication Instance Types**
 
+
+**Memory-optimized replication instance types**  
 
 |  Type  |  vCPU  |  Memory (GiB)  | 
 | --- | --- | --- | 

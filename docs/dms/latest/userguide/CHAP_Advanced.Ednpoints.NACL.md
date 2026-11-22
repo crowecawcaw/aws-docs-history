@@ -1,7 +1,6 @@
 
 
 # Network Access Control List (NACL) configuration for AWS DMS
-<a name="CHAP_Advanced.Ednpoints.NACL"></a>
 
 When using Amazon RDS as a replication source, you should update the Network Access Control Lists (NACLs) for your DMS and RDS instance. Ensure that the NACLs are associated with the subnets where these instances reside. This allows inbound and outbound traffic on the specific database port.
 

@@ -1,7 +1,6 @@
 
 
 # Create data providers for DMS Schema Conversion
-<a name="getting-started-data-providers"></a>
 
 Next, you create data providers that describe your source and target databases. For each data provider, you specify a data store type and location information. You don't store your database credentials in a data provider.
 
@@ -43,7 +42,7 @@ Next, you create data providers that describe your source and target databases. 
 
 To create a data provider, use the [create-data-provider](https://docs.aws.amazon.com/cli/latest/reference/dms/create-data-provider.html) command.
 
-```
+```bash
 aws dms create-data-provider \
     --data-provider-name {{my-data-provider}} \
     --engine {{engine-type}} \
@@ -68,7 +67,7 @@ Replace the following:
 
 To create an offline source data provider, use the [create-data-provider](https://docs.aws.amazon.com/cli/latest/reference/dms/create-data-provider.html) command with the `--virtual` flag and the S3 settings in the engine configuration. Offline source supports `sqlserver` and `oracle` engines. For the engine-specific settings object, use `MicrosoftSqlServerSettings` or `OracleSettings`.
 
-```
+```bash
 aws dms create-data-provider \
     --data-provider-name {{my-offline-source}} \
     --engine {{engine-type}} \
@@ -104,7 +103,7 @@ For more information about offline source prerequisites and S3 permissions, see 
 
 To create a virtual target data provider, use the [create-data-provider](https://docs.aws.amazon.com/cli/latest/reference/dms/create-data-provider.html) command with the `--virtual` flag. Do not include `S3Path` or `S3AccessRoleArn` – these settings are rejected for a virtual target.
 
-```
+```bash
 aws dms create-data-provider \
     --data-provider-name {{my-virtual-target}} \
     --engine postgres \

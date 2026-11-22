@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites for working with DMS Schema Conversion
-<a name="set-up"></a>
 
 Before you create an instance profile, add data providers, and create a migration project, complete the following prerequisite tasks. These tasks configure the AWS resources that DMS Schema Conversion needs, such as a VPC, an Amazon S3 bucket, AWS Secrets Manager secrets, and IAM roles with permissions policies.
 
@@ -43,7 +42,7 @@ To use DMS Schema Conversion, create the following five IAM roles. Each role mus
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -66,7 +65,7 @@ To use DMS Schema Conversion, create the following five IAM roles. Each role mus
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ Each role requires the following trust policy:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

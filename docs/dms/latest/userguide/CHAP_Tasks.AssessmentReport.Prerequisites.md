@@ -1,7 +1,6 @@
 
 
 # Creating prerequisites for premigration assessments
-<a name="CHAP_Tasks.AssessmentReport.Prerequisites"></a>
 
 This section describes the Amazon S3 and IAM resources you need to create a premigration assessment.
 
@@ -45,7 +44,7 @@ To create the IAM policy, do the following:
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -106,7 +105,7 @@ To create the IAM role, do the following:
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

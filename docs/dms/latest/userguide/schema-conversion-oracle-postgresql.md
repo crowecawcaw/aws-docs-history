@@ -1,7 +1,6 @@
 
 
 # Oracle to PostgreSQL conversion settings
-<a name="schema-conversion-oracle-postgresql"></a>
 
 The following settings apply when the source is Oracle and the target is Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL. You can configure these settings using the AWS Management Console or the [ModifyConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 
@@ -14,7 +13,7 @@ Each setting shows the AWS Management Console label followed by the API and AWS 
 **Target engine version** (`ORACLE_TO_POSTGRESQL_target_engine_version`)  
 Choose the engine version for your target database. This setting is the PostgreSQL major version feature set that DMS Schema Conversion targets for conversion, and it determines which versioned settings section DMS Schema Conversion applies (`ORACLE_TO_POSTGRESQL_14` or `ORACLE_TO_POSTGRESQL_15`). The value `15` targets the features of PostgreSQL 15 and later versions, and `14` targets the features of PostgreSQL 14, so your target database can run a later version than the value you choose (for example, a value of `15` for a PostgreSQL 16 target). Unlike the other settings on this page, this setting isn't stored in a conversion path section. Instead, it's stored in the top-level `Conversion version` section, as shown in the following example.  
 
-```
+```json
 {
   "Conversion version": {
     "ORACLE_TO_POSTGRESQL_target_engine_version": "15"
@@ -58,6 +57,8 @@ Your source Oracle database can use the `ROWID` pseudocolumn. PostgreSQL doesn't
 
 **Type:** String (enum)  
 **Default:** `false`
+
+**Code**
 
 Select the conversion settings that are specific to your source Oracle code.
 
@@ -153,6 +154,8 @@ The time zone that DMS Schema Conversion uses when `SYSDATE` emulation is turned
 **Note**  
 The AWS Management Console lists an additional option, **Add extension pack functions that raise user-defined exceptions**, between **Convert procedures to functions** and **Keep the names of system generated constraints**. This option is configured only in the AWS Management Console and isn't available through the API or AWS CLI. The related severity-level behavior is controlled by the `ShowSeverityLevelInSql` common setting. For more information, see [Common conversion settings](schema-conversion-settings.md#schema-conversion-settings-common).
 
+**Orafce built-in routines**
+
 Choose the Orafce built-in routines to use in the converted code. Orafce is a PostgreSQL extension that provides routines compatible with Oracle built-in functions. Each routine has a dedicated Boolean setting. When you set a routine to `true`, DMS Schema Conversion converts the matching Oracle built-in function to its Orafce routine. When you set it to `false`, DMS Schema Conversion leaves the function as an action item for manual review. To use these routines, the orafce extension must be available on your target database. All of these routines default to `false`. Set a routine to `true` only after you verify that the function's behavior in your usage is compatible with the Orafce routine.
 
 
@@ -204,7 +207,7 @@ Choose the Orafce built-in routines to use in the converted code. Orafce is a Po
 
 Each routine is a separate Boolean key. The following example turns on the Orafce routines for the Oracle `ADD_MONTHS`, `NVL`, and `SUBSTR` functions. Add or remove keys to match the functions in your source code, and apply the same keys to each section name that your project uses.
 
-```
+```json
 {
   "ORACLE_TO_POSTGRESQL_15": {
     "AddMonthsBuiltinFunctionOracle": true,
@@ -213,6 +216,8 @@ Each routine is a separate Boolean key. The following example turns on the Orafc
   }
 }
 ```
+
+**SQL code settings**
 
 Configure how DMS Schema Conversion handles Oracle built-in objects that PostgreSQL doesn't support.
 
@@ -235,7 +240,7 @@ Specifies whether DMS Schema Conversion creates stub objects in a separate schem
 
 The following example keeps materialized views as PostgreSQL materialized views, emulates the `ROWID` pseudocolumn by using the `bigint` data type, and converts procedures to functions. Apply the same settings to each section name that your project uses (check the output of [DescribeConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first).
 
-```
+```json
 {
   "ORACLE_TO_POSTGRESQL_15": {
     "MaterializedViewConvert": "MATERIALIZED_VIEW",

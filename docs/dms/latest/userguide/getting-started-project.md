@@ -1,7 +1,6 @@
 
 
 # Create a migration project in DMS Schema Conversion
-<a name="getting-started-project"></a>
 
 Now you can create a migration project. In the migration project, you specify your source and target data providers, and your instance profile.
 

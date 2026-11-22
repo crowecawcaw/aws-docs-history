@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Database Migration Service
-<a name="CHAP_GettingStarted"></a>
 
 In the following tutorial, you can find out how to perform a database migration with AWS Database Migration Service (AWS DMS).
 

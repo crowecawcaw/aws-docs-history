@@ -1,7 +1,6 @@
 
 
 # Using AWS DMS with other AWS services
-<a name="CHAP_Introduction.AWS"></a>
 
 You can use AWS DMS with several other AWS services:
 + You can use an Amazon EC2 instance or Amazon RDS DB instance as a target for a data migration.

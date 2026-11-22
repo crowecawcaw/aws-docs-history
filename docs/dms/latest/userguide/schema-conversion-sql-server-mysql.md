@@ -1,7 +1,6 @@
 
 
 # SQL Server to MySQL conversion settings
-<a name="schema-conversion-sql-server-mysql"></a>
 
 The following settings apply when the source is Microsoft SQL Server and the target is Amazon RDS for MySQL or Amazon Aurora MySQL. You can configure these settings using the AWS Management Console or the [ModifyConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 
@@ -25,7 +24,7 @@ The following example shows how to configure this setting with the API or AWS CL
 
 The following example turns on `OpenDatasetsProcedures` for the `MSSQL_TO_MYSQL` section.
 
-```
+```json
 {
   "MSSQL_TO_MYSQL": {
     "OpenDatasetsProcedures": true

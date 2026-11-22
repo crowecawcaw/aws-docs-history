@@ -1,7 +1,6 @@
 
 
 # Using a Microsoft SQL Server database as a source for AWS DMS
-<a name="CHAP_Source.SQLServer"></a>
 
 Migrate data from one or many Microsoft SQL Server databases using AWS DMS. With a SQL Server database as a source, you can migrate data to another SQL Server database, or to one of the other AWS DMS supported databases. 
 
@@ -247,7 +246,7 @@ When you start an AWS DMS task for the first time, it might take longer than usu
 
 1. Ensure that your AWS DMS replication instance can resolve DNS names for all existing replicas, and connect to them. You can use the following SQL query to get DNS names for all of your replicas.
 
-   ```
+   ```sql
    select ar.replica_server_name, ar.endpoint_url, ar.read_only_routing_url from sys.availability_replicas ar
    JOIN sys.availability_databases_cluster adc
    ON adc.group_id = ar.group_id AND adc.database_name = '<source_database_name>';
@@ -278,7 +277,7 @@ When you start an AWS DMS task for the first time, it might take longer than usu
 
 1. Run the following query on the primary read-write replica to enable publication of your database. You run this query only once for your database. 
 
-   ```
+   ```sql
    sp_replicationdboption @dbname = N'<source DB name>', @optname = N'publish', @value = N'true';
    ```
 

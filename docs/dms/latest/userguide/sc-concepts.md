@@ -1,7 +1,6 @@
 
 
 # DMS Schema Conversion concepts
-<a name="sc-concepts"></a>
 
 DMS Schema Conversion in AWS Database Migration Service converts database schemas and code objects from a source database engine to a compatible format for a target database engine. Understanding the following core concepts helps you control which objects to convert and how to convert them.
 

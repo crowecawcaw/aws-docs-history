@@ -1,7 +1,6 @@
 
 
 # Using a PostgreSQL database as an AWS DMS source
-<a name="CHAP_Source.PostgreSQL"></a>
 
 You can migrate data from one or many PostgreSQL databases using AWS DMS. With a PostgreSQL database as a source, you can migrate data to either another PostgreSQL database or one of the other supported databases. 
 
@@ -576,7 +575,7 @@ If you use single-database mode, you don't need to use a transformation rule to 
 
 The following transformation rule example shows how to rename the schema name from `mydb_dbo` back to `dbo`:
 
-```
+```json
 {
     "rules": [
         {

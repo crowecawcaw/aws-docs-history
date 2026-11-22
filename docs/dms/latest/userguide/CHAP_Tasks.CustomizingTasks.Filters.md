@@ -1,7 +1,6 @@
 
 
 # Using source filters
-<a name="CHAP_Tasks.CustomizingTasks.Filters"></a>
 
 You can use source filters to limit the number and type of records transferred from your source to your target. For example, you can specify that only employees with a location of headquarters are moved to the target database. Filters are part of a selection rule. You apply filters on a column of data. 
 

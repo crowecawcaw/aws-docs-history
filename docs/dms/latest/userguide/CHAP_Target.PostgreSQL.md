@@ -1,7 +1,6 @@
 
 
 # Using a PostgreSQL database as a target for AWS Database Migration Service
-<a name="CHAP_Target.PostgreSQL"></a>
 
 You can migrate data to PostgreSQL databases using AWS DMS, either from another PostgreSQL database or from one of the other supported databases. 
 
@@ -208,13 +207,13 @@ The following limitations apply when using a PostgreSQL target endpoint with Bab
 + Babelfish under Postgres endpoint does not support `HIERARCHYID`, `GEOMETRY` (prior to 3.5.4) and `GEOGRAPHY` (prior to 3.5.4) data types. To migrate these data types, you can add transformation rules to convert the data type to wstring(250).
 + Babelfish only supports migrating `BINARY`, `VARBINARY`, and `IMAGE` data types using the `BYTEA` data type. For earlier versions of Aurora PostgreSQL, you can use DMS to migrate these tables to a [Babelfish target endpoint](CHAP_Target.Babelfish.md). You don't have to specify a length for the `BYTEA` data type, as shown in the following example.
 
-  ```
+  ```sql
   [Picture] [VARBINARY](max) NULL
   ```
 
   Change the preceding T-SQL data type to the T-SQL supported `BYTEA` data type.
 
-  ```
+  ```sql
   [Picture] BYTEA NULL
   ```
 + For earlier versions of Aurora PostgreSQL Babelfish, if you create a migration task for ongoing replication from SQL Server to Babelfish using the PostgreSQL target endpoint, you need to assign the `SERIAL` data type to any tables that use `IDENTITY` columns. Starting with Aurora PostgreSQL (version 15.3/14.8 and higher) and Babelfish (version 3.2.0 and higher), the identity column is supported, and it is no longer required to assign the SERIAL data type. For more information, see [SERIAL Usage](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/chap-sql-server-aurora-pg.tsql.sequences..html) in the Sequences and Identity section of the *SQL Server to Aurora PostgreSQL Migration Playbook*. Then, when you create the table in Babelfish, change the column definition from the following.

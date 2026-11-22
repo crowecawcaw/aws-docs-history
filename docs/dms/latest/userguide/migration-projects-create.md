@@ -1,7 +1,6 @@
 
 
 # Creating migration projects in AWS Database Migration Service
-<a name="migration-projects-create"></a>
 
 Before you create a migration project in AWS DMS, make sure that you create the following resources:
 + Data providers that describe your source and target databases

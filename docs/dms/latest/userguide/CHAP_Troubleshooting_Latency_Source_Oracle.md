@@ -1,7 +1,6 @@
 
 
 # Oracle Endpoint Troubleshooting
-<a name="CHAP_Troubleshooting_Latency_Source_Oracle"></a>
 
 This section contains replication scenarios specific to Oracle.
 
@@ -42,7 +41,7 @@ If your task is processing redo or archived logs, but the source latency remains
 To determine the redo generation rate, use the following queries.
 + Per-day redo generation rate:
 
-  ```
+  ```sql
   select trunc(COMPLETION_TIME,'DD') Day, thread#, 
   round(sum(BLOCKS*BLOCK_SIZE)/1024/1024/1024) GB,
   count(*) Archives_Generated from v$archived_log 
@@ -51,7 +50,7 @@ To determine the redo generation rate, use the following queries.
   ```
 + Per-hour redo generation rate:
 
-  ```
+  ```sql
   Alter session set nls_date_format = 'DD-MON-YYYY HH24:MI:SS';
   select trunc(COMPLETION_TIME,'HH') Hour,thread# , 
   round(sum(BLOCKS*BLOCK_SIZE)/1024/1024) "REDO PER HOUR (MB)",

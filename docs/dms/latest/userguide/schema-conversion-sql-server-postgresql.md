@@ -1,7 +1,6 @@
 
 
 # SQL Server to PostgreSQL conversion settings
-<a name="schema-conversion-sql-server-postgresql"></a>
 
 The following settings apply when the source is Microsoft SQL Server and the target is Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL. You can configure these settings using the AWS Management Console or the [`ModifyConversionConfiguration`](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 
@@ -10,6 +9,8 @@ This topic covers settings specific to the SQL Server to PostgreSQL conversion p
 When you use the API or AWS CLI, specify conversion path settings under the section names `MSSQL_TO_POSTGRESQL`, `MSSQL_TO_POSTGRESQL_14`, or `MSSQL_TO_POSTGRESQL_15`. All three versioned sections accept the same keys. To find which section names your project uses, call [`DescribeConversionConfiguration`](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first and update only the sections present in the response.
 
 Each setting shows the AWS Management Console label followed by the API and AWS CLI parameter name in parentheses. Use the parameter name when configuring settings with the API or AWS CLI.
+
+**Metadata settings**
 
 Settings that control how source SQL Server metadata — object names, schema structure, and index definitions — are handled during conversion.
 
@@ -59,6 +60,8 @@ Controls how the target PostgreSQL schema name is generated from the SQL Server 
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 
+**SQL code settings**
+
 Settings that control how SQL Server code — identifiers, parameters, data types, and unsupported functions — is handled during conversion.
 
 **Keep object names in the same case** (`AvoidCastingToLowerCase`)  
@@ -105,7 +108,7 @@ Controls where stub objects are placed when `ConvUnsupportedBuiltinsToStubs` is 
 
 The following example sets `SchemaNameTemplate`, `ConvertProceduresToFunction`, and `UseCitextForAllStringDatatypes`. Apply the same settings to each section name that your project uses (check the output of [`DescribeConversionConfiguration`](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first).
 
-```
+```json
 {
   "MSSQL_TO_POSTGRESQL_15": {
     "SchemaNameTemplate": "SCHEMA",

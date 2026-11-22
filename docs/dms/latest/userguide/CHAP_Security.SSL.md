@@ -1,7 +1,6 @@
 
 
 # Using SSL with AWS Database Migration Service
-<a name="CHAP_Security.SSL"></a>
 
 You can encrypt connections for source and target endpoints by using Secure Sockets Layer (SSL). To do so, you can use the AWS DMS Management Console or AWS DMS API to assign a certificate to an endpoint. You can also use the AWS DMS console to manage your certificates. 
 

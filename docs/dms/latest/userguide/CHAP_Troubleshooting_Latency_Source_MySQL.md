@@ -1,7 +1,6 @@
 
 
 # MySQL Endpoint Troubleshooting
-<a name="CHAP_Troubleshooting_Latency_Source_MySQL"></a>
 
 This section contains replication scenarios specific to MySQL. AWS DMS scans the MySQL binary log periodically to replicate changes. This process can increase latency in the following scenarios:
 
@@ -17,7 +16,7 @@ Since MySQL only writes committed transactions to the binary log, long-running t
 
 To identify long-running transactions, use the following query, or use the slow query log:
 
-```
+```sql
 SHOW FULL PROCESSLIST;
 ```
 
@@ -30,7 +29,7 @@ To avoid latency spikes from long-running transactions, restructure your source 
 
 Because DMS CDC is single-threaded, a large number of transactions can increase source latency. To identify if source latency is due to a heavy workload, compare the number and size of the binary logs generated during the latency period to the logs generated before the latency. To check the binary logs, and DMS CDC thread status, use the following queries:
 
-```
+```sql
 SHOW BINARY LOGS;
 SHOW PROCESSLIST;
 ```
@@ -42,7 +41,7 @@ You can determine the latency by comparing the latest binary log position genera
 + Retrieve the DMS processing binary log and position details from the the task debug logs.
 + Use the following query to identify the latest binary log on the source:
 
-  ```
+  ```sql
   SHOW MASTER STATUS;
   ```
 

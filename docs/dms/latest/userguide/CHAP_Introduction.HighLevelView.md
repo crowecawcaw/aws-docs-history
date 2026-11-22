@@ -1,7 +1,6 @@
 
 
 # High-level view of AWS DMS
-<a name="CHAP_Introduction.HighLevelView"></a>
 
 To perform a database migration, AWS DMS connects to the source data store, reads the source data, and formats the data for consumption by the target data store. It then loads the data into the target data store. Most of this processing happens in memory, though large transactions might require some buffering to disk. Cached transactions and log files are also written to disk. 
 

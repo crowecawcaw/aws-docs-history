@@ -1,7 +1,6 @@
 
 
 # Modifying a replication instance
-<a name="CHAP_ReplicationInstance.Modifying"></a>
 
 You can modify the settings for a replication instance to, for example, change the instance class or to increase storage. 
 
@@ -20,6 +19,8 @@ If you choose to apply changes immediately, any changes in the pending modificat
 
 1. Choose the replication instance you want to modify. The following table describes the modifications you can make. 
 
+
+**Replication instance modification settings**  
 
 <table>
 <thead>

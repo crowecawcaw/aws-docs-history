@@ -1,7 +1,6 @@
 
 
 # Troubleshooting latency issues
-<a name="CHAP_Troubleshooting_Latency_Troubleshooting"></a>
 
 This section contains troubleshooting steps for replication latency.
 

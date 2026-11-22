@@ -1,7 +1,6 @@
 
 
 # SAP ASE (Sybase ASE) to PostgreSQL conversion settings
-<a name="schema-conversion-sybase-ase"></a>
 
 The following settings apply when the source is SAP ASE (Sybase ASE) and the target is Amazon RDS for PostgreSQL or Amazon Aurora PostgreSQL. You can configure these settings using the AWS Management Console or the [ModifyConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 
@@ -14,7 +13,7 @@ Each setting shows the AWS Management Console label followed by the API and AWS 
 **Target engine version** (`SYBASE_ASE_TO_POSTGRESQL_target_engine_version`)  
 Choose the engine version for your target database. This setting is the PostgreSQL major version feature set that DMS Schema Conversion targets for conversion, and it determines which versioned settings section DMS Schema Conversion applies (`SYBASE_ASE_TO_POSTGRESQL_14` or `SYBASE_ASE_TO_POSTGRESQL_15`). The value `15` targets the features of PostgreSQL 15 and later versions, and `14` targets the features of PostgreSQL 14, so your target database can run a later version than the value you choose (for example, a value of `15` for a PostgreSQL 16 target). Unlike the other settings on this page, this setting isn't stored in a conversion path section. Instead, it's stored in the top-level `Conversion version` section, as shown in the following example.  
 
-```
+```json
 {
   "Conversion version": {
     "SYBASE_ASE_TO_POSTGRESQL_target_engine_version": "15"
@@ -23,6 +22,8 @@ Choose the engine version for your target database. This setting is the PostgreS
 ```
 **Type:** String (`14` \| `15`)  
 **Default:** `15`
+
+**Metadata settings**
 
 Settings that control how source SAP ASE metadata — object names, schema structure, and index definitions — is handled during conversion.
 
@@ -58,6 +59,8 @@ Controls how the target PostgreSQL schema name is generated from the SAP ASE two
 **Type:** String (enum)  
 **Default:** `DB_SCHEMA`
 
+**SQL code settings**
+
 Settings that control how SAP ASE code — identifiers and case-insensitive operations — is handled during conversion.
 
 **Avoid casting operands to lowercase for case-insensitive operations** (`AvoidCastingToLowerCase`)  
@@ -72,7 +75,7 @@ Specifies whether DMS Schema Conversion adds automatic `LOWER()` casts around op
 
 The following example sets `CaseSensitivityNames` and `SchemaNameTemplate`. Apply the same settings to each section name that your project uses (check the output of [DescribeConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConversionConfiguration.html) first).
 
-```
+```json
 {
   "SYBASE_ASE_TO_POSTGRESQL_15": {
     "CaseSensitivityNames": true,

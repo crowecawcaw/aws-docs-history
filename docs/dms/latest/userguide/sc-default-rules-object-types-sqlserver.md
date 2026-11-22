@@ -1,7 +1,6 @@
 
 
 # Object type rules
-<a name="sc-default-rules-object-types-sqlserver"></a>
 
 The following table lists how DMS Schema Conversion converts SQL Server object types to PostgreSQL. You can't change these rules, except where a table names a conversion setting.
 

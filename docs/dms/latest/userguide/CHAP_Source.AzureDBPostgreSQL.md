@@ -1,7 +1,6 @@
 
 
 # Using Microsoft Azure Database for PostgreSQL flexible server as a source for AWS DMS
-<a name="CHAP_Source.AzureDBPostgreSQL"></a>
 
 With AWS DMS, you can use Microsoft Azure Database for PostgreSQL flexible server as a source in much the same way as you do PostgreSQL.
 

@@ -1,7 +1,6 @@
 
 
 # Service-linked role for AWS DMS
-<a name="slr-services-sl"></a>
 
 AWS DMS uses the service-linked role named **AWSServiceRoleForDMSServerless**. AWS DMS uses this service-linked role to create and manage AWS DMS resources on your behalf. AWS DMS uses this role for automatic instance management so that you only have to manage replications. DMS Schema Conversion also uses this role to access designated Amazon S3 resources on your behalf.
 

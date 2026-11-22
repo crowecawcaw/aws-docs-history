@@ -1,7 +1,6 @@
 
 
 # Oracle diagnostic support scripts
-<a name="CHAP_SupportScripts.Oracle"></a>
 
 Following, you can find the diagnostic support scripts available to analyze an on-premises or Amazon RDS for Oracle database in your AWS DMS migration configuration. These scripts work with either a source or target endpoint. The scripts are all written to run in the SQL\*Plus command-line utility. For more information on using this utility, see [A Using SQL Command Line](https://docs.oracle.com/cd/B25329_01/doc/appdev.102/b25108/xedev_sqlplus.htm) in the Oracle documentation.
 

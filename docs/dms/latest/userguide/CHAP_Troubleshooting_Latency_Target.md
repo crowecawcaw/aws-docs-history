@@ -1,7 +1,6 @@
 
 
 # Troubleshooting target latency issues
-<a name="CHAP_Troubleshooting_Latency_Target"></a>
 
 This section contains scenarios that can contribute to target latency.
 

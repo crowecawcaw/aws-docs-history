@@ -1,7 +1,6 @@
 
 
 # Create an assessment report in DMS Schema Conversion
-<a name="getting-started-assessment"></a>
 
 To assess the complexity of the migration, create the database migration assessment report. This report includes the list of all database objects that DMS Schema Conversion can't convert automatically.
 

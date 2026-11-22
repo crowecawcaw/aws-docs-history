@@ -1,7 +1,6 @@
 
 
 # Using a MongoDB compatible database as a source for homogeneous data migrations in AWS DMS
-<a name="dm-data-providers-source-mongodb"></a>
 
 You can use a MongoDB-compatible database as a source for Homogeneous data migrations in AWS DMS. In this case, your source data provider can be an on-premises, Amazon EC2 for MongoDB database or Amazon DocumentDB (with MongoDB compatibility) database.
 
@@ -35,7 +34,7 @@ For MongoDB as a source, to store user credentials in Secrets Manager, you need 
 
 The following code sample demonstrates how to store database secrets using plain text.
 
-```
+```json
 {
   "username": "dbuser",
   "password": "dbpassword"

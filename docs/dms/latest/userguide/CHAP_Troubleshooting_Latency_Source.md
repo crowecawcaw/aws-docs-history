@@ -1,7 +1,6 @@
 
 
 # Troubleshooting source latency issues
-<a name="CHAP_Troubleshooting_Latency_Source"></a>
 
 The following topics describe replication scenarios specific to source endpoint types.
 

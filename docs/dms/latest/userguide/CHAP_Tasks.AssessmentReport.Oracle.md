@@ -1,7 +1,6 @@
 
 
 # Oracle assessments
-<a name="CHAP_Tasks.AssessmentReport.Oracle"></a>
 
 For more information about permissions when using Oracle as a source, see [User account privileges required on a self-managed Oracle source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Self-Managed.Privileges) or [User account privileges required on an AWS-managed Oracle source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Amazon-Managed).
 
@@ -9,7 +8,7 @@ For more information about permissions when using Oracle as a source, see [User 
 This section describes individual premigration assessments for migration tasks that use Oracle as a source or a target for AWS DMS.  
 If you are using self-managed Oracle database as a source for AWS DMS, please use following permission set:  
 
-```
+```sql
 grant select on gv_$parameter to dms_user;
                     grant select on v_$instance to dms_user;
                     grant select on v_$version to dms_user;
@@ -218,7 +217,7 @@ This premigration assessment validates if minimum supplemental logging is enable
 
 To enable supplemental logging, use the following query:
 
-```
+```sql
 ALTER DATABASE ADD SUPPLEMENTAL LOG DATA
 ```
 
@@ -246,7 +245,7 @@ This premigration assessment validates if Oracle LogMiner is used for an Oracle 
 
 To configure your migration to not use Oracle LogMiner, add the following configuration to your source endpoint:
 
-```
+```json
 useLogMinerReader=N;useBfile=Y;
 ```
 

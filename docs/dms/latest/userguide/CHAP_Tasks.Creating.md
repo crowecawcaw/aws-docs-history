@@ -1,7 +1,6 @@
 
 
 # Creating a task
-<a name="CHAP_Tasks.Creating"></a>
 
 To create an AWS DMS migration task, you do the following:
 + Create a source endpoint, a target endpoint, and a replication instance before you create a migration task. 

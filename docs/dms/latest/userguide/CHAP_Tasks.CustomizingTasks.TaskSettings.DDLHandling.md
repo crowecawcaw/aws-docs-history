@@ -1,7 +1,6 @@
 
 
 # Task settings for change processing DDL handling
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.DDLHandling"></a>
 
 
 

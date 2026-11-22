@@ -1,7 +1,6 @@
 
 
 # Creating instance profiles for AWS Database Migration Service
-<a name="instance-profiles"></a>
 
 You can create multiple instance profiles in the AWS DMS console. Make sure that you select an instance profile to use for each migration project that you create in AWS DMS.
 

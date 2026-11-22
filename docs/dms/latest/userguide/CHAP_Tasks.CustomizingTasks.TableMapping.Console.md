@@ -1,7 +1,6 @@
 
 
 # Specifying table selection and transformations rules from the console
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping.Console"></a>
 
 You can use the AWS Management Console to perform table mapping, including specifying table selection and transformations. On the console, use the **Where** section to specify the schema, table, and action (include or exclude). Use the **Filter** section to specify the column name in a table and the conditions that you want to apply to a replication task. Together, these two actions create a selection rule.
 

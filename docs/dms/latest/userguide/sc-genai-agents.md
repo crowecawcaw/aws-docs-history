@@ -1,7 +1,6 @@
 
 
 # Using AI agents with DMS Schema Conversion
-<a name="sc-genai-agents"></a>
 
 You can use AI agents to drive DMS Schema Conversion workflows through the AWS API. An AI agent is a software tool that uses large language models to understand natural language instructions and automate tasks. When connected to the [AWS MCP server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/mcp-server.html), an AI agent can create migration projects, browse your source database metadata tree, convert schemas, generate assessment reports, export results, and explain various aspects of the service. You control these operations through natural language prompts.
 
@@ -46,7 +45,7 @@ The agent retrieves the skill from the AWS MCP server and applies it to the curr
 
 If your agent doesn't use the AWS MCP server, you can install the skill locally from the [AWS Agent Toolkit for AWS](https://github.com/aws/agent-toolkit-for-aws) repository on GitHub. Run the following command from your project directory:
 
-```
+```bash
 npx skills add aws/agent-toolkit-for-aws/skills/specialized-skills/migration-and-modernization-skills/dms-schema-conversion
 ```
 

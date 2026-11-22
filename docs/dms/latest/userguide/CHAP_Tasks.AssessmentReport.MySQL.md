@@ -1,7 +1,6 @@
 
 
 # MySQL assessments
-<a name="CHAP_Tasks.AssessmentReport.MySQL"></a>
 
 This section describes individual premigration assessments for migration tasks that use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition Serverless source endpoint.
 

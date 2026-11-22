@@ -1,7 +1,6 @@
 
 
 # Setting an encryption key for a replication instance
-<a name="CHAP_ReplicationInstance.EncryptionKey"></a>
 
 AWS DMS encrypts the storage used by a replication instance and the endpoint connection information. To encrypt the storage used by a replication instance, AWS DMS uses a AWS KMS key that is unique to your AWS account. You can view and manage this KMS key with AWS Key Management Service (AWS KMS). You can use the default KMS key in your account (`aws/dms`) or a KMS key that you create. If you have an existing AWS KMS encryption key, you can also use that key for encryption. 
 

@@ -1,7 +1,6 @@
 
 
 # Oracle to MySQL conversion settings
-<a name="schema-conversion-oracle-mysql"></a>
 
 The following settings apply when the source is Oracle and the target is Amazon RDS for MySQL or Amazon Aurora MySQL. You can configure these settings using the AWS Management Console or the [ModifyConversionConfiguration](https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyConversionConfiguration.html) API operation.
 
@@ -28,6 +27,8 @@ Your source Oracle database can use the `ROWID` pseudocolumn. MySQL doesn't supp
 **Type:** Boolean (`true` \| `false`)  
 **Default:** `false`  
 For the Oracle to MySQL conversion path, `GenerateRowId` is a Boolean (`true` \| `false`) and emulates the `ROWID` pseudocolumn by using the `bigint` data type only. For the Oracle to PostgreSQL conversion path, the same setting is a string enumeration that also offers a `character varying` emulation option (`GENERATE_AS_CHARACTER_DOMAIN_TYPE`). For more information, see [Oracle to PostgreSQL conversion settings](schema-conversion-oracle-postgresql.md).
+
+**Function conversion settings**
 
 By default, DMS Schema Conversion emulates Oracle conversion functions in the converted code so that the result matches the Oracle behavior. If your source code doesn't rely on Oracle-specific formatting, you can convert these functions to the native MySQL equivalents instead. Native functions run faster, so set these options to `true` only after you verify that your usage is compatible with MySQL.
 
@@ -64,7 +65,7 @@ Specifies whether DMS Schema Conversion emulates time zones in the converted cod
 
 The following example converts Oracle conversion functions to their native MySQL equivalents for the `ORACLE_TO_MYSQL` section.
 
-```
+```json
 {
   "ORACLE_TO_MYSQL": {
     "ToCharFunctionOracle": true,

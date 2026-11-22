@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Database Migration Service
-<a name="security-iam-awsmanpol"></a>
 
 **Topics**
 + [AWS managed policy: AmazonDMSVPCManagementRole](#security-iam-awsmanpol-AmazonDMSVPCManagementRole)
@@ -37,7 +36,7 @@ This policy includes the following operations:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -245,7 +244,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -340,7 +339,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -392,7 +391,7 @@ All these permissions apply only to resources with ARN pattern: `arn:aws:s3:::dm
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [

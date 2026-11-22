@@ -1,7 +1,6 @@
 
 
 # SQL Server diagnostic support scripts
-<a name="CHAP_SupportScripts.SQLServer"></a>
 
 Following, you can find a description of the diagnostic support scripts available to analyze an on-premises or Amazon RDS for SQL Server database in your AWS DMS migration configuration. These scripts work with either a source or target endpoint. For an on-premises database, run these scripts in the sqlcmd command-line utility. For more information on using this utility, see [sqlcmd - Use the utility](https://docs.microsoft.com/en-us/sql/ssms/scripting/sqlcmd-use-the-utility?view=sql-server-ver15) in the Microsoft documentation. 
 

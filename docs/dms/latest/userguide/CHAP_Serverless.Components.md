@@ -1,7 +1,6 @@
 
 
 # AWS DMS Serverless components
-<a name="CHAP_Serverless.Components"></a>
 
 To manage the resources needed to perform a replication, AWS DMS Serverless has granular states that reveal different internal actions taken by the service. When you start the replication, AWS DMS Serverless calculates the capacity load, provisions the calculated capacity, and starts the data replication according to the following replication states.
 

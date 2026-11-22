@@ -1,7 +1,6 @@
 
 
 # Using Amazon DocumentDB (with MongoDB compatibility) as a source for AWS DMS
-<a name="CHAP_Source.DocumentDB"></a>
 
 For information about versions of Amazon DocumentDB (with MongoDB compatibility) that AWS DMS supports as a source, see [Sources for AWS DMS](CHAP_Introduction.Sources.md).
 

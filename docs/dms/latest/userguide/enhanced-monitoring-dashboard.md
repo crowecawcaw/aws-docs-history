@@ -1,7 +1,6 @@
 
 
 # Enhanced monitoring dashboard
-<a name="enhanced-monitoring-dashboard"></a>
 
 The enhanced monitoring dashboard provides comprehensive visibility into critical metrics related to your monitoring tasks and replication instances. It allows you to filter, aggregate, and visualize metrics for specific resources you want to track. The dashboard directly publishes existing CloudWatch metrics, enabling you to monitor resource performance without altering data point sampling times.
 

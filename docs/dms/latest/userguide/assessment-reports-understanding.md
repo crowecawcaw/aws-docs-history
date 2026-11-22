@@ -1,7 +1,6 @@
 
 
 # Understanding conversion assessment report metrics
-<a name="assessment-reports-understanding"></a>
 
 The conversion assessment report analyzes incompatibilities between your source and target database engines. It identifies which database objects DMS Schema Conversion can convert automatically, and which database objects require manual action to complete the conversion to your target database engine.
 

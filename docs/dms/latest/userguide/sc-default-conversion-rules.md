@@ -1,7 +1,6 @@
 
 
 # Default conversion rules
-<a name="sc-default-conversion-rules"></a>
 
 DMS Schema Conversion applies a set of *default conversion rules* in every migration project. The following sections list those defaults for each supported source and target pair. Use them to predict the code that DMS Schema Conversion produces, and to decide where to change the result with conversion settings or transformation rules.
 

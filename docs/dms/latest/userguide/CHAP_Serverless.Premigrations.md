@@ -1,7 +1,6 @@
 
 
 # AWS DMS Serverless premigration.
-<a name="CHAP_Serverless.Premigrations"></a>
 
 AWS DMS Serverless includes pre-migration assessment capabilities that help identify potential issues before starting your database migration. By running a pre-migration assessment, you can detect and resolve configuration problems or compatibility issues that might prevent successful serverless replication. For more information see [Individual assessments](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.Assessments.html).
 

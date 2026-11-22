@@ -1,7 +1,6 @@
 
 
 # Getting started with DMS Schema Conversion
-<a name="getting-started"></a>
 
 To get started with DMS Schema Conversion, use the following tutorial. In it, you can learn to set up DMS Schema Conversion, create a migration project, and connect to your data providers. Then, you can learn to assess the complexity of your migration, and convert your source database to a format compatible with your target database. In addition, you can learn to apply the converted code to your target database.
 

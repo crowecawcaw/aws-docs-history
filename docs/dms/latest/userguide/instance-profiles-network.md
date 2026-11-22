@@ -1,7 +1,6 @@
 
 
 # Setting up a network for DMS Schema Conversion
-<a name="instance-profiles-network"></a>
 
 DMS Schema Conversion is a serverless feature. To connect to your databases, it places an elastic network interface (ENI) in a subnet within your VPC. When you create your instance profile, you specify the VPC, subnet group, and security groups to use. You can use your default VPC for your account and AWS Region, or you can create a new VPC.
 
@@ -162,14 +161,14 @@ To resolve these errors, check the following:
 
    First, find your DMS Schema Conversion log group. The log group name starts with `dms-tasks-sct` and includes the last chunk of the ARN of your migration project:
 
-   ```
+   ```bash
    aws logs describe-log-groups \
      --log-group-name-prefix dms-tasks-sct
    ```
 
    Then, search for exceptions in the log group using the `filter-log-events` command:
 
-   ```
+   ```bash
    aws logs filter-log-events \
      --log-group-name {{dms-tasks-sct-your-migration-project}} \
      --filter-pattern "Exception" \

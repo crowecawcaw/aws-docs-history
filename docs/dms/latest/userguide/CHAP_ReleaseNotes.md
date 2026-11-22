@@ -1,7 +1,6 @@
 
 
 # AWS DMS release notes
-<a name="CHAP_ReleaseNotes"></a>
 
 Following, you can find release notes for current and previous versions of AWS Database Migration Service (AWS DMS).
 

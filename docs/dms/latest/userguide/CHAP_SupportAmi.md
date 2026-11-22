@@ -1,7 +1,6 @@
 
 
 # Working with the AWS DMS diagnostic support AMI
-<a name="CHAP_SupportAmi"></a>
 
 If you encounter a network-related issue when working with AWS DMS, your support engineer might need more information about your network configuration. We want to make sure that AWS Support gets as much of the required information as possible in the shortest possible time. Therefore, we developed a prebuilt Amazon EC2 AMI with diagnostic tools to test your AWS DMS networking environment.
 
@@ -44,7 +43,7 @@ If you want to run the diagnostic tests on your replication instance using the m
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

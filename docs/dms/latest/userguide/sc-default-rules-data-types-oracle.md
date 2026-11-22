@@ -1,7 +1,6 @@
 
 
 # Data type rules
-<a name="sc-default-rules-data-types-oracle"></a>
 
 The following rules apply when you convert an Oracle database to Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL.
 

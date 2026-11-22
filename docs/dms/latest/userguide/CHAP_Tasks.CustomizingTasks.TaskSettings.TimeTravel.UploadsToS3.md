@@ -1,7 +1,6 @@
 
 
 # How often AWS DMS uploads Time Travel logs to S3
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.UploadsToS3"></a>
 
 To minimize the storage usage of your replication instance, AWS DMS offloads Time Travel logs from it periodically. 
 

@@ -1,7 +1,6 @@
 
 
 # Apply the converted code for DMS Schema Conversion
-<a name="getting-started-apply"></a>
 
 DMS Schema Conversion doesn't immediately apply the converted code to your target database. To update your target database, you can use the SQL scripts that you created in the previous step. Alternatively, use the following procedure to apply the converted code from DMS Schema Conversion.
 

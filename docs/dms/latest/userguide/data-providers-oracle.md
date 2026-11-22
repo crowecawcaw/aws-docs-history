@@ -1,7 +1,6 @@
 
 
 # Using an Oracle database as a source in DMS Schema Conversion
-<a name="data-providers-oracle"></a>
 
 You can use Oracle databases as a migration source in DMS Schema Conversion.
 
@@ -11,7 +10,7 @@ DMS Schema Conversion supports the following modes for Oracle as a migration sou
 
 To connect to your Oracle database, use the Oracle System ID (SID). To find the Oracle SID, submit the following query to your Oracle database:
 
-```
+```sql
 SELECT sys_context('userenv','instance_name') AS SID FROM dual;
 ```
 

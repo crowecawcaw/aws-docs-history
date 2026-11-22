@@ -1,7 +1,6 @@
 
 
 # Using a MySQL database as a target in DMS Schema Conversion
-<a name="data-providers-mysql"></a>
 
 You can use MySQL databases as a migration target in DMS Schema Conversion.
 

@@ -1,7 +1,6 @@
 
 
 # AWS DMS data validation
-<a name="CHAP_Validating"></a>
 
 **Topics**
 + [Replication task statistics](#CHAP_Validating.TaskStatistics)

@@ -1,7 +1,6 @@
 
 
 # Data resync settings
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.DataResyncSettings"></a>
 
 The Data resync feature allows you to resync target database with your source database based on data validation report. For more information, see [AWS DMS data validation](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Validating.html).
 

@@ -1,7 +1,6 @@
 
 
 # Using extension packs in DMS Schema Conversion
-<a name="extension-pack"></a>
 
 An *extension pack* in DMS Schema Conversion is an add-on module that emulates source database functions that aren't supported in the target database. Use an extension pack to make sure that the converted code produces the same results as the source code. Before you can install an extension pack, convert your database schemas.
 

@@ -1,7 +1,6 @@
 
 
 # Specifying task settings for AWS Database Migration Service tasks
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings"></a>
 
 Each task has settings that you can configure according to the needs of your database migration. You create these settings in a JSON file or, with some settings, you can specify the settings using the AWS DMS console. For information about how to use a task configuration file to set task settings, see [Task settings example](#CHAP_Tasks.CustomizingTasks.TaskSettings.Example).
 
@@ -30,7 +29,7 @@ There are several main types of task settings, as listed following.
 |  **Creating a task assessment report** <br />You can create a task assessment report that shows any unsupported data types that could cause problems during migration. You can run this report on your task before running the task to find out potential issues. | [Enabling and working with premigration assessments for a task](CHAP_Tasks.AssessmentReport.md) | 
 |  **Creating a task** <br />When you create a task, you specify the source, target, and replication instance, along with any migration settings. | [Creating a task](CHAP_Tasks.Creating.md) | 
 |  **Creating an ongoing replication task** <br />You can set up a task to provide continuous replication between the source and target.  | [Creating tasks for ongoing replication using AWS DMS](CHAP_Task.CDC.md) | 
-|  **Applying task settings** <br />Each task has settings that you can configure according to the needs of your database migration. You create these settings in a JSON file or, with some settings, you can specify the settings using the AWS DMS console. | [Specifying task settings for AWS Database Migration Service tasks](#CHAP_Tasks.CustomizingTasks.TaskSettings) | 
+|  **Applying task settings** <br />Each task has settings that you can configure according to the needs of your database migration. You create these settings in a JSON file or, with some settings, you can specify the settings using the AWS DMS console. | [Specifying task settings for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.TaskSettings.md) | 
 |  **Data validation** <br />Use data validation to have AWS DMS compare the data on your target data store with the data from your source data store. | [AWS DMS data validation](CHAP_Validating.md) | 
 |  **Modifying a task** <br />When a task is stopped, you can modify the settings for the task. | [Modifying a task](CHAP_Tasks.Modifying.md) | 
 |  **Reloading tables during a task** <br />You can reload a table during a task if an error occurs during the task. | [Reloading tables during a task](CHAP_Tasks.ReloadTables.md) | 

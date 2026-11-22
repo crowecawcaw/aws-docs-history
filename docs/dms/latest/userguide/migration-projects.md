@@ -1,7 +1,6 @@
 
 
 # Working with data providers, instance profiles, and migration projects in AWS DMS
-<a name="migration-projects"></a>
 
 When you use DMS Schema Conversion and homogeneous data migrations in AWS Database Migration Service, you work with migration projects. In turn, AWS DMS migration projects use subnet groups, instance profiles, and data providers.
 

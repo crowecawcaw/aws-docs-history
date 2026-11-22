@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS Database Migration Service
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS DMS resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -115,7 +114,7 @@ You can further restrict access to AWS DMS resources using tagging. For more inf
 
 ****  
 
-```
+```json
 {
 
   "Version":"2012-10-17",		 	 	 
@@ -286,6 +285,9 @@ You must use these exact role names as shown: `dms-vpc-role`, `dms-cloudwatch-lo
 **Important**  
 AWS DMS assumes these roles on your behalf. To help protect against the cross-service confused deputy problem, add the `aws:SourceAccount` global condition context key to each role's trust policy, so that AWS DMS can assume the role only for resources in your own account. To limit access to a single resource, use `aws:SourceArn` instead. For more information, see [IAM roles to use with AWS DMS API for cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#cross-service-confused-deputy-prevention-dms-api).
 
+**Important**  <a name="CHAP_Security.APIRole.RoleNameRestriction"></a>
+Starting with AWS DMS version 3.6.1 updates released on or after November 17, 2026, the `ServiceAccessRoleArn` for an endpoint cannot contain the characters `=`, `,`, `!`, or `$`. The characters `=` and `,` can appear in role names, while `!` and `$` can appear in role paths. If the ARN contains any of these characters, create a replacement IAM role with a compatible name and path, and update the endpoint to use the new role ARN.
+
 Updates to managed policies are automatic. If you are using a custom policy with the IAM roles, be sure to periodically check for updates to the managed policy in this documentation. You can view the details of the managed policy by using a combination of the `get-policy` and `get-policy-version` commands.
 
 For example, the following `get-policy` command retrieves information about the specified IAM role.
@@ -328,7 +330,7 @@ The information returned from the command is as follows.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -368,7 +370,7 @@ The following procedures create the `dms-vpc-role`, `dms-cloudwatch-logs-role`, 
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -406,7 +408,7 @@ The following procedures create the `dms-vpc-role`, `dms-cloudwatch-logs-role`, 
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -446,7 +448,7 @@ If you use Amazon Redshift as your target database, you must create the IAM role
 
 ****  
 
-   ```
+   ```json
     {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

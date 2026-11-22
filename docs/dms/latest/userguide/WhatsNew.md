@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="WhatsNew"></a>
 
 The following table describes the important changes to the AWS Database Migration Service user guide documentation after January 2018.
 

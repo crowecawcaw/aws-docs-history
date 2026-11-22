@@ -1,7 +1,6 @@
 
 
 # Using an Oracle database as a target for AWS Database Migration Service
-<a name="CHAP_Target.Oracle"></a>
 
 You can migrate data to Oracle database targets using AWS DMS, either from another Oracle database or from one of the other supported databases. You can use Secure Sockets Layer (SSL) to encrypt connections between your Oracle endpoint and the replication instance. For more information on using SSL with an Oracle endpoint, see [Using SSL with AWS Database Migration Service](CHAP_Security.SSL.md). AWS DMS also supports the use of Oracle transparent data encryption (TDE) to encrypt data at rest in the target database because Oracle TDE does not require an encryption key or password to write to the database.
 

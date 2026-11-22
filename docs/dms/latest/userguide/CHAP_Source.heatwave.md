@@ -1,7 +1,6 @@
 
 
 # Using OCI MySQL Heatwave as a source for AWS DMS
-<a name="CHAP_Source.heatwave"></a>
 
 With AWS DMS, you can use OCI MySQL Heatwave as a source in much the same way as you do MySQL. Using OCI MySQL Heatwave as a source requires a few additional configuration changes.
 

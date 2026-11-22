@@ -1,7 +1,6 @@
 
 
 # Enabling and working with premigration assessments for a task
-<a name="CHAP_Tasks.AssessmentReport"></a>
 
 A premigration assessment evaluates specified components of a database migration task to help identify any problems that might prevent a migration task from running as expected. This assessment gives you a chance to identify and fix issues before you run a new or modified task. This allows you to avoid delays related to task failures caused by missing requirements or known limitations.
 

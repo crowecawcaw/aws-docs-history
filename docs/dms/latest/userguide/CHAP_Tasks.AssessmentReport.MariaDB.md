@@ -1,7 +1,6 @@
 
 
 # MariaDB assessments
-<a name="CHAP_Tasks.AssessmentReport.MariaDB"></a>
 
 This section describes individual premigration assessments for migration tasks that use a MariaDB source endpoint.
 

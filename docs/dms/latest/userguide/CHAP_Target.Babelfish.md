@@ -1,7 +1,6 @@
 
 
 # Using Babelfish as a target for AWS Database Migration Service
-<a name="CHAP_Target.Babelfish"></a>
 
 You can migrate data from a Microsoft SQL Server source database to a Babelfish target using AWS Database Migration Service. 
 

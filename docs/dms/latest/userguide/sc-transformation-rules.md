@@ -1,7 +1,6 @@
 
 
 # Transformation rules in DMS Schema Conversion
-<a name="sc-transformation-rules"></a>
 
 *Transformation rules* let you customize how DMS Schema Conversion converts your database objects, overriding default naming and data type mappings. You can apply these rules to databases, schemas, tables, views, columns, function return values, routine parameters, and local variables.
 
@@ -21,7 +20,7 @@ DMS Schema Conversion stores transformation rules as part of your migration proj
 
 The structure of the array with transformation rules is as follows:
 
-```
+```JSON
 {
   "rules": [
     {
@@ -78,7 +77,7 @@ To add transformation rules using the AWS CLI, use the `--transformation-rules` 
 
 The following example adds transformation rules to an existing migration project:
 
-```
+```bash
 aws dms modify-migration-project \
   --migration-project-identifier {{migration_project_arn}} \
   --transformation-rules '{{json_rules}}'
@@ -107,7 +106,7 @@ To retrieve transformation rules from an existing DMS Schema Conversion migratio
 
 The following AWS CLI example retrieves transformation rules from a migration project:
 
-```
+```bash
 aws dms describe-migration-projects \
   --filters Name=migration-project-identifier,Values={{migration_project_arn}}
 ```
@@ -141,7 +140,7 @@ To edit, add, or remove transformation rules in your migration project, use one 
 
 To update transformation rules using the AWS CLI, use the [modify-migration-project](https://docs.aws.amazon.com/cli/latest/reference/dms/modify-migration-project.html) command with the `--transformation-rules` parameter. Pass the complete updated set of rules as a JSON string.
 
-```
+```bash
 aws dms modify-migration-project \
   --migration-project-identifier {{migration_project_arn}} \
   --transformation-rules '{{json_rules}}'
@@ -156,7 +155,7 @@ A transformation rule uses JSON object fields to define how to convert a source 
 
 The following JSON object describes a DMS Schema Conversion transformation rule:
 
-```
+```JSON
 {
   "rule-type": "transformation",
   "rule-id": {{rule_id}},
@@ -236,7 +235,7 @@ The following example performs these actions when converting from source to targ
 + Add prefix `FACT_` to table `ORDERS` in schema `SALES`.
 + Add prefix `OLD_` to column `UNIT_PRICE` in table `PRODUCTS` in schema `SALES`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -287,7 +286,7 @@ The following example performs these actions when converting from source to targ
 + Remove prefix `TMP_` from table `TMP_INVOICES` in schema `SRC_FINANCE`.
 + Remove prefix `PAID_` from column `PAID_AMOUNT` in table `TMP_PAYMENTS` in schema `SRC_FINANCE`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -338,7 +337,7 @@ The following example performs these actions when converting from source to targ
 + Replace prefix `STG_` with `INT_` in table `STG_WAREHOUSES` in schema `OLD_INVENTORY`.
 + Replace prefix `SRC_` with `TGT_` in column `SRC_WAREHOUSE_CODE` in table `STG_WAREHOUSES` in schema `OLD_INVENTORY`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -392,7 +391,7 @@ The following example performs these actions when converting from source to targ
 + Add suffix `_HIST` to table `JOB_CHANGES` in schema `HR_ARCHIVE`.
 + Add suffix `_TS` to column `CREATED_AT` in table `EMPLOYEE_SALARIES` in schema `HR_ARCHIVE`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -443,7 +442,7 @@ The following example performs these actions when converting from source to targ
 + Remove suffix `_V1` from table `CLAUSES_V1` in schema `LEGAL_FILES`.
 + Remove suffix `_CODE` from column `COUNTRY_CODE` in table `CONTRACTS_V1` in schema `LEGAL_FILES`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -494,7 +493,7 @@ The following example performs these actions when converting from source to targ
 + Replace suffix `_RPT` with `_REPORT` in table `MONTHLY_RPT` in schema `REPORTING_DEV`.
 + Replace suffix `_ID` with `_KEY` in column `CUSTOMER_ID` in table `MONTHLY_RPT` in schema `REPORTING_DEV`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -548,7 +547,7 @@ The following example performs these actions when converting from source to targ
 + Convert all characters in the name of table `CUSTOMER_ACCOUNTS` in schema `CRM_LEGACY` to uppercase.
 + Convert all characters in the name of column `FIRST_NAME` in table `CUSTOMER_ACCOUNTS` in schema `CRM_LEGACY` to uppercase.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -596,7 +595,7 @@ The following example performs these actions when converting from source to targ
 + Convert all characters in the name of table `SHIPMENT_ORDERS` in schema `LOGISTICS` to lowercase.
 + Convert all characters in the name of column `DESTINATION_CITY` in table `SHIPMENT_ORDERS` in schema `LOGISTICS` to lowercase.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -644,7 +643,7 @@ The following example performs these actions when converting from source to targ
 + Rename table `REGIONS` in schema `HR` to `ORG_REGIONS`.
 + Rename column `CITY` in table `LOCATIONS` in schema `HR` to `ORG_CITY_NAME`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -695,7 +694,7 @@ The following example performs these actions when converting from source to targ
 + Change the data type of column `NOTES` in table `EMPLOYEES` in schema `PAYROLL` from `VARCHAR2` to `VARCHAR` with length 350.
 + Change the data type of column `HIRE_DATE` in table `EMPLOYEES` in schema `PAYROLL` from `DATE` to `TIMESTAMP WITH TIME ZONE` with precision 3.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -759,7 +758,7 @@ The following example performs these actions when converting from source to targ
 + Change the data type of local variable `V_TAX_RATE` in stored procedure `PROCESS_PAYMENT` in schema `FINANCE` to `NUMERIC` with precision 10 and scale 6.
 + Change the data type of local variable `V_DESCRIPTION` in standalone function `CALC_DISCOUNT` in schema `FINANCE` to `CHARACTER` with length 150.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -822,7 +821,7 @@ The following example performs these actions when converting from source to targ
 + Change the return data type of standalone function `CALC_DISCOUNTED_PRICE` in schema `FNG_COMPANY` to `DECIMAL`.
 + Change the return data type of packaged function `CALCULATE_TAX` within package `TAX_UTILS` in schema `FNG_COMPANY` to `REAL`.
 
-```
+```JSON
 {
   "rules": [
     {
@@ -880,7 +879,7 @@ The following example performs these actions when converting from source to targ
 + Add prefix `MIGR_` to all tables in all schemas whose names start with `STG_`.
 + Add suffix `_NEW` to all columns whose names start with `SRC_` in all tables across all schemas whose names start with `STG_`.
 
-```
+```JSON
 {
   "rules": [
     {

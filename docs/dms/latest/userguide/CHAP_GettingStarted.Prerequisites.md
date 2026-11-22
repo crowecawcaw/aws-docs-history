@@ -1,7 +1,6 @@
 
 
 # Complete prerequisites to set up AWS Database Migration Service
-<a name="CHAP_GettingStarted.Prerequisites"></a>
 
 In this section, you can learn the prerequisite tasks for AWS DMS, such as setting up your source and target databases. As part of these tasks, you also set up a virtual private cloud (VPC) based on the Amazon VPC service to contain your resources. In addition, you set up an Amazon EC2 instance that you use to populate your source database and verify replication on your target database.
 

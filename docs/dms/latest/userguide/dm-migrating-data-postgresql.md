@@ -1,7 +1,6 @@
 
 
 # Migrating data from PostgreSQL databases with homogeneous data migrations in AWS DMS
-<a name="dm-migrating-data-postgresql"></a>
 
 You can use [Homogeneous data migrations](data-migrations.md) to migrate a self-managed PostgreSQL database to RDS for PostgreSQL or Aurora PostgreSQL. AWS DMS creates a serverless environment for your data migration. For different types of data migrations, AWS DMS uses different native PostgreSQL database tools.
 

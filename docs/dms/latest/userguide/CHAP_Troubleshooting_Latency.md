@@ -1,7 +1,6 @@
 
 
 # Troubleshooting latency issues in AWS Database Migration Service
-<a name="CHAP_Troubleshooting_Latency"></a>
 
 This section provides an overview of the common causes for AWS DMS task latency during the ongoing replication phase (CDC). AWS DMS replicates data asynchronously. Latency is the delay between when a change was committed on the source and when the change was replicated to the target. Latency can be caused due to misconfiguration of replication components, such as the following: 
 + Source endpoint or data source

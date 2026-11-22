@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS DMS tasks
-<a name="CHAP_Monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS DMS and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. AWS provides several tools for monitoring your AWS DMS tasks and resources, and responding to potential incidents:
 
@@ -344,7 +343,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `RebootReplicationInstance` action.
 
-```
+```json
     {
     "eventVersion": "1.05",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Using transformation rule expressions to define column content
-<a name="CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Expressions"></a>
 
 To define content for new and existing columns, you can use an expression within a transformation rule. For example, using expressions you can add a column or replicate source table headers to a target. You can also use expressions to flag records on target tables as inserted, updated, or deleted at the source. 
 

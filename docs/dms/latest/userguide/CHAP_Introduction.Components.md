@@ -1,7 +1,6 @@
 
 
 # Components of AWS DMS
-<a name="CHAP_Introduction.Components"></a>
 
 This section describes the internal components of AWS DMS and how they function together to accomplish your data migration. Understanding the underlying components of AWS DMS can help you migrate data more efficiently and provide better insight when troubleshooting or investigating issues.
 

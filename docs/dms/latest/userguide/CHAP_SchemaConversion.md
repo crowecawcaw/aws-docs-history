@@ -1,7 +1,6 @@
 
 
 # Converting database schemas using DMS Schema Conversion
-<a name="CHAP_SchemaConversion"></a>
 
 DMS Schema Conversion is a feature of AWS Database Migration Service (AWS DMS) that converts your source database schemas to a format compatible with your target database on Aurora, Amazon RDS, or Amazon Redshift.
 

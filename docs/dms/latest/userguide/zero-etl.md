@@ -1,7 +1,6 @@
 
 
 # AWS zero-ETL integration for self-managed database sources
-<a name="zero-etl"></a>
 
 AWS zero-ETL integration is a fully managed solution that makes transactional and operational data available in Amazon Redshift, Amazon S3, and Amazon S3 Tables from multiple operational and transactional database sources. Using zero-ETL, you can replicate data from your self-managed source databases such as MySQL, PostgreSQL, SQL Server, and Oracle to Amazon Redshift through existing AWS Database Migration Service (AWS DMS) source endpoints. The automatic synchronization avoids the traditional extract, transform, and load (ETL) process. It also enables real-time analytics and AI workloads. For more information, see [zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.html) in the *Amazon Redshift Management Guide*. 
 
@@ -110,7 +109,7 @@ After creating the KMS key, configure the key policy to allow Amazon Redshift an
 
 The following example shows a key policy for zero-ETL integrations:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Id": "key-default-1",
@@ -189,7 +188,7 @@ Create an IAM policy that grants permissions for zero-ETL integration operations
 
 Save the following policy to a file (for example, `/tmp/zetl-policy.json`):
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

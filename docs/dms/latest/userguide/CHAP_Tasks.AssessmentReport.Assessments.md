@@ -1,7 +1,6 @@
 
 
 # Individual assessments
-<a name="CHAP_Tasks.AssessmentReport.Assessments"></a>
 
 This section describes individual premigration assessments.
 

@@ -1,7 +1,6 @@
 
 
 # Naming rules
-<a name="sc-default-rules-naming-oracle"></a>
 
 The following naming rules apply when your source database is Oracle. DMS Schema Conversion applies your transformation rules first, and then applies the default rules for case, prefixes, uniqueness, and length to the result.
 

@@ -1,7 +1,6 @@
 
 
 # Diagnostic support scripts for MySQL-compatible databases
-<a name="CHAP_SupportScripts.MySQL"></a>
 
 Following, you can find the diagnostic support scripts available to analyze an on-premises or Amazon RDS for MySQL-compatible database in your AWS DMS migration configuration. These scripts work with either a source or target endpoint. The scripts are all written to run on the MySQL SQL command line. 
 
@@ -61,7 +60,7 @@ Run the script after connecting to your database environment using the command l
    Review the generated report and remove any information that you are uncomfortable sharing. When the content is acceptable for you to share, upload the file to your AWS Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md).
 
 **Note**  
-If you already have a user account with required privileges described in [Diagnostic support scripts for MySQL-compatible databases](#CHAP_SupportScripts.MySQL), you can use the existing user account as well to run the script.
+If you already have a user account with required privileges described in [Diagnostic support scripts for MySQL-compatible databases](CHAP_SupportScripts.MySQL.md), you can use the existing user account as well to run the script.
 Remember to connect to your database before running the script.
 The script generates its output in text format.
 Keeping security best practices in mind, if you create a new user account only to execute this MySQL diagnostic support script, we recommend that you delete this user account after successful execution of the script.

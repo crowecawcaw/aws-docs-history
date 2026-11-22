@@ -1,7 +1,6 @@
 
 
 # Using secrets to access AWS Database Migration Service endpoints
-<a name="security_iam_secretsmanager"></a>
 
 For AWS DMS, a *secret* is an encrypted key that you can use to represent a set of user credentials to authenticate, through *secret authentication*, the database connection for a supported AWS DMS source or target endpoint. For an Oracle endpoint that also uses Oracle Automatic Storage Management (ASM), AWS DMS requires an additional secret that represents the user credentials to access Oracle ASM.
 
@@ -177,6 +176,8 @@ Depending on your database engine configuration, your database might not fetch t
 
 **To create the secret access policy and role to set your `SecretsManagerAccessRoleArn` or `SecretsManagerOracleAsmAccessRoleArn`, which allows AWS DMS to access AWS Secrets Manager to access your appropriate secret**
 
+For role naming restrictions, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
+
 1. Sign in to the AWS Management Console and open the AWS Identity and Access Management (IAM) console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
 1. Choose **Policies**, then choose **Create policy**.
@@ -188,7 +189,7 @@ Depending on your database engine configuration, your database might not fetch t
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -218,7 +219,7 @@ Depending on your database engine configuration, your database might not fetch t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

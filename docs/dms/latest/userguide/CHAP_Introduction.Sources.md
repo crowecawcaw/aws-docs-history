@@ -1,7 +1,6 @@
 
 
 # Sources for AWS DMS
-<a name="CHAP_Introduction.Sources"></a>
 
 You can use different source data stores in different AWS DMS features. The following sections contain the lists of supported source data stores for each AWS DMS feature.
 

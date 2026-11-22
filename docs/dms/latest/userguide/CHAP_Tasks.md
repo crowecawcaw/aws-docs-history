@@ -1,7 +1,6 @@
 
 
 # Working with AWS DMS tasks
-<a name="CHAP_Tasks"></a>
 
 An AWS Database Migration Service (AWS DMS) task is where all the work happens. You specify what tables (or views) and schemas to use for your migration and any special processing, such as logging requirements, control table data, and error handling. 
 

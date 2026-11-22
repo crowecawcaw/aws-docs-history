@@ -1,7 +1,6 @@
 
 
 # Using a Microsoft SQL Server database as a source in DMS Schema Conversion
-<a name="data-providers-sql-server"></a>
 
 DMS Schema Conversion supports the following modes for Microsoft SQL Server as a migration source:
 + **Online mode** – DMS Schema Conversion connects directly to your source database to read metadata. This requires network connectivity between DMS Schema Conversion and your database, and the database user must have the required privileges. For more information about network configuration, see [Networking for schema conversion](https://docs.aws.amazon.com/dms/latest/userguide/instance-profiles-network.html).

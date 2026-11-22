@@ -1,7 +1,6 @@
 
 
 # Creating data providers in AWS Database Migration Service
-<a name="data-providers-create"></a>
 
 You can create data providers and use them in AWS DMS migration projects. Your data provider can be a self-managed engine running on-premises or on an Amazon EC2 instance. Also, your data provider can be a fully managed engine, such as Amazon Relational Database Service (Amazon RDS) or Amazon Aurora.
 

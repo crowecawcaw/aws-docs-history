@@ -1,7 +1,6 @@
 
 
 # Refreshing your database schemas in DMS Schema Conversion
-<a name="schema-conversion-refresh"></a>
 
 After you create a migration project, DMS Schema Conversion stores the information about your source and target schemas in this project. DMS Schema Conversion uses *lazy loading* to load metadata only as it is needed, such as when you choose a node in your database tree. You can use *eager loading* to load the schema information faster. To do so, choose your schema, and then choose **Load metadata** from **Actions**.
 

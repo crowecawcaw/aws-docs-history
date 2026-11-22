@@ -1,7 +1,6 @@
 
 
 # Using the Time Travel logs
-<a name="CHAP_Tasks.CustomizingTasks.TaskSettings.TimeTravel.LogSchema"></a>
 
 *Time Travel log files* are comma-separated value (CSV) files with the fields following.
 

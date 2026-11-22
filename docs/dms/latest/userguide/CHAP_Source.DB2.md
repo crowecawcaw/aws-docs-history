@@ -1,7 +1,6 @@
 
 
 # Using IBM Db2 for Linux, Unix, Windows, and Amazon RDS database (Db2 LUW) as a source for AWS DMS
-<a name="CHAP_Source.DB2"></a>
 
 You can migrate data from an IBM Db2 for Linux, Unix, Windows, and Amazon RDS (Db2 LUW) database to any supported target database using AWS Database Migration Service (AWS DMS). 
 

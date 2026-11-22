@@ -1,7 +1,6 @@
 
 
 # Targets for AWS DMS
-<a name="CHAP_Introduction.Targets"></a>
 
 You can use different target data stores in different AWS DMS features. The following sections contain the lists of supported target data stores for each AWS DMS feature.
 
