@@ -1,7 +1,6 @@
 
 
 # Drill Planning for AWS Elastic Disaster Recovery
-<a name="drill-planning"></a>
 
  **Drills vs Planned DR Events:** In some situations, the disaster recovery test will be a failover of the production environment in a planned event, with apps running in production in the recovery Region. It is advised to do a full production test on an annual basis to capture any blockers, and to be familiar with the process in the event of an actual disaster.
 

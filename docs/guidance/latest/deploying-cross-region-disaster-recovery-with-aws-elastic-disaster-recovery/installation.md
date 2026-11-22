@@ -1,7 +1,6 @@
 
 
 # Installation
-<a name="installation"></a>
 
 ## Ensure Instance Profile Permissions
 <a name="ensure-instance-profile-permissions"></a>

@@ -1,7 +1,6 @@
 
 
 # Design Guidance
-<a name="design-guidance"></a>
 
 ## Cross-Region
 <a name="cross-region"></a>

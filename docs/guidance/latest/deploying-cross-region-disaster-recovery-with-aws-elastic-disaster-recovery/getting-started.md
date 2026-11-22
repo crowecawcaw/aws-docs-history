@@ -1,7 +1,6 @@
 
 
 # Guidance for Deploying Cross-Region Disaster Recovery with AWS Elastic Disaster Recovery
-<a name="getting-started"></a>
 
 This user guide provides prescriptive instructions to deploy AWS Elastic Disaster Recovery for AWS customers who are looking to protect applications that currently operate within an Amazon Web Services (AWS) Region and choose to recover to another Region for disaster recovery. This guide serves to complement the publicly available [Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html) documentation, available on the [AWS documentation library](https://docs.aws.amazon.com/index.html). It introduces important concepts, provides specific guidance on configuration of Elastic Disaster Recovery for a cross-Region need, and step-by-step instructions on how to design, deploy, and manage Elastic Disaster Recovery.
 

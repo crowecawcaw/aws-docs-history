@@ -1,7 +1,6 @@
 
 
 # Failback with AWS Elastic Disaster Recovery
-<a name="failback"></a>
 
 ## Prerequisites
 <a name="prerequisites"></a>

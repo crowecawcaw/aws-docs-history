@@ -1,7 +1,6 @@
 
 
 # Technical prerequisites
-<a name="technical-prerequisites"></a>
 
 ## Technical prerequisites
 <a name="technical-prerequisites"></a>

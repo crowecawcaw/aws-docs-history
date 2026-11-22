@@ -1,7 +1,6 @@
 
 
 # Core concepts
-<a name="core-concepts"></a>
 
 Below is a high-level overview of the Core Concepts that are incorporated in Elastic Disaster Recovery. We recommend readers to also familiarize themselves with core AWS functionality such as [Amazon Identity and Access Management](https://aws.amazon.com/iam/) (IAM), [Networking Essentials](https://aws.amazon.com/getting-started/aws-networking-essentials/), [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/) (EC2); and general disaster recovery concepts.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Elastic Disaster Recovery
-<a name="monitoring"></a>
 
 ## Monitoring resources
 <a name="monitoring-resources"></a>

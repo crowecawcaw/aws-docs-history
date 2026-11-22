@@ -1,7 +1,6 @@
 
 
 # Recovery planning
-<a name="recovery-planning"></a>
 
 In order to launch your recovery instances quickly, you should pre-configure how those instances are to be launched. Also, perform drills in order to make sure that all of your network and application settings are properly configured. You can configure how your instances will be launched by editing the Launch settings for each source server. Launch settings can be configured immediately when a source server has been added to Elastic Disaster Recovery, there is no need to wait for the initial sync process to finalize. Performing frequent drills is key for failover preparedness. Elastic Disaster Recovery makes it easy for you to launch drill instances as frequently as you want. Drills are non-disruptive and do not impact the source server or ongoing data replication. If you experience a disaster in the middle of a drill, you can launch a new recovery instance from the source server’s current state or keep the instance you launched during the drill.
 
