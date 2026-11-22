@@ -1,7 +1,6 @@
 
 
 # Massive Scale Real-Time Messaging for Multiplayer Games
-<a name="massive-scale-real-time-messaging-multiplayer-games"></a>
 
 Publication date: **November 11, 2020 ([Diagram history](#messaging-history))**
 
