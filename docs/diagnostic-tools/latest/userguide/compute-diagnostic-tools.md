@@ -1,7 +1,6 @@
 
 
 # Tools for managing and optimizing AWS compute infrastructure and applications
-<a name="compute-diagnostic-tools"></a>
 
 The compute tools in the AWS Diagnostic Tools service are used for monitoring, troubleshooting, and optimizing AWS infrastructure and applications on your AWS accounts. 
 

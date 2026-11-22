@@ -1,7 +1,6 @@
 
 
 # Tools to diagnose application integrations
-<a name="app-integ-tools"></a>
 
  The tools used to diagnose application integrations in the AWS Diagnostic Tools service cover Amazon Pinpoint, Amazon Polly, and Amazon Simple Workflow Service. With Diagnostic Tools, AWS Partners can monitor, troubleshoot, and optimize their customer's AWS applications. 
 

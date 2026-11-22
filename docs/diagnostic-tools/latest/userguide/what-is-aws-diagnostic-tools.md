@@ -1,7 +1,6 @@
 
 
 # What is AWS Diagnostic Tools?
-<a name="what-is-aws-diagnostic-tools"></a>
 
 AWS Diagnostic Tools is a service for AWS Partners in the Partner-Led Support program. Deployed on customer accounts managed by AWS Partners, Diagnostic Tools provides support engineers with a dashboard of over 50 context-aware tools that operate on their customer's AWS account. Using these tools, engineers supporting their customers can run tools to diagnose up to 22 AWS services running on their customer's AWS account.
 

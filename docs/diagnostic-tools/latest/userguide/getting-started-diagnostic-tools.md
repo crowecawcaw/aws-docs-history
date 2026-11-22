@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Diagnostic Tools
-<a name="getting-started-diagnostic-tools"></a>
 
 **Topics**
 + [Overview](#getting-started-overview)
@@ -52,7 +51,7 @@ Follow these instructions to create the read-only IAM role for Diagnostic Tools 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -275,7 +274,7 @@ Follow these instructions to create the read-only IAM role for Diagnostic Tools 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [{

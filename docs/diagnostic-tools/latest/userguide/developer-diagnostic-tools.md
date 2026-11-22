@@ -1,7 +1,6 @@
 
 
 # Tools for diagnosing DevOps and deployment services
-<a name="developer-diagnostic-tools"></a>
 
 By using the DevOps and deployment tools in AWS Diagnostic Tools, users can diagnose and troubleshoot issues in their cloud-based development environments and deployments. Covering CloudWatch, CodePipeline, and Amazon Elastic File System (EFS) services, these tools provide valuable insights into AWS resource configurations, performance, and health. Whether you need to examine CloudWatch dashboards, investigate log groups, review CodePipeline setups, or inspect Amazon Elastic File System resources, these tools are your go-to resources for monitoring, diagnosing, and optimizing your AWS development and deployments. 
 

@@ -1,7 +1,6 @@
 
 
 # Identify and diagnose issues with AWS Diagnostic Tools
-<a name="available-tools"></a>
 
 The AWS Diagnostic Tools service provides a range of diagnostic tools you can use with a variety of AWS services on your partner-managed account, allowing you to discover issues with your applications or AWS services. Each tool operates on a list of AWS Regions selected when the tool is run. All invocations of each tool are logged, are easily accessible for review, and the output from each invocation can be directed to one of several different regions. The tools can be invoked from the AWS Management Console, with API access available in order to support tools, automation, and integration.
 

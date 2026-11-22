@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for AWS Diagnostic Tools
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Diagnostic Tools resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -57,7 +56,7 @@ In this example, you want to grant an IAM user in your AWS account access to run
 
 ****  
 
-```
+```json
    {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

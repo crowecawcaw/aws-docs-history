@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Diagnostic Tools
-<a name="document-history"></a>
 
 The following table describes the important changes to the documentation since the last release of AWS Diagnostic Tools. For notification about updates to this documentation, subscribe to the RSS feed.
 + **Latest documentation update:** October 23, 2024

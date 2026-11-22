@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Diagnostic Tools
-<a name="security-iam"></a>
 
 
 

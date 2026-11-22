@@ -1,7 +1,6 @@
 
 
 # Tools for maintaining security, compliance, and efficient performance
-<a name="security-diagnostic-tools"></a>
 
 Security diagnostic tools available in the AWS Diagnostic Tools service equip AWS users with resources for maintaining security, compliance, and efficient performance in AWS environments. These tools offer certificate management, effective access policy control, and streamlined threat detection and response. AWS Partners in the Partner-Led Support program can leverage these resources to diagnose issues promptly, ensure resource integrity, and enhance their customer's AWS experience. 
 
