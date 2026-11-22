@@ -1,7 +1,6 @@
 
 
 # Step E: Add back the backup worker nodes
-<a name="upg-red-add-bup"></a>
 
 Add the backup workers back to the cluster and redundancy groups so that they can encode while the remaining workers are upgraded.
 

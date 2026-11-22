@@ -1,7 +1,6 @@
 
 
 # Cluster downgrades in Conductor Live
-<a name="downgrades-cl3-upg"></a>
 
 In a AWS Elemental Conductor Live cluster, downgrade the Conductor Live nodes first, and then downgrade each of the Elemental Live worker nodes.
 

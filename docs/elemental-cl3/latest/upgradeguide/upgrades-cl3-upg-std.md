@@ -1,7 +1,6 @@
 
 
 # Standard Conductor Live upgrade
-<a name="upgrades-cl3-upg-std"></a>
 
 The process outlined in this section is for a standard upgrade of the AWS Elemental Conductor Live software, where all nodes are taken offline and upgraded within a maintenance window. If your worker nodes are in a redundancy group and you want to limit downtime outside of a maintenance window, see [Reduced downtime Conductor Live upgrade](upgrades-cl3-upg-red.md).
 

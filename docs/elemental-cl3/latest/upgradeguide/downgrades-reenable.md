@@ -1,7 +1,6 @@
 
 
 # Step I: Re-enable high availability
-<a name="downgrades-reenable"></a>
 
 1. If you're using a virtual machine (VM), take a snapshot before you enable HA. See the VMware VSphere help text for more information.
 

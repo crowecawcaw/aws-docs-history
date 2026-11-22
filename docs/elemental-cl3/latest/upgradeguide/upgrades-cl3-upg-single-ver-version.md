@@ -1,7 +1,6 @@
 
 
 # Step A: Get ready
-<a name="upgrades-cl3-upg-single-ver-version"></a>
 
 The following steps prepare you to perform a standard upgrade of an Conductor Live node. Performing this procedure helps ensure you don't lose data due to a malfunctioning node.
 

@@ -1,7 +1,6 @@
 
 
 # Step E: Stop the running channels
-<a name="upg-std-stop"></a>
 
 You must stop all running channels before you upgrade. 
 

@@ -1,7 +1,6 @@
 
 
 # Sample Upgrade
-<a name="sample-upg-cl3-upg"></a>
 
 Following is a screen printout of a typical upgrade, showing the prompts and possible responses. 
 

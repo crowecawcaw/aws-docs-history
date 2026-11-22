@@ -1,7 +1,6 @@
 
 
 # Step I: Add worker nodes
-<a name="upg-std-add-w"></a>
 
 Add the worker nodes back to the cluster and their redundancy groups. Perform these steps for all worker nodes that are supposed to be in the cluster.
 

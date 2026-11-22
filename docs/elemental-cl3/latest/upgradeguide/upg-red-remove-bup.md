@@ -1,7 +1,6 @@
 
 
 # Step C: Remove the backup worker nodes
-<a name="upg-red-remove-bup"></a>
 
 Remove the backup worker nodes from the redundancy group before removing them from the cluster. You can then upgrade them while the active workers continue to encode. 
 

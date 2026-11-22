@@ -1,7 +1,6 @@
 
 
 # Step J: Fail back the running channels
-<a name="upg-red-back"></a>
 
 Move the running channels back to the upgraded active node by failing over the backup node that they're currently on.
 

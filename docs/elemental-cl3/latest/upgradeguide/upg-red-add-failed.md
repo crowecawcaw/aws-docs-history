@@ -1,7 +1,6 @@
 
 
 # Step I: Add failed worker node
-<a name="upg-red-add-failed"></a>
 
 Add the failed worker back to the cluster and redundancy groups so that it can encode while the remaining workers are upgraded.
 

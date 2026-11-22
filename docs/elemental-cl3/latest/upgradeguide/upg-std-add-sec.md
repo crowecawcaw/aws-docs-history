@@ -1,7 +1,6 @@
 
 
 # Step J: Add the secondary Conductor Live node
-<a name="upg-std-add-sec"></a>
 
 If you have only one Conductor Live, skip this step and go to [Step K: Start channels](upg-std-start.md).
 

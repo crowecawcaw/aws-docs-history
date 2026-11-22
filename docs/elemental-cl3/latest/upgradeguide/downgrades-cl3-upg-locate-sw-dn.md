@@ -1,7 +1,6 @@
 
 
 # Step B: Copy the AWS Elemental installers
-<a name="downgrades-cl3-upg-locate-sw-dn"></a>
 
 Locate and copy the AWS Elemental installers for worker and Conductor nodes.
 

@@ -1,7 +1,6 @@
 
 
 # Cluster Upgrades in Conductor Live
-<a name="upgrades-cl3-upg"></a>
 
 There are two types of upgrade that you can perform on an AWS Elemental Conductor Live cluster:
 + **Standard upgrade**: Use this for any type of cluster and redundancy configuration. Do this type of upgrade in a maintenance window since all nodes are offline for the duration of the upgrade process.

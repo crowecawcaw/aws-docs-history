@@ -1,7 +1,6 @@
 
 
 # Step K: Re-designate the backup worker node
-<a name="upg-red-redesignate"></a>
 
 Re-designate the backup worker as a backup so that it only runs active channels that have failed over from an active worker node.
 

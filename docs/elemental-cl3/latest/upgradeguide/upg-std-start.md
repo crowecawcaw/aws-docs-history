@@ -1,7 +1,6 @@
 
 
 # Step K: Start channels
-<a name="upg-std-start"></a>
 
 When all nodes have been upgrade, you can start the channels that were previously running.
 

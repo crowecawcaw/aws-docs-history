@@ -1,7 +1,6 @@
 
 
 # Step L: Disable high availability
-<a name="upg-red-disable"></a>
 
 **To disable high availability**
 

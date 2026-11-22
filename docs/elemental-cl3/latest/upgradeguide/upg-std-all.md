@@ -1,7 +1,6 @@
 
 
 # Step G: Upgrade worker nodes
-<a name="upg-std-all"></a>
 
 Perform these steps on the AWS Elemental Live nodes.
 

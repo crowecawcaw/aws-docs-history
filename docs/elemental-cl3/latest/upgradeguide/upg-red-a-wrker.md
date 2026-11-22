@@ -1,7 +1,6 @@
 
 
 # Step H: Upgrade the failed active node
-<a name="upg-red-a-wrker"></a>
 
 Now upgrade the active worker node that you just failed over. Use the same upgrade process that you used to upgrade the backup worker nodes. Perform these steps from the now-failed node.
 

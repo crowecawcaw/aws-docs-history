@@ -1,7 +1,6 @@
 
 
 # Step H: Start channels
-<a name="downgrades-start"></a>
 
 When all nodes have been downgraded, you can start the channels that were previously running.
 

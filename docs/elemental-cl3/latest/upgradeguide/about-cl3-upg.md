@@ -1,7 +1,6 @@
 
 
 # About this guide
-<a name="about-cl3-upg"></a>
 
 This guide describes how to upgrade or downgrade Conductor Live and worker nodes in an Conductor Live cluster. It covers versions 3.25.x and lower. These versions run on RHEL 7 (or CentOS 7). It also covers version 3.26.0 and higher. These versions run on RHEL 9.
 

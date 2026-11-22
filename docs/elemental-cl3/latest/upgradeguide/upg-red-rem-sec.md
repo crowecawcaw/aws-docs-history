@@ -1,7 +1,6 @@
 
 
 # Step M: Remove the secondary Conductor Live node
-<a name="upg-red-rem-sec"></a>
 
 If you have only one Conductor Live, skip this step and go to [Step O: Upgrade the primary Conductor node](upg-red-pri.md).
 

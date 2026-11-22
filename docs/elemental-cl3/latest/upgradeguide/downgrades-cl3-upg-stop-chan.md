@@ -1,7 +1,6 @@
 
 
 # Step C: Stop the running channels
-<a name="downgrades-cl3-upg-stop-chan"></a>
 
 You must stop all running channels before you downgrade. 
 

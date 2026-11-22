@@ -1,7 +1,6 @@
 
 
 # Step B: Copy the AWS Elemental installers
-<a name="upg-red-copy-ins"></a>
 
 Locate and copy the AWS Elemental installers for worker and Conductor Live nodes.
 

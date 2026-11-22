@@ -1,7 +1,6 @@
 
 
 # Step Q: Re-enable high availability
-<a name="upg-red-reenable"></a>
 
 1. If you're using a virtual machine (VM), take a snapshot before you enable HA. See the VMware VSphere help text for more information.
 
