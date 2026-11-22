@@ -1,7 +1,6 @@
 
 
 # Work with DynamoDB global tables and multi-Region replication with eventual consistency (MREC) using AWS Command Line Interface v2
-<a name="example_dynamodb_Scenario_MultiRegionReplication_section"></a>
 
 The following code example shows how to manage DynamoDB global tables with multi-Region replication with eventual consistency (MREC).
 + Create a table with multi-Region replication (MREC).
@@ -15,7 +14,7 @@ The following code example shows how to manage DynamoDB global tables with multi
 **AWS CLI with Bash script**  
 Create a table with multi-Region replication.  
 
-```
+```bash
 # Step 1: Create a new table (MusicTable) in US East (Ohio), with DynamoDB Streams enabled (NEW_AND_OLD_IMAGES)
 aws dynamodb create-table \
     --table-name MusicTable \
@@ -59,7 +58,7 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
 ```
 Describe the multi-Region table.  
 
-```
+```bash
 # Step 4: View the list of replicas created using describe-table
 aws dynamodb describe-table \
     --table-name MusicTable \
@@ -68,7 +67,7 @@ aws dynamodb describe-table \
 ```
 Put items in a replica table.  
 
-```
+```bash
 # Step 5: To verify that replication is working, add a new item to the Music table in US East (Ohio)
 aws dynamodb put-item \
     --table-name MusicTable \
@@ -77,7 +76,7 @@ aws dynamodb put-item \
 ```
 Get items from replica tables.  
 
-```
+```bash
 # Step 6: Wait for a few seconds, and then check to see whether the item has been 
 # successfully replicated to US East (N. Virginia) and Europe (Ireland)
 aws dynamodb get-item \
@@ -92,7 +91,7 @@ aws dynamodb get-item \
 ```
 Remove replicas.  
 
-```
+```bash
 # Step 7: Delete the replica table in Europe (Ireland) Region
 aws dynamodb update-table --table-name MusicTable --cli-input-json \
 '{
@@ -123,7 +122,7 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
 ```
 Clean up by deleting the table.  
 
-```
+```bash
 # Clean up: Delete the primary table
 aws dynamodb delete-table --table-name MusicTable --region us-east-2
 

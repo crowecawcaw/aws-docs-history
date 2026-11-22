@@ -1,7 +1,6 @@
 
 
 # Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model
-<a name="DynamoDBContext.VersionSupport"></a>
 
 Optimistic locking support in the object persistence model ensures that the item version for your application is the same as the item version on the server side before updating or deleting the item. Suppose that you retrieve an item for update. However, before you send your updates back, some other application updates the same item. Now your application has a stale copy of the item. Without optimistic locking, any update you perform will overwrite the update made by the other application. 
 
@@ -13,7 +12,7 @@ The following C\# code example defines a `Book` class with object persistence at
 
 **Example**  
 
-```
+```csharp
 [DynamoDBTable("ProductCatalog")]
   public class Book
   {
@@ -38,7 +37,7 @@ Optimistic locking has the following impact on `DynamoDBContext` operations:
 + The `Delete` method provides overloads that can take either a primary key value or an object as parameter, as shown in the following C\# code example.  
 **Example**  
 
-  ```
+  ```csharp
   DynamoDBContext context = new DynamoDBContext(client);
   ...
   // Load a book.
@@ -64,7 +63,7 @@ Instead of setting the property at the context level, you can disable optimistic
 
 **Example**  
 
-```
+```csharp
 DynamoDBContext context = new DynamoDBContext(client);
 // Load a book.
 Book book = context.Load<ProductCatalog>(111);

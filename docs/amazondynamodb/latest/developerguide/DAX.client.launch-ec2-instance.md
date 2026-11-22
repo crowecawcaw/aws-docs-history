@@ -1,7 +1,6 @@
 
 
 # Step 1: Launch an Amazon EC2 instance
-<a name="DAX.client.launch-ec2-instance"></a>
 
 When your Amazon DynamoDB Accelerator (DAX) cluster is available, you can launch an Amazon EC2 instance in your default Amazon Virtual Private Cloud (Amazon VPC). You can then install and run DAX client software on that instance.
 

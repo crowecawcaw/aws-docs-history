@@ -1,7 +1,6 @@
 
 
 # 2- Provisioned throughput exceeded
-<a name="throttling-provisioned-capacity-exceeded-mitigation"></a>
 
 Provisioned capacity throttling occurs when your application's consumption rate exceeds the read or write capacity units (RCUs/WCUs) configured for your tables or global secondary indexes. While DynamoDB provides burst capacity to handle occasional traffic spikes, sustained requests beyond your provisioned limits result in throttling. When this happens, DynamoDB returns a `ProvisionedThroughputExceeded` throttling reason type in the throttling exception. The reason identifies whether the issue is with read or write operations and whether it affects the base table or a global secondary index. 
 

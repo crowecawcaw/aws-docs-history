@@ -1,7 +1,6 @@
 
 
 # Use `UpdateTable` with an AWS SDK or CLI
-<a name="example_dynamodb_UpdateTable_section"></a>
 
 The following code examples show how to use `UpdateTable`.
 
@@ -19,7 +18,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
-```
+```cpp
 //! Update a DynamoDB table.
 /*!
   \sa updateTable()
@@ -65,7 +64,7 @@ bool AwsDoc::DynamoDB::updateTable(const Aws::String &tableName,
 ```
 Code that waits for the table to become active.  
 
-```
+```cpp
 //! Query a newly created DynamoDB table until it is active.
 /*!
   \sa waitTableActive()
@@ -512,7 +511,7 @@ For more information, see [Updating a Table](https://docs.aws.amazon.com/amazond
 **Tools for PowerShell V4**  
 **Example 1: Updates the provisioned throughput for the given table.**  
 
-```
+```powershell
 Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5
 ```
 +  For API details, see [UpdateTable](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -520,7 +519,7 @@ Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5
 **Tools for PowerShell V5**  
 **Example 1: Updates the provisioned throughput for the given table.**  
 
-```
+```powershell
 Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5
 ```
 +  For API details, see [UpdateTable](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

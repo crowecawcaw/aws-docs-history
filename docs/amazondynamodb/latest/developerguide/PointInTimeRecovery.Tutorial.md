@@ -1,7 +1,6 @@
 
 
 # Restoring a DynamoDB table to a point in time
-<a name="PointInTimeRecovery.Tutorial"></a>
 
 Amazon DynamoDB point-in-time recovery (PITR) provides continuous backups of your DynamoDB table data. You can restore a table to a point in time using the DynamoDB console or the AWS Command Line Interface (AWS CLI). The point-in-time recovery process restores to a new table.
 
@@ -68,7 +67,7 @@ aws dynamodb update-continuous-backups \
 
    Continuous backups (automatically enabled on table creation) and point-in-time recovery are enabled.
 
-   ```
+   ```json
    {
        "ContinuousBackupsDescription": {
            "PointInTimeRecoveryDescription": {

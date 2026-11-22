@@ -1,7 +1,6 @@
 
 
 # Step 2: Launch an Amazon EMR cluster
-<a name="EMRforDynamoDB.Tutorial.LaunchEMRCluster"></a>
 
 In this step, you will configure and launch an Amazon EMR cluster. Hive and a storage handler for DynamoDB will already be installed on the cluster.
 

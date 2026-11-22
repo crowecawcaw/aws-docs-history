@@ -1,7 +1,6 @@
 
 
 # DynamoDBMapper Class
-<a name="DynamoDBMapper.Methods"></a>
 
 
 
@@ -38,7 +37,7 @@ If an item that has the same primary key does not exist, this method creates a n
 
 By default, only attributes corresponding to mapped class properties are updated. Any additional existing attributes on an item are unaffected. However, if you specify `SaveBehavior.CLOBBER`, you can force the item to be completely overwritten.
 
-```
+```java
 DynamoDBMapperConfig config = DynamoDBMapperConfig.builder()
     .withSaveBehavior(DynamoDBMapperConfig.SaveBehavior.CLOBBER).build();
         
@@ -52,7 +51,7 @@ If you have versioning enabled, the client-side and server-side item versions mu
 
 Retrieves an item from a table. You must provide the primary key of the item that you want to retrieve. You can provide optional configuration parameters using the `DynamoDBMapperConfig` object. For example, you can optionally request strongly consistent reads to make sure that this method retrieves only the latest item values as shown in the following Java statement. 
 
-```
+```java
 DynamoDBMapperConfig config = DynamoDBMapperConfig.builder()
     .withConsistentReads(DynamoDBMapperConfig.ConsistentReads.CONSISTENT).build();
 
@@ -75,7 +74,7 @@ Queries a table or a secondary index.
 
 Assume that you have a table, `Reply`, that stores forum thread replies. Each thread subject can have zero or more replies. The primary key of the `Reply` table consists of the `Id` and `ReplyDateTime` fields, where `Id` is the partition key and `ReplyDateTime` is the sort key of the primary key.
 
-```
+```java
 Reply ( Id, ReplyDateTime, ... )
 ```
 
@@ -83,7 +82,7 @@ Assume that you created a mapping between a `Reply` class and the corresponding 
 
 **Example**  
 
-```
+```java
 String forumName = "&DDB;";
 String forumSubject = "&DDB; Thread 1";
 String partitionKey = forumName + "#" + forumSubject;
@@ -113,7 +112,7 @@ Note that calling the `size()` method on the collection will load every result i
 
 To query an index, you must first model the index as a mapper class. Suppose that the `Reply` table has a global secondary index named *PostedBy-Message-Index*. The partition key for this index is `PostedBy`, and the sort key is `Message`. The class definition for an item in the index would look like the following.
 
-```
+```java
 @DynamoDBTable(tableName="Reply")
 public class PostedByMessage {
     private String postedBy;
@@ -135,7 +134,7 @@ The `@DynamoDBTable` annotation indicates that this index is associated with the
 
 Now you can use `DynamoDBMapper` to query the index, retrieving a subset of messages that were posted by a particular user. You do not need to specify the index name if you do not have conflicting mappings across tables and indexes and the mappings are already made in the mapper. The mapper will infer based on the primary key and sort key. The following code queries a global secondary index. Because global secondary indexes support eventually consistent reads but not strongly consistent reads, you must specify `withConsistentRead(false)`.
 
-```
+```java
 HashMap<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
 eav.put(":v1",  new AttributeValue().withS("User A"));
 eav.put(":v2",  new AttributeValue().withS("DynamoDB"));
@@ -163,7 +162,7 @@ Scans an entire table or a secondary index. You can optionally specify a `Filter
 
 Assume that you have a table, `Reply`, that stores forum thread replies. Each thread subject can have zero or more replies. The primary key of the `Reply` table consists of the `Id` and `ReplyDateTime` fields, where `Id` is the partition key and `ReplyDateTime` is the sort key of the primary key.
 
-```
+```java
 Reply ( Id, ReplyDateTime, ... )
 ```
 
@@ -171,7 +170,7 @@ If you mapped a Java class to the `Reply` table, you can use the `DynamoDBMapper
 
 **Example**  
 
-```
+```java
 HashMap<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
 eav.put(":v1", new AttributeValue().withS("2015"));
 
@@ -190,7 +189,7 @@ To scan an index, you must first model the index as a mapper class. Suppose that
 
 The following code example scans `PostedBy-Message-Index`. It does not use a scan filter, so all of the items in the index are returned to you.
 
-```
+```java
 DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
     .withIndexName("PostedBy-Message-Index")
     .withConsistentRead(false);
@@ -211,7 +210,7 @@ Performs a parallel scan of an entire table or secondary index. You specify a nu
 
 The following Java code example performs a parallel scan on the `Product` table.
 
-```
+```java
 int numberOfThreads = 4;
 
 Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
@@ -231,7 +230,7 @@ Saves objects to one or more tables using one or more calls to the `AmazonDynamo
 
 The following Java code saves two items (books) to the `ProductCatalog` table.
 
-```
+```java
 Book book1 = new Book();
 book1.setId(901);
 book1.setProductCategory("Book");
@@ -252,7 +251,7 @@ Retrieves multiple items from one or more tables using their primary keys.
 
 The following Java code retrieves two items from two different tables.
 
-```
+```java
 ArrayList<Object> itemsToGet = new ArrayList<Object>();
 
 ForumItem forumItem = new ForumItem();
@@ -274,7 +273,7 @@ Deletes objects from one or more tables using one or more calls to the `AmazonDy
 
 The following Java code deletes two items (books) from the `ProductCatalog` table.
 
-```
+```java
 Book book1 = mapper.load(Book.class, 901);
 Book book2 = mapper.load(Book.class, 902);
 mapper.batchDelete(Arrays.asList(book1, book2));
@@ -287,7 +286,7 @@ Saves objects to and deletes objects from one or more tables using one or more c
 
 The following Java code writes a new item to the `Forum` table, writes a new item to the `Thread` table, and deletes an item from the `ProductCatalog` table.
 
-```
+```java
 // Create a Forum item to save
 Forum forumItem = new Forum();
 forumItem.setName("Test BatchWrite Forum");
@@ -321,7 +320,7 @@ For more information about DynamoDB transactions and the provided atomicity, con
 
 The following Java code writes a new item to each of the `Forum` and `Thread` tables, transactionally.
 
-```
+```java
 Thread s3ForumThread = new Thread();
 s3ForumThread.setForumName("S3 Forum");
 s3ForumThread.setSubject("Sample Subject 1");
@@ -349,7 +348,7 @@ For more information about DynamoDB transactions and the provided atomicity, con
 
 The following Java code loads one item from each of the `Forum` and `Thread` tables, transactionally.
 
-```
+```java
 Forum dynamodbForum = new Forum();
 dynamodbForum.setName("DynamoDB Forum");
 Thread dynamodbForumThread = new Thread();
@@ -378,7 +377,7 @@ Creates a link to an object in Amazon S3. You must specify a bucket name and a k
 
 To use `createS3Link`, your mapper class must define getter and setter methods. The following code example illustrates this by adding a new attribute and getter/setter methods to the `CatalogItem` class.
 
-```
+```java
 @DynamoDBTable(tableName="ProductCatalog")
 public class CatalogItem {
 
@@ -403,7 +402,7 @@ public class CatalogItem {
 
 The following Java code defines a new item to be written to the `Product` table. The item includes a link to a product image; the image data is uploaded to Amazon S3.
 
-```
+```java
 CatalogItem item = new CatalogItem();
 
 item.setId(150);

@@ -1,7 +1,6 @@
 
 
 # Using attribute-based access control with DynamoDB
-<a name="attribute-based-access-control"></a>
 
 [Attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) is an authorization strategy that defines access permissions based on [tag conditions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in your identity-based policies or other AWS policies, such as resource-based policies and organization IAM policies. You can attach tags to DynamoDB tables, which are then evaluated against the tag-based conditions. The indexes associated with a table inherit the tags you add to the table. You can add up to 50 tags for each DynamoDB table. The maximum size supported for all the tags in a table is 10 KB. For more information about tagging DynamoDB resources and tagging restrictions, see [ Tagging resources in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.Operations.html) and [Tagging restrictions in DynamoDB](Tagging.md#TaggingRestrictions).
 
@@ -24,7 +23,7 @@ The following example allows the [UpdateItem](https://docs.aws.amazon.com/amazon
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

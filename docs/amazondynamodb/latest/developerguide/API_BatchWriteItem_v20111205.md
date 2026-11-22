@@ -1,7 +1,6 @@
 
 
 # BatchWriteItem
-<a name="API_BatchWriteItem_v20111205"></a>
 
 **Important**  
 **{{This section refers to API version 2011-12-05, which is deprecated and should not be used for new applications.}}**  

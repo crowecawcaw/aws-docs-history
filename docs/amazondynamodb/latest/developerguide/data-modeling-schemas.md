@@ -1,7 +1,6 @@
 
 
 # Data modeling schema design packages in DynamoDB
-<a name="data-modeling-schemas"></a>
 
 Learn about data modeling schema design packages for DynamoDB, including use cases, access patterns, and final schema designs for social networks, gaming profiles, complaint management, recurring payments, device status, and online shops.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up DynamoDB (web service)
-<a name="SettingUp.DynamoWebService"></a>
 
  To use the Amazon DynamoDB web service: 
 

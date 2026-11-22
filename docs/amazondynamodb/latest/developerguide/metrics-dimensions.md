@@ -1,7 +1,6 @@
 
 
 # DynamoDB Metrics and dimensions
-<a name="metrics-dimensions"></a>
 
 When you interact with DynamoDB, it sends metrics and dimensions to CloudWatch.
 

@@ -1,7 +1,6 @@
 
 
 # CloudWatch throttling metrics
-<a name="TroubleshootingThrottling-cloudwatch"></a>
 
 This page provides a comprehensive guide to CloudWatch metrics specifically designed to help you identify, diagnose, and resolve throttling issues in your DynamoDB tables and indexes.
 

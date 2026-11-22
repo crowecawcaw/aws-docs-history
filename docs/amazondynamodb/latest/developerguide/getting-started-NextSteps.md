@@ -1,7 +1,6 @@
 
 
 # Continue learning about DynamoDB
-<a name="getting-started-NextSteps"></a>
 
 For more information about using Amazon DynamoDB, see the following topics:
 + [Working with tables and data in DynamoDB](WorkingWithTables.md)

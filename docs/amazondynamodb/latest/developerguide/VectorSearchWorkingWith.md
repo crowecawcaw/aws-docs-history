@@ -1,7 +1,6 @@
 
 
 # Creating and searching vector indexes
-<a name="VectorSearchWorkingWith"></a>
 
 This section describes how to create and manage vector indexes, write items with vector data, and perform similarity searches using the `SearchVectors` API.
 
@@ -141,7 +140,7 @@ You write items with vector data using the standard DynamoDB write APIs (`PutIte
 
 Because a vector contains many values, save the item to a file such as `item.json`, then pass the file to the AWS CLI.
 
-```
+```json
 {
     "ProductId": { "S": "prod-123" },
     "Category": { "S": "Electronics" },
@@ -196,7 +195,7 @@ The following example searches for the 10 most similar items in the `ProductEmbe
 
 Save the query vector to a file such as `query-vector.json`, as a plain JSON array of number values.
 
-```
+```json
 [
     { "N": "0.1234" },
     { "N": "-0.5678" },
@@ -217,7 +216,7 @@ aws dynamodb search-vectors \
 
 The response includes a `SearchResults` array. Each element contains the matching `Item` and a `Score` that indicates how similar the item is to the query vector.
 
-```
+```json
 {
     "SearchResults": [
         {
@@ -267,12 +266,60 @@ aws dynamodb search-vectors \
 
 If your vector index has a partition key defined in the SearchSchema, you must include it in the `SearchConditionExpression`. Inline filter attributes are optional.
 
-The equality operator (`=`) is supported in `SearchConditionExpression` for both vector index partition key and inline filter attributes. Comparison, range, and set-membership operators (`<>`, `<`, `<=`, `>`, `>=`, `IN`) are not yet available.
+On the vector index partition key, `SearchConditionExpression` supports the equality operator (`=`) only. The partition key condition must appear at the top level of the expression, joined to the rest with `AND`. For the full partition key rules, see [Vector index partition key rules](VectorSearchFilterReference.md#VectorSearchFilterReference.PartitionKey).
 
-This filtering is how you scope a similarity search to a subset of your data, a common requirement in multi-tenant and Retrieval Augmented Generation (RAG) applications. For example, to find documents similar to a query but only within one tenant, define the tenant attribute as a vector index partition key (`HASH`) in the SearchSchema and pass its value in every search. This isolates results to that tenant. It also improves performance, because the search examines only the relevant data. Use inline filter attributes for additional equality constraints, such as a document type or status, that you want to apply within the routed partition.
+On inline filter attributes, `SearchConditionExpression` supports more than equality. Any inline filter attribute accepts `=`, `<>`, and `IN`. An inline filter attribute of type Number (`N`) also accepts the range operators `<`, `<=`, `>`, and `>=`, and the `BETWEEN` operator. You combine conditions with `AND`, `OR`, and `NOT`, group them with parentheses, and test whether an attribute is present with the `attribute_exists` and `attribute_not_exists` functions.
+
+The following operators are supported on inline filter attributes.
+
+
+| Operator | Meaning | Inline filter attribute types | 
+| --- | --- | --- | 
+| = | Equality | Any (S, N, B) | 
+| <> | Inequality | Any (S, N, B) | 
+| IN | Membership in a list of values | Any (S, N, B) | 
+| <, <=, >, >= | Range comparison | Number (N) only | 
+| BETWEEN | Inclusive range | Number (N) only | 
+
+An `=`, range, `BETWEEN`, or `IN` condition does not match an item that does not have the attribute. A `<>` or `NOT` condition does match such an item. For details, and for how to exclude items that do not have the attribute, see [How conditions treat a missing attribute](VectorSearchFilterReference.md#VectorSearchFilterReference.MissingAttributes).
+
+A filter that runs during the search is more accurate than one you apply after `SearchVectors` returns. A post-filter can only remove items from the `TopK` results already found, so it can return fewer than `TopK` items. An inline filter is applied as the index is searched, so the search considers only matching items and still returns up to `TopK` results.
+
+The following two examples use a separate vector index named `ProductCatalogIndex` on the `Products` table. Its SearchSchema declares `Category` as the vector index partition key (`HASH`, String) and declares `Brand` (String), `Price` (Number), and `Rating` (Number) as inline filter attributes. Each of these attributes is also declared in `AttributeDefinitions`.
+
+The following example returns the five closest items in the `Electronics` category with a `Rating` of 4.5 or higher. The partition key condition uses `=`, and the inline filter uses a range operator on a Number attribute.
+
+```
+aws dynamodb search-vectors \
+    --table-name Products \
+    --index-name ProductCatalogIndex \
+    --search-vector file://query-vector.json \
+    --top-k 5 \
+    --search-condition-expression "Category = :cat AND Rating >= :minRating" \
+    --expression-attribute-values "{\":cat\": {\"S\": \"Electronics\"}, \":minRating\": {\"N\": \"4.5\"}}"
+```
+
+The following example returns the five closest items in the `Electronics` category that are either from one of three brands or priced within a range. The partition key condition appears at the top level and is joined to the inline filter group with `AND`. This example uses `ExpressionAttributeNames` aliases for the attribute names.
+
+```
+aws dynamodb search-vectors \
+    --table-name Products \
+    --index-name ProductCatalogIndex \
+    --search-vector file://query-vector.json \
+    --top-k 5 \
+    --search-condition-expression "#category = :cat AND (#brand IN (:brand1, :brand2, :brand3) OR #price BETWEEN :lo AND :hi)" \
+    --expression-attribute-names "{\"#category\": \"Category\", \"#brand\": \"Brand\", \"#price\": \"Price\"}" \
+    --expression-attribute-values "{\":cat\": {\"S\": \"Electronics\"}, \":brand1\": {\"S\": \"AcmeRun\"}, \":brand2\": {\"S\": \"BravoStep\"}, \":brand3\": {\"S\": \"CirqueFit\"}, \":lo\": {\"N\": \"49.99\"}, \":hi\": {\"N\": \"99.99\"}}"
+```
+
+The `search-vectors` command requires AWS CLI version 2.36.16 or later.
+
+This filtering is how you scope a similarity search to a subset of your data, a common requirement in multi-tenant and Retrieval Augmented Generation (RAG) applications. For example, to find documents similar to a query but only within one tenant, define the tenant attribute as a vector index partition key (`HASH`) in the SearchSchema and pass its value in every search. This isolates results to that tenant. It also improves performance, because the search examines only the relevant data. Use inline filter attributes for additional constraints, such as a document type or status, that you want to apply within the routed partition.
 
 **Partition key scoping is not a security boundary**  
 Using a partition key to scope searches to a single tenant is a data-locality and performance optimization, not an access-control mechanism. Any principal that holds `dynamodb:SearchVectors` permission on the index can search any partition key value. Because fine-grained access control (FGAC) condition keys such as `dynamodb:LeadingKeys` do not apply to `SearchVectors`, you cannot restrict access to individual partition key values at the IAM policy level. If your workload requires strict tenant isolation at the data layer, use separate tables or indexes with distinct IAM grants for each tenant.
+
+For the vector index partition key rules, the condition limit, Number comparison precision, the order in which the service validates an expression, and the validation error messages, see [SearchConditionExpression reference for vector indexes](VectorSearchFilterReference.md).
 
 ### Using ProjectionExpression
 <a name="VectorSearchWorkingWith.Search.Projection"></a>

@@ -1,7 +1,6 @@
 
 
 # Getting started with Kinesis Data Streams for Amazon DynamoDB
-<a name="kds_gettingstarted"></a>
 
 This section describes how to use Kinesis Data Streams for Amazon DynamoDB tables with the Amazon DynamoDB console, the AWS Command Line Interface (AWS CLI), and the API.
 
@@ -94,7 +93,7 @@ To learn more about how to build consumers and connect your Kinesis data stream 
 
 1. Use the Kinesis [ get-records](https://docs.aws.amazon.com/cli/latest/reference/kinesis/get-records.html) CLI command to retrieve the Kinesis stream contents. Then use the following code snippet to deserialize the stream content.
 
-   ```
+   ```java
    /**
     * Takes as input a Record fetched from Kinesis and does arbitrary processing as an example.
     */
@@ -137,7 +136,7 @@ To learn more about how to build consumers and connect your Kinesis data stream 
 
    Enable streaming with microsecond timestamp precision:
 
-   ```
+   ```java
    EnableKinesisStreamingConfiguration enableKdsConfig = EnableKinesisStreamingConfiguration.builder()
      .approximateCreationDateTimePrecision(ApproximateCreationDateTimePrecision.MICROSECOND)
      .build();
@@ -166,7 +165,7 @@ To learn more about how to build consumers and connect your Kinesis data stream 
 
 1. Use the following code snippet to deserialize the stream content
 
-   ```
+   ```java
    /**
     * Takes as input a Record fetched from Kinesis and does arbitrary processing as an example.
     */

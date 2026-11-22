@@ -1,7 +1,6 @@
 
 
 # Enable time to live (TTL) in DynamoDB
-<a name="time-to-live-ttl-how-to"></a>
 
 **Note**  
 To assist in debugging and verification of proper operation of the TTL feature, the values provided for the item TTL are logged in plaintext in DynamoDB diagnostic logs.
@@ -35,7 +34,7 @@ After TTL is enabled, the TTL attribute is marked **TTL** when you view items on
 
 You can enable TTL with code, using the [UpdateTimeToLive](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/update_time_to_live.html) operation.
 
-```
+```python
 import boto3
 
 
@@ -76,7 +75,7 @@ enable_ttl('your-table-name', 'expirationDate')
 
 You can confirm TTL is enabled by using the [DescribeTimeToLive](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/describe_time_to_live.html) operation, which describes the TTL status on a table. The `TimeToLive` status is either `ENABLED` or `DISABLED`.
 
-```
+```python
 # create a DynamoDB client
 dynamodb = boto3.client('dynamodb')
 
@@ -92,7 +91,7 @@ response = dynamodb.describe_time_to_live(TableName=table_name)
 
 You can enable TTL with code, using the [UpdateTimeToLiveCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb/Class/UpdateTimeToLiveCommand/) operation.
 
-```
+```javascript
 import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb";
 
 const enableTTL = async (tableName, ttlAttribute) => {

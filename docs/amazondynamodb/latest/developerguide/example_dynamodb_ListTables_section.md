@@ -1,7 +1,6 @@
 
 
 # Use `ListTables` with an AWS SDK or CLI
-<a name="example_dynamodb_ListTables_section"></a>
 
 The following code examples show how to use `ListTables`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb#code-examples). 
 
-```
+```csharp
     private static async Task ListMyTables()
     {
         Console.WriteLine("\n*** Listing tables ***");
@@ -45,7 +44,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples). 
 
-```
+```bash
 ##############################################################################
 # function dynamodb_list_tables
 #
@@ -75,7 +74,7 @@ function dynamodb_list_tables() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function errecho
 #
@@ -129,7 +128,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
-```
+```cpp
 //! List the Amazon DynamoDB tables for the current AWS account.
 /*!
   \sa listTables()
@@ -251,7 +250,7 @@ For more information, see [Listing Table Names](https://docs.aws.amazon.com/amaz
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -300,7 +299,7 @@ func (basics TableBasics) ListTables(ctx context.Context) ([]string, error) {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -375,7 +374,7 @@ public class ListTables {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
 
-```
+```javascript
 import { ListTablesCommand, DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 const client = new DynamoDBClient({});
@@ -394,7 +393,7 @@ export const main = async () => {
 **SDK for JavaScript (v2)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples). 
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -421,7 +420,7 @@ ddb.listTables({ Limit: 10 }, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples). 
 
-```
+```kotlin
 suspend fun listAllTables() {
     DynamoDbClient.fromEnvironment { region = "us-east-1" }.use { ddb ->
         val response = ddb.listTables(ListTablesRequest {})
@@ -439,7 +438,7 @@ suspend fun listAllTables() {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
-```
+```php
     public function listTables($exclusiveStartTableName = "", $limit = 100)
     {
         $this->dynamoDbClient->listTables([
@@ -456,7 +455,7 @@ suspend fun listAllTables() {
 **Tools for PowerShell V4**  
 **Example 1: Returns details of all tables, automatically iterating until the service indicates no further tables exist.**  
 
-```
+```powershell
 Get-DDBTableList
 ```
 +  For API details, see [ListTables](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -464,7 +463,7 @@ Get-DDBTableList
 **Tools for PowerShell V5**  
 **Example 1: Returns details of all tables, automatically iterating until the service indicates no further tables exist.**  
 
-```
+```powershell
 Get-DDBTableList
 ```
 +  For API details, see [ListTables](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -475,7 +474,7 @@ Get-DDBTableList
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 
-```
+```python
 class Movies:
     """Encapsulates an Amazon DynamoDB table of movie data.
 
@@ -539,7 +538,7 @@ class Movies:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 Determine whether a table exists.  
 
-```
+```ruby
 # Encapsulates an Amazon DynamoDB table of movie data.
 class Scaffold
   attr_reader :dynamo_resource, :table_name, :table
@@ -578,7 +577,7 @@ class Scaffold
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples). 
 
-```
+```rust
 pub async fn list_tables(client: &Client) -> Result<Vec<String>, Error> {
     let paginator = client.list_tables().into_paginator().items().send();
     let table_names = paginator.collect::<Result<Vec<_>, _>>().await?;
@@ -595,7 +594,7 @@ pub async fn list_tables(client: &Client) -> Result<Vec<String>, Error> {
 ```
 Determine whether table exists.  
 
-```
+```rust
 pub async fn table_exists(client: &Client, table: &str) -> Result<bool, Error> {
     debug!("Checking for table: {table}");
     let table_list = client.list_tables().send().await;
@@ -614,7 +613,7 @@ pub async fn table_exists(client: &Client, table: &str) -> Result<bool, Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/dyn#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_dyn->listtables( ).
         " You can loop over the oo_result to get table properties like this.
@@ -636,7 +635,7 @@ pub async fn table_exists(client: &Client, table: &str) -> Result<bool, Error> {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb#code-examples). 
 
-```
+```swift
 import AWSDynamoDB
 
 

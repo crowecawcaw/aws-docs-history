@@ -1,7 +1,6 @@
 
 
 # DynamoDB same-account global table
-<a name="globaltables-SameAccount"></a>
 
 Same-account global tables automatically replicate your DynamoDB table data across AWS Regions within a single AWS account. Same-account global tables provide the simplest model for running multi-Region applications because all replicas share the same account boundary, ownership, and permissions model. When you choose the AWS Regions for your replica tables, global tables handle all replication automatically. Global tables are available in all Regions where DynamoDB is available.
 

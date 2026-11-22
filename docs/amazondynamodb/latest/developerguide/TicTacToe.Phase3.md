@@ -1,7 +1,6 @@
 
 
 # Step 3: Deploy in production using the DynamoDB service
-<a name="TicTacToe.Phase3"></a>
 
 **Topics**
 + [3.1: Create an IAM role for Amazon EC2](#TicTacToe.DeployInProd.IAMCreateRole)
@@ -46,7 +45,7 @@ Creating an IAM role of the **Amazon EC2** type allows the Amazon EC2 instance t
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

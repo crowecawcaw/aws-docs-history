@@ -1,7 +1,6 @@
 
 
 # Querying global secondary indexes with SDK for Java 1.x
-<a name="DAX.client.QueryGSI.java-sdk-v1"></a>
 
 You can use Amazon DynamoDB Accelerator (DAX) to query [global secondary indexes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html) using DynamoDB [programmatic interfaces](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKs.Interfaces.html).
 
@@ -9,7 +8,7 @@ The following example demonstrates how to use DAX to query the `CreateDateIndex`
 
 The `DAXClient` class instantiates the client objects that are needed to interact with the DynamoDB programming interfaces.
 
-```
+```java
 import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
 import software.amazon.dynamodb.datamodeling.DynamoDBMapper;
 import software.amazon.dynamodb.document.DynamoDB;
@@ -46,7 +45,7 @@ You can query a global secondary index in the following ways:
 + Use the `queryIndex` method on the `QueryIndexDax` class defined in the following example. The `QueryIndexDax` takes as a parameter the client object that is returned by the `getDaxDocClient` method on the `DaxClient` class.
 + If you are using the [object persistence interface](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.SDKs.Interfaces.Mapper.html), use the `queryIndexMapper` method on the `QueryIndexDax` class defined in the following example. The `queryIndexMapper` takes as a parameter the client object that is returned by the `getDaxMapperClient` method defined on the `DaxClient` class.
 
-```
+```java
 import java.util.Iterator;
 import software.amazon.dynamodb.datamodeling.DynamoDBMapper;
 import java.util.List;
@@ -123,7 +122,7 @@ public class QueryIndexDax {
 
 The class definition below represents the Issues table and is used in the `queryIndexMapper` method.
 
-```
+```java
 import software.amazon.dynamodb.datamodeling.DynamoDBTable;
 import software.amazon.dynamodb.datamodeling.DynamoDBIndexHashKey;
 import software.amazon.dynamodb.datamodeling.DynamoDBIndexRangeKey;

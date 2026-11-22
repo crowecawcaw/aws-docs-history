@@ -1,7 +1,6 @@
 
 
 # Complaint management system schema design in DynamoDB
-<a name="data-modeling-complaint-management"></a>
 
 ## Complaint management system business use case
 <a name="data-modeling-schema-complaint-management-use-case"></a>
@@ -51,7 +50,7 @@ DynamoDB is suitable for workloads that are primarily focused on online transact
 
 [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is) can be used to trigger AWS Lambda on schedule - it allows you to configure a cron expression for Lambda invocation to take place periodically. Lambda can invoke the `ExportToS3` API call and store DynamoDB data in S3. This S3 data can then be accessed by a SQL engine such as [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is) to run analytical queries on DynamoDB data without affecting the live transactional workload on the table. A sample Athena query to find number of complaints per severity level would look like this:
 
-```
+```SQL
 SELECT Item.severity.S as "Severity", COUNT(Item) as "Count"
 FROM "complaint_management"."data"
 WHERE NOT Item.severity.S = ''

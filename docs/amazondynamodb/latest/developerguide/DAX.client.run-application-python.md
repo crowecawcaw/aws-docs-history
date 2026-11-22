@@ -1,7 +1,6 @@
 
 
 # Python and DAX
-<a name="DAX.client.run-application-python"></a>
 
 Follow this procedure to run the Python sample application on your Amazon EC2 instance.
 

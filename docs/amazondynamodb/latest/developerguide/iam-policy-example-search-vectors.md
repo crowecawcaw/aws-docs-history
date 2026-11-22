@@ -1,11 +1,10 @@
 
 
 # IAM policy to grant access to search a vector index
-<a name="iam-policy-example-search-vectors"></a>
 
 The following policy grants permissions to perform `SearchVectors` operations on a specific vector index. The resource ARN for a vector index uses the same format as other DynamoDB indexes.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -20,7 +19,7 @@ The following policy grants permissions to perform `SearchVectors` operations on
 
 To grant `SearchVectors` access to all indexes on a table, use a wildcard character (\*) for the index name.
 
-```
+```json
 "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/Products/index/*"
 ```
 

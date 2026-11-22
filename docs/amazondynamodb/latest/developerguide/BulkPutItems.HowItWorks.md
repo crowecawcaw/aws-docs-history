@@ -1,7 +1,6 @@
 
 
 # Working with bulk put items
-<a name="BulkPutItems.HowItWorks"></a>
 
 Bulk put items loads data from Amazon Simple Storage Service (Amazon S3) into an existing Amazon DynamoDB table. The writes run on a separate path and consume none of the table's read or write capacity, so your application traffic sees no impact from these bulk put items. Items become available for reading as they're written. [Import from Amazon S3](S3DataImport.HowItWorks.md) creates a new table from data in Amazon S3, while bulk put items writes into a table that already exists.
 

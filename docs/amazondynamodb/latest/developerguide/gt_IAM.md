@@ -1,7 +1,6 @@
 
 
 # Using IAM with global tables
-<a name="gt_IAM"></a>
 
 **Important**  
  This documentation is for version 2017.11.29 (Legacy) of global tables, which should be avoided for new global tables. Customers should use [Global Tables version 2019.11.21 (Current)](GlobalTables.md) when possible, as it provides greater flexibility, higher efficiency and consumes less write capacity than 2017.11.29 (Legacy).   
@@ -36,7 +35,7 @@ The following IAM policy grants permissions to allow the `CreateGlobalTable` act
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ The following IAM policy grants permissions to allow the `UpdateGlobalTableSetti
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -93,7 +92,7 @@ The following IAM policy grants permissions to allow the `CreateGlobalTable` act
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

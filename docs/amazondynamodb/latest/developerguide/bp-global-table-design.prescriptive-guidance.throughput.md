@@ -1,7 +1,6 @@
 
 
 # Throughput capacity planning for DynamoDB global tables
-<a name="bp-global-table-design.prescriptive-guidance.throughput"></a>
 
 Migrating traffic from one Region to another requires careful consideration of DynamoDB table settings regarding capacity. 
 

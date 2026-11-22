@@ -1,7 +1,6 @@
 
 
 # 4- On-demand maximum throughput exceeded
-<a name="throttling-ondemand-capacity-exceeded-mitigation"></a>
 
 When you configure an [on-demand](on-demand-capacity-mode.md) table or GSI, you can optionally set a maximum throughput limit ([`MaxReadRequestUnits`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_OnDemandThroughput.html#DDB-Type-OnDemandThroughput-MaxReadRequestUnits) and [`MaxWriteRequestUnits`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_OnDemandThroughput.html#DDB-Type-OnDemandThroughput-MaxWriteRequestUnits)) at the table or index level to prevent runaway costs or protect downstream systems from being overwhelmed. For more information about maximum throughput, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md).
 

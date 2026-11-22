@@ -1,7 +1,6 @@
 
 
 # Working with items: Java
-<a name="JavaDocumentAPIItemCRUD"></a>
 
 You can use the AWS SDK for Java Document API to perform typical create, read, update, and delete (CRUD) operations on Amazon DynamoDB items in a table.
 
@@ -29,7 +28,7 @@ The `putItem` method stores an item in a table. If the item exists, it replaces 
 ------
 #### [ Java v2 ]
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -153,7 +152,7 @@ The following Java code example demonstrates the preceding tasks. The code write
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -218,7 +217,7 @@ The following example adds a new book item using these optional parameters.
 
 **Example**  
 
-```
+```java
 Item item = new Item()
     .withPrimaryKey("Id", 104)
     .withString("Title", "Book 104 Title")
@@ -246,7 +245,7 @@ Suppose that you wanted to store the following JSON document, containing vendors
 
 **Example**  
 
-```
+```json
 {
     "V01": {
         "Name": "Acme Books",
@@ -267,7 +266,7 @@ Suppose that you wanted to store the following JSON document, containing vendors
 
 You can use the `withJSON` method to store this in the `ProductCatalog` table, in a `Map` attribute named `VendorInfo`. The following Java code example demonstrates how to do this.
 
-```
+```java
 // Convert the document into a String.  Must escape all double-quotes.
 String vendorDocument = "{"
     + "    \"V01\": {"
@@ -307,7 +306,7 @@ To retrieve a single item, use the `getItem` method of a `Table` object. Follow 
 
 The following Java code example demonstrates the preceding steps. The code gets the item that has the specified partition key.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -327,7 +326,7 @@ The parameters of the `getItem` method don't let you specify read consistency. H
 
 **Example**  
 
-```
+```java
 GetItemSpec spec = new GetItemSpec()
     .withPrimaryKey("Id", 206)
     .withProjectionExpression("Id, Title, RelatedItems[0], Reviews.FiveStar")
@@ -340,7 +339,7 @@ System.out.println(item.toJSONPretty());
 
  To print an `Item` in a human-readable format, use the `toJSONPretty` method. The output from the previous example looks like the following.
 
-```
+```json
 {
   "RelatedItems" : [ 341 ],
   "Reviews" : {
@@ -356,7 +355,7 @@ System.out.println(item.toJSONPretty());
 
 In the [PutItem and JSON documents](#PutItemJavaDocumentAPI.JSON) section, you store a JSON document in a `Map` attribute named `VendorInfo`. You can use the `getItem` method to retrieve the entire document in JSON format. Or you can use document path notation to retrieve only some of the elements in the document. The following Java code example demonstrates these techniques.
 
-```
+```java
 GetItemSpec spec = new GetItemSpec()
     .withPrimaryKey("Id", 210);
 
@@ -387,7 +386,7 @@ First office location for a single vendor:
 **Note**  
 You can use the `toJSON` method to convert any item (or its attributes) to a JSON-formatted string. The following code retrieves several top-level and nested attributes and prints the results as JSON.  
 
-```
+```java
 GetItemSpec spec = new GetItemSpec()
     .withPrimaryKey("Id", 210)
     .withProjectionExpression("VendorInfo.V01, Title, Price");
@@ -420,7 +419,7 @@ The following Java code example demonstrates the preceding steps. The example pe
 
 The code then calls `batchWriteItem` to perform the operation.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -458,7 +457,7 @@ Follow these steps:
 
 The following Java code example demonstrates the preceding steps. The example retrieves two items from the `Forum` table and three items from the `Thread` table.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -494,7 +493,7 @@ The following code example retrieves two items from the `Forum` table. The `with
 
 **Example**  
 
-```
+```java
 TableKeysAndAttributes forumTableKeysAndAttributes = new TableKeysAndAttributes("Forum")
     .withProjectionExpression("Threads");
 
@@ -528,7 +527,7 @@ The following Java code example demonstrates the preceding tasks. The code updat
 
 An `ExpressionAttributeValues` map is used in the `UpdateExpression`. The placeholders `:val1` and `:val2` are replaced at runtime with the actual values for `Authors` and `Price`.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -559,7 +558,7 @@ Along with the required parameters, you can also specify optional parameters for
 
 **Example**  
 
-```
+```java
 Table table = dynamoDB.getTable("ProductCatalog");
 
 Map<String, String> expressionAttributeNames = new HashMap<String, String>();
@@ -584,7 +583,7 @@ You can use `updateItem` to implement an atomic counter, where you increment or 
 
 The following example demonstrates this, incrementing the `Quantity` attribute by one. It also demonstrates the use of the `ExpressionAttributeNames` parameter in an `UpdateExpression`.
 
-```
+```java
 Table table = dynamoDB.getTable("ProductCatalog");
 
 Map<String,String> expressionAttributeNames = new HashMap<String,String>();
@@ -615,7 +614,7 @@ The following Java example demonstrates these tasks.
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -631,7 +630,7 @@ You can specify optional parameters for `deleteItem`. For example, the following
 
 **Example**  
 
-```
+```java
 Map<String,Object> expressionAttributeValues = new HashMap<String,Object>();
 expressionAttributeValues.put(":val", false);
 

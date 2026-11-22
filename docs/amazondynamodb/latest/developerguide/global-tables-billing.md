@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DynamoDB billing for global tables
-<a name="global-tables-billing"></a>
 
 This guide describes how DynamoDB billing works for global tables, identifying the components that contribute to the cost of global tables, including a practical example. 
 

@@ -1,7 +1,6 @@
 
 
 # Loading data from DynamoDB into Amazon Redshift with the COPY command
-<a name="RedshiftforDynamoDB-copy-data"></a>
 
 
 

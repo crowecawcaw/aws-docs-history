@@ -1,7 +1,6 @@
 
 
 # Evaluate your provisioned capacity for right-sized provisioning in your DynamoDB table
-<a name="CostOptimization_RightSizedProvisioning"></a>
 
 This section provides an overview of how to evaluate if you have right-sized provisioning on your DynamoDB tables. As your workload evolves, you should modify your operational procedures appropriately, especially when your DynamoDB table is configured in provisioned mode and you have the risk to over-provision or under-provision your tables.
 
@@ -50,7 +49,7 @@ Start by creating two files: `write-calc.json` and `read-calc.json`. These files
 
 The write calculations file will retrieve the number of WCU provisioned and consumed in the time period for the date range specified. It will also generate a utilization percentage that will be used for analysis. The full content of the `write-calc.json` file should look like this:
 
-```
+```json
 {
   "MetricDataQueries": [
     {
@@ -113,7 +112,7 @@ The write calculations file will retrieve the number of WCU provisioned and cons
 
 The read calculations file uses a similar file. This file will retrieve how many RCUs were provisioned and consumed during the time period for the date range specified. The contents of the `read-calc.json` file should look like this:
 
-```
+```json
 {
   "MetricDataQueries": [
     {
@@ -190,7 +189,7 @@ One you've created the files, you can start retrieving utilization data.
 
 The result for both queries will be a series of data points in JSON format that will be used for analysis. Your result will depend on the number of data points you specified, the period, and your own specific workload data. It could look something like this:
 
-```
+```json
 {
     "MetricDataResults": [
         {

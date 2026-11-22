@@ -1,7 +1,6 @@
 
 
 # In-memory acceleration with DynamoDB Accelerator (DAX)
-<a name="DAX"></a>
 
 Amazon DynamoDB is designed for scale and performance. In most cases, the DynamoDB response times can be measured in single-digit milliseconds. However, there are certain use cases that require response times in microseconds. For these use cases, DynamoDB Accelerator (DAX) delivers fast response times for accessing eventually consistent data. 
 
@@ -62,7 +61,7 @@ DAX is ideal for the following types of applications:
 
   This limitation applies only to attribute names, not their values. Items like the following are not a problem.
 
-  ```
+  ```json
   {
       "Id": 123,
       "Title": "Bicycle 123",
@@ -72,7 +71,7 @@ DAX is ideal for the following types of applications:
 
   But items like the following are a problem if there are enough of them and they each have a different timestamp.
 
-  ```
+  ```json
   {
       "Id": 123,
       "Title": "Bicycle 123",

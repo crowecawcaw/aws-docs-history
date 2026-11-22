@@ -1,7 +1,6 @@
 
 
 # DynamoDB throttling resolution guide
-<a name="troubleshooting-throttling-diagnostics"></a>
 
 This section provides targeted resolution guidance for each specific throttling reason that DynamoDB might return. Each entry includes suggested resolution approaches based on best practices and corresponding CloudWatch metrics to monitor. 
 

@@ -1,7 +1,6 @@
 
 
 # Integrating DynamoDB with Amazon Managed Streaming for Apache Kafka
-<a name="msk-for-dynamodb"></a>
 
 [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) makes it easy to ingest and process streaming data in real time with a fully managed, highly available Apache Kafka service.
 

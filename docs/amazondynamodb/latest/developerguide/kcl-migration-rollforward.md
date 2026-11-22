@@ -1,7 +1,6 @@
 
 
 # Roll forward to Phase 2 KCL 3.5.x\+ after a rollback
-<a name="kcl-migration-rollforward"></a>
 
 This topic explains how to roll forward your consumer application to KCL 3.5.x\+ after a rollback. When you need to roll forward, you must complete a two-step process:
 

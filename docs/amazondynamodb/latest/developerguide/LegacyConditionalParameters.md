@@ -1,7 +1,6 @@
 
 
 # Legacy DynamoDB conditional parameters
-<a name="LegacyConditionalParameters"></a>
 
 This document provides an overview of legacy conditional parameters in DynamoDB and recommends using the new expression parameters instead. It covers details on parameters like AttributesToGet, AttributeUpdates, ConditionalOperator, Expected, KeyConditions, QueryFilter, and ScanFilter, and provides examples of how to use the new expression parameters as replacements.
 

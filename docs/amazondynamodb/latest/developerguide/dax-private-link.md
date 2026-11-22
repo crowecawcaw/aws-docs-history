@@ -1,7 +1,6 @@
 
 
 # Using AWS PrivateLink for DynamoDB Accelerator (DAX)
-<a name="dax-private-link"></a>
 
 AWS PrivateLink for DynamoDB Accelerator (DAX) enables you to securely access DAX management APIs such as `CreateCluster`, `DescribeClusters`, and `DeleteCluster` over private IP addresses within your virtual private cloud (VPC). This feature enables you to access DAX services privately from your applications without exposing traffic to the public internet.
 

@@ -1,7 +1,6 @@
 
 
 # Query a DynamoDB table with a filter expression and limit with an AWS SDK
-<a name="example_dynamodb_Scenarios_QueryWithFilterAndLimit_section"></a>
 
 The following code examples show how to query a table with a filter expression and limit.
 + Apply filter expressions to query results with a limit on items evaluated.
@@ -14,7 +13,7 @@ The following code examples show how to query a table with a filter expression a
 **SDK for Java 2.x**  
 Query a DynamoDB table with a filter expression and limit using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -91,7 +90,7 @@ import java.util.logging.Logger;
 **SDK for Python (Boto3)**  
 Query a DynamoDB table with a filter expression and limit using AWS SDK for Python (Boto3).  
 
-```
+```python
 import boto3
 from boto3.dynamodb.conditions import Attr, Key
 
@@ -139,7 +138,7 @@ def query_with_filter_and_limit(
 ```
 Demonstrates how to use filter expressions with limits in AWS SDK for Python (Boto3).  
 
-```
+```python
 def example_usage():
     """Example of how to use the query_with_filter_and_limit function."""
     # Example parameters

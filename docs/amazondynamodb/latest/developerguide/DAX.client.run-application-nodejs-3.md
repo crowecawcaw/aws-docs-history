@@ -1,7 +1,6 @@
 
 
 # Node.js and DAX
-<a name="DAX.client.run-application-nodejs-3"></a>
 
 The DAX SDK for Node.js v3.x is compatible with [AWS SDK for Node.js v3.x](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/). The DAX SDK for Node.js v3.x supports the use of [aggregated](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/#high-level-concepts) clients. Note that DAX doesn't support the creation of bare-bones clients. For more information about unsupported features, see [Features not in parity with AWS SDK V3](#DAX.client.run-application-nodejs-3-not-in-parity).
 
@@ -66,7 +65,7 @@ To evaluate the performance benefits of DynamoDB Accelerator (DAX), follow these
 
      The cluster endpoint is shown in the output, as in the following example.
 
-     ```
+     ```json
      {
          "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
          "Port": 8111,
@@ -153,7 +152,7 @@ To evaluate the performance benefits of DynamoDB Accelerator (DAX), follow these
 <a name="DAX.client.run-application-nodejs-3-not-in-parity"></a>
 + [Bare-bones](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/#high-level-concepts) clients – Dax Node.js V3 doesn’t support bare-bones clients. 
 
-  ```
+  ```javascript
   const dynamoDBClient = new DynamoDBClient({ region: 'us-west-2' });
   const regularParams = {
       TableName: 'TryDaxTable',
@@ -185,7 +184,7 @@ To evaluate the performance benefits of DynamoDB Accelerator (DAX), follow these
   ```
 + [Middleware Stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/) – Dax Node.js V3 doesn’t support using Middleware functions.
 
-  ```
+  ```javascript
   const dynamoDBClient = new DynamoDBClient({ region: 'us-west-2' });
   // The DynamoDB client supports the middlewareStack.
   dynamoDBClient.middlewareStack.add(

@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB resources for first-time users
-<a name="dynamodb-resources-first-time-users"></a>
 
 We recommend that first time users begin by reading the following sections, and refer to them as needed.
 

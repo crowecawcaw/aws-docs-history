@@ -1,7 +1,6 @@
 
 
 # DAX and DynamoDB consistency models
-<a name="DAX.consistency"></a>
 
 Amazon DynamoDB Accelerator (DAX) is a write-through caching service that is designed to simplify the process of adding a cache to DynamoDB tables. Because DAX operates separately from DynamoDB, it is important that you understand the consistency models of both DAX and DynamoDB to ensure that your applications behave as you expect.
 

@@ -1,7 +1,6 @@
 
 
 # Requesting a quota increase in DynamoDB
-<a name="RequestingQuotaIncrease"></a>
 
 You can request a quota increase for each Region using the Service Quotas console, AWS CLI or a support case. If an adjustable quota isn't available in the Service Quotas console, use the AWS Support Center Console to create a [service quota increase case](https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase).
 

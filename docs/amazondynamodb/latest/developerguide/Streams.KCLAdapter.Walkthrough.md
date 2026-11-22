@@ -1,7 +1,6 @@
 
 
 # Walkthrough: DynamoDB Streams Kinesis adapter
-<a name="Streams.KCLAdapter.Walkthrough"></a>
 
 This section is a walkthrough of a Java application that uses the Amazon Kinesis Client Library and the Amazon DynamoDB Streams Kinesis Adapter. The application shows an example of data replication, in which write activity from one table is applied to a second table, with both tables' contents staying in sync. For the source code, see [Complete program: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.CompleteProgram.md).
 
@@ -34,7 +33,7 @@ The first step is to create two DynamoDB tables—a source table and a destinati
 
 The following example shows the code that is used for creating both tables.
 
-```
+```java
 java.util.List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
 attributeDefinitions.add(new AttributeDefinition().withAttributeName("Id").withAttributeType("N"));
 
@@ -60,7 +59,7 @@ The next step is to generate some write activity on the source table. While this
 
 The application defines a helper class with methods that call the `PutItem`, `UpdateItem`, and `DeleteItem` API operations for writing the data. The following code example shows how these methods are used.
 
-```
+```java
 StreamsAdapterDemoHelper.putItem(dynamoDBClient, tableName, "101", "test1");
 StreamsAdapterDemoHelper.updateItem(dynamoDBClient, tableName, "101", "test2");
 StreamsAdapterDemoHelper.deleteItem(dynamoDBClient, tableName, "101");
@@ -84,7 +83,7 @@ To learn more about the KCL interface definition, see [Developing consumers usin
 
 The following code example shows the main loop in `StreamsRecordProcessor`. The `case` statement determines what action to perform, based on the `OperationType` that appears in the stream record.
 
-```
+```java
 for (Record record : records) {
     String data = new String(record.getData().array(), Charset.forName("UTF-8"));
     System.out.println(data);
@@ -122,7 +121,7 @@ At this point, the source and destination tables' contents are in sync. The appl
 
 The `DemoHelper` class contains a `ScanTable` method that calls the low-level `Scan` API. The following example shows how this is used.
 
-```
+```java
 if (StreamsAdapterDemoHelper.scanTable(dynamoDBClient, srcTable).getItems()
     .equals(StreamsAdapterDemoHelper.scanTable(dynamoDBClient, destTable).getItems())) {
     System.out.println("Scan result is equal.");
@@ -137,7 +136,7 @@ else {
 
 The demo is complete, so the application deletes the source and destination tables. See the following code example. Even after the tables are deleted, their streams remain available for up to 24 hours, after which they are automatically deleted.
 
-```
+```java
 dynamoDBClient.deleteTable(new DeleteTableRequest().withTableName(srcTable));
 dynamoDBClient.deleteTable(new DeleteTableRequest().withTableName(destTable));
 ```

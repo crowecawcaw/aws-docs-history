@@ -1,7 +1,6 @@
 
 
 # Optimizing costs on DynamoDB tables
-<a name="bp-cost-optimization"></a>
 
 This section covers best practices on how to optimize costs for your existing DynamoDB tables. You should look at the following strategies to see which cost optimization strategy best suits your needs and approach them iteratively. Each strategy will provide an overview of what might be impacting your costs, what signs to look for, and prescriptive guidance on how to reduce them.
 

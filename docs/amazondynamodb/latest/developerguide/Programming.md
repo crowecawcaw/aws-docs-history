@@ -1,7 +1,6 @@
 
 
 # Programming with DynamoDB and the AWS SDKs
-<a name="Programming"></a>
 
 This section covers developer-related topics. If you want to run code examples instead, see [Running the code examples in this Developer Guide](CodeSamples.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Basic operations on DynamoDB tables
-<a name="WorkingWithTables.Basics"></a>
 
 Similar to other database systems, Amazon DynamoDB stores data in tables. You can manage your tables using a few basic operations.
 
@@ -41,7 +40,7 @@ aws dynamodb create-table \
 
 The `CreateTable` operation returns metadata for the table, as shown following.
 
-```
+```json
 {
     "TableDescription": {
         "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",
@@ -106,7 +105,7 @@ aws dynamodb create-table \
 
 The `CreateTable` operation returns metadata for the table, as shown following.
 
-```
+```json
 {
     "TableDescription": {
         "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",
@@ -168,7 +167,7 @@ aws dynamodb create-table \
 
 The `CreateTable` operation returns metadata for the table, as shown following.
 
-```
+```json
 {
     "TableDescription": {
         "TableArn": "arn:aws:dynamodb:us-east-1:123456789012:table/Music",

@@ -1,7 +1,6 @@
 
 
 # Design patterns
-<a name="GSI.DesignPatterns"></a>
 
 Design patterns provide proven solutions to common challenges when working with global secondary indexes. These patterns help you build efficient, scalable applications by showing you how to structure your indexes for specific use cases.
 

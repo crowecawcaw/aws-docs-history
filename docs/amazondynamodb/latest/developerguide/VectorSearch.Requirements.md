@@ -1,7 +1,6 @@
 
 
 # Requirements and limitations
-<a name="VectorSearch.Requirements"></a>
 
 Keep the following requirements and limitations in mind when you work with vector indexes:
 + Vector indexes use on-demand capacity mode only, and they require a table that also uses on-demand capacity mode. You cannot mix the two capacity modes.

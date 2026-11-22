@@ -1,9 +1,8 @@
 
 
 # TryDax.js
-<a name="DAX.client.tutorial-TryDax"></a>
 
-```
+```javascript
 import { DynamoDB, waitUntilTableExists, waitUntilTableNotExists } from "@aws-sdk/client-dynamodb";
 import { DaxDocument, daxPaginateScan, daxPaginateQuery } from "@amazon-dax-sdk/lib-dax";
 import { DynamoDBDocument, paginateQuery, paginateScan } from "@aws-sdk/lib-dynamodb";

@@ -1,7 +1,6 @@
 
 
 # 3- Account limits exceeded
-<a name="throttling-account-limit-exceeded-mitigation"></a>
 
 On-demand tables do not have provisioned capacity levels to manage, but DynamoDB enforces account-level throughput limits to prevent runaway execution and achieve fair resource usage across all customers. These per-table account limits serve as adjustable safeguards, set for each account and Region combination. When your read or write consumption rate exceeds these limits, DynamoDB returns an `AccountLimitExceeded` throttling reason type in the throttling exception. The default per-table account limits automatically apply when tables do not have custom maximum throughput settings configured. You can optionally configure maximum throughput settings for finer cost control and predictability, or request quota increases through the [Quotas in Amazon DynamoDB](ServiceQuotas.md) console if your application requirements exceed the default limits. 
 

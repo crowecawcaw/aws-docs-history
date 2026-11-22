@@ -1,7 +1,6 @@
 
 
 # IAM policy to grant permissions to all DynamoDB actions on a table
-<a name="grant-permissions-to-any-action-on-table"></a>
 
 The following policy grants permissions for *all* DynamoDB actions on a table called `Books`. The resource ARN specified in the `Resource` identifies a table in a specific AWS Region. If you replace the table name `Books` in the `Resource` ARN with a wildcard character (\*), *all* DynamoDB actions are allowed on *all* tables in the account. Carefully consider the possible security implications before using a wildcard character on this or any IAM policy.
 
@@ -10,7 +9,7 @@ The following policy grants permissions for *all* DynamoDB actions on a table ca
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

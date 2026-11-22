@@ -1,7 +1,6 @@
 
 
 # Tutorials: Creating global tables
-<a name="V2globaltables.tutorial"></a>
 
 This section provides step-by-step instructions for creating DynamoDB global tables configured for your preferred consistency mode. Choose either Multi-Region Eventual Consistency (MREC) or Multi-Region Strong Consistency (MRSC) modes based on your application's requirements.
 
@@ -96,7 +95,7 @@ The following code example shows how to manage DynamoDB global tables with multi
 **AWS CLI with Bash script**  
 Create a table with multi-Region replication.  
 
-```
+```bash
 # Step 1: Create a new table (MusicTable) in US East (Ohio), with DynamoDB Streams enabled (NEW_AND_OLD_IMAGES)
 aws dynamodb create-table \
     --table-name MusicTable \
@@ -140,7 +139,7 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
 ```
 Describe the multi-Region table.  
 
-```
+```bash
 # Step 4: View the list of replicas created using describe-table
 aws dynamodb describe-table \
     --table-name MusicTable \
@@ -149,7 +148,7 @@ aws dynamodb describe-table \
 ```
 Put items in a replica table.  
 
-```
+```bash
 # Step 5: To verify that replication is working, add a new item to the Music table in US East (Ohio)
 aws dynamodb put-item \
     --table-name MusicTable \
@@ -158,7 +157,7 @@ aws dynamodb put-item \
 ```
 Get items from replica tables.  
 
-```
+```bash
 # Step 6: Wait for a few seconds, and then check to see whether the item has been 
 # successfully replicated to US East (N. Virginia) and Europe (Ireland)
 aws dynamodb get-item \
@@ -173,7 +172,7 @@ aws dynamodb get-item \
 ```
 Remove replicas.  
 
-```
+```bash
 # Step 7: Delete the replica table in Europe (Ireland) Region
 aws dynamodb update-table --table-name MusicTable --cli-input-json \
 '{
@@ -204,7 +203,7 @@ aws dynamodb update-table --table-name MusicTable --cli-input-json \
 ```
 Clean up by deleting the table.  
 
-```
+```bash
 # Clean up: Delete the primary table
 aws dynamodb delete-table --table-name MusicTable --region us-east-2
 
@@ -231,7 +230,7 @@ The following code example shows how to create and manage DynamoDB global tables
 **SDK for Java 2.x**  
 Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK for Java 2.x.  
 
-```
+```java
     public static CreateTableResponse createTableWithGSI(
         final DynamoDbClient dynamoDbClient, final String tableName, final String indexName) {
 
@@ -298,7 +297,7 @@ Create a table with Global Secondary Index and DynamoDB Streams using AWS SDK fo
 ```
 Wait for a table to become active using AWS SDK for Java 2.x.  
 
-```
+```java
     public static void waitForTableActive(final DynamoDbClient dynamoDbClient, final String tableName) {
 
         if (dynamoDbClient == null) {
@@ -328,7 +327,7 @@ Wait for a table to become active using AWS SDK for Java 2.x.
 ```
 Add a replica to create or extend a global table using AWS SDK for Java 2.x.  
 
-```
+```java
     public static UpdateTableResponse addReplica(
         final DynamoDbClient dynamoDbClient,
         final String tableName,
@@ -385,7 +384,7 @@ Add a replica to create or extend a global table using AWS SDK for Java 2.x.
 ```
 Remove a replica from a global table using AWS SDK for Java 2.x.  
 
-```
+```java
     public static UpdateTableResponse removeReplica(
         final DynamoDbClient dynamoDbClient, final String tableName, final Region replicaRegion) {
 
@@ -425,7 +424,7 @@ Remove a replica from a global table using AWS SDK for Java 2.x.
 ```
 Add test items to verify replication using AWS SDK for Java 2.x.  
 
-```
+```java
     public static PutItemResponse putTestItem(
         final DynamoDbClient dynamoDbClient, final String tableName, final String artist, final String songTitle) {
 
@@ -473,7 +472,7 @@ Add test items to verify replication using AWS SDK for Java 2.x.
 ```
 Describe global table configuration and replicas using AWS SDK for Java 2.x.  
 
-```
+```java
     public static DescribeTableResponse describeTable(final DynamoDbClient dynamoDbClient, final String tableName) {
 
         if (dynamoDbClient == null) {
@@ -514,7 +513,7 @@ Describe global table configuration and replicas using AWS SDK for Java 2.x.
 ```
 Complete example of global table operations using AWS SDK for Java 2.x.  
 
-```
+```java
     public static void exampleUsage(final Region sourceRegion, final Region replicaRegion) {
 
         String tableName = "Music";
@@ -644,7 +643,7 @@ The following sample IAM policy allows you to create a DynamoDB table (`MusicTab
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -702,7 +701,7 @@ The following code examples show how to create and manage DynamoDB global tables
 **AWS CLI with Bash script**  
 Create a table with Multi-Region Strong Consistency.  
 
-```
+```bash
 # Step 1: Create a new table in us-east-2 (primary region for MRSC)
 # Note: Table must be empty when enabling MRSC
 aws dynamodb create-table \
@@ -730,7 +729,7 @@ aws dynamodb update-table \
 ```
 Verify MRSC configuration and replica status.  
 
-```
+```bash
 # Verify the global table configuration and MRSC setting
 aws dynamodb describe-table \
     --table-name MusicTable \
@@ -739,7 +738,7 @@ aws dynamodb describe-table \
 ```
 Test strong consistency with immediate reads across Regions.  
 
-```
+```bash
 # Write an item to the primary region
 aws dynamodb put-item \
     --table-name MusicTable \
@@ -757,7 +756,7 @@ aws dynamodb get-item \
 ```
 Perform conditional writes with MRSC guarantees.  
 
-```
+```bash
 # Perform a conditional update from a different region
 # This demonstrates that conditions work consistently across all regions
 aws dynamodb update-item \
@@ -771,7 +770,7 @@ aws dynamodb update-item \
 ```
 Clean up MRSC global table resources.  
 
-```
+```bash
 # Remove replica tables (must be done before deleting the primary table)
 aws dynamodb update-table \
     --table-name MusicTable \
@@ -803,7 +802,7 @@ aws dynamodb delete-table \
 **SDK for Java 2.x**  
 Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.  
 
-```
+```java
     public static CreateTableResponse createRegionalTable(final DynamoDbClient dynamoDbClient, final String tableName) {
 
         if (dynamoDbClient == null) {
@@ -856,7 +855,7 @@ Create a regional table ready for MRSC conversion using AWS SDK for Java 2.x.
 ```
 Convert a regional table to MRSC with replicas and witness using AWS SDK for Java 2.x.  
 
-```
+```java
     public static UpdateTableResponse convertToMRSCWithWitness(
         final DynamoDbClient dynamoDbClient,
         final String tableName,
@@ -918,7 +917,7 @@ Convert a regional table to MRSC with replicas and witness using AWS SDK for Jav
 ```
 Describe an MRSC global table configuration using AWS SDK for Java 2.x.  
 
-```
+```java
     public static DescribeTableResponse describeMRSCTable(final DynamoDbClient dynamoDbClient, final String tableName) {
 
         if (dynamoDbClient == null) {
@@ -977,7 +976,7 @@ Describe an MRSC global table configuration using AWS SDK for Java 2.x.
 ```
 Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.  
 
-```
+```java
     public static PutItemResponse putTestItem(
         final DynamoDbClient dynamoDbClient,
         final String tableName,
@@ -1032,7 +1031,7 @@ Add test items to verify MRSC strong consistency using AWS SDK for Java 2.x.
 ```
 Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.  
 
-```
+```java
     public static GetItemResponse getItemWithConsistentRead(
         final DynamoDbClient dynamoDbClient, final String tableName, final String artist, final String songTitle) {
 
@@ -1083,7 +1082,7 @@ Read items with consistent reads from MRSC replicas using AWS SDK for Java 2.x.
 ```
 Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.  
 
-```
+```java
     public static UpdateItemResponse performConditionalUpdate(
         final DynamoDbClient dynamoDbClient,
         final String tableName,
@@ -1149,7 +1148,7 @@ Perform conditional updates with MRSC guarantees using AWS SDK for Java 2.x.
 ```
 Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x.  
 
-```
+```java
     public static void waitForMRSCReplicasActive(
         final DynamoDbClient dynamoDbClient, final String tableName, final int maxWaitTimeSeconds)
         throws InterruptedException {
@@ -1264,7 +1263,7 @@ Wait for MRSC replicas and witnesses to become active using AWS SDK for Java 2.x
 ```
 Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.  
 
-```
+```java
     public static UpdateTableResponse cleanupMRSCReplicas(
         final DynamoDbClient dynamoDbClient,
         final String tableName,
@@ -1323,7 +1322,7 @@ Clean up MRSC replicas and witnesses using AWS SDK for Java 2.x.
 ```
 Complete MRSC workflow demonstration using AWS SDK for Java 2.x.  
 
-```
+```java
     public static void demonstrateCompleteMRSCWorkflow(
         final DynamoDbClient primaryClient,
         final DynamoDbClient replicaClient,

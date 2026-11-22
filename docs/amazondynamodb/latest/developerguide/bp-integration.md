@@ -1,7 +1,6 @@
 
 
 # Best practices for integrating with DynamoDB
-<a name="bp-integration"></a>
 
 When integrating DynamoDB with other services, you should always follow the best practices for using each individual service. However, there are some best practices specific to integration that you should consider.
 

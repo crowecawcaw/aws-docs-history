@@ -1,7 +1,6 @@
 
 
 # Configuring your DAX client
-<a name="dax-config-dax-client"></a>
 
 The DAX cluster is an instance-based cluster that can be accessed using various DAX SDKs. Each SDK provides developers with configurable options, such as requestTimeout and connections, to meet specific application requirements.
 

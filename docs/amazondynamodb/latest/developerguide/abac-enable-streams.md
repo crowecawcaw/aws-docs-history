@@ -1,7 +1,6 @@
 
 
 # Enabling ABAC for DynamoDB Streams
-<a name="abac-enable-streams"></a>
 
 DynamoDB Streams ABAC is enabled by default for most AWS accounts. For existing customers, Streams ABAC is disabled by default, and you enable it after you audit your policies. Using the DynamoDB console, you can confirm whether Streams ABAC is enabled for your account. Open the DynamoDB console using a role that has the `dynamodb:GetAbacStatus` permission. Then, open the **Settings** page of the DynamoDB console.
 
@@ -39,7 +38,7 @@ You need the `dynamodb:UpdateAbacStatus` permission to enable Streams ABAC for y
 
 The following IAM policy grants the permission to enable Streams ABAC and view its status for an account in the current Region.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

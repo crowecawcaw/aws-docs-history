@@ -1,7 +1,6 @@
 
 
 # DynamoDB data export to Amazon S3: how it works
-<a name="S3DataExport.HowItWorks"></a>
 
 DynamoDB export to S3 is a fully managed solution for exporting your DynamoDB data to an Amazon S3 bucket at scale. Using DynamoDB export to S3, you can export data from an Amazon DynamoDB table from any time within your [point-in-time recovery (PITR)](Point-in-time-recovery.md) window to an Amazon S3 bucket. You need to enable PITR on your table to use the export functionality. This feature enables you to perform analytics and complex queries on your data using other AWS services such as Athena, AWS Glue, Amazon SageMaker AI, Amazon EMR, and AWS Lake Formation.
 

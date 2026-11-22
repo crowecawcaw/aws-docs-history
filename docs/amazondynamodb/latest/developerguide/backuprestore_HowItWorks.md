@@ -1,7 +1,6 @@
 
 
 # Using on-demand DynamoDB backup and restore
-<a name="backuprestore_HowItWorks"></a>
 
 Amazon DynamoDB supports stand-alone on-demand backup and restore features. Those features are available to you independent of whether you use AWS Backup.
 

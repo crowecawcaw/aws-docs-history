@@ -1,7 +1,6 @@
 
 
 # Exporting a data model
-<a name="workbench.Modeler.ExportModel"></a>
 
 After you create a data model using NoSQL Workbench for Amazon DynamoDB, you can save and export the model in either NoSQL Workbench model format or [AWS CloudFormation JSON template format](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html).
 

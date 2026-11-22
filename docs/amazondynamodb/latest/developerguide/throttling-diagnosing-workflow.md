@@ -1,7 +1,6 @@
 
 
 # Diagnosing throttling
-<a name="throttling-diagnosing-workflow"></a>
 
 When your application experiences throttling, DynamoDB provides detailed exception information and targeted CloudWatch metrics to help you diagnose these events.
 
@@ -41,7 +40,7 @@ This helps identify exactly what resource is being throttled, what type of opera
 #### Example 1: Provisioned capacity exceeded on a GSI
 <a name="throttling-exceptions-example1"></a>
 
-```
+```json
 {
     "ThrottlingReasons": [
         {
@@ -66,7 +65,7 @@ In this example, the application receives a `ProvisionedThroughputExceededExcept
 #### Example 2: On-demand maximum throughput exceeded
 <a name="throttling-exceptions-example2"></a>
 
-```
+```json
 {
     "ThrottlingReasons": [
         {

@@ -1,7 +1,6 @@
 
 
 # Best practices for handling time series data in DynamoDB
-<a name="bp-time-series"></a>
 
 General design principles in Amazon DynamoDB recommend that you keep the number of tables you use to a minimum. For most applications, a single table is all you need. However, for time series data, you can often best handle it by using one table per application per period.
 

@@ -1,11 +1,10 @@
 
 
 # 04-Query-Test.cs
-<a name="DAX.client.run-application-dotnet.04-Query-Test"></a>
 
 The `04-Query-Test.cs` program performs `Query` operations on `TryDaxTable`.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

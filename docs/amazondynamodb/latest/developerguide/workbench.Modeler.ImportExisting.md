@@ -1,7 +1,6 @@
 
 
 # Importing an existing data model
-<a name="workbench.Modeler.ImportExisting"></a>
 
 You can use NoSQL Workbench for Amazon DynamoDB to build a data model by importing and modifying an existing model. You can import data models in either NoSQL Workbench model format or in [AWS CloudFormation JSON template format](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html).
 

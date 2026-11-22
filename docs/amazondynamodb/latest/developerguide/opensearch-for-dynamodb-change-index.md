@@ -1,7 +1,6 @@
 
 
 # Handling breaking changes to your index
-<a name="opensearch-for-dynamodb-change-index"></a>
 
 OpenSearch can dynamically add new attributes to your index. However, after your mapping template has been set for a given key, you’ll need to take additional action to change it. Additionally, if your change requires you to reprocess all the data in your DynamoDB table, you’ll need to take steps to initiate a fresh export.
 

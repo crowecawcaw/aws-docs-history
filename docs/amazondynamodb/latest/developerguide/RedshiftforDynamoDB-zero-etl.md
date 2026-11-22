@@ -1,7 +1,6 @@
 
 
 # DynamoDB zero-ETL integration with Amazon Redshift
-<a name="RedshiftforDynamoDB-zero-etl"></a>
 
 Amazon DynamoDB zero-ETL integration with Amazon Redshift enables seamless analytics on DynamoDB data without any coding. This fully-managed feature automatically replicates DynamoDB tables into an Amazon Redshift database so users can run SQL queries and analytics on their DynamoDB data without having to set up complex ETL processes. The integration works by replicating data from the DynamoDB table to the Amazon Redshift database. 
 
@@ -34,7 +33,7 @@ After it is configured, you can analyze the DynamoDB data in Amazon Redshift usi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -96,7 +95,7 @@ After it is configured, you can analyze the DynamoDB data in Amazon Redshift usi
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -160,7 +159,7 @@ After it is configured, you can analyze the DynamoDB data in Amazon Redshift usi
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

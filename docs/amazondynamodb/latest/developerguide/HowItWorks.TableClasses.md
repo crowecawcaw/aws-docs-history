@@ -1,7 +1,6 @@
 
 
 # DynamoDB table classes
-<a name="HowItWorks.TableClasses"></a>
 
 DynamoDB offers two table classes designed to help you optimize for cost. The DynamoDB Standard table class is the default, and is recommended for the vast majority of workloads. The DynamoDB Standard-Infrequent Access (DynamoDB Standard-IA) table class is optimized for tables where storage is the dominant cost. For example, tables that store infrequently accessed data, such as application logs, old social media posts, e-commerce order history, and past gaming achievements, are good candidates for the Standard-IA table class. See [Amazon DynamoDB Pricing](https://aws.amazon.com/dynamodb/pricing/on-demand/) for pricing details.
 

@@ -1,7 +1,6 @@
 
 
 # Query DynamoDB data using PartiQL SELECT statements with an AWS SDK
-<a name="example_dynamodb_PartiQLSelect_section"></a>
 
 The following code example shows how to query data using PartiQL SELECT statements.
 
@@ -11,7 +10,7 @@ The following code example shows how to query data using PartiQL SELECT statemen
 **SDK for JavaScript (v3)**  
 Query items from a DynamoDB table using PartiQL SELECT statements with AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * This example demonstrates how to query items from a DynamoDB table using PartiQL.
  * It shows different ways to select data with various index types.

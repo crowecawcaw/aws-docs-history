@@ -1,7 +1,6 @@
 
 
 # Performance tuning
-<a name="EMRforDynamoDB.PerformanceTuning"></a>
 
 When you create a Hive external table that maps to a DynamoDB table, you do not consume any read or write capacity from DynamoDB. However, read and write activity on the Hive table (such as `INSERT` or `SELECT`) translates directly into read and write operations on the underlying DynamoDB table.
 

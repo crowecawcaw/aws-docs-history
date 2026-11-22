@@ -1,7 +1,6 @@
 
 
 # Delete DynamoDB data using PartiQL DELETE statements with an AWS SDK
-<a name="example_dynamodb_PartiQLDelete_section"></a>
 
 The following code example shows how to delete data using PartiQL DELETE statements.
 
@@ -11,7 +10,7 @@ The following code example shows how to delete data using PartiQL DELETE stateme
 **SDK for JavaScript (v3)**  
 Delete items from a DynamoDB table using PartiQL DELETE statements with AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * This example demonstrates how to delete items from a DynamoDB table using PartiQL.
  * It shows different ways to delete documents with various index types.

@@ -1,11 +1,10 @@
 
 
 # 05-scan-test.py
-<a name="DAX.client.run-application-python.05-scan-test"></a>
 
 The `05-scan-test.py` program performs `Scan` operations on `TryDaxTable`.
 
-```
+```python
 import argparse
 import time
 import sys

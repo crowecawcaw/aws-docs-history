@@ -1,7 +1,6 @@
 
 
 # IAM policy to grant access to a specific DynamoDB table and its indexes
-<a name="iam-policy-specific-table-indexes"></a>
 
 The following policy grants permissions for data modification actions on a DynamoDB table called `Books` and all of that table's indexes. For more information about how indexes work, see [Improving data access with secondary indexes in DynamoDB](SecondaryIndexes.md).
 
@@ -10,7 +9,7 @@ The following policy grants permissions for data modification actions on a Dynam
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

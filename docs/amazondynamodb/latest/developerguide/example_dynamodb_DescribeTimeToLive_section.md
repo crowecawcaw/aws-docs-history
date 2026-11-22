@@ -1,7 +1,6 @@
 
 
 # Use `DescribeTimeToLive` with an AWS SDK or CLI
-<a name="example_dynamodb_DescribeTimeToLive_section"></a>
 
 The following code examples show how to use `DescribeTimeToLive`.
 
@@ -38,7 +37,7 @@ For more information, see [Time to Live](https://docs.aws.amazon.com/amazondynam
 **SDK for Java 2.x**  
 Describe TTL configuration on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.DescribeTimeToLiveRequest;
@@ -74,7 +73,7 @@ import java.util.logging.Logger;
 **SDK for JavaScript (v3)**  
 Describe TTL configuration on an existing DynamoDB table using AWS SDK for JavaScript.  
 
-```
+```javascript
 import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb";
 
 export const describeTTL = async (tableName, region) => {
@@ -110,7 +109,7 @@ export const describeTTL = async (tableName, region) => {
 **SDK for Python (Boto3)**  
 Describe TTL configuration on an existing DynamoDB table using AWS SDK for Python (Boto3).  
 
-```
+```python
 import boto3
 
 

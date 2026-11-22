@@ -1,7 +1,6 @@
 
 
 # Differences between getting table information from a relational (SQL) database and DynamoDB
-<a name="SQLtoNoSQL.GetTableInfo"></a>
 
 You can verify that a table has been created according to your specifications. In a relational database, all of the table's schema is shown. Amazon DynamoDB tables are schemaless, so only the primary key attributes are shown.
 
@@ -14,7 +13,7 @@ You can verify that a table has been created according to your specifications. I
 
 Most relational database management systems (RDBMS) allow you to describe a table's structure—columns, data types, primary key definition, and so on. There is no standard way to do this in SQL. However, many database systems provide a `DESCRIBE` command. The following is an example from MySQL.
 
-```
+```sql
 DESCRIBE Music;
 ```
 

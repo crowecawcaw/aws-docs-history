@@ -1,7 +1,6 @@
 
 
 # Quotas in Amazon DynamoDB
-<a name="ServiceQuotas"></a>
 
 This section describes current quotas, formerly referred to as limits, within Amazon DynamoDB. Each quota applies on a per-Region basis unless otherwise specified.
 

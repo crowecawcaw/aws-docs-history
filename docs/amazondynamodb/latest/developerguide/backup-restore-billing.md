@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon DynamoDB billing for backups
-<a name="backup-restore-billing"></a>
 
 This guide provides details about how DynamoDB billing works for backups. The following sections break down the various components that contribute to the overall cost, providing clear explanations and practical examples.
 

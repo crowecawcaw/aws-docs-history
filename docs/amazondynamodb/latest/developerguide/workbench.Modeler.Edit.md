@@ -1,7 +1,6 @@
 
 
 # Editing an existing data model
-<a name="workbench.Modeler.Edit"></a>
 
 **To edit an existing model**
 

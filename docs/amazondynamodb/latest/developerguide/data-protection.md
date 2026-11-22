@@ -1,7 +1,6 @@
 
 
 # Data protection in DynamoDB
-<a name="data-protection"></a>
 
 Amazon DynamoDB provides a highly durable storage infrastructure designed for mission-critical and primary data storage. Data is redundantly stored on multiple devices across multiple facilities in an Amazon DynamoDB Region.
 

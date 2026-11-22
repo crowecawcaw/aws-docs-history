@@ -1,7 +1,6 @@
 
 
 # Take advantage of sparse indexes
-<a name="bp-indexes-general-sparse-indexes"></a>
 
 For any item in a table, DynamoDB writes a corresponding index entry **only if the index key attributes are present in the item**. For a global secondary index, this means the index partition key must be defined on the item, and if the index also has a sort key, that attribute must be present too. If either key attribute is missing from an item, that item does not appear in the index. An index where only a subset of items from the base table appear is called a *sparse* index.
 

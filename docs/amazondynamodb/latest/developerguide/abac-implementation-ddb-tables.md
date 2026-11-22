@@ -1,7 +1,6 @@
 
 
 # Get started with ABAC for DynamoDB tables and indexes
-<a name="abac-implementation-ddb-tables"></a>
 
 The following steps show how to set up permissions using ABAC. In this example scenario, you'll add tags to a DynamoDB table and create an IAM role with a policy that includes tag-based conditions. Then, you'll test the allowed permissions on the DynamoDB table by matching the tag conditions.
 
@@ -29,7 +28,7 @@ aws dynamodb tag-resource —resource-arn arn:aws:dynamodb:{{us-east-1}}:{{12345
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

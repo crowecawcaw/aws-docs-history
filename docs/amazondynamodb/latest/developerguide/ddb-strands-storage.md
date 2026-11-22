@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB as a storage backend for Strands Agents
-<a name="ddb-strands-storage"></a>
 
 [Strands Agents](https://strandsagents.com/) is an open source SDK that takes a model-driven approach to building AI agents in a few lines of code, with first-class support for Amazon Bedrock and other model providers. Among its building blocks is a unified storage interface: a byte-oriented contract (`write`, `read`, `delete`, `list`) that every stateful subsystem in the SDK speaks. The Session Manager persists conversation snapshots through it, the Memory Manager stores long-term memories through it, and the context offloader and transcripts use the same operations.
 
@@ -37,13 +36,13 @@ A constructor-bound key prefix pins every operation inside its own key space, so
 
 Install the package from PyPI:
 
-```
+```bash
 pip install strands-dynamodb-storage "strands-agents>=1.48.0"
 ```
 
 Or from npm for TypeScript (the TypeScript package is a feature-parity mirror):
 
-```
+```bash
 npm install strands-dynamodb-storage
 ```
 
@@ -52,7 +51,7 @@ npm install strands-dynamodb-storage
 
 The package holds no `CreateTable` permission and never creates infrastructure: you create the table in advance, with your own tagging, backup, and encryption settings applied. A table with a string partition key `pk` and a string sort key `sk` is the only requirement:
 
-```
+```bash
 aws dynamodb create-table \
   --table-name agent-storage \
   --attribute-definitions AttributeName=pk,AttributeType=S AttributeName=sk,AttributeType=S \
@@ -67,7 +66,7 @@ If you plan to use semantic memory, declare the vector index in this same comman
 
 Hand the storage to your agent's session manager. The SDK namespaces the keys, snapshots the conversation on every invocation, and restores it when the same session returns:
 
-```
+```python
 from strands import Agent
 from strands.session import SnapshotSessionManager
 from strands_dynamodb_storage import DynamoDBStorage
@@ -81,7 +80,7 @@ agent("Where did we leave off?")
 
 You can also set storage once on the `Agent` itself. Every subsystem that accepts a storage then inherits it, each namespaced under its own key prefix, so one table carries the whole agent's state:
 
-```
+```python
 from strands.vended_plugins.context_offloader import ContextOffloader
 
 agent = Agent(
@@ -93,7 +92,7 @@ agent = Agent(
 
 The byte contract is also available directly. The contract is async: inside an agent the SDK drives it for you, and in a plain script you wrap the calls in `asyncio.run`:
 
-```
+```python
 import asyncio
 
 
@@ -112,7 +111,7 @@ Session persistence solves half of the memory problem: your agent survives a res
 
 The following examples embed text with Amazon Titan Text Embeddings V2 through Amazon Bedrock. The model returns 1,024-dimension vectors by default, so the index for these examples is created with 1,024 dimensions. The following code defines the `embed()` function that the remaining examples use:
 
-```
+```python
 import json
 
 import boto3
@@ -130,7 +129,7 @@ def embed(text):
 
 Writing a memory attaches an embedding and optional metadata alongside the bytes. The following code constructs the store with a per-tenant prefix, so the key `memories/m1` lands in the physical partition `user/u1`:
 
-```
+```python
 from strands_dynamodb_storage import DynamoDBStorage, SearchQuery
 
 storage = DynamoDBStorage("agent-storage", region_name="us-east-1", prefix="user/u1")
@@ -145,7 +144,7 @@ await storage.write(
 
 Recalling by meaning is one call, scoped to the same partition:
 
-```
+```python
 results = await storage.search(SearchQuery(
     vector=embed("what are this user's seating preferences?"),
     top_k=5,
@@ -163,7 +162,7 @@ Results return most similar first. The raw score's direction follows the index's
 
 In a real agent you want retrieved memories to reach the model automatically, and the SDK's Memory Manager handles that: it retrieves relevant entries before each model call and folds them into the model input, and it registers a `search_memory` tool the model can call on demand. The Memory Manager accepts any object implementing the SDK's `MemoryStore` protocol. The package does not ship one, so you define a small class in your own application that embeds on write, embeds on search, and returns `MemoryEntry` values:
 
-```
+```python
 import uuid
 
 from strands.memory import MemoryEntry
@@ -205,7 +204,7 @@ class DynamoDBMemoryStore:
 
 The following code seeds three memories and wires the store into the agent, so retrieved memories reach the model with no orchestration code on your side:
 
-```
+```python
 import asyncio
 
 from strands import Agent
@@ -235,7 +234,7 @@ Running this against a live table, the agent calls its `search_memory` tool, mat
 
 At runtime the package issues four DynamoDB operations, plus `SearchVectors` when you use semantic search, and Amazon S3 operations only when you configure offload, so the least-privilege IAM policy is short. Replace {{111122223333}} with your AWS account ID and update the Region to match your environment:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

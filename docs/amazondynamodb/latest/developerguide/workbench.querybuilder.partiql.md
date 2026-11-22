@@ -1,7 +1,6 @@
 
 
 # Building PartiQL statements
-<a name="workbench.querybuilder.partiql"></a>
 
 To use NoSQL Workbench to build [PartiQL for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html) statements, choose **PartiQL editor** near the top of the NoSQL Workbench UI.
 

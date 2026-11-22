@@ -1,7 +1,6 @@
 
 
 # DAX cluster sizing guide
-<a name="DAX.sizing-guide"></a>
 
 This guide provides advice for choosing an appropriate Amazon DynamoDB Accelerator (DAX) cluster size and node type for your application. These instructions guide you through the steps of estimating your application’s DAX traffic, selecting a cluster configuration, and testing it.
 

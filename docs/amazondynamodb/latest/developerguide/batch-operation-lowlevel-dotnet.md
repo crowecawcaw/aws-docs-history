@@ -1,7 +1,6 @@
 
 
 # Example: Batch operations using the AWS SDK for .NET low-level API
-<a name="batch-operation-lowlevel-dotnet"></a>
 
 **Topics**
 + [Example: Batch write operation using the AWS SDK for .NET low-level API](#batch-write-low-level-dotnet)
@@ -24,7 +23,7 @@ For step-by-step instructions for testing the following sample, see [.NET code e
 
 **Example**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using Amazon.DynamoDBv2;
@@ -176,7 +175,7 @@ For step-by-step instructions for testing the following sample, see [.NET code e
 
 **Example**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using Amazon.DynamoDBv2;

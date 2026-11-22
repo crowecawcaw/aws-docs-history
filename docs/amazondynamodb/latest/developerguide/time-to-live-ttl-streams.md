@@ -1,7 +1,6 @@
 
 
 # DynamoDB Streams and Time to Live
-<a name="time-to-live-ttl-streams"></a>
 
 You can back up, or otherwise process, items that are deleted by [Time to Live](TTL.md) (TTL) by enabling Amazon DynamoDB Streams on the table and processing the streams records of the expired items. For more information, see [Reading and processing a stream](Streams.md#Streams.Processing).
 
@@ -20,7 +19,7 @@ When you use TTL in a global table, the region the TTL was performed in will hav
 
 The following JSON shows the relevant portion of a single streams record.
 
-```
+```json
 "Records": [
     {
         ...

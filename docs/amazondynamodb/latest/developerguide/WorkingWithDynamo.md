@@ -1,7 +1,6 @@
 
 
 # Working with tables, items, queries, scans, and indexes
-<a name="WorkingWithDynamo"></a>
 
 This section provides details about working with tables, items, queries, and more in Amazon DynamoDB.
 

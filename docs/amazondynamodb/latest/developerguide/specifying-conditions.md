@@ -1,7 +1,6 @@
 
 
 # Using IAM policy conditions for fine-grained access control
-<a name="specifying-conditions"></a>
 
 When you grant permissions in DynamoDB, you can specify conditions that determine how a permissions policy takes effect. 
 
@@ -31,7 +30,7 @@ You use the IAM `Condition` element to implement a fine-grained access control p
 
 The video below explains fine-grained access control in DynamoDB using IAM policy conditions.
 
-[![AWS Videos](https://img.youtube.com/vi/LbEmo_yulb0?si=VTSlNHVocAEYwhJi/0.jpg)](https://www.youtube.com/watch?v=LbEmo_yulb0?si=VTSlNHVocAEYwhJi)
+[![AWS Videos](https://img.youtube.com/vi/LbEmo_yulb0/0.jpg)](https://www.youtube.com/watch?v=LbEmo_yulb0)
 
 
 ## Understanding Fine-Grained Access Control in DynamoDB
@@ -64,7 +63,7 @@ The value of `dynamodb:LeadingKeys` has the same data type as the partition key.
 For more information about these operators, see [IAM JSON policy elements: Condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) in the *IAM User Guide*.  
 A `ForAllValues` condition evaluates to true when the condition key is not present in the request. `Scan`, for example, does not include `dynamodb:LeadingKeys` because it does not operate on a single partition key value. Add a `Null` condition on the same key to make sure that a statement grants access only when a partition key value is present:  
 
-```
+```json
 "Condition": {
     "ForAllValues:StringEquals": {
         "dynamodb:LeadingKeys": ["${www.amazon.com:user_id}"]
@@ -153,7 +152,7 @@ To manage user permissions in this app, you could write a permissions policy suc
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -227,7 +226,7 @@ The list of actions does not include permissions for `Scan` because `Scan` retur
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -270,7 +269,7 @@ To implement read-only access, you can remove any actions that can modify the da
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -312,7 +311,7 @@ The following permissions policy allows access to only two specific attributes i
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -377,7 +376,7 @@ The following permissions policy limits user access to updating only the specifi
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -429,7 +428,7 @@ To require the application to specify a list of attributes in the query, the pol
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -470,7 +469,7 @@ The following permissions policy is similar, but the query must request all of t
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -505,7 +504,7 @@ The following permissions policy allows specific DynamoDB actions (specified in 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	                    
    "Statement":[
@@ -563,7 +562,7 @@ The following policy denies access to sensitive attributes and ensures this rest
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -620,7 +619,7 @@ The preceding examples use tables whose partition key is a String. When the part
 
 The following policy applies to a table named `SensorReadings` whose partition key, `SensorId`, is a Number. It allows read and write actions, including the item actions used inside `TransactGetItems` and `TransactWriteItems`, only on items whose `SensorId` is `12345`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -653,7 +652,7 @@ The following policy applies to a table named `SensorReadings` whose partition k
 
 The following policy applies to a table named `ObjectDigests` whose partition key, `Digest`, is a Binary attribute that holds a 32-byte hash. The value in the condition is the base64 encoding of those 32 bytes.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

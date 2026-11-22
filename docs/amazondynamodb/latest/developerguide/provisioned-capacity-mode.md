@@ -1,7 +1,6 @@
 
 
 # DynamoDB provisioned capacity mode
-<a name="provisioned-capacity-mode"></a>
 
 When you create a new provisioned table in DynamoDB, you must specify its *provisioned throughput capacity*. This is the amount of read and write throughput that the table can support. You'll be charged based on the hourly read and write capacity you have provisioned, not how much of that provisioned capacity you actually consumed.
 

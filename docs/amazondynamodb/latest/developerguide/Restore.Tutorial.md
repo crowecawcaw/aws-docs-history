@@ -1,7 +1,6 @@
 
 
 # Restoring a DynamoDB table from a backup
-<a name="Restore.Tutorial"></a>
 
 This section describes how to restore a table from a backup using the Amazon DynamoDB console or the AWS Command Line Interface (AWS CLI). 
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for global tables
-<a name="globaltables-bestpractices"></a>
 
 The following sections describe best practices for deploying and using global tables.
 

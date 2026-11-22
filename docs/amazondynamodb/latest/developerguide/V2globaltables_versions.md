@@ -1,7 +1,6 @@
 
 
 # DynamoDB global tables versions
-<a name="V2globaltables_versions"></a>
 
 There are two versions of DynamoDB global tables available: Global Tables version 2019.11.21 (Current) and Global tables version 2017.11.29 (Legacy). We recommend using Global Tables version 2019.11.21 (Current), as it is easier to use, supported in more Regions, and lower cost for most workloads compared to version 2017.11.29 (Legacy).
 
@@ -26,7 +25,7 @@ aws dynamodb describe-table \
 
 The (abridged) output contains the `GlobalTableVersion` attribute with a value of "2019.11.21", so this table is a version 2019.11.21 (Current) global table replica.
 
-```
+```json
 {
     "Table": {
         "AttributeDefinitions": [
@@ -68,7 +67,7 @@ aws dynamodb describe-global-table \
 
 The command returns a successful response, so this table is a version 2017.11.29 (Legacy) global table replica.
 
-```
+```json
 {
     "GlobalTableDescription": {
         "ReplicationGroup": [
@@ -156,7 +155,7 @@ To upgrade to version 2019.11.21 (Current), you must have `dynamodb:UpdateGlobal
 
 The following IAM policy grants permissions to upgrade any global table to version 2019.11.21 (Current).
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -171,7 +170,7 @@ The following IAM policy grants permissions to upgrade any global table to versi
 
 The following IAM policy grants permissions to upgrade only the `Music` global table with replicas in two Regions to version 2019.11.21 (Current).
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

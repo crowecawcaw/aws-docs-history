@@ -1,7 +1,6 @@
 
 
 # Prescriptive guidance to integrate DAX with DynamoDB applications
-<a name="dax-prescriptive-guidance"></a>
 
 [DynamoDB Accelerator](DAX.md) (DAX), is a DynamoDB-compatible caching service that provides fast in-memory performance for demanding applications, such as read-heavy applications. Using DAX, you can achieve response times in microseconds for accessing frequently requested data. This DynamoDB Accelerator prescriptive guide provides comprehensive insights and best practices for integrating DAX with your DynamoDB applications.
 

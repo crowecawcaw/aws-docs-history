@@ -1,7 +1,6 @@
 
 
 # Query a DynamoDB table for TTL items using an AWS SDK
-<a name="example_dynamodb_QueryFilteredTTL_section"></a>
 
 The following code examples show how to query for TTL items.
 
@@ -11,7 +10,7 @@ The following code examples show how to query for TTL items.
 **SDK for Java 2.x**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -59,7 +58,7 @@ import java.util.Optional;
 **SDK for JavaScript (v3)**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.  
 
-```
+```javascript
 import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
@@ -108,7 +107,7 @@ export const queryFiltered = async (tableName, primaryKey, region = 'us-east-1')
 **SDK for Python (Boto3)**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).  
 
-```
+```python
 from datetime import datetime
 
 import boto3

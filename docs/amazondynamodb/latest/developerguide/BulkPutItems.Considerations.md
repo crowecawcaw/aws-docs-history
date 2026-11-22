@@ -1,7 +1,6 @@
 
 
 # Bulk put items considerations, quotas, and permissions
-<a name="BulkPutItems.Considerations"></a>
 
 This topic covers the quotas, IAM permissions, and feature interactions that apply to Amazon DynamoDB bulk put items operations. Review these constraints before you start a bulk put items operation.
 
@@ -99,7 +98,7 @@ If `S3BucketOwner` is wrong, `StartBulkPutItems` still returns an operation ARN.
 
 The following example shows an output bucket policy. Replace {{TABLE\_ACCOUNT\_ID}}, {{ROLE\_NAME}}, {{OUTPUT\_BUCKET}}, and {{OUTPUT\_PREFIX}} with your own values.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -162,7 +161,7 @@ DynamoDB supports bulk operations on encrypted tables, and also supports reading
 
 The following IAM policy grants the minimum permissions required to run a bulk put items operation. Replace the placeholder values with your account ID, Region, table name, and bucket names.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -215,7 +214,7 @@ The following IAM policy grants the minimum permissions required to run a bulk p
 
 If you use AWS KMS encryption on the Amazon S3 objects or the DynamoDB table, add the following permissions to the policy. For reading from or writing to an encrypted table, the caller needs the same AWS KMS permissions documented for `PutItem` on encrypted tables. Replace {{your-kms-key-id}} with the ID of your AWS KMS key:
 
-```
+```json
 {
     "Sid": "AllowKMSAccess",
     "Effect": "Allow",

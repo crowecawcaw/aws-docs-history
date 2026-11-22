@@ -1,7 +1,6 @@
 
 
 # Check your DynamoDB table's current warm throughput
-<a name="check-warm-throughput"></a>
 
 Use the following AWS CLI and AWS Console instructions to check your table or index's current warm throughput value.
 

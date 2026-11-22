@@ -1,7 +1,6 @@
 
 
 # Bulk put items output and reconciliation
-<a name="BulkPutItems.Output"></a>
 
 When a bulk put items operation completes, DynamoDB outputs a report to the Amazon S3 bucket you specified in [OutputS3Configuration](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_OutputS3Configuration.html). This report contains details about items that were not written.
 
@@ -74,7 +73,7 @@ The `fileProcessingStatus` field takes one of the following values:
 
 The following example shows one line per status value. Each line is a single JSON object.
 
-```
+```json
 {"inputSourceArn":"arn:aws:s3:::amzn-s3-demo-bucket/bulk-input/customers-done.json.gz","fileProcessingStatus":"FULLY_PROCESSED","processedRanges":[[0,9999]],"etag":"9b2cf535f27731c974343645a3985328"}
 {"inputSourceArn":"arn:aws:s3:::amzn-s3-demo-bucket/bulk-input/orders-partial.json.gz","fileProcessingStatus":"PARTIALLY_PROCESSED","processedRanges":[[0,4999]],"etag":"8f14e45fceea167a5a36dedd4bea2543"}
 {"inputSourceArn":"arn:aws:s3:::amzn-s3-demo-bucket/bulk-input/inventory-queued.json.gz","fileProcessingStatus":"NOT_PROCESSED","processedRanges":[],"etag":"c9f0f895fb98ab9159f51fd0297e236d"}
@@ -113,7 +112,7 @@ The `DescribeBulkOperation` response includes a [BulkOperationUsage](https://doc
 
 The following example shows the structure of `BulkOperationUsage`:
 
-```
+```json
 "BulkOperationUsage": [{
     "TableName": "Orders",
     "BulkPutBytes": 1792000,

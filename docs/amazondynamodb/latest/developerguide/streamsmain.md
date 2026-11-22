@@ -1,7 +1,6 @@
 
 
 # Change data capture with Amazon DynamoDB
-<a name="streamsmain"></a>
 
 Many applications benefit from capturing changes to items stored in a DynamoDB table, at the point in time when such changes occur. The following are some example use cases:
 + A popular mobile app modifies data in a DynamoDB table, at the rate of thousands of updates per second. Another application captures and stores data about these updates, providing near-real-time usage metrics for the mobile app.

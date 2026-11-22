@@ -1,7 +1,6 @@
 
 
 # Referring to item attributes when using expressions in DynamoDB
-<a name="Expressions.Attributes"></a>
 
 This section describes how to refer to item attributes in an expression in Amazon DynamoDB. You can work with any attribute, even if it is deeply nested within multiple lists and maps.
 
@@ -13,7 +12,7 @@ This section describes how to refer to item attributes in an expression in Amazo
 **A Sample Item: ProductCatalog**  
 The examples on this page use the following sample item in the `ProductCatalog` table. (This table is described in [Example tables and data for use in DynamoDB](AppendixSampleTables.md).)
 
-```
+```json
 {
     "Id": 123,
     "Title": "Bicycle 123",
@@ -113,7 +112,7 @@ The dereference operator for a map element is **.** (a dot). Use a dot as a sepa
 
 In an expression, you use a *document path* to tell DynamoDB where to find an attribute. For a top-level attribute, the document path is simply the attribute name. For a nested attribute, you construct the document path using dereference operators.
 
-The following are some examples of document paths. (Refer to the item shown in [Referring to item attributes when using expressions in DynamoDB](#Expressions.Attributes).)
+The following are some examples of document paths. (Refer to the item shown in [Referring to item attributes when using expressions in DynamoDB](Expressions.Attributes.md).)
 + A top-level scalar attribute.
 
    `Description`

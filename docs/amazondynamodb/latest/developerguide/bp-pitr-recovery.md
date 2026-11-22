@@ -1,7 +1,6 @@
 
 
 # Best practices for PITR recovery in DynamoDB
-<a name="bp-pitr-recovery"></a>
 
 The following are the best practices for using point-in-time recovery (PITR) to return a table to a previous state.
 

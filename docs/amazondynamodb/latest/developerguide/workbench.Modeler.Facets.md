@@ -1,7 +1,6 @@
 
 
 # Facets
-<a name="workbench.Modeler.Facets"></a>
 
  In NoSQL Workbench, *Facets* give you a way to view a subset of the data in a table, without having to see records that don't meet the constraints of the facet. Facets are considered a visual data modeling tool, and don't exist as a usable construct in DynamoDB, as they are purely an aid to modeling of access patterns. 
 

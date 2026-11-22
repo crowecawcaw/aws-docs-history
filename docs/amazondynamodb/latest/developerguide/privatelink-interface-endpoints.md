@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for DynamoDB
-<a name="privatelink-interface-endpoints"></a>
 
 With AWS PrivateLink for DynamoDB, you can provision *interface Amazon VPC endpoints* (interface endpoints) in your virtual private cloud (Amazon VPC). These endpoints are directly accessible from applications that are on premises over VPN and Direct Connect, or in a different AWS Region over [Amazon VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html). Using AWS PrivateLink and interface endpoints, you can simplify private network connectivity from your applications to DynamoDB.
 
@@ -131,7 +130,7 @@ To access DynamoDB tables or DynamoDB control API operations through DynamoDB in
 **Example: Use an endpoint URL to access a DynamoDB table**  
 In the following example, replace the Region `us-east-1` and VPC endpoint ID `https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.amazonaws.com` with your own information.
 
-```
+```python
 ddb_client = session.client(
 service_name='dynamodb',
 region_name='us-east-1',
@@ -145,7 +144,7 @@ endpoint_url='https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.amazonaws.com'
 **Example: Use an endpoint URL to access a DynamoDB table**  
 In the following example, replace the Region `us-east-1` and VPC endpoint ID `https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.amazonaws.com` with your own information.
 
-```
+```java
 //client build with endpoint config  
 final AmazonDynamoDB dynamodb = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
         new AwsClientBuilder.EndpointConfiguration(
@@ -161,7 +160,7 @@ final AmazonDynamoDB dynamodb = AmazonDynamoDBClientBuilder.standard().withEndpo
 **Example: Use an endpoint URL to access DynamoDB table**  
 In the following example, replace the Region us-east-1 and VPC endpoint ID https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.amazonaws.com with your own information.
 
-```
+```java
 Region region = Region.US_EAST_1;
 dynamoDbClient = DynamoDbClient.builder().region(region)
 .endpointOverride(URI.create("https://vpce-1a2b3c4d-5e6f.dynamodb.us-east-1.vpce.amazonaws.com"))
@@ -224,7 +223,7 @@ You can create an endpoint policy that restricts access to only specific DynamoD
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
   "Id": "Policy1216114807515",

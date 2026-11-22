@@ -1,7 +1,6 @@
 
 
 # Modifying an existing SDK for Java 1.x application to use DAX
-<a name="DAX.client.modify-your-app.java-sdk-v1"></a>
 
 If you already have a Java application that uses Amazon DynamoDB, you have to modify it so that it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire application because the DAX Java client is similar to the DynamoDB low-level client included in the AWS SDK for Java.
 
@@ -10,7 +9,7 @@ These instructions are for applications using AWS SDK for Java 1.x. For applicat
 
 Suppose that you have a DynamoDB table named `Music`. The partition key for the table is `Artist`, and its sort key is `SongTitle`. The following program reads an item directly from the `Music` table.
 
-```
+```java
 import java.util.HashMap;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -48,7 +47,7 @@ public class GetMusicItem {
 
 To modify the program, replace the DynamoDB client with a DAX client.
 
-```
+```java
 import java.util.HashMap;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -85,7 +84,7 @@ The AWS SDK for Java provides a document interface for DynamoDB. The document AP
 
 The document interface can also be used with the low-level DAX client, as shown in the following example.
 
-```
+```java
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazon.dax.client.dynamodbv2.AmazonDaxClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
@@ -130,7 +129,7 @@ The `AmazonDaxClient` is synchronous. For a long-running DAX API operation, such
 
 The following program shows how to use `ClusterDaxAsyncClient`, along with Java `Future`, to implement a non-blocking solution.
 
-```
+```java
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 

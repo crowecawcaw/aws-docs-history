@@ -1,7 +1,6 @@
 
 
 # Differences in querying a table
-<a name="SQLtoNoSQL.ReadData.Query"></a>
 
 Another common access pattern is reading multiple items from a table, based on your query criteria.
 
@@ -14,28 +13,28 @@ Another common access pattern is reading multiple items from a table, based on y
 
 When using SQL the `SELECT` statement lets you query on key columns, non-key columns, or any combination. The `WHERE` clause determines which rows are returned, as shown in the following examples.
 
-```
+```sql
 /* Return a single song, by primary key */
 
 SELECT * FROM Music
 WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today';
 ```
 
-```
+```sql
 /* Return all of the songs by an artist */
 
 SELECT * FROM Music
 WHERE Artist='No One You Know';
 ```
 
-```
+```sql
 /* Return all of the songs by an artist, matching first part of title */
 
 SELECT * FROM Music
 WHERE Artist='No One You Know' AND SongTitle LIKE 'Call%';
 ```
 
-```
+```sql
 /* Return all of the songs by an artist, only if the price is less than 1.00 */
 
 SELECT * FROM Music
@@ -125,7 +124,7 @@ A `FilterExpression` is applied after the `Query` reads matching items, so it do
 
 With PartiQL, you can perform a query by using the `ExecuteStatement` operation and the `Select` statement on the partition key.
 
-```
+```sql
 SELECT AlbumTitle, Year, Price
 FROM Music
 WHERE Artist='No One You Know'

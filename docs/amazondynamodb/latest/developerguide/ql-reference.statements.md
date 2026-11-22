@@ -1,7 +1,6 @@
 
 
 # PartiQL statements for DynamoDB
-<a name="ql-reference.statements"></a>
 
 Amazon DynamoDB supports the following PartiQL statements.
 

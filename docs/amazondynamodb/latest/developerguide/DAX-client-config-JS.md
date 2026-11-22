@@ -1,7 +1,6 @@
 
 
 # Default client configuration for Node.js
-<a name="DAX-client-config-JS"></a>
 
 When configuring the DAX JavaScript SDK client, you can customize various parameters to optimize performance, connection handling, and error resilience. The following table outlines the default configuration settings that control how your client interacts with the DAX cluster, including timeout values, retry mechanisms, credential management, and health monitoring options. For more information, see [DynamoDBClient Operations](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/).
 

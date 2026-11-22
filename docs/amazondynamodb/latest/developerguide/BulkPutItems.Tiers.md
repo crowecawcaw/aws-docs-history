@@ -1,7 +1,6 @@
 
 
 # Performance tiers
-<a name="BulkPutItems.Tiers"></a>
 
 Bulk put items offers two performance tiers at different price points. Accelerated provides a higher throughput target than Standard, which allows an operation to complete faster. You specify the tier when you start the operation by setting the [PerformanceTier](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartBulkPutItems.html#DDB-StartBulkPutItems-request-PerformanceTier) parameter to `STANDARD` or `ACCELERATED`. If you do not specify a tier, the operation defaults to `STANDARD`.
 

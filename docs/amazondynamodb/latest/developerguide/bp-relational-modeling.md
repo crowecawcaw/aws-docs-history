@@ -1,7 +1,6 @@
 
 
 # Best practices for modeling relational data in DynamoDB
-<a name="bp-relational-modeling"></a>
 
 This section provides best practices for modeling relational data in Amazon DynamoDB. First, we introduce traditional data modeling concepts. Then, we describe the advantages of using DynamoDB over traditional relational database management systems—how it eliminates the need for JOIN operations and reduces overhead. 
 
@@ -76,7 +75,7 @@ DynamoDB scales well for these reasons:
 
 Queries against the data store become much simpler, often in the following form:
 
-```
+```sql
 SELECT * FROM Table_X WHERE Attribute_Y = "somevalue"
 ```
 

@@ -1,11 +1,10 @@
 
 
 # 03-getitem-test.py
-<a name="DAX.client.run-application-python.03-getitem-test"></a>
 
 The `03-getitem-test.py` program performs `GetItem` operations on `TryDaxTable`. This example is given for the Region eu-west-1. 
 
-```
+```python
 import argparse
 import sys
 import time

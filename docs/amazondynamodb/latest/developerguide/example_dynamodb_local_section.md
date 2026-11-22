@@ -1,7 +1,6 @@
 
 
 # Connect to a local DynamoDB instance using an AWS SDK
-<a name="example_dynamodb_local_section"></a>
 
 The following code example shows how to override an endpoint URL to connect to a local development deployment of DynamoDB and an AWS SDK.
 
@@ -13,7 +12,7 @@ For more information, see [DynamoDB Local](https://docs.aws.amazon.com/amazondyn
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples). 
 
-```
+```rust
 /// Lists your tables from a local DynamoDB instance by setting the SDK Config's
 /// endpoint_url and test_credentials.
 #[tokio::main]

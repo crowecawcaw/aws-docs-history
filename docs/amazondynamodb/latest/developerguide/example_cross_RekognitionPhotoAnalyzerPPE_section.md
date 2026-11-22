@@ -1,7 +1,6 @@
 
 
 # Detect PPE in images with Amazon Rekognition using an AWS SDK
-<a name="example_cross_RekognitionPhotoAnalyzerPPE_section"></a>
 
 The following code example shows how to build an app that uses Amazon Rekognition to detect Personal Protective Equipment (PPE) in images.
 

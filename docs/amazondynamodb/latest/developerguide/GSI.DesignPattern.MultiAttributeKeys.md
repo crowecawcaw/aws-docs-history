@@ -1,7 +1,6 @@
 
 
 # Multi-attribute keys pattern
-<a name="GSI.DesignPattern.MultiAttributeKeys"></a>
 
 ## Overview
 <a name="GSI.DesignPattern.MultiAttributeKeys.Overview"></a>
@@ -37,7 +36,7 @@ The key difference between traditional and multi-attribute approaches becomes cl
 
 **Traditional Global Secondary Index approach (concatenated keys):**
 
-```
+```javascript
 // Manual concatenation required for GSI keys
 const item = {
     matchId: 'match-001',                                          // Base table PK
@@ -55,7 +54,7 @@ const item = {
 
 **Multi-attribute Global Secondary Index approach (native keys):**
 
-```
+```javascript
 // Use existing attributes directly - no concatenation needed
 const item = {
     matchId: 'match-001',                                          // Base table PK
@@ -184,7 +183,7 @@ Create a table with a simple base key structure and GSIs that use multi-attribut
 #### Code example
 <a name="w2aac19c15c49c23b9c11b3b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb";
 
 const client = new DynamoDBClient({ region: 'us-west-2' });
@@ -253,7 +252,7 @@ Add tournament match data using natural attributes. The GSI will automatically i
 #### Code example
 <a name="w2aac19c15c49c23b9c11b5b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -395,7 +394,7 @@ This example queries the TournamentRegionIndex Global Secondary Index which has 
 #### Code example
 <a name="w2aac19c15c49c23b9c11b7b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -449,7 +448,7 @@ Found 4 matches for WINTER2024/NA-EAST:
 
 **Invalid queries:**
 
-```
+```javascript
 // Missing region attribute
 KeyConditionExpression: 'tournamentId = :tournament'
 
@@ -467,7 +466,7 @@ Sort key attributes must be queried left-to-right in the order they're defined i
 #### Code example
 <a name="w2aac19c15c49c23b9c11b9b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -590,7 +589,7 @@ Inequality conditions must be the last condition in your query. This example dem
 #### Code example
 <a name="w2aac19c15c49c23b9c11c11b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -695,7 +694,7 @@ This example queries the PlayerMatchHistoryIndex which has a single partition ke
 #### Code example
 <a name="w2aac19c15c49c23b9c11c13b5b1"></a>
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -775,7 +774,7 @@ Optimize for time-series queries with hierarchical time attributes
 #### Code example
 <a name="w2aac19c15c49c23b9c13b3b5b1"></a>
 
-```
+```javascript
 {
     TableName: 'IoTReadings',
     // Base table: Simple partition key
@@ -825,7 +824,7 @@ Track orders with multiple dimensions
 #### Code example
 <a name="w2aac19c15c49c23b9c13b5b5b1"></a>
 
-```
+```javascript
 {
     TableName: 'Orders',
     // Base table: Simple partition key
@@ -885,7 +884,7 @@ Model organizational hierarchies
 #### Code example
 <a name="w2aac19c15c49c23b9c13b7b5b1"></a>
 
-```
+```javascript
 {
     TableName: 'Employees',
     // Base table: Simple partition key
@@ -944,7 +943,7 @@ Combine multi-attribute keys to make a sparse GSI
 #### Code example
 <a name="w2aac19c15c49c23b9c13b9b5b1"></a>
 
-```
+```javascript
 {
     TableName: 'Products',
     // Base table: Simple partition key
@@ -994,7 +993,7 @@ Multi-tenant SaaS platform with customer isolation
 #### Code example
 <a name="w2aac19c15c49c23b9c13c11b5b1"></a>
 
-```
+```javascript
 // Table design
 {
     TableName: 'SaasData',
@@ -1056,7 +1055,7 @@ Banking system tracking account transactions using GSIs
 #### Code example
 <a name="w2aac19c15c49c23b9c13c13b5b1"></a>
 
-```
+```javascript
 // Table design
 {
     TableName: 'BankTransactions',
@@ -1145,7 +1144,7 @@ The following example demonstrates multi-attribute keys from setup to cleanup:
 ### Code example
 <a name="w2aac19c15c49c23b9c15b5b1"></a>
 
-```
+```javascript
 import { 
     DynamoDBClient, 
     CreateTableCommand, 
@@ -1273,7 +1272,7 @@ multiAttributeKeysDemo().catch(console.error);
 ### Code example
 <a name="w2aac19c15c49c23b9c15b9b1"></a>
 
-```
+```javascript
 // 1. Create table with GSI using multi-attribute keys
 await client.send(new CreateTableCommand({
     TableName: 'MyTable',

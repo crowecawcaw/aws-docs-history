@@ -1,7 +1,6 @@
 
 
 # What is Amazon DynamoDB?
-<a name="Introduction"></a>
 
  Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale. 
 

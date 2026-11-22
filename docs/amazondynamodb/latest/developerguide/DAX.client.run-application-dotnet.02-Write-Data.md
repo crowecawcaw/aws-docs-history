@@ -1,11 +1,10 @@
 
 
 # 02-Write-Data.cs
-<a name="DAX.client.run-application-dotnet.02-Write-Data"></a>
 
 The `02-Write-Data.cs` program writes test data to `TryDaxTable`.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

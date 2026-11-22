@@ -1,7 +1,6 @@
 
 
 # Evaluate your DynamoDB table's auto scaling settings
-<a name="CostOptimization_AutoScalingSettings"></a>
 
 This section provides an overview of how to evaluate the auto scaling settings on your DynamoDB tables. [Amazon DynamoDB auto scaling](AutoScaling.md) is a feature that manages table and global secondary index (GSI) throughput based on your application traffic and your target utilization metric. This ensures your tables or GSIs will have the required capacity required for your application patterns.
 
@@ -51,7 +50,7 @@ You can use either the AWS CLI or AWS Management Console to monitor and identify
 
    The values we're interested in for the auto scaling policies are highlighted below. We want to make sure that the target value is greater than 50% to avoid over-provisioning. You should obtain a result similar to the following:
 
-   ```
+   ```json
    {
        "ScalingPolicies": [
            {
@@ -174,7 +173,7 @@ You can use AWS CLI to execute the following steps to create a scheduled auto sc
 
    You should get a result like this:
 
-   ```
+   ```json
    {
        "ScheduledActions": [
            {

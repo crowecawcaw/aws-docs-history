@@ -1,7 +1,6 @@
 
 
 # Example: Batch operations using AWS SDK for Java document API
-<a name="batch-operation-document-api-java"></a>
 
 This section provides examples of batch write and batch get operations in Amazon DynamoDB using the AWS SDK for Java Document API.
 
@@ -27,7 +26,7 @@ For step-by-step instructions for testing the following sample, see [Java code e
 
 **Example**  
 
-```
+```java
 package com.amazonaws.codesamples.document;
 
 import java.io.IOException;
@@ -115,7 +114,7 @@ For step-by-step instructions to run the following example, see [Java code examp
 
 **Example**  
 
-```
+```java
 package com.amazonaws.codesamples.document;
 
 import java.io.IOException;

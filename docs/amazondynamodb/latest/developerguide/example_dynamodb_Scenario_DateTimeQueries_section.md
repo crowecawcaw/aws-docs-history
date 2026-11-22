@@ -1,7 +1,6 @@
 
 
 # Query DynamoDB tables using date and time patterns with an AWS SDK
-<a name="example_dynamodb_Scenario_DateTimeQueries_section"></a>
 
 The following code examples show how to query tables using date and time patterns.
 + Store and query date/time values in DynamoDB.
@@ -14,7 +13,7 @@ The following code examples show how to query tables using date and time pattern
 **SDK for Java 2.x**  
 Query using date ranges in sort keys with AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -90,7 +89,7 @@ import java.util.logging.Logger;
 ```
 Query using date-time variables with AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -155,7 +154,7 @@ import java.util.Map;
 ```
 Query within date ranges in Unix epoch timestamps with AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -220,7 +219,7 @@ import java.util.Map;
 ```
 Query within date ranges using LocalDateTime objects with AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -263,7 +262,7 @@ import java.util.Map;
 **SDK for JavaScript (v3)**  
 Query using date ranges in sort keys with AWS SDK for JavaScript.  
 
-```
+```javascript
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
@@ -321,7 +320,7 @@ async function queryByDateRangeOnSortKey(
 ```
 Query using date-time variables with AWS SDK for JavaScript.  
 
-```
+```javascript
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
@@ -385,7 +384,7 @@ async function queryByDateRange(
 **SDK for Python (Boto3)**  
 Query using date ranges in sort keys with AWS SDK for Python (Boto3).  
 
-```
+```python
 from datetime import datetime, timedelta
 
 import boto3
@@ -482,7 +481,7 @@ def query_with_date_range_by_month(
 ```
 Query using date-time variables with AWS SDK for Python (Boto3).  
 
-```
+```python
 from datetime import datetime, timedelta
 
 import boto3

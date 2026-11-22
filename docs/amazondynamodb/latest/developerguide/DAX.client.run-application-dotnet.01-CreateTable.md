@@ -1,11 +1,10 @@
 
 
 # 01-CreateTable.cs
-<a name="DAX.client.run-application-dotnet.01-CreateTable"></a>
 
 The `01-CreateTable.cs` program creates a table (`TryDaxTable`). The remaining .NET programs in this section depend on this table.
 
-```
+```dotnet
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

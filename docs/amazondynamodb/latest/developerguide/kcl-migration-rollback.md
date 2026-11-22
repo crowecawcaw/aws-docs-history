@@ -1,7 +1,6 @@
 
 
 # Roll back to the previous KCL version
-<a name="kcl-migration-rollback"></a>
 
 This topic explains how to roll back your KCL 3.5.x\+ consumer application to KCL 1.x. The rollback process depends on which migration phase your application is currently in.
 

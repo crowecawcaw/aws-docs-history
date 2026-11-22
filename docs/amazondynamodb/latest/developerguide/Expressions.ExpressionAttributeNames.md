@@ -1,7 +1,6 @@
 
 
 # Expression attribute names (aliases) in DynamoDB
-<a name="Expressions.ExpressionAttributeNames"></a>
 
 An *expression attribute name* is an alias (or placeholder) that you use in an Amazon DynamoDB expression as an alternative to an actual attribute name. An expression attribute name must begin with a pound sign (`#`) and be followed by one or more alphanumeric characters. The underscore (`_`) character is also allowed.
 

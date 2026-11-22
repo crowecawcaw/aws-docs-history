@@ -1,7 +1,6 @@
 
 
 # Best practices for vector indexes
-<a name="VectorSearchBestPractices"></a>
 
 The following recommendations help you design vector indexes that are accurate, performant, and cost-effective.
 

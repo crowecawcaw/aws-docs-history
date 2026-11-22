@@ -1,7 +1,6 @@
 
 
 # Adding sample data to a data model
-<a name="workbench.Modeler.AddData"></a>
 
 **To auto-generate sample data**
 

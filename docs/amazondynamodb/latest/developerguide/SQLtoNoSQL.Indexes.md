@@ -1,7 +1,6 @@
 
 
 # Differences between a relational (SQL) database and DynamoDB when managing indexes
-<a name="SQLtoNoSQL.Indexes"></a>
 
 Indexes give you access to alternate query patterns, and can speed up queries. This section compares and contrasts index creation and usage in SQL and Amazon DynamoDB.
 
@@ -29,7 +28,7 @@ After you create an index, the database maintains it for you. Whenever you modif
 
 In MySQL, you would create an index like the following.
 
-```
+```sql
 CREATE INDEX GenreAndPriceIndex
 ON Music (genre, price);
 ```
@@ -105,14 +104,14 @@ A *query optimizer* is a relational database management system (RDBMS) component
 
 Here are some SQL statements that can use *GenreAndPriceIndex* to improve performance. We assume that the *Music* table has enough data in it that the query optimizer decides to use this index, rather than simply scanning the entire table.
 
-```
+```sql
 /* All of the rock songs */
 
 SELECT * FROM Music
 WHERE Genre = 'Rock';
 ```
 
-```
+```sql
 /* All of the cheap country songs */
 
 SELECT Artist, SongTitle, Price FROM Music
@@ -175,7 +174,7 @@ The following is a scan on *GenreAndPriceIndex*.
 
 With PartiQL, you use the PartiQL `Select` statement to perform queries and scans on the index.
 
-```
+```sql
 // All of the rock songs
 
 SELECT * 
@@ -183,7 +182,7 @@ FROM Music.GenreAndPriceIndex
 WHERE Genre = 'Rock'
 ```
 
-```
+```sql
 // All of the cheap country songs
 
 SELECT * 
@@ -193,7 +192,7 @@ WHERE Genre = 'Rock' AND Price < 0.50
 
 The following is a scan on *GenreAndPriceIndex*.
 
-```
+```sql
 // Return all of the data in the index
 
 SELECT *

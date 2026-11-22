@@ -1,7 +1,6 @@
 
 
 # DynamoDB data import from Amazon S3: how it works
-<a name="S3DataImport.HowItWorks"></a>
 
 To import data into DynamoDB, your data must be in an Amazon S3 bucket in CSV, DynamoDB JSON, or Amazon Ion format. Data can be compressed in ZSTD or GZIP format, or can be directly imported in uncompressed form. Source data can either be a single Amazon S3 object or multiple Amazon S3 objects that use the same prefix.
 

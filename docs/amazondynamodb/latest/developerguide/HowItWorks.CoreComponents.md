@@ -1,7 +1,6 @@
 
 
 # Core components of Amazon DynamoDB
-<a name="HowItWorks.CoreComponents"></a>
 
 In DynamoDB, tables, items, and attributes are the core components that you work with. A *table* is a collection of *items*, and each item is a collection of *attributes*. DynamoDB uses primary keys to uniquely identify each item in a table. You can use DynamoDB Streams to capture data modification events in DynamoDB tables.
 
@@ -24,7 +23,7 @@ The following are the basic DynamoDB components:
 
 The following diagram shows a table named *People* with some example items and attributes.
 
-```
+```json
 People
 
 {
@@ -67,7 +66,7 @@ Note the following about the *People* table:
 
 The following is another example table named *Music* that you could use to keep track of your music collection.
 
-```
+```json
 Music
 
 {

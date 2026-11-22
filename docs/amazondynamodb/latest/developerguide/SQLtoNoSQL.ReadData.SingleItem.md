@@ -1,7 +1,6 @@
 
 
 # Differences in reading an item using its primary key
-<a name="SQLtoNoSQL.ReadData.SingleItem"></a>
 
 One common access pattern for databases is to read a single item from a table. You have to specify the primary key of the item you want.
 
@@ -16,7 +15,7 @@ In SQL, you would use the `SELECT` statement to retrieve data from a table. You 
 
 The following is a `SELECT` statement to retrieve a single row from the *Music* table. The `WHERE` clause specifies the primary key values.
 
-```
+```sql
 SELECT *
 FROM Music
 WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
@@ -24,7 +23,7 @@ WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
 
 You can modify this query to retrieve only a subset of the columns.
 
-```
+```sql
 SELECT AlbumTitle, Year, Price
 FROM Music
 WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
@@ -84,7 +83,7 @@ DynamoDB is a nonrelational database and doesn't support table joins. If you are
 
 With PartiQL, you use the `ExecuteStatement` operation to read an item from a table, using the PartiQL `Select` statement.
 
-```
+```sql
 SELECT AlbumTitle, Year, Price
 FROM Music
 WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'

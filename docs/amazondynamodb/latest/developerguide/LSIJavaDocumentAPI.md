@@ -1,7 +1,6 @@
 
 
 # Working with Local Secondary Indexes: Java
-<a name="LSIJavaDocumentAPI"></a>
 
 You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more local secondary indexes, describe the indexes on the table, and perform queries using the indexes.
 
@@ -36,7 +35,7 @@ The following are the steps to create a table with a local secondary index, usin
 
 The following Java code example demonstrates the preceding steps. The code creates a table (`Music`) with a secondary index on the `AlbumTitle` attribute. The table partition key and sort key, plus the index sort key, are the only attributes projected into the index.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -102,7 +101,7 @@ The following Java code example demonstrates the preceding steps.
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -157,7 +156,7 @@ The following Java code example demonstrates the preceding steps.
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -191,7 +190,7 @@ By default, `Query` uses eventually consistent reads. To request a strongly cons
 
 **Example**  
 
-```
+```java
 QuerySpec spec = new QuerySpec()
     .withKeyConditionExpression("Artist = :v_artist and AlbumTitle = :v_title")
     .withValueMap(new ValueMap()

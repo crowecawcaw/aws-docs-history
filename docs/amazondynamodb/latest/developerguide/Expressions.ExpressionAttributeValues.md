@@ -1,7 +1,6 @@
 
 
 # Using expression attribute values in DynamoDB
-<a name="Expressions.ExpressionAttributeValues"></a>
 
 *Expression attribute values* in Amazon DynamoDB act as variables. They're substitutes for the actual values that you want to compare—values that you might not know until runtime. An expression attribute value must begin with a colon (`:`) and be followed by one or more alphanumeric characters.
 
@@ -16,7 +15,7 @@ aws dynamodb scan \
 
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.
 
-```
+```json
 {
     ":c": { "S": "Black" },
     ":p": { "N": "500" }

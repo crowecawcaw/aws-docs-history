@@ -1,7 +1,6 @@
 
 
 # Using IAM with CloudWatch contributor insights for DynamoDB
-<a name="Contributor_Insights_IAM"></a>
 
 The first time that you enable Amazon CloudWatch Contributor Insights for Amazon DynamoDB, DynamoDB automatically creates an AWS Identity and Access Management (IAM) service-linked role for you. This role, `AWSServiceRoleForDynamoDBCloudWatchContributorInsights`, allows DynamoDB to manage CloudWatch Contributor Insights rules on your behalf. Don't delete this service-linked role. If you delete it, all your managed rules will no longer be cleaned up when you delete your table or global secondary index.
 
@@ -23,7 +22,7 @@ The following IAM policy grants permissions to enable or disable CloudWatch Cont
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -53,7 +52,7 @@ The following IAM policy grants permissions to enable or disable CloudWatch Cont
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -97,7 +96,7 @@ The following IAM policy grants permissions to retrieve CloudWatch Contributor I
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -124,7 +123,7 @@ The following IAM policy grants permissions to allow the `ListContributorInsight
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

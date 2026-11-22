@@ -1,7 +1,6 @@
 
 
 # Tutorial \#1: Using filters to process all events with Amazon DynamoDB and AWS Lambda using the AWS CLI
-<a name="Streams.Lambda.Tutorial"></a>
 
  
 
@@ -74,7 +73,7 @@ You also create a policy for the role. The policy contains all of the permission
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -106,7 +105,7 @@ You also create a policy for the role. The policy contains all of the permission
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -189,7 +188,7 @@ The `publishNewBark` function processes only the stream events that correspond t
 
 1. Create a file named `publishNewBark.js` with the following contents. Replace `{{region}}` and `{{accountID}}` with your AWS Region and account ID.
 
-   ```
+   ```javascript
    'use strict';
    var AWS = require("aws-sdk");
    var sns = new AWS.SNS();
@@ -258,7 +257,7 @@ The `publishNewBark` function processes only the stream events that correspond t
 
    Create a file named `payload.json` with the following contents. Replace `{{region}}` and `{{accountID}}` with your AWS Region and account ID.
 
-   ```
+   ```json
    {
        "Records": [
            {
@@ -306,7 +305,7 @@ The `publishNewBark` function processes only the stream events that correspond t
 
    If the test was successful, you will see the following output.
 
-   ```
+   ```json
    {
        "StatusCode": 200,
        "ExecutedVersion": "$LATEST"

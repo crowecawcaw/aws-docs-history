@@ -1,7 +1,6 @@
 
 
 # Import format quotas and validation
-<a name="S3DataImport.Validation"></a>
 
 ## Import quotas
 <a name="S3DataImport.Validation.limits"></a>
@@ -61,13 +60,13 @@ The Amazon S3 objects do not need to have the corresponding extension (.csv / .j
 
 For Import jobs that fail, detailed error messages are posted to CloudWatch logs. To access these logs, first retrieve the ImportArn from the output and describe-import using this command:
 
-```
+```json
 aws dynamodb describe-import --import-arn arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311
 ```
 
 Example output:
 
-```
+```json
 aws dynamodb describe-import --import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311"
 {
     "ImportTableDescription": {
@@ -119,7 +118,7 @@ Retrieve the log group and the import id from the above response and use it to r
 
 If the source S3 object does not contain the primary key that was provided as a parameter, the import will fail. For example, when you define the primary key for the import as column name “pk”.
 
-```
+```json
 aws dynamodb import-table —s3-bucket-source S3Bucket=my-import-source,S3KeyPrefix=import-test.csv \ 
             —input-format CSV --table-creation-parameters '{"TableName":"target-table","KeySchema":  \
             [{"AttributeName":"pk","KeyType":"HASH"}],"AttributeDefinitions":[{"AttributeName":"pk","AttributeType":"S"}],"BillingMode":"PAY_PER_REQUEST"}'

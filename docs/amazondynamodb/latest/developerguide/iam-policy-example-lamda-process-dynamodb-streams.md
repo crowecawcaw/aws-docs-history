@@ -1,7 +1,6 @@
 
 
 # IAM policy to allow an AWS Lambda function to access DynamoDB stream records
-<a name="iam-policy-example-lamda-process-dynamodb-streams"></a>
 
 If you want certain actions to be performed based on events in a DynamoDB stream, you can write an AWS Lambda function that is triggered by these events. A Lambda function such as this needs permissions to read data from a DynamoDB stream. For more information about using Lambda with DynamoDB Streams, see [DynamoDB Streams and AWS Lambda triggers](Streams.Lambda.md).
 
@@ -14,7 +13,7 @@ For example, you can associate the following permissions policy with an executio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

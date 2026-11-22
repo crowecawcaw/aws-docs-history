@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon DynamoDB
-<a name="Troubleshooting"></a>
 
 The following topics provide troubleshooting advice for errors and issues that you could encounter when using Amazon DynamoDB. If you find an issue that isn't listed here, you can use the feedback button on this page to report it.
 

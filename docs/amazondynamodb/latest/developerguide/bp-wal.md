@@ -1,7 +1,6 @@
 
 
 # Using the DynamoDB Well-Architected Lens to optimize your DynamoDB workload
-<a name="bp-wal"></a>
 
 This section describes the Amazon DynamoDB Well-Architected Lens, a collection of design principles and guidance for designing well-architected DynamoDB workloads.
 

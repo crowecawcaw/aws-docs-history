@@ -1,7 +1,6 @@
 
 
 # Working with expired items and time to live (TTL)
-<a name="ttl-expired-items"></a>
 
 Expired items that are pending deletion can be filtered from read and write operations. This is useful in scenarios when expired data is no longer valid and should not be used. If they are not filtered, they’ll continue to show in read and write operations until they are deleted by the background process.
 
@@ -23,7 +22,7 @@ The following code examples show how to query for TTL items.
 **SDK for Java 2.x**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -71,7 +70,7 @@ import java.util.Optional;
 **SDK for JavaScript (v3)**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for JavaScript.  
 
-```
+```javascript
 import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
@@ -120,7 +119,7 @@ export const queryFiltered = async (tableName, primaryKey, region = 'us-east-1')
 **SDK for Python (Boto3)**  
 Query Filtered Expression to gather TTL items in a DynamoDB table using AWS SDK for Python (Boto3).  
 
-```
+```python
 from datetime import datetime
 
 import boto3
@@ -181,7 +180,7 @@ The following code examples show how to conditionally update an item's TTL.
 **SDK for Java 2.x**  
 Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
-```
+```java
 package com.amazon.samplelib.ttl;
 
 import com.amazon.samplelib.CodeSampleUtils;
@@ -329,7 +328,7 @@ public class UpdateTTLConditional {
 **SDK for JavaScript (v3)**  
 Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
-```
+```javascript
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
@@ -382,7 +381,7 @@ export const updateItemConditional = async (tableName, partitionKey, sortKey, re
 **SDK for Python (Boto3)**  
 Update TTL on on an existing DynamoDB Item in a table, with a condition.  
 
-```
+```python
 from datetime import datetime, timedelta
 
 import boto3
@@ -462,7 +461,7 @@ Records[<index>].userIdentity.principalId
 
 The following JSON shows the relevant portion of a single streams record:
 
-```
+```json
 "Records": [ 
   { 
 	... 

@@ -1,7 +1,6 @@
 
 
 # Monitoring DAX
-<a name="pres-guide-monitor-dax"></a>
 
 You can monitor key [metrics](dax-metrics-dimensions-dax.md#dax-metrics-dimensions), for example cache hit ratio, to ensure optimal DAX cluster performance, diagnose issues, and determine when you need to scale the cluster. Regularly checking key metrics helps you maintain performance, stability, and cost-efficiency by scaling the cluster to match your workload requirements. For more information about monitoring DAX, see [Production monitoring](dax-production-monitoring.md).
 

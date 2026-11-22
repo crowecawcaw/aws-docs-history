@@ -1,7 +1,6 @@
 
 
 # PartiQL insert statements for DynamoDB
-<a name="ql-reference.insert"></a>
 
 Use the `INSERT` statement to add an item to a table in Amazon DynamoDB.
 
@@ -44,6 +43,6 @@ If the DynamoDB table already has an item with the same primary key as the prima
 ## Examples
 <a name="ql-reference.insert.examples"></a>
 
-```
+```sql
 INSERT INTO "Music" value {'Artist' : 'Acme Band','SongTitle' : 'PartiQL Rocks'}
 ```

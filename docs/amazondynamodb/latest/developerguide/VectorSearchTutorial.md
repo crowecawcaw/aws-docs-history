@@ -1,7 +1,6 @@
 
 
 # Tutorial: Your first vector search
-<a name="VectorSearchTutorial"></a>
 
 Imagine a product catalog where shoppers describe what they want in their own words instead of matching exact keywords. You can store a vector embedding of each product description in DynamoDB and then query a vector index to find the closest matches.
 
@@ -261,7 +260,7 @@ When you store a vector in an item attribute, you wrap it in an `L` (list) type:
 
 1. **Read the results.** DynamoDB returns results sorted by similarity, with the most similar item first. Each result contains the projected `Item` attributes and a `Score`.
 
-   ```
+   ```json
    {
        "SearchResults": [
            {

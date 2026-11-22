@@ -1,7 +1,6 @@
 
 
 # Understanding DynamoDB warm throughput
-<a name="warm-throughput"></a>
 
 *Warm throughput* refers to the number of read and write operations your DynamoDB table can instantaneously support. These values are available by default for all tables and global secondary indexes (GSI) and represent how much they have scaled based on historical usage. If you are using on-demand mode, or if you update your provisioned throughput to these values, your application will be able to issue requests up to those values instantly.
 

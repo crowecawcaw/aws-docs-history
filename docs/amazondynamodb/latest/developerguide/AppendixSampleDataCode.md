@@ -1,7 +1,6 @@
 
 
 # Creating example tables and uploading data in DynamoDB
-<a name="AppendixSampleDataCode"></a>
 
 This appendix provides code to both create the tables and add data programmatically. 
 

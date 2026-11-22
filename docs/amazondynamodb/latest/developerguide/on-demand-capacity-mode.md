@@ -1,7 +1,6 @@
 
 
 # DynamoDB on-demand capacity mode
-<a name="on-demand-capacity-mode"></a>
 
 Amazon DynamoDB on-demand offers a truly serverless database experience that automatically scales to accommodate the most demanding workloads without capacity planning. On-demand simplifies the setup process, eliminates capacity management and monitoring, and provides fast, automatic scaling. With pay-per-request pricing, you don’t have to worry about idle capacity because you only pay for the throughput you actually use. You are billed per read or write request, so your costs directly reflect your actual usage. 
 

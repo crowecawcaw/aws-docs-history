@@ -1,7 +1,6 @@
 
 
 # Backup and restore for DynamoDB
-<a name="Backup-and-Restore"></a>
 
 DynamoDB offers on-demand backups and point-in-time recovery (PITR) backups to help protect your DynamoDB data from disaster events and offers data archiving for long-term retention. You can back up tables from a few megabytes to hundreds of terabytes of data, with no impact on performance and availability to your production applications. All backups are automatically encrypted, cataloged, and easily discoverable.
 

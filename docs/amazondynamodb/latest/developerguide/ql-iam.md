@@ -1,7 +1,6 @@
 
 
 # IAM security policies with PartiQL for DynamoDB
-<a name="ql-iam"></a>
 
 The following permissions are required:
 + To read items using PartiQL for DynamoDB, you must have `dynamodb:PartiQLSelect` permission on the table or index.
@@ -19,7 +18,7 @@ The following IAM policy grants permissions to run all PartiQL for DynamoDB stat
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -51,7 +50,7 @@ The following IAM policy grants permissions to run the `select` statement on a s
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -80,7 +79,7 @@ The following IAM policy grants permissions to run the `select` statement on a s
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -109,7 +108,7 @@ The following IAM policy grants permissions to run only transactional statements
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -148,7 +147,7 @@ The following IAM policy grants permissions to run only transactional statements
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -199,7 +198,7 @@ The following IAM policy grants permissions to run the `select` statement on a s
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

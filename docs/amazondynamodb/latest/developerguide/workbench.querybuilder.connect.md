@@ -1,7 +1,6 @@
 
 
 # Connecting to live datasets
-<a name="workbench.querybuilder.connect"></a>
 
 To connect to your Amazon DynamoDB tables with NoSQL Workbench, you must first connect to your AWS account.
 

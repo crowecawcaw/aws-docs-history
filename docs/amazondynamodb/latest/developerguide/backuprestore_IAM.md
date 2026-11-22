@@ -1,7 +1,6 @@
 
 
 # Using IAM with DynamoDB backup and restore
-<a name="backuprestore_IAM"></a>
 
 You can use AWS Identity and Access Management (IAM) to restrict Amazon DynamoDB backup and restore actions for some resources. The `CreateBackup` and `RestoreTableFromBackup` APIs operate on a per-table basis.
 
@@ -19,7 +18,7 @@ The following IAM policy grants permissions to allow the `CreateBackup` and `Res
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -58,7 +57,7 @@ The following IAM policy grants permissions for the `CreateBackup` action and de
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ The following IAM policy grants permissions for the `ListBackups` action and den
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -123,7 +122,7 @@ The following IAM policy grants permissions for the `ListBackups` action and den
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -154,7 +153,7 @@ The following IAM policy grants permissions for the `RestoreTableFromBackup` and
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -206,7 +205,7 @@ The following IAM policy grants permissions for the `CreateBackup` action on the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -233,7 +232,7 @@ The following IAM policy grants permissions for the `ListBackups` action:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -263,7 +262,7 @@ The following IAM policy grants AWS Backup the permissions to trigger backups wi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -302,7 +301,7 @@ The following IAM policy denies permissions for the `RestoreTableToPointInTime` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -329,7 +328,7 @@ The following IAM policy denies permissions for the `RestoreTableToPointInTime` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # How DynamoDB global tables work
-<a name="V2globaltables_MA_HowItWorks"></a>
 
 Multi-account global tables extend DynamoDB global tables fully managed, serverless, multi-Region, and multi-active capabilities to span multiple AWS accounts. Multi-account global tables replicate data across AWS Regions and accounts, providing the same active-active functionality as same-account global tables. When you write to any replica, DynamoDB replicates the data to all other replicas.
 

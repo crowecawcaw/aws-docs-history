@@ -1,7 +1,6 @@
 
 
 # Evaluate your DynamoDB table's capacity mode
-<a name="CostOptimization_TableCapacityMode"></a>
 
 This section provides an overview of how to select the appropriate capacity mode for your DynamoDB table. Each mode is tuned to meet the needs of a different workload in terms of responsiveness to change in throughput, as well as how that usage is billed. You must balance these factors when making your decision.
 

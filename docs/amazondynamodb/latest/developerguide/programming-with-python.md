@@ -1,7 +1,6 @@
 
 
 # Programming Amazon DynamoDB with Python and Boto3
-<a name="programming-with-python"></a>
 
 This guide provides an orientation to programmers wanting to use Amazon DynamoDB with Python. Learn about the different abstraction layers, configuration management, error handling, controlling retry policies, managing keep-alive, and more.
 
@@ -47,7 +46,7 @@ The two interfaces you'll be working with are the **client** interface and the *
 
 Here’s an example of inserting an item using the client interface. Notice how all values are passed as a map with the key indicating their type ('S' for string, 'N' for number) and their value as a string. This is known as DynamoDB JSON format.
 
-```
+```python
 import boto3
 
 dynamodb = boto3.client('dynamodb')
@@ -66,7 +65,7 @@ dynamodb.put_item(
 
 Here's the same `PutItem` operation using the resource interface. The data typing is implicit:
 
-```
+```python
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
@@ -86,7 +85,7 @@ table.put_item(
 
 If needed, you can convert between regular JSON and DynamoDB JSON using the `TypeSerializer` and `TypeDeserializer` classes provided with boto3:
 
-```
+```python
 def dynamo_to_python(dynamo_object: dict) -> dict:
     deserializer = TypeDeserializer()
     return {
@@ -104,7 +103,7 @@ def python_to_dynamo(python_object: dict) -> dict:
 
 Here is how to perform a query using the client interface. It expresses the query as a JSON construct. It uses a `KeyConditionExpression` string which requires variable substitution to handle any potential keyword conflicts:
 
-```
+```python
 import boto3
 
 client = boto3.client('dynamodb')
@@ -127,7 +126,7 @@ response = client.query(
 
 The same query operation using the resource interface can be shortened and simplified:
 
-```
+```python
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
@@ -142,7 +141,7 @@ response = table.query(
 
 As a final example, imagine you want to get the approximate size of a table (which is metadata kept on the table that is updated about every 6 hours). With the client interface, you do a `describe_table()` operation and pull the answer from the JSON structure returned:
 
-```
+```python
 import boto3
 
 dynamodb = boto3.client('dynamodb')
@@ -153,7 +152,7 @@ size = response['Table']['TableSizeBytes']
 
 With the resource interface, the table performs the describe operation implicitly and presents the data directly as an attribute:
 
-```
+```python
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
@@ -174,7 +173,7 @@ With the low-level client library, you use the `client.batch_write_item()` opera
 
 The [Table.batch\_writer](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/table/batch_writer.html) method creates a context manager for writing objects in a batch. It presents an interface where it seems as if you're writing items one at a time, but internally it's buffering and sending the items in batches. It also handles unprocessed item retries implicitly.
 
-```
+```python
 dynamodb = boto3.resource('dynamodb')
 
 table = dynamodb.Table('YourTableName')
@@ -206,7 +205,7 @@ Because a Client is thread-safe, the simplest and most efficient approach is to 
 
 Created once, in the main thread, then shared with all threads:
 
-```
+```python
 session = boto3.Session()
 client = session.client("dynamodb")
 ```
@@ -216,7 +215,7 @@ Because a Resource is not thread-safe, each thread needs its own. Create a fresh
 
 Runs inside each thread:
 
-```
+```python
 session = boto3.Session()
 dynamodb = session.resource("dynamodb")
 ```
@@ -237,7 +236,7 @@ One use of a custom config is to adjust networking behaviors:
 
 Timeouts of 60 seconds are excessive for DynamoDB. It means a transient network glitch will cause a minute’s delay for the client before it can try again. The following code shortens the timeouts to 10 seconds:
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -257,7 +256,7 @@ If you're using botocore 1.27.84 or later, you can also control **TCP Keep-Alive
 
 Setting TCP Keep-Alive to `True` can reduce average latencies. Here's sample code that conditionally sets TCP Keep-Alive to true when you have the right botocore version:
 
-```
+```python
 import botocore
 import boto3
 from botocore.config import Config
@@ -296,7 +295,7 @@ An expanded definition of these retry modes can be found in the [guide to retrie
 
 Here’s an example that explicitly uses the `legacy` retry policy with a maximum of 3 total requests (2 retries):
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -326,7 +325,7 @@ Lastly, the config lets you control the connection pool size:
 
 This option controls the maximum number of HTTP connections to keep pooled for reuse. A different pool is kept for each Client. If a thread on a Client wants a connection and the pool is empty, it will make a new connection. If a thread tries to return a connection to the pool after use and finds the pool full, it will close the connection. When you anticipate more than 10 threads going against a single Client, consider raising the pool size to match the thread count.
 
-```
+```python
 import boto3
 from botocore.config import Config
 
@@ -347,7 +346,7 @@ Each Resource has a connection pool within as well, but a Resource object is not
 
 AWS service exceptions aren’t all statically defined in Boto3. This is because errors and exceptions from AWS services vary widely and are subject to change. Boto3 wraps all service exceptions as a `ClientError` and exposes the details as structured JSON. For example, an error response might be structured like this:
 
-```
+```json
 {
     'Error': {
         'Code': 'SomeServiceException',
@@ -365,7 +364,7 @@ AWS service exceptions aren’t all statically defined in Boto3. This is because
 
 The following code catches any `ClientError` exceptions and looks at the string value of the `Code` within the `Error` to determine what action to take:
 
-```
+```json
 import botocore
 import boto3
 
@@ -390,26 +389,26 @@ except botocore.exceptions.ClientError as err:
 
 Some (but not all) exception codes have been materialized as top-level classes. You can choose to handle these directly. When using the Client interface, these exceptions are dynamically populated on your client and you catch these exceptions using your client instance, like this:
 
-```
+```'python
 except ddb_client.exceptions.ProvisionedThroughputExceededException:
 ```
 
 When using the Resource interface, you have to use `.meta.client` to traverse from the resource to the underlying Client to access the exceptions, like this:
 
-```
+```python
 except ddb_resource.meta.client.exceptions.ProvisionedThroughputExceededException:
 ```
 
 To review the list of materialized exception types, you can generate the list dynamically:
 
-```
+```python
 ddb = boto3.client("dynamodb")
 print([e for e in dir(ddb.exceptions) if e.endswith('Exception') or e.endswith('Error')])
 ```
 
 When doing a write operation with a condition expression, you can request that if the expression fails the value of the item should be returned in the error response.
 
-```
+```python
 try:
     response = table.put_item(
         Item=item,
@@ -431,7 +430,7 @@ For further reading on error handling and exceptions:
 
 The boto3 library integrates with Python's built-in logging module for tracking what happens during a session. To control logging levels, you can configure the logging module:
 
-```
+```python
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -458,7 +457,7 @@ Other libraries log as well. Internally, boto3 uses the third party urllib3 for 
 
 The following code snippet sets most logging to `INFO` with `DEBUG` logging for endpoint and connection pool activity:
 
-```
+```python
 import logging
 
 logging.getLogger('boto3').setLevel(logging.INFO)
@@ -474,7 +473,7 @@ Botocore emits events during various parts of its execution. You can register ha
 
 For instance, let's say you want to keep track of every time a `PutItem` operation is called on any DynamoDB table in your application. You might register on the `'provide-client-params.dynamodb.PutItem'` event to catch and log every time a `PutItem` operation is invoked on the associated Session. Here's an example:
 
-```
+```python
 import boto3
 import botocore
 import logging
@@ -507,7 +506,7 @@ table.put_item(
 
 Within the handler, you can even manipulate the params programmatically to change behavior:
 
-```
+```python
 params['TableName'] = "NewTableName"
 ```
 
@@ -524,7 +523,7 @@ If the response includes a `LastEvaluatedKey`, it indicates the response ended b
 
 Here's a simple example (using the Resource interface, but the Client interface has the same pattern) that reads at most 100 items per page and loops until all items have been read.
 
-```
+```python
 import boto3
 from boto3.dynamodb.conditions import Key
 
@@ -553,7 +552,7 @@ while True:
 
 For convenience, boto3 can do this for you with Paginators. However, it only works with the Client interface. Here's the code rewritten to use Paginators:
 
-```
+```python
 import boto3
 
 dynamodb = boto3.client('dynamodb')
@@ -590,7 +589,7 @@ Waiters provide the ability to wait for something to complete before proceeding.
 
 This code shows how to wait for a particular table to have been created:
 
-```
+```python
 # Create a table, wait until it exists, and print its ARN
 response = client.create_table(...)
 waiter = client.get_waiter('table_exists')

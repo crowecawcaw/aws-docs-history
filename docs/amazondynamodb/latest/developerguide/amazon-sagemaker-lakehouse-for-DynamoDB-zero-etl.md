@@ -1,7 +1,6 @@
 
 
 # DynamoDB zero-ETL integration with Amazon SageMaker Lakehouse
-<a name="amazon-sagemaker-lakehouse-for-DynamoDB-zero-etl"></a>
 
 Setting up an integration between the DynamoDB table and Amazon SageMaker Lakehouse require prerequisites such as configuring IAM roles which AWS Glue uses to access data from the source and write to the target, and the use of KMS keys to encrypt the data in intermediate or the target location.
 

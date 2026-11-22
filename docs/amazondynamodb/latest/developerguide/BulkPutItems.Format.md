@@ -1,7 +1,6 @@
 
 
 # Amazon S3 input formats for bulk put items
-<a name="BulkPutItems.Format"></a>
 
 DynamoDB bulk put items reads input data from Amazon S3 in two formats: DynamoDB JSON and Amazon Ion. You can supply a single Amazon S3 object or multiple objects under the same [Amazon S3 key prefix](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
 
@@ -45,7 +44,7 @@ A file in DynamoDB JSON format consists of one JSON object per line ([JSON Lines
 
 When you omit condition fields, each item overwrites any existing item with the same primary key:
 
-```
+```json
 {"Item":{"id":{"S":"item-1"},"name":{"S":"Widget A"},"price":{"N":"9.99"}}}
 {"Item":{"id":{"S":"item-2"},"name":{"S":"Widget B"},"price":{"N":"14.99"}}}
 {"Item":{"id":{"S":"item-3"},"name":{"S":"Widget C"},"price":{"N":"4.99"}}}
@@ -55,7 +54,7 @@ When you omit condition fields, each item overwrites any existing item with the 
 
 Add `attribute_not_exists({{pk}})` to prevent overwrites. Replace {{pk}} with the name of your partition key attribute:
 
-```
+```json
 {"Item":{"id":{"S":"item-1"},"name":{"S":"Widget A"},"price":{"N":"9.99"}},"ConditionExpression":"attribute_not_exists(id)"}
 {"Item":{"id":{"S":"item-2"},"name":{"S":"Widget B"},"price":{"N":"14.99"}},"ConditionExpression":"attribute_not_exists(id)"}
 ```
@@ -64,7 +63,7 @@ Add `attribute_not_exists({{pk}})` to prevent overwrites. Replace {{pk}} with th
 
 Use `ExpressionAttributeNames` and `ExpressionAttributeValues` when your condition references reserved words or substitutes attribute values:
 
-```
+```json
 {"Item":{"id":{"S":"item-2"},"status":{"S":"ACTIVE"},"version":{"N":"3"}},"ConditionExpression":"#s = :v","ExpressionAttributeNames":{"#s":"status"},"ExpressionAttributeValues":{":v":{"S":"ACTIVE"}}}
 {"Item":{"id":{"S":"item-5"},"status":{"S":"PENDING"},"version":{"N":"2"}},"ConditionExpression":"#ver < :newver","ExpressionAttributeNames":{"#ver":"version"},"ExpressionAttributeValues":{":newver":{"N":"2"}}}
 ```
@@ -75,7 +74,7 @@ In the first record, the item is written only if the existing item's `status` at
 
 Different records in the same file can carry different conditions, or no condition at all:
 
-```
+```json
 {"Item":{"id":{"S":"new-1"},"data":{"S":"hello"}},"ConditionExpression":"attribute_not_exists(id)"}
 {"Item":{"id":{"S":"existing-1"},"data":{"S":"updated"}},"ConditionExpression":"#v = :expected","ExpressionAttributeNames":{"#v":"version"},"ExpressionAttributeValues":{":expected":{"N":"5"}}}
 {"Item":{"id":{"S":"overwrite-1"},"data":{"S":"replaced"}}}
@@ -95,7 +94,7 @@ Each record is an Ion struct containing an `Item` field and optional condition f
 **Note**  
 In the following example, items are formatted on multiple lines to improve readability. In actual input files, each record is on a single line.
 
-```
+```ion
 $ion_1_0
 {
   Item:{
@@ -116,7 +115,7 @@ $ion_1_0
 
 **With per-item condition expression**
 
-```
+```ion
 $ion_1_0
 {
   Item:{
@@ -192,7 +191,7 @@ Items that fail a condition check are still billed. For details, see [Billing fo
 
 Because conditions are per-item, you must include a `ConditionExpression` on every record if you want put-if-not-exists behavior across the entire file. The following example shows a DynamoDB JSON input file where every record carries `attribute_not_exists(id)` to prevent overwrites:
 
-```
+```json
 {"Item":{"id":{"S":"order-001"},"amount":{"N":"99.95"},"status":{"S":"PENDING"}},"ConditionExpression":"attribute_not_exists(id)"}
 {"Item":{"id":{"S":"order-002"},"amount":{"N":"149.00"},"status":{"S":"SHIPPED"}},"ConditionExpression":"attribute_not_exists(id)"}
 {"Item":{"id":{"S":"order-003"},"amount":{"N":"25.50"},"status":{"S":"DELIVERED"}},"ConditionExpression":"attribute_not_exists(id)"}

@@ -1,7 +1,6 @@
 
 
 # Using Global Secondary Indexes in DynamoDB
-<a name="GSI"></a>
 
 Some applications might need to perform many kinds of queries, using a variety of different attributes as query criteria. To support these requirements, you can create one or more* global secondary indexes* and issue `Query` requests against these indexes in Amazon DynamoDB.
 
@@ -136,7 +135,7 @@ You can use the `Query` operation to access one or more items in a global seco
 
 Consider the following data returned from a `Query` that requests gaming data for a leaderboard application.
 
-```
+```json
 {
     "TableName": "GameScores",
     "IndexName": "GameTitleIndex",

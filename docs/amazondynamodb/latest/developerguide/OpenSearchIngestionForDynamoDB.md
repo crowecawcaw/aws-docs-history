@@ -1,7 +1,6 @@
 
 
 # DynamoDB zero-ETL integration with Amazon OpenSearch Service
-<a name="OpenSearchIngestionForDynamoDB"></a>
 
 Amazon DynamoDB offers a zero-ETL integration with Amazon OpenSearch Service through the **DynamoDB plugin for OpenSearch Ingestion**. Amazon OpenSearch Ingestion offers a fully managed, no-code experience for ingesting data into Amazon OpenSearch Service. 
 

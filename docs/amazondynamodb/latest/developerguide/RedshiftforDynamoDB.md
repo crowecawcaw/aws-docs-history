@@ -1,7 +1,6 @@
 
 
 # Integrating with Amazon Redshift
-<a name="RedshiftforDynamoDB"></a>
 
 Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools.
 

@@ -1,7 +1,6 @@
 
 
 # 1- Key range throughput exceeded (hot partitions)
-<a name="throttling-key-range-limit-exceeded-mitigation"></a>
 
 Amazon DynamoDB enforces specific throughput limits at the partition level for both table and global secondary index (GSI). Each partition has a maximum number of read capacity units (RCUs) and write capacity units (WCUs) per second. When partitions receive concentrated traffic that exceeds these limits, they experience throttling while other operations may remain underutilized, creating "hot partitions." DynamoDB's partition-level throttling operates independently for reads and writes - a partition might throttle reads while writes continue normally, or vice versa. This throttling can occur even when your table or GSI has sufficient overall capacity. To learn more about:
 + DynamoDB partition limits and effective partition key design addressing hot partition prevention, see [Best practices for designing and using partition keys effectively in DynamoDB](bp-partition-key-design.md). 

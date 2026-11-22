@@ -1,7 +1,6 @@
 
 
 # Change data capture for DynamoDB Streams
-<a name="Streams"></a>
 
  DynamoDB Streams captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near-real time.
 
@@ -34,11 +33,38 @@ DynamoDB Streams writes stream records in near-real time so that you can build a
 
 AWS maintains separate endpoints for DynamoDB and DynamoDB Streams. To work with database tables and indexes, your application must access a DynamoDB endpoint. To read and process DynamoDB Streams records, your application must access a DynamoDB Streams endpoint in the same Region.
 
-DynamoDB Streams offers two sets of endpoints. They are:
+In the following examples, replace `{{account-id}}` and `{{region}}` with your AWS account ID and Region.
+
+DynamoDB Streams offers the following types of endpoints:
 + **IPv4-only endpoints**: Endpoints with the `streams.dynamodb.{{<region>}}.amazonaws.com` naming convention.
 + **Dual-stack endpoints**: New endpoints that are compatible with both IPv4 and IPv6 and follows the `streams-dynamodb.{{<region>}}.api.aws` naming convention.
++ **Account-based endpoints**: Endpoints that include your AWS account ID and follow the `{{<account-id>}}.streams-ddb.{{<region>}}.amazonaws.com` (IPv4) and `{{<account-id>}}.streams-ddb.{{<region>}}.api.aws` (dual-stack) naming conventions. FIPS variants use `streams-ddb-fips` in place of `streams-ddb`.
 
-**Note**  
+**Account-based endpoints**  
+AWS SDK versions that support account-based endpoints for DynamoDB Streams use them by default. This works in the same way as for DynamoDB. For the first SDK version that supports them, see [Support by AWS SDKs and tools](https://docs.aws.amazon.com/sdkref/latest/guide/feature-account-endpoints.html#account-endpoints-sdk-compat) in the *AWS SDKs and Tools Reference Guide*.  
+The SDK takes the account ID from the stream ARN (`DescribeStream`, `GetShardIterator`), from the shard iterator (`GetRecords`), or from your credentials (for example, `ListStreams`). If no account ID is available, the SDK uses the regional endpoint.  
+The Middle East (UAE) and Middle East (Bahrain) Regions don't support account-based endpoints. The AWS SDK for Java 1.x continues to use regional endpoints for DynamoDB Streams.  
+If your network restricts outbound traffic by hostname, for example with a firewall or proxy, allow the account-based endpoints that your clients use, in addition to the regional endpoints listed above:  
+IPv4: `*.streams-ddb.{{<region>}}.amazonaws.com`
+Dual-stack: `*.streams-ddb.{{<region>}}.api.aws`
+FIPS: `*.streams-ddb-fips.{{<region>}}.amazonaws.com`
+FIPS dual-stack: `*.streams-ddb-fips.{{<region>}}.api.aws`
+To continue using regional endpoints, set the account ID endpoint mode to `disabled` in one of the following ways:  
+Shared AWS `config` file: `account_id_endpoint_mode = disabled`
+Environment variable: `AWS_ACCOUNT_ID_ENDPOINT_MODE=disabled`
+JVM system property (Java and Kotlin only): `aws.accountIdEndpointMode=disabled`
+Client configuration. For example, with the AWS SDK for Java 2.x:  
+
+  ```java
+  import software.amazon.awssdk.awscore.endpoints.AccountIdEndpointMode;
+  import software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient;
+  
+  DynamoDbStreamsClient client = DynamoDbStreamsClient.builder()
+          .accountIdEndpointMode(AccountIdEndpointMode.DISABLED)
+          .build();
+  ```
+The shared `config` file, environment variable, and system property settings also apply to DynamoDB clients in the same process. To turn off account-based endpoints only for DynamoDB Streams, configure the DynamoDB Streams client. If you set the mode to `required`, then requests fail when no account ID is available or in Regions where account-based endpoints aren't available. For more information, see [Account-based endpoints](https://docs.aws.amazon.com/sdkref/latest/guide/feature-account-endpoints.html) in the *AWS SDKs and Tools Reference Guide*.
+
 For a complete list of DynamoDB and DynamoDB Streams Regions and endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *AWS General Reference*.
 
 The AWS SDKs provide separate clients for DynamoDB and DynamoDB Streams. Depending on your requirements, your application can access a DynamoDB endpoint, a DynamoDB Streams endpoint, or both at the same time. To connect to both endpoints, your application must instantiate two clients—one for DynamoDB and one for DynamoDB Streams.

@@ -1,7 +1,6 @@
 
 
 # Use `BatchExecuteStatement` with an AWS SDK
-<a name="example_dynamodb_BatchExecuteStatement_section"></a>
 
 The following code examples show how to use `BatchExecuteStatement`.
 
@@ -19,7 +18,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/dynamodb#code-examples). 
 Use batches of INSERT statements to add items.  
 
-```
+```csharp
         /// <summary>
         /// Inserts movies imported from a JSON file into the movie table by
         /// using an Amazon DynamoDB PartiQL INSERT statement.
@@ -115,7 +114,7 @@ Use batches of INSERT statements to add items.
 ```
 Use batches of SELECT statements to get items.  
 
-```
+```csharp
         /// <summary>
         /// Gets movies from the movie table by
         /// using an Amazon DynamoDB PartiQL SELECT statement.
@@ -183,7 +182,7 @@ Use batches of SELECT statements to get items.
 ```
 Use batches of UPDATE statements to update items.  
 
-```
+```csharp
         /// <summary>
         /// Updates information for multiple movies.
         /// </summary>
@@ -244,7 +243,7 @@ Use batches of UPDATE statements to update items.
 ```
 Use batches of DELETE statements to delete items.  
 
-```
+```csharp
         /// <summary>
         /// Deletes multiple movies using a PartiQL BatchExecuteAsync
         /// statement.
@@ -305,7 +304,7 @@ Use batches of DELETE statements to delete items.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 Use batches of INSERT statements to add items.  
 
-```
+```cpp
     // 2. Add multiple movies using "Insert" statements. (BatchExecuteStatement)
     Aws::DynamoDB::DynamoDBClient dynamoClient(clientConfiguration);
 
@@ -384,7 +383,7 @@ Use batches of INSERT statements to add items.
 ```
 Use batches of SELECT statements to get items.  
 
-```
+```cpp
     // 3. Get the data for multiple movies using "Select" statements. (BatchExecuteStatement)
     {
         Aws::Vector<Aws::DynamoDB::Model::BatchStatementRequest> statements(
@@ -430,7 +429,7 @@ Use batches of SELECT statements to get items.
 ```
 Use batches of UPDATE statements to update items.  
 
-```
+```cpp
     // 4. Update the data for multiple movies using "Update" statements. (BatchExecuteStatement)
 
     for (size_t i = 0; i < titles.size(); ++i) {
@@ -480,7 +479,7 @@ Use batches of UPDATE statements to update items.
 ```
 Use batches of DELETE statements to delete items.  
 
-```
+```cpp
     // 6. Delete multiple movies using "Delete" statements. (BatchExecuteStatement)
     {
         Aws::Vector<Aws::DynamoDB::Model::BatchStatementRequest> statements(
@@ -523,7 +522,7 @@ Use batches of DELETE statements to delete items.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
 Define a function receiver struct for the example.  
 
-```
+```go
 import (
 	"context"
 	"fmt"
@@ -545,7 +544,7 @@ type PartiQLRunner struct {
 ```
 Use batches of INSERT statements to add items.  
 
-```
+```go
 // AddMovieBatch runs a batch of PartiQL INSERT statements to add multiple movies to the
 // DynamoDB table.
 func (runner PartiQLRunner) AddMovieBatch(ctx context.Context, movies []Movie) error {
@@ -573,7 +572,7 @@ func (runner PartiQLRunner) AddMovieBatch(ctx context.Context, movies []Movie) e
 ```
 Use batches of SELECT statements to get items.  
 
-```
+```go
 // GetMovieBatch runs a batch of PartiQL SELECT statements to get multiple movies from
 // the DynamoDB table by title and year.
 func (runner PartiQLRunner) GetMovieBatch(ctx context.Context, movies []Movie) ([]Movie, error) {
@@ -612,7 +611,7 @@ func (runner PartiQLRunner) GetMovieBatch(ctx context.Context, movies []Movie) (
 ```
 Use batches of UPDATE statements to update items.  
 
-```
+```go
 // UpdateMovieBatch runs a batch of PartiQL UPDATE statements to update the rating of
 // multiple movies that already exist in the DynamoDB table.
 func (runner PartiQLRunner) UpdateMovieBatch(ctx context.Context, movies []Movie, ratings []float64) error {
@@ -640,7 +639,7 @@ func (runner PartiQLRunner) UpdateMovieBatch(ctx context.Context, movies []Movie
 ```
 Use batches of DELETE statements to delete items.  
 
-```
+```go
 // DeleteMovieBatch runs a batch of PartiQL DELETE statements to remove multiple movies
 // from the DynamoDB table.
 func (runner PartiQLRunner) DeleteMovieBatch(ctx context.Context, movies []Movie) error {
@@ -668,7 +667,7 @@ func (runner PartiQLRunner) DeleteMovieBatch(ctx context.Context, movies []Movie
 ```
 Define a Movie struct that is used in this example.  
 
-```
+```go
 import (
 	"archive/zip"
 	"bytes"
@@ -720,7 +719,7 @@ func (movie Movie) String() string {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
 Create a batch of items using PartiQL.  
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 import {
@@ -747,7 +746,7 @@ export const main = async () => {
 ```
 Get a batch of items using PartiQL.  
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 import {
@@ -781,7 +780,7 @@ export const main = async () => {
 ```
 Update a batch of items using PartiQL.  
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 import {
@@ -811,7 +810,7 @@ export const main = async () => {
 ```
 Delete a batch of items using PartiQL.  
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 
 import {
@@ -849,7 +848,7 @@ export const main = async () => {
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
-```
+```php
     public function getItemByPartiQLBatch(string $tableName, array $keys): Result
     {
         $statements = [];
@@ -910,7 +909,7 @@ export const main = async () => {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 
-```
+```python
 class PartiQLBatchWrapper:
     """
     Encapsulates a DynamoDB resource to run PartiQL statements.
@@ -969,7 +968,7 @@ class PartiQLBatchWrapper:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples). 
 Read a batch of items using PartiQL.  
 
-```
+```ruby
 class DynamoDBPartiQLBatch
   attr_reader :dynamo_resource, :table
 
@@ -995,7 +994,7 @@ class DynamoDBPartiQLBatch
 ```
 Delete a batch of items using PartiQL.  
 
-```
+```ruby
 class DynamoDBPartiQLBatch
   attr_reader :dynamo_resource, :table
 

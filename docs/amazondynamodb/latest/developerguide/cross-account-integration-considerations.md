@@ -1,7 +1,6 @@
 
 
 # Cross-account integration considerations with CMK
-<a name="cross-account-integration-considerations"></a>
 
 When you attempt to integrate from DynamoDB to Amazon Redshift, the initial action is launched from Amazon Redshift. Without the proper permissions, this action could result in a silent failure. The following sections detail the permissions required for this cross-account integration.
 
@@ -26,7 +25,7 @@ The following AWS KMS key policy enables cross-account access between your Dynam
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -69,7 +68,7 @@ The following IAM policy allows a Amazon Redshift service to access DynamoDB tab
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ The following IAM policy allows a Amazon Redshift service to access DynamoDB tab
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -145,7 +144,7 @@ The following resource-based policy allows a Amazon Redshift service in account 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

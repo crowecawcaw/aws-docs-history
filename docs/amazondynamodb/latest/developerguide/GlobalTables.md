@@ -1,7 +1,6 @@
 
 
 # Global tables - multi-active, multi-Region replication
-<a name="GlobalTables"></a>
 
 *Amazon DynamoDB global tables* is a fully managed, multi-Region, and multi-active database feature that provides easy to use data replication and fast local read and write performance for globally scaled applications.
 
@@ -26,6 +25,8 @@ Both same-account and multi-account models support multi-Region writes, asynchro
 Global tables configured for MRSC only support same-account configurations.
 
 You can configure a global table using the AWS Management Console. Global tables use existing DynamoDB APIs to read and write data to your tables, so no application changes are required. You pay only for the resources you provision or use, with no upfront costs or commitments.
+
+**Comparison of same-account and multi-account global tables**
 
 
 | **Properties** | **Same-Account global tables** | **Multi-account global tables** | 

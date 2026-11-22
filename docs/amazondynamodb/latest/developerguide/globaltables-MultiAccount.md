@@ -1,7 +1,6 @@
 
 
 # DynamoDB multi-account global tables
-<a name="globaltables-MultiAccount"></a>
 
 Multi-account global tables automatically replicate your DynamoDB table data across multiple AWS Regions and multiple AWS accounts to improve resiliency, isolate workloads at the account level, and apply distinct security and governance controls. Each replica table resides in a distinct AWS account, enabling fault isolation at both the Region and account level. You can also align replicas with your AWS organizational structure. Multi-account global tables provide additional isolation, governance, and security benefits compared to same-account global tables.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices using DynamoDB Streams with Lambda
-<a name="Streams.Lambda.BestPracticesWithDynamoDB"></a>
 
 An AWS Lambda function runs within a *container*—an execution environment that is isolated from other functions. When you run a function for the first time, AWS Lambda creates a new container and begins executing the function's code.
 

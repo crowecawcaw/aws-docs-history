@@ -1,7 +1,6 @@
 
 
 # .NET code examples
-<a name="CodeSamples.DotNet"></a>
 
 **Topics**
 + [.NET: Setting your AWS credentials](#CodeSamples.DotNet.Credentials)
@@ -61,7 +60,7 @@ The Toolkit for Visual Studio supports multiple sets of credentials from any num
 
 The following example shows the default `App.config` file that is generated when you create a new project using Toolkit for Visual Studio.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <appSettings>
@@ -83,7 +82,7 @@ By default, the code examples access DynamoDB in the US West (Oregon) Region. Yo
 
 The following code example instantiates a new `AmazonDynamoDBClient`. The client is modified so that the code runs against DynamoDB in a different Region.
 
-```
+```csharp
 AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
 // This client will access the US East 1 region.
 clientConfig.RegionEndpoint = RegionEndpoint.USEast1;
@@ -94,7 +93,7 @@ For a complete list of Regions, see [AWS regions and endpoints](https://docs.aws
 
 If you want to run the code examples using DynamoDB locally on your computer, set the endpoint as follows.
 
-```
+```csharp
 AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
 // Set the endpoint URL
 clientConfig.ServiceURL = "http://localhost:8000";

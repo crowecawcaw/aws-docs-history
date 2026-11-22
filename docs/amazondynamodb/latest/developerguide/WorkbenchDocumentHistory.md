@@ -1,7 +1,6 @@
 
 
 # Release history for NoSQL Workbench
-<a name="WorkbenchDocumentHistory"></a>
 
 The following table describes the important changes in each release of the *NoSQL Workbench* client tool. 
 

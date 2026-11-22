@@ -1,7 +1,6 @@
 
 
 # Generate infrastructure code for Amazon DynamoDB using Console-to-Code
-<a name="console-to-code"></a>
 
 Amazon Q Developer's Console-to-Code feature simplifies infrastructure management for Amazon DynamoDB by transforming manual table creation steps into reproducible automation code. This capability helps developers efficiently scale database resource configuration across their environments. For more information, see [Automating AWS services with Amazon Q Developer Console-to-Code](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/console-to-code.html).
 

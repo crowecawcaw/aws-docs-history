@@ -1,7 +1,6 @@
 
 
 # Copying data between DynamoDB and a native Hive table
-<a name="EMRforDynamoDB.CopyingData.NativeHive"></a>
 
 If you have data in a DynamoDB table, you can copy the data to a native Hive table. This will give you a snapshot of the data, as of the time you copied it. 
 

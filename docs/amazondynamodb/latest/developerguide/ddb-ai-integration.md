@@ -1,7 +1,6 @@
 
 
 # Using agentic AI with DynamoDB
-<a name="ddb-ai-integration"></a>
 
 Amazon DynamoDB is a serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale. DynamoDB is optimized for high-throughput workloads and you can extend its capabilities by integrating with generative AI models. Using generative AI models, you can work with data stored in DynamoDB tables in real-time and build applications that are contextually aware and highly personalized. You can also enhance the end user experience by fully leveraging your business, user, and application data to customize your generative AI solutions.
 

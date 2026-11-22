@@ -1,7 +1,6 @@
 
 
 # Using the ATTRIBUTE\_TYPE function with PartiQL for DynamoDB
-<a name="ql-functions.attribute_type"></a>
 
 Returns `TRUE` if the attribute at the specified path is of a particular data type.
 
@@ -29,6 +28,6 @@ attribute_type( {{attributename}}, {{type}} )
 ## Examples
 <a name="ql-functions.attribute_type.examples"></a>
 
-```
+```sql
 SELECT * FROM "Music" WHERE attribute_type("Artist", 'S')
 ```

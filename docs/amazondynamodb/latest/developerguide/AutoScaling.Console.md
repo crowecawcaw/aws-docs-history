@@ -1,7 +1,6 @@
 
 
 # Using the AWS Management Console with DynamoDB auto scaling
-<a name="AutoScaling.Console"></a>
 
 When you use the AWS Management Console to create a new table, Amazon DynamoDB auto scaling is enabled for that table by default. You can also use the console to enable auto scaling for existing tables, modify auto scaling settings, or disable auto scaling.
 

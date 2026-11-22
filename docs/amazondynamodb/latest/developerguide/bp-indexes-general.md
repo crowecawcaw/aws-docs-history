@@ -1,7 +1,6 @@
 
 
 # General guidelines for secondary indexes in DynamoDB
-<a name="bp-indexes-general"></a>
 
 Amazon DynamoDB supports two types of secondary indexes:
 + **Global secondary index (GSI)— **An index with a partition key and a sort key that can be different from those on the base table. A global secondary index is considered "global" because queries on the index can span all of the data in the base table, across all partitions. A global secondary index has no size limitations and has its own provisioned throughput settings for read and write activity that are separate from those of the table.

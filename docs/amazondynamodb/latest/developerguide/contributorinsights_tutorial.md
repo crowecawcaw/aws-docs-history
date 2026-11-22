@@ -1,7 +1,6 @@
 
 
 # Getting started with CloudWatch Contributor Insights for DynamoDB
-<a name="contributorinsights_tutorial"></a>
 
 This section describes how to enable and use Amazon CloudWatch Contributor Insights in different modes to meet your monitoring needs using the Amazon DynamoDB console or the AWS Command Line Interface (AWS CLI). 
 
@@ -246,7 +245,7 @@ Here are example responses showing the differences between modes:
 #### Accessed and throttled keys mode response
 <a name="usecontributorinsights_cli.examples.accessed-throttled"></a>
 
-```
+```json
 {
     "TableName": "Music",
     "ContributorInsightsRuleList": [
@@ -264,7 +263,7 @@ Here are example responses showing the differences between modes:
 #### Throttled keys mode response
 <a name="usecontributorinsights_cli.examples.throttled-only"></a>
 
-```
+```json
 {
     "TableName": "Music",
     "ContributorInsightsRuleList": [

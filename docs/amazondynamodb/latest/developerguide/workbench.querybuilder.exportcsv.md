@@ -1,7 +1,6 @@
 
 
 # Exporting data to a CSV file
-<a name="workbench.querybuilder.exportcsv"></a>
 
 You can export the results of a query from Operation Builder to a CSV file. This enables you to load the data into a spreadsheet or process it using your preferred programming language.
 

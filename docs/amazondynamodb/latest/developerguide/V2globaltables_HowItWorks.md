@@ -1,7 +1,6 @@
 
 
 # How DynamoDB global tables work
-<a name="V2globaltables_HowItWorks"></a>
 
 The following sections describe the concepts and behaviors of global tables in Amazon DynamoDB.
 

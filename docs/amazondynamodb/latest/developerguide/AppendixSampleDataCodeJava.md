@@ -1,11 +1,10 @@
 
 
 # Creating example tables and uploading data using the AWS SDK for Java
-<a name="AppendixSampleDataCodeJava"></a>
 
 The following Java code example creates tables and uploads data to the tables. For step-by-step instructions to run this code using Eclipse, see [Java code examples](CodeSamples.Java.md).
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import java.text.SimpleDateFormat;

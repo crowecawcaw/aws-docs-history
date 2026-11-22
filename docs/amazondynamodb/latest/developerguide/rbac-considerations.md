@@ -1,7 +1,6 @@
 
 
 # DynamoDB resource-based policy considerations
-<a name="rbac-considerations"></a>
 
 When you define resource-based policies for your DynamoDB resources, the following considerations apply:
 

@@ -1,7 +1,6 @@
 
 
 # Managing encrypted tables in DynamoDB
-<a name="encryption.tutorial"></a>
 
 You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to specify the encryption key on new tables and update the encryption keys on existing tables in Amazon DynamoDB.
 

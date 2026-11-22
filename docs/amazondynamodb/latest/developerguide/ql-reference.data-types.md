@@ -1,7 +1,6 @@
 
 
 # PartiQL data types for DynamoDB
-<a name="ql-reference.data-types"></a>
 
 The following table lists the data types you can use with PartiQL for DynamoDB.
 
@@ -26,7 +25,7 @@ To include a literal single quote (`'`) within a String value, escape it by usin
 
 The following statement demonstrates how to insert the following data types: `String`, `Number`, `Map`, `List`, `Number Set` and `String Set`.
 
-```
+```sql
 INSERT INTO TypesTable value {'primarykey':'1', 
 'NumberType':1,
 'MapType' : {'entryname1': 'value', 'entryname2': 4}, 
@@ -38,7 +37,7 @@ INSERT INTO TypesTable value {'primarykey':'1',
 
 The following statement demonstrates how to insert new elements into the `Map`, `List`, `Number Set` and `String Set` types and change the value of a `Number` type.
 
-```
+```sql
 UPDATE TypesTable 
 SET NumberType=NumberType + 100 
 SET MapType.NewMapEntry=[2020, 'stringvalue', 2.4]
@@ -50,7 +49,7 @@ WHERE primarykey='1'
 
 The following statement demonstrates how to remove elements from the `Map`, `List`, `Number Set` and `String Set` types and change the value of a `Number` type.
 
-```
+```sql
 UPDATE TypesTable 
 SET NumberType=NumberType - 1
 REMOVE ListType[1]

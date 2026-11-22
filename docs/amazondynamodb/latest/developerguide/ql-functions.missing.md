@@ -1,7 +1,6 @@
 
 
 # Using the MISSING function with PartiQL for DynamoDB
-<a name="ql-functions.missing"></a>
 
 Returns `TRUE` if the item does not contain the attribute specified. Only equality and inequality operators can be used with this function.
 
@@ -26,6 +25,6 @@ Returns `TRUE` if the item does not contain the attribute specified. Only equali
 ## Examples
 <a name="ql-functions.missing.examples"></a>
 
-```
+```sql
 SELECT * FROM Music WHERE "Awards" is MISSING
 ```

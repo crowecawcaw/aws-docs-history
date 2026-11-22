@@ -1,7 +1,6 @@
 
 
 # Migrating to DAX Go SDK V2
-<a name="DAX.client.run-application-go-migrating"></a>
 
 This migration guide will help you transition your existing DAX Go applications.
 

@@ -1,7 +1,6 @@
 
 
 # Example: Local Secondary Indexes using the AWS SDK for .NET low-level API
-<a name="LSILowLevelDotNet.Example"></a>
 
 The following C\# code example shows how to work with local secondary indexes in Amazon DynamoDB. The example creates a table named `CustomerOrders` with a partition key of `CustomerId` and a sort key of `OrderId`. There are two local secondary indexes on this table:
 + `OrderCreationDateIndex` — The sort key is `OrderCreationDate`, and the following attributes are projected into the index:
@@ -17,7 +16,7 @@ For step-by-step instructions for testing the following example, see [.NET code 
 
 **Example**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;

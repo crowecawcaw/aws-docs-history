@@ -1,7 +1,6 @@
 
 
 # Using the BEGINS\_WITH function with PartiQL for DynamoDB
-<a name="ql-functions.beginswith"></a>
 
 Returns `TRUE` if the attribute specified begins with a particular substring.
 
@@ -29,6 +28,6 @@ begins_with({{path}}, {{value}} )
 ## Examples
 <a name="ql-functions.beginswith.examples"></a>
 
-```
+```sql
 SELECT * FROM "Orders" WHERE "OrderID"=1 AND begins_with("Address", '7834 24th')
 ```

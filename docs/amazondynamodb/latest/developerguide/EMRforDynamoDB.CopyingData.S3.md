@@ -1,7 +1,6 @@
 
 
 # Copying data between DynamoDB and Amazon S3
-<a name="EMRforDynamoDB.CopyingData.S3"></a>
 
 If you have data in a DynamoDB table, you can use Hive to copy the data to an Amazon S3 bucket.
 

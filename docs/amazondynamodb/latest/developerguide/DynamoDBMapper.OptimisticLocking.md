@@ -1,7 +1,6 @@
 
 
 # DynamoDB and optimistic locking with version number
-<a name="DynamoDBMapper.OptimisticLocking"></a>
 
 *Optimistic locking* is a strategy to make sure that the client-side item that you are updating (or deleting) is the same as the item in Amazon DynamoDB. If you use this strategy, your database writes are protected from being overwritten by the writes of others, and vice versa.
 
@@ -27,7 +26,7 @@ For example, the following Java code defines a `CatalogItem` class that has seve
 
 **Example**  
 
-```
+```java
 @DynamoDBTable(tableName="ProductCatalog")
 public class CatalogItem {
 
@@ -89,7 +88,7 @@ The transactionWrite method does not support DynamoDBMapperConfig.SaveBehavior c
 
 **Example**  
 
-```
+```java
 DynamoDBMapper mapper = new DynamoDBMapper(client);
 
 // Load a catalog item.

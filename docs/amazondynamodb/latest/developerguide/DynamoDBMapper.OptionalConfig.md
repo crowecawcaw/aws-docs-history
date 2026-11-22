@@ -1,13 +1,12 @@
 
 
 # Optional configuration settings for DynamoDBMapper
-<a name="DynamoDBMapper.OptionalConfig"></a>
 
 When you create an instance of `DynamoDBMapper`, it has certain default behaviors; you can override these defaults by using the `DynamoDBMapperConfig` class. 
 
 The following code snippet creates a `DynamoDBMapper` with custom settings:
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 
 DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()

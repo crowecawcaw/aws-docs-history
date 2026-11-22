@@ -1,7 +1,6 @@
 
 
 # Programming DynamoDB with the AWS SDK for Java 2.x
-<a name="ProgrammingWithJava"></a>
 
 This programming guide provides an orientation for programmers who want to use Amazon DynamoDB with Java. The guide covers different concepts including abstraction layers, configuration management, error handling, controlling retry policies, and managing keep-alive.
 
@@ -69,7 +68,7 @@ To create the project for this tutorial, you run a Maven command that prompts yo
 
 1. Enter the following command at the terminal, and then press **Enter**.
 
-   ```
+   ```sh
    mvn archetype:generate \
       -DarchetypeGroupId=software.amazon.awssdk \
       -DarchetypeArtifactId=archetype-app-quickstart \
@@ -132,7 +131,7 @@ The following shows the contents of the `pom.xml` project file.
 
 The `dependencyManagement` section contains a dependency to the AWS SDK for Java 2.x, and the `dependencies` section has a dependency for DynamoDB. Specifying these dependencies forces Maven to include the relevant `.jar` files in your Java class path. By default, the AWS SDK doesn't include all the classes for all AWS services. For DynamoDB, if you use the low-level interface, then you should have a dependency on the `dynamodb` artifact. Or, if you use the high-level interface, on the `dynamodb-enhanced` artifact. If you don't include the relevant dependencies, then your code can't compile. The project uses Java 1.8 because of the `1.8` value in the `maven.compiler.source` and `maven.compiler.target` properties.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
      <modelVersion>4.0.0</modelVersion>
@@ -252,7 +251,7 @@ The following code shows the `App` class that Maven creates. The `main` method i
 #### `App` class
 <a name="projectsetup-collapse2"></a>
 
-```
+```java
 package org.example;
  import org.slf4j.Logger;
  import org.slf4j.LoggerFactory;
@@ -278,7 +277,7 @@ The following code shows the `DependencyFactory` class.
 #### DependencyFactory class
 <a name="code-collapse2"></a>
 
-```
+```java
 package org.example;
  
  import software.amazon.awssdk.http.apache.ApacheHttpClient;
@@ -309,7 +308,7 @@ Maven generates the following `Handler` class with a `TODO` comment. The next st
 #### `Handler` class, Maven-generated
 <a name="code-collapsible3"></a>
 
-```
+```java
 package org.example;
  
  import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -335,7 +334,7 @@ To fill in the logic, replace the entire contents of the `Handler` class with th
 
 The following code uses the [`DynamoDbClient`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html) instance to retrieve a list of existing tables. If tables exist for a given account and AWS Region, then the code uses the `Logger` instance to log the names of these tables.
 
-```
+```java
 package org.example;
  
  import org.slf4j.Logger;
@@ -377,13 +376,13 @@ After you create the project and it contains the complete `Handler` class, build
 
 1. To build your project, run the following command:
 
-   ```
+   ```sh
    mvn clean package
    ```
 
 1. To run the application, run the following command:
 
-   ```
+   ```sh
    mvn exec:java -Dexec.mainClass="org.example.App"
    ```
 
@@ -423,7 +422,7 @@ The AWS SDK for Java 2.x supports the following interfaces, depending on the lev
 
 The low-level interface provides a one-to-one mapping to the underlying service API. Every DynamoDB API is available through this interface. This means that the low-level interface can provide complete functionality, but it's often more verbose and complex to use. For example, you have to use the `.s()` functions to hold strings and the `.n()` functions to hold numbers. The following example of [PutItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html) inserts an item using the low-level interface.
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.http.crt.AwsCrtHttpClient;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -464,7 +463,7 @@ The enhanced client offers a way to map between client-side data classes and Dyn
 
 The following example of [PutItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html) uses the high-level interface. In this example, the `DynamoDbBean` named `YourItem` creates a `TableSchema` that enables its direct use as input for the `putItem()` call.
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
@@ -548,7 +547,7 @@ The mapping feature of the DynamoDB enhanced client API also works with immutabl
 
 The following example takes the builder class `DynamoDbEnhancedClientImmutablePutItem` as input to create a table schema. The example then provides the schema as input for the [PutItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html) API call.
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.*;
@@ -576,7 +575,7 @@ public class DynamoDbEnhancedClientImmutablePutItem {
 
 The following example shows the immutable data class.
 
-```
+```java
 @DynamoDbImmutable(builder = YourImmutableItem.YourImmutableItemBuilder.class)
 class YourImmutableItem {
     private final String pk;
@@ -635,7 +634,7 @@ Immutable data classes (shown in the previous example) require some boilerplate 
 
 The following example demonstrates how Project Lombok simplifies the code needed to use the DynamoDB enhanced client API.
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.*;
@@ -664,7 +663,7 @@ public class DynamoDbEnhancedClientImmutableLombokPutItem {
 
 The following example shows the immutable data object of the immutable data class.
 
-```
+```java
 import lombok.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
 
@@ -696,7 +695,7 @@ The following [Document interface example](#DocInterfaceEg) shows the `PutItem` 
 
 You can use `AttributeConverterProvider.defaultProvider()` to convert document attributes of default types. You can change the overall default behavior with a custom `AttributeConverterProvider` implementation. You can also change the converter for a single attribute. The [AWS SDKs and Tools Reference Guide](https://docs.aws.amazon.com/sdkref/latest/guide/version-support-matrix.html) provides more details and examples about how to use custom converters. Their primary use is for attributes of your domain classes that don't have a default converter available. Using a custom converter, you can provide the SDK with the needed information to write or read to DynamoDB.
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.document.EnhancedDocument;
@@ -750,7 +749,7 @@ This section shows the same [`Query`](https://docs.aws.amazon.com/amazondynamodb
 **Example `Query` using the low-level interface**  
 The following example queries a table named `YourTableName` using a `keyConditionExpression`. This limits the query to a specific partition key value and sort key value that begin with a specific prefix value. These key conditions limit the amount of data read from DynamoDB. Finally, the query applies a filter on the data retrieved from DynamoDB using a `filterExpression`.  
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.*;
@@ -788,7 +787,7 @@ public class Query {
 **Example `Query` using the Document interface**  
 The following example queries a table named `YourTableName` using the Document interface.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.enhanced.dynamodb.*;
@@ -836,7 +835,7 @@ public class DynamoDbEnhancedDocumentClientQuery {
 **Example `Query` using the high-level interface**  
 The following example queries a table named `YourTableName` using the DynamoDB enhanced client API.  
 
-```
+```java
 import org.slf4j.*;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.*;
@@ -1052,7 +1051,7 @@ When a client encounters a retryable error, such as a throttling exception or a 
 
 The following code configures a DynamoDB client with a standard retry strategy customized to a maximum of six attempts (the first attempt plus five retries) and an exponential backoff that starts at 100 ms and is capped at one second.
 
-```
+```java
 BackoffStrategy backoffStrategy =
     BackoffStrategy.exponentialDelay(Duration.ofMillis(100), Duration.ofSeconds(1));
 
@@ -1100,7 +1099,7 @@ These values are configured with a broad selection of AWS services in mind. For 
 **Example DynamoDB SDK client configuration tuned for low-latency calls**  
 The following example adjusts the timeouts to lower values for an expected low-latency DynamoDB call.  
 
-```
+```java
 DynamoDbAsyncClient asyncClient = DynamoDbAsyncClient.builder()
     .defaultsMode(DefaultsMode.IN_REGION)
     .httpClientBuilder(AwsCrtAsyncHttpClient.builder())
@@ -1121,7 +1120,7 @@ Enabling keep-alive can reduce latencies by reusing connections. There are two d
 
 **Example to enable TCP Keep-Alive on an Apache-based HTTP client**  
 
-```
+```java
 DynamoDbClient client = DynamoDbClient.builder()
     .httpClientBuilder(ApacheHttpClient.builder().tcpKeepAlive(true))
     .build();
@@ -1132,7 +1131,7 @@ Any synchronous client that uses the `URLConnection`-based HTTP client [`HttpURL
 
 **Example to enable TCP Keep-Alive on a Netty-based HTTP client**  
 
-```
+```java
 DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
     .httpClientBuilder(NettyNioAsyncHttpClient.builder().tcpKeepAlive(true))
     .build();
@@ -1141,7 +1140,7 @@ DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
 **Example to enable TCP Keep-Alive on an AWS CRT-based HTTP client**  
 With the AWS CRT-based HTTP client, you can enable TCP keep-alive and control the duration.  
 
-```
+```java
 DynamoDbClient client = DynamoDbClient.builder()
     .httpClientBuilder(AwsCrtHttpClient.builder()
     .tcpKeepAliveConfiguration(TcpKeepAliveConfiguration.builder()
@@ -1152,7 +1151,7 @@ DynamoDbClient client = DynamoDbClient.builder()
 ```
 When using the asynchronous DynamoDB client, you can enable TCP Keep-Alive as shown in the following code.  
 
-```
+```java
 DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
     .httpClientBuilder(AwsCrtAsyncHttpClient.builder()
     .tcpKeepAliveConfiguration(TcpKeepAliveConfiguration.builder()
@@ -1167,7 +1166,7 @@ DynamoDbAsyncClient client = DynamoDbAsyncClient.builder()
 
 Every HTTP engine except the basic `URLConnection` offers either `maxConnections()` (for synchronous) or `maxConcurrency()` (for asynchronous) to control the number of allowed concurrent requests. The default is 50. You can raise this when expecting high concurrency against the same client instance.
 
-```
+```java
 ApacheHttpClient.Builder httpClientBuilder =
   ApacheHttpClient.builder()
                   .maxConnections(100); // Set to 100 from this synchronous client
@@ -1224,7 +1223,7 @@ By default, the output goes to `System.out`. In the following example, we still 
 **Example of a `Log4j2.xml` configuration file**  
 The following configuration logs messages to the console at the `ERROR` and `WARN` levels for all logger hierarchies.
 
-```
+```xml
 <Configuration status="WARN">
   <Appenders>
     <Console name="ConsoleAppender" target="SYSTEM_OUT">
@@ -1247,7 +1246,7 @@ When something goes wrong, you can find request IDs within exceptions. However, 
 
 The `software.amazon.awssdk.request` logger outputs request IDs at the `DEBUG` level. The following example extends the previous [configuration example](#Log4j2ConfigEg) to keep the root logger level at `ERROR`, the `software.amazon.awssdk` at level `WARN`, and the `software.amazon.awssdk.request` at level `DEBUG`. Setting these levels helps to catch the request IDs and other request-related details, such as the endpoint and status code.
 
-```
+```xml
 <Configuration status="WARN">
   <Appenders>
     <Console name="ConsoleAppender" target="SYSTEM_OUT">

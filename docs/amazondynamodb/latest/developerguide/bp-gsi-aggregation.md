@@ -1,7 +1,6 @@
 
 
 # Using Global Secondary Indexes for materialized aggregation queries in DynamoDB
-<a name="bp-gsi-aggregation"></a>
 
 Maintaining near real-time aggregations and key metrics on top of rapidly changing data is becoming increasingly valuable to businesses for making rapid decisions. For example, a music library might want to showcase its most downloaded songs in near-real time, or an e-commerce platform might need to display trending products by category.
 

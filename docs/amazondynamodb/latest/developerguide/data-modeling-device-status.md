@@ -1,7 +1,6 @@
 
 
 # Monitoring device status updates in DynamoDB
-<a name="data-modeling-device-status"></a>
 
 This use case talks about using DynamoDB to monitor device status updates (or changes in device state) in DynamoDB.
 

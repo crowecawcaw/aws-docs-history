@@ -1,7 +1,6 @@
 
 
 # Remove a resource-based policy from a DynamoDB table
-<a name="rbac-delete-resource-based-policy"></a>
 
 You can delete a resource-based policy from an existing table by using the DynamoDB console, [DeleteResourcePolicy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteResourcePolicy.html) API, the AWS CLI, AWS SDK, or an CloudFormation template.
 

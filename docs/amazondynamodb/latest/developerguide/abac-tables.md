@@ -1,7 +1,6 @@
 
 
 # Using attribute-based access control with DynamoDB tables and indexes
-<a name="abac-tables"></a>
 
 The following topics describe how to enable, use, and troubleshoot attribute-based access control (ABAC) for DynamoDB tables and indexes.
 

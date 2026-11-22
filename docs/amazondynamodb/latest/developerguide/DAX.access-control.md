@@ -1,7 +1,6 @@
 
 
 # DAX access control
-<a name="DAX.access-control"></a>
 
 DynamoDB Accelerator (DAX) is designed to work together with DynamoDB, to seamlessly add a caching layer to your applications. However, DAX and DynamoDB have separate access control mechanisms. Both services use AWS Identity and Access Management (IAM) to implement their respective security policies, but the security models for DAX and DynamoDB are different.
 
@@ -34,7 +33,7 @@ When you create a service role, you must specify a trust relationship between *
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -60,7 +59,7 @@ The DynamoDB API actions that are allowed are described in an IAM policy documen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ The following policy document gives the recipient full access on *DAXCluster01*.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -175,7 +174,7 @@ Consider the following policy document for `BobAccessPolicy`.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -210,7 +209,7 @@ If `BobUserRole` requires read/write access to DynamoDB, the following policy wo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -269,7 +268,7 @@ Suppose that Bob requires read-only access to the `Books` table, from DynamoDB a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -310,7 +309,7 @@ However, the service role for `DAXCluster01` would also require read-only access
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -345,7 +344,7 @@ The following example policy document for `BobUserRole` confers this access.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -390,7 +389,7 @@ In addition, `DAXServiceRole` would require an IAM policy that allows `DAXCluste
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -422,7 +421,7 @@ Now suppose that Bob required read/write access to the `Books` table, directly f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -472,7 +471,7 @@ In addition, `DAXServiceRole` would require an IAM policy that allows `DAXCluste
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -515,7 +514,7 @@ If you are currently using IAM roles and policies to restrict access to DynamoDB
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -550,7 +549,7 @@ Together with `BobAccessPolicy`, the following `DAXAccessPolicy` gives `BobUser
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

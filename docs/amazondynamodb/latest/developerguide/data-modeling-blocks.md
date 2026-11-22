@@ -1,7 +1,6 @@
 
 
 # Data modeling building blocks in DynamoDB
-<a name="data-modeling-blocks"></a>
 
 This section covers the building block layer to give you design patterns you can use in your application.
 
@@ -140,7 +139,7 @@ Users familiar with a document model database will be familar with the idea of s
 
 For example, consider the following single JSON document that stores a user's profile, store, shopping cart, shipping address, and order history together:
 
-```
+```json
 {
     "UserProfile": {
         "FirstName": "Paul",

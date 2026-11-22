@@ -1,7 +1,6 @@
 
 
 # Using AWS Backup with DynamoDB
-<a name="backuprestore_HowItWorksAWS"></a>
 
 Amazon DynamoDB can help you meet regulatory compliance and business continuity requirements through enhanced backup features in AWS Backup. AWS Backup is a fully managed data protection service that makes it easy to centralize and automate backups across AWS services, in the cloud, and on premises. Using this service, you can configure backup policies and monitor activity for your AWS resources in one place. To use AWS Backup, you must affirmatively [opt-in](https://docs.aws.amazon.com/aws-backup/latest/devguide/service-opt-in.html). Opt-in choices apply to the specific account and AWS Region, so you might have to opt in to multiple Regions using the same account. For more information, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html). 
 

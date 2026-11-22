@@ -1,7 +1,6 @@
 
 
 # Using IAM policies for Amazon Kinesis Data Streams and Amazon DynamoDB
-<a name="kds_iam"></a>
 
 The first time that you enable Amazon Kinesis Data Streams for Amazon DynamoDB, DynamoDB automatically creates an AWS Identity and Access Management (IAM) service-linked role for you. This role, `AWSServiceRoleForDynamoDBKinesisDataStreamsReplication`, allows DynamoDB to manage the replication of item-level changes to Kinesis Data Streams on your behalf. Don't delete this service-linked role.
 
@@ -39,7 +38,7 @@ The following IAM policy grants permissions to enable Amazon Kinesis Data Stream
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ The following IAM policy grants permissions to update Amazon Kinesis Data Stream
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -103,7 +102,7 @@ The following IAM policy grants permissions to disable Amazon Kinesis Data Strea
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -130,7 +129,7 @@ The following IAM policy grants permissions to enable and describe Amazon Kinesi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

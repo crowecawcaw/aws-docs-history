@@ -1,7 +1,6 @@
 
 
 # IAM policy to grant read access for a DynamoDB stream only (not for the table)
-<a name="iam-policy-read-stream-only"></a>
 
 When you enable DynamoDB Streams on a table, information is captured about every modification to items in the table. For more information, see [Change data capture for DynamoDB Streams](Streams.md).
 
@@ -20,7 +19,7 @@ The following example policy grants users permissions to access the streams of a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

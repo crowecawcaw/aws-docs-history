@@ -1,7 +1,6 @@
 
 
 # Creating backups of DynamoDB tables with AWS Backup
-<a name="CreateBackupAWS"></a>
 
 This section describes how to turn on AWS Backup to create on-demand and scheduled backups from your DynamoDB tables. 
 

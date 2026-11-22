@@ -1,7 +1,6 @@
 
 
 # Evaluate your DynamoDB table usage patterns
-<a name="CostOptimization_TableUsagePatterns"></a>
 
 This section provides an overview of how to evaluate if you are efficiently using your DynamoDB tables. There are certain usage patterns which are not optimal for DynamoDB, and they allow room for optimization from both a performance and cost perspective.
 

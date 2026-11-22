@@ -1,7 +1,6 @@
 
 
 # Creating a new data model
-<a name="workbench.Modeler.CreateNew"></a>
 
 Follow these steps to create a new data model in Amazon DynamoDB using NoSQL Workbench.
 

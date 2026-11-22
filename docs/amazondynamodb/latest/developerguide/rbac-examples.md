@@ -1,7 +1,6 @@
 
 
 # DynamoDB resource-based policy examples
-<a name="rbac-examples"></a>
 
 When you specify an ARN in the `Resource` field of a resource-based policy, the policy takes effect only if the specified ARN matches the ARN of the DynamoDB resource to which it is attached.
 
@@ -18,7 +17,7 @@ The following resource-based policy attached to a DynamoDB table named {{MusicCo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -55,7 +54,7 @@ The following resource-based policy attached to a DynamoDB stream named `2024-02
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -93,7 +92,7 @@ To allow a user to perform all actions on a table and all associated indexes wit
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -128,7 +127,7 @@ If you do not specify the `SPECIFIC_ATTRIBUTES` condition, you'll see all attrib
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -168,7 +167,7 @@ In addition to the preceding resource-based policy, the identity-based policy at
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -222,7 +221,7 @@ The following example allows the user {{John}} access to any DynamoDB resource w
 
 ****  
 
-```
+```json
 {
   "Id":"PolicyId2",
   "Version":"2012-10-17",		 	 	 
@@ -263,7 +262,7 @@ When you use DAX with DynamoDB tables that have IP-based resource policies in IP
 
 ****  
 
-```
+```json
 {
   "Id":"PolicyId",
   "Version":"2012-10-17",		 	 	 
@@ -301,7 +300,7 @@ The following example allows an IAM entity to perform all DynamoDB actions on th
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

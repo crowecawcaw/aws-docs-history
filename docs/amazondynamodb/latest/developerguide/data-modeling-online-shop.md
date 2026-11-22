@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB as a data store for an online shop
-<a name="data-modeling-online-shop"></a>
 
 This use case talks about using DynamoDB as a data store for an online shop (or e-store).
 

@@ -1,7 +1,6 @@
 
 
 # Restoring a backup of a DynamoDB table from AWS Backup
-<a name="Restore.TutorialAWS"></a>
 
 This section describes how to restore a backup of a DynamoDB table from AWS Backup.
 

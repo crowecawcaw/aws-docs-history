@@ -1,7 +1,6 @@
 
 
 # Step 2: Write data to a DynamoDB table
-<a name="getting-started-step-2"></a>
 
 In this step, you insert several items into the `Music` table that you created in [Step 1: Create a table in DynamoDB](getting-started-step-1.md). 
 
@@ -172,7 +171,7 @@ The following code examples show how to write an item to a DynamoDB table using 
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/DynamoDB#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Adds a new item to the table.
     /// </summary>
@@ -224,7 +223,7 @@ The following code examples show how to write an item to a DynamoDB table using 
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/dynamodb#code-examples). 
 
-```
+```bash
 ##############################################################################
 # function dynamodb_put_item
 #
@@ -306,7 +305,7 @@ function dynamodb_put_item() {
 ```
 The utility functions used in this example.  
 
-```
+```bash
 ###############################################################################
 # function iecho
 #
@@ -372,7 +371,7 @@ function aws_cli_error_log() {
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/dynamodb#code-examples). 
 
-```
+```cpp
 //! Put an item in an Amazon DynamoDB table.
 /*!
   \sa putItem()
@@ -427,7 +426,7 @@ bool AwsDoc::DynamoDB::putItem(const Aws::String &tableName,
 ```
 Code that waits for the table to become active.  
 
-```
+```cpp
 //! Query a newly created DynamoDB table until it is active.
 /*!
   \sa waitTableActive()
@@ -580,7 +579,7 @@ For more information, see [Writing an Item](https://docs.aws.amazon.com/amazondy
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/dynamodb#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"errors"
@@ -620,7 +619,7 @@ func (basics TableBasics) AddMovie(ctx context.Context, movie Movie) error {
 ```
 Define a Movie struct that is used in this example.  
 
-```
+```go
 import (
 	"archive/zip"
 	"bytes"
@@ -672,7 +671,7 @@ func (movie Movie) String() string {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/dynamodb#code-examples). 
 Puts an item into a table using [DynamoDbClient](http://docs.aws.amazon.com/sdk-for-java/latest/reference/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html).  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -787,7 +786,7 @@ public class PutItem {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/dynamodb#code-examples). 
 This example uses the document client to simplify working with items in DynamoDB. For API details see [PutCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-lib-dynamodb/Class/PutCommand/).  
 
-```
+```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 
@@ -813,7 +812,7 @@ export const main = async () => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/dynamodb#code-examples). 
 Put an item in a table.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -841,7 +840,7 @@ ddb.putItem(params, function (err, data) {
 ```
 Put an item in a table using the DynamoDB document client.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -876,7 +875,7 @@ docClient.put(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/dynamodb#code-examples). 
 
-```
+```kotlin
 suspend fun putItemInTable(
     tableNameVal: String,
     key: String,
@@ -916,7 +915,7 @@ suspend fun putItemInTable(
 **SDK for PHP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/dynamodb#code-examples). 
 
-```
+```php
         echo "What's the name of the last movie you watched?\n";
         while (empty($movieName)) {
             $movieName = testable_readline("Movie name: ");
@@ -952,7 +951,7 @@ suspend fun putItemInTable(
 **Tools for PowerShell V4**  
 **Example 1: Creates a new item, or replaces an existing item with a new item.**  
 
-```
+```powershell
 $item = @{
   SongTitle = 'Somewhere Down The Road'
   Artist = 'No One You Know'
@@ -968,7 +967,7 @@ Set-DDBItem -TableName 'Music' -Item $item
 **Tools for PowerShell V5**  
 **Example 1: Creates a new item, or replaces an existing item with a new item.**  
 
-```
+```powershell
 $item = @{
   SongTitle = 'Somewhere Down The Road'
   Artist = 'No One You Know'
@@ -987,7 +986,7 @@ Set-DDBItem -TableName 'Music' -Item $item
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb#code-examples). 
 
-```
+```python
 class Movies:
     """Encapsulates an Amazon DynamoDB table of movie data.
 
@@ -1056,7 +1055,7 @@ class Movies:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/dynamodb#code-examples). 
 
-```
+```ruby
 class DynamoDBBasics
   attr_reader :dynamo_resource, :table
 
@@ -1091,7 +1090,7 @@ class DynamoDBBasics
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/dynamodb#code-examples). 
 
-```
+```rust
 pub async fn add_item(client: &Client, item: Item, table: &String) -> Result<ItemOut, Error> {
     let user_av = AttributeValue::S(item.username);
     let type_av = AttributeValue::S(item.p_type);
@@ -1142,7 +1141,7 @@ pub async fn add_item(client: &Client, item: Item, table: &String) -> Result<Ite
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/dyn#code-examples). 
 
-```
+```sap-abap
     TRY.
         DATA(lo_resp) = lo_dyn->putitem(
           iv_tablename = iv_table_name
@@ -1164,7 +1163,7 @@ pub async fn add_item(client: &Client, item: Item, table: &String) -> Result<Ite
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/dynamodb#code-examples). 
 
-```
+```swift
 import AWSDynamoDB
 
 

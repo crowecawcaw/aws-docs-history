@@ -1,7 +1,6 @@
 
 
 # Security and access control
-<a name="VectorSearch.Security"></a>
 
 IAM policies control access to vector index operations. The following permissions apply:
 + **Creating and deleting vector indexes** – Requires `dynamodb:CreateTable` or `dynamodb:UpdateTable` permissions on the table resource. No additional permissions are needed for vector index management.

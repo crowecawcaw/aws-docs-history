@@ -1,7 +1,6 @@
 
 
 # Getting started with DynamoDB
-<a name="GettingStartedDynamoDB"></a>
 
 You’ll learn how to connect to, create, and manage DynamoDB tables in the following sections.
 

@@ -1,7 +1,6 @@
 
 
 # Best practices for handling concurrent updates in DynamoDB
-<a name="BestPractices_ImplementingVersionControl"></a>
 
 In distributed systems, multiple processes or users might attempt to modify the same data at the same time. Without concurrency control, these concurrent writes can lead to lost updates, inconsistent data, or race conditions. DynamoDB provides several mechanisms to help you manage concurrent access and maintain data integrity.
 

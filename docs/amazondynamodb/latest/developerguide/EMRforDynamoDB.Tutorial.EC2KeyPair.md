@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an Amazon EC2 key pair
-<a name="EMRforDynamoDB.Tutorial.EC2KeyPair"></a>
 
 In this step, you will create the Amazon EC2 key pair you need to connect to an Amazon EMR leader node and run Hive commands.
 

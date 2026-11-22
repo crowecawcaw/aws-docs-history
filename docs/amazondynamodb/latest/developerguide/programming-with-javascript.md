@@ -1,7 +1,6 @@
 
 
 # Programming Amazon DynamoDB with JavaScript
-<a name="programming-with-javascript"></a>
 
 This guide provides an orientation to programmers wanting to use Amazon DynamoDB with JavaScript. Learn about the AWS SDK for JavaScript, abstraction layers available, configuring connections, handling errors, defining retry policies, managing keep-alive, and more.
 
@@ -67,7 +66,7 @@ As the example below shows, with this format data types must be stated explicitl
 
 The following example is using low-level client with `Item` defined using DynamoDB JSON:
 
-```
+```javascript
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 
 const client = new DynamoDBClient({});
@@ -101,7 +100,7 @@ The high-level DynamoDB document client offers built-in convenience features, su
 
 To instantiate the `DynamoDBDocumentClient`, construct a low-level `DynamoDBClient` and then wrap it with a `DynamoDBDocumentClient`. The function naming convention differs slightly between the two packages. For instance, the low-level uses `PutItemCommand` while the high-level uses `PutCommand`. The distinct names allow both sets of functions to coexist in the same context, allowing you to mix both in the same script.
 
-```
+```javascript
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb");
 
@@ -139,7 +138,7 @@ The pattern of usage is consistent when you're reading items using API operation
 
 You can use the low-level client and marshall or unmarshall the data types on your own. The utility package, [util-dynamodb](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-util-dynamodb/), has a `marshall()` utility function that accepts JSON and produces DynamoDB JSON, as well as an `unmarshall()` function, that does the reverse. The following example uses the low-level client with data marshalling handled by the `marshall()` call.
 
-```
+```javascript
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
@@ -171,7 +170,7 @@ addProduct();
 
 To read a single item from DynamoDB, you use the `GetItem` API operation. Similar to the `PutItem` command, you have the choice to use either the low-level client or the high-level Document client. The example below demonstrates using the high-level Document client to retrieve an item.
 
-```
+```javascript
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, GetCommand } = require("@aws-sdk/lib-dynamodb");
 
@@ -200,7 +199,7 @@ getProduct();
 
 Use the `Query` API operation to read multiple items. You can use the low-level client or the Document client. The example below uses the high-level Document client.
 
-```
+```javascript
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const {
   DynamoDBDocumentClient,
@@ -246,7 +245,7 @@ DynamoDB write operations can specify a logical condition expression that must e
 
 When the conditional expression fails, you can use `ReturnValuesOnConditionCheckFailure` to request that the error response include the item that didn't satisfy the conditions to deduce what the problem was. For more details, see [Handle conditional write errors in high concurrency scenarios with Amazon DynamoDB](https://aws.amazon.com/blogs/database/handle-conditional-write-errors-in-high-concurrency-scenarios-with-amazon-dynamodb/).
 
-```
+```javascript
 try {
       const response = await client.send(new PutCommand({
           TableName: "YourTableName",
@@ -282,7 +281,7 @@ The sample passes a null `lastEvaluatedKey` as the `ExclusiveStartKey` on the fi
 
 Example using the `LastEvaluatedKey`:
 
-```
+```javascript
 const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb");
 
 const client = new DynamoDBClient({});
@@ -316,7 +315,7 @@ paginatedScan().catch((err) => {
 
 The SDK provides convenience methods called `paginateScan` and `paginateQuery` that do this work for you and makes the repeated requests behind the scenes. Specify the max number of items to read per request using the standard `Limit` parameter.
 
-```
+```javascript
 const { DynamoDBClient, paginateScan } = require("@aws-sdk/client-dynamodb");
 
 const client = new DynamoDBClient({});
@@ -355,7 +354,7 @@ Performing full table scans regularly is not a recommended access pattern unless
 
 When setting up the `DynamoDBClient`, you can specify various configuration overrides by passing a configuration object to the constructor. For example, you can specify the Region to connect to if it's not already known to the calling context or the endpoint URL to use. This is useful if you want to target a DynamoDB Local instance for development purposes.
 
-```
+```javascript
 const client = new DynamoDBClient({
   region: "eu-west-1",
   endpoint: "http://localhost:8000",
@@ -407,7 +406,7 @@ The SDK for JavaScript V3 will make 3 total requests, by default, before giving 
 
 The `DynamoDBClient` constructor accepts a `maxAttempts` setting that limits how many attempts will happen. The below example raises the value from the default of 3 to a total of 5. If you set it to 0 or 1, that indicates you don't want any automatic retries and want to handle any resumable errors yourself within your catch block.
 
-```
+```javascript
 const client = new DynamoDBClient({
   maxAttempts: 5,
 });
@@ -417,7 +416,7 @@ You can also control the timing of the retries with a custom retry strategy. To 
 
 The example below says to make a maximum of 5 attempts with delays of 15, 30, 90, and 360 milliseconds should the first attempt fail. The custom backoff function, ` calculateRetryBackoff`, calculates the delays by accepting the retry attempt number (starts with 1 for the first retry) and returns how many milliseconds to wait for that request.
 
-```
+```javascript
 const { ConfiguredRetryStrategy } = require("@aws-sdk/util-retry");
 
 const calculateRetryBackoff = (attempt) => {
@@ -440,7 +439,7 @@ For information about upcoming changes to the default retry behavior across all 
 
 The DynamoDB client includes two useful [waiter functions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/wait/index.html#cli-aws-dynamodb-wait) that can be used when creating, modifying, or deleting tables when you want your code to wait to proceed until the table modification has finished. For example, you can deploy a table, call the `waitUntilTableExists` function, and the code will block until the table has been made **ACTIVE**. The waiter internally polls the DynamoDB service with a `describe-table` every 20 seconds.
 
-```
+```javascript
 import {waitUntilTableExists, waitUntilTableNotExists} from "@aws-sdk/client-dynamodb";
 
 … <create table details>
@@ -465,7 +464,7 @@ It's important to note that these errors only manifest after all retries have be
 
 Below is a snippet to catch the error and take action based on the type of error that was returned.
 
-```
+```javascript
 import {
   ResourceNotFoundException,
   ProvisionedThroughputExceededException,
@@ -496,7 +495,7 @@ See [Error handling with DynamoDB](Programming.Errors.md) for common error strin
 
 The metadata of errors include additional properties, depending on the error. For a` TimeoutError`, the metadata includes the number of attempts that were made and the `totalRetryDelay`, as shown below.
 
-```
+```javascript
 {
   "name": "TimeoutError",
   "$metadata": {
@@ -517,7 +516,7 @@ If you manage your own retry policy, you'll want to differentiate between thrott
 
 Turn on logging to get more details about what the SDK is doing. You can set a parameter on the `DynamoDBClient` as shown in the example below. More log information will appear in the console and includes metadata such as the status code and the consumed capacity. If you run the code locally in a terminal window, the logs appear there. If you run the code in AWS Lambda, and you have Amazon CloudWatch logs set up, then the console output will be written there.
 
-```
+```javascript
 const client = new DynamoDBClient({
   logger: console
 });
@@ -525,7 +524,7 @@ const client = new DynamoDBClient({
 
 You can also hook into the internal SDK activities and perform custom logging as certain events happen. The example below uses the client's `middlewareStack` to intercept each request as it's being sent from the SDK and logs it as it's happening.
 
-```
+```javascript
 const client = new DynamoDBClient({});
 
 client.middlewareStack.add(

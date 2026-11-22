@@ -1,7 +1,6 @@
 
 
 # Conditional batch update
-<a name="BestPractices_ConditionalBatchUpdate"></a>
 
 DynamoDB supports batch operations such as `BatchWriteItem` using which you can perform up to 25 `PutItem` and `DeleteItem` requests in a single batch. However, `BatchWriteItem` doesn't support `UpdateItem` operations and doesn't support condition expressions. As a workaround, you can use other DynamoDB APIs such as `TransactWriteItems` for batch size up to 100.
 

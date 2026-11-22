@@ -1,7 +1,6 @@
 
 
 # Increase your existing DynamoDB table's warm throughput
-<a name="update-warm-throughput"></a>
 
 After you've checked your DynamoDB table's current warm throughput value, you can update it with the following steps:
 
@@ -151,7 +150,7 @@ The following SDK examples shows you how to update your DynamoDB table's warm th
 **SDK for Java 2.x**  
 Update warm throughput setting on an existing DynamoDB table using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
 import software.amazon.awssdk.services.dynamodb.model.GlobalSecondaryIndexUpdate;
@@ -222,7 +221,7 @@ import software.amazon.awssdk.services.dynamodb.model.WarmThroughput;
 **SDK for JavaScript (v3)**  
 Update warm throughput setting on an existing DynamoDB table using AWS SDK for JavaScript.  
 
-```
+```javascript
 import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb";
 
 export async function updateDynamoDBTableWarmThroughput(
@@ -285,7 +284,7 @@ updateDynamoDBTableWarmThroughput(
 **SDK for Python (Boto3)**  
 Update warm throughput setting on an existing DynamoDB table using AWS SDK for Python (Boto3).  
 
-```
+```python
 from boto3 import client
 from botocore.exceptions import ClientError
 

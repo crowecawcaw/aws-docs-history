@@ -1,7 +1,6 @@
 
 
 # Developing with the DynamoDB Accelerator (DAX) client
-<a name="DAX.client"></a>
 
 To use DAX from an application, you use the DAX client for your programming language. The DAX client is designed for minimal disruption to your existing Amazon DynamoDB applications—with only a few simple code modifications needed.
 

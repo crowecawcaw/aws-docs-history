@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB global tables
-<a name="bp-global-table-design"></a>
 
 Global tables build on Amazon DynamoDB’s global footprint to provide you with a fully managed, multi-Region, and multi-active database that can deliver fast and local, read and write performance for massively scaled, global applications. Global tables replicate your DynamoDB tables automatically across your choice of AWS Regions. No application changes are required because global tables use existing DynamoDB APIs. There are no upfront costs or commitments for using global tables, and you pay only for the resources you use.
 

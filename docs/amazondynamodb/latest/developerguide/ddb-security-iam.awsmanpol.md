@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon DynamoDB
-<a name="ddb-security-iam.awsmanpol"></a>
 
 DynamoDB uses AWS managed policies to define a set of permissions the service needs to perform specific actions. DynamoDB maintains and updates its AWS managed policies. You can't change the permissions in AWS managed policies. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the IAM User Guide.
 

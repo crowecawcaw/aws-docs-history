@@ -1,7 +1,6 @@
 
 
 # Using time to live (TTL) in DynamoDB
-<a name="TTL"></a>
 
 Time To Live (TTL) for DynamoDB is a cost-effective method for deleting items that are no longer relevant. TTL allows you to define a per-item expiration timestamp that indicates when an item is no longer needed. DynamoDB automatically deletes expired items within a few days of their expiration time, without consuming write throughput. 
 

@@ -1,7 +1,6 @@
 
 
 # Constraints in Amazon DynamoDB
-<a name="Constraints"></a>
 
 This section describes current constraints, formerly referred to as limits, within Amazon DynamoDB. 
 

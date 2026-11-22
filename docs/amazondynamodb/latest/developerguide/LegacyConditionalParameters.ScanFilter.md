@@ -1,7 +1,6 @@
 
 
 # ScanFilter (legacy)
-<a name="LegacyConditionalParameters.ScanFilter"></a>
 
 **Note**  
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible. For more information, see [Using expressions in DynamoDB](Expressions.md). For specific information on the new parameter replacing this one, [use *FilterExpression* instead.](#FilterExpression2.instead). 

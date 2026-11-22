@@ -1,7 +1,6 @@
 
 
 # DynamoDB provisioned throughput
-<a name="EMRforDynamoDB.PerformanceTuning.Throughput"></a>
 
 When you issue HiveQL statements against the external DynamoDB table, the `DynamoDBStorageHandler` class makes the appropriate low-level DynamoDB API requests, which consume provisioned throughput. If there is not enough read or write capacity on the DynamoDB table, the request will be throttled, resulting in slow HiveQL performance. For this reason, you should make sure that the table has enough throughput capacity.
 

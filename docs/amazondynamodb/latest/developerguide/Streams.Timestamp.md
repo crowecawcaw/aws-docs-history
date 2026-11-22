@@ -1,7 +1,6 @@
 
 
 # Using the DynamoDB Streams Kinesis Adapter to read records from a timestamp
-<a name="Streams.Timestamp"></a>
 
 With timestamp-based stream processing, you can start reading DynamoDB Streams records from a specific point in time. This guide explains how to configure the feature with the DynamoDB Streams Kinesis Adapter and how it behaves in different scenarios.
 
@@ -25,7 +24,7 @@ For more information about adapter setup, see [Using the DynamoDB Streams Kinesi
 
 The following Java example shows how to configure the starting timestamp:
 
-```
+```java
 // Create the initial position with the desired timestamp
 InitialPositionInStreamExtended initialPosition =
     InitialPositionInStreamExtended.newInitialPositionAtTimestamp(

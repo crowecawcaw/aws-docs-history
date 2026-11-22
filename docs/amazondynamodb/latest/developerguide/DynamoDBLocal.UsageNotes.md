@@ -1,7 +1,6 @@
 
 
 # DynamoDB local usage notes
-<a name="DynamoDBLocal.UsageNotes"></a>
 
  Except for the endpoint, applications that run with the downloadable version of Amazon DynamoDB should also work with the DynamoDB web service. However, when using DynamoDB locally, you should be aware of the following: 
 +  If you use the `-sharedDb` option, DynamoDB creates a single database file named *shared-local-instance.db*. Every program that connects to DynamoDB accesses this file. If you delete the file, you lose any data that you have stored in it. 

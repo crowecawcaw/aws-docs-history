@@ -1,7 +1,6 @@
 
 
 # DynamoDBMapper examples
-<a name="DynamoDBMapper.Examples"></a>
 
 The AWS SDK for Java provides a `DynamoDBMapper` class, allowing you to map your client-side classes to DynamoDB tables. To use `DynamoDBMapper`, you define the relationship between items in a DynamoDB table and their corresponding object instances in your code. The `DynamoDBMapper` class enables you to perform various create, read, update, and delete (CRUD) operations on items, and run queries and scans against tables.
 

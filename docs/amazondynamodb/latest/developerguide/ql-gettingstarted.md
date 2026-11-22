@@ -1,7 +1,6 @@
 
 
 # Getting started with PartiQL for DynamoDB
-<a name="ql-gettingstarted"></a>
 
 This section describes how to use PartiQL for DynamoDB from the Amazon DynamoDB console, the AWS Command Line Interface (AWS CLI), and DynamoDB APIs.
 
@@ -41,7 +40,7 @@ To [download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/w
 
 1. Enter the following PartiQL [SELECT statement](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.select.html) 
 
-   ```
+   ```sql
    SELECT *                                         
    FROM Music  
    WHERE Artist=? and SongTitle=?
@@ -140,7 +139,7 @@ To [download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/w
 ------
 #### [ Java ]
 
-```
+```java
 import java.util.ArrayList;
 import java.util.List;
 
@@ -301,7 +300,7 @@ aws dynamodb execute-statement \
 ------
 #### [ Java parameterized ]
 
-```
+```java
 List<AttributeValue> parameters = new ArrayList<>();
 parameters.add(new AttributeValue("Acme Band"));
 parameters.add(new AttributeValue("PartiQL Rocks"));
@@ -316,7 +315,7 @@ ExecuteStatementResult result = dynamoDB.executeStatement(request);
 ------
 #### [ Python parameterized ]
 
-```
+```python
 response = dynamodb_client.execute_statement(
     Statement="SELECT * FROM Music WHERE Artist=? AND SongTitle=?",
     Parameters=[

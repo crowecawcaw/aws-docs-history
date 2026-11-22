@@ -1,7 +1,6 @@
 
 
 # Additional topics
-<a name="EMRforDynamoDB.PerformanceTuning.Misc"></a>
 
 The following are some more ways to tune applications that use Hive to access DynamoDB.
 

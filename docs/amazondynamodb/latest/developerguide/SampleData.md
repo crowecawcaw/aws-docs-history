@@ -1,7 +1,6 @@
 
 
 # Creating tables and loading data for code examples in DynamoDB
-<a name="SampleData"></a>
 
 See below for the basics on creating tables in DynamoDB, loading in a sample dataset, querying the data, and updating the data.
 + [Step 1: Create a table in DynamoDB](getting-started-step-1.md)

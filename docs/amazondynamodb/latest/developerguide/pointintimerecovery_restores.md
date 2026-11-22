@@ -1,7 +1,6 @@
 
 
 # Restore a table in DynamoDB
-<a name="pointintimerecovery_restores"></a>
 
 You can restore a DynamoDB table from your PITR backup or your on-demand backups using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the DynamoDB API. The recovery process restores to a new DynamoDB table.
 

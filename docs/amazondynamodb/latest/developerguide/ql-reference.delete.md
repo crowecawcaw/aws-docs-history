@@ -1,7 +1,6 @@
 
 
 # PartiQL delete statements for DynamoDB
-<a name="ql-reference.delete"></a>
 
 Use the `DELETE` statement to delete an existing item from your Amazon DynamoDB table.
 
@@ -49,19 +48,19 @@ If the DynamoDB table does not have any item with the same primary key as that o
 
 The following query deletes an item in the `"Music"` table.
 
-```
+```sql
 DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks'
 ```
 
 You can add the parameter `RETURNING ALL OLD *` to return the data that was deleted.
 
-```
+```sql
 DELETE FROM "Music" WHERE "Artist" = 'Acme Band' AND "SongTitle" = 'PartiQL Rocks' RETURNING ALL OLD *
 ```
 
 The `Delete` statement now returns the following:
 
-```
+```json
 {
     "Items": [
         {

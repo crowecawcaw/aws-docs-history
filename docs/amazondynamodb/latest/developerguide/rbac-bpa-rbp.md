@@ -1,9 +1,8 @@
 
 
 # Blocking public access with resource-based policies in DynamoDB
-<a name="rbac-bpa-rbp"></a>
 
-[Block Public Access (BPA)](#rbac-bpa-rbp) is a feature that identifies and prevents the attaching of resource-based policies that grant public access to your DynamoDB tables, indexes, or streams across your [Amazon Web Services (AWS)](https://aws.amazon.com/) accounts. With BPA, you can prevent public access to your DynamoDB resources. BPA performs checks during the creation or modification of a resource-based policy and helps improve your security posture with DynamoDB. BPA is automatically enforced during these operations; there is no separate setting or configuration to enable it.
+[Block Public Access (BPA)](rbac-bpa-rbp.md) is a feature that identifies and prevents the attaching of resource-based policies that grant public access to your DynamoDB tables, indexes, or streams across your [Amazon Web Services (AWS)](https://aws.amazon.com/) accounts. With BPA, you can prevent public access to your DynamoDB resources. BPA performs checks during the creation or modification of a resource-based policy and helps improve your security posture with DynamoDB. BPA is automatically enforced during these operations; there is no separate setting or configuration to enable it.
 
 BPA uses [automated reasoning](https://aws.amazon.com/what-is/automated-reasoning/) to analyze the access granted by your resource-based policy and alerts you if such permissions are found at the time of administering a resource-based policy. The analysis verifies access across all resource-based policy statements, actions, and the set of condition keys used in your policies.
 
@@ -74,7 +73,7 @@ The following example of a non-public resource-based policy constrains `sourceVP
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

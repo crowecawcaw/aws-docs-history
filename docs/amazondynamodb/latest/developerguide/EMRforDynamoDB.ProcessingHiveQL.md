@@ -1,7 +1,6 @@
 
 
 # Processing HiveQL statements
-<a name="EMRforDynamoDB.ProcessingHiveQL"></a>
 
 Hive is an application that runs on Hadoop, which is a batch-oriented framework for running MapReduce jobs. When you issue a HiveQL statement, Hive determines whether it can return the results immediately or whether it must submit a MapReduce job.
 

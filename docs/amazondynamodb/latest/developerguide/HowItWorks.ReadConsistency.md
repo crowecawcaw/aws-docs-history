@@ -1,7 +1,6 @@
 
 
 # DynamoDB read consistency
-<a name="HowItWorks.ReadConsistency"></a>
 
 Amazon DynamoDB reads data from tables, local secondary indexes (LSIs), global secondary indexes (GSIs), and streams. For more information, see [Core components of Amazon DynamoDB](HowItWorks.CoreComponents.md). Both tables and LSIs provide two read consistency options: *eventually consistent* (default) and *strongly consistent* reads. All reads from GSIs and streams are eventually consistent.
 

@@ -1,7 +1,6 @@
 
 
 # .NET and DAX
-<a name="DAX.client.run-application-dotnet"></a>
 
 Follow these steps to run the .NET sample on your Amazon EC2 instance.
 
@@ -32,7 +31,7 @@ For more information, see [Creating and Deploying Elastic Beanstalk Applications
    This should print the version number of the .NET SDK.
 **Note**  
 Instead of the version number, you might receive the following error:  
-error: libunwind.so.8: cannot open shared object file: No such file or directory  
+`error: libunwind.so.8: cannot open shared object file: No such file or directory`  
 To resolve the error, install the `libunwind` package.  
 
    ```
@@ -56,7 +55,7 @@ After you do this, you should be able to run the `dotnet --version` command with
 
 1. The `myApp/myApp.csproj` file contains metadata about your project. To use the DAX client in your application, modify the file so that it looks like the following.
 
-   ```
+   ```xml
    <Project Sdk="Microsoft.NET.Sdk">
        <PropertyGroup>
            <OutputType>Exe</OutputType>
@@ -106,7 +105,7 @@ After you do this, you should be able to run the `dotnet --version` command with
 
      The cluster endpoint is shown in the output, as in the following example.
 
-     ```
+     ```json
      {
          "Address": "my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com",
          "Port": 8111,

@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB Transactions: How it works
-<a name="transaction-apis"></a>
 
 With Amazon DynamoDB transactions, you can group multiple actions together and submit them as a single all-or-nothing `TransactWriteItems` or `TransactGetItems` operation. The following sections describe API operations, capacity management, best practices, and other details about using transactional operations in DynamoDB.
 

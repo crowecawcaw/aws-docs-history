@@ -1,7 +1,6 @@
 
 
 # Evaluate your costs at the table level
-<a name="CostOptimization_TableLevelCostAnalysis"></a>
 
  The Cost Explorer tool found within the AWS Management Console allows you to see costs broken down by type, such as read, write, storage and backup charges. You can also see these costs summarized by period such as month or day.
 

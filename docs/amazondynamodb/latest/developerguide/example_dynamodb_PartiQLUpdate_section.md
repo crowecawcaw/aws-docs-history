@@ -1,7 +1,6 @@
 
 
 # Update DynamoDB data using PartiQL UPDATE statements with an AWS SDK
-<a name="example_dynamodb_PartiQLUpdate_section"></a>
 
 The following code example shows how to update data using PartiQL UPDATE statements.
 
@@ -11,7 +10,7 @@ The following code example shows how to update data using PartiQL UPDATE stateme
 **SDK for JavaScript (v3)**  
 Update items in a DynamoDB table using PartiQL UPDATE statements with AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * This example demonstrates how to update items in a DynamoDB table using PartiQL.
  * It shows different ways to update documents with various index types.

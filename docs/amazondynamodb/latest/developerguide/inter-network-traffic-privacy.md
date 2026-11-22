@@ -1,7 +1,6 @@
 
 
 # Securing DynamoDB connections using VPC endpoints and IAM policies"
-<a name="inter-network-traffic-privacy"></a>
 
 Connections are protected both between Amazon DynamoDB and on-premises applications and between DynamoDB and other AWS resources within the same AWS Region.
 
@@ -19,7 +18,7 @@ The following is an example of an endpoints policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

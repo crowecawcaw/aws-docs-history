@@ -1,7 +1,6 @@
 
 
 # Accelerate DynamoDB reads with DAX using an AWS SDK
-<a name="example_dynamodb_Usage_DaxDemo_section"></a>
 
 The following code example shows how to:
 + Create and write data to a table with both the DAX and SDK clients.
@@ -16,7 +15,7 @@ For more information, see [Developing with the DynamoDB Accelerator Client](http
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/dynamodb/TryDax#code-examples). 
 Create a table with either the DAX or Boto3 client.  
 
-```
+```python
 import boto3
 
 
@@ -55,7 +54,7 @@ if __name__ == "__main__":
 ```
 Write test data to the table.  
 
-```
+```python
 import boto3
 
 
@@ -97,7 +96,7 @@ if __name__ == "__main__":
 ```
 Get items for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
-```
+```python
 import argparse
 import sys
 import time
@@ -169,7 +168,7 @@ if __name__ == "__main__":
 ```
 Query the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
-```
+```python
 import argparse
 import time
 import sys
@@ -243,7 +242,7 @@ if __name__ == "__main__":
 ```
 Scan the table for a number of iterations for both the DAX client and the Boto3 client and report the time spent for each.  
 
-```
+```python
 import argparse
 import time
 import sys
@@ -301,7 +300,7 @@ if __name__ == "__main__":
 ```
 Delete the table.  
 
-```
+```python
 import boto3
 
 

@@ -1,7 +1,6 @@
 
 
 # DynamoDB API
-<a name="HowItWorks.API"></a>
 
 To work with Amazon DynamoDB, your application must use a few simple API operations. The following is a summary of these operations, organized by category.
 

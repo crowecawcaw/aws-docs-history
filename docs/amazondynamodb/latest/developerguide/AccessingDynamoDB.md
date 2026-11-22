@@ -1,7 +1,6 @@
 
 
 # Accessing DynamoDB
-<a name="AccessingDynamoDB"></a>
 
  You can access Amazon DynamoDB using the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the DynamoDB API.
 
@@ -84,7 +83,7 @@ aws dynamodb put-item \
 
 On the command line, it can be difficult to compose valid JSON. However, the AWS CLI can read JSON files. For example, consider the following JSON code snippet, which is stored in a file named *key-conditions.json*.
 
-```
+```json
 {
     "Artist": {
         "AttributeValueList": [

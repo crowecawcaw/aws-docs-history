@@ -1,7 +1,6 @@
 
 
 # Designing partition keys to distribute your workload in DynamoDB
-<a name="bp-partition-key-uniform-load"></a>
 
 The partition key portion of a table's primary key determines the logical partitions in which a table's data is stored. This in turn affects the underlying physical partitions. A partition key design that doesn't distribute I/O requests effectively can create "hot" partitions that result in throttling and use your provisioned I/O capacity inefficiently.
 

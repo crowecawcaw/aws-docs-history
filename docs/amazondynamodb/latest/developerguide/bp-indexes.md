@@ -1,7 +1,6 @@
 
 
 # Best practices for using secondary indexes in DynamoDB
-<a name="bp-indexes"></a>
 
 Secondary indexes are often essential to support the query patterns that your application requires. At the same time, overusing secondary indexes or using them inefficiently can add cost and reduce performance unnecessarily.
 

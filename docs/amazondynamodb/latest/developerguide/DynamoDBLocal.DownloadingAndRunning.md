@@ -1,7 +1,6 @@
 
 
 # Deploying DynamoDB locally on your computer
-<a name="DynamoDBLocal.DownloadingAndRunning"></a>
 
 **Note**  
 DynamoDB local is available in three versions: v3.x (Current), v2.x (Legacy), and v1.x (Deprecated).
@@ -81,7 +80,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -version
 
 1.  Copy the following code to a file and save it as `docker-compose.yml`. 
 
-   ```
+   ```yaml
    services:
     dynamodb-local:
       command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -96,7 +95,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -version
 
     If you want your application and DynamoDB local to be in separate containers, use the following yaml file. 
 
-   ```
+   ```yaml
    services:
     dynamodb-local:
       command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -125,7 +124,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -version
 
     To use with your own application image, replace the `image` value in the example below with that of your application. 
 
-   ```
+   ```yaml
    services:
     dynamodb-local:
       command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -186,7 +185,7 @@ If you're migrating an application that uses the SDK for Java v1.x to the SDK fo
 
     Example template for use with Spring Boot 3 and/or Spring Framework 6: 
 
-   ```
+   ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <project xmlns="http://maven.apache.org/POM/4.0.0"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

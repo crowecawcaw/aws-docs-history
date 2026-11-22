@@ -1,7 +1,6 @@
 
 
 # Creating a DAX cluster
-<a name="DAX.create-cluster"></a>
 
 This section walks you through the first-time setup and usage of Amazon DynamoDB Accelerator (DAX) in your default Amazon Virtual Private Cloud (Amazon VPC) environment. You can create your first DAX cluster using either the AWS Command Line Interface (AWS CLI) or the AWS Management Console.
 

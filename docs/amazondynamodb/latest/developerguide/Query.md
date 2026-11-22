@@ -1,7 +1,6 @@
 
 
 # Querying tables in DynamoDB
-<a name="Query"></a>
 
 You can use the `Query` API operation in Amazon DynamoDB to find items based on primary key values.
 

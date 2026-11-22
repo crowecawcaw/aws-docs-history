@@ -1,7 +1,6 @@
 
 
 # Authorization with IAM identity-based policies and DynamoDB resource-based policies
-<a name="rbac-auth-iam-id-based-policies-DDB"></a>
 
 **Identity-based policies** are attached to an identity, such as IAM users, groups of users, and roles. These are IAM policy documents that control what actions an identity can perform, on which resources, and under what conditions. Identity-based policies can be [managed](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) or [inline](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#inline-policies) policies.
 

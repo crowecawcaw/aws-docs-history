@@ -1,7 +1,6 @@
 
 
 # Differences in scanning a table
-<a name="SQLtoNoSQL.ReadData.Scan"></a>
 
 In SQL, a `SELECT` statement without a `WHERE` clause will return every row in a table. In Amazon DynamoDB, the `Scan` operation does the same thing. In both cases, you can retrieve all of the items or just some of them.
 
@@ -63,7 +62,7 @@ The `Scan` operation also provides a `FilterExpression` parameter, which you can
 
 With PartiQL, you perform a scan by using the `ExecuteStatement` operation to return all the contents for a table using the `Select` statement.
 
-```
+```sql
 SELECT AlbumTitle, Year, Price
 FROM Music
 ```

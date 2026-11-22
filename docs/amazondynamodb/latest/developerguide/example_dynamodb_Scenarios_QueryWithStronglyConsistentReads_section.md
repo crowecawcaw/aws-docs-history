@@ -1,7 +1,6 @@
 
 
 # Query a DynamoDB table with strongly consistent reads using an AWS SDK
-<a name="example_dynamodb_Scenarios_QueryWithStronglyConsistentReads_section"></a>
 
 The following code examples show how to query a table with strongly consistent reads.
 + Configure the consistency level for DynamoDB queries.
@@ -14,7 +13,7 @@ The following code examples show how to query a table with strongly consistent r
 **SDK for Java 2.x**  
 Query a DynamoDB table with configurable read consistency using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -75,7 +74,7 @@ import java.util.logging.Logger;
 **SDK for JavaScript (v3)**  
 Query a DynamoDB table with configurable read consistency using AWS SDK for JavaScript.  
 
-```
+```javascript
 const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb");
 
 /**
@@ -129,7 +128,7 @@ async function queryWithConsistentRead(
 **SDK for Python (Boto3)**  
 Query a DynamoDB table with the option for strongly consistent reads using AWS SDK for Python (Boto3).  
 
-```
+```python
 import time
 
 import boto3

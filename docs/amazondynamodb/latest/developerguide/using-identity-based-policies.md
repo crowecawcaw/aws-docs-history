@@ -1,7 +1,6 @@
 
 
 # Using identity-based policies with Amazon DynamoDB
-<a name="using-identity-based-policies"></a>
 
 This topic covers using identity-based AWS Identity and Access Management (IAM) policies with Amazon DynamoDB and provides examples. The examples show how an account administrator can attach permissions policies to IAM identities (users, groups, and roles) and thereby grant permissions to perform operations on Amazon DynamoDB resources.
 
@@ -19,7 +18,7 @@ The following is an example of a permissions policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

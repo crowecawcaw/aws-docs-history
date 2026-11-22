@@ -1,7 +1,6 @@
 
 
 # Migrating from KCL 1.x to KCL 3.5.x\+
-<a name="streams-migrating-kcl"></a>
 
 ## Overview
 <a name="migrating-kcl-overview"></a>
@@ -28,7 +27,7 @@ KCL 3.5.x\+ is supported with [Amazon DynamoDB Streams Kinesis Adapter](https://
 
 The following example shows a record processor implemented for KCL 1.x DynamoDB Streams Kinesis adapter:
 
-```
+```java
 package com.amazonaws.kcl;
 
 import com.amazonaws.services.kinesis.clientlibrary.exceptions.InvalidStateException;
@@ -156,7 +155,7 @@ public class StreamsRecordProcessor implements IRecordProcessor, IShutdownNotifi
 
 The following is the updated version of the record processor class:
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import software.amazon.kinesis.exceptions.InvalidStateException;
@@ -226,7 +225,7 @@ DynamoDB Streams Kinesis Adapter now uses SDKv2 Record model. In SDKv2, complex 
 
 The record processor factory is responsible for creating record processors when a lease is acquired. The following is an example of a KCL 1.x factory:
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import software.amazon.dynamodb.AmazonDynamoDB;
@@ -263,7 +262,7 @@ public class StreamsRecordProcessorFactory implements IRecordProcessorFactory {
 
 The following is an example of the record processor factory in 3.5.x\+:
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import software.amazon.kinesis.processor.ShardRecordProcessor;
@@ -283,7 +282,7 @@ public class StreamsRecordProcessorFactory implements ShardRecordProcessorFactor
 
 In version 3.5.x\+ of the KCL, a new class, called **Scheduler**, replaces the **Worker** class. The following is an example of a KCL 1.x worker:
 
-```
+```java
 final KinesisClientLibConfiguration config = new KinesisClientLibConfiguration(...)
 final IRecordProcessorFactory recordProcessorFactory = new RecordProcessorFactory();
 final Worker worker = StreamsWorkerFactory.createDynamoDbStreamsWorker(

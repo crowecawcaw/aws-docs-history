@@ -1,7 +1,6 @@
 
 
 # Choosing your disaster recovery strategy for Amazon DynamoDB workloads
-<a name="DynamodbDisasterRecoveryStrategy"></a>
 
 Before selecting a DynamoDB DR strategy, you must define your business recovery requirements. This initial analysis prevents costly over-engineering while helping to make sure you meet critical business continuity needs. The optimal approach balances four key factors: recovery speed, data loss tolerance, implementation complexity, and operational costs.
 

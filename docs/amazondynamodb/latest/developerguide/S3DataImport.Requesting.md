@@ -1,7 +1,6 @@
 
 
 # Requesting a table import in DynamoDB
-<a name="S3DataImport.Requesting"></a>
 
 DynamoDB import allows you to import data from an Amazon S3 bucket to a new DynamoDB table. You can request a table import using the [DynamoDB console](https://console.aws.amazon.com/), the [CLI](AccessingDynamoDB.md#Tools.CLI), [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) or the [DynamoDB API.](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html)
 
@@ -29,7 +28,7 @@ You can import data from any Amazon S3 bucket you have permission to read from. 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -94,7 +93,7 @@ When starting an import on an Amazon S3 bucket source that is owned by another a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

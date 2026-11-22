@@ -1,7 +1,6 @@
 
 
 # Use expression attribute names in DynamoDB with an AWS SDK
-<a name="example_dynamodb_Scenario_ExpressionAttributeNames_section"></a>
 
 The following code examples show how to use expression attribute names in DynamoDB.
 + Work with reserved words in DynamoDB expressions.
@@ -14,7 +13,7 @@ The following code examples show how to use expression attribute names in Dynamo
 **SDK for Java 2.x**  
 Demonstrate expression attribute names using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -249,7 +248,7 @@ import java.util.Map;
 ```
 Example usage of expression attribute names with AWS SDK for Java 2.x.  
 
-```
+```java
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
         // Example key
         Map<String, AttributeValue> key = new HashMap<>();
@@ -347,7 +346,7 @@ Example usage of expression attribute names with AWS SDK for Java 2.x.
 **SDK for JavaScript (v3)**  
 Demonstrate expression attribute names using AWS SDK for JavaScript.  
 
-```
+```javascript
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { 
   DynamoDBDocumentClient, 
@@ -631,7 +630,7 @@ async function getItem(
 ```
 Example usage of expression attribute names with AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * Example of how to use expression attribute names.
  */
@@ -751,7 +750,7 @@ async function exampleUsage() {
 **SDK for Python (Boto3)**  
 Demonstrate expression attribute names using AWS SDK for Python (Boto3).  
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 from typing import Any, Dict, List
@@ -1007,7 +1006,7 @@ def demonstrate_attribute_name_requirements(table_name: str, key: Dict[str, Any]
 ```
 Example usage of expression attribute names with AWS SDK for Python (Boto3).  
 
-```
+```python
 def example_usage():
     """Example of how to use expression attribute names in DynamoDB."""
     # Example parameters

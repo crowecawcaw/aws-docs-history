@@ -1,7 +1,6 @@
 
 
 # Migrating to DynamoDB from a relational database
-<a name="migration-guide"></a>
 
 Migrating a relational database into DynamoDB requires careful planning to ensure a successful outcome. This guide will help you understand how this process works, what tools you have available, and then how to evaluate potential migration strategies and select one that'll fit your requirements.
 

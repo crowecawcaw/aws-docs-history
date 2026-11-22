@@ -1,7 +1,6 @@
 
 
 # Data synchronization between tables and vector indexes
-<a name="VectorSearchDataSync"></a>
 
 DynamoDB keeps a vector index synchronized with its base table automatically. Understanding how synchronization works helps you predict when search results are complete and why an item might not appear in results.
 

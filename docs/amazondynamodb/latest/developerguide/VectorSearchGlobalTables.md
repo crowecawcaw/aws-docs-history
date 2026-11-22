@@ -1,7 +1,6 @@
 
 
 # Using vector indexes with global tables
-<a name="VectorSearchGlobalTables"></a>
 
 You can use vector indexes with global tables to run similarity search in multiple AWS Regions. When you add a replica to a table that has a vector index, DynamoDB replicates the vector index definition to the new replica Region automatically. You do not create the vector index separately in each Region. Items that you write in any replica Region are replicated to the other Regions and indexed there, so `SearchVectors` returns results from the local Region.
 

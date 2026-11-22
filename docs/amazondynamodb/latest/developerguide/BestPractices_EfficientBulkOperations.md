@@ -1,7 +1,6 @@
 
 
 # Efficient bulk operations
-<a name="BestPractices_EfficientBulkOperations"></a>
 
 **When to use this pattern**
 

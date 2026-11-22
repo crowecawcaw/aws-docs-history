@@ -1,7 +1,6 @@
 
 
 # Point-in-time backups for DynamoDB
-<a name="Point-in-time-recovery"></a>
 
 Amazon DynamoDB point-in-time recovery (PITR) provides automatic continuous backups of your DynamoDB table data. Point-in-time recovery (PITR) backups are fully managed by DynamoDB and provide up to 35 days of recovery points at a per second granularity. With point-in-time recovery, you don't have to worry about creating, maintaining, or scheduling on-demand backups. This section provides an overview of how the process works in DynamoDB.
 

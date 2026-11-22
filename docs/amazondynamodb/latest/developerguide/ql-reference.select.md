@@ -1,7 +1,6 @@
 
 
 # PartiQL select statements for DynamoDB
-<a name="ql-reference.select"></a>
 
 Use the `SELECT` statement to retrieve data from a table in Amazon DynamoDB.
 
@@ -40,7 +39,7 @@ FROM {{table}}[.{{index}}]
 (Optional) The name of the index to query.  
 You must add double quotation marks to the table name and index name when querying an index.  
 
-```
+```sql
 SELECT * 
 FROM "TableName"."IndexName"
 ```
@@ -50,7 +49,7 @@ FROM "TableName"."IndexName"
 To make sure that a `SELECT` statement does not result in a full table scan, the `WHERE` clause condition must specify a partition key. Use the equality or IN operator.  
 For example, if you have an `Orders` table with an `OrderID` partition key and other non-key attributes, including an `Address`, the following statements would not result in a full table scan:  
 
-```
+```sql
 SELECT * 
 FROM "Orders" 
 WHERE OrderID = 100
@@ -69,7 +68,7 @@ WHERE OrderID IN [100, 300, 234]
 ```
 The following `SELECT` statements, however, will result in a full table scan:  
 
-```
+```sql
 SELECT * 
 FROM "Orders" 
 WHERE OrderID > 1
@@ -94,7 +93,7 @@ If you omit the `WHERE` clause, then all of the items in the table are retrieved
 
 The following query returns one item, if one exists, from the `Orders` table by specifying the partition key, `OrderID`, and using the equality operator.
 
-```
+```sql
 SELECT OrderID, Total
 FROM "Orders"
 WHERE OrderID = 1
@@ -102,7 +101,7 @@ WHERE OrderID = 1
 
 The following query returns all items in the `Orders` table that have a specific partition key, `OrderID`, values using the OR operator.
 
-```
+```sql
 SELECT OrderID, Total
 FROM "Orders"
 WHERE OrderID = 1 OR OrderID = 2
@@ -110,7 +109,7 @@ WHERE OrderID = 1 OR OrderID = 2
 
 The following query returns all items in the `Orders` table that have a specific partition key, `OrderID`, values using the IN operator. The returned results are in descending order, based on the `OrderID` key attribute value.
 
-```
+```sql
 SELECT OrderID, Total
 FROM "Orders"
 WHERE OrderID IN [1, 2, 3] ORDER BY OrderID DESC
@@ -118,7 +117,7 @@ WHERE OrderID IN [1, 2, 3] ORDER BY OrderID DESC
 
 The following query shows a full table scan that returns all items from the `Orders` table that have a `Total` greater than 500, where `Total` is a non-key attribute.
 
-```
+```sql
 SELECT OrderID, Total 
 FROM "Orders"
 WHERE Total > 500
@@ -126,7 +125,7 @@ WHERE Total > 500
 
 The following query shows a full table scan that returns all items from the `Orders` table within a specific `Total` order range, using the IN operator and a non-key attribute `Total`.
 
-```
+```sql
 SELECT OrderID, Total 
 FROM "Orders"
 WHERE Total IN [500, 600]
@@ -134,7 +133,7 @@ WHERE Total IN [500, 600]
 
 The following query shows a full table scan that returns all items from the `Orders` table within a specific `Total` order range, using the BETWEEN operator and a non-key attribute `Total`.
 
-```
+```sql
 SELECT OrderID, Total 
 FROM "Orders" 
 WHERE Total BETWEEN 500 AND 600
@@ -142,7 +141,7 @@ WHERE Total BETWEEN 500 AND 600
 
 The following query returns the first date a firestick device was used to watch by specifying the partition key `CustomerID` and sort key `MovieID` in the WHERE clause condition and using document paths in the SELECT clause.
 
-```
+```sql
 SELECT Devices.FireStick.DateWatched[0] 
 FROM WatchList 
 WHERE CustomerID= 'C1' AND MovieID= 'M1'
@@ -150,7 +149,7 @@ WHERE CustomerID= 'C1' AND MovieID= 'M1'
 
 The following query shows a full table scan that returns the list of items where a firestick device was first used after 12/24/19 using document paths in the WHERE clause condition.
 
-```
+```sql
 SELECT Devices 
 FROM WatchList 
 WHERE Devices.FireStick.DateWatched[0] >= '12/24/19'

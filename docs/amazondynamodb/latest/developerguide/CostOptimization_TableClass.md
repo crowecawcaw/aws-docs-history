@@ -1,7 +1,6 @@
 
 
 # Evaluate your DynamoDB table class selection
-<a name="CostOptimization_TableClass"></a>
 
 This section provides an overview of how to select the appropriate table class for your DynamoDB table. With the launch of the Standard Infrequent-Access (Standard-IA) table class, you now have the ability to optimize a table for either lower storage cost or lower throughput cost.
 

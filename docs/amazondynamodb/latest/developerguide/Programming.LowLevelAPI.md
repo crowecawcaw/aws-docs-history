@@ -1,7 +1,6 @@
 
 
 # DynamoDB low-level API
-<a name="Programming.LowLevelAPI"></a>
 
 The Amazon DynamoDB *low-level API* is the protocol-level interface for DynamoDB. At this level, every HTTP(S) request must be correctly formatted and carry a valid digital signature.
 

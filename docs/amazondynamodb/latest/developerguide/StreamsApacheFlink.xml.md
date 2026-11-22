@@ -1,7 +1,6 @@
 
 
 # DynamoDB Streams and Apache Flink
-<a name="StreamsApacheFlink.xml"></a>
 
 You can consume Amazon DynamoDB Streams records with Apache Flink. With [Amazon Managed Service for Apache Flink](https://aws.amazon.com/managed-service-apache-flink/), you can transform and analyze streaming data in real time using Apache Flink. Apache Flink is an open-source stream processing framework for processing real-time data. The Amazon DynamoDB Streams connector for Apache Flink simplifies building and managing Apache Flink workloads and allows you to integrate applications with other AWS services.
 

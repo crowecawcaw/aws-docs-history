@@ -1,7 +1,6 @@
 
 
 # Understanding Global Secondary Index (GSI) write throttling and back pressure in DynamoDB
-<a name="gsi-throttling"></a>
 
 GSI back-pressure throttling represents one of the most complex throttling scenarios in DynamoDB because it creates an indirect relationship between write operations and throttling—your application writes to a base table but experiences throttling due to capacity constraints on one or several indexes.
 

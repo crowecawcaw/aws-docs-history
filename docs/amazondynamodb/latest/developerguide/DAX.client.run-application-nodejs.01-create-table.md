@@ -1,11 +1,10 @@
 
 
 # 01-create-table.js
-<a name="DAX.client.run-application-nodejs.01-create-table"></a>
 
 The `01-create-table.js` program creates a table (`TryDaxTable`). The remaining Node.js programs in this section depend on this table.
 
-```
+```javascript
 const AmazonDaxClient = require("amazon-dax-client");
 var AWS = require("aws-sdk");
 

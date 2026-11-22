@@ -1,7 +1,6 @@
 
 
 # Using update expressions in DynamoDB
-<a name="Expressions.UpdateExpressions"></a>
 
 The `UpdateItem` operation updates an existing item, or adds a new item to the table if it does not already exist. You must provide the key of the item that you want to update. You must also provide an update expression, indicating the attributes that you want to modify and the values that you want to assign to them. 
 
@@ -84,7 +83,7 @@ aws dynamodb put-item \
 
 The arguments for `--item` are stored in the `item.json` file. (For simplicity, only a few item attributes are used.)
 
-```
+```json
 {
     "Id": {"N": "789"},
     "ProductCategory": {"S": "Home Improvement"},
@@ -119,7 +118,7 @@ aws dynamodb update-item \
 ```
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.  
 
-```
+```json
 {
     ":c": { "S": "Hardware" },
     ":p": { "N": "60" }
@@ -145,7 +144,7 @@ aws dynamodb update-item \
 ```
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.  
 
-```
+```json
 {
     ":ri": {
         "L": [
@@ -180,7 +179,7 @@ aws dynamodb update-item \
 ```
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.  
 
-```
+```json
 {
     ":ri": { "S": "Nails" }
 }
@@ -207,7 +206,7 @@ aws dynamodb update-item \
 ```
 The arguments for `--expression-attribute-names` are stored in the `names.json` file.  
 
-```
+```json
 {
     "#pr": "ProductReviews",
     "#5star": "FiveStar",
@@ -216,7 +215,7 @@ The arguments for `--expression-attribute-names` are stored in the `names.json` 
 ```
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.  
 
-```
+```json
 {
     ":r5": { "S": "Very happy with my purchase" },
     ":r3": {
@@ -231,7 +230,7 @@ The arguments for `--expression-attribute-values` are stored in the `values.json
 You cannot update nested map attributes if the parent map does not exist. If you attempt to update a nested attribute (for example, `ProductReviews.FiveStar`) when the parent map (`ProductReviews`) does not exist, DynamoDB returns a `ValidationException` with the message *"The document path provided in the update expression is invalid for update."*  
 When creating items that will have nested map attributes updated later, initialize empty maps for the parent attributes. For example:  
 
-```
+```json
 {
     "Id": {"N": "789"},
     "ProductReviews": {"M": {}},
@@ -280,7 +279,7 @@ aws dynamodb update-item \
 ```
 The arguments for `--expression-attribute-values` are stored in the `values.json` file.  
 
-```
+```json
 {
     ":vals": {
         "L": [

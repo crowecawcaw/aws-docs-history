@@ -1,11 +1,10 @@
 
 
 # Creating example tables and uploading data using the AWS SDK for .NET
-<a name="AppendixSampleDataCodeDotNET"></a>
 
 The following C\# code example creates tables and uploads data to the tables. For step-by-step instructions to run this code in Visual Studio, see [.NET code examples](CodeSamples.DotNet.md).
 
-```
+```dotNET
 using System;
 using System.Collections.Generic;
 using Amazon.DynamoDBv2;

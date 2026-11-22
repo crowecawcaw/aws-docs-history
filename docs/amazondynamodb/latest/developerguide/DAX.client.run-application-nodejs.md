@@ -1,7 +1,6 @@
 
 
 # Node.js and DAX
-<a name="DAX.client.run-application-nodejs"></a>
 
 Follow these steps to run the Node.js sample application on your Amazon EC2 instance.
 

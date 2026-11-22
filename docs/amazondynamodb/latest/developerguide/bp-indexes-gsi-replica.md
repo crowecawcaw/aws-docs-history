@@ -1,7 +1,6 @@
 
 
 # Using Global Secondary Indexes to create an eventually consistent replica in DynamoDB
-<a name="bp-indexes-gsi-replica"></a>
 
 You can use a global secondary index to create an eventually consistent replica of a table. Creating a replica can allow you to do the following:
 + **Set different provisioned read capacity for different readers.** For example, suppose that you have two applications: One application handles high-priority queries and needs the highest levels of read performance, whereas the other handles low-priority queries that can tolerate throttling of read activity.

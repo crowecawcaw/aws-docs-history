@@ -1,7 +1,6 @@
 
 
 # DAX and IPv6
-<a name="DAX.create-cluster.DAX_and_IPV6"></a>
 
 DynamoDB DAX now supports IPv6 addressing, that allows you to create clusters that operate in IPv4-only, IPv6-only, or dual-stack networking modes. This helps in enhancing networking capabilities to meet evolving infrastructure requirements.
 
@@ -52,7 +51,7 @@ For example:
 **Example**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

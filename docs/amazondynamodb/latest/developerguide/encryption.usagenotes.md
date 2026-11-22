@@ -1,7 +1,6 @@
 
 
 # DynamoDB encryption at rest usage notes
-<a name="encryption.usagenotes"></a>
 
 Consider the following when you are using encryption at rest in Amazon DynamoDB.
 
@@ -105,7 +104,7 @@ The policy statements in the key policy have the following effect:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id" : "auto-dynamodb-1",
@@ -170,7 +169,7 @@ Before using an example key policy, replace the example principals with actual p
 
 ****  
 
-```
+```json
 {
   "Id": "key-policy-dynamodb",
   "Version":"2012-10-17",		 	 	 

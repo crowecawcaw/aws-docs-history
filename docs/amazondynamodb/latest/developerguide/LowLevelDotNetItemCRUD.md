@@ -1,7 +1,6 @@
 
 
 # Working with items: .NET
-<a name="LowLevelDotNetItemCRUD"></a>
 
 You can use the AWS SDK for .NET low-level API to perform typical create, read, update, and delete (CRUD) operations on an item in a table. The following are the common steps that you follow to perform data CRUD operations using the .NET low-level API:
 
@@ -51,7 +50,7 @@ The following C\# example demonstrates the preceding steps. The example uploads 
 
 **Example**  
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -85,7 +84,7 @@ You can also provide optional parameters using the `PutItemRequest` object as sh
 
 **Example**  
 
-```
+```csharp
 var request = new PutItemRequest
  {
    TableName = tableName,
@@ -134,7 +133,7 @@ The following are the steps to retrieve an existing item using the low-level AWS
 
 The following C\# example demonstrates the preceding steps. The example retrieves an item from the `ProductCatalog` table.
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -159,7 +158,7 @@ You can also provide optional parameters using the `GetItemRequest` object, as s
 
 **Example**  
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -211,7 +210,7 @@ The following C\# code example demonstrates the preceding steps. The example upd
 
 
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -252,7 +251,7 @@ You can also provide optional parameters using the `UpdateItemRequest` object, a
 
 **Example**  
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -288,7 +287,7 @@ You can use `updateItem` to implement an atomic counter, where you increment or 
 
 The following example demonstrates this, incrementing the `Quantity` attribute by one.
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -327,7 +326,7 @@ The following are the steps to delete an item using the low-level .NET SDK API.
 
 **Example**  
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 string tableName = "ProductCatalog";
 
@@ -349,7 +348,7 @@ You can also provide optional parameters using the `DeleteItemRequest` object as
 
 **Example**  
 
-```
+```csharp
 var request = new DeleteItemRequest
 {
     TableName = tableName,
@@ -392,7 +391,7 @@ The following C\# code example demonstrates the preceding steps. The example cre
 
 The code runs `BatchWriteItem` to perform a batch operation.
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
 string table1Name = "Forum";
@@ -478,7 +477,7 @@ The following C\# code example demonstrates the preceding steps. The example ret
 
 
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
 string table1Name = "Forum";
@@ -568,7 +567,7 @@ You can also provide optional parameters using the `BatchGetItemRequest` object 
 
 **Example**  
 
-```
+```csharp
 AmazonDynamoDBClient client = new AmazonDynamoDBClient();
 
 string table1Name = "Forum";

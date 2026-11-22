@@ -1,7 +1,6 @@
 
 
 # Step 7: (Optional) clean up
-<a name="EMRforDynamoDB.Tutorial.CleanUp"></a>
 
 Now that you have completed the tutorial, you can continue reading this section to learn more about working with DynamoDB data in Amazon EMR. You might decide to keep your Amazon EMR cluster up and running while you do this.
 

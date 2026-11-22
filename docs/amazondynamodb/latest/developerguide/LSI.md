@@ -1,7 +1,6 @@
 
 
 # Local secondary indexes
-<a name="LSI"></a>
 
 Some applications only need to query data using the base table's primary key. However, there might be situations where an alternative sort key would be helpful. To give your application a choice of sort keys, you can create one or more local secondary indexes on an Amazon DynamoDB table and issue `Query` or `Scan` requests against these indexes.
 
@@ -118,7 +117,7 @@ You can query a local secondary index using either eventually consistent or stro
 **Example**  
 Consider the following data returned from a `Query` that requests data from the discussion threads in a particular forum.  
 
-```
+```json
 {
     "TableName": "Thread",
     "IndexName": "LastPostIndex",

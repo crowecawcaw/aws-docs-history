@@ -1,7 +1,6 @@
 
 
 # DynamoDB attributes from the .NET object persistence model
-<a name="DeclarativeTagsList"></a>
 
 This section describes the attributes that the object persistence model offers so that you can map your classes and properties to DynamoDB tables and attributes.
 
@@ -25,7 +24,7 @@ Maps a class property to the partition key of the table's primary key. The prima
 
 The following C\# code example maps the `Book` class to the `ProductCatalog` table, and the `Id` property to the table's primary key partition key.
 
-```
+```csharp
 [DynamoDBTable("ProductCatalog")]
 public class Book 
 {
@@ -51,7 +50,7 @@ Maps a class property to the sort key of a local secondary index. Use this attri
 
 Maps a class property to a table attribute. If the class property maps to a table attribute of the same name, you don't need to specify this attribute. However, if the names are not the same, you can use this tag to provide the mapping. In the following C\# statement, the `DynamoDBProperty` maps the `BookAuthors` property to the `Authors` attribute in the table. 
 
-```
+```csharp
 [DynamoDBProperty("Authors")]
 public List<string> BookAuthors { get; set; }
 ```
@@ -70,7 +69,7 @@ Maps a class property to the sort key of the table's primary key. If the table h
 
 For example, the sample table `Reply` has a primary key made of the `Id` partition key and `Replenishment` sort key. The following C\# code example maps the `Reply` class to the `Reply` table. The class definition also indicates that two of its properties map to the primary key.
 
-```
+```csharp
 [DynamoDBTable("Reply")]
 public class Reply 
 {
@@ -88,7 +87,7 @@ public class Reply
 
 Identifies the target table in DynamoDB to which the class maps. For example, the following C\# code example maps the `Developer` class to the `People` table in DynamoDB.
 
-```
+```csharp
 [DynamoDBTable("People")]
 public class Developer { ...}
 ```
@@ -97,14 +96,14 @@ This attribute can be inherited or overridden.
 + The `DynamoDBTable` attribute can be inherited. In the preceding example, if you add a new class, `Lead`, that inherits from the `Developer` class, it also maps to the `People` table. Both the `Developer` and `Lead` objects are stored in the `People` table.
 + The `DynamoDBTable` attribute can also be overridden. In the following C\# code example, the `Manager` class inherits from the `Developer` class. However, the explicit addition of the `DynamoDBTable` attribute maps the class to another table (`Managers`).
 
-  ```
+  ```csharp
   [DynamoDBTable("Managers")]
   public class Manager : Developer { ...}
   ```
 
  You can add the optional parameter, `LowerCamelCaseProperties`, to request DynamoDB to make the first letter of the property name lowercase when storing the objects to a table, as shown in the following C\# example.
 
-```
+```csharp
 [DynamoDBTable("People", LowerCamelCaseProperties=true)]
 public class Developer 
 {

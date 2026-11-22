@@ -1,7 +1,6 @@
 
 
 # Using vector indexes in DynamoDB
-<a name="VectorSearch"></a>
 
 Vector indexes are a type of index in Amazon DynamoDB that enable similarity search on vector embeddings stored in your table items. Unlike global secondary indexes and local secondary indexes, which support exact-match and range queries using `Query` and `Scan` operations, vector indexes use approximate nearest neighbor (ANN) search to find items whose vectors are most similar to a query vector that you provide. You perform these similarity searches by calling the [SearchVectors](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_SearchVectors.html) API, which returns the most similar items ranked by a similarity score.
 
@@ -18,6 +17,7 @@ Vector indexes are managed through the same `CreateTable` and `UpdateTable` APIs
 + [Projections](#VectorSearch.Projections)
 + [Using vector indexes with other DynamoDB features](#VectorSearch.FeatureInteractions)
 + [Creating and searching vector indexes](VectorSearchWorkingWith.md)
++ [SearchConditionExpression reference for vector indexes](VectorSearchFilterReference.md)
 + [Requirements and limitations](VectorSearch.Requirements.md)
 + [Security and access control](VectorSearch.Security.md)
 + [Tutorial: Your first vector search](VectorSearchTutorial.md)
@@ -127,7 +127,7 @@ Define a vector index partition key when you expect a large index or high search
 `INLINE_FILTER`  
 An inline filter attribute is a regular, non-vector attribute whose value DynamoDB stores in the vector index next to each vector. Because the value sits with the vector, DynamoDB skips vectors that don't match your filter as it searches the index. This avoids searching the full index first and then discarding results that don't match.  
 For example, if you define a `Language` attribute as an inline filter, a search that filters on `Language` considers only the vectors whose `Language` value matches.  
-Inline filters support the equality operator (`=`) in `SearchConditionExpression`. Comparison, range, and set-membership operators (`<>`, `<`, `<=`, `>`, `>=`, `IN`) are not yet available. Unlike vector index partition keys, inline filters are optional during search.
+Inline filter attributes support `=`, `<>`, and `IN` on any attribute type, and the range operators `<`, `<=`, `>`, `>=`, and `BETWEEN` on Number (`N`) attributes, in `SearchConditionExpression`. For the full operator list and examples, see [Filtering with SearchConditionExpression](VectorSearchWorkingWith.md#VectorSearchWorkingWith.Search.Filtering). Unlike vector index partition keys, inline filters are optional during search.
 
 You can create a vector index without defining a partition key in the SearchSchema. In this case, every `SearchVectors` call searches the entire index. This is simpler because you don't need a `SearchConditionExpression`. However, because each search examines the entire index, the work each search does—and therefore its latency and cost—grows as your index grows. You also can't spread search throughput across multiple partition key values. If your workload requires high throughput or your index contains a large number of vectors, define a partition key to distribute data across partitions and scale independently. See [Choose a partition key that matches your query patterns](VectorSearchBestPractices.md#VectorSearchBestPractices.PartitionKey).
 

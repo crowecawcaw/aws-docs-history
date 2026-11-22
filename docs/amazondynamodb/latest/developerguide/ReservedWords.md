@@ -1,7 +1,6 @@
 
 
 # Reserved words in DynamoDB
-<a name="ReservedWords"></a>
 
 The following keywords are reserved for use by DynamoDB. Don't use any of these words as attribute names in expressions. This list isn't case-sensitive.
 

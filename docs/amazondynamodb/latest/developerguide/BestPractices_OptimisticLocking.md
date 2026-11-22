@@ -1,7 +1,6 @@
 
 
 # Optimistic locking with version number
-<a name="BestPractices_OptimisticLocking"></a>
 
 Optimistic locking is a strategy that detects conflicts at write time rather than preventing them. Each item includes a version attribute that increments with every update. When updating an item, you include a [condition expression](Expressions.ConditionExpressions.md) that checks whether the version number matches the value your application last read. If another process modified the item in the meantime, the condition fails and DynamoDB returns a `ConditionalCheckFailedException`.
 

@@ -1,7 +1,6 @@
 
 
 # How Amazon DynamoDB works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to DynamoDB, learn what IAM features are available to use with DynamoDB.
 

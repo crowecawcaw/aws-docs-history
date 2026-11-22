@@ -1,7 +1,6 @@
 
 
 # Evaluate your DynamoDB streams usage
-<a name="CostOptimization_StreamsUsage"></a>
 
 This section provides an overview of how to evaluate your DynamoDB Streams usage. There are certain usage patterns which are not optimal for DynamoDB, and they allow room for optimization from both a performance and cost perspective.
 

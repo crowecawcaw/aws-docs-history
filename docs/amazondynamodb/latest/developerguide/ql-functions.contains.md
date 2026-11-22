@@ -1,7 +1,6 @@
 
 
 # Using the CONTAINS function with PartiQL for DynamoDB
-<a name="ql-functions.contains"></a>
 
 Returns `TRUE` if the attribute specified by the path is one of the following:
 + A String that contains a particular substring. 
@@ -33,6 +32,6 @@ contains( {{path}}, {{substring}} )
 ## Examples
 <a name="ql-functions.contains.examples"></a>
 
-```
+```sql
 SELECT * FROM "Orders" WHERE "OrderID"=1 AND contains("Address", 'Kirkland')
 ```

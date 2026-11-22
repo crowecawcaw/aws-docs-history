@@ -1,7 +1,6 @@
 
 
 # Improving data access with secondary indexes in DynamoDB
-<a name="SecondaryIndexes"></a>
 
 Amazon DynamoDB supports two families of indexes, which serve different access patterns:
 + **Secondary indexes** — Give your application alternate keys to query by, in addition to the base table primary key. You read them with `Query` and `Scan`. This page describes secondary indexes.

@@ -1,7 +1,6 @@
 
 
 # Using the EXISTS function with PartiQL for DynamoDB
-<a name="ql-functions.exists"></a>
 
 You can use EXISTS to perform the same function as `ConditionCheck` does in the [TransactWriteItems](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems) API. The EXISTS function can only be used in transactions.
 

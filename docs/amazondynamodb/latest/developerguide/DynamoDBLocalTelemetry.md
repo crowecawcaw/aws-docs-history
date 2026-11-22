@@ -1,7 +1,6 @@
 
 
 # Telemetry in DynamoDB local
-<a name="DynamoDBLocalTelemetry"></a>
 
  At AWS, we develop and launch services based on what we learn from interactions with customers, and we use customer feedback to iterate on our products. Telemetry is additional information that helps us to better understand our customers needs, diagnose issues, and deliver features that improve the customer experience. 
 
@@ -21,7 +20,7 @@
 
  In macOS and Linux operating systems, you can turn off telemetry for a single session. To turn off telemetry for your current session, run the following command to set the environment variable `DDB_LOCAL_TELEMETRY` to `false`. Repeat the command for each new terminal or session. 
 
-```
+```bash
 export DDB_LOCAL_TELEMETRY=0
 ```
 
@@ -34,13 +33,13 @@ export DDB_LOCAL_TELEMETRY=0
 
 1.  Run: 
 
-   ```
+   ```bash
    echo "export DDB_LOCAL_TELEMETRY=0" >>~/.profile
    ```
 
 1.  Run: 
 
-   ```
+   ```bash
    source ~/.profile
    ```
 
@@ -48,13 +47,13 @@ export DDB_LOCAL_TELEMETRY=0
 
 1.  Run: 
 
-   ```
+   ```bash
    echo "export DDB_LOCAL_TELEMETRY=0" >>~/.profile
    ```
 
 1.  Run: 
 
-   ```
+   ```bash
    source ~/.profile
    ```
 
@@ -62,13 +61,13 @@ export DDB_LOCAL_TELEMETRY=0
 
 1.  Run: 
 
-   ```
+   ```cmd
    setx DDB_LOCAL_TELEMETRY 0
    ```
 
 1.  Run: 
 
-   ```
+   ```cmd
    refreshenv
    ```
 

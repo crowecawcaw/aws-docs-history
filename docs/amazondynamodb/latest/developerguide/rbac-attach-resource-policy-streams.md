@@ -1,7 +1,6 @@
 
 
 # Attach a resource-based policy to a DynamoDB stream
-<a name="rbac-attach-resource-policy-streams"></a>
 
 You can attach a resource-based policy to an existing table's stream or modify an existing policy by using the DynamoDB console, [PutResourcePolicy](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html) API, the AWS CLI, AWS SDK, or an [CloudFormation template](rbac-create-table.md#rbac-create-table-cfn).
 
@@ -74,7 +73,7 @@ Remember to replace the {{italicized}} text with your resource-specific informat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Example of modeling relational data in DynamoDB
-<a name="bp-modeling-nosql-B"></a>
 
 This example describes how to model relational data in Amazon DynamoDB. The DynamoDB table design corresponds to the relational order entry schema that is shown in [Relational modeling](bp-relational-modeling.md). This design uses multiple specialized tables rather than a single adjacency list, providing clear operational boundaries while leveraging strategic GSIs to serve all access patterns efficiently.
 

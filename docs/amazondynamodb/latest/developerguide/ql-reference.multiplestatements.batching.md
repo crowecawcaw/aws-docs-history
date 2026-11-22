@@ -1,7 +1,6 @@
 
 
 # Running batch operations with PartiQL for DynamoDB
-<a name="ql-reference.multiplestatements.batching"></a>
 
 This section describes how to use batch statements with PartiQL for DynamoDB.
 
@@ -18,7 +17,7 @@ The entire batch must consist of either read statements or write statements; you
 ## Syntax
 <a name="ql-reference.multiplestatements.batching.syntax"></a>
 
-```
+```json
 [
   {
     "Statement": "SELECT pk FROM ProblemSet WHERE pk = 'p#9StkWHYTxm7x2AqSXcrfu7' AND sk = 'info'"
@@ -29,7 +28,7 @@ The entire batch must consist of either read statements or write statements; you
 ]
 ```
 
-```
+```json
 [
    {
       "Statement":"{{ statement }}",
@@ -63,7 +62,7 @@ The entire batch must consist of either read statements or write statements; you
 
 1. Save the following json to a file called partiql.json
 
-   ```
+   ```json
    [
       {
    	 "Statement": "INSERT INTO Music VALUE {'Artist':?,'SongTitle':?}",
@@ -84,7 +83,7 @@ The entire batch must consist of either read statements or write statements; you
 ------
 #### [ Java ]
 
-```
+```java
 public class DynamoDBPartiqlBatch {
 
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 
 
 # AttributeUpdates (legacy)
-<a name="LegacyConditionalParameters.AttributeUpdates"></a>
 
 **Note**  
 We recommend that you use the new expression parameters instead of these legacy parameters whenever possible. For more information, see [Using expressions in DynamoDB](Expressions.md). For specific information on the new parameter replacing this one, [use *UpdateExpression* instead.](#UpdateExpression.instead). 

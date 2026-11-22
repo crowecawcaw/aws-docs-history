@@ -1,7 +1,6 @@
 
 
 # Step 1: Deploy and test locally
-<a name="TicTacToe.Phase1"></a>
 
 **Topics**
 + [1.1: Download and install the required packages](#TicTacToe.Phase1.InstallApp)
@@ -30,14 +29,14 @@ To get these tools, do the following:
 
      For instructions, see [Install PIP](http://pip.readthedocs.org/en/stable/installing/). On the installation page, choose the **get-pip.py** link, and then save the file. Then open a command terminal as an administrator, and enter the following at the command prompt.
 
-     ```
+     ```python
      python.exe get-pip.py
      ```
 
       On Linux, you don't specify the `.exe` extension. You only specify `python get-pip.py`. 
    + Using PIP, install the Flask and Boto packages using the following code.
 
-     ```
+     ```python
      pip install Flask
      pip install boto
      pip install configparser

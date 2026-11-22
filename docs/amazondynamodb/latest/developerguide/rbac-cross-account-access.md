@@ -1,7 +1,6 @@
 
 
 # Cross-account access with resource-based policies in DynamoDB
-<a name="rbac-cross-account-access"></a>
 
 Using a resource-based policy, you can provide cross-account access to resources available in different AWS accounts. All cross-account access allowed by the resource-based policies will be reported through IAM Access Analyzer external access findings if you have an analyzer in the same AWS Region as the resource. IAM Access Analyzer runs policy checks to validate your policy against IAM [policy grammar](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) and [best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html). These checks generate findings and provide actionable recommendations to help you author policies that are functional and conform to security best practices. You can view the active findings from IAM Access Analyzer in the **Permissions** tab of the [DynamoDB console](https://console.aws.amazon.com/dynamodb/).
 

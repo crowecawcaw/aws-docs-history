@@ -1,7 +1,6 @@
 
 
 # Update a DynamoDB item with a TTL using an AWS SDK
-<a name="example_dynamodb_UpdateItemTTL_section"></a>
 
 The following code examples show how to update an item's TTL.
 
@@ -11,7 +10,7 @@ The following code examples show how to update an item's TTL.
 **SDK for Java 2.x**  
 Update TTL on an existing DynamoDB item in a table.  
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
@@ -71,7 +70,7 @@ import java.util.Optional;
 
 **SDK for JavaScript (v3)**  
 
-```
+```javascript
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
@@ -118,7 +117,7 @@ export const updateItem = async (tableName, partitionKey, sortKey, region = 'us-
 
 **SDK for Python (Boto3)**  
 
-```
+```python
 from datetime import datetime, timedelta
 
 import boto3

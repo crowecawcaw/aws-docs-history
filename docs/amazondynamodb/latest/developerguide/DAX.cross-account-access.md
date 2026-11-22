@@ -1,7 +1,6 @@
 
 
 # Accessing DAX across AWS accounts
-<a name="DAX.cross-account-access"></a>
 
 Imagine that you have a DynamoDB Accelerator (DAX) cluster running in one AWS account (account A), and the DAX cluster needs to be accessible from an Amazon Elastic Compute Cloud (Amazon EC2) instance in another AWS account (account B). In this tutorial, you accomplish this by launching an EC2 instance in account B with an IAM role from account B. You then use temporary security credentials from the EC2 instance to assume an IAM role from account A. Finally, you use the temporary security credentials from assuming the IAM role in account A to make application calls over an Amazon VPC peering connection to the DAX cluster in account A. In order to perform these tasks you will need administrative access in both AWS accounts.
 
@@ -23,7 +22,7 @@ Imagine that you have a DynamoDB Accelerator (DAX) cluster running in one AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -55,7 +54,7 @@ Imagine that you have a DynamoDB Accelerator (DAX) cluster running in one AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -101,7 +100,7 @@ Imagine that you have a DynamoDB Accelerator (DAX) cluster running in one AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -133,7 +132,7 @@ Imagine that you have a DynamoDB Accelerator (DAX) cluster running in one AWS ac
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -268,7 +267,7 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Add the following imports.
 
-   ```
+   ```java
    import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider;
    import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
    import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
@@ -276,7 +275,7 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Get a credentials provider from AWS STS and create a DAX client object. Remember to replace each {{user input placeholder}} with the correct values for your accounts.
 
-   ```
+   ```java
    AWSSecurityTokenService awsSecurityTokenService = AWSSecurityTokenServiceClientBuilder
         .standard()
         .withRegion({{region}})
@@ -306,14 +305,14 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Use the `SecurityToken` and `SecurityToken.Model` packages.
 
-   ```
+   ```csharp
    using Amazon.SecurityToken;
    using Amazon.SecurityToken.Model;
    ```
 
 1. Get temporary credentials from `AmazonSimpleTokenService` and create a `ClusterDaxClient` object. Remember to replace each {{user input placeholder}} with the correct values for your accounts.
 
-   ```
+   ```csharp
    IAmazonSecurityTokenService sts = new AmazonSecurityTokenServiceClient();
    
    var assumeRoleResponse = sts.AssumeRole(new AssumeRoleRequest
@@ -340,7 +339,7 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Import the AWS STS and session packages.
 
-   ```
+   ```go
    import (
        "github.com/aws/aws-sdk-go/aws/session"
        "github.com/aws/aws-sdk-go/service/sts"
@@ -350,7 +349,7 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Get temporary credentials from `AmazonSimpleTokenService` and create a DAX client object. Remember to replace each {{user input placeholder}} with the correct values for your accounts.
 
-   ```
+   ```go
    sess, err := session.NewSession(&aws.Config{
        Region: aws.String({{region}})},
    )
@@ -380,13 +379,13 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 1. Import `boto3`.
 
-   ```
+   ```python
    import boto3
    ```
 
 1. Get temporary credentials from `sts` and create an `AmazonDaxClient` object. Remember to replace each {{user input placeholder}} with the correct values for your accounts.
 
-   ```
+   ```python
    sts = boto3.client('sts')
    stsresponse = sts.assume_role(RoleArn='arn:aws:iam::{{accountA}}:role/{{RoleName}}',RoleSessionName='tryDax')
    credentials = botocore.session.get_session()['Credentials']
@@ -400,7 +399,7 @@ This section helps you modify your existing DAX client code to allow cross-accou
 
 This section helps you modify your existing DAX client code to allow cross-account DAX access. If you don't have DAX client code already, you can find working code examples in the [Node.js and DAX](DAX.client.run-application-nodejs.md) tutorial. Remember to replace each {{user input placeholder}} with the correct values for your accounts.
 
-```
+```javascript
 const AmazonDaxClient = require('amazon-dax-client');
 const AWS = require('aws-sdk');
 const region = '{{region}}';

@@ -1,7 +1,6 @@
 
 
 # Example tables and data for use in DynamoDB
-<a name="AppendixSampleTables"></a>
 
 The *Amazon DynamoDB Developer Guide* uses sample tables to illustrate various aspects of DynamoDB.
 
@@ -40,7 +39,7 @@ Each data file contains multiple `PutRequest` elements, each of which contain a 
 ### *ProductCatalog* sample data
 <a name="AppendixSampleData.ProductCatalog"></a>
 
-```
+```json
 {
     "ProductCatalog": [
         {
@@ -352,7 +351,7 @@ Each data file contains multiple `PutRequest` elements, each of which contain a 
 ### *Forum* sample data
 <a name="AppendixSampleData.Forum"></a>
 
-```
+```json
 {
     "Forum": [
         {
@@ -381,7 +380,7 @@ Each data file contains multiple `PutRequest` elements, each of which contain a 
 ### *Thread* sample data
 <a name="AppendixSampleData.Thread"></a>
 
-```
+```json
 {
     "Thread": [
         {
@@ -517,7 +516,7 @@ Each data file contains multiple `PutRequest` elements, each of which contain a 
 ### *Reply* sample data
 <a name="AppendixSampleDataProductCatalog"></a>
 
-```
+```json
 {
     "Reply": [
         {

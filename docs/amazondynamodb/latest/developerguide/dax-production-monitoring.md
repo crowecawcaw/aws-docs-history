@@ -1,7 +1,6 @@
 
 
 # Production monitoring
-<a name="dax-production-monitoring"></a>
 
  You should establish a baseline for normal DAX performance in your environment, by measuring performance at various times and under different load conditions. As you monitor DAX, you should consider storing historical monitoring data. This stored data gives you a baseline from which to compare current performance data, identify normal performance patterns and performance anomalies, and devise methods to address issues. 
 

@@ -1,7 +1,6 @@
 
 
 # Example 2: Allow tagging a stream using aws:RequestTag
-<a name="streams-abac-example-2"></a>
 
 Using the `aws:RequestTag/tag-key` condition key, you can compare the tag key-value pair that's passed in your request with the tag pair specified in the IAM policy. For example, you can allow tagging a stream only if the request includes a specific tag.
 
@@ -10,7 +9,7 @@ Using the `aws:RequestTag/tag-key` condition key, you can compare the tag key-va
 
 1. Create an [inline policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#inline-policies) and add it to a role, as shown in the following example.
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",
      "Statement": [
@@ -32,7 +31,7 @@ Using the `aws:RequestTag/tag-key` condition key, you can compare the tag key-va
 
 1. Tag the stream with the required tag key-value pair.
 
-   ```
+   ```bash
    aws dynamodb tag-resource \
      --resource-arn arn:aws:dynamodb:us-east-1:123456789012:table/myMusicTable/stream/2024-01-01T00:00:00.000 \
      --tags Key=CostCenter,Value=12345

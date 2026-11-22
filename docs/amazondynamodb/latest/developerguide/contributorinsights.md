@@ -1,7 +1,6 @@
 
 
 # Analyzing data access using CloudWatch contributor insights for DynamoDB
-<a name="contributorinsights"></a>
 
 Amazon CloudWatch Contributor Insights for Amazon DynamoDB is a diagnostic tool for identifying the most frequently accessed and throttled keys in your table or index at a glance. This tool uses [CloudWatch contributor insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
 

@@ -1,7 +1,6 @@
 
 
 # Example: Handling binary type attributes using the AWS SDK for .NET low-level API
-<a name="LowLevelDotNetBinaryTypeExample"></a>
 
 The following C\# code example illustrates the handling of binary type attributes. The example adds an item to the `Reply` table. The item includes a binary type attribute (`ExtendedMessage`) that stores compressed data. The example then retrieves the item and prints all the attribute values. For illustration, the example uses the `GZipStream` class to compress a sample stream and assigns it to the `ExtendedMessage` attribute, and decompresses it when printing the attribute value. 
 
@@ -9,7 +8,7 @@ For step-by-step instructions for testing the following example, see [.NET code 
 
 **Example**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.IO;

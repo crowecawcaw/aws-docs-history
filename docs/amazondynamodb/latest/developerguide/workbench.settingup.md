@@ -1,7 +1,6 @@
 
 
 # Download NoSQL Workbench for DynamoDB
-<a name="workbench.settingup"></a>
 
 Follow these instructions to download NoSQL Workbench and DynamoDB local for Amazon DynamoDB.
 

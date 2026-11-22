@@ -1,9 +1,8 @@
 
 
 # TryDax.java
-<a name="DAX.client.TryDax.java"></a>
 
-```
+```java
 import java.util.Map;
 
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;

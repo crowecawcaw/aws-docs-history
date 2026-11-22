@@ -1,7 +1,6 @@
 
 
 # Backing up and restoring DynamoDB tables with AWS Backup: How it works
-<a name="GettingStartedBackupsAWS"></a>
 
 You can use the on-demand backup feature to create full backups of your Amazon DynamoDB tables. This section provides an overview of what happens during the backup and restore process.
 

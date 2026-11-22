@@ -1,7 +1,6 @@
 
 
 # Distributed locking with the DynamoDB Lock Client
-<a name="BestPractices_DistributedLocking"></a>
 
 For applications that require traditional lock-acquire-release semantics, the DynamoDB Lock Client is an open-source library that implements distributed locking using a DynamoDB table as the lock store. This approach is useful when you need to coordinate access to an external resource (such as an S3 object or a shared configuration) across multiple application instances.
 
@@ -44,7 +43,7 @@ If your application acquires locks on multiple resources, you must acquire them 
 
 The following example shows how to use the DynamoDB Lock Client to acquire and release a lock:
 
-```
+```java
 import java.io.IOException;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;

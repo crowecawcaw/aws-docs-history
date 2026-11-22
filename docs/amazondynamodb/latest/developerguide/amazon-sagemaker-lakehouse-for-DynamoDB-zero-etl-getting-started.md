@@ -1,7 +1,6 @@
 
 
 # Creating a DynamoDB zero-ETL integration with Amazon SageMaker Lakehouse
-<a name="amazon-sagemaker-lakehouse-for-DynamoDB-zero-etl-getting-started"></a>
 
 After completing integration prerequisites, you can create, modify, or delete the zero-ETL integration following the guidance below:
 

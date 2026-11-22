@@ -1,7 +1,6 @@
 
 
 # Using DynamoDB with other AWS services
-<a name="OtherServices"></a>
 
 Amazon DynamoDB is integrated with other AWS services, letting you automate repeating tasks or build applications that span multiple services. 
 

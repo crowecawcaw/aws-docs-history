@@ -1,7 +1,6 @@
 
 
 # Working with tables and data in DynamoDB
-<a name="WorkingWithTables"></a>
 
 This section describes how to use the AWS Command Line Interface (AWS CLI) and the AWS SDKs to create, update, and delete tables in Amazon DynamoDB.
 

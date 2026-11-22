@@ -1,7 +1,6 @@
 
 
 # Monitoring vector index capacity
-<a name="VectorSearchMonitoring"></a>
 
 To monitor capacity consumption for vector index operations, set the `ReturnConsumedCapacity` parameter to `INDEXES` or `TOTAL` in your `SearchVectors` requests, or to `INDEXES` in your write API requests.
 
@@ -11,7 +10,7 @@ Vector index operations are metered in two units, separate from the read and wri
 
 The following example shows the `ConsumedCapacity` returned by a `SearchVectors` request.
 
-```
+```json
 {
     "ConsumedCapacity": {
         "VectorSearchRequestBytes": 41714.0
@@ -21,7 +20,7 @@ The following example shows the `ConsumedCapacity` returned by a `SearchVectors`
 
 For write operations (`PutItem`, `UpdateItem`, `DeleteItem`, `BatchWriteItem`, `TransactWriteItems`), the response includes a `VectorIndexes` map in `ConsumedCapacity`, keyed by index name. Each entry reports `VectorWriteRequestBytes` for the capacity consumed when replicating changes to each vector index.
 
-```
+```json
 {
     "ConsumedCapacity": {
         "TableName": "Products",

@@ -1,7 +1,6 @@
 
 
 # Working with items and attributes in DynamoDB
-<a name="WorkingWithItems"></a>
 
 In Amazon DynamoDB, an *item* is a collection of attributes. Each attribute has a name and a value. An attribute value can be a scalar, a set, or a document type. For more information, see [Amazon DynamoDB: How it works](HowItWorks.md).
 
@@ -104,7 +103,7 @@ aws dynamodb put-item \
 ```
 The arguments for `--item` are stored in the `item.json` file.  
 
-```
+```json
 {
     "ForumName": {"S": "Amazon DynamoDB"},
     "Subject": {"S": "New discussion thread"},
@@ -137,7 +136,7 @@ aws dynamodb update-item \
 
 The arguments for `--key` are stored in the `key.json` file.
 
-```
+```json
 {
     "ForumName": {"S": "Amazon DynamoDB"},
     "Subject": {"S": "New discussion thread"}
@@ -146,7 +145,7 @@ The arguments for `--key` are stored in the `key.json` file.
 
 The arguments for `--expression-attribute-values` are stored in the `expression-attribute-values.json` file.
 
-```
+```json
 {
     ":zero": {"N":"0"},
     ":lastpostedby": {"S":"barney@example.com"}
@@ -228,7 +227,7 @@ aws dynamodb batch-get-item \
 ```
 The arguments for `--request-items` are stored in the `request-items.json` file.  
 
-```
+```json
 {
     "Thread": {
         "Keys": [
@@ -263,7 +262,7 @@ aws dynamodb batch-write-item \
 ```
 The arguments for `--request-items` are stored in the `request-items.json` file.  
 
-```
+```json
 {
     "ProductCatalog": [
         {
@@ -339,7 +338,7 @@ aws dynamodb update-item \
 
 The arguments for `--expression-attribute-values` are stored in the file `expression-attribute-values.json`:
 
-```
+```json
 {
     ":newval":{"N":"8"}
 }
@@ -347,7 +346,7 @@ The arguments for `--expression-attribute-values` are stored in the file `expres
 
 Now suppose that Bob issues a similar `UpdateItem` request later, but changes the `Price` to 12. For Bob, the `--expression-attribute-values` parameter looks like the following.
 
-```
+```json
 {
     ":newval":{"N":"12"}
 }
@@ -375,7 +374,7 @@ aws dynamodb update-item \
 
 The arguments for `--expression-attribute-values` are stored in the `expression-attribute-values.json` file.
 
-```
+```json
 {
     ":newval":{"N":"8"},
     ":currval":{"N":"10"}
@@ -386,7 +385,7 @@ Alice's update succeeds because the condition evaluates to true.
 
 Next, Bob attempts to update the `Price` to 12, but only if the current `Price` is 10. For Bob, the `--expression-attribute-values` parameter looks like the following.
 
-```
+```json
 {
     ":newval":{"N":"12"},
     ":currval":{"N":"10"}

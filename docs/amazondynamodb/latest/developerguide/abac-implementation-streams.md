@@ -1,7 +1,6 @@
 
 
 # Using ABAC with DynamoDB Streams
-<a name="abac-implementation-streams"></a>
 
 The following steps show how to set up permissions using ABAC for DynamoDB Streams. In this example scenario, you add tags to a DynamoDB stream and create an IAM role with a policy that includes tag-based conditions. Then, you test the allowed permissions on the DynamoDB stream by matching the tag conditions.
 
@@ -15,7 +14,7 @@ The following steps show how to set up permissions using ABAC for DynamoDB Strea
 
 You can add tags to DynamoDB Streams using the AWS CLI or SDK. The following `tag-resource` CLI command adds a tag to a stream.
 
-```
+```bash
 aws dynamodb tag-resource \
   --resource-arn arn:aws:dynamodb:us-east-1:123456789012:table/MusicTable/stream/2024-01-01T00:00:00.000 \
   --tags Key=environment,Value=staging
@@ -29,7 +28,7 @@ To find your stream ARN, use the `describe-table` command and look for the `Late
 
 Create an IAM policy using the `aws:ResourceTag/{{tag-key}}` condition key to compare the tag key-value pair that's specified in the IAM policy with the key-value pair that's attached to the stream. The following example policy allows users to get records and describe a stream if the stream contains the tag key-value pair: `"environment": "staging"`. If a stream doesn't have the specified tag key-value pair, these actions are denied.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

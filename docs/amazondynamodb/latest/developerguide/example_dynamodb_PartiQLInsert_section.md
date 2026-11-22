@@ -1,7 +1,6 @@
 
 
 # Insert DynamoDB data using PartiQL INSERT statements with an AWS SDK
-<a name="example_dynamodb_PartiQLInsert_section"></a>
 
 The following code example shows how to insert data using PartiQL INSERT statements.
 
@@ -11,7 +10,7 @@ The following code example shows how to insert data using PartiQL INSERT stateme
 **SDK for JavaScript (v3)**  
 Insert items into a DynamoDB table using PartiQL INSERT statements with AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * This example demonstrates how to insert items into a DynamoDB table using PartiQL.
  * It shows different ways to insert documents with various index types.

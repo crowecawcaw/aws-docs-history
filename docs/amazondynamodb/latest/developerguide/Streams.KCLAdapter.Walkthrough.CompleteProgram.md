@@ -1,7 +1,6 @@
 
 
 # Complete program: DynamoDB Streams Kinesis adapter
-<a name="Streams.KCLAdapter.Walkthrough.CompleteProgram"></a>
 
 The following is the complete Java program that performs the tasks described in [Walkthrough: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md). When you run it, you should see output similar to the following.
 
@@ -23,7 +22,7 @@ The source code consists of four `.java` files. To build this program, add the f
 ------
 #### [ Maven ]
 
-```
+```xml
 <dependency>
     <groupId>com.amazonaws</groupId>
     <artifactId>dynamodb-streams-kinesis-adapter</artifactId>
@@ -49,7 +48,7 @@ The source files are:
 ## StreamsAdapterDemo.java
 <a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsAdapterDemo"></a>
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import com.amazonaws.services.dynamodbv2.streamsadapter.AmazonDynamoDBStreamsAdapterClient;
@@ -207,7 +206,7 @@ public class StreamsAdapterDemo {
 ## StreamsRecordProcessor.java
 <a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsRecordProcessor"></a>
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import com.amazonaws.services.dynamodbv2.streamsadapter.adapter.DynamoDBStreamsClientRecord;
@@ -297,7 +296,7 @@ public class StreamsRecordProcessor implements DynamoDBStreamsShardRecordProcess
 ## StreamsRecordProcessorFactory.java
 <a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsRecordProcessorFactory"></a>
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
@@ -323,7 +322,7 @@ public class StreamsAdapterDemoProcessorFactory implements ShardRecordProcessorF
 ## StreamsAdapterDemoHelper.java
 <a name="Streams.KCLAdapter.Walkthrough.CompleteProgram.StreamsAdapterDemoHelper"></a>
 
-```
+```java
 package com.amazonaws.codesamples;
 
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;

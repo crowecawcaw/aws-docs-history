@@ -1,7 +1,6 @@
 
 
 # Troubleshooting latency issues in Amazon DynamoDB
-<a name="TroubleshootingLatency"></a>
 
 If your workload appears to experience high latency, you can analyze the CloudWatch `SuccessfulRequestLatency` metric, and check the average latency and median latency through percentile metrics (p50) to see if it’s related to DynamoDB. Some variability in the reported `SuccessfulRequestLatency` is normal, and occasional spikes (particularly in the `Maximum` statistic and high percentiles) should not be cause for concern. However, if the `Average` statistic or p50 (median) shows a sharp increase and persists, you should check the AWS Service Health Dashboard and your Personal Health Dashboard for more information. Some possible causes include the size of the item in your table (a 1 KB item and a 400 KB item will vary in latency) or the size of the query (10 items versus 100 items).
 

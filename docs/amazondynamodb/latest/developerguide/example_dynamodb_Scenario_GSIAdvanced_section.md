@@ -1,7 +1,6 @@
 
 
 # Work with advanced DynamoDB Global Secondary Index scenarios using AWS Command Line Interface v2
-<a name="example_dynamodb_Scenario_GSIAdvanced_section"></a>
 
 The following code example shows how to work with advanced Global Secondary Index configurations.
 + Create a table with multiple GSIs.
@@ -15,7 +14,7 @@ The following code example shows how to work with advanced Global Secondary Inde
 **AWS CLI with Bash script**  
 Create a table with multiple GSIs.  
 
-```
+```bash
 # Create a table with multiple GSIs
 aws dynamodb create-table \
     --table-name MusicLibrary \
@@ -48,7 +47,7 @@ aws dynamodb create-table \
 ```
 Create a table with on-demand capacity and GSI.  
 
-```
+```bash
 # Create a table with on-demand capacity and GSI
 aws dynamodb create-table \
     --table-name MusicOnDemand \
@@ -71,7 +70,7 @@ aws dynamodb create-table \
 ```
 Put items into a table with multiple GSIs.  
 
-```
+```bash
 # Add items to MusicLibrary table
 aws dynamodb put-item \
     --table-name MusicLibrary \
@@ -95,7 +94,7 @@ aws dynamodb put-item \
 ```
 Query items from a table with multiple GSIs.  
 
-```
+```bash
 # Query the AlbumIndex GSI
 echo "Querying AlbumIndex GSI:"
 aws dynamodb query \

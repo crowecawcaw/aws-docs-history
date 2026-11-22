@@ -1,7 +1,6 @@
 
 
 # Manage DynamoDB Global Secondary Indexes using AWS Command Line Interface v2
-<a name="example_dynamodb_Scenario_GSILifecycle_section"></a>
 
 The following code example shows how to manage the complete lifecycle of Global Secondary Indexes.
 + Create a table with a Global Secondary Index.
@@ -16,7 +15,7 @@ The following code example shows how to manage the complete lifecycle of Global 
 **AWS CLI with Bash script**  
 Create a table with a Global Secondary Index.  
 
-```
+```bash
 # Create a table with a GSI
 aws dynamodb create-table \
     --table-name MusicCollection \
@@ -35,7 +34,7 @@ aws dynamodb create-table \
 ```
 Add a new (on-demand) GSI to an existing table.  
 
-```
+```bash
 # Add a new GSI to an existing table
 aws dynamodb update-table \
     --table-name MusicCollection \
@@ -48,7 +47,7 @@ aws dynamodb update-table \
 ```
 Update (increase) GSI warm throughput.  
 
-```
+```bash
 # Increase the warm throughput of a GSI (default values are 12k reads, 4k writes)
 aws dynamodb update-table \
     --table-name MusicCollection \
@@ -58,7 +57,7 @@ aws dynamodb update-table \
 ```
 Query data using GSIs.  
 
-```
+```bash
 # Query the AlbumIndex GSI
 aws dynamodb query \
     --table-name MusicCollection \
@@ -75,7 +74,7 @@ aws dynamodb query \
 ```
 Delete a GSI.  
 
-```
+```bash
 # Delete a GSI from a table
 aws dynamodb update-table \
     --table-name MusicCollection \

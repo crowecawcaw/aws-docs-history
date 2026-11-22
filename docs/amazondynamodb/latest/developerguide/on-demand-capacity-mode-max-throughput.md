@@ -1,7 +1,6 @@
 
 
 # DynamoDB maximum throughput for on-demand tables
-<a name="on-demand-capacity-mode-max-throughput"></a>
 
 For on-demand tables, you can optionally specify maximum read or write (or both) throughput per second on individual tables and associated global secondary indexes (GSIs). Specifying a maximum on-demand throughput helps keep table-level usage and costs bounded. By default, maximum throughput settings don’t apply and your on-demand throughput rate is bounded by 40,000 table-level read and write throughput [AWS service quota](ServiceQuotas.md#default-limits-throughput) for all tables in the account. If needed, you can request an increase to your service quota.
 

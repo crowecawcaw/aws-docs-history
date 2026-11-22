@@ -1,7 +1,6 @@
 
 
 # Example: Handling binary type attributes using the AWS SDK for Java document API
-<a name="JavaDocumentAPIBinaryTypeExample"></a>
 
 The following Java code example illustrates handling binary type attributes. The example adds an item to the `Reply` table. The item includes a binary type attribute (`ExtendedMessage`) that stores compressed data. The example then retrieves the item and prints all the attribute values. For illustration, the example uses the `GZIPOutputStream` class to compress a sample stream and assign it to the `ExtendedMessage` attribute. When the binary attribute is retrieved, it is decompressed using the `GZIPInputStream` class. 
 
@@ -14,7 +13,7 @@ For step-by-step instructions for testing the following sample, see [Java code e
 
 **Example**  
 
-```
+```java
 package com.amazonaws.codesamples.document;
 
 import java.io.ByteArrayInputStream;

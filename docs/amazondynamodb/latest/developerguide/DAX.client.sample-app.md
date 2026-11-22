@@ -1,7 +1,6 @@
 
 
 # Tutorial: Running a sample application using DynamoDB Accelerator (DAX)
-<a name="DAX.client.sample-app"></a>
 
 This tutorial demonstrates how to launch an Amazon EC2 instance in your default virtual private cloud (VPC), connect to the instance, and run a sample application that uses Amazon DynamoDB Accelerator (DAX).
 

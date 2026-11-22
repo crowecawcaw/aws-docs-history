@@ -1,7 +1,6 @@
 
 
 # Condition and filter expressions, operators, and functions in DynamoDB
-<a name="Expressions.OperatorsAndFunctions"></a>
 
 To manipulate data in an DynamoDB table, you use the `PutItem`, `UpdateItem`, and `DeleteItem` operations. For these data manipulation operations, you can specify a condition expression to determine which items should be modified. If the condition expression evaluates to true, the operation succeeds. Otherwise, the operation fails.
 

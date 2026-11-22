@@ -1,7 +1,6 @@
 
 
 # Amazon DynamoDB: How it works
-<a name="HowItWorks"></a>
 
 The following sections provide an overview of Amazon DynamoDB service components and how they interact.
 

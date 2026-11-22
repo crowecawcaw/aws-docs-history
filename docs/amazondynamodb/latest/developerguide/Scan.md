@@ -1,7 +1,6 @@
 
 
 # Scanning tables in DynamoDB
-<a name="Scan"></a>
 
 A `Scan` operation in Amazon DynamoDB reads every item in a table or a secondary index. By default, a `Scan` operation returns all of the data attributes for every item in the table or index. You can use the `ProjectionExpression` parameter so that `Scan` only returns some of the attributes, rather than all of them.
 

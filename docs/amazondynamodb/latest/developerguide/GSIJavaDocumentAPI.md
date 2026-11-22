@@ -1,7 +1,6 @@
 
 
 # Working with Global Secondary Indexes: Java
-<a name="GSIJavaDocumentAPI"></a>
 
 You can use the AWS SDK for Java Document API to create an Amazon DynamoDB table with one or more global secondary indexes, describe the indexes on the table, and perform queries using the indexes. 
 
@@ -38,7 +37,7 @@ The following Java code example demonstrates the preceding steps. The code creat
 
 Because `Precipitation` is not a key attribute for the table, it is not required. However, `WeatherData` items without `Precipitation` do not appear in `PrecipIndex`.
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -115,7 +114,7 @@ The following Java code example demonstrates the preceding steps.
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 
@@ -165,7 +164,7 @@ The following Java code example demonstrates the preceding steps.
 
 **Example**  
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 DynamoDB dynamoDB = new DynamoDB(client);
 

@@ -1,7 +1,6 @@
 
 
 # Example: Global Secondary Indexes using the AWS SDK for .NET low-level API
-<a name="GSILowLevelDotNet.Example"></a>
 
 The following C\# code example shows how to work with global secondary indexes. The example creates a table named `Issues`, which might be used in a simple bug tracking system for software development. The partition key is `IssueId` and the sort key is `Title`. There are three global secondary indexes on this table:
 + `CreateDateIndex` — The partition key is `CreateDate` and the sort key is `IssueId`. In addition to the table keys, the attributes `Description` and `Status` are projected into the index.
@@ -14,7 +13,7 @@ For step-by-step instructions for testing the following sample, see [.NET code e
 
 **Example**  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;

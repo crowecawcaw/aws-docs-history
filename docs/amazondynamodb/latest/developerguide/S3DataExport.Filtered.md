@@ -1,7 +1,6 @@
 
 
 # Filtering a table export
-<a name="S3DataExport.Filtered"></a>
 
 Instead of exporting an entire table, you can export only the items and attributes that you need. DynamoDB exports only the data that matches the expressions you provide. Filtered export works with both full exports and incremental exports.
 

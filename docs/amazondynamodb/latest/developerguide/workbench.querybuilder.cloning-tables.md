@@ -1,7 +1,6 @@
 
 
 # Cloning tables with NoSQL Workbench
-<a name="workbench.querybuilder.cloning-tables"></a>
 
 Cloning tables will copy a table’s key schema (and optionally GSI schema and items) between your development environments. You can clone a table between DynamoDB local to an Amazon DynamoDB account, and even clone a table from one account to another in different Regions for faster experimentation.
 

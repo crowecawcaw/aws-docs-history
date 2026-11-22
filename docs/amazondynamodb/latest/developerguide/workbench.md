@@ -1,7 +1,6 @@
 
 
 # NoSQL Workbench for DynamoDB
-<a name="workbench"></a>
 
  NoSQL Workbench for Amazon DynamoDB is a cross-platform, client-side GUI application that you can use for modern database development and operations. It's available for Windows, macOS, and Linux. NoSQL Workbench lets you design DynamoDB data models, define access patterns as real DynamoDB operations, and validate them using sample data. Additionally you can organize your data models into projects. NoSQL Workbench includes DynamoDB local, which makes it possible to test your tables and indexes before committing your data model to the cloud. To learn more about DynamoDB local and its requirements, see [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md).
 
@@ -13,7 +12,7 @@ NoSQL Workbench provides a rich graphical user interface for you to develop and 
 
 The video below details concepts of data modeling with NoSQL Workbench.
 
-[![AWS Videos](https://img.youtube.com/vi/p5va6ZX9_o0?si=vqQuf6FjoBuK1phR/0.jpg)](https://www.youtube.com/watch?v=p5va6ZX9_o0?si=vqQuf6FjoBuK1phR)
+[![AWS Videos](https://img.youtube.com/vi/p5va6ZX9_o0/0.jpg)](https://www.youtube.com/watch?v=p5va6ZX9_o0)
 
 
 **Topics**

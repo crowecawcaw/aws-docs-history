@@ -1,7 +1,6 @@
 
 
 # Managing throughput capacity automatically with DynamoDB auto scaling
-<a name="AutoScaling"></a>
 
 Many database workloads are cyclical in nature, while others are difficult to predict in advance. For one example, consider a social networking app where most of the users are active during daytime hours. The database must be able to handle the daytime activity, but there's no need for the same levels of throughput at night. For another example, consider a new mobile gaming app that is experiencing unexpectedly rapid adoption. If the game becomes too popular it could exceed the available database resources, resulting in slow performance and unhappy customers. These kinds of workloads often require manual intervention to scale database resources up or down in response to varying usage levels.
 
@@ -78,6 +77,7 @@ You can also schedule your DynamoDB scaling so it happens at certain times. Lear
 
 Before you begin using DynamoDB auto scaling, you should be aware of the following:
 + DynamoDB auto scaling can increase read capacity or write capacity as often as necessary, in accordance with your auto scaling policy. All DynamoDB quotas remain in effect, as described in [Quotas in Amazon DynamoDB](ServiceQuotas.md).
++ Set the minimum and maximum capacity for each table and its global secondary indexes within each table's throughput quota. Each table's provisioned capacity also counts toward your account-level throughput quota, along with that of your other tables in the Region. As a result, maximums that each stay within a table's quota can still add up to more than the account quota. If a scaling action exceeds either quota, it fails, and provisioned capacity doesn't change. DynamoDB can then throttle requests above the current capacity. To find failed scaling actions, review the scaling activity history with `describe-scaling-activities`. To scale beyond your quotas, request an increase through the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/dynamodb/quotas/).
 + DynamoDB auto scaling doesn't prevent you from manually modifying provisioned throughput settings. These manual adjustments don't affect any existing CloudWatch alarms that are related to DynamoDB auto scaling.
 + If you enable DynamoDB auto scaling for a table that has one or more global secondary indexes, we highly recommend that you also apply auto scaling uniformly to those indexes. This will help ensure better performance for table writes and reads, and help avoid throttling. You can enable auto scaling by selecting **Apply same settings to global secondary indexes** in the AWS Management Console. For more information, see [Enabling DynamoDB auto scaling on existing tables](AutoScaling.Console.md#AutoScaling.Console.ExistingTable).
 + When you delete a table or global table replica, any associated scalable targets, scaling polices or CloudWatch alarms are not automatically deleted with it.

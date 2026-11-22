@@ -1,7 +1,6 @@
 
 
 # Java code examples
-<a name="CodeSamples.Java"></a>
 
 **Topics**
 + [Java: Setting your AWS credentials](#CodeSamples.Java.Credentials)
@@ -74,7 +73,7 @@ By default, the code examples access DynamoDB in the US West (Oregon) Region. Yo
 
 The following code example instantiates a new `AmazonDynamoDB`.
 
-```
+```java
 import software.amazon.dynamodb.AmazonDynamoDBClientBuilder;
 import com.amazonaws.regions.Regions;
 ...
@@ -91,7 +90,7 @@ If you want to run the code examples using DynamoDB locally on your computer, se
 ### AWS SDK V1
 <a name="CodeSamples.Java.RegionAndEndpoint.V1"></a>
 
-```
+```java
 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
 new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
 .build();
@@ -100,7 +99,7 @@ new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2")
 ### AWS SDK V2
 <a name="CodeSamples.Java.RegionAndEndpoint.V2"></a>
 
-```
+```java
 DynamoDbClient client = DynamoDbClient.builder()
     .endpointOverride(URI.create("http://localhost:8000"))
     // The region is meaningless for local DynamoDb but required for client builder validation

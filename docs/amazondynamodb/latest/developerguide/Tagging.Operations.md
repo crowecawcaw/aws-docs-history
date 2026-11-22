@@ -1,7 +1,6 @@
 
 
 # Tagging resources in DynamoDB
-<a name="Tagging.Operations"></a>
 
 You can use the Amazon DynamoDB console or the AWS Command Line Interface (AWS CLI) to add, list, edit, or delete tags. You can then activate these user-defined tags so that they appear on the AWS Billing and Cost Management console for cost allocation tracking. For more information, see [Using DynamoDB tags to create cost allocation reports](Tagging.md#CostAllocationReports). 
 
@@ -39,7 +38,7 @@ You can access these operations by attaching a new IAM policy to your user by fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

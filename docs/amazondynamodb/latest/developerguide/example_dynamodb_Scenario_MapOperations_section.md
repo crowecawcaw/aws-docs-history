@@ -1,7 +1,6 @@
 
 
 # Perform map operations in DynamoDB with an AWS SDK
-<a name="example_dynamodb_Scenario_MapOperations_section"></a>
 
 The following code examples show how to perform map operations in DynamoDB.
 + Add and update nested attributes in map structures.
@@ -14,7 +13,7 @@ The following code examples show how to perform map operations in DynamoDB.
 **SDK for Java 2.x**  
 Demonstrate map operations using AWS SDK for Java 2.x.  
 
-```
+```java
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
@@ -246,7 +245,7 @@ import java.util.Map;
 ```
 Example usage of map operations with AWS SDK for Java 2.x.  
 
-```
+```java
     public static void exampleUsage(DynamoDbClient dynamoDbClient, String tableName) {
         // Example key
         Map<String, AttributeValue> key = new HashMap<>();
@@ -335,7 +334,7 @@ Example usage of map operations with AWS SDK for Java 2.x.
 **SDK for JavaScript (v3)**  
 Demonstrate map operations using AWS SDK for JavaScript.  
 
-```
+```javascript
 /**
  * Example of updating map attributes in DynamoDB.
  * 
@@ -722,7 +721,7 @@ if (require.main === module) {
 **SDK for Python (Boto3)**  
 Demonstrate map operations using AWS SDK for Python (Boto3).  
 
-```
+```python
 """
 Example of updating map attributes in DynamoDB.
 

@@ -1,7 +1,6 @@
 
 
 # Examples for using ABAC with DynamoDB Streams
-<a name="abac-examples-streams"></a>
 
 The following examples depict use cases for implementing attribute-based conditions using tags with DynamoDB Streams.
 

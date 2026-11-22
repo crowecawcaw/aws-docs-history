@@ -1,7 +1,6 @@
 
 
 # Differences between a relational (SQL) database and DynamoDB when creating a table
-<a name="SQLtoNoSQL.CreateTable"></a>
 
 Tables are the fundamental data structures in relational databases and in Amazon DynamoDB. A relational database management system (RDBMS) requires you to define the table's schema when you create it. In contrast, DynamoDB tables are schemaless—other than the primary key, you do not need to define any extra attributes or data types when you create a table.
 
@@ -16,7 +15,7 @@ The following section compares how you would create a table with SQL to how you 
 
 With SQL you would use the `CREATE TABLE` statement to create a table, as shown in the following example.
 
-```
+```sql
 CREATE TABLE Music (
     Artist VARCHAR(20) NOT NULL,
     SongTitle VARCHAR(30) NOT NULL,

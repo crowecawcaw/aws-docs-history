@@ -1,7 +1,6 @@
 
 
 # Understanding DynamoDB warm throughput in different scenarios
-<a name="warm-throughput-scenarios"></a>
 
 Here are some different scenarios you might encounter when working with DynamoDB warm throughput.
 

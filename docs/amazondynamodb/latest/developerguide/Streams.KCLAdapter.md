@@ -1,7 +1,6 @@
 
 
 # Using the DynamoDB Streams Kinesis adapter to process stream records
-<a name="Streams.KCLAdapter"></a>
 
 Using the Amazon Kinesis Adapter is the recommended way to consume streams from Amazon DynamoDB. The DynamoDB Streams API is intentionally similar to that of Kinesis Data Streams. In both services, data streams are composed of shards, which are containers for stream records. Both services' APIs contain `ListStreams`, `DescribeStream`, `GetShards`, and `GetShardIterator` operations. (Although these DynamoDB Streams actions are similar to their counterparts in Kinesis Data Streams, they are not 100 percent identical.)
 
@@ -9,7 +8,7 @@ As a DynamoDB Streams user, you can use the design patterns found within the KCL
 
 You can write applications for Kinesis Data Streams using the Kinesis Client Library (KCL). The KCL simplifies coding by providing useful abstractions above the low-level Kinesis Data Streams API. For more information about the KCL, see the [Developing consumers using the Kinesis client library](https://docs.aws.amazon.com/kinesis/latest/dev/developing-consumers-with-kcl.html) in the *Amazon Kinesis Data Streams Developer Guide*.
 
-DynamoDB recommends using KCL version 3.5.x\+ with AWS SDK for Java v2.x. The current DynamoDB Streams Kinesis Adapter version 1.x with AWS SDK for Java v1.x will continue to be fully supported throughout its lifecycle as intended during the transitional period in alignment with [AWS SDKs and Tools maintenance policy](https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html).
+DynamoDB recommends using KCL version 3.5.x\+ with AWS SDK for Java v2.x. The current DynamoDB Streams Kinesis Adapter version 1.x with AWS SDK for Java v1.x will continue to be fully supported throughout its lifecycle as intended during the transitional period in alignment with [AWS SDKs and Tools maintenance policy](https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html). KCL 3.x applications that use the AWS SDK for Java 2.x version 2.59.2 or later connect to DynamoDB Streams account-based endpoints by default. DynamoDB Streams Kinesis Adapter 1.x with AWS SDK for Java v1.x continues to use regional endpoints. For more information, see [Endpoints for DynamoDB Streams](Streams.md#Streams.Endpoints).
 
 **Note**  
 Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We strongly recommend that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see the [Amazon Kinesis Client Library](https://github.com/awslabs/amazon-kinesis-client) page on GitHub. For information about the latest KCL versions, see [Use Kinesis Client Library](https://docs.aws.amazon.com/streams/latest/dev/kcl.html). For information about migrating from KCL 1.x to KCL 3.5.x\+, see [Migrating from KCL 1.x to KCL 3.5.x\+](streams-migrating-kcl.md).

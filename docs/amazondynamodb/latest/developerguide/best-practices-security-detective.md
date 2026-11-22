@@ -1,7 +1,6 @@
 
 
 # DynamoDB detective security best practices
-<a name="best-practices-security-detective"></a>
 
 The following best practices for Amazon DynamoDB can help you detect potential security weaknesses and incidents.
 

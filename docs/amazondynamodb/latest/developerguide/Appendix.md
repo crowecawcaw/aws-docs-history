@@ -1,7 +1,6 @@
 
 
 # DynamoDB Appendix
-<a name="Appendix"></a>
 
 **Topics**
 + [Troubleshooting SSL/TLS connection establishment issues with DynamoDB](ats-certs.md)
