@@ -1,7 +1,6 @@
 
 
 # Getting started with Private Pricing pages
-<a name="pp-getting-started"></a>
 
 This topic walks you through the prerequisites, how to access Private Pricing pages, and how to verify access to your contract.
 

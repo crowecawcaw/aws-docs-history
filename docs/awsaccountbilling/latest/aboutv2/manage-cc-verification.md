@@ -1,7 +1,6 @@
 
 
 # Managing your payment verifications
-<a name="manage-cc-verification"></a>
 
 Your bank might ask you for additional verification whenever you use a credit card to pay AWS online, add or update a credit card, or register a new AWS account. 
 

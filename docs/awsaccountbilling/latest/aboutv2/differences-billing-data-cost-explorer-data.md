@@ -1,7 +1,6 @@
 
 
 # Knowing the differences between Billing and Cost Explorer data
-<a name="differences-billing-data-cost-explorer-data"></a>
 
 Once you have active data in your Billing and Cost Management console, there are key differences to note between when you see in the **Billing** and **Payments** pages, compared to your Cost Explorer data. This section explains in detail how each data sets are used, and the benefits of each.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring your finances and utilizations
-<a name="payment-financing-monitor"></a>
 
 You can track your approved Financing amount, usage, and withdrawals in the Billing and Cost Management console. You can also view your signed loan documents, repayments made towards your financing amounts, and see your available outstanding balances.<a name="payment-financing-monitor-steps"></a>
 

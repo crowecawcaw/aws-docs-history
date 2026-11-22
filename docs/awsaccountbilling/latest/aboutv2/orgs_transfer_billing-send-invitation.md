@@ -1,7 +1,6 @@
 
 
 # Sending invitations
-<a name="orgs_transfer_billing-send-invitation"></a>
 
 When you sign in to your organization's management account, you can invite the management account of another organization to designate your account to manage and pay their consolidated bill.
 
@@ -74,7 +73,7 @@ The start date is the first day of the month you select. Transfers begin on the 
 You can use one of the following operations:
 + AWS CLI: [invite-organization-to-transfer-responsibility](https://docs.aws.amazon.com/cli/latest/reference/organizations/invite-organization-to-transfer-responsibility.html)
 
-  ```
+  ```bash
   $ C:\> aws organizations invite-organization-to-transfer-responsibility \
       --type BILLING \
       --target '{"Id":"{{123456789012}}","Type":"{{ACCOUNT}}"}' \

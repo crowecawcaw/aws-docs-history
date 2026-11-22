@@ -1,7 +1,6 @@
 
 
 # Updating transfers
-<a name="orgs_transfer_billing-update-transfer"></a>
 
 When you sign in to your organization's management account, you can update the name assigned to transfers that allow you to manage and pay for another organization’s consolidated bill. This can help you identify and organize your transfers.
 
@@ -47,7 +46,7 @@ You can use one of the following operations:
 
   1. Run the following command to find the billing transfer ID for inbound billings:
 
-     ```
+     ```bash
      $ C:\> aws organizations list-inbound-responsibility-transfers \
          --type BILLING
      ```
@@ -56,7 +55,7 @@ You can use one of the following operations:
 
   1. Run the following command to update the transfer:
 
-     ```
+     ```bash
      $ C:\> aws organizations update-responsibility-transfer \
          --id {{exampleid}}
          --name {{"Updated name for billing transfer"}}

@@ -1,7 +1,6 @@
 
 
 # Withdrawing transfers
-<a name="orgs_transfer_billing-stop-transfer"></a>
 
 When you sign in to your organization's management account, you can withdraw a transfer at any time. The transfer continues until the end date.
 
@@ -80,7 +79,7 @@ You can use one of the following operations:
 
      Run the following command to find the billing transfer ID for inbound billings:
 
-     ```
+     ```bash
      $ C:\> aws organizations list-inbound-responsibility-transfers \
          --type BILLING
      ```
@@ -89,7 +88,7 @@ You can use one of the following operations:
 
      Run the following command to find the billing transfer ID for outbound billings:
 
-     ```
+     ```bash
      $ C:\> aws organizations list-outbound-responsibility-transfers \
          --type BILLING
      ```
@@ -98,7 +97,7 @@ You can use one of the following operations:
 
   1. Run the following command to withdraw the transfer:
 
-     ```
+     ```bash
      $ C:\> aws organizations terminate-responsibility-transfer \
         --responsibility-id {{exampleid}} \
      --end-timestamp {{exampletimestamp}}

@@ -1,7 +1,6 @@
 
 
 # Using AWS invoice configuration with other services
-<a name="invoice-configuration-services"></a>
 
 Once you create an invoice unit, you can use AWS invoice configuration with other Billing and Cost Management services.
 

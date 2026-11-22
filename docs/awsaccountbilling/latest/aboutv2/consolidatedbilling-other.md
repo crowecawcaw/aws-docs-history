@@ -1,7 +1,6 @@
 
 
 # Billing examples for specific services
-<a name="consolidatedbilling-other"></a>
 
 There are a few other things to know about how consolidated billing works with specific services in AWS.
 

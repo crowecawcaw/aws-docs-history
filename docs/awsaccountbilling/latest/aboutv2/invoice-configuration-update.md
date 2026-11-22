@@ -1,7 +1,6 @@
 
 
 # Updating invoice units with AWS invoice configuration
-<a name="invoice-configuration-update"></a>
 
 You can update the invoice unit configuration and AWS will use the latest configuration at the end of the month. You can add or remove the accounts within the invoice unit, but you can't change the invoice receiver or invoice unit name.
 

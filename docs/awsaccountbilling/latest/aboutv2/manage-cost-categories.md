@@ -1,7 +1,6 @@
 
 
 # Organizing costs using AWS Cost Categories
-<a name="manage-cost-categories"></a>
 
 Cost allocation helps you identify who is spending what, within your organization. Cost categories is a cost allocation service to help you map your AWS costs, to your unique internal business structures. 
 

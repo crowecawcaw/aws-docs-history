@@ -1,7 +1,6 @@
 
 
 # Applying AWS credits
-<a name="useconsolidatedbilling-credits"></a>
 
 AWS credits are automatically applied to bills to help cover costs that are associated with eligible services. For more information about eligible services, see [Redeem Your AWS Promotional Credit](https://aws.amazon.com/awscredits/). Credits are applied until they are exhausted or they expire.
 
@@ -20,17 +19,16 @@ To view detailed information about a specific credit, navigate to the **Credits*
   + **Active** — The credit is set to be consumed and will be applied to eligible charges.
   + **Paused** — The credit is turned off but can be turned back on to be consumed. To change a credit's status between **Active** and **Paused**, use the status toggle on the credit details page.
   + **Exhausted** — The credit has a zero balance remaining and has been fully consumed.
-  + **Expired** — The credit has passed its expiration date and is no longer available for use.
+  + **Expired** — The credit has passed its expiration date, or it was split into new credits and its remaining balance is $0. An expired credit is no longer available for use. For more information about splitting credits, see [Splitting and transferring AWS credits](credits-split-transfer.md).
 + **Amount remaining** — The remaining balance of the credit as of the last billing cycle.
 + **Estimated amount remaining** — The estimated remaining balance of the credit for the current month, updated daily.
-+ **Start date** — The date the credit becomes effective.
-+ **Expiration date** — The date the credit expires.
++ **Duration** — The period when the credit can be applied, from the date it takes effect to the date it expires.
 + **Applicable products** — The AWS services that the credit can be applied to.
 + **Account ID** — The AWS account that owns the credit.
 
-The credit details page also includes an **Application history** tab that shows how the credit has been allocated, including the recipient account, service, product, and amount for each allocation.
+The **Application history** tab on the credit details page shows how the credit has been applied, including the receiving account, service, product and amount for each application.
 
-The credit details page also displays the credit's sharing preference configuration. For more information, see [Credit-level sharing preferences](#credit-level-sharing-preferences).
+The credit details page also shows the credit's sharing preference, and it's where you split or transfer a credit. For more information, see [Credit-level sharing preferences](#credit-level-sharing-preferences) and [Splitting and transferring AWS credits](credits-split-transfer.md).
 
 Viewing AWS credits for billing transfer users
 + When you sign in as a bill source account, your credits apply to the standard AWS bill sent to your bill transfer account. These credits don't appear in your pro forma billing artifacts (Bills page, Cost Explorer, or AWS Cost and Usage Report) unless the bill transfer account enables credits in the pro forma domain. Your **Credits** page no longer displays your credit balance. The page shows the total amount of credit redeemed as a static value until all credits are redeemed.
@@ -41,6 +39,7 @@ Viewing AWS credits for billing transfer users
 + [Step 2: Choose where to apply your credits](#selecting-usage-to-apply-credits-to)
 + [Step 3: Applying AWS credits across single and multiple accounts](#credits-for-orgs)
 + [Step 4: Sharing AWS credits](#credit-sharing)
++ [Splitting and transferring AWS credits](credits-split-transfer.md)
 
 ## Step 1: Choosing the credits to apply
 <a name="selecting-credits-to-apply"></a>
@@ -81,6 +80,8 @@ The process repeats until the credit is consumed, or all customer spend is cover
 
 AWS applies the credit to the largest available charge across all eligible sellers of record. This means that AWS tries to apply your credits before they expire. So they might use a generic credit for a specific service.
 
+If you set group sharing or credit-level sharing preferences, steps 2 to 4 apply only to the accounts that those preferences allow. If you transfer a credit to another account, that account owns the credit and uses it on its own usage first. For more information, see [Splitting and transferring AWS credits](credits-split-transfer.md).
+
 For example, Jorge has two credits available to him. Credit one is for 10 dollars, expires January 2026, and can be used for either Amazon S3 or Amazon EC2. Credit two is for 5 dollars, expires December 2026, and can be used only for Amazon EC2. Jorge has two AWS charges: 100 dollars for Amazon EC2 and 50 dollars for Amazon S3. AWS applies credit one, which expires in January, to the Amazon EC2 charge, which leaves him with a 90-dollar Amazon EC2 charge and a 50-dollar Amazon S3 charge. AWS applies credit two to the remaining 90 dollars of Amazon EC2 usage, and Jorge has to pay 85 dollars for Amazon EC2 and 50 dollars for Amazon S3. He has now used all of his credits.
 
 **Note**  
@@ -105,15 +106,18 @@ In another example, assume that Susan owns a single account on January 1 and joi
 ## Step 4: Sharing AWS credits
 <a name="credit-sharing"></a>
 
-You can manage credit sharing in your organization using two levels of control:
-+ **Credit sharing preference activation** — Activate or deactivate credit sharing for accounts in your organization. Accounts must have credit sharing activated to give or receive shared credits.
-+ **Credit-level sharing preferences** — Define which accounts can use a specific credit based on your cost allocation structure using Cost Categories.
+You can manage credit sharing in your organization with three levels of control:
++ **Credit sharing preference activation** — Activate or deactivate credit sharing for each account. Accounts must have sharing activated to give or receive shared credits.
++ **Group sharing for credits** — Use a Cost Category to define groups of accounts. Credits are shared within the owner's group first. With prioritized group sharing, credits can then be shared across the organization. With restricted group sharing, credits stay within the group.
++ **Credit-level sharing preferences** — Define which accounts can use a specific credit by using Cost Categories.
 
 You can turn off credit sharing on the **Billing preferences** page on the Billing and Cost Management console. The following rules specify how credits are applied to bills for single accounts and for organizations when credit sharing is turned off:
 + The billing cycle begins on the first day of each month.
 + Credits are applied to only the account that received the credits.
 + Bills are calculated using the credit sharing preference that is active on the last day of the month.
 + In an organization, only the payer account can turn credit sharing off or on. The payer account user can also select which accounts credits can be shared with.
+
+When you change a sharing preference before the month closes, AWS reapplies credits for the entire month to date based on the new preference. As a result, credits can move between accounts on your estimated bill.
 
 ### Credit sharing preference activation
 <a name="consolidated-billing-credit-sharing-preferences"></a>
@@ -132,24 +136,42 @@ When you use billing transfer and sign in as a bill transfer account, you can co
 
 1. In the **Credit sharing preferences** section, choose **Edit**.
 
-1. To activate or deactivate credit sharing for specific accounts, select them from the table, and then choose **Activate** or **Deactivate**.
+1. To activate or deactivate credit sharing for specific accounts, select them in the table, and then choose **Activate** or **Deactivate**.
 
 1. To activate or deactivate credit sharing for all accounts, choose **Actions**, and then choose **Activate All** or **Deactivate All**.
 
-1. Choose **Update**.
+1. To activate credit sharing for accounts that join or are created in your organization, under **New member accounts**, select **Activate credit sharing for new member accounts**.
 
-**Tip**  
-To activate credit sharing for new accounts that join your organization, select **Default sharing for newly created member accounts**.
-To download a history of your credit sharing preferences, choose **Download preference history (CSV)**.
+1. To download a history of your credit sharing preferences, choose **Download preference history (CSV)**.
+
+### Group sharing for credits
+<a name="credit-group-sharing-overview"></a>
+
+Group sharing keeps credits within groups of accounts, such as business units, using the same Cost Category structure that you use for Reserved Instances and Savings Plans.
+
+**How credits apply with group sharing**
++ The credit applies to the account that owns it.
++ Any remaining amount applies to other sharing-activated accounts in the same group, starting with the account that has the highest spend.
++ With prioritized group sharing, any remaining amount then applies to other sharing-activated accounts in the organization. With restricted group sharing, the credit isn't applied outside the group.
+
+**Requirements**
++ Group sharing uses a Cost Category with the Benefit group sharing association. You can use the same Cost Category for Reserved Instance and Savings Plans group sharing.
++ Each account can belong to only one group. The management account can't belong to a group.
++ Only one Cost Category can be associated with group sharing for an organization at a time.
++ Only the management account can configure group sharing.
+
+To set up group sharing for credits, see [To set up group sharing for credits](billing-pref.md#credit-group-sharing).
 
 ### Credit-level sharing preferences
 <a name="credit-level-sharing-preferences"></a>
 
-You can configure sharing preferences at the individual credit level to control which linked accounts can use a specific credit. Credit-level sharing preferences use Cost Categories to define the sharing group based on your cost allocation structure.
-
-**Note**  
-**Prerequisite:** Both the credit owner account and the recipient accounts must have credit sharing activated. For more information, see [Credit sharing preference activation](#consolidated-billing-credit-sharing-preferences)  
-This section is only available for the management account (payer account) as part of AWS Organizations.
+You can set sharing preferences for an individual credit to control which linked accounts can use it. Credit-level sharing preferences use Cost Categories to define the accounts based on your cost allocation structure.
++ **Prerequisite:** Both the account that owns the credit and the receiving accounts must have credit sharing activated. For more information, see [Credit sharing preference activation](#consolidated-billing-credit-sharing-preferences).
++ Credit-level sharing uses a Cost Category with the Benefit level sharing association. You can use the same Cost Category for level sharing on Reserved Instances and Savings Plans. Cost Categories that already use the existing credit-level sharing association continue to work.
++ Credit-level sharing narrows sharing to accounts that already have credit sharing activated. It can't extend a credit to accounts where sharing is deactivated.
++ A credit-level sharing preference overrides the group sharing preference for that credit.
++ Prioritized and restricted modes aren't available for credit-level sharing.
++ This feature is available only to the management account (payer account) of an organization.
 
 **To configure a credit-level sharing preference**
 
@@ -157,35 +179,30 @@ This section is only available for the management account (payer account) as par
 
 1. In the navigation pane, under **Billing and Payments**, choose **Credits**.
 
-1. Select the credit you want to configure sharing for.
+1. Select the credit that you want to configure sharing for.
 
 1. In the **Sharing preference** section, choose **Edit**.
 
-1. For **Cost category**, select an existing cost category from the dropdown, or choose **create a new cost category** to define your sharing group. If you don't see a newly created cost category, choose the **Refresh** button.
+1. For **Cost category**, select an existing Cost Category, or choose to create a new one to define the accounts. If you don't see a Cost Category that you just created, choose **Refresh**.
 
-1. For **Rule**, select a rule to define which accounts are included in the sharing group.
+1. For **Rule**, select the rule that defines which accounts can use the credit.
 
-1. Review the **Selected preference details** section to confirm the cost category, rule, and list of accounts that will be included in the sharing group.
+1. Review the **Selected preference details** section to confirm the Cost Category, rule and accounts.
 
 1. Choose **Save**.
 
 **To edit a credit-level sharing preference**
 
-1. Navigate to the credit details page.
+1. Go to the credit details page.
 
 1. In the **Sharing preference** section, choose **Edit**.
 
-1. Update the **Cost category** or **Rule** as needed.
+1. Update the **Cost category** or **Rule**.
 
-1. Review the updated **Selected preference details**.
-
-1. Choose **Save**.
+1. Review the updated **Selected preference details**, and then choose **Save**.
 
 **To remove a credit-level sharing preference**
 
-1. Navigate to the credit details page.
+1. Go to the credit details page.
 
 1. In the **Sharing preference** section, choose **Remove association**.
-
-**Note**  
-When a credit-level sharing preference is removed, the credit reverts to the default sharing behavior based on the credit sharing activation settings for accounts in your organization.

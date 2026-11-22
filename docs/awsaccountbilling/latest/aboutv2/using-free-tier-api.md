@@ -1,7 +1,6 @@
 
 
 # Using the Free Tier API
-<a name="using-free-tier-api"></a>
 
 [AWS Free Tier](https://aws.amazon.com/free) offers free usage each month for AWS services and products. You can use the Free Tier API to programmatically track your free tier usage against the monthly usage limits. 
 
@@ -19,7 +18,7 @@ aws freetier get-free-tier-usage --filter '{"Dimensions": {"Key": "SERVICE", "Va
 **Response**  
 The following response returns two `Always Free` offers from AWS Glue.  
 
-```
+```json
 {
     "freeTierUsages": [
         {

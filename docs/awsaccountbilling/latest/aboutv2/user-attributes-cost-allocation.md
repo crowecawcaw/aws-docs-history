@@ -1,7 +1,6 @@
 
 
 # Using user attributes for cost allocation
-<a name="user-attributes-cost-allocation"></a>
 
 ## Overview
 <a name="user-attributes-overview"></a>

@@ -1,7 +1,6 @@
 
 
 # Viewing invoice units with AWS invoice configuration
-<a name="invoice-configuration-view"></a>
 
 Once you create an invoice unit, you can view invoice unit details in several different ways.
 

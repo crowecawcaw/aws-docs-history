@@ -1,7 +1,6 @@
 
 
 # Viewing invitations
-<a name="orgs_transfer_billing-view-invitation"></a>
 
 When you sign in to your organization's management account, you can view recent invitations you have sent or received.
 
@@ -76,7 +75,7 @@ You can use one of the following operations:
 
      Run the following command find the [handshake](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#invitations-handshakes) ID.
 
-     ```
+     ```bash
      $ C:\> aws organizations list-handshakes-for-organization
      ```
 
@@ -84,7 +83,7 @@ You can use one of the following operations:
 
      Run the following command find the [handshake](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#invitations-handshakes) ID.
 
-     ```
+     ```bash
      $ C:\> aws organizations list-handshakes-for-account
      ```
 
@@ -92,7 +91,7 @@ You can use one of the following operations:
 
   1. Run the following command to view details for the invitation:
 
-     ```
+     ```bash
      $ C:\> aws organizations describe-handshake \
          --id {{examplehandshakeid}}
      ```

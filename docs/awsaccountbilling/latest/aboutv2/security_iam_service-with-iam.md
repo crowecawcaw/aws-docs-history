@@ -1,7 +1,6 @@
 
 
 # How AWS Billing works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Billing integrates with the AWS Identity and Access Management (IAM) service so that you can control who in your organization has access to specific pages on the [Billing console](https://console.aws.amazon.com/cost-management/home). You can control access to invoices and detailed information about charges and account activity, budgets, payment methods, and credits.
 

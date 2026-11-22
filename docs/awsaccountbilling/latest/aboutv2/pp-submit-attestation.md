@@ -1,7 +1,6 @@
 
 
 # Submitting an attestation
-<a name="pp-submit-attestation"></a>
 
 When you achieve an outcome, you can submit an attestation to request disbursement of your outcome-based investment (also called a credit).
 

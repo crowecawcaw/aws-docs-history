@@ -1,7 +1,6 @@
 
 
 # Understanding unexpected charges
-<a name="checklistforunwantedcharges"></a>
 
 
 |  | 

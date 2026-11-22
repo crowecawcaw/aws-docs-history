@@ -1,7 +1,6 @@
 
 
 # Creating invoice units with AWS invoice configuration
-<a name="invoice-configuration-create"></a>
 
 Invoice units are groups of mutually exclusive member accounts within a single AWS Organization that you create. You can create these invoice units so that they correspond to your business entities. Invoice units can be used to separate your AWS costs and configure which member account receives the invoice for each invoice unit going forward.
 

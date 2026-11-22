@@ -1,7 +1,6 @@
 
 
 # Service Region index file for AWS services
-<a name="service-region-index-file-for-service"></a>
 
 
 |  | 
@@ -11,7 +10,7 @@
 To understand the service version index file for AWS services, see the following references:
 
 **Contents**
-+ [Example: Service Region index file for an AWS service](#service-region-index-file-for-service)
++ [Example: Service Region index file for an AWS service](service-region-index-file-for-service.md)
 + [Service Region index definitions](#service-region-index-definitions-services)
 
 ## Example: Service Region index file for an AWS service
@@ -19,7 +18,7 @@ To understand the service version index file for AWS services, see the following
 
 The service Region index file for an AWS service looks like the following.
 
-```
+```json
 {
    "formatVersion":"The version number for the service region index format",
    "disclaimer":"The disclaimers for this service region index",

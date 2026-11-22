@@ -1,7 +1,6 @@
 
 
 # Quotas
-<a name="orgs_transfer_billing-quotas"></a>
 
 Billing transfer quotas are managed using AWS Service Quotas. You can view your current quota values and request increases to some of these values by visiting [Service Quotas console](https://console.aws.amazon.com/servicequotas). The following are the default maximums for billing transfer entities.
 

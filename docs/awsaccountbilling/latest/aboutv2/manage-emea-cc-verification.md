@@ -1,7 +1,6 @@
 
 
 # Managing your AWS Europe credit card payment verifications
-<a name="manage-emea-cc-verification"></a>
 
 To comply with the recent EU regulation, your bank might ask you for verification whenever you use a credit card to pay AWS online, add or update a credit card, or register a new AWS account. Banks typically verify by sending unique security codes to credit card holders before online purchases are completed. If your bank needs to verify your payment, you will receive an email from AWS. After verification, you're redirected to the AWS website. 
 

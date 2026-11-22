@@ -1,7 +1,6 @@
 
 
 # Reading the service version index file
-<a name="using-the-aws-price-list-bulk-api-reading-price-list-files-reading-service-version-index-file"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # Making payments using PIX (Brazil)
-<a name="manage-payment-brazil"></a>
 
 If you meet the requirements, you can use your preferred mobile banking app with the PIX feature turned on. You can use this feature to scan the AWS generated QR code and make a payment for your AWS account.
 

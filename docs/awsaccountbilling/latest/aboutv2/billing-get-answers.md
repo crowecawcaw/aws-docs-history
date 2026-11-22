@@ -1,7 +1,6 @@
 
 
 # Getting help with your bills and payments
-<a name="billing-get-answers"></a>
 
 There are many resources available for you if you have any questions about your AWS Billing and Cost Management console tools, your charges, or payment methods. If you have any inquiries or appeals regarding your AWS bill, we recommend you open a case with Support so an associate can assist you directly.
 

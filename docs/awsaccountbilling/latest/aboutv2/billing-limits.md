@@ -1,7 +1,6 @@
 
 
 # Quotas and restrictions
-<a name="billing-limits"></a>
 
 You can use the following tables to find the current quotas, restrictions, and naming constraints within the AWS Billing and Cost Management console.
 
@@ -18,6 +17,7 @@ For more information about other AWS service quotas, see [AWS service quotas](ht
 + [Bulk policy migrator](#limits-bulk)
 + [Payment methods](#limits-payments)
 + [AWS invoice configuration](#limits-invoicing)
++ [Data Hub](#limits-datahub)
 
 ## Cost categories
 <a name="limits-categories"></a>
@@ -134,3 +134,24 @@ See the following quotas and restrictions for Invoice configuration.
 | --- | --- | 
 | The number of invoice units for a payer account. | 500 | 
 | The type of characters allowed in an invoice unit name. | +  The name must be between 1-50 characters. <br />+  Letters: `A-Z` and `a-z` <br />+  Numbers: `0-9` <br />+  `Space` <br />+  The following symbols: hyphen (`-`), underscore (`_`)  | 
+
+## Data Hub
+<a name="limits-datahub"></a>
+
+See the following quotas and restrictions for Data Hub.
+
+
+| Description | Quotas and restrictions | 
+| --- | --- | 
+| The AWS Regions where Data Hub is available. | US East (N. Virginia) | 
+| The number of datasets for each account. | 1. A dataset that has not finished provisioning still counts, so delete it before creating another. | 
+| The number of dataset schemas available. | 1 (cost\_usage, based on the CUR 2.0 schema) | 
+| The number of billing views for a dataset. | 1 (the primary billing view of the account that provisioned the dataset) | 
+| The history that a dataset holds. | The current month and the 12 months before it, at hourly, resource-level detail | 
+| The type and number of characters allowed in a dataset name. |  +  The name must be between 1–64 characters <br />+  Lowercase letters: `a-z` <br />+  Numbers: `0-9` <br />+  The following symbol: underscore (`_`) <br />+  The name must start with a letter or a number   | 
+| The number of tags allowed for a dataset. | 50 | 
+| The number of characters allowed in a tag key and value. |  +  Key: 1–128 characters <br />+  Value: up to 256 characters   | 
+| The number of rows returned for a query result. | 10,000. When a result reaches the limit, AWS FinOps Agent tells you the list stops at 10,000 rows. | 
+| The number of concurrent queries for each account. | 15 | 
+| How long a query result is retained. | 24 hours after the query finishes. Asking the question again runs a new query. | 
+| The time taken to provision a new dataset. | Up to 24 hours | 

@@ -1,7 +1,6 @@
 
 
 # Using payment profiles
-<a name="manage-paymentprofiles"></a>
 
 *Payment profiles* allows you to manage payment methods when receiving invoices from multiple AWS service providers ("SOR", "seller of record"). You can create payment profiles configured to each AWS service provider, specifying the currency and preferred payment method used.
 

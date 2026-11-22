@@ -1,7 +1,6 @@
 
 
 # Understanding dates for cost allocation tags
-<a name="cost-allocation-tags-timeline"></a>
 
 **Prerequisites**  
 To view these dates in the **Cost allocation tags** page of the AWS Billing and Cost Management console, you must have the `ce:ListCostAllocationTags` permission.   

@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Billing
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Billing resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -103,3 +102,133 @@ AWS supports additional policy types that can set the maximum permissions grante
 <a name="security_iam_access-manage-multiple-policies"></a>
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*.
+
+## Identity-based policy examples
+<a name="sec-policies"></a>
+
+Two identities need Data Hub permissions: the person who creates datasets and the role AWS FinOps Agent uses to read them.
+
+<a name="sec-admin-policy"></a>**Permissions to create and manage datasets.** This policy lets the IAM user or role it is attached to create, change, delete, and tag datasets from the Data Hub page in the AWS Billing and Cost Management console. Add these actions to a policy attached to that person's IAM user or role, such as your AWS FinOps Agent admin setup policy. AWS does not provide a managed policy for these actions during public preview, so you add them to a policy yourself.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageDataHubDatasets",
+            "Effect": "Allow",
+            "Action": [
+                "bcm-data-hub:CreateDataset",
+                "bcm-data-hub:ListDatasets",
+                "bcm-data-hub:GetDataset",
+                "bcm-data-hub:GetDatasetSchema",
+                "bcm-data-hub:UpdateDataset",
+                "bcm-data-hub:DeleteDataset",
+                "bcm-data-hub:TagResource",
+                "bcm-data-hub:UntagResource",
+                "bcm-data-hub:ListTagsForResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ReadBillingViews",
+            "Effect": "Allow",
+            "Action": [
+                "billing:ListBillingViews",
+                "billing:GetBillingView"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ReadOrganization",
+            "Effect": "Allow",
+            "Action": [
+                "organizations:DescribeOrganization",
+                "organizations:ListDelegatedAdministrators"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+`bcm-data-hub:CreateDataset` creates a dataset. Without it, **Create dataset** fails and no dataset is provisioned, so AWS FinOps Agent, even when connected to Data Hub, answers at the service and account level. `bcm-data-hub:ListDatasets` and `bcm-data-hub:GetDataset` list and open datasets. Without them, you cannot see or open your datasets on the Data Hub page or in the Data Hub card in AWS FinOps Agent setup. `bcm-data-hub:GetDatasetSchema` returns a dataset's schema, `bcm-data-hub:UpdateDataset` changes its name, and `bcm-data-hub:DeleteDataset` deletes it. `bcm-data-hub:TagResource`, `bcm-data-hub:UntagResource`, and `bcm-data-hub:ListTagsForResource` add, remove, and list its tags.
+
+**Permissions to read and query a dataset.** This policy is for the agent's role. This policy does not let the role create or delete a dataset, because the person who creates datasets does that. An organization-wide agent needs nothing here, because the agent reads through `AWSServiceRoleForFinOpsAgent`, which AWS maintains. A single-account agent reads its own account's dataset with that account's agent role, and you have two options.
++ **Option 1: let the agent creation wizard attach the policy, recommended.** The `FinOpsAgentAgentPolicy` AWS managed policy already carries the Data Hub read and query actions, and the wizard attaches it to the agent role for you, so you do not write or attach a policy. AWS keeps the policy current as Data Hub adds actions. The person who creates the dataset needs the policy under [Permissions to create and manage datasets](#sec-admin-policy), attached to their own IAM user or role.
++ **Option 2: write the policy yourself.** Choose this when your IAM administrator manages permissions centrally and a console wizard is not allowed to attach policies, or when you want the agent role scoped to a single dataset rather than carrying the managed policy. Use the JSON below and attach it to the agent role. `ListQueryExecutions` takes `*` and lists every query in the account from every principal, each with its SQL, so the role sees other callers' queries. Replace the account ID and the dataset identifier with the ones in your dataset's ARN. Because you own this policy, you also add any action Data Hub introduces later. The [AWS FinOps Agent IAM setup guide](https://docs.aws.amazon.com/finops-agent/latest/userguide/setting-up.html) defines the agent role.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ReadAndQueryOneDataset",
+            "Effect": "Allow",
+            "Action": [
+                "bcm-data-hub:GetDataset",
+                "bcm-data-hub:StartQueryExecution",
+                "bcm-data-hub:GetQueryExecution",
+                "bcm-data-hub:GetQueryExecutionResults",
+                "bcm-data-hub:CancelQueryExecution"
+            ],
+            "Resource": "arn:aws:bcm-data-hub:us-east-1:111122223333:dataset/cost_usage-8rp5oclq6g674xnt808hitr2x"
+        },
+        {
+            "Sid": "DiscoverDatasetsAndQueries",
+            "Effect": "Allow",
+            "Action": [
+                "bcm-data-hub:ListDatasets",
+                "bcm-data-hub:ListQueryExecutions",
+                "bcm-data-hub:GetDatasetSchema"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+**Note**  
+To limit an action to one dataset, use the dataset's ARN as the resource. Three actions do not apply to a single dataset, `ListDatasets`, `ListQueryExecutions`, and `GetDatasetSchema`, so they take `*` as the resource and do not accept a dataset ARN. `CreateDataset` has no dataset ARN yet, because AWS generates the identifier when it creates the dataset, so use `arn:aws:bcm-data-hub:us-east-1:111122223333:dataset/*`. See [Identity and Access Management for AWS Billing](security-iam.md).
+
+For how to create a policy from a JSON document, see [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*. When you write one, follow [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html), which covers starting from AWS managed policies and narrowing toward least privilege.
+
+## Denying Data Hub access with a service control policy
+<a name="sec-scp"></a>
+
+To stop member accounts creating datasets, deny `bcm-data-hub:CreateDataset` in a service control policy attached to the organizational units or accounts you want restricted. Reads are unaffected, so an organization-wide agent in the delegated administrator account keeps answering from the dataset the management account holds. An agent in a restricted account keeps querying a dataset that account already has.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyDataHubDatasetCreation",
+            "Effect": "Deny",
+            "Action": "bcm-data-hub:CreateDataset",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Service control policies do not apply to the management account, so the management account denies creation across every member account and still creates the organization-wide dataset. During public preview the management account is the only account that can create an organization-wide dataset in any case.
+
+To stop an account from reaching Data Hub at all, deny every `bcm-data-hub` action instead.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyDataHub",
+            "Effect": "Deny",
+            "Action": "bcm-data-hub:*",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+**Warning**  
+A service control policy that denies `bcm-data-hub` actions stops roles in member accounts from creating or managing datasets. The service control policy does not stop an organization-wide agent from reading a dataset, because service control policies do not apply to a service-linked role.

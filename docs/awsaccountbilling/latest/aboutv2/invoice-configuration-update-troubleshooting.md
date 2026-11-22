@@ -1,7 +1,6 @@
 
 
 # Troubleshooting updates to invoice units
-<a name="invoice-configuration-update-troubleshooting"></a>
 
 You can use the information on this page to resolve common issues customers encounter when updating invoice units.
 

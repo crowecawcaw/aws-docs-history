@@ -1,7 +1,6 @@
 
 
 # Managing your purchase orders
-<a name="manage-purchaseorders"></a>
 
 You can use your Billing and Cost Management console to manage your purchase orders and configure how they reflect on your invoices. You have the option to add multiple purchase orders with multiple line items. Based on your configurations, we select the purchase order that best matches with your invoice. You can manage purchase orders if you're using a regular AWS account or an AWS Organizations management account. For more information about accessing the feature, see [Overview of managing access permissions](control-access-billing.md).
 

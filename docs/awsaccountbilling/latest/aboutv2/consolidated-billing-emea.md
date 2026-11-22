@@ -1,7 +1,6 @@
 
 
 # Consolidated billing in AWS EMEA
-<a name="consolidated-billing-emea"></a>
 
 The consolidated daily invoice feature combines your charges, so that you receive fewer invoices each day. You're automatically opted into this feature if you meet the following requirements: 
 + Your AWS account is invoiced through the Amazon Web Services EMEA SARL (AWS Europe) entity. For more information, see [Managing your payments in AWS Europe](emea-payments.md).

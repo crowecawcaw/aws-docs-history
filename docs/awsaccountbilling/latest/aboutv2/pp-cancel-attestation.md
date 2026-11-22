@@ -1,7 +1,6 @@
 
 
 # Cancelling an attestation
-<a name="pp-cancel-attestation"></a>
 
 You can cancel an in-flight attestation before its investment (also called a credit in the API and SDKs) is disbursed. Cancelling voids the attestation and its associated contract action.
 

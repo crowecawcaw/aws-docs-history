@@ -1,7 +1,6 @@
 
 
 # Using account tags for cost allocation
-<a name="account-tags-cost-allocation"></a>
 
 ## Overview
 <a name="account-tags-overview"></a>

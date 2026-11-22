@@ -1,7 +1,6 @@
 
 
 # Removing access to a Private Pricing contract
-<a name="pp-remove-access"></a>
 
 Your account can lose access to a Private Pricing contract automatically, or you can remove access yourself so that another eligible payer account can manage the contract. You can re-establish access later.
 

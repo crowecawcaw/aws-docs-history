@@ -1,7 +1,6 @@
 
 
 # Using AWS-generated tags
-<a name="aws-tags"></a>
 
 The AWS-generated tag `createdBy` is a tag that AWS defines and applies to supported AWS resources for cost allocation purposes. To use the AWS-generated tag, a management account owner must activate it in the Billing and Cost Management console. When a management account owner activates the tag, the tag is also activated for all member accounts. After the tag is activated, AWS starts applying the tag to resources that are created after the AWS-generated tag is activated. The AWS-generated tag is available only in the Billing and Cost Management console and reports, and doesn't appear anywhere else in the AWS console, including the AWS Tag Editor. The `createdBy` tag does not count towards your tags per resource quota.
 

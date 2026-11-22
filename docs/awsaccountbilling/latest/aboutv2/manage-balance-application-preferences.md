@@ -1,7 +1,6 @@
 
 
 # Managing balance application preferences
-<a name="manage-balance-application-preferences"></a>
 
 Use **Balance application preferences** to configure how your unapplied credit memos are automatically applied to your invoices and whether unapplied cash from overpayments is applied to future invoices when they are issued. You can access these settings on the **Payment preferences** page in the AWS Billing and Cost Management console.
 

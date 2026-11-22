@@ -1,7 +1,6 @@
 
 
 # Tagging cost categories
-<a name="tag-cost-categories"></a>
 
 Tagging cost categories is beneficial to control access to cost categories. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM User Guide*.
 

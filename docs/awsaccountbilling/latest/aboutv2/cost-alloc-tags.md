@@ -1,7 +1,6 @@
 
 
 # Organizing and tracking costs using AWS cost allocation tags
-<a name="cost-alloc-tags"></a>
 
 
 |  | 

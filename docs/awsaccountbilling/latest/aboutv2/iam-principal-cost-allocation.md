@@ -1,7 +1,6 @@
 
 
 # Using IAM principal for cost allocation
-<a name="iam-principal-cost-allocation"></a>
 
 ## Overview
 <a name="iam-principal-cost-allocation-overview"></a>

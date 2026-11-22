@@ -1,7 +1,6 @@
 
 
 # Understanding your bill
-<a name="getting-viewing-bill"></a>
 
 
 |  | 

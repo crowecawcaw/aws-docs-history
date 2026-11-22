@@ -1,7 +1,6 @@
 
 
 # Setting up purchase order configurations
-<a name="setup-po-lineitem"></a>
 
 You can use purchase orders and their line item attributes to flexibly define a configuration that best fits your needs. The following are examples of purchase order configuration scenarios that you can use.
 

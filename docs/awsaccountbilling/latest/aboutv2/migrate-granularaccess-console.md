@@ -1,7 +1,6 @@
 
 
 # Using the console to bulk migrate your policies
-<a name="migrate-granularaccess-console"></a>
 
 **Note**  
 The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  

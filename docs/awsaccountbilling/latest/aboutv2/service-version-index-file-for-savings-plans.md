@@ -1,7 +1,6 @@
 
 
 # Service version index file for Savings Plan
-<a name="service-version-index-file-for-savings-plans"></a>
 
 
 |  | 
@@ -19,7 +18,7 @@ To understand the service version index file for Savings Plan, see the following
 
 The service version index file for a Savings Plan looks like the following.
 
-```
+```json
 {
    "disclaimer":"The disclaimers for this service version index",
    "publicationDate":"The publication date of this service version index",

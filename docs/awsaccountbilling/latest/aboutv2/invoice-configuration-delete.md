@@ -1,7 +1,6 @@
 
 
 # Deleting invoice units with AWS invoice configuration
-<a name="invoice-configuration-delete"></a>
 
 Once you delete an invoice unit, you can't undo the action. You can still access the invoices generated before deleting the invoice unit.
 

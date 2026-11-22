@@ -1,7 +1,6 @@
 
 
 # Using recommended actions to bulk migrate legacy policies
-<a name="migrate-console-streamlined"></a>
 
 You can migrate all of your legacy policies by using the fine-grained actions mapped by AWS. For AWS Organizations, this applies to all legacy policies across all accounts. Once you complete your migration process, the fine-grained actions are effective. You have the option to test the bulk migration process using test accounts before committing your entire organization. For more information, see the following section.
 

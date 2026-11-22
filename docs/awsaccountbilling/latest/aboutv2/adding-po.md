@@ -1,7 +1,6 @@
 
 
 # Adding a purchase order
-<a name="adding-po"></a>
 
 You can use the Billing and Cost Management console to add purchase orders to use in your invoices. Adding a purchase order is a two-step process involving purchase orders and line item configurations. First, you enter your purchase order details (for example, purchase order ID, shipping address, effective and expiration month). Then, you define the purchase order line item configurations that are used to match the purchase order with an invoice. If you add multiple purchase orders, we use the purchase order that has the line item best matching the invoice being generated.<a name="add-po-steps"></a>
 

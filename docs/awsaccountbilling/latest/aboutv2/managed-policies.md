@@ -1,7 +1,6 @@
 
 
 # AWS managed policies
-<a name="managed-policies"></a>
 
 Managed policies are standalone identity-based policies that you can attach to multiple users, groups, and roles in your AWS account. You can use AWS managed policies to control access in Billing.
 

@@ -1,7 +1,6 @@
 
 
 # Logging Billing and Cost Management API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Billing and Cost Management is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Billing and Cost Management. CloudTrail captures API calls for Billing and Cost Management as events, including calls from the Billing and Cost Management console and from code calls to the Billing and Cost Management APIs. For a full list of CloudTrail events related to Billing, see [AWS Billing CloudTrail events](#billing-cloudtrail-events).
 
@@ -194,6 +193,40 @@ This section shows a full list of the CloudTrail events for the **Private Pricin
 | `ListContractualInvestmentAttestations` | Logs the retrieval and listing of the investment attestations for a Private Pricing contract. | 
 | `ListContractualInvestments` | Logs the retrieval and listing of the outcome-based investments for a Private Pricing contract. | 
 | `ListContractualInvestmentSummaries` | Logs the retrieval and listing of the investment summaries for a Private Pricing contract. | 
+
+### Data Hub information in AWS CloudTrail
+<a name="mon-cloudtrail"></a>
+
+Data Hub calls appear in CloudTrail under the event source `bcm-data-hub.amazonaws.com` as management events, at no additional charge. Submitting and cancelling a query are write events, so a trail that excludes read-only events still records every query. Each event records the identity, the time, and the source address. Events for creating, reading, listing, updating, and tagging datasets carry the dataset ARN, and `DeleteDataset` events record only the resource type. `StartQueryExecution` and `CancelQueryExecution` events name the query execution. Other query events name no resource. The SQL is redacted from the event, and the agent states the SQL alongside the answer. A dataset name and its tags do appear in events, so keep confidential information out of both.
+
+Agents share a role, so AWS FinOps Agent stamps the asking user's IAM unique identifier onto the session as `sourceIdentity`. To find every action one user initiated, filter on `userIdentity.sessionContext.sourceIdentity`. A single-account agent's events land in its own account. An organization-wide agent's events land in the management account, even when the agent runs in a delegated administrator account, because the agent reads through `AWSServiceRoleForFinOpsAgent`. To keep events beyond the CloudTrail event history period, or to deliver them to Amazon S3, create a trail.
+
+#### Data Hub CloudTrail events
+<a name="mon-cloudtrail-events"></a>
+
+This section shows a full list of the CloudTrail events for the Data Hub feature, from the AWS Billing console and from AWS FinOps Agent. These CloudTrail events use `bcm-data-hub.amazonaws.com`.
+
+
+
+| Event name | Definition | 
+| --- | --- | 
+| `CreateDataset` | Logs the creation of a dataset and the attachment of the account's primary billing view. | 
+| `UpdateDataset` | Logs a change to a dataset's name. | 
+| `DeleteDataset` | Logs the deletion of a dataset. | 
+| `ListDatasets` | Logs the retrieval and listing of datasets. | 
+| `GetDataset` | Logs the access of a dataset's details, including its name, schema, and status. | 
+| `GetDatasetSchema` | Logs the access of a dataset schema. | 
+| `StartQueryExecution` | Logs the submission of a read-only SQL query. The SQL is redacted from the event. | 
+| `GetQueryExecution` | Logs the access of a query execution's state. | 
+| `GetQueryExecutionResults` | Logs the retrieval of the rows a query returned. | 
+| `CancelQueryExecution` | Logs a request to stop a running query. | 
+| `ListQueryExecutions` | Logs the retrieval and listing of query executions. | 
+| `TagResource` | Logs the tagging of a dataset. | 
+| `UntagResource` | Logs the deletion of tags from a dataset. | 
+| `ListTagsForResource` | Logs the list of tags associated with a dataset. | 
+
+**Note**  
+Submitting and cancelling a query are write events, so a trail that excludes read-only events still records every query. Events for creating, reading, listing, updating, and tagging datasets carry the dataset ARN, and `DeleteDataset` events record only the resource type. `StartQueryExecution` and `CancelQueryExecution` events name the query execution they act on, and `GetQueryExecution` and `GetQueryExecutionResults` events name no resource. A dataset name and its tags appear in events, so keep confidential information out of both.
 
 ## Billing and Cost Management information in CloudTrail
 <a name="service-name-info-in-cloudtrail"></a>

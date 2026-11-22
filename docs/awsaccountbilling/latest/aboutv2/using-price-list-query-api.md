@@ -1,7 +1,6 @@
 
 
 # Finding services and products using AWS Price List Query API
-<a name="using-price-list-query-api"></a>
 
 
 |  | 
@@ -27,12 +26,12 @@ The following AWS Command Line Interface (AWS CLI) commands show how to find ser
 
 **Example: Find all services**  
 
-```
+```bash
 aws pricing describe-services --region us-east-1
 ```
 **Response**  
 
-```
+```json
 {
     "FormatVersion": "aws_v1", 
     "NextToken": "abcdefg123", 
@@ -64,12 +63,12 @@ aws pricing describe-services --region us-east-1
 **Example: Find service metadata for Amazon Elastic Compute Cloud (Amazon EC2)**  
 The following command shows how to find service metadata for Amazon EC2.  
 
-```
+```bash
 aws pricing describe-services --region us-east-1 --service-code AmazonEC2
 ```
 **Response**  
 
-```
+```json
 {
     "FormatVersion": "aws_v1", 
     "NextToken": "abcdefg123", 
@@ -105,12 +104,12 @@ The following AWS Command Line Interface (AWS CLI) command shows how to get attr
 
 **Example: Find attribute values for Amazon Relational Database Service (Amazon RDS)**  
 
-```
+```bash
 aws pricing get-attribute-values --service-code AmazonRDS --attribute-name operation --region us-east-1
 ```
 **Response**  
 
-```
+```json
 {
     "AttributeValues": [
         {
@@ -150,12 +149,12 @@ The following AWS Command Line Interface (AWS CLI) commands show how to find pro
 **Example: Find products with specified filters**  
 The following command shows how you can specify filters for Amazon Relational Database Service (Amazon RDS).  
 
-```
+```bash
 aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters Type=TERM_MATCH,Field=operation,Value="CreateDBInstance:0002"
 ```
 **Response**  
 
-```
+```json
 {
     "FormatVersion": "aws_v1",
     "PriceList": ["{
@@ -185,12 +184,12 @@ aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters T
 **Example: Use the `filters.json` file to specify filters**  
 The following command shows how you can specify a JSON file that contains all filters.  
 
-```
+```bash
 aws pricing get-products --service-code AmazonRDS --region us-east-1 --filters file://filters.json
 ```
 For example, the `filters.json` file might include the following filters.  
 
-```
+```json
 [
   {
     "Type": "TERM_MATCH",
@@ -201,7 +200,7 @@ For example, the `filters.json` file might include the following filters.
 ```
 The following example shows how you can specify more than one filter.  
 
-```
+```json
 [
   {
     "Type": "TERM_MATCH",
@@ -218,7 +217,7 @@ The following example shows how you can specify more than one filter.
 ```
 **Response**  
 
-```
+```json
 {
     "FormatVersion": "aws_v1",
     "PriceList": ["{

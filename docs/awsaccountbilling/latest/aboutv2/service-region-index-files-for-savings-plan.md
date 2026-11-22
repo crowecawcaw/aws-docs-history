@@ -1,7 +1,6 @@
 
 
 # Service Region index file for Savings Plan
-<a name="service-region-index-files-for-savings-plan"></a>
 
 
 |  | 
@@ -19,7 +18,7 @@ To understand the service Region index file for Savings Plan, see the following 
 
 The service Region index file for Savings Plan looks like the following.
 
-```
+```json
 {
    "disclaimer":"The disclaimers for this service version index",
    "publicationDate":"The publication date of this service region index",

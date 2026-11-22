@@ -1,7 +1,6 @@
 
 
 # Reading the service Region index file
-<a name="reading-service-region-index-files"></a>
 
 
 |  | 

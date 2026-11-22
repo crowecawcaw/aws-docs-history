@@ -1,7 +1,6 @@
 
 
 # Consolidating billing for AWS Organizations
-<a name="consolidated-billing"></a>
 
 You can use the consolidated billing feature in AWS Organizations to consolidate billing and payment for multiple AWS accounts. Every organization in AWS Organizations has a *management account* that pays the charges of all the *member accounts*. For more information about organizations, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/).
 

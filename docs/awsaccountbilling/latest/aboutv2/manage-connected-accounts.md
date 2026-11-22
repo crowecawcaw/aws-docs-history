@@ -1,7 +1,6 @@
 
 
 # Managing Connected accounts
-<a name="manage-connected-accounts"></a>
 
 A connected account links an external payment provider account to your AWS account so that payments can be settled to that account. You can create a connected account to receive payments from AI bots and agents through [AWS WAF AI traffic monetization](https://docs.aws.amazon.com/waf/latest/developerguide/waf-ai-traffic-monetization.html).
 
@@ -29,7 +28,7 @@ Your IAM administrator grants the role or user base permissions to create and ma
 
 In the following policy, replace {{111122223333}} with your AWS account ID. The `payments:CreateConnectedAccount` and `payments:ListConnectedAccounts` actions don't support resource-level permissions. The wildcard resource is required for those actions. The policy scopes the `payments:GetConnectedAccount` and `payments:DeleteConnectedAccount` actions to connected accounts in your AWS account.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

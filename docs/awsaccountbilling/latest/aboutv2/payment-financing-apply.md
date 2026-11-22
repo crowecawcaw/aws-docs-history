@@ -1,7 +1,6 @@
 
 
 # Applying for AWS Financing
-<a name="payment-financing-apply"></a>
 
 You're required to submit an application before you can begin using Financing. Ensure you have the necessary IAM permissions to sign the application.<a name="payment-financing-apply-steps"></a>
 

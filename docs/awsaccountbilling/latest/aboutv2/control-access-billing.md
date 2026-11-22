@@ -1,7 +1,6 @@
 
 
 # Overview of managing access permissions
-<a name="control-access-billing"></a>
 
 ## Granting access to your billing information and tools
 <a name="grantaccess"></a>

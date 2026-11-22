@@ -1,7 +1,6 @@
 
 
 # Using cost categories with other cost management and optimization services
-<a name="cost-categories-other-cost-management"></a>
 
 You can use AWS Cost Categories to associate cost categories with specific resources. This allows you to use cost categories as a grouping mechanism in other cost management and optimization products. When you associate resources with a , you create a bidirectional relationship. Meaning, the is used as a grouping mechanism by the associated resource, and when the rules are updated, the changes are reflected in the associated resources and corresponding cost management optimization services.
 

@@ -1,7 +1,6 @@
 
 
 # Managing your AWS Europe credit card payment methods
-<a name="manage-cc-emea"></a>
 
 You can use the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences) page of the AWS Billing and Cost Management console to perform the following credit card tasks:
 + [Add a credit card to your AWS Europe account](#add-credit-emea)

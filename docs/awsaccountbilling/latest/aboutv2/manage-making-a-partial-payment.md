@@ -1,7 +1,6 @@
 
 
 # Making partial payments
-<a name="manage-making-a-partial-payment"></a>
 
 You can use the **Payments** page of the AWS Billing and Cost Management console to pay your AWS bill using the partial payment method. This section outlines the procedure in the console, as well as how to troubleshoot scenarios if your payment attempt fails.<a name="making-partial-payment-procedure"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Customizing actions to bulk migrate legacy policies
-<a name="migrate-console-customized"></a>
 
 You can customize your bulk migration in various ways, instead of using the AWS recommended action for all of your accounts. You have the option to review any changes needed to your legacy policies before migrating, choose specific accounts in your Organizations to migrate at a time, and change the access range by updating the mapped fine-grained actions.
 

@@ -1,7 +1,6 @@
 
 
 # Earning additional credits
-<a name="free-tier-plans-activities"></a>
 
 If you are a new AWS customer on the **Free account plan** or the **Paid account plan**, you can earn credits by completing activities. Each activity earns USD $20 in credits, and you can choose the activities that best fit your use case. The maximum you can earn from activities is USD $100. You can still complete all of the activities to explore and learn AWS services, but you don't receive credits after you reach USD $100. You can find the activities in the **Explore AWS** widget on your [AWS Console Home dashboard](https://console.aws.amazon.com/).
 

@@ -1,7 +1,6 @@
 
 
 # Using the AWS Billing and Cost Management home page
-<a name="view-billing-dashboard"></a>
 
 Use the Billing and Cost Management home page for an overview of your AWS cloud financial management data and to help you make faster and more informed decisions. Understand high-level cost trends and drivers, quickly identify anomalies or budget overruns which require your attention, review recommended actions, understand cost allocation coverage, and identify savings opportunities. 
 

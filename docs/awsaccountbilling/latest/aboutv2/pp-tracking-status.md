@@ -1,7 +1,6 @@
 
 
 # Tracking attestation status
-<a name="pp-tracking-status"></a>
 
 After you submit an attestation, you can track its status on the attestation history page. This page shows all attestations for a Private Pricing contract with their current status.
 

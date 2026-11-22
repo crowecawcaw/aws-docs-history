@@ -1,7 +1,6 @@
 
 
 # Managing credit cards
-<a name="manage-cc"></a>
 
 You can use the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences) page of the AWS Billing and Cost Management console to manage your credit cards.
 

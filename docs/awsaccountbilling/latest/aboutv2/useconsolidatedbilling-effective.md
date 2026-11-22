@@ -1,7 +1,6 @@
 
 
 # Effective billing date, account activity, and volume discounts
-<a name="useconsolidatedbilling-effective"></a>
 
 When the member account owner accepts your request to join the organization, you immediately become responsible for the member account's charges. If the member account joins in the middle of the month, the management account is billed only for the latter part of the month.
 

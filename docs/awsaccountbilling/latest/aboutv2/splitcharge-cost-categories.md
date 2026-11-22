@@ -1,7 +1,6 @@
 
 
 # Splitting charges within cost categories
-<a name="splitcharge-cost-categories"></a>
 
 You can use split charge rules to allocate your charges between your cost category values. Splitting charges is useful when you have costs that aren't directly attributed to a single owner. Therefore, the costs can't be categorized into a single cost category value. For example, your organization has a set of costs shared by multiple teams, business units, and financial owners that incur data transfer costs, enterprise support, and operating costs. You can define split charge rules when you create or edit your cost categories. For more information about these processes, see [Creating cost categories](create-cost-categories.md) and [Editing cost categories](edit-cost-categories.md).
 

@@ -1,9 +1,8 @@
 
 
 # Customizing your Billing preferences
-<a name="billing-pref"></a>
 
-You can use the **AWS Billing preferences** page to manage your invoice delivery, alerts, credit sharing, Reserved Instances (RI) and Savings Plans discount sharing, and detailed billing (legacy) reports. For some sections, only the payer account can update them. If you use billing transfer, the preferences set up in the bill transfer account apply to all AWS Organizations that transfer their bills.
+Use the **AWS Billing preferences** page to manage invoice delivery, alerts, procurement portal settings, credit sharing, Reserved Instances (RI) and Savings Plans discount sharing, and detailed billing reports (legacy). Some sections can be updated only by the payer account. If you use billing transfer, the preferences set in the bill transfer account apply to all organizations that transfer their bills to it.
 
 You can assign user permissions to view the **Billing preferences** page. For more information, see [Using fine-grained AWS Billing actions](migrate-granularaccess-whatis.md#migrate-user-permissions).
 
@@ -17,10 +16,6 @@ The Billing preferences page contains the following sections.
   + [Next steps](#procurement-portal-next)
 + [Credit sharing preferences](#credit-sharing-preferences)
 + [Savings Plans and Reserved Instances discount sharing preferences](#reserved-instances-savings-plans-preferences)
-  + [Understanding Sharing Options](#understanding-sharing-options)
-  + [Managing Basic Discount Sharing](#managing-basic-discount-sharing)
-  + [Setting Up Group Sharing](#setting-up-group-sharing)
-  + [Modifying Existing Groups](#modifying-existing-groups)
 + [Detailed billing reports (legacy)](#detailed-reports-legacy-preferences)
 
 ## Invoice delivery preferences
@@ -156,13 +151,9 @@ The following platforms integrates with the AWS e-invoice delivery feature.
 ## Credit sharing preferences
 <a name="credit-sharing-preferences"></a>
 
-You can use this section to activate sharing credits across member accounts in your billing family. You can select specific accounts or enable sharing for all accounts. 
+Use the **Credit sharing preferences** section to activate credit sharing for accounts and to choose a group sharing mode for credits. For how credit sharing works, including credit-level sharing preferences, see [Step 4: Sharing AWS credits](useconsolidatedbilling-credits.md#credit-sharing).<a name="credit-group-sharing"></a>
 
-**Note**  
-This section is only available for the management account (payer account) as part of AWS Organizations. 
-If you use billing transfer, the bill source account (not the bill transfer account) controls the credit sharing preferences.
-
-**To manage credit sharing for member accounts**
+**To set up group sharing for credits**
 
 1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
@@ -170,135 +161,16 @@ If you use billing transfer, the bill source account (not the bill transfer acco
 
 1. In the **Credit sharing preferences** section, choose **Edit**.
 
-1. To activate or deactivate credit sharing for specific accounts, select them from the table and, then choose **Activate** or **Deactivate**.
+1. Choose **Prioritized sharing group** or **Restricted sharing group**.
 
-1. To activate or deactivate credit sharing for all accounts, choose **Actions**, and then choose **Activate All** or **Deactivate All**.
+1. For **Cost category**, select a Cost Category with the Benefit group sharing association, or choose **Create cost category**. If you don't see a Cost Category that you just created, choose the refresh button.
 
-1. Choose **Update**.
-
-**Tip**  
-To activate credit sharing for new accounts that join your organization, select **Default sharing for newly created member accounts**.
-To download a history of your credit sharing preferences, choose **Download preference history (CSV)**.
-
-**Important**  
-Changing the sharing preferences of Reserved Instances and Savings Plans in your AWS organization, will impact your AWS bills. This also applies to customers opted in Billing Conductor or billing transfer.
+1. Review the impact warning, and then save your preference.
 
 ## Savings Plans and Reserved Instances discount sharing preferences
 <a name="reserved-instances-savings-plans-preferences"></a>
 
- Reserved Instances (RI) and (SP) discount sharing allows you to control how commitment-based discounts are distributed across accounts in your AWS Organizations. This feature helps you align cost savings with your organizational structure and business requirements. 
-
-**Note**  
-This section is only available for the management account (payer account) in AWS Organizations.   
-If you use billing transfer, the management account (not the bill transfer account) controls the credit sharing preferences.
-
-### Understanding Sharing Options
-<a name="understanding-sharing-options"></a>
-
-You can choose from three sharing preference options:
-
-
-
-| Sharing Type | Description | Use Case | 
-| --- | --- | --- | 
-| Open sharing | Discounts are available to all sharing-activated accounts within the organization (default) | Cost optimization across your entire organization | 
-| Prioritized group sharing | Discounts apply to the purchasing account first, then within defined groups, then to remaining sharing-activated accounts within the organization | Balance between group control and organization-wide optimization | 
-| Restricted group sharing | Discounts are exclusively shared within defined groups only | Strict cost allocation by business unit or department | 
-
-### Managing Basic Discount Sharing
-<a name="managing-basic-discount-sharing"></a>
-
-**To activate or deactivate discount sharing for accounts:**
-
-1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
-
-1. In the navigation pane, choose **Billing preferences**
-
-1. In the **Reserved Instances and Savings Plans discount sharing preference** section, choose **Edit**
-
-1. Select accounts from the table and choose **Activate** or **Deactivate**
-
-1. Choose **Update**
-
-**Tip**  
-**Default sharing for newly created member accounts**: Automatically activates sharing for new accounts joining your organization
-**Download preference history (CSV)**: Export a history of your sharing preference changes
-
-### Setting Up Group Sharing
-<a name="setting-up-group-sharing"></a>
-
-Group sharing requires creating Cost Categories to define your sharing groups.
-
-**Step 1: Configure sharing preferences**
-
-1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
-
-1. In the navigation pane, choose **Billing preferences**
-
-1. In the **Reserved Instances and Savings Plans discount sharing preferences** section, choose **Edit**
-
-1.  Select either: 
-   + **Prioritized group sharing** (first within groups, then beyond)
-   + **Restricted group sharing** (only within groups)
-
-**Step 2: Create Cost Categories for sharing groups**
-
-1. Under **Cost Category**, select an existing category or choose **Create Cost Categories**
-
-1.  If creating a new Cost Category: 
-
-   1. Enter a **Cost category name** (for example, "Business Units", "Geographic Regions")
-
-   1.  For each sharing group, add a rule: 
-
-      1. Select the **Linked accounts** for this group
-
-      1. Enter a **SP/RI group sharing name** (for example, "Research and Development", "EMEA Operations") in the **Then group costs together as field**
-
-      1. Choose **Create Rule**.
-
-   1. Use **Add new rule** for additional groups
-
-   1. Choose **Next** through the remaining steps without making changes.
-
-   1. Choose **Create cost category**.
-
-1. Return to **Billing preferences** and select your Cost Category
-
-1. Review the impact warning and choose **Proceed**
-
-1.  Select your implementation preference: 
-   + **Create estimate and update later**: Simulate impact before applying
-   + **Update and create estimate later**: Apply changes immediately
-
-1. Choose **Update**
-
-**Important Considerations**  
-  
-Each account can belong to only one sharing group
-The management account cannot belong to any sharing group
-Groups must be mutually exclusive with no overlapping accounts
-  
-**Optimization trade-off**: Group sharing might reduce overall discount optimization as it prioritizes group allocation over maximum savings
-**Timing**: You can change your preference at any time. Each estimated bill is computed by using the last set of preferences. The final bill for the month is calculated based on the preferences set at 23:59:59 UTC time on the last day of the month.
-**Savings Plans requirement**: The Savings Plans owner account must be active in discount sharing preferences
-  
-Use the Pricing Calculator integration to simulate billing impact before implementation
-Start with open sharing to maximize savings, then move to group sharing if organizational requirements demand it
-Regularly review and adjust groups as your organization evolves
-
-### Modifying Existing Groups
-<a name="modifying-existing-groups"></a>
-
-1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
-
-1. In the navigation pane, choose **Cost Categories**.
-
-1. Select the Cost Category that you want to modify.
-
-1. Choose **Edit**.
-
-1. Update group membership or create new groups following the same process above
+Use the **Reserved Instances and Savings Plans discount sharing preference** section to activate discount sharing for accounts and to choose a group sharing mode. For sharing modes, level sharing and the steps to set them up, see [Reserved Instances and Savings Plans discount sharing](ri-turn-off.md).
 
 ## Detailed billing reports (legacy)
 <a name="detailed-reports-legacy-preferences"></a>

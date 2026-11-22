@@ -1,7 +1,6 @@
 
 
 # Consolidated billing process
-<a name="useconsolidatedbilling-procedure"></a>
 
 AWS Organizations provides consolidated billing so that you can track the combined costs of all the member accounts in your organization. The following steps provide an overview of the process for creating an organization and viewing your consolidated bill.
 

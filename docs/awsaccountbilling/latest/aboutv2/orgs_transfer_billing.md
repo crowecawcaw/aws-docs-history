@@ -1,7 +1,6 @@
 
 
 # Transfer billing management to external accounts
-<a name="orgs_transfer_billing"></a>
 
 Billing transfer allows a management account to designate an account external to its organization to manage and pay for its consolidated bill. To set up billing transfer, an external account *(bill-transfer account)* sends a billing transfer invitation to a management account *(bill-source account)*. If accepted, the external account becomes the *bill-transfer account*, managing and paying for the *bill-source account's* consolidated bill, starting on the date specified in the invitation.
 

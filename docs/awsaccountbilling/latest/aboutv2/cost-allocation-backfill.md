@@ -1,7 +1,6 @@
 
 
 # Backfill cost allocation tags
-<a name="cost-allocation-backfill"></a>
 
 Management account users can request a backfill of cost allocation tags for up to twelve months. When you request a backfill, the current **activation status** of the tags are backfilled for the duration of your choice.
 

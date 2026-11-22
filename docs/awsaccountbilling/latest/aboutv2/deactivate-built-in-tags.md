@@ -1,7 +1,6 @@
 
 
 # Deactivating the AWS-generated tags cost allocation tags
-<a name="deactivate-built-in-tags"></a>
 
 Management account owners can deactivate the AWS-generated tags in the Billing and Cost Management console. When a management account owner deactivates the tag, it's also deactivated for all member accounts. After you deactivate the AWS-generated tags, AWS no longer applies the tag to new resources. Previously tagged resources remain tagged.<a name="deactivate-built-in-tag"></a>
 

@@ -1,7 +1,6 @@
 
 
 # Getting price list files using the AWS Price List Bulk API
-<a name="using-the-aws-price-list-bulk-api"></a>
 
 
 |  | 
@@ -26,13 +25,13 @@ Use the `DescribeServices` API operation to find all available AWS services that
 **Example: Find available services**  
 The following command shows how to find available AWS services.  
 
-```
+```bash
 aws pricing describe-services --region us-east-1
 ```
 The AWS Region is the API endpoint for the Price List Bulk API. The endpoints aren't related to product or service attributes.  
 **Response**  
 
-```
+```json
 {
     "FormatVersion": "aws_v1", 
     "NextToken": "abcdefg123", 
@@ -87,12 +86,12 @@ The AWS Region is the API endpoint for the Price List Bulk API. The endpoints ar
 **Example: Find price list files for all AWS Regions**  
 If you don't specify the `--region-code` parameter, the API operation returns price list file references from all available AWS Regions.   
 
-```
+```bash
 aws pricing list-price-lists --service-code AmazonRDS --currency-code USD --effective-date "2023-04-03 00:00"
 ```
 **Response**  
 
-```
+```json
 {
    "NextToken": "abcd1234",
    "PriceLists": [ 
@@ -117,12 +116,12 @@ aws pricing list-price-lists --service-code AmazonRDS --currency-code USD --effe
 If you specify the `RegionCode` parameter, the API operation returns price list file references that are specific to that Region. To find historical price list files, use the `EffectiveDate` parameter. For example, you can specify a date in the past to find a specific price list file.   
 From the response, you can then use the `PriceListArn` value with the [GetPriceListFileUrl](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html) API operation to get your preferred price list files.  
 
-```
+```bash
 aws pricing list-price-lists --service-code AmazonRDS --currency-code USD --region-code us-west-2 --effective-date "2023-04-03 00:00"
 ```
 **Response**  
 
-```
+```json
 {
    "PriceLists": [ 
       { 
@@ -145,12 +144,12 @@ Use the `GetPriceListFileUrl` API operation to get a URL for a price list file. 
 **Example: Get a specific price list file**  
 The following command gets the URL for a specific price list file for Amazon RDS.  
 
-```
+```bash
 aws pricing get-price-list-file-url --price-list-arn arn:aws:pricing:::price-list/aws/AmazonRDS/USD/20230328234721/us-east-1 --file-format json --region us-east-1
 ```
 **Response**  
 
-```
+```json
 {
     "Url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/20230328234721/us-east-1/index.json"
 }

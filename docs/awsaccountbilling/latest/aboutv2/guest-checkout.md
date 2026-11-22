@@ -1,7 +1,6 @@
 
 
 # Paying an invoice with Guest Checkout
-<a name="guest-checkout"></a>
 
 With Guest Checkout, you can pay an outstanding invoice using a secure payment link that AWS sends to you by email. You don't need to sign in. Use Guest Checkout when you need to make a quick payment, or when someone in your organization who doesn't have console access needs to complete a payment on your behalf.
 

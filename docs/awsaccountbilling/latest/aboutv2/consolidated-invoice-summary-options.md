@@ -1,7 +1,6 @@
 
 
 # Requesting shorter PDF invoices
-<a name="consolidated-invoice-summary-options"></a>
 
 The AWS PDF invoice contains the AWS service charges for the payer account (management account) and associated member accounts that are part of your AWS Organizations.
 

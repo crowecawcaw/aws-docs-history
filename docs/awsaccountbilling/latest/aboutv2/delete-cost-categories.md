@@ -1,7 +1,6 @@
 
 
 # Deleting cost categories
-<a name="delete-cost-categories"></a>
 
 You can delete your cost categories using the following procedure. <a name="edit-cost-categories-steps"></a>
 

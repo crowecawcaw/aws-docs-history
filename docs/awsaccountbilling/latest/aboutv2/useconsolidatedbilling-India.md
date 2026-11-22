@@ -1,7 +1,6 @@
 
 
 # Consolidated billing in India
-<a name="useconsolidatedbilling-India"></a>
 
 If you sign up for a new account and choose India for your contact and billing address, your user agreement is with Amazon Web Services India Private Limited (AWS India), a local AWS seller in India. AWS India manages your billing, and your invoice total is listed in Indian rupees instead of US dollars, and you are expected to make payments in rupees.
 

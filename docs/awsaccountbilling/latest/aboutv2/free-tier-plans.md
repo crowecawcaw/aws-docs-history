@@ -1,7 +1,6 @@
 
 
 # Choosing a plan
-<a name="free-tier-plans"></a>
 
 When you sign up for your AWS account, you can choose between **Free plan** or **Paid account plan**. If you are new to AWS, you receive USD $100 in credits after you create an account regardless of your account plan. You can also earn up to an additional USD $100 in credits by completing activities. In addition, you have access to over 30 AWS services that offer monthly free usage limits.
 

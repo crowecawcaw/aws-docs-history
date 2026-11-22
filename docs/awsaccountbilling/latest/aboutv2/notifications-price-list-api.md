@@ -1,7 +1,6 @@
 
 
 # Setting up price update notifications
-<a name="notifications-price-list-api"></a>
 
 
 |  | 
@@ -49,7 +48,7 @@ You can use the AWS Management Console to sign up for Amazon SNS notifications.
    When a price changes, you will receive a notification from your preferred format that you specified in step 8.
 
 **Important**  
-If you get an error message Couldn't create subscription. Error code: InvalidParameter - Error message: Invalid parameter: TopicArn, it's likely that you're not using the US East (N. Virginia) Region. The billing metric data is stored in this Region, even for resources in other Regions. Return to step 3 and complete the rest of this procedure.
+If you get an error message `Couldn't create subscription. Error code: InvalidParameter - Error message: Invalid parameter: TopicArn`, it's likely that you're not using the US East (N. Virginia) Region. The billing metric data is stored in this Region, even for resources in other Regions. Return to step 3 and complete the rest of this procedure.
 
 ## Notification structure for AWS services
 <a name="notification-structure-for-aws-services"></a>
@@ -70,7 +69,7 @@ A price update notification for Amazon Relational Database Service (Amazon RDS) 
 **Example: Notification message**  
 If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the structure of the pricing update notification message body looks like the following.  
 
-```
+```json
 {
     "formatVersion":"v1.0",
     "offerCode":"{{<serviceCode>}}",
@@ -162,7 +161,7 @@ A subject line for Savings Plan looks like the following.
 **Example: Notification message**  
 If you subscribed to AWS services such as Amazon SQS, Lambda, or other services, the structure of the pricing update notification message body looks like the following,  
 
-```
+```json
 {
   "version":"<Version number of this new price list>",
   "offerCode":"<savingsPlanCode which can be used as input to API calls>",

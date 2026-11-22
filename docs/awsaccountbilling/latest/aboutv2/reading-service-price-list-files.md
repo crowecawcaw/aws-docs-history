@@ -1,7 +1,6 @@
 
 
 # Reading the service price list files
-<a name="reading-service-price-list-files"></a>
 
 
 |  | 

@@ -1,7 +1,6 @@
 
 
 # What is AWS Billing and Cost Management?
-<a name="billing-what-is"></a>
 
 Welcome to the AWS Billing User Guide.
 

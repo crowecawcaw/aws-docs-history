@@ -1,7 +1,6 @@
 
 
 # Deleting your purchase orders
-<a name="delete-po"></a>
 
 You can use the Billing and Cost Management console to delete your purchase order at any time, along with all of its notifications and associated contacts. A deleted purchase order can't be recovered.<a name="delete-po-steps"></a>
 

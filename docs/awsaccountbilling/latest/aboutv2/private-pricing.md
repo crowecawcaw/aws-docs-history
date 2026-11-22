@@ -1,7 +1,6 @@
 
 
 # Private Pricing
-<a name="private-pricing"></a>
 
 The Private Pricing pages help you manage your existing contracts. You can use these pages to view your contract investments (also called credits), and submit and track outcome-based investment attestations.
 

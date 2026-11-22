@@ -1,7 +1,6 @@
 
 
 # Reading the service price list file for a Savings Plan
-<a name="reading-service-price-list-file-for-savings-plans"></a>
 
 
 |  | 
@@ -32,7 +31,7 @@ The number of columns varies depends on the Savings Plan. The first few columns 
 
 The product details and pricing details are in separate sections. A JSON service price list file looks like the following example.
 
-```
+```json
 {
    "version" : "The version of the price list file",
    "publicationDate" : "The publication date of the price list file",

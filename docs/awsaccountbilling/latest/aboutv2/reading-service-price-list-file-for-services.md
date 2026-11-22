@@ -1,7 +1,6 @@
 
 
 # Reading the service price list file for an AWS service
-<a name="reading-service-price-list-file-for-services"></a>
 
 
 |  | 
@@ -39,7 +38,7 @@ The product details and pricing details are in separate sections. The same produ
 
 **Example: General JSON structure**  
 
-```
+```json
 {
    "formatVersion":"The version of the file format",
    "disclaimer":"The disclaimers for the price list file",
@@ -67,7 +66,7 @@ Different term types have different structures within the terms object.
 ### OnDemand and Reserved term definition
 <a name="on-demand-reserved-term-definition"></a>
 
-```
+```json
 {
    "OnDemand|Reserved": {
       "sku": {
@@ -100,7 +99,7 @@ Different term types have different structures within the terms object.
 ### FlatRate term
 <a name="flat-rate-term"></a>
 
-```
+```json
 {
    "FlatRate": {
       "plans": [{

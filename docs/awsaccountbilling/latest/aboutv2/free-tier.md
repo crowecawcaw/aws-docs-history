@@ -1,7 +1,6 @@
 
 
 # Explore AWS services with AWS Free Tier
-<a name="free-tier"></a>
 
 You can use AWS Free Tier to explore AWS services without cost commitments. When you sign up for your AWS account, you can choose between **Free account plan** or **Paid account plan**. If you are new to AWS, you receive USD $100 in credits after you create an account, regardless of your account plan. You can also earn up to an additional USD $100 in credits by completing activities. For more information about earning additional credits, see [Earning additional credits](free-tier-plans-activities.md). In addition, you have access to over 30 always free AWS services that offer monthly free usage limits.
 

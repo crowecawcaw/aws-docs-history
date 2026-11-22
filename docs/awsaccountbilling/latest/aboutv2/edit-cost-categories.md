@@ -1,7 +1,6 @@
 
 
 # Editing cost categories
-<a name="edit-cost-categories"></a>
 
 You can edit your cost categories using the following procedure. Cost category names can't be edited. If you're using split charges, you can choose **Uncategorized** cost as your source value at this time.<a name="edit-cost-categories-steps"></a>
 

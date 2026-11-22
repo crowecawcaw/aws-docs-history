@@ -1,7 +1,6 @@
 
 
 # Service version index file for an AWS service
-<a name="service-version-index-file-for-aws-service"></a>
 
 
 |  | 
@@ -19,7 +18,7 @@ To understand the service version index file, see the following references:
 
 The service version index file looks like the following.
 
-```
+```json
 {
    "formatVersion":"The version number for the service version index format",
    "disclaimer":"The disclaimers for this service version index",

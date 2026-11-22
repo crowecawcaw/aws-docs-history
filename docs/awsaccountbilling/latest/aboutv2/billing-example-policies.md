@@ -1,7 +1,6 @@
 
 
 # AWS Billing policy examples
-<a name="billing-example-policies"></a>
 
 **Note**  
 The following AWS Identity and Access Management (IAM) actions have reached the end of standard support on July 2023:  
@@ -75,7 +74,7 @@ To allow an IAM user to view your billing information without giving the IAM use
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ For definitions of each action, see [AWS Billing console actions](security_iam_i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ To explicitly deny an IAM user access to the all Billing and Cost Management con
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -167,7 +166,7 @@ Adding this policy to an IAM user or role will deny users access to Cost Explore
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -195,7 +194,7 @@ This policy doesn't allow any actions. Use this policy in combination with other
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -223,7 +222,7 @@ This policy allows read-only access to all of the Billing and Cost Management co
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -258,7 +257,7 @@ To allow IAM users to modify account billing information in the Billing and Cost
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -283,7 +282,7 @@ To protect your account password, contact information, and security questions, d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -320,7 +319,7 @@ The following example shows a bucket policy that grants the AWS billing reports 
 
 **Example – Bucket policy for AWS billing report delivery**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -383,7 +382,7 @@ This policy grants permission to use both the AWS Price List Bulk API AWS Price 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -416,7 +415,7 @@ To allow IAM users to use the AWS Cost Explorer API, use the following policy to
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -450,7 +449,7 @@ To allow IAM users to use, view, and manage cost categories, use the following p
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -488,7 +487,7 @@ This policy allows an IAM user to create, view, edit, or delete `sample-report` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -524,7 +523,7 @@ This policy allows an IAM user to view and manage purchase orders, using the fol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -553,7 +552,7 @@ This policy allows an IAM user to view and update using the **Cost Explorer pref
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -579,7 +578,7 @@ The following policy allows IAM users to view Cost Explorer, but deny permission
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -613,7 +612,7 @@ The following policy allows IAM users to view Cost Explorer, but deny permission
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -649,7 +648,7 @@ This policy allows an IAM user to view, create, update, and delete using the **C
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -677,7 +676,7 @@ The following policy allows IAM users to view Cost Explorer, but deny permission
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -713,7 +712,7 @@ The following policy allows IAM users to view Cost Explorer, but deny permission
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -751,7 +750,7 @@ This policy allows an IAM user to view, create, update, and delete [reservation 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -779,7 +778,7 @@ The following policy allows IAM users to view Cost Explorer, but denies permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -815,7 +814,7 @@ The following policy allows IAM users to view Cost Explorer, but denies permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -853,7 +852,7 @@ To allow IAM users read-only access to AWS Cost Anomaly Detection, use the follo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -880,7 +879,7 @@ This policy allows AWS Budgets to apply IAM policies and service control policie
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -916,7 +915,7 @@ Trust policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -940,7 +939,7 @@ Permissions policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -981,7 +980,7 @@ This policy allows an IAM user to view US tax exemptions and create Support case
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1016,7 +1015,7 @@ For definitions of each action, see [AWS Billing console actions](security_iam_i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -1044,7 +1043,7 @@ For definitions of each action, see [AWS Billing console actions](security_iam_i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -1074,7 +1073,7 @@ For definitions of each action, see [AWS Billing console actions](security_iam_i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -1103,7 +1102,7 @@ For definitions of each action, see [AWS Billing console actions](security_iam_i
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

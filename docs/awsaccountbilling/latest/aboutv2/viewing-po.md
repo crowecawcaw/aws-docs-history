@@ -1,7 +1,6 @@
 
 
 # Viewing your purchase orders
-<a name="viewing-po"></a>
 
 Your purchase order dashboard on the Billing and Cost Management console shows you the state of your purchase orders at a glance. Your purchase orders are listed on the dashboard, along with the following information.
 + **Purchase order ID** – The unique identifier for your purchase order.

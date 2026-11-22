@@ -1,7 +1,6 @@
 
 
 # Finding the seller of record
-<a name="finding-the-seller-of-record"></a>
 
 AWS regularly reviews its business structure to support customers. AWS creates the seller of record (SOR), which is a local business entity established within a jurisdiction (country) to resell AWS services. The local SOR is subject to local laws and regulations. The SOR becomes the contracting party with local customers, so customers can be billed by and remit payment to a local business entity. When you sign up for an AWS account, an SOR is automatically assigned to your account based on your billing and contact information. 
 
