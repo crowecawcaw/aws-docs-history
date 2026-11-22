@@ -1,7 +1,6 @@
 
 
 # Quotas and restrictions
-<a name="limits"></a>
 
 The following table describes quotas and restrictions within AWS Billing Conductor.
 

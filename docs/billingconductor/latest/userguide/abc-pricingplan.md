@@ -1,7 +1,6 @@
 
 
 # Pricing plans
-<a name="abc-pricingplan"></a>
 
 You can use pricing plans in AWS Billing Conductor to customize the output of your billing details across your billing groups.
 
@@ -30,6 +29,8 @@ Any existing Cost and Usage Reports (CURs) configuration will stop receiving new
 
 The following example illustrates how the Passthrough Pricing Plan interacts in a one-level transfer scenario involving a Solution Provider and an End Customer.
 
+**Solution provider applies Passthrough**
+
 Assume the End Customer's AWS invoice totals $98.
 
 End-customer's primary view will show $98 of consumption, which is the same view that the Solution Provider will see in their account, across both 'My view' and 'Showback/Chargeback view'.
@@ -39,6 +40,8 @@ End-customer's primary view will show $98 of consumption, which is the same view
 
 The following examples illustrate how the Passthrough Pricing Plan interacts in a two-level transfer scenario involving a Distributor, a Downstream Seller, and an End Customer.
 
+**Example 1 — Distributor applies Passthrough; Downstream Seller applies Basic Pricing Plan or Custom Pricing Plan**
+
 Assume the End Customer's AWS invoice totals $98 and the Downstream Seller's Basic Pricing Plan calculates a pro forma cost of $100.
 
 1. The Distributor applies the Passthrough Pricing Plan to the End Customer's AWS organization.
@@ -46,6 +49,8 @@ Assume the End Customer's AWS invoice totals $98 and the Downstream Seller's Bas
 1. The Downstream Seller applies a Basic Pricing Plan (or Custom Pricing Plan) to the same End Customer's AWS organization.
 + Downstream Seller 'My view' – The Downstream Seller sees the End Customer's billable usage of $98, exactly as billed to the Distributor. This is because the Distributor's Passthrough Pricing Plan controls what the Downstream Seller sees for the End Customer's usage.
 + End Customer Primary view – The End Customer sees a pro forma cost of $100, based on the Downstream Seller's Basic or Custom Pricing Plan configuration. The End Customer's view depends exclusively on the Downstream Seller's pricing plan selection, not the Distributor's.
+
+**Example 2 — Distributor applies Basic Pricing Plan or Custom Pricing Plan; Downstream Seller applies Passthrough**
 
 Assume the Distributor's Basic Pricing Plan calculates a pro forma cost of $100 for the End Customer's usage.
 

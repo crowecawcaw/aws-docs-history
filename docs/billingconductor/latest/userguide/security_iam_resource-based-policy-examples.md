@@ -1,7 +1,6 @@
 
 
 # AWS Billing Conductor resource-based policy examples
-<a name="security_iam_resource-based-policy-examples"></a>
 
 **Topics**
 + [Restricting Amazon S3 bucket access to specific IP addresses](#security_iam_resource-based-policy-examples-restrict-bucket-by-ip)
@@ -20,7 +19,7 @@ The `Condition` block uses the `IpAddress` and `NotIpAddress` conditions and the
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "S3PolicyId1",

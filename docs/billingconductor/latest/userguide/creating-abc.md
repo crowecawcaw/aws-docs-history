@@ -1,7 +1,6 @@
 
 
 # Billing groups
-<a name="creating-abc"></a>
 
 When using Billing Conductor as a standalone service, a billing group is a set of accounts within your consolidated billing family that share a common end customer. This applies in the pro forma billing domain only. That end customer maintains the primary account, and can see the cost and usage that accrues across its group. Each billing group's pro forma usage is computed as its own consolidated billing family. Usage shares Reserved Instances and Savings Plans benefits only within the group, accrues volume tier discounts, and an [Always Free Tier](https://aws.amazon.com/free/) offering. An account can only associate with one billing group during a billing period.
 

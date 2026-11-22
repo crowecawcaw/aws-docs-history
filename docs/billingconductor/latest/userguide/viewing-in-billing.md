@@ -1,7 +1,6 @@
 
 
 # Viewing your pro forma data in Billing and Cost Management
-<a name="viewing-in-billing"></a>
 
 This section shows how to view your pro forma data in the Billing and Cost Management console. Learn about **Bills** page integration for AWS Billing Conductor. You can also analyze, forcast, and report pro forma costs in Cost Explorer. A compiled list of all Cloud Financial Management services that support pro forma costs is available for reference. For services and features that don't support pro forma costs, AWS accounts use costs at billable rates, matching the AWS invoice.
 

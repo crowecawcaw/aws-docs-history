@@ -1,7 +1,6 @@
 
 
 # Creating pricing rules
-<a name="create-pricingrule-abc"></a>
 
 Use the following steps to create a pricing rule.
 

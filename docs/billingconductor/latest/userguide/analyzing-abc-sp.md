@@ -1,7 +1,6 @@
 
 
 # Analyzing Savings Plans, reservation coverage, and utilization reports
-<a name="analyzing-abc-sp"></a>
 
 You can analyze Savings Plans, reservation coverage, and utilization reports for AWS accounts in Billing Conductor billing groups. and Reports are generated for each billing group and as AWS Organizations in billing groups. The primary billing group account can view coverage and utilization data, based on pro forma costs for all accounts in the group. In pro forma domain, Savings Plans and reservations are shared only within billing groups, despite preferences in the billable domain. This is not applicable to Billing Conductor using billing transfer. This means that your pro forma coverage and utilization reports are computed based on your pro forma Reservations and Savings Plans sharing configuration at the billing group level, which is enabled for all accounts in the billing group by default.
 

@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Billing Conductor
-<a name="billing-security-logging"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your AWS account. There are several tools available to monitor your AWS Billing Conductor usage.
 

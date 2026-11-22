@@ -1,7 +1,6 @@
 
 
 # View your Savings Plans and Reservations inventory
-<a name="view-ri-sp"></a>
 
 You can view Savings Plans and Reservations inventory for AWS accounts in Billing Conductor billing groups. The primary billing group account can see the inventory of accounts in the billing group. Savings Plans and Reservations are shared only within billing groups, despite preferences in the billable domain.
 

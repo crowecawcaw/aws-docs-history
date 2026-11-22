@@ -1,7 +1,6 @@
 
 
 # Viewing your billing group details
-<a name="viewing-abc"></a>
 
 You can use this section to see the different ways you can review your billing group and pricing plan configurations, as well as your output post-creation.
 

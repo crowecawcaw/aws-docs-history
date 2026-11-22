@@ -1,7 +1,6 @@
 
 
 # Viewing the custom line items table
-<a name="table-cli"></a>
 
 After you create a custom line item, you can view the details of the line item in a filterable table. You can filter by the following dimensions:
 + The line item name

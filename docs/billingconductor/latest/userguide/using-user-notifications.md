@@ -1,7 +1,6 @@
 
 
 # Using AWS User Notifications with AWS Billing Conductor
-<a name="using-user-notifications"></a>
 
 You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html) to set up delivery channels that notify you about AWS Billing Conductor events. You will receive a notification when an event matches a specified rule. You can receive notifications for events through multiple channels, including email, [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) such as Amazon Chime, Microsoft Teams, and Slack, or [AWS Console Mobile Application](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) push notifications. You can also see notifications using the [Console Notifications Center](https://console.aws.amazon.com/notifications/) in the AWS User Notifications console.
 
@@ -23,7 +22,7 @@ The following table lists the AWS Billing Conductor event types supported by AWS
 
 The following is an example of a `Billing Group Configuration Recommended for Billing Transfer` event from AWS Billing Conductor. This event is emitted to Amazon EventBridge with the source `aws.billingconductor`.
 
-```
+```JSON
 {
   "account": "<account ID>", // 12-digit account ID
   "region": "us-east-1", // Currently only us-east-1 is supported

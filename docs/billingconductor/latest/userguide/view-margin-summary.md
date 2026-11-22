@@ -1,7 +1,6 @@
 
 
 # View your aggregate margins with margin summary
-<a name="view-margin-summary"></a>
 
 ## Viewing your billing group margins summary
 <a name="understand-margin-analysis-table-view"></a>

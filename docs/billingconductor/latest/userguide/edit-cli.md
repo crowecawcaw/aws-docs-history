@@ -1,7 +1,6 @@
 
 
 # Editing custom line items
-<a name="edit-cli"></a>
 
 Use the following steps to edit your custom line items.
 

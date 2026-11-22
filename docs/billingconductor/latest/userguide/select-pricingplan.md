@@ -1,7 +1,6 @@
 
 
 # Select an AWS managed pricing plan
-<a name="select-pricingplan"></a>
 
 Use the following steps to select an AWS managed pricing plan.
 

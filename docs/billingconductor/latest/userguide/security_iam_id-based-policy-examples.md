@@ -1,7 +1,6 @@
 
 
 # AWS Billing Conductor identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify Billing Conductor resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -55,7 +54,7 @@ In addition to the `billingconductor:*` permissions, `pricing:DescribeServices` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ In this example, you grant an IAM entity full access to the Billing Conductor AP
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -125,7 +124,7 @@ In this example, you grant an IAM entity read-only access to the Billing Conduct
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ In this example, IAM entities can toggle and view pro forma billing data through
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -188,7 +187,7 @@ In this example, IAM entities can toggle and view pro forma billing data through
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -217,7 +216,7 @@ In this example, IAM entities have read-only access to the specific AWS Organiza
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -246,7 +245,7 @@ In this example, IAM entities are denied access to services and features that do
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

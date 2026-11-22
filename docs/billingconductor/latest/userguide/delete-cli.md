@@ -1,7 +1,6 @@
 
 
 # Deleting custom line items
-<a name="delete-cli"></a>
 
 Use the following steps to delete your custom line items.
 

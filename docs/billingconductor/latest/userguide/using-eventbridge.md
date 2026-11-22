@@ -1,7 +1,6 @@
 
 
 # Using Amazon EventBridge with AWS Billing Conductor
-<a name="using-eventbridge"></a>
 
 AWS Billing Conductor is integrated with Amazon EventBridge, an event bus service that you can use to connect your applications with data from a variety of sources. For more information, see the [*Amazon EventBridge User Guide*](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
@@ -17,7 +16,7 @@ This event type is currently only supported in the US East (N. Virginia) Region 
 
 The following is a generalized example of this event. You can subscribe to Amazon EventBridge events (such as this one) using AWS User Notifications.
 
-```
+```JSON
 {
   "account": "<account ID>", // 12-digit account ID
   "region": "us-east-1", // Currently only us-east-1 is supported

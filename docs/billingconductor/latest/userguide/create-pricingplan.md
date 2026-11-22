@@ -1,7 +1,6 @@
 
 
 # Creating pricing plans
-<a name="create-pricingplan"></a>
 
 Use the following steps to create a pricing plan (customer managed).
 

@@ -1,7 +1,6 @@
 
 
 # Pricing rules
-<a name="create-pricingrule"></a>
 
 You can create pricing rules in AWS Billing Conductor to customize your billing rates across your billing groups. Pricing rules can be global, service-specific, billing entity-specific, or SKU-specific in scope. You can use pricing rules to apply a discount or markup for each respective scope. Scopes don't overlap. When pricing rules with different scopes are contained within a single pricing plan, scopes are applied from most to least granular.
 
