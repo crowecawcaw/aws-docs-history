@@ -1,7 +1,6 @@
 
 
 # Permissions reference for the AWS assistant
-<a name="permissions-reference"></a>
 
 You can use the following permissions as a reference when you write identity-based policies for the AWS assistant. The permissions use the `q` service prefix.
 

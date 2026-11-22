@@ -1,7 +1,6 @@
 
 
 # Using the AWS assistant
-<a name="using-assistant"></a>
 
 Use the AWS assistant to ask about AWS architecture, services, recommended practices, and documentation. In the AWS Management Console, you can also ask about your resources, costs, telemetry, and operations. The following topics say where each capability is available.
 

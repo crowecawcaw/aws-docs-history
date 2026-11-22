@@ -1,7 +1,6 @@
 
 
 # Chatting about your AWS resources
-<a name="resources"></a>
 
 With the AWS assistant, you can get answers about the resources in your AWS account. You can understand your infrastructure without navigating multiple service consoles, APIs, or scripts.
 

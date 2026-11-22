@@ -1,7 +1,6 @@
 
 
 # Cross-Region processing in the AWS assistant
-<a name="cross-region-processing"></a>
 
 ## Request-processing Regions
 <a name="request-processing-regions"></a>

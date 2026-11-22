@@ -1,7 +1,6 @@
 
 
 # Quotas for the AWS assistant
-<a name="quotas"></a>
 
 Your use of the AWS assistant is subject to the following quotas.
 

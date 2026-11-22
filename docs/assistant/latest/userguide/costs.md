@@ -1,7 +1,6 @@
 
 
 # Chatting about your AWS costs
-<a name="costs"></a>
 
 The AWS assistant helps you manage AWS costs through natural conversation. It can analyze historical and forecasted costs from AWS Cost Explorer and find recommendations from Cost Optimization Hub and AWS Compute Optimizer. It can also explain AWS Savings Plans and reservation opportunities, check invoices and balances, and answer AWS pricing questions.
 

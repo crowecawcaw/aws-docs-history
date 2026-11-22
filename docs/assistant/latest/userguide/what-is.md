@@ -1,7 +1,6 @@
 
 
 # What is the AWS assistant?
-<a name="what-is"></a>
 
 **Amazon Q Developer in the AWS Management Console is now the AWS assistant**  
 Amazon Q Developer in the AWS Management Console is now the AWS assistant. You can use the AWS assistant in the AWS Management Console and AWS Console Mobile Application.  

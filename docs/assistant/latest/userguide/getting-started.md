@@ -1,7 +1,6 @@
 
 
 # Getting started with the AWS assistant
-<a name="getting-started"></a>
 
 Use the AWS assistant for general questions in the AWS Management Console and AWS Console Mobile Application. Available capabilities vary between the AWS Management Console and the AWS Console Mobile Application.
 

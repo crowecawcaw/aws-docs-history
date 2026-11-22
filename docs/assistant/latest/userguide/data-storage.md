@@ -1,7 +1,6 @@
 
 
 # Data storage in the AWS assistant
-<a name="data-storage"></a>
 
 The AWS assistant stores your questions, its responses, and additional context, such as console metadata, to generate responses to your questions and requests. For information about how data is encrypted, see [Data protection in the AWS assistant](data-protection.md). For information about how AWS may use some questions that you ask the AWS assistant and its responses to improve our services, see [Service improvement for the AWS assistant](service-improvement.md).
 

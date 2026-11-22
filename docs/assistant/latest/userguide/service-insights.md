@@ -1,7 +1,6 @@
 
 
 # Using service-specific insights
-<a name="service-insights"></a>
 
 ## Chatting about telemetry and operations
 <a name="operations-insights"></a>

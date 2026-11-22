@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for the AWS assistant
-<a name="security-iam-examples"></a>
 
 **The AWS assistant uses the `q` service prefix**  
 Technical names didn't change when Amazon Q Developer in the AWS Management Console became the AWS assistant. The following example policies use the `q` service prefix in IAM actions, such as `q:SendMessage`.
@@ -20,7 +19,7 @@ Attach one or more of the following policies to the IAM identities that use the 
 
 The following example policy grants permission to use the AWS assistant with a Amazon Q Developer Pro subscription. Without these permissions, you can access only the Free tier. To chat or use other capabilities, you also need permissions such as those in the following example policies.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [
@@ -49,7 +48,7 @@ The following example policy grants permission to use the AWS assistant with a A
 
 The following example policy allows the AWS assistant to use a customer managed key. Users need this policy if an administrator has configured a customer managed key for encryption.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [
@@ -83,7 +82,7 @@ The following example policy allows the AWS assistant to use a customer managed 
 
 The following example policy grants permission to chat with the AWS assistant in the AWS Management Console.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -109,7 +108,7 @@ The following example policy grants permission to chat with the AWS assistant in
 
 The following example policy grants permission to diagnose console errors with the AWS assistant.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -134,7 +133,7 @@ The following example policy grants permission to diagnose console errors with t
 
 The following example policy grants permission to chat about resources. It also allows the AWS assistant to retrieve resource information on your behalf. The AWS assistant can access only resources that your IAM identity can access.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -161,7 +160,7 @@ The following example policy grants permission to chat about resources. It also 
 
 The following example policy grants permission to chat with the AWS assistant. It also allows the AWS assistant to perform actions on your behalf. The AWS assistant can perform only actions that your IAM identity has permission to perform.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -188,7 +187,7 @@ The following example policy grants permission to chat with the AWS assistant. I
 
 The following example policy grants permission to chat about costs. It also allows the AWS assistant to access cost data and provide cost analysis and optimization recommendations. The policy includes permissions for AWS Cost Explorer, Cost Optimization Hub, AWS Compute Optimizer, AWS Budgets, AWS Free Tier, AWS Pricing, and AWS Savings Plans and reservation recommendations.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -298,7 +297,7 @@ The following example policy grants administrators permissions to view and confi
 **Note**  
 To access the Amazon Q Developer console, administrators also need the permissions in [Allow administrators to use the Amazon Q Developer console](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/id-based-policy-examples-admins.html#q-admin-setup-admin-users) in the *Amazon Q Developer User Guide*.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -348,7 +347,7 @@ The following example policy grants an administrator permission to configure plu
 **Note**  
 To access the Amazon Q Developer console, administrators also need the permissions in [Allow administrators to use the Amazon Q Developer console](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/id-based-policy-examples-admins.html#q-admin-setup-admin-users) in the *Amazon Q Developer User Guide*.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [
@@ -376,7 +375,7 @@ To use this policy, replace the following in the ARN in the `Resource` field:
 
 The following example policy grants permission to chat with any plugin from a given provider that an administrator configures, specified by the plugin ARN with the name of the plugin provider and a wildcard character (`*`). If the plugin is deleted and re-configured, a user with these permissions keeps access to the newly configured plugin.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [
@@ -415,7 +414,7 @@ To use this policy, replace the following in the ARN in the `Resource` field:
 
 The following example policy grants permission to chat with the AWS assistant. It allows the AWS assistant to perform any action on your behalf that your IAM identity can perform, except Amazon EC2 actions. The policy uses the [`aws:CalledVia` global condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia) to deny Amazon EC2 actions only when the AWS assistant calls them.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -453,7 +452,7 @@ The following example policy grants permission to chat with the AWS assistant. I
 
 The following example policy grants your IAM identity permission to perform any Amazon EC2 action. However, the AWS assistant can call only `ec2:describeInstances` on your behalf. The policy uses the [`aws:CalledVia` global condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia) to apply this restriction.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -503,7 +502,7 @@ The following example policy grants your IAM identity permission to perform any 
 
 The following example policy grants permission to chat with the AWS assistant. When the AWS assistant performs actions on your behalf, it can call only the `us-east-1` and `us-west-2` Regions. For more information, see [aws:RequestedRegion](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion) in the *IAM User Guide*.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -537,7 +536,7 @@ The following example policy grants permission to chat with the AWS assistant. W
 
 The following example policy prevents the AWS assistant from performing actions on your behalf.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -561,7 +560,7 @@ The following example policy denies all permissions to use the AWS assistant.
 **Note**  
 When you deny access, the AWS assistant icon and chat panel still appear in the AWS Management Console and AWS Console Mobile Application.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -587,7 +586,7 @@ Service control policies (SCPs) are organization policies that manage permission
 
 The following SCP denies access to AWS assistant chat and related Amazon Q Developer features outside the Europe (Frankfurt) Region (`eu-central-1`). Use it with an Amazon Q Developer profile in that Region to block features that store content and perform inference in the US.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -618,7 +617,7 @@ The following SCP denies access to the AWS assistant.
 **Note**  
 When you deny access, the AWS assistant icon and chat panel still appear in the AWS Management Console and AWS Console Mobile Application.
 
-```
+```json
 {
   "Version":"2012-10-17",
   "Statement": [

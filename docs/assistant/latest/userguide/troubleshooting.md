@@ -1,7 +1,6 @@
 
 
 # Troubleshooting access, permission, and response errors in the AWS assistant
-<a name="troubleshooting"></a>
 
 Use the following information to diagnose and fix common problems with the AWS assistant. If a problem continues, see [Contacting AWS Support with the AWS assistant](support.md).
 

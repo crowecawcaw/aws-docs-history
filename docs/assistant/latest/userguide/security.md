@@ -1,7 +1,6 @@
 
 
 # Security in the AWS assistant
-<a name="security"></a>
 
 ## Security best practices
 <a name="security-best-practices"></a>
