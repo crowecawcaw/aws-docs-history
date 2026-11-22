@@ -1,7 +1,6 @@
 
 
 # Logging Amazon GameLift Streams API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon GameLift Streams is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon GameLift Streams as events. The calls captured include calls from the Amazon GameLift Streams console and code calls to the Amazon GameLift Streams API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon GameLift Streams, the IP address from which the request was made, when it was made, and additional details.
 
@@ -75,7 +74,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail management event that demonstrates the [CreateApplication](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_CreateApplication.html) operation.
 
-```
+```JSON
 {
       "eventVersion": "1.09",
       "userIdentity": {
@@ -141,7 +140,7 @@ The following example shows a CloudTrail management event that demonstrates the 
 
 The following example shows a CloudTrail data event from a trail log that demonstrates the [StartStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html) operation.
 
-```
+```JSON
 {
     "Records": [
         {

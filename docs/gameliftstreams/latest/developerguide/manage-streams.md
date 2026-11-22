@@ -1,7 +1,6 @@
 
 
 # Managing your streams with Amazon GameLift Streams
-<a name="manage-streams"></a>
 
 This section provides detailed information about how to stream with Amazon GameLift Streams. Learn about the streaming resources (an *application* and *stream group*), the properties to scale your streaming (*stream capacity* and *locations*), and the stream itself (a *stream session*). You can handle all of the tasks required to set up streaming with Amazon GameLift Streams by using the Amazon GameLift Streams console or Amazon GameLift Streams CLI commands.
 

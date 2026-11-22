@@ -1,7 +1,6 @@
 
 
 # Regions, quotas, and limitations
-<a name="regions-quotas"></a>
 
 Amazon GameLift Streams is available across multiple AWS Regions, offering dual-stack service endpoints that support both IPv4 and IPv6 connectivity. The service operates from primary locations including US East (Ohio), US West (Oregon), Asia Pacific (Tokyo), and Europe (Frankfurt), with the ability to manage additional AWS Regions and locations, collectively referred to as *remote locations*, for optimized latency and stream quality.
 

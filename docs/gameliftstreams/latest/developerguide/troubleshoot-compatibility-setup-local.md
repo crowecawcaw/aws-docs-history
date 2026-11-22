@@ -1,7 +1,6 @@
 
 
 # Set up a local machine to troubleshoot Proton
-<a name="troubleshoot-compatibility-setup-local"></a>
 
  Proton is a compatibility layer that enables Windows applications to run on Linux. As such, you must have an Ubuntu machine to test and troubleshoot with. If you don't have a local Ubuntu machine, you can set up a remote machine using Amazon EC2. To do so, follow the steps in [Set up a remote machine](troubleshoot-compatibility-setup-remote.md) instead. 
 

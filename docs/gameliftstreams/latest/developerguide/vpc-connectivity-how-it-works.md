@@ -1,7 +1,6 @@
 
 
 # How VPC connectivity works
-<a name="vpc-connectivity-how-it-works"></a>
 
 AWS Transit Gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPCs) and on-premises networks. A transit gateway acts as a Regional virtual router for traffic flowing between VPCs and other connected networks. For more information about transit gateways, see [What is a transit gateway?](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) in the *Amazon VPC Transit Gateway Guide*.
 

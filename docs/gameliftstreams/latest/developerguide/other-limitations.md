@@ -1,7 +1,6 @@
 
 
 # Other Amazon GameLift Streams limitations
-<a name="other-limitations"></a>
 
 This page lists other limitations to be aware of as you create your streaming solution. Unless noted otherwise, these limits are fixed within the service for all customers.
 

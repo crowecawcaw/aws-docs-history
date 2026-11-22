@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Streams backend service and web client
-<a name="sdk"></a>
 
  Amazon GameLift Streams enables you to stream applications through a web browser. With the Amazon GameLift Streams Web SDK, you can set up a backend streaming service. Then, end users connect to a stream through a web client. They can play your game or interact with your application all through the cloud. 
 

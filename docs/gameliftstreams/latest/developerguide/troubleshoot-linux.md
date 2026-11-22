@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Linux applications for Amazon GameLift Streams
-<a name="troubleshoot-linux"></a>
 
 If your Amazon GameLift Streams application runs on an Ubuntu runtime environment, this section can help you troubleshoot issues specific to running native Linux applications. For general troubleshooting, see [Troubleshooting Amazon GameLift Streams](troubleshoot.md).
 

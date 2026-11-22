@@ -1,7 +1,6 @@
 
 
 # Start stream sessions with Amazon GameLift Streams
-<a name="stream-sessions"></a>
 
 This section covers stream sessions, the actual instance of a stream where an end user or player can interact with your application or play your game. You'll learn about how to test your own stream session and understand the stream session lifecycle.
 

@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon GameLift Streams
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Amazon GameLift Streams resources. IAM is an AWS service that you can use with no additional charge.
 

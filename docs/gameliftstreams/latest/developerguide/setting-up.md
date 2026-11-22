@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon GameLift Streams as a developer
-<a name="setting-up"></a>
 
 To start using the Amazon GameLift Streams service with your projects, complete these basic setup tasks. If you already have an AWS account and a user under that account that you want to use with Amazon GameLift Streams, you can skip to [Download the Web SDK](#setting-up-materials). 
 

@@ -1,7 +1,6 @@
 
 
 # Profiling Unreal Engine performance
-<a name="profiling-ue"></a>
 
  In this section, learn how to analyze your Unreal Engine game or application performance. This can help you identify area's to optimize, leading to smoother streaming in Amazon GameLift Streams. 
 

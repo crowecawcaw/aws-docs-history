@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Streams compatible devices and browsers
-<a name="compatible-devices-browsers"></a>
 
 With Amazon GameLift Streams, you can stream applications to end users at up to 1080p resolution at 60 frames per second. Streaming uses web browsers and WebView-based clients through WebRTC. Client browsers and runtimes must support WebRTC and Advanced Video Coding (AVC), also known as H.264. Client devices must support OpenGL ES 2.0 or higher.
 

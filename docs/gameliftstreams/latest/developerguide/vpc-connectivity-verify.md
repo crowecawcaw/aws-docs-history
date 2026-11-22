@@ -1,7 +1,6 @@
 
 
 # Verifying connectivity
-<a name="vpc-connectivity-verify"></a>
 
 To verify that VPC connectivity is working correctly:
 

@@ -1,7 +1,6 @@
 
 
 # Starting your first stream in Amazon GameLift Streams
-<a name="streaming-process"></a>
 
  This tutorial walks you through the steps to get started with Amazon GameLift Streams to stream your application or game. Amazon GameLift Streams runs your application and streams them directly to your end-users' web browser. You'll learn how to upload and configure the application you want to stream, and how to manage the way Amazon GameLift Streams streams. By the end, you will test how your application streams on Amazon GameLift Streams by interacting with it directly in the Amazon GameLift Streams console. 
 

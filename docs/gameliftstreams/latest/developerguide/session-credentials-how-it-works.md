@@ -1,7 +1,6 @@
 
 
 # How session credentials work
-<a name="session-credentials-how-it-works"></a>
 
 When you pass a `RoleArn` on [StartStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html):
 

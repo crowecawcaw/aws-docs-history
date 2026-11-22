@@ -1,7 +1,6 @@
 
 
 # Setting up session credentials
-<a name="session-credentials-setup"></a>
 
 ## Step 1: Create an IAM role
 <a name="session-credentials-step1"></a>
@@ -13,7 +12,7 @@ The role name must start with `GameLiftStreams-`. You cannot rename a role after
 
 We recommend adding `aws:SourceAccount` and `aws:SourceArn` conditions to your trust policy. These conditions use your AWS account ID and restrict which sessions can assume the role. For more information about protecting against cross-service impersonation, see [Cross-service confused deputy prevention](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) in the *IAM User Guide*.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -44,7 +43,7 @@ Attach IAM policies to the role that grant only the permissions your application
 
 For example, if your application needs to read from an Amazon S3 bucket:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -66,7 +65,7 @@ For example, if your application needs to read from an Amazon S3 bucket:
 
 The IAM principal that calls `StartStreamSession` must have permission to pass the role to Amazon GameLift Streams. Add the following statement to the principal's IAM policy. For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
 
-```
+```json
 {
   "Effect": "Allow",
   "Action": "iam:PassRole",

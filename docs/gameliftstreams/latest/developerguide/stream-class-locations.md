@@ -1,7 +1,6 @@
 
 
 # Supported locations by stream class in Amazon GameLift Streams
-<a name="stream-class-locations"></a>
 
 The following table shows the availability of each stream class family across all supported AWS Regions and streaming locations.
 

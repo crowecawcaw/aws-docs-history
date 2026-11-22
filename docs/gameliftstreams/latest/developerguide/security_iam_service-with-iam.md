@@ -1,7 +1,6 @@
 
 
 # How Amazon GameLift Streams works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon GameLift Streams, learn what IAM features are available to use with Amazon GameLift Streams.
 
@@ -135,7 +134,7 @@ Amazon GameLift Streams supports the following service-specific condition keys:
 
 You can use these condition keys in IAM policies to set fine-grained permissions. For example, the following policy allows a principal to start stream sessions only when using a specific IAM role:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [{

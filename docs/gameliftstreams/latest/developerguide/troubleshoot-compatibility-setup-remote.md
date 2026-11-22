@@ -1,7 +1,6 @@
 
 
 # Set up a remote Amazon EC2 machine to troubleshoot Proton
-<a name="troubleshoot-compatibility-setup-remote"></a>
 
  If you don't have a local Ubuntu machine, follow these instructions to set up a remote machine instead. 
 
@@ -92,7 +91,7 @@ There is no need to install any optional parts of the Amazon DCV Server.
 
 When you're done, run the following command to start the Amazon DCV Server: 
 
-```
+```bash
 sudo systemctl start dcvserver 
 sudo systemctl enable dcvserver
 ```

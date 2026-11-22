@@ -1,7 +1,6 @@
 
 
 # Configuration options
-<a name="configuration-options"></a>
 
 ## Runtime environments
 <a name="configuration-options-runtime"></a>

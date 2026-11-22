@@ -1,7 +1,6 @@
 
 
 # Export stream session files
-<a name="stream-sessions-export-files"></a>
 
  During a stream session, your application can generate output files that help you debug or verify your application, such as logs, diagnostic information, crash dumps, save files, user data, and screenshots. The export stream session files feature collects files that are created or modified during a session and exports them as a compressed ZIP file to a provided Amazon S3 location. The feature also collects performance stats for the session every second, which are included in the export ZIP file. 
 

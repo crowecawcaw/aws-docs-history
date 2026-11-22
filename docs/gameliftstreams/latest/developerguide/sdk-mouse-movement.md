@@ -1,7 +1,6 @@
 
 
 # Mouse movement handling
-<a name="sdk-mouse-movement"></a>
 
 Mouse movement handling is critical for delivering responsive and intuitive user experiences in streamed applications. Amazon GameLift Streams automatically optimizes mouse input transmission based on your application's cursor behavior, ensuring that mouse movements feel natural whether the cursor is hidden or visible. Understanding how Amazon GameLift Streams processes mouse events helps you design applications that work seamlessly with the streaming service and provide the best possible user experience.
 

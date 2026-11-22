@@ -1,7 +1,6 @@
 
 
 # Requirements and constraints
-<a name="session-credentials-constraints"></a>
 + **Same account only**: The IAM role must belong to the same AWS account as the stream group. Amazon GameLift Streams does not support cross-account role passing.
 + **Role naming**: The role name must start with `GameLiftStreams-`. Amazon GameLift Streams rejects roles without this prefix.
 + **Session-level only**: Specify the role per session on `StartStreamSession`. Different sessions in the same stream group can use different roles, or no role at all.

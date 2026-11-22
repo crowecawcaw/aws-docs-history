@@ -1,7 +1,6 @@
 
 
 # What is Amazon GameLift Streams?
-<a name="what-is-service"></a>
 
 With Amazon GameLift Streams, game publishers and others can provide on-demand, low-latency streaming experiences to players and viewers globally. Amazon GameLift Streams uses its own streaming technology combined with the AWS global infrastructure to operate and maintain application streaming at scale. Publishers have the flexibility to provision both on-demand and reserved streaming resources to effectively manage capacity and costs.
 

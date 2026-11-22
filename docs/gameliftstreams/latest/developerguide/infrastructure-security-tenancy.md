@@ -1,7 +1,6 @@
 
 
 # Reuse and multi-tenancy in Amazon GameLift Streams
-<a name="infrastructure-security-tenancy"></a>
 
 Amazon GameLift Streams doesn't share any compute resources across stream groups or with other AWS customers. Some Amazon GameLift Streams stream groups rely on internal resource sharing.
 

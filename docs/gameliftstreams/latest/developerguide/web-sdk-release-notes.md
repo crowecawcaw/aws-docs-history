@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Streams Web SDK release notes
-<a name="web-sdk-release-notes"></a>
 
 This page describes changes for each release of the Amazon GameLift Streams Web SDK.
 

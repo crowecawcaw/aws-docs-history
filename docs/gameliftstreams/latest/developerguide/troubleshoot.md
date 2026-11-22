@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon GameLift Streams
-<a name="troubleshoot"></a>
 
 Amazon GameLift Streams provides the following tools for monitoring and debugging your streams:
 + CloudTrail integration – Track API calls for auditing and operational troubleshooting. For more information, see [Logging Amazon GameLift Streams API calls using AWS CloudTrail](logging-using-cloudtrail.md).

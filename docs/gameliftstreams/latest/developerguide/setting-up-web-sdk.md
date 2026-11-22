@@ -1,7 +1,6 @@
 
 
 # Setting up a web server and client with Amazon GameLift Streams
-<a name="setting-up-web-sdk"></a>
 
  In this tutorial, you will set up a web client application that integrates Amazon GameLift Streams' streaming service. Then, you will use the Amazon GameLift Streams Web SDK, a JavaScript library, and sample code that you can start with. The sample code includes a simple Amazon GameLift Streams backend web server and a simple web client. By the end of this tutorial, you can start a stream by using the sample code. 
 

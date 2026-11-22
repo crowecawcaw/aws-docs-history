@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon GameLift Streams
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon GameLift Streams resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -41,7 +40,7 @@ You don't need to allow minimum console permissions for users that are making ca
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -81,7 +80,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 This example grants the least privilege required to create, monitor, and revoke stream URLs. `CreateStreamUrl`, `GetStreamUrl`, and `RevokeStreamUrl` are authorized against a stream group, so you scope them to stream group resource ARNs. A principal granted these permissions on a stream group can act on every stream URL in that stream group. You cannot scope these permissions to an individual stream URL. `ListStreamUrls` is account-scoped and returns stream URLs across your stream groups, so it takes `Resource` set to `"*"`. In addition, `CreateStreamUrl` requires `gameliftstreams:StartStreamSession` permission for the application the stream URL points to, because activating the stream URL starts a stream session that runs that application. Scope this permission to the application resource ARN.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -113,7 +112,7 @@ This example grants the least privilege required to create, monitor, and revoke 
 
 If you pass an IAM role in `RoleArn` when you create a stream URL, also grant `iam:PassRole` for that role, scoped to Amazon GameLift Streams:
 
-```
+```json
 {
   "Sid": "PassRoleToStreamUrlSessions",
   "Effect": "Allow",

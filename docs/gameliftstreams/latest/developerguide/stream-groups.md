@@ -1,7 +1,6 @@
 
 
 # Manage streaming with an Amazon GameLift Streams stream group
-<a name="stream-groups"></a>
 
 After you set up an Amazon GameLift Streams application, you're ready to manage and deploy compute resources to run and stream your application. An Amazon GameLift Streams *stream group* represents a collection of these compute resources. You specify the maximum number of concurrent streams to support by scaling the stream capacity.
 

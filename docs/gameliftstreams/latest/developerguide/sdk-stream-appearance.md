@@ -1,7 +1,6 @@
 
 
 # Customize stream appearance
-<a name="sdk-stream-appearance"></a>
 
 ## Loading screen
 <a name="sdk-loading-screen"></a>
