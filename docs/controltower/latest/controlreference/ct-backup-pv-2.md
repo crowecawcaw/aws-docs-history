@@ -1,7 +1,6 @@
 
 
 # [CT.BACKUP.PV.2] Disallow modification of an AWS Backup report plan that AWS Control Tower manages
-<a name="ct-backup-pv-2"></a>
 
 This control limits changes to the AWS Backup report plan that AWS Control Tower manages.
 
@@ -27,7 +26,7 @@ AWS Backup resources managed by AWS Control Tower should be modified using the A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

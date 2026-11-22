@@ -1,7 +1,6 @@
 
 
 # [CT.EC2.PV.9] Disallow access to the EC2 serial console for all EC2 instances
-<a name="ct-ec2-pv-9"></a>
 
 This control prevents access to the Amazon EC2 serial console of all EC2 instances for your account.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower RCP controls
-<a name="list-of-rcp-controls"></a>
 
 AWS Control Tower offers multiple RCP-based controls that each focus on a single type of resource associated with a specific service, such as Amazon S3 buckets. 
 

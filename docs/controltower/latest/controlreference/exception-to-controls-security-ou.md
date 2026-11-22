@@ -1,7 +1,6 @@
 
 
 # Exception to controls for the Security OU
-<a name="exception-to-controls-security-ou"></a>
 
 For customers on LZ v4.0:
 

@@ -1,7 +1,6 @@
 
 
 # Considerations for controls and OUs
-<a name="control-considerations"></a>
 
 When working with controls and OUs, consider the following properties:
 

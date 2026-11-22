@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis controls
-<a name="kinesis-rules"></a>
 
 **Topics**
 + [[CT.KINESIS.PR.1] Require any Amazon Kinesis data stream to have encryption at rest configured](#ct-kinesis-pr-1-description)

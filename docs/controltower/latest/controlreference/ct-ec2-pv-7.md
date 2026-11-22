@@ -1,7 +1,6 @@
 
 
 # [CT.EC2.PV.7] Disallow all public sharing of Amazon EBS snapshots
-<a name="ct-ec2-pv-7"></a>
 
 This control blocks the public sharing of your Amazon EBS snapshots by configuring block public access for Amazon EBS snapshot settings at an account level. This setting has the effect of preventing all public sharing of your EBS snapshots, so that snapshots that previously were publicly shared are treated as private, and are no longer publicly available.
 

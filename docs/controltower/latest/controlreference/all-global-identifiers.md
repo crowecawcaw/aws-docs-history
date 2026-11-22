@@ -1,7 +1,6 @@
 
 
 # All global identifiers for AWS Control Tower controls
-<a name="all-global-identifiers"></a>
 
 **Warning**  
 The data previously displayed on this page was outdated and has been removed. This page will be removed in a future release.

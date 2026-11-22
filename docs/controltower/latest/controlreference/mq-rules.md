@@ -1,7 +1,6 @@
 
 
 # Amazon MQ controls
-<a name="mq-rules"></a>
 
 **Topics**
 + [[CT.MQ.PR.1] Require an Amazon MQ ActiveMQ broker to use use active/standby deployment mode for high availability](#ct-mq-pr-1-description)

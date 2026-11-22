@@ -1,7 +1,6 @@
 
 
 # [CT.APPSYNC.PV.1] Require an AWS AppSync GraphQL API to be configured with private visibility
-<a name="ct-appsync-pv-1"></a>
 
 This control disallows creation of public AWS AppSync APIs by requiring APIs to be configured with private visibility.
 

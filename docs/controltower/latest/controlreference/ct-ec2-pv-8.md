@@ -1,7 +1,6 @@
 
 
 # [CT.EC2.PV.8] Disallow inbound and outbound internet connections to your VPCs through an internet gateway (IGW) or egress-only internet gateway (EIGW)
-<a name="ct-ec2-pv-8"></a>
 
 This control blocks direct ingress and egress traffic from the internet to your VPCs through an IGW or EIGW, by configuring block public access for VPCs (VPC BPA) at an account level. This control also disallows configuration of any VPC BPA exclusions, which means that if you enable it, you cannot exclude VPCs or subnets from the effects of this control.
 

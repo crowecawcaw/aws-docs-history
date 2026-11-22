@@ -1,7 +1,6 @@
 
 
 # Amazon Simple Queue Service (Amazon SQS) controls
-<a name="sqs-rules"></a>
 
 **Topics**
 + [[CT.SQS.PR.1] Require any Amazon SQS queue to have a dead-letter queue configured](#ct-sqs-pr-1-description)

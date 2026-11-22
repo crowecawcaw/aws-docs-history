@@ -1,7 +1,6 @@
 
 
 # AWS CloudTrail controls
-<a name="cloudtrail-rules"></a>
 
 **Topics**
 + [[CT.CLOUDTRAIL.PR.1] Require an AWS CloudTrail trail to have encryption at rest activated](#ct-cloudtrail-pr-1-description)

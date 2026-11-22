@@ -1,7 +1,6 @@
 
 
 # Drift prevention and notification
-<a name="prevention-and-notification"></a>
 
 You can enable certain controls and subscribe to certain SNS notifications that help you maintain compliance in AWS Control Tower.
 

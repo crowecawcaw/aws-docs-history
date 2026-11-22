@@ -1,7 +1,6 @@
 
 
 # [CT.BACKUP.PV.3] Disallow modification of an AWS Backup resource that AWS Control Tower manages
-<a name="ct-backup-pv-3"></a>
 
 This control limits creation or modification of AWS Backup resources that AWS Control Tower manages.
 
@@ -28,7 +27,7 @@ If you apply a tag with the key `aws-control-tower` to an AWS Backup resource cr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

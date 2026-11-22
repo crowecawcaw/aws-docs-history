@@ -1,7 +1,6 @@
 
 
 # Legacy control objectives
-<a name="list-of-control-objectives"></a>
 
 **Warning**  
 This page will be removed in a future release.

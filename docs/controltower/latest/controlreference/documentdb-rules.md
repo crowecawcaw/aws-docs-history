@@ -1,7 +1,6 @@
 
 
 # Amazon DocumentDB controls
-<a name="documentdb-rules"></a>
 
 **Topics**
 + [[CT.DOCUMENTDB.PR.1] Require an Amazon DocumentDB cluster to be encrypted at rest](#ct-documentdb-pr-1-description)

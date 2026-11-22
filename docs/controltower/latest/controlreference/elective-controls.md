@@ -1,7 +1,6 @@
 
 
 # Elective controls
-<a name="elective-controls"></a>
 
 Elective controls enable you to lock down or track attempts at performing commonly restricted actions in an AWS enterprise environment. These controls are not enabled by default, and can be disabled. Following, you'll find a reference for the elective controls available in AWS Control Tower. The elective controls specifically for data residency are collected into a separate section, [Controls that enhance data residency protection](data-residency-controls.md). 
 

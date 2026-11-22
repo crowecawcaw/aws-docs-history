@@ -1,7 +1,6 @@
 
 
 # Amazon CloudFront controls
-<a name="cloudfront-rules"></a>
 
 **Topics**
 + [[CT.CLOUDFRONT.PR.1] Require an Amazon CloudFront distribution to have a default root object configured](#ct-cloudfront-pr-1-description)

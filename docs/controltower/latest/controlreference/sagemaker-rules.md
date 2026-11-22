@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker AI controls
-<a name="sagemaker-rules"></a>
 
 **Topics**
 + [[CT.SAGEMAKER.PR.1] Require an Amazon SageMaker AI notebook instance to prevent direct internet access](#ct-sagemaker-pr-1-description)

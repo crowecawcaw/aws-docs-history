@@ -1,7 +1,6 @@
 
 
 # AWS Glue controls
-<a name="glue-rules"></a>
 
 **Topics**
 + [[CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration](#ct-glue-pr-1-description)

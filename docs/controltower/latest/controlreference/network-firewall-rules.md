@@ -1,7 +1,6 @@
 
 
 # AWS Network Firewall controls
-<a name="network-firewall-rules"></a>
 
 **Topics**
 + [[CT.NETWORK-FIREWALL.PR.1] Require any AWS Network Firewall firewall policy to have an associated rule group](#ct-network-firewall-pr-1-description)

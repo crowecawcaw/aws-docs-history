@@ -1,7 +1,6 @@
 
 
 # Preventive controls
-<a name="preventive-controls"></a>
 
 A preventive control ensures that your accounts maintain compliance, because it disallows actions that lead to policy violations. The status of a preventive control is either **enforced** or **not enabled**. Preventive controls are supported in all AWS Regions.
 + Preventive controls are implemented using service control policies (SCPs), or resource control policies (RCPs), each of which are part of AWS Organizations.

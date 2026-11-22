@@ -1,7 +1,6 @@
 
 
 # Strongly recommended controls with detective behavior
-<a name="strongly-recommended-detective-controls"></a>
 
 The following strongly recommended controls have detective behavior.
 

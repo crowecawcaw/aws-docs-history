@@ -1,7 +1,6 @@
 
 
 # [CT.EC2.PV.11] Disallow public sharing of Amazon Machine Images (AMIs)
-<a name="ct-ec2-pv-11"></a>
 
 This control prevents the public sharing of your AMIs by configuring block public access for AMIs at an account level. If you already have public AMIs, they remain publicly available.
 

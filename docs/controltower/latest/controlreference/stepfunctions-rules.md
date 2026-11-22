@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions controls
-<a name="stepfunctions-rules"></a>
 
 **Topics**
 + [[CT.STEPFUNCTIONS.PR.1] Require an AWS Step Functions state machine to have logging activated](#ct-stepfunctions-pr-1-description)

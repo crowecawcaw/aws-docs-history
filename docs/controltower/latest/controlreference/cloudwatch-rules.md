@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch controls
-<a name="cloudwatch-rules"></a>
 
 **Topics**
 + [[CT.CLOUDWATCH.PR.1] Require an Amazon CloudWatch alarm to have an action configured for the alarm state](#ct-cloudwatch-pr-1-description)

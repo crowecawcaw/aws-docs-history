@@ -1,7 +1,6 @@
 
 
 # AWS Certificate Manager controls
-<a name="acm-rules"></a>
 
 **Topics**
 + [[CT.ACM.PR.1] Require an AWS Private CA certificate to have a single domain name](#ct-acm-pr-1-description)

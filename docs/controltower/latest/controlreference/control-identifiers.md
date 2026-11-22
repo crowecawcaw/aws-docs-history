@@ -1,7 +1,6 @@
 
 
 # Resource identifiers for APIs and controls
-<a name="control-identifiers"></a>
 
 Each control in AWS Control Tower has unique Amazon Resource Names (ARNs) for use with the [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html) and [Control Catalog](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/Welcome.html) APIs. You can call an API using a global ARN or a regional ARN.
 + We recommend that you use the global ARNs for all use cases.

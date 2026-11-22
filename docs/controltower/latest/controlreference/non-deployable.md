@@ -1,7 +1,6 @@
 
 
 # Controls that have non-deployable Regions
-<a name="non-deployable"></a>
 
 This section lists controls that are not activated when deployed in certain Regions, due to lack of underlying dependencies. This section presents summary information about these non-deployable Regions, for quick reference. You can find the most updated information about the deployable Regions for any control by calling the `ListControls` and `GetControl` APIs. You also can view the deployable Regions in the AWS Control Tower console.
 

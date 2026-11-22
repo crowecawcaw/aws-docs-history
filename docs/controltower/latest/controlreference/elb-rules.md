@@ -1,7 +1,6 @@
 
 
 # Elastic Load Balancing controls
-<a name="elb-rules"></a>
 
 **Topics**
 + [[CT.ELASTICLOADBALANCING.PR.1] Require any application load balancer listener default actions to redirect all HTTP requests to HTTPS](#ct-elasticloadbalancing-pr-1-description)

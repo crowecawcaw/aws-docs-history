@@ -1,7 +1,6 @@
 
 
 # The Security Hub CSPM standard
-<a name="security-hub-controls"></a>
 
 AWS Control Tower is integrated with AWS Security Hub CSPM to provide detective controls that help you monitor your AWS environment. The integration is accomplished with a Security Hub CSPM standard, called the **Service-Managed Standard: AWS Control Tower**.
 

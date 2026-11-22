@@ -1,7 +1,6 @@
 
 
 # AWS Key Management Service (AWS KMS) controls
-<a name="kms-rules"></a>
 
 **Topics**
 + [[CT.KMS.PR.1] Require any AWS KMS key to have rotation configured](#ct-kms-pr-1-description)

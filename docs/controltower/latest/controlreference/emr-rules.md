@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Map Reduce (Amazon EMR) controls
-<a name="emr-rules"></a>
 
 **Topics**
 + [[CT.EMR.PR.1] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3](#ct-emr-pr-1-description)

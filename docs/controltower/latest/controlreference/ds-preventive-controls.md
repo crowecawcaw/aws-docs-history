@@ -1,7 +1,6 @@
 
 
 # Preventive controls that assist with digital sovereignty
-<a name="ds-preventive-controls"></a>
 
 These preventive controls are designed to assist you with your digital sovereignty governance posture.
 

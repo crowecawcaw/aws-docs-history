@@ -1,7 +1,6 @@
 
 
 # Control API examples
-<a name="control-api-examples-short"></a>
 
 Each control in AWS Control Tower has a unique identifier for use with the control APIs. The identifier for each control is shown in the **API controlIdentifier** field, on the **Control details** page in the AWS Control Tower console. This identifier is distinct from the **ControlID** field, which is a classification system for controls.
 

@@ -1,7 +1,6 @@
 
 
 # [CT.KMS.PV.4] Require that an AWS KMS customer-managed key (CMK) is configured with key material originating from AWS CloudHSM
-<a name="ct-kms-pv-4"></a>
 
 This control disallows creation of KMS keys that do not have a key origin of `AWS_CLOUDHSM`.
 

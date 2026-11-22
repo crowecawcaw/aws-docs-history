@@ -1,7 +1,6 @@
 
 
 # [CT.BACKUP.PV.1] Disallow modification of a tag that AWS Control Tower applies to AWS Backup resources
-<a name="ct-backup-pv-1"></a>
 
 This control limits changes to tags that AWS Control Tower applies to AWS Backup resources.
 
@@ -28,7 +27,7 @@ If you apply a tag with the key `aws-control-tower` to an AWS Backup resource cr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

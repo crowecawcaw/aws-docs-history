@@ -1,7 +1,6 @@
 
 
 # [CT.IAM.PV.1] Disallow modification of an AWS IAM role that AWS Control Tower utilizes to manage AWS Backup resources
-<a name="ct-iam-pv-1"></a>
 
 This control limits modification of the AWS IAM role (aws-controltower-BackupRole) that AWS Control Tower utilizes for management of AWS Backup resources.
 
@@ -27,7 +26,7 @@ AWS Backup resources managed by AWS Control Tower should be modified using the A
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

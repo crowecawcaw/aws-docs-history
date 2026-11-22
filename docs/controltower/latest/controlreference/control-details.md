@@ -1,7 +1,6 @@
 
 
 # View control details
-<a name="control-details"></a>
 
 You can view control details in the AWS Control Tower console or retrieve them programmatically using [Control Catalog APIs](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/Welcome.html).
 

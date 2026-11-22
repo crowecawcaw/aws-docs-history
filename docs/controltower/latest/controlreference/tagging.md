@@ -1,7 +1,6 @@
 
 
 # Tagging `EnabledControl` resources in AWS Control Tower
-<a name="tagging"></a>
 
 You can add tags to `EnabledControl` resources by means of CloudFormation templates, through the AWS Control Tower console, and by calling the AWS Control Tower APIs.
 
@@ -21,7 +20,7 @@ To tag a resource, update a tag, and enable proper drift reporting, three permis
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

@@ -1,7 +1,6 @@
 
 
 # About common controls
-<a name="common-controls-list"></a>
 
 This page provides an overview and a partial list of the common controls available for the Control Catalog. You can get a complete list of common controls by calling the [`ListCommonControls`](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html) API.
 

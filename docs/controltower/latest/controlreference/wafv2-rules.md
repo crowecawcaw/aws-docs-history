@@ -1,7 +1,6 @@
 
 
 # AWS WAFV2 controls
-<a name="wafv2-rules"></a>
 
 **Topics**
 + [[CT.WAFV2.PR.1] Require an AWS WAFV2 web ACL to be non-empty](#ct-wafv2-pr-1-description)

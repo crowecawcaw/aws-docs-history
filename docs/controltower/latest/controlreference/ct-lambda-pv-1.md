@@ -1,7 +1,6 @@
 
 
 # [CT.LAMBDA.PV.1] Require an AWS Lambda function URL to use AWS IAM-based authentication
-<a name="ct-lambda-pv-1"></a>
 
 Require an AWS Lambda function URL to restrict access to authenticated users by using `AWS_IAM` based authentication.
 

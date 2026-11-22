@@ -1,7 +1,6 @@
 
 
 # Strongly recommended controls with preventive behavior
-<a name="strongly-recommended-preventive-controls"></a>
 
 The following strongly recommended controls have preventive behavior.
 

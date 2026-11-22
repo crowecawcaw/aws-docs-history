@@ -1,7 +1,6 @@
 
 
 # Proactive controls
-<a name="proactive-controls"></a>
 
 These controls are referred to as *proactive* because they check your resources – before the resources are deployed – to determine whether the new resources will comply with the controls that are activated in your environment.
 

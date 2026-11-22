@@ -1,7 +1,6 @@
 
 
 # Control catalog: control objectives
-<a name="control-catalog-objectives"></a>
 
 This document gives details about the control objectives from the AWS Control Tower Control Catalog.
 

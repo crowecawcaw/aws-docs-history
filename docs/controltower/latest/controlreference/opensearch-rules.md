@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch controls
-<a name="opensearch-rules"></a>
 
 **Topics**
 + [[CT.OPENSEARCH.PR.1] Require an Elasticsearch domain to encrypt data at rest](#ct-opensearch-pr-1-description)

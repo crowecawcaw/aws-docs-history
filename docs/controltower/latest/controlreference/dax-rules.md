@@ -1,7 +1,6 @@
 
 
 # DynamoDB Accelerator controls
-<a name="dax-rules"></a>
 
 **Topics**
 + [[CT.DAX.PR.1] Require encryption at rest for all Amazon DynamoDB Accelerator (DAX) clusters](#ct-dax-pr-1-description)

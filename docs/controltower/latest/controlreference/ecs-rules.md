@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service controls
-<a name="ecs-rules"></a>
 
 **Topics**
 + [[CT.ECS.PR.1] Require Amazon ECS Fargate Services to run on the latest Fargate platform version](#ct-ecs-pr-1-description)

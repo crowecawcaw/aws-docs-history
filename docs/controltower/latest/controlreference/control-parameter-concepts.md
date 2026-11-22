@@ -1,7 +1,6 @@
 
 
 # Controls with parameters
-<a name="control-parameter-concepts"></a>
 
 In AWS Control Tower, RCP-based and certain SCP-based controls support configuration. These controls contain elements that are included by AWS Control Tower conditionally, based on the configuration you select. 
 

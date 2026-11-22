@@ -1,7 +1,6 @@
 
 
 # Identifiers for legacy controls
-<a name="identifiers-for-legacy-controls"></a>
 
 The following section contains the Regional `API controlIdentifier` designations of the legacy **Strongly recommended** and **Elective**, *preventive* and *detective*, controls that are owned by AWS Control Tower, including the elective **Data residency** controls. This information is presented as a reference. Although we recommend that you call APIs using the global identifiers, some controls may have been activated with Regional identifiers and still can be tracked by them.
 

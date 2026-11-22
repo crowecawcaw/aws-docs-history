@@ -1,7 +1,6 @@
 
 
 # The AWS Control Tower Control Catalog
-<a name="controls-reference"></a>
 
 The following sections include an individual reference entry for each of the controls available in AWS Control Tower. The controls are grouped into sections according to common characteristics. Each control reference entry includes the details, artifacts, additional information, and considerations to keep in mind when enabling a specific control on a OU in your landing zone.
 

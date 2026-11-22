@@ -1,7 +1,6 @@
 
 
 # Data residency controls with preventive behavior
-<a name="data-residency-preventive-controls"></a>
 
 The following data residency controls have preventive behavior.
 
@@ -29,7 +28,7 @@ The artifact for this control is the following service control policy (SCP).
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -78,7 +77,7 @@ The artifact for this control is the following service control policy (SCP).
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -123,7 +122,7 @@ The artifact for this control is the following service control policy (SCP).
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

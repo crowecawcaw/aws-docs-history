@@ -1,7 +1,6 @@
 
 
 # [CT.KMS.PV.2] Require that an AWS KMS asymmetric key with RSA key material used for encryption does not have a key length of 2048 bits
-<a name="ct-kms-pv-2"></a>
 
 This control disallows the creation of KMS keys used for encryption and decryption that also have a key spec of `RSA_2048`.
 

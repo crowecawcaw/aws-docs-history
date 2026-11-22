@@ -1,7 +1,6 @@
 
 
 # Amazon ElastiCache controls
-<a name="elasticache-rules"></a>
 
 **Topics**
 + [[CT.ELASTICACHE.PR.1] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic backups activated](#ct-elasticache-pr-1-description)

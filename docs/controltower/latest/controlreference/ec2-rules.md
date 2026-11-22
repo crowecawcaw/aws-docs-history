@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud (Amazon EC2) controls
-<a name="ec2-rules"></a>
 
 **Topics**
 + [[CT.EC2.PR.1] Require an Amazon EC2 launch template to have IMDSv2 configured](#ct-ec2-pr-1-description)

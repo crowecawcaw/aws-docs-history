@@ -1,7 +1,6 @@
 
 
 # Digital sovereignty controls
-<a name="digital-sovereignty-controls"></a>
 
 *Digital sovereignty* means control over digital assets. AWS Control Tower offers a group of controls that are designed to enhance your digital sovereignty governance posture. The pillars of this posture are as follows:
 + *Data residency:* Control over the location of your data.

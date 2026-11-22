@@ -1,7 +1,6 @@
 
 
 # AWS Elastic Beanstalk controls
-<a name="ebs-rules"></a>
 
 **Topics**
 + [[CT.ELASTICBEANSTALK.PR.1] Require AWS Elastic Beanstalk environments to have enhanced health reporting enabled](#ct-elasticbeanstalk-pr-1-description)

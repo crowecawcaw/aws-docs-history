@@ -1,7 +1,6 @@
 
 
 # Enable controls with CloudFormation
-<a name="enable-controls"></a>
 
 You can enable controls with CloudFormation, either through the CloudFormation console, or through the AWS CLI. This section gives an example of each type.
 

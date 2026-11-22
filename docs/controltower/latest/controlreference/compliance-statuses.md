@@ -1,7 +1,6 @@
 
 
 # AWS Control Tower compliance status for OUs and accounts
-<a name="compliance-statuses"></a>
 
 Compliance is reported in the AWS Control Tower dashboard for accounts and OUs. This section lists the possible categories of compliance and non-compliance in AWS Control Tower, assuming that controls are enabled for an account or an OU.
 + **For an account or OU: **A compliance status of **Compliant**, **Noncompliant**, or **Unknown** is possible. The compliance status refers to the status of the resources associated with a single account, or the status of all accounts in an OU that has multiple controls enabled on it. The account or OU compliance status can be found on the account or OU detail pages.

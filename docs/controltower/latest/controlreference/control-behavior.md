@@ -1,7 +1,6 @@
 
 
 # Control behavior and guidance
-<a name="control-behavior"></a>
 
 Controls are categorized according to their *behavior* and their *guidance*.
 

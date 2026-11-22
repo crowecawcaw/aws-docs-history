@@ -1,7 +1,6 @@
 
 
 # Update your proactive control hooks
-<a name="get-new-hooks"></a>
 
 To update the way that AWS Control Tower handles the CloudFormation hooks for your enabled proactive controls, follow the steps given in this section.
 

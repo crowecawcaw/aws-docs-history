@@ -1,7 +1,6 @@
 
 
 # AWS Database Migration Service (AWS DMS) controls
-<a name="dms-rules"></a>
 
 **Topics**
 + [[CT.DMS.PR.1] Require that a public AWS DMS replication instance is not public](#ct-dms-pr-1-description)

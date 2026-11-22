@@ -1,7 +1,6 @@
 
 
 # Region deny control applied to the OU
-<a name="ou-region-deny"></a>
 
 *This control is commonly referred to as the OU Region deny control, or the configurable Region deny control.*
 

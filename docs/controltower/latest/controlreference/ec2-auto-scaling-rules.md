@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Compute Cloud (Amazon EC2) Auto Scaling controls
-<a name="ec2-auto-scaling-rules"></a>
 
 **Topics**
 + [[CT.AUTOSCALING.PR.1] Require an Amazon EC2 Auto Scaling group to have multiple Availability Zones](#ct-autoscaling-pr-1-description)

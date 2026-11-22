@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty controls
-<a name="guard-duty-rules"></a>
 
 **Topics**
 + [[CT.GUARDDUTY.PR.1] Require an Amazon GuardDuty detector to have Amazon S3 protection activated](#ct-guardduty-pr-1-description)

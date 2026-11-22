@@ -1,7 +1,6 @@
 
 
 # Detective controls
-<a name="detective-controls"></a>
 
 A detective control detects noncompliance of resources within your accounts, such as policy violations, and provides alerts through the dashboard. The status of a detective control is either **clear**, **in violation**, or **not enabled**. Detective controls apply only in those AWS Regions supported by AWS Control Tower.
 + Detective controls are implemented using AWS Config rules. Most of the **Strongly recommended** controls, and many of the **Elective** controls, that are owned by AWS Control Tower are detective controls. The name of these controls typically begins with the word *Detect*, to denote a detective control.

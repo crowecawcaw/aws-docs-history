@@ -1,7 +1,6 @@
 
 
 # Elective controls with preventive behavior
-<a name="elective-preventive-controls"></a>
 
 The following elective controls have preventive behavior.
 
@@ -454,7 +453,7 @@ A typical use case for this control is a situation in which you do not wish to a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

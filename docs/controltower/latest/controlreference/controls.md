@@ -1,7 +1,6 @@
 
 
 # About controls in AWS Control Tower
-<a name="controls"></a>
 
 A control is a high-level rule that provides ongoing governance for your overall AWS environment. It's expressed in plain language. AWS Control Tower implements *preventive*, *detective*, and *proactive* controls that help you govern your resources and monitor compliance across groups of AWS accounts.
 

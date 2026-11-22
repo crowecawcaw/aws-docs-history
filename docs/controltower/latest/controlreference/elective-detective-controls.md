@@ -1,7 +1,6 @@
 
 
 # Elective controls with detective behavior
-<a name="elective-detective-controls"></a>
 
 The following elective controls have detective behavior.
 
