@@ -1,7 +1,6 @@
 
 
 # Module 3: Create Build Project
-<a name="module-three"></a>
 
 
 |  |  | 

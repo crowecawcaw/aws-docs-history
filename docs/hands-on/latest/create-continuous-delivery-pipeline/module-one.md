@@ -1,7 +1,6 @@
 
 
 # Module 1: Set Up Git Repo
-<a name="module-one"></a>
 
 
 |  |  | 

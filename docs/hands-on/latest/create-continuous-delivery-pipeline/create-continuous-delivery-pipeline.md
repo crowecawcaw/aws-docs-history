@@ -1,7 +1,6 @@
 
 
 # Create Continuous Delivery Pipeline
-<a name="create-continuous-delivery-pipeline"></a>
 
 
 |  |  | 

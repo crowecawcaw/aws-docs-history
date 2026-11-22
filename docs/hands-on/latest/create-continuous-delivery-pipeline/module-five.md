@@ -1,7 +1,6 @@
 
 
 # Module 5: Finalize Pipeline and Test
-<a name="module-five"></a>
 
 
 |  |  | 

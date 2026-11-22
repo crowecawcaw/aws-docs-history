@@ -1,7 +1,6 @@
 
 
 # Module 2: Deploy Web App
-<a name="module-two"></a>
 
 
 |  |  | 

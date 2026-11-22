@@ -1,7 +1,6 @@
 
 
 # Module 4: Create Delivery Pipeline
-<a name="module-four"></a>
 
 
 |  |  | 
