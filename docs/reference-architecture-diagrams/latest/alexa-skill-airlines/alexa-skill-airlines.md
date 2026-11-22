@@ -1,7 +1,6 @@
 
 
 # Amazon Alexa Skill for Airlines
-<a name="alexa-skill-airlines"></a>
 
 Publication date: **March 10, 2021 ([Diagram history](#alexa-skill-history))**
 
