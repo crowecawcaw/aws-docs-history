@@ -1,7 +1,6 @@
 
 
 # Access an AWS service using an interface VPC endpoint
-<a name="create-interface-endpoint"></a>
 
 You can create an interface VPC endpoint to connect to services powered by AWS PrivateLink, including many AWS services. For an overview, see [AWS PrivateLink concepts](concepts.md) and [Access AWS services through AWS PrivateLink](privatelink-access-aws-services.md).
 

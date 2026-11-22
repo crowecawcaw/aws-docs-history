@@ -1,7 +1,6 @@
 
 
 # Delete an interface endpoint
-<a name="delete-interface-endpoint"></a>
 
 When you are finished with a VPC endpoint, you can delete it. Deleting an interface endpoint also deletes its endpoint network interfaces.
 

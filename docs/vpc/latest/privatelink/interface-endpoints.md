@@ -1,7 +1,6 @@
 
 
 # Configure an interface endpoint
-<a name="interface-endpoints"></a>
 
 After you create an interface VPC endpoint, you can update its configuration.
 

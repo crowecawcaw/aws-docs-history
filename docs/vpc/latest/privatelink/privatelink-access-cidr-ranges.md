@@ -1,7 +1,6 @@
 
 
 # Access network segments through AWS PrivateLink
-<a name="privatelink-access-cidr-ranges"></a>
 
 You can privately access a network segment in another VPC using a tunnel VPC endpoint (tunnel endpoint). A tunnel endpoint lets you privately and securely access resources located within a set of CIDR ranges in another network. A CIDR range represents a network segment, so a consumer application can reach any resource within that network segment, without the provider having to enumerate each resource. This is useful when the resources are ephemeral or not known in advance. Tunnel endpoints require you to tunnel into another VPC using GENEVE encapsulation.
 

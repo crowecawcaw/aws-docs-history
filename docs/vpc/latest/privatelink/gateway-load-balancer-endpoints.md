@@ -1,7 +1,6 @@
 
 
 # Access an inspection system using a Gateway Load Balancer endpoint
-<a name="gateway-load-balancer-endpoints"></a>
 
 You can create a Gateway Load Balancer endpoint to connect to [endpoint services](concepts.md#concepts-endpoint-services) powered by AWS PrivateLink.
 

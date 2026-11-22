@@ -1,7 +1,6 @@
 
 
 # Configure an endpoint service
-<a name="configure-endpoint-service"></a>
 
 After you create an endpoint service, you can update its configuration.
 
@@ -53,6 +52,16 @@ All principals in all AWS accounts
 + [modify-vpc-endpoint-service-permissions](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-endpoint-service-permissions.html) (AWS CLI)
 + [Edit-EC2EndpointServicePermission](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2EndpointServicePermission.html) (Tools for Windows PowerShell)
 
+**Permissions for transit gateway network function attachments**  
+If the transit gateway and endpoint service are in different AWS accounts, add the transit gateway owner's account as an allowed principal and set the permission type to `transit-gateway-attachment`. This permission type supports only an AWS account principal, specified using its root ARN. For attachment instructions, see [Create, modify, and delete a network function attachment of type Gateway Load Balancer](https://docs.aws.amazon.com/vpc/latest/tgw/manage-nf-attachment-gwlb.html).
+
+```bash
+aws ec2 modify-vpc-endpoint-service-permissions \
+    --service-id {{service-id}} \
+    --permission-type transit-gateway-attachment \
+    --add-allowed-principals arn:aws:iam::{{account-id}}:root
+```
+
 ## Accept or reject connection requests
 <a name="accept-reject-connection-requests"></a>
 
@@ -99,6 +108,23 @@ You can receive a notification when a connection request is accepted or rejected
 **To accept or reject a connection request using the command line**
 + [accept-vpc-endpoint-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/accept-vpc-endpoint-connections.html) or [reject-vpc-endpoint-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/reject-vpc-endpoint-connections.html) (AWS CLI)
 + [Approve-EC2EndpointConnection](https://docs.aws.amazon.com/powershell/latest/reference/items/Approve-EC2EndpointConnection.html) or [Deny-EC2EndpointConnection](https://docs.aws.amazon.com/powershell/latest/reference/items/Deny-EC2EndpointConnection.html) (Tools for Windows PowerShell)
+
+**Connection requests from transit gateway network function attachments**  
+One or more requests from a network function attachment of type Gateway Load Balancer appear on the endpoint service's **Endpoint connections** tab and are identified by the transit gateway attachment ID. If the endpoint service requires acceptance, use the preceding procedure to accept or reject all pending requests for the attachment. No action is required when automatic acceptance is enabled.
+
+For the command line, use [accept-vpc-endpoint-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/accept-vpc-endpoint-connections.html) or [reject-vpc-endpoint-connections](https://docs.aws.amazon.com/cli/latest/reference/ec2/reject-vpc-endpoint-connections.html) with `--service-id` and `--transit-gateway-attachment-ids` instead of `--vpc-endpoint-ids`. For more information, see [Accept or reject an AWS Transit Gateway network function attachment](https://docs.aws.amazon.com/vpc/latest/tgw/accept-reject-firewall-attachment.html).
+
+```bash
+aws ec2 accept-vpc-endpoint-connections \
+  --service-id {{service-id}} \
+  --transit-gateway-attachment-ids {{transit-gateway-attachment-id}}
+```
+
+```bash
+aws ec2 reject-vpc-endpoint-connections \
+  --service-id {{service-id}} \
+  --transit-gateway-attachment-ids {{transit-gateway-attachment-id}}
+```
 
 ## Manage load balancers
 <a name="associate-load-balancer"></a>

@@ -1,7 +1,6 @@
 
 
 # Resource configuration for VPC resources
-<a name="resource-configuration"></a>
 
 A resource configuration represents an individual resource, a group of resources, or a list of CIDR ranges that you want to make accessible to clients in other VPCs and accounts. By defining a resource configuration, you can allow private, secure, unidirectional network connectivity to resources in your VPC from clients in other VPCs and accounts. A resource configuration is associated with a resource gateway through which it receives traffic.
 
@@ -35,7 +34,7 @@ A resource configuration can be of several types. The different types help repre
 ## Resource gateway
 <a name="resource-gateway"></a>
 
-A resource configuration is associated with a resource gateway. A resource gateway is a set of ENIs that serve as a point of ingress into the VPC in which the resource is in. Multiple resource configurations can be associated with the same resource gateway. When clients in other VPCs or accounts access a resource in your VPC, the resource sees traffic coming locally from the resource gateway in that VPC.
+A resource configuration is associated with a resource gateway. A resource gateway is a set of ENIs that serve as a point of ingress into the VPC that the resource is in. Multiple resource configurations can be associated with the same resource gateway. When clients in other VPCs or accounts access a resource in your VPC, the resource sees traffic coming locally from the resource gateway in that VPC.
 
 ## Custom domain names for resource providers
 <a name="custom-domain-name-resource-providers"></a>
@@ -76,7 +75,7 @@ We recommend that resource consumers set their private DNS preference to `VERIFI
 To select domains in the private DNS specified domains, resource consumers can enter a fully qualified domain name, such as `my.example.com` or use a wildcard such as `*.example.com`.
 
 The following considerations apply to consumers of resource configurations:
-+ The private DNS enabled parameter cannot be changed. 
++ You can enable or disable private DNS after you create the endpoint or VPC association. The change applies only to resource configurations connected afterward. Before you enable private DNS, turn on the `enableDnsHostnames` and `enableDnsSupport` attributes for your VPC. VPC Lattice doesn't check these attributes when you update the endpoint or VPC association, so the update succeeds, but names don't resolve until both attributes are on. For more information, see [Update private DNS settings](#update-private-dns-settings).
 + Private DNS should be enabled on a service network resource association for private hosted zones to be created in a VPC. For a resource configuration, the private DNS enabled status of the service network resource association overrides the private DNS enabled status of either the service network endpoint or service network VPC association.
 
 For resource configurations that are domain-name targets, a private hosted zone entry is not created if the following are true:
@@ -86,6 +85,55 @@ For resource configurations that are domain-name targets, a private hosted zone 
 
 For resource configurations that are of type ARN, VPC Lattice does not create a private hosted zone entry if the following are true:
 + Resource gateway is in the same VPC as the service network VPC endpoint/service network VPC association.
+
+### Update private DNS settings
+<a name="update-private-dns-settings"></a>
+
+After you create a resource VPC endpoint, service-network VPC endpoint, or service network VPC association, you can enable or disable private DNS, change its private DNS preference, and change its private DNS specified domains. To update a resource VPC endpoint or service-network VPC endpoint, use the `modify-vpc-endpoint` command. To update a service network VPC association, use the `update-service-network-vpc-association` command.
+
+The new settings apply only to resource configurations that are connected after you make the change. Resource configurations that are already connected keep working, and their existing DNS records don't change. To apply new settings to a resource configuration that's already connected, reconnect it: delete and re-create the endpoint or VPC association, or, for a service network, the service network owner can remove the resource configuration from the service network and add it back. Both interrupt connectivity to the resource configuration. For a resource VPC endpoint to a single resource configuration, an update doesn't take effect, so re-create the endpoint with the settings you want. For a resource VPC endpoint to a group resource configuration, each child resource configuration added to the group afterward uses the endpoint's current settings.
+
+Updates to a resource VPC endpoint or service-network VPC endpoint are applied during the call. Updates to a service network VPC association are asynchronous, and the association status is `UPDATE_IN_PROGRESS` until the update completes. You can update security groups and private DNS settings in the same request.
+
+When you update a resource VPC endpoint or service-network VPC endpoint, DNS options that you leave out don't change, with these exceptions. If you specify a private DNS preference without specified domains, the list of specified domains is cleared. If you specify domains without a preference, the update has no effect and the current settings stay. If you turn on private DNS without DNS options, the preference is set to `VERIFIED_DOMAINS_ONLY` with the specified domain `*`. If you turn off private DNS, the preference and the specified domains are cleared.
+
+For a group resource configuration, specify a wildcard for the group domain as a private DNS specified domain, for example, `*.example.com`. If you specify only the child domain names, or only the group domain, VPC Lattice doesn't create private DNS records for the group. For a single resource configuration, specify its custom domain name or a wildcard that covers it. A wildcard such as `*.example.com` matches example.com and every name under it.
+
+A private hosted zone that VPC Lattice creates for a domain answers for every name under that domain in your VPC. For example, a private hosted zone for example.com stops other example.com names from resolving in that VPC. Enable private DNS only for domains whose traffic you want to route through VPC Lattice.
+
+### Private hosted zone reuse
+<a name="private-hosted-zone-reuse"></a>
+
+If VPC Lattice already created a private hosted zone in your VPC for the group domain of a group resource configuration, and you connect another group resource configuration with the same group domain through another resource VPC endpoint, service-network VPC endpoint, or service network VPC association, VPC Lattice reuses the existing private hosted zone and adds records for the new child resource configurations to it. VPC Lattice creates records only for child domain names, not for the group domain itself. You can then access multiple group resource configurations that share a group domain (for example, several groups under example.com) from the same VPC. Reuse applies only to group resource configurations.
+
+VPC Lattice keeps a shared private hosted zone until the last endpoint or VPC association that uses it is deleted. A connection's records are removed when its resource configuration is disconnected or the connection is deleted.
+
+Reuse applies to different child domain names under the same group domain. If two endpoints or VPC associations in the same VPC claim the same domain name, the first one keeps the DNS record. On the second connection, only the resource configuration with that name fails and is unreachable, and its other resource configurations work. If the connection that holds the record is deleted, the other connection doesn't take it over. To get the record, re-create the other connection. For resource VPC endpoints and service-network VPC endpoints, `describe-vpc-endpoint-associations` shows `PrivateDnsAlreadyExists` for the resource configuration that failed.
+
+If a private hosted zone that you own for the same domain is associated with the VPC, VPC Lattice reports `PrivateDnsAlreadyExists` for that domain and doesn't change your private hosted zone. To keep using your own private hosted zone, exclude the domain from the private DNS settings before you connect. Then, in your private hosted zone, create a record for each resource configuration that maps its custom domain name (for example, db.example.com) to the endpoint-specific domain name that VPC Lattice generates for that resource configuration (for example, `vpce-0123456789abcdef0-snra-0123456789abcdef0.rcfg-0123456789abcdef0.4x5y6z.vpc-lattice-rsc.us-east-1.on.aws`). Without this mapping, the custom domain name doesn't resolve to the endpoint. To find the generated domain names, use the `describe-vpc-endpoint-associations` command.
+
+A private hosted zone can contain up to 10,000 records (Route 53 quota). For service-network VPC endpoints, this is about 1,000 domain names per domain in a VPC. The exact number depends on the number of Availability Zones.
+
+Connections that failed with `PrivateDnsAlreadyExists` before reuse was available aren't retried. To get private DNS for them, re-create the connection.
+
+### Differences between connection types
+<a name="differences-between-connection-types"></a>
+
+You can connect to resource configurations through a resource VPC endpoint, a service-network VPC endpoint, or a service network VPC association. The following table shows how they differ when you update them.
+
+
+| Characteristic | Resource VPC endpoint | Service-network VPC endpoint | Service network VPC association | 
+| --- | --- | --- | --- | 
+| Connects to | One resource configuration (single, group, or ARN) | A service network | A service network | 
+| Update API | ModifyVpcEndpoint (Amazon EC2) | ModifyVpcEndpoint (Amazon EC2) | UpdateServiceNetworkVpcAssociation (VPC Lattice) | 
+| When the update is applied | During the call | During the call | Asynchronously. Status is UPDATE\_IN\_PROGRESS until it completes | 
+| Updating DNS options | --dns-options. Options you leave out don't change, except that a preference without specified domains clears the domain list | Same as resource VPC endpoint | --dns-options together with --private-dns-enabled. Omitted options reset to defaults | 
+| Applying new DNS settings to resource configurations that are already connected | Single resource configuration: the update never applies, so re-create the endpoint. Group: each child added afterward uses the endpoint's current settings | Re-create the endpoint, or the service network owner removes the resource configuration and adds it back | Re-create the VPC association, or the service network owner removes the resource configuration and adds it back | 
+| Service network owner's private DNS setting | Not applicable (no service network) | Can only turn private DNS off for a resource configuration, never on. Doesn't apply to ARN (Amazon RDS) resource configurations | Same as service-network VPC endpoint | 
+| Same-name DNS conflicts reported | Yes: describe-vpc-endpoint-associations shows PrivateDnsAlreadyExists | Yes: same as resource VPC endpoint | Not reported per resource today. To check, resolve the name from an instance in the VPC | 
+| Subnets | Chosen at creation | Chosen at creation. Add only, in a separate request | You don't choose subnets | 
+| Security groups | Can be updated | Can be updated | Can be updated, but you can't remove all of them | 
+| DNS options field names | PrivateDnsPreference, PrivateDnsSpecifiedDomains (0-10 domains) | Same as resource VPC endpoint | privateDnsPreference, privateDnsSpecifiedDomains (1-10 domains) | 
 
 ## Custom domain names for service network owners
 <a name="resource-configuration-custom-domain-name-service-network-owners"></a>
@@ -132,7 +180,7 @@ Consumers can access resource configurations directly from their VPC using a VPC
 
   For more information on service network VPC endpoints, see [Access service networks](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-service-networks.html) in the *AWS PrivateLink user guide*.
 
-When private DNS is enabled for your VPC, you can't create a resource endpoint and service network endpoint for the same resource configuration.
+When private DNS is enabled for your VPC, you can't access the same resource configuration through both a resource endpoint and a service-network endpoint in that VPC. The first endpoint to claim the domain name keeps the DNS record, and the association for the second endpoint fails. For more information, see [Private hosted zone reuse](#private-hosted-zone-reuse). To access the resource configuration through both, turn off private DNS on one of them before you connect it, and use its VPC Lattice-generated DNS name.
 
 ## Association with service network type
 <a name="resource-configuration-service-network-association"></a>
@@ -169,3 +217,5 @@ To access a resource from another VPC in the same account as the resource config
 <a name="resource-configuration-monitoring"></a>
 
 You can enable monitoring logs on your resource configuration. You can choose a destination to send the logs to.
+
+VPC Lattice also publishes Amazon CloudWatch metrics for each resource configuration to the `AWS/VpcLattice` namespace. You can view metrics for the resource configuration overall, per Availability Zone, or per association (service network resource association or VPC endpoint association). For a group resource configuration, the group's metrics are the sum of the metrics of its child resource configurations, and each child resource configuration also has its own metrics. For more information, see [Resource gateway and resource configuration metrics](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-cloudwatch.html#resource-gateway-resource-configuration-metrics) in the *Amazon VPC Lattice User Guide*.

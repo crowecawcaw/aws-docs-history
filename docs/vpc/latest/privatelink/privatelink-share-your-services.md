@@ -1,7 +1,6 @@
 
 
 # Share your services through AWS PrivateLink
-<a name="privatelink-share-your-services"></a>
 
 You can host your own AWS PrivateLink powered service, known as an *endpoint service*, and share it with other AWS customers.
 

@@ -1,7 +1,6 @@
 
 
 # Create a resource gateway in VPC Lattice
-<a name="create-resource-gateway"></a>
 
 Use the console to create a resource gateway.
 

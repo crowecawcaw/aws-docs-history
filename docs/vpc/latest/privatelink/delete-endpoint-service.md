@@ -1,7 +1,6 @@
 
 
 # Delete an endpoint service
-<a name="delete-endpoint-service"></a>
 
 When you are finished with an endpoint service, you can delete it. You can't delete an endpoint service if there are any endpoints connected to the endpoint service that are in the `available` or `pending-acceptance` state.
 

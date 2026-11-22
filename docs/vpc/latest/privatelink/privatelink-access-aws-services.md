@@ -1,7 +1,6 @@
 
 
 # Access AWS services through AWS PrivateLink
-<a name="privatelink-access-aws-services"></a>
 
 You access an AWS service using an endpoint. The default service endpoints are public interfaces, so you must add an internet gateway to your VPC so that traffic can get from the VPC to the AWS service. If this configuration doesn't work with your network security requirements, you can use AWS PrivateLink to connect your VPC to AWS services as if they were in your VPC, without the use of an internet gateway.
 
@@ -84,7 +83,7 @@ aws ec2 describe-vpc-endpoints --vpc-endpoint-id {{vpce-099deb00b40f00e22}} --qu
 
 The following is example output for an interface endpoint for Amazon CloudWatch with private DNS names enabled. The first entry is the private Regional endpoint. The next three entries are the private zonal endpoints. The final entry is from the hidden private hosted zone, which resolves requests to the public endpoint to the private IP addresses of the endpoint network interfaces.
 
-```
+```json
 [
     [
         {

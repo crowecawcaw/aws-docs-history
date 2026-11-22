@@ -1,7 +1,6 @@
 
 
 # Access service networks through AWS PrivateLink
-<a name="privatelink-access-service-networks"></a>
 
 You can privately connect to a service network from your VPC using a service network VPC endpoint (service-network endpoint). A service-network endpoint lets you privately and securely access the resources and services that are associated to the service network. In this way, you can privately access multiple resources and services through a single VPC endpoint.
 
@@ -21,6 +20,7 @@ You are billed hourly for the resource configurations that are associated with y
 + [Private DNS](#sn-endpoint-private-dns)
 + [Subnets and Availability Zones](#sn-endpoint-subnets-zones)
 + [IP address types](#sn-endpoint-ip-address-type)
++ [Monitor your service network endpoint](#sn-endpoint-monitoring)
 + [Create a service-network endpoint](access-with-service-network-endpoint.md)
 + [Manage service-network endpoints](manage-sn-endpoint.md)
 
@@ -60,7 +60,7 @@ You can only enable [private DNS](privatelink-access-aws-services.md#interface-e
 ## DNS resolution
 <a name="sn-endpoint-dns-resolution"></a>
 
-When you create a service network endpoint, we create DNS names for each resource configuration and Lattice service that is associated to the service network. These DNS records are public. Therefore, these DNS names are publicly resolvable. However, DNS requests from outside the VPC still return the private IP addresses of the service network endpoint’s network interfaces. You can use these DNS names to access the resource and services from on premises, as long as you have access to the VPC that the service network endpoint is in, through VPN or Direct Connect.
+When you create a service network endpoint, we create DNS names for each resource configuration and Lattice service that is associated to the service network. These DNS records are public. Therefore, these DNS names are publicly resolvable. However, DNS requests from outside the VPC still return the private IP addresses of the service network endpoint's network interfaces. You can use these DNS names to access the resource and services from on premises, as long as you have access to the VPC that the service network endpoint is in, through VPN or Direct Connect.
 
 ## Private DNS
 <a name="sn-endpoint-private-dns"></a>
@@ -68,6 +68,8 @@ When you create a service network endpoint, we create DNS names for each resourc
 If you enable private DNS for your service-network VPC endpoint, and your VPC has both [DNS hostnames and DNS resolution](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-updating) enabled, we create hidden, AWS-managed private hosted zones for the resource configurations that have custom DNS names. The hosted zone contains a record set for the default DNS name for the resource that resolves it to the private IP addresses of the service-network endpoint's network interfaces in your VPC.
 
 Amazon provides a DNS server for your VPC, called the [Route 53 Resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html). The Route 53 Resolver automatically resolves local VPC domain names and record in private hosted zones. However, you can't use the Route 53 Resolver from outside your VPC. If you'd like to access your VPC endpoint from your on-premises network, you can use the default DNS names or you can use Route 53 Resolver endpoints and Resolver rules. For more information, see [Integrating AWS Transit Gateway with AWS PrivateLink and Amazon Route 53 Resolver](https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-aws-transit-gateway-with-aws-privatelink-and-amazon-route-53-resolver/).
+
+You can enable or disable private DNS, and change the private DNS preference and specified domains, after you create the endpoint. The change applies only to resource configurations added afterward. For more information, see [Update an endpoint](manage-resource-endpoint.md#update-resource-endpoint).
 
 ## Subnets and Availability Zones
 <a name="sn-endpoint-subnets-zones"></a>
@@ -78,6 +80,8 @@ You can configure your service-network endpoint with one subnet per Availability
 
 In a production environment, for high availability and resiliency, we recommend that you configure at least two Availability Zones for each service-network endpoint and ensure that each subnet has sufficient available IPv4 addresses.
 
+After you create a service-network endpoint, you can add subnets in other Availability Zones. Each subnet that you add must have at least 32 free IPv4 addresses, available as /28 blocks, plus 16 more for every 16 resource configurations beyond the first 16. In a new Availability Zone, a resource configuration gets an endpoint IP address only if its resource gateway also has a subnet in that Availability Zone. If it doesn't, adding the subnet still succeeds, but the endpoint gets no IP address for that resource configuration in that Availability Zone. You can't remove subnets. To remove a subnet, delete the service-network endpoint and create it again.
+
 ## IP address types
 <a name="sn-endpoint-ip-address-type"></a>
 
@@ -87,3 +91,10 @@ Service-network endpoints can support IPv4, IPv6, or dual-stack addresses. Endpo
 + **Dualstack** – Assign both IPv4 and IPv6 addresses to your endpoint network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges.
 
 If a service-network VPC endpoint supports IPv4, the endpoint network interfaces have IPv4 addresses. If a service-network VPC endpoint supports IPv6, the endpoint network interfaces have IPv6 addresses. The IPv6 address for an endpoint network interface is unreachable from the internet. If you describe an endpoint network interface with an IPv6 address, notice that `denyAllIgwTraffic` is enabled.
+
+## Monitor your service network endpoint
+<a name="sn-endpoint-monitoring"></a>
+
+Amazon VPC Lattice publishes Amazon CloudWatch metrics for traffic from your service-network endpoint to resource configurations in the service network. The metrics are published to the `AWS/VpcLattice` namespace using the `VPC Endpoint Id` dimension. For more information, see [Resource endpoint and service-network endpoint metrics](privatelink-cloudwatch-metrics.md#resource-endpoint-service-network-endpoint-metrics).
+
+Resource owners see this traffic under both the `Service Network Resource Association Id` and `VPC Endpoint Association Id` dimensions. For more information, see [Resource gateway and resource configuration metrics](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-cloudwatch.html#resource-gateway-resource-configuration-metrics) in the *Amazon VPC Lattice User Guide*.

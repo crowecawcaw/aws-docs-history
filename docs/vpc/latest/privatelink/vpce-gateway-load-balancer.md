@@ -1,7 +1,6 @@
 
 
 # Access virtual appliances through AWS PrivateLink
-<a name="vpce-gateway-load-balancer"></a>
 
 You can use a Gateway Load Balancer to distribute traffic to a fleet of network virtual appliances. The appliances can be used for security inspection, compliance, policy controls, and other networking services. You specify the Gateway Load Balancer when you create a VPC endpoint service. Other AWS principals access the endpoint service by creating a Gateway Load Balancer endpoint.
 

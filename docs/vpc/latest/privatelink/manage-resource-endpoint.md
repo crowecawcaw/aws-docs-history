@@ -1,9 +1,8 @@
 
 
 # Manage resource endpoints
-<a name="manage-resource-endpoint"></a>
 
-After you create a resource endpoint, you can manage its security groups or tags.
+After you create a resource endpoint, you can manage its security groups, private DNS settings, or tags.
 
 **Topics**
 + [Delete an endpoint](#delete-resource-endpoint)
@@ -35,7 +34,7 @@ When you are finished with a VPC endpoint, you can delete it.
 ## Update an endpoint
 <a name="update-resource-endpoint"></a>
 
-You can update a VPC endpoint.
+You can update a VPC endpoint. For resource endpoints, you can enable or disable private DNS, and change the private DNS preference and specified domains. For more information, see [Custom domain names for resource consumers](resource-configuration.md#custom-domain-name-resource-consumers).
 
 **To update an endpoint using the console**
 
@@ -52,3 +51,19 @@ You can update a VPC endpoint.
 **To update an endpoint using the command line**
 + [modify-vpc-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-endpoint.html) (AWS CLI)
 + [Edit-EC2VpcEndpoint](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2VpcEndpoint.html) (Tools for Windows PowerShell)
+
+The following example changes a resource VPC endpoint so that VPC Lattice provisions private hosted zones for verified domains and for `example.com` and `*.example.org`. The change applies only to resource configurations added after the update.
+
+```
+aws ec2 modify-vpc-endpoint \
+  --vpc-endpoint-id vpce-0123456789abcdef0 \
+  --dns-options '{"PrivateDnsPreference":"VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","PrivateDnsSpecifiedDomains":["example.com","*.example.org"]}'
+```
+
+The following example enables private DNS on an existing endpoint.
+
+```
+aws ec2 modify-vpc-endpoint \
+  --vpc-endpoint-id vpce-0123456789abcdef0 \
+  --private-dns-enabled
+```

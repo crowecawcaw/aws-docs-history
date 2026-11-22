@@ -1,7 +1,6 @@
 
 
 # Access a service network through a service-network endpoint
-<a name="access-with-service-network-endpoint"></a>
 
 You can access a service network using a service-network endpoint. A service-network endpoint provides private access to resource configurations and services in the service network.
 
@@ -19,7 +18,7 @@ If you need to avoid consuming VPC CIDR IP addresses, or anticipate a large numb
 ## Create a service network endpoint
 <a name="create-service-network-endpoint"></a>
 
-Create a service-network endpoint to access the service network that was shared with you. After you create a service-network endpoint, you can only modify its security groups or tags.
+Create a service-network endpoint to access the service network that was shared with you. After you create a service-network endpoint, you can modify its security groups, subnets (add only), private DNS settings, or tags.
 
 **To create a service-network endpoint**
 

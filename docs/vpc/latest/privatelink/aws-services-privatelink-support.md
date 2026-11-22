@@ -1,7 +1,6 @@
 
 
 # AWS services that integrate with AWS PrivateLink
-<a name="aws-services-privatelink-support"></a>
 
 The following AWS services integrate with AWS PrivateLink. You can create a VPC endpoint to connect to these services privately, as if they were running in your own VPC.
 
@@ -1008,7 +1007,7 @@ aws ec2 describe-vpc-endpoint-services \
 
 The following is example output. `VpcEndpointPolicySupported` indicates whether [endpoint policies](vpc-endpoints-access.md) are supported. `SupportedIpAddressTypes` indicates which IP address types are supported .
 
-```
+```json
 {
     "ServiceDetails": [
         {

@@ -1,9 +1,8 @@
 
 
 # Manage service-network endpoints
-<a name="manage-sn-endpoint"></a>
 
-After you create a service-network endpoint, you can update its security groups or tags.
+After you create a service-network endpoint, you can modify its security groups, subnets (add only), private DNS settings, or tags.
 
 **Topics**
 + [Delete an endpoint](#delete-sn-endpoint)
@@ -52,3 +51,11 @@ You can update a VPC endpoint.
 **To update an endpoint using the command line**
 + [modify-vpc-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-vpc-endpoint.html) (AWS CLI)
 + [Edit-EC2VpcEndpoint](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2VpcEndpoint.html) (Tools for Windows PowerShell)
+
+The following example adds a subnet to an existing service-network endpoint. Add subnets in a separate request, without other changes. You can't remove subnets from a service-network endpoint.
+
+```
+aws ec2 modify-vpc-endpoint \
+  --vpc-endpoint-id vpce-0123456789abcdef0 \
+  --add-subnet-ids subnet-0abc1234def567890
+```

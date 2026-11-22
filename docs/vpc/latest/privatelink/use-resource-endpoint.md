@@ -1,7 +1,6 @@
 
 
 # Access a resource through a resource VPC endpoint
-<a name="use-resource-endpoint"></a>
 
 You can access a VPC resource such as a domain name, an IP address, or Amazon RDS database using a resource endpoint. A resource endpoint provides private access to a resource. When you create the resource endpoint, you specify a resource configuration of type single, group, or ARN. A resource endpoint can be associated with only one resource configuration. The resource configuration can represent a single resource or a group of resources.
 
@@ -21,7 +20,7 @@ VPC Lattice does not create a resource endpoint if the following are true:
 ## Create a VPC resource endpoint
 <a name="create-resource-endpoint-aws"></a>
 
-Use the following procedure to create a VPC resource endpoint. After you create a resource endpoint, you can only modify its security groups or tags.
+Use the following procedure to create a VPC resource endpoint. After you create a resource endpoint, you can modify its security groups, private DNS settings, or tags.
 
 **To create a VPC resource endpoint**
 
@@ -54,3 +53,8 @@ Use the following procedure to create a VPC resource endpoint. After you create 
 **To create a resource endpoint using the command line**
 + [create-vpc-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-vpc-endpoint.html) (AWS CLI)
 + [New-EC2VpcEndpoint](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2VpcEndpoint.html) (Tools for Windows PowerShell)
+
+## Monitor your resource endpoint
+<a name="monitor-resource-endpoint"></a>
+
+Amazon VPC Lattice publishes Amazon CloudWatch metrics for your resource endpoint to the `AWS/VpcLattice` namespace, using the `VPC Endpoint Id` dimension. Metrics include bytes processed, packets dropped, and new and active flows, overall or per Availability Zone. For more information, see [Resource endpoint and service-network endpoint metrics](privatelink-cloudwatch-metrics.md#resource-endpoint-service-network-endpoint-metrics).

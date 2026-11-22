@@ -1,7 +1,6 @@
 
 
 # Access a network segment through a tunnel VPC endpoint
-<a name="use-cidr-endpoint"></a>
 
 You can access a network segment through a tunnel endpoint. A network segment is a set of CIDR ranges. It is shared as a resource configuration of type CIDR. A tunnel endpoint associates with exactly one CIDR-type resource configuration.
 

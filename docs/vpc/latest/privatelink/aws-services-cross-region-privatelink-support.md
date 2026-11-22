@@ -1,7 +1,6 @@
 
 
 # Cross-region enabled AWS services
-<a name="aws-services-cross-region-privatelink-support"></a>
 
 The following AWS services integrate with cross Region AWS PrivateLink. You can create an interface endpoint to connect to these services in another AWS Region, privately, as if they were running in your own VPC.
 

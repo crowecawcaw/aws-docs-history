@@ -1,19 +1,19 @@
 
 
 # CloudWatch metrics for AWS PrivateLink
-<a name="privatelink-cloudwatch-metrics"></a>
 
 AWS PrivateLink publishes data points to Amazon CloudWatch for your interface endpoints, Gateway Load Balancer endpoints, and endpoint services. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time series data, known as *metrics*. Think of a metric as a variable to monitor, and the data points as the values of that variable over time. Each data point has an associated timestamp and an optional unit of measurement.
 
 You can use metrics to verify that your system is performing as expected. For example, you can create a CloudWatch alarm to monitor a specified metric and initiate an action (such as sending a notification to an email address) if the metric goes outside what you consider an acceptable range.
 
-Metrics are published for all interface endpoints, Gateway Load Balancer endpoints, and endpoint services. They are not published for gateway endpoints or for endpoint service consumers that use cross-Region access. By default, AWS PrivateLink sends metrics to CloudWatch in one-minute intervals, at no additional cost.
+Metrics are published for all interface endpoints, Gateway Load Balancer endpoints, and endpoint services. They are not published for gateway endpoints or for endpoint service consumers that use cross-Region access. Metrics for resource VPC endpoints and service-network VPC endpoints are published by Amazon VPC Lattice to the `AWS/VpcLattice` namespace, not to `AWS/PrivateLinkEndpoints`. For more information, see [Resource endpoint and service-network endpoint metrics](#resource-endpoint-service-network-endpoint-metrics). By default, AWS PrivateLink sends metrics to CloudWatch in one-minute intervals, at no additional cost.
 
 For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 
 **Topics**
 + [Endpoint metrics and dimensions](#endpoint-metrics-dimensions)
 + [Endpoint service metrics and dimensions](#endpoint-service-metrics-dimensions)
++ [Resource endpoint and service-network endpoint metrics](#resource-endpoint-service-network-endpoint-metrics)
 + [View the CloudWatch metrics](#view-privatelink-metrics)
 + [Use built-in Contributor Insights rules](#privatelink-contributor-insights)
 
@@ -29,7 +29,7 @@ The `AWS/PrivateLinkEndpoints` namespace includes the following metrics for inte
 | BytesProcessed | The number of bytes exchanged between endpoints and endpoint services, aggregated in both directions. This is the number of bytes billed to the owner of the endpoint. The bill displays this value in GB.<br />**Reporting criteria**: The endpoint received traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, `Maximum`, and `Minimum`.+  `Endpoint Type`, `Service Name`, `VPC Endpoint Id`, `VPC Id` <br />+  `Endpoint Type`, `Service Name`, `Subnet Id`, `VPC Endpoint Id`, `VPC Id`  | 
 | NewConnections | The number of new connections established through the endpoint.<br />**Reporting criteria**: The endpoint received traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, `Maximum`, and `Minimum`.+  `Endpoint Type`, `Service Name`, `VPC Endpoint Id`, `VPC Id` <br />+  `Endpoint Type`, `Service Name`, `Subnet Id`, `VPC Endpoint Id`, `VPC Id`  | 
 | PacketsDropped | The number of packets dropped by the endpoint. This metric might not capture all packet drops. Increasing values could indicate that the endpoint or endpoint service is unhealthy.<br />**Reporting criteria**: The endpoint received traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Endpoint Type`, `Service Name`, `VPC Endpoint Id`, `VPC Id` <br />+  `Endpoint Type`, `Service Name`, `Subnet Id`, `VPC Endpoint Id`, `VPC Id`  | 
-| RstPacketsReceived | The number of RST packets received by the endpoint. Increasing values could indicate that the endpoint service is unhealthy.<br />**Reporting criteria**: The endpoint received traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Endpoint Type`, `Service Name`, `VPC Endpoint Id`, `VPC Id` <br />+  `Endpoint Type`, `Service Name`, `Subnet Id`, `VPC Endpoint Id`, `VPC Id`  | 
+| RstPacketsReceived | The number of RST packets received by the endpoint. This metric includes RST packets sent by load balancers as well as targets of the endpoint service. Increasing values could indicate that the endpoint service is unhealthy. This metric is available only for endpoints that are in the same Region as the endpoint service.<br />**Reporting criteria**: The endpoint received traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Endpoint Type`, `Service Name`, `VPC Endpoint Id`, `VPC Id` <br />+  `Endpoint Type`, `Service Name`, `Subnet Id`, `VPC Endpoint Id`, `VPC Id`  | 
 
 To filter these metrics, use the following dimensions.
 
@@ -55,6 +55,7 @@ The `AWS/PrivateLinkServices` namespace includes the following metrics for endpo
 | EndpointsCount | The number of endpoints connected to the endpoint service.<br />**Reporting criteria**: There is a nonzero value during the five-minute period.<br />**Statistics**: The most useful statistics are `Average` and `Maximum`.+  `Service Id`  | 
 | NewConnections | The number of new connections established from clients to targets through the endpoints. Increasing values could indicate the need to add targets to the load balancer.<br />**Reporting criteria**: An endpoint connected to the endpoint service sent traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Service Id` <br />+  `Az`, `Service Id` <br />+  `Load Balancer Arn`, `Service Id` <br />+  `Az`, `Load Balancer Arn`, `Service Id` <br />+  `Service Id`, `VPC Endpoint Id`  | 
 | RstPacketsSent | The number of RST packets sent to endpoints by the endpoint service. Increasing values could indicate that there are unhealthy targets.<br />**Reporting criteria**: An endpoint connected to the endpoint service sent traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Service Id` <br />+  `Az`, `Service Id` <br />+  `Load Balancer Arn`, `Service Id` <br />+  `Az`, `Load Balancer Arn`, `Service Id` <br />+  `Service Id`, `VPC Endpoint Id`  | 
+| RstPacketsGenerated | The number of RST packets generated by the endpoint service's load balancers.<br />**Reporting criteria**: An endpoint connected to the endpoint service sent traffic during the one-minute period.<br />**Statistics**: The most useful statistics are `Average`, `Sum`, and `Maximum`.+  `Service Id` <br />+  `Az`, `Service Id` <br />+  `Load Balancer Arn`, `Service Id` <br />+  `Az`, `Load Balancer Arn`, `Service Id` <br />+  `Service Id`, `VPC Endpoint Id`  | 
 
 To filter these metrics, use the following dimensions.
 
@@ -65,6 +66,26 @@ To filter these metrics, use the following dimensions.
 | Load Balancer Arn | Filters the metric data by load balancer. | 
 | Service Id | Filters the metric data by endpoint service. | 
 | VPC Endpoint Id | Filters the metric data by VPC endpoint. | 
+
+## Resource endpoint and service-network endpoint metrics
+<a name="resource-endpoint-service-network-endpoint-metrics"></a>
+
+**Important**  
+Metrics for resource VPC endpoints and service-network VPC endpoints are published to the `AWS/VpcLattice` namespace, not to `AWS/PrivateLinkEndpoints`.
+
+The `AWS/VpcLattice` namespace includes the following metrics for resource VPC endpoints and service-network VPC endpoints.
+
+
+| Metric | Description | 
+| --- | --- | 
+| BytesProcessed | The number of bytes processed between clients and the resource, aggregated in both directions.<br />**Statistics**: `Sum`. | 
+| PacketsDropped | The number of packets dropped on the path to the resource.<br />**Statistics**: `Sum`. | 
+| NewFlows | The number of new flows (connections) established with the resource during the one-minute period.<br />**Statistics**: `Sum`. | 
+| ActiveFlows | The number of flows currently established with the resource, including idle flows that are still tracked.<br />**Statistics**: `Average` and `Maximum`. | 
+
+Dimensions: `VPC Endpoint Id`; `VPC Endpoint Id`, `AvailabilityZone`.
+
+Resource owners receive the corresponding metrics for their resource gateways and resource configurations. For the full list of metrics and dimensions, see [CloudWatch metrics for Amazon VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/monitoring-cloudwatch.html) in the *Amazon VPC Lattice User Guide*.
 
 ## View the CloudWatch metrics
 <a name="view-privatelink-metrics"></a>
@@ -89,6 +110,8 @@ You can view these CloudWatch metrics using the Amazon VPC console, the CloudWat
 
 1. Select the **AWS/PrivateLinkServices** namespace.
 
+1. For resource VPC endpoints and service-network VPC endpoints, select the **AWS/VpcLattice** namespace.
+
 **To view metrics using the AWS CLI**  
 Use the following [list-metrics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html) command to list the available metrics for interface endpoints and Gateway Load Balancer endpoints:
 
@@ -100,6 +123,12 @@ Use the following [list-metrics](https://docs.aws.amazon.com/cli/latest/referenc
 
 ```
 aws cloudwatch list-metrics --namespace AWS/PrivateLinkServices
+```
+
+Use the following [list-metrics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html) command to list the available metrics for resource VPC endpoints and service-network VPC endpoints:
+
+```
+aws cloudwatch list-metrics --namespace AWS/VpcLattice
 ```
 
 ## Use built-in Contributor Insights rules
@@ -154,7 +183,7 @@ Use the following procedures to enable the built-in rules for AWS PrivateLink us
 
 1. In the output of the `list-managed-insight-rules` command, copy the name of the template from the `TemplateName` field. The following is an example of this field.
 
-   ```
+   ```json
    "TemplateName": "VpcEndpointService-NewConnectionsByEndpointId-v1"
    ```
 

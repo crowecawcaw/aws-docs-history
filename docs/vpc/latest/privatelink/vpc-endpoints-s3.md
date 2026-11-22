@@ -1,7 +1,6 @@
 
 
 # Gateway endpoints for Amazon S3
-<a name="vpc-endpoints-s3"></a>
 
 You can access Amazon S3 from your VPC using gateway VPC endpoints. After you create the gateway endpoint, you can add it as a target in your route table for traffic destined from your VPC to Amazon S3.
 
@@ -106,7 +105,7 @@ You can use bucket policies to control access to buckets from specific endpoints
 You can create a bucket policy that restricts access to a specific endpoint by using the [aws:sourceVpce](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpce) condition key. The following policy denies access to the specified bucket using the specified actions unless the specified gateway endpoint is used. Note that this policy blocks access to the specified bucket using the specified actions through the AWS Management Console.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -131,7 +130,7 @@ You can create a bucket policy that restricts access to a specific endpoint by u
 You can create a bucket policy that restricts access to specific VPCs by using the [aws:sourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc) condition key. This is useful if you have multiple endpoints configured in the same VPC. The following policy denies access to the specified bucket using the specified actions unless the request comes from the specified VPC. Note that this policy blocks access to the specified bucket using the specified actions through the AWS Management Console.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -156,7 +155,7 @@ You can create a bucket policy that restricts access to specific VPCs by using t
 You can create a policy that restricts access to specific IP address ranges by using the [aws:VpcSourceIp](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-vpcsourceip) condition key. The following policy denies access to the specified bucket using the specified actions unless the request comes from the specified IP address. Note that this policy blocks access to the specified bucket using the specified actions through the AWS Management Console.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -181,7 +180,7 @@ You can create a policy that restricts access to specific IP address ranges by u
 You can create a policy that restricts access to the S3 buckets in a specific AWS account by using the `s3:ResourceAccount` condition key. The following policy denies access to S3 buckets using the specified actions unless they are owned by the specified AWS account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -249,7 +248,7 @@ The following are example endpoint policies for accessing Amazon S3.
 You can create a policy that restricts access to specific S3 buckets only. This is useful if you have other AWS services in your VPC that use S3 buckets.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -275,7 +274,7 @@ You can create a policy that restricts access to specific S3 buckets only. This 
 You can create a policy that restricts access to a specific IAM role. You must use `aws:PrincipalArn` to grant access to a principal.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -299,7 +298,7 @@ You can create a policy that restricts access to a specific IAM role. You must u
 You can create a policy that restricts access to a specific account.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

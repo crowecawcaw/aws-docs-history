@@ -1,7 +1,6 @@
 
 
 # Manage associations for a VPC Lattice resource configuration
-<a name="resource-configuration-associations"></a>
 
 Consumer accounts with which you share a resource configuration, and clients in your account, can access the resource configuration either directly using a resource VPC endpoint or through a service network endpoint. As a result, your resource configuration will have endpoint associations and service network associations.
 
@@ -66,7 +65,7 @@ Consumer accounts with access to your resource configuration or clients in your 
 ------
 #### [ AWS CLI ]
 
-The following [create-vpc-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html) command creates a VPC endpoint that uses private DNS. The private DNS preferences are set to `VERIFIED_AND_SELECTED` and the selected domains are `example.com` and `example.org`. VPC Lattice only provisions private hosted zones for any verified domains or `example.com` or `example.org`.
+The following [create-vpc-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html) command creates a VPC endpoint that uses private DNS. The private DNS preference is set to `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` and the specified domains are `example.com` and `example.org`. VPC Lattice only provisions private hosted zones for verified domains and for `example.com` and `example.org`.
 
 ```
 aws ec2 create-vpc-endpoint \
@@ -75,8 +74,7 @@ aws ec2 create-vpc-endpoint \
   --subnet-ids subnet-0011aabbcc2233445 \
   --resource-configuration-arn arn:aws:vpc-lattice:us-west-2:111122223333:resourceconfiguration/rcfg-07129f3acded87625 \
   --private-dns-enabled \
-  --private-dns-preferences VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS \
-  --private-domains-set example.com, example.org
+  --dns-options '{"PrivateDnsPreference":"VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS","PrivateDnsSpecifiedDomains":["example.com","example.org"]}'
 ```
 
 ------

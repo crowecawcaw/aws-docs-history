@@ -1,7 +1,6 @@
 
 
 # Create an inspection system as a Gateway Load Balancer endpoint service
-<a name="create-gateway-load-balancer-endpoint-service"></a>
 
 You can create your own service powered by AWS PrivateLink, known as an *endpoint service*. You are the service provider, and the AWS principals that create connections to your service are the service consumers.
 
@@ -66,3 +65,7 @@ Service providers must do the following to make their services available to serv
 + Accept the endpoint connection request from the service consumer. For more information see [Accept or reject connection requests](configure-endpoint-service.md#accept-reject-connection-requests).
 
 AWS principals can connect to your endpoint service privately by creating a Gateway Load Balancer endpoint. For more information, see [Create a Gateway Load Balancer endpoint](gateway-load-balancer-endpoints.md).
+
+A transit gateway can also connect to your Gateway Load Balancer endpoint service through a network function attachment. The transit gateway owner creates a network function attachment of type Gateway Load Balancer and selects the endpoint service and Availability Zones. Transit Gateway creates one Gateway Load Balancer endpoint in each selected Availability Zone.
+
+For attachment instructions, see [Create, modify, and delete a network function attachment of type Gateway Load Balancer](https://docs.aws.amazon.com/vpc/latest/tgw/manage-nf-attachment-gwlb.html) in the *AWS Transit Gateway User Guide*.

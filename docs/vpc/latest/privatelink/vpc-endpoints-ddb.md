@@ -1,7 +1,6 @@
 
 
 # Gateway endpoints for Amazon DynamoDB
-<a name="vpc-endpoints-ddb"></a>
 
 You can access Amazon DynamoDB from your VPC using gateway VPC endpoints. After you create the gateway endpoint, you can add it as a target in your route table for traffic destined from your VPC to DynamoDB.
 
@@ -69,7 +68,7 @@ You can create IAM policies to control which IAM principals can access DynamoDB 
 You can create a policy that restricts access to a specific VPC endpoint by using the [aws:sourceVpce](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpce) condition key. The following policy denies access to DynamoDB tables in the account unless the specified VPC endpoint is used. This example assumes that there is also a policy statement that allows the access required for your use cases.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -93,7 +92,7 @@ You can create a policy that restricts access to a specific VPC endpoint by usin
 You can create a policy that allows access using a specific IAM role. The following policy grants access to the specified IAM role.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -117,7 +116,7 @@ You can create a policy that allows access using a specific IAM role. The follow
 You can create a policy that allows access from a specific account only. The following policy grants access to users in the specified account.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -188,7 +187,7 @@ The following are example endpoint policies for accessing DynamoDB.
 **Example: Allow read-only access**  
 You can create a policy that restricts access to read-only access. The following policy grants permission to list and describe DynamoDB tables.  
 
-```
+```json
 {
   "Statement": [
     {
@@ -208,7 +207,7 @@ You can create a policy that restricts access to read-only access. The following
 **Example: Restrict access to a specific table**  
 You can create a policy that restricts access to a specific DynamoDB table. The following policy allows access to the specified DynamoDB table.  
 
-```
+```json
 {
   "Statement": [
     {

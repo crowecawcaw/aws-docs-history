@@ -1,7 +1,6 @@
 
 
 # Create a service powered by AWS PrivateLink
-<a name="create-endpoint-service"></a>
 
 You can create your own service powered by AWS PrivateLink, known as an *endpoint service*. You are the service provider, and the AWS principals that create connections to your service are the service consumers.
 

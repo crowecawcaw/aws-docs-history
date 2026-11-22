@@ -1,9 +1,8 @@
 
 
 # Access VPC resources through AWS PrivateLink
-<a name="privatelink-access-resources"></a>
 
-You can privately access a VPC resource in another VPC using a resource VPC endpoint (resource endpoint). A resource endpoint lets you privately and securely access VPC resources such as a database, an Amazon EC2 instance, an application endpoint, a domain-name target, or an IP address that may be in a private subnet in another VPC or in an on premise environment. Without resource endpoints, you have to either add an internet gateway to your VPC or access the resource using a AWS PrivateLink interface endpoint and a Network Load Balancer. Resource endpoints don't require a [load balancer](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#loadbalancer), so you can access the VPC resource directly. A VPC resource is represented by a resource configuration. A resource configuration is associated with a resource gateway.
+You can privately access a VPC resource in another VPC using a resource VPC endpoint (resource endpoint). A resource endpoint lets you privately and securely access VPC resources such as a database, an Amazon EC2 instance, an application endpoint, a domain-name target, or an IP address that might be in a private subnet in another VPC or in an on-premises environment. Without resource endpoints, you have to either add an internet gateway to your VPC or access the resource using a AWS PrivateLink interface endpoint and a Network Load Balancer. Resource endpoints don't require a [load balancer](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#loadbalancer), so you can access the VPC resource directly. A VPC resource is represented by a resource configuration. A resource configuration is associated with a resource gateway.
 
 **Pricing**  
 When you access resources using resource endpoints, you are billed for each hour that your resource VPC endpoint is provisioned. You are also billed per GB of data processed when you access resources. For more information, see [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/). When you enable access to your resources using resource configurations and resource gateways, you are billed per GB data processed by your resource gateways. For more information, see [Amazon VPC Lattice pricing](https://aws.amazon.com/vpc/lattice/pricing/).
@@ -21,7 +20,7 @@ When you access resources using resource endpoints, you are billed for each hour
 ## Overview
 <a name="resource-endpoint-overview"></a>
 
-You can access resources in your account or those that have been shared with you from another account. To access a resource, you create a resource VPC endpoint, which establishes connections between the subnets in your VPC and the resource using network interfaces. Traffic destined for the resource is resolved to the private IP addresses of the resource endpoint’s network interfaces using DNS. Then, traffic is sent to the resource using the connection between the VPC endpoint and the resource through the resource gateway. 
+You can access resources in your account or those that have been shared with you from another account. To access a resource, you create a resource VPC endpoint, which establishes connections between the subnets in your VPC and the resource using network interfaces. Traffic destined for the resource is resolved to the private IP addresses of the resource endpoint's network interfaces using DNS. Then, traffic is sent to the resource using the connection between the VPC endpoint and the resource through the resource gateway. 
 
 The following image shows a resource endpoint in a consumer account accessing a resource that is owned by a different account and shared through AWS RAM:
 
@@ -54,7 +53,7 @@ aws ec2 describe-vpc-endpoint-associations --vpc-endpoint-id {{vpce-123456789abc
 
 The following is example output for a resource endpoint for an Amazon RDS database with private DNS names enabled. The first DNS name is the default DNS name. The second DNS name is from the hidden private hosted zone, which resolves requests to the public endpoint to the private IP addresses of the endpoint network interfaces.
 
-```
+```json
 [
     [
         "vpce-rsc-asc-abcd1234abcd",
@@ -77,7 +76,7 @@ The following is example output for a resource endpoint for an Amazon RDS databa
 ## DNS resolution
 <a name="resource-endpoint-dns-resolution"></a>
 
-The DNS records that we create for your resource VPC endpoint are public. Therefore, these DNS names are publicly resolvable. However, DNS requests from outside the VPC still return the private IP addresses of the resource endpoint’s network interfaces. You can use these DNS names to access the resource from on premises, as long as you have access to the VPC that the resource endpoint is in, through VPN or Direct Connect.
+The DNS records that we create for your resource VPC endpoint are public. Therefore, these DNS names are publicly resolvable. However, DNS requests from outside the VPC still return the private IP addresses of the resource endpoint's network interfaces. You can use these DNS names to access the resource from on premises, as long as you have access to the VPC that the resource endpoint is in, through VPN or Direct Connect.
 
 ## Private DNS
 <a name="resource-endpoint-private-dns"></a>
@@ -85,6 +84,8 @@ The DNS records that we create for your resource VPC endpoint are public. Theref
 If you enable private DNS for your resource VPC endpoint for select resource configurations that use ARNs, and your VPC has both [DNS hostnames and DNS resolution](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-updating) enabled, we create hidden, AWS-managed private hosted zones for resource configurations with a custom DNS name. The hosted zone contains a record set for the default DNS name for the resource that resolves it to the private IP addresses of the resource endpoint's network interfaces in your VPC.
 
 Amazon provides a DNS server for your VPC, called the [Route 53 Resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html). The Route 53 Resolver automatically resolves local VPC domain names and record in private hosted zones. However, you can't use the Route 53 Resolver from outside your VPC. If you'd like to access your VPC endpoint from your on-premises network, you can use the custom DNS name or you can use Route 53 Resolver endpoints and Resolver rules. For more information, see [Integrating AWS Transit Gateway with AWS PrivateLink and Amazon Route 53 Resolver](https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-aws-transit-gateway-with-aws-privatelink-and-amazon-route-53-resolver/).
+
+You can enable or disable private DNS, and change the private DNS preference and specified domains, after you create the endpoint. The change applies only to resource configurations added afterward. For more information, see [Update an endpoint](manage-resource-endpoint.md#update-resource-endpoint).
 
 ## Subnets and Availability Zones
 <a name="resource-endpoint-subnets-zones"></a>

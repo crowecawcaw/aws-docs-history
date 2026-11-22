@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink concepts
-<a name="concepts"></a>
 
 You can use Amazon VPC to define a virtual private cloud (VPC), which is a logically isolated virtual network. You can allow the clients in your VPC to connect to destinations outside that VPC. For example, add an internet gateway to the VPC to allow access to the internet, or add a VPN connection to allow access to your on-premises network. Alternatively, use AWS PrivateLink to allow the clients in your VPC to connect to services and resources in other VPCs using private IP addresses, as if those services and resources were hosted directly in your VPC.
 
