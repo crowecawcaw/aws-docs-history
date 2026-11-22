@@ -1,7 +1,6 @@
 
 
 # Viewing Transfer Family log streams
-<a name="view-log-entries"></a>
 
 **To view your Transfer Family server logs**
 

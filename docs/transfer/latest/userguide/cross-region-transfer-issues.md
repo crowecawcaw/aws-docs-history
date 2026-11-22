@@ -1,7 +1,6 @@
 
 
 # Troubleshoot cross-region transfer issues
-<a name="cross-region-transfer-issues"></a>
 
 This section describes possible solutions for issues related to transferring files across AWS Regions.
 
@@ -39,7 +38,7 @@ To resolve cross-region transfer permission issues:
 1. Ensure your IAM role has permissions for both source and destination buckets:  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

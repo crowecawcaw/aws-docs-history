@@ -1,7 +1,6 @@
 
 
 # Transfer Family events detail reference
-<a name="events-detail-reference"></a>
 
 All events from AWS services have a common set of fields containing metadata about the event. These metadata can include the AWS service that is the source of the event, the time the event was generated, the account and Region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
@@ -66,7 +65,7 @@ The following are the detail fields for SFTP, FTPS, and FTP server events:
 
 The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
   . . .,
   "detail-type": "string",
@@ -139,7 +138,7 @@ For successful transfers, the timestamp for when file processing begins.
 **Example SFTP Server File Download Failed example event**  <a name="event-detail-server-events.example"></a>
 The following example shows an event where a download failed on an SFTP server (Amazon EFS is the storage being used).  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -171,7 +170,7 @@ The following example shows an event where a download failed on an SFTP server (
 **Example FTP Server File Upload Completed example event**  <a name="event-detail-server-events.example"></a>
 The following example shows an event where an upload completed successfully on an FTP server (Amazon S3 is the storage being used).  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -202,7 +201,7 @@ The following example shows an event where an upload completed successfully on a
 **Example SFTP Server File Delete Completed example event**  <a name="event-detail-server-events.example"></a>
 The following example shows an event where a file was successfully deleted on an SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -231,7 +230,7 @@ The following example shows an event where a file was successfully deleted on an
 **Example SFTP Server File Rename Completed example event**  <a name="event-detail-server-events.example"></a>
 The following example shows an event where a file was successfully renamed on an SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -261,7 +260,7 @@ The following example shows an event where a file was successfully renamed on an
 **Example SFTP Server Directory Create Completed example event**  <a name="event-detail-server-events.example"></a>
 The following example shows an event where a directory was successfully created on an SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -307,7 +306,7 @@ The following are the detail fields for SFTP connector events:
 
 The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
   . . .,
   "detail-type": "string",
@@ -424,7 +423,7 @@ The name assigned to the object in Amazon S3.
 **Example SFTP Connector File Send Failed example event**  <a name="event-detail-sftp-connector-events.example"></a>
 The following example shows an event where an SFTP connector failed while trying to send a file to a remote SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -462,7 +461,7 @@ The following example shows an event where an SFTP connector failed while trying
 **Example SFTP Connector File Retrieve Completed example event**  <a name="event-detail-sftp-connector-events.example"></a>
 The following example shows an event where an SFTP connector successfully retrieved a file sent from a remote SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -498,7 +497,7 @@ The following example shows an event where an SFTP connector successfully retrie
 **Example SFTP Connector Directory Listing Completed example event**  <a name="event-detail-sftp-connector-events.example"></a>
 The following example shows an event where a start directory listing call retrieved a listing file from a remote SFTP server.  
 
-```
+```json
 {
     "version": "0",
     "id": "event-ID",
@@ -549,7 +548,7 @@ The following are the detail fields for AS2 events:
 
 The `source` and `detail-type` fields are included below because they contain specific values for Transfer Family events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
    . . .,
   "detail-type": "string",
@@ -651,7 +650,7 @@ The unique identifier for the transfer event.
 
 **Example AS2 Payload Receive Completed example event**  <a name="event-detail-as2-server-events.example"></a>
 
-```
+```json
 {
     "version": "0",
      "id": "event-ID",
@@ -684,7 +683,7 @@ The unique identifier for the transfer event.
 
 **Example AS2 MDN Receive Failed example event**  <a name="event-detail-as2-server-events.example"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "event-ID",

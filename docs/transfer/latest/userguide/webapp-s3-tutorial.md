@@ -1,7 +1,6 @@
 
 
 # Tutorial: Setting up AWS Transfer Family web app with selective multi-bucket access
-<a name="webapp-s3-tutorial"></a>
 
 This tutorial guides you through configuring a Transfer Family web app with specific Amazon S3 bucket permissions for a single user. You'll learn how to set up a solution that allows users to download from one bucket and upload to another while maintaining security. This is an advanced tutorial that builds on the concepts covered in the basic tutorial. If you're new to AWS Transfer Family web apps, consider starting with [Tutorial: Setting up a basic Transfer Family web app](web-app-tutorial.md).
 
@@ -58,7 +57,7 @@ Use the following trust policy for both IAM roles:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ Create an IAM role with the following policy for read-only access to your downlo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -119,7 +118,7 @@ Create another IAM role with the following policy for write access to your uploa
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -215,7 +214,7 @@ Configure a CORS policy for both S3 buckets to allow access through your AWS Tra
 
    You can find your web app endpoint URL in the AWS Transfer Family console under WebApps. It will look similar to **https://webapp-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*.transfer-webapp.us-west-2.on.aws**.
 
-   ```
+   ```json
    [
      {
        "AllowedHeaders": [

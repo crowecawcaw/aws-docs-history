@@ -1,7 +1,6 @@
 
 
 # Test an SFTP connector
-<a name="test-sftp-connector"></a>
 
 After you create an SFTP connector, we recommend that you test it before you attempt to transfer any files using your new connector.
 

@@ -1,7 +1,6 @@
 
 
 # Additional server host key information
-<a name="server-host-key-other"></a>
 
 You can select a host key to display details for that key.
 

@@ -1,7 +1,6 @@
 
 
 # Assign or add users or groups to a Transfer Family web app
-<a name="webapp-add-users"></a>
 
 After you create a Transfer Family web app, you can assign users and groups who can then access the web app. You can either retrieve users that are already created and stored in IAM Identity Center, or you can [add new users directly](https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html) (if you're using an IAM Identity Center directory as your identity provider). If you add new users, they are also added to your IAM Identity Center instance.
 

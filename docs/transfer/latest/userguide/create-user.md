@@ -1,7 +1,6 @@
 
 
 # Managing users for server endpoints
-<a name="create-user"></a>
 
 In the following sections, you can find information about how to add users using AWS Transfer Family, AWS Directory Service for Microsoft Active Directory or a custom identity provider.
 
@@ -53,7 +52,7 @@ When using a Custom Identity Provider, you can now specify a HomeDirectory in th
 
 Example Custom IDP response with HomeDirectory and LOGICAL HomeDirectoryType:
 
-```
+```json
 {
   "Role": "arn:aws:iam::123456789012:role/transfer-user-role",
   "HomeDirectoryType": "LOGICAL",

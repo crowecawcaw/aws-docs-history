@@ -1,7 +1,6 @@
 
 
 # Configuring an SFTP, FTPS, or FTP server endpoint
-<a name="tf-server-endpoint"></a>
 
 You can create a file transfer server by using the AWS Transfer Family service. The following file transfer protocols are available:
 + Secure Shell (SSH) File Transfer Protocol (SFTP) – File transfer over SSH. For details, see [Create an SFTP-enabled server](create-server-sftp.md).

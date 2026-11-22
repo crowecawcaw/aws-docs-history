@@ -1,7 +1,6 @@
 
 
 # Create a private connection between a VPC and AWS Transfer Family APIs
-<a name="vpc-api-endpoints"></a>
 
 You can establish a private connection between your VPC and AWS Transfer Family APIs by creating an *interface VPC endpoint*, powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/). You can access AWS Transfer Family APIs as if it were in your VPC, without using an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC don't need public IP addresses to communicate with AWS Transfer Family APIs.
 

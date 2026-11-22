@@ -1,7 +1,6 @@
 
 
 # Using AWS Lambda to integrate your identity provider
-<a name="custom-lambda-idp"></a>
 
 This topic describes how to create an AWS Lambda function that connects to your custom identity provider. You can use any custom identity provider, such as Okta, Secrets Manager, OneLogin, or a custom data store that includes authorization and authentication logic.
 
@@ -30,7 +29,7 @@ You must have a policy that references the Transfer Family server and Lambda ARN
 
 ****  
 
-```
+```json
 "Policy":
 "{\"Version\":\"2012-10-17\",
 \"Id\":\"default\",

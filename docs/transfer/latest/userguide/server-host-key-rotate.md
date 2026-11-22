@@ -1,7 +1,6 @@
 
 
 # Rotating the server host keys
-<a name="server-host-key-rotate"></a>
 
 Periodically, you can rotate your server host key. This topic describes how the server chooses which key to apply, and the procedure for rotating these keys.
 

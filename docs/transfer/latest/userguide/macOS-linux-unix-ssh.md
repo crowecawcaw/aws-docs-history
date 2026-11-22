@@ -1,7 +1,6 @@
 
 
 # Creating SSH keys on macOS, Linux, or Unix
-<a name="macOS-linux-unix-ssh"></a>
 
 On the macOS, Linux, or Unix operating systems, you use the `ssh-keygen` command to create an SSH public key and SSH private key also known as a key pair.
 

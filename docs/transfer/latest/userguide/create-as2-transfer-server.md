@@ -1,7 +1,6 @@
 
 
 # Create an AS2 server
-<a name="create-as2-transfer-server"></a>
 
 This topic provides instructions for creating an AS2-enabled Transfer Family server, using either the console or a CloudFormation template. For an end-to-end example AS2 configuration, see [Setting up an AS2 configuration](as2-example-tutorial.md). After you create an AS2 server, you can add an agreement to the server. 
 

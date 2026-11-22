@@ -1,7 +1,6 @@
 
 
 # Edit identity provider configuration
-<a name="configuring-servers-edit-custom-idp"></a>
 
 You can change your server's identity provider type from any type to any other type. The available identity provider types are:
 + **Service managed** – Store user credentials within the service
@@ -88,7 +87,7 @@ Example resource policy for direct Lambda integration:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{

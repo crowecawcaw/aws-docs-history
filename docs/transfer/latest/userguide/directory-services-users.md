@@ -1,7 +1,6 @@
 
 
 # Using AWS Directory Service for Microsoft Active Directory
-<a name="directory-services-users"></a>
 
 You can use AWS Transfer Family to authenticate your file transfer end users using AWS Directory Service for Microsoft Active Directory. It enables seamless migration of file transfer workflows that rely on Active Directory authentication without changing end users’ credentials or needing a custom authorizer. 
 
@@ -73,7 +72,7 @@ Add these permissions to the role you are using for creating your Transfer Famil
 
  When you are considering how to have your Active Directory users access AWS Transfer Family servers, keep in mind the user's realm, and their group's realm. Ideally, the user's realm and their group's realm should match. That is, both the user and the group are in the default realm, or both are in the trusted realm. If this is not the case, the user cannot be authenticated by Transfer Family.
 
-You can test the user to ensure the configuration is correct. For details, see [Testing users](#directory-services-test-user). If there is a problem with the user/group realm, you receive the error, No associated access found for user's groups.
+You can test the user to ensure the configuration is correct. For details, see [Testing users](#directory-services-test-user). If there is a problem with the user/group realm, you receive the error, `No associated access found for user's groups`.
 
 ## Choosing AWS Managed Microsoft AD as your identity provider
 <a name="managed-ad-identity-provider"></a>

@@ -1,7 +1,6 @@
 
 
 # Create an SFTP-enabled server
-<a name="create-server-sftp"></a>
 
 Secure Shell (SSH) File Transfer Protocol (SFTP) is a network protocol used for secure transfer of data over the internet. The protocol supports the full security and authentication functionality of SSH. It's widely used to exchange data, including sensitive information between business partners in a variety of industries such as financial services, healthcare, retail, and advertising.
 

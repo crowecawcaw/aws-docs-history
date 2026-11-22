@@ -1,7 +1,6 @@
 
 
 # Troubleshoot storage and encryption issues
-<a name="storage-encryption-issues"></a>
 
 This section describes possible solutions for issues with storage and encryption.
 
@@ -44,7 +43,7 @@ An error occurred (ResourceNotFoundException) when calling the UpdateServer oper
 
 **Cause**
 
-There are several reasons for receiving a ResourceNotFoundException message. In most cases, the resource that you specified in your API command does not exist. If you did specify an existing resource, then the most probable cause is that your default region is different than the region for your resource. For example, if your default region is **us-east-1**, and your Transfer Family server is in **us-east-2**, you will receive an Unknown resource exception.
+There are several reasons for receiving a `ResourceNotFoundException` message. In most cases, the resource that you specified in your API command does not exist. If you did specify an existing resource, then the most probable cause is that your default region is different than the region for your resource. For example, if your default region is **us-east-1**, and your Transfer Family server is in **us-east-2**, you will receive an `Unknown resource` exception.
 
 For details about setting a default region, see [Quick configuration with `aws configure`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
 

@@ -1,7 +1,6 @@
 
 
 # Configure a Transfer Family web app
-<a name="webapp-configure"></a>
 
 This section describes the procedures for creating a Transfer Family web app. To assign users and groups that can use it, see [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md).
 

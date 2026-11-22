@@ -1,7 +1,6 @@
 
 
 # Sign up for AWS
-<a name="requirements-aws-signup"></a>
 
 When you sign up for Amazon Web Services (AWS), your AWS account is automatically signed up for all services in AWS, including AWS Transfer Family. You are charged only for the services that you use.
 

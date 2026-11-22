@@ -1,7 +1,6 @@
 
 
 # Create a workflow from a template
-<a name="workflow-template"></a>
 
 You can deploy an CloudFormation stack that creates a workflow and a server from a template. This procedure contains an example that you can use to quickly deploy a workflow.
 
@@ -14,7 +13,7 @@ You can deploy an CloudFormation stack that creates a workflow and a server from
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    AWSTemplateFormatVersion: 2010-09-09
    Resources:
      SFTPServer:
@@ -62,7 +61,7 @@ You can deploy an CloudFormation stack that creates a workflow and a server from
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
        "AWSTemplateFormatVersion": "2010-09-09",
        "Resources": {

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Transfer Family
-<a name="transfer-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Transfer Family as part of multiple AWS compliance programs. These include SOC, PCI, HIPAA, and others. For the complete list, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope).
 

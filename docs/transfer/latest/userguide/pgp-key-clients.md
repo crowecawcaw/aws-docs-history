@@ -1,7 +1,6 @@
 
 
 # Supported PGP clients
-<a name="pgp-key-clients"></a>
 
 The following clients have been tested with Transfer Family and can be used to generate PGP keys, and to encrypt files that you intend to decrypt with a workflow.
 + **Gpg4win \+ Kleopatra**. 

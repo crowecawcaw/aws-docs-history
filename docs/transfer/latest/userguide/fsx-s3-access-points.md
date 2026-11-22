@@ -1,7 +1,6 @@
 
 
 # Access your FSx for NetApp ONTAP file systems with Transfer Family
-<a name="fsx-s3-access-points"></a>
 
 
 
@@ -154,7 +153,7 @@ The file system user that you specify determines what operations Transfer Family
 
 **UNIX example:**
 
-```
+```bash
 # Create a directory for Transfer Family users
 mkdir -p /vol1/transfer-users
 
@@ -167,7 +166,7 @@ chmod 755 /vol1/transfer-users
 
 **Windows example:**
 
-```
+```powershell
 # Create a directory for Transfer Family users
 New-Item -Path "D:\vol1\transfer-users" -ItemType Directory
 
@@ -233,14 +232,14 @@ You can find the access point alias after creating the access point.
 
 Use the `describe-s3-access-point-attachments` command.
 
-```
+```bash
 aws fsx describe-s3-access-point-attachments \
     --filters Name=file-system-id,Values=fs-0123456789abcdef0
 ```
 
 The response includes the alias:
 
-```
+```json
 {
     "S3AccessPointAttachments": [
         {
@@ -298,7 +297,7 @@ IAM policies require the Access Point ARN format, not the alias. Use the format 
 
 **Example IAM policy:**
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -363,7 +362,7 @@ When you create a user for FSx storage, use the access point alias in home direc
 
 Use the `create-user` command. Replace the access point alias with your alias.
 
-```
+```bash
 aws transfer create-user \
     --server-id s-0123456789abcdef0 \
     --user-name jsmith \
@@ -384,7 +383,7 @@ You can map multiple virtual directories to different paths on the FSx volume.
 
 **Example: Separate upload and download directories**
 
-```
+```bash
 aws transfer create-user \
     --server-id s-0123456789abcdef0 \
     --user-name jsmith \

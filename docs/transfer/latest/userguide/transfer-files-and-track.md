@@ -1,7 +1,6 @@
 
 
 # Transfer files
-<a name="transfer-files-and-track"></a>
 
 **Topics**
 + [Send and retrieve files by using an SFTP connector](#send-retrieve-connector-details)

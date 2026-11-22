@@ -1,7 +1,6 @@
 
 
 # Use custom file-processing steps
-<a name="custom-step-details"></a>
 
 By using a custom file-processing step, you can Bring Your Own file-processing logic using AWS Lambda. Upon file arrival, a Transfer Family server invokes a Lambda function that contains custom file-processing logic, such as encrypting files, scanning for malware, or checking for incorrect file types. In the following example, the target AWS Lambda function is used to process the output file from the previous step.
 
@@ -132,7 +131,7 @@ The following examples show the events that are sent to AWS Lambda when a file u
 
 The following Lambda function extracts the information regarding the execution status, and then calls the [SendWorkflowStepState](https://docs.aws.amazon.com/transfer/latest/APIReference/API_SendWorkflowStepState.html) API operation to return the status to the workflow for the step—either `SUCCESS` or `FAILURE`. Before your function calls the `SendWorkflowStepState` API operation, you can configure Lambda to take an action based on your workflow logic. 
 
-```
+```json
 import json
 import boto3
 

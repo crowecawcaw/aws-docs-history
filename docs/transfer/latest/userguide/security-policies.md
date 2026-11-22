@@ -1,7 +1,6 @@
 
 
 # Security policies for AWS Transfer Family servers
-<a name="security-policies"></a>
 
 Server security policies in AWS Transfer Family allow you to limit the set of cryptographic algorithms (message authentication codes (MACs), key exchanges (KEXs), cipher suites, content encryption ciphers, and hash algorithms) associated with your server.
 

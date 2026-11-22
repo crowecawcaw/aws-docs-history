@@ -1,7 +1,6 @@
 
 
 # Configure AS2 connectors
-<a name="configure-as2-connector"></a>
 
 The purpose of a connector is to establish a relationship between trading partners for *outbound* transfers—sending AS2 files from a Transfer Family server to an external, partner-owned destination. For the connector, you specify the local party, the remote partner, and their certificates (by creating local and partner profiles).
 
@@ -166,7 +165,7 @@ Basic authentication is available only if you're using HTTPS.<a name="as2-auth-s
 
 1. On the **Review** page, choose **Store** to create and store the secret.
 
-After you create the secret, you can choose it when you are creating a connector (see [Configure AS2 connectors](#configure-as2-connector)). In the step where you enable Basic authentication, choose the secret from the dropdown list of available secrets.
+After you create the secret, you can choose it when you are creating a connector (see [Configure AS2 connectors](configure-as2-connector.md)). In the step where you enable Basic authentication, choose the secret from the dropdown list of available secrets.
 
 ## View AS2 connector details
 <a name="connectors-view-info"></a>

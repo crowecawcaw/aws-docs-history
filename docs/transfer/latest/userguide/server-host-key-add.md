@@ -1,7 +1,6 @@
 
 
 # Adding an additional server host key
-<a name="server-host-key-add"></a>
 
 On the AWS Transfer Family console, you can add additional server host keys. Adding additional host keys of differing formats can be useful for identifying a server when clients connect to it, as well as improving your security profile. For example, if your original key is an RSA key, you could add an additional ECDSA key.
 

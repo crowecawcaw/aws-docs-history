@@ -1,7 +1,6 @@
 
 
 # Troubleshoot custom identity provider issues
-<a name="custom-idp-troubleshooting"></a>
 
 This section describes possible solutions for issues related to custom identity providers with Transfer Family.
 

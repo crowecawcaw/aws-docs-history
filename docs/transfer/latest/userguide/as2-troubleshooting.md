@@ -1,7 +1,6 @@
 
 
 # Troubleshoot AS2 issues
-<a name="as2-troubleshooting"></a>
 
 This section describes possible solutions for issues with AS2 transfers.
 

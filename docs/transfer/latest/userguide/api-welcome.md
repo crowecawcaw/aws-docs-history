@@ -1,7 +1,6 @@
 
 
 # AWS Transfer Family API Reference
-<a name="api-welcome"></a>
 
 The complete API Reference guide for Transfer Family is available at [AWS Transfer Family API Reference](https://docs.aws.amazon.com/transfer/latest/APIReference/api-welcome.html). 
 

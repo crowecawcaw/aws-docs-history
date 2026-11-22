@@ -1,7 +1,6 @@
 
 
 # Troubleshoot authentication issues
-<a name="auth-issues"></a>
 
 This section describes possible solutions for the following authentication issues.
 
@@ -50,7 +49,7 @@ sftp -o PubkeyAuthentication=no {{sftp-user}}@{{server-id}}.server.transfer.{{re
 
 **Cause**
 
-If a user and their group do not match, the user cannot be authenticated by Transfer Family. If you test the identity provider for the user, you receive the error No associated access found for user's groups.
+If a user and their group do not match, the user cannot be authenticated by Transfer Family. If you test the identity provider for the user, you receive the error `No associated access found for user's groups`.
 
 **Solution**
 

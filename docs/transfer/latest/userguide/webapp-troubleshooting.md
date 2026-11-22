@@ -1,7 +1,6 @@
 
 
 # Troubleshooting your web apps
-<a name="webapp-troubleshooting"></a>
 
 **Note**  
 These troubleshooting tips are meant for the web app administrator rather than the end user. For end users, if you encounter any problems, contact your web app administrator. All instances of *you* in the following paragraphs refer to the web app admin.

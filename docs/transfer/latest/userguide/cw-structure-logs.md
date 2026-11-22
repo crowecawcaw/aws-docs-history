@@ -1,7 +1,6 @@
 
 
 # CloudWatch log structure for Transfer Family
-<a name="cw-structure-logs"></a>
 
 This topic describes the fields that are populated in Transfer Family logs: both for JSON structured log entries and legacy log entries.
 

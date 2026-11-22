@@ -1,7 +1,6 @@
 
 
 # Using AWS Directory Service for Entra ID Domain Services
-<a name="azure-sftp"></a>
 
  For customers that need SFTP Transfer only, and do not want to manage a domain, there is Simple Active Directory. Alternatively, customers who want the benefits of Active Directory and high availability in a fully managed service can use AWS Managed Microsoft AD. Finally, for customers who want to take advantage of their existing Active Directory forest for their SFTP Transfer, there is Active Directory Connector. 
 

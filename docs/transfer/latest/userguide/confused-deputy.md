@@ -1,7 +1,6 @@
 
 
 # Cross-service confused deputy prevention
-<a name="confused-deputy"></a>
 
 The confused deputy problem is a security issue where an entity that doesn't have permission to perform an action can coerce a more-privileged entity to perform the action. In AWS, cross-service impersonation can result in the confused deputy problem. Cross-service impersonation can occur when one service (the *calling service*) calls another service (the *called service*). The calling service can be manipulated to use its permissions to act on another customer's resources in a way that it should not otherwise have permission to access. To prevent this, AWS provides tools that help you protect your data for all services with service principals that have been given access to resources in your account. For a detailed description of this problem, see [the confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) in the *IAM User Guide*.
 
@@ -31,7 +30,7 @@ The following example policy allows any user of any server in the account to ass
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ The following example policy allows any user of a specific server to assume the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ The following example policy allows a specific user of a specific server to assu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -115,7 +114,7 @@ The following example policy allows any workflow in the account to assume the ro
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -143,7 +142,7 @@ The following example policy allows a specific workflow to assume the role.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -171,7 +170,7 @@ The following example policy allows any connector in the account to assume the r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -199,7 +198,7 @@ The following example policy allows a specific connector to assume the role.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -231,7 +230,7 @@ The following example logging/invocation policy allows any server (and workflow)
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -262,7 +261,7 @@ The following example logging/invocation policy allows a specific server (and wo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

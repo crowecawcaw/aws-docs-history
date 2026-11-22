@@ -1,7 +1,6 @@
 
 
 # Create an FTPS-enabled server
-<a name="create-server-ftps"></a>
 
 File Transfer Protocol over SSL (FTPS) is an extension to FTP. It uses Transport Layer Security (TLS) and Secure Sockets Layer (SSL) cryptographic protocols to encrypt traffic. FTPS allows encryption of both the control and data channel connections either concurrently or independently.
 

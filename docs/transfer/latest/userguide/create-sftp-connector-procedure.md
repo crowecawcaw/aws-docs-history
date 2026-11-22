@@ -1,7 +1,6 @@
 
 
 # Create an SFTP connector with service-managed egress
-<a name="create-sftp-connector-procedure"></a>
 
 This procedure explains how to create SFTP connectors by using the AWS Transfer Family console or AWS CLI.
 
@@ -33,7 +32,7 @@ In the policy, you must specify the ARN for the secret. The ARN contains the sec
      + **Make sure this role contains a trust relationship** that allows the connector to access your resources when servicing your users' transfer requests. For details on establishing a trust relationship, see [To establish a trust relationship](requirements-roles.md#establish-trust-transfer).  
 ****  
 
-     ```
+     ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -85,7 +84,7 @@ You can also store secrets containing your SFTP credentials in another AWS accou
    + (Optional) For the **Logging role**, choose the IAM role for the connector to use to push events to your CloudWatch logs. The following example policy lists the necessary permissions to log events for SFTP connectors.  
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -144,7 +143,7 @@ In the policy, you must specify the ARN for the secret. The ARN contains the sec
   + **Make sure this role contains a trust relationship** that allows the connector to access your resources when servicing your users' transfer requests. For details on establishing a trust relationship, see [To establish a trust relationship](requirements-roles.md#establish-trust-transfer).  
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -194,7 +193,7 @@ You can also store secrets containing your SFTP credentials in another AWS accou
 + (Optional) Choose the IAM role for the connector to use to push events to your CloudWatch logs. The following example policy lists the necessary permissions to log events for SFTP connectors.  
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

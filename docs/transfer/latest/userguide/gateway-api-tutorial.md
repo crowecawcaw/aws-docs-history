@@ -1,7 +1,6 @@
 
 
 # Setting up an Amazon API Gateway method as a custom identity provider
-<a name="gateway-api-tutorial"></a>
 
 This tutorial illustrates how to set up an Amazon API Gateway method and use it as a custom identity provider to upload files to an AWS Transfer Family server. This tutorial uses the [Basic stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-idp-templates/aws-transfer-custom-idp-basic-apig.template.yml), and other basic functionality as an example only. 
 
@@ -175,7 +174,7 @@ The `{{role-id}}` is unique to the user role that you create. The policy attache
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

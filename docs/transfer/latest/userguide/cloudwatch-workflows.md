@@ -1,7 +1,6 @@
 
 
 # Managing logging for workflows
-<a name="cloudwatch-workflows"></a>
 
 CloudWatch provides consolidated auditing and logging for workflow progress and results. Additionally, AWS Transfer Family provides several metrics for workflows. You can view metrics for how many workflows executions started, completed successfully, and failed in the previous minute. All of the CloudWatch metrics for Transfer Family are described in [Using CloudWatch metrics for Transfer Family servers](metrics.md).
 
@@ -54,7 +53,7 @@ The **Log events** page for a workflow log stream contains the details for the w
 
  The following is a sample log stream for `mary.w-abcdef01234567890.021345abcdef6789`, based on a workflow (`w-abcdef01234567890`) that contains a copy step. 
 
-```
+```json
 {
     "type": "ExecutionStarted",
     "details": {

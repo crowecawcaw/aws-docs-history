@@ -1,7 +1,6 @@
 
 
 # Transfer Family web apps
-<a name="web-app"></a>
 
 You can create web apps to enable a simple interface for transferring data to and from Amazon Simple Storage Service (S3) over a web browser. This does not require you to create or provision AWS Transfer Family servers.
 

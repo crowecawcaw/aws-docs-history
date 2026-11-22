@@ -1,7 +1,6 @@
 
 
 # Managing SFTP connectors
-<a name="manage-sftp-connectors"></a>
 
 This topic describes how to view and update SFTP connectors.
 

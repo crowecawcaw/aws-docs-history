@@ -1,7 +1,6 @@
 
 
 # Configure IAM roles for Transfer Family web apps
-<a name="webapp-roles"></a>
 
 You will need two roles: one to use as an identity bearer role for your web app, and a second to use for configuring an access grant. An identity bearer role is a role that includes an authenticated user's identity in its sessions. It's used to make requests to S3 Access Grants for data access on behalf of the user.
 

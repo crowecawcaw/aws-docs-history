@@ -1,7 +1,6 @@
 
 
 # Managing Transfer Family events using Amazon EventBridge
-<a name="eventbridge"></a>
 
 Amazon EventBridge is a serverless service that uses events to connect application components together, which can make it easier for you to build scalable event-driven applications. Event-driven architecture is a style of building loosely coupled software systems that work together by emitting and responding to events. Events represent a change in a resource or environment. 
 
@@ -188,7 +187,7 @@ For example, the following event pattern matches against all events from Transfe
 
 The following event pattern example matches all of the SFTP connector events:
 
-```
+```json
 {
   "source": ["aws.transfer"],
   "detail-type": ["SFTP Connector File Send Completed", "SFTP Connector File Retrieve Completed",
@@ -198,7 +197,7 @@ The following event pattern example matches all of the SFTP connector events:
 
 The following event pattern example matches all Transfer Family failed events:
 
-```
+```json
 {
   "source": ["aws.transfer"],
   "detail-type": [{"wildcard", "*Failed"}]
@@ -207,7 +206,7 @@ The following event pattern example matches all Transfer Family failed events:
 
 The following event pattern example matches successful SFTP downloads for user {{username}}:
 
-```
+```json
 {
   "source": ["aws.transfer"],
   "detail-type": ["SFTP Server File Download Completed"],

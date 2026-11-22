@@ -1,7 +1,6 @@
 
 
 # Create a Transfer Family web app in a VPC
-<a name="create-webapp-in-vpc"></a>
 
 This section describes the procedures for creating a Transfer Family web app in a VPC. You can host your web app's endpoint inside a virtual private cloud (VPC) to use for transferring data to and from an Amazon S3 bucket without going over the public internet. To assign users and groups that can use your web app, see [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md).
 

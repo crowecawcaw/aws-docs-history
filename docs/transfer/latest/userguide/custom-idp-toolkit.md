@@ -1,7 +1,6 @@
 
 
 # Custom identity provider solution
-<a name="custom-idp-toolkit"></a>
 
 The AWS Transfer Family custom identity provider solution is a modular custom identity provider solution that solves for many common authentication and authorization use cases that enterprises have when implementing the service. This solution provides a reusable foundation for implementing custom identity providers with granular per-user session configuration and separates authentication and authorization logic, offering a flexible and easy-to-maintain foundation for various use cases. 
 

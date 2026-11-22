@@ -1,7 +1,6 @@
 
 
 # Troubleshoot monitoring and alerting issues
-<a name="monitoring-issues"></a>
 
 This section provides information about troubleshooting monitoring and alerting issues with AWS Transfer Family, including missing or incomplete CloudWatch metrics and missing EventBridge events.
 

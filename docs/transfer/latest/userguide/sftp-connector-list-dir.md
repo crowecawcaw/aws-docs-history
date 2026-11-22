@@ -1,7 +1,6 @@
 
 
 # List contents of a remote directory
-<a name="sftp-connector-list-dir"></a>
 
 Before you retrieve files from a remote SFTP server, you can retrieve the contents of a directory on the remote SFTP server. To do this, you use the [StartDirectoryListing](https://docs.aws.amazon.com/transfer/latest/APIReference/API_StartDirectoryListing.html) API operation.
 

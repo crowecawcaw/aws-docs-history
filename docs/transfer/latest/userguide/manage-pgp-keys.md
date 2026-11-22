@@ -1,7 +1,6 @@
 
 
 # Manage PGP keys
-<a name="manage-pgp-keys"></a>
 
 To manage your PGP keys, use AWS Secrets Manager.
 

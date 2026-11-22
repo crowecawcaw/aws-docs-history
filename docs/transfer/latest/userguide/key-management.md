@@ -1,7 +1,6 @@
 
 
 # Managing SSH and PGP keys in Transfer Family
-<a name="key-management"></a>
 
 In this section, you can find information about SSH keys, including how to generate them and how to rotate them. For details about using Transfer Family with AWS Lambda to manage keys, see the blog post [Enabling user self-service key management with AWS Transfer Family and AWS Lambda](https://aws.amazon.com/blogs/storage/enabling-user-self-service-key-management-with-aws-transfer-family-and-aws-lambda/). For automated deployment and management of users with multiple SSH keys, see [Transfer Family Terraform modules](terraform.md).
 

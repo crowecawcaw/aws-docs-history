@@ -1,7 +1,6 @@
 
 
 # Create AS2 profiles
-<a name="configure-as2-profile"></a>
 
 This topic discusses how to create profiles for use in the AS2 process. A *local profile* defines the local (AS2-enabled Transfer Family server) organization or "party." Similarly, a *partner profile* defines the remote partner organization, external to Transfer Family.
 

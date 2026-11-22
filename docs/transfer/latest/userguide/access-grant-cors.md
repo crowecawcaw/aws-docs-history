@@ -1,7 +1,6 @@
 
 
 # Set up Cross-origin resource sharing (CORS) for your bucket
-<a name="access-grant-cors"></a>
 
 You must set up cross-origin resource sharing (CORS) for all buckets that are used by your web app. A *CORS configuration* is a document that defines rules that identify the origins that you will allow to access your bucket. For more information about CORS, see [Configuring cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html?icmpid=docs_amazons3_console).
 

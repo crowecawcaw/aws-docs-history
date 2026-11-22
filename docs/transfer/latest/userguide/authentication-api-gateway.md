@@ -1,7 +1,6 @@
 
 
 # Using Amazon API Gateway to integrate your identity provider
-<a name="authentication-api-gateway"></a>
 
 This topic describes how to use an AWS Lambda function to back an API Gateway method. Use this option if you need a RESTful API to integrate your identity provider or if you want to use AWS WAF to leverage its capabilities for geo-blocking or rate-limiting requests.
 
@@ -132,7 +131,7 @@ The example response body is a JSON document of the following form for Amazon S3
 
 ****  
 
-```
+```json
 "Policy":
 "{
   \"Version\": \"2012-10-17\",

@@ -1,7 +1,6 @@
 
 
 # Create an SFTP connector with VPC-based egress
-<a name="create-vpc-sftp-connector-procedure"></a>
 
 This topic provides step-by-step instructions for creating SFTP connectors with VPC connectivity. VPC\_LATTICE-enabled connectors use Amazon VPC Lattice to route traffic through your Virtual Private Cloud, enabling secure connections to private endpoints or using your own NAT gateways for internet access.
 
@@ -80,7 +79,7 @@ In the policy, you must specify the ARN for the secret. The ARN contains the sec
      + **Make sure this role contains a trust relationship** that allows the connector to access your resources when servicing your users' transfer requests. For details on establishing a trust relationship, see [To establish a trust relationship](requirements-roles.md#establish-trust-transfer).  
 ****  
 
-     ```
+     ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -135,7 +134,7 @@ You can also store secrets containing your SFTP credentials in another AWS accou
    + (Optional) For the **Logging role**, choose the IAM role for the connector to use to push events to your CloudWatch logs.  
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Reference architectures using SFTP connectors
-<a name="reference-architectures"></a>
 
 This section lists the reference materials that are available for configuring automated file transfer workflows using SFTP connectors. You can design your own event-driven architectures by using the SFTP connector events in Amazon EventBridge, to orchestrate between your file transfer action and pre- and post-processing actions in AWS.
 

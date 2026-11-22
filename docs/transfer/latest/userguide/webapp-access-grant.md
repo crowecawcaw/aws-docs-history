@@ -1,7 +1,6 @@
 
 
 # Configure Amazon S3 Access Grants for Transfer Family web apps
-<a name="webapp-access-grant"></a>
 
 This topic describes how to add an access grant using Amazon S3 Access Grants. This access grant defines access to your data directly to your users and groups in your corporate directory and vends just-in-time, least privilege, temporary credentials based on grants. An individual grant in an S3 Access Grants instance allows a specific user or group in a corporate directory—to get access within a location that is registered in your S3 Access Grants instance. For more details, see [S3 Access Grants concepts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-concepts.html) in the Amazon S3 User Guide.
 

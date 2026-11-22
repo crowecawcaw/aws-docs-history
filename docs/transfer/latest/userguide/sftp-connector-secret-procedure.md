@@ -1,7 +1,6 @@
 
 
 # Store authentication credentials for SFTP connectors in Secrets Manager
-<a name="sftp-connector-secret-procedure"></a>
 
 You can use Secrets Manager to store user credentials for your SFTP connectors. When you create your secret, you must provide a username. Additionally, you can provide either a password, a private key, or both. For details, see [Quotas for SFTP connectors](scale-and-limits-sftp-connector.md#limits-sftp-connector).
 

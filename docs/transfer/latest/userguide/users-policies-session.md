@@ -1,7 +1,6 @@
 
 
 # Creating a session policy for an Amazon S3 bucket
-<a name="users-policies-session"></a>
 
 A *session policy* is an AWS Identity and Access Management (IAM) policy that restricts users to certain portions of an Amazon S3 bucket. It does so by evaluating access in real time.
 
@@ -29,7 +28,7 @@ The following code shows an example session policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

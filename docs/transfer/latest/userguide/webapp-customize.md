@@ -1,7 +1,6 @@
 
 
 # Update your access endpoint with a custom URL
-<a name="webapp-customize"></a>
 
 The default access endpoint that is created with your web app contains service-generated identifiers. To provide a branded experience, you may want to provide a custom URL for your users to access your Transfer Family web app. This topic describes how to update your access endpoint with a custom URL.
 

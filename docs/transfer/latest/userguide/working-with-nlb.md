@@ -1,7 +1,6 @@
 
 
 # Working with Network Load Balancers
-<a name="working-with-nlb"></a>
 
 Whether you should place a Network Load Balancer (NLB) in front of an AWS Transfer Family server depends on the protocol that your server uses. Review the following guidance before you add an NLB to your architecture.
 + **FTP and FTPS** – We recommend against placing an NLB in front of the server. An NLB in this path increases costs and reduces the number of simultaneous connections that the server accepts. If your FTP or FTPS implementation requires an NLB, see [Avoid placing NLBs and NATs in front of AWS Transfer Family servers](infrastructure-security.md#nlb-considerations) for configuration recommendations.
@@ -17,6 +16,9 @@ This feature applies to SFTP servers that use a VPC-hosted endpoint. When an NLB
 When you enable PPv2, the client's source IP address becomes available in the following places:
 + Authentication requests that AWS Transfer Family sends to your custom identity provider. You can then write IP-based access policies.
 + Log entries in Amazon CloudWatch Logs.
+
+**Note**  
+The PPv2 header that your load balancer sends must contain at least one type-length-value (TLV) field. An NLB includes TLVs by default. If you use a different load balancer, configure it to add a TLV, such as a CRC32C checksum. For example, in HAProxy, add `proxy-v2-options crc32c`. For any `SftpMode` value, the server closes connections whose PPv2 header contains no TLVs and doesn't write a log entry for them.
 
 ## SSH client compatibility with PROXY protocol v2
 <a name="nlb-sftp-client-compatibility"></a>
@@ -59,7 +61,7 @@ Complete the following three steps in order to enable enforcement without refusi
 
 Enable the `proxy_protocol_v2.enabled` attribute on the NLB target group that points at your server's VPC endpoint. This attribute tells the NLB to prepend a PPv2 header to each connection. For instructions, see [Proxy protocol for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#proxy-protocol) in the *Elastic Load Balancing User Guide*.
 
-While the server is set to `SftpMode=NONE`, it accepts connections with or without a PPv2 header.
+While the server is set to `SftpMode=NONE`, it accepts connections with or without a PPv2 header. The server refuses a connection with a PPv2 header that contains no TLVs. For more information, see [Preserving the client's source IP for SFTP with PROXY protocol v2](#nlb-sftp-source-ip).
 
 **Note**  
 Some SSH clients wait to receive the server's SSH identification string before sending their own. When you enable PROXY protocol v2, these clients fail to complete the connection. Before you enable PROXY protocol v2, confirm that your users' clients send their identification string first. For details, see [SSH client compatibility with PROXY protocol v2](#nlb-sftp-client-compatibility).
@@ -91,13 +93,13 @@ On the **Server details** page, choose **Edit** next to **Additional details**, 
 
 Run the following command to enforce PROXY protocol v2 on your server.
 
-```
+```bash
 aws transfer update-server --server-id {{your-server-id}} --protocol-details ProxyConfig={SftpMode=PROXY_PROTOCOL_V2_ENFORCED}
 ```
 
 If successful, the command returns the following code and updates your server.
 
-```
+```json
 {
     "ServerId": "{{your-server-id}}"
 }

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Transfer Family
-<a name="troubleshooting"></a>
 
 This chapter provides troubleshooting information for common issues you might encounter when using AWS Transfer Family. Each section focuses on a specific area of functionality to help you quickly find solutions to your problems.
 + For issues with IAM in Transfer Family, see [Troubleshooting AWS Transfer Family identity and access](security_iam_troubleshoot.md).

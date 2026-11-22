@@ -1,7 +1,6 @@
 
 
 # Working with custom hostnames
-<a name="requirements-dns"></a>
 
 Your *server host name* is the hostname that your users enter in their clients when they connect to your server. You can use a custom domain that you have registered for your server hostname when you work with AWS Transfer Family. For example, you might use a custom hostname like `mysftpserver.mysubdomain.domain.com`.
 

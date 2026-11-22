@@ -1,7 +1,6 @@
 
 
 # Manage AS2 certificates
-<a name="managing-as2-partners"></a>
 
 This topic discusses how to import and manage AS2 certificates. Importing certificates is the first step in the AS2 process for Transfer Family.
 

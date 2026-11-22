@@ -1,7 +1,6 @@
 
 
 # Creating SSH keys on Microsoft Windows
-<a name="windows-ssh"></a>
 
 Windows includes OpenSSH as a built-in feature, which you can use to generate SSH keys in the same format as on Linux or macOS. Alternatively, you can use third-party tools like PuTTY's key generator (PuTTYgen).
 

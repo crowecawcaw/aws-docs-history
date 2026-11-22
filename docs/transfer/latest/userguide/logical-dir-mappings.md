@@ -1,7 +1,6 @@
 
 
 # Using logical directories to simplify your Transfer Family directory structures
-<a name="logical-dir-mappings"></a>
 
 Logical directories simplify your AWS Transfer Family server directory structure. With logical directories, you can create a virtual directory structure with user-friendly names that users navigate when connecting to your Amazon S3 bucket or Amazon EFS file system. This prevents users from seeing the actual directory paths, bucket names, and file system names.
 

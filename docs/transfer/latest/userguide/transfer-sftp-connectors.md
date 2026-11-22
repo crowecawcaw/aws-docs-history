@@ -1,7 +1,6 @@
 
 
 # Using SFTP connectors
-<a name="transfer-sftp-connectors"></a>
 
 This topic describes how to perform the supported file operations using your SFTP connector. You can also find example commands to perform these operations by selecting your connector's details on the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/).
 

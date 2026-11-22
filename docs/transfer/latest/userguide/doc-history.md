@@ -1,7 +1,6 @@
 
 
 # Document history for AWS Transfer Family
-<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Transfer Family.
 + **API version:** transfer-2018-11-05

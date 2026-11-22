@@ -1,7 +1,6 @@
 
 
 # Dynamic permission management approaches
-<a name="dynamic-permission-management"></a>
 
 ## Understanding Transfer Family permission architecture
 <a name="permission-architecture-overview"></a>
@@ -100,7 +99,7 @@ Here's how you would implement the dynamic approach (using the `company-transfer
 1. Create one shared IAM role with broad Amazon S3 permissions:  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -125,7 +124,7 @@ Here's how you would implement the dynamic approach (using the `company-transfer
 1. Create a session policy template that restricts access to the user's folder:  
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

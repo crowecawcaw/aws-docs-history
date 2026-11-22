@@ -1,7 +1,6 @@
 
 
 # End user instructions for Transfer Family web apps
-<a name="webapp-end-users"></a>
 
 **Note**  
 In this topic, the information is meant for the end users that are interacting with the web app. All instances of *you* in this topic refer to end users.

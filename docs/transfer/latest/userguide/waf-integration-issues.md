@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Web Application Firewall integration issues
-<a name="waf-integration-issues"></a>
 
 This section describes possible solutions for issues related to integrating AWS WAF with Transfer Family.
 

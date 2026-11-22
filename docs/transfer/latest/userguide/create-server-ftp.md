@@ -1,7 +1,6 @@
 
 
 # Create an FTP-enabled server
-<a name="create-server-ftp"></a>
 
 File Transfer Protocol (FTP) is a network protocol used for the transfer of data. FTP uses a separate channel for control and data transfers. The control channel is open until terminated or inactivity timeout. The data channel is active for the duration of the transfer. FTP uses clear text and does not support encryption of traffic.
 

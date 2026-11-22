@@ -1,7 +1,6 @@
 
 
 # Setting up an AS2 configuration
-<a name="as2-example-tutorial"></a>
 
 This tutorial walks through how to set up an Applicability Statement 2 (AS2) configuration with AWS Transfer Family. After you complete the steps described here, you will have an AS2-enabled server that's ready for accepting AS2 messages from a sample trading partner. You will also have a connector that can be used to send AS2 messages to the sample trading partner.
 
@@ -352,7 +351,7 @@ To create an agreement, you need the following items:
 
 Save the following code into a file, for example, `agreementDetails.json`. Replace each `{{user input placeholder}}` with your own information.
 
-```
+```json
 {
     "Description": "{{ExampleAgreementName}}",
     "ServerId": "{{your-server-id}}",
@@ -402,7 +401,7 @@ aws transfer list-profiles
 
 When you create the connector, you must provide your partner's AS2 server URL. Copy the following text to a file named `testAS2Config.json`.
 
-```
+```json
 {
 "Compression": "ZLIB",
 "EncryptionAlgorithm": "AES256_CBC",

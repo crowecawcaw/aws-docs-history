@@ -1,7 +1,6 @@
 
 
 # Implementing logical directories
-<a name="implement-log-dirs"></a>
 
 **Important**  
 **Root directory requirements**
@@ -20,7 +19,7 @@ This validation prevents configurations that would cause access issues.
 
 To use logical directories for a user, set the `HomeDirectoryType` parameter to `LOGICAL`. Do this when you create a new user or update an existing user. 
 
-```
+```json
 "HomeDirectoryType": "LOGICAL"
 ```
 
@@ -32,14 +31,14 @@ For **chroot**, create a directory structure that consists of a single `Entry` a
 ------
 #### [ Example for Amazon S3 ]
 
-```
+```json
 [{"Entry": "/", "Target": "/amzn-s3-demo-bucket/jane"}]
 ```
 
 ------
 #### [ Example for Amazon EFS ]
 
-```
+```json
 [{"Entry": "/", "Target": "/fs-faa1a123/jane"}]
 ```
 
@@ -47,7 +46,7 @@ For **chroot**, create a directory structure that consists of a single `Entry` a
 
 You can use an absolute path as in the previous example, or you can use a dynamic substitution for the username with `${transfer:UserName}`, as in the following example.
 
-```
+```json
 [{"Entry": "/", "Target":
 "/{{amzn-s3-demo-bucket}}/${transfer:UserName}"}]
 ```
@@ -65,7 +64,7 @@ In the following virtual structure example, when the user logs into AWS SFTP, th
 Unless you choose to optimize performance for your Amazon S3 directories (when you create or update a server), either the user or an administrator needs to create the directories if they don't already exist. Avoiding this issue is a reason to consider optimizing Amazon S3 performance.  
 For Amazon EFS, you still need the administrator to create the logical mappings or the `/` directory.
 
-```
+```json
 [
 {"Entry": "/pics", "Target": "/amzn-s3-demo-bucket1/pics"}, 
 {"Entry": "/doc", "Target": "/amzn-s3-demo-bucket1/anotherpath/docs"},

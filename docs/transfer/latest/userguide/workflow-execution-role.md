@@ -1,7 +1,6 @@
 
 
 # IAM policies for workflows
-<a name="workflow-execution-role"></a>
 
 When you add a workflow to a server, you must select an execution role. The server uses this role when it executes the workflow. If the role does not have the proper permissions, AWS Transfer Family cannot run the workflow. 
 
@@ -19,7 +18,7 @@ Add `s3:GetObjectVersionTagging` for an Amazon S3 file that is versioned.
 1. Create another policy with the following permissions, and attach it to your role. Replace each `{{user input placeholder}}` with your own information.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -96,7 +95,7 @@ If you have workflows that include tagging, copying, and decrypt steps, you can 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ In this example, you have a workflow that invokes an AWS Lambda function. If the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

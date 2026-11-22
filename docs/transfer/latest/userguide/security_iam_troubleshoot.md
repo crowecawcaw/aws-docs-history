@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Transfer Family identity and access
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Transfer Family and IAM.
 
@@ -44,7 +43,7 @@ The following example policy contains the permission to pass a role to AWS Trans
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

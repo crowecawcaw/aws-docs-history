@@ -1,7 +1,6 @@
 
 
 # AWS Transfer Family tag-based policy examples
-<a name="security_iam_tag-based-policy-examples"></a>
 
 The following are examples of how to control access to AWS Transfer Family resources based on tags.
 
@@ -26,7 +25,7 @@ You can deny an action to be performed on a resource based on tags. The followin
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -58,7 +57,7 @@ You can allow an action to be performed on a resource based on tags. The followi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ This policy does allow creating or deleting a resource that contains a key calle
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

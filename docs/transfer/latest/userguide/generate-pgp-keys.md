@@ -1,7 +1,6 @@
 
 
 # Generate PGP keys
-<a name="generate-pgp-keys"></a>
 
 You can use Pretty Good Privacy (PGP) decryption with the files that Transfer Family processes with workflows. To use decryption in a workflow step, provide a PGP key. For detailed information about PGP key algorithms, including recommendations and FIPS compliance, see [PGP key pair algorithms](key-management.md#pgp-key-algorithms).
 

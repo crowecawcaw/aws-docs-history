@@ -1,7 +1,6 @@
 
 
 # Setting up a managed workflow for decrypting a file
-<a name="workflow-decrypt-tutorial"></a>
 
 This tutorial illustrates how to set up a managed workflow that contains a decrypt step. The tutorial also shows how to upload an encrypted file to an Amazon S3 bucket and then view the decrypted file in that same bucket.
 
@@ -32,7 +31,7 @@ Not every workflow requires every permission that's listed in this example. You 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

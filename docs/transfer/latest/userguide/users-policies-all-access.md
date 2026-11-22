@@ -1,7 +1,6 @@
 
 
 # Allowing read and write access to an Amazon S3 bucket
-<a name="users-policies-all-access"></a>
 
 This section describes how to create an IAM policy that allows read and write access to a specific Amazon S3 bucket. Assigning an IAM role that has this IAM policy to your user gives that user read/write access to the specified Amazon S3 bucket.
 
@@ -9,7 +8,7 @@ The following policy provides programmatic read, write, and tagging access to an
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

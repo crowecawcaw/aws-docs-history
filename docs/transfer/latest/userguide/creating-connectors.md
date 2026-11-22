@@ -1,7 +1,6 @@
 
 
 # AWS Transfer Family SFTP connectors
-<a name="creating-connectors"></a>
 
 An AWS Transfer Family SFTP connector establishes a connection with a remote SFTP server to transfer files between Amazon storage and a remote server, using the SFTP protocol. You can send files from Amazon S3 to an external, partner-owned SFTP server, retrieve files from a partner's SFTP server to Amazon S3 or list, delete, rename or move files on the remote server. SFTP connectors support two egress types: service managed (using AWS managed infrastructure) and VPC (routing through your VPC using Amazon VPC Lattice ). Using SFTP connectors, you can build automated, event-driven file transfer workflows in AWS .
 

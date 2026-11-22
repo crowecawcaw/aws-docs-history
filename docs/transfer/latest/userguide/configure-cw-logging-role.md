@@ -1,7 +1,6 @@
 
 
 # Configure CloudWatch logging role
-<a name="configure-cw-logging-role"></a>
 
 To set access, you create a resource-based IAM policy and an IAM role that provides that access information.
 

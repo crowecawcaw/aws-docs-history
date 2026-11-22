@@ -1,7 +1,6 @@
 
 
 # Troubleshoot SFTP connector issues
-<a name="connector-troubleshooting"></a>
 
 This section describes possible solutions for issues with SFTP connectors.
 

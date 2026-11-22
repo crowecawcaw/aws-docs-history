@@ -1,7 +1,6 @@
 
 
 # View AS2 server details
-<a name="view-as2-server-details"></a>
 
 You can find a list of details and properties for an individual AWS Transfer Family server. Server properties include protocols, status, and more. For AS2 servers, you can also view the AS2 asynchronous MDN egress IP addresses.
 

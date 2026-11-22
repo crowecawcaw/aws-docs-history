@@ -1,7 +1,6 @@
 
 
 # Managing host keys for your SFTP-enabled server
-<a name="configuring-servers-change-host-key"></a>
 
 Server host keys are private keys used by the Transfer Family server to provide a unique identity to the caller, and to guarantee that it is the correct server. That guarantee is enforced by the presence of the correct public key in the caller's `known_hosts` file. (The `known_hosts` file is a standard feature used by most SSH clients to store the public keys for the servers that you've connected to.) You can retrieve the public key that corresponds to your server host key by running `ssh-keyscan` for your server.
 

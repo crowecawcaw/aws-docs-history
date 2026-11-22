@@ -1,7 +1,6 @@
 
 
 # Monitoring SFTP connectors
-<a name="track-connector-progress"></a>
 
 You can monitor the status of your connector operations using any of the following ways. Choose the approach that meet your needs.
 

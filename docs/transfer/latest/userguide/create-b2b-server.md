@@ -1,7 +1,6 @@
 
 
 # Configuring AS2
-<a name="create-b2b-server"></a>
 
 To create an AS2-enabled server, you must also specify the following components:
 + **Agreements** – Bilateral trading partner *agreements*, or partnerships, define the relationship between the two parties that are exchanging messages (files). To define an agreement, Transfer Family combines server, local profile, partner profile, and certificate information. Transfer Family AS2-inbound processes use agreements.
@@ -119,7 +118,7 @@ For AWS KMS, the following quotas apply for `Decrypt`. For details, see [ Reques
 + Server-side TCP keep-alive is not supported. The connection times out after 350 seconds of inactivity unless the client sends keep-alive packets.
 + For an active agreement to be accepted by the service and appear in Amazon CloudWatch logs, messages must contain valid AS2 headers.
 + The server that's receiving messages from AWS Transfer Family for AS2 must support the Cryptographic Message Syntax (CMS) algorithm protection attribute for validating message signatures, as defined in [RFC 6211](https://datatracker.ietf.org/doc/html/rfc6211). This attribute is not supported in some older IBM Sterling products.
-+ Duplicate message IDs result in a processed/Warning: duplicate-document message.
++ Duplicate message IDs result in a `processed/Warning: duplicate-document` message.
 + The key length for AS2 certificates must be at least 2048 bits, and at most 4096.
 + When sending AS2 messages or asynchronous MDNs to a trading partner's HTTPS endpoint, the messages or MDNs must use a valid SSL certificate that's signed by a publicly trusted certificate authority (CA). Self-signed certificates are currently supported for outbound transfers only. 
 + The endpoint must support the TLS version 1.2 protocol and a cryptographic algorithm that's permitted by the security policy (as described in [Security policies for AWS Transfer Family servers](security-policies.md)).

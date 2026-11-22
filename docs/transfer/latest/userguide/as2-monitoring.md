@@ -1,7 +1,6 @@
 
 
 # Monitoring AS2 usage
-<a name="as2-monitoring"></a>
 
 You can monitor AS2 activity using Amazon CloudWatch and AWS CloudTrail. To view other Transfer Family server metrics, see [Amazon CloudWatch logging for AWS Transfer Family servers](structured-logging.md)
 

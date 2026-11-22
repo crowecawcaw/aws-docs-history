@@ -1,7 +1,6 @@
 
 
 # Troubleshoot EFS issues
-<a name="efs-troubleshooting"></a>
 
 This section describes possible solutions for issues with Amazon EFS storage.
 
