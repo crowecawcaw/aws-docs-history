@@ -1,7 +1,6 @@
 
 
 # Setting up an Amazon S3 bucket for Capacity Manager data exports
-<a name="cm-set-up-s3-export"></a>
 
 To receive Capacity Manager data exports, you must have an Amazon S3 bucket in your AWS account to receive and store your export files. When creating a data export in the Capacity Manager console, you can select an existing Amazon S3 bucket that you own or create a new bucket.
 
@@ -11,7 +10,7 @@ To create an Amazon S3 bucket, see [Creating an S3 bucket](https://docs.aws.amaz
 
 The following policy must be applied to your S3 bucket to allow Capacity Manager to deliver data exports:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

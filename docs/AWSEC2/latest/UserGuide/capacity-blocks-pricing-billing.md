@@ -1,9 +1,8 @@
 
 
 # Capacity Blocks pricing and billing
-<a name="capacity-blocks-pricing-billing"></a>
 
-With Amazon EC2 Capacity Blocks for ML, you pay only for what you reserve. The price of a Capacity Block depends on available supply and demand for Capacity Blocks at the time of purchase. You can view the price of a Capacity Block offering before you reserve it. The price of the Capacity Block is charged up front at the time the reservation is made. When you search for a Capacity Block across a range of dates, the lowest-priced Capacity Block offering available is returned. After you've reserved a Capacity Block, the price doesn't change.
+With Amazon EC2 Capacity Blocks for ML, you pay only for what you reserve. The price of a Capacity Block depends on available supply and demand for Capacity Blocks at the time of purchase. You can view the price of a Capacity Block offering before you reserve it. The price of the Capacity Block is charged up front at the time the reservation is made. Search results are ranked by earliest start date. If offerings have the same start date, the lower-priced offering is ranked first. Each offering shows its own price, so you can compare offerings across instance types, Availability Zones, and Regions before you purchase. After you've reserved a Capacity Block, the price doesn't change.
 
 When you use a Capacity Block, you pay for the operating system you use when your instances are running. For more information about operating system prices, see [Amazon EC2 Capacity Blocks for ML Pricing](https://aws.amazon.com/ec2/capacityblocks/pricing/).
 
@@ -22,7 +21,7 @@ Savings Plans and Reserved Instance discounts don't apply to Capacity Blocks.
 **Viewing your bill**  
 You can view your bill in the AWS Billing and Cost Management console. The upfront payment for your Capacity Block appears in the month that you purchased the reservation.
 
-After your reservation begins, your bill shows separate lines for the block reservation used and unused time. You can use these line items to see how much time was used in your reservation. You will see only a usage charge in the line for used time if you use a premium operating system. For more information, see [Capacity Blocks pricing and billing](#capacity-blocks-pricing-billing). There is no additional charge for unused time.
+After your reservation begins, your bill shows separate lines for the block reservation used and unused time. You can use these line items to see how much time was used in your reservation. You will see only a usage charge in the line for used time if you use a premium operating system. For more information, see [Capacity Blocks pricing and billing](capacity-blocks-pricing-billing.md). There is no additional charge for unused time.
 
 For more information, see [Viewing your bill](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/getting-viewing-bill.html) in the *AWS Billing and Cost Management User Guide*.
 

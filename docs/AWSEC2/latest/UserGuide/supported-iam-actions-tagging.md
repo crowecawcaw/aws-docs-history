@@ -1,7 +1,6 @@
 
 
 # Grant permission to tag Amazon EC2 resources during creation
-<a name="supported-iam-actions-tagging"></a>
 
 Some resource-creating Amazon EC2 API actions enable you to specify tags when you create the resource. You can use resource tags to implement attribute-based control (ABAC). For more information, see [Tag your resources](Using_Tags.md#tag-resources) and [Control access using attribute-based access](iam-policies-for-amazon-ec2.md#control-access-with-tags).
 
@@ -11,7 +10,7 @@ In the IAM policy definition for the `ec2:CreateTags` action, use the `Condition
 
 The following example demonstrates a policy that allows users to launch instances and apply any tags to instances and volumes during launch. Users are not permitted to tag any existing resources (they cannot call the `ec2:CreateTags` action directly).
 
-```
+```json
 {
   "Statement": [
     {
@@ -39,7 +38,7 @@ The following example demonstrates a policy that allows users to launch instance
 
 Similarly, the following policy allows users to create volumes and apply any tags to the volumes during volume creation. Users are not permitted to tag any existing resources (they cannot call the `ec2:CreateTags` action directly).
 
-```
+```json
 {
   "Statement": [
     {
@@ -78,23 +77,23 @@ The following condition keys can be used with the examples in the preceding sect
 + `aws:RequestTag`: To indicate that a particular tag key or tag key and value must be present in a request. Other tags can also be specified in the request.
   + Use with the `StringEquals` condition operator to enforce a specific tag key and value combination, for example, to enforce the tag `cost-center`=`cc123`:
 
-    ```
+    ```json
     "StringEquals": { "aws:RequestTag/cost-center": "cc123" }
     ```
   + Use with the `StringLike` condition operator to enforce a specific tag key in the request; for example, to enforce the tag key `purpose`:
 
-    ```
+    ```json
     "StringLike": { "aws:RequestTag/purpose": "*" }
     ```
 + `aws:TagKeys`: To enforce the tag keys that are used in the request.
   + Use with the `ForAllValues` modifier to enforce specific tag keys if they are provided in the request (if tags are specified in the request, only specific tag keys are allowed; no other tags are allowed). For example, the tag keys `environment` or `cost-center` are allowed:
 
-    ```
+    ```json
     "ForAllValues:StringEquals": { "aws:TagKeys": ["environment","cost-center"] }
     ```
   + Use with the `ForAnyValue` modifier to enforce the presence of at least one of the specified tag keys in the request. For example, at least one of the tag keys `environment` or `webserver` must be present in the request:
 
-    ```
+    ```json
     "ForAnyValue:StringEquals": { "aws:TagKeys": ["environment","webserver"] }
     ```
 

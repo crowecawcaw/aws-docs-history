@@ -1,7 +1,6 @@
 
 
 # Monitor network performance for ENA settings on your EC2 instance
-<a name="monitoring-network-performance-ena"></a>
 
 The Elastic Network Adapter (ENA) driver publishes network performance metrics from the instances where they are enabled. You can use these metrics to troubleshoot instance performance issues, choose the right instance size for a workload, plan scaling activities proactively, and benchmark applications to determine whether they maximize the performance available on an instance.
 
@@ -27,7 +26,7 @@ When the network traffic for an instance exceeds a maximum, AWS shapes the traff
 **Linux instances**
 + Install ENA driver version 2.2.10 or later. To verify the installed version, use the **ethtool** command. In the following example, the version meets the minimum requirement.
 
-  ```
+  ```bash
   [ec2-user ~]$ ethtool -i eth0 | grep version
   version: 2.2.10
   ```
@@ -80,7 +79,7 @@ You can publish metrics to your favorite tools to visualize the metric data. For
 
 You can also use the **ethtool** to retrieve the metrics for each network interface, such as eth0, as follows.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -S {{eth0}}
      bw_in_allowance_exceeded: 0
      bw_out_allowance_exceeded: 0
@@ -101,7 +100,7 @@ If you launched the instance using an AMI that contains ENA driver 2.2.2 or late
 
 1. Remove the existing manifest using the following command:
 
-   ```
+   ```bash
    unlodctr /m:EnaPerfCounters.man
    ```
 
@@ -109,7 +108,7 @@ If you launched the instance using an AMI that contains ENA driver 2.2.2 or late
 
 1. Install the new manifest using the following command:
 
-   ```
+   ```bash
    lodctr /m:EnaPerfCounters.man
    ```
 
@@ -139,7 +138,7 @@ To produce metrics, use driver version 2.8 or higher.
 
 To see a list of metrics for your Linux instance that's filtered for ENA Express, run the following **ethtool** command for your network interface (shown here as `eth0`). Take note of the value of the `ena_srd_mode` metric.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -S {{eth0}} | grep ena_srd
 NIC statistics:
 	ena_srd_mode: 1
@@ -210,19 +209,19 @@ DPDK driver v25.03 or later supports fragment proxy mode. If fragment proxy mode
 
 You can use an example application to view DPDK statistics. To start an interactive version of the example application, run the following command.
 
-```
+```bash
 ./app/dpdk-testpmd -- -i
 ```
 
 Within this interactive session, you can enter a command to retrieve extended statistics for a port. The following example command retrieves the statistics for port 0.
 
-```
+```bash
 show port xstats 0
 ```
 
 The following is an example of an interactive session with the DPDK example application.
 
-```
+```JSON
 [root@ip-192.0.2.0 build]# ./app/dpdk-testpmd -- -i
         EAL: Detected 4 lcore(s)
         EAL: Detected 1 NUMA nodes
@@ -300,13 +299,13 @@ For more information about the example application and using it to retrieve exte
 
 Starting with version 2.3.0, the ENA FreeBSD driver supports collecting network performance metrics on instances running FreeBSD. To enable the collection of FreeBSD metrics, enter the following command and set {{interval}} to a value between 1 and 3600. This specifies how often, in seconds, to collect FreeBSD metrics.
 
-```
+```bash
 sysctl dev.ena.{{network_interface}}.eni_metrics.sample_interval={{interval}}
 ```
 
 For example, the following command sets the driver to collect FreeBSD metrics on network interface 1 every 10 seconds:
 
-```
+```bash
 sysctl dev.ena.1.eni_metrics.sample_interval=10
 ```
 
@@ -314,6 +313,6 @@ To turn off the collection of FreeBSD metrics, you can run the preceding command
 
 After you enable collecting FreeBSD metrics, you can retrieve the latest set of collected metrics by running the following command.
 
-```
+```bash
 sysctl dev.ena.{{network_interface}}.eni_metrics
 ```

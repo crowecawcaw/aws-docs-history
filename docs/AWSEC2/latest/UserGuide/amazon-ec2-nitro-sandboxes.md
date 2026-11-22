@@ -1,7 +1,6 @@
 
 
 # Isolate workloads with AWS Nitro Sandboxes
-<a name="amazon-ec2-nitro-sandboxes"></a>
 
 AWS Nitro Sandboxes is an Amazon EC2 feature that runs a workload in its own lightweight virtual machine, called a *Nitro Sandbox*. A Nitro Sandbox runs alongside an Amazon EC2 instance, called the *parent instance*, on vCPUs and memory that the parent instance contributes. A virtual machine monitor (VMM) on the parent instance manages it, and the AWS Nitro System enforces the boundary around it. To use Nitro Sandboxes, you must enable AWS Nitro Enclaves when you launch the parent instance.
 

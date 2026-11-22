@@ -1,7 +1,6 @@
 
 
 # EC2 Fleet request states
-<a name="EC2-fleet-states"></a>
 
 An EC2 Fleet request can be one of various states, with each state indicating a different stage of the request's lifecycle and its management of instances.
 
@@ -24,3 +23,7 @@ The EC2 Fleet request is deleted and its instances are terminating. The request 
 
 `deleted`  
 The EC2 Fleet request is deleted and has no running instances. The request is deleted two days after its instances are terminated.
+
+**Note**  
+An `instant` fleet works like the `RunInstances` API. It launches your target capacity in a single call and does not continue to manage the instances afterward. EC2 Fleet considers the request complete once its instances are no longer running, whether you stop or terminate them. At that point, EC2 Fleet removes the fleet record for the request. After the record is removed, the `DescribeFleets` and `DeleteFleets` operations return a `FleetIdDoesNotExist` error for that fleet ID, even if you start the instances again.  
+This does not affect the instances. You can still view them with the `DescribeInstances` operation and terminate them with the `TerminateInstances` operation.

@@ -1,7 +1,6 @@
 
 
 # Identify each instance launched in a single request
-<a name="AMI-launch-index-examples"></a>
 
 This example demonstrates how you can use both user data and instance metadata to configure your Amazon EC2 instances.
 
@@ -12,7 +11,7 @@ Alice wants to launch four instances of her favorite database AMI, with the firs
 
 Here is the user data that Alice has constructed.
 
-```
+```bash
 replicate-every=1min | replicate-every=5min | replicate-every=10min
 ```
 
@@ -20,7 +19,7 @@ The `replicate-every=1min` data defines the first replica's configuration, `repl
 
 Alice launches four instances using the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command, specifying the user data.
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count 4 \
@@ -84,7 +83,7 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ TOKEN=`curl -X PUT "http://169.254.169.254/latest/meta-data/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
    && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index
    2
@@ -95,7 +94,7 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/ami-launch-index
    2
    ```
@@ -107,14 +106,14 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ ami_launch_index=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index`
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ ami_launch_index=`curl http://169.254.169.254/latest/meta-data/ami-launch-index`
    ```
 
@@ -125,14 +124,14 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ user_data=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/user-data`
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ user_data=`curl http://169.254.169.254/latest/user-data`
    ```
 
@@ -143,7 +142,7 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ echo $user_data | cut -d"|" -f"$ami_launch_index"
    replicate-every=5min
    ```
@@ -151,7 +150,7 @@ Alice can use the `ami-launch-index` value to determine which portion of the use
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    [ec2-user ~]$ echo $user_data | cut -d"|" -f"$ami_launch_index"
    replicate-every=5min
    ```

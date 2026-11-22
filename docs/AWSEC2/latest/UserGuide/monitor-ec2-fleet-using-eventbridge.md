@@ -1,7 +1,6 @@
 
 
 # Monitor and programmatically respond to the events emitted by your EC2 Fleet or Spot Fleet using Amazon EventBridge
-<a name="monitor-ec2-fleet-using-eventbridge"></a>
 
 When the state of an EC2 Fleet or Spot Fleet changes, it emits a notification. The notification is made available as an event that is sent to Amazon EventBridge (formerly known as Amazon CloudWatch Events). Events are emitted on a best effort basis.
 
@@ -73,7 +72,7 @@ Before creating the EventBridge rule, you must create the Amazon SNS topic for t
 
    1. For **Event pattern**, for this example you’ll specify the following event pattern to match the `EC2 Fleet Instance Change` event.
 
-      ```
+      ```JSON
       {
        "source": ["aws.ec2fleet"],
        "detail-type": ["EC2 Fleet Instance Change"]
@@ -165,7 +164,7 @@ Before creating the EventBridge rule, you must create the Lambda function.
 
    1. For **Event pattern**, for this example you’ll specify the following event pattern to match the `EC2 Fleet Instance Change` event and `launched` sub-type.
 
-      ```
+      ```JSON
       {
        "source": ["aws.ec2fleet"],
        "detail-type": ["EC2 Fleet Instance Change"],
@@ -237,7 +236,7 @@ EC2 Fleet sends an `EC2 Fleet State Change` event to Amazon EventBridge when an 
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "715ed6b3-b8fc-27fe-fad6-528c7b8bf8a2",
@@ -291,7 +290,7 @@ EC2 Fleet sends an `EC2 Fleet Spot Instance Request Change` event to Amazon Even
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "19331f74-bf4b-a3dd-0f1b-ddb1422032b9",
@@ -332,7 +331,7 @@ EC2 Fleet sends an `EC2 Fleet Instance Change` event to Amazon EventBridge when 
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "542ce428-c8f1-0608-c015-e8ed6522c5bc",
@@ -370,7 +369,7 @@ EC2 Fleet sends an `EC2 Fleet Information` event to Amazon EventBridge when ther
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "76529817-d605-4571-7224-d36cc1b2c0c4",
@@ -410,7 +409,7 @@ EC2 Fleet sends an `EC2 Fleet Error` event to Amazon EventBridge when there is a
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "69849a22-6d0f-d4ce-602b-b47c1c98240e",
@@ -465,7 +464,7 @@ Spot Fleet sends an `EC2 Spot Fleet State Change` event to Amazon EventBridge wh
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "d1af1091-6cc3-2e24-203a-3b870e455d5b",
@@ -519,7 +518,7 @@ Spot Fleet sends an `EC2 Spot Fleet Spot Instance Request Change` event to Amazo
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "cd141ef0-14af-d670-a71d-fe46e9971bd2",
@@ -560,7 +559,7 @@ Spot Fleet sends an `EC2 Spot Fleet Instance Change` event to Amazon EventBridge
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "11591686-5bd7-bbaa-eb40-d46529c2710f",
@@ -598,7 +597,7 @@ Spot Fleet sends an `EC2 Spot Fleet Information` event to Amazon EventBridge whe
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "73a60f70-3409-a66c-635c-7f66c5f5b669",
@@ -638,7 +637,7 @@ Spot Fleet sends an `EC2 Spot Fleet Error` event to Amazon EventBridge when ther
 
 The following is example data for this event. 
 
-```
+```json
 {
     "version": "0",
     "id": "10adc4e7-675c-643e-125c-5bfa1b1ba5d2",

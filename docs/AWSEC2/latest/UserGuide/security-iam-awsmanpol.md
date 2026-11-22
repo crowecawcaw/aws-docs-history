@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon EC2
-<a name="security-iam-awsmanpol"></a>
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. To get started quickly, you can use our AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
@@ -113,6 +112,13 @@ This policy is attached to a service-linked role named **AWSServiceRoleForEC2Ins
 
 To view the permissions for this policy, see [Ec2InstanceConnectEndpoint](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/Ec2InstanceConnectEndpoint.html) in the *AWS Managed Policy Reference*. For a description of the updates to this policy, see [Amazon EC2 updates to AWS managed policies](#security-iam-awsmanpol-updates).
 
+## AWS managed policy: VirtualEdgeNetworkServiceRolePolicy
+<a name="security-iam-awsmanpol-virtual-edge-network-service-role-policy"></a>
+
+The zonal `AWSServiceRoleForVirtualEdgeNetwork_{{zone-id}}` service-linked roles use this policy. The {{zone-id}} suffix is the role's Availability Zone ID.
+
+With this policy, AWS Virtual Edge Network can retrieve identity information for its service-linked roles.
+
 ## Amazon EC2 updates to AWS managed policies
 <a name="security-iam-awsmanpol-updates"></a>
 
@@ -121,6 +127,7 @@ View details about updates to AWS managed policies for Amazon EC2 since this ser
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [VirtualEdgeNetworkServiceRolePolicy](#security-iam-awsmanpol-virtual-edge-network-service-role-policy) – New policy | Allows AWS Virtual Edge Network to retrieve identity information for its service-linked roles. | November 20, 2026 | 
 | [AWSEC2CapacityManagerServiceRolePolicy](#security-iam-awsmanpol-AWSEC2CapacityManagerServiceRolePolicy) – New policy | Amazon EC2 added this policy to allow you to manage capacity resources and integrate with AWS Organizations on your behalf. | October 15, 2025 | 
 | [AmazonEC2ImageReferencesAccessPolicy](#security-iam-awsmanpol-AmazonEC2ImageReferencesAccessPolicy) – New policy | Amazon EC2 added this policy to provide permission to scan all resources types supported by the EC2 DescribeImageReferences API. | August 26, 2025 | 
 | [Ec2InstanceConnectEndpoint](#Ec2InstanceConnectEndpoint) – Updated policy | To support the modification of existing Instance Connect Endpoints, Amazon EC2 updated this policy to add permissions to assign and unassign IPv6 addresses and modify security groups on network interfaces created by EC2 Instance Connect Endpoint. Amazon EC2 also updated this policy to replace the Null condition operator with the StringLike condition operator. | July 31, 2025 | 

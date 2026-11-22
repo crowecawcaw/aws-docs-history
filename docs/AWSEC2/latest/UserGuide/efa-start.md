@@ -1,7 +1,6 @@
 
 
 # Get started with EFA and MPI for HPC workloads on Amazon EC2
-<a name="efa-start"></a>
 
 This tutorial helps you to launch an EFA and MPI-enabled instance cluster for HPC workloads.
 
@@ -136,17 +135,17 @@ Some operating systems might not be supported with Intel MPI. If you are using I
 1. To ensure that all of your software packages are up to date, perform a quick software update on your instance. This process may take a few minutes.
    + Amazon Linux 2023, RHEL 8/9, Rocky Linux 8/9
 
-     ```
+     ```bash
      $ sudo yum update -y
      ```
    + Ubuntu and Debian
 
-     ```
+     ```bash
      $ sudo apt-get update && sudo apt-get upgrade -y
      ```
    + SUSE Linux Enterprise
 
-     ```
+     ```bash
      $ sudo zypper update -y
      ```
 
@@ -244,7 +243,7 @@ If you completed the previous optional step to set up package signature verifica
 **Note**  
 From EFA 1.30.0, both Open MPI 4.1 and Open MPI 5 are installed by default. You can optionally specify the version of Open MPI that you want to install. To install only Open MPI 4.1, include `--mpi=openmpi4`. To install only Open MPI 5, include `--mpi=openmpi5`. To install both, omit the `--mpi` option.
 
-   ```
+   ```bash
    $ sudo ./efa_installer.sh -y
    ```
 
@@ -258,7 +257,7 @@ From EFA 1.30.0, both Open MPI 4.1 and Open MPI 5 are installed by default. You 
 **Note**  
 From EFA 1.30.0, both Open MPI 4.1 and Open MPI 5 are installed by default. You can optionally specify the version of Open MPI that you want to install. To install only Open MPI 4.1, include `--mpi=openmpi4`. To install only Open MPI 5, include `--mpi=openmpi5`. To install both, omit the `--mpi` option.
 
-   ```
+   ```bash
    $ sudo ./efa_installer.sh -y
    ```
 
@@ -271,7 +270,7 @@ From EFA 1.30.0, both Open MPI 4.1 and Open MPI 5 are installed by default. You 
 
    To install the EFA software without Libfabric and Open MPI, run the following command.
 
-   ```
+   ```bash
    $ sudo ./efa_installer.sh -y --minimal
    ```
 
@@ -295,13 +294,13 @@ If you chose to install Open MPI 5 in **Step 3: Install the EFA software**, and 
 
 1. Add Open MPI 5 to the PATH environment variable.
 
-   ```
+   ```bash
    $ module load openmpi5
    ```
 
 1. Verify that Open MPI 5 is enabled for use.
 
-   ```
+   ```bash
    $ which mpicc
    ```
 
@@ -323,7 +322,7 @@ If you chose to install Open MPI 5 in **Step 3: Install the EFA software**, and 
 
 If you need to remove Open MPI 5 from the PATH environment variable, run the following command and remove the command from the shell startup scripts.
 
-```
+```bash
 $ module unload openmpi5
 ```
 
@@ -348,7 +347,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
 1. Run the installation script that you downloaded in the previous step.
 
-   ```
+   ```bash
    $ sudo bash {{installation_script_name}}.sh
    ```
 
@@ -365,7 +364,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
 
-   ```
+   ```bash
    export I_MPI_OFI_LIBRARY_INTERNAL=0
    ```
 
@@ -374,7 +373,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.cshrc`.
 
-   ```
+   ```bash
    setenv I_MPI_OFI_LIBRARY_INTERNAL 0
    ```
 
@@ -387,7 +386,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
 
-   ```
+   ```bash
    source /opt/intel/oneapi/mpi/latest/env/vars.sh
    ```
 
@@ -396,7 +395,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.cshrc`.
 
-   ```
+   ```bash
    source /opt/intel/oneapi/mpi/latest/env/vars.csh
    ```
 
@@ -404,7 +403,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
 1. By default, if EFA is not available due to a misconfiguration, Intel MPI defaults to the TCP/IP network stack, which might result in slower application performance. You can prevent this by setting `I_MPI_OFI_PROVIDER` to `efa`. This causes Intel MPI to fail with the following error if EFA is not available:
 
-   ```
+   ```bash
    Abort (XXXXXX) on node 0 (rank 0 in comm 0): Fatal error in PMPI_Init: OtherMPI error,
    MPIR_Init_thread (XXX)........:	
    MPID_Init (XXXX)..............:
@@ -421,7 +420,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
 
-   ```
+   ```bash
    export I_MPI_OFI_PROVIDER=efa
    ```
 
@@ -430,7 +429,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.cshrc`.
 
-   ```
+   ```bash
    setenv I_MPI_OFI_PROVIDER efa
    ```
 
@@ -445,7 +444,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
 
-   ```
+   ```bash
    export I_MPI_DEBUG={{value}}
    ```
 
@@ -454,7 +453,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.cshrc`.
 
-   ```
+   ```bash
    setenv I_MPI_DEBUG {{value}}
    ```
 
@@ -469,7 +468,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`.
 
-   ```
+   ```bash
    export I_MPI_FABRICS=ofi
    ```
 
@@ -478,7 +477,7 @@ Ensure that the user performing the following steps has sudo permissions.
 
    Add the following statement to `/home/{{username}}/.cshrc`.
 
-   ```
+   ```bash
    setenv I_MPI_FABRICS ofi
    ```
 
@@ -501,7 +500,7 @@ The shared memory feature uses Cross Memory Attach (CMA), which is not supported
 Do one of the following:
 + To temporarily disable ptrace protection for testing purposes, run the following command.
 
-  ```
+  ```bash
   $ sudo sysctl -w kernel.yama.ptrace_scope=0
   ```
 + To permanently disable ptrace protection, add `kernel.yama.ptrace_scope = 0` to `/etc/sysctl.d/10-ptrace.conf` and reboot the instance.
@@ -513,7 +512,7 @@ Do one of the following:
 
 1. To confirm that MPI was successfully installed, run the following command:
 
-   ```
+   ```bash
    $ which mpicc
    ```
    + For Open MPI, the returned path should include `/opt/amazon/`
@@ -521,13 +520,13 @@ Do one of the following:
 
 1. To confirm that the EFA software components and Libfabric were successfully installed, run the following command.
 
-   ```
+   ```bash
    $ fi_info -p efa -t FI_EP_RDM
    ```
 
    The command should return information about the Libfabric EFA interfaces. The following example shows the command output.
 
-   ```
+   ```YAML
    provider: efa
        fabric: EFA-fe80::94:3dff:fe89:1b70
        domain: efa_0-rdm

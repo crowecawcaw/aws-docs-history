@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Windows EC2 Fast Launch
-<a name="win-fast-launch-troubleshoot"></a>
 
 ## Troubleshooting scenarios
 <a name="ts-fast-launch-scenarios"></a>
@@ -16,7 +15,7 @@ The following scenarios can help you diagnose and fix common issues that you mig
 
 When you enable EC2 Fast Launch, the service launches a set of instances that are used to create the pre-provisioned snapshots. Each instance is given 30 minutes to complete the process. If any of the instances complete successfully, then the service sets the Fast Launch status for the AMI to `Enabled`. However, if an instance fails to complete the process in the allotted time, and none of the other instances have completed the process, the service terminates all of the instances and sets the Fast Launch status for the AMI to `enabling_failed` and the Fast Launch status reason to the following:
 
-```
+```sh
 Unable to stop instance ID={{i-1234567890abcdef0}} for snapshot creation.
 ```
 

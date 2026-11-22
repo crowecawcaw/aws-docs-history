@@ -1,7 +1,6 @@
 
 
 # Run commands when you launch an EC2 instance with user data input
-<a name="user-data"></a>
 
 When you launch an Amazon EC2 instance, you can pass user data to the instance that is used to perform automated configuration tasks, or to run scripts after the instance starts.
 
@@ -150,7 +149,7 @@ Adding these tasks at boot time adds to the amount of time it takes to boot an i
 ------
 #### [ AL2023 ]
 
-   ```
+   ```yaml
    #cloud-config
    package_update: true
    package_upgrade: true
@@ -175,7 +174,7 @@ Adding these tasks at boot time adds to the amount of time it takes to boot an i
 ------
 #### [ AL2 ]
 
-   ```
+   ```yaml
    #cloud-config
    package_update: true
    package_upgrade: true
@@ -202,7 +201,7 @@ Adding these tasks at boot time adds to the amount of time it takes to boot an i
 
    For this example, in a web browser, enter the URL of the PHP test file the directives created. This URL is the public DNS address of your instance followed by a forward slash and the file name.
 
-   ```
+   ```bash
    http://{{my.public.dns.amazonaws.com}}/phpinfo.php
    ```
 
@@ -210,7 +209,7 @@ Adding these tasks at boot time adds to the amount of time it takes to boot an i
 
 1. (Optional) If your directives did not accomplish the tasks you were expecting them to, or if you just want to verify that your directives completed without errors, [connect to the instance](connect-to-linux-instance.md), examine the output log file (`/var/log/cloud-init-output.log`), and look for error messages in the output. For additional debugging information, you can add the following line to your directives:
 
-   ```
+   ```bash
    output : { all : '| tee -a /var/log/cloud-init-output.log' }
    ```
 
@@ -228,7 +227,7 @@ To specify user data when you launch your instance, use the [run-instances](http
 
 The following example shows how to specify a script as a string on the command line:
 
-```
+```bash
 aws ec2 run-instances --image-id ami-{{abcd1234}} --count {{1}} --instance-type {{m3.medium}} \
     --key-name {{my-key-pair}} --subnet-id subnet-{{abcd1234}} --security-group-ids sg-{{abcd1234}} \
     --user-data {{echo user data}}
@@ -236,7 +235,7 @@ aws ec2 run-instances --image-id ami-{{abcd1234}} --count {{1}} --instance-type 
 
 The following example shows how to specify a script using a text file. Be sure to use the `file://` prefix to specify the file.
 
-```
+```bash
 aws ec2 run-instances --image-id ami-{{abcd1234}} --count {{1}} --instance-type {{m3.medium}} \
     --key-name {{my-key-pair}} --subnet-id subnet-{{abcd1234}} --security-group-ids sg-{{abcd1234}} \
     --user-data file://{{my_script.txt}}
@@ -244,7 +243,7 @@ aws ec2 run-instances --image-id ami-{{abcd1234}} --count {{1}} --instance-type 
 
 The following is an example text file with a shell script.
 
-```
+```bash
 #!/bin/bash
 yum update -y
 service httpd start
@@ -255,39 +254,39 @@ chkconfig httpd on
 You can modify the user data of a stopped instance using the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command. With **modify-instance-attribute**, the AWS CLI does not perform base64 encoding of the user data for you.
 + On a **Linux** computer, use the base64 command to encode the user data.
 
-  ```
+  ```bash
   base64 my_script.txt >my_script_base64.txt
   ```
 + On a **Windows** computer, use the certutil command to encode the user data. Before you can use this file with the AWS CLI, you must remove the first (BEGIN CERTIFICATE) and last (END CERTIFICATE) lines.
 
-  ```
+  ```bash
   certutil -encode my_script.txt my_script_base64.txt
   notepad my_script_base64.txt
   ```
 
 Use the `--attribute` and `--value` parameters to use the encoded text file to specify the user data. Be sure to use the `file://` prefix to specify the file.
 
-```
+```bash
 aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute userData --value file://{{my_script_base64.txt}}
 ```
 
 **Example: Clear the user data of a stopped instance**  
 To delete the existing user data, use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command as follows:
 
-```
+```bash
 aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --user-data Value=
 ```
 
 **Example: View user data**  
 To retrieve the user data for an instance, use the [describe-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-attribute.html) command. With **describe-instance-attribute**, the AWS CLI does not perform base64 decoding of the user data for you.
 
-```
+```bash
 aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute userData
 ```
 
 The following is example output with the user data base64 encoded.
 
-```
+```json
 {
     "UserData": {
         "Value": "IyEvYmluL2Jhc2gKeXVtIHVwZGF0ZSAteQpzZXJ2aWNlIGh0dHBkIHN0YXJ0CmNoa2NvbmZpZyBodHRwZCBvbg=="
@@ -297,12 +296,12 @@ The following is example output with the user data base64 encoded.
 ```
 + On a **Linux** computer , use the `--query` option to get the encoded user data and the base64 command to decode it.
 
-  ```
+  ```bash
   aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute userData --output text --query "UserData.Value" | base64 --decode
   ```
 + On a **Windows** computer, use the `--query` option to get the coded user data and the certutil command to decode it. Note that the encoded output is stored in a file and the decoded output is stored in another file.
 
-  ```
+  ```bash
   aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute userData --output text --query "UserData.Value" >my_output.txt
   certutil -decode my_output.txt my_output_decoded.txt
   type my_output_decoded.txt
@@ -310,7 +309,7 @@ The following is example output with the user data base64 encoded.
 
 The following is example output.
 
-```
+```bash
 #!/bin/bash
 yum update -y
 service httpd start
@@ -324,7 +323,7 @@ By default, you can include only one content type in user data at a time. Howeve
 
 The following shows the mime-multi part format.
 
-```
+```YAML
 Content-Type: multipart/mixed; boundary="//"
 MIME-Version: 1.0
 	
@@ -350,7 +349,7 @@ Content-Disposition: attachment; filename="userdata.txt"
 
 For example, the following user data includes cloud-init directives and a bash shell script. The cloud-init directives creates a file (`/test-cloudinit/cloud-init.txt`), and writes `Created by cloud-init` to that file. The bash shell script creates a file (`/test-userscript/userscript.txt`) and writes `Created by bash shell script` to that file.
 
-```
+```YAML
 Content-Type: multipart/mixed; boundary="//"
 MIME-Version: 1.0
 	
@@ -418,7 +417,7 @@ If you use an AWS API, including the AWS CLI, in a user data script, you must us
 
 Specify a batch script using the `script` tag. Separate the commands using line breaks as shown in the following example.
 
-```
+```bash
 <script>
     echo Current date and time >> %SystemRoot%\Temp\test.log
     echo %DATE% %TIME% >> %SystemRoot%\Temp\test.log
@@ -427,7 +426,7 @@ Specify a batch script using the `script` tag. Separate the commands using line 
 
 By default, user data scripts run one time when you launch the instance. To run the user data scripts every time you reboot or start the instance, add `<persist>true</persist>` to the user data.
 
-```
+```bash
 <script>
     echo Current date and time >> %SystemRoot%\Temp\test.log
     echo %DATE% %TIME% >> %SystemRoot%\Temp\test.log
@@ -441,7 +440,7 @@ To run an XML user data script as a detached process with the EC2Launch v2 **exe
 **Note**  
 The detach tag is not supported by previous launch agents.
 
-```
+```bash
 <script>
     echo Current date and time >> %SystemRoot%\Temp\test.log
     echo %DATE% %TIME% >> %SystemRoot%\Temp\test.log
@@ -458,7 +457,7 @@ Specify a Windows PowerShell script using the `<powershell>` tag. Separate the c
 
 For example:
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -467,7 +466,7 @@ For example:
 
 By default, the user data scripts run one time when you launch the instance. To run the user data scripts every time you reboot or start the instance, add `<persist>true</persist>` to the user data.
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -479,7 +478,7 @@ You can specify one or more PowerShell arguments with the `<powershellArguments>
 
 **Example:**
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -493,7 +492,7 @@ To run an XML user data script as a detached process with the EC2Launch v2 **exe
 **Note**  
 The detach tag is not supported by previous launch agents.
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -510,7 +509,7 @@ Specify a YAML script with the `executeScript` task.
 
 **Example YAML syntax to run a PowerShell script** 
 
-```
+```yaml
 version: 1.0
 tasks:
 - task: executeScript
@@ -525,7 +524,7 @@ tasks:
 
 **Example YAML syntax to run a batch script**
 
-```
+```yaml
 version: 1.1
 tasks:
 - task: executeScript
@@ -543,13 +542,13 @@ tasks:
 
 If you're using the Amazon EC2 API or a tool that does not perform base64 encoding of the user data, you must encode the user data yourself. If not, an error is logged about being unable to find `script` or `powershell` tags to run. The following is an example that encodes using Windows PowerShell.
 
-```
+```bash
 $UserData = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($Script))
 ```
 
 The following is an example that decodes using PowerShell.
 
-```
+```bash
 $Script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($UserData))
 ```
 
@@ -641,14 +640,14 @@ For YAML user data
 **Run once**  
 To run user data once on the next boot, use the `-Schedule` flag.
 
-   ```
+   ```sh
    C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
    ```
 
 **Run on all subsequent boots**  
 To run user data on all subsequent boots, use the `-SchedulePerBoot` flag.
 
-   ```
+   ```sh
    C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -SchedulePerBoot
    ```
 
@@ -675,7 +674,7 @@ You can use the Tools for Windows PowerShell to specify, modify, and view the us
 **Example: Specify instance user data at launch**  
 Create a text file with the instance user data. To run user data scripts every time you reboot or start the instance, add `<persist>true</persist>`, as shown in the following example.
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -685,14 +684,14 @@ Create a text file with the instance user data. To run user data scripts every t
 
 To specify instance user data when you launch your instance, use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) command. This command does not perform base64 encoding of the user data for you. Use the following commands to encode the user data in a text file named `script.txt`.
 
-```
+```PowerShell
 PS C:\> $Script = Get-Content -Raw {{script.txt}}
 PS C:\> $UserData = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($Script))
 ```
 
 Use the `-UserData` parameter to pass the user data to the **New-EC2Instance** command.
 
-```
+```PowerShell
 PS C:\> New-EC2Instance -ImageId {{ami-abcd1234}} -MinCount {{1}} -MaxCount {{1}} -InstanceType {{m3.medium}} \
     -KeyName {{my-key-pair}} -SubnetId {{subnet-12345678}} -SecurityGroupIds {{sg-1a2b3c4d}} \
     -UserData $UserData
@@ -703,40 +702,40 @@ You can modify the user data of a stopped instance using the [Edit-EC2InstanceAt
 
 Create a text file with the new script. Use the following commands to encode the user data in the text file named `new-script.txt`.
 
-```
+```PowerShell
 PS C:\> $NewScript = Get-Content -Raw {{new-script.txt}}
 PS C:\> $NewUserData = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($NewScript))
 ```
 
 Use the `-UserData` and `-Value` parameters to specify the user data.
 
-```
+```bash
 PS C:\> Edit-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -Attribute userData -Value $NewUserData
 ```
 
 **Example: View instance user data**  
 To retrieve the user data for an instance, use the [Get-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceAttribute.html) command.
 
-```
+```PowerShell
 PS C:\> (Get-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -Attribute userData).UserData
 ```
 
 The following is example output. Note that the user data is encoded.
 
-```
+```bash
 PHBvd2Vyc2hlbGw+DQpSZW5hbWUtQ29tcHV0ZXIgLU5ld05hbWUgdXNlci1kYXRhLXRlc3QNCjwvcG93ZXJzaGVsbD4=
 ```
 
 Use the following commands to store the encoded user data in a variable and then decode it.
 
-```
+```PowerShell
 PS C:\> $UserData_encoded = (Get-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -Attribute userData).UserData
 PS C:\> [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($UserData_encoded))
 ```
 
 The following is example output.
 
-```
+```PowerShell
 <powershell>
     $file = $env:SystemRoot + "\Temp\" + (Get-Date).ToString("MM-dd-yy-hh-mm")
     New-Item $file -ItemType file
@@ -750,7 +749,7 @@ You can use the [Get-EC2Tag](https://docs.aws.amazon.com/powershell/latest/refer
 ------
 #### [ IMDSv2 ]
 
-```
+```PowerShell
 <powershell>
     [string]$token = Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token-ttl-seconds" = "21600"} -Method PUT -Uri 'http://169.254.169.254/latest/api/token' -UseBasicParsing
     $instanceId = Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token" = $token} -Method GET -Uri 'http://169.254.169.254/latest/meta-data/instance-id' -UseBasicParsing
@@ -771,7 +770,7 @@ You can use the [Get-EC2Tag](https://docs.aws.amazon.com/powershell/latest/refer
 ------
 #### [ IMDSv1 ]
 
-```
+```PowerShell
 <powershell>
 	$instanceId = (Invoke-WebRequest http://169.254.169.254/latest/meta-data/instance-id -UseBasicParsing).content
 	$nameValue = (Get-EC2Tag -Filter @{Name="resource-id";Value=$instanceid},@{Name="key";Value="Name"}).Value
@@ -795,7 +794,7 @@ You can also rename the instance using tags in instance metadata, if your instan
 ------
 #### [ IMDSv2 ]
 
-```
+```PowerShell
 <powershell>
     [string]$token = Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token-ttl-seconds" = "21600"} -Method PUT -Uri 'http://169.254.169.254/latest/api/token' -UseBasicParsing
 	$nameValue = Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token" = $token} -Method GET -Uri 'http://169.254.169.254/latest/meta-data/tags/instance/Name' -UseBasicParsing
@@ -815,7 +814,7 @@ You can also rename the instance using tags in instance metadata, if your instan
 ------
 #### [ IMDSv1 ]
 
-```
+```PowerShell
 <powershell>
 	$nameValue = Get-EC2InstanceMetadata -Path /tags/instance/Name
 	$pattern = "^(?![0-9]{1,15}$)[a-zA-Z0-9-]{1,15}$"

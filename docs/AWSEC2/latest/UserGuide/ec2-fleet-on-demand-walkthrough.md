@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure EC2 Fleet to use On-Demand Instances as the primary capacity
-<a name="ec2-fleet-on-demand-walkthrough"></a>
 
 This tutorial uses a fictitious company called ABC Online to illustrate the process of requesting an EC2 Fleet with On-Demand as the primary capacity, and Spot capacity if available.
 
@@ -32,7 +31,7 @@ Next, ABC Online creates a launch template. The launch template ID is used in th
 
 ABC Online creates a file, `config.json`, with the following configuration for its EC2 Fleet. In the following example, replace the resource identifiers with your own resource identifiers.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -53,7 +52,7 @@ ABC Online creates a file, `config.json`, with the following configuration for i
 
 ABC Online creates the EC2 Fleet using the following [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command.
 
-```
+```bash
 aws ec2 create-fleet --cli-input-json file://config.json
 ```
 

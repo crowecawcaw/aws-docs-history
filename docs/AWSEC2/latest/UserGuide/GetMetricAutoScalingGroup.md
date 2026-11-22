@@ -1,7 +1,6 @@
 
 
 # Aggregate statistics by Auto Scaling group
-<a name="GetMetricAutoScalingGroup"></a>
 
 You can aggregate statistics for the EC2 instances in an Auto Scaling group. Note that Amazon CloudWatch cannot aggregate data across AWS Regions. Metrics are completely separate between Regions.
 
@@ -22,14 +21,14 @@ This example shows you how to retrieve the total bytes written to disk for one A
 **To display DiskWriteBytes for the instances in an Auto Scaling group (AWS CLI)**  
 Use the [get-metric-statistics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/get-metric-statistics.html) command as follows.
 
-```
+```bash
 aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name DiskWriteBytes --period 360 \
 --statistics "Sum" "SampleCount" --dimensions Name=AutoScalingGroupName,Value={{my-asg}} --start-time {{2022-10-16T23:18:00}} --end-time {{2022-10-18T23:18:00}}
 ```
 
 The following is example output:
 
-```
+```json
 {
     "Datapoints": [
         {

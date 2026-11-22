@@ -1,7 +1,6 @@
 
 
 # Monitor an Elastic Fabric Adapter on Amazon EC2
-<a name="efa-working-monitor"></a>
 
 You can use the following features to monitor the performance of your Elastic Fabric Adapters.
 
@@ -57,7 +56,7 @@ For more information about the instance types that support EFA, see [Supported i
 
 You can use the [rdma-tool](https://man7.org/linux/man-pages/man8/rdma.8.html) command line tool to retrieve the metrics for all EFA interfaces attached to an instance as follows:
 
-```
+```bash
 $ rdma -p statistic show
 link rdmap0s31/1 
     tx_bytes 0 
@@ -85,13 +84,13 @@ link rdmap0s31/1
 
 Alternatively, you can retrieve the metrics for each EFA interface attached to an instance from the sys files using the following command.
 
-```
+```bash
 $ more /sys/class/infiniband/{{device_number}}/ports/{{port_number}}/hw_counters/* | cat
 ```
 
 For example
 
-```
+```bash
 $ more /sys/class/infiniband/rdmap0s31/ports/1/hw_counters/* | cat
 ::::::::::::::
 /sys/class/infiniband/rdmap0s31/ports/1/hw_counters/lifespan
@@ -192,7 +191,7 @@ You create a flow log for an EFA in the same way that you create a flow log for 
 
 In the flow log entries, EFA traffic is identified by the `srcAddress` and `destAddress`, which are both formatted as MAC addresses, as shown in the following example.
 
-```
+```bash
 version accountId  eniId        srcAddress        destAddress       sourcePort destPort protocol packets bytes start      end        action log-status
 2       3794735123 eni-10000001 01:23:45:67:89:ab 05:23:45:67:89:ab -          -        -        9       5689  1521232534 1524512343 ACCEPT OK
 ```

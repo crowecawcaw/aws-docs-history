@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance attestation
-<a name="nitrotpm-attestation"></a>
 
 Attestation is a process that allows you to cryptographically prove to any party that only trusted software, drivers, and boot processes are running on an Amazon EC2 instance. Amazon EC2 instance attestation is powered by the Nitro Trusted Platform Module (NitroTPM) and *Attestable AMIs*.
 

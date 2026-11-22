@@ -1,7 +1,6 @@
 
 
 # Transfer files to a Windows instance using RDP
-<a name="connect-to-linux-instanceWindowsFileTransfer"></a>
 
 You can work with your Windows instance in the same way that you would work with any Windows server. For example, you can transfer files between a Windows instance and your local computer using the local file sharing feature of the Microsoft Remote Desktop Connection (RDP) software. You can access local files on hard disk drives, DVD drives, portable media drives, and mapped network drives.
 

@@ -1,7 +1,6 @@
 
 
 # Use AMI ancestry to trace the origin of an AMI
-<a name="ami-ancestry"></a>
 
 AMI ancestry helps you trace the origin of an AMI by returning the IDs and Regions of all its ancestor AMIs. When you create or copy an AMI, the new AMI retains the ID and Region of its source (parent) AMI. This enables you to track the chain of AMIs back to the root AMI.
 
@@ -76,7 +75,7 @@ You can view an AMI's ancestry using the following methods.
 **To view the ancestry of an AMI**  
 Use the [get-image-ancestry](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-image-ancestry.html) command and specify the AMI ID.
 
-```
+```bash
 aws ec2 get-image-ancestry \
     --image-id {{ami-1111111111EXAMPLE}} \
     --region {{us-east-1}}
@@ -84,7 +83,7 @@ aws ec2 get-image-ancestry \
 
 The following is example output. The output lists AMIs in ancestry order: the first entry is the specified (input) AMI, followed by its parent, parent's parent, and so on, and ends with the root AMI.
 
-```
+```json
 {
     "ImageAncestryEntries": [
         {
@@ -118,7 +117,7 @@ The following is example output. The output lists AMIs in ancestry order: the fi
 **To view the ancestry of an AMI**  
 Use the [Get-EC2ImageAncestry](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageAncestry.html) cmdlet.
 
-```
+```powershell
 Get-EC2ImageAncestry -ImageId {{ami-1111111111EXAMPLE}}
 ```
 
@@ -175,7 +174,7 @@ If you only need to identify the immediate parent (source) AMI used to create an
 **To identify the source AMI used to create the specified AMI**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
-```
+```bash
 aws ec2 describe-images \
     --region {{us-east-1}} \
     --image-ids {{ami-0abcdef1234567890}} \
@@ -184,7 +183,7 @@ aws ec2 describe-images \
 
 The following is example output.
 
-```
+```json
 [
     {
         "ID": "ami-0abcdef1234567890",
@@ -199,7 +198,7 @@ The following is example output.
 **To identify the source AMI used to create the specified AMI**  
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
-```
+```powershell
 Get-EC2Image -ImageId {{ami-0abcdef1234567890}} | Select SourceImageId, SourceImageRegion
 ```
 

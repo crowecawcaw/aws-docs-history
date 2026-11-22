@@ -1,7 +1,6 @@
 
 
 # Install EC2Rescue on an Amazon EC2 Linux instance
-<a name="ec2rl_install"></a>
 
 The EC2Rescue for Linux tool can be installed on an Amazon EC2 Linux instance that meets the following prerequisites.
 
@@ -26,7 +25,7 @@ If your system has the required Python version, you can install the standard bui
 
 1. From a working Linux instance, download the [EC2Rescue for Linux](https://s3.amazonaws.com/ec2rescuelinux/ec2rl.tgz) tool:
 
-   ```
+   ```bash
    curl -O https://s3.amazonaws.com/ec2rescuelinux/ec2rl.tgz
    ```
 
@@ -34,25 +33,25 @@ If your system has the required Python version, you can install the standard bui
 
 1. Download the sha256 hash file:
 
-   ```
+   ```bash
    curl -O https://s3.amazonaws.com/ec2rescuelinux/ec2rl.tgz.sha256
    ```
 
 1. Verify the integrity of the tarball:
 
-   ```
+   ```bash
    sha256sum -c ec2rl.tgz.sha256
    ```
 
 1. Unpack the tarball:
 
-   ```
+   ```bash
    tar -xzvf ec2rl.tgz
    ```
 
 1. Verify the installation by listing out the help file:
 
-   ```
+   ```bash
    cd ec2rl-{{<version_number>}}
    ./ec2rl help
    ```
@@ -86,13 +85,13 @@ The next step in the process is to authenticate the EC2Rescue for Linux public k
 
 1. At a command prompt, use the following command to obtain a copy of our public GPG build key:
 
-   ```
+   ```bash
    curl -O https://s3.amazonaws.com/ec2rescuelinux/ec2rl.key
    ```
 
 1. At a command prompt in the directory where you saved `ec2rl.key`, use the following command to import the EC2Rescue for Linux public key into your keyring:
 
-   ```
+   ```bash
    gpg2 --import ec2rl.key
    ```
 
@@ -116,13 +115,13 @@ After you've installed the GPG tools, authenticated and imported the EC2Rescue f
 
 1. At a command prompt, run the following command to download the signature file for the installation script:
 
-   ```
+   ```bash
    curl -O https://s3.amazonaws.com/ec2rescuelinux/ec2rl.tgz.sig
    ```
 
 1. Verify the signature by running the following command at a command prompt in the directory where you saved `ec2rl.tgz.sig` and the EC2Rescue for Linux installation file. Both files must be present.
 
-   ```
+   ```bash
    gpg2 --verify ./ec2rl.tgz.sig
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Use Amazon FSx with Amazon EC2 instances
-<a name="storage_fsx"></a>
 
 The Amazon FSx family of services makes it easy to launch, run, and scale shared storage powered by popular commercial and open-source file systems. You can use the *new launch instance wizard* to automatically attach the following types of Amazon FSx file systems to your Amazon EC2 instances at launch:
 + Amazon FSx for NetApp ONTAP provides fully managed shared storage in the AWS Cloud with the popular data access and management capabilities of NetApp ONTAP. 
@@ -88,7 +87,7 @@ The security group includes the following rules.
 
 If you choose to automatically attach user data scripts, the launch instance wizard adds the following user data to the instance. This script installs the necessary packages, mounts the file system, and updates your instance settings so that the file system will automatically re-mount whenever the instance restarts.
 
-```
+```YAML
 #cloud-config
 package_update: true
 package_upgrade: true

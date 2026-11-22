@@ -1,7 +1,6 @@
 
 
 # Fulfillment metrics
-<a name="capacity-manager-fulfillment-metrics"></a>
 
 Fulfillment metrics answer the first and most important question: when you ask Amazon EC2 for capacity, are you receiving it? These are request-level metrics — a request that is flexible across multiple instance type and Availability Zone combinations is fulfilled if any combination delivers. A high fulfillment rate means your workloads are getting the capacity they need. A lower fulfillment rate means some requests are going unfulfilled, and you can act by reserving capacity or adding flexibility to your configuration.
 
@@ -38,7 +37,7 @@ If your request-level fulfillment rate isn't where you want it, some requests ar
 
 The following AWS CLI command returns the daily On-Demand fulfillment rate for the workload tagged `ad-serving`:
 
-```
+```bash
 aws ec2 get-capacity-manager-metric-data \
     --metric-names capacity-request-fulfillment-rate \
     --start-time 2026-04-09T00:00:00Z \
@@ -54,7 +53,7 @@ In the `--filter-by` condition, replace the following values as needed:
 
 The following JSON structure shows the fulfillment rate response.
 
-```
+```JSON
 {
     "MetricDataResults": [
         {

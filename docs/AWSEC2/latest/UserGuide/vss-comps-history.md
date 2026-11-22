@@ -1,7 +1,6 @@
 
 
 # AWS VSS solution version history
-<a name="vss-comps-history"></a>
 
 This page includes release notes by version for the AWS VSS component package, as well as component and script version requirements for each supported version of Windows Server.
 

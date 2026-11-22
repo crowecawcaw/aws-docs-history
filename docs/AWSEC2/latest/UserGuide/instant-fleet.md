@@ -1,7 +1,6 @@
 
 
 # Configure an EC2 Fleet of type instant
-<a name="instant-fleet"></a>
 
 The EC2 Fleet of type *instant* is a synchronous one-time request that makes only one attempt to launch your desired capacity. The API response lists the instances that launched, along with errors for those instances that could not be launched. There are several benefits to using an EC2 Fleet of type *instant*, which are described in this article. Example configurations are provided at the end of the article.
 
@@ -78,7 +77,7 @@ The following example specifies the parameters required in an EC2 Fleet of type 
 + The target capacity for the fleet is 20 instances.
 + The default purchasing option is `spot`, which results in the fleet attempting to launch 20 Spot Instances into the Spot capacity pool with optimal capacity for the number of instances that are launching.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized"
@@ -156,7 +155,7 @@ You can optimally launch one Spot Instance at a time by making multiple EC2 Flee
 
 The following example specifies the parameters required in an EC2 Fleet of type instant: a launch template, target capacity, default purchasing option, and launch template overrides. The launch template is identified by its launch template name and version number. The 12 launch template overrides have 4 different instance types and 3 different subnets, each in a separate Availability Zone. The target capacity for the fleet is 1 instance, and the default purchasing option is spot, which results in the fleet attempting to launch a Spot Instance from one of the 12 Spot capacity pools based on the capacity-optimized allocation strategy, to launch a Spot Instance from the most-available capacity pool.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized"
@@ -234,7 +233,7 @@ The following examples use instance weighting, which means that the price is per
 
 For more information, see [Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md).
 
-```
+```JSON
 {
    "SpotOptions":{
       "AllocationStrategy":"capacity-optimized"
@@ -324,7 +323,7 @@ You can configure a fleet to launch all instances in a single Availability Zone 
 
 The 12 launch template overrides have different instance types and subnets (each in a separate Availability Zone) but the same weighted capacity. The total target capacity is 20 instances, the default purchasing option is spot, and the Spot allocation strategy is capacity-optimized. The EC2 Fleet launches 20 Spot Instances all in a single AZ, from the Spot capacity pool(s) with optimal capacity using the launch specifications.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized",
@@ -403,7 +402,7 @@ You can configure a fleet to launch all instances of the same instance type and 
 
 The 12 launch template overrides have different instance types and subnets (each in a separate Availability Zone) but the same weighted capacity. The total target capacity is 20 instances, the default purchasing option is spot, the Spot allocation strategy is capacity-optimized. The EC2 Fleet launches 20 Spot Instances of the same instance type all in a single AZ from the Spot Instance pool with optimal capacity using the launch specifications.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized",
@@ -485,7 +484,7 @@ When specifying MinTargetCapacity, you must specify at least one of these parame
 
 The 12 launch template overrides have different instance types and subnets (each in a separate Availability Zone) but the same weighted capacity. The total target capacity and the minimum target capacity are both set to 20 instances, the default purchasing option is spot, and the Spot allocation strategy is capacity-optimized. The EC2 Fleet launches 20 Spot Instances from the Spot capacity pool with optimal capacity using the launch template overrides, only if it can launch all 20 instances at the same time.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized",
@@ -565,7 +564,7 @@ You can configure a fleet to launch instances only if the minimum target capacit
 
 The 12 launch specifications which override the launch template, have different instance types and subnets (each in a separate Availability Zone) but the same weighted capacity. The total target capacity and the minimum target capacity are both set to 20 instances, the default purchasing option is spot, the Spot allocation strategy is capacity-optimized, the SingleInstanceType is true and SingleAvailabilityZone is true. The EC2 Fleet launches 20 Spot Instances of the same Instance type all in a single AZ from the Spot capacity pool with optimal capacity using the launch specifications, only if it can launch all 20 instances at the same time.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized",
@@ -646,7 +645,7 @@ You can configure a fleet to launch instances with different launch specificatio
 
 In this example, we are using 3 different launch templates for the 3 instance types based on their size. The launch specification overrides on all the launch templates use instance weights based on the vCPUs on the instance type. The total target capacity is 144 units, the default purchasing option is spot, and the Spot allocation strategy is capacity-optimized. The EC2 Fleet can either launch 9 c5n.4xlarge (144 divided by 16) using the launch template ec2-fleet-4xl or 4 c5n.9xlarge (144 divided by 36) using the launch template ec2-fleet-9xl, or 2 c5n.18xlarge (144 divided by 72) using the launch template ec2-fleet-18xl, or a mix of the instance types with weights adding up to the desired capacity based on the capacity-optimized allocation strategy.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized"
@@ -735,7 +734,7 @@ In this example, we are using 3 different launch templates for the 3 instance ty
 
 The following example specifies the total target capacity of 20 instances for the fleet, and a target capacity of 5 On-Demand Instances. The default purchasing option is spot. The fleet launches 5 On-Demand Instance as specified, but needs to launch 15 more instances to fulfill the total target capacity. The purchasing option for the difference is calculated as TotalTargetCapacity – OnDemandTargetCapacity = DefaultTargetCapacityType, which results in the fleet launching 15 Spot Instances form one of the 12 Spot capacity pools based on the capacity-optimized allocation strategy.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized"
@@ -816,7 +815,7 @@ In this example, there are 6 available unused Capacity Reservations. This is les
 
 The account has the following 6 unused Capacity Reservations in 2 pools. The number of Capacity Reservations in each pool is indicated by AvailableInstanceCount.
 
-```
+```JSON
 {
     "CapacityReservationId": "cr-111", 
     "InstanceType": "m5.large", 
@@ -840,7 +839,7 @@ The account has the following 6 unused Capacity Reservations in 2 pools. The num
 
 The following fleet configuration shows only the pertinent configurations for this example. The On-Demand allocation strategy is prioritized, and the usage strategy for Capacity Reservations is use-capacity-reservations-first. The Spot allocation strategy is capacity-optimized. The total target capacity is 20, the On-Demand target capacity is 10, and the default target capacity type is spot.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized"
@@ -937,7 +936,7 @@ After you create the instant fleet using the preceding configuration, the follow
 
 After the fleet is launched, you can run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the c5.large and m5.large Capacity Reservations were used.
 
-```
+```JSON
 {
     "CapacityReservationId": "cr-111",
     "InstanceType": "m5.large",  
@@ -956,7 +955,7 @@ After the fleet is launched, you can run [describe-capacity-reservations](https:
 
 The following example specifies the parameters required in an EC2 Fleet of type instant: a launch template, target capacity, default purchasing option, and launch template overrides. The launch template is identified by its launch template name and version number. The 12 launch specifications which override the launch template have 4 different instance types with a priority assigned, and 3 different subnets, each in a separate Availability Zone. The target capacity for the fleet is 20 instances, and the default purchasing option is spot, which results in the fleet attempting to launch 20 Spot Instances from one of the 12 Spot capacity pools based on the capacity-optimized-prioritized allocation strategy, which implements priorities on a best-effort basis, but optimizes for capacity first.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized-prioritized"
@@ -1049,7 +1048,7 @@ In this example, the Systems Manager parameter is specified in a valid format: `
 **Note**  
 The fleet type must be of type `instant`. Other fleet types do not support specifying a System Manager parameter instead of an AMI ID.
 
-```
+```JSON
 {
     "LaunchTemplateData": {
         "ImageId": "resolve:ssm:golden-ami",

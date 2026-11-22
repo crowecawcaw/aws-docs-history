@@ -1,7 +1,6 @@
 
 
 # Monitor EC2 Fast Launch
-<a name="win-fast-launch-monitor"></a>
 
 This section covers how to monitor the Amazon EC2 Windows Server AMIs in your account that have EC2 Fast Launch enabled.
 
@@ -46,7 +45,7 @@ All fields in this event message are required.
 
 The following example shows a newly enabled EC2 Fast Launch AMI that has launched the first instance to start the pre-provisioning process. At this point, the state is `enabling`. After Amazon EC2 creates the first pre-provisioned snapshot, the state changes to `enabled`.
 
-```
+```JSON
 {
 	"version": "0",
 	"id": "01234567-0123-0123-0123-012345678901",

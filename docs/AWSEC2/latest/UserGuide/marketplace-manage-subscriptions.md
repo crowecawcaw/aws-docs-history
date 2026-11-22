@@ -1,7 +1,6 @@
 
 
 # Manage your AWS Marketplace subscriptions
-<a name="marketplace-manage-subscriptions"></a>
 
 On the AWS Marketplace website, you can check your subscription details, view the vendor's usage instructions, manage your subscriptions, and more.
 

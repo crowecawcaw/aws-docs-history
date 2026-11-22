@@ -1,7 +1,6 @@
 
 
 # Use Capacity Reservations to reserve On-Demand capacity in EC2 Fleet
-<a name="ec2-fleet-on-demand-capacity-reservations"></a>
 
 With On-Demand Capacity Reservations, you can reserve compute capacity for your On-Demand Instances in a specified Availability Zone for any duration. You can configure an EC2 Fleet to use the Capacity Reservations first when launching On-Demand Instances.
 

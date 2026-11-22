@@ -1,7 +1,6 @@
 
 
 # Launch an EC2 instance using the launch instance wizard in the console
-<a name="ec2-launch-instance-wizard"></a>
 
 You can launch an Amazon EC2 instance using the launch instance wizard in the Amazon EC2 console. The wizard provides default values for the launch parameters, which you can either accept or modify to suit your requirements. The only parameter that is not specified is the key pair. If you choose to accept the default values, you can quickly launch an instance by selecting only a key pair.
 

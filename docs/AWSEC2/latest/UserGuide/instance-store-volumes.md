@@ -1,7 +1,6 @@
 
 
 # Instance store volume limits for EC2 instances
-<a name="instance-store-volumes"></a>
 
 The number, size, and type of instance store volumes are determined by the instance type. Some instance types, such as C8i, M8i, and R8i, do not support instance store volumes, while other instance types, such as C8id, M8id, and R8id, do support instance store volumes. You can’t attach more instance store volumes to an instance than is supported by its instance type. For the instance types that do support instance store volumes, the number and size of the instance store volumes vary by instance size. For example, `r8id.large` supports 1 x 118 GB instance store volume, while `r8id.32xlarge` supports 2 x 3800 GB instance store volumes.
 
@@ -44,7 +43,7 @@ The *Amazon EC2 Instance Types Guide* provides the quantity, size, type, and per
 **To retrieve instance store volume information**  
 Use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command. The following example displays the total size of the instance storage for each instance type in the R8i instance families with instance store volumes.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=instance-type,Values=r8i*" "Name=instance-storage-supported,Values=true" \
     --query 'sort_by(InstanceTypes, &InstanceStorageInfo.TotalSizeInGB)[].{InstanceType:InstanceType,TotalSizeInGB:InstanceStorageInfo.TotalSizeInGB}' \
@@ -53,7 +52,7 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-```
+```bash
 --------------------------------------
 |        DescribeInstanceTypes       |
 +------------------+-----------------+
@@ -78,7 +77,7 @@ The following is example output.
 **To get complete instance storage details for an instance type**  
 Use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=instance-type,Values={{r8id.32xlarge}}" \
     --query 'InstanceTypes[0].InstanceStorageInfo' \
@@ -87,7 +86,7 @@ aws ec2 describe-instance-types \
 
 The example output shows that this instance type has two 3800 GB NVMe SSD volumes, for a total of 7600 GB of instance storage.
 
-```
+```json
 {
     "TotalSizeInGB": 7600,
     "Disks": [
@@ -108,7 +107,7 @@ The example output shows that this instance type has two 3800 GB NVMe SSD volume
 **To retrieve instance store volume information**  
 Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet. The following example displays the total size of the instance storage for each instance type in the R8i instance families with instance store volumes.
 
-```
+```powershell
 (Get-EC2InstanceType -Filter `
     @{Name="instance-type"; Values="r8i*"},
     @{Name="instance-storage-supported"; Values="true"}) |
@@ -121,7 +120,7 @@ Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/refe
 
 The following is example output.
 
-```
+```bash
 InstanceType    Disks.SizeInGB Disks.Count TotalSizeInGB
 ------------    -------------- ----------- -------------
 r8id.large                 118           1           118
@@ -142,7 +141,7 @@ r8id.metal-96xl           3800           6         22800
 **To get complete instance storage details for an instance type**  
 Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet.
 
-```
+```powershell
 (Get-EC2InstanceType `
     -Filter @{Name="instance-type"; Values="{{r8id.32xlarge}}"}).InstanceStorageInfo |
     Format-List *,

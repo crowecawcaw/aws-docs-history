@@ -1,7 +1,6 @@
 
 
 # Scheduled scaling: Scale Spot Fleet on a schedule
-<a name="spot-fleet-scheduled-scaling"></a>
 
 Scaling your fleet on a schedule enables you to scale your application in response to predictable changes in demand. By creating *scheduled actions*, you can instruct Spot Fleet to perform scaling activities at specific times. To create a scheduled action, you must specify an existing Spot Fleet, the time when the scaling activity must occur, and the desired minimum and maximum capacity. Scheduled actions can be configured to scale once or on a recurring schedule. If you needs change, you can edit or delete scheduled actions.
 

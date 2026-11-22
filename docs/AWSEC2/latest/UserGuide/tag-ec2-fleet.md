@@ -1,7 +1,6 @@
 
 
 # Tag a new or existing EC2 Fleet request and the instances and volumes it launches
-<a name="tag-ec2-fleet"></a>
 
 To help categorize and manage your EC2 Fleet requests and the instances and volumes that it launches, you can tag them with custom metadata. You can assign a tag to an EC2 Fleet request when you create it, or afterward. Similarly, you can assign a tag to the instances and volumes when they're launched by the fleet, or afterward.
 
@@ -45,7 +44,7 @@ You can't tag volumes attached to Spot Instances that are launched by a `request
 **To tag an existing EC2 Fleet request, instance, and volume**  
 Use the [create-tags](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-tags.html) command to tag existing resources.
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE}} {{i-1234567890abcdef0}} {{vol-1234567890EXAMPLE}} \
     --tags Key={{purpose}},Value={{test}}

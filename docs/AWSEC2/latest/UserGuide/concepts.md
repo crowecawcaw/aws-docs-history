@@ -1,13 +1,12 @@
 
 
 # What is Amazon EC2?
-<a name="concepts"></a>
 
 Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 reduces hardware costs so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. You can add capacity (scale up) to handle compute-heavy tasks, such as monthly or yearly processes, or spikes in website traffic. When usage decreases, you can reduce capacity (scale down) again.
 
-An EC2 instance is a virtual server in the AWS Cloud. When you launch an EC2 instance, the instance type that you specify determines the hardware available to your instance. Each instance type offers a different balance of compute, memory, network, and storage resources. For more information, see the [Amazon EC2 Instance Types Guide](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html).
+An EC2 instance is a virtual server in the AWS Cloud. When you launch an EC2 instance, the instance type that you specify determines the hardware available to your instance. Each instance type offers a different balance of compute, memory, network, and storage resources. For more information, see the [Amazon EC2 Instance Types Guide](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html). The following diagram shows how an instance type balances these resources and how an instance type name is structured:
 
-![Each EC2 instance type provides a balance of compute, memory, network, and storage resources.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance-types.png)
+![The left part shows an Amazon EC2 instance as a computer chip icon beside four horizontal bars of differing lengths, labeled Compute, Memory, Network, and Storage, conveying that each instance type offers a different balance of these four resources. The right part breaks down an example instance type name, c7gn.2xlarge, to explain the naming convention: Series is c, Generation is 7, and Options is gn, which together form the Instance family c7gn; 2xlarge is the Instance size; and the full string c7gn.2xlarge is the Instance type.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/instance-types.png)
 
 
 ## Features of Amazon EC2

@@ -1,7 +1,6 @@
 
 
 # AWS NVMe Windows driver version history
-<a name="nvme-driver-version-history"></a>
 
 The following table shows which AWS NVMe drivers run on each version of Windows Server on Amazon EC2.
 
@@ -80,13 +79,13 @@ Whenever new EC2 Windows drivers are released, we send notifications to subscrib
 **To subscribe to EC2 notifications using the AWS CLI**  
 To subscribe to EC2 notifications with the AWS CLI, use the following command. 
 
-```
+```bash
 aws sns subscribe --topic-arn {{arn:aws:sns:us-east-1:801119661308:ec2-windows-drivers}} --protocol {{email}} --notification-endpoint {{YourUserName@YourDomainName.ext}}
 ```
 
 **To subscribe to EC2 notifications using AWS Tools for Windows PowerShell**  
 To subscribe to EC2 notifications with AWS Tools for Windows PowerShell, use the following command. 
 
-```
+```powershell
 Connect-SNSNotification -TopicArn {{'arn:aws:sns:us-east-1:801119661308:ec2-windows-drivers'}} -Protocol {{email}} -Region {{us-east-1}} -Endpoint {{'YourUserName@YourDomainName.ext'}}
 ```

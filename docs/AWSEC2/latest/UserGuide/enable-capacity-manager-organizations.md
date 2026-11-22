@@ -1,7 +1,6 @@
 
 
 # Enabling EC2 Capacity Manager with AWS Organizations
-<a name="enable-capacity-manager-organizations"></a>
 
 You can enable EC2 Capacity Manager with AWS Organizations for organization-level visibility and management of your capacity across all member accounts. This integration allows you to monitor, analyze, and manage capacity usage from a centralized location.
 
@@ -50,25 +49,25 @@ Using the management account, enable organization access in Capacity Manager.
 
 1. Create a service-linked role
 
-   ```
+   ```bash
    aws iam create-service-linked-role --aws-service-name ec2.capacitymanager.amazonaws.com
    ```
 
 1. Enable AWS Organization access
 
-   ```
+   ```bash
    aws organizations enable-aws-service-access --service-principal ec2.capacitymanager.amazonaws.com
    ```
 
 1. Enable Capacity Manager with AWS Organization 
 
-   ```
+   ```bash
    aws ec2 enable-capacity-manager --organizations-access
    ```
 
 To update organization access for an existing Capacity Manager, run the following command:
 
-```
+```bash
 aws ec2 update-capacity-manager-organizations-access --organizations-access
 ```
 
@@ -79,25 +78,25 @@ aws ec2 update-capacity-manager-organizations-access --organizations-access
 
 1. Create a service-linked role using the [New-IAMServiceLinkedRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMServiceLinkedRole.html) cmdlet.
 
-   ```
+   ```powershell
    New-IAMServiceLinkedRole -AWSServiceName "ec2.capacitymanager.amazonaws.com"
    ```
 
 1. Enable AWS Organization access using the [Enable-ORGAWSServiceAccess](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-ORGAWSServiceAccess.html) cmdlet.
 
-   ```
+   ```powershell
    Enable-ORGAWSServiceAccess -ServicePrincipal "ec2.capacitymanager.amazonaws.com"
    ```
 
 1. Enable Capacity Manager with AWS Organization using the [Enable-EC2CapacityManager](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2CapacityManager.html) cmdlet.
 
-   ```
+   ```powershell
    Enable-EC2CapacityManager -OrganizationsAccess $true
    ```
 
 To update organization access for an existing Capacity Manager, run the following [Update-EC2CapacityManagerOrganizationsAccess](https://docs.aws.amazon.com/powershell/latest/reference/items/Update-EC2CapacityManagerOrganizationsAccess.html) cmdlet:
 
-```
+```powershell
 Update-EC2CapacityManagerOrganizationsAccess -OrganizationsAccess $true
 ```
 
@@ -123,13 +122,13 @@ Update-EC2CapacityManagerOrganizationsAccess -OrganizationsAccess $true
 **To verify Capacity Manager is enabled with your organization**  
 Run the following command:
 
-```
+```bash
 aws ec2 get-capacity-manager-attributes
 ```
 
 The output should display:
 
-```
+```JSON
 {
     "CapacityManagerStatus": "enabled",
     "OrganizationsAccess": true,
@@ -144,13 +143,13 @@ The output should display:
 **To verify Capacity Manager is enabled with your organization**  
 Use the [Get-EC2CapacityManagerAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2CapacityManagerAttribute.html) cmdlet.
 
-```
+```powershell
 Get-EC2CapacityManagerAttribute
 ```
 
 The output should display:
 
-```
+```powershell
 CapacityManagerStatus      : enabled
 DataExportCount            : 0
 EarliestDatapointTimestamp :

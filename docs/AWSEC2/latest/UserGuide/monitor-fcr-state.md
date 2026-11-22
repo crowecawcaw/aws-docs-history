@@ -1,13 +1,12 @@
 
 
 # Monitor state changes for future-dated Capacity Reservations
-<a name="monitor-fcr-state"></a>
 
 Amazon EC2 sends an event to Amazon EventBridge when the state of a future-dated Capacity Reservation changes.
 
 The following is example of this event. In this example, the future-dated Capacity Reservation entered the `scheduled` state. Note the state highlighted in the `detail-type` field.
 
-```
+```json
 {
    "version":"0",
    "id":"12345678-1234-1234-1234-123456789012",
@@ -40,7 +39,7 @@ You can create Amazon EventBridge events that monitor for these events and then 
 
 To create a rule that monitors for all state change events, you can use the following event pattern.
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": [{
@@ -51,7 +50,7 @@ To create a rule that monitors for all state change events, you can use the foll
 
 To create a rule that monitors for only specific state changes, you can use the following event pattern.
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": [{
@@ -62,7 +61,7 @@ To create a rule that monitors for only specific state changes, you can use the 
 
 For example, the following event pattern monitors for events that are sent when a future-dated Capacity Reservation enters the `active` state.
 
-```
+```json
 {
   "source": ["aws.ec2"],
   "detail-type": [{

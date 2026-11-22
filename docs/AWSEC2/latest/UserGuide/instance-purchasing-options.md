@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 billing and purchasing options
-<a name="instance-purchasing-options"></a>
 
 You can use the following options to optimize your costs for Amazon EC2:
 + **[On-Demand Instances](ec2-on-demand-instances.md)** – Pay, by the second, for the instances that you launch.

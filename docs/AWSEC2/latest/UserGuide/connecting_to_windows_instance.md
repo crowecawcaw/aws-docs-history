@@ -1,7 +1,6 @@
 
 
 # Connect to your Windows instance using RDP
-<a name="connecting_to_windows_instance"></a>
 
 You can connect to Amazon EC2 instances created from most Windows Amazon Machine Images (AMIs) using Remote Desktop. Remote Desktop uses the Remote Desktop Protocol (RDP) to connect to and use your instance in the same way you use a computer sitting in front of you (local computer). It is available on most editions of Windows and is also available for Mac OS.
 

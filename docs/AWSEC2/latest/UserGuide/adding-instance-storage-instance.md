@@ -1,7 +1,6 @@
 
 
 # Add instance store volumes to an EC2 instance during launch
-<a name="adding-instance-storage-instance"></a>
 
 When you launch an instance type with **non-NVMe instance store volumes**, such as C1, C3, M1, M2, M3, R3, D2, H1, I2, X1, and X1e, you must specify the block device mappings for the instance store volumes that you want to attach at launch. The block device mappings must be specified in the instance launch request or in the AMI used to launch the instance.
 
@@ -39,13 +38,13 @@ For instance types with NVMe instance store volumes, all of the supported instan
 **To specify a block device mapping in an instance launch request**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--block-device-mappings` option.
 
-```
+```bash
 --block-device-mappings file://mapping.json
 ```
 
 The following block device mapping adds two instance store volumes.
 
-```
+```json
 [
     {
         "DeviceName": "/dev/sdc",
@@ -64,13 +63,13 @@ The following block device mapping adds two instance store volumes.
 **To specify a block device mapping in an instance launch request**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-BlockDeviceMapping` option.
 
-```
+```powershell
 -BlockDeviceMapping $bdm
 ```
 
 The following block device mapping adds two instance store volumes.
 
-```
+```powershell
 $bdm = @()
 
 $sdc = New-Object -TypeName Amazon.EC2.Model.BlockDeviceMapping

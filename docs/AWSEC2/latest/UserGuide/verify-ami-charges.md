@@ -1,7 +1,6 @@
 
 
 # Verify AMI charges on your bill
-<a name="verify-ami-charges"></a>
 
 To ensure that you're not incurring unplanned costs, you can verify that the billing information for an instance in your AWS Cost and Usage Report (CUR) matches the billing information that's associated with the AMI that you used to launch the instance.
 

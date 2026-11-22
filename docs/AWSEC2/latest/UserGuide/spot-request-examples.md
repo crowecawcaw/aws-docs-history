@@ -1,7 +1,6 @@
 
 
 # Spot Instance request example launch specifications
-<a name="spot-request-examples"></a>
 
 The following examples show launch configurations that you can use with the [request-spot-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-instances.html) command to create a Spot Instance request. For more information, see [Manage your Spot Instances](using-spot-instances-request.md).
 
@@ -19,7 +18,7 @@ We strongly discourage using the [request-spot-instances](https://docs.aws.amazo
 
 The following example does not include an Availability Zone or subnet. Amazon EC2 selects an Availability Zone for you. Amazon EC2 launches the instances in the default subnet of the selected Availability Zone.
 
-```
+```json
 {
   "ImageId": "ami-0abcdef1234567890",
   "KeyName": "my-key-pair",
@@ -36,7 +35,7 @@ The following example does not include an Availability Zone or subnet. Amazon EC
 
 The following example includes an Availability Zone. Amazon EC2 launches the instances in the default subnet of the specified Availability Zone.
 
-```
+```json
 {
   "ImageId": "ami-0abcdef1234567890",
   "KeyName": "my-key-pair",
@@ -56,7 +55,7 @@ The following example includes an Availability Zone. Amazon EC2 launches the ins
 
 The following example includes a subnet. Amazon EC2 launches the instances in the specified subnet. If the VPC is a nondefault VPC, the instance does not receive a public IPv4 address by default.
 
-```
+```json
 {
   "ImageId": "ami-0abcdef1234567890",
   "SecurityGroupIds": [ "sg-1a2b3c4d5e6f7g8h9" ],
@@ -70,7 +69,7 @@ The following example includes a subnet. Amazon EC2 launches the instances in th
 
 To assign a public IPv4 address to an instance in a nondefault VPC, specify the `AssociatePublicIpAddress` field as shown in the following example. When you specify a network interface, you must include the subnet ID and security group ID using the network interface, rather than using the `SubnetId` and `SecurityGroupIds` fields shown in the previous code block.
 
-```
+```json
 {
   "ImageId": "ami-0abcdef1234567890",
   "KeyName": "my-key-pair",
@@ -94,7 +93,7 @@ To assign a public IPv4 address to an instance in a nondefault VPC, specify the 
 
 The following example requests Spot Instance with a tenancy of `dedicated`. A Dedicated Spot Instance must be launched in a VPC.
 
-```
+```json
 {
   "ImageId": "ami-0abcdef1234567890",
   "KeyName": "my-key-pair",

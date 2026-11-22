@@ -1,7 +1,6 @@
 
 
 # Isolate data from your own operators
-<a name="isolate-data-operators"></a>
 
 The AWS Nitro System has [ zero operator access](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/no-aws-operator-access.html). There is no mechanism for any AWS system or person to log in to Amazon EC2 Nitro hosts, access the memory of EC2 instances, or access any customer data stored on local encrypted instance storage or remote encrypted Amazon EBS volumes.
 

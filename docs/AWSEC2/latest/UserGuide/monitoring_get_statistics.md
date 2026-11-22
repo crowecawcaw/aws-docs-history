@@ -1,7 +1,6 @@
 
 
 # Statistics for CloudWatch metrics for your instances
-<a name="monitoring_get_statistics"></a>
 
 You can get statistics for the CloudWatch metrics for your instances. *Statistics* are metric data aggregations over specified periods of time. CloudWatch provides statistics based on the metric data points provided by your custom data or provided by other services in AWS to CloudWatch. Aggregations are made using the namespace, metric name, dimensions, and the data point unit of measure, within the time period you specify. The following table describes the available statistics.
 

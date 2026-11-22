@@ -1,7 +1,6 @@
 
 
 # Make instance store volume available for use on an EC2 instance
-<a name="making-instance-stores-available-on-your-instances"></a>
 
 After you launch an instance with attached instance store volumes, you must mount the volumes before you can access them.
 
@@ -26,7 +25,7 @@ You can format volumes with the file system of your choice after you launch your
 
 1. Use the `lsblk` to view any volumes that were mapped at launch but not formatted and mounted.
 
-   ```
+   ```bash
    $ lsblk
    NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    nvme0n1       259:1    0    8G  0 disk
@@ -39,19 +38,19 @@ You can format volumes with the file system of your choice after you launch your
 
    1. Create a file system on the device using the `mkfs` command.
 
-      ```
+      ```bash
       $ sudo mkfs -t xfs {{/dev/nvme1n1}}
       ```
 
    1. Create a directory on which to mount the device using the `mkdir` command.
 
-      ```
+      ```bash
       $ sudo mkdir {{/data}}
       ```
 
    1. Mount the device on the newly created directory using the `mount` command.
 
-      ```
+      ```bash
       $ sudo mount {{/dev/nvme1n1 /data}}
       ```
 

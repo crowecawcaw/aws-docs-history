@@ -1,7 +1,6 @@
 
 
 # Allocate an Amazon EC2 Dedicated Host for use in your account
-<a name="dedicated-hosts-allocating"></a>
 
 To begin using a Dedicated Host, you must first allocate it in your account. After you allocate the Dedicated Host, the Dedicated Host capacity is made available in your account immediately and you can start launching instances onto the Dedicated Host.
 
@@ -40,7 +39,7 @@ When you allocate a Dedicated Host in your account, you can choose a configurati
 **To allocate a Dedicated Host**  
 Use the [allocate-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html) command. The following example allocates a Dedicated Host that supports multiple instance types from the `m5` instance family in the `us-east-1a` Availability Zone. It also enables host recovery and disables auto-placement.
 
-```
+```bash
 aws ec2 allocate-hosts \
     --instance-family "{{m5}}" \
     --availability-zone "{{us-east-1a}}" \
@@ -51,7 +50,7 @@ aws ec2 allocate-hosts \
 
 The following example allocates a Dedicated Host that supports *untargeted* instance launches in the specified Availability Zone, enables host recovery, and enables auto-placement.
 
-```
+```bash
 aws ec2 allocate-hosts \
     --instance-type {{"m5.large"}} \
     --availability-zone {{"eu-west-1a"}} \
@@ -66,7 +65,7 @@ aws ec2 allocate-hosts \
 **To allocate a Dedicated Host**  
 Use the [New-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Host.html) cmdlet. The following example allocates a Dedicated Host that supports multiple instance types from the `m5` instance family in the `us-east-1a` Availability Zone. The host also has host recovery enabled and auto-placement disabled.
 
-```
+```powershell
 New-EC2Host `
     -InstanceFamily {{m5}} `
     -AvailabilityZone {{us-east-1a}} `
@@ -77,7 +76,7 @@ New-EC2Host `
 
 The following example allocates a Dedicated Host that supports *untargeted* instance launches in the specified Availability Zone and enables host recovery.
 
-```
+```powershell
 New-EC2Host `
     -InstanceType {{m5.large}} `
     -AvailabilityZone {{eu-west-1a}} `

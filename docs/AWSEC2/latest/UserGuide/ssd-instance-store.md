@@ -1,7 +1,6 @@
 
 
 # SSD instance store volumes for EC2 instances
-<a name="ssd-instance-store"></a>
 
 Like other instance store volumes, you must map the SSD instance store volumes for your instance when you launch it. The data on an SSD instance volume persists only for the life of its associated instance. For more information, see [Add instance store volumes to an EC2 instance](add-instance-store-volumes.md).
 
@@ -31,7 +30,7 @@ AWS Graviton-based instance types require Ubuntu 18.04 or later with `linux-aws`
 
 After you connect to your instance, you can list the NVMe devices using the **lspci** command. The following is example output for an `i3.8xlarge` instance, which supports four NVMe devices.
 
-```
+```bash
 [ec2-user ~]$ lspci
 00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
 00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
@@ -49,13 +48,13 @@ After you connect to your instance, you can list the NVMe devices using the **ls
 If you are using a supported operating system but you do not see the NVMe devices, verify that the NVMe module is loaded using the following command.
 + Amazon Linux, Amazon Linux 2, Ubuntu 14/16, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, CentOS 7
 
-  ```
+  ```bash
   $ lsmod | grep nvme
   nvme          48813  0
   ```
 + Ubuntu 18
 
-  ```
+  ```bash
   $ cat /lib/modules/$(uname -r)/modules.builtin | grep nvme
   s/nvme/host/nvme-core.ko
   kernel/drivers/nvme/host/nvme.ko

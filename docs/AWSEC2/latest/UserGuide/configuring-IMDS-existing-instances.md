@@ -1,7 +1,6 @@
 
 
 # Modify instance metadata options for existing instances
-<a name="configuring-IMDS-existing-instances"></a>
 
 You can modify the instance metadata options for existing instances.
 
@@ -45,7 +44,7 @@ Before requiring that IMDSv2 is used, ensure that the instance isn't making IMDS
 **To require the use of IMDSv2 on an existing instance**  
 Use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command and set the `http-tokens` parameter to `required`. When you specify a value for `http-tokens`, you must also set `http-endpoint` to `enabled`.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --http-tokens required \
@@ -58,7 +57,7 @@ aws ec2 modify-instance-metadata-options \
 **To require the use of IMDSv2 on an existing instance**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet and set the `HttpTokens` parameter to `required`. When you specify a value for `HttpTokens`, you must also set `HttpEndpoint` to `enabled`.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpTokens required `
@@ -106,7 +105,7 @@ If your instance launches are failing due to IMDSv2 enforcement, you have two op
 **To restore the use of IMDSv1 on an instance**  
 You can use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command with `http-tokens` set to `optional` to restore the use of IMDSv1 when requesting instance metadata.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --http-tokens optional \
@@ -119,7 +118,7 @@ aws ec2 modify-instance-metadata-options \
 **To restore the use of IMDSv1 on an instance**  
 You can use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet with `HttpTokens` set to `optional` to restore the use of IMDSv1 when requesting instance metadata.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpTokens optional `
@@ -141,7 +140,7 @@ Currently only the AWS CLI and AWS SDKs support changing the PUT response hop li
 **To change the PUT response hop limit**  
 Use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command and set the `http-put-response-hop-limit` parameter to the required number of hops. In the following example, the hop limit is set to `3`. Note that when specifying a value for `http-put-response-hop-limit`, you must also set `http-endpoint` to `enabled`.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --http-put-response-hop-limit {{3}} \
@@ -154,7 +153,7 @@ aws ec2 modify-instance-metadata-options \
 **To change the PUT response hop limit**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet and set the `HttpPutResponseHopLimit` parameter to the required number of hops. In the following example, the hop limit is set to `3`. Note that when specifying a value for `HttpPutResponseHopLimit`, you must also set `HttpEndpoint` to `enabled`.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpPutResponseHopLimit 3 `
@@ -182,7 +181,7 @@ Currently only the AWS CLI and AWS SDKs support enabling the IMDS IPv6 endpoint 
 **To enable the IMDS IPv6 endpoint for your instance**  
 Use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command and set the `http-protocol-ipv6` parameter to `enabled`. Note that when specifying a value for `http-protocol-ipv6`, you must also set `http-endpoint` to `enabled`.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
 	--instance-id {{i-1234567890abcdef0}} \
 	--http-protocol-ipv6 enabled \
@@ -195,7 +194,7 @@ aws ec2 modify-instance-metadata-options \
 **To enable the IMDS IPv6 endpoint for your instance**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet and set the `HttpProtocolIpv6` parameter to `enabled`. Note that when specifying a value for `HttpProtocolIpv6`, you must also set `HttpEndpoint` to `enabled`.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpProtocolIpv6 enabled `
@@ -236,7 +235,7 @@ Use one of the following methods to turn on access to instance metadata on an in
 **To turn on access to instance metadata**  
 Use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command and set the `http-endpoint` parameter to `enabled`.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --http-endpoint enabled
@@ -248,7 +247,7 @@ aws ec2 modify-instance-metadata-options \
 **To turn on access to instance metadata**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet and set the `HttpEndpoint` parameter to `enabled`.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpEndpoint enabled).InstanceMetadataOptions
@@ -288,7 +287,7 @@ Use one of the following methods to turn off access to instance metadata on an i
 **To turn off access to instance metadata**  
 Use the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) CLI command and set the `http-endpoint` parameter to `disabled`.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --http-endpoint disabled
@@ -300,7 +299,7 @@ aws ec2 modify-instance-metadata-options \
 **To turn off access to instance metadata**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet and set the `HttpEndpoint` parameter to `disabled`.
 
-```
+```powershell
 (Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -HttpEndpoint disabled).InstanceMetadataOptions

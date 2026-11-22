@@ -1,7 +1,6 @@
 
 
 # Use instance metadata to manage your EC2 instance
-<a name="ec2-instance-metadata"></a>
 
 *Instance metadata* is data about your instance that you can use to configure or manage the running instance. Instance metadata includes the following:
 

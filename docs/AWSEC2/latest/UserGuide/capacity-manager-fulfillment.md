@@ -1,7 +1,6 @@
 
 
 # Monitor capacity fulfillment
-<a name="capacity-manager-fulfillment"></a>
 
 Capacity fulfillment metrics answer two questions about your Amazon EC2 capacity: how much of your requested capacity Amazon EC2 fulfills, and whether that capacity lands on your preferred instance types and Availability Zones. Capacity Manager organizes the metrics into two groups: fulfillment metrics and the instance type and Availability Zone breakdown. Both are available in the Capacity fulfillment tab of the Amazon EC2 Capacity Manager console and through the get-capacity-manager-metric-data API. Together, they help you analyze your capacity flexibility, so you can see where it is paying off and where to add more.
 

@@ -1,7 +1,6 @@
 
 
 # Configure a Linux AMI to support hibernation
-<a name="hibernation-enabled-AMI"></a>
 
 The following Linux AMIs can support hibernating an Amazon EC2 instance, provided you complete the additional configuration steps described in this section.
 
@@ -28,13 +27,13 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo dnf install ec2-hibinit-agent
    ```
 
 1. Restart the service.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl start hibinit-agent
    ```
 
@@ -45,13 +44,13 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-hibinit-agent
    ```
 
 1. Restart the service.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl start hibinit-agent
    ```
 
@@ -62,25 +61,25 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `4.14.138-114.102` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update kernel
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-hibinit-agent
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.14.138-114.102` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -93,25 +92,25 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `4.14.77-70.59` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update kernel
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-hibinit-agent
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.14.77-70.59` or greater.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -124,37 +123,37 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `4.18.0-305.7.1.el8_4.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update kernel
    ```
 
 1. Install the Fedora Extra Packages for Enterprise Linux (EPEL) repository.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-hibinit-agent
    ```
 
 1. Enable the hibernate agent to start on boot.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl enable hibinit-agent.service
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.18.0-305.7.1.el8_4.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -165,31 +164,31 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `5.12.10-300.fc34.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update kernel
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo dnf install ec2-hibinit-agent
    ```
 
 1. Enable the hibernate agent to start on boot.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl enable hibinit-agent.service
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `5.12.10-300.fc34.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -200,7 +199,7 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `4.18.0-305.7.1.el8_4.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update kernel
    ```
 
@@ -208,37 +207,37 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
    RHEL version 8:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    ```
 
    RHEL version 9:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-hibinit-agent
    ```
 
 1. Enable the hibernate agent to start on boot.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl enable hibinit-agent.service
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.18.0-305.7.1.el8_4.x86_64` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -249,26 +248,26 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the linux-aws-kernel to `5.8.0-1038.40` or later, and grub2 to `2.04-1ubuntu26.13` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt update
    [ec2-user ~]$ sudo apt dist-upgrade
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `5.8.0-1038.40` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
 1. Confirm that the grub2 version is updated to `2.04-1ubuntu26.13` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ dpkg --list | grep grub2-common
    ```
 
@@ -279,26 +278,26 @@ For more information, see [Update instance software on your Amazon Linux 2 insta
 
 1. Update the kernel to `4.15.0-1044` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt update
    [ec2-user ~]$ sudo apt dist-upgrade
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt install ec2-hibinit-agent
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.15.0-1044` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```
 
@@ -315,25 +314,25 @@ We recommend that you upgrade to the Ubuntu 20.04 LTS (Focal Fossa) AMI or the U
 
 1. Update the kernel to `4.15.0-1058-aws` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt update
    [ec2-user ~]$ sudo apt install linux-aws-hwe
    ```
 
 1. Install the `ec2-hibinit-agent` package from the repositories.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt install ec2-hibinit-agent
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
 1. Confirm that the kernel version is updated to `4.15.0-1058-aws` or later.
 
-   ```
+   ```bash
    [ec2-user ~]$ uname -a
    ```

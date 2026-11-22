@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with the EC2Launch v2 agent
-<a name="ec2launchv2-troubleshooting"></a>
 
 This section shows common troubleshooting scenarios for EC2Launch v2, information about viewing Windows event logs, and console log output and messages.
 
@@ -80,7 +79,7 @@ EC2Launch v2 runs user data as an agent task and tracks its run state. If user d
 
 The following example idempotent script sets the computer name and joins a domain.
 
-```
+```powershell
 <powershell>
   $name = $env:computername
   if ($name -ne $desiredName) {
@@ -126,7 +125,7 @@ Manually delete this file, or delete it using a script.
 
 **Example PowerShell script to delete shortcut file**
 
-```
+```powershell
 foreach ($userDir in (Get-ChildItem "C:\Users" -Force -Directory).FullName)
 {
 	$startupPath = Join-Path $userDir -ChildPath "AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"

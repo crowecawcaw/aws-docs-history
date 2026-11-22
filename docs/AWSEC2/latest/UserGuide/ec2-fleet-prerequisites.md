@@ -1,7 +1,6 @@
 
 
 # EC2 Fleet prerequisites
-<a name="ec2-fleet-prerequisites"></a>
 
 **Topics**
 + [Launch template](#ec2-fleet-prerequisites-launch-template)
@@ -69,7 +68,7 @@ When providing permissions, grants are an alternative to key policies. For more 
 **To grant the AWSServiceRoleForEC2Fleet role permissions to use the customer managed key**
 + Use the [create-grant](https://docs.aws.amazon.com/cli/latest/reference/kms/create-grant.html) command to add a grant to the customer managed key and to specify the principal (the **AWSServiceRoleForEC2Fleet** service-linked role) that is given permission to perform the operations that the grant permits. The customer managed key is specified by the `key-id` parameter and the ARN of the customer managed key. The principal is specified by the `grantee-principal` parameter and the ARN of the **AWSServiceRoleForEC2Fleet** service-linked role.
 
-  ```
+  ```bash
   aws kms create-grant \
       --region {{us-east-1}} \
       --key-id arn:aws:kms:{{us-east-1}}:{{444455556666}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}} \
@@ -97,7 +96,7 @@ If your users will create or manage an EC2 Fleet, be sure to grant them the requ
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

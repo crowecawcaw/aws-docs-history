@@ -1,7 +1,6 @@
 
 
 # Option 2: Automatically connect an instance to an RDS database using the RDS console
-<a name="tutorial-ec2-rds-option2"></a>
 
 The objective of Option 2 is to explore the automatic connect feature in the RDS console that automatically configures the connection between your EC2 instance and RDS database to allow traffic from the EC2 instance to the RDS database. In Option 3, you'll learn how to manually configure the connection.
 

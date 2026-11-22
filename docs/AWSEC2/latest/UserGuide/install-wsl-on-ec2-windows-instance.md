@@ -1,7 +1,6 @@
 
 
 # Install Windows Subsystem for Linux on your EC2 Windows instance
-<a name="install-wsl-on-ec2-windows-instance"></a>
 
 The Windows Subsystem for Linux (WSL) is a feature of Microsoft Windows. By installing WSL on your EC2 Windows instance, you can run native Linux tools directly on your Windows instance.
 
@@ -23,32 +22,32 @@ For more information about nested virtualization for EC2, see [Use nested virtua
 1. Install WSL. The process that you'll use depends on the version of Windows Server running on the instance.
    + **Windows Server 2022 and later** - Run the following standard installation command on your EC2 instance.
 
-     ```
+     ```PowerShell
      wsl --install --enable-wsl1 --no-launch
      ```
    + **Windows Server 2019** - Enable WSL and then install WSL as described in [Install WSL on previous versions of Windows Server](https://learn.microsoft.com/en-us/windows/wsl/install-on-server#install-wsl-on-previous-versions-of-windows-server) on the Microsoft website.
 
 1. Restart your EC2 instance.
 
-   ```
+   ```PowerShell
    shutdown -r -t 20
    ```
 
 1. To configure WSL to use WSL 1, run the following command on your instance. This step is required for virtualized instances (the instance size is not `.metal` or not configured for nested virtualization).
 
-   ```
+   ```PowerShell
    wsl --set-default-version 1
    ```
 
 1. Install the default distribution.
 
-   ```
+   ```PowerShell
    wsl --install
    ```
 
 **To install WSL 2 (.metal or instances with nested virtualization enabled)**  
 Run the following standard installation command on your EC2 instance. By default, WSL 2 is installed.
 
-```
+```PowerShell
 wsl --install
 ```

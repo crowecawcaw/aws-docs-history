@@ -1,7 +1,6 @@
 
 
 # Cancel a Capacity Reservation
-<a name="capacity-reservations-release"></a>
 
 You can cancel a Capacity Reservation that is in one of the following states:
 + `assessing`
@@ -105,21 +104,21 @@ Use the following procedures to cancel a Capacity Reservation.
 **To cancel a Capacity Reservation**  
 Use the [cancel-capacity-reservation](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-capacity-reservation.html) command.
 
-```
+```bash
 aws ec2 cancel-capacity-reservation \
     --capacity-reservation-id {{cr-1234567890abcdef0}}
 ```
 
 If a cancellation quote is required, first generate the quote using [create-capacity-reservation-cancellation-quote](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-capacity-reservation-cancellation-quote.html), then pass the quote ID to the cancel command.
 
-```
+```bash
 aws ec2 create-capacity-reservation-cancellation-quote \
     --capacity-reservation-id {{cr-1234567890abcdef0}}
 ```
 
 Review the `CancellationTerms` in the response, including `ChargeCommitmentDurationHours` and `ChargeEndDate`. Then cancel with the quote ID:
 
-```
+```bash
 aws ec2 cancel-capacity-reservation \
     --capacity-reservation-id {{cr-1234567890abcdef0}} \
     --quote-id {{crcq-1a2b3c4d5e6f7g8h9}} \
@@ -132,21 +131,21 @@ aws ec2 cancel-capacity-reservation \
 **To cancel a Capacity Reservation**  
 Use the [Remove-EC2CapacityReservation](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2CapacityReservation.html) cmdlet.
 
-```
+```powershell
 Remove-EC2CapacityReservation `
     -CapacityReservationId {{cr-1234567890abcdef0}}
 ```
 
 If a cancellation quote is required, first generate the quote using [New-EC2CapacityReservationCancellationQuote](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2CapacityReservationCancellationQuote.html), then pass the quote ID to the cancel cmdlet.
 
-```
+```powershell
 New-EC2CapacityReservationCancellationQuote `
     -CapacityReservationId {{cr-1234567890abcdef0}}
 ```
 
 Review the cancellation terms in the response. Then cancel with the quote ID:
 
-```
+```powershell
 Remove-EC2CapacityReservation `
     -CapacityReservationId {{cr-1234567890abcdef0}} `
     -QuoteId {{crcq-1a2b3c4d5e6f7g8h9}} `

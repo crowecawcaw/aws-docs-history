@@ -1,7 +1,6 @@
 
 
 # EC2Launch v2 version histories
-<a name="ec2launchv2-versions"></a>
 
 **Topics**
 + [EC2Launch v2 version history](#ec2launchv2-version-history)
@@ -16,6 +15,7 @@ The following table describes the released versions of EC2Launch v2.
 
 | Version | Details | Release date | 
 | --- | --- | --- | 
+| 2.5.3 | +  Fixed an agent crash issue when creating an Event Log entry for the first time.   | November 16, 2026 | 
 | 2.5.2 | +  Fixed an issue where RDP certificate validation fails for custom certificates and Group Policy-deployed certificates.   | August 5, 2026 | 
 | 2.5.1 | +  Improved error detection when enabling hibernation.   | June 3, 2026 | 
 | 2.5.0 | +  Updated serial port logic to continue agent tasks when the serial port is unavailable. <br />+  Added EC2 Windows Utility Device driver version to instance console output. <br />+  Removed unused bench.log file. <br />+  Optimized driver lookup when writing to instance console output.   | May 4, 2026 | 

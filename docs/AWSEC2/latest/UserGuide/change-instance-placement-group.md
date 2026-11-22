@@ -1,7 +1,6 @@
 
 
 # Change the placement for an EC2 instance
-<a name="change-instance-placement-group"></a>
 
 You can change the placement group for an instance as follows:
 + Add an instance to a placement group
@@ -37,7 +36,7 @@ Before you can change the placement group for an instance, the instance must be 
 **To move an instance to a placement group**  
 Use the following [modify-instance-placement](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-placement.html) command.
 
-```
+```bash
 aws ec2 modify-instance-placement \
     --instance-id {{i-0123a456700123456}} \
     --group-name {{MySpreadGroup}}
@@ -46,7 +45,7 @@ aws ec2 modify-instance-placement \
 **To remove an instance from a placement group**  
 Use the following [modify-instance-placement](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-placement.html) command. When you specify an empty string for the placement group name, this removes the instance from its current placement group.
 
-```
+```bash
 aws ec2 modify-instance-placement \
     --instance-id {{i-0123a456700123456}} \
     --group-name ""
@@ -58,7 +57,7 @@ aws ec2 modify-instance-placement \
 **To move an instance to a placement group**  
 Use the [Edit-EC2InstancePlacement](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstancePlacement.html) cmdlet with the name of the placement group.
 
-```
+```powershell
 Edit-EC2InstancePlacement `
     -InstanceId {{i-0123a456700123456}} `
     -GroupName {{MySpreadGroup}}
@@ -67,7 +66,7 @@ Edit-EC2InstancePlacement `
 **To remove an instance from a placement group**  
 Use the [Edit-EC2InstancePlacement](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstancePlacement.html) cmdlet with an empty string for the name of the placement group.
 
-```
+```powershell
 Edit-EC2InstancePlacement `
     -InstanceId {{i-0123a456700123456}} `
     -GroupName ""

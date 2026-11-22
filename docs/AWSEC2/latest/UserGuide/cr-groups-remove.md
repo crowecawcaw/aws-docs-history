@@ -1,7 +1,6 @@
 
 
 # Remove Capacity Reservations from a group
-<a name="cr-groups-remove"></a>
 
 You can remove a Capacity Reservation from a group at any time. Instances that target the group continue running in their current Capacity Reservation and are not affected by the removal. The Capacity Reservation restores the capacity only when you terminate the instances.
 
@@ -48,7 +47,7 @@ Use the [Remove-RGResource](https://docs.aws.amazon.com/powershell/latest/refere
 
 The following example removes two Capacity Reservations from the specified group.
 
-```
+```powershell
 Remove-RGResource `
     -Group {{MyCRGroup}} `
     -ResourceArn `

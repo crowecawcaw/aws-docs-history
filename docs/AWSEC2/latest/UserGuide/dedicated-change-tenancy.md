@@ -1,7 +1,6 @@
 
 
 # Change the tenancy of an EC2 instance
-<a name="dedicated-change-tenancy"></a>
 
 You can change the tenancy of a stopped instance after launch. The changes that you make take effect the next time the instance starts.
 
@@ -19,7 +18,7 @@ Alternatively, you can change the tenancy of your virtual private cloud (VPC). F
 **To modify the tenancy value of an instance**  
 Use the [ modify-instance-placement](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-placement.html) command.
 
-```
+```bash
 aws ec2 modify-instance-placement \
     --instance-id {{i-1234567890abcdef0}} \ 
     --tenancy {{dedicated}}
@@ -31,7 +30,7 @@ aws ec2 modify-instance-placement \
 **To modify the tenancy value of an instance**  
 Use the [ Edit-EC2InstancePlacement](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstancePlacement.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstancePlacement `
     -InstanceId {{i-1234567890abcdef0}} `
     -Tenancy {{Dedicated}}

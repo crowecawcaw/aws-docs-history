@@ -1,7 +1,6 @@
 
 
 # Launch an Amazon EC2 instance from an AWS Marketplace AMI
-<a name="launch-marketplace-console"></a>
 
 You can subscribe to an AWS Marketplace AMI and launch an instance from it using the Amazon EC2 console or a command line tool. For more information about AWS Marketplace AMIs, see [Paid AMIs in the AWS Marketplace for Amazon EC2 instances](paid-amis.md).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Dedicated Instances
-<a name="dedicated-instance"></a>
 
 By default, EC2 instances run on shared tenancy hardware. This means that multiple AWS accounts might share the same physical hardware.
 

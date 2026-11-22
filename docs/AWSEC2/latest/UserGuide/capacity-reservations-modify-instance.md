@@ -1,13 +1,22 @@
 
 
 # Modify the Capacity Reservation settings of your instance
-<a name="capacity-reservations-modify-instance"></a>
 
-You can modify the following Capacity Reservation settings for a stopped instance at any time:
-+ Start in any Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, and tenancy) and available capacity.
-+ Start the instance in a specific Capacity Reservation.
-+ Start in any Capacity Reservation that has matching attributes and available capacity in a Capacity Reservation group
-+ Prevent the instance from starting in a Capacity Reservation.
+When you modify an instance's Capacity Reservation settings, you change how the instance uses Capacity Reservations throughout its lifecycle. The instance can run in any reservation, a specific reservation, or no reservation at all. What you can change depends on whether the instance is in the `stopped` or `running` state. For more information about each of these settings, see [CapacityReservationSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CapacityReservationSpecification.html) in the *Amazon EC2 API Reference*.
+
+For a `stopped` instance, you can change the Capacity Reservation settings to any of the following at any time:
++ Set `CapacityReservationPreference` to `open` – the instance runs in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, and tenancy) and available capacity. If no matching capacity is available, the instance runs as an On-Demand Instance.
++ Set `CapacityReservationPreference` to `none` – prevents the instance from starting in a Capacity Reservation, and prevents it from being covered by a reservation at any point during its lifecycle. The instance runs as an On-Demand Instance.
++ Set `CapacityReservationTarget` to a specific Capacity Reservation with matching attributes.
++ Set `CapacityReservationTarget` to a Capacity Reservation group using its `CapacityReservationResourceGroupArn`.
+
+For a `running` instance, you can change the Capacity Reservation settings only when the instance's current setting is one of the following:
++ `CapacityReservationPreference` is set to `none`.
++ The instance targets a specific Capacity Reservation that is no longer in the `active` state – for example, the reservation is in a terminal state or can't be found.
+
+When the current setting is one of the preceding, you can transition the running instance to one of the following:
++ Set `CapacityReservationPreference` to `open` – the running instance can then be covered by a matching Capacity Reservation. If no matching reservation is found, the instance continues to run as an On-Demand Instance.
++ Set `CapacityReservationTarget` to a specific Capacity Reservation with matching attributes that is in the `active` state. This Capacity Reservation can't be a Capacity Block or Interruptible reservation.
 
 ------
 #### [ Console ]
@@ -16,11 +25,11 @@ You can modify the following Capacity Reservation settings for a stopped instanc
 
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Choose **Instances** and select the instance to modify. Stop the instance if it is not already stopped.
+1. Choose **Instances** and select the instance to modify.
 
 1. Choose **Actions**, **Instance settings**, **Modify Capacity Reservation Settings**.
 
-1. For **Capacity Reservation**, choose one of the following options:
+1. For **Capacity Reservation**, choose one of the following options. For a running instance, only **Open** and **Specify Capacity Reservation** are available.
    + **Open** – Launches the instances into any Capacity Reservation that has matching attributes and sufficient capacity for the number of instances you selected. If there is no matching Capacity Reservation with sufficient capacity, the instance uses On-Demand capacity.
    + **None** – Prevents the instances from launching into a Capacity Reservation. The instances run in On-Demand capacity.
    + **Specify Capacity Reservation** – Launches the instances into the selected Capacity Reservation. If the selected Capacity Reservation does not have sufficient capacity for the number of instances you selected, the instance launch fails.
@@ -36,7 +45,7 @@ Use the [modify-instance-capacity-reservation-attributes](https://docs.aws.amazo
 
 The following example changes the Capacity Reservation preference to `none`.
 
-```
+```bash
 aws ec2 modify-instance-capacity-reservation-attributes \
     --instance-id {{i-1234567890abcdef0}} \
     --capacity-reservation-specification CapacityReservationPreference=none
@@ -44,7 +53,7 @@ aws ec2 modify-instance-capacity-reservation-attributes \
 
 The following example the target to a specific Capacity Reservation.
 
-```
+```bash
 aws ec2 modify-instance-capacity-reservation-attributes \
     --instance-id {{i-1234567890abcdef0}} \
     --capacity-reservation-specification \
@@ -53,7 +62,7 @@ aws ec2 modify-instance-capacity-reservation-attributes \
 
 The following example changes the target to a specific Capacity Reservation group.
 
-```
+```bash
 aws ec2 modify-instance-capacity-reservation-attributes \
     --instance-id {{i-1234567890abcdef0}} \
     --capacity-reservation-specification \
@@ -62,7 +71,7 @@ aws ec2 modify-instance-capacity-reservation-attributes \
 
 The following example changes the Capacity Reservation preference to `capacity-reservation-only`. Because it doesn't specify a Capacity Reservation, instances launch into any open Capacity Reservation with matching attributes and available capacity.
 
-```
+```bash
 aws ec2 modify-instance-capacity-reservation-attributes \
     --instance-id {{i-1234567890abcdef0}} \
     --capacity-reservation-specification CapacityReservationPreference=capacity-reservation-only
@@ -70,7 +79,7 @@ aws ec2 modify-instance-capacity-reservation-attributes \
 
 The following example changes the Capacity Reservation preference to `capacity-reservation-only` and changes the target to a specific Capacity Reservation. If capacity isn't available in the specified Capacity Reservation, the instances fail to launch.
 
-```
+```bash
 aws ec2 modify-instance-capacity-reservation-attributes \
     --instance-id {{i-1234567890abcdef0}} \
     --capacity-reservation-specification \
@@ -86,7 +95,7 @@ Use the [Edit-EC2InstanceCapacityReservationAttribute](https://docs.aws.amazon.c
 
 The following example changes the Capacity Reservation preference to `none`.
 
-```
+```powershell
 Edit-EC2InstanceCapacityReservationAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -CapacityReservationSpecification_CapacityReservationPreference "none"
@@ -94,7 +103,7 @@ Edit-EC2InstanceCapacityReservationAttribute `
 
 The following example the target to a specific Capacity Reservation.
 
-```
+```powershell
 Edit-EC2InstanceCapacityReservationAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -CapacityReservationTarget_CapacityReservationId {{cr-1234567890abcdef0}}
@@ -102,7 +111,7 @@ Edit-EC2InstanceCapacityReservationAttribute `
 
 The following example changes the target to a specific Capacity Reservation group.
 
-```
+```powershell
 Edit-EC2InstanceCapacityReservationAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -CapacityReservationTarget_CapacityReservationResourceGroupArn `
@@ -111,7 +120,7 @@ Edit-EC2InstanceCapacityReservationAttribute `
 
 The following example changes the Capacity Reservation preference to `capacity-reservation-only`. Because it doesn't specify a Capacity Reservation, instances launch into any open Capacity Reservation with matching attributes and available capacity.
 
-```
+```powershell
 Edit-EC2InstanceCapacityReservationAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -CapacityReservationSpecification_CapacityReservationPreference "capacity-reservation-only"
@@ -119,7 +128,7 @@ Edit-EC2InstanceCapacityReservationAttribute `
 
 The following example changes the Capacity Reservation preference to `capacity-reservation-only` and changes the target to a specific Capacity Reservation. If capacity isn't available in the specified Capacity Reservation, the instances fail to launch.
 
-```
+```powershell
 Edit-EC2InstanceCapacityReservationAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -CapacityReservationSpecification_CapacityReservationPreference "capacity-reservation-only" `

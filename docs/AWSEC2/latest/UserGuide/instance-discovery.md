@@ -1,7 +1,6 @@
 
 
 # Find an Amazon EC2 instance type
-<a name="instance-discovery"></a>
 
 Before you can launch an instance, you must select an instance type to use. The instance type that you choose might depend on the resources that your workload requires, such as compute, memory, or storage resources. It can be beneficial to identify several instance types that might suit your workload and evaluate their performance in a test environment. There is no substitute for measuring the performance of your application under load.
 
@@ -54,7 +53,7 @@ The following examples show how to filter instance types by Availability Zone, a
 **To filter instance types by Availability Zone**  
 The following example displays only the instance types offered in the specified Availability Zone.
 
-```
+```bash
 aws ec2 describe-instance-type-offerings \
     --location-type "availability-zone" \
     --filters "Name=location,Values={{us-east-2a}}" \
@@ -64,7 +63,7 @@ aws ec2 describe-instance-type-offerings \
 
 The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
 
-```
+```bash
 a1.2xlarge
 a1.4xlarge
 a1.large
@@ -76,7 +75,7 @@ a1.metal
 **To filter instance types by available memory size**  
 The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=current-generation,Values=true" "Name=memory-info.size-in-mib,Values={{65536}}" \
     --region {{us-east-2}} \
@@ -85,7 +84,7 @@ aws ec2 describe-instance-types \
 
 The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
 
-```
+```bash
 c5a.8xlarge
 c5ad.8xlarge
 c6a.8xlarge
@@ -97,7 +96,7 @@ c6gd.8xlarge
 **To filter instance types by available instance storage**  
 The following example displays the total size of instance storage for all R7 instances with instance store volumes.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=instance-type,Values=r7*" "Name=instance-storage-supported,Values=true" \
     --region {{us-east-2}} \
@@ -107,7 +106,7 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-```
+```bash
 ---------------------------
 |  DescribeInstanceTypes  |
 +----------------+--------+
@@ -126,7 +125,7 @@ The following is example output.
 **To filter instance types by hibernation support**  
 The following example displays the instance types that support hibernation.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=hibernation-supported,Values=true" \
     --region {{us-east-2}} \
@@ -136,7 +135,7 @@ aws ec2 describe-instance-types \
 
 The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
 
-```
+```bash
 c4.2xlarge
 c4.4xlarge
 c4.8xlarge
@@ -155,7 +154,7 @@ The following examples show how to filter instance types by Availability Zone, a
 **To filter instance types by Availability Zone**  
 The following example displays only the instance types offered in the specified Availability Zone.
 
-```
+```powershell
 (Get-EC2InstanceTypeOffering `
     -LocationType "availability-zone" `
     -Region {{us-east-2}} `
@@ -165,7 +164,7 @@ The following example displays only the instance types offered in the specified 
 **To filter instance types by available memory size**  
 The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
 
-```
+```powershell
 (Get-EC2InstanceType `
     -Filter @{Name="current-generation"; Values="true"}, 
             @{Name="memory-info.size-in-mib"; Values="65536"}).InstanceType | Sort-Object
@@ -174,7 +173,7 @@ The following example displays only current generation instance types with 64 Gi
 **To filter instance types by available instance storage**  
 The following example displays the total size of instance storage for all R7 instances with instance store volumes.
 
-```
+```powershell
 Get-EC2InstanceType `
     -Filter @{Name="instance-type"; Values="r7*"}, 
             @{Name="instance-storage-supported"; Values="true"} | `
@@ -183,7 +182,7 @@ Get-EC2InstanceType `
 
 The following is example output.
 
-```
+```bash
 InstanceType  TotalSizeInGB
 ------------  -------------
 r7gd.8xlarge           1900
@@ -200,7 +199,7 @@ r7gd.12xlarge          2850
 **To filter instance types by hibernation support**  
 The following example displays the instance types that support hibernation.
 
-```
+```powershell
 (Get-EC2InstanceType `
     -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object
 ```
@@ -215,7 +214,7 @@ You can use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest
 **To fully describe an instance type**  
 The following command displays all available details for the specified instance type. The output is lengthy, so it is omitted here.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --instance-types {{t2.micro}} \
     --region {{us-east-2}}
@@ -224,7 +223,7 @@ aws ec2 describe-instance-types \
 **To describe an instance type and filter the output**  
 The following command displays the networking details for the specified instance type.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --instance-types {{t2.micro}} \
     --region {{us-east-2}} \
@@ -233,7 +232,7 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-```
+```json
 [
     {
         "NetworkPerformance": "Low to Moderate",
@@ -262,7 +261,7 @@ The following is example output.
 
 The following command displays the available memory for the specified instance type.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --instance-types {{t2.micro}} \
     --region {{us-east-2}} \
@@ -271,7 +270,7 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-```
+```json
 [
     {
         "SizeInMiB": 1024

@@ -1,7 +1,6 @@
 
 
 # Terminate Amazon EC2 instances
-<a name="terminating-instances"></a>
 
 **Warning**  
 **Terminating an instance is permanent and irreversible.**  
@@ -52,7 +51,7 @@ You can terminate an instance using the default terminate method, which includes
 **To terminate an instance using the default terminate method**  
 Use the [terminate-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/terminate-instances.html) command.
 
-```
+```bash
 aws ec2 terminate-instances --instance-ids {{i-1234567890abcdef0}}
 ```
 
@@ -62,7 +61,7 @@ aws ec2 terminate-instances --instance-ids {{i-1234567890abcdef0}}
 **To terminate an instance using the default terminate method**  
 Use the [Remove-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Instance.html) cmdlet.
 
-```
+```powershell
 Remove-EC2Instance -InstanceId {{i-1234567890abcdef0}}
 ```
 
@@ -98,7 +97,7 @@ You can bypass the graceful OS shutdown when terminating an instance. For more i
 **To terminate an instance and bypass the graceful OS shutdown**  
 Use the [terminate-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/terminate-instances.html) command with `--skip-os-shutdown`..
 
-```
+```bash
 aws ec2 terminate-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --skip-os-shutdown
@@ -110,7 +109,7 @@ aws ec2 terminate-instances \
 **To terminate an instance and bypass the graceful OS shutdown**  
 Use the [Remove-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Instance.html) cmdlet with `-SkipOsShutdown $true`..
 
-```
+```powershell
 Remove-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}} `
     -SkipOsShutdown $true

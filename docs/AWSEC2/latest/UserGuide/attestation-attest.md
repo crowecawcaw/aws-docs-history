@@ -1,7 +1,6 @@
 
 
 # Integrating with AWS KMS
-<a name="attestation-attest"></a>
 
 Your instance should have an application that can make AWS KMS API requests with the Attestation Document retrieved from the NitroTPM. When you make a request with an Attestation Document, AWS KMS validates the measurements in the provided Attestation Document against the reference measurements in the KMS key policy. Requests are allowed only if the measurements in the Attestation Document match the reference measurements in the KMS key policy.
 

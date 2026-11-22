@@ -1,7 +1,6 @@
 
 
 # Make your AMI publicly available for use in Amazon EC2
-<a name="sharingamis-intro"></a>
 
 You can make your AMI publicly available by sharing it with all AWS accounts.
 
@@ -61,7 +60,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. Use the [modify-image-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-image-attribute.html) command as follows to add the `all` group to the `launchPermission` list for the specified AMI.
 
-   ```
+   ```bash
    aws ec2 modify-image-attribute \
        --image-id {{ami-0abcdef1234567890}} \
        --launch-permission "Add=[{Group=all}]"
@@ -69,7 +68,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. To verify the launch permissions of the AMI, use the [describe-image-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-image-attribute.html) command.
 
-   ```
+   ```bash
    aws ec2 describe-image-attribute \
        --image-id {{ami-0abcdef1234567890}} \
        --attribute launchPermission
@@ -77,7 +76,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. (Optional) To make the AMI private again, remove the `all` group from its launch permissions. Note that the owner of the AMI always has launch permissions and is therefore unaffected by this command.
 
-   ```
+   ```bash
    aws ec2 modify-image-attribute \
        --image-id {{ami-0abcdef1234567890}} \
        --launch-permission "Remove=[{Group=all}]"
@@ -94,7 +93,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. Use the [Edit-EC2ImageAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2ImageAttribute.html) command as follows to add the `all` group to the `launchPermission` list for the specified AMI.
 
-   ```
+   ```powershell
    Edit-EC2ImageAttribute `
        -ImageId {{ami-0abcdef1234567890}} `
        -Attribute launchPermission `
@@ -104,7 +103,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. To verify the launch permissions of the AMI, use the following [Get-EC2ImageAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageAttribute.html) command.
 
-   ```
+   ```powershell
    Get-EC2ImageAttribute `
        -ImageId {{ami-0abcdef1234567890}} `
        -Attribute launchPermission
@@ -112,7 +111,7 @@ You can add or remove account IDs from the list of accounts that have launch per
 
 1. (Optional) To make the AMI private again, remove the `all` group from its launch permissions. Note that the owner of the AMI always has launch permissions and is therefore unaffected by this command.
 
-   ```
+   ```powershell
    Edit-EC2ImageAttribute `
        -ImageId {{ami-0abcdef1234567890}} `
        -Attribute launchPermission `

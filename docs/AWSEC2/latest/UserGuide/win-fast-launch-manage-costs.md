@@ -1,7 +1,6 @@
 
 
 # Manage costs for EC2 Fast Launch underlying resources
-<a name="win-fast-launch-manage-costs"></a>
 
 There is no service charge to configure Windows AMIs for EC2 Fast Launch. However, when you enable EC2 Fast Launch for an Amazon EC2 Windows AMI, standard pricing applies for underlying AWS resources that Amazon EC2 uses to prepare and store the pre-provisioned snapshots. You can configure cost allocation tags to help you track and manage the costs that are associated with EC2 Fast Launch resources. For more information about how to configure cost allocation tags, see [Track EC2 Fast Launch costs on your bill](#win-track-fast-launch-costs).
 

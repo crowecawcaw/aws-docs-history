@@ -1,7 +1,6 @@
 
 
 # Manage system users on your Amazon EC2 Linux instance
-<a name="managing-users"></a>
 
 Each Linux instance launches with a default Linux system user. You can add users to your instance and delete users.
 
@@ -61,13 +60,13 @@ In Step 1 of this procedure, you create a new key pair. Because a key pair funct
 
 1. Retrieve the public key from the key pair that you created in the previous step.
 
-   ```
+   ```bash
    $ ssh-keygen -y -f /{{path_to_key_pair}}/{{key-pair-name}}.pem
    ```
 
    The command returns the public key, as shown in the following example.
 
-   ```
+   ```bash
    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClKsfkNkuSevGj3eYhCe53pcjqP3maAhDFcvBS7O6Vhz2ItxCih+PnDSUaw+WNQn/mZphTk/a/gU8jEzoOWbkM4yxyb/wB96xbiFveSFJuOp/d6RJhJOI0iBXrlsLnBItntckiJ7FbtxJMXLvvwJryDUilBMTjYtwB+QhYXUMOzce5Pjz5/i8SeJtjnV3iAoG/cQk+0FzZqaeJAAHco+CY/5WrUBkrHmFJr6HcXkvJdWPkYQS3xqC0+FmUZofz221CBt5IMucxXPkX4rWi+z7wB3RbBQoQzd8v7yeb7OzlPnWOyN0qFU0XA246RA8QFYiCNYwI3f05p6KLxEXAMPLE
    ```
 
@@ -78,20 +77,20 @@ In Step 1 of this procedure, you create a new key pair. Because a key pair funct
 
      With AL2023 and Amazon Linux 2, the user is created with password authentication disabled by default.
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo adduser {{newuser}}
      ```
    + Ubuntu
 
      Include the `--disabled-password` parameter to create the user with password authentication disabled.
 
-     ```
+     ```bash
      [ubuntu ~]$ sudo adduser {{newuser}} --disabled-password
      ```
 
 1. Switch to the new user so that the directory and file that you create will have the proper ownership.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo su - {{newuser}}
    ```
 
@@ -101,11 +100,11 @@ In Step 1 of this procedure, you create a new key pair. Because a key pair funct
 
    1. Create a `.ssh` directory in the `{{newuser}}` home directory and change its file permissions to `700` (only the owner can read, write, or open the directory).
 
-      ```
+      ```bash
       [newuser ~]$ mkdir .ssh
       ```
 
-      ```
+      ```bash
       [newuser ~]$ chmod 700 .ssh
       ```
 **Important**  
@@ -113,11 +112,11 @@ Without these exact file permissions, the user will not be able to log in.
 
    1. Create a file named `authorized_keys` in the `.ssh` directory and change its file permissions to `600` (only the owner can read or write to the file).
 
-      ```
+      ```bash
       [newuser ~]$ touch .ssh/authorized_keys
       ```
 
-      ```
+      ```bash
       [newuser ~]$ chmod 600 .ssh/authorized_keys
       ```
 **Important**  
@@ -125,7 +124,7 @@ Without these exact file permissions, the user will not be able to log in.
 
    1. <a name="edit_auth_keys"></a>Open the `authorized_keys` file using your favorite text editor (such as **vim** or **nano**).
 
-      ```
+      ```bash
       [newuser ~]$ nano .ssh/authorized_keys
       ```
 
@@ -142,6 +141,6 @@ If a user is no longer needed, you can remove that user so that it can no longer
 
 Use the **userdel** command to remove the user from the system. When you specify the `-r` parameter, the user's home directory and mail spool are deleted. To keep the user's home directory and mail spool, omit the `-r` parameter.
 
-```
+```bash
 [ec2-user ~]$ sudo userdel -r {{olduser}}
 ```

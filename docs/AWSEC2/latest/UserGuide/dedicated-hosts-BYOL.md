@@ -1,7 +1,6 @@
 
 
 # Bring your own software licenses to Amazon EC2 Dedicated Hosts
-<a name="dedicated-hosts-BYOL"></a>
 
 Dedicated Hosts allow you to use your existing per-socket, per-core, or per-VM software licenses. When you bring your own license, you are responsible for managing your own licenses. However, Amazon EC2 has features that help you maintain license compliance, such as instance affinity and targeted placement.
 

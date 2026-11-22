@@ -1,7 +1,6 @@
 
 
 # Create a Spot Fleet
-<a name="create-spot-fleet"></a>
 
 **Important**  
 Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).
@@ -175,7 +174,7 @@ If an AMI specified in the launch parameters is deregistered or disabled, no new
 **To create a Spot Fleet request**  
 Use the [request-spot-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-fleet.html) command.
 
-```
+```bash
 aws ec2 request-spot-fleet --spot-fleet-request-config file://{{config.json}}
 ```
 
@@ -187,7 +186,7 @@ For example configuration files, see [Example CLI configurations Spot Fleet](spo
 **To create a Spot Fleet request**  
 Use the [Request-EC2SpotFleet](https://docs.aws.amazon.com/powershell/latest/reference/items/Request-EC2SpotFleet.html) cmdlet. The following example launches Spot Instances in a capacity-optimized fleet.
 
-```
+```powershell
 Request-EC2SpotFleet `
     -SpotFleetRequestConfig_TargetCapacity {{50}} `
     -SpotFleetRequestConfig_AllocationStrategy "CapacityOptimized" `
@@ -197,7 +196,7 @@ Request-EC2SpotFleet `
 
 Define the launch configuration as follows, setting the launch template and override properties that you need. For example configurations, see [Example CLI configurations Spot Fleet](spot-fleet-examples.md).
 
-```
+```powershell
 $lcSpec = Amazon.EC2.Model.FleetLaunchTemplateSpecification
 # To do - Set FleetLaunchTemplateSpecification properties
 $lcOverrides = New-Object Amazon.EC2.Model.LaunchTemplateOverrides
@@ -239,7 +238,7 @@ You can configure your fleet to replace unhealthy Spot Instances. After enabling
 **To configure a Spot Fleet to replace unhealthy Spot Instances**  
 Use the [request-spot-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-fleet.html) command with the `ReplaceUnhealthyInstances` property of `SpotFleetRequestConfig`.
 
-```
+```json
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "{{lowestPrice}}",
@@ -256,7 +255,7 @@ Use the [request-spot-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec
 **To configure a Spot Fleet request to replace unhealthy Spot Instances**  
 Use the [Request-EC2SpotFleet](https://docs.aws.amazon.com/powershell/latest/reference/items/Request-EC2SpotFleet.html) cmdlet with the `-SpotFleetRequestConfig_ReplaceUnhealthyInstance` parameter.
 
-```
+```powershell
 -SpotFleetRequestConfig_ReplaceUnhealthyInstance $true
 ```
 

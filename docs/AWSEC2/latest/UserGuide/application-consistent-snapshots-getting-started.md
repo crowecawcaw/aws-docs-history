@@ -1,7 +1,6 @@
 
 
 # Manage VSS components package for Windows VSS based EBS snapshots
-<a name="application-consistent-snapshots-getting-started"></a>
 
 Before you create VSS based EBS snapshots, ensure that you have the latest version of the VSS components package installed on your Windows instance. There are several ways that you can install the `AwsVssComponents` package onto an existing instance, as follows:
 + (Recommended) [Run the AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot). This automatically installs or updates if needed every time it runs.
@@ -83,7 +82,7 @@ Use the following procedure to download and install the `AwsVssComponents` packa
 **To install the VSS package**  
 Run the following command to download and install the required VSS components for Systems Manager.
 
-```
+```bash
 aws ssm send-command \
     --document-name "AWS-ConfigureAWSPackage" \
     --instance-ids "{{i-1234567890abcdef0}}" \
@@ -98,7 +97,7 @@ Use the following procedure to download and install the `AwsVssComponents` packa
 **To install the VSS package**  
 Run the following command to download and install the required VSS components for Systems Manager.
 
-```
+```powershell
 Send-SSMCommand `
     -DocumentName "AWS-ConfigureAWSPackage" `
     -InstanceId "{{i-1234567890abcdef0}}" `
@@ -197,7 +196,7 @@ Use the [create-association](https://docs.aws.amazon.com/cli/latest/reference/ss
 **To create a State Manager association**  
 Run the following command to create an association. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`. The following command uses the key `InstanceIds` to specify target instances.
 
-```
+```bash
 aws ssm create-association \
     --name "AWS-ConfigureAWSPackage" \
     --parameters action=Install,installationType="Uninstall and reinstall",name=AwsVssComponents \
@@ -210,7 +209,7 @@ aws ssm create-association \
 **To create a State Manager association**  
 Use the [New-SSMAssociation](https://docs.aws.amazon.com/powershell/latest/reference/items/New-SSMAssociation.html) cmdlet.
 
-```
+```powershell
 New-SSMAssociation `
     -Name "AWS-ConfigureAWSPackage" `
     -Parameter  @{

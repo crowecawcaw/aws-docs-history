@@ -1,7 +1,6 @@
 
 
 # Prerequisites for BYOIP in Amazon EC2
-<a name="prepare-for-byoip"></a>
 
 The onboarding process for BYOIP has two phases, for which you must perform three steps. These steps correspond to the steps depicted in the following diagram. We include manual steps in this documentation, but your RIR might offer managed services to help you with these steps.
 
@@ -47,7 +46,7 @@ This procedure follows the best practice of encrypting your private RSA key and 
 
 1. Generate an RSA 2048-bit private key as shown in the following.
 
-   ```
+   ```bash
    $ openssl genpkey -aes256 -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out private-key.pem
    ```
 
@@ -62,13 +61,13 @@ This procedure follows the best practice of encrypting your private RSA key and 
 
    You can inspect the key using the following command:
 
-   ```
+   ```bash
    $ openssl pkey -in private-key.pem -text
    ```
 
    This returns a passphrase prompt and the contents of the key, which should be similar to the following:
 
-   ```
+   ```bash
    Enter pass phrase for private-key.pem: {{xxxxxxx}}
    -----BEGIN PRIVATE KEY-----
    MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFBXHRI4HVKAhh
@@ -194,13 +193,13 @@ This procedure follows the best practice of encrypting your private RSA key and 
 
 1. Generate an X.509 certificate using the private key created in the previous step. In this example, the certificate expires in 365 days, after which time it cannot be trusted. Be sure to set the expiration appropriately. The certificate must only be valid for the duration of the provisioning process. You can remove the certificate from your RIR's record after provisioning is complete. The `tr -d "\n"` command strips newline characters (line breaks) from the output. You need to provide a Common Name when prompted, but the other fields can be left blank.
 
-   ```
+   ```bash
    $ openssl req -new -x509 -key private-key.pem -days 365 | tr -d "\n" > certificate.pem
    ```
 
    This results in output similar to the following:
 
-   ```
+   ```bash
    Enter pass phrase for private-key.pem: {{xxxxxxx}}
    You are about to be asked to enter information that will be incorporated
    into your certificate request.
@@ -222,7 +221,7 @@ The Common Name is not needed for AWS provisioning. It can be any internal or pu
 
    You can inspect the certificate with the following command:
 
-   ```
+   ```bash
    $ cat certificate.pem
    ```
 

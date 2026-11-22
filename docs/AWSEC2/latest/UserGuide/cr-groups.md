@@ -1,7 +1,6 @@
 
 
 # Capacity Reservation Resource Groups
-<a name="cr-groups"></a>
 
 You can use AWS Resource Groups to create logical collections of Capacity Reservations, called *Capacity Reservation Resource Groups* (group). A Capacity Reservation Resource Group is a resource group that contains your Capacity Reservations and enables you to launch instances into multiple Capacity Reservations by specifying a single Capacity Reservation Resource Group ARN. For more information about Capacity Reservation Resource Groups, see [What are resource groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*.
 

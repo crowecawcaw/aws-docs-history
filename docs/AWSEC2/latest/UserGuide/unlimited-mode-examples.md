@@ -1,7 +1,6 @@
 
 
 # Unlimited mode examples for burstable instances
-<a name="unlimited-mode-examples"></a>
 
 The following examples explain credit use for instances that are configured as `unlimited`.
 

@@ -1,7 +1,6 @@
 
 
 # Reset the Windows administrator password for an Amazon EC2 Windows instance
-<a name="ResettingAdminPassword"></a>
 
 If you are no longer able to connect to your Amazon EC2 Windows instance because the Windows administrator password is lost or expired, you can reset the password.
 

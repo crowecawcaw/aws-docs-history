@@ -1,7 +1,6 @@
 
 
 # EC2 Fast Launch prerequisites for Windows
-<a name="win-start-fast-launch-prereqs"></a>
 
 Before you set up EC2 Fast Launch, verify that you've met the following prerequisites that are required to create snapshots for the AMIs in your AWS account:
 + If you provide a custom launch template when you configure EC2 Fast Launch, the service uses the VPC and other configuration settings that you've defined in the launch template. For more information, see [Use a launch template when you set up EC2 Fast Launch](win-fast-launch-configure.md#win-fast-launch-with-template).

@@ -1,7 +1,6 @@
 
 
 # Copy an Amazon EC2 AMI
-<a name="CopyingAMIs"></a>
 
 When you need a consistent Amazon EC2 instance configuration across multiple Regions, you can use a single Amazon Machine Image (AMI) as your template to launch all the instances. However, AMIs are Region-specific resources—to launch an instance in a specific AWS Region, the AMI must be located in that Region. Therefore, to use the same AMI in multiple Regions, you must copy it from the source Region to each target Region.
 
@@ -114,7 +113,7 @@ You can copy an AMI that you own or an AMI that was shared with you from another
 **To copy an AMI from one Region to another Region**  
 Use the [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) command. You must specify both the source and destination Regions. You specify the source Region using the `--source-region` parameter. You can specify the destination Region using the `--region` parameter (or omit this parameter to assume the default Region configured in your AWS CLI settings).
 
-```
+```bash
 aws ec2 copy-image \
     --source-image-id {{ami-0abcdef1234567890}} \
     --source-region {{us-west-2}} \
@@ -127,7 +126,7 @@ When you encrypt a target snapshot during AMI copy, you must specify these addit
 **To copy an AMI from a Region to a Local Zone**  
 Use the [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) command. You must specify both the source and destination. You specify the source Region using the `--source-region` parameter. You specify the destination Local Zone using the `--destination-availability-zone` parameter (you can use `--destination-availability-zone-id` instead). Note that you can only copy an AMI from a Region to a Local Zone within that same Region.
 
-```
+```bash
 aws ec2 copy-image \
     --source-image-id {{ami-0abcdef1234567890}} \
     --source-region {{cn-north-1}} \
@@ -139,7 +138,7 @@ aws ec2 copy-image \
 **To copy an AMI from a Local Zone to a Region**  
 Use the [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) command. You must specify both the source and destination. You specify the source Region using the `--source-region` parameter. You specify the destination Region using the `--region` parameter (or omit this parameter to assume the default Region configured in your AWS CLI settings). The source Local Zone is assumed from the location of the specified source AMI ID. Note that you can only copy an AMI from a Local Zone to its parent Region.
 
-```
+```bash
 aws ec2 copy-image \
     --source-image-id {{ami-0abcdef1234567890}} \
     --source-region {{cn-north-1}} \
@@ -150,7 +149,7 @@ aws ec2 copy-image \
 **To copy an AMI from one Local Zone to another Local Zone**  
 Use the [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) command. You must specify both the source and destination. You specify the source Region of the Local Zone using the `--source-region` parameter. You specify the destination Local Zone using the `--destination-availability-zone` parameter (you can use `--destination-availability-zone-id` instead). The source Local Zone is assumed from the location of the specified source AMI ID. You specify the parent Region of the destination Local Zone using the `--region` parameter (or omit this parameter to assume the default Region configured in your AWS CLI settings).
 
-```
+```bash
 aws ec2 copy-image \
     --source-image-id {{ami-0abcdef1234567890}} \
     --source-region {{cn-north-1}} \
@@ -165,7 +164,7 @@ aws ec2 copy-image \
 **To copy an AMI from one Region to another Region**  
 Use the [Copy-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-EC2Image.html) cmdlet. You must specify both the source and destination Regions. You specify the source Region using the `-SourceRegion` parameter. You can specify the destination Region using the `-Region` parameter or the [Set-AWSDefaultRegion](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) cmdlet.
 
-```
+```powershell
 Copy-EC2Image `
     -SourceImageId {{ami-0abcdef1234567890}} `
     -SourceRegion {{us-west-2}} `
@@ -178,7 +177,7 @@ When you encrypt a target snapshot during AMI copy, you must specify these addit
 **To copy an AMI from a Region to a Local Zone**  
 Use the [Copy-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-EC2Image.html) cmdlet. You must specify both the source and destination. You specify the source Region using the `-SourceRegion` parameter. You specify the destination Local Zone using the `-DestinationAvailabilityZone` parameter (you can use `-DestinationAvailabilityZoneId` instead). Note that you can only copy an AMI from a Region to a Local Zone within that same Region.
 
-```
+```powershell
 Copy-EC2Image `
     -SourceImageId {{ami-0abcdef1234567890}} `
     -SourceRegion {{cn-north-1}} `
@@ -190,7 +189,7 @@ Copy-EC2Image `
 **To copy an AMI from a Local Zone to a Region**  
 Use the [Copy-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-EC2Image.html) cmdlet. You must specify both the source and destination. You specify the source Region using the `-SourceRegion` parameter. You specify the destination Region using the `-Region` parameter or the [Set-AWSDefaultRegion](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) cmdlet. The source Local Zone is assumed from the location of the specified source AMI ID. Note that you can only copy an AMI from a Local Zone to its parent Region.
 
-```
+```powershell
 Copy-EC2Image `
     -SourceImageId {{ami-0abcdef1234567890}} `
     -SourceRegion {{cn-north-1}} `
@@ -201,7 +200,7 @@ Copy-EC2Image `
 **To copy an AMI from one Local Zone to another Local Zone**  
 Use the [Copy-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-EC2Image.html) cmdlet. You must specify both the source and destination. You specify the source Region of the Local Zone using the `-SourceRegion` parameter. You specify the destination Local Zone using the `-DestinationAvailabilityZone` parameter (you can use `-DestinationAvailabilityZoneId` instead). The source Local Zone is assumed from the location of the specified source AMI ID. You specify the parent Region of the destination Local Zone using the `-Region` parameter or the [Set-AWSDefaultRegion](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) cmdlet.
 
-```
+```powershell
 Copy-EC2Image `
     -SourceImageId {{ami-0abcdef1234567890}} `
     -SourceRegion {{cn-north-1}} `
@@ -238,7 +237,7 @@ You can stop a pending AMI copy using the following procedures.
 **To stop an AMI copy operation**  
 Use the [deregister-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/deregister-image.html) command.
 
-```
+```bash
 aws ec2 deregister-image --image-id {{ami-0abcdef1234567890}}
 ```
 
@@ -248,7 +247,7 @@ aws ec2 deregister-image --image-id {{ami-0abcdef1234567890}}
 **To stop an AMI copy operation using**  
 Use the [Unregister-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2Image.html) cmdlet.
 
-```
+```powershell
 Unregister-EC2Image -ImageId {{ami-0abcdef1234567890}}
 ```
 

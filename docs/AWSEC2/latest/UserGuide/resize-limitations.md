@@ -1,7 +1,6 @@
 
 
 # Compatibility for changing the instance type
-<a name="resize-limitations"></a>
 
 You can change the instance type only if the instance's current configuration is compatible with the instance type that you want. If the instance type that you want is not compatible with the instance's current configuration, you must launch a new instance with a configuration that is compatible with the instance type, and then migrate your application to the new instance.
 

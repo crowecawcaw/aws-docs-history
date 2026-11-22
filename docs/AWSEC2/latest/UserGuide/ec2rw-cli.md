@@ -1,7 +1,6 @@
 
 
 # Troubleshoot impaired Windows instance with the EC2Rescue CLI
-<a name="ec2rw-cli"></a>
 
 The EC2Rescue for Windows Server command line interface (CLI) allows you to run an EC2Rescue for Windows Server plugin (referred as an "action") programmatically.
 
@@ -11,7 +10,7 @@ The EC2Rescue for Windows Server tool has two execution modes:
 
 Download the [EC2Rescue for Windows Server](https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip?x-download-source=docs) tool to your Windows instance and extract the files. You can view the help file using the following command:
 
-```
+```bash
 EC2RescueCmd.exe /help
 ```
 
@@ -68,19 +67,19 @@ The following are examples using the EC2Rescue for Windows Server CLI.
 
 Collect all available logs:
 
-```
+```bash
 EC2RescueCmd /accepteula /online /collect:all /output:<outputFilePath>
 ```
 
 Collect only a specific log group:
 
-```
+```bash
 EC2RescueCmd /accepteula /online /collect:ec2config /output:<outputFilePath>
 ```
 
 Collect individual logs within a log group:
 
-```
+```bash
 EC2RescueCmd /accepteula /online /collect:'ec2config.Log Files,driver-setup.SetupAPI Log Files' /output:<outputFilePath>
 ```
 
@@ -89,13 +88,13 @@ EC2RescueCmd /accepteula /online /collect:'ec2config.Log Files,driver-setup.Setu
 
 Collect all available logs from an EBS volume. The volume is specified by the device\_id value.
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /collect:all /output:<outputFilePath>
 ```
 
 Collect only a specific log group:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /collect:ec2config /output:<outputFilePath>
 ```
 
@@ -130,25 +129,25 @@ The following are examples using the EC2Rescue for Windows Server CLI. The volum
 
 Attempt to fix all identified issues on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /rescue:all
 ```
 
 Attempt to fix all issues within a service group on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /rescue:firewall
 ```
 
 Attempt to fix a specific item within a service group on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /rescue:rdp.'Service Start'
 ```
 
 Specify multiple issues to attempt to fix on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /rescue:'system-time.RealTimeIsUniversal,ec2config.Service Start'
 ```
 
@@ -174,12 +173,12 @@ The following are examples using the EC2Rescue for Windows Server CLI. The volum
 
 Restore last known good configuration on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /restore:lkgc
 ```
 
 Restore the last Windows registry backup on a volume:
 
-```
+```bash
 EC2RescueCmd /accepteula /offline:{{xvdf}} /restore:regback
 ```

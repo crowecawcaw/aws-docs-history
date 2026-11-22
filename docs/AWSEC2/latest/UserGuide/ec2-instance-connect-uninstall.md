@@ -1,7 +1,6 @@
 
 
 # Uninstall EC2 Instance Connect
-<a name="ec2-instance-connect-uninstall"></a>
 
 To disable EC2 Instance Connect, connect to your Linux instance and uninstall the `ec2-instance-connect` package that is installed on the OS. If the `sshd` configuration matches what it was set to when you installed EC2 Instance Connect, uninstalling `ec2-instance-connect` also removes the `sshd` configuration. If you modified the `sshd` configuration after installing EC2 Instance Connect, you must update it manually.
 
@@ -16,13 +15,13 @@ You can uninstall EC2 Instance Connect on AL2023 and Amazon Linux 2 2.0.20190618
 
    For example, the following **ssh** command connects to the instance with the public DNS name `ec2-a-b-c-d.us-west-2.compute.amazonaws.com`, using the key pair `my_ec2_private_key.pem`.
 
-   ```
+   ```bash
    $ ssh -i {{my_ec2_private_key}}.pem ec2-user@{{ec2-a-b-c-d.us-west-2.compute.amazonaws.com}}
    ```
 
 1. Uninstall the `ec2-instance-connect` package using the **yum** command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum remove ec2-instance-connect
    ```
 
@@ -35,13 +34,13 @@ You can uninstall EC2 Instance Connect on AL2023 and Amazon Linux 2 2.0.20190618
 
    For example, the following **ssh** command connects to the instance with the public DNS name `ec2-a-b-c-d.us-west-2.compute.amazonaws.com`, using the key pair `my_ec2_private_key.pem`.
 
-   ```
+   ```bash
    $ ssh -i {{my_ec2_private_key}}.pem ubuntu@{{ec2-a-b-c-d.us-west-2.compute.amazonaws.com}}
    ```
 
 1. Uninstall the `ec2-instance-connect` package using the **apt-get** command.
 
-   ```
+   ```bash
    ubuntu:~$ sudo apt-get remove ec2-instance-connect
    ```
 

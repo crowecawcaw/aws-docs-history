@@ -1,7 +1,6 @@
 
 
 # Create a Linux AMI with custom UEFI Secure Boot keys
-<a name="create-ami-with-uefi-secure-boot"></a>
 
 These instructions show you how to create a Linux AMI with UEFI Secure Boot and custom-made private keys. Amazon Linux supports UEFI Secure Boot starting with AL2023 release 2023.1. For more information, see [UEFI Secure Boot on AL2023](https://docs.aws.amazon.com/linux/al2023/ug/uefi-secure-boot.html) in the *Amazon Linux 2023 User Guide*.
 
@@ -48,7 +47,7 @@ Before creating the key pairs, create a globally unique identifier (GUID) to be 
 
 1. Run the following command in a shell prompt.
 
-   ```
+   ```bash
    uuidgen --random > GUID.txt
    ```
 
@@ -63,7 +62,7 @@ The X.509 standard is used for creating the key pair. For information about the 
 
 1. Create the key. You must name the variable `PK`.
 
-   ```
+   ```bash
    openssl req -newkey rsa:4096 -nodes -keyout PK.key -new -x509 -sha256 -days 3650 -subj "/CN={{Platform key}}/" -out PK.crt
    ```
 
@@ -75,19 +74,19 @@ The X.509 standard is used for creating the key pair. For information about the 
 
 1. Create the certificate.
 
-   ```
+   ```bash
    openssl x509 -outform DER -in PK.crt -out PK.cer
    ```
 
 1. Convert the certificate into a UEFI signature list.
 
-   ```
+   ```bash
    cert-to-efi-sig-list -g "$(< GUID.txt)" PK.crt PK.esl
    ```
 
 1. Sign the UEFI signature list with the private PK (self-signed).
 
-   ```
+   ```bash
    sign-efi-sig-list -g "$(< GUID.txt)" -k PK.key -c PK.crt PK PK.esl PK.auth
    ```
 
@@ -100,25 +99,25 @@ The private KEK is used to add keys to the db, which is the list of authorized s
 
 1. Create the key.
 
-   ```
+   ```bash
    openssl req -newkey rsa:4096 -nodes -keyout KEK.key -new -x509 -sha256 -days 3650 -subj "/CN=Key Exchange Key/" -out KEK.crt
    ```
 
 1. Create the certificate.
 
-   ```
+   ```bash
    openssl x509 -outform DER -in KEK.crt -out KEK.cer
    ```
 
 1. Convert the certificate into a UEFI signature list.
 
-   ```
+   ```bash
    cert-to-efi-sig-list -g "$(< GUID.txt)" KEK.crt KEK.esl
    ```
 
 1. Sign the signature list with the private PK.
 
-   ```
+   ```bash
    sign-efi-sig-list -g "$(< GUID.txt)" -k PK.key -c PK.crt KEK KEK.esl KEK.auth
    ```
 
@@ -131,25 +130,25 @@ The db list contains authorized keys that are authorized to be booted on the sys
 
 1. Create the key.
 
-   ```
+   ```bash
    openssl req -newkey rsa:4096 -nodes -keyout db.key -new -x509 -sha256 -days 3650 -subj "/CN=Signature Database key/" -out db.crt
    ```
 
 1. Create the certificate.
 
-   ```
+   ```bash
    openssl x509 -outform DER -in db.crt -out db.cer
    ```
 
 1. Convert the certificate into a UEFI signature list.
 
-   ```
+   ```bash
    cert-to-efi-sig-list -g "$(< GUID.txt)" db.crt db.esl
    ```
 
 1. Sign the signature list with the private KEK.
 
-   ```
+   ```bash
    sign-efi-sig-list -g "$(< GUID.txt)" -k KEK.key -c KEK.crt db db.esl db.auth
    ```
 
@@ -158,7 +157,7 @@ The db list contains authorized keys that are authorized to be booted on the sys
 
 For Ubuntu 22.04, the following images require signatures.
 
-```
+```bash
 /boot/efi/EFI/ubuntu/shimx64.efi
 /boot/efi/EFI/ubuntu/mmx64.efi
 /boot/efi/EFI/ubuntu/grubx64.efi
@@ -168,7 +167,7 @@ For Ubuntu 22.04, the following images require signatures.
 **To sign an image**  
 Use the following syntax to sign an image.
 
-```
+```bash
 sbsign --key db.key --cert db.crt --output {{/boot/vmlinuz}} {{/boot/vmlinuz}}
 ```
 
@@ -206,7 +205,7 @@ After you’ve launched your instance, you can verify that it is ready to be con
 **To verify whether your instance is ready for Step 2**  
 Use the [get-instance-uefi-data](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-instance-uefi-data.html) command and specify the instance ID.
 
-```
+```bash
 aws ec2 get-instance-uefi-data --instance-id {{i-1234567890abcdef0}}
 ```
 
@@ -226,7 +225,7 @@ After you create the signed UEFI signature lists (`PK`, `KEK`, and `db`), they m
 Writing to the `PK` variable is possible only if:
 + No PK is enrolled yet, which is indicated if the `SetupMode` variable is `1`. Check this by using the following command. The output is either `1` or `0`.
 
-  ```
+  ```bash
   efivar -d -n 8be4df61-93ca-11d2-aa0d-00e098032b8c-SetupMode 
   ```
 + The new PK is signed by the private key of the existing PK.
@@ -236,15 +235,15 @@ The following commands must be run on the instance.
 
 If SetupMode is enabled (the value is `1`), the keys can be enrolled by running the following commands on the instance:
 
-```
+```bash
 [ec2-user ~]$ efi-updatevar -f db.auth db
 ```
 
-```
+```bash
 [ec2-user ~]$ efi-updatevar -f KEK.auth KEK
 ```
 
-```
+```bash
 [ec2-user ~]$ efi-updatevar -f PK.auth PK
 ```
 
@@ -282,13 +281,13 @@ You can create the variable store *offline* without a running instance by using 
 
 1. Download the tool at the following link.
 
-   ```
+   ```bash
    https://github.com/awslabs/python-uefivars
    ```
 
 1. Create a new variable store from your keys by running the following command. This will create a base64-encoded binary blob in {{your\_binary\_blob}}.bin. The tool also supports updating a binary blob by using the `-I` parameter.
 
-   ```
+   ```bash
    ./uefivars.py -i none -o aws -O {{your_binary_blob}}.bin -P PK.esl -K KEK.esl --db db.esl --dbx dbx.esl
    ```
 
@@ -297,7 +296,7 @@ You can create the variable store *offline* without a running instance by using 
 
 Use [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) to pass your UEFI variable store data. For the `--uefi-data` parameter, specify your binary blob, and for the `--boot-mode` parameter, specify `uefi`.
 
-```
+```bash
 aws ec2 register-image \
     --name uefi_sb_tpm_register_image_test \
     --uefi-data $(cat {{your_binary_blob}}.bin) \

@@ -1,7 +1,6 @@
 
 
 # Configure your workload on Amazon EC2 for torn write prevention
-<a name="configure-twp"></a>
 
 Torn write prevention is enabled by default on [supported instance types with supported volumes](supported-block-sizes.md). You don't need to configure any additional settings to enable torn write prevention.
 
@@ -13,7 +12,7 @@ To configure your MySQL or MariaDB software stack to disable the doublewrite buf
 
 1. Configure your volume to use ext4 file system with the BigAlloc option and set the cluster size to 4 KiB, 8 KiB, or 16 KiB. Using BigAlloc with a cluster size of 4 KiB, 8 KiB, or 16 KiB ensures that the file system allocates files that align with the respective boundary.
 
-   ```
+   ```bash
    $  mkfs.ext4 -O bigalloc -C {{4096|8192|16384}} {{device_name}}
    ```
 **Note**  
@@ -21,13 +20,13 @@ For MySQL and MariaDB, you must use `-C 16384` to match the database page size. 
 
    For example:
 
-   ```
+   ```bash
    $  mkfs.ext4 -O bigalloc -C 16384 /dev/nvme1n1
    ```
 
 1. Configure InnoDB to use the `0_DIRECT` flushing method and turn off InnoDB doublewrite. Use your preferred text editor to open `/etc/my.cnf`, and update the `innodb_flush_method` and `innodb_doublewrite` parameters as follows:
 
-   ```
+   ```INI
    innodb_flush_method=O_DIRECT
    innodb_doublewrite=0
    ```

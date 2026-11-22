@@ -1,7 +1,6 @@
 
 
 # Modify an EC2 Instance Connect Endpoint
-<a name="modify-ec2-instance-connect-endpoint"></a>
 
 You can modify existing EC2 Instance Connect Endpoints using the console, AWS CLI, or an SDK.
 
@@ -51,7 +50,7 @@ Preserving the client IP is only supported on IPv4 EC2 Instance Connect Endpoint
 **To modify an EC2 Instance Connect Endpoint**  
 Use the [modify-instance-connect-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-connect-endpoint.html) command and specify the EC2 Instance Connect Endpoint and the parameters to modify. The following example modifies all the parameters in a single request.
 
-```
+```bash
 aws ec2 modify-instance-connect-endpoint \
     --instance-connect-endpoint-id {{eice-0123456789example}} \
     --security-group-ids {{sg-0123456789example}} \
@@ -61,7 +60,7 @@ aws ec2 modify-instance-connect-endpoint \
 
 The following is example output.
 
-```
+```JSON
 {
     "Return": true
 }
@@ -72,7 +71,7 @@ During modification, the EC2 Instance Connect Endpoint status changes to `update
 
 Use the [describe-instance-connect-endpoints](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-connect-endpoints.html) command to monitor the update status. The `--query` parameter filters the results to the `State` field.
 
-```
+```bash
 aws ec2 describe-instance-connect-endpoints \
     --instance-connect-endpoint-ids {{eice-0123456789example}} \
     --query InstanceConnectEndpoints[*].State --output text
@@ -80,7 +79,7 @@ aws ec2 describe-instance-connect-endpoints \
 
 The following is example output.
 
-```
+```bash
 update-complete
 ```
 
@@ -90,7 +89,7 @@ update-complete
 **To modify an EC2 Instance Connect Endpoint**  
 Use the [Edit-EC2InstanceConnectEndpoint](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceConnectEndpoint.html) cmdlet and specify the EC2 Instance Connect Endpoint and the parameters to modify. The following example modifies all the parameters in a single request.
 
-```
+```powershell
 Edit-EC2InstanceConnectEndpoint `
     -InstanceConnectEndpointId {{eice-0123456789example}} `
     -SecurityGroupIds {{sg-0123456789example}} `
@@ -100,7 +99,7 @@ Edit-EC2InstanceConnectEndpoint `
 
 The following is example output.
 
-```
+```bash
 True
 ```
 
@@ -109,13 +108,13 @@ During modification, the EC2 Instance Connect Endpoint status changes to `update
 
 Use the [Get-EC2InstanceConnectEndpoint](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceConnectEndpoint.html) command to monitor the update status. `.State.Value` filters the results to the `State` field.
 
-```
+```powershell
 (Get-EC2InstanceConnectEndpoint -InstanceConnectEndpointId "{{eice-0123456789example}}").State.Value
 ```
 
 The following is example output.
 
-```
+```bash
 update-complete
 ```
 

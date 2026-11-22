@@ -1,7 +1,6 @@
 
 
 # Set the time reference on your EC2 instance or any internet-connected device to use the public Amazon Time Sync Service
-<a name="configure-time-sync"></a>
 
 You can set your instance, or any internet-connected device such as your local computer or an on-prem server, to use the public Amazon Time Sync Service, which is accessible over the internet at `time.aws.com`. You can use the public Amazon Time Sync Service as a backup for the local Amazon Time Sync Service and to connect resources outside of AWS to the Amazon Time Sync Service.
 
@@ -21,25 +20,25 @@ Use the instructions for the operating system of your instance or device.
 **Important**  
 If you're setting your EC2 instance to connect to the public Amazon Time Sync Service, do not remove the following line which sets your instance to connect to the local Amazon Time Sync Service. The local Amazon Time Sync Service is a more direct connection and will provide better clock accuracy. The public Amazon Time Sync Service should only be used as a backup.  
 
-      ```
+      ```bash
       server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
       ```
 
    1. Add the following line to connect to the public Amazon Time Sync Service.
 
-      ```
+      ```bash
       pool time.aws.com iburst
       ```
 
 1. Restart the daemon using one of the following commands.
    + chrony
 
-     ```
+     ```bash
      sudo service chronyd force-reload
      ```
    + ntpd
 
-     ```
+     ```bash
      sudo service ntp reload
      ```
 

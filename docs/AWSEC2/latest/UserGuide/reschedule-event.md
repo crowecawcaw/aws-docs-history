@@ -1,7 +1,6 @@
 
 
 # Reschedule a scheduled event for an EC2 instance
-<a name="reschedule-event"></a>
 
 You can reschedule an event so that it occurs at a specific date and time that suits you. After you reschedule an event, it might take a minute or two before the the updated date is displayed.
 
@@ -38,7 +37,7 @@ You can reschedule an event so that it occurs at a specific date and time that s
 **To reschedule an event**  
 Use the [modify-instance-event-start-time](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-event-start-time.html) command.
 
-```
+```bash
 aws ec2 modify-instance-event-start-time \
     --instance-id {{i-1234567890abcdef0}} \
     --instance-event-id {{instance-event-0d59937288b749b32}} \
@@ -51,7 +50,7 @@ aws ec2 modify-instance-event-start-time \
 **To reschedule an event**  
 Use the [Edit-EC2InstanceEventStartTime](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceEventStartTime.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceEventStartTime `
     -InstanceId {{i-1234567890abcdef0}} `
     -InstanceEventId {{instance-event-0d59937288b749b32}} `

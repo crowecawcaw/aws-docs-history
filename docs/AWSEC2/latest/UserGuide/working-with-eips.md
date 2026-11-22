@@ -1,7 +1,6 @@
 
 
 # Associate an Elastic IP address with an instance
-<a name="working-with-eips"></a>
 
 After you allocate an Elastic IP address, you can associate it with an AWS resource, such as an EC2 instance, NAT gateway, or Network Load Balancer. To associate an Elastic IP address with a different AWS resource later on, you can disassociate it from its current resource and then associated it with the new resource.
 
@@ -50,20 +49,20 @@ Use the [allocate-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/
 
 In the following example, Amazon EC2 selects an address from Amazon's address pool.
 
-```
+```bash
 aws ec2 allocate-address
 ```
 
 In the following example, Amazon EC2 selects an address from the specified pool that you brought to AWS using BYOIP.
 
-```
+```bash
 aws ec2 allocate-address \
     --public-ipv4-pool {{ipv4pool-ec2-012345abcdef67890}}
 ```
 
 The following example specifies an address from the specified IPv4 IPAM pool.
 
-```
+```bash
 aws ec2 allocate-address \
     --ipam-pool-id {{ipam-pool-1234567890abcdef0}} \
     --address {{192.0.2.0}}
@@ -77,20 +76,20 @@ Use the [New-EC2Address](https://docs.aws.amazon.com/powershell/latest/reference
 
 In the following example, Amazon EC2 selects an address from Amazon's address pool.
 
-```
+```powershell
 New-EC2Address
 ```
 
 In the following example, Amazon EC2 selects an address from the specified pool that you brought to AWS using BYOIP.
 
-```
+```powershell
 New-EC2Address `
     -PublicIpv4Pool {{ipv4pool-ec2-012345abcdef67890}}
 ```
 
 The following example specifies an address from the specified IPv4 IPAM pool.
 
-```
+```powershell
 New-EC2Address `
     -IpamPoolId {{ipam-pool-1234567890abcdef0}} `
     -Address {{192.0.2.0}}
@@ -144,7 +143,7 @@ If you're associating an Elastic IP address with your instance to enable communi
 **To associate an Elastic IP address**  
 Use the [associate-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/associate-address.html) AWS CLI command.
 
-```
+```bash
 aws ec2 associate-address \
     --instance-id {{i-0b263919b6498b123}} \
     --allocation-id {{eipalloc-64d5890a}}
@@ -156,7 +155,7 @@ aws ec2 associate-address \
 **To associate an Elastic IP address**  
 Use the [Register-EC2Address](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Address.html) cmdlet.
 
-```
+```powershell
 Register-EC2Address `
     -InstanceId {{i-0b263919b6498b123}} `
     -AllocationId {{eipalloc-64d5890a}}
@@ -188,7 +187,7 @@ You can disassociate an Elastic IP address from an instance or network interface
 **To disassociate an Elastic IP address**  
 Use the [disassociate-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/disassociate-address.html) AWS CLI command.
 
-```
+```bash
 aws ec2 disassociate-address --association-id {{eipassoc-12345678}}
 ```
 
@@ -198,7 +197,7 @@ aws ec2 disassociate-address --association-id {{eipassoc-12345678}}
 **To disassociate an Elastic IP address**  
 Use the [Unregister-EC2Address](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2Address.html) cmdlet.
 
-```
+```powershell
 Unregister-EC2Address -AssociationId {{eipassoc-12345678}}
 ```
 

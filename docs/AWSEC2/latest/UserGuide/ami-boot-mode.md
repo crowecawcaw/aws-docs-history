@@ -1,7 +1,6 @@
 
 
 # Determine the boot mode parameter of an Amazon EC2 AMI
-<a name="ami-boot-mode"></a>
 
 The AMI boot mode parameter is optional. An AMI can have one of the following boot mode parameter values: `uefi`, `legacy-bios`, or `uefi-preferred`.
 
@@ -30,7 +29,7 @@ When launching an instance using the launch instance wizard, at the step to sele
 **To determine the boot mode parameter of an AMI**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command to determine the boot mode of an AMI.
 
-```
+```bash
 aws ec2 describe-images \
     --region {{us-east-1}} \
     --image-id {{ami-0abcdef1234567890}} \
@@ -40,7 +39,7 @@ aws ec2 describe-images \
 
 The following is example output.
 
-```
+```bash
 uefi
 ```
 
@@ -52,7 +51,7 @@ In the output, a value of `uefi` indicates that the AMI supports UEFI. A value o
 **To determine the boot mode parameter of an AMI**  
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet to determine the boot mode of an AMI.
 
-```
+```powershell
 Get-EC2Image -Region {{us-east-1}} `
     -ImageId {{ami-0abcdef1234567890}} | Format-List Name, BootMode, TpmSupport
 ```

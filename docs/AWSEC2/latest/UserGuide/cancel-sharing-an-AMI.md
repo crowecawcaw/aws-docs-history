@@ -1,7 +1,6 @@
 
 
 # Cancel having an AMI shared with your AWS account
-<a name="cancel-sharing-an-AMI"></a>
 
 An Amazon Machine Image (AMI) can be [shared with specific AWS accounts](sharingamis-explicit.md) by adding the accounts to the AMI's launch permissions. If an AMI has been shared with your AWS account and you no longer want it shared with your account, you can remove your account from the AMI's launch permissions. You do this by running the `cancel-image-launch-permission` AWS CLI command. When running this command, your AWS account is removed from the launch permissions for the specified AMI. To find the AMIs that are shared with your AWS account, see [Find shared AMIs to use for Amazon EC2 instances](usingsharedamis-finding.md).
 
@@ -30,7 +29,7 @@ After you cancel having an AMI shared with your account, you can't undo it. To r
 **To cancel having an AMI shared with your account**  
 Use the [cancel-image-launch-permission](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-image-launch-permission.html) command.
 
-```
+```bash
 aws ec2 cancel-image-launch-permission \
     --image-id {{ami-0abcdef1234567890}} \
     --region {{us-east-1}}
@@ -42,7 +41,7 @@ aws ec2 cancel-image-launch-permission \
 **To cancel having an AMI shared with your account**  
 Use the [Stop-EC2ImageLaunchPermission](https://docs.aws.amazon.com/powershell/latest/reference/index.html) cmdlet.
 
-```
+```powershell
 Stop-EC2ImageLaunchPermission `
     -ImageId {{ami-0abcdef1234567890}} `
     -Region {{us-east-1}}

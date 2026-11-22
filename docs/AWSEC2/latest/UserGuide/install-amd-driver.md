@@ -1,7 +1,6 @@
 
 
 # AMD drivers for your EC2 instance
-<a name="install-amd-driver"></a>
 
 An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed. Depending on your requirements, you can either use an AMI with the driver preinstalled or download a driver from Amazon S3.
 
@@ -53,20 +52,20 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Install **gcc**, **make**, and **dialog**, if they are not already installed.
 
-   ```
+   ```bash
    $ sudo yum install -y gcc make dialog
    ```
 
 1. Update your package cache and get the package updates for your instance.
 
-   ```
+   ```bash
    $ sudo amazon-linux-extras install epel -y
    $ sudo yum update -y
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 
@@ -74,19 +73,19 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Download the latest AMD driver.
 
-   ```
+   ```bash
    $ aws s3 cp --recursive s3://ec2-amd-linux-drivers/latest/ .
    ```
 
 1. Extract the file.
 
-   ```
+   ```bash
    $ tar -xzf amdgpu-pro-*rhel*.tar.gz
    ```
 
 1. Install the **amdgpu-install** package. Replace {{version}} with the version directory name that was created when you extracted the driver.
 
-   ```
+   ```bash
    $ cd rhel_7/{{version}}/x86_64/a/
    $ sudo yum install -y ./amdgpu-install-*.el7.noarch.rpm
    ```
@@ -99,19 +98,19 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Install the AMD GPU driver for Amazon Linux 2.
 
-   ```
+   ```bash
    $ sudo amdgpu-install --usecase=workstation --vulkan=pro --accept-eula -y
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 
 1. Confirm that the driver is functional.
 
-   ```
+   ```bash
    $ sudo dmesg | grep amdgpu
    ```
 
@@ -128,19 +127,19 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Update your package cache and get the package updates for your instance.
 
-   ```
+   ```bash
    $ sudo apt-get update -y && sudo apt-get upgrade -y
    ```
 
 1. Install Linux firmware and kernel modules.
 
-   ```
+   ```bash
    $ sudo apt install -y linux-firmware linux-modules-extra-$(uname -r)
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 
@@ -148,25 +147,25 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Download the latest AMD driver package for Ubuntu 24.04 from [Linux® Drivers for AMD Radeon™ Graphics](https://www.amd.com/en/support/download/linux-drivers.html) on the AMD website. In the following command, replace {{version}} with the version string from the downloaded filename (for example, `31.30.313000-1_all`).
 
-   ```
+   ```bash
    $ sudo apt install -y ./amdgpu-install_{{version}}.deb
    ```
 
 1. Install the AMD GPU driver for Ubuntu.
 
-   ```
+   ```bash
    $ sudo amdgpu-install --usecase=graphics --vulkan=radv -y
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 
 1. Confirm that the driver is functional.
 
-   ```
+   ```bash
    $ sudo dmesg | grep amdgpu
    ```
 
@@ -188,28 +187,28 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 1. Set the key prefix according to your version of Windows:
    + Windows 10 and Windows 11
 
-     ```
+     ```powershell
      $KeyPrefix = "latest/AMD_GPU_WINDOWS10"
      ```
    + Windows Server 2016
 
-     ```
+     ```powershell
      $KeyPrefix = "archives"
      ```
    + Windows Server 2019
 
-     ```
+     ```powershell
      $KeyPrefix = "latest/AMD_GPU_WINDOWS_2K19" # use "archives" for Windows Server 2016
      ```
    + Windows Server 2022
 
-     ```
+     ```powershell
      $KeyPrefix = "latest/AMD_GPU_WINDOWS_2K22"
      ```
 
 1. Download the drivers from Amazon S3 to your desktop using the following PowerShell commands.
 
-   ```
+   ```powershell
    $Bucket = "ec2-amd-windows-drivers"
    $LocalPath = "$home\Desktop\AMD"
    $Objects = Get-S3Object -BucketName $Bucket -KeyPrefix $KeyPrefix -Region us-east-1
@@ -224,13 +223,13 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
 1. Unzip the downloaded driver file and run the installer using the following PowerShell commands.
 
-   ```
+   ```powershell
    Expand-Archive $LocalFilePath -DestinationPath "$home\Desktop\AMD\$KeyPrefix" -Verbose
    ```
 
    Now, check the content of the new directory. The directory name can be retrieved using the `Get-ChildItem` PowerShell command.
 
-   ```
+   ```powershell
    Get-ChildItem "$home\Desktop\AMD\$KeyPrefix"
    ```
 
@@ -246,7 +245,7 @@ Your user or role must have the permissions granted that contains the **AmazonS3
 
    Install the drivers:
 
-   ```
+   ```powershell
    pnputil /add-driver $home\Desktop\AMD\$KeyPrefix\*.inf /install /subdirs
    ```
 

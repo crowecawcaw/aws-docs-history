@@ -1,7 +1,6 @@
 
 
 # Stop or terminate your Amazon EC2 Mac instance
-<a name="mac-instance-stop"></a>
 
 When you stop a Mac instance, the instance remains in the `stopping` state for about 15 minutes before it enters the `stopped` state.
 

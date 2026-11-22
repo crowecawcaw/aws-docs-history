@@ -1,7 +1,6 @@
 
 
 # Tutorial 2: Launch a test EC2 instance and connect to it
-<a name="tutorial-launch-a-test-ec2-instance"></a>
 
 
 | Attribute | Value | 
@@ -122,7 +121,7 @@ This is the only chance you'll have to save the private key file.
 
    If you plan to connect to your instance using SSH on a macOS or Linux computer, you must set the correct permissions for your private key file. Open a terminal window and run the following command, replacing {{test-instance-key-pair}} with the name of your key pair:
 
-   ```
+   ```bash
    chmod 400 {{test-instance-key-pair}}.pem
    ```
 
@@ -281,7 +280,7 @@ To help visualize these components, think of connecting to an instance like goin
 
 To connect to your EC2 instance, use the following command in a terminal window:
 
-```
+```bash
 ssh -i "test-instance-key-pair.pem" ec2-user@ec2-18-201-118-201.eu-west-1.compute.amazonaws.com
 ```
 
@@ -307,7 +306,7 @@ There are different ways to connect to an instance. The method you use to connec
 
 Most computers come with an SSH client pre-installed. To check, open a terminal window on your computer and run the following command:
 
-```
+```bash
 ssh
 ```
 
@@ -337,7 +336,7 @@ If the command isn't recognized, you must install an SSH client. Instructions fo
 
    The command looks something like this:
 
-   ```
+   ```bash
    ssh -i "test-instance-key-pair.pem" ec2-user@ec2-18-201-118-201.eu-west-1.compute.amazonaws.com
    ```
 

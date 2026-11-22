@@ -1,7 +1,6 @@
 
 
 # How AMI store and restore works
-<a name="store-restore-how-it-works"></a>
 
 To store and restore an AMI using S3, you use the following APIs:
 + `CreateStoreImageTask` – Stores the AMI in an S3 bucket
@@ -20,6 +19,8 @@ To store and restore an AMI using S3, you use the following APIs:
 The `CreateStoreImageTask` API stores an AMI as a single object in an S3 bucket.
 
 The API creates a task that reads all of the data from the AMI and its snapshots, and then uses an [S3 multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) to store the data in an S3 object. The API takes all of the components of the AMI, including most of the non-Region-specific AMI metadata, and all the EBS snapshots contained in the AMI, and packs them into a single object in S3. The data is compressed as part of the upload process to reduce the amount of space used in S3, so the object in S3 might be smaller than the sum of the sizes of the snapshots in the AMI.
+
+If the task fails or doesn't complete, the incomplete multipart upload might remain in your S3 bucket and incur storage charges. For more information about storage costs, see [Costs](ami-store-restore.md#store-restore-costs).
 
 If there are AMI and snapshot tags visible to the account calling this API, they are preserved.
 
@@ -65,13 +66,13 @@ You can use file paths when storing and restoring AMIs, in the following way:
 **Example: Bucket name with appended file path**  
 When you store the AMI, specify the file path after the bucket name.
 
-```
+```bash
 {{amzn-s3-demo-bucket/path1/path2}}
 ```
 
 The following is the resulting object key.
 
-```
+```bash
 {{path1/path2/ami-0abcdef1234567890}}.bin
 ```
 

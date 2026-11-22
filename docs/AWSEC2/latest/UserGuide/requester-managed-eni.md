@@ -1,7 +1,6 @@
 
 
 # Requester-managed network interfaces
-<a name="requester-managed-eni"></a>
 
 A requester-managed network interface is a network interface that an AWS service creates in your VPC on your behalf. The network interface is associated with a resource for another service, such as a DB instance from Amazon RDS, a NAT gateway, or an interface VPC endpoint from AWS PrivateLink.
 
@@ -38,7 +37,7 @@ A requester-managed network interface is a network interface that an AWS service
 **To view requester-managed network interfaces**  
 Use the [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) command as follows.
 
-```
+```bash
 aws ec2 describe-network-interfaces \
     --filters "Name=requester-managed,Values=true" \
     --query "NetworkInterfaces[*].[Description, InterfaceType]" \ 
@@ -47,7 +46,7 @@ aws ec2 describe-network-interfaces \
 
 The following is example output that shows the key fields that you can use to determine the purpose of the network interface: `Description` and `InterfaceType`.
 
-```
+```json
 -------------------------------------------------------------------------------
 |                          DescribeNetworkInterfaces                          |
 +---------------------------------------------------+-------------------------+
@@ -66,13 +65,13 @@ The following is example output that shows the key fields that you can use to de
 **To view requester-managed network interfaces**  
 Use the [Get-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2NetworkInterface.html) cmdlet as follows.
 
-```
+```ps
 Get-EC2NetworkInterface -Filter @{Name="requester-managed"; Values="true"} | Select Description, InterfaceType
 ```
 
 The following is example output that shows the key fields that you can use to determine the purpose of a network interface: `Description` and `InterfaceType`.
 
-```
+```bash
 Description                                      InterfaceType
 -----------                                      -------------
 VPC Endpoint Interface: vpce-0f00567fa8477a1e6   interface

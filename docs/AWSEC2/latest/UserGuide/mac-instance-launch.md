@@ -1,7 +1,6 @@
 
 
 # Launch a Mac instance using the AWS Management Console or the AWS CLI
-<a name="mac-instance-launch"></a>
 
 EC2 Mac instances require a [Dedicated Host](dedicated-hosts-overview.md). You first need to allocate a host to your account, and then launch the instance onto the host.
 
@@ -55,7 +54,7 @@ You can launch a Mac instance using the AWS Management Console or the AWS CLI.
 
 Use the following [allocate-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html) command to allocate a Dedicated Host for your Mac instance, replacing the `instance-type` with a valid mac instance type, and the `region` and `availability-zone` with the appropriate ones for your environment. 
 
-```
+```bash
 aws ec2 allocate-hosts --region {{us-east-1}} --instance-type {{mac1.metal}} --availability-zone {{us-east-1b}} --auto-placement "on" --quantity 1
 ```
 
@@ -63,19 +62,19 @@ aws ec2 allocate-hosts --region {{us-east-1}} --instance-type {{mac1.metal}} --a
 
 Use the following [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command to launch a Mac instance, again replacing the `instance-type` with a valid mac instance type, and the `region` and `availability-zone` with the ones used previously.
 
-```
+```bash
 aws ec2 run-instances --region {{us-east-1}} --instance-type {{mac1.metal}} --placement Tenancy=host --image-id {{ami_id}} --key-name {{my-key-pair}}
 ```
 
 The initial state of an instance is `pending`. The instance is ready when its state changes to `running` and it passes status checks. Use the following [describe-instance-status](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-status.html) command to display status information for your instance.
 
-```
+```bash
 aws ec2 describe-instance-status --instance-ids {{i-017f8354e2dc69c4f}}
 ```
 
 The following is example output for an instance that is running and has passed status checks.
 
-```
+```json
 {
     "InstanceStatuses": [
         {

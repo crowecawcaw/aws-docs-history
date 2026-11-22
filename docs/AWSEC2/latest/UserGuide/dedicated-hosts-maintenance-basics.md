@@ -1,7 +1,6 @@
 
 
 # How host maintenance works for Amazon EC2 Dedicated Hosts
-<a name="dedicated-hosts-maintenance-basics"></a>
 
 When a degradation is detected on a Dedicated Host that is enabled for host maintenance, a replacement Dedicated Host is automatically allocated in your account. The replacement Dedicated Host receives a new host ID, but retains the same attributes as the original Dedicated Host, including:
 + Auto placement settings

@@ -1,7 +1,6 @@
 
 
 # Share a Capacity Reservation
-<a name="sharing-cr"></a>
 
 When you share a Capacity Reservation that you own with other AWS accounts, you enable them to launch instances into your reserved capacity. If you share an open Capacity Reservation, keep the following in mind as it could lead to unintended Capacity Reservation usage:
 + If consumers have running instances that match the attributes of the Capacity Reservation, have the `CapacityReservationPreference` parameter set to `open`, and are not yet running in reserved capacity, they automatically use the shared Capacity Reservation.
@@ -38,7 +37,7 @@ See [Creating a resource share](https://docs.aws.amazon.com/ram/latest/userguide
 **To share a Capacity Reservation that you own**  
 Use the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command.
 
-```
+```bash
 aws ram create-resource-share \
     --name {{my-resource-share}} \
     --resource-arns arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}
@@ -50,7 +49,7 @@ aws ram create-resource-share \
 **To share a Capacity Reservation that you own**  
 Use the [New-RAMResourceShare](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RAMResourceShare.html) cmdlet.
 
-```
+```powershell
 New-RAMResourceShare `
     -Name {{my-resource-share}} `
     -ResourceArn "arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}"

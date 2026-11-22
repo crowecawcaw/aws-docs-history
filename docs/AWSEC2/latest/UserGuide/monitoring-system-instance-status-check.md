@@ -1,7 +1,6 @@
 
 
 # Status checks for Amazon EC2 instances
-<a name="monitoring-system-instance-status-check"></a>
 
 With status checks, you can quickly determine whether there are problems that might prevent your instances from running your applications. Amazon EC2 provides five types of status checks: system, instance, attached EBS, application, and performance. System, instance, attached EBS, and performance status checks are managed by Amazon EC2. System, instance, and attached EBS status checks run on every instance. Performance status checks run on supported accelerated instance types. Application status checks are opt-in and monitor the HTTP or HTTPS responses of applications running on your instances. You can view the results of all status checks in the Amazon EC2 console, the AWS CLI, or the AWS SDKs.
 

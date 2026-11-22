@@ -1,7 +1,6 @@
 
 
 # IAM roles for Amazon EC2
-<a name="iam-roles-for-amazon-ec2"></a>
 
 Applications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. For example, you can securely distribute your AWS credentials to the instances, enabling the applications on those instances to use your credentials to sign requests, while protecting your credentials from other users. However, it's challenging to securely distribute credentials to each instance, especially those that AWS creates on your behalf, such as Spot Instances or instances in Auto Scaling groups. You must also be able to update the credentials on each instance when you rotate your AWS credentials.
 
@@ -81,13 +80,13 @@ Instance identity roles can’t be used with other AWS services or features beca
 
 The instance identity role ARN takes the following format:
 
-```
+```bash
 arn:{{aws-partition}}:iam::{{account-number}}:assumed-role/aws:ec2-instance/{{instance-id}}
 ```
 
 For example:
 
-```
+```bash
 arn:{{aws}}:iam::{{0123456789012}}:assumed-role/aws:ec2-instance/{{i-1234567890abcdef0}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Extend Capacity Blocks
-<a name="capacity-blocks-extend"></a>
 
 With Capacity Blocks, you reserve compute capacity for your workloads, ensuring availability and consistency. To accommodate your changing needs, you can extend the duration of your existing Capacity Blocks as required.
 
@@ -49,7 +48,7 @@ After your payment is processed successfully, the Capacity Block extension statu
 **To find a Capacity Block extension**  
 Use the [describe-capacity-block-extension-offerings](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-block-extension-offerings.html) command. The following example searches for a 48 hour Capacity Block extension for the specified Reservation.
 
-```
+```bash
 aws ec2 describe-capacity-block-extension-offerings \
     --capacity-reservation-id {{cr-1234567890abcdefg}} \
     --capacity-block-extension-duration-hours {{48}}
@@ -58,7 +57,7 @@ aws ec2 describe-capacity-block-extension-offerings \
 **To extend a Capacity Block**  
 Use the [purchase-capacity-block-extension](https://docs.aws.amazon.com/cli/latest/reference/ec2/purchase-capacity-block-extension.html) command. Specify the extension offering ID from the output of the previous example.
 
-```
+```bash
 aws ec2 purchase-capacity-block-extension \
     --capacity-block-extension-offering-id {{cbe-0123456789abcdefg}} \
     --capacity-reservation-id {{cr-1234567890abcdefg}}
@@ -70,7 +69,7 @@ aws ec2 purchase-capacity-block-extension \
 **To find a Capacity Block extension**  
 Use the [Get-EC2CapacityBlockExtensionOffering](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2CapacityBlockExtensionOffering.html) cmdlet. The following example searches for a 48 hour Capacity Block extension for the specified Reservation.
 
-```
+```powershell
 Get-EC2CapacityBlockExtensionOffering `
     -CapacityReservationId {{cr-1234567890abcdefg}} `
     -CapacityBlockExtensionDurationHour {{48}}
@@ -79,7 +78,7 @@ Get-EC2CapacityBlockExtensionOffering `
 **To extend a Capacity Block**  
 Use the [Invoke-EC2CapacityBlockExtension](https://docs.aws.amazon.com/powershell/latest/reference/items/Invoke-EC2CapacityBlockExtension.html) cmdlet. Specify the extension offering ID from the output of the previous example.
 
-```
+```powershell
 Invoke-EC2CapacityBlockExtension `
     -CapacityBlockExtensionOfferingId {{cbe-0123456789abcdefg}} `
     -CapacityReservationId {{cr-1234567890abcdefg}}

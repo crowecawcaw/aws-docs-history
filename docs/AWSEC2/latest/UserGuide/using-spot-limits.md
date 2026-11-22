@@ -1,7 +1,6 @@
 
 
 # Spot Instance quotas
-<a name="using-spot-limits"></a>
 
 There are quotas for the number of running Spot Instances and pending Spot Instance requests per AWS account per Region. After a pending Spot Instance request is fulfilled, the request no longer counts towards the quota because the running instance is counted towards the quota.
 

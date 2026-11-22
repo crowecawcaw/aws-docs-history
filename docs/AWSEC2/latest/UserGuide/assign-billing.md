@@ -1,7 +1,6 @@
 
 
 # Billing assignment for shared Amazon EC2 Capacity Reservations
-<a name="assign-billing"></a>
 
 By default, when a Capacity Reservation is shared, the owner is billed for the instances they run in the Capacity Reservation and for any available capacity, also called *unused capacity*, in the Capacity Reservation; while consumers are billed only for the instances they run in the shared Capacity Reservation.
 

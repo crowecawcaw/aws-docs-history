@@ -1,7 +1,6 @@
 
 
 # Optimize network performance on EC2 Windows instances
-<a name="enhanced-networking-os"></a>
 
 To achieve the maximum network performance on your Windows instances with enhanced networking, you might need to modify the default operating system configuration. We recommend the following configuration changes for applications that require high network performance. Other optimizations (such as turning on checksum offloading and enabling RSS, for example) are already configured on official Windows AMIs.
 
@@ -21,7 +20,7 @@ Windows is hyper-thread aware and ensures that the RSS queues of a single networ
 
 For example, when there are three elastic network interfaces on a 72 vCPU instance with 2 NUMA nodes with hyper-threading enabled, the following commands spread the network load between the two CPUs without overlap and prevent the use of core 0 completely. 
 
-```
+```PowerShell
 Set-NetAdapterRss -Name NIC1 -BaseProcessorGroup 0 -BaseProcessorNumber 2 -MaxProcessorNumber 16 
 Set-NetAdapterRss -Name NIC2 -BaseProcessorGroup 1 -BaseProcessorNumber 0 -MaxProcessorNumber 14 
 Set-NetAdapterRss -Name NIC3 -BaseProcessorGroup 1 -BaseProcessorNumber 16 -MaxProcessorNumber 30

@@ -1,7 +1,6 @@
 
 
 # Map NVMe disks on Amazon EC2 Windows instance to volumes
-<a name="windows-list-disks-nvme"></a>
 
 With [Nitro-based instances](instance-types.md#instance-hypervisor-type), EBS volumes are exposed as NVMe devices. This topic explains how to view the **NVMe disks** that are available to the Windows operating system on your instance. It also shows how to map those NVMe disks to the underlying Amazon EBS volumes and the device names specified for the block device mappings used by Amazon EC2.
 
@@ -35,13 +34,13 @@ The following PowerShell script lists each disk and its corresponding device nam
 
 Connect to your Windows instance and run the following command to enable PowerShell script execution.
 
-```
+```PowerShell
 Set-ExecutionPolicy RemoteSigned
 ```
 
 Copy the following script and save it as `mapping.ps1` on your Windows instance.
 
-```
+```powershell
 # List the disks for NVMe volumes
 
 function Get-EC2InstanceMetadata {
@@ -124,13 +123,13 @@ $Report | Sort-Object Disk | Format-Table -AutoSize -Property Disk, Partitions, 
 
 Run the script as follows:
 
-```
+```bash
 PS C:\> .\mapping.ps1
 ```
 
 The following is example output for an instance with a root volume, two EBS volumes, and two instance store volumes.
 
-```
+```bash
 Disk Partitions DriveLetter EbsVolumeId           Device    VirtualDevice VolumeName
 ---- ---------- ----------- -----------           ------    ------------- ----------
    0          1 C           vol-03683f1d861744bc7 /dev/sda1 root
@@ -149,7 +148,7 @@ If you did not configure your credentials for Tools for Windows PowerShell on th
 
 You can use the [ Get-Disk](https://learn.microsoft.com/en-us/powershell/module/storage/get-disk) command to map Windows disk numbers to Amazon EBS volumes and Amazon EC2 instance store volumes.
 
-```
+```PowerShell
 PS C:\> Get-Disk
 Number Friendly Name Serial Number                    HealthStatus         OperationalStatus      Total Size Partition
                                                                                                              Style

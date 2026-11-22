@@ -1,7 +1,6 @@
 
 
 # Change instance initiated shutdown behavior
-<a name="Using_ChangingInstanceInitiatedShutdownBehavior"></a>
 
 **Warning**  
 **Terminating an instance is permanent and irreversible.**  
@@ -40,7 +39,7 @@ The `InstanceInitiatedShutdownBehavior` attribute only applies when you perform 
 **To change the instance initiated shutdown behavior**  
 Use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command.
 
-```
+```bash
 aws ec2 modify-instance-attribute \
     --instance-id {{i-1234567890abcdef0}} \
     --instance-initiated-shutdown-behavior terminate
@@ -52,7 +51,7 @@ aws ec2 modify-instance-attribute \
 **To change the instance initiated shutdown behavior**  
 Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -InstanceInitiatedShutdownBehavior terminate

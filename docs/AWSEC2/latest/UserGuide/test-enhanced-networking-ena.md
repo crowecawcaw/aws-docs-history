@@ -1,7 +1,6 @@
 
 
 # Test whether enhanced networking is enabled
-<a name="test-enhanced-networking-ena"></a>
 
 You can test whether enhanced networking is enabled in your instances or your AMIs.
 
@@ -13,7 +12,7 @@ Check the value of the `enaSupport` instance attribute.
 
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query "Reservations[].Instances[].EnaSupport"
@@ -21,7 +20,7 @@ aws ec2 describe-instances \
 
 If enhanced networking is enabled, the output is as follows.
 
-```
+```JSON
 [
     true
 ]
@@ -32,13 +31,13 @@ If enhanced networking is enabled, the output is as follows.
 
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Instance -InstanceId {{i-1234567890abcdef0}}).Instances.EnaSupport
 ```
 
 If enhanced networking is enabled, the output is as follows.
 
-```
+```bash
 True
 ```
 
@@ -52,7 +51,7 @@ Check the value of the `enaSupport` image attribute.
 
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
-```
+```bash
 aws ec2 describe-images \
     --image-id {{ami-0abcdef1234567890}} \
     --query "Images[].EnaSupport"
@@ -60,7 +59,7 @@ aws ec2 describe-images \
 
 If enhanced networking is enabled, the output is as follows.
 
-```
+```JSON
 [
     true
 ]
@@ -71,13 +70,13 @@ If enhanced networking is enabled, the output is as follows.
 
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Image -ImageId {{ami-0abcdef1234567890}}).EnaSupport
 ```
 
 If enhanced networking is enabled, the output is as follows.
 
-```
+```bash
 True
 ```
 
@@ -88,7 +87,7 @@ Use the following command to verify that the `ena` kernel driver is being used o
 
 In the following example, the `ena` kernel driver is not loaded, because the listed driver is `vif`.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -i {{eth0}}
 driver: vif
 version:
@@ -103,7 +102,7 @@ supports-priv-flags: no
 
 In this example, the `ena` kernel driver is loaded and at the minimum recommended version. This instance has enhanced networking properly configured.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -i {{eth0}}
 driver: ena
 version: 1.5.0g

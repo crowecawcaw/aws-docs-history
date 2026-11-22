@@ -1,7 +1,6 @@
 
 
 # Manage and monitor AMI usage
-<a name="ec2-ami-usage"></a>
 
 AWS provides several features to help you manage and monitor your AMI usage effectively. You can track which accounts are using your shared AMIs, identify when your AMIs were last used, and discover which resources in your AWS account are referencing specific AMIs.
 

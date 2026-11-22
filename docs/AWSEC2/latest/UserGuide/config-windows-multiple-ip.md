@@ -1,7 +1,6 @@
 
 
 # Configure secondary private IPv4 addresses for Windows instances
-<a name="config-windows-multiple-ip"></a>
 
 You can specify multiple private IPv4 addresses for your instances. After you assign a secondary private IPv4 address to an instance, you must configure the operating system on the instance to recognize the secondary private IPv4 address.
 
@@ -34,7 +33,7 @@ When you configure static IP addressing in your instance, the IP address must ma
 
    1. Run the following command in PowerShell:
 
-     ```
+     ```bash
      ipconfig /all
      ```
 
@@ -65,7 +64,7 @@ When you configure static IP addressing in your instance, the IP address must ma
 
 1. Open the **Network and Sharing Center** by running the following command in PowerShell:
 
-   ```
+   ```PowerShell
    & $env:SystemRoot\system32\control.exe ncpa.cpl
    ```
 

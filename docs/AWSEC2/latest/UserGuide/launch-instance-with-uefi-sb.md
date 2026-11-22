@@ -1,7 +1,6 @@
 
 
 # Requirements for UEFI Secure Boot on Amazon EC2
-<a name="launch-instance-with-uefi-sb"></a>
 
 When you [launch an Amazon EC2 instance](LaunchingAndUsingInstances.md) with a supported AMI and a supported instance type, that instance will automatically validate UEFI boot binaries against its UEFI Secure Boot database. No additional configuration is required. You can also configure UEFI Secure Boot on an instance after launch.
 

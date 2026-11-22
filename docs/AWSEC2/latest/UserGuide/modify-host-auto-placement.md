@@ -1,7 +1,6 @@
 
 
 # Modify the auto-placement setting for an existing Amazon EC2 Dedicated Host
-<a name="modify-host-auto-placement"></a>
 
 You can modify the auto-placement settings of a Dedicated Host after you have allocated it to your AWS account.
 
@@ -26,7 +25,7 @@ You can modify the auto-placement settings of a Dedicated Host after you have al
 **To modify the auto-placement of a Dedicated Host**  
 Use the [modify-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-hosts.html) command.
 
-```
+```bash
 aws ec2 modify-hosts \
     --auto-placement {{on}} \
     --host-ids {{h-012a3456b7890cdef}}
@@ -38,7 +37,7 @@ aws ec2 modify-hosts \
 **To modify the auto-placement of a Dedicated Host**  
 Use the [Edit-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Host.html) cmdlet.
 
-```
+```powershell
 Edit-EC2Host `
     -AutoPlacement {{1}} `
     -HostId {{h-012a3456b7890cdef}}

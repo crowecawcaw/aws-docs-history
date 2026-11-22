@@ -1,7 +1,6 @@
 
 
 # Prepare to use shared AMIs for Linux
-<a name="usingsharedamis-confirm"></a>
 
 Before you use a shared AMI for Linux, take the following steps to confirm that there are no pre-installed credentials that would allow unwanted access to your instance by a third party and no pre-configured remote logging that could transmit sensitive data to a third party. Check the documentation for the Linux distribution used by the AMI for information about improving the security of the system.
 
@@ -9,13 +8,13 @@ To ensure that you don't accidentally lose access to your instance, we recommend
 
 1. Identify and disable any unauthorized public SSH keys. The only key in the file should be the key you used to launch the AMI. The following command locates `authorized_keys` files:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo find / -name "authorized_keys" -print -exec cat {} \;
    ```
 
 1. Disable password-based authentication for the root user. Open the `sshd_config` file and edit the `PermitRootLogin` line as follows:
 
-   ```
+   ```bash
    PermitRootLogin without-password
    ```
 
@@ -33,7 +32,7 @@ To ensure that you don't accidentally lose access to your instance, we recommend
 
 1. To prevent preconfigured remote logging, you should delete the existing configuration file and restart the `rsyslog` service. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo rm /etc/rsyslog.conf
    [ec2-user ~]$ sudo service rsyslog restart
    ```

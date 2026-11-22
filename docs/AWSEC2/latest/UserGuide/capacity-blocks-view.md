@@ -1,7 +1,6 @@
 
 
 # View Capacity Blocks
-<a name="capacity-blocks-view"></a>
 
 After you reserve a Capacity Block, you can view the Capacity Block reservation in your AWS account. You can view the `start-date` and `end-date` to see when your reservation will begin and end. Before a Capacity Block reservation begins, the available capacity appears as zero. You can see how many instances will be available in your Capacity Block by the tag value for the tag key `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 
@@ -35,7 +34,7 @@ Before a Capacity Block reservation begins, the available capacity appears as ze
 **To view Capacity Blocks**  
 Use the [describe-capacity-blocks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-blocks.html) command to view details about your Capacity Block reservations.
 
-```
+```bash
 aws ec2 describe-capacity-blocks
 ```
 
@@ -45,7 +44,7 @@ aws ec2 describe-capacity-blocks
 **To view Capacity Blocks**  
 Use the [Get-EC2CapacityBlock](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2CapacityBlock.html) cmdlet to view details about your Capacity Block reservations.
 
-```
+```powershell
 Get-EC2CapacityBlock
 ```
 

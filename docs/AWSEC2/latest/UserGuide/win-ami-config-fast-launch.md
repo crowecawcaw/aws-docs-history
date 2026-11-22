@@ -1,7 +1,6 @@
 
 
 # Use EC2 Fast Launch for your Windows instances
-<a name="win-ami-config-fast-launch"></a>
 
 When you configure a Windows Server AMI for EC2 Fast Launch, Amazon EC2 creates a set of pre-provisioned snapshots to use for faster launching, as follows.
 

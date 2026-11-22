@@ -1,7 +1,6 @@
 
 
 # Create VSS based EBS snapshots for your EC2 Windows instance
-<a name="create-vss-snaps"></a>
 
 After you've met all of the [Prerequisites to create Windows VSS based EBS snapshots](application-consistent-snapshots-prereqs.md), you can use any of the following methods to create VSS based snapshots from your EC2 instance.
 

@@ -1,7 +1,6 @@
 
 
 # Connect to a Linux instance using EC2 Instance Connect
-<a name="ec2-instance-connect-methods"></a>
 
 The following instructions explain how to connect to your Linux instance using EC2 Instance Connect through the Amazon EC2 console, the AWS CLI, or an SSH client. 
 
@@ -121,7 +120,7 @@ You can use your own SSH key and connect to your instance from the SSH client of
 
    You can generate new SSH private and public keys, `my_key` and `my_key.pub`, using the following command:
 
-   ```
+   ```bash
    ssh-keygen -t rsa -f my_key
    ```
 
@@ -133,7 +132,7 @@ You can use your own SSH key and connect to your instance from the SSH client of
 
    The following example pushes the public key to the specified instance in the specified Availability Zone, to authenticate `ec2-user`.
 
-   ```
+   ```bash
    aws ec2-instance-connect send-ssh-public-key \
        --region {{us-west-2}} \
        --availability-zone {{us-west-2b}} \
@@ -148,13 +147,13 @@ You can use your own SSH key and connect to your instance from the SSH client of
 
    Use the **ssh** command to connect to the instance using the private key before the public key is removed from the instance metadata (you have 60 seconds before it is removed). Specify the private key that corresponds to the public key, the default username for the AMI that you used to launch your instance, and the instance's public DNS name (if connecting over a private network, specify the private DNS name or IP address). Add the `IdentitiesOnly=yes` option to ensure that only the files in the ssh config and the specified key are used for the connection. 
 
-   ```
+   ```bash
    ssh -o "IdentitiesOnly=yes" -i {{my_key}} {{ec2-user}}@{{ec2-198-51-100-1.compute-1.amazonaws.com}}
    ```
 
    The following example uses `timeout 3600` to set your SSH session to terminate after 1 hour. Processes started during the session may continue running on your instance after the session terminates.
 
-   ```
+   ```bash
    timeout 3600 ssh -o “IdentitiesOnly=yes” -i {{my_key}} {{ec2-user}}@{{ec2-198-51-100-1.compute-1.amazonaws.com}}
    ```
 

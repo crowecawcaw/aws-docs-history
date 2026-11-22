@@ -1,7 +1,6 @@
 
 
 # Manage Amazon EC2 instances scheduled for maintenance
-<a name="schedevents_actions_maintenance"></a>
 
 When AWS must maintain the underlying host for an instance, it schedules the instance for maintenance. There are two types of maintenance events: network maintenance and power maintenance.
 + During network maintenance, scheduled instances lose network connectivity for a brief period of time. Normal network connectivity to your instance is restored after maintenance is complete.

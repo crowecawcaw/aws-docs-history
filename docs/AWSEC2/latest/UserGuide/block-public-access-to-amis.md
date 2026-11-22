@@ -1,7 +1,6 @@
 
 
 # Understand block public access for AMIs
-<a name="block-public-access-to-amis"></a>
 
 To prevent the public sharing of your AMIs, you can enable *block public access for AMIs* at the account level.
 

@@ -1,7 +1,6 @@
 
 
 # Burstable T3 instances on Amazon EC2 Dedicated Hosts
-<a name="burstable-t3"></a>
 
 Dedicated Hosts support burstable performance T3 instances. T3 instances provide a cost-efficient way of using your eligible BYOL license software on dedicated hardware. The smaller vCPU footprint of T3 instances enables you to consolidate your workloads on fewer hosts and maximize your per-core license utilization.
 

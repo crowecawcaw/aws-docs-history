@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon EC2 instance launch issues
-<a name="troubleshooting-launch"></a>
 
 The following are troubleshooting tips to help you solve issues when launching an Amazon EC2 instance.
 
@@ -38,7 +37,7 @@ If you get this error when you try to launch an instance, the device name specif
 To resolve the issue:
 + Ensure that the device name is not used in the AMI that you selected. Run the following command to view the device names used by the AMI.
 
-  ```
+  ```bash
   aws ec2 describe-images --image-id {{ami-0abcdef1234567890}} --query 'Images[*].BlockDeviceMappings[].DeviceName'
   ```
 + Ensure that you are not using a device name that is reserved for root volumes. For more information, see [Available device names](device_naming.md#available-ec2-device-names).
@@ -136,7 +135,7 @@ For more information, get the termination reason using one of the following meth
 
 1. Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command and specify the instance ID.
 
-   ```
+   ```bash
    aws ec2 describe-instances --instance-id {{i-1234567890abcdef0}}
    ```
 
@@ -144,7 +143,7 @@ For more information, get the termination reason using one of the following meth
 
    The following code block shows an example of a `StateReason` response element.
 
-   ```
+   ```json
    "StateReason": {
      "Message": "Client.VolumeLimitExceeded: Volume limit exceeded", 
      "Code": "Server.InternalError"
@@ -199,7 +198,7 @@ This troubleshooting tip is for Windows instances only.
 
 If Windows Update is set to **Check for updates but let me choose whether to download and install them** (the default instance setting) this check can consume anywhere from 50 - 99% of the CPU on the instance. If this CPU consumption causes problems for your applications, you can manually change Windows Update settings in **Control Panel** or you can use the following script in the Amazon EC2 user data field:
 
-```
+```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d {{3}} /f net stop wuauserv net start wuauserv
 ```
 

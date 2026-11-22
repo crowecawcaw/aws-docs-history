@@ -1,7 +1,6 @@
 
 
 # Protect an Amazon EC2 AMI from deregistration
-<a name="ami-deregistration-protection"></a>
 
 You can turn on *deregistration protection* on an AMI to prevent accidental or malicious deletion. When you turn on deregistration protection, the AMI can’t be deregistered by any user, regardless of their IAM permissions. If you want to deregister the AMI, you must first turn off the deregistration protection on it.
 
@@ -39,7 +38,7 @@ Use the following procedures to turn on deregistration protection.
 **To turn on deregistration protection**  
 Use the [enable-image-deregistration-protection](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-image-deregistration-protection.html) command. To enable the optional cooldown period, include the `--with-cooldown` option.
 
-```
+```bash
 aws ec2 enable-image-deregistration-protection \
     --image-id {{ami-0abcdef1234567890}} \
     --with-cooldown
@@ -51,7 +50,7 @@ aws ec2 enable-image-deregistration-protection \
 **To turn on deregistration protection**  
 Use the [Enable-EC2ImageDeregistrationProtection](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2ImageDeregistrationProtection.html) cmdlet. To enable the optional cooldown period, set the `-WithCooldown` parameter to `true`.
 
-```
+```powershell
 Enable-EC2ImageDeregistrationProtection `
     -ImageId {{ami-0abcdef1234567890}} `
     -WithCooldown $true
@@ -89,7 +88,7 @@ If you chose to include a 24-hour cooldown period when you turned on deregistrat
 **To turn off deregistration protection**  
 Use the [disable-image-deregistration-protection](https://docs.aws.amazon.com/cli/latest/reference/ec2/disable-image-deregistration-protection.html) command.
 
-```
+```bash
 aws ec2 disable-image-deregistration-protection --image-id {{ami-0abcdef1234567890}}
 ```
 
@@ -99,7 +98,7 @@ aws ec2 disable-image-deregistration-protection --image-id {{ami-0abcdef12345678
 **To turn off deregistration protection**  
 Use the [Disable-EC2ImageDeregistrationProtection](https://docs.aws.amazon.com/powershell/latest/reference/items/Disable-EC2ImageDeregistrationProtection.html) cmdlet.
 
-```
+```powershell
 Disable-EC2ImageDeregistrationProtection -ImageId {{ami-0abcdef1234567890}}
 ```
 

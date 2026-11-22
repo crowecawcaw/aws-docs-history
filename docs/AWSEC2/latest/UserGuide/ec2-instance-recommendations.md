@@ -1,7 +1,6 @@
 
 
 # Get EC2 instance recommendations from Compute Optimizer
-<a name="ec2-instance-recommendations"></a>
 
 AWS Compute Optimizer provides Amazon EC2 recommendations to help you improve performance, save money, or both. You can use these recommendations to decide whether to change to a new instance type.
 

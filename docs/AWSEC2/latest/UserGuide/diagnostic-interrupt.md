@@ -1,7 +1,6 @@
 
 
 # Send a diagnostic interrupt to debug an unreachable Amazon EC2 instance
-<a name="diagnostic-interrupt"></a>
 
 **Warning**  
 Diagnostic interrupts are intended for use by advanced users. Incorrect usage could negatively impact your instance. Sending a diagnostic interrupt to an instance could trigger an instance to crash and reboot, which could lead to the loss of data.
@@ -40,13 +39,13 @@ Before using a diagnostic interrupt, you must configure your instance's operatin
 
 1. Install **kexec** and **kdump**.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install kexec-tools -y
    ```
 
 1. Configure the kernel to reserve an appropriate amount of memory for the secondary kernel. The amount of memory to reserve depends on the total available memory of your instance. Open the `/etc/default/grub` file using your preferred text editor, locate the line that starts with `GRUB_CMDLINE_LINUX_DEFAULT`, and then add the `crashkernel` parameter in the following format: `crashkernel={{memory_to_reserve}}`. For example, to reserve `256MB`, modify the `grub` file as follows:
 
-   ```
+   ```bash
    GRUB_CMDLINE_LINUX_DEFAULT="crashkernel=256M console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"
    GRUB_TIMEOUT=0
    GRUB_DISABLE_RECOVERY="true"
@@ -56,13 +55,13 @@ Before using a diagnostic interrupt, you must configure your instance's operatin
 
 1. Rebuild the GRUB2 configuration file.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
    ```
 
 1. On instances based on Intel and AMD processors, the `send-diagnostic-interrupt` command sends an *unknown non-maskable interrupt* (NMI) to the instance. You must configure the kernel to crash when it receives the unknown NMI. Open the `/etc/sysctl.conf` file using your preferred text editor and add the following.
 
-   ```
+   ```bash
    kernel.unknown_nmi_panic=1
    ```
 
@@ -70,25 +69,25 @@ Before using a diagnostic interrupt, you must configure your instance's operatin
 
 1. Verify that the kernel has been booted with the correct `crashkernel` parameter.
 
-   ```
+   ```bash
    $ grep crashkernel /proc/cmdline
    ```
 
    The following example output indicates successful configuration.
 
-   ```
+   ```bash
    BOOT_IMAGE=/boot/vmlinuz-4.14.128-112.105.amzn2.x86_64 root=UUID=a1e1011e-e38f-408e-878b-fed395b47ad6 ro crashkernel=256M console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0
    ```
 
 1. Verify that the **kdump** service is running.
 
-   ```
+   ```bash
    [ec2-user ~]$ systemctl status kdump.service
    ```
 
    The following example output shows the result if the **kdump** service is running.
 
-   ```
+   ```YAML
    kdump.service - Crash recovery kernel arming
       Loaded: loaded (/usr/lib/systemd/system/kdump.service; enabled; vendor preset: enabled)
       Active: active (exited) since Fri 2019-05-24 23:29:13 UTC; 22s ago
@@ -133,7 +132,7 @@ After you have completed the necessary configuration changes, you can send a dia
 **To send a diagnostic interrupt to your instance**  
 Use the [send-diagnostic-interrupt](https://docs.aws.amazon.com/cli/latest/reference/ec2/send-diagnostic-interrupt.html) command.
 
-```
+```bash
 aws ec2 send-diagnostic-interrupt --instance-id {{i-1234567890abcdef0}}
 ```
 
@@ -143,7 +142,7 @@ aws ec2 send-diagnostic-interrupt --instance-id {{i-1234567890abcdef0}}
 **To send a diagnostic interrupt to your instance**  
 Use the [Send-EC2DiagnosticInterrupt](https://docs.aws.amazon.com/powershell/latest/reference/items/Send-EC2DiagnosticInterrupt.html) cmdlet.
 
-```
+```powershell
 Send-EC2DiagnosticInterrupt -InstanceId {{i-1234567890abcdef0}}
 ```
 

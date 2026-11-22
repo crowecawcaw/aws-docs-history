@@ -1,7 +1,6 @@
 
 
 # Cross-account Amazon EC2 Dedicated Host sharing
-<a name="dh-sharing"></a>
 
 Dedicated Host sharing enables Dedicated Host owners to share their Dedicated Hosts with other AWS accounts or within an AWS organization. This enables you to create and manage Dedicated Hosts centrally, and share the Dedicated Host across multiple AWS accounts or within your AWS organization.
 

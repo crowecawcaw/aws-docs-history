@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Sysprep issues with Amazon EC2 Windows instances
-<a name="sysprep-troubleshoot"></a>
 
 If you experience problems or receive error messages during image preparations, review the following logs. Log location varies depending on whether you are running EC2Config, EC2Launch v1, or EC2Launch v2 with Sysprep.
 + `%WINDIR%\Panther\Unattendgc` (EC2Config, EC2Launch v1, and EC2Launch v2)

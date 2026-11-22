@@ -1,7 +1,6 @@
 
 
 # Create a Capacity Reservation Resource Group for UltraServer Capacity Blocks
-<a name="cb-group"></a>
 
 You can use AWS Resource Groups to create logical collections of UltraServer Capacity Blocks. After you create the Capacity Reservation Resource Group, you can add UltraServer Capacity Blocks that you own in your account. After you add the UltraServer Capacity Blocks, you can target instances launches to the Capacity Reservation Resource Group instead of the individual Capacity Blocks. Instances that target a Capacity Reservation Resource Group match with any UltraServer Capacity Blocks in the group that has matching attributes and available capacity. If the Capacity Reservation Resource Group does not have an UltraServer Capacity Block with matching attributes and available capacity, the instance launch fails.
 
@@ -17,7 +16,7 @@ To create a Capacity Reservation Resource Group for UltraServer Capacity Blocks,
 **To create a Capacity Reservation Resource Group for UltraServer Capacity Blocks**  
 Use the [create-group](https://docs.aws.amazon.com/cli/latest/reference/resource-groups/create-group.html) AWS CLI command, and for `--configuration`, specify the following:
 
-```
+```json
 {
   "Configuration": [
     {
@@ -58,7 +57,7 @@ Use the [create-group](https://docs.aws.amazon.com/cli/latest/reference/resource
 **To create a Capacity Reservation Resource Group for UltraServer Capacity Blocks**  
 Use the [New-RGGroup](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RGGroup.html) cmdlet. For `-Configuration`, specify the following:
 
-```
+```json
 {
   "Configuration": [
     {
@@ -106,7 +105,7 @@ After you create a Capacity Reservation Resource Group for UltraServer Capacity 
 **To add an UltraServer Capacity Block to a Capacity Reservation Resource Group**  
 Use the [ group-resources](https://docs.aws.amazon.com/cli/latest/reference/resource-groups/group-resources.html) command. For `--group` specify the name of the Capacity Reservation Resource Group you created. For `--resource-arns`, specify the ARNs of the UltraServer Capacity Blocks to add.
 
-```
+```bash
 aws resource-groups group-resources \
 --group {{MyCRGroup}} \
 --resource-arns {{CapacityReservationArn}}
@@ -120,7 +119,7 @@ Use the [Add-RGResource](https://docs.aws.amazon.com/powershell/latest/reference
 
 The following example adds two Capacity Reservations to the specified group.
 
-```
+```powershell
 Add-RGResource `
 -Group {{MyCRGroup}} `
 -ResourceArn {{CapacityReservationArn}}

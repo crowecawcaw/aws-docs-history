@@ -1,7 +1,6 @@
 
 
 # Device names for volumes on Amazon EC2 instances
-<a name="device_naming"></a>
 
 When you attach a volume to your instance, you include a device name for the volume. This device name is used by Amazon EC2. The block device driver for the instance assigns the actual volume name when mounting the volume, and the name assigned can be different from the name that Amazon EC2 uses.
 

@@ -1,7 +1,6 @@
 
 
 # Disable KASLR on an instance (Ubuntu only)
-<a name="hibernation-disable-kaslr"></a>
 
 To run hibernation on a newly launched instance with Ubuntu 16.04 LTS (Xenial Xerus), Ubuntu 18.04 LTS (Bionic Beaver) released with serial number 20190722.1 or later, or Ubuntu 20.04 LTS (Focal Fossa) released with serial number 20210820 or later, we recommend disabling KASLR (Kernel Address Space Layout Randomization). On Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, or Ubuntu 20.04 LTS, KASLR is enabled by default.
 
@@ -15,7 +14,7 @@ To learn more about KASLR, see [Ubuntu Features](https://wiki.ubuntu.com/Securit
 
 1. Open the `/etc/default/grub.d/50-cloudimg-settings.cfg` file in your editor of choice. Edit the `GRUB_CMDLINE_LINUX_DEFAULT` line to append the `nokaslr` option to its end, as shown in the following example.
 
-   ```
+   ```bash
    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295 nokaslr"
    ```
 
@@ -23,19 +22,19 @@ To learn more about KASLR, see [Ubuntu Features](https://wiki.ubuntu.com/Securit
 
 1. Run the following command to rebuild the grub configuration.
 
-   ```
+   ```bash
    sudo update-grub
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    sudo reboot
    ```
 
 1. Run the following command to confirm that `nokaslr` has been added.
 
-   ```
+   ```bash
    cat /proc/cmdline
    ```
 

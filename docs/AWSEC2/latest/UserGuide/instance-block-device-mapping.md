@@ -1,7 +1,6 @@
 
 
 # Add block device mappings to Amazon EC2 instance
-<a name="instance-block-device-mapping"></a>
 
 By default, an instance that you launch includes any storage devices specified in the block device mapping of the AMI from which you launched the instance. You can specify changes to the block device mapping for an instance when you launch it, and these updates overwrite or merge with the block device mapping of the AMI.
 
@@ -41,7 +40,7 @@ You can add EBS volumes and instance store volumes to an instance when you launc
 **To update the volumes for an instance at launch**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--block-device-mappings` option.
 
-```
+```bash
 --block-device-mappings file://mapping.json
 ```
 
@@ -53,7 +52,7 @@ For example, suppose that an AMI block device mapping specifies the following:
 
 Suppose that the following is the instance block device mapping in `mapping.json`.
 
-```
+```json
 [
     {
         "DeviceName": "/dev/xvda",
@@ -90,13 +89,13 @@ The instance block device mapping does the following:
 **To update the volumes for an instance at launch**  
 Use the `-BlockDeviceMapping` parameter with the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-BlockDeviceMapping` parameter.
 
-```
+```powershell
 -BlockDeviceMapping $bdm
 ```
 
 Suppose that the following is the instance block device mapping in `$bdm`.
 
-```
+```powershell
 $bdm = @()
 
 $root = New-Object -TypeName Amazon.EC2.Model.BlockDeviceMapping
@@ -145,13 +144,13 @@ Use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/refer
 
 Add the `--block-device-mappings` option:
 
-```
+```bash
 --block-device-mappings file://mapping.json
 ```
 
 In `mapping.json`, specify the updates. For example, the following update changes the root volume to persist.
 
-```
+```json
 [
   {
     "DeviceName": "{{/dev/sda1}}",
@@ -170,13 +169,13 @@ Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/lates
 
 Add the `-BlockDeviceMapping` option:
 
-```
+```bash
 -BlockDeviceMapping $bdm
 ```
 
 In `bdm`, specify the updates. For example, the following update changes the root volume to persist.
 
-```
+```powershell
 $ebd = New-Object -TypeName Amazon.EC2.Model.EbsBlockDevice
 $ebd.DeleteOnTermination = false
 $bdm = New-Object -TypeName Amazon.EC2.Model.BlockDeviceMapping
@@ -215,7 +214,7 @@ You can easily enumerate the EBS volumes mapped to an instance.
 **To view the EBS volumes for an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query Reservations[*].Instances[0].BlockDeviceMappings
@@ -227,7 +226,7 @@ aws ec2 describe-instances \
 **To view the EBS volumes for an instance**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Instance -InstanceId {{i-0bac57d7472c89bac}}).Instances.BlockDeviceMappings
 ```
 
@@ -250,13 +249,13 @@ When you view the block device mapping for your instance, you can see only the E
 
 You can use the NVMe command line package, [nvme-cli](https://github.com/linux-nvme/nvme-cli), to query the NVMe instance store volumes in the block device mapping. Download and install the package on your instance, and then run the following command.
 
-```
+```bash
 [ec2-user ~]$ sudo nvme list
 ```
 
 The following is example output for an instance. The text in the Model column indicates whether the volume is an EBS volume or an instance store volume. In this example, both `/dev/nvme1n1` and `/dev/nvme2n1` are instance store volumes.
 
-```
+```bash
 Node             SN                   Model                                    Namespace
 ---------------- -------------------- ---------------------------------------- ---------
 /dev/nvme0n1     vol06afc3f8715b7a597 Amazon Elastic Block Store               1        
@@ -284,7 +283,7 @@ First, connect to your running instance. From the instance, use this query to ge
 ------
 #### [ IMDSv2 ]
 
-```
+```bash
 [ec2-user ~]$ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
 && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/block-device-mapping/
 ```
@@ -292,7 +291,7 @@ First, connect to your running instance. From the instance, use this query to ge
 ------
 #### [ IMDSv1 ]
 
-```
+```bash
 [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/block-device-mapping/
 ```
 
@@ -300,7 +299,7 @@ First, connect to your running instance. From the instance, use this query to ge
 
 The response includes the names of the block devices for the instance. For example, the output for an instance store–backed `m1.small` instance looks like this.
 
-```
+```bash
 ami
 ephemeral0
 root
@@ -314,7 +313,7 @@ To get details about an individual block device in the block device mapping, app
 ------
 #### [ IMDSv2 ]
 
-```
+```bash
 [ec2-user ~]$ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
 && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/block-device-mapping/ephemeral0
 ```
@@ -322,7 +321,7 @@ To get details about an individual block device in the block device mapping, app
 ------
 #### [ IMDSv1 ]
 
-```
+```bash
 [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/block-device-mapping/ephemeral0
 ```
 
@@ -333,13 +332,13 @@ To get details about an individual block device in the block device mapping, app
 
 First, connect to your running instance. From the instance, use this query to get its block device mapping.
 
-```
+```PowerShell
 PS C:\> Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/block-device-mapping/
 ```
 
 The response includes the names of the block devices for the instance. For example, the output for an instance store–backed `m1.small` instance looks like this.
 
-```
+```bash
 ami
 ephemeral0
 root
@@ -350,6 +349,6 @@ The `ami` device is the root volume as seen by the instance. The instance store 
 
 To get details about an individual block device in the block device mapping, append its name to the previous query, as shown here.
 
-```
+```PowerShell
 PS C:\> Invoke-RestMethod -uri http://169.254.169.254/latest/meta-data/block-device-mapping/ephemeral0
 ```

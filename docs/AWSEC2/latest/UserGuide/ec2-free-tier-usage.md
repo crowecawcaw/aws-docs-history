@@ -1,7 +1,6 @@
 
 
 # Track your Free Tier usage for Amazon EC2
-<a name="ec2-free-tier-usage"></a>
 
 When you create your AWS account, you can get started with Amazon EC2 for free using the [AWS Free Tier](https://aws.amazon.com/free). Your Free Tier benefits are different depending on whether you created your account before July 15, 2025, or on or after July 15, 2025. For more information, see [Explore AWS services with AWS Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html) in the *AWS Billing User Guide*.
 
@@ -22,7 +21,7 @@ The following table compares your Free Tier benefits based on your AWS account c
 **To list the instance types that are free tier eligible**  
 Use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command with the `free-tier-eligible` filter.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters Name=free-tier-eligible,Values=true \
     --query "InstanceTypes[*].[InstanceType]" \
@@ -32,7 +31,7 @@ aws ec2 describe-instance-types \
 **To list the AMIs that are free tier eligible**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command with the `free-tier-eligible` filter.
 
-```
+```bash
 aws ec2 describe-images \
     --filters Name=free-tier-eligible,Values=true \
     --query "Images[*].[ImageId]" \

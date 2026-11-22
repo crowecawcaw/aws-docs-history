@@ -1,7 +1,6 @@
 
 
 # Maximum IP addresses per network interface
-<a name="AvailableIpPerENI"></a>
 
 Each instance type supports a maximum number of network interfaces, maximum number of private IPv4 addresses per network interface, and maximum number of IPv6 addresses per network interface. The limit for IPv6 addresses is separate from the limit for private IPv4 addresses per network interface. Note that all instance types support IPv6 addressing except for the following: C1, M1, M2, M3, and T1.
 
@@ -37,7 +36,7 @@ The *Amazon EC2 Instance Types Guide* provides the information about the network
 **To retrieve the maximum network interfaces**  
 You can use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command to display information about an instance type, such as its supported network interfaces and IP addresses per interface. The following example displays this information for all C8i instances.
 
-```
+```JSON
 { echo -e "InstanceType\tMaximumNetworkInterfaces\tIpv4AddressesPerInterface"; \
 aws ec2 describe-instance-types \
     --filters "Name=instance-type,Values=c8i.*" \
@@ -70,7 +69,7 @@ c8i.metal-96xl  24                        64
 **To retrieve the maximum network interfaces**  
 You can use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) PowerShell command to display information about an instance type, such as its supported network interfaces and IP addresses per interface. The following example displays this information for all C8i instances.
 
-```
+```powershell
 Get-EC2InstanceType -Filter @{Name="instance-type"; Values="c8i.*"} |
 Select-Object `
     InstanceType,
@@ -82,7 +81,7 @@ Format-Table -AutoSize
 
 The following is example output.
 
-```
+```bash
 InstanceType   MaximumNetworkInterfaces Ipv4AddressesPerInterface
 ------------   ------------------------ -------------------------
 c8i.large                             3                        20

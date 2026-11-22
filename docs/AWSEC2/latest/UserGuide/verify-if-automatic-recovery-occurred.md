@@ -1,7 +1,6 @@
 
 
 # Verify if automatic instance recovery occurred
-<a name="verify-if-automatic-recovery-occurred"></a>
 
 If your instance appears to have been offline and then unexpectedly rebooted, it might have undergone [automatic instance recovery](ec2-instance-recover.md#ec2-automatic-instance-recovery-key-concepts) in response to an underlying hardware or software issue. You can verify this by checking for automatic instance recovery events in your Health Dashboard. You can also check whether an underlying hardware or software issue was detected for your instance by checking the **StatusCheckFailed\_System** Amazon CloudWatch metric.
 
@@ -35,7 +34,7 @@ You can verify if an underlying hardware or software issue was detected for your
 
 1. Paste the following metric in the **Metrics** search field, and press Enter.
 
-   ```
+   ```bash
    StatusCheckFailed_System
    ```
 

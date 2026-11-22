@@ -1,7 +1,6 @@
 
 
 # Billing for interrupted Spot Instances
-<a name="billing-for-interrupted-spot-instances"></a>
 
 When a Spot Instance is interrupted, you're charged for instance and EBS volume usage, and you might incur other charges, as follows.
 

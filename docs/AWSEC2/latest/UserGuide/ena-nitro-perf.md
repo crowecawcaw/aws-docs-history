@@ -1,7 +1,6 @@
 
 
 # Nitro system considerations for performance tuning
-<a name="ena-nitro-perf"></a>
 
 The Nitro System is a collection of hardware and software components built by AWS that enable high performance, high availability, and high security. The Nitro System provides bare metal-like capabilities that eliminate virtualization overhead and support workloads that require full access to host hardware. For more detailed information, see [AWS Nitro System](https://aws.amazon.com/ec2/nitro/).
 
@@ -153,13 +152,13 @@ The following list contains actions that you can take to tune your PPS performan
 
   **Enable fragment proxy mode**
 
-  ```
+  ```sh
   sudo insmod ena.ko enable_frag_bypass=1
   ```
 
   **Disable fragment proxy mode**
 
-  ```
+  ```sh
   sudo insmod ena.ko enable_frag_bypass=0
   ```
 

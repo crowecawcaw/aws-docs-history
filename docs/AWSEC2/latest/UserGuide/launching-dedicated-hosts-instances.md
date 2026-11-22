@@ -1,7 +1,6 @@
 
 
 # Launch Amazon EC2 instances on an Amazon EC2 Dedicated Host
-<a name="launching-dedicated-hosts-instances"></a>
 
 After you have allocated a Dedicated Host, you can launch instances onto it. You can't launch instances with `host` tenancy if you do not have active Dedicated Hosts with enough available capacity for the instance type that you are launching.
 
@@ -80,19 +79,19 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 
 To launch onto a specific Dedicated Host with host affinity (instance always restarts on the same host if stopped):
 
-```
+```bash
 --placement Affinity=host,Tenancy=host,HostId={{h-07879acf49EXAMPLE}}
 ```
 
 To launch onto a specific Dedicated Host without host affinity (instance can restart on any available host):
 
-```
+```bash
 --placement Tenancy=host,HostId={{h-07879acf49EXAMPLE}}
 ```
 
 To launch onto any available Dedicated Host with auto-placement enabled and matching instance type:
 
-```
+```bash
 --placement Tenancy=host
 ```
 
@@ -104,7 +103,7 @@ Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/referenc
 
 To launch onto a specific Dedicated Host with host affinity (instance always restarts on the same host if stopped):
 
-```
+```powershell
 -Placement_Affinity host `
 -Placement_Tenancy host `
 -Placement_HostId {{h-07879acf49EXAMPLE}}
@@ -112,14 +111,14 @@ To launch onto a specific Dedicated Host with host affinity (instance always res
 
 To launch onto a specific Dedicated Host without host affinity (instance can restart on any available host):
 
-```
+```powershell
 -Placement_Tenancy host `
 -Placement_HostId {{h-07879acf49EXAMPLE}}
 ```
 
 To launch onto any available Dedicated Host with auto-placement enabled and matching instance type:
 
-```
+```powershell
 -Placement_Tenancy host
 ```
 

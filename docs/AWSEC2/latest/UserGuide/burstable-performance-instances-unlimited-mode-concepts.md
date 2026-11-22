@@ -1,7 +1,6 @@
 
 
 # Unlimited mode concepts for burstable instances
-<a name="burstable-performance-instances-unlimited-mode-concepts"></a>
 
 The `unlimited` mode is a credit configuration option for burstable performance instances. It can be enabled or disabled at any time for a running or stopped instance. You can [set `unlimited` as the default credit option](burstable-performance-instances-how-to.md#burstable-performance-instance-set-default-credit-specification-for-account) at the account level per AWS Region, per burstable performance instance family, so that all new burstable performance instances in the account launch using the default credit option.
 
@@ -90,7 +89,7 @@ T2 Standard instances receive [launch credits](burstable-performance-instances-s
 
 If a T2 instance is switched from `standard` to `unlimited`, any accrued launch credits are removed from the `CPUCreditBalance` before the remaining `CPUCreditBalance` is carried over.
 
-T8i, T4g, T3a, and T3 instances never receive launch credits because they launch in Unlimited mode by default, and therefore can burst immediately upon start. The Unlimited mode credit configuration enables T8i, T4g, T3a, and T3 instances to use as much CPU as needed to burst beyond the baseline and for as long as needed.
+T9g, T8i, T4g, T3a, and T3 instances never receive launch credits because they launch in Unlimited mode by default, and therefore can burst immediately upon start. The Unlimited mode credit configuration enables T9g, T8i, T4g, T3a, and T3 instances to use as much CPU as needed to burst beyond the baseline and for as long as needed.
 
 ## Enable unlimited mode
 <a name="unlimited-mode-enabling"></a>

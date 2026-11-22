@@ -1,7 +1,6 @@
 
 
 # Grant permissions to copy Amazon EC2 AMIs
-<a name="copy-ami-permissions"></a>
 
 To copy an EBS-backed or Amazon S3-backed AMI, you need the following IAM permissions:
 + `ec2:CopyImage` – To copy the AMI. For EBS-backed AMIs, it also grants permission to copy the AMI's backing snapshots.
@@ -32,7 +31,7 @@ Starting October 28, 2024, you can specify snapshots in the `Resource` element. 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -64,7 +63,7 @@ The following example policy grants you permission to copy any EBS-backed AMI, b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -99,7 +98,7 @@ The following example policy grants you permission to copy any Amazon S3-backed 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

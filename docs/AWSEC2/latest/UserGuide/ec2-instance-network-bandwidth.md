@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance network bandwidth
-<a name="ec2-instance-network-bandwidth"></a>
 
 Instance bandwidth specifications apply to both inbound and outbound traffic for the instance. For example, if an instance specifies up to 10 Gbps of bandwidth, that means it has up to 10 Gbps of bandwidth for inbound traffic and, simultaneously, up to 10 Gbps for outbound traffic. The network bandwidth that's available to an EC2 instance depends on several factors, as follows.
 
@@ -53,7 +52,7 @@ Alternatively, you can use a command line tool to get this information. The Amaz
 
 You can use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command to display information about an instance type. The following example displays network performance information for all C5 instances.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters "Name=instance-type,Values=c5.*" \
     --query "InstanceTypes[].[InstanceType, NetworkInfo.NetworkPerformance, NetworkInfo.NetworkCards[0].BaselineBandwidthInGbps] | sort_by(@,&[2])" \
@@ -62,7 +61,7 @@ aws ec2 describe-instance-types \
 
 The following is example output. If your output is missing the baseline bandwidth, update to the latest version of the AWS CLI.
 
-```
+```bash
 ---------------------------------------------
 |           DescribeInstanceTypes           |
 +--------------+--------------------+-------+
@@ -83,7 +82,7 @@ The following is example output. If your output is missing the baseline bandwidt
 
 You can use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) PowerShell command to display information about an instance type. The following example displays network performance information for all C5 instances.
 
-```
+```ps
 Get-EC2InstanceType -Filter @{Name = "instance-type"; Values = "c5.*" } | `
     Select-Object `
     InstanceType,
@@ -94,7 +93,7 @@ Format-Table -AutoSize
 
 The following is example output.
 
-```
+```bash
 InstanceType NetworkPerformance BaselineBandwidthInGbps
 ------------ ------------------ -----------------------
 c5.4xlarge   Up to 10 Gigabit                      5.00

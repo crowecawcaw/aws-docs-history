@@ -1,7 +1,6 @@
 
 
 # Cancel or revoke billing assignment requests for shared EC2 Capacity Reservations
-<a name="cancel-billing-transfer"></a>
 
 Only the Capacity Reservation owner can cancel a `pending` billing assignment request. If a pending request is cancelled, it enters the `cancelled` state and billing of any available, or *unused*, capacity of the Capacity Reservation remains assigned to Capacity Reservation owner.
 
@@ -26,7 +25,7 @@ When a request is cancelled or revoked, Amazon EventBridge events are sent to th
 **To cancel or revoke a request**  
 Use the [disassociate-capacity-reservation-billing-owner](https://docs.aws.amazon.com/cli/latest/reference/ec2/disassociate-capacity-reservation-billing-owner.html) command. For `--unused-reservation-billing-owner-id`, specify the ID of the AWS account to which the request was sent.
 
-```
+```bash
 aws ec2 disassociate-capacity-reservation-billing-owner \
     --capacity-reservation-id {{cr-01234567890abcdef}} \
     --unused-reservation-billing-owner-id {{123456789012}}
@@ -38,7 +37,7 @@ aws ec2 disassociate-capacity-reservation-billing-owner \
 **To cancel or revoke a request**  
 Use the [Unregister-EC2CapacityReservationBillingOwner](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2CapacityReservationBillingOwner.html) cmdlet. For `-UnusedReservationBillingOwnerId`, specify the ID of the AWS account to which the request was sent.
 
-```
+```powershell
 Unregister-EC2CapacityReservationBillingOwner `
     -CapacityReservationId {{cr-01234567890abcdef}} `
     -UnusedReservationBillingOwnerId {{123456789012}}

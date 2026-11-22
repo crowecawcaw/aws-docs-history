@@ -1,7 +1,6 @@
 
 
 # Precision clock and time synchronization on your EC2 instance
-<a name="set-time"></a>
 
 A consistent and accurate time reference on your Amazon EC2 instance is crucial for many server tasks and processes. Time stamps in system logs play an essential role in identifying when issues occurred and the chronological order of events. When you use the AWS CLI or an AWS SDK to make requests from your instance, these tools sign requests on your behalf. If your instance's date and time settings are inaccurate, it can result in a discrepancy between the date in the signature and the date of the request, leading to AWS rejecting your requests.
 

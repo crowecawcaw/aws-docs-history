@@ -1,7 +1,6 @@
 
 
 # Determine the boot mode of an EC2 instance
-<a name="instance-boot-mode"></a>
 
 The boot mode of an instance is displayed in the **Boot mode** field in the Amazon EC2 console, and by the `currentInstanceBootMode` parameter in the AWS CLI.
 
@@ -28,7 +27,7 @@ When an instance is launched, the value for its boot mode parameter is determine
 **To determine the boot mode of an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command to determine the boot mode of an instance. You can also determine the boot mode of the AMI that was used to the create the instance. 
 
-```
+```bash
 aws ec2 describe-instances \
     --region {{us-east-1}} \
     --instance-ids {{i-1234567890abcdef0}} \
@@ -38,7 +37,7 @@ aws ec2 describe-instances \
 
 The following is example output.
 
-```
+```bash
 uefi
 ```
 
@@ -48,7 +47,7 @@ uefi
 **To determine the boot mode of an instance**  
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet to determine the boot mode of an instance. You can also determine the boot mode of the AMI that was used to the create the instance. 
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances | Format-List BootMode, CurrentInstanceBootMode, InstanceType, ImageId
 ```

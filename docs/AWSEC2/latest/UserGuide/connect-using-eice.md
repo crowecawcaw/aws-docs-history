@@ -1,7 +1,6 @@
 
 
 # Connect to an Amazon EC2 instance using EC2 Instance Connect Endpoint
-<a name="connect-using-eice"></a>
 
 You can use EC2 Instance Connect Endpoint to connect to an Amazon EC2 instance that supports SSH or RDP.
 
@@ -70,7 +69,7 @@ The following examples use [OpenSSH](https://www.openssh.com/). You can use any 
 
 Use `ssh` and the [open-tunnel](https://docs.aws.amazon.com/cli/latest/reference/ec2-instance-connect/open-tunnel.html) AWS CLI command as follows. The `-o` proxy command encloses the `open-tunnel` command that creates the private tunnel to the instance.
 
-```
+```bash
 ssh -i {{my-key-pair}}.pem {{ec2-user}}@{{i-1234567890abcdef0}} \
     -o ProxyCommand='aws ec2-instance-connect open-tunnel --instance-id {{i-1234567890abcdef0}}'
 ```
@@ -89,7 +88,7 @@ To allow multiple connections to an instance, first run the [open-tunnel](https:
 
 1. Run the following command to start listening for new TCP connections on the specified port on your local machine.
 
-   ```
+   ```bash
    aws ec2-instance-connect open-tunnel \
        --instance-id {{i-1234567890abcdef0}} \
        --local-port {{8888}}
@@ -97,25 +96,25 @@ To allow multiple connections to an instance, first run the [open-tunnel](https:
 
    Expected output:
 
-   ```
+   ```bash
    Listening for connections on port 8888.
    ```
 
 1. In a *new terminal window*, run the following `ssh` command to create a new TCP connection and a private tunnel to your instance.
 
-   ```
+   ```bash
    ssh -i {{my-key-pair}}.pem ec2-user@localhost -p {{8888}}
    ```
 
    Expected output – In the *first* terminal window, you'll see the following:
 
-   ```
+   ```JSON
    [1] Accepted new tcp connection, opening websocket tunnel.
    ```
 
    You might also see the following:
 
-   ```
+   ```JSON
    [1] Closing tcp connection.
    ```
 
@@ -132,7 +131,7 @@ If you only know your instance ID, you can use the [ec2-instance-connect ssh](ht
 If you only know the instance ID, use the [ec2-instance-connect ssh](https://docs.aws.amazon.com/cli/latest/reference/ec2-instance-connect/ssh.html) CLI command, and specify the `ssh` command, the instance ID, and the `--connection-type` parameter with the `eice` value to use an EC2 Instance Connect Endpoint. If the instance only has an IPv6 address, you must also include the `--instance-ip` parameter with the IPv6 address.
 + If the instance has a private IPv4 address (it can also have an IPv6 address) use the following command and parameters:
 
-  ```
+  ```bash
   aws ec2-instance-connect ssh \
       --instance-id {{i-1234567890example}} \
       --os-user {{ec2-user}} \
@@ -140,7 +139,7 @@ If you only know the instance ID, use the [ec2-instance-connect ssh](https://doc
   ```
 + If the instance only has an IPv6 address, include the `--instance-ip` parameter with the IPv6 address:
 
-  ```
+  ```bash
   aws ec2-instance-connect ssh \
       --instance-id {{i-1234567890example}} \
       --instance-ip {{2001:db8::1234:5678:1.2.3.4}} \
@@ -162,7 +161,7 @@ You can use Remote Desktop Protocol (RDP) over EC2 Instance Connect Endpoint to 
 
 1. Run the following command to establish a private tunnel to the VPC in which the instance is located. `--remote-port` must be `3389` because RDP uses port 3389 by default.
 
-   ```
+   ```bash
    aws ec2-instance-connect open-tunnel \
        --instance-id {{i-1234567890abcdef0}} \
        --remote-port 3389 \

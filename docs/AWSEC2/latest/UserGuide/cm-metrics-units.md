@@ -1,7 +1,6 @@
 
 
 # EC2 Capacity Manager metrics
-<a name="cm-metrics-units"></a>
 
 Capacity Manager offers a comprehensive selection of metrics for tracking your capacity across different resource types. Metrics can be measured using different units depending on your analysis needs.
 
@@ -74,7 +73,7 @@ In addition to the built-in dimensions in the preceding section, Capacity Manage
 
 **Customer-managed tag dimensions**
 
-You can activate up to five tag keys to use as dimensions. After activation and in `activated` status, tag dimensions are available for metrics that support General capacity dimensions. For the full list of dimension categories, see [EC2 Capacity Manager metrics](#cm-metrics-units).
+You can activate up to five tag keys to use as dimensions. After activation and in `activated` status, tag dimensions are available for metrics that support General capacity dimensions. For the full list of dimension categories, see [EC2 Capacity Manager metrics](cm-metrics-units.md).
 
 
 | Dimension | Description | Example values | 

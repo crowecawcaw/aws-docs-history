@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon EC2 Windows instance start issues
-<a name="common-messages"></a>
 
 The following are troubleshooting tips to help you solve password and activation issues with Amazon EC2 Windows instances.
 
@@ -170,7 +169,7 @@ The drive is automatically offline if the temporary instance is running the same
 
 If you are connected to the instance, open an Internet browser from the instance and enter the following URL for the metadata server:
 
-```
+```bash
 http://169.254.169.254/latest/meta-data/
 ```
 
@@ -180,7 +179,7 @@ If you can't contact the metadata server, try the following to resolve the issue
 + Verify that the firewall, IPSec, and proxy settings do not block outgoing traffic to the metadata service (`169.254.169.254`) or the AWS KMS servers (the addresses are specified in `TargetKMSServer` elements in `C:\Program Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml`).
 + Verify that you have a route to the metadata service (`169.254.169.254`) using the following command.
 
-  ```
+  ```bash
   route print
   ```
 + Check for network issues that might affect the Availability Zone for your instance. Go to [http://status.aws.amazon.com/](http://status.aws.amazon.com/).
@@ -212,49 +211,49 @@ If this does not resolve the activation issue, follow these additional steps.
 
 1. From a PowerShell prompt with administrative rights, import the EC2Launch module:
 
-   ```
+   ```powershell
    PS C:\> Import-Module "C:\ProgramData\Amazon\EC2-Windows\Launch\Module\Ec2Launch.psd1"
    ```
 
 1. Call the Add-Routes function to see the list of new routes:
 
-   ```
+   ```powershell
    PS C:\> Add-Routes
    ```
 
 1. Call the Set-ActivationSettings function:
 
-   ```
+   ```powershell
    PS C:\> Set-Activationsettings
    ```
 
 1. Then, run the following script to activate Windows:
 
-   ```
+   ```bash
    PS C:\> cscript "${env:SYSTEMROOT}\system32\slmgr.vbs" /ato
    ```
 
  For both EC2Config and EC2Launch, if you are still receiving an activation error, verify the following information.
 + Verify that you have routes to the AWS KMS servers. Open `C:\Program Files\Amazon\Ec2ConfigService\Settings\ActivationSettings.xml` and locate the `TargetKMSServer` elements. Run the following command and check whether the addresses for these AWS KMS servers are listed.
 
-  ```
+  ```bash
   route print
   ```
 + Verify that the AWS KMS client key is set. Run the following command and check the output.
 
-  ```
+  ```bash
   C:\Windows\System32\slmgr.vbs /dlv
   ```
 
-  If the output contains Error: product key not found, the AWS KMS client key isn't set. If the AWS KMS client key isn't set, look up the client key as described in this Microsoft article: [AWS KMS client activation and product keys](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys), and then run the following command to set the AWS KMS client key.
+  If the output contains `Error: product key not found`, the AWS KMS client key isn't set. If the AWS KMS client key isn't set, look up the client key as described in this Microsoft article: [AWS KMS client activation and product keys](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys), and then run the following command to set the AWS KMS client key.
 
-  ```
+  ```bash
   C:\Windows\System32\slmgr.vbs /ipk {{client_key}}
   ```
 + Verify that the system has the correct time and time zone. If you are using a time zone other than UTC, add the following registry key and set it to `1` to ensure that the time is correct: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal`.
 + If Windows Firewall is enabled, temporarily disable it using the following command.
 
-  ```
+  ```batch
   netsh advfirewall set allprofiles state off
   ```
 
@@ -276,7 +275,7 @@ Check for the following issues:
 + Licensing has expired. If the licensing has expired, you can't connect to your Windows instance as a user. You can try the following: 
   + Connect to the instance from the command line using an `/admin` parameter, for example: 
 
-    ```
+    ```bash
     mstsc /v:{{instance}} /admin
     ```
 

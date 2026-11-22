@@ -1,7 +1,6 @@
 
 
 # Maximize network bandwidth on Amazon EC2 instances with multiple network cards
-<a name="efa-acc-inst-types"></a>
 
 Many instances types that support EFA also have multiple network cards. For more information, see [Network cards](using-eni.md#network-cards). If you plan to use EFA with one of these instance types, we recommend the following basic configuration:
 + For the primary network interface (network card index `0`, device index `0`), create an ENA interface. You can't use an EFA-only network interface as the primary network interface.
@@ -33,7 +32,7 @@ For `--network-interfaces`, specify the required number of network interfaces. F
 
 The following example command snippet shows a request with 32 EFA devices and one ENA device.
 
-```
+```bash
 $ aws ec2 run-instances \
  --instance-type p5.48xlarge \
  --count 1 \
@@ -93,7 +92,7 @@ For `NetworkInterfaces`, specify the required number of network interfaces. For 
 
 The following snippet shows an example with 3 network interfaces out of the possible 32 network interfaces.
 
-```
+```json
 "NetworkInterfaces":[
 {
   "NetworkCardIndex":0,
@@ -179,7 +178,7 @@ This configuration provides up to 3200 Gbps of EFA networking bandwidth and up t
 
 The following example illustrates this configuration:
 
-```
+```bash
 $ aws --region $REGION ec2 run-instances \
  --instance-type p5.48xlarge \
  --count 1 \
@@ -301,7 +300,7 @@ This configuration consumes at least one private IP address per instance and sup
 + For the primary network interface (network card index 0, device index 0), use an ENA network interface.
 + For the remaining network cards (network card indexes 1-16, device index 0), use EFA-only network interfaces.
 
-```
+```bash
 --network-interfaces \
 "NetworkCardIndex=0,DeviceIndex=0,Groups={{security_group_id}},SubnetId={{subnet_id}},InterfaceType=interface" \
 "NetworkCardIndex=1,DeviceIndex=0,Groups={{security_group_id}},SubnetId={{subnet_id}},InterfaceType=efa-only" \
@@ -328,7 +327,7 @@ This configuration consumes at least 17 private IP address per instance and supp
 + For the primary network interface (network card index 0, device index 0) use an ENA network interface.
 + For the remaining network cards, create an EFA-only interface (network card indexes 1-16 device index 0) and an ENA interface network card indexes 1-16 device index 1).
 
-```
+```bash
 --network-interfaces \
 "NetworkCardIndex=0,DeviceIndex=0,Groups={{security_group_id}},SubnetId={{subnet_id}},InterfaceType=interface" \
 "NetworkCardIndex=1,DeviceIndex=0,Groups={{security_group_id}},SubnetId={{subnet_id}},InterfaceType=efa-only" \

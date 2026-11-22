@@ -1,7 +1,6 @@
 
 
 # Create a reverse DNS record for email on Amazon EC2
-<a name="Using_Elastic_Addressing_Reverse_DNS"></a>
 
 If you intend to send email to third parties from an EC2 instance, we recommend that you provision one or more Elastic IP addresses and assign static reverse DNS records to the Elastic IP addresses that you use to send email. This can help you avoid having your email flagged as spam by some anti-spam organizations. AWS works with ISPs and internet anti-spam organizations to reduce the chance that your email sent from these addresses will be flagged as spam.
 
@@ -39,7 +38,7 @@ You can create a reverse DNS record for your Elastic IP address as follows.
 **To create a reverse DNS record**  
 Use the [modify-address-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-address-attribute.html) command.
 
-```
+```bash
 aws ec2 modify-address-attribute \
     --allocation-id {{eipalloc-abcdef01234567890}} \
     --domain-name {{example.com}}
@@ -47,7 +46,7 @@ aws ec2 modify-address-attribute \
 
 The following is example output.
 
-```
+```json
 {
     "Addresses": [
         {
@@ -69,7 +68,7 @@ The following is example output.
 **To create a reverse DNS record**  
 Use the [Edit-EC2AddressAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2AddressAttribute.html) cmdlet.
 
-```
+```powershell
 Edit-EC2AddressAttribute `
     -AllocationId '{{eipalloc-abcdef01234567890}}' `
     -DomainName '{{example.com}}' |
@@ -126,7 +125,7 @@ The address cannot be released because it is locked to your account.
 **To remove a reverse DNS record**  
 Use the [reset-address-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/reset-address-attribute.html) command.
 
-```
+```bash
 aws ec2 reset-address-attribute \
     --allocation-id {{eipalloc-abcdef01234567890}} \
     --attribute {{domain-name}}
@@ -134,7 +133,7 @@ aws ec2 reset-address-attribute \
 
 The following is example output.
 
-```
+```json
 {
     "Addresses": [
         {
@@ -156,7 +155,7 @@ The following is example output.
 **To remove a reverse DNS record**  
 Use the [Reset-EC2AddressAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Reset-EC2AddressAttribute.html) cmdlet.
 
-```
+```powershell
 Reset-EC2AddressAttribute `
     -AllocationId 'eipalloc-abcdef01234567890' `
     -Attribute domain-name |

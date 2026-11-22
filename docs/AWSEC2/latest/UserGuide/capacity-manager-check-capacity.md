@@ -1,15 +1,14 @@
 
 
 # How to check capacity
-<a name="capacity-manager-check-capacity"></a>
 
 Call get-capacity-manager-supportability-scores through the console or the API. Provide your market type (on-demand or spot), how much capacity you need, where you want to launch, and either the instance types to consider or the attributes they must meet. The API returns a score for each instance type and Availability Zone combination in your request, plus an aggregate score for the entire set. This API checks current supportability only — it doesn't accept dates.
 
-Call get-capacity-manager-supportability-scores in the Region where you turned on Capacity Manager. A single call can check Availability Zones in any Region. Run checks when you plan or review a workload rather than on every launch, so launches in other Regions don't depend on a cross-Region call.
+Call get-capacity-manager-supportability-scores in the Region where you turned on Capacity Manager. A single call can check Availability Zones in any Region. Real-time supportability checks don't support Local Zones. Run checks when you plan or review a workload rather than on every launch, so launches in other Regions don't depend on a cross-Region call.
 
 The following AWS CLI command checks On-Demand capacity for a list of instance types:
 
-```
+```bash
 aws ec2 get-capacity-manager-supportability-scores \
     --market-type "on-demand" \
     --capacity-amount 50 \
@@ -27,7 +26,7 @@ This command uses the following parameters:
 
 The following JSON structure shows the supportability score response.
 
-```
+```JSON
 {
     "AggregateScore": "high",
     "CapacityManagerSupportabilityScores": [
@@ -40,7 +39,7 @@ The following JSON structure shows the supportability score response.
 
 Instead of a list of instance types, you can describe the instances you need by attribute. Provide the vCPU and memory ranges your workload needs, and Amazon EC2 resolves them into matching instance types and scores each one. Provide either `--instance-types` or `--instance-requirements-with-metadata`, not both.
 
-```
+```bash
 aws ec2 get-capacity-manager-supportability-scores \
     --market-type "on-demand" \
     --capacity-amount 1000 \

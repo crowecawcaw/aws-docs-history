@@ -1,7 +1,6 @@
 
 
 # EBS cards
-<a name="ebs_cards"></a>
 
 Most instance types support one EBS card. Instance types that support multiple EBS cards provide higher EBS-optimized performance, both in EBS throughput and IOPS. Your Amazon EC2 instance maximum performance is spread equally across each EBS card. For example, on an EC2 instance that supports `1,000,000` total IOPS with 2 EBS cards, each EBS card can support up to `500,000` IOPS. For information about the supported Amazon EBS performance of your Amazon EC2 instance, see [Amazon EBS-optimized instance types](ebs-optimized.md).
 

@@ -1,7 +1,6 @@
 
 
 # Bring your own IP addresses (BYOIP) to Amazon EC2
-<a name="ec2-byoip"></a>
 
 You can bring part or all of your publicly routable IPv4 or IPv6 address range from your on-premises network to your AWS account. You continue to control the address range and you can advertise the address range on the internet through AWS. After you bring the address range to Amazon EC2, it appears in your AWS account as an address pool.
 

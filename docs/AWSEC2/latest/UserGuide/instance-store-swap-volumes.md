@@ -1,7 +1,6 @@
 
 
 # Enable instance store swap volume for M1 and C1 EC2 instances
-<a name="instance-store-swap-volumes"></a>
 
 **Note**  
 This topic applies to `c1.medium` and `m1.small` Linux instances only.
@@ -14,7 +13,7 @@ Although the Linux kernel sees this swap space as a partition on the root volume
 
 Amazon Linux automatically enables and uses this swap space, but your AMI may require some additional steps to recognize and use this swap space. To see if your instance is using swap space, you can use the **swapon -s** command.
 
-```
+```bash
 [ec2-user ~]$ swapon -s
 Filename                                Type            Size    Used    Priority
 /dev/xvda3                              partition       917500  0       -1
@@ -22,7 +21,7 @@ Filename                                Type            Size    Used    Priority
 
 The above instance has a 900 MiB swap volume attached and enabled. If you don't see a swap volume listed with this command, you may need to enable swap space for the device. Check your available disks using the **lsblk** command.
 
-```
+```bash
 [ec2-user ~]$ lsblk
 NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 xvda1 202:1    0    8G  0 disk /
@@ -34,13 +33,13 @@ Here, the swap volume `xvda3` is available to the instance, but it is not enable
 **Note**  
 You must prepend `/dev/` to the device name listed by **lsblk**. Your device may be named differently, such as `sda3`, `sde3`, or `xvde3`. Use the device name for your system in the command below.
 
-```
+```bash
 [ec2-user ~]$ sudo swapon /dev/xvda3
 ```
 
 Now the swap space should show up in **lsblk** and **swapon -s** output.
 
-```
+```bash
 [ec2-user ~]$ lsblk
 NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 xvda1 202:1    0    8G  0 disk /
@@ -52,13 +51,13 @@ Filename                                Type            Size    Used    Priority
 
 You also need to edit your `/etc/fstab` file so that this swap space is automatically enabled at every system boot.
 
-```
+```bash
 [ec2-user ~]$ sudo vim /etc/fstab
 ```
 
 Append the following line to your `/etc/fstab` file (using the swap device name for your system):
 
-```
+```bash
 /dev/{{xvda3}}       none    swap    sw  0       0
 ```
 
@@ -70,7 +69,7 @@ This procedure applies only to instance types that support instance storage. For
 
 1. <a name="step_swap_start"></a>List the block devices attached to your instance to get the device name for your instance store volume.
 
-   ```
+   ```bash
    [ec2-user ~]$ lsblk -p
    NAME       MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
    /dev/xvdb  202:16   0   4G  0 disk /media/ephemeral0
@@ -81,13 +80,13 @@ This procedure applies only to instance types that support instance storage. For
 
 1. (Optional) If your instance store volume is mounted (it lists a `MOUNTPOINT` in the **lsblk** command output), unmount it with the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo umount /dev/xvdb
    ```
 
 1. <a name="step_mkswap"></a>Set up a Linux swap area on the device with the **mkswap** command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkswap /dev/xvdb
    mkswap: /dev/xvdb: warning: wiping old ext3 signature.
    Setting up swapspace version 1, size = 4188668 KiB
@@ -96,13 +95,13 @@ This procedure applies only to instance types that support instance storage. For
 
 1. Enable the new swap space.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo swapon /dev/xvdb
    ```
 
 1. <a name="step_swap_enable"></a>Verify that the new swap space is being used.
 
-   ```
+   ```bash
    [ec2-user ~]$ swapon -s
    Filename				Type		Size	Used	Priority
    /dev/xvdb                              	partition	4188668	0	-1
@@ -110,13 +109,13 @@ This procedure applies only to instance types that support instance storage. For
 
 1. Edit your `/etc/fstab` file so that this swap space is automatically enabled at every system boot.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo vim /etc/fstab
    ```
 
    If your `/etc/fstab` file has an entry for `/dev/xvdb` (or `/dev/sdb`) change it to match the line below; if it does not have an entry for this device, append the following line to your `/etc/fstab` file (using the swap device name for your system):
 
-   ```
+   ```bash
    /dev/{{xvdb}}       none    swap    sw  0       0
    ```
 **Important**  

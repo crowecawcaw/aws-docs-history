@@ -1,7 +1,6 @@
 
 
 # Monitor Capacity Reservation underutilization
-<a name="cr-eventbridge"></a>
 
 You can monitor Capacity Reservation underutilization using the following:
 
@@ -28,7 +27,7 @@ AWS Health sends the following events when capacity usage for a Capacity Reserva
 
   The following is an example of an event that is generated when a newly created Capacity Reservation is below 20 percent capacity usage over a 24-hour period.
 
-  ```
+  ```json
   {
       "version": "0",
       "id": "b3e00086-f271-12a1-a36c-55e8ddaa130a",
@@ -65,7 +64,7 @@ AWS Health sends the following events when capacity usage for a Capacity Reserva
 
   The following is an example of an event that is generated when one or more Capacity Reservation is below 20 percent capacity usage over a 7-day period.
 
-  ```
+  ```json
   { 
       "version": "0", "id":"7439d42b-3c7f-ad50-6a88-25e2a70977e2", 
       "detail-type": "AWS Health Event", 
@@ -174,4 +173,4 @@ The email notifications and Health Dashboard notifications are sent to the email
 + The average utilization rate for the Capacity Reservation.
 + The instance type and platform (operating system) of the Capacity Reservation.
 
-Additionally, when capacity utilization for a Capacity Reservation in your account drops below 20 percent over a 24-hour and 7-day period, AWS Health sends events to EventBridge. With EventBridge, you can create rules that activate automatic actions, such as sending email notifications or triggering AWS Lambda functions, in response to such events. For more information, see [Monitor Capacity Reservation underutilization](#cr-eventbridge).
+Additionally, when capacity utilization for a Capacity Reservation in your account drops below 20 percent over a 24-hour and 7-day period, AWS Health sends events to EventBridge. With EventBridge, you can create rules that activate automatic actions, such as sending email notifications or triggering AWS Lambda functions, in response to such events. For more information, see [Monitor Capacity Reservation underutilization](cr-eventbridge.md).

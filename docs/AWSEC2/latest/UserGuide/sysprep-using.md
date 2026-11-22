@@ -1,7 +1,6 @@
 
 
 # Create an AMI using Windows Sysprep with EC2Config
-<a name="sysprep-using"></a>
 
 When you create an image from an instance with the EC2Config service installed, EC2Config performs specific tasks as the image is prepared. This includes working with Windows Sysprep. For more information, see [Windows Sysprep phases](ami-create-win-sysprep.md#sysprep-phases).
 
@@ -27,7 +26,7 @@ Windows Sysprep and the EC2Config service perform the following actions when pre
 
 1. The system runs `BeforeSysprep.cmd`. This command creates a registry key as follows:
 
-   ```
+   ```batch
    reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f
    ```
 
@@ -35,7 +34,7 @@ Windows Sysprep and the EC2Config service perform the following actions when pre
 
 1. The EC2Config service calls Windows Sysprep by running the following command:
 
-   ```
+   ```batch
    sysprep.exe /unattend: "C:\Program Files\Amazon\Ec2ConfigService\sysprep2008.xml" /oobe /generalize /shutdown
    ```
 
@@ -88,7 +87,7 @@ The system generates OS specific requirements such as a computer name and a SID.
    + <RegisteredOwner>Amazon</RegisteredOwner>
 **Note**  
 During the generalize and specialize phases the EC2Config service monitors the status of the OS. If EC2Config detects that the OS is in a Sysprep phase, then it publishes the following message to the system log:  
-EC2ConfigMonitorState: 0 Windows is being configured. SysprepState=IMAGE\_STATE\_UNDEPLOYABLE
+`EC2ConfigMonitorState: 0 Windows is being configured. SysprepState=IMAGE_STATE_UNDEPLOYABLE`
 
 1. After the OOBE phase completes, the system runs `SetupComplete.cmd` from the following location: `C:\Windows\Setup\Scripts\SetupComplete.cmd`. In Amazon public AMIs before April 2015 this file was empty and ran nothing on the image. In public AMIs dated after April 2015, the file includes the following value: **call "C:\\Program Files\\Amazon\\Ec2ConfigService\\Scripts\\PostSysprep.cmd"**.
 
@@ -161,7 +160,7 @@ When you are asked to confirm that you want to run Windows Sysprep and shut down
 
 You can manually invoke the Windows Sysprep tool from the command line using the following command:
 
-```
+```batch
 "%programfiles%\amazon\ec2configservice\"ec2config.exe -sysprep"" 
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Track your Spot Instance costs using the Spot Instance data feed
-<a name="spot-data-feeds"></a>
 
 To help you understand the charges for your Spot Instances, Amazon EC2 provides a data feed that describes your Spot Instance usage and pricing. This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
@@ -26,13 +25,13 @@ Spot Instance data feed is supported in all AWS Regions except China (Beijing), 
 
 The Spot Instance data feed file name uses the following format (with the date and hour in UTC): 
 
-```
+```bash
 {{bucket-name}}.s3.amazonaws.com{{/optional-prefix}}/{{aws-account-id}}.{{YYYY}}-{{MM}}-{{DD}}-{{HH}}.{{n}}.{{unique-id}}.gz
 ```
 
 For example, if your bucket name is **amzn-s3-demo-bucket** and your prefix is **my-prefix**, your file names are similar to the following:
 
-```
+```bash
 amzn-s3-demo-bucket.s3.amazonaws.com/my-prefix/111122223333.2023-12-09-07.001.b959dbc6.gz
 ```
 
@@ -82,7 +81,7 @@ Use the [create-spot-datafeed-subscription](https://docs.aws.amazon.com/cli/late
 
 To specify a bucket with a prefix, use the following example:
 
-```
+```bash
 aws ec2 create-spot-datafeed-subscription \
     --bucket {{amzn-s3-demo-bucket}} \
     --prefix {{my-prefix}}
@@ -90,7 +89,7 @@ aws ec2 create-spot-datafeed-subscription \
 
 To specify a bucket without a prefix, use the following example:
 
-```
+```bash
 aws ec2 create-spot-datafeed-subscription \
     --bucket {{amzn-s3-demo-bucket}}
 ```
@@ -103,7 +102,7 @@ Use the [New-EC2SpotDatafeedSubscription](https://docs.aws.amazon.com/powershell
 
 To specify a bucket with a prefix, use the following example:
 
-```
+```powershell
 New-EC2SpotDatafeedSubscription `
     -Bucket {{amzn-s3-demo-bucket}} `
     -Prefix {{my-prefix}}
@@ -111,7 +110,7 @@ New-EC2SpotDatafeedSubscription `
 
 To specify a bucket without a prefix, use the following example:
 
-```
+```powershell
 New-EC2SpotDatafeedSubscription `
     -Bucket {{amzn-s3-demo-bucket}}
 ```
@@ -123,25 +122,25 @@ New-EC2SpotDatafeedSubscription `
 
 In the AWS Management Console, open AWS CloudShell. Use the following [s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html) command to get the .gz files from the S3 bucket for your data feed and store them in the folder that you specify.
 
-```
+```bash
 aws s3 sync s3://{{amzn-s3-demo-bucket}} ./{{data-feed}}
 ```
 
 To display the contents of a .gz file, change to the folder where you stored the contents of the S3 bucket.
 
-```
+```bash
 cd {{data-feed}}
 ```
 
 Use the **ls** command to view the names of the files. Use the **zcat** command with the name of the file to display the contents of the compressed file. The following is an example command.
 
-```
+```bash
 zcat  {{111122223333.2023-12-09-07.001.b959dbc6}}.gz
 ```
 
 The following is example output.
 
-```
+```bash
 #Version: 1.0
 #Fields: Timestamp UsageType Operation InstanceID MyBidID MyMaxPrice MarketPrice Charge Version
 2023-12-09 07:13:47 UTC USE2-SpotUsage:c7a.medium       RunInstances:SV050      i-0c3e0c0b046e050df     sir-pwq6nmfp    0.0510000000 USD        0.0142000000 USD        0.0142000000 USD        1
@@ -158,7 +157,7 @@ When you are finished with the Spot Instance data feed, you can delete it.
 **To delete your data feed**  
 Use the [delete-spot-datafeed-subscription](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-spot-datafeed-subscription.html) command.
 
-```
+```bash
 aws ec2 delete-spot-datafeed-subscription
 ```
 
@@ -168,7 +167,7 @@ aws ec2 delete-spot-datafeed-subscription
 **To delete your data feed**  
 Use the [Remove-EC2SpotDatafeedSubscription](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.html) cmdlet.
 
-```
+```powershell
 Remove-EC2SpotDatafeedSubscription
 ```
 

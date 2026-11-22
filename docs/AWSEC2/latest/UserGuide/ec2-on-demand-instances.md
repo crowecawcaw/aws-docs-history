@@ -1,7 +1,6 @@
 
 
 # Purchasing On-Demand Instances for Amazon EC2
-<a name="ec2-on-demand-instances"></a>
 
 With On-Demand Instances, you pay for compute capacity by the second with no long-term commitments. You have full control over the instance's lifecycle—you decide when to launch, stop, hibernate, start, reboot, or terminate it.
 

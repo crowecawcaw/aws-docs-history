@@ -1,7 +1,6 @@
 
 
 # Set the MTU for your Amazon EC2 instances
-<a name="ec2-instance-mtu"></a>
 
 The maximum transmission unit (MTU) of a network connection is the size, in bytes, of the largest permissible packet that can be passed over the connection. All Amazon EC2 instances support standard frames (1500 MTU) and all current generation instance types support jumbo frames (9001 MTU).
 
@@ -26,13 +25,13 @@ Run the **tracepath** command on your instance to check the path MTU between you
 
 This example checks the path MTU between the EC2 instance and `amazon.com`.
 
-```
+```bash
 [ec2-user ~]$ tracepath {{amazon.com}}
 ```
 
 In this example output, the path MTU is 1500.
 
-```
+```bash
  1?: [LOCALHOST]     pmtu 9001
  1:  ip-172-31-16-1.us-west-1.compute.internal (172.31.16.1)   0.187ms pmtu 1500
  1:  no reply
@@ -61,13 +60,13 @@ In this example output, the path MTU is 1500.
 
 1. Use the following command to check the path MTU between your EC2 instance and the specified destination. This example checks the path MTU between the EC2 instance and `www.elifulkerson.com`.
 
-   ```
+   ```bash
    .\mturoute.exe {{www.elifulkerson.com}}
    ```
 
    In this example output, the path MTU is 1500.
 
-   ```
+   ```bash
    * ICMP Fragmentation is not permitted. *
    * Speed optimization is enabled. *
    * Maximum payload is 10000 bytes. *
@@ -89,13 +88,13 @@ The procedure that you use depends on the operating system of the instance.
 **To check the MTU setting on a Linux instance**  
 Run the following **ip** command on your EC2 instance. If the primary network interface is not `eth0`, replace `eth0` with your network interface.
 
-```
+```bash
 [ec2-user ~]$ ip link show {{eth0}}
 ```
 
 In this example output, {{mtu 9001}} indicates that the instance uses jumbo frames.
 
-```
+```bash
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> {{mtu 9001}} qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
     link/ether 02:90:c0:b7:9e:d1 brd ff:ff:ff:ff:ff:ff
 ```
@@ -111,14 +110,14 @@ The procedure that you use depends on the driver on your instance.
 **Version 2.1.0 and later**  
 To get the MTU value, use the following **Get-NetAdapterAdvancedProperty** command on your EC2 instance. Use the wildcard (asterisk) to get all Ethernet names. Check the output for the interface name `*JumboPacket`. A value of 9015 indicates that Jumbo frames are enabled. Jumbo frames are disabled by default.
 
-```
+```PowerShell
 Get-NetAdapterAdvancedProperty -Name "Ethernet*"
 ```
 
 **Version 1.5 and earlier**  
 To get the MTU value, use the following **Get-NetAdapterAdvancedProperty** command on your EC2 instance. Check the output for the interface name `MTU`. A value of 9001 indicates that Jumbo frames are enabled. Jumbo frames are disabled by default.
 
-```
+```PowerShell
 Get-NetAdapterAdvancedProperty -Name "Ethernet"
 ```
 
@@ -127,7 +126,7 @@ Get-NetAdapterAdvancedProperty -Name "Ethernet"
 
 To get the MTU value, use the following **Get-NetAdapterAdvancedProperty** command on your EC2 instance. Check the entry for the interface name `*JumboPacket`. A value of 9014 indicates that Jumbo frames are enabled. (Note that the MTU size includes the header and the payload.) Jumbo frames are disabled by default.
 
-```
+```PowerShell
 Get-NetAdapterAdvancedProperty -Name "Ethernet"
 ```
 
@@ -136,7 +135,7 @@ Get-NetAdapterAdvancedProperty -Name "Ethernet"
 
 To get the MTU value, use the following command on your EC2 instance. The name of the interface can vary. In the output, look for an entry with the name "Ethernet," "Ethernet 2," or "Local Area Connection". You'll need the interface name to enable or disable jumbo frames. A value of 9001 indicates that Jumbo frames are enabled.
 
-```
+```batch
 netsh interface ipv4 show subinterface
 ```
 
@@ -156,25 +155,25 @@ The procedure that you use depends on the operating system of the instance.
 
 1. Run the following **ip** command on your instance. It sets the desired MTU value to 1500, but you could use 9001 instead. If the primary network interface is not `eth0`, replace `eth0` with the actual network interface.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo ip link set dev {{eth0}} mtu {{1500}}
    ```
 
 1. (Optional) To persist your network MTU setting after a reboot, modify the following configuration files, based on your operating system type.
    + **Amazon Linux 2023** – Modify the `[Link]` section of the config file. The default config file is `/usr/lib/systemd/network/80-ec2.network`, or you can update any custom config file created in /run/systemd/network/, where the file name is {{priority}}-{{interface}}.network. For more information, see [Networking service](https://docs.aws.amazon.com/linux/al2023/ug/networking-service.html) in the Amazon Linux documentation.
 
-     ```
+     ```bash
      MTUBytes={{1500}}
      ```
    + **Amazon Linux 2** – Add the following line to the `/etc/sysconfig/network-scripts/ifcfg-{{eth0}}` file:
 
-     ```
+     ```bash
      MTU={{1500}}
      ```
 
      Add the following line to the `/etc/dhcp/dhclient.conf` file:
 
-     ```
+     ```bash
      request subnet-mask, broadcast-address, time-offset, routers, domain-name, domain-search, domain-name-servers, host-name, nis-domain, nis-servers, ntp-servers;
      ```
    + **Other Linux distributions** – Consult their specific documentation.
@@ -194,26 +193,26 @@ You can change the MTU using Device Manager or the **Set-NetAdapterAdvancedPrope
 **Version 2.1.0 and later**  
 Use the following command to enable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "*JumboPacket" -RegistryValue 9015
 ```
 
 Use the following command to disable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "*JumboPacket" -RegistryValue 1514
 ```
 
 **Version 1.5 and earlier**  
 Use the following command to enable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "MTU" -RegistryValue 9001
 ```
 
 Use the following command to disable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "MTU" -RegistryValue 1500
 ```
 
@@ -224,13 +223,13 @@ You can change the MTU using Device Manager or the **Set-NetAdapterAdvancedPrope
 
 Use the following command to enable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "*JumboPacket" -RegistryValue 9014
 ```
 
 Use the following command to disable jumbo frames.
 
-```
+```PowerShell
 Set-NetAdapterAdvancedProperty -Name "Ethernet" -RegistryKeyword "*JumboPacket" -RegistryValue 1514
 ```
 
@@ -241,13 +240,13 @@ You can change the MTU using the **netsh** command on your instance. You can't c
 
 Use the following command to enable jumbo frames.
 
-```
+```batch
 netsh interface ipv4 set subinterface "{{Ethernet}}" mtu=9001
 ```
 
 Use the following command to disable jumbo frames.
 
-```
+```batch
 netsh interface ipv4 set subinterface "{{Ethernet}}" mtu=1500
 ```
 

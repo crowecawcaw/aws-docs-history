@@ -1,7 +1,6 @@
 
 
 # Modify a launch template (manage launch template versions)
-<a name="manage-launch-template-versions"></a>
 
 Launch templates are immutable; after you create a launch template, you can't modify it. Instead, you can create a new version of the launch template that includes any changes you require.
 
@@ -42,7 +41,7 @@ When you create a launch template version, you can specify new launch parameters
 **To create a launch template version**  
 Use the [create-launch-template-version](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-launch-template-version.html) command. You can specify a source version on which to base the new version. The new version inherits the launch parameters from this version, and you can override parameters using `--launch-template-data`. The following example creates a new version based on version 1 of the launch template and specifies a different AMI ID.
 
-```
+```bash
 aws ec2 create-launch-template-version \
     --launch-template-id {{lt-0abcd290751193123}} \
     --version-description {{WebVersion2}} \
@@ -56,7 +55,7 @@ aws ec2 create-launch-template-version \
 **To create a launch template version**  
 Use the [New-EC2LaunchTemplateVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2LaunchTemplateVersion.html) Cmdlet. You can specify a source version on which to base the new version. The new version inherits the launch parameters from this version, and you can override parameters using `LaunchTemplateData`. The following example creates a new version based on version 1 of the launch template and specifies a different AMI ID.
 
-```
+```powershell
 New-EC2LaunchTemplateVersion `
     -LaunchTemplateId {{lt-0abcd290751193123}} `
     -VersionDescription {{WebVersion2}} `
@@ -94,7 +93,7 @@ You can set the default version for the launch template. When you launch an inst
 **To set the default launch template version**  
 Use the [modify-launch-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-launch-template.html) command.
 
-```
+```bash
 aws ec2 modify-launch-template \
     --launch-template-id {{lt-0abcd290751193123}} \
     --default-version {{2}}
@@ -106,7 +105,7 @@ aws ec2 modify-launch-template \
 **To set the default launch template version**  
 Use the [Edit-EC2LaunchTemplate](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2LaunchTemplate.html) cmdlet.
 
-```
+```powershell
 Edit-EC2LaunchTemplate `
     -LaunchTemplateId {{lt-0abcd290751193123}} `
     -DefaultVersion {{2}}
@@ -139,7 +138,7 @@ Using the console, you can view all the versions of the selected launch template
 **To describe a launch template version**  
 Use the [describe-launch-template-versions](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-launch-template-versions.html) command and specify the version numbers. In the following example, versions `{{1}}` and {{`3`}} are specified.
 
-```
+```bash
 aws ec2 describe-launch-template-versions \
     --launch-template-id {{lt-0abcd290751193123}} \
     --versions {{1 3}}
@@ -148,7 +147,7 @@ aws ec2 describe-launch-template-versions \
 **To describe the latest and default launch template versions in your account**  
 Use the [describe-launch-template-versions](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-launch-template-versions.html) command and specify `$Latest`, `$Default`, or both. You must omit the launch template ID and name in the call. You can't specify version numbers.
 
-```
+```bash
 aws ec2 describe-launch-template-versions \
     --versions "{{$Latest}},{{$Default}}"
 ```
@@ -159,7 +158,7 @@ aws ec2 describe-launch-template-versions \
 **To describe a launch template version**  
 Use the [Get-EC2TemplateVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2TemplateVersion.html) Cmdlet and specify the version numbers. In the following example, versions `{{1}}` and {{`3`}} are specified.
 
-```
+```powershell
 Get-EC2TemplateVersion `
     -LaunchTemplateId {{lt-0abcd290751193123}} `
     -Version {{1,3}}
@@ -168,7 +167,7 @@ Get-EC2TemplateVersion `
 **To describe the latest and default launch template versions in your account**  
 Use the [Get-EC2TemplateVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2TemplateVersion.html) Cmdlet and specify `$Latest`, `$Default`, or both. You must omit the launch template ID and name in the call. You can't specify version numbers.
 
-```
+```powershell
 Get-EC2TemplateVersion `
     -Version '{{$Latest}}','{{$Default}}'
 ```

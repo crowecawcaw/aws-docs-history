@@ -1,7 +1,6 @@
 
 
 # Connect to your Linux instance using an SSH client
-<a name="connect-linux-inst-ssh"></a>
 
 You can use Secure Shell (SSH) to connect to your Linux instance from your local computer. For more information about other options, see [Connect to your EC2 instance](connect.md).
 
@@ -29,7 +28,7 @@ Ensure that the security group associated with your instance allows incoming SSH
 **Install an SSH client on your local computer (if needed).**  
 Your local computer might have an SSH client installed by default. You can verify this by entering the following command in a terminal window. If your computer doesn't recognize the command, you must install an SSH client.  
 
-```
+```bash
 ssh
 ```
 The following are some of the possible options for Windows. If your computer runs a different operating system, see the documentation for that operating system for SSH client options.
@@ -47,20 +46,20 @@ For earlier versions of Windows, download and install [Win32-OpenSSH](https://gi
 To install OpenSSH on your Windows OS using PowerShell, you must be running PowerShell version 5.1 or later, and your account must be a member of the built-in Administrators group. Run `$PSVersionTable.PSVersion` from PowerShell to check your PowerShell version.  
 To check whether you are a member of the built-in Administrators group, run the following PowerShell command:  
 
-```
+```powershell
 (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 ```
 If you are a member of the built-in Administrators group, the output is `True`.
 
 To install OpenSSH for Windows using PowerShell, run the following PowerShell command.
 
-```
+```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 ```
 
 The following is example output.
 
-```
+```powershell
 Path          :
 Online        : True
 RestartNeeded : False
@@ -68,13 +67,13 @@ RestartNeeded : False
 
 To uninstall OpenSSH from Windows using PowerShell, run the following PowerShell command.
 
-```
+```powershell
 Remove-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
 ```
 
 The following is example output.
 
-```
+```powershell
 Path          :
 Online        : True
 RestartNeeded : True
@@ -89,7 +88,7 @@ Follow the instructions in [Install Windows Subsystem for Linux on your EC2 Wind
 
 In a WSL terminal window, copy the `.pem` file (for the key pair that you specified for your instance at launch) from Windows to WSL. Note the fully-qualified path to the `.pem` file on WSL to use when connecting to your instance. For information about how to specify the path to your Windows hard drive, see [How do I access my C drive?](https://learn.microsoft.com/en-us/windows/wsl/faq#how-do-i-access-my-c--drive-).
 
-```
+```bash
 cp /mnt/{{<Windows drive letter>/path/my-key-pair}}.pem ~/{{WSL-path/my-key-pair}}.pem
 ```
 
@@ -107,12 +106,12 @@ Use the following procedure to connect to your Linux instance using an SSH clien
 1. Use the **ssh** command to connect to the instance. You need the details about your instance that you gathered as part of the prerequisites. For example, you need the location of the private key (`.pem` file), the username, and the public DNS name or IPv6 address. The following are example commands.
    + (Public DNS) To use the public DNS name, enter the following command.
 
-     ```
+     ```bash
      ssh -i {{/path/key-pair-name}}.pem {{instance-user-name}}@{{instance-public-dns-name}}
      ```
    + (IPv6) Alternatively, if your instance has an IPv6 address, enter the following command to use the IPv6 address.
 
-     ```
+     ```bash
      ssh -i {{/path/key-pair-name}}.pem {{instance-user-name}}@{{2001:db8::1234:5678:1.2.3.4}}
      ```
 

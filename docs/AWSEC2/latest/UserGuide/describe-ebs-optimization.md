@@ -1,7 +1,6 @@
 
 
 # Find EBS-optimized EC2 instance types
-<a name="describe-ebs-optimization"></a>
 
 You can view the instances types that support EBS optimization in each Region.
 
@@ -26,7 +25,7 @@ You can view the instances types that support EBS optimization in each Region.
 **To find instance types that are EBS-optimized by default**  
 Use the following [ describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command.
 
-```
+```bash
 aws ec2 describe-instance-types \
 --filters Name=ebs-info.ebs-optimized-support,Values=default  \
 --query 'InstanceTypes[].{InstanceType:InstanceType, "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps, MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops, "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
@@ -36,7 +35,7 @@ aws ec2 describe-instance-types \
 **To find instance types that optionally support EBS optimization**  
 Use the following [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command.
 
-```
+```bash
 aws ec2 describe-instance-types \
 --filters Name=ebs-info.ebs-optimized-support,Values=supported \
 --query 'InstanceTypes[].{InstanceType:InstanceType, "MaxBandwidth(Mb/s)":EbsInfo.EbsOptimizedInfo.MaximumBandwidthInMbps, MaxIOPS:EbsInfo.EbsOptimizedInfo.MaximumIops, "MaxThroughput(MB/s)":EbsInfo.EbsOptimizedInfo.MaximumThroughputInMBps}' \
@@ -76,7 +75,7 @@ The following is example output for `eu-west-1`.
 **To find instance types that are EBS-optimized by default**  
 Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet.
 
-```
+```powershell
 Get-EC2InstanceType `
     -Filter @{Name="ebs-info.ebs-optimized-support"; Values="default"} | `
     Select InstanceType, `
@@ -88,7 +87,7 @@ Get-EC2InstanceType `
 **To find instance types that optionally support EBS optimization**  
 Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet.
 
-```
+```powershell
 Get-EC2InstanceType `
     -Filter @{Name="ebs-info.ebs-optimized-support"; Values="supported"} | `
     Select InstanceType, `

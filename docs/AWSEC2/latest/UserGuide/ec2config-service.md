@@ -1,7 +1,6 @@
 
 
 # Use the EC2Config service to perform tasks during EC2 legacy Windows operating system instance launch
-<a name="ec2config-service"></a>
 
 **Note**  
 EC2Config has reached the end of support. The operating system versions that it runs on are no longer supported by Microsoft. We strongly recommend that you upgrade to the latest launch agent.  
@@ -119,7 +118,7 @@ This file contains settings that control how EC2Config prepares an instance for 
 **Note**  
 This adds a DNS suffix lookup for the following domain and configures other standard suffixes. For more information about how launch agents set DNS suffixes, see [Configure DNS Suffix for EC2 Windows launch agents](launch-agents-set-dns.md).  
 
-  ```
+  ```bash
   {{region}}.ec2-utilities.amazonaws.com
   ```
 + `WaitForMetaDataAvailable`—Ensures that the EC2Config service will wait for metadata to be accessible and the network available before continuing with the boot. This check ensures that EC2Config can obtain information from metadata for activation and other plug-ins. 
@@ -130,7 +129,7 @@ This adds a DNS suffix lookup for the following domain and configures other stan
 
 This file contains settings that control drive letter mappings. By default, a volume can be mapped to any available drive letter. You can mount a volume to a particular drive letter as follows.
 
-```
+```bash
 <?xml version="1.0" standalone="yes"?>
 <DriveLetterMapping>
   <Mapping>
@@ -169,7 +168,7 @@ This file contains settings that control the information that's displayed on the
 
 You can remove any of the information that's displayed by default by deleting its entry. You can add additional instance metadata to display as follows.
 
-```
+```bash
 <WallpaperInformation>
   <name>{{display_name}}</name>
   <source>metadata</source>
@@ -179,7 +178,7 @@ You can remove any of the information that's displayed by default by deleting it
 
 You can add additional System environment variables to display as follows.
 
-```
+```bash
 <WallpaperInformation>
   <name>{{display_name}}</name>
   <source>EnvironmentVariable</source>
@@ -192,7 +191,7 @@ This file contains settings that control how EC2Config initializes drives.
 
 By default, EC2Config initialize drives that were not brought online with the operating system. You can customize the plugin as follows.
 
-```
+```bash
 <InitializeDrivesSettings>
     <SettingsGroup>{{setting}}</SettingsGroup>
 </InitializeDrivesSettings>

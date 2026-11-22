@@ -1,7 +1,6 @@
 
 
 # Compute PCR measurements for a custom AMI
-<a name="create-pcr-compute"></a>
 
 The `nitro-tpm-pcr-compute` utility enables you to generate the reference measurements for an Attestable AMI during build time based on its Unified Kernel Image (UKI).
 
@@ -12,7 +11,7 @@ The sample Amazon Linux 2023 image description automatically installs the utilit
 
 If you are using Amazon Linux 2023, you can install the `nitro-tpm-pcr-compute` utility from the Amazon Linux repository as follows.
 
-```
+```bash
 sudo yum install aws-nitro-tpm-tools
 ```
 
@@ -29,14 +28,14 @@ When you run the command, you must specify the following:
 **To generate the reference measurements for an Attestable AMI:**  
 Use the following command and parameters:
 
-```
+```bash
 /usr/bin/nitro-tpm-pcr-compute \
 --image {{UKI.efi}}
 ```
 
 The utility returns the reference measurements in the following JSON format:
 
-```
+```JSON
 {
   "Measurements": {
     "HashAlgorithm": "SHA384 { ... }",

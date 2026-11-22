@@ -1,7 +1,6 @@
 
 
 # Quotas for EC2 Instance Connect Endpoint
-<a name="eice-quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is Region-specific.
 

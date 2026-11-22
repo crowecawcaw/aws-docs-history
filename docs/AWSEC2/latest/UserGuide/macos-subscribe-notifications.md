@@ -1,7 +1,6 @@
 
 
 # Subscribe to macOS AMI notifications
-<a name="macos-subscribe-notifications"></a>
 
 To be notified when new AMIs are released or when bridgeOS has been updated, subscribe for notifications using Amazon SNS.
 

@@ -1,7 +1,6 @@
 
 
 # Use Amazon File Cache with Amazon EC2 instances
-<a name="AmazonEFC"></a>
 
 Amazon File Cache provides a fully managed, high-speed cache on AWS that makes it easier to process file data, regardless of where the data is stored. Amazon File Cache serves as a temporary, high-performance storage location for data that's stored in on-premises file systems, AWS file systems, and Amazon Simple Storage Service (Amazon S3) buckets. You can use this capability to make dispersed datasets available to file-based applications on AWS with a unified view, and at high speeds—sub-millisecond latencies and high throughput. For more information, see the [Amazon File Cache User Guide](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/what-is.html).
 

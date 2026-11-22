@@ -1,7 +1,6 @@
 
 
 # Prerequisites for EC2 instance hibernation
-<a name="hibernating-prerequisites"></a>
 
 You can enable hibernation support for an On-Demand Instance or a Spot Instance when you launch it. You can't enable hibernation on an existing instance, whether it is running or stopped. For more information, see [Enable instance hibernation](enabling-hibernation.md).
 
@@ -76,7 +75,7 @@ Support for other versions of Ubuntu and other operating systems is coming soon.
 <a name="hibernation-prereqs-supported-instance-families"></a>
 
 You must use an instance family that supports hibernation. However, bare metal instances are not supported.
-+ General purpose: M3, M4, M5, M5a, M5ad, M5d, M6a, M6g, M6gd, M6i, M6id, M6idn, M6in, M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8azn, M8g, M8gb, M8gd, M8gn, M8i, M8i-flex, M8in, M8idn, M8ib, M8idb, M9g, M9gd, T2, T3, T3a, T4g, T8i
++ General purpose: M3, M4, M5, M5a, M5ad, M5d, M6a, M6g, M6gd, M6i, M6id, M6idn, M6in, M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8azn, M8g, M8gb, M8gd, M8gn, M8i, M8i-flex, M8in, M8idn, M8ib, M8idb, M9g, M9gd, T2, T3, T3a, T4g, T8i, T9g
 + Compute optimized: C3, C4, C5, C5d, C6a, C6g, C6gd, C6gn, C6i, C6id, C6in, C7a, C7g, C7gd, C7gn, C7i, C7i-flex, C8a, C8g, C8gb, C8gd, C8gn, C8i, C8i-flex, C8in, C8ib, C9g, C9gd
 + Memory optimized: R3, R4, R5, R5a, R5ad, R5d, R6a, R6g, R6gd, R6idn, R6in, R7a, R7g, R7gd, R7i, R7iz, R8a, R8g, R8gb, R8gd, R8gn, R8i, R8i-flex, R8in, R8idn, R8ib, R8idb, R9g, R9gd, X2gd, X8aedz, X8i
 + Storage optimized: I3, I3en, I4g, I7i, I7ie, I8g, I8ge, Im4gn, Is4gen
@@ -100,7 +99,7 @@ You must use an instance family that supports hibernation. However, bare metal i
 **To get the instance types that support hibernation**  
 Use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/describe-instance-types/.html) command. Note that the available instance types vary by Region.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --filters Name=hibernation-supported,Values=true \
     --query "InstanceTypes[*].[InstanceType]" \
@@ -113,7 +112,7 @@ aws ec2 describe-instance-types \
 **To get the instance types that support hibernation**  
 Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet. Note that the available instance types vary by Region.
 
-```
+```powershell
 (Get-EC2InstanceType `
     -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object
 ```

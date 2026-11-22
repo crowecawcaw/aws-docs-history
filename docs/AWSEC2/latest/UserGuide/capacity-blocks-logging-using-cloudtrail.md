@@ -1,7 +1,6 @@
 
 
 # Logging Capacity Blocks API calls with AWS CloudTrail
-<a name="capacity-blocks-logging-using-cloudtrail"></a>
 
 Capacity Blocks is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Capacity Blocks. CloudTrail captures API calls for Capacity Blocks as events. The calls captured include calls from the Capacity Blocks console and code calls to the Capacity Blocks API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Capacity Blocks. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Capacity Blocks, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -46,7 +45,7 @@ Some fields have been redacted from the examples for data privacy.
 ### TerminateCapacityBlocksInstances
 <a name="understanding-capacity-blocks-entries-terminatecapacityblockinstances"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -86,7 +85,7 @@ Some fields have been redacted from the examples for data privacy.
 ### CapacityBlockPaymentFailed
 <a name="understanding-capacity-blocks-entries-capacityblockpaymentfailed"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -122,7 +121,7 @@ Some fields have been redacted from the examples for data privacy.
 ### CapacityBlockScheduled
 <a name="understanding-capacity-blocks-entries-capacityblockscheduled"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -158,7 +157,7 @@ Some fields have been redacted from the examples for data privacy.
 ### CapacityBlockActive
 <a name="understanding-capacity-blocks-entries-capacityblockactive"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -194,7 +193,7 @@ Some fields have been redacted from the examples for data privacy.
 ### CapacityBlockFailed
 <a name="understanding-capacity-blocks-entries-capacityblockfailed"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {
@@ -230,7 +229,7 @@ Some fields have been redacted from the examples for data privacy.
 ### CapacityBlockExpired
 <a name="understanding-capacity-blocks-entries-capacityblockexpired"></a>
 
-```
+```json
 {
   "eventVersion": "1.05",
   "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Launch instances into an existing Capacity Reservation
-<a name="capacity-reservations-launch"></a>
 
 You can only launch an instance into a Capacity Reservation that:
 + Has matching attributes (instance type, platform, Availability Zone, and tenancy)
@@ -43,7 +42,7 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 
 The following example launches an instance into any open Capacity Reservation with matching attributes and available capacity:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count {{1}} \
@@ -55,7 +54,7 @@ aws ec2 run-instances \
 
 The following example launches an instance into a `targeted` Capacity Reservation:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count {{1}} \
@@ -68,7 +67,7 @@ aws ec2 run-instances \
 
 The following example launches an instance into the specified Capacity Reservation group:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count {{1}} \
@@ -81,7 +80,7 @@ aws ec2 run-instances \
 
 The following example launches an instance into a Capacity Reservation only. Because it does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with matching attributes and available capacity:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count {{1}} \
@@ -94,7 +93,7 @@ aws ec2 run-instances \
 
 The following example launches an instance into a specific Capacity Reservation only. If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --count {{1}} \
@@ -114,7 +113,7 @@ Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/referenc
 
 The following example launches an instance into any open Capacity Reservation with matching attributes and available capacity:
 
-```
+```powershell
 New-EC2Instance `
     -ImageId {{ami-0abcdef1234567890}} `
     -InstanceType {{t2.micro}} `
@@ -125,7 +124,7 @@ New-EC2Instance `
 
 The following example launches an instance into a `targeted` Capacity Reservation:
 
-```
+```powershell
 New-EC2Instance `
     -ImageId {{ami-0abcdef1234567890}} `
     -InstanceType {{t2.micro}} `
@@ -136,7 +135,7 @@ New-EC2Instance `
 
 The following example launches an instance into the specified Capacity Reservation group:
 
-```
+```powershell
 New-EC2Instance `
     -ImageId {{ami-0abcdef1234567890}} `
     -InstanceType {{t2.micro}} `
@@ -148,7 +147,7 @@ New-EC2Instance `
 
 The following example launches an instance into a Capacity Reservation only. Because it does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with matching attributes and available capacity:
 
-```
+```powershell
 New-EC2Instance `
     -ImageId {{ami-0abcdef1234567890}} `
     -InstanceType {{t2.micro}} `
@@ -159,7 +158,7 @@ New-EC2Instance `
 
 The following example launches an instance into a specific Capacity Reservation only. If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
 
-```
+```powershell
 New-EC2Instance `
     -ImageId {{ami-0abcdef1234567890}} `
     -InstanceType {{t2.micro}} `

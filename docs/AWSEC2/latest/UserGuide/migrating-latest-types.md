@@ -1,7 +1,6 @@
 
 
 # Migrate an EC2 Windows instance to a Nitro-based instance type
-<a name="migrating-latest-types"></a>
 
 The AWS Windows AMIs are configured with the default settings used by the Microsoft installation media, with some customizations. The customizations include drivers and configurations that support [Nitro-based instances](instance-types.md#instance-hypervisor-type), such as M5 and C5.
 
@@ -100,7 +99,7 @@ The following instructions are modified specifically for when you install or upg
 
 1. Open a **PowerShell** session and run the following command: 
 
-   ```
+   ```batch
    PS C:\> start rundll32.exe sppnp.dll,Sysprep_Generalize_Pnp -wait
    ```
 **Note**  
@@ -162,7 +161,7 @@ The following update to power management settings sets displays to never turn of
 
 1. Run the following commands:
 
-   ```
+   ```batch
    powercfg /setacvalueindex 381b4222-f694-41f0-9685-ff5bb260df2e 7516b95f-f776-4464-8c53-06167f40cc99 3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e 0
    powercfg /setacvalueindex 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c 7516b95f-f776-4464-8c53-06167f40cc99 3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e 0
    powercfg /setacvalueindex a1841308-3541-4fab-bc81-f71556f20b4a 7516b95f-f776-4464-8c53-06167f40cc99 3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e 0

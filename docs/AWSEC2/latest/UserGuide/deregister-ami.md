@@ -1,7 +1,6 @@
 
 
 # Deregister an Amazon EC2 AMI
-<a name="deregister-ami"></a>
 
 When you deregister an AMI, Amazon EC2 permanently deletes it. After you deregister an AMI, you can't use it to launch new instances. You might consider deregistering an AMI when you have finished using it.
 
@@ -58,14 +57,14 @@ If a snapshot is associated with other AMIs, it is not deleted, even if the chec
 **To deregister an AMI**  
 Use the following [deregister-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/deregister-image.html) command.
 
-```
+```bash
 aws ec2 deregister-image --image-id {{ami-0abcdef1234567890}}
 ```
 
 **To deregister an AMI and delete its associated snapshots**  
 Use the following [deregister-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/deregister-image.html) command and specify the `--delete-associated-snapshots` parameter. Note that if a snapshot is associated with other AMIs, it is not deleted, even if you specify this parameter.
 
-```
+```bash
 aws ec2 deregister-image \
     --image-id {{ami-0abcdef1234567890}} \
     --delete-associated-snapshots
@@ -77,14 +76,14 @@ aws ec2 deregister-image \
 **To deregister an AMI**  
 Use the [Unregister-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2Image.html) cmdlet.
 
-```
+```PowerShell
 Unregister-EC2Image -ImageId {{ami-0abcdef1234567890}}
 ```
 
 **To deregister an AMI and delete its associated snapshots**  
 Use the [Unregister-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2Image.html) cmdlet and specify the `-DeleteAssociatedSnapshots` parameter. Note that if a snapshot is associated with other AMIs, it is not deleted, even if you specify this parameter.
 
-```
+```PowerShell
 Unregister-EC2Image `
     -ImageId {{ami-0abcdef1234567890}} `
     -DeleteAssociatedSnapshots
@@ -105,7 +104,7 @@ To avoid incurring these types of unnecessary costs, we recommend deleting any r
 + Delete the associated snapshots while deregistering the AMI. For more information, see [Deregister an AMI](#deregister-an-ami).
 + If you deregister an AMI without deleting its associated snaphots, you can manually [delete the snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html#ebs-delete-snapshot). The snapshot of the instance root volume created during AMI creation has the following description format:
 
-  ```
+  ```bash
   Created by CreateImage({{i-1234567890abcdef0}}) for {{ami-0abcdef1234567890}}
   ```
 + If you no longer need the instances that were launched from the AMI, you can [stop](Stop_Start.md#starting-stopping-instances) or [terminate](terminating-instances.md#terminating-instances-console) them. To list the instances, filter by the ID of the AMI.

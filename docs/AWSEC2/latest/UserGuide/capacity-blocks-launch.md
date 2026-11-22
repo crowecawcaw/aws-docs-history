@@ -1,7 +1,6 @@
 
 
 # Launch instances using Capacity Blocks
-<a name="capacity-blocks-launch"></a>
 
 To use your Capacity Block, you must specify the Capacity Block reservation ID when launching instances. Launching an instance into a Capacity Block reduces the available capacity by the number of instances launched. For example, if your purchased instance capacity is eight instances and you launch four instances, the available capacity is reduced by four.
 
@@ -39,7 +38,7 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 
 The following example launches an instance into a specific Capacity Block.
 
-```
+```bash
 aws ec2 run-instances \
 --image-id {{ami-0abcdef1234567890}} \
 --count {{1}} \
@@ -52,7 +51,7 @@ aws ec2 run-instances \
 
 The following example launches an instance into an UltraServer Capacity Block Capacity Reservation Resource Group.
 
-```
+```bash
 aws ec2 run-instances \
 --image-id {{ami-0abcdef1234567890}} \
 --count {{1}} \
@@ -69,14 +68,14 @@ aws ec2 run-instances \
 **To launch instances into a Capacity Block**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-InstanceMarketOption` option defined as follows.
 
-```
+```PowerShell
 $marketoption = New-Object Amazon.EC2.Model.InstanceMarketOptionsRequest
 $marketoption.MarketType = "capacity-block"
 ```
 
 The following example launches an instance into a specific Capacity Block.
 
-```
+```powershell
 New-EC2Instance `
 -ImageId {{ami-0abcdef1234567890}} `
 -InstanceType {{p5.48xlarge}} `
@@ -88,7 +87,7 @@ New-EC2Instance `
 
 The following example launches an instance into an UltraServer Capacity Block Capacity Reservation Resource Group.
 
-```
+```powershell
 New-EC2Instance `
 -ImageId {{ami-0abcdef1234567890}} `
 -InstanceType {{p6e-gb200.36xlarge}} `

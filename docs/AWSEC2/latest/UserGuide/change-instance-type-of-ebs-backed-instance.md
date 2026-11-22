@@ -1,7 +1,6 @@
 
 
 # Change the instance type for your Amazon EC2 instance
-<a name="change-instance-type-of-ebs-backed-instance"></a>
 
 Use the following instructions to change the instance type of an Amazon EBS-backed instance if the instance type that you need is compatible with the current configuration of your instance. For more information, see [Compatibility for changing the instance type](resize-limitations.md).
 
@@ -54,6 +53,6 @@ Use the following instructions to change the instance type of an Amazon EBS-back
 **Important**  
 The administrator password will reset when you enable the initialize instance EC2 Launch script. You can modify the configuration file to disable the administrator password reset by specifying it in the settings for the initialization tasks. For steps on how to disable password reset, see [Configure initialization tasks](ec2launch-config.md#ec2launch-inittasks) (EC2Launch) or [Change settings](ec2launch-v2-settings.md#ec2launch-v2-ui) (EC2Launch v2).
 
-   ```
+   ```PowerShell
    PS C:\> C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
    ```

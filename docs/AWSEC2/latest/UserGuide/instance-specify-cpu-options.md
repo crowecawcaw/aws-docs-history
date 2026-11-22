@@ -1,7 +1,6 @@
 
 
 # Specify CPU options for an Amazon EC2 instance
-<a name="instance-specify-cpu-options"></a>
 
 You can specify CPU options during or after instance launch.
 
@@ -37,7 +36,7 @@ To disable simultaneous multithreading (SMT), also known as hyper-threading, spe
 **To disable SMT during instance launch**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) AWS CLI command and specify a value of `1` for `ThreadsPerCore` for the `--cpu-options` parameter. For `CoreCount`, specify the number of CPU cores. In this example, to specify the default CPU core count for an `r7i.4xlarge` instance, specify a value of `8`.
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --instance-type {{r7i.4xlarge}} \
@@ -51,7 +50,7 @@ aws ec2 run-instances \
 **To disable SMT during instance launch**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) command and specify a value of `1` for `ThreadsPerCore` for the `-CpuOptions` parameter. For `CoreCount`, specify the number of CPU cores. In this example, to specify the default CPU core count for an `r7i.4xlarge` instance, specify a value of `8`.
 
-```
+```powershell
 New-EC2Instance `
     -ImageId '{{ami-0abcdef1234567890}}' `
     -InstanceType '{{r7i.4xlarge}}' `
@@ -96,7 +95,7 @@ The following example launches an `r5.4xlarge` instance with 4 vCPUs.
 **To specify a custom number of vCPUs during instance launch**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) AWS CLI command and specify the number of CPU cores and number of threads in the `--cpu-options` parameter. You can specify 2 CPU cores and 2 threads per core to get 4 vCPUs.
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --instance-type {{r7i.4xlarge}} \
@@ -106,7 +105,7 @@ aws ec2 run-instances \
 
 Alternatively, specify 4 CPU cores and 1 thread per core (disable SMT) to get 4 vCPUs:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --instance-type {{r7i.4xlarge}} \
@@ -120,7 +119,7 @@ aws ec2 run-instances \
 **To specify a custom number of vCPUs during instance launch**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) command and specify the number of CPU cores and number of threads in the `-CpuOptions` parameter. You can specify 2 CPU cores and 2 threads per core to get 4 vCPUs.
 
-```
+```powershell
 New-EC2Instance `
     -ImageId '{{ami-0abcdef1234567890}}' `
     -InstanceType '{{r7i.4xlarge}}' `
@@ -130,7 +129,7 @@ New-EC2Instance `
 
 Alternatively, specify 4 CPU cores and 1 thread per core (disable SMT) to get 4 vCPUs:
 
-```
+```powershell
 New-EC2Instance `
     -ImageId '{{ami-0abcdef1234567890}}' `
     -InstanceType '{{r7i.4xlarge}}' `
@@ -172,7 +171,7 @@ The following example creates a launch template that specifies the configuration
 **To specify a custom number of vCPUs in a launch template**  
 Use the [create-launch-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-launch-template.html) AWS CLI command and specify the number of CPU cores and number of threads in the `CpuOptions` parameter. You can specify 2 CPU cores and 2 threads per core to get 4 vCPUs.
 
-```
+```bash
 aws ec2 create-launch-template \
     --launch-template-name {{TemplateForCPUOptions}} \
     --version-description {{CPUOptionsVersion1}} \
@@ -181,7 +180,7 @@ aws ec2 create-launch-template \
 
 The following is an example JSON file that contains the launch template data, which includes the CPU options, for the instance configuration for this example.
 
-```
+```JSON
 {
     "NetworkInterfaces": [{
         "AssociatePublicIpAddress": true,
@@ -207,7 +206,7 @@ The following is an example JSON file that contains the launch template data, wh
 
 Alternatively, specify 4 CPU cores and 1 thread per core (disable SMT) to get 4 vCPUs:
 
-```
+```JSON
 {
     "NetworkInterfaces": [{
         "AssociatePublicIpAddress": true,
@@ -237,7 +236,7 @@ Alternatively, specify 4 CPU cores and 1 thread per core (disable SMT) to get 4 
 **To specify a custom number of vCPUs in a launch template**  
 Use the [New-EC2LaunchTemplate](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2LaunchTemplate.html).
 
-```
+```powershell
 New-EC2LaunchTemplate `
     -LaunchTemplateName '{{TemplateForCPUOptions}}' `
     -VersionDescription '{{CPUOptionsVersion1}}' `
@@ -295,7 +294,7 @@ The following examples show two possible configurations on an `m6i.4xlarge` inst
 
 **Example 1:** Run 4 CPU cores with 2 threads per core, for a total of 8 vCPU.
 
-```
+```bash
 aws ec2 modify-instance-cpu-options \
     --instance-id {{i-1234567890abcdef0}} \
 
@@ -305,7 +304,7 @@ aws ec2 modify-instance-cpu-options \
 
 **Example 2:** Disable simultaneous multi-threading by changing the number of threads that run per core to `1`. The resulting configuration also runs a total of 8 vCPUs (8 CPU cores with 1 thread per core).
 
-```
+```bash
 aws ec2 modify-instance-cpu-options \
     --instance-id {{1234567890abcdef0}} \
     --core-count={{8}} \
@@ -320,7 +319,7 @@ Use the [Edit-EC2InstanceCpuOption](https://docs.aws.amazon.com/powershell/lates
 
 **Example 1:** Run 4 CPU cores with 2 threads per core, for a total of 8 vCPU.
 
-```
+```powershell
 Edit-EC2InstanceCpuOption `
     -InstanceId '{{i-1234567890abcdef0}}' `
     -CoreCount 4 `
@@ -329,7 +328,7 @@ Edit-EC2InstanceCpuOption `
 
 **Example 2:** Disable simultaneous multi-threading by changing the number of threads that run per core to `1`. The resulting configuration also runs a total of 8 vCPUs (8 CPU cores with 1 thread per core).
 
-```
+```powershell
 Edit-EC2InstanceCpuOption `
     -InstanceId '{{i-1234567890abcdef0}}' `
     -CoreCount 8 `

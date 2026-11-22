@@ -1,7 +1,6 @@
 
 
 # Security best practices for Windows instances
-<a name="ec2-windows-security-best-practices"></a>
 
 We recommend that you follow these security best practices for your Windows instances.
 

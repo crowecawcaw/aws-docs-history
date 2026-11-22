@@ -1,7 +1,6 @@
 
 
 # Develop EC2Rescue modules for Amazon EC2 Linux instances
-<a name="ec2rl_moduledev"></a>
 
 Modules are written in YAML, a data serialization standard. A module's YAML file consists of a single document, representing the module and its attributes.
 
@@ -65,7 +64,7 @@ The following should be noted when constructing your module YAML files:
 
 Example one (`mod.d/ps.yaml`):
 
-```
+```yaml
 --- !ec2rlcore.module.Module
 # Module document. Translates directly into an almost-complete Module object
 name: !!str ps

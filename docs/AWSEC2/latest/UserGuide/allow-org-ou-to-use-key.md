@@ -1,7 +1,6 @@
 
 
 # Allow organizations and OUs to use a KMS key
-<a name="allow-org-ou-to-use-key"></a>
 
 If you share an AMI that is backed by encrypted snapshots, you must also allow the organizations or organizational units (OUs) to use the KMS keys that were used to encrypt the snapshots.
 
@@ -16,7 +15,7 @@ The condition keys are used as follows:
 
 To give an organization (including the OUs and accounts that belong to it) permission to use a KMS key, add the following statement to the key policy.
 
-```
+```JSON
 {
     "Sid": "Allow access for organization root",
     "Effect": "Allow",
@@ -42,7 +41,7 @@ To give an organization (including the OUs and accounts that belong to it) permi
 
 To give specific OUs (and the accounts that belong to it) permission to use a KMS key, you can use a policy similar to the following example.
 
-```
+```JSON
 {
         "Sid": "Allow access for specific OUs and their descendants",
         "Effect": "Allow",

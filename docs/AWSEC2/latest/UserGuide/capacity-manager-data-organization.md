@@ -1,7 +1,6 @@
 
 
 # Organizing your data in Capacity Manager
-<a name="capacity-manager-data-organization"></a>
 
 Capacity Manager uses a combination of metrics, data points, dimensions, date ranges, and periods to organize your capacity data. This can help you analyze usage patterns and make informed decisions about your resources.
 

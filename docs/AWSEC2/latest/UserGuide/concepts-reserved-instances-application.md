@@ -1,7 +1,6 @@
 
 
 # How billing works with Reserved Instances
-<a name="concepts-reserved-instances-application"></a>
 
 All Reserved Instances provide you with a discount compared to On-Demand pricing. With Reserved Instances, you pay for the entire term regardless of actual use. You can choose to pay for your Reserved Instance upfront, partially upfront, or monthly, depending on the [payment option](ec2-reserved-instances.md#ri-payment-options) specified for the Reserved Instance. 
 
@@ -84,13 +83,13 @@ The following rules apply:
 
 You can determine the pricing tier for your account by calculating the list value for all of your Reserved Instances in a Region. Multiply the hourly recurring price for each reservation by the total number of hours for the term and add the undiscounted upfront price (also known as the fixed price) at the time of purchase. Because the list value is based on undiscounted (public) pricing, it is not affected if you qualify for a volume discount or if the price drops after you buy your Reserved Instances.
 
-```
+```bash
 List value = fixed price + (undiscounted recurring hourly price * hours in term)
 ```
 
 For example, for a 1-year Partial Upfront `t2.small` Reserved Instance, assume the upfront price is $60.00 and the hourly rate is $0.007. This provides a list value of $121.32.
 
-```
+```bash
 121.32 = 60.00 + (0.007 * 8760)
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Verify the fingerprint of your key pair
-<a name="verify-keys"></a>
 
 To verify the fingerprint of your key pair, compare the fingerprint displayed on the **Key pairs** page in the Amazon EC2 console, or returned by the [describe-key-pairs](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-key-pairs.html) command, with the fingerprint that you generate using the private key on your local computer. These fingerprints should match.
 
@@ -47,13 +46,13 @@ If you're using a Windows local machine, you can run the following commands usin
 
   For RSA key pairs:
 
-  ```
+  ```bash
   openssl pkcs8 -in {{path_to_private_key}} -inform PEM -outform DER -topk8 -nocrypt | openssl sha1 -c
   ```
 
   (Linux instances) For ED25519 key pairs:
 
-  ```
+  ```bash
   ssh-keygen -l -f {{path_to_private_key}}
   ```
 + **(RSA key pairs only) If you imported the public key to Amazon EC2**
@@ -62,7 +61,7 @@ If you're using a Windows local machine, you can run the following commands usin
 
   Use the OpenSSL tools to generate the fingerprint as shown in the following example.
 
-  ```
+  ```bash
   openssl rsa -in {{path_to_private_key}} -pubout -outform DER | openssl md5 -c
   ```
 + **If you created an OpenSSH key pair using OpenSSH 7.8 or later and imported the public key to Amazon EC2**
@@ -71,12 +70,12 @@ If you're using a Windows local machine, you can run the following commands usin
 
   For RSA key pairs:
 
-  ```
+  ```bash
   ssh-keygen -ef {{path_to_private_key}} -m PEM | openssl rsa -RSAPublicKey_in -outform DER | openssl md5 -c
   ```
 
   (Linux instances) For ED25519 key pairs:
 
-  ```
+  ```bash
   ssh-keygen -l -f {{path_to_private_key}}
   ```

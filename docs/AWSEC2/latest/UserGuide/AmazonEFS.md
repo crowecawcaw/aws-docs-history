@@ -1,7 +1,6 @@
 
 
 # Use Amazon EFS with Amazon EC2 Linux instances
-<a name="AmazonEFS"></a>
 
 **Note**  
 Amazon EFS is not supported on Windows instances.
@@ -80,7 +79,7 @@ You can connect to your instance and verify that the file system is mounted to t
 
 1. From the terminal window for the instance, run the **df -T** command to verify that the EFS file system is mounted.
 
-   ```
+   ```bash
    $ df -T
    Filesystem     Type              1K-blocks    Used          Available Use% Mounted on
    /dev/xvda1     ext4                8123812 1949800            6073764  25% /
@@ -91,7 +90,7 @@ You can connect to your instance and verify that the file system is mounted to t
 
    Note that the name of the file system, shown in the example output as {{efs-dns}}, has the following form.
 
-   ```
+   ```bash
    {{file-system-id}}.efs.{{aws-region}}.amazonaws.com:/
    ```
 
@@ -99,13 +98,13 @@ You can connect to your instance and verify that the file system is mounted to t
 
    1. From the instance, run the following command to create the file.
 
-      ```
+      ```bash
       $ sudo touch {{/mnt/efs}}/test-file.txt
       ```
 
    1. From the other instance, run the following command to view the file.
 
-      ```
+      ```bash
       $ ls {{/mnt/efs}}
       test-file.txt
       ```

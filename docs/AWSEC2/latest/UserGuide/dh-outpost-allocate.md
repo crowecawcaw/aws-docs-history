@@ -1,7 +1,6 @@
 
 
 # Allocate an Amazon EC2 Dedicated Host on AWS Outposts
-<a name="dh-outpost-allocate"></a>
 
 You allocate and use Dedicated Hosts on Outposts in the same way that would with Dedicated Hosts in an AWS Region.
 
@@ -49,7 +48,7 @@ The value that you specify for **Quantity** must be equal to the number of asset
 **To allocate a Dedicated Host on an Outpost**  
 Use the [allocate-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html) command. For `--availability-zone`, specify the Availability Zone associated with the Outpost. For `--outpost-arn`, specify the ARN of the Outpost. Optionally, for `--asset-ids`, specify the IDs of the Outpost hardware assets to target.
 
-```
+```bash
 aws ec2 allocate-hosts \
     --availability-zone "{{us-east-1a}}" \
     --outpost-arn "{{arn:aws:outposts:us-east-1a:111122223333:outpost/op-4fe3dc21baEXAMPLE}}" \
@@ -65,7 +64,7 @@ aws ec2 allocate-hosts \
 **To allocate a Dedicated Host on an Outpost**  
 Use the [New-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Host.html) cmdlet. Specify the Availability Zone associated with the Outpost. Optionally, for `-AssetId`, specify the IDs of the Outpost hardware assets to target.
 
-```
+```powershell
 New-EC2Host `
     -AvailabilityZone "{{us-east-1a}}" `
     -OutpostArn "{{arn:aws:outposts:us-east-1a:111122223333:outpost/op-4fe3dc21baEXAMPLE}}" `

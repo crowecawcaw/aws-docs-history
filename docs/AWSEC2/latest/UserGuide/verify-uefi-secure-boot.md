@@ -1,7 +1,6 @@
 
 
 # Verify whether an Amazon EC2 instance is enabled for UEFI Secure Boot
-<a name="verify-uefi-secure-boot"></a>
 
 You can use the following procedures to determine whether an Amazon EC2 is enabled for UEFI Secure Boot.
 
@@ -13,7 +12,7 @@ You can use the `mokutil` utility to verify whether a Linux instance is enabled 
 **To verify whether a Linux instance is enabled for UEFI Secure Boot**  
 Connect to your instance and run the following command as `root` in a terminal window.
 
-```
+```bash
 mokutil --sb-state 
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Split off capacity from an existing Capacity Reservation
-<a name="capacity-reservations-split"></a>
 
 You can split off capacity from an existing Capacity Reservation to create a new reservation. By splitting capacity, you allocate a portion of the original reservation to a specific workload or share it with another AWS account. For example, to partially share a Capacity Reservation with another account, you can split off some of the capacity to create a smaller sized Capacity Reservation. The smaller sized Capacity Reservation can then be shared with the other accounts using [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html).
 
@@ -43,7 +42,7 @@ You can use tags to control access to Amazon EC2 resources, including splitting 
 
 To control access for splitting a Capacity Reservation using tags, make sure that you specify both resource and request tags in the policy statement because IAM policies are evaluated against both the source Capacity Reservation and the newly created Capacity Reservation. The following example policy includes the `ec2:ResourceTag` condition key with the tag `Owner=ExampleDepartment1` for the source Capacity Reservation and the `ec2:RequestTag` condition key with the tag `stack=production` for the newly created Capacity Reservation.
 
-```
+```json
 {
   "Statement": [
     {
@@ -102,7 +101,7 @@ You can split off capacity from an existing Capacity Reservation to create a new
 **To split off capacity**  
 Use the `create-capacity-reservation-by-splitting` command. The following example creates a new Capacity Reservation by splitting off 10 instances from the specified Capacity Reservation.
 
-```
+```bash
 aws ec2 create-capacity-reservation-by-splitting \
     --source-capacity-reservation-id {{cr-1234567890abdef0}} \
     --instance-count {{10}}
@@ -114,7 +113,7 @@ aws ec2 create-capacity-reservation-by-splitting \
 **To split off capacity**  
 Use the [New-EC2CapacityReservationBySplitting](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2CapacityReservationBySplitting.html) cmdlet. The following example creates a new Capacity Reservation by splitting off 10 instances from the specified Capacity Reservation.
 
-```
+```powershell
 New-EC2CapacityReservationBySplitting `
     -SourceCapacityReservationId {{cr-1234567890abdef0}} `
     -InstanceCount {{10}}

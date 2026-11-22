@@ -1,7 +1,6 @@
 
 
 # Reference for Amazon EC2 instance configuration parameters
-<a name="ec2-instance-launch-parameters"></a>
 
 The launch instance wizard and launch template in the Amazon EC2 console provide all the parameters for configuring an Amazon EC2 instance.
 

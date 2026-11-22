@@ -1,7 +1,6 @@
 
 
 # Change the security groups for your Amazon EC2 instance
-<a name="changing-security-group"></a>
 
 You can specify security groups for your Amazon EC2 instances when you launch them. After you launch an instance, you can add or remove security groups. You can also add, remove, or edit security group rules for associated security groups at any time.
 
@@ -42,7 +41,7 @@ After you launch an instance, you can add or remove security groups from the lis
 **To change the security groups for an instance**  
 Use the following [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command.
 
-```
+```bash
 aws ec2 modify-instance-attribute \
     --instance-id {{i-1234567890abcdef0}} \
     --groups {{sg-1234567890abcdef0}}
@@ -54,7 +53,7 @@ aws ec2 modify-instance-attribute \
 **To change the security groups for an instance**  
 Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -Group {{sg-1234567890abcdef0}}
@@ -126,7 +125,7 @@ If you add inbound rules for ports 22 (SSH) or 3389 (RDP), we strongly recommend
 **To add security group rules**  
 Use the [authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) command to add inbound rules. The following example allows inbound SSH traffic from the CIDR blocks in the specified prefix list.
 
-```
+```bash
 aws ec2 authorize-security-group-ingress \
     --group-id {{sg-1234567890abcdef0}} \
     --ip-permissions 'IpProtocol=tcp,FromPort=22,ToPort=22,PrefixListIds=[{PrefixListId={{pl-f8a6439156EXAMPLE}}}]'
@@ -134,7 +133,7 @@ aws ec2 authorize-security-group-ingress \
 
 Use the [authorize-security-group-egress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-egress.html) command to add outbound rules. The following example allows outbound TCP traffic on port 80 to instances with the specified security group.
 
-```
+```bash
 aws ec2 authorize-security-group-egress \
     --group-id {{sg-1234567890abcdef0}} \
     --ip-permissions 'IpProtocol=tcp,FromPort=80,ToPort=80,UserIdGroupPairs=[{GroupId={{sg-0aad1c26bb6EXAMPLE}}}]'
@@ -143,7 +142,7 @@ aws ec2 authorize-security-group-egress \
 **To remove security group rules**  
 Use the following [revoke-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-ingress.html) command to remove an inbound rule.
 
-```
+```bash
 aws ec2 revoke-security-group-egress \
     --group id {{sg-1234567890abcdef0}} \
     --security-group-rule-ids {{sgr-09ed298024EXAMPLE}}
@@ -151,7 +150,7 @@ aws ec2 revoke-security-group-egress \
 
 Use the following [revoke-security-group-egress](https://docs.aws.amazon.com/cli/latest/reference/ec2/revoke-security-group-egress.html) command to remove an outbound rule.
 
-```
+```bash
 aws ec2 revoke-security-group-ingress \
     --group id {{sg-1234567890abcdef0}} \
     --security-group-rule-ids {{sgr-0352250c1aEXAMPLE}}
@@ -160,7 +159,7 @@ aws ec2 revoke-security-group-ingress \
 **To modify security group rules**  
 Use the [modify-security-group-rules](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-security-group-rules.html) command. The following example changes the IPv4 CIDR block of the specified security group rule.
 
-```
+```bash
 aws ec2 modify-security-group-rules \
     --group id {{sg-1234567890abcdef0}} \
     --security-group-rules 'SecurityGroupRuleId={{sgr-09ed298024EXAMPLE}},SecurityGroupRule={IpProtocol=tcp,FromPort=80,ToPort=80,CidrIpv4={{0.0.0.0/0}}}'
@@ -172,7 +171,7 @@ aws ec2 modify-security-group-rules \
 **To add security group rules**  
 Use the [Grant-EC2SecurityGroupIngress](https://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupIngress.html) cmdlet to add inbound rules. The following example allows inbound SSH traffic from the CIDR blocks in the specified prefix list.
 
-```
+```powershell
 $plid = New-Object -TypeName Amazon.EC2.Model.PrefixListId
 $plid.Id = "{{pl-f8a6439156EXAMPLE}}"
 Grant-EC2SecurityGroupIngress `
@@ -182,7 +181,7 @@ Grant-EC2SecurityGroupIngress `
 
 Use the [Grant-EC2SecurityGroupEgress](https://docs.aws.amazon.com/powershell/latest/reference/items/Grant-EC2SecurityGroupEgress.html) cmdlet to add outbound rules. The following example allows outbound TCP traffic on port 80 to instances with the specified security group.
 
-```
+```powershell
 $uigp = New-Object -TypeName Amazon.EC2.Model.UserIdGroupPair
 $uigp.GroupId = "{{sg-0aad1c26bb6EXAMPLE}}"
 Grant-EC2SecurityGroupEgress `
@@ -193,7 +192,7 @@ Grant-EC2SecurityGroupEgress `
 **To remove security group rules**  
 Use the [Revoke-EC2SecurityGroupIngress](https://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupIngress.html) cmdlet to remove inbound rules.
 
-```
+```powershell
 Revoke-EC2SecurityGroupIngress `
     -GroupId {{sg-1234567890abcdef0}} `
     -SecurityGroupRuleId {{sgr-09ed298024EXAMPLE}}
@@ -201,7 +200,7 @@ Revoke-EC2SecurityGroupIngress `
 
 Use the [Revoke-EC2SecurityGroupEgress](https://docs.aws.amazon.com/powershell/latest/reference/items/Revoke-EC2SecurityGroupEgress.html) cmdlet to remove outbound rules.
 
-```
+```powershell
 Revoke-EC2SecurityGroupEgress `
     -GroupId {{sg-1234567890abcdef0}} `
     -SecurityGroupRuleId {{sgr-0352250c1aEXAMPLE}}
@@ -210,7 +209,7 @@ Revoke-EC2SecurityGroupEgress `
 **To modify security group rules**  
 Use the [Edit-EC2SecurityGroupRule](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2SecurityGroupRule.html) cmdlet. The following example changes the IPv4 CIDR block of the specified security group rule.
 
-```
+```powershell
 $sgrr = New-Object -TypeName Amazon.EC2.Model.SecurityGroupRuleRequest
 $sgrr.IpProtocol = "tcp"
 $sgrr.FromPort = 80

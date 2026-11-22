@@ -1,7 +1,6 @@
 
 
 # Option 3: Manually connect an instance to an RDS database by creating security groups
-<a name="tutorial-ec2-rds-option3"></a>
 
 The objective of Option 3 is to learn how to manually configure the connection between an EC2 instance and an RDS database by manually reproducing the configuration of the automatic connection feature.
 

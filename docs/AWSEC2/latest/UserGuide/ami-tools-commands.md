@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 AMI tools reference
-<a name="ami-tools-commands"></a>
 
 You can use the AMI tools commands to create and manage Amazon S3-backed Linux AMIs. To set up the tools, see [Set up the Amazon EC2 AMI tools](set-up-ami-tools.md).
 
@@ -41,7 +40,7 @@ The version information.
 
 This example command displays the version information for the AMI tools that you're using.
 
-```
+```bash
 [ec2-user ~]$ ec2-ami-tools-version
 1.5.2 20071010
 ```
@@ -129,7 +128,7 @@ Status messages describing the stages and status of the bundling process.
 
 This example creates a bundled AMI from an operating system image that was created in a loopback file.
 
-```
+```bash
 [ec2-user ~]$ ec2-bundle-image -k pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -c cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -u 111122223333 -i image.img -d bundled/ -r x86_64
 Please specify a value for arch [i386]: 
 Bundling image file...
@@ -291,7 +290,7 @@ Status messages describing the stages and status of the bundling.
 
 This example creates a bundled AMI by compressing, encrypting and signing a snapshot of the local machine's root file system. 
 
-```
+```bash
 [ec2-user ~]$ ec2-bundle-vol -d /mnt -k pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -c cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -u 111122223333 -r x86_64
   Copying / into the image file /mnt/image...
   Excluding:
@@ -400,7 +399,7 @@ Amazon EC2 displays status messages indicating the stages and status of the dele
 
 This example deletes a bundle from Amazon S3.
 
-```
+```bash
 [ec2-user ~]$ ec2-delete-bundle -b {{amzn-s3-demo-bucket}} -a {{your_access_key_id}} -s {{your_secret_access_key}}
 Deleting files:
 amzn-s3-demo-bucket/image.manifest.xml
@@ -500,7 +499,7 @@ Status messages indicating the various stages of the download process are displa
 
 This example creates the `bundled` directory (using the Linux **mkdir** command) and downloads the bundle from the `amzn-s3-demo-bucket` Amazon S3 bucket.
 
-```
+```bash
 [ec2-user ~]$ mkdir bundled
 [ec2-user ~]$ ec2-download-bundle -b amzn-s3-demo-bucket/bundles/bundle_name -m image.manifest.xml -a {{your_access_key_id}} -s {{your_secret_access_key}} -k pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -d mybundle
 Downloading manifest image.manifest.xml from amzn-s3-demo-bucket to mybundle/image.manifest.xml ...
@@ -590,7 +589,7 @@ Status messages describing the stages and status of the bundling process.
 
 This example copies the AMI specified in the `my-ami.manifest.xml` manifest from the US to the EU.
 
-```
+```bash
 [ec2-user ~]$ ec2-migrate-manifest --manifest my-ami.manifest.xml --cert cert-HKZYKTAIG2ECMXYIBH3HXV4ZBZQ55CLO.pem --privatekey pk-HKZYKTAIG2ECMXYIBH3HXV4ZBZQ55CLO.pem --region eu-west-1 
 
 Backing up manifest...
@@ -636,7 +635,7 @@ Required: No
 
 This Linux and UNIX example unbundles the AMI specified in the `image.manifest.xml` file.
 
-```
+```bash
 [ec2-user ~]$ mkdir unbundled
 $ ec2-unbundle -m mybundle/image.manifest.xml -k pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem -s mybundle -d unbundled
 $ ls -l unbundled
@@ -751,7 +750,7 @@ Amazon EC2 displays status messages that indicate the stages and status of the u
 
 This example uploads the bundle specified by the `image.manifest.xml` manifest.
 
-```
+```bash
 [ec2-user ~]$ ec2-upload-bundle -b amzn-s3-demo-bucket/bundles/bundle_name -m image.manifest.xml -a {{your_access_key_id}} -s {{your_secret_access_key}}
 Creating bucket...
 Uploading bundled image parts to the S3 bucket amzn-s3-demo-bucket ...

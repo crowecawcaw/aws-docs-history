@@ -1,7 +1,6 @@
 
 
 # Connect to your Windows instance using Fleet Manager
-<a name="connect-rdp-fleet-manager"></a>
 
 You can use Fleet Manager, a capability of AWS Systems Manager, to connect to Windows instances using the Remote Desktop Protocol (RDP) and display up to four Windows instances on the same page in the AWS Management Console. You can connect to the first instance in the Fleet Manager Remote Desktop directly from the **Instances** page in the Amazon EC2 console. For more information about Fleet Manager, see [Connect to a managed instance using Remote Desktop](https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-remote-desktop-connections.html) in the *AWS Systems Manager User Guide*.
 

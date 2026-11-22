@@ -1,7 +1,6 @@
 
 
 # View tags for your EC2 instances using instance metadata
-<a name="work-with-tags-in-IMDS"></a>
 
 You can access an instance's tags from the instance metadata. By accessing tags from the instance metadata, you no longer need to use the `DescribeInstances` or `DescribeTags` API calls to retrieve tag information, which reduces your API transactions per second, and lets your tag retrievals scale with the number of instances that you control. Furthermore, local processes that are running on an instance can view the instance's tag information directly from the instance metadata.
 
@@ -55,14 +54,14 @@ For more information, see [Tag restrictions](Using_Tags.md#tag-restrictions).
 **To enable access to tags in instance metadata during instance launch**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command and add the following `--metadata-options` option.
 
-```
+```bash
 --metadata-options "InstanceMetadataTags=enabled"
 ```
 
 **To enable access to tags in instance metadata after instance launch**  
 Use the following [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) command.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --instance-metadata-tags enabled
@@ -71,7 +70,7 @@ aws ec2 modify-instance-metadata-options \
 **To verify that access to tags in instance metadata is enabled**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command and check the value of `InstanceMetadataTags`.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query "Reservations[*].Instances[].MetadataOptions[].InstanceMetadataTags"
@@ -79,7 +78,7 @@ aws ec2 describe-instances \
 
 The following is example output. The value is either `enabled` or `disabled`.
 
-```
+```JSON
 [
     "enabled"
 ]
@@ -91,14 +90,14 @@ The following is example output. The value is either `enabled` or `disabled`.
 **To enable access to tags in instance metadata during instance launch**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet and add the following `-MetadataOptions_InstanceMetadataTags` parameter.
 
-```
+```powershell
 -MetadataOptions_InstanceMetadataTags enabled
 ```
 
 **To enable access to tags in instance metadata after instance launch**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -InstanceMetadataTags enabled
@@ -107,14 +106,14 @@ Edit-EC2InstanceMetadataOption `
 **To verify that access to tags in instance metadata is enabled**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/cli/latest/reference/ec2/Get-EC2Instance.html) cmdlet and check the value of `InstanceMetadataTags`.
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances.MetadataOptions.InstanceMetadataTags.Value
 ```
 
 The following is example output. The value is either `enabled` or `disabled`.
 
-```
+```bash
 enabled
 ```
 
@@ -131,27 +130,27 @@ After you allow access to instance tags in the instance metadata, you can access
 **Linux**  
 Run the following command from your Linux instance to list all the tag keys for the instance.
 
-```
+```bash
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
     && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/tags/instance
 ```
 
 This example gets the value of a key obtained in the previous example. The IMDSv2 request uses the stored token that was created using the command in the previous example. The token must not be expired.
 
-```
+```bash
 curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/tags/instance/{{tag-key}}
 ```
 
 **Windows**  
 Run the following cmdlet from your Windows instance to list all the tag keys for the instance.
 
-```
+```powershell
 $token = Invoke-RestMethod `
     -Headers @{"X-aws-ec2-metadata-token-ttl-seconds" = "21600"} `
     -Method PUT -Uri http://169.254.169.254/latest/api/token
 ```
 
-```
+```powershell
 Invoke-RestMethod `
     -Headers @{"X-aws-ec2-metadata-token" = $token} `
     -Method GET -Uri http://169.254.169.254/latest/meta-data/tags/instance
@@ -159,7 +158,7 @@ Invoke-RestMethod `
 
 This example gets the value of a key obtained in the previous example. The IMDSv2 request uses the stored token that was created using the command in the previous example. The token must not be expired.
 
-```
+```powershell
 Invoke-RestMethod `
     -Headers @{"X-aws-ec2-metadata-token" = $token} `
     -Method GET -Uri http://169.254.169.254/latest/meta-data/tags/instance/{{tag-key}}
@@ -171,26 +170,26 @@ Invoke-RestMethod `
 **Linux**  
 Run the following command from your Linux instance to list all the tag keys for the instance.
 
-```
+```bash
 curl http://169.254.169.254/latest/meta-data/tags/instance
 ```
 
 This example gets the value of a key obtained in the previous example.
 
-```
+```bash
 curl http://169.254.169.254/latest/meta-data/tags/instance/{{tag-key}}
 ```
 
 **Windows**  
 Run the following cmdlet from your Windows instance to list all the tag keys for the instance.
 
-```
+```powershell
 Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/tags/instance
 ```
 
 This example gets the value of a key obtained in the previous example.
 
-```
+```powershell
 Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/tags/instance/{{tag-key}}
 ```
 
@@ -222,7 +221,7 @@ You can disable access to instance tags in the instance metadata. You don't need
 **To disable access to tags in instance metadata**  
 Use the following [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) command.
 
-```
+```bash
 aws ec2 modify-instance-metadata-options \
     --instance-id {{i-1234567890abcdef0}} \
     --instance-metadata-tags disabled
@@ -234,7 +233,7 @@ aws ec2 modify-instance-metadata-options \
 **To disable access to tags in instance metadata**  
 Use the [Edit-EC2InstanceMetadataOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceMetadataOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -InstanceMetadataTag disabled

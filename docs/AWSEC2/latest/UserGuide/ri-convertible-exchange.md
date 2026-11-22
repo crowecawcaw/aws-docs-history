@@ -1,7 +1,6 @@
 
 
 # Exchange Convertible Reserved Instances
-<a name="ri-convertible-exchange"></a>
 
 You can exchange one or more Convertible Reserved Instances for another Convertible Reserved Instance with a different configuration, including instance family, operating system, and tenancy. There are no limits to how many times you perform an exchange, as long as the new Convertible Reserved Instance is of an equal or higher value than the Convertible Reserved Instances that you are exchanging.
 
@@ -53,19 +52,19 @@ Each Convertible Reserved Instance has a list value. This list value is compared
 
 For example: You have 1 x $35-list value Convertible Reserved Instance that you want to exchange for a new instance type with a list value of $10.
 
-```
+```bash
 $35/$10 = 3.5
 ```
 
 You can exchange your Convertible Reserved Instance for three $10 Convertible Reserved Instances. It's not possible to purchase half reservations; therefore you must purchase an additional Convertible Reserved Instance to cover the remainder:
 
-```
+```bash
 3.5 = 3 whole Convertible Reserved Instances + 1 additional Convertible Reserved Instance
 ```
 
 The fourth Convertible Reserved Instance has the same end date as the other three. If you are exchanging Partial or All Upfront Convertible Reserved Instances, you pay the true-up cost for the fourth reservation. If the remaining upfront cost of your Convertible Reserved Instances is $500, and the new reservation would normally cost $600 on a prorated basis, you are charged $100.
 
-```
+```bash
 $600 prorated upfront cost of new reservations - $500 remaining upfront cost of old reservations = $100 difference
 ```
 

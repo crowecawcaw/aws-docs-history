@@ -1,7 +1,6 @@
 
 
 # Launch Amazon EC2 instances into a host resource group
-<a name="launching-hrg-instances"></a>
 
 Dedicated Hosts are also integrated with AWS License Manager. With License Manager, you can create a host resource group, which is a collection of Dedicated Hosts that are managed as a single entity. When creating a host resource group, you specify the host management preferences, such as auto-allocate and auto-release, for the Dedicated Hosts. This allows you to launch instances onto Dedicated Hosts without manually allocating and managing those hosts. For more information, see [ Host Resource Groups](https://docs.aws.amazon.com/license-manager/latest/userguide/host-resource-groups.html) in the *AWS License Manager User Guide*.
 
@@ -53,7 +52,7 @@ When you launch an instance into a host resource group that has a Dedicated Host
 **To launch an instance into a host resource group**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command. In the `--placement` option, omit the tenancy and specify the ARN of the host resource group.
 
-```
+```bash
 --placement HostResourceGroupArn=arn:aws:resource-groups:{{us-east-2}}:{{123456789012}}:group/{{my-resource-group}}
 ```
 
@@ -63,7 +62,7 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 **To launch an instance into a host resource group**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet. In the `-Placement` parameter, omit the tenancy and specify the ARN of the host resource group.
 
-```
+```powershell
 -Placement_HostResourceGroupArn arn:aws:resource-groups:{{us-east-2}}:{{123456789012}}:group/{{my-resource-group}}
 ```
 

@@ -1,11 +1,10 @@
 
 
 # Example CLI configurations for EC2 Fleet
-<a name="ec2-fleet-examples"></a>
 
 You can define your EC2 Fleet configuration in a JSON file, and then reference that file with the [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command to create your fleet, as follows:
 
-```
+```bash
 aws ec2 create-fleet --cli-input-json file://{{file_name.json}}
 ```
 
@@ -32,7 +31,7 @@ For more CLI examples for fleets of type `instant`, see [Configure an EC2 Fleet 
 
 The following example specifies the minimum parameters required in an EC2 Fleet: a launch template, target capacity, and default purchasing option. The launch template is identified by its launch template ID and version number. The target capacity for the fleet is 2 instances, and the default purchasing option is `spot`, which results in the fleet launching 2 Spot Instances.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -55,7 +54,7 @@ The following example specifies the minimum parameters required in an EC2 Fleet:
 
 The following example specifies the minimum parameters required in an EC2 Fleet: a launch template, target capacity, and default purchasing option. The launch template is identified by its launch template ID and version number. The target capacity for the fleet is 2 instances, and the default purchasing option is `on-demand`, which results in the fleet launching 2 On-Demand Instances.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -78,7 +77,7 @@ The following example specifies the minimum parameters required in an EC2 Fleet:
 
 The following example specifies the total target capacity of 2 instances for the fleet, and a target capacity of 1 On-Demand Instance. The default purchasing option is `spot`. The fleet launches 1 On-Demand Instance as specified, but needs to launch one more instance to fulfill the total target capacity. The purchasing option for the difference is calculated as `TotalTargetCapacity` – `OnDemandTargetCapacity` = `DefaultTargetCapacityType`, which results in the fleet launching 1 Spot Instance.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -115,7 +114,7 @@ In this example, the fleet configuration is as follows:
 
 The account has the following 15 unused Capacity Reservations in 3 different pools. The number of Capacity Reservations in each pool is indicated by `AvailableInstanceCount`.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111", 
     "InstanceType": "m5.large", 
@@ -159,7 +158,7 @@ In this example, the On-Demand Instance price is:
 **Note**  
 The fleet type must be of type `instant`. Other fleet types do not support `use-capacity-reservations-first`.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -208,7 +207,7 @@ After you create the `instant` fleet using the preceding configuration, the foll
 
 After the fleet is launched, you can run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the `m5.large` and `m4.xlarge` Capacity Reservations were used, with 3 `m4.2xlarge` Capacity Reservations remaining unused.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111",
     "InstanceType": "m5.large",  
@@ -246,7 +245,7 @@ In this example, the fleet configuration is as follows:
 
 The account has the following 15 unused Capacity Reservations in 3 different pools. The number of Capacity Reservations in each pool is indicated by `AvailableInstanceCount`.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111", 
     "InstanceType": "m5.large", 
@@ -292,7 +291,7 @@ In this example, the On-Demand Instance price is:
 **Note**  
 The fleet type must be `instant`. Other fleet types do not support `use-capacity-reservations-first`.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -341,7 +340,7 @@ After you create the `instant` fleet using the preceding configuration, the foll
 
 After the fleet is launched, you can run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the Capacity Reservations in all of the pools were used.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111",
     "InstanceType": "m5.large",  
@@ -381,7 +380,7 @@ For a walkthrough of the procedures that you must perform to accomplish this exa
 
 The account has the following 6 unused Capacity Reservations in 2 different pools. In this example, the pools differ by their Availability Zones. The number of Capacity Reservations in each pool is indicated by `AvailableInstanceCount`.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111", 
     "InstanceType": "c5.xlarge", 
@@ -412,7 +411,7 @@ In this example, the On-Demand Instance price for `c5.xlarge` in `us-east-1` is 
 **Note**  
 The fleet type must be `instant`. Other fleet types do not support `use-capacity-reservations-first`.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {
@@ -454,7 +453,7 @@ After you create the `instant` fleet using the preceding configuration, the foll
 
 After the fleet is launched, you can run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the Capacity Reservations in all of the pools were used.
 
-```
+```json
 {
     "CapacityReservationId": "cr-111",
     "InstanceType": "c5.xlarge",  
@@ -478,7 +477,7 @@ We recommend using `launch-before-terminate` only if you can predict how long yo
 
 The effectiveness of the Capacity Rebalancing strategy depends on the number of Spot capacity pools specified in the EC2 Fleet request. We recommend that you configure the fleet with a diversified set of instance types and Availability Zones, and for `AllocationStrategy`, specify `capacity-optimized`. For more information about what you should consider when configuring an EC2 Fleet for Capacity Rebalancing, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md).
 
-```
+```json
 {
     "ExcessCapacityTerminationPolicy": "termination",
     "LaunchTemplateConfigs": [
@@ -535,7 +534,7 @@ The following example demonstrates how to configure an EC2 Fleet with a Spot all
 
 In the following example, the three launch specifications specify three Spot capacity pools. The target capacity is 50 Spot Instances. The EC2 Fleet attempts to launch 50 Spot Instances into the Spot capacity pool with optimal capacity for the number of instances that are launching.
 
-```
+```json
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized",
@@ -587,7 +586,7 @@ To prioritize Spot capacity pools, you must set `AllocationStrategy` to `capacit
 
 In the following example, the three launch specifications specify three Spot capacity pools. Each pool is prioritized, where the lower the number the higher priority. The target capacity is 50 Spot Instances. The EC2 Fleet attempts to launch 50 Spot Instances into the Spot capacity pool with the highest priority on a best-effort basis, but optimizes for capacity first.
 
-```
+```json
 {
     "SpotOptions": {
         "AllocationStrategy": "capacity-optimized-prioritized"
@@ -636,7 +635,7 @@ The following example demonstrates how to configure an EC2 Fleet with a Spot all
 
 In the following example, the three launch specifications specify three Spot capacity pools. The target capacity is 50 Spot Instances. The EC2 Fleet attempts to launch 50 Spot Instances into the Spot capacity pool with optimal capacity for the number of instances that are launching while also choosing the pool that is the lowest priced.
 
-```
+```json
 {
     "SpotOptions": {
         "AllocationStrategy": "price-capacity-optimized",
@@ -697,7 +696,7 @@ Any instance types that have 2 or more vCPUs and 4 MiB or more of memory will be
 
 For a list and descriptions of all the possible attributes that you can specify, see [InstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_InstanceRequirements.html) in the *Amazon EC2 API Reference*.
 
-```
+```json
 {
 	"SpotOptions": {
 		"AllocationStrategy": "{{price-capacity-optimized}}"
@@ -738,7 +737,7 @@ In the following example:
 
 The launch template targets the Capacity Reservation Resource Group. When you use `ReservedCapacityOptions`, you don't need to set a `MarketType` in the launch template – EC2 Fleet sets this automatically for each Capacity Reservation type.
 
-```
+```json
 {
     "LaunchTemplateConfigs": [
         {

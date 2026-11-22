@@ -1,7 +1,6 @@
 
 
 # Track ENA Windows driver version releases
-<a name="ena-driver-releases-windows"></a>
 
 Windows AMIs include the ENA Windows driver to enable enhanced networking.
 
@@ -22,6 +21,7 @@ The following table summarizes the changes for each release.
 
 | Driver version | Details | Release date | 
 | --- | --- | --- | 
+| [2.12.0](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/x64/2.12.0/AwsEnaNetworkDriver.zip) |  +  Added support for dynamic queue allocation with scaling up to 128 I/O queues, subject to instance type limits. <br />+  Increased the maximum Receive Buffers setting to 16384, subject to instance type limits.  +  Fixed a race condition during adapter reset and queue teardown that could free Rx buffers still in use by the device, leading to memory corruption. <br />+  Improved stability and fixed minor issues in input validation, statistics reporting, and event logging.   | November 16, 2026 | 
 | [2.11.0](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/x64/2.11.0/AwsEnaNetworkDriver.zip) |  +  Added support for dynamic queue allocation with scaling up to 64 I/O queues, subject to instance type limits.  +  Fixed missing handling of error conditions when retrieving the physical DMA address width from the device.   | August 1, 2025 | 
 | [2.10.0](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/x64/2.10.0/AwsEnaNetworkDriver.zip) |  +  Fixed improper handling of memory allocation failures during queue initialization to prevent unexpected reboots. <br />+  Fixed possible misconfiguration of network offloads where device capabilities were ignored.   | June 24, 2025 | 
 | [2.9.0](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/x64/2.9.0/AwsEnaNetworkDriver.zip) |  +  Added support for asynchronous reset requests initiated by the device. <br />+  Added support for handling the maximum large LLQ depth value provided by the device. <br />+  Added Event ID `58001` in the Windows Event Viewer to enhance visibility into unexpected power state transitions caused by device misconfiguration.  +  Fixed improper handling of memory allocation failures during device initialization to prevent unexpected reboots. <br />+  Fixed an issue in the interrupt service routine that could enqueue a DPC during device stop, preventing unexpected reboots.   | December 12, 2024 | 

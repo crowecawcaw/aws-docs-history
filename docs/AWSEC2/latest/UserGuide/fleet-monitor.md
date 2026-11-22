@@ -1,7 +1,6 @@
 
 
 # Monitor your EC2 Fleet or Spot Fleet
-<a name="fleet-monitor"></a>
 
 Effective monitoring of your EC2 Fleet or Spot Fleet is essential for maintaining optimal performance and ensuring reliability. There are various tools to help you achieve this, including Amazon CloudWatch and Amazon EventBridge, which are covered in this topic.
 

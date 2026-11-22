@@ -1,7 +1,6 @@
 
 
 # Launch an EC2 instance using details from an existing instance
-<a name="launch-more-like-this"></a>
 
 The Amazon EC2 console provides a **Launch more like this** option that enables you to use a current instance as a base for launching other instances. This option automatically populates the Amazon EC2 launch instance wizard with certain configuration details from the selected instance. 
 

@@ -1,7 +1,6 @@
 
 
 # Create custom event windows for scheduled events that affect your Amazon EC2 instances
-<a name="event-windows"></a>
 
 You can define custom event windows that recur weekly for scheduled events that reboot, stop, or terminate your Amazon EC2 instances. You can associate one or more instances with an event window. If a scheduled event for those instances is planned, AWS will schedule the events within the associated event window.
 
@@ -83,7 +82,7 @@ Event windows recur weekly until you delete them.
 **To create an event window with a time range**  
 Use the [create-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 create-instance-event-window \
     --time-range StartWeekDay={{monday}},StartHour={{2}},EndWeekDay={{wednesday}},EndHour={{8}} \
     --tag-specifications "ResourceType=instance-event-window,Tags=[{Key={{K1}},Value={{V1}}}]" \
@@ -92,7 +91,7 @@ aws ec2 create-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -119,7 +118,7 @@ The following is example output.
 **To create an event window with a cron expression**  
 Use the [create-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 create-instance-event-window \
     --cron-expression "{{* 21-23 * * 2,3}}" \
     --tag-specifications "ResourceType=instance-event-window,Tags=[{Key={{K1}},Value={{V1}}}]" \
@@ -128,7 +127,7 @@ aws ec2 create-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -151,7 +150,7 @@ The following is example output.
 **To create an event window with a time range**  
 Use the [New-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 $timeRange = New-Object Amazon.EC2.Model.InstanceEventWindowTimeRangeRequest
 $timeRange.StartWeekDay = "monday"
 $timeRange.EndWeekDay = "wednesday"
@@ -182,7 +181,7 @@ TimeRanges            : {Amazon.EC2.Model.InstanceEventWindowTimeRange}
 **To create an event window with a cron expression**  
 Use the [New-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 $tag = @{Key="{{key1}}"; Value="{{value1}}"}
 $tagspec = New-Object Amazon.EC2.Model.TagSpecification
 $tagspec.ResourceType = "instance-event-window"
@@ -231,7 +230,7 @@ After you create an event window, you can associate targets with the event windo
 **To associate instance tags with an event window**  
 Use the [associate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/associate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 associate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target "InstanceTags=[{Key={{k2}},Value={{v2}}},{Key={{k1}},Value={{v1}}}]"
@@ -239,7 +238,7 @@ aws ec2 associate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -267,7 +266,7 @@ The following is example output.
 **To associate instance IDs with an event window**  
 Use the [associate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/associate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 associate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target "InstanceIds={{i-1234567890abcdef0}},{{i-0598c7d356eba48d7}}"
@@ -275,7 +274,7 @@ aws ec2 associate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -297,7 +296,7 @@ The following is example output.
 **To associate a Dedicated Host with an event window**  
 Use the [associate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/associate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 associate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target "DedicatedHostIds={{h-029fa35a02b99801d}}"
@@ -305,7 +304,7 @@ aws ec2 associate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -329,7 +328,7 @@ The following is example output.
 **To associate instance tags with an event window**  
 Use the [Register-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 $tag1 = @{Key="key1"; Value="value1"}
 $tag2 = @{Key="key2"; Value="value2"}
 Register-EC2InstanceEventWindow `
@@ -340,7 +339,7 @@ Register-EC2InstanceEventWindow `
 **To associate instance IDs with an event window**  
 Use the [Register-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Register-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -AssociationTarget_InstanceId {{i-1234567890abcdef0}}, {{i-0598c7d356eba48d7}}
@@ -349,7 +348,7 @@ Register-EC2InstanceEventWindow `
 **To associate a Dedicated Host with an event window**  
 Use the [Register-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Register-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -AssociationTarget_DedicatedHostId {{h-029fa35a02b99801d}}
@@ -379,7 +378,7 @@ Register-EC2InstanceEventWindow `
 **To disassociate instance tags from an event window**  
 Use the [disassociate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference//ec2/disassociate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 disassociate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target "InstanceTags=[{Key={{k2}},Value={{v2}}},{Key={{k1}},Value={{v1}}}]"
@@ -387,7 +386,7 @@ aws ec2 disassociate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -406,7 +405,7 @@ The following is example output.
 **To disassociate instance IDs from an event window**  
 Use the [disassociate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/disassociate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 disassociate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target "InstanceIds={{i-1234567890abcdef0}},{{i-0598c7d356eba48d7}}"
@@ -414,7 +413,7 @@ aws ec2 disassociate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -433,7 +432,7 @@ The following is example output.
 **To disassociate a Dedicated Host from an event window**  
 Use the [disassociate-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/disassociate-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 disassociate-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --association-target DedicatedHostIds={{h-029fa35a02b99801d}}
@@ -441,7 +440,7 @@ aws ec2 disassociate-instance-event-window \
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -463,7 +462,7 @@ The following is example output.
 **To disassociate instance tags from an event window**  
 Use the [Unregister-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 $tag1 = @{Key="key1"; Value="value1"}
 $tag2 = @{Key="key2"; Value="value2"}
 Unregister-EC2InstanceEventWindow `
@@ -474,7 +473,7 @@ Unregister-EC2InstanceEventWindow `
 **To disassociate instance IDs from an event window**  
 Use the [Unregister-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Unregister-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -AssociationTarget_InstanceId {{i-1234567890abcdef0}}, {{i-0598c7d356eba48d7}}
@@ -483,7 +482,7 @@ Unregister-EC2InstanceEventWindow `
 **To disassociate a Dedicated Host from an event window**  
 Use the [Unregister-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Unregister-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -AssociationTarget_DedicatedHostId {{h-029fa35a02b99801d}}
@@ -519,7 +518,7 @@ You can modify either a time range or a cron expression when modifying the event
 **To modify the time range of an event window**  
 Use the [modify-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 modify-instance-event-window 
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --time-range StartWeekDay={{monday}},StartHour={{2}},EndWeekDay={{wednesday}},EndHour={{8}}
@@ -527,7 +526,7 @@ aws ec2 modify-instance-event-window
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -562,7 +561,7 @@ The following is example output.
 **To modify a set of time ranges for an event window**  
 Use the [modify-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 modify-instance-event-window 
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --time-range '[{"StartWeekDay": "{{monday}}", "StartHour": {{2}}, "EndWeekDay": "{{wednesday}}", "EndHour": {{8}}},
@@ -571,7 +570,7 @@ aws ec2 modify-instance-event-window
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -612,7 +611,7 @@ The following is example output.
 **To modify the cron expression of an event window**  
 Use the [modify-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-event-window.html) command.
 
-```
+```bash
 aws ec2 modify-instance-event-window 
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --cron-expression "{{* 21-23 * * 2,3}}"
@@ -620,7 +619,7 @@ aws ec2 modify-instance-event-window
 
 The following is example output.
 
-```
+```json
 {
     "InstanceEventWindow": {
         "InstanceEventWindowId": "iew-0abcdef1234567890",
@@ -651,7 +650,7 @@ The following is example output.
 **To modify the time range of an event window**  
 Use the [Edit-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 $timeRange1 = New-Object Amazon.EC2.Model.InstanceEventWindowTimeRangeRequest
 $timeRange1.StartWeekDay = "monday"
 $timeRange1.EndWeekDay = "wednesday"
@@ -670,7 +669,7 @@ Edit-EC2InstanceEventWindow `
 **To modify the cron expression of an event window**  
 Use the [Edit-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Edit-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -CronExpression "{{* 21-23 * * 2,3}}"
@@ -704,7 +703,7 @@ You can delete one event window at a time.
 **To delete an event window**  
 Use the [delete-instance-event-window](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-instance-event-window.html) command and specify the event window to delete.
 
-```
+```bash
 aws ec2 delete-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}}
 ```
@@ -712,7 +711,7 @@ aws ec2 delete-instance-event-window \
 **To force-delete an event window**  
 Use the `--force-delete` parameter if the event window is currently associated with targets.
 
-```
+```bash
 aws ec2 delete-instance-event-window \
     --instance-event-window-id {{iew-0abcdef1234567890}} \
     --force-delete
@@ -724,7 +723,7 @@ aws ec2 delete-instance-event-window \
 **To delete an event window**  
 Use the [Remove-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Remove-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}}
 ```
@@ -732,7 +731,7 @@ Remove-EC2InstanceEventWindow `
 **To force-delete an event window**  
 Use the [Remove-EC2InstanceEventWindow](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2InstanceEventWindow.html) cmdlet.
 
-```
+```powershell
 Remove-EC2InstanceEventWindow `
     -InstanceEventWindowId {{iew-0abcdef1234567890}} `
     -ForceDelete $true

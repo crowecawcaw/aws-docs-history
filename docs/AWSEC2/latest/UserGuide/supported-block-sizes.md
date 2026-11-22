@@ -1,7 +1,6 @@
 
 
 # Block sizes for torn write prevention on Amazon EC2
-<a name="supported-block-sizes"></a>
 
 Torn write prevention supports write operations for 4 KiB, 8 KiB, and 16 KiB blocks of data. The data block start logical block address (LBA) must be aligned to the respective block boundary size of 4 KiB, 8 KiB, or 16 KiB. For example, for 16 KiB write operations, the data block start LBA must be aligned to a block boundary size of 16 KiB.
 

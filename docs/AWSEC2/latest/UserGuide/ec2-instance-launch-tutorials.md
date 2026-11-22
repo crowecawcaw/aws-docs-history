@@ -1,7 +1,6 @@
 
 
 # Tutorials for launching EC2 instances
-<a name="ec2-instance-launch-tutorials"></a>
 
 There are different ways to launch and configure an Amazon EC2 instance. The method and configuration you use depends on your specific use case.
 

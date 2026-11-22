@@ -1,7 +1,6 @@
 
 
 # How instance termination works
-<a name="how-ec2-instance-termination-works"></a>
 
 When you terminate an instance, changes are registered at the operating system (OS) level of the instance, some resources are lost, and some resources persist.
 

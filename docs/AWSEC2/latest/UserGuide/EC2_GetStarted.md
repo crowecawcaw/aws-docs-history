@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon EC2
-<a name="EC2_GetStarted"></a>
 
 Use this tutorial to get started with Amazon Elastic Compute Cloud (Amazon EC2). You'll learn how to launch and connect to an EC2 instance. An *instance* is a virtual server in the AWS Cloud. With Amazon EC2, you can set up and configure the operating system and applications that run on your instance.
 
@@ -101,7 +100,7 @@ You can connect to your Linux instance using any SSH client. If you are running 
 
 1. Copy the example SSH command. The following is an example, where {{key-pair-name}}.pem is the name of your private key file, {{ec2-user}} is the username associated with the image, and the string after the @ symbol is the public DNS name of the instance.
 
-   ```
+   ```bash
    ssh -i {{key-pair-name}}.pem {{ec2-user}}@{{ec2-198-51-100-1.us-east-2.compute.amazonaws.com}}
    ```
 

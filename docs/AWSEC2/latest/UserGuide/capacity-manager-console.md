@@ -1,7 +1,6 @@
 
 
 # Navigating Capacity Manager in the AWS console
-<a name="capacity-manager-console"></a>
 
 The Capacity Manager console is organized into tabs that provide different views of your capacity data:
 + **Dashboard** — Provides a high-level overview of all On-Demand Capacity Reservations, On-Demand and Spot usage, including key metrics to help improve your capacity posture.

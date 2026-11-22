@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance state changes
-<a name="ec2-instance-lifecycle"></a>
 
 An Amazon EC2 instance transitions through different states from the moment you launch it through to its termination.
 

@@ -1,7 +1,6 @@
 
 
 # Review ENA Express settings for your EC2 instance
-<a name="ena-express-list-view"></a>
 
 You can verify the ENA Express settings by instance or by network interface. To update the ENA Express settings, see [Configure ENA Express settings for your EC2 instance](ena-express-configure.md).
 
@@ -34,7 +33,7 @@ You can verify the ENA Express settings by instance or by network interface. To 
 **To get the ENA Express settings for an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/describe-instances.html) command. This command example returns a list of ENA Express configurations for the network interfaces attached to each of the running instances that are specified by the `--instance-ids` parameter.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} {{i-0598c7d356eba48d7}} \
     --query 'Reservations[*].Instances[*].[InstanceId, NetworkInterfaces[*].Attachment.EnaSrdSpecification]'
@@ -42,7 +41,7 @@ aws ec2 describe-instances \
 
 The following is example output.
 
-```
+```json
 [
     [
         [
@@ -76,7 +75,7 @@ The following is example output.
 **To get the ENA Express settings for a network interface**  
 Use the [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/describe-network-interfaces.html) command.
 
-```
+```bash
 aws ec2 describe-network-interfaces \
     --network-interface-ids {{eni-1234567890abcdef0}} \
     --query NetworkInterfaces[].[NetworkInterfaceId,Attachment.EnaSrdSpecification]
@@ -84,7 +83,7 @@ aws ec2 describe-network-interfaces \
 
 The following is example output.
 
-```
+```json
 [
     [
         "eni-1234567890abcdef0",
@@ -104,7 +103,7 @@ The following is example output.
 **To get the ENA Express settings for a network interface**  
 Use the [Get-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2NetworkInterface.html) cmdlet.
 
-```
+```ps
 Get-EC2NetworkInterface `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} | `
 Select-Object `

@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 topology
-<a name="ec2-instance-topology"></a>
 
 Amazon EC2 topology provides a hierarchical view of the relative proximity of your compute capacity. You can use this information to manage high performance computing (HPC), machine learning (ML), and generative AI compute infrastructure at scale.
 

@@ -1,7 +1,6 @@
 
 
 # Share Capacity Blocks
-<a name="capacity-blocks-share"></a>
 
  Capacity Block sharing enables Capacity Block owners to share Amazon EC2 Capacity Blocks with other AWS accounts within an AWS Organization. This allows you to maximize utilization of reserved GPU capacity across different teams and projects to efficiently use the Capacity Blocks. 
 
@@ -68,13 +67,13 @@ You must first create the resource share using the AWS RAM console. For more inf
 **To share a Capacity Block that you own**  
  Use the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) and [associate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/associate-resource-share.html) commands. 
 
-```
+```bash
 aws ram create-resource-share \
     --name {{my-resource-share}} \
     --resource-arns arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}
 ```
 
-```
+```bash
 aws ram associate-resource-share \
     --resource-share-arn arn:aws:ram:{{us-east-2}}:{{123456789012}}:resource-share/{{7ab63972-b505-7e2a-420d-6f5d3EXAMPLE}} \
     --resource-arns arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}
@@ -86,13 +85,13 @@ aws ram associate-resource-share \
 **To share a Capacity Block that you own**  
  Use the [New-RAMResourceShare](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RAMResourceShare.html) and [Connect-RAMResourceShare](https://docs.aws.amazon.com/powershell/latest/reference/items/Connect-RAMResourceShare.html) cmdlets. 
 
-```
+```powershell
 New-RAMResourceShare `
     -Name {{my-resource-share}} `
     -ResourceArn "arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}"
 ```
 
-```
+```powershell
 Connect-RAMResourceShare `
     -ResourceShareArn "arn:aws:ram:{{us-east-2}}:{{123456789012}}:resource-share/{{7ab63972-b505-7e2a-420d-6f5d3EXAMPLE}}" `
     -ResourceArn "arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}"
@@ -132,7 +131,7 @@ Connect-RAMResourceShare `
 **To stop sharing a Capacity Block that you own**  
 Use the [disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html) command.
 
-```
+```bash
 aws ram disassociate-resource-share \
     --resource-share-arn arn:aws:ram:{{us-east-2}}:{{123456789012}}:resource-share/{{7ab63972-b505-7e2a-420d-6f5d3EXAMPLE}} \
     --resource-arns arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}
@@ -144,7 +143,7 @@ aws ram disassociate-resource-share \
 **To stop sharing a Capacity Block that you own**  
 Use the [Disconnect-RAMResourceShare](https://docs.aws.amazon.com/powershell/latest/reference/items/Disconnect-RAMResourceShare.html) cmdlet.
 
-```
+```powershell
 Disconnect-RAMResourceShare `
     -ResourceShareArn "arn:aws:ram:{{us-east-2}}:{{123456789012}}:resource-share/{{7ab63972-b505-7e2a-420d-6f5d3EXAMPLE}}" `
     -ResourceArn "arn:aws:ec2:{{us-east-2}}:{{123456789012}}:capacity-reservation/{{cr-1234abcd56EXAMPLE}}"
@@ -163,7 +162,7 @@ Capacity Block owners can monitor which accounts are using their shared Capacity
 **To monitor usage of a Capacity Block**  
 Use the [get-capacity-reservation-usage](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-capacity-reservation-usage.html) command.
 
-```
+```bash
 aws ec2 get-capacity-reservation-usage \
     --capacity-reservation-id {{cr-1234abcd56EXAMPLE}}
 ```

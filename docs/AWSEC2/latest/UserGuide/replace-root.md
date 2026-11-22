@@ -1,7 +1,6 @@
 
 
 # Replace the root volume for an Amazon EC2 instance without stopping it
-<a name="replace-root"></a>
 
 Amazon EC2 enables you to replace the root Amazon EBS volume for a running instance while retaining the following:
 + Data stored on instance store volumes — Instance store volumes remain attached to the instance after the root volume has been restored.
@@ -175,7 +174,7 @@ The **Replace root volume** action is disabled if the selected instance is not i
 **To restore the replacement root volume to the launch state**  
 Use the [ create-replace-root-volume-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-replace-root-volume-task.html) command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. Omit the `--snapshot-id` and `--image-id` parameters. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s.
 
-```
+```bash
 aws ec2 create-replace-root-volume-task \
 --instance-id {{i-1234567890abcdef0}} \
 --delete-replaced-root-volume \ 
@@ -185,7 +184,7 @@ aws ec2 create-replace-root-volume-task \
 **To restore the replacement root volume to a specific snapshot**  
 Use the [create-replace-root-volume-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-replace-root-volume-task.html) command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. For `--snapshot-id`, specify the ID of the snapshot to use. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s.
 
-```
+```bash
 aws ec2 create-replace-root-volume-task \
 --instance-id {{i-1234567890abcdef0}} \
 --snapshot-id {{snap-9876543210abcdef0}} \
@@ -196,7 +195,7 @@ aws ec2 create-replace-root-volume-task \
 **To restore the replacement root volume using an AMI**  
 Use the [ create-replace-root-volume-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-replace-root-volume-task.html) command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. For `--image-id`, specify the ID of the AMI to use. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s.
 
-```
+```bash
 aws ec2 create-replace-root-volume-task \
 --instance-id {{i-1234567890abcdef0}} \
 --image-id {{ami-09876543210abcdef}} \
@@ -207,7 +206,7 @@ aws ec2 create-replace-root-volume-task \
 **To replace the root volume using an existing Amazon EBS volume**  
 Use the [ create-replace-root-volume-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-replace-root-volume-task.html) command. For `--instance-id`, specify the ID of the instance for which to replace the root volume (for example, `i-1234567890abcdef0`). For `--volume-id`, specify the ID of the Amazon EBS volume to use as the new root volume. To delete the original root volume after the replacement completes, include `--delete-replaced-root-volume`. Amazon EC2 accepts the `--volume-initialization-rate` parameter but ignores it with this option because it does not download snapshot data.
 
-```
+```bash
 aws ec2 create-replace-root-volume-task \
 --instance-id {{i-1234567890abcdef0}} \
 --volume-id {{vol-0123456789abcdef0}} \
@@ -217,7 +216,7 @@ aws ec2 create-replace-root-volume-task \
 **To view the status of a root volume replacement task**  
 Use the [describe-replace-root-volume-tasks](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-replace-root-volume-tasks.html) command and specify the IDs of the root volume replacement tasks to view.
 
-```
+```bash
 aws ec2 describe-replace-root-volume-tasks \
     --replace-root-volume-task-ids {{replacevol-1234567890abcdef0}} \
     --query ReplaceRootVolumeTasks[].TaskState
@@ -225,7 +224,7 @@ aws ec2 describe-replace-root-volume-tasks \
 
 The following is example output.
 
-```
+```JSON
 [
     "succeeded"
 ]
@@ -233,7 +232,7 @@ The following is example output.
 
 Alternatively, specify the `instance-id` filter to filter the results by instance.
 
-```
+```bash
 $ aws ec2 describe-replace-root-volume-tasks \
     --filters Name=instance-id,Values={{i-1234567890abcdef0}}
 ```
@@ -244,7 +243,7 @@ $ aws ec2 describe-replace-root-volume-tasks \
 **To restore the replacement root volume to the launch state**  
 Use the [New-EC2ReplaceRootVolumeTask](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.html) command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. Omit the `-SnapshotId` and `-ImageId` parameters. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
 
-```
+```powershell
 New-EC2ReplaceRootVolumeTask `
     -InstanceId {{i-1234567890abcdef0}} `
     -VolumeInitializationRate {{150}} `
@@ -254,7 +253,7 @@ New-EC2ReplaceRootVolumeTask `
 **To restore the replacement root volume to a specific snapshot**  
 Use the [New-EC2ReplaceRootVolumeTask](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.html) command. For `--InstanceId`, specify the ID of the instance for which to replace the root volume. For `-SnapshotId`, specify the ID of the snapshot to use. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
 
-```
+```powershell
 New-EC2ReplaceRootVolumeTask `
     -InstanceId {{i-1234567890abcdef0}} `
     -SnapshotId {{snap-9876543210abcdef0}} `
@@ -265,7 +264,7 @@ New-EC2ReplaceRootVolumeTask `
 **To restore the replacement root volume using an AMI**  
 Use the [New-EC2ReplaceRootVolumeTask](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.html) command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. For `-ImageId`, specify the ID of the AMI to use. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
 
-```
+```powershell
 New-EC2ReplaceRootVolumeTask `
     -InstanceId {{i-1234567890abcdef0}} `
     -ImageId {{ami-0abcdef1234567890}} `
@@ -276,7 +275,7 @@ New-EC2ReplaceRootVolumeTask `
 **To replace the root volume using an existing Amazon EBS volume**  
 Use the [New-EC2ReplaceRootVolumeTask](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.html) command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume (for example, `i-1234567890abcdef0`). For `-VolumeId`, specify the ID of the Amazon EBS volume to use as the new root volume. To delete the original root volume after the replacement completes, include `-DeleteReplacedRootVolume` and specify `$true`. Amazon EC2 accepts the `-VolumeInitializationRate` parameter but ignores it with this option because it does not download snapshot data.
 
-```
+```powershell
 New-EC2ReplaceRootVolumeTask `
     -InstanceId {{i-1234567890abcdef0}} `
     -VolumeId {{vol-0123456789abcdef0}} `
@@ -286,20 +285,20 @@ New-EC2ReplaceRootVolumeTask `
 **To view the status of a root volume replacement task**  
 Use the [Get-EC2ReplaceRootVolumeTask](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ReplaceRootVolumeTask.html) command and specify the IDs of the root volume replacement tasks to view.
 
-```
+```powershell
 (Get-EC2ReplaceRootVolumeTask `
     -ReplaceRootVolumeTaskIds {{replacevol-1234567890abcdef0}}).TaskState.Value
 ```
 
 The following is example output.
 
-```
+```bash
 Succeeded
 ```
 
 Alternatively, specify the `instance-id` filter to filter the results by instance.
 
-```
+```PowerShell
 PS C:\> Get-EC2ReplaceRootVolumeTask -Filters @{Name = 'instance-id'; Values = '{{i-1234567890abcdef0}}'} | Format-Table 
 ```
 

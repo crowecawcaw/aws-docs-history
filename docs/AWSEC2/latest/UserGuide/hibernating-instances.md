@@ -1,7 +1,6 @@
 
 
 # Hibernate an Amazon EC2 instance
-<a name="hibernating-instances"></a>
 
 You can initiate hibernation on an On-Demand Instance or Spot Instance if the instance is an EBS-backed instance, is [enabled for hibernation](enabling-hibernation.md), and meets the [hibernation prerequisites](hibernating-prerequisites.md). If an instance cannot hibernate successfully, a normal shutdown occurs.
 
@@ -24,7 +23,7 @@ You can initiate hibernation on an On-Demand Instance or Spot Instance if the in
 **To hibernate an instance**  
 Use the [stop-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/stop-instances.html) command and specify the `--hibernate` parameter.
 
-```
+```bash
 aws ec2 stop-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --hibernate
@@ -36,7 +35,7 @@ aws ec2 stop-instances \
 **To hibernate an instance**  
 Use the [Stop-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2Instance.html) cmdlet.
 
-```
+```powershell
 Stop-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}} `
     -Hibernate $true
@@ -65,14 +64,14 @@ You can check whether hibernation was initiated on an instance.
 **To view if hibernation was initiated on an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command and specify the `state-reason-code` filter to see the instances on which hibernation was initiated.
 
-```
+```bash
 aws ec2 describe-instances \
     --filters "Name=state-reason-code,Values=Client.UserInitiatedHibernate"
 ```
 
 The following field in the output indicates that hibernation was initiated on the On-Demand Instance or Spot Instance.
 
-```
+```json
 "StateReason": {
     "Code": "Client.UserInitiatedHibernate"
 }
@@ -84,7 +83,7 @@ The following field in the output indicates that hibernation was initiated on th
 **To view if hibernation was initiated on an instance**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet and specify the `state-reason-code` filter to see the instances on which hibernation was initiated.
 
-```
+```powershell
 Get-EC2Instance `
     -Filter @{Name="state-reason-code";Value="Client.UserInitiatedHibernate"}
 ```

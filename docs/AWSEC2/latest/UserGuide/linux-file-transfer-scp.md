@@ -1,7 +1,6 @@
 
 
 # Transfer files to a Linux instance using SCP
-<a name="linux-file-transfer-scp"></a>
 
 One way to transfer files between your local computer and a Linux instance is to use the secure copy protocol (SCP). SCP is a good option for simple operations, such as as one-time file copies. SCP secures files transfers using the same .pem file that you use to connect to an instance using SSH. If you need to keep files synchronized, or if the files are large, **rsync** is faster and more efficient than SCP. For security, use **rsync** over SSH, as **rsync** transfers data using plain text by default.
 
@@ -25,12 +24,12 @@ The following procedure steps you through using SCP to transfer a file using the
 1. Determine the location of the source file on your computer and the destination path on the instance. In the following examples, the name of the private key file is `key-pair-name.pem`, the file to transfer is `my-file.txt`, the username for the instance is ec2-user, the public DNS name of the instance is `instance-public-dns-name`, and the IPv6 address of the instance is `2001:db8::1234:5678:1.2.3.4`.
    + (Public DNS) To transfer a file to the destination on the instance, enter the following command from your computer.
 
-     ```
+     ```bash
      scp -i {{/path/key-pair-name}}.pem {{/path/my-file.txt}} {{ec2-user}}@{{instance-public-dns-name}}:{{path/}}
      ```
    + (IPv6) To transfer a file to the destination on the instance if the instance has an IPv6 address, enter the following command from your computer. The IPv6 address must be enclosed in square brackets (`[ ]`), which must be escaped (`\`).
 
-     ```
+     ```bash
      scp -i {{/path/key-pair-name}}.pem {{/path/my-file.txt}} {{ec2-user}}@\[{{2001:db8::1234:5678:1.2.3.4}}\]:{{path/}}
      ```
 
@@ -58,11 +57,11 @@ The following procedure steps you through using SCP to transfer a file using the
 1. To transfer a file in the other direction (from your Amazon EC2 instance to your computer), reverse the order of the host parameters. For example, you can transfer `my-file.txt` from your EC2 instance to the a destination on your local computer as `my-file2.txt`, as shown in the following examples.
    + (Public DNS) To transfer a file to a destination on your computer, enter the following command from your computer.
 
-     ```
+     ```bash
      scp -i {{/path/key-pair-name}}.pem {{ec2-user}}@{{instance-public-dns-name}}:{{path/my-file.txt path/my-file2.txt}}
      ```
    + (IPv6) To transfer a file to a destination on your computer if the instance has an IPv6 address, enter the following command from your computer. The IPv6 address must be enclosed in square brackets (`[ ]`), which must be escaped (`\`).
 
-     ```
+     ```bash
      scp -i {{/path/key-pair-name}}.pem {{ec2-user}}@\[{{2001:db8::1234:5678:1.2.3.4}}\]:{{path/my-file.txt path/my-file2.txt}}
      ```

@@ -1,7 +1,6 @@
 
 
 # Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs
-<a name="ec2-allowed-amis"></a>
 
 To control the discovery and use of Amazon Machine Images (AMIs) by users in your AWS account, you can use the *Allowed AMIs* feature. You specify criteria that AMIs must meet to be visible and available within your account. When the criteria are enabled, users launching instances will only see and have access to AMIs that comply with the specified criteria. For example, you can specify a list of trusted AMI providers as the criteria, and only AMIs from these providers will be visible and available for use.
 
@@ -115,7 +114,7 @@ For the valid values and constraints for each criterion, see [ImageCriterionRequ
 
 The core configuration for Allowed AMIs is the `ImageCriteria` configuration that defines the criteria for allowed AMIs. The following JSON structure shows the parameters that can be specified:
 
-```
+```json
 {
     "State": "enabled" | "disabled" | "audit-mode",  
     "ImageCriteria" : [
@@ -156,7 +155,7 @@ The core configuration for Allowed AMIs is the `ImageCriteria` configuration tha
 
 The following `ImageCriteria` example configures six `ImageCriterion`. An AMI is allowed if it matches any one of these `ImageCriterion`. For information about how the criteria are evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated).
 
-```
+```json
 {
     "ImageCriteria": [
         // ImageCriterion 1: Allow AWS Marketplace AMIs with product code "abcdefg1234567890"

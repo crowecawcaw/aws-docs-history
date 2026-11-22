@@ -1,7 +1,6 @@
 
 
 # View Spot Instance pricing history
-<a name="using-spot-instances-history"></a>
 
 Spot Instance prices are set by Amazon EC2 and adjust gradually based on long-term trends in supply and demand for Spot Instance capacity.
 
@@ -37,7 +36,7 @@ For the *current* Spot Instance prices, see [Amazon EC2 Spot Instances Pricing](
 **To view the Spot price history**  
 Use the following [describe-spot-price-history](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-spot-price-history.html) command.
 
-```
+```bash
 aws ec2 describe-spot-price-history \
     --instance-types {{c6i.xlarge}} \
     --product-descriptions "{{Linux/UNIX}}" \
@@ -51,7 +50,7 @@ aws ec2 describe-spot-price-history \
 **To view the Spot price history**  
 Use the [Get-EC2SpotPriceHistory](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SpotPriceHistory.html) cmdlet.
 
-```
+```powershell
 Get-EC2SpotPriceHistory `
     -InstanceType {{c6i.xlarge}} `
     -ProductDescription "{{Linux/UNIX}}" `

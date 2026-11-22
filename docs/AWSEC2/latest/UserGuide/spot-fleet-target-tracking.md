@@ -1,7 +1,6 @@
 
 
 # Target tracking scaling: Scale Spot Fleet by targeting a value for a specific metric
-<a name="spot-fleet-target-tracking"></a>
 
 With target tracking scaling, you create a target tracking scaling policy by selecting a metric and setting a target value. Spot Fleet then creates and manages the CloudWatch alarms that trigger the scaling policy, and calculates the scaling adjustment based on the chosen metric and target value. The scaling policy adjusts capacity by adding or removing instances as needed to keep the metric at, or close to, the specified target value. A target tracking policy not only keeps the metric close to the target value, but also adjusts to the fluctuations in the metric due to a fluctuating load pattern and minimizes rapid capacity fluctuations.
 

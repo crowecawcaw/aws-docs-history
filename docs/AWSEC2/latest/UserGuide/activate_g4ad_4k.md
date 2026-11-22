@@ -1,7 +1,6 @@
 
 
 # Set up Dual 4K displays on G4ad Linux instances
-<a name="activate_g4ad_4k"></a>
 
 After you launch a G4ad instance, you can set up dual 4K displays.
 
@@ -9,20 +8,20 @@ After you launch a G4ad instance, you can set up dual 4K displays.
 
 1. Connect to your Linux instance to get the PCI Bus address of the GPU you want to target for dual 4K (2x4k):
 
-   ```
+   ```bash
    lspci -vv | grep -i amd
    ```
 
    You will get output similar to the following:
 
-   ```
+   ```bash
    00:1e.0 Display controller: Advanced Micro Devices, Inc. [*AMD*/ATI] Device 7362 (rev c3)
    Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Device 0a34
    ```
 
 1. Note the PCI bus address is 00:1e.0 in the above output. Create a file named `/etc/modprobe.d/amdgpu.conf` and add:
 
-   ```
+   ```bash
    options amdgpu virtual_display=0000:00:1e.0,2
    ```
 
@@ -30,7 +29,7 @@ After you launch a G4ad instance, you can set up dual 4K displays.
 
 1. Use the below xorg.conf file to define the dual (2x4K) screen topology and save the file in `/etc/X11/xorg.conf:`
 
-   ```
+   ```bash
    ~$ cat /etc/X11/xorg.conf
    Section "ServerLayout"
        Identifier     "Layout0"
@@ -128,19 +127,19 @@ After you launch a G4ad instance, you can set up dual 4K displays.
 
 1. Confirm that the driver is functional:
 
-   ```
+   ```bash
    dmesg | grep amdgpu
    ```
 
    The response should look like the following:
 
-   ```
+   ```bash
    Initialized amdgpu
    ```
 
 1. You should see in the output for `DISPLAY=:0 xrandr -q` that you have 2 virtual displays connected:
 
-   ```
+   ```bash
    ~$ DISPLAY=:0 xrandr -q
    Screen 0: minimum 320 x 200, current 3840 x 1080, maximum 16384 x 16384
    Virtual connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
@@ -200,7 +199,7 @@ After you confirm that your Linux instance has the AMD GPU driver installed and 
 **Prerequisite**  
 Open a text editor and save the following as a file named `xorg.conf`. You'll need this file on your instance.
 
-```
+```bash
 Section "ServerLayout"
 Identifier     "Layout0"
 Screen          0 "Screen0"
@@ -261,13 +260,13 @@ EndSection
 
 1. Install the EPEL repository.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo amazon-linux-extras install epel -y
    ```
 
 1. Install the MATE desktop.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo amazon-linux-extras install mate-desktop1.x -y
    [ec2-user ~]$ sudo yum groupinstall "MATE Desktop" -y
    [ec2-user ~]$ sudo systemctl disable firewalld
@@ -277,7 +276,7 @@ EndSection
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
@@ -287,7 +286,7 @@ EndSection
 
 1. Install the MATE desktop.
 
-   ```
+   ```bash
    $ sudo apt install xorg-dev ubuntu-mate-desktop -y
    $ sudo apt purge ifupdown -y
    ```
@@ -296,13 +295,13 @@ EndSection
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 
 1. Install the AMF encoder for the appropriate version of Ubuntu.
 
-   ```
+   ```bash
    $ sudo apt install ./amdgpu-pro-20.20-*/amf-amdgpu-pro_20.20-*_amd64.deb
    ```
 
@@ -310,7 +309,7 @@ EndSection
 
 1. After the DCV installation give the DCV User video permissions:
 
-   ```
+   ```bash
    $ sudo usermod -aG video dcv
    ```
 
@@ -318,14 +317,14 @@ EndSection
 
 1. Install the EPEL repository.
 
-   ```
+   ```bash
    $ sudo yum update -y
    $ sudo yum install epel-release -y
    ```
 
 1. Install the MATE desktop.
 
-   ```
+   ```bash
    $ sudo yum groupinstall "MATE Desktop" -y
    $ sudo systemctl disable firewalld
    ```
@@ -334,7 +333,7 @@ EndSection
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    $ sudo reboot
    ```
 

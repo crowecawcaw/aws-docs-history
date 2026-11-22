@@ -1,7 +1,6 @@
 
 
 # Configure ENA Express settings for your EC2 instance
-<a name="ena-express-configure"></a>
 
 You can configure ENA Express for supported EC2 instance types without needing to install any additional software. For more information, see [Supported instance types for ENA Express](ena-express.md#ena-express-supported-instance-types).
 
@@ -71,7 +70,7 @@ Use the [attach-network-interface](https://docs.aws.amazon.com/cli/latest/refere
 **Example 1: Use ENA Express for TCP traffic, but not UDP traffic**  
 This example configures `EnaSrdEnabled` as `true`, and allows `EnaSrdUdpEnabled` to default to `false`.
 
-```
+```bash
 aws ec2 attach-network-interface \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --instance-id {{i-1234567890abcdef0}} \
@@ -82,7 +81,7 @@ aws ec2 attach-network-interface \
 **Example 2: Use ENA Express for both TCP traffic and UDP traffic**  
 This example configures both `EnaSrdEnabled` and `EnaSrdUdpEnabled` as `true`.
 
-```
+```bash
 aws ec2 attach-network-interface \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --instance-id {{i-1234567890abcdef0}} \
@@ -96,7 +95,7 @@ Use the [modify-network-interface-attribute](https://docs.aws.amazon.com/cli/lat
 **Example 1: Use ENA Express for TCP traffic, but not UDP traffic**  
 This example configures `EnaSrdEnabled` as `true`, and allows `EnaSrdUdpEnabled` to default to `false` if it has never been set previously.
 
-```
+```bash
 aws ec2 modify-network-interface-attribute \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --ena-srd-specification 'EnaSrdEnabled=true'
@@ -105,7 +104,7 @@ aws ec2 modify-network-interface-attribute \
 **Example 2: Use ENA Express for both TCP traffic and UDP traffic**  
 This example configures both `EnaSrdEnabled` and `EnaSrdUdpEnabled` as `true`.
 
-```
+```bash
 aws ec2 modify-network-interface-attribute \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --ena-srd-specification 'EnaSrdEnabled=true,EnaSrdUdpSpecification={EnaSrdUdpEnabled=true}'
@@ -114,7 +113,7 @@ aws ec2 modify-network-interface-attribute \
 **Example 3: Stop using ENA Express for UDP traffic**  
 This example configures `EnaSrdUdpEnabled` as `false`.
 
-```
+```bash
 aws ec2 modify-network-interface-attribute \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --ena-srd-specification 'EnaSrdUdpSpecification={EnaSrdUdpEnabled=false}'
@@ -129,7 +128,7 @@ Use the [Add-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/
 **Example 1: Use ENA Express for TCP traffic, but not UDP traffic**  
 This example configures `EnaSrdEnabled` as `true`, and allows `EnaSrdUdpEnabled` to default to `false`.
 
-```
+```powershell
 Add-EC2NetworkInterface `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -InstanceId {{i-1234567890abcdef0}} `
@@ -140,7 +139,7 @@ Add-EC2NetworkInterface `
 **Example 2: Use ENA Express for both TCP traffic and UDP traffic**  
 This example configures both `EnaSrdEnabled` and `EnaSrdUdpEnabled` as `true`.
 
-```
+```powershell
 Add-EC2NetworkInterface `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -InstanceId {{i-1234567890abcdef0}} `
@@ -155,7 +154,7 @@ Use the [Edit-EC2NetworkInterfaceAttribute](https://docs.aws.amazon.com/powershe
 **Example 1: Use ENA Express for TCP traffic, but not UDP traffic**  
 This example configures `EnaSrdEnabled` as `true`, and allows `EnaSrdUdpEnabled` to default to `false` if it has never been set previously.
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -EnaSrdSpecification_EnaSrdEnabled $true ; 
@@ -170,7 +169,7 @@ Format-List
 **Example 2: Use ENA Express for both TCP traffic and UDP traffic**  
 This example configures both `EnaSrdEnabled` and `EnaSrdUdpEnabled` as `true`.
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -EnaSrdSpecification_EnaSrdEnabled $true `
@@ -186,7 +185,7 @@ Format-List
 **Example 3: Stop using ENA Express for UDP traffic**  
 This example configures `EnaSrdUdpEnabled` as `false`.
 
-```
+```powershell
 Edit-EC2NetworkInterfaceAttribute `
     -NetworkInterfaceId eni-{{0123f4567890a1b23}} `
     -EnaSrdSpecification_EnaSrdUdpSpecification_EnaSrdUdpEnabled $false ; 

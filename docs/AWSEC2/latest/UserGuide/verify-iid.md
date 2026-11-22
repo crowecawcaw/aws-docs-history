@@ -1,7 +1,6 @@
 
 
 # Verify the instance identity document for an Amazon EC2 instance
-<a name="verify-iid"></a>
 
 If you intend to use the contents of the instance identity document for an important purpose, you should verify its contents and authenticity before using it.
 
@@ -34,7 +33,7 @@ This topic explains how to verify the instance identity document using the PKCS7
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    $ echo "-----BEGIN PKCS7-----" >> {{pkcs7}} \
    	&& TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
    	&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/pkcs7 >> {{pkcs7}} \
@@ -45,7 +44,7 @@ This topic explains how to verify the instance identity document using the PKCS7
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    $ echo "-----BEGIN PKCS7-----" >> {{pkcs7}} \
    	&& curl -s http://169.254.169.254/latest/dynamic/instance-identity/pkcs7 >> {{pkcs7}} \
    	&& echo "" >> {{pkcs7}} \
@@ -58,7 +57,7 @@ This topic explains how to verify the instance identity document using the PKCS7
 
 1. Use the **OpenSSL smime** command to verify the signature. Include the `-verify` option to indicate that the signature needs to be verified, and the `-noverify` option to indicate that the certificate does not need to be verified.
 
-   ```
+   ```bash
    $ openssl smime -verify -in {{pkcs7}} -inform PEM -certfile {{certificate}} -noverify | tee document
    ```
 
@@ -66,11 +65,11 @@ This topic explains how to verify the instance identity document using the PKCS7
 
    The command also writes the contents of the instance identity document to a new file named `document`. You can compare the contents of the of the instance identity document from the instance metadata with the contents of this file using the following commands.
 
-   ```
+   ```bash
    $ openssl dgst -sha256 < {{document}}
    ```
 
-   ```
+   ```bash
    $ curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/document | openssl dgst -sha256
    ```
 
@@ -82,7 +81,7 @@ This topic explains how to verify the instance identity document using the PKCS7
 **Prerequisites**  
 This procedure requires the `System.Security` Microsoft .NET Core class. To add the class to your PowerShell session, run the following command.
 
-```
+```PowerShell
 PS C:\> Add-Type -AssemblyName System.Security
 ```
 
@@ -98,18 +97,18 @@ The command adds the class to the current PowerShell session only. If you start 
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> [string]$token = (Invoke-WebRequest -Method Put -Headers @{'X-aws-ec2-metadata-token-ttl-seconds' = '21600'} -Uri http://169.254.169.254/latest/api/token).Content
    ```
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} -Uri http://169.254.169.254/latest/dynamic/instance-identity/pkcs7).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest -Uri http://169.254.169.254/latest/dynamic/instance-identity/pkcs7).Content)
    ```
 
@@ -120,14 +119,14 @@ The command adds the class to the current PowerShell session only. If you start 
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document }}= [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} -Uri http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document}} =  [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
@@ -137,21 +136,21 @@ The command adds the class to the current PowerShell session only. If you start 
 
 1. Extract the certificate from the certificate file and store it in a variable named `$Store`.
 
-   ```
+   ```bash
    PS C:\> {{$Store}} = [Security.Cryptography.X509Certificates.X509Certificate2Collection]::new([Security.Cryptography.X509Certificates.X509Certificate2]::new((Resolve-Path {{certificate.pem}})))
    ```
 
 1. Verify the signature.
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}} = [Security.Cryptography.Pkcs.SignedCms]::new()
    ```
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}}.Decode({{$Signature}})
    ```
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}}.CheckSignature({{$Store}}, $true)
    ```
 
@@ -159,7 +158,7 @@ The command adds the class to the current PowerShell session only. If you start 
 
 1. Validate the content of the instance identity document.
 
-   ```
+   ```bash
    PS C:\> [Linq.Enumerable]::SequenceEqual(${{SignatureDocument}}.ContentInfo.Content, {{$Document}})
    ```
 
@@ -182,7 +181,7 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    $ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
    	&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/signature | base64 -d >> {{signature}}
    ```
@@ -190,7 +189,7 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    $ curl -s http://169.254.169.254/latest/dynamic/instance-identity/signature | base64 -d >> {{signature}}
    ```
 
@@ -201,7 +200,7 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    $ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
    	&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/document >> {{document}}
    ```
@@ -209,7 +208,7 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    $ curl -s http://169.254.169.254/latest/dynamic/instance-identity/document >> {{document}}
    ```
 
@@ -219,13 +218,13 @@ This topic explains how to verify the instance identity document using the base6
 
 1. Extract the public key from the AWS RSA public certificate and save it to a file named `key`.
 
-   ```
+   ```bash
    $ openssl x509 -pubkey -noout -in {{certificate}} >> {{key}}
    ```
 
 1. Use **OpenSSL dgst** command to verify the instance identity document.
 
-   ```
+   ```bash
    $ openssl dgst -sha256 -verify {{key}} -signature {{signature}} {{document}}
    ```
 
@@ -233,11 +232,11 @@ This topic explains how to verify the instance identity document using the base6
 
    The command also writes the contents of the instance identity document to a new file named `document`. You can compare the contents of the of the instance identity document from the instance metadata with the contents of this file using the following commands.
 
-   ```
+   ```bash
    $ openssl dgst -sha256 < {{document}}
    ```
 
-   ```
+   ```bash
    $ curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/document | openssl dgst -sha256
    ```
 
@@ -255,18 +254,18 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> [string]$token = (Invoke-WebRequest -Method Put -Headers @{'X-aws-ec2-metadata-token-ttl-seconds' = '21600'} http://169.254.169.254/latest/api/token).Content
    ```
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} http://169.254.169.254/latest/dynamic/instance-identity/signature).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest http://169.254.169.254/latest/dynamic/instance-identity/signature).Content)
    ```
 
@@ -277,14 +276,14 @@ This topic explains how to verify the instance identity document using the base6
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document }}= [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document}} =  [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
@@ -294,7 +293,7 @@ This topic explains how to verify the instance identity document using the base6
 
 1. Verify the instance identity document.
 
-   ```
+   ```bash
    PS C:\> [Security.Cryptography.X509Certificates.X509Certificate2]::new((Resolve-Path {{certificate.pem}})).PublicKey.Key.VerifyData({{$Document}}, 'SHA256', {{$Signature}})
    ```
 
@@ -317,7 +316,7 @@ This topic explains how to verify the instance identity document using the RSA-2
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```bash
    $ echo "-----BEGIN PKCS7-----" >> {{rsa2048}} \
    	&& TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
    	&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/dynamic/instance-identity/rsa2048 >> {{rsa2048}} \
@@ -328,7 +327,7 @@ This topic explains how to verify the instance identity document using the RSA-2
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```bash
    $ echo "-----BEGIN PKCS7-----" >> {{rsa2048}} \
    	&& curl -s http://169.254.169.254/latest/dynamic/instance-identity/rsa2048 >> {{rsa2048}} \
    	&& echo "" >> {{rsa2048}} \
@@ -341,7 +340,7 @@ This topic explains how to verify the instance identity document using the RSA-2
 
 1. Use the **OpenSSL smime** command to verify the signature. Include the `-verify` option to indicate that the signature needs to be verified, and the `-noverify` option to indicate that the certificate does not need to be verified.
 
-   ```
+   ```bash
    $ openssl smime -verify -in {{rsa2048}} -inform PEM -certfile {{certificate}} -noverify | tee document
    ```
 
@@ -353,7 +352,7 @@ This topic explains how to verify the instance identity document using the RSA-2
 **Prerequisites**  
 This procedure requires the `System.Security` Microsoft .NET Core class. To add the class to your PowerShell session, run the following command.
 
-```
+```PowerShell
 PS C:\> Add-Type -AssemblyName System.Security
 ```
 
@@ -369,18 +368,18 @@ The command adds the class to the current PowerShell session only. If you start 
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> [string]$token = (Invoke-WebRequest -Method Put -Headers @{'X-aws-ec2-metadata-token-ttl-seconds' = '21600'} http://169.254.169.254/latest/api/token).Content
    ```
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} http://169.254.169.254/latest/dynamic/instance-identity/rsa2048).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Signature}} = [Convert]::FromBase64String((Invoke-WebRequest http://169.254.169.254/latest/dynamic/instance-identity/rsa2048).Content)
    ```
 
@@ -391,14 +390,14 @@ The command adds the class to the current PowerShell session only. If you start 
 ------
 #### [ IMDSv2 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document }}= [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest -Headers @{'X-aws-ec2-metadata-token' = $Token} http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
 ------
 #### [ IMDSv1 ]
 
-   ```
+   ```PowerShell
    PS C:\> {{$Document}} =  [Text.Encoding]::UTF8.GetBytes((Invoke-WebRequest http://169.254.169.254/latest/dynamic/instance-identity/document).Content)
    ```
 
@@ -408,21 +407,21 @@ The command adds the class to the current PowerShell session only. If you start 
 
 1. Extract the certificate from the certificate file and store it in a variable named `$Store`.
 
-   ```
+   ```bash
    PS C:\> {{$Store}} = [Security.Cryptography.X509Certificates.X509Certificate2Collection]::new([Security.Cryptography.X509Certificates.X509Certificate2]::new((Resolve-Path {{certificate.pem}})))
    ```
 
 1. Verify the signature.
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}} = [Security.Cryptography.Pkcs.SignedCms]::new()
    ```
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}}.Decode({{$Signature}})
    ```
 
-   ```
+   ```bash
    PS C:\> {{$SignatureDocument}}.CheckSignature({{$Store}}, $true)
    ```
 
@@ -430,7 +429,7 @@ The command adds the class to the current PowerShell session only. If you start 
 
 1. Validate the content of the instance identity document.
 
-   ```
+   ```bash
    PS C:\> [Linq.Enumerable]::SequenceEqual(${{SignatureDocument}}.ContentInfo.Content, {{$Document}})
    ```
 

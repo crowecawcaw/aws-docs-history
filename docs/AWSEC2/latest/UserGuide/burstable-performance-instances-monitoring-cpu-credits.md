@@ -1,7 +1,6 @@
 
 
 # Monitor CPU credits for burstable instances
-<a name="burstable-performance-instances-monitoring-cpu-credits"></a>
 
 EC2 sends metrics to Amazon CloudWatch. You can see the CPU credit metrics in the Amazon EC2 per-instance metrics of the CloudWatch console or by using the AWS CLI to list the metrics for each instance. For more information, see [CloudWatch metrics that are available for your instances](viewing_metrics_with_cloudwatch.md).
 
@@ -46,7 +45,7 @@ Mathematically, this is captured by the following equation:
 
 **Example**  
 
-```
+```bash
 CPUCreditBalance = prior CPUCreditBalance + [Credits earned per hour * (5/60) - CPUCreditUsage]
 ```
 
@@ -64,7 +63,7 @@ Using these values, you can calculate the `CPUCreditBalance` value:
 
 **Example**  
 
-```
+```bash
 CPUCreditBalance = 2 + [0.5 - 1] = 1.5
 ```
 
@@ -77,7 +76,7 @@ We use the term `Adjusted balance` in the following equations to reflect the act
 
 **Example**  
 
-```
+```bash
 Adjusted balance = [prior CPUCreditBalance - prior CPUSurplusCreditBalance] + [Credits earned per hour * (5/60) - CPUCreditUsage]
 ```
 
@@ -87,7 +86,7 @@ A positive `Adjusted balance` value indicates that the instance accrued earned c
 
 **Example**  
 
-```
+```bash
 CPUCreditBalance = min [max earned credit balance, Adjusted balance]
 CPUSurplusCreditBalance = 0
 ```
@@ -96,7 +95,7 @@ A negative `Adjusted balance` value indicates that the instance spent all its ea
 
 **Example**  
 
-```
+```bash
 CPUSurplusCreditBalance = min [max earned credit balance, -Adjusted balance]
 CPUCreditBalance = 0
 ```
@@ -105,7 +104,7 @@ If the surplus credits spent exceed the maximum credits that the instance can ac
 
 **Example**  
 
-```
+```bash
 CPUSurplusCreditsCharged = max [-Adjusted balance - max earned credit balance, 0]
 ```
 

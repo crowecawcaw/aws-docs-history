@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon EC2 instance stop issues
-<a name="TroubleshootingInstancesStopping"></a>
 
 If your Amazon EBS-backed instance appears stuck in the `stopping` state, the issue might be with the underlying host computer.
 
@@ -66,7 +65,7 @@ Using the console, you can force an instance to stop while the instance is in th
 **To force stop an instance**  
 Use the [stop-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/stop-instances.html) command with the `--force` option.
 
-```
+```bash
 aws ec2 stop-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --force
@@ -74,7 +73,7 @@ aws ec2 stop-instances \
 
 To bypass the graceful OS shutdown during force stop, include the `--skip-os-shutdown` option.
 
-```
+```bash
 aws ec2 stop-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --force \
@@ -87,7 +86,7 @@ aws ec2 stop-instances \
 **To force stop an instance**  
 Use the [Stop-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2Instance.html) cmdlet and set `-Enforce` to `true`.
 
-```
+```powershell
 Stop-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}} `
     -Enforce $true
@@ -95,7 +94,7 @@ Stop-EC2Instance `
 
 To bypass the graceful OS shutdown during force stop, include `-SkipOsShutdown $true`.
 
-```
+```powershell
 Stop-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}} `
     -Enforce $true `
@@ -166,7 +165,7 @@ If you are unable to create an AMI from the instance as described in the previou
 
 1. Create an AMI from the stuck instance using the [create-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-image.html) command with the `--no-reboot` option.
 
-   ```
+   ```bash
    aws ec2 create-image \
        --instance-id {{i-1234567890abcdef0}} \
        --name "{{my-replacement-ami}}" \
@@ -180,7 +179,7 @@ If you are unable to create an AMI from the instance as described in the previou
 
 1. (Optional) Terminate the stuck instance using the [terminate-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/terminate-instances.html) command.
 
-   ```
+   ```bash
    aws ec2 terminate-instances --instance-ids {{i-1234567890abcdef0}}
    ```
 
@@ -191,7 +190,7 @@ If you are unable to create an AMI from the instance as described in the previou
 
 1. Create an AMI from the stuck instance using the [New-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Image.html) cmdlet and set `-NoReboot` to `true`.
 
-   ```
+   ```powershell
    New-EC2Image `
        -InstanceId {{i-1234567890abcdef0}} `
        -Name "my-replacement-ami" `
@@ -205,7 +204,7 @@ If you are unable to create an AMI from the instance as described in the previou
 
 1. (Optional) Terminate the stuck instance using the [Remove-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Instance.html) cmdlet.
 
-   ```
+   ```powershell
    Remove-EC2Instance -InstanceId {{i-1234567890abcdef0}}
    ```
 

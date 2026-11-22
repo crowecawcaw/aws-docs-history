@@ -1,7 +1,6 @@
 
 
 # Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch
-<a name="ec2launch"></a>
 
 Amazon managed AMIs for Windows Server 2016 and 2019 include a set of Windows Powershell scripts called EC2Launch. EC2Launch performs tasks during the initial instance boot. For information about the EC2Launch versions that are included in AWS Windows AMIs, see the [AWS Windows AMI Reference](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/windows-amis.html).
 
@@ -11,7 +10,7 @@ To use EC2Launch with IMDSv2, the version must be 1.3.2002730 or later.
 
 You can use the following Windows PowerShell command to verify the installed version of EC2Launch.
 
-```
+```powershell
 Test-ModuleManifest -Path "C:\ProgramData\Amazon\EC2-Windows\Launch\Module\Ec2Launch.psd1" | Select Version
 ```
 
@@ -91,13 +90,13 @@ When telemetry is enabled, it appears in the Amazon EC2 console output as follow
 **Disable telemetry on an instance**  
 To disable telemetry by setting a system environment variable, run the following command as an administrator:
 
-```
+```batch
 setx /M EC2LAUNCH_TELEMETRY 0
 ```
 
 To disable telemetry during installation, run `install.ps1` as follows:
 
-```
+```PowerShell
 . .\install.ps1 -EnableTelemetry:$false
 ```
 

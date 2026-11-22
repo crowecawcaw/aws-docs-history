@@ -1,7 +1,6 @@
 
 
 # Use Amazon EC2 launch templates to control launching Amazon EC2 instances
-<a name="use-launch-templates-to-control-launching-instances"></a>
 
 You can control the configuration of your Amazon EC2 instances by specifying that users can only launch instances if they use a launch template, and that they can only use a specific launch template. You can also control who can create, modify, describe, and delete launch templates and launch template versions.
 

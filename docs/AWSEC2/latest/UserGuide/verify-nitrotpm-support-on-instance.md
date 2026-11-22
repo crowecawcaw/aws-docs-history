@@ -1,7 +1,6 @@
 
 
 # Verify that an Amazon EC2 instance is enabled for NitroTPM
-<a name="verify-nitrotpm-support-on-instance"></a>
 
 You can verify whether an Amazon EC2 instance is enabled for NitroTPM. If NitroTPM support is enabled on the instance, the command returns `"v2.0"`. Otherwise, the `TpmSupport` field is not present in the output.
 
@@ -13,7 +12,7 @@ The Amazon EC2 console does not display the `TpmSupport` field.
 **To verify whether an instance is enabled for NitroTPM**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query Reservations[].Instances[].TpmSupport
@@ -25,7 +24,7 @@ aws ec2 describe-instances \
 **To verify whether an instance is enabled for NitroTPM**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances.TpmSupport
 ```

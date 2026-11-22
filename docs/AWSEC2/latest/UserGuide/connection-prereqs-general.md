@@ -1,7 +1,6 @@
 
 
 # General connection prerequisites
-<a name="connection-prereqs-general"></a>
 
 The following are general prerequisites to connect to an instance. Note that there might be additional prerequisites that are specific to the connection option that you choose.
 
@@ -110,7 +109,7 @@ In Step 1, you get the console output, which includes the instance fingerprint. 
 
    On your local computer (not on the instance you're connecting to), use the [get-console-output](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-console-output.html) command. If the output is large, [you can pipe it to a text file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output-format.html), where it might be easier to read.
 
-   ```
+   ```bash
    aws ec2 get-console-output \
        --instance-id {{i-1234567890abcdef0}} \
        --query Output \
@@ -122,7 +121,7 @@ In Step 1, you get the console output, which includes the instance fingerprint. 
 
    On your local computer, use the following [Get-EC2ConsoleOutput](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ConsoleOutput.html) cmdlet.
 
-   ```
+   ```powershell
    $encodedOutput = (Get-EC2ConsoleOutput -InstanceId {{i-1234567890abcdef0}}).Output
    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedOutput))
    ```

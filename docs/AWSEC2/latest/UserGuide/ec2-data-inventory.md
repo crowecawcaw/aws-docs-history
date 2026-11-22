@@ -1,7 +1,6 @@
 
 
 # Create an inventory of your EC2 instances
-<a name="ec2-data-inventory"></a>
 
 Amazon EC2 provides on-demand, scalable computing capacity. An EC2 instance is a virtual server that runs in the AWS network.
 
@@ -38,7 +37,7 @@ After you determine where your instances are located, you can decide whether to 
 **To get the number of EC2 instances in a Region using the AWS CLI**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command to count the instances in the specified Region. You must run this command in each Region where you have instances.
 
-```
+```bash
 aws ec2 describe-instances \
     --region {{us-east-2}} \
     --query "length(Reservations[*].Instances[])"
@@ -46,13 +45,13 @@ aws ec2 describe-instances \
 
 The following is example output.
 
-```
+```bash
 27
 ```
 
 To get a list of the instance IDs instead of the count of instances, use the following `--query` parameter instead.
 
-```
+```bash
 --query "Reservations[*].Instances[].InstanceId"
 ```
 
@@ -67,14 +66,14 @@ After you determine the hardware specifications for your instances, you can deci
 **To get a summary of the instance types used by your instances**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command. The **sed** command removes lines with brackets and empty lines. You must run this command in each Region where you have instances.
 
-```
+```bash
 aws ec2 describe-instances \
     --query "Reservations[*].Instances[].InstanceType" | sed 's/[][]//g;/^$/d' | sort | uniq -c | sort -nr
 ```
 
 The following is example output.
 
-```
+```bash
   20    "c6i.4xlarge",
    5    "t2.micro",
    2    "g6e.2xlarge",
@@ -83,7 +82,7 @@ The following is example output.
 **To get information about specific instance types**  
 Use the following [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command to describe the instance types. The `--query` parameter includes only the specified fields in the output. These are the basic characteristics. You can include any additional fields that you need, or you can refer to [Amazon EC2 instance type specifications](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html) in the *Amazon EC2 Instance Types Guide*.
 
-```
+```bash
 aws ec2 describe-instance-types \
     --instance-types {{c6i.4xlarge t2.micro g6e.2xlarge}} \
     --query "InstanceTypes[*].[InstanceType,VCpuInfo.DefaultVCpus,MemoryInfo.SizeInMiB,NetworkInfo.NetworkPerformance]" \
@@ -92,7 +91,7 @@ aws ec2 describe-instance-types \
 
 The following is example output. The columns are instance type, vCPUs, memory (GiB), and network bandwidth (Gbps).
 
-```
+```bash
 ------------------------------------------------------
 |                DescribeInstanceTypes               |
 +--------------+-----+--------+----------------------+
@@ -113,14 +112,14 @@ After you determine the AMIs for your instances, you can plan the images require
 **To get the AMIs for your instances**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command. The **sed** command removes lines with brackets and empty lines. You must run this command in each Region where you have instances.
 
-```
+```bash
 aws ec2 describe-instances \
     --query "Reservations[*].Instances[].ImageId" | sed 's/[][]//g;/^$/d' | sort | uniq -c | sort -nr
 ```
 
 The following is example output.
 
-```
+```bash
 20     "ami-0a70b9d193ae8a79",
  5     "ami-07d9cf938edb0739b",
  2     "ami-09245d5773578a1d6",
@@ -129,7 +128,7 @@ The following is example output.
 **To get information about specific AMIs**  
 Use the following [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command. The `--query` parameter includes only the specified fields in the output. You can include any additional fields that you need.
 
-```
+```bash
 aws ec2 describe-images \
     --image-id {{ami-0a70b9d193ae8a79 ami-07d9cf938edb0739b ami-09245d5773578a1d6}} \
     --query "Images[*].{ID:ImageId,CreateDate:CreationDate,Name:Name,Description:Description}"
@@ -137,7 +136,7 @@ aws ec2 describe-images \
 
 The following is example output.
 
-```
+```json
 [
     {
         "ID": "ami-0a70b9d193ae8a799",
@@ -174,7 +173,7 @@ IP addresses allow devices to communicate with each other over a local network o
 **To get the IP addresses and DNS hostnames for your instances**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command. You must run this command in each Region where you have instances. The `--query` parameter includes only the specified fields in the output. You can include any additional fields that you need.
 
-```
+```bash
 aws ec2 describe-instances \
     --query "Reservations[*].Instances[].[InstanceId,PrivateIpAddress,PublicDnsName]" \
     --output table
@@ -182,7 +181,7 @@ aws ec2 describe-instances \
 
 The following is example output. The columns are instance ID, private IPv4 address, and public IPv4 DNS name.
 
-```
+```bash
 ----------------------------------------------------------------------------------------
 |                                   DescribeInstances                                  |
 +---------------------+------------+---------------------------------------------------+
@@ -205,14 +204,14 @@ After you determine the inbound traffic allowed to reach your server and the out
 **To get the security groups for your instances**  
 Use the following [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command. The **sed** command removes lines with brackets and empty lines. You must run this command in each Region where you have instances.
 
-```
+```bash
 aws ec2 describe-instances \
     --query "Reservations[*].Instances[].SecurityGroups[].GroupId" | sed 's/[][]//g;/^$/d' | sort | uniq -c | sort -nr
 ```
 
 The following is example output.
 
-```
+```bash
 27     "sg-01dd3383691d02f42",
 10     "sg-08c77cc910c0b3b2c",
  2     "sg-00f4e409629f1a42d",
@@ -221,7 +220,7 @@ The following is example output.
 **To get the inbound rules for a security group**  
 Use the following [describe-security-group-rules](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-rules.html) command to display the rules for the specified security group where `IsEgress` is `false`.
 
-```
+```bash
 aws ec2 describe-security-group-rules \
     --filters Name=group-id,Values={{sg-01dd3383691d02f42}} \
     --query 'SecurityGroupRules[?IsEgress==`false`]'
@@ -229,7 +228,7 @@ aws ec2 describe-security-group-rules \
 
 The following is example output. The first rule is the default inbound rule, which allows inbound traffic from all resources that are assigned to this security group. The other rule allows SSH traffic from the IP addresses in the specified prefix list. To describe the CIDR blocks in a prefix list, use the [describe-prefix-lists](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-prefix-lists.html) command.
 
-```
+```json
 [
     {
         "SecurityGroupRuleId": "sgr-06c8b42574a91db1b",
@@ -264,7 +263,7 @@ The following is example output. The first rule is the default inbound rule, whi
 **To get the outbound rules for a security group**  
 Use the following [describe-security-group-rules](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-group-rules.html) command to display the rules for the specified security group where `IsEgress` is `true`.
 
-```
+```bash
 aws ec2 describe-security-group-rules \
     --filters Name=group-id,Values={{sg-01dd3383691d02f42}} \
     --query 'SecurityGroupRules[?IsEgress==`true`]'
@@ -272,7 +271,7 @@ aws ec2 describe-security-group-rules \
 
 The following is example output. It contains only the default outbound rule, which allows all outbound IPv4 traffic.
 
-```
+```json
 [
     {
         "SecurityGroupRuleId": "sgr-048f09a719247dce7",
@@ -300,7 +299,7 @@ If you're running commands at launch as part of setting up your instances, you m
 **To view the decoded user data for an instance**  
 Use the following [describe-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-attribute.html) command. The **base64** command decodes the user data.
 
-```
+```bash
 aws ec2 describe-instance-attribute \
     --instance-id {{i-1234567890abcdef0}} \
     --attribute userData \
@@ -310,7 +309,7 @@ aws ec2 describe-instance-attribute \
 
 The following is example output.
 
-```
+```bash
 #!/bin/bash
 yum update -y
 service httpd start

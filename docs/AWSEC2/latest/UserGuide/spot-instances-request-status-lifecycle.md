@@ -1,7 +1,6 @@
 
 
 # State changes for a Spot request
-<a name="spot-instances-request-status-lifecycle"></a>
 
 The following diagram shows you the paths that your Spot request can follow throughout its lifecycle, from submission to termination. Each step is depicted as a node, and the status code for each node describes the status of the Spot request and Spot Instance.
 

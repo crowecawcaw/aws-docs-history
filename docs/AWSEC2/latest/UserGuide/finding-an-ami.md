@@ -1,7 +1,6 @@
 
 
 # Find an AMI that meets the requirements for your EC2 instance
-<a name="finding-an-ami"></a>
 
 An AMI includes the components and applications, such as the operating system and type of root volume, required to launch an instance. To launch an instance, you must find an AMI that meets your needs.
 
@@ -54,21 +53,21 @@ Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/d
 **To find an AMI owned by Amazon**  
 Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command with the `--owners` option.
 
-```
+```bash
 aws ec2 describe-images --owners amazon
 ```
 
 **To find a Windows AMI**  
 Add the following filter to display only Windows AMIs.
 
-```
+```bash
 --filters "Name=platform,Values=windows"
 ```
 
 **To find an EBS-backed AMI**  
 Add the following filter to display only AMIs backed by Amazon EBS.
 
-```
+```bash
 --filters "Name=root-device-type,Values=ebs"
 ```
 
@@ -80,14 +79,14 @@ Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/i
 **To find an AMI owned by Amazon**  
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) command with the `-Owner` parameter.
 
-```
+```powershell
 Get-EC2Image -Owner amazon
 ```
 
 **To find a Windows AMI**  
 Add the following filter to display only Windows AMIs.
 
-```
+```powershell
 -Filter @{Name="platform"; Values="windows"}
 ```
 

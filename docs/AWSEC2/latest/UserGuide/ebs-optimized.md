@@ -1,7 +1,6 @@
 
 
 # Amazon EBS-optimized instance types
-<a name="ebs-optimized"></a>
 
 Amazon EBS–optimized instances use an optimized configuration stack and provide additional, dedicated bandwidth for Amazon EBS I/O. This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.
 
@@ -445,6 +444,10 @@ M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurab
   <tr><td>t8i.micro 1</td><td>87</td><td>5000</td><td>10.88</td><td>625.00</td><td>500</td><td>20000</td></tr>
   <tr><td>t8i.small 1</td><td>174</td><td>5000</td><td>21.75</td><td>625.00</td><td>1500</td><td>20000</td></tr>
   <tr><td>t8i.medium 1</td><td>347</td><td>5000</td><td>43.38</td><td>625.00</td><td>2000</td><td>20000</td></tr>
+  <tr><td>t9g.nano 1</td><td>43</td><td>6000</td><td>5.38</td><td>750.00</td><td>250</td><td>20000</td></tr>
+  <tr><td>t9g.micro 1</td><td>87</td><td>6000</td><td>10.88</td><td>750.00</td><td>500</td><td>20000</td></tr>
+  <tr><td>t9g.small 1</td><td>174</td><td>6000</td><td>21.75</td><td>750.00</td><td>1000</td><td>20000</td></tr>
+  <tr><td>t9g.medium 1</td><td>347</td><td>6000</td><td>43.38</td><td>750.00</td><td>2000</td><td>20000</td></tr>
 </tbody>
 </table>
 

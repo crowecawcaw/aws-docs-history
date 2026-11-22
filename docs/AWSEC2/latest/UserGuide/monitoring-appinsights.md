@@ -1,7 +1,6 @@
 
 
 # Monitor .NET and SQL Server applications using CloudWatch Application Insights
-<a name="monitoring-appinsights"></a>
 
 CloudWatch Application Insights helps you monitor your .NET and SQL Server applications that use Amazon EC2 instances along with other [AWS application resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html#appinsights-components). It identifies and sets up key metrics logs and alarms across your application resources and technology stack (for example, your Microsoft SQL Server database, web (IIS) and application servers, OS, load balancers, and queues). It continuously monitors the metrics and logs to detect and correlate anomalies and errors. When errors and anomalies are detected, Application Insights generates events that you can use to set up notifications or take actions. To aid with troubleshooting, it creates automated dashboards for the detected problems, which include correlated metric anomalies and log errors, along with additional insights to point you to the potential root cause. The automated dashboards help you to take swift remedial actions to keep your applications healthy and to prevent impact to the end users of your application.
 

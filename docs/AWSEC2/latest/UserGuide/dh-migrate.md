@@ -1,7 +1,6 @@
 
 
 # Migrate to Nitro-based Amazon EC2 Dedicated Hosts
-<a name="dh-migrate"></a>
 
 The Nitro System is a collection of hardware and software components built by AWS that enable high performance, high availability, and high security. Nitro-based Dedicated Hosts offer improved price performance compared to Xen-based Dedicated Hosts. If you have any Xen-based Dedicated Hosts in your account, we recommend that you migrate your workloads to Nitro-based Dedicated Hosts. For more information, see [AWS Nitro System](https://aws.amazon.com/ec2/nitro/).
 

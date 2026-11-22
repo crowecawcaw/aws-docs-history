@@ -1,7 +1,6 @@
 
 
 # Instance retirement
-<a name="instance-retirement"></a>
 
 An instance is scheduled to be retired when AWS detects irreparable failure of the underlying hardware that hosts the instance. The instance root volume type determines the behavior of instance retirement:
 + If your instance root volume is an Amazon EBS volume, the instance is stopped, and you can start it again at any time. Starting the stopped instance migrates it to new hardware.
@@ -58,7 +57,7 @@ If you use an email account that you do not check regularly, you might miss an i
 **To find instances scheduled for retirement**  
 Use the following [describe-instance-status](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-status.html) command. Repeat in each Region where you have running instances.
 
-```
+```bash
 aws ec2 describe-instance-status --filters Name=event.code,Values=instance-retirement
 ```
 
@@ -68,7 +67,7 @@ aws ec2 describe-instance-status --filters Name=event.code,Values=instance-retir
 **To find instances scheduled for retirement**  
 Use the [Get-EC2InstanceStatus](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceStatus.html) cmdlet. Repeat in each Region where you have running instances.
 
-```
+```powershell
 Get-EC2InstanceStatus -Filter @{Name="event.code"; Values="instance-retirement"}
 ```
 

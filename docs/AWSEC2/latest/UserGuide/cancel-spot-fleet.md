@@ -1,7 +1,6 @@
 
 
 # Cancel (delete) a Spot Fleet request
-<a name="cancel-spot-fleet"></a>
 
 **Important**  
 Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).
@@ -45,7 +44,7 @@ If you specify that the instances must be terminated when the fleet request is c
 **To cancel (delete) a Spot Fleet request and terminate its instances**  
 Use the [cancel-spot-fleet-requests](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-spot-fleet-requests.html) command with the `--terminate-instances` option.
 
-```
+```bash
 aws ec2 cancel-spot-fleet-requests \
     --spot-fleet-request-ids {{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --terminate-instances
@@ -53,7 +52,7 @@ aws ec2 cancel-spot-fleet-requests \
 
 The following is example output.
 
-```
+```json
 {
     "SuccessfulFleetRequests": [
         {
@@ -69,7 +68,7 @@ The following is example output.
 **To cancel (delete) a Spot Fleet request without terminating its instances**  
 Modify the previous example by using the `--no-terminate-instances` option instead.
 
-```
+```bash
 aws ec2 cancel-spot-fleet-requests \
     --spot-fleet-request-ids {{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --no-terminate-instances
@@ -77,7 +76,7 @@ aws ec2 cancel-spot-fleet-requests \
 
 The following is example output.
 
-```
+```json
 {
     "SuccessfulFleetRequests": [
         {
@@ -96,7 +95,7 @@ The following is example output.
 **To cancel (delete) a Spot Fleet request and terminate its instances**  
 Use the [Stop-EC2SpotFleetRequest](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2SpotFleetRequest.html) cmdlet with the `-TerminateInstance` parameter.
 
-```
+```powershell
 Stop-EC2SpotFleetRequest `
     -SpotFleetRequestId "{{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TerminateInstance $true
@@ -105,7 +104,7 @@ Stop-EC2SpotFleetRequest `
 **To cancel (delete) a Spot Fleet request without terminating its instances**  
 Modify the previous example by changing the value of the `-TerminateInstance` parameter.
 
-```
+```powershell
 Stop-EC2SpotFleetRequest `
     -SpotFleetRequestId "{{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TerminateInstance $false

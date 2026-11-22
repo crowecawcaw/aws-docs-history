@@ -1,7 +1,6 @@
 
 
 # Prerequisites for EC2 Instance Connect
-<a name="ec2-instance-connect-prerequisites"></a>
 
 **Topics**
 + [Install EC2 Instance Connect](#eic-prereqs-install-eic-on-instance)

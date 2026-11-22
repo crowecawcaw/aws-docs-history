@@ -1,7 +1,6 @@
 
 
 # Requirements for using NitroTPM with Amazon EC2 instances
-<a name="enable-nitrotpm-prerequisites"></a>
 
 To launch an instance with NitroTPM enabled, you must meet the following requirements.
 
@@ -29,11 +28,11 @@ To find an AWS Windows AMI that's preconfigured for NitroTPM and UEFI Secure Boo
 <a name="nitrotpm-instancetypes"></a>
 
 You must use one of the following virtualized instance types:
-+ **General purpose**: M5, M5a, M5ad, M5d, M5dn, M5n, M5zn, M6a, M6g, M6gd, M6i, M6id, M6idn, M6in, M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8azn, M8g, M8gb, M8gd, M8gn, M8i, M8id, M8i-flex, M8in, M8idn, M8ine, M8ib, M8idb, M9g, M9gd, T3, T3a, T4g, T8i
++ **General purpose**: M5, M5a, M5ad, M5d, M5dn, M5n, M5zn, M6a, M6g, M6gd, M6i, M6id, M6idn, M6in, M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8azn, M8g, M8gb, M8gd, M8gn, M8i, M8id, M8i-flex, M8in, M8idn, M8ine, M8ib, M8idb, M9g, M9gd, T3, T3a, T4g, T8i, T9g
 + **Compute optimized**: C5, C5a, C5ad, C5d, C5n, C6a, C6g, C6gd, C6gn, C6i, C6id, C6in, C7a, C7g, C7gd, C7gn, C7i, C7i-flex, C8a, C8g, C8gb, C8gd, C8gn, C8i, C8id, C8i-flex, C8in, C8ine, C8ib, C9g, C9gd
 + **Memory optimized**: R5, R5a, R5ad, R5b, R5d, R5dn, R5n, R6a, R6g, R6gd, R6i, R6id, R6idn, R6in, R7a, R7g, R7gd, R7i, R7iz, R8a, R8g, R8gb, R8gd, R8gn, R8i, R8id, R8i-flex, R8in, R8idn, R8ib, R8idb, R9g, R9gd, U7i-6tb, U7i-8tb, U7i-12tb, U7in-16tb, U7in-24tb, U7in-32tb, X2idn, X2iedn, X2iezn, X8g, X8aedz, X8i, z1d
 + **Storage optimized**: D3, D3en, I3en, I4i, I7i, I7ie, I8g, I8ge, Im4gn
-+ **Accelerated computing**: F2, G4dn, G5, G6, G6e, G6f, Gr6, Gr6f, G7, G7e, Inf1, Inf2, P5, P5e, P5en, P6-B200, P6-B300, P6e-GB200, Trn2, Trn2u
++ **Accelerated computing**: F2, G4dn, G5, G5g, G6, G6e, G6f, Gr6, Gr6f, G7, G7e, Inf1, Inf2, P5, P5e, P5en, P6-B200, P6-B300, P6e-GB200, Trn2, Trn2u
 + **High-performance computing**: Hpc6a, Hpc6id, Hpc8a
 
 ## Considerations

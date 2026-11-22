@@ -1,7 +1,6 @@
 
 
 # Monitor Capacity Reservations usage with CloudWatch metrics
-<a name="capacity-reservation-cw-metrics"></a>
 
 With CloudWatch metrics, you can efficiently monitor your Capacity Reservations and identify unused capacity by setting CloudWatch alarms to notify you when usage thresholds are met. This can help you maintain a constant Capacity Reservation volume and achieve a higher level of utilization.
 
@@ -65,6 +64,6 @@ Metrics are grouped first by the service namespace, and then by the supported di
 **To view Capacity Reservation metrics using the AWS CLI**  
 Use the following [list-metrics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html) command:
 
-```
+```bash
 aws cloudwatch list-metrics --namespace "AWS/EC2CapacityReservations"
 ```

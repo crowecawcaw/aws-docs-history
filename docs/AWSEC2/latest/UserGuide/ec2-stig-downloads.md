@@ -1,7 +1,6 @@
 
 
 # STIG hardening script downloads
-<a name="ec2-stig-downloads"></a>
 
 Amazon groups STIG hardening scripts together into operating system related bundles for each release. Bundles are archive files that are appropriate for the target operating system where they download and run. Linux script bundles are stored as TAR files (.tgz file extension). Windows script bundles are stored as ZIP files (.zip file extension).
 
@@ -20,14 +19,14 @@ With few exceptions, the STIG hardening scripts that the Systems Manager documen
 
 When you run the following command from the AWS CLI, Amazon S3 downloads the latest STIG hardening script bundle file from the bucket.
 
-```
+```sh
 aws s3 cp s3://aws-windows-downloads-{{region}}/STIG/{{operating system}}/Latest/{{bundle-name}} {{destination-directory}}
 ```
 
 **Example: Download to a temporary directory**  
 This example shows a Linux bundle that's downloaded to the `/tmp` directory
 
-```
+```sh
 aws s3 cp s3://aws-windows-downloads-{{us-east-1}}/STIG/{{Linux}}/Latest/{{LinuxAWSConfigureSTIG.tgz}} {{/tmp}}
 ```
 

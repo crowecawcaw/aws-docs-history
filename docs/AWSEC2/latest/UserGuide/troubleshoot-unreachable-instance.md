@@ -1,7 +1,6 @@
 
 
 # Troubleshoot an unreachable Amazon EC2 instance
-<a name="troubleshoot-unreachable-instance"></a>
 
 The following information can help you troubleshoot unreachable Amazon EC2 instances. You can capture screenshots or access console output to help diagnose problems and determine if you should reboot your instance. For unreachable Windows instances, troubleshoot by reviewing screenshots returned by the service. 
 
@@ -50,7 +49,7 @@ You can retrieve the latest serial console output during the instance lifecycle.
 **To get console output**  
 Use the [get-console-output](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-console-output.html) command.
 
-```
+```bash
 aws ec2 get-console-output --instance-id {{i-1234567890abcdef0}}
 ```
 
@@ -60,7 +59,7 @@ aws ec2 get-console-output --instance-id {{i-1234567890abcdef0}}
 **To get console output**  
 Use the [Get-EC2ConsoleOutput](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ConsoleOutput.html) cmdlet.
 
-```
+```powershell
 Get-EC2ConsoleOutput -InstanceId {{i-1234567890abcdef0}}
 ```
 
@@ -110,7 +109,7 @@ This feature is not available in the following Regions:
 **To capture a screenshot of an instance**  
 Use the [get-console-screenshot](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-console-screenshot.html) command. The output is base64-encoded.
 
-```
+```bash
 aws ec2 get-console-screenshot --instance-id {{i-1234567890abcdef0}}
 ```
 
@@ -120,7 +119,7 @@ aws ec2 get-console-screenshot --instance-id {{i-1234567890abcdef0}}
 **To capture a screenshot of an instance**  
 Use the [Get-EC2ConsoleScreenshot](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ConsoleScreenshot.html) cmdlet. The output is base64-encoded.
 
-```
+```powershell
 Get-EC2ConsoleScreenshot -InstanceId {{i-1234567890abcdef0}}
 ```
 

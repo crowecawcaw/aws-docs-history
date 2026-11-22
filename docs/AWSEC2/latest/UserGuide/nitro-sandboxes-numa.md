@@ -1,7 +1,6 @@
 
 
 # Nitro Sandboxes on instances with multiple NUMA nodes
-<a name="nitro-sandboxes-numa"></a>
 
 Some instance types have more than one non-uniform memory access (NUMA) node. Each node has its own vCPUs and memory, and a vCPU reaches the memory of its own node faster than the memory of another node.
 
@@ -21,7 +20,7 @@ On an instance with more than one node, the parent instance keeps the memory poo
 
 Run the following command on the parent instance.
 
-```
+```bash
 lscpu | grep NUMA
 ```
 
@@ -82,7 +81,7 @@ Size the pool of each node for the Nitro Sandboxes that you plan to run on that 
 
 To add the parameter, follow the steps in [Prepare the parent instance](nitro-sandboxes-run-firecracker.md#nitro-sandboxes-prepare-parent). After the reboot, check the pool of each node, in bytes.
 
-```
+```bash
 sudo dmesg | grep "nitro_enclaves: CMA pool"
 grep . /sys/class/misc/nitro_enclaves/mem_pool/node*/total
 ```
@@ -100,7 +99,7 @@ nitro_enclaves: CMA pool: 131072 MiB reserved in 16 region(s), 131072 MiB reques
 
 To place a Nitro Sandbox on a node other than node 0, add `numa_nodes` to the `enclave` object of the configuration in [Launch a Nitro Sandbox](nitro-sandboxes-run-firecracker.md#nitro-sandboxes-launch). The following example places all vCPUs and all memory on node 1.
 
-```
+```json
 "machine-config": {
 "vcpu_count": {{2}},
 "mem_size_mib": {{2048}}
@@ -115,7 +114,7 @@ To place a Nitro Sandbox on a node other than node 0, add `numa_nodes` to the `e
 
 To place one Nitro Sandbox on more than one node, add an entry for each node. The following example puts 2 vCPUs and 2 GiB on each of nodes 0 and 1.
 
-```
+```json
 "machine-config": {
 "vcpu_count": 4,
 "mem_size_mib": 4096
@@ -144,7 +143,7 @@ If you also set `cpu_ids`, choose CPUs on the node that holds the memory of the 
 
 The parent instance reports the free capacity of each node in the `/sys/class/misc/nitro_enclaves` directory. The `mem_pool/node{{N}}` directories hold `total`, `in_use`, and `free` in bytes. The `cpu_pool/node{{N}}` directories hold the same files as vCPU counts, and count only Nitro Sandboxes without CPU overcommit.
 
-```
+```bash
 grep . /sys/class/misc/nitro_enclaves/mem_pool/node*/free /sys/class/misc/nitro_enclaves/cpu_pool/node*/free
 ```
 

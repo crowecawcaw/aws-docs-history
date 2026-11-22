@@ -1,7 +1,6 @@
 
 
 # Monitor AMI events using Amazon EventBridge
-<a name="monitor-ami-events"></a>
 
 When the state of an Amazon Machine Image (AMI) changes, Amazon EC2 generates an event that is sent to Amazon EventBridge (formerly known as Amazon CloudWatch Events). The events are sent to the default EventBridge event bus in JSON format. You can use Amazon EventBridge to detect and react to these events. You do this by creating rules in EventBridge that trigger an action in response to an event. For example, you can create an EventBridge rule that detects when the AMI creation process has completed and then invokes an Amazon SNS topic to send an email notification to you.
 
@@ -61,7 +60,7 @@ The following is an example of an event that Amazon EC2 generates when the AMI e
 
 `"State": "available"` indicates that the operation was successful.
 
-```
+```JSON
 {
     "version": "0",
     "id": "example-9f07-51db-246b-d8b8441bcdf0",
@@ -89,7 +88,7 @@ The following fields provide pertinent information:
 + `"State": "failed"` – Indicates that the operation failed.
 + `"ErrorMessage": ""` – Provides the reason for the failed operation.
 
-```
+```JSON
 {
     "version": "0",
     "id": "example-9f07-51db-246b-d8b8441bcdf0",
@@ -115,7 +114,7 @@ The following is an example of an event that Amazon EC2 generates when the AMI e
 
 `"State": "deregistered"` indicates that the `DeregisterImage` operation was successful.
 
-```
+```JSON
 {
     "version": "0",
     "id": "example-9f07-51db-246b-d8b8441bcdf0",
@@ -141,7 +140,7 @@ The following is an example of an event that Amazon EC2 generates when the AMI e
 
 `"State": "disabled"` indicates that the `DisableImage` operation was successful.
 
-```
+```JSON
 {
     "version": "0",
     "id": "example-9f07-51db-246b-d8b8441bcdf0",

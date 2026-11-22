@@ -1,7 +1,6 @@
 
 
 # Create a group
-<a name="cr-groups-create"></a>
 
 You can create a group to organize your Capacity Reservations. After you create a group, you can [add Capacity Reservations to the group](cr-groups-add.md).
 
@@ -45,7 +44,7 @@ aws resource-groups create-group \
 **To create a group for Capacity Reservations**  
 Use the [New-RGGroup](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RGGroup.html) cmdlet.
 
-```
+```powershell
 New-RGGroup `
     -Name {{MyCRGroup}} `
     -Configuration `

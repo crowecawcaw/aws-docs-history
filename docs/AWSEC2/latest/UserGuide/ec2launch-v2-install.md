@@ -1,7 +1,6 @@
 
 
 # Install the latest version of EC2Launch v2
-<a name="ec2launch-v2-install"></a>
 
 You can use one of the following methods to install the EC2Launch v2 agent on your EC2 instance:
 + Download the agent from Amazon S3 and install with Windows PowerShell. For download URLs, see [EC2Launch v2 downloads on Amazon S3](#lv2-download-s3).
@@ -21,19 +20,19 @@ To install the latest version of EC2Launch v2 agent with Windows PowerShell, fol
 
 1. Create your local directory.
 
-   ```
+   ```powershell
    New-Item -Path "$env:USERPROFILE\Desktop\EC2Launchv2" -ItemType Directory
    ```
 
 1. Set the URL for your download location. Run the following command with the Amazon S3 URL you'll use. For download URLs, see [EC2Launch v2 downloads on Amazon S3](#lv2-download-s3)
 
-   ```
+   ```PowerShell
    $Url = "{{Amazon S3 URL}}/AmazonEC2Launch.msi"
    ```
 
 1. Use the following compound command to download the agent and run the install 
 
-   ```
+   ```powershell
    $DownloadFile = "$env:USERPROFILE\Desktop\EC2Launchv2\" + $(Split-Path -Path $Url -Leaf)
    Invoke-WebRequest -Uri $Url -OutFile $DownloadFile
    msiexec /i "$DownloadFile"
@@ -41,7 +40,7 @@ To install the latest version of EC2Launch v2 agent with Windows PowerShell, fol
 **Note**  
 If you receive an error when downloading the file, and you are using Windows Server 2016 or earlier, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:  
 
-   ```
+   ```PowerShell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    ```
 
@@ -169,7 +168,7 @@ When the EC2Launch v2 agent runs, it reads the `EC2LAUNCH_TELEMETRY` environment
 
 **Example: install EC2Launch v2 with telemetry**
 
-```
+```sh
 & msiexec /i "C:\Users\Administrator\Desktop\EC2Launchv2\AmazonEC2Launch.msi" ADDLOCAL="Basic,Clean,Telemetry" /q
 ```
 
@@ -191,7 +190,7 @@ Verify the installed version of EC2Launch v2 with Windows PowerShell, as follows
 
 1. Run the following command in PowerShell to verify the installed version of EC2Launch v2:
 
-   ```
+   ```powershell
    & "C:\Program Files\Amazon\EC2Launch\EC2Launch.exe" version
    ```
 

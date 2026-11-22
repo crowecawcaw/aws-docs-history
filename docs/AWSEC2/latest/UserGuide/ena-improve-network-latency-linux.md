@@ -1,7 +1,6 @@
 
 
 # Improve network latency for Linux based EC2 instances
-<a name="ena-improve-network-latency-linux"></a>
 
 Network latency is the amount of time it takes for a packet of data to travel from its source to its destination. Applications that send data across the network depend on timely responses to provide a positive user experience. High network latency can lead to various issues, such as the following:
 + Slow load times for web pages
@@ -32,13 +31,13 @@ There are many configuration options for the Linux kernel that might help decrea
 `busy_read`  
 A low latency busy poll timeout for socket reads. This controls the number of microseconds to wait for the socket layer to read packets on the device queue. To enable the feature globally with the **sysctl** command, the Linux Kernel organization recommends a value of 50 microseconds. For more information, see [busy\_read](https://www.kernel.org/doc/html/v5.19/admin-guide/sysctl/net.html?highlight=busy_read) in the *Linux kernel user's and administrator's guide*.  
 
-  ```
+  ```bash
   [ec2-user ~]$ sudo sysctl -w net.core.busy_read={{50}}
   ```  
 `busy_poll`  
 A low latency busy poll timeout for poll and select. This controls the number of microseconds to wait for events. The recommended value is between 50-100 microseconds, depending on the number of sockets you're polling. The more sockets you add, the higher the number should be.  
 
-  ```
+  ```bash
   [ec2-user ~]$ sudo sysctl -w net.core.busy_poll={{50}}
   ```
 + **Configure CPU power states (C-states)** – C-states control the sleep levels that a core may enter when it's inactive. You might want to control C-states to tune your system for latency versus performance. In deeper C-states, the CPU is essentially "asleep" and can't respond to requests until it wakes up and transitions back to an active state. Putting cores to sleep takes time, and although a sleeping core allows more headroom for another core to boost to a higher frequency, it takes time for that sleeping core to wake back up and perform work.
@@ -66,7 +65,7 @@ To minimize network latency, it might be necessary to disable interrupt moderati
 
 To get the current interrupt modification configuration, use the following command.
 
-```
+```bash
 [ec2-user ~]$ ethtool -c {{interface}} | egrep "rx-usecs:|tx-usecs:|Adaptive RX"
 Adaptive RX: on  TX: off
 rx-usecs: 20
@@ -75,6 +74,6 @@ tx-usecs: 64
 
 To disable interrupt modification and dynamic interrupt moderation, use the following command.
 
-```
+```bash
 [ec2-user ~]$ sudo ethtool -C {{interface}} adaptive-rx off rx-usecs 0 tx-usecs 0
 ```

@@ -1,7 +1,6 @@
 
 
 # Improve network performance between EC2 instances with ENA Express
-<a name="ena-express"></a>
 
 ENA Express is powered by AWS Scalable Reliable Datagram (SRD) technology. SRD is a high performance network transport protocol that uses dynamic routing to increase throughput and minimize tail latency. With ENA Express, you can communicate between two EC2 instances in the same Availability Zone or across Availability Zones within the same Region.
 

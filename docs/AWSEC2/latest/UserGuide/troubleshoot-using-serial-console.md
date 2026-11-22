@@ -1,7 +1,6 @@
 
 
 # Troubleshoot your Amazon EC2 instance using the EC2 Serial Console
-<a name="troubleshoot-using-serial-console"></a>
 
 By using EC2 Serial Console, you can troubleshoot boot, network configuration, and other issues by connecting to your instance's serial port.
 
@@ -30,7 +29,7 @@ You can boot into single user mode or emergency mode. Single user mode will boot
 
 1. Reboot the instance using the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 
@@ -44,7 +43,7 @@ You can boot into single user mode or emergency mode. Single user mode will boot
 
    The following is an example for Amazon Linux 2.
 
-   ```
+   ```bash
    linux /boot/vmlinuz-4.14.193-149.317.amzn2.aarch64 root=UUID=d33f9c9a-\
    dadd-4499-938d-ebbf42c3e499 ro  console=tty0 console=ttyS0,115200n8 net.ifname\
    s=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.she\
@@ -80,19 +79,19 @@ To use SysRq, choose one of the following procedures based on the client that yo
 
 1. To send a break request, press `CTRL+0` (zero). If your keyboard supports it, you can also send a break request using the Pause or Break key.
 
-   ```
+   ```bash
    [ec2-user ~]$ CTRL+0
    ```
 
 1. To issue a SysRq command, press the key on your keyboard that corresponds to the required command. For example, to display a list of SysRq commands, press `h`.
 
-   ```
+   ```bash
    [ec2-user ~]$ h
    ```
 
    The `h` command outputs something similar to the following.
 
-   ```
+   ```JSON
    [ 1169.389495] sysrq: HELP : loglevel(0-9) reboot(b) crash(c) terminate-all-tasks(e) memory-full-oom-kill(f) kill-all-tasks(i) thaw-filesystems
    (j) sak(k) show-backtrace-all-active-cpus(l) show-memory-usage(m) nice-all-RT-tasks(n) poweroff(o) show-registers(p) show-all-timers(q) unraw(r
    ) sync(s) show-task-states(t) unmount(u) show-blocked-tasks(w) dump-ftrace-buffer(z)
@@ -107,19 +106,19 @@ To use SysRq, choose one of the following procedures based on the client that yo
 
 1. To send a break request, press `~B` (tilde, followed by uppercase `B`).
 
-   ```
+   ```bash
    [ec2-user ~]$ ~B
    ```
 
 1. To issue a SysRq command, press the key on your keyboard that corresponds to the required command. For example, to display a list of SysRq commands, press `h`.
 
-   ```
+   ```bash
    [ec2-user ~]$ h
    ```
 
    The `h` command outputs something similar to the following.
 
-   ```
+   ```JSON
    [ 1169.389495] sysrq: HELP : loglevel(0-9) reboot(b) crash(c) terminate-all-tasks(e) memory-full-oom-kill(f) kill-all-tasks(i) thaw-filesystems
    (j) sak(k) show-backtrace-all-active-cpus(l) show-memory-usage(m) nice-all-RT-tasks(n) poweroff(o) show-registers(p) show-all-timers(q) unraw(r
    ) sync(s) show-task-states(t) unmount(u) show-blocked-tasks(w) dump-ftrace-buffer(z)

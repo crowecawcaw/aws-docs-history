@@ -1,7 +1,6 @@
 
 
 # Configure DNS Suffix for EC2 Windows launch agents
-<a name="launch-agents-set-dns"></a>
 
 With Amazon EC2 launch agents, you can configure a list of DNS suffixes that Windows instances use for domain name resolution. The launch agents override the standard Windows settings in the `System\CurrentControlSet\Services\Tcpip\Parameters\SearchList` registry key by adding the following values to the DNS suffix search list:
 + The domain of the instance
@@ -31,7 +30,7 @@ When you disable devolution or change your devolution settings to a higher level
 **Note**  
 To clear the DNS suffix list from the registry, you can run the following command.  
 
-```
+```ps
 PS C:\> Invoke-CimMethod -ClassName Win32_NetworkAdapterConfiguration -MethodName "SetDNSSuffixSearchOrder" -Arguments @{ DNSDomainSuffixSearchOrder = $null } | Out-Null
 ```
 

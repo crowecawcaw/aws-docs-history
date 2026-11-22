@@ -1,13 +1,12 @@
 
 
 # State change events for Amazon EC2 instances
-<a name="monitoring-instance-state-changes"></a>
 
 Amazon EC2 sends an `EC2 Instance State-change Notification` event to Amazon EventBridge when the state of an instance changes.
 
 The following is example data for this event. In this example, the instance entered the `pending` state.
 
-```
+```json
 {
    "id":"7bf73129-1428-4cd3-a780-95db273d1602",
    "detail-type":"EC2 Instance State-change Notification",

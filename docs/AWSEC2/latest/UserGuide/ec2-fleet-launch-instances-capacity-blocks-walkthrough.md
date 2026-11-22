@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks
-<a name="ec2-fleet-launch-instances-capacity-blocks-walkthrough"></a>
 
 This tutorial walks you through the steps that you must perform so that your EC2 Fleet launches instances into Capacity Blocks. 
 
@@ -42,7 +41,7 @@ For more information about Capacity Blocks, see [Capacity Blocks for ML](ec2-cap
 
    For more information about configuring an EC2 Fleet, see [Create an EC2 Fleet](create-ec2-fleet.md).
 
-   ```
+   ```JSON
    { 
        "LaunchTemplateConfigs": [
            {
@@ -70,7 +69,7 @@ For more information about Capacity Blocks, see [Capacity Blocks for ML](ec2-cap
 
    Use the following [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command.
 
-   ```
+   ```bash
    aws ec2 create-fleet --cli-input-json file://config.json
    ```
 

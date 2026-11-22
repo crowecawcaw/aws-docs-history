@@ -1,7 +1,6 @@
 
 
 # Reference AMIs using Systems Manager parameters
-<a name="using-systems-manager-parameter-to-find-AMI"></a>
 
 When you launch an instance using the EC2 launch instance wizard in the Amazon EC2 console, you can either select an AMI from the list, or you can select an AWS Systems Manager parameter that points to an AMI ID (described in this section). If you use automation code to launch your instances, you can specify the Systems Manager parameter instead of the AMI ID.
 
@@ -56,13 +55,13 @@ When you launch an instance, instead of specifying an AMI ID, you can specify a 
 
 To specify the parameter programmatically, use the following syntax, where `resolve:ssm` is the standard prefix and `parameter-name` is the unique parameter name.
 
-```
+```bash
 resolve:ssm:{{parameter-name}}
 ```
 
 Systems Manager parameters have version support. Each iteration of a parameter is assigned a unique version number. You can reference the version of the parameter as follows, where `version` is the unique version number. By default, the latest version of the parameter is used when no version is specified.
 
-```
+```bash
 resolve:ssm:{{parameter-name}}:{{version}}
 ```
 
@@ -97,13 +96,13 @@ For more information about launching an instance using the launch instance wizar
 **To launch an instance using a Systems Manager parameter**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--image-id` option. This example uses a Systems Manager parameter named **golden-ami**, which specifies an AMI ID.
 
-```
+```bash
 --image-id resolve:ssm:/{{golden-ami}}
 ```
 
 You can create versions of a Systems Manager parameter. The following example specifies version 2 of the **golden-ami** parameter.
 
-```
+```bash
 --image-id resolve:ssm:/{{golden-ami:2}}
 ```
 
@@ -113,13 +112,13 @@ You can create versions of a Systems Manager parameter. The following example sp
 **To launch an instance using a Systems Manager parameter**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-ImageId` parameter. This example uses a Systems Manager parameter named **golden-ami**, which specifies an AMI ID.
 
-```
+```powershell
 -ImageId "resolve:ssm:/golden-ami"
 ```
 
 You can create versions of a Systems Manager parameter. The following example specifies version 2 of the **golden-ami** parameter.
 
-```
+```powershell
 -ImageId "resolve:ssm:/golden-ami:2"
 ```
 

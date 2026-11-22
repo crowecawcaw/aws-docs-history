@@ -1,7 +1,6 @@
 
 
 # Specify attributes for instance type selection for EC2 Fleet or Spot Fleet
-<a name="ec2-fleet-attribute-based-instance-type-selection"></a>
 
 When you create an EC2 Fleet or Spot Fleet, you must specify one or more instance types for configuring the On-Demand Instances and Spot Instances in the fleet. As an alternative to manually specifying the instance types, you can specify the attributes that an instance must have, and Amazon EC2 will identify all the instance types with those attributes. This is known as *attribute-based instance type selection*. For example, you can specify the minimum and maximum number of vCPUs required for your instances, and the fleet will launch the instances using any available instance types that meet those vCPU requirements. 
 
@@ -172,7 +171,7 @@ If you specify an unsupported instance family as a value for baseline performanc
 **Example: Set a CPU performance baseline**  
 In the following example, the instance requirement is to launch with instance types that have CPU cores that are as performant as the `c6i` instance family. This will filter out instance types with less performant CPU processors, even if they meet your other specified instance requirements such as the number of vCPUs. For example, if your specified instance attributes include 4 vCPUs and 16 GB of memory, an instance type with these attributes but with lower CPU performance than `c6i` will be excluded from selection.
 
-```
+```JSON
 "BaselinePerformanceFactors": {
         "Cpu": {
             "References": [
@@ -210,7 +209,7 @@ This configuration identifies any instance types with 2 to 4 vCPUs and 8 to 16 G
 **To create an EC2 Fleet with attribute-based instance type selection**  
 Use the [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command to create an EC2 Fleet. Specify the fleet configuration in a JSON file.
 
-```
+```bash
 aws ec2 create-fleet \
     --region {{us-east-1}} \
     --cli-input-json file://{{file_name}}.json
@@ -218,7 +217,7 @@ aws ec2 create-fleet \
 
 The following example `{{file_name}}.json` file contains the parameters that configure an EC2 Fleet to use attribute-based instance type selection.
 
-```
+```JSON
 {
     "SpotOptions": {
         "AllocationStrategy": "{{price-capacity-optimized}}"
@@ -255,7 +254,7 @@ The following example `{{file_name}}.json` file contains the parameters that con
 **To create an EC2 Fleet with attribute-based instance type selection**  
 Use the [New-EC2Fleet](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Fleet.html) cmdlet.
 
-```
+```powershell
 $vcpuCount = New-Object Amazon.EC2.Model.VCpuCountRangeRequest
 $vcpuCount.Min = {{2}} 
 $vcpuCount.Max = {{4}}  
@@ -330,7 +329,7 @@ This configuration identifies any instance types that have 2 to 4 vCPUs and 8 to
 **To configure a Spot Fleet for attribute-based instance type selection**  
 Use the [request-spot-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-fleet.html) command to create a Spot Fleet. Specify the fleet configuration in a JSON file.
 
-```
+```bash
 aws ec2 request-spot-fleet \
     --region {{us-east-1}} \
     --spot-fleet-request-config file://{{file_name}}.json
@@ -338,7 +337,7 @@ aws ec2 request-spot-fleet \
 
 The following example `{{file_name}}.json` file contains the parameters that configure a Spot Fleet to use attribute-based instance type selection.
 
-```
+```JSON
 {
     "AllocationStrategy": "{{priceCapacityOptimized}}",
     "TargetCapacity": {{20}},
@@ -370,7 +369,7 @@ The following example `{{file_name}}.json` file contains the parameters that con
 **To configure a Spot Fleet for attribute-based instance type selection**  
 Use the [Request-EC2SpotFleet](https://docs.aws.amazon.com/powershell/latest/reference/items/Request-EC2SpotFleet.html) cmdlet.
 
-```
+```powershell
 $vcpuCount = New-Object Amazon.EC2.Model.VCpuCountRange
 $vcpuCount.Min = {{2}} 
 $vcpuCount.Max = {{4}}  
@@ -423,7 +422,7 @@ Configurations are considered not valid when they contain the following:
 
 The following configuration is valid. It contains one launch template and one `Overrides` structure containing one `InstanceRequirements` structure. A text explanation of the example configuration follows.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
         {
@@ -476,7 +475,7 @@ The `TargetCapacityUnitType` parameter specifies the unit for the target capacit
 
 The following configuration is valid. It contains one launch template and one `Overrides` structure containing two `InstanceRequirements` structures. The attributes specified in `InstanceRequirements` are valid because the values do not overlap—the first `InstanceRequirements` structure specifies a `VCpuCount` of 0-2 vCPUs, while the second `InstanceRequirements` structure specifies 4-8 vCPUs.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -523,7 +522,7 @@ The following configuration is valid. It contains one launch template and one `O
 
 The following configuration is valid. It contains two launch templates, each with one `Overrides` structure containing one `InstanceRequirements` structure. This configuration is useful for `arm` and `x86` architecture support in the same fleet.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -576,7 +575,7 @@ The following configuration is valid. It contains two launch templates, each wit
 
 The following configuration is valid. It contains two `LaunchTemplateSpecification` structures, each with a launch template and an `Overrides` structure containing an `InstanceRequirements` structure. The attributes specified in `InstanceRequirements` are valid because the values do not overlap—the first `InstanceRequirements` structure specifies a `VCpuCount` of 0-2 vCPUs, while the second `InstanceRequirements` structure specifies 4-8 vCPUs.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -631,7 +630,7 @@ The following configuration is valid. It contains two `LaunchTemplateSpecificati
 
 The following configuration is not valid. The `Overrides` structure contains both `InstanceRequirements` and `InstanceType`. For the `Overrides`, you can specify either `InstanceRequirements` or `InstanceType`, but not both.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -670,7 +669,7 @@ The following configuration is not valid. The `Overrides` structure contains bot
 
 The following configuration is not valid. The `Overrides` structures contain both `InstanceRequirements` and `InstanceType`. You can specify either `InstanceRequirements` or `InstanceType`, but not both, even if they're in different `Overrides` structures.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -717,7 +716,7 @@ The following configuration is not valid. The `Overrides` structures contain bot
 
 The following configuration is not valid. The two `InstanceRequirements` structures each contain `"VCpuCount": {"Min": 0, "Max": 2}`. The values for these attributes overlap, which will result in duplicate capacity pools.
 
-```
+```JSON
 {
         "LaunchTemplateConfigs": [
             {
@@ -783,7 +782,7 @@ Configurations are considered not valid when they contain the following:
 
 The following configuration is valid. It contains one launch template and one `Overrides` structure containing one `InstanceRequirements` structure. A text explanation of the example configuration follows.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -838,7 +837,7 @@ The `TargetCapacityUnitType` parameter specifies the unit for the target capacit
 
 The following configuration is valid. It contains one launch template and one `Overrides` structure containing two `InstanceRequirements` structures. The attributes specified in `InstanceRequirements` are valid because the values do not overlap—the first `InstanceRequirements` structure specifies a `VCpuCount` of 0-2 vCPUs, while the second `InstanceRequirements` structure specifies 4-8 vCPUs.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -888,7 +887,7 @@ The following configuration is valid. It contains one launch template and one `O
 
 The following configuration is valid. It contains two launch templates, each with one `Overrides` structure containing one `InstanceRequirements` structure. This configuration is useful for `arm` and `x86` architecture support in the same fleet.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -944,7 +943,7 @@ The following configuration is valid. It contains two launch templates, each wit
 
 The following configuration is valid. It contains two `LaunchTemplateSpecification` structures, each with a launch template and an `Overrides` structure containing an `InstanceRequirements` structure. The attributes specified in `InstanceRequirements` are valid because the values do not overlap—the first `InstanceRequirements` structure specifies a `VCpuCount` of 0-2 vCPUs, while the second `InstanceRequirements` structure specifies 4-8 vCPUs.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -1002,7 +1001,7 @@ The following configuration is valid. It contains two `LaunchTemplateSpecificati
 
 The following configuration is not valid. The `Overrides` structure contains both `InstanceRequirements` and `InstanceType`. For the `Overrides`, you can specify either `InstanceRequirements` or `InstanceType`, but not both.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -1044,7 +1043,7 @@ The following configuration is not valid. The `Overrides` structure contains bot
 
 The following configuration is not valid. The `Overrides` structures contain both `InstanceRequirements` and `InstanceType`. You can specify either `InstanceRequirements` or `InstanceType`, but not both, even if they're in different `Overrides` structures.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -1094,7 +1093,7 @@ The following configuration is not valid. The `Overrides` structures contain bot
 
 The following configuration is not valid. The two `InstanceRequirements` structures each contain `"VCpuCount": {"Min": 0, "Max": 2}`. The values for these attributes overlap, which will result in duplicate capacity pools.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -1148,7 +1147,7 @@ You can use the [get-instance-types-from-instance-requirements](https://docs.aws
 
 1. (Optional) To generate all of the possible attributes that can be specified, use the [get-instance-types-from-instance-requirements](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-instance-types-from-instance-requirements.html) command and the `--generate-cli-skeleton` parameter. You can optionally direct the output to a file to save it by using `input > {{attributes.json}}`.
 
-   ```
+   ```bash
    aws ec2 get-instance-types-from-instance-requirements \
        --region us-east-1 \
        --generate-cli-skeleton input > {{attributes.json}}
@@ -1156,7 +1155,7 @@ You can use the [get-instance-types-from-instance-requirements](https://docs.aws
 
    Expected output
 
-   ```
+   ```JSON
    {
        "DryRun": true,
        "ArchitectureTypes": [
@@ -1255,7 +1254,7 @@ For a description of each attribute and their default values, see [get-instance-
 
 1. To preview the instance types that have the attributes that you specified in the JSON file, use the [get-instance-types-from-instance-requirements](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-instance-types-from-instance-requirements.html) command, and specify the name and path to your JSON file by using the `--cli-input-json` parameter. You can optionally format the output to appear in a table format.
 
-   ```
+   ```bash
    aws ec2 get-instance-types-from-instance-requirements \
        --cli-input-json file://{{attributes.json}} \
        --output table
@@ -1265,7 +1264,7 @@ For a description of each attribute and their default values, see [get-instance-
 
    In this example, the required attributes are included in the JSON file. They are `ArchitectureTypes`, `VirtualizationTypes`, `VCpuCount`, and `MemoryMiB`. In addition, the optional `InstanceGenerations` attribute is also included. Note that for `MemoryMiB`, the `Max` value can be omitted to indicate that there is no limit.
 
-   ```
+   ```JSON
    {
        
        "ArchitectureTypes": [

@@ -1,7 +1,6 @@
 
 
 # View the monitoring graphs for your instances
-<a name="graphs-in-the-aws-management-console"></a>
 
 After you launch an instance, you can open the Amazon EC2 console and view the monitoring graphs for the instance on the **Monitoring** tab. Each graph is based on one of the available Amazon EC2 metrics.
 

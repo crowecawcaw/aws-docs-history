@@ -1,7 +1,6 @@
 
 
 # Enable enhanced networking on your instance
-<a name="enabling_enhanced_networking"></a>
 
 The procedure that you use depends on the operating system of the instance.
 
@@ -26,7 +25,7 @@ Ubuntu 16.04 and 18.04 ship with the Ubuntu custom kernel (`linux-aws` kernel pa
 
 1. Update the package cache and packages.
 
-   ```
+   ```bash
    ubuntu:~$ sudo apt-get update && sudo apt-get upgrade -y linux-aws
    ```
 **Important**  
@@ -39,12 +38,12 @@ If during the update process you are prompted to install `grub`, use `/dev/xvda`
 1. From your local computer, enable the enhanced networking attribute using one of the following commands:
    + [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) (AWS CLI)
 
-     ```
+     ```bash
      aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --ena-support
      ```
    + [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) (Tools for Windows PowerShell)
 
-     ```
+     ```bash
      Edit-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -EnaSupport $true
      ```
 
@@ -57,12 +56,12 @@ If during the update process you are prompted to install `grub`, use `/dev/xvda`
 Follow the previous procedure until the step where you stop the instance. Create a new AMI as described in [Create an Amazon S3-backed AMI](creating-an-ami-instance-store.md), making sure to enable the enhanced networking attribute when you register the AMI.
 + [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) (AWS CLI)
 
-  ```
+  ```bash
   aws ec2 register-image --ena-support ...
   ```
 + [Register-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Image.html) (AWS Tools for Windows PowerShell)
 
-  ```
+  ```PowerShell
   Register-EC2Image -EnaSupport $true ...
   ```
 
@@ -79,7 +78,7 @@ The following procedure provides the general steps for enabling enhanced network
 
 1. Clone the source code for the `ena` kernel driver on your instance from GitHub at [https://github.com/amzn/amzn-drivers](https://github.com/amzn/amzn-drivers). (SUSE Linux Enterprise Server 12 SP2 and later include ENA 2.02 by default, so you are not required to download and compile the ENA driver. For SUSE Linux Enterprise Server 12 SP2 and later, you should file a request to add the driver version you want to the stock kernel). 
 
-   ```
+   ```bash
    git clone https://github.com/amzn/amzn-drivers
    ```
 
@@ -89,7 +88,7 @@ The following procedure provides the general steps for enabling enhanced network
 
 1. <a name="other-linux-enhanced-networking-ena-stop-step"></a>Update `initramfs` on your instance to ensure that the new kernel driver loads at boot time. For example, if your distribution supports **dracut**, you can use the following command.
 
-   ```
+   ```bash
    dracut -f -v
    ```
 
@@ -97,7 +96,7 @@ The following procedure provides the general steps for enabling enhanced network
 
    1. You can check the **systemd** or **udev** versions on RPM-based systems with the following command.
 
-      ```
+      ```bash
       rpm -qa | grep -e '^systemd-[0-9]\+\|^udev-[0-9]\+'
       systemd-208-11.el7_0.2.x86_64
       ```
@@ -106,13 +105,13 @@ The following procedure provides the general steps for enabling enhanced network
 
    1. Disable predictable network interface names by adding the `net.ifnames=0` option to the `GRUB_CMDLINE_LINUX` line in `/etc/default/grub`.
 
-      ```
+      ```bash
       sudo sed -i '/^GRUB\_CMDLINE\_LINUX/s/\"$/\ net\.ifnames\=0\"/' /etc/default/grub
       ```
 
    1. Rebuild the grub configuration file.
 
-      ```
+      ```bash
       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
       ```
 
@@ -123,12 +122,12 @@ The following procedure provides the general steps for enabling enhanced network
 1. From your local computer, enable the enhanced networking `enaSupport` attribute using one of the following commands:
    + [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) (AWS CLI)
 
-     ```
+     ```bash
      aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --ena-support
      ```
    + [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) (Tools for Windows PowerShell)
 
-     ```
+     ```bash
      Edit-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -EnaSupport $true
      ```
 
@@ -147,12 +146,12 @@ The following procedure provides the general steps for enabling enhanced network
 Follow the previous procedure until the step where you stop the instance. Create a new AMI as described in [Create an Amazon S3-backed AMI](creating-an-ami-instance-store.md), making sure to enable the enhanced networking attribute when you register the AMI.
 + [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) (AWS CLI)
 
-  ```
+  ```bash
   aws ec2 register-image --ena-support ...
   ```
 + [Register-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Image.html) (AWS Tools for Windows PowerShell)
 
-  ```
+  ```PowerShell
   Register-EC2Image -EnaSupport ...
   ```
 
@@ -170,19 +169,19 @@ Using DKMS voids the support agreement for your subscription. It should not be u
 
 1. Install the `build-essential` packages to compile the kernel driver and the `dkms` package so that your `ena` kernel driver is rebuilt every time your kernel is updated.
 
-   ```
+   ```bash
    ubuntu:~$ sudo apt-get install -y build-essential dkms
    ```
 
 1. Clone the source for the `ena` kernel driver on your instance from GitHub at [https://github.com/amzn/amzn-drivers](https://github.com/amzn/amzn-drivers).
 
-   ```
+   ```bash
    ubuntu:~$ git clone https://github.com/amzn/amzn-drivers
    ```
 
 1. Move the `amzn-drivers` package to the `/usr/src/` directory so DKMS can find it and build it for each kernel update. Append the version number (you can find the current version number in the release notes) of the source code to the directory name. For example, version `1.0.0` is shown in the following example.
 
-   ```
+   ```bash
    ubuntu:~$ sudo mv amzn-drivers /usr/src/amzn-drivers-1.0.0
    ```
 
@@ -190,13 +189,13 @@ Using DKMS voids the support agreement for your subscription. It should not be u
 
    Create the file.
 
-   ```
+   ```bash
    ubuntu:~$ sudo touch /usr/src/amzn-drivers-1.0.0/dkms.conf
    ```
 
    Edit the file and add the following values.
 
-   ```
+   ```bash
    ubuntu:~$ sudo vim /usr/src/amzn-drivers-1.0.0/dkms.conf
    PACKAGE_NAME="ena"
    PACKAGE_VERSION="1.0.0"
@@ -213,31 +212,31 @@ Using DKMS voids the support agreement for your subscription. It should not be u
 
    Add the kernel driver to DKMS.
 
-   ```
+   ```bash
    ubuntu:~$ sudo dkms add -m amzn-drivers -v 1.0.0
    ```
 
    Build the kernel driver using the **dkms** command.
 
-   ```
+   ```bash
    ubuntu:~$ sudo dkms build -m amzn-drivers -v 1.0.0
    ```
 
    Install the kernel driver using **dkms**.
 
-   ```
+   ```bash
    ubuntu:~$ sudo dkms install -m amzn-drivers -v 1.0.0
    ```
 
 1. Rebuild `initramfs` so the correct kernel driver is loaded at boot time.
 
-   ```
+   ```bash
    ubuntu:~$ sudo update-initramfs -u -k all
    ```
 
 1. Verify that the `ena` kernel driver is installed using the modinfo ena command from [Test whether enhanced networking is enabled](test-enhanced-networking-ena.md).
 
-   ```
+   ```YAML
    ubuntu:~$ modinfo ena
    filename:	   /lib/modules/3.13.0-74-generic/updates/dkms/ena.ko
    version:		1.0.0
@@ -277,7 +276,7 @@ If you launched your instance and it does not have enhanced networking enabled a
 
 1. [Windows Server 2016 and 2019 only] Run the following EC2Launch PowerShell script to configure the instance after the driver is installed.
 
-   ```
+   ```bash
    PS C:\> C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeInstance.ps1 -Schedule
    ```
 
@@ -298,42 +297,42 @@ If you get an execution policy error, set the policy to `Unrestricted` (by defau
    1. From your local computer, check the EC2 instance ENA support attribute on your instance by running one of the following commands. If the attribute is not enabled, the output will be "[]" or blank. `EnaSupport` is set to `false` by default.
       + [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) (AWS CLI)
 
-        ```
+        ```bash
         aws ec2 describe-instances --instance-ids {{i-1234567890abcdef0}} --query "Reservations[].Instances[].EnaSupport"
         ```
       + [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) (Tools for Windows PowerShell)
 
-        ```
+        ```PowerShell
         (Get-EC2Instance -InstanceId {{i-1234567890abcdef0}}).Instances.EnaSupport
         ```
 
    1. To enable ENA support, run one of the following commands:
       + [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) (AWS CLI)
 
-        ```
+        ```bash
         aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --ena-support
         ```
       + [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) (AWS Tools for Windows PowerShell)
 
-        ```
+        ```bash
         Edit-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -EnaSupport $true
         ```
 
       If you encounter problems when you restart the instance, you can also disable ENA support using one of the following commands:
       + [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) (AWS CLI)
 
-        ```
+        ```bash
         aws ec2 modify-instance-attribute --instance-id {{i-1234567890abcdef0}} --no-ena-support
         ```
       + [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) (AWS Tools for Windows PowerShell)
 
-        ```
+        ```bash
         Edit-EC2InstanceAttribute -InstanceId {{i-1234567890abcdef0}} -EnaSupport $false
         ```
 
    1. Verify that the attribute has been set to `true` using **describe-instances** or **Get-EC2Instance** as shown previously. You should now see the following output:
 
-      ```
+      ```JSON
       [
       	true
       ]

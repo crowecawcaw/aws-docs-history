@@ -1,7 +1,6 @@
 
 
 # Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet
-<a name="ec2-fleet-instance-weighting"></a>
 
 With instance weighting, you assign a weight to each instance type in your EC2 Fleet or Spot Fleet to represent their compute capacity and performance relative to each other. Based on the weights, the fleet can use any combination of the specified instance types, as long as it can fulfil the desired target capacity. This can help you manage the cost and performance of your fleet.
 

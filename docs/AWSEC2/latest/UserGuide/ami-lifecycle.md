@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 AMI lifecycle
-<a name="ami-lifecycle"></a>
 
 An Amazon Machine Image (AMI) is an image that contains the software configuration required to set up and boot an instance. You must specify an AMI when you launch an instance. You can use AMIs provided by Amazon, or you can create your own AMIs. The AMI must be located in the AWS Region in which you want to launch your instance.
 

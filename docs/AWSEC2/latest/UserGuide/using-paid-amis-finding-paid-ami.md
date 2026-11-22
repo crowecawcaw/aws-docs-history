@@ -1,7 +1,6 @@
 
 
 # Find a paid AMI
-<a name="using-paid-amis-finding-paid-ami"></a>
 
 A paid AMI is an Amazon Machine Image (AMI) that is available for purchase. A paid AMI also has a product code. You can find AMIs that are available for purchase in the AWS Marketplace.
 
@@ -28,13 +27,13 @@ A paid AMI is an Amazon Machine Image (AMI) that is available for purchase. A pa
 **To find a paid AMI**  
 Use the following [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
-```
+```bash
 aws ec2 describe-images --owners aws-marketplace
 ```
 
 The output includes a large number of images. You can specify filters to help you determine which AMI you need. After you find an AMI, specify its ID in the following command to get its product code.
 
-```
+```bash
 aws ec2 describe-images \
     --image-ids {{ami-0abcdef1234567890}} \
     --query Images[*].ProductCodes[].ProductCodeId
@@ -42,7 +41,7 @@ aws ec2 describe-images \
 
 The following is example output.
 
-```
+```json
 [
     "cdef1234abc567def8EXAMPLE"
 ]
@@ -50,7 +49,7 @@ The following is example output.
 
 If you know the product code, you can filter the results by product code. This example returns the most recent AMI with the specified product code.
 
-```
+```bash
 aws ec2 describe-images \
     --filters "Name=product-code,Values={{cdef1234abc567def8EXAMPLE}}" \
     --query "sort_by(Images, &CreationDate)[-1].[ImageId]"
@@ -62,19 +61,19 @@ aws ec2 describe-images \
 **To find a paid AMI**  
 Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
-```
+```powershell
 Get-EC2Image -Owner aws-marketplace
 ```
 
 The output includes a large number of images. You can specify filters to help you determine which AMI you need. After you find an AMI, specify its ID in the following command to get its product code.
 
-```
+```powershell
 (Get-EC2Image -ImageId {{ami-0abcdef1234567890}}).ProductCodes
 ```
 
 The following is example output.
 
-```
+```bash
 ProductCodeId             ProductCodeType
 -------------             ---------------
 cdef1234abc567def8EXAMPLE marketplace
@@ -82,7 +81,7 @@ cdef1234abc567def8EXAMPLE marketplace
 
 If you know the product code, you can filter the results by product code. This example returns the most recent AMI with the specified product code.
 
-```
+```powershell
 (Get-EC2Image -Owner aws-marketplace -Filter @{"Name"="product-code";"Value"="{{cdef1234abc567def8EXAMPLE}}"} | sort CreationDate -Descending | Select-Object -First 1).ImageId
 ```
 

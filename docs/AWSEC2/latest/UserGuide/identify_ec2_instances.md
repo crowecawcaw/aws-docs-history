@@ -1,7 +1,6 @@
 
 
 # Detect whether a host is an EC2 instance
-<a name="identify_ec2_instances"></a>
 
 You might need to know whether your application or website is running on an EC2 instance, especially if you have a mixed computing environment. You can use one of the following options to determine whether the host for your application or website is an EC2 instance.
 
@@ -25,69 +24,69 @@ You can get the system UUID and look in the beginning octet of the UUID for `EC2
 **Linux example: Get the UUID from DMI (HVM AMIs only)**  
 Use the following command to get the UUID using the Desktop Management Interface (DMI):
 
-```
+```bash
 [ec2-user ~]$ sudo dmidecode --string system-uuid
 ```
 
 In the following example output, the UUID starts with "EC2", which indicates that the system is probably an EC2 instance.
 
-```
+```bash
 EC2E1916-9099-7CAF-FD21-012345ABCDEF
 ```
 
 In the following example output, the UUID is represented in little-endian format.
 
-```
+```bash
 45E12AEC-DCD1-B213-94ED-012345ABCDEF
 ```
 
 Alternatively, for instances built on the Nitro system, you can use the following command:
 
-```
+```bash
 [ec2-user ~]$ cat /sys/devices/virtual/dmi/id/board_asset_tag
 ```
 
 If the output is an instance ID, as the following example output, the system is an EC2 instance:
 
-```
+```bash
 i-0af01c0123456789a
 ```
 
 **Linux example: Get the UUID from the hypervisor (PV AMIs only)**  
 Use the following command to get the UUID from the hypervisor:
 
-```
+```bash
 [ec2-user ~]$ cat /sys/hypervisor/uuid
 ```
 
 In the following example output, the UUID starts with "ec2", which indicates that the system is probably an EC2 instance.
 
-```
+```bash
 ec2e1916-9099-7caf-fd21-012345abcdef
 ```
 
 **Windows example: Get the UUID using WMI or Windows PowerShell**  
 Use the Windows Management Instrumentation command line (WMIC) as follows:
 
-```
+```bash
 wmic path win32_computersystemproduct get uuid
 ```
 
 Alternatively, if you're using Windows PowerShell, use the **Get-WmiObject** cmdlet as follows:
 
-```
+```PowerShell
 PS C:\> Get-WmiObject -query "select uuid from Win32_ComputerSystemProduct" | Select UUID
 ```
 
 In the following example output, the UUID starts with "EC2", which indicates that the system is probably an EC2 instance.
 
-```
+```bash
 EC2AE145-D1DC-13B2-94ED-012345ABCDEF
 ```
 
 For instances using SMBIOS 2.4, the UUID might be represented in little-endian format; for example:
 
-```
+```bash
 45E12AEC-DCD1-B213-94ED-012345ABCDEF
 ```
 
@@ -104,31 +103,31 @@ You can use the following commands to retrieve the virtual machine generation id
 
 1. Update your existing software packages, as necessary, using the following command:
 
-   ```
+   ```bash
    sudo yum update
    ```
 
 1. If necessary, source the busybox package with the following command:
 
-   ```
+   ```bash
    sudo curl https://www.rpmfind.net/linux/epel/next/8/Everything/x86_64/Packages/b/busybox-1.35.0-2.el8.next.x86_64.rpm --output busybox.rpm
    ```
 
 1. If necessary, install the prerequisite packages using the following command:
 
-   ```
+   ```bash
    sudo yum install busybox.rpm iasl -y
    ```
 
 1. Run the following `iasl` command to produce output from the ACPI table:
 
-   ```
+   ```bash
    sudo iasl -p ./SSDT2 -d /sys/firmware/acpi/tables/SSDT2
    ```
 
 1. Run the following command to review the output of the `iasl` command:
 
-   ```
+   ```bash
    cat SSDT2.dsl
    ```
 
@@ -192,25 +191,25 @@ You can use the following commands to retrieve the virtual machine generation id
 
 1. (Optional) Elevate your terminal permissions for the remaining steps with the following command:
 
-   ```
+   ```bash
    sudo -s
    ```
 
 1. Use the following command to store the previously gathered address space:
 
-   ```
+   ```bash
    VMGN_ADDR={{0xFED01000}}
    ```
 
 1. Use the following command to iterate through the address space and build the virtual machine generation identifier:
 
-   ```
+   ```bash
    for offset in 0x0 0x4 0x8 0xc; do busybox devmem $(($VMGN_ADDR + $offset)) | sed 's/0x//' | sed -z '$ s/\n$//' >> vmgenid; done
    ```
 
 1. Retrieve the virtual machine generation identifier from the output file with the following command:
 
-   ```
+   ```bash
    cat vmgenid ; echo
    ```
 
@@ -225,25 +224,25 @@ You can use the following commands to retrieve the virtual machine generation id
 
 1. Update your existing software packages, as necessary, using the following command:
 
-   ```
+   ```bash
    sudo apt update
    ```
 
 1. If necessary, install the prerequisite packages using the following command:
 
-   ```
+   ```bash
    sudo apt install busybox iasl -y
    ```
 
 1. Run the following `iasl` command to produce output from the ACPI table:
 
-   ```
+   ```bash
    sudo iasl -p ./SSDT2 -d /sys/firmware/acpi/tables/SSDT2
    ```
 
 1. Run the following command to review the output of the `iasl` command:
 
-   ```
+   ```bash
    cat SSDT2.dsl
    ```
 
@@ -307,25 +306,25 @@ You can use the following commands to retrieve the virtual machine generation id
 
 1. (Optional) Elevate your terminal permissions for the remaining steps with the following command:
 
-   ```
+   ```bash
    sudo -s
    ```
 
 1. Use the following commands to store the previously gathered address space:
 
-   ```
+   ```bash
    VMGN_ADDR={{0xFED01000}}
    ```
 
 1. Use the following command to iterate through the address space and build the virtual machine generation identifier:
 
-   ```
+   ```bash
    for offset in 0x0 0x4 0x8 0xc; do busybox devmem $(($VMGN_ADDR + $offset)) | sed 's/0x//' | sed -z '$ s/\n$//' >> vmgenid; done
    ```
 
 1. Retrieve the virtual machine generation identifier from the output file with the following command:
 
-   ```
+   ```bash
    cat vmgenid ; echo
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Delete an EC2 Fleet request and the instances in the fleet
-<a name="delete-fleet"></a>
 
 If you no longer require an EC2 Fleet request, you can delete it. After you delete a fleet request, all Spot requests associated with the fleet are canceled, so that no new Spot Instances are launched.
 
@@ -27,7 +26,7 @@ If you specify that the instances must be terminated when the fleet request is d
 **To delete an EC2 Fleet request and terminate its instances**  
 Use the [delete-fleets](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-fleets.html) command with the `--terminate-instances` option.
 
-```
+```bash
 aws ec2 delete-fleets \
     --fleet-ids {{fleet-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --terminate-instances
@@ -35,7 +34,7 @@ aws ec2 delete-fleets \
 
 The following is example output.
 
-```
+```json
 {
     "UnsuccessfulFleetDeletions": [], 
     "SuccessfulFleetDeletions": [
@@ -51,7 +50,7 @@ The following is example output.
 **To delete an EC2 Fleet request without terminating its instances**  
 Modify the previous example by using the `--no-terminate-instances` option instead. Note that `--no-terminate-instances` is not supported for `instant` fleets.
 
-```
+```bash
 aws ec2 delete-fleets \
     --fleet-ids {{fleet-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --no-terminate-instances
@@ -59,7 +58,7 @@ aws ec2 delete-fleets \
 
 The following is example output.
 
-```
+```json
 {
     "UnsuccessfulFleetDeletions": [], 
     "SuccessfulFleetDeletions": [
@@ -78,7 +77,7 @@ The following is example output.
 **To delete an EC2 Fleet request and terminate its instances**  
 Use the [Remove-EC2Fleet](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Fleet.html) cmdlet with the `-TerminateInstance` parameter.
 
-```
+```powershell
 Remove-EC2Fleet `
     -FleetId "{{fleet-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TerminateInstance $true
@@ -87,7 +86,7 @@ Remove-EC2Fleet `
 **To delete an EC2 Fleet request without terminating its instances**  
 Modify the previous example by changing the value of the `-TerminateInstance` parameter.
 
-```
+```powershell
 Remove-EC2Fleet `
     -FleetId "{{fleet-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TerminateInstance $false
@@ -112,7 +111,7 @@ The error codes are:
 **Troubleshoot `ExceededInstantFleetNumForDeletion`**  
 If you try to delete more than 25 `instant` fleets in a single request, the `ExceededInstantFleetNumForDeletion` error is returned. The following is example output for this error.
 
-```
+```json
 {
     "UnsuccessfulFleetDeletions": [
      {
@@ -140,7 +139,7 @@ If you try to delete more than 25 `instant` fleets in a single request, the `Exc
 **Troubleshoot `NoTerminateInstancesNotSupported`**  
 If you specify that the instances in an `instant` fleet must not be terminated when you delete the fleet, the `NoTerminateInstancesNotSupported` error is returned. `--no-terminate-instances` is not supported for `instant` fleets. The following is example output for this error.
 
-```
+```json
 {
       "UnsuccessfulFleetDeletions": [
             {
@@ -158,7 +157,7 @@ If you specify that the instances in an `instant` fleet must not be terminated w
 **Troubleshoot `UnauthorizedOperation`**  
 If you do not have permission to terminate instances, you get the `UnauthorizedOperation` error when deleting a fleet that must terminate its instances. The following is the error response.
 
-```
+```bash
 <Response><Errors><Error><Code>UnauthorizedOperation</Code><Message>You are not authorized to perform this 
 operation. Encoded authorization failure message: VvuncIxj7Z_CPGNYXWqnuFV-YjByeAU66Q9752NtQ-I3-qnDLWs6JLFd
 KnSMMiq5s6cGqjjPtEDpsnGHzzyHasFHOaRYJpaDVravoW25azn6KNkUQQlFwhJyujt2dtNCdduJfrqcFYAjlEiRMkfDHt7N63SKlweKUl

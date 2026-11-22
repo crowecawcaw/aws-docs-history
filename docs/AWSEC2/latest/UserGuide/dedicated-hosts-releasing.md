@@ -1,7 +1,6 @@
 
 
 # Release an Amazon EC2 Dedicated Host
-<a name="dedicated-hosts-releasing"></a>
 
 If you no longer need Dedicated Host, you can stop the instances running on the host, direct them to launch on a different host, and then *release* the host.
 
@@ -28,7 +27,7 @@ Any running instances on the Dedicated Host must be stopped before you can relea
 **To release a Dedicated Host**  
 Use the [release-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/release-hosts.html) command.
 
-```
+```bash
 aws ec2 release-hosts --host-ids {{h-012a3456b7890cdef}}
 ```
 
@@ -38,7 +37,7 @@ aws ec2 release-hosts --host-ids {{h-012a3456b7890cdef}}
 **To release a Dedicated Host**  
 Use the [Remove-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2Host.html) cmdlet.
 
-```
+```powershell
 Remove-EC2Host -HostId {{h-012a3456b7890cdef}}
 ```
 

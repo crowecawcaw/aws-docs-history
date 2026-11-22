@@ -1,7 +1,6 @@
 
 
 # Connect to your Linux instance using SSH
-<a name="connect-to-linux-instance"></a>
 
 There are multiple ways to connect to your Linux instance using SSH. Some ways depend on the operating system of the local computer that you connect from. Other methods are browser-based, such as EC2 Instance Connect or AWS Systems Manager Session Manager, and can be used from any computer. You can use SSH to connect to your Linux instance and run commands, or use SSH to transfer files between your local computer and your instance.
 

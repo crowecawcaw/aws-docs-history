@@ -1,7 +1,6 @@
 
 
 # Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity
-<a name="ec2-fleet-allocation-strategy"></a>
 
 When you use multiple capacity pools (each comprising an instance type and Availability Zone) in an EC2 Fleet or Spot Fleet, you can use an *allocation strategy* to manage how Amazon EC2 fulfills your Spot and On-Demand capacities from these pools. The allocation strategies can optimize for available capacity, price, and the instance types to use. There are different allocation strategies for Spot Instances and On-Demand Instances.
 

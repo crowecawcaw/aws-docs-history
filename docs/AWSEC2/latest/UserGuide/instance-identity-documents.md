@@ -1,7 +1,6 @@
 
 
 # Instance identity documents for Amazon EC2 instances
-<a name="instance-identity-documents"></a>
 
 Each instance that you launch has an instance identity document that provides information about the instance itself. You can use the instance identity document to validate the attributes of the instance.
 

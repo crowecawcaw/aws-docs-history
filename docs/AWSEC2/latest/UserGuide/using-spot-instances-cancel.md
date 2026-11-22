@@ -1,7 +1,6 @@
 
 
 # Cancel a Spot Instance request
-<a name="using-spot-instances-cancel"></a>
 
 If you no longer want your Spot Instance request, you can cancel it. You can only cancel Spot Instance requests that are `open`, `active`, or `disabled`.
 + Your Spot Instance request is `open` when your request has not yet been fulfilled and no instances have been launched.
@@ -31,7 +30,7 @@ If your Spot Instance request is `active` and has an associated running Spot Ins
 **To cancel a Spot Instance request**  
 Use the following [cancel-spot-instance-requests](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-spot-instance-requests.html) command.
 
-```
+```bash
 aws ec2 cancel-spot-instance-requests --spot-instance-request-ids {{sir-0e54a519c9EXAMPLE}}
 ```
 
@@ -41,7 +40,7 @@ aws ec2 cancel-spot-instance-requests --spot-instance-request-ids {{sir-0e54a519
 **To cancel a Spot Instance request**  
 Use the [Stop-EC2SpotInstanceRequest](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2SpotInstanceRequest.html) cmdlet.
 
-```
+```powershell
 Stop-EC2SpotInstanceRequest -SpotInstanceRequestId {{sir-0e54a519c9EXAMPLE}}
 ```
 

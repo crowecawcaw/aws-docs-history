@@ -1,7 +1,6 @@
 
 
 # Network interface attachments for your EC2 instance
-<a name="network-interface-attachments"></a>
 
 You can create network interfaces to be used by your EC2 instances as primary or secondary network interfaces. You must attach a network interface to an EC2 instance if it is in the same Availability Zone as the network interface. The instance type of an instance determines how many network interfaces you can attach to the instance. For more information, see [Maximum IP addresses per network interface](AvailableIpPerENI.md).
 
@@ -63,7 +62,7 @@ If the public IPv4 address on your instance is released, it does not receive a n
 **To attach a network interface**  
 Use the following [attach-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-network-interface.html) command.
 
-```
+```bash
 aws ec2 attach-network-interface \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --instance-id {{i-1234567890abcdef0}} \
@@ -76,7 +75,7 @@ aws ec2 attach-network-interface \
 **To attach a network interface**  
 Use the [Add-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Add-EC2NetworkInterface.html) cmdlet.
 
-```
+```powershell
 Add-EC2NetworkInterface `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -InstanceId {{i-1234567890abcdef0}} `
@@ -127,7 +126,7 @@ If you try to detach a network interface that is attached to a resource from ano
 **To detach a network interface**  
 Use the following [detach-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/detach-network-interface.html) command.
 
-```
+```bash
 aws ec2 detach-network-interface --attachment-id {{eni-attach-016c93267131892c9}}
 ```
 
@@ -137,7 +136,7 @@ aws ec2 detach-network-interface --attachment-id {{eni-attach-016c93267131892c9}
 **To detach a network interface**  
 Use the [Dismount-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Dismount-EC2NetworkInterface.html) cmdlet.
 
-```
+```powershell
 Dismount-EC2NetworkInterface -AttachmentId {{eni-attach-016c93267131892c9}}
 ```
 

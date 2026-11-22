@@ -1,7 +1,6 @@
 
 
 # Prerequisites for the EC2 Serial Console
-<a name="ec2-serial-console-prerequisites"></a>
 
 **Topics**
 + [AWS Regions](#sc-prereqs-regions)
@@ -113,7 +112,7 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
    The following is an example of `/etc/default/grub`. You might need to change the configuration based on your system setup.
 
-   ```
+   ```bash
    GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 rd.emergency=poweroff rd.shell=0"
    GRUB_TIMEOUT=1
    GRUB_DISABLE_RECOVERY="true"
@@ -123,7 +122,7 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
 1. Apply the updated configuration by running the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
    ```
 
@@ -143,7 +142,7 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
    The following is an example of `/etc/default/grub.d/50-cloudimg-settings.cfg`. You might need to change the configuration based on your system setup.
 
-   ```
+   ```bash
    # Cloud Image specific Grub settings for Generic Cloud Images
    # CLOUD_IMG: This file was created/modified by the Cloud Image build process
    
@@ -164,7 +163,7 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
 1. Apply the updated configuration by running the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo update-grub
    ```
 
@@ -182,7 +181,7 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
    The following is an example of `/etc/default/grub`. You might need to change the configuration based on your system setup.
 
-   ```
+   ```bash
    GRUB_TIMEOUT=1
    GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
    GRUB_DEFAULT=saved
@@ -196,13 +195,13 @@ To configure GRUB, choose one of the following procedures based on the AMI that 
 
 1. Apply the updated configuration by running the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg --update-bls-cmdline
    ```
 
    For RHEL 9.2 and earlier, use the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
    ```
 
@@ -213,7 +212,7 @@ For instances that are launched using a CentOS AMI, GRUB is configured for the s
 
 The following is an example of `/etc/default/grub`. Your configuration might be different based on your system setup.
 
-```
+```bash
 GRUB_TIMEOUT=1
 GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
 GRUB_DEFAULT=saved
@@ -237,7 +236,7 @@ To configure SysRq, you enable the SysRq commands for the current boot cycle. To
 
 1. Run the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo sysctl -w kernel.sysrq=1
    ```
 
@@ -247,19 +246,19 @@ To configure SysRq, you enable the SysRq commands for the current boot cycle. To
 
 1. Create the file `/etc/sysctl.d/99-sysrq.conf` and open it in your favorite editor.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo vi /etc/sysctl.d/99-sysrq.conf
    ```
 
 1. Add the following line.
 
-   ```
+   ```bash
    kernel.sysrq=1
    ```
 
 1. Reboot the instance to apply the changes.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 

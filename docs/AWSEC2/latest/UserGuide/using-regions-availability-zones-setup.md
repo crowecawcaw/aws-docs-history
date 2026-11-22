@@ -1,7 +1,6 @@
 
 
 # Select a Region for your Amazon EC2 resources
-<a name="using-regions-availability-zones-setup"></a>
 
 Amazon EC2 resources are specific to the AWS Region or zone in which they reside. When you create an Amazon EC2 resource, you select the Region for the resource.
 
@@ -21,13 +20,13 @@ Amazon EC2 resources are specific to the AWS Region or zone in which they reside
 **To select a Region for a resource using the AWS CLI**  
 You can configure the AWS CLI to use a default Region. If you don't specify a Region in the command, the default Region is used. To use a different Region for a specific command, add the following option.
 
-```
+```bash
 --region {{us-east-1}}
 ```
 
 **To select a Region for a resource using the Tools for PowerShell**  
 You can configure the Tools for Windows PowerShell to use a default Region. If you don't specify a Region in a command, the default Region is used. To use a different Region for a specific command, add the following parameter.
 
-```
+```powershell
 -Region {{us-east-1}}
 ```

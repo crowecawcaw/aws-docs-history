@@ -1,7 +1,6 @@
 
 
 # Install the latest version of EC2Launch
-<a name="ec2launch-download"></a>
 
 Use the following procedure to download and install the latest version of EC2Launch on your instances.
 
@@ -22,7 +21,7 @@ If you have already installed and configured EC2Launch on an instance, make a ba
 
 To install the latest version of EC2Launch using PowerShell, run the following commands from a PowerShell window as an administrator:
 
-```
+```powershell
 mkdir $env:USERPROFILE\Desktop\EC2Launch
 $Url = "https://s3.amazonaws.com/ec2-downloads-windows/EC2Launch/latest/EC2-Windows-Launch.zip"
 $DownloadZipFile = "$env:USERPROFILE\Desktop\EC2Launch\" + $(Split-Path -Path $Url -Leaf)
@@ -36,13 +35,13 @@ Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
 **Note**  
 If you receive an error when downloading the file, and you are using Windows Server 2016, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:  
 
-```
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 
 Verify the installation by checking the launch agent. Run the following commands from a PowerShell window as an administrator:
 
-```
+```powershell
 Import-Module C:\ProgramData\Amazon\EC2-Windows\Launch\Module\Ec2Launch.psm1
 Import-LocalizedData -BaseDirectory C:\ProgramData\Amazon\EC2-Windows\Launch\Module\ -FileName 'Ec2Launch.psd1' -BindingVariable moduleManifest
 $moduleManifest.Get_Item('ModuleVersion')

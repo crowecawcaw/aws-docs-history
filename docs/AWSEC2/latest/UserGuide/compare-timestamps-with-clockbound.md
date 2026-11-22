@@ -1,7 +1,6 @@
 
 
 # Compare timestamps for your Linux instances
-<a name="compare-timestamps-with-clockbound"></a>
 
 If you're using the Amazon Time Sync Service, you can compare the timestamps on your Amazon EC2 Linux instances with ClockBound to determine the true time of an event. ClockBound measures the clock accuracy of your EC2 instance, and allows you to check if a given timestamp is in the past or future with respect to your instance's current clock. This information is valuable for determining the order and consistency of events and transactions across EC2 instances, independent of each instance's geographic location.
 
@@ -16,24 +15,24 @@ If you're using the direct PTP connection to the PTP hardware clock, your time d
 1. First get the correct location of the PTP hardware clock device by using one of the following commands. The path in the command is different depending on the AMI used to launch the instance.
    + For Amazon Linux 2:
 
-     ```
+     ```bash
      cat /sys/class/net/eth0/device/uevent | grep PCI_SLOT_NAME
      ```
    + For Amazon Linux 2023:
 
-     ```
+     ```bash
      cat /sys/class/net/ens5/device/uevent | grep PCI_SLOT_NAME
      ```
 
    The output is the PCI slot name, which is the location of the PTP hardware clock device. In this example, the location is `0000:00:03.0`.
 
-   ```
+   ```bash
    PCI_SLOT_NAME={{0000:00:03.0}}
    ```
 
 1. To retrieve the PTP hardware clock error bound, run the following command. Include the PCI slot name from the previous step.
 
-   ```
+   ```bash
    cat /sys/bus/pci/devices/{{0000:00:03.0}}/phc_error_bound
    ```
 

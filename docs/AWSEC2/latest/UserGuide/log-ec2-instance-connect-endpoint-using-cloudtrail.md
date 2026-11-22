@@ -1,7 +1,6 @@
 
 
 # Log connections established over EC2 Instance Connect Endpoint
-<a name="log-ec2-instance-connect-endpoint-using-cloudtrail"></a>
 
 You can log resource operations and audit connections established over the EC2 Instance Connect Endpoint with AWS CloudTrail logs.
 
@@ -26,7 +25,7 @@ You can create Amazon EventBridge rules that route the CloudTrail event to a tar
 
 The following is an example of an `OpenTunnel` management event that was logged in CloudTrail.
 
-```
+```JSON
 {
      "eventVersion": "1.08",
      "userIdentity": {

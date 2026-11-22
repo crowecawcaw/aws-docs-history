@@ -1,7 +1,6 @@
 
 
 # Enhanced networking with the Intel 82599 VF interface
-<a name="sriov-networking"></a>
 
 For [Xen-based instances](instance-types.md#instance-hypervisor-type), the Intel 82599 Virtual Function (VF) interface provides enhanced networking capabilities. The interface uses the Intel `ixgbevf` driver.
 
@@ -15,7 +14,7 @@ Use the following command to verify that the module is being used on a particula
 
 In the following example, the `ixgbevf` module is not loaded, because the listed driver is `vif`.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -i {{eth0}}
 driver: vif
 version:
@@ -30,7 +29,7 @@ supports-priv-flags: no
 
 In this example, the `ixgbevf` module is loaded. This instance has enhanced networking properly configured.
 
-```
+```YAML
 [ec2-user ~]$ ethtool -i {{eth0}}
 driver: ixgbevf
 version: 4.0.3
@@ -81,7 +80,7 @@ Verify that the `sriovNetSupport` attribute is set on the instance or the image.
 **To check the instance attribute (sriovNetSupport)**  
 Use the following [describe-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-attribute.html) command. If the attribute is set, the value is `simple`.
 
-```
+```bash
 aws ec2 describe-instance-attribute \
     --instance-id {{i-1234567890abcdef0}} \
     --attribute sriovNetSupport
@@ -90,7 +89,7 @@ aws ec2 describe-instance-attribute \
 **To check the image attribute (sriovNetSupport)**  
 Use the following [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command. If the attribute is set, the value is `simple`.
 
-```
+```bash
 aws ec2 describe-images \
     --image-id {{ami-0abcdef1234567890}} \
     --query "Images[].SriovNetSupport"
@@ -102,7 +101,7 @@ aws ec2 describe-images \
 **To check the instance attribute (sriovNetSupport)**  
 Use the [Get-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceAttribute.html) cmdlet. If the attribute is set, the value is `simple`.
 
-```
+```powershell
 Get-EC2InstanceAttribute `
     -InstanceId {{i-1234567890abcdef0}} `
     -Attribute sriovNetSupport
@@ -111,7 +110,7 @@ Get-EC2InstanceAttribute `
 **To check the image attribute (sriovNetSupport)**  
 Use the following [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command. If the attribute is set, the value is `simple`.
 
-```
+```powershell
 (Get-EC2Image -ImageId {{ami-0abcdef1234567890}}).SriovNetSupport
 ```
 
@@ -138,7 +137,7 @@ If you launched your instance using an older Amazon Linux AMI and it does not ha
 
 1. From the instance, run the following command to update your instance with the newest kernel and kernel modules, including `ixgbevf`:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update
    ```
 
@@ -157,7 +156,7 @@ If you launched your instance using an older Amazon Linux AMI and it does not ha
 
    Use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command as follows.
 
-   ```
+   ```bash
    aws ec2 modify-instance-attribute \
        --instance-id {{i-1234567890abcdef0}} \
        --sriov-net-support simple
@@ -168,7 +167,7 @@ If you launched your instance using an older Amazon Linux AMI and it does not ha
 
    Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) cmdlet as follows.
 
-   ```
+   ```powershell
    Edit-EC2InstanceAttribute `
        -InstanceId {{i-1234567890abcdef0}} `
        -SriovNetSupport "simple"
@@ -190,7 +189,7 @@ Follow the previous procedure until the step where you stop the instance. Create
 
 Use the [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) command as follows.
 
-```
+```bash
 aws ec2 register-image --sriov-net-support simple ...
 ```
 
@@ -199,7 +198,7 @@ aws ec2 register-image --sriov-net-support simple ...
 
 Use [Register-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Image.html) as follows.
 
-```
+```PowerShell
 Register-EC2Image -SriovNetSupport "simple" ...
 ```
 
@@ -220,7 +219,7 @@ The following procedure provides the general steps for compiling the `ixgbevf` m
 
 1. Update the package cache and packages.
 
-   ```
+   ```bash
    ubuntu:~$ sudo apt-get update && sudo apt-get upgrade -y linux-aws
    ```
 **Important**  
@@ -253,7 +252,7 @@ If you compile the `ixgbevf` module for your current kernel and then upgrade you
 
    1. You can check the **systemd** or **udev** versions on RPM-based systems with the following command:
 
-      ```
+      ```bash
       [ec2-user ~]$ rpm -qa | grep -e '^systemd-[0-9]\+\|^udev-[0-9]\+'
       				systemd-208-11.el7_0.2.x86_64
       ```
@@ -262,13 +261,13 @@ If you compile the `ixgbevf` module for your current kernel and then upgrade you
 
    1. Disable predictable network interface names by adding the `net.ifnames=0` option to the `GRUB_CMDLINE_LINUX` line in `/etc/default/grub`.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo sed -i '/^GRUB\_CMDLINE\_LINUX/s/\"$/\ net\.ifnames\=0\"/' /etc/default/grub
       ```
 
    1. Rebuild the grub configuration file.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
       ```
 
@@ -283,7 +282,7 @@ If you compile the `ixgbevf` module for your current kernel and then upgrade you
 
    Use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command as follows.
 
-   ```
+   ```bash
    aws ec2 modify-instance-attribute \
        --instance-id {{i-1234567890abcdef0}} -\
        -sriov-net-support simple
@@ -294,7 +293,7 @@ If you compile the `ixgbevf` module for your current kernel and then upgrade you
 
    Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) cmdlet as follows.
 
-   ```
+   ```powershell
    Edit-EC2InstanceAttribute `
        -InstanceId {{i-1234567890abcdef0}} `
        -SriovNetSupport "simple"
@@ -318,7 +317,7 @@ Follow the previous procedure until the step where you stop the instance. Create
 
 Use the [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) command as follows.
 
-```
+```bash
 aws ec2 register-image --sriov-net-support simple ...
 ```
 
@@ -327,7 +326,7 @@ aws ec2 register-image --sriov-net-support simple ...
 
 Use [Register-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Image.html) as follows.
 
-```
+```PowerShell
 Register-EC2Image -SriovNetSupport "simple" ...
 ```
 
@@ -384,7 +383,7 @@ The administrator password will reset when you enable the initialize instance EC
 
      1. Open the command line, navigate to the extracted folder, and run the following command to use the `pnputil` utility to add and install the INF file in the driver store.
 
-        ```
+        ```batch
         C:\> pnputil -a PROXGB\Winx64\NDIS62\vxn62x64.inf
         ```
    + **Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2012**
@@ -394,27 +393,27 @@ The administrator password will reset when you enable the initialize instance EC
      1. Open the command line, navigate to the extracted folder, and run one of the following commands to use the `pnputil` utility to add and install the INF file in the driver store.
         + Windows Server 2022
 
-          ```
+          ```ps
           pnputil -i -a PROXGB\Winx64\NDIS68\vxn68x64.inf
           ```
         + Windows Server 2019
 
-          ```
+          ```ps
           pnputil -i -a PROXGB\Winx64\NDIS68\vxn68x64.inf
           ```
         + Windows Server 2016
 
-          ```
+          ```ps
           pnputil -i -a PROXGB\Winx64\NDIS65\vxn65x64.inf
           ```
         + Windows Server 2012 R2
 
-          ```
+          ```ps
           pnputil -i -a PROXGB\Winx64\NDIS64\vxn64x64.inf
           ```
         + Windows Server 2012
 
-          ```
+          ```ps
           pnputil -i -a PROXGB\Winx64\NDIS63\vxn63x64.inf
           ```
 
@@ -425,7 +424,7 @@ The administrator password will reset when you enable the initialize instance EC
 
    Use the [modify-instance-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html) command as follows.
 
-   ```
+   ```bash
    aws ec2 modify-instance-attribute \
        --instance-id {{i-1234567890abcdef0}} \
        --sriov-net-support simple
@@ -436,7 +435,7 @@ The administrator password will reset when you enable the initialize instance EC
 
    Use the [Edit-EC2InstanceAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceAttribute.html) cmdlet as follows.
 
-   ```
+   ```powershell
    Edit-EC2InstanceAttribute `
        -InstanceId {{i-1234567890abcdef0}} `
        -SriovNetSupport "simple"

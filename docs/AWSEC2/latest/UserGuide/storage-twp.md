@@ -1,7 +1,6 @@
 
 
 # Torn write prevention on Amazon EC2 Linux instances
-<a name="storage-twp"></a>
 
 **Note**  
 Torn write prevention is supported for Linux instances only.

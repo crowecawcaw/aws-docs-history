@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues connecting to your Amazon EC2 Linux instance
-<a name="TroubleshootingInstancesConnecting"></a>
 
 The following information and common errors can help you troubleshoot connecting to your Linux instance. 
 
@@ -186,13 +185,13 @@ Alternatively, you can create a new key pair using a third-party tool. For more 
 **If you use SSH to connect to your instance**
 + Use `ssh -vvv` to get triple verbose debugging information while connecting:
 
-  ```
+  ```bash
   ssh -vvv -i {{path/key-pair-name}}.pem {{instance-user-name}}@{{ec2-203-0-113-25.compute-1.amazonaws.com}}
   ```
 
   The following sample output demonstrates what you might see if you were trying to connect to your instance with a key that was not recognized by the server:
 
-  ```
+  ```YAML
   open/ANT/myusername/.ssh/known_hosts).
   debug2: bits set: 504/1024
   debug1: ssh_rsa_verify: signature correct
@@ -278,7 +277,7 @@ The appropriate usernames are as follows:
 
 For example, to use an SSH client to connect to an Amazon Linux instance, use the following command:
 
-```
+```bash
 ssh -i {{/path/key-pair-name}}.pem {{instance-user-name}}@{{ec2-203-0-113-25.compute-1.amazonaws.com}}
 ```
 
@@ -306,15 +305,15 @@ If you get a `Permission denied (publickey)` error and none of the above applies
 
 1. From the temporary instance, check the permissions of the `/home/{{instance-user-name}}/` directory of the attached volume. If necessary, adjust the permissions as follows:
 
-   ```
+   ```bash
    [ec2-user ~]$ chmod 600 {{mount_point}}/home/{{instance-user-name}}/.ssh/authorized_keys
    ```
 
-   ```
+   ```bash
    [ec2-user ~]$ chmod 700 {{mount_point}}/home/{{instance-user-name}}/.ssh
    ```
 
-   ```
+   ```bash
    [ec2-user ~]$ chmod 700 {{mount_point}}/home/{{instance-user-name}}
    ```
 
@@ -327,7 +326,7 @@ If you get a `Permission denied (publickey)` error and none of the above applies
 
 Your private key file must be protected from read and write operations from any other users. If your private key can be read or written to by anyone but you, then SSH ignores your key and you see the following warning message below.
 
-```
+```bash
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -342,7 +341,7 @@ If you see a similar message when you try to log in to your instance, examine th
 
 If you are connecting from macOS or Linux, run the following command to fix this error, substituting the path for your private key file.
 
-```
+```bash
 [ec2-user ~]$ chmod 0400 {{.ssh/my_private_key.pem}}
 ```
 
@@ -378,19 +377,19 @@ From a Windows command prompt, run the following commands.
 
 1. Run the following command to reset and remove explicit permissions:
 
-   ```
+   ```bash
    icacls.exe $path /reset
    ```
 
 1. Run the following command to grant Read permissions to the current user:
 
-   ```
+   ```PowerShell
    icacls.exe $path /GRANT:R "$($env:USERNAME):(R)"
    ```
 
 1. Run the following command to disable inheritance and remove inherited permissions.
 
-   ```
+   ```bash
    icacls.exe $path /inheritance:r
    ```
 
@@ -403,7 +402,7 @@ If you use a third-party tool, such as **ssh-keygen**, to create an RSA key pair
 
 To resolve the error, the private key must be in the PEM format. Use the following command to create the private key in the PEM format:
 
-```
+```bash
 ssh-keygen -m PEM
 ```
 
@@ -417,7 +416,7 @@ To resolve this error, start by confirming that there was an expected change to 
 ## Error: Server refused our key *or* No supported authentication methods available
 <a name="TroubleshootingInstancesConnectingPuTTY"></a>
 
-If you use PuTTY to connect to your instance and get either of the following errors, Error: Server refused our key or Error: No supported authentication methods available, verify that you are connecting with the appropriate username for your AMI. Type the username in **User name** in the **PuTTY Configuration** window.
+If you use PuTTY to connect to your instance and get either of the following errors, `Error: Server refused our key` or `Error: No supported authentication methods available`, verify that you are connecting with the appropriate username for your AMI. Type the username in **User name** in the **PuTTY Configuration** window.
 
 The appropriate usernames are as follows:
 
@@ -475,7 +474,7 @@ To resolve the error, you must run the `eic_harvest_hostkeys` script on your ins
 
    For example, if your instance was launched using Amazon Linux 2, your instance's public DNS name is `ec2-a-b-c-d.us-west-2.compute.amazonaws.com`, and the key pair is `my_ec2_private_key.pem`, use the following command to SSH into your instance:
 
-   ```
+   ```bash
    $ ssh -i {{my_ec2_private_key}}.pem {{ec2-user}}@{{ec2-a-b-c-d.us-west-2.compute.amazonaws.com}}
    ```
 
@@ -483,13 +482,13 @@ To resolve the error, you must run the `eic_harvest_hostkeys` script on your ins
 
 1. Navigate to the following folder.
 
-   ```
+   ```bash
    [ec2-user ~]$ cd /opt/aws/bin/
    ```
 
 1. Run the following command on your instance. 
 
-   ```
+   ```bash
    [ec2-user ~]$ ./eic_harvest_hostkeys
    ```
 
@@ -508,7 +507,7 @@ To resolve the error, you must run the `eic_harvest_hostkeys` script on your ins
 
    For example, if your instance was launched using Ubuntu, your instance's public DNS name is `ec2-a-b-c-d.us-west-2.compute.amazonaws.com`, and the key pair is `my_ec2_private_key.pem`, use the following command to SSH into your instance:
 
-   ```
+   ```bash
    $ ssh -i {{my_ec2_private_key}}.pem {{ubuntu}}@{{ec2-a-b-c-d.us-west-2.compute.amazonaws.com}}
    ```
 
@@ -516,13 +515,13 @@ To resolve the error, you must run the `eic_harvest_hostkeys` script on your ins
 
 1. Navigate to the following folder.
 
-   ```
+   ```bash
    [ec2-user ~]$ cd /usr/share/ec2-instance-connect/
    ```
 
 1. Run the following command on your instance. 
 
-   ```
+   ```bash
    [ec2-user ~]$ ./eic_harvest_hostkeys
    ```
 
@@ -549,7 +548,7 @@ Update the `ec2-instance-connect` package on the instance to the latest version,
 
 1. Run the following command on your instance to update the `ec2-instance-connect` package to the latest version.
 
-   ```
+   ```bash
    apt update && apt upgrade
    ```
 
@@ -644,7 +643,7 @@ The device name might appear differently on your instance. For example, devices 
 
    1. Use the **lsblk** command to determine if the volume is partitioned.
 
-      ```
+      ```bash
       [ec2-user ~]$ lsblk
       NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
       xvda    202:0    0    8G  0 disk
@@ -658,25 +657,25 @@ The device name might appear differently on your instance. For example, devices 
 
    1. Create a temporary directory to mount the volume.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo mkdir /mnt/tempvol
       ```
 
    1. Mount the volume (or partition) at the temporary mount point, using the volume name or device name that you identified earlier. The required command depends on your operating system's file system. Note that the device name might appear differently on your instance. See the [note](#device-name) in Step 6 for more information.
       + Amazon Linux, Ubuntu, and Debian
 
-        ```
+        ```bash
         [ec2-user ~]$ sudo mount /dev/{{xvdf1}} /mnt/tempvol
         ```
       + Amazon Linux 2, CentOS, SUSE Linux 12, and RHEL 7.x
 
-        ```
+        ```bash
         [ec2-user ~]$ sudo mount -o nouuid /dev/{{xvdf1}} /mnt/tempvol
         ```
 **Note**  
 If you get an error stating that the file system is corrupt, run the following command to use the **fsck** utility to check the file system and repair any issues:  
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo fsck /dev/{{xvdf1}}
    ```
 
@@ -684,7 +683,7 @@ If you get an error stating that the file system is corrupt, run the following c
 **Important**  
 The following examples use the Amazon Linux username `ec2-user`. You might need to substitute a different username, such as `ubuntu` for Ubuntu instances.
 
-   ```
+   ```bash
    [ec2-user ~]$ cp .ssh/authorized_keys /mnt/tempvol/home/{{ec2-user}}/.ssh/authorized_keys
    ```
 
@@ -692,7 +691,7 @@ The following examples use the Amazon Linux username `ec2-user`. You might need 
 
    (Optional) Otherwise, if you don't have permission to edit files in `/mnt/tempvol`, you must update the file using **sudo** and then check the permissions on the file to verify that you are able to log into the original instance. Use the following command to check the permissions on the file.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo ls -l /mnt/tempvol/home/ec2-user/.ssh
    total 4
    -rw------- 1 {{222 500}} 398 Sep 13 22:54 authorized_keys
@@ -700,19 +699,19 @@ The following examples use the Amazon Linux username `ec2-user`. You might need 
 
    In this example output, {{222}} is the user ID and {{500}} is the group ID. Next, use **sudo** to re-run the copy command that failed.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo cp .ssh/authorized_keys /mnt/tempvol/home/{{ec2-user}}/.ssh/authorized_keys
    ```
 
    Run the following command again to determine whether the permissions changed.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo ls -l /mnt/tempvol/home/{{ec2-user}}/.ssh
    ```
 
    If the user ID and group ID have changed, use the following command to restore them.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo chown {{222:500}} /mnt/tempvol/home/{{ec2-user}}/.ssh/authorized_keys
    ```
 
@@ -721,7 +720,7 @@ The following examples use the Amazon Linux username `ec2-user`. You might need 
 
 1. From the temporary instance, unmount the volume that you attached so that you can reattach it to the original instance. For example, use the following command to unmount the volume at `/mnt/tempvol`.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo umount /mnt/tempvol
    ```
 

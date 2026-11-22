@@ -1,7 +1,6 @@
 
 
 # EC2 Fleet and Spot Fleet
-<a name="Fleets"></a>
 
 EC2 Fleet and Spot Fleet are designed to be a useful way to launch a fleet of tens, hundreds, or thousands of Amazon EC2 instances in a single operation. Each instance in a fleet is either configured by a [launch template](ec2-launch-templates.md) or a set of launch parameters that you configure manually at launch.
 

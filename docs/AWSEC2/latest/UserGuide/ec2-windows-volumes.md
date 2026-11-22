@@ -1,7 +1,6 @@
 
 
 # How volumes are attached and mapped for Amazon EC2 Windows instances
-<a name="ec2-windows-volumes"></a>
 
 **Note**  
 This topic applies to Windows instances only.

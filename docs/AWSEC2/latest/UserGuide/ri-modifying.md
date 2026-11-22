@@ -1,7 +1,6 @@
 
 
 # Modify Reserved Instances
-<a name="ri-modifying"></a>
 
 When your needs change, you can modify your Standard or Convertible Reserved Instances and continue to benefit from the billing benefit. You can modify attributes such as the Availability Zone, instance size (within the same instance family and generation), and scope of your Reserved Instance.
 
@@ -183,7 +182,7 @@ Before you modify your Reserved Instances, ensure that you have read the applica
 **To modify your Reserved Instances**  
 Use the [modify-reserved-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-reserved-instances.html) command. You can provide the configuration details in a JSON file.
 
-```
+```bash
 aws ec2 modify-reserved-instances \
     --reserved-instances-ids {{b847fa93-e282-4f55-b59a-1342f5bd7c02}} \
     --target-configurations {{file://configuration.json}}
@@ -192,7 +191,7 @@ aws ec2 modify-reserved-instances \
 **To get the status of your modification request**  
 Use the [describe-reserved-instances-modifications](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-reserved-instances-modifications.html) command. The status is `processing`, `fulfilled`, or `failed`.
 
-```
+```bash
 aws ec2 describe-reserved-instances-modifications \
     --reserved-instances-modification-ids {{rimod-d3ed4335-b1d3-4de6-ab31-0f13aaf46687}} \
     --query ReservedInstancesModifications[].Status
@@ -204,7 +203,7 @@ aws ec2 describe-reserved-instances-modifications \
 **To modify your Reserved Instances**  
 Use the [Edit-EC2ReservedInstance](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2ReservedInstance.html) cmdlet. You can provide the configuration details in an object of type `Amazon.EC2.Model.ReservedInstancesConfiguration`.
 
-```
+```powershell
 Edit-EC2ReservedInstance `
     -ReservedInstancesId {{b847fa93-e282-4f55-b59a-1342f5bd7c02}} `
     -TargetConfiguration $configuration
@@ -213,7 +212,7 @@ Edit-EC2ReservedInstance `
 **To get the status of your modification request**  
 Use the [Get-EC2ReservedInstancesModification](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ReservedInstancesModification.html) cmdlet. The status is `processing`, `fulfilled`, or `failed`.
 
-```
+```powershell
 Get-EC2ReservedInstancesModification `
     -ReservedInstancesModificationId {{rimod-d3ed4335-b1d3-4de6-ab31-0f13aaf46687}} | `
     Select Status

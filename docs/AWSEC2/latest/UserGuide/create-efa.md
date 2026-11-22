@@ -1,7 +1,6 @@
 
 
 # Create and attach an Elastic Fabric Adapter to an Amazon EC2 instance
-<a name="create-efa"></a>
 
 You can create an EFA and attach it to an Amazon EC2 instance much like any other elastic network interface in Amazon EC2. However, unlike elastic network interfaces, EFAs can't be attached to or detached from an instance in a `running` state.
 
@@ -66,7 +65,7 @@ You can't assign IP addresses to an EFA-only network interface.
 **To create an EFA**  
 Use the [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command. For `--interface-type`, specify `efa` for an EFA network interface or `efa-only` for an EFA-only network interface.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --interface-type {{efa}} \
@@ -79,7 +78,7 @@ aws ec2 create-network-interface \
 **To create an EFA**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet. For `-InterfaceType`, specify `efa` for an EFA network interface or `efa-only` for an EFA-only network interface
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -InterfaceType {{efa}} `
@@ -104,7 +103,7 @@ You attach an EFA to an instance in the same way that you attach a network inter
 **To attach an existing EFA when launching an instance**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--network-interfaces` option. For the primary network interface, specify an EFA network interface and `NetworkCardIndex=0`, `DeviceIndex=0`. To attach multiple EFA network interfaces, see [Maximize network bandwidth](efa-acc-inst-types.md).
 
-```
+```bash
 --network-interfaces "NetworkCardIndex=0, \
     DeviceIndex=0, \
     NetworkInterfaceId={{eni-1234567890abcdef0}}, \
@@ -115,7 +114,7 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 **To attach a new EFA when launching an instance**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--network-interfaces` option. For the primary network interface, use `NetworkCardIndex=0`, `DeviceIndex=0`, and `InterfaceType=efa`. If you are attaching multiple EFA network interfaces, see [Maximize network bandwidth](efa-acc-inst-types.md).
 
-```
+```bash
 --network-interfaces "NetworkCardIndex=0, \
     DeviceIndex=0, \
     InterfaceType=efa, \
@@ -129,13 +128,13 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 **To attach an existing EFA when launching an instance**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-NetworkInterfaces` parameter.
 
-```
+```powershell
 -NetworkInterface $networkInterface
 ```
 
 Define the network interface as follows.
 
-```
+```powershell
 $networkInterface = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
 $networkInterface.DeviceIndex = 0
 $networkInterface.NetworkInterfaceId = "{{eni-1234567890abcdef0}}"
@@ -146,13 +145,13 @@ $networkInterface.SubnetId = "{{subnet-0abcdef1234567890}}"
 **To attach a new EFA when launching an instance**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-NetworkInterfaces` parameter.
 
-```
+```powershell
 -NetworkInterface $networkInterface
 ```
 
 Define the network interface as follows.
 
-```
+```powershell
 $networkInterface = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
 $networkInterface.DeviceIndex = 0
 $networkInterface.InterfaceType = "efa"

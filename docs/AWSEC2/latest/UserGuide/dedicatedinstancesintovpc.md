@@ -1,7 +1,6 @@
 
 
 # Launch Dedicated Instances into a VPC with default tenancy
-<a name="dedicatedinstancesintovpc"></a>
 
 When you create a VPC, you have the option of specifying its instance tenancy. If you launch an instance into a VPC that has an instance tenancy of `dedicated`, it runs as a Dedicated Instance on hardware that's dedicated for your use.
 
@@ -39,7 +38,7 @@ For more information about VPC tenancy options, see [Create a VPC](https://docs.
 **To set the tenancy option for an instance during launch**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command and include `Tenancy` with the `--placement` option.
 
-```
+```bash
 --placement Tenancy=dedicated
 ```
 
@@ -49,7 +48,7 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 **To set the tenancy option for an instance during launch**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-Placement_Tenancy` parameter.
 
-```
+```powershell
 -Placement_Tenancy dedicated
 ```
 

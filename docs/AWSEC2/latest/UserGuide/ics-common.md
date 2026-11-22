@@ -1,7 +1,6 @@
 
 
 # Common screenshots to troubleshoot unreachable Windows instances
-<a name="ics-common"></a>
 
 You can use the following information to help you troubleshoot an unreachable Windows instance based on screenshots returned by the service.
 + [Log on screen (Ctrl\+Alt\+Delete)](#logon-screen) 
@@ -98,7 +97,7 @@ Alternatively, select a different AMI for the temporary instance. For example, i
 
 1. Log in to the instance and run the following command from a command prompt to change the `bootstatuspolicy` configuration to `ignoreallfailures`.
 
-   ```
+   ```batch
    bcdedit /store {{Drive Letter}}:\boot\bcd /set {default} bootstatuspolicy ignoreallfailures
    ```
 

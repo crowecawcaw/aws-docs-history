@@ -1,7 +1,6 @@
 
 
 # Instance type and Availability Zone breakdown
-<a name="capacity-manager-pool-breakdown"></a>
 
 After you confirm at the request level that Amazon EC2 is fulfilling your requested capacity, per-combination metrics help you optimize where that capacity lands. Per-combination metrics take each option within a flexible request into account and show how each individual instance type and Availability Zone combination performed, which affects your cost, performance, and reservation utilization. They're most useful at the account level. In the console, drill into an account on the Capacity fulfillment tab, then choose View instance type and Availability Zone breakdown on any fulfillment row. Capacity Manager sorts combinations by fulfillment rate, lowest first, so the combinations with the most room to improve appear at the top.
 
@@ -38,7 +37,7 @@ This is the most common scenario, and it means your requested capacity is being 
 
 The following JSON structure shows a constrained instance type and Availability Zone combination alongside a healthy fallback combination.
 
-```
+```JSON
 {
     "MetricDataResults": [
         {

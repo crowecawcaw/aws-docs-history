@@ -1,7 +1,6 @@
 
 
 # Set the time reference on your EC2 instance to use the local Amazon Time Sync Service
-<a name="configure-ec2-ntp"></a>
 
  The Amazon Time Sync Service provides several methods for your Amazon EC2 instance to synchronize to a local time source. First, any Amazon EC2 instance can reach a local time source over the Network Time Protocol (NTP). In addition, the enhanced Amazon Time Sync Service offers higher-accuracy local time sources to [supported Amazon EC2 instances](#ptp-hardware-clock-requirements). Launch your supported instance in a placement group with the `precision-time` strategy to reach a higher-accuracy NTP source. Finally, Linux instances launched in a precision time placement group have access to a PTP Hardware Clock (PHC) device and the ability to retrieve hardware packet timestamps. 
 
@@ -39,11 +38,11 @@ AL2023 and recent versions of Amazon Linux 2 are configured to use the Amazon Ti
 **To verify that chrony is configured to use the IPv4 endpoint**  
 Run the following command. In the output, the line that starts with `^*` indicates the preferred time source.
 
-```
+```bash
 [ec2-user ~]$ chronyc sources -v | grep -F ^*
 ```
 
-```
+```bash
 ^* 169.254.169.123               3   4   377    13  -4325ns[-9201ns] +/-  401us
 ```
 
@@ -51,29 +50,29 @@ Run the following command. In the output, the line that starts with `^*` indicat
 
 1. Connect to your instance and uninstall the NTP service.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum erase 'ntp*'
    ```
 
 1. Install the `chrony` package.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install chrony
    ```
 
 1. Open the `/etc/chrony.conf` file using a text editor (such as **vim** or **nano**). Add the following line before any other `server` or `pool` statements that may be present in the file, and save your changes:
 
-   ```
+   ```bash
    server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
    ```
 
 1. Restart the `chrony` daemon (`chronyd`).
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo service chronyd restart
    ```
 
-   ```
+   ```bash
    Starting chronyd:                                          [  OK  ]
    ```
 **Note**  
@@ -81,25 +80,25 @@ On RHEL and CentOS (up to version 6), the service name is `chrony` instead of `c
 
 1. To configure `chronyd` to start at each system boot, use the `chkconfig` command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo chkconfig chronyd on
    ```
 
 1. Verify that `chrony` is using the `169.254.169.123` IPv4 endpoint to synchronize the time.
 
-   ```
+   ```bash
    [ec2-user ~]$ chronyc sources -v | grep -F ^*
    ```
 
    In the output, `^*` indicates the preferred time source.
 
-   ```
+   ```bash
    ^* 169.254.169.123               3   6    17    43    -30us[ -226us] +/-  287us
    ```
 
 1. Verify the time synchronization metrics that are reported by `chrony`.
 
-   ```
+   ```bash
    [ec2-user ~]$ chronyc tracking
    ```
 
@@ -126,7 +125,7 @@ On RHEL and CentOS (up to version 6), the service name is `chrony` instead of `c
 
 1. Connect to your instance and use `apt` to install the `chrony` package.
 
-   ```
+   ```bash
    ubuntu:~$ sudo apt install chrony
    ```
 **Note**  
@@ -134,35 +133,35 @@ If necessary, update your instance first by running `sudo apt update`.
 
 1. Open the `/etc/chrony/chrony.conf` file using a text editor (such as **vim** or **nano**). Add the following line before any other `server` or `pool` statements that are already present in the file, and save your changes:
 
-   ```
+   ```bash
    server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
    ```
 
 1. Restart the `chrony` service.
 
-   ```
+   ```bash
    ubuntu:~$ sudo /etc/init.d/chrony restart
    ```
 
-   ```
+   ```bash
    Restarting chrony (via systemctl): chrony.service.
    ```
 
 1. Verify that `chrony` is using the `169.254.169.123` IPv4 endpoint to synchronize the time.
 
-   ```
+   ```bash
    ubuntu:~$ chronyc sources -v | grep -F ^*
    ```
 
    In the output, the line starting with `^*` indicates the preferred time source.
 
-   ```
+   ```bash
    ^* 169.254.169.123               3   6    17    12    +15us[  +57us] +/-  320us
    ```
 
 1. Verify the time synchronization metrics that are reported by `chrony`.
 
-   ```
+   ```bash
    ubuntu:~$ chronyc tracking
    ```
 
@@ -193,7 +192,7 @@ Starting with SUSE Linux Enterprise Server 15, `chrony` is the default implement
 
 1. Verify that the file contains the following line:
 
-   ```
+   ```bash
    server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
    ```
 
@@ -216,7 +215,7 @@ If you're using an AMI that doesn't have the Amazon Time Sync Service configured
 
 1. Get the current NTP configuration by typing the following command:
 
-   ```
+   ```bash
    w32tm /query /configuration
    ```
 
@@ -224,7 +223,7 @@ If you're using an AMI that doesn't have the Amazon Time Sync Service configured
 
 1. (Optional) Get the status of the current configuration by typing the following command:
 
-   ```
+   ```bash
    w32tm /query /status
    ```
 
@@ -234,13 +233,13 @@ If you're using an AMI that doesn't have the Amazon Time Sync Service configured
 
 1. From the Command Prompt window, run the following command:
 
-   ```
+   ```bash
    w32tm /config /manualpeerlist:169.254.169.123 /syncfromflags:manual /update
    ```
 
 1. Verify your new settings by using the following command:
 
-   ```
+   ```bash
    w32tm /query /configuration
    ```
 
@@ -283,13 +282,13 @@ We don't recommend using both the IPv4 and IPv6 endpoint entries together. The I
 
 Depending on the Linux distribution you're using, when you reach the step to edit the `chrony.conf` file, you'll be using the IPv6 endpoint of the Amazon Time Sync Service (`fd00:ec2::123`) rather than the IPv4 endpoint (`169.254.169.123`):
 
-```
+```bash
 server fd00:ec2::123 prefer iburst minpoll 4 maxpoll 4
 ```
 
 Save the file and verify that chrony is using the `fd00:ec2::123` IPv6 endpoint to synchronize time: 
 
-```
+```bash
 [ec2-user ~]$ chronyc sources -v
 ```
 
@@ -300,13 +299,13 @@ In the output, if you see the `fd00:ec2::123` IPv6 endpoint, the configuration i
 
 When you reach the step to change the NTP server to use the Amazon Time Sync Service, you'll be using the IPv6 endpoint of the Amazon Time Sync Service (`fd00:ec2::123`) rather than the IPv4 endpoint (`169.254.169.123`):
 
-```
+```bash
 w32tm /config /manualpeerlist:fd00:ec2::123 /syncfromflags:manual /update
 ```
 
 Verify that your new settings are using the `fd00:ec2::123` IPv6 endpoint to synchronize time:
 
-```
+```bash
 w32tm /query /configuration
 ```
 
@@ -346,7 +345,7 @@ You can create a precision time placement group using the AWS CLI, AWS Managemen
 **Using AWS CLI**  
 Run the following command:
 
-```
+```bash
 aws ec2 create-placement-group \
     --group-name {{my-precision-time-pg}} \
     --strategy precision-time
@@ -359,7 +358,7 @@ The command returns a placement group ARN that you use when creating capacity re
 
 After you create a precision time placement group, specify it when launching instances to access the enhanced Amazon Time Sync Service:
 
-```
+```bash
 aws ec2 run-instances \
     --image-id {{ami-0abcdef1234567890}} \
     --instance-type {{r7g.2xlarge}} \
@@ -373,7 +372,7 @@ After you launch your instance in a precision time placement group, you benefit 
 
 For example, if you use the chronyd daemon on your instance, you can verify that the NTP time source is now referred to as a Stratum 1 and has improved clock accuracy metrics:
 
-```
+```bash
 [ec2-user ~]$ chronyc sources
 ```
 
@@ -385,7 +384,7 @@ MS Name/IP address         Stratum Poll Reach LastRx Last sample
 
 Verify the time synchronization metrics that are reported by `chrony`.
 
-```
+```bash
 [ec2-user ~]$ chronyc tracking
 ```
 
@@ -436,7 +435,7 @@ Before you begin, ensure your instance meets the [Requirements](#ptp-hardware-cl
 
 1. Install prerequisites.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum update
    [ec2-user ~]$ sudo yum install kernel-devel-$(uname -r) git
    [ec2-user ~]$ sudo reboot
@@ -444,46 +443,46 @@ Before you begin, ensure your instance meets the [Requirements](#ptp-hardware-cl
 
 1. Load the required ptp module.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo modprobe ptp
    ```
 
 1. Retrieve the latest ENA driver version (version 2.10.0 or later).
 
-   ```
+   ```bash
    [ec2-user ~]$ git clone https://github.com/amzn/amzn-drivers.git /tmp/amzn-drivers
    ```
 
 1. Build the ENA driver `ena.ko` with PHC support.
 
-   ```
+   ```bash
    [ec2-user ~]$ cd /tmp/amzn-drivers/kernel/linux/ena
    [ec2-user ~]$ ENA_PHC_INCLUDE=1 make
    ```
 
 1. Reload the ENA driver and enable the PHC device.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo rmmod ena && sudo insmod ena.ko phc_enable=1
    ```
 
 1. Validate the loaded ENA driver has PHC support.
 
-   ```
+   ```bash
    [ec2-user ~]$ modinfo ena | grep -E "phc_enable"
    ```
 
-   ```
+   ```bash
    parm:           phc_enable:Enable PHC.
    ```
 
 1. Validate the PHC support is enabled with the ENA driver.
 
-   ```
+   ```bash
    [ec2-user ~]$ cat /sys/module/ena/parameters/phc_enable
    ```
 
-   ```
+   ```bash
    1
    ```
 
@@ -494,13 +493,13 @@ For instructions to install the driver and activate the phc\_enable option upon 
 
 Verify that the ENA PTP hardware clock device shows up on your instance.
 
-```
+```bash
 [ec2-user ~]$ for file in /sys/class/ptp/*; do echo -n "$file: "; cat "$file/clock_name"; done
 ```
 
 Expected output
 
-```
+```bash
 /sys/class/ptp/ptp{{<index>}}: ena-ptp-{{<PCI slot>}}
 ```
 
@@ -510,7 +509,7 @@ Where:
 
 Example output
 
-```
+```bash
 /sys/class/ptp/{{ptp0}}: ena-ptp-{{05}}
 ```
 
@@ -525,13 +524,13 @@ The latest Amazon Linux 2023 AMIs include a `udev` rule that creates the `/dev/p
 
 First, check if the symlink is present by running the following command.
 
-```
+```bash
 [ec2-user ~]$ ls -l /dev/ptp*
 ```
 
 Example output
 
-```
+```bash
 crw------- 1 root root 245, 0 Jan 31 2025 /dev/ptp0
 lrwxrwxrwx 1 root root      4 Jan 31 2025 /dev/ptp_ena -> ptp0
 ```
@@ -546,13 +545,13 @@ If the `/dev/ptp_ena` symlink is present, skip to [Configure the chronyd daemon 
 
 1. Add the following `udev` rule.
 
-   ```
+   ```bash
    [ec2-user ~]$ echo "SUBSYSTEM==\"ptp\", ATTR{clock_name}==\"ena-ptp-*\", SYMLINK += \"ptp_ena\"" | sudo tee -a /etc/udev/rules.d/53-ec2-network-interfaces.rules
    ```
 
 1. Reload the `udev` rule, either by rebooting the instance, or by running the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo udevadm control --reload-rules && sudo udevadm trigger
    ```
 
@@ -565,19 +564,19 @@ The chronyd clock synchronization daemon must be configured to use the PHC devic
 
 1. Edit `/etc/chrony.conf` using a text editor and add the following line:
 
-   ```
+   ```bash
    refclock PHC /dev/ptp_ena poll 0 delay 0.000010 prefer
    ```
 
 1. Restart chrony.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo systemctl restart chronyd
    ```
 
 1. Verify that chrony is using the PTP hardware clock. The PHC0 device must be the preferred time source with a Stratum 0 value. The local NTP time source (if configured) must have a Stratum 1 value.
 
-   ```
+   ```bash
    [ec2-user ~]$ chronyc sources
    ```
 
@@ -595,11 +594,11 @@ The ENA driver loaded with the PHC support provides access to hardware packet ti
 
 For more information about using hardware packet timestamping, see the [packet timestamping Linux documentation](https://www.kernel.org/doc/html/latest/networking/timestamping.html).
 
-```
+```bash
 [ec2-user ~]$ sudo ethtool -T {{ens5}}
 ```
 
-```
+```bash
 Time stamping parameters for ens5:
 Capabilities:
         software-transmit

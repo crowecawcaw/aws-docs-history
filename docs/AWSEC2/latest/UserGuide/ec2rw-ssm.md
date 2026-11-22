@@ -1,7 +1,6 @@
 
 
 # Troubleshoot impaired Windows instance with EC2Rescue and Systems Manager
-<a name="ec2rw-ssm"></a>
 
 Support provides you with a Systems Manager Run Command document to interface with your Systems Manager-enabled instance to run EC2Rescue for Windows Server. The Run Command document is called `AWSSupport-RunEC2RescueForWindowsTool`.
 
@@ -27,7 +26,7 @@ To run the **ResetAccess** action, your Amazon EC2 instance must have the a poli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -53,7 +52,7 @@ If you are using a custom KMS key, not the default KMS key, use this policy inst
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -111,7 +110,7 @@ Here are some examples on how to use the Systems Manager Run Command document to
 
 Attempt to fix all identified issues on an offline root volume attached to an Amazon EC2 Windows instance:
 
-```
+```bash
 aws ssm send-command --instance-ids "{{i-0cb2b964d3e14fd9f}}" --document-name "AWSSupport-RunEC2RescueForWindowsTool" --parameters "Command=FixAll, Parameters='{{xvdf}}'" --output text
 ```
 
@@ -120,7 +119,7 @@ aws ssm send-command --instance-ids "{{i-0cb2b964d3e14fd9f}}" --document-name "A
 
 Collect all logs from the current online Amazon EC2 Windows instance and upload them to an Amazon S3 bucket:
 
-```
+```bash
 aws ssm send-command --instance-ids "{{i-0cb2b964d3e14fd9f}}" --document-name "AWSSupport-RunEC2RescueForWindowsTool" --parameters "Command=CollectLogs, Parameters='{{amzn-s3-demo-bucket}}'" --output text
 ```
 
@@ -131,13 +130,13 @@ The following examples show methods you can use to reset the local Administrator
 
 Reset the local Administrator password of an online instance using the default AWS KMS key alias/aws/ssm:
 
-```
+```bash
 aws ssm send-command --instance-ids "{{i-0cb2b964d3e14fd9f}}" --document-name "AWSSupport-RunEC2RescueForWindowsTool" --parameters "Command=ResetAccess" --output text
 ```
 
 Reset the local Administrator password of an online instance using a KMS key:
 
-```
+```bash
 aws ssm send-command --instance-ids "{{i-0cb2b964d3e14fd9f}}" --document-name "AWSSupport-RunEC2RescueForWindowsTool" --parameters "Command=ResetAccess, Parameters={{a133dc3c-a2g4-4fc6-a873-6c0720104bf0}}" --output text
 ```
 

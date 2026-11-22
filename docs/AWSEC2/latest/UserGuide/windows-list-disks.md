@@ -1,7 +1,6 @@
 
 
 # Map non-NVMe disks on Amazon EC2 Windows instance to volumes
-<a name="windows-list-disks"></a>
 
 For instances launched from a Windows AMI that uses AWS PV or Citrix PV drivers, you can use the relationships described on this page to map your Windows disks to your instance store and EBS volumes. This topic explains how to view the **non-NVMe disks** that are available to the Windows operating system on your instance. It also shows how to map those non-NVMe disks to the underlying Amazon EBS volumes and the device names specified for the block device mappings used by Amazon EC2.
 
@@ -49,13 +48,13 @@ The following PowerShell script lists each disk and its corresponding device nam
 
 Connect to your Windows instance and run the following command to enable PowerShell script execution.
 
-```
+```PowerShell
 Set-ExecutionPolicy RemoteSigned
 ```
 
 Copy the following script and save it as `mapping.ps1` on your Windows instance.
 
-```
+```powershell
 # List the disks
 function Convert-SCSITargetIdToDeviceName {
   param([int]$SCSITargetId)
@@ -181,13 +180,13 @@ Get-disk | ForEach-Object {
 
 Run the script as follows:
 
-```
+```bash
 PS C:\> .\mapping.ps1
 ```
 
 The following is example output.
 
-```
+```bash
 Disk  Partitions  DriveLetter   EbsVolumeId             Device      VirtualDevice   DeviceName              VolumeName
 ----  ----------  -----------   -----------             ------      -------------   ----------              ----------
    0           1            C   vol-0561f1783298efedd   /dev/sda1   N/A             NVMe Amazon Elastic B   N/A

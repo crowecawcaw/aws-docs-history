@@ -1,7 +1,6 @@
 
 
 # Configure EC2 Fast Launch settings for your Amazon EC2 Windows Server AMI
-<a name="win-fast-launch-configure"></a>
 
 You can configure EC2 Fast Launch for Windows AMIs that you own, or AMIs that are shared with you from the AWS Management Console, API, SDKs, CloudFormation, or AWS Command Line Interface (AWS CLI). Before you configure EC2 Fast Launch, verify that your AMI meets all of the prerequisites that are required to create the pre-provisioned snapshots. For more information, see [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md).
 
@@ -42,7 +41,7 @@ If you need to use a launch template to specify a VPC, or to configure metadata 
 **To enable EC2 Fast Launch**  
 Use the following [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-fast-launch.html) command to enable EC2 Fast Launch for the specified AMI, launching six parallel instances for pre-provisioning.
 
-```
+```bash
 aws ec2 enable-fast-launch \
     --image-id {{ami-0abcdef1234567890}}  \
     --max-parallel-launches {{6}} \
@@ -51,7 +50,7 @@ aws ec2 enable-fast-launch \
 
 The following is example output.
 
-```
+```json
 {
 	"ImageId": "ami-0abcdef1234567890",
 	"ResourceType": "snapshot",
@@ -73,7 +72,7 @@ The following is example output.
 **To enable EC2 Fast Launch**  
 Use the [Enable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2FastLaunch.html) cmdlet to enable EC2 Fast Launch for the specified AMI, launching six parallel instances for pre-provisioning.
 
-```
+```powershell
 Enable-EC2FastLaunch `
 	-ImageId {{ami-0abcdef1234567890}} `
 	-MaxParallelLaunch {{6}} `
@@ -127,13 +126,13 @@ When you disable Windows image optimization, any existing pre-provisioned snapsh
 **To disable EC2 Fast Launch**  
 Use the following [disable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/disable-fast-launch.html) command to disable EC2 Fast Launch on the specified AMI, and clean up existing pre-provisioned snapshots.
 
-```
+```bash
 aws ec2 disable-fast-launch --image-id ami-01234567890abcedf
 ```
 
 The following is example output.
 
-```
+```json
 {
     "ImageId": "ami-01234567890abcedf",
     "ResourceType": "snapshot",
@@ -157,7 +156,7 @@ The following is example output.
 **To disable EC2 Fast Launch**  
 Use the [Disable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Disable-EC2FastLaunch.html) cmdlet to disable EC2 Fast Launch on the specified AMI, and clean up existing pre-provisioned snapshots.
 
-```
+```powershell
 Disable-EC2FastLaunch -ImageId {{ami-0abcdef1234567890}}
 ```
 
@@ -235,7 +234,7 @@ For more information, see [Create an Amazon EC2 launch template](create-launch-t
 **To specify the launch template for EC2 Fast Launch**  
 Use the [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-fast-launch.html) command with the `--launch-template` option, specifying either the name or the ID of the launch template.
 
-```
+```bash
 --launch-template LaunchTemplateName={{my-launch-template}}
 ```
 
@@ -245,7 +244,7 @@ Use the [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec
 **To specify the launch template for EC2 Fast Launch**  
 Use the [Enable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2FastLaunch.html) cmdlet with the `-LaunchTemplate_LaunchTemplateId` or `-LaunchTemplate_LaunchTemplateName` parameter.
 
-```
+```powershell
 -LaunchTemplate_LaunchTemplateName {{my-launch-template}}
 ```
 

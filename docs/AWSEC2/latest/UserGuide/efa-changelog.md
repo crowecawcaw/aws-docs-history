@@ -1,7 +1,6 @@
 
 
 # Elastic Fabric Adapter release notes
-<a name="efa-changelog"></a>
 
 The following table describes the version history and changelog for the Elastic Fabric Adapter software.
 

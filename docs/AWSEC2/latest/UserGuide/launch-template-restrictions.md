@@ -1,7 +1,6 @@
 
 
 # Restrictions for Amazon EC2 launch templates
-<a name="launch-template-restrictions"></a>
 
 The following restrictions apply to launch templates and launch template versions:
 + **Quotas** – To view the quotas for your launch templates and launch template versions, open the [Service Quotas](https://console.aws.amazon.com/servicequotas/) console or use the [ list-service-quotas](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html) AWS CLI command. Each AWS account can have up to a maximum of 5,000 launch templates per Region and up to 10,000 versions per launch template. Your accounts might have different quotas based on their age and usage history.

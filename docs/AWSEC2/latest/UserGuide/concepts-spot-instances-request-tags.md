@@ -1,7 +1,6 @@
 
 
 # Tag Spot Instance requests
-<a name="concepts-spot-instances-request-tags"></a>
 
 To help categorize and manage your Spot Instance requests, you can tag them with custom metadata. You can assign a tag to a Spot Instance request when you create it, or afterward. You can assign tags using the Amazon EC2 console or a command line tool.
 
@@ -36,7 +35,7 @@ Create a IAM policy that includes the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -91,7 +90,7 @@ Create a IAM policy that includes the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -138,7 +137,7 @@ Use the [request-spot-instances](https://docs.aws.amazon.com/cli/latest/referenc
 
 The tag specification adds two tags to the Spot Instance request: `Environment=Production` and `Cost-Center=123`.
 
-```
+```bash
 aws ec2 request-spot-instances \
     --instance-count {{5}} \
     --type "one-time" \
@@ -152,13 +151,13 @@ aws ec2 request-spot-instances \
 **To tag a new Spot Instance request**  
 Use the [Request-EC2SpotInstance](https://docs.aws.amazon.com/powershell/latest/reference/items/Request-EC2SpotInstance.html) cmdlet with the `-TagSpecification` parameter.
 
-```
+```powershell
 -TagSpecification $tagspec
 ```
 
 The tag specification is defined as follows. It adds two tags to the Spot Instance request: `Environment=Production` and `Cost-Center=123`.
 
-```
+```powershell
 $tag1 = @{Key="Environment"; Value="Production"}
 $tag2 = @{Key="Cost-Center"; Value="123"}
 $tagspec = New-Object Amazon.EC2.Model.TagSpecification
@@ -195,7 +194,7 @@ After your Spot Instance request has launched your Spot Instance, you can add ta
 **To tag an existing Spot Instance request or Spot Instance**  
 Use the [create-tags](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-tags.html) command to tag existing resources. In the following example, the existing Spot Instance request and the Spot Instance are tagged with `purpose=test`.
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{sir-0e54a519c9EXAMPLE}} {{i-1234567890abcdef0}} \
     --tags Key={{purpose}},Value={{test}}
@@ -207,7 +206,7 @@ aws ec2 create-tags \
 **To tag an existing Spot Instance request or Spot Instance**  
 Use the [New-EC2Tag](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Tag.html) cmdlet. The following example adds the tag `purpose=test` to the existing Spot Instance request and the Spot Instance.
 
-```
+```powershell
 New-EC2Tag `
     -Resource {{sir-0e54a519c9EXAMPLE}}, {{i-1234567890abcdef0}} `
     -Tag @{Key="{{purpose}}"; Value="{{test}}"}
@@ -235,7 +234,7 @@ New-EC2Tag `
 **To describe Spot Instance request tags**  
 Use the [describe-spot-instance-requests](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-spot-instance-requests.html) command to view the configuration of the specified Spot Instance request, which includes any tags that were specified for the request.
 
-```
+```bash
 aws ec2 describe-spot-instance-requests \
     --spot-instance-request-ids {{sir-0e54a519c9EXAMPLE}} \
     --query "SpotInstanceRequests[*].Tags"
@@ -243,7 +242,7 @@ aws ec2 describe-spot-instance-requests \
 
 The following is example output.
 
-```
+```JSON
 [
     [
         {
@@ -264,14 +263,14 @@ The following is example output.
 **To describe Spot Instance request tags**  
 Use the [Get-EC2SpotInstanceRequest](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SpotInstanceRequest.html) cmdlet.
 
-```
+```powershell
 (Get-EC2SpotInstanceRequest `
     -SpotInstanceRequestId {{sir-0e54a519c9EXAMPLE}}).Tags
 ```
 
 The following is example output.
 
-```
+```bash
 Key         Value
 ---         -----
 Environment Production

@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Dedicated Host instance capacity configurations
-<a name="dedicated-hosts-limits"></a>
 
 Dedicated Hosts support different configurations (physical cores, sockets, and VCPUs) that allow you to run instances of different families and sizes.
 

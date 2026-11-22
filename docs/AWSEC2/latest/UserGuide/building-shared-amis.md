@@ -1,7 +1,6 @@
 
 
 # Recommendations for creating shared Linux AMIs
-<a name="building-shared-amis"></a>
 
 Use the following guidelines to reduce the attack surface and improve the reliability of the AMIs you create.
 
@@ -29,13 +28,13 @@ To solve this problem, disable password-based remote logins for the root user.
 
 1. Open the `/etc/ssh/sshd_config` file with a text editor and locate the following line:
 
-   ```
+   ```bash
    #PermitRootLogin yes
    ```
 
 1. Change the line to:
 
-   ```
+   ```bash
    PermitRootLogin without-password
    ```
 
@@ -46,7 +45,7 @@ To solve this problem, disable password-based remote logins for the root user.
 
 When you work with shared AMIs, a best practice is to disable direct root logins. To do this, log into your running instance and issue the following command:
 
-```
+```bash
 [ec2-user ~]$ sudo passwd -l root
 ```
 
@@ -72,7 +71,7 @@ Remove all of the following key files that are present on your system.
 
 You can securely remove all of these files with the following command.
 
-```
+```bash
 [ec2-user ~]$ sudo shred -u /etc/ssh/*_key /etc/ssh/*_key.pub
 ```
 
@@ -99,7 +98,7 @@ In the following example, the IP address http://169.254.169.254/ is a link-local
 ------
 #### [ IMDSv2 ]
 
-```
+```bash
 if [ ! -d /root/.ssh ] ; then
         mkdir -p /root/.ssh
         chmod 700 /root/.ssh
@@ -117,7 +116,7 @@ fi
 ------
 #### [ IMDSv1 ]
 
-```
+```bash
 if [ ! -d /root/.ssh ] ; then
         mkdir -p /root/.ssh
         chmod 700 /root/.ssh
@@ -147,13 +146,13 @@ Disabling sshd DNS checks slightly weakens your sshd security. However, if DNS r
 
 1. Open the `/etc/ssh/sshd_config` file with a text editor and locate the following line:
 
-   ```
+   ```bash
    #UseDNS yes
    ```
 
 1. Change the line to: 
 
-   ```
+   ```bash
    UseDNS no
    ```
 
@@ -167,7 +166,7 @@ We recommend against storing sensitive data or software on any AMI that you shar
 + We recommend using the `--exclude {{directory}}` option on `ec2-bundle-vol` to skip any directories and subdirectories that contain secret information that you would not like to include in your bundle. In particular, exclude all user-owned SSH public/private key pairs and SSH `authorized_keys` files when bundling the image. The Amazon public AMIs store these in `/root/.ssh` for the root user, and `/home/{{user_name}}/.ssh/` for regular users. For more information, see [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol).
 + Always delete the shell history before bundling. If you attempt more than one bundle upload in the same AMI, the shell history contains your access key. The following example should be the last command you run before bundling from within the instance.
 
-  ```
+  ```bash
   [ec2-user ~]$ shred -u ~/.*history
   ```
 **Warning**  

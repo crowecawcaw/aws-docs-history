@@ -1,7 +1,6 @@
 
 
 # What the scores mean
-<a name="capacity-manager-score-meaning"></a>
 
 Each score is a ratio of how much capacity an instance type and Availability Zone combination holds right now against the amount you asked for. Scores reflect capacity at a single point in time, and no score — including High — guarantees that a launch will succeed.
 + **High** — The combination holds several times your request. Proceed.

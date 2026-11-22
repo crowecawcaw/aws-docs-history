@@ -1,7 +1,6 @@
 
 
 # Requirements to launch an EC2 instance in UEFI boot mode
-<a name="launch-instance-boot-mode"></a>
 
 The boot mode of an instance is determined by the configuration of the AMI, the operating system contained in it, and the instance type. To launch an instance in UEFI boot mode, you must meet the following requirements.
 

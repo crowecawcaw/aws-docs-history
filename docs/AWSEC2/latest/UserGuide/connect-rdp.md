@@ -1,7 +1,6 @@
 
 
 # Connect to your Windows instance using an RDP client
-<a name="connect-rdp"></a>
 
 You can connect to your Windows instance using an RDP client as follows.
 

@@ -1,7 +1,6 @@
 
 
 # Managing monitored tag keys
-<a name="managing-monitored-tag-keys"></a>
 
 Amazon EC2 Capacity Manager lets you select tag keys from your Amazon EC2 resources (for example, `environment` or `team`) to use as dimensions when analyzing your capacity data. After a tag key is activated, you can group and filter your metrics by that tag's values — just like you can with Region, Instance Type, or Availability Zone.
 
@@ -77,14 +76,14 @@ When activating a tag key, enter only the key name (for example, `environment`).
 **To activate tag keys**  
 Use the following command to activate one or more tag keys:
 
-```
+```bash
 aws ec2 update-capacity-manager-monitored-tag-keys \
     --activate-tag-keys "environment" "teamId"
 ```
 
 The output shows the tag keys and their initial statuses:
 
-```
+```json
 {
     "CapacityManagerTagKeys": [
         {
@@ -102,14 +101,14 @@ The output shows the tag keys and their initial statuses:
 **To deactivate tag keys**  
 Use the following command to deactivate one or more tag keys:
 
-```
+```bash
 aws ec2 update-capacity-manager-monitored-tag-keys \
     --deactivate-tag-keys "project"
 ```
 
 The output shows the updated statuses:
 
-```
+```json
 {
     "CapacityManagerTagKeys": [
         {
@@ -122,7 +121,7 @@ The output shows the updated statuses:
 
 You can activate and deactivate tag keys in the same request:
 
-```
+```bash
 aws ec2 update-capacity-manager-monitored-tag-keys \
     --activate-tag-keys "environment" "teamId" \
     --deactivate-tag-keys "project"
@@ -154,13 +153,13 @@ You can view all monitored tag keys for your account, including their current st
 **To view monitored tag keys**  
 Run the following command:
 
-```
+```bash
 aws ec2 get-capacity-manager-monitored-tag-keys
 ```
 
 The output lists all tag keys, including Capacity Manager-provided tags and customer-managed tags:
 
-```
+```json
 {
     "CapacityManagerTagKeys": [
         {
@@ -191,7 +190,7 @@ After a tag key reaches `activated` status, you can use it as a dimension in `Ge
 **To query metrics grouped by a tag dimension**  
 Use the following command:
 
-```
+```bash
 aws ec2 get-capacity-manager-metric-dimensions \
     --group-by tag:environment account-id \
     --filter-by 'DimensionCondition={Dimension=tag:environment,Comparison=equals,Values=[prod]}'
@@ -204,7 +203,7 @@ When you group by a tag dimension, the results include all resources in your acc
 
 This ensures that the totals across all buckets account for your full usage. You can explicitly filter for untagged resources by passing an empty string as the filter value:
 
-```
+```bash
 --filter-by 'DimensionCondition={Dimension=tag:environment,Comparison=equals,Values=[""]}'
 ```
 

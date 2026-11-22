@@ -1,7 +1,6 @@
 
 
 # Attest a Nitro Sandbox
-<a name="nitro-sandboxes-attestation"></a>
 
 A Nitro Sandbox in confidential mode can prove to an external service which code it runs and on which parent instance it runs. The Nitro System records measurements in the platform configuration registers (PCRs) of the Nitro Security Module (NSM) in the Nitro Sandbox. Your workload requests an attestation document from the NSM, and presents it to a service such as AWS Key Management Service (AWS KMS).
 
@@ -58,7 +57,7 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Install a C linker and the Rust toolchain, with the target for static binaries. For other ways to install Rust, see [Install Rust](https://www.rust-lang.org/tools/install) on the Rust website.
 
-   ```
+   ```bash
    sudo dnf install -y gcc
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
    . "$HOME/.cargo/env"
@@ -67,11 +66,11 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Create a directory for the program, and save the following content as `nsm-attest/Cargo.toml`.
 
-   ```
+   ```bash
    mkdir -p nsm-attest/src
    ```
 
-   ```
+   ```toml
    [package]
    name = "nsm-attest"
    version = "0.1.0"
@@ -84,7 +83,7 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Save the following content as `nsm-attest/src/main.rs`.
 
-   ```
+   ```rust
    // Requests an attestation document from the NSM and writes it to a file.
    // Usage: nsm-attest attest --public-key key.der --output attestation.bin
    use aws_nitro_enclaves_nsm_api::api::{Request, Response};
@@ -140,7 +139,7 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Build the program as a static binary, so that it runs from the initial RAM disk, and install it in `/usr/local/bin`.
 
-   ```
+   ```bash
    cd nsm-attest
    cargo build --release --target $(uname -m)-unknown-linux-musl
    sudo install -m 755 target/$(uname -m)-unknown-linux-musl/release/nsm-attest /usr/local/bin/
@@ -151,13 +150,13 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Install **socat**. The guest image and the parent instance use it to exchange files over vsock.
 
-   ```
+   ```bash
    sudo dnf install -y socat
    ```
 
 1. In `sandbox-init`, add the following lines before the line that starts your workload.
 
-   ```
+   ```bash
    # Request an attestation document that carries a new public key.
    cd /tmp
    openssl genrsa -out key.pem 2048
@@ -175,7 +174,7 @@ The first procedure builds a small program, **nsm-attest**, that requests the at
 
 1. Build the initial RAM disk again, with the additional programs.
 
-   ```
+   ```bash
    sudo dracut --force --no-hostonly --reproducible --no-early-microcode \
        --modules bash \
        --add-drivers "virtio_pci virtio_net vmw_vsock_virtio_transport nsm" \
@@ -196,14 +195,14 @@ Build the image with the same settings that you launch the Nitro Sandbox with, s
 
 1. Install `eif_build` from the aws-nitro-enclaves-image-format project. The command uses the Rust toolchain from [Add attestation to a guest image](#nitro-sandboxes-attestation-image) and installs `eif_build` in `~/.cargo/bin`.
 
-   ```
+   ```bash
    sudo dnf install -y openssl-devel
    cargo install --git https://github.com/aws/aws-nitro-enclaves-image-format eif_build
    ```
 
 1. Build the image from the files of [Add attestation to a guest image](#nitro-sandboxes-attestation-image), with the default command line of Firecracker.
 
-   ```
+   ```bash
    eif_build --kernel vmlinuz \
        --cmdline "panic=1 initcall_blacklist=i8042_init" \
        --ramdisk initrd.img \
@@ -230,7 +229,7 @@ Build the image with the same settings that you launch the Nitro Sandbox with, s
 
 1. In `sandbox.json` from [Launch a Nitro Sandbox](nitro-sandboxes-run-firecracker.md#nitro-sandboxes-launch), set `kernel_image_path` to the image file, remove `initrd_path`, and remove `cpu_overcommit` from the `enclave` object. On instances with two threads per core, use an even number of vCPUs.
 
-   ```
+   ```json
    "boot-source": {
        "kernel_image_path": "sandbox.eif"
    }
@@ -238,7 +237,7 @@ Build the image with the same settings that you launch the Nitro Sandbox with, s
 
 PCR3 and PCR4 extend the zero value with the role ARN and the instance ID as text. Compute them with the following commands. If you change the instance profile of the parent instance, PCR3 changes.
 
-```
+```bash
 python3 -c 'import hashlib, sys; print(hashlib.sha384(b"\0" * 48 + sys.argv[1].encode()).hexdigest())' {{arn:aws:iam::111122223333:role/parent-instance-role}}
 python3 -c 'import hashlib, sys; print(hashlib.sha384(b"\0" * 48 + sys.argv[1].encode()).hexdigest())' {{i-1234567890abcdef0}}
 ```
@@ -263,7 +262,7 @@ AWS KMS accepts attestation documents from a Nitro Sandbox for the `Decrypt`, `D
 
 The following procedure uses an AWS KMS key. If you need a new key, use the [create-key](https://docs.aws.amazon.com/cli/latest/reference/kms/create-key.html) command, which prints the ARN of the key.
 
-```
+```bash
 aws kms create-key --description "{{Nitro Sandbox secrets}}" \
     --query KeyMetadata.Arn --output text
 ```
@@ -272,7 +271,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Save the key policy of your AWS KMS key as `policy.json`, and add the following statement to its `Statement` array.
 
-   ```
+   ```bash
    aws kms get-key-policy \
        --key-id {{arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --policy-name default \
@@ -280,7 +279,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
        --output text > policy.json
    ```
 
-   ```
+   ```json
    {
        "Sid": "AllowDecryptFromAttestedNitroSandbox",
        "Effect": "Allow",
@@ -307,7 +306,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Apply the key policy with the [put-key-policy](https://docs.aws.amazon.com/cli/latest/reference/kms/put-key-policy.html) command. The command replaces the whole policy, so keep the statements that give your key administrators access.
 
-   ```
+   ```bash
    aws kms put-key-policy \
        --key-id {{arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --policy-name default \
@@ -316,7 +315,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Encrypt the secret with the AWS KMS key. Use a principal that has `kms:Encrypt` permission, for example on your workstation, and use the [encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. Then copy `secret.enc` to the parent instance.
 
-   ```
+   ```bash
    aws kms encrypt \
        --key-id {{arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --plaintext fileb://{{secret.txt}} \
@@ -326,7 +325,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Launch the image that you built in [Compute the expected PCR values](#nitro-sandboxes-attestation-expected), with the `sandbox.json` that you changed there. If the Nitro Sandbox from [Launch a Nitro Sandbox](nitro-sandboxes-run-firecracker.md#nitro-sandboxes-launch) still runs, stop it first, so that it releases the TAP device, and remove its socket file. Run the command in the directory that contains `sandbox.eif`.
 
-   ```
+   ```bash
    sudo rm -f {{/run/sandbox/v.sock}}
    sudo firecracker --no-api --config-file sandbox.json
    ```
@@ -335,13 +334,13 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Receive the attestation document. When the Nitro Sandbox connects to port {{N}} of CID 2, Firecracker forwards the connection to the Unix socket `{{uds_path}}_{{N}}` on the parent instance. The following command returns after the Nitro Sandbox has sent the document. The attestation document is not secret.
 
-   ```
+   ```bash
    sudo socat -u UNIX-LISTEN:{{/run/sandbox/v.sock}}_5005 CREATE:attestation.bin
    ```
 
 1. Use the [decrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/decrypt.html) command with the attestation document. The parent instance uses its own credentials.
 
-   ```
+   ```bash
    aws kms decrypt \
        --key-id {{arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --ciphertext-blob fileb://secret.enc \
@@ -352,7 +351,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
    To create a data key instead, use the [generate-data-key](https://docs.aws.amazon.com/cli/latest/reference/kms/generate-data-key.html) command. The following example keeps both parts of the response. Store `data-key.enc`, so that you can decrypt the data key again later with the decrypt command.
 
-   ```
+   ```bash
    aws kms generate-data-key \
        --key-id {{arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
        --key-spec AES_256 \
@@ -365,7 +364,7 @@ aws kms create-key --description "{{Nitro Sandbox secrets}}" \
 
 1. Send the response to the Nitro Sandbox on port 5006. The init script decrypts it with its private key into `secret.bin`, and then starts your workload. The parent instance can't decrypt the response, because AWS KMS encrypts it to the public key in the attestation document.
 
-   ```
+   ```bash
    sudo socat -u OPEN:response.cms UNIX-LISTEN:{{/run/sandbox/v.sock}}_5006
    ```
 

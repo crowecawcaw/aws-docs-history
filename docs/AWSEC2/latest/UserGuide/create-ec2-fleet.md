@@ -1,7 +1,6 @@
 
 
 # Create an EC2 Fleet
-<a name="create-ec2-fleet"></a>
 
 To create an EC2 Fleet, define the fleet configuration in a JSON file and reference the file with the [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command. In the JSON file, you must specify the total target capacity for the fleet, separate target capacities for Spot Instances and On-Demand Instances, and a launch template that defines the configuration for the instances in the fleet, such as an AMI, instance type, subnet or Availability Zone, and one or more security groups. You can optionally specify additional configurations, such as parameters to override the launch template configuration, allocation strategies for selecting Spot Instances and On-Demand Instances from the EC2 capacity pools, and the maximum amount you're willing to pay for the fleet. For more information, see [Configuration options for your EC2 Fleet or Spot Fleet](ec2-fleet-configuration-strategies.md).
 
@@ -45,13 +44,13 @@ There is currently no console support for creating an EC2 Fleet.
 **To create an EC2 Fleet**  
 Use the [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) command to create the fleet and specify the JSON file that contains the fleet configuration parameters.
 
-```
+```bash
 aws ec2 create-fleet --cli-input-json file://{{file_name.json}}
 ```
 
 The following is example output for a fleet of type `request` or `maintain`.
 
-```
+```json
 {
     "FleetId": "fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE"
 }
@@ -61,7 +60,7 @@ The following is example output for a fleet of type `instant` that launched the 
 
 The response includes the Availability Zone ID, Availability Zone name, and subnet ID for each set of launched instances.
 
-```
+```json
 {
   "FleetId": "fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE",
   "Errors": [],
@@ -114,7 +113,7 @@ The response includes the Availability Zone ID, Availability Zone name, and subn
 
 The following is example output for a fleet of type `instant` that launched part of the target capacity with errors for instances that were not launched.
 
-```
+```json
 {
   "FleetId": "fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE",
   "Errors": [
@@ -157,7 +156,7 @@ The following is example output for a fleet of type `instant` that launched part
 
 The following is example output for a fleet of type `instant` that launched no instances.
 
-```
+```json
 {
   "FleetId": "fleet-12a34b55-67cd-8ef9-ba9b-9208dEXAMPLE",
   "Errors": [
@@ -225,14 +224,14 @@ To view the full list of EC2 Fleet configuration parameters, you can generate a 
 **To generate a JSON file with all possible EC2 Fleet parameters**  
 Use the [create-fleet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-fleet.html) (AWS CLI) command and the `--generate-cli-skeleton` parameter to generate an EC2 Fleet JSON file, and direct the output to a file to save it.
 
-```
+```bash
 aws ec2 create-fleet \
     --generate-cli-skeleton input > {{ec2createfleet.json}}
 ```
 
 The following is example output.
 
-```
+```json
 {
     "DryRun": true,
     "ClientToken": "",

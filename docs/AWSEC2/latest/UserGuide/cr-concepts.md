@@ -1,7 +1,6 @@
 
 
 # Concepts for Amazon EC2 Capacity Reservations
-<a name="cr-concepts"></a>
 
 The following key concepts apply to Capacity Reservations.
 

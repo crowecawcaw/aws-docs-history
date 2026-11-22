@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues connecting to your Amazon EC2 Windows instance
-<a name="troubleshoot-connect-windows-instance"></a>
 
 The following information and common errors can help you troubleshoot issues when connecting to your Windows instance.
 
@@ -57,7 +56,7 @@ Try the following to resolve this issue:
 + Try the default settings for the RDP client.
 + If you are using Remote Desktop Connection, try starting it with the `/admin` option as follows.
 
-  ```
+  ```bash
   mstsc /v:{{instance}} /admin
   ```
 + If the server is running a full-screen application, it might have stopped responding. Use Ctrl\+Shift\+Esc to start Windows Task Manager, and then close the application.
@@ -110,72 +109,72 @@ The following examples show you how to accomplish common troubleshooting tasks u
 **Example: Check the current RDP status**  <a name="check-rdp"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region}}#documentVersion=$LATEST
 ```
 
 **Example: Disable the Windows Firewall**  <a name="disable-firewall"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom, Firewall=Disable" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region_code}}#documentVersion=$LATEST&Firewall=Disable
 ```
 
 **Example: Disable Network Level Authentication**  <a name="disable-nla"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom, NLASettingAction=Disable" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region_code}}#documentVersion
 ```
 
 **Example: Set RDP Service Startup Type to Automatic and start the RDP service**  <a name="rdp-auto"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom, RDPServiceStartupType=Auto, RDPServiceAction=Start" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region_code}}#documentVersion=$LATEST&RDPServiceStartupType=Auto&RDPServiceAction=Start
 ```
 
 **Example: Restore the default RDP Port (3389)**  <a name="restore-3389"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom, RDPPortAction=Modify" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region_code}}#documentVersion=$LATEST&RDPPortAction=Modify
 ```
 
 **Example: Allow remote connections**  <a name="allow-rdp"></a>
 AWS CLI:  
 
-```
+```bash
 aws ssm start-automation-execution --document-name "AWSSupport-TroubleshootRDP" --parameters "InstanceId={{i-1234567890abcdef0}}, Action=Custom, RemoteConnections=Enable" --region {{region_code}}
 ```
 AWS Systems Manager console:  
 
-```
+```bash
 https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootRDP?region={{region_code}}#documentVersion=$LATEST&RemoteConnections=Enable
 ```
 

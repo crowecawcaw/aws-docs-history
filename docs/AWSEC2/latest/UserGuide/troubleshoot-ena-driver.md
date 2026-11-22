@@ -1,7 +1,6 @@
 
 
 # Troubleshoot the Elastic Network Adapter Windows driver
-<a name="troubleshoot-ena-driver"></a>
 
 The Elastic Network Adapter (ENA) is designed to improve operating system health and to reduce unexpected hardware behavior or failures that can disrupt the operation of your Windows instance. The ENA architecture keeps device or driver failures as transparent to the operating system as possible.
 
@@ -264,7 +263,7 @@ Follow these steps to update the ENA driver:
 
 1. If the installer doesn’t automatically reboot your instance, run the **Restart-Computer** PowerShell cmdlet.
 
-   ```
+   ```ps
    PS C:\> Restart-Computer
    ```
 
@@ -353,7 +352,7 @@ We recommend that you configure RSS to exclude CPU 0 for the ENA adapter on larg
 
 Use the **Set-NetAdapterRss** command to configure RSS for your ENA adapter, as shown in the following example.
 
-```
+```PowerShell
 Set-NetAdapterRss -name (Get-NetAdapter | Where-Object {$_.InterfaceDescription -like "*Elastic*"}).Name -Baseprocessorgroup 0 -BaseProcessorNumber 1
 ```
 

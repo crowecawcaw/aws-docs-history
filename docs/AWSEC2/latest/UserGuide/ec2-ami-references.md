@@ -1,7 +1,6 @@
 
 
 # Identify your resources referencing specified AMIs
-<a name="ec2-ami-references"></a>
 
 You can identify your AWS resources that reference specified Amazon Machine Images (AMIs), regardless of whether the AMIs are public or private, or who owns them. This visibility helps you ensure your resources use the latest compliant AMIs.
 
@@ -81,7 +80,7 @@ The following example policy grants you the permissions to use the DescribeImage
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -160,7 +159,7 @@ Use the following procedures to identify which of your AWS resources are referen
 **To check AMI references for specific resource types**  
 Use the [describe-image-references](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-image-references.html) command with the `--resource-types` parameter. The following example checks EC2 instances (scoping by instance state), launch templates (scoping to the 20 most recent launch template versions), and other specific resource types.
 
-```
+```bash
 aws ec2 describe-image-references \
     --image-ids {{ami-0abcdef1234567890}} {{ami-1234567890abcdef0}} \
     --resource-types \
@@ -173,7 +172,7 @@ aws ec2 describe-image-references \
 
 The following is example output.
 
-```
+```JSON
 {
     "ImageReferences": [
         {
@@ -193,7 +192,7 @@ The following is example output.
 **To check AMI references for all the supported resource types**  
 Use the [describe-image-references](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-image-references.html) command with the `--include-all-resource-types` parameter.
 
-```
+```bash
 aws ec2 describe-image-references \
     --image-ids {{ami-0abcdef1234567890}} {{ami-1234567890abcdef0}} \
     --include-all-resource-types
@@ -202,7 +201,7 @@ aws ec2 describe-image-references \
 **To check AMI references for all supported resource types and specific options**  
 Use the [describe-image-references](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-image-references.html) command with both the `--include-all-resource-types` and `--resource-types` parameters. This example checks all resource types while scoping the response for EC2 instances to running or pending instances.
 
-```
+```bash
 aws ec2 describe-image-references \
     --image-ids {{ami-0abcdef1234567890}} {{ami-1234567890abcdef0}} \
     --include-all-resource-types \
@@ -215,7 +214,7 @@ aws ec2 describe-image-references \
 **To check AMI references for specific resource types**  
 Use the [Get-EC2ImageReference](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageReference.html) cmdlet with the `-ResourceType` parameter. The following example checks EC2 instances (scoping by instance state), launch templates (scoping to the 20 most recent launch template versions), and other specific resource types.
 
-```
+```powershell
 Get-EC2ImageReference `
     -ImageId '{{ami-0abcdef1234567890}}', '{{ami-1234567890abcdef0}}' `
     -ResourceType @(
@@ -252,7 +251,7 @@ Get-EC2ImageReference `
 **To check AMI references for all the supported resource types**  
 Use the [Get-EC2ImageReference](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageReference.html) cmdlet with the `-IncludeAllResourceTypes` parameter.
 
-```
+```powershell
 Get-EC2ImageReference `
     -ImageId '{{ami-0abcdef1234567890}}', '{{ami-1234567890abcdef0}}' `
     -IncludeAllResourceTypes
@@ -261,7 +260,7 @@ Get-EC2ImageReference `
 **To check AMI references for all supported resource types and specific options**  
 Use the [Get-EC2ImageReference](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageReference.html) cmdlet with both the `-IncludeAllResourceTypes` and `-ResourceType` parameters. This example checks all resource types while scoping the response for EC2 instances to running or pending instances.
 
-```
+```powershell
 Get-EC2ImageReference `
     -ImageId '{{ami-0abcdef1234567890}}', '{{ami-1234567890abcdef0}}' `
     -IncludeAllResourceTypes `

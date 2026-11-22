@@ -1,7 +1,6 @@
 
 
 # On-Demand Capacity Reservations and Capacity Blocks for ML
-<a name="capacity-reservation-overview"></a>
 
 Capacity Reservations allow you to reserve compute capacity for Amazon EC2 instances in a specific Availability Zone. There are two types of Capacity Reservations serving different use cases.
 

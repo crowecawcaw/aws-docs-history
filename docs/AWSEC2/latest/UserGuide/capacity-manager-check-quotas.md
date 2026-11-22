@@ -1,7 +1,6 @@
 
 
 # EC2 Capacity Manager quotas
-<a name="capacity-manager-check-quotas"></a>
 
 Real-time supportability checks have the following quotas:
 + **Account-level quotas** — Up to 100 queries per account per hour, with up to 100 instance type and Availability Zone combinations per request.

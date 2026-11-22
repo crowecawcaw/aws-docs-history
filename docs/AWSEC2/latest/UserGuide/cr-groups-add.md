@@ -1,7 +1,6 @@
 
 
 # Add Capacity Reservations to a group
-<a name="cr-groups-add"></a>
 
 You can add Capacity Reservations that you own in your account, or Capacity Reservations that are shared with you by other AWS accounts to a group.
 
@@ -67,7 +66,7 @@ Use the [Add-RGResource](https://docs.aws.amazon.com/powershell/latest/reference
 
 The following example adds two Capacity Reservations to the specified group.
 
-```
+```powershell
 Add-RGResource `
     -Group {{MyCRGroup}} `
     -ResourceArn `

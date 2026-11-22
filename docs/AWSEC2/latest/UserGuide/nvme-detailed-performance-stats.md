@@ -1,7 +1,6 @@
 
 
 # Detailed performance statistics for Amazon EC2 instance store volumes
-<a name="nvme-detailed-performance-stats"></a>
 
 Amazon EC2 provides real-time, high-resolution performance statistics for NVMe instance store volumes attached to Nitro-based Amazon EC2 instances. These statistics are presented as aggregated counters that are retained for the duration of the instance's lifetime. The statistics provide details about the cumulative number of operations, bytes sent and received, time spent on read and write I/O operations, and histograms for read and write I/O operations. While these statistics maintain consistency with [Amazon EBS detailed performance statistics](https://docs.aws.amazon.com/ebs/latest/userguide/nvme-detailed-performance-stats.html), they also include detailed latency histograms broken down by I/O size, which can provide more granular insights into your storage performance patterns. This enhanced visibility enables you to precisely identify which specific I/O sizes are experiencing latency issues, allowing you to optimize application performance and troubleshoot issues more effectively.
 
@@ -59,25 +58,25 @@ For more information about configuring the CloudWatch agent, see [ Collect Amazo
 
 1. Amazon Linux 2023 AMIs released after September 15, 2025 include the latest version of the `nvme-cli` tool. If you are using an older Amazon Linux AMI, update the `nvme-cli` tool.
 
-   ```
+   ```bash
    sudo yum install nvme-cli
    ```
 
 1. Run the following command and specify the device name for the volume.
 
-   ```
+   ```bash
    sudo nvme amzn stats /dev/{{nvme0n1}}
    ```
 
 The statistics also provide detailed latency histograms broken down by I/O size. To view statistics broken down by I/O size, include the `--details` option. For example:
 
-```
+```bash
 sudo nvme amzn stats --details /dev/{{nvme0n1}}
 ```
 
 You can get more information about how to use the tool by specifying the `--help` option. For example:
 
-```
+```bash
 sudo nvme amzn stats --help
 ```
 
@@ -99,13 +98,13 @@ sudo nvme amzn stats --help
 
 1. Run the following command as Administrator and specify the disk number for the volume.
 
-   ```
+   ```bash
    .\nvme_amzn.exe stats {{disk_number}}
    ```
 
 The statistics also provide detailed latency histograms broken down by I/O size. To view statistics broken down by I/O size, include the `--details` option. For example:
 
-```
+```bash
 .\nvme_amzn.exe stats --details {{disk_number}}
 ```
 

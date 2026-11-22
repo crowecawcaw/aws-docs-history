@@ -1,7 +1,6 @@
 
 
 # EC2 instance bandwidth weighting configuration
-<a name="configure-bandwidth-weighting"></a>
 
 Some instance types support configurable bandwidth weighting, where you can select baseline bandwidth weighting that favors either network processing or EBS operations. Default settings for baseline bandwidth are determined by your instance type. You can configure the bandwidth weighting during launch, or modify your instance settings with the following weighting preferences:
 + **default** – This option uses the standard bandwidth configuration for your instance type.
@@ -55,7 +54,7 @@ To see the current bandwidth settings for your instance, select one of the tabs 
 **To get the bandwidth setting for an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query Reservations[].Instances[].NetworkPerformanceOptions.BandwidthWeighting \
@@ -64,13 +63,13 @@ aws ec2 describe-instances \
 
 The following is example output.
 
-```
+```bash
 default
 ```
 
 This example lists all of your instances that have the bandwidth weighting preference set to `vpc-1`, for higher networking bandwidth.
 
-```
+```bash
 aws ec2 describe-instances \
     --filters "Name=network-performance-options.bandwidth-weighting,Values=vpc-1" \
     --query Reservations[].Instances[].InstanceId \
@@ -83,20 +82,20 @@ aws ec2 describe-instances \
 **To get the bandwidth setting for an instance**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances.NetworkPerformanceOptions.BandwidthWeighting.Value
 ```
 
 The following is example output.
 
-```
+```bash
 default
 ```
 
 This example lists all of your instances that have the bandwidth weighting preference set to `vpc-1`, for higher networking bandwidth.
 
-```
+```powershell
 (Get-EC2Instance `
     -Filter @{Name="network-performance-options.bandwidth-weighting";Values="vpc-1"}).Instances.InstanceId
 ```
@@ -142,13 +141,13 @@ To launch an instance with your launch template, see [Launch EC2 instances using
 **To launch an instance with configurable bandwidth weighting**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the following option to launch instances that are configured for higher network bandwidth weighting.
 
-```
+```bash
 --network-performance-options BandwidthWeighting=vpc-1
 ```
 
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the following option to launch instances that are configured for higher EBS bandwidth weighting.
 
-```
+```bash
 --network-performance-options BandwidthWeighting=ebs-1
 ```
 
@@ -158,13 +157,13 @@ Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run
 **To launch an instance with configurable bandwidth weighting**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the following parameter to launch instances that are configured for higher network bandwidth weighting.
 
-```
+```powershell
 -NetworkPerformanceOptions_BandwidthWeighting vpc-1
 ```
 
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the following parameter to launch instances that are configured for higher EBS bandwidth weighting.
 
-```
+```powershell
 -NetworkPerformanceOptions_BandwidthWeighting ebs-1
 ```
 
@@ -200,7 +199,7 @@ If your instance type doesn't support configuration for bandwidth weighting, tha
 **To update bandwidth weighting**  
 Use the [modify-instance-network-performance-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-network-performance-options.html) command to configure higher network bandwidth weighting for the specified instance.
 
-```
+```bash
 aws ec2 modify-instance-network-performance-options \
     --instance-id {{i-1234567890abcdef0}} \
     --bandwidth-weighting=vpc-1
@@ -208,7 +207,7 @@ aws ec2 modify-instance-network-performance-options \
 
 The following example configures higher EBS bandwidth weighting for the specified instance.
 
-```
+```bash
 aws ec2 modify-instance-network-performance-options \
     --instance-id {{i-1234567890abcdef0}} \
     --bandwidth-weighting=ebs-1
@@ -220,7 +219,7 @@ aws ec2 modify-instance-network-performance-options \
 **To update bandwidth weighting**  
 Use the [Edit-EC2InstanceNetworkPerformanceOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstanceNetworkPerformanceOption.html) cmdlet to configure higher network bandwidth weighting for the specified instance.
 
-```
+```powershell
 Edit-EC2InstanceNetworkPerformanceOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -BandwidthWeighting vpc-1
@@ -228,7 +227,7 @@ Edit-EC2InstanceNetworkPerformanceOption `
 
 The following example configures higher EBS bandwidth weighting for the specified instance.
 
-```
+```powershell
 Edit-EC2InstanceNetworkPerformanceOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -BandwidthWeighting ebs-1

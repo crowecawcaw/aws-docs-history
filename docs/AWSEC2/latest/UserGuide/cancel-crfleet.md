@@ -1,7 +1,6 @@
 
 
 # Cancel a Capacity Reservation Fleet
-<a name="cancel-crfleet"></a>
 
 When you no longer need a Capacity Reservation Fleet and the capacity it reserves, you can cancel it. When you cancel a Fleet, its status changes to `cancelled` and it can no longer create new Capacity Reservations. Additionally, all of the individual Capacity Reservations in the Fleet are canceled. The instances that were previously running in the reserved capacity continue to run normally in the shared capacity.
 
@@ -11,14 +10,14 @@ When you no longer need a Capacity Reservation Fleet and the capacity it reserve
 **To cancel a Capacity Reservation Fleet**  
 Use the [cancel-capacity-reservation-fleets](https://docs.aws.amazon.com/cli/latest/reference/ec2/cancel-capacity-reservation-fleets.html) command.
 
-```
+```bash
 aws ec2 cancel-capacity-reservation-fleets \
     --capacity-reservation-fleet-ids {{crf-abcdef01234567890}}
 ```
 
 The following is example output.
 
-```
+```json
 {
     "SuccessfulFleetCancellations": [
         {
@@ -37,7 +36,7 @@ The following is example output.
 **To cancel a Capacity Reservation Fleet**  
 Use the [Stop-EC2CapacityReservationFleet](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2CapacityReservationFleet.html) cmdlet.
 
-```
+```powershell
 Stop-EC2CapacityReservationFleet `
     -CapacityReservationFleetId {{crf-abcdef01234567890}}
 ```

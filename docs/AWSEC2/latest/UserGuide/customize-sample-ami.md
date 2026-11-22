@@ -1,7 +1,6 @@
 
 
 # Customize the sample Amazon Linux 2023 image description for your workload
-<a name="customize-sample-ami"></a>
 
 You can customize the sample Amazon Linux 2023 image description and include the software packages, scripts, and files that are needed for your specific workload. Customizations are achieved by adding to or modifying various elements in the KIWI NG image description.
 

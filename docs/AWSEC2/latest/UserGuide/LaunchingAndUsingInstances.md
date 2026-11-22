@@ -1,7 +1,6 @@
 
 
 # Launch an Amazon EC2 instance
-<a name="LaunchingAndUsingInstances"></a>
 
 An instance is a virtual server in the AWS Cloud. You launch an instance from an Amazon Machine Image (AMI). The AMI provides the operating system, application server, and applications for your instance.
 

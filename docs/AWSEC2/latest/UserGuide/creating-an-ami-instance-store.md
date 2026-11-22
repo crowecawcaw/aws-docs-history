@@ -1,7 +1,6 @@
 
 
 # Create an Amazon S3-backed AMI
-<a name="creating-an-ami-instance-store"></a>
 
 The AMI that you specify when you launch your instance determines the type of root volume.
 
@@ -69,13 +68,13 @@ The following procedures describe how to create an AMI from an instance with an 
 
 1. The AMI tools require GRUB Legacy to boot properly. Use the following command to install GRUB:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install -y grub
    ```
 
 1. Install the partition management packages with the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install -y gdisk kpartx parted
    ```
 
@@ -89,7 +88,7 @@ In the following commands, replace each {{user input placeholder}} with your own
 
    1. Create a temporary directory on your instance for your credentials as follows:
 
-      ```
+      ```bash
       [ec2-user ~]$ mkdir /tmp/cert
       ```
 
@@ -97,7 +96,7 @@ In the following commands, replace each {{user input placeholder}} with your own
 
    1. Copy your X.509 certificate and corresponding private key from your computer to the `/tmp/cert` directory on your instance using a secure copy tool such as [scp](linux-file-transfer-scp.md). The `-i {{my-private-key}}.pem` option in the following **scp** command is the private key you use to connect to your instance with SSH, not the X.509 private key. For example:
 
-      ```
+      ```bash
       you@your_computer:~ $ scp -i {{my-private-key}}.pem {{/path/to/pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem}} {{/path/to/cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem}} ec2-user@{{ec2-203-0-113-25.compute-1.amazonaws.com}}:/tmp/cert/
       pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem  100%  717     0.7KB/s   00:00
       cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem  100%  685     0.7KB/s   00:00
@@ -111,7 +110,7 @@ By default, the AMI bundling process creates a compressed, encrypted collection 
 
    1. You must run the **ec2-bundle-vol** command as root. For most commands, you can use **sudo** to gain elevated permissions, but in this case, you should run **sudo -E su** to keep your environment variables.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo -E su
       ```
 
@@ -123,7 +122,7 @@ By default, the AMI bundling process creates a compressed, encrypted collection 
 
    1. To create the AMI bundle, run the [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol) command as follows:
 
-      ```
+      ```bash
       [root ec2-user]# ec2-bundle-vol -k /tmp/cert/{{pk-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem}} -c /tmp/cert/{{cert-HKZYKTAIG2ECMXYIBH3HXV4ZBEXAMPLE.pem}} -u {{123456789012}} -r x86_64 -e /tmp/cert --partition {{gpt}}
       ```
 **Note**  
@@ -133,7 +132,7 @@ For the China (Beijing) and AWS GovCloud (US-West) Regions, use the `--ec2cert` 
 
    1. Exit from the root shell.
 
-      ```
+      ```bash
       [root ec2-user]# exit
       ```
 
@@ -141,13 +140,13 @@ For the China (Beijing) and AWS GovCloud (US-West) Regions, use the `--ec2cert` 
 
    1. Create a backup of your `image.manifest.xml` file.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo cp /tmp/image.manifest.xml /tmp/image.manifest.xml.bak
       ```
 
    1. Reformat the `image.manifest.xml` file so that it is easier to read and edit.
 
-      ```
+      ```bash
       [ec2-user ~]$ sudo xmllint --format /tmp/image.manifest.xml.bak > /tmp/image.manifest.xml
       ```
 
@@ -155,7 +154,7 @@ For the China (Beijing) and AWS GovCloud (US-West) Regions, use the `--ec2cert` 
 **Note**  
 For a list of excluded files, see [ec2-bundle-vol](ami-tools-commands.md#ami-bundle-vol). 
 
-      ```
+      ```bash
           <block_device_mapping>
             <mapping>
               <virtual>ami</virtual>
@@ -180,7 +179,7 @@ For a list of excluded files, see [ec2-bundle-vol](ami-tools-commands.md#ami-bun
 
 1. To upload your bundle to Amazon S3, run the [ec2-upload-bundle](ami-tools-commands.md#ami-upload-bundle) command as follows.
 
-   ```
+   ```bash
    [ec2-user ~]$ ec2-upload-bundle -b {{amzn-s3-demo-bucket}}/{{bundle_folder}}/{{bundle_name}} -m /tmp/image.manifest.xml -a {{your_access_key_id}} -s {{your_secret_access_key}}
    ```
 **Important**  
@@ -188,7 +187,7 @@ To register your AMI in a Region other than US East (N. Virginia), you must spec
 
 1. (Optional) After the bundle is uploaded to Amazon S3, you can remove the bundle from the `/tmp` directory on the instance using the following **rm** command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo rm /tmp/image.manifest.xml /tmp/image.part.* /tmp/image
    ```
 **Important**  
@@ -196,7 +195,7 @@ If you specified a path with the `-d {{/path/to/bundle/storage}}` option in [Ste
 
 1. To register your AMI, run the [register-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html) command as follows.
 
-   ```
+   ```bash
    [ec2-user ~]$ aws ec2 register-image --image-location {{amzn-s3-demo-bucket}}/{{bundle_folder}}/{{bundle_name}}/image.manifest.xml --name {{AMI_name}} --virtualization-type {{hvm}}
    ```
 **Important**  

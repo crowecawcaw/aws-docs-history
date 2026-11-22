@@ -1,7 +1,6 @@
 
 
 # Troubleshoot impaired Amazon EC2 Windows instance using EC2Rescue
-<a name="Windows-Server-EC2Rescue"></a>
 
 EC2Rescue for Windows Server is an easy-to-use tool that you run on an Amazon EC2 Windows Server instance to diagnose and troubleshoot possible problems. It is valuable for collecting log files and troubleshooting issues and also proactively searching for possible areas of concern. It can even examine Amazon EBS root volumes from other instances and collect relevant logs for troubleshooting Windows Server instances using that volume. The following are some common issues that EC2Rescue can address:
 + Instance connectivity issues due to firewall, Remote Desktop Protocol (RDP), or network interface configuration

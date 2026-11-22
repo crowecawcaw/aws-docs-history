@@ -1,7 +1,6 @@
 
 
 # Install the latest version of EC2Config
-<a name="UsingConfig_Install"></a>
 
 **Note**  
 The latest launch agent for Windows Server 2022 and later operating system versions is [EC2Launch v2](ec2launch-v2.md), which replaces both EC2Config and EC2Launch. EC2Launch v2 comes pre-installed on AWS Windows Server 2022 and 2025 AMIs. You can also manually install and configure the agent on Windows Server 2016 and 2019. For more information, see [Install EC2Launch v2](ec2launch-v2-install.md).
@@ -46,7 +45,7 @@ The updated EC2Config version information will not appear in the instance System
 **To download and install the latest version of EC2Config using PowerShell**  
 To download, unzip, and install the latest version of EC2Config using PowerShell, run the following commands from a PowerShell window:
 
-```
+```powershell
 $Url = "https://s3.amazonaws.com/ec2-downloads-windows/EC2Config/EC2Install.zip"
 $DownloadZipFile = "$env:USERPROFILE\Desktop\" + $(Split-Path -Path $Url -Leaf)
 $ExtractPath = "$env:USERPROFILE\Desktop\"
@@ -63,7 +62,7 @@ Start-Process `
 **Note**  
 If you receive an error when downloading the file, and you are using Windows Server 2016 or earlier, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:  
 
-```
+```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 

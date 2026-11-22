@@ -1,7 +1,6 @@
 
 
 # Interruptible Capacity Reservations for capacity consumers
-<a name="capacity-consumer-procedures"></a>
 
 The capacity consumer is the account that launches instances into shared interruptible Capacity Reservations, understanding that their instances may be terminated when the owner reclaims capacity.
 
@@ -36,7 +35,7 @@ Use the following procedures to view an interruptible Capacity Reservation.
 **To find all interruptible Capacity Reservations in your account**  
 Use the [describe-capacity-reservations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-capacity-reservations.html) command:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
 --filters Name=state,Values=active
 ```
@@ -46,7 +45,7 @@ Look for reservations where `Interruptible` is set to `true` in the response.
 **To filter specifically for interruptible reservations**  
 Use the following command:
 
-```
+```bash
 aws ec2 describe-capacity-reservations \
 --capacity-reservation-ids {{cr-example123}} \
 --query 'CapacityReservations[?Interruptible==`true`]'
@@ -85,7 +84,7 @@ We recommend that you only use interruptible Capacity Reservations for applicati
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws ec2 run-instances \
 --instance-type {{m5.large}} \
 --count {{2}} \

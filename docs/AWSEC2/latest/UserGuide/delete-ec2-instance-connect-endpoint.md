@@ -1,7 +1,6 @@
 
 
 # Delete an EC2 Instance Connect Endpoint
-<a name="delete-ec2-instance-connect-endpoint"></a>
 
 When you are finished with an EC2 Instance Connect Endpoint, you can delete it.
 
@@ -34,13 +33,13 @@ When you delete an EC2 Instance Connect Endpoint using the AWS CLI, it enters th
 **To delete an EC2 Instance Connect Endpoint**  
 Use the [delete-instance-connect-endpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-instance-connect-endpoint.html) command and specify the ID of the EC2 Instance Connect Endpoint to delete.
 
-```
+```bash
 aws ec2 delete-instance-connect-endpoint --instance-connect-endpoint-id {{eice-03f5e49b83924bbc7}}
 ```
 
 The following is example output.
 
-```
+```json
 {
     "InstanceConnectEndpoint": {
         "OwnerId": "{{111111111111}}",
@@ -64,13 +63,13 @@ The following is example output.
 **To delete an EC2 Instance Connect Endpoint**  
 Use the [Remove-EC2InstanceConnectEndpoint](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-instance-connect-endpoint.html) cmdlet and specify the ID of the EC2 Instance Connect Endpoint to delete.
 
-```
+```powershell
 Remove-EC2InstanceConnectEndpoint -InstanceConnectEndpointId {{eice-03f5e49b83924bbc7}}
 ```
 
 The following is example output.
 
-```
+```bash
 @{
     InstanceConnectEndpoint = @{
         OwnerId = "{{111111111111}}"

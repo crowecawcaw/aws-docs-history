@@ -1,7 +1,6 @@
 
 
 # Share an AMI with specific AWS accounts
-<a name="sharingamis-explicit"></a>
 
 You can share an AMI with specific AWS accounts without making the AMI public. All you need are the AWS account IDs.
 
@@ -56,7 +55,7 @@ Use the [modify-image-attribute](https://docs.aws.amazon.com/cli/latest/referenc
 **To grant explicit launch permissions**  
 The following example grants launch permissions for the specified AMI to the specified AWS account.
 
-```
+```bash
 aws ec2 modify-image-attribute \
     --image-id {{ami-0abcdef1234567890}} \
     --launch-permission "Add=[{UserId={{123456789012}}}]"
@@ -65,7 +64,7 @@ aws ec2 modify-image-attribute \
 **To remove launch permissions for an account**  
 The following example removes launch permissions for the specified AMI from the specified AWS account.
 
-```
+```bash
 aws ec2 modify-image-attribute \
     --image-id {{ami-0abcdef1234567890}} \
     --launch-permission "Remove=[{UserId={{123456789012}}}]"
@@ -74,7 +73,7 @@ aws ec2 modify-image-attribute \
 **To remove all launch permissions**  
 The following example removes all public and explicit launch permissions from the specified AMI. Note that the owner of the AMI always has launch permissions and is therefore unaffected by this command.
 
-```
+```bash
 aws ec2 reset-image-attribute \
     --image-id {{ami-0abcdef1234567890}} \
     --attribute launchPermission
@@ -88,7 +87,7 @@ Use the [Edit-EC2ImageAttribute](https://docs.aws.amazon.com/powershell/latest/r
 **To grant explicit launch permissions**  
 The following example grants launch permissions for the specified AMI to the specified AWS account.
 
-```
+```powershell
 Edit-EC2ImageAttribute `
     -ImageId {{ami-0abcdef1234567890}} ` 
     -Attribute launchPermission `
@@ -99,7 +98,7 @@ Edit-EC2ImageAttribute `
 **To remove launch permissions for an account**  
 The following example removes launch permissions for the specified AMI from the specified AWS account.
 
-```
+```powershell
 Edit-EC2ImageAttribute `
     -ImageId {{ami-0abcdef1234567890}} `
     -Attribute launchPermission -OperationType remove `
@@ -109,7 +108,7 @@ Edit-EC2ImageAttribute `
 **To remove all launch permissions**  
 The following exaple removes all public and explicit launch permissions from the specified AMI. Note that the owner of the AMI always has launch permissions and is therefore unaffected by this command.
 
-```
+```powershell
 Reset-EC2ImageAttribute `
     -ImageId {{ami-0abcdef1234567890}} `
     -Attribute launchPermission

@@ -1,7 +1,6 @@
 
 
 # Get started with EFA and NIXL for inference workloads on Amazon EC2
-<a name="efa-start-nixl"></a>
 
 The NVIDIA Inference Xfer Library (NIXL) is a high-throughput, low-latency communication library designed specifically for disaggregated inference workloads. NIXL can be used together with EFA and Libfabric to support KV-cache transfer between prefill and decode nodes, and it enables efficient KV-cache movement between various storage layers. For more information, see the [NIXL](https://github.com/ai-dynamo/nixl) website.
 
@@ -118,7 +117,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 1. To ensure that all of your software packages are up to date, perform a quick software update on your instance.
 
-   ```
+   ```bash
    $ sudo dnf upgrade -y && sudo reboot
    ```
 
@@ -126,7 +125,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 1. Install the utilities that are needed to install the NVIDIA GPU drivers and the NVIDIA CUDA Toolkit.
 
-   ```
+   ```bash
    $ sudo dnf groupinstall 'Development Tools' -y && sudo dnf install -y dkms kernel-devel-$(uname -r) kernel-headers-$(uname -r)
    ```
 
@@ -134,13 +133,13 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
    1. Install the required utilities and the kernel headers package for the version of the kernel that you are currently running.
 
-      ```
+      ```bash
       $ sudo yum install -y wget kernel-devel-$(uname -r) kernel-headers-$(uname -r)
       ```
 
    1. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf` deny list file.
 
-      ```
+      ```bash
       $ cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
       blacklist vga16fb
       blacklist nouveau
@@ -152,7 +151,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
    1. Append `GRUB_CMDLINE_LINUX="rdblacklist=nouveau"` to the `grub` file and rebuild the GRUB configuration.
 
-      ```
+      ```bash
       $ echo 'GRUB_CMDLINE_LINUX="rdblacklist=nouveau"' | sudo tee -a /etc/default/grub \
       && sudo grub2-mkconfig -o /boot/grub2/grub.cfg
       ```
@@ -161,20 +160,20 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 1. Add the CUDA network repository.
 
-   ```
+   ```bash
    $ sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
    ```
 
 1. Download and install the NVIDIA GPU driver.
 
-   ```
+   ```bash
    $ wget https://us.download.nvidia.com/tesla/580.167.08/NVIDIA-Linux-x86_64-580.167.08.run \
    && sudo sh NVIDIA-Linux-x86_64-580.167.08.run -m kernel-open --no-drm --disable-nouveau --dkms --silent
    ```
 
 1. Install the NVIDIA CUDA Toolkit and cuDNN.
 
-   ```
+   ```bash
    $ sudo dnf install -y cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-devel-cuda-13
    ```
 
@@ -182,7 +181,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 1. Install and start the NVIDIA Fabric Manager on instances with NVSwitch, such as P-series multi-GPU instances. G-series instances do not use NVSwitch and do not require Fabric Manager.
 
-   ```
+   ```bash
    $ sudo dnf install -y https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/nvidia-fabricmanager-580.167.08-1.el8.x86_64.rpm \
    && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
    ```
@@ -190,20 +189,20 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 1. Ensure that the CUDA paths are set each time that the instance starts.
    + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`. 
 
-     ```
+     ```bash
      export PATH=/usr/local/cuda/bin:$PATH
      export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
      ```
    + For *tcsh* shells, add the following statements to `/home/{{username}}/.cshrc`.
 
-     ```
+     ```bash
      setenv PATH /usr/local/cuda/bin:$PATH
      setenv LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
      ```
 
 1. To confirm that the NVIDIA GPU drivers are functional, run the following command.
 
-   ```
+   ```bash
    $ nvidia-smi -q | head
    ```
 
@@ -216,13 +215,13 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 1. To ensure that all of your software packages are up to date, perform a quick software update on your instance.
 
-   ```
+   ```bash
    $ sudo apt-get update && sudo apt-get upgrade -y
    ```
 
 1. Install the utilities that are needed to install the NVIDIA GPU drivers and the NVIDIA CUDA Toolkit.
 
-   ```
+   ```bash
    $ sudo apt-get update && sudo apt-get install build-essential -y
    ```
 
@@ -230,13 +229,13 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
    1. Install the required utilities and the kernel headers package for the version of the kernel that you are currently running.
 
-      ```
+      ```bash
       $ sudo apt-get install -y gcc make linux-headers-$(uname -r)
       ```
 
    1. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf` deny list file.
 
-      ```
+      ```bash
       $ cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
       blacklist vga16fb
       blacklist nouveau
@@ -248,13 +247,13 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
    1. Open `/etc/default/grub` using your preferred text editor and add the following. 
 
-      ```
+      ```bash
       GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
       ```
 
    1. Rebuild the GRUB configuration.
 
-      ```
+      ```bash
       $ sudo update-grub
       ```
 
@@ -263,26 +262,26 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 1. Add the CUDA repository and install the NVIDIA GPU drivers, NVIDIA CUDA Toolkit, and cuDNN.
    + Ubuntu 24.04
 
-     ```
+     ```bash
      $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb \
      && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
      && sudo add-apt-repository -y 'deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64 /' \
      && sudo apt-get update
      ```
 
-     ```
+     ```bash
      $ sudo apt-get install -y nvidia-open-580 cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
      ```
    + Ubuntu 22.04
 
-     ```
+     ```bash
      $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb \
      && sudo dpkg -i cuda-keyring_1.1-1_all.deb \
      && sudo DEBIAN_FRONTEND=noninteractive add-apt-repository -y "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" \
      && sudo apt-get update
      ```
 
-     ```
+     ```bash
      $ sudo apt-get install -y nvidia-open-580 cuda-toolkit-13-0 libcudnn9-cuda-13 libcudnn9-dev-cuda-13
      ```
 
@@ -291,7 +290,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 1. Install and start the NVIDIA Fabric Manager on instances with NVSwitch, such as P-series multi-GPU instances. G-series instances do not use NVSwitch and do not require Fabric Manager.
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt-get install -y nvidia-fabricmanager-580 \
      && sudo systemctl enable nvidia-fabricmanager && sudo systemctl start nvidia-fabricmanager
      ```
@@ -299,20 +298,20 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 1. Ensure that the CUDA paths are set each time that the instance starts.
    + For *bash* shells, add the following statements to `/home/{{username}}/.bashrc` and `/home/{{username}}/.bash_profile`. 
 
-     ```
+     ```bash
      export PATH=/usr/local/cuda/bin:$PATH
      export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
      ```
    + For *tcsh* shells, add the following statements to `/home/{{username}}/.cshrc`.
 
-     ```
+     ```bash
      setenv PATH /usr/local/cuda/bin:$PATH
      setenv LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
      ```
 
 1. To confirm that the NVIDIA GPU drivers are functional, run the following command.
 
-   ```
+   ```bash
    $ nvidia-smi -q | head
    ```
 
@@ -335,26 +334,26 @@ Install GDRCopy to improve the performance of Libfabric on GPU-based platforms. 
 
 1. Install the required dependencies.
 
-   ```
+   ```bash
    $ sudo yum -y install dkms rpm-build make check check-devel
    ```
 
 1. Download and extract the GDRCopy package.
 
-   ```
+   ```bash
    $ wget https://github.com/NVIDIA/gdrcopy/archive/refs/tags/v2.5.2.tar.gz \
    && tar xf v2.5.2.tar.gz && cd gdrcopy-2.5.2/packages
    ```
 
 1. Build the GDRCopy RPM packages.
 
-   ```
+   ```bash
    $ CUDA=/usr/local/cuda ./build-rpm-packages.sh
    ```
 
 1. Install the GDRCopy RPM packages.
 
-   ```
+   ```bash
    $ sudo rpm -Uvh gdrcopy-kmod-2.5.2*dkms*.rpm \
    && sudo rpm -Uvh gdrcopy-2.5.2*.rpm \
    && sudo rpm -Uvh gdrcopy-devel-2.5.2*.rpm
@@ -367,19 +366,19 @@ Install GDRCopy to improve the performance of Libfabric on GPU-based platforms. 
 
 1. Install the required dependencies.
 
-   ```
+   ```bash
    $ sudo apt-get install -y build-essential devscripts debhelper fakeroot pkg-config dkms
    ```
 **Note**  
 On Ubuntu 22.04 only, install these additional dependencies:  
 
-   ```
+   ```bash
    $ sudo apt-get install -y check libsubunit-dev
    ```
 
 1. Download and extract the GDRCopy package, and build the packages.
 
-   ```
+   ```bash
    $ wget https://github.com/NVIDIA/gdrcopy/archive/refs/tags/v2.5.2.tar.gz \
    && tar xf v2.5.2.tar.gz \
    && cd gdrcopy-2.5.2/packages \
@@ -388,7 +387,7 @@ On Ubuntu 22.04 only, install these additional dependencies:
 
 1. Install the GDRCopy DEB packages.
 
-   ```
+   ```bash
    $ sudo dpkg -i gdrdrv-dkms_2.5.2-1_amd64.*.deb \
    && sudo dpkg -i libgdrapi_2.5.2-1_amd64.*.deb \
    && sudo dpkg -i gdrcopy-tests_2.5.2-1_amd64.*.deb \
@@ -411,13 +410,13 @@ Install the EFA-enabled kernel, EFA drivers, and Libfabric stack that is require
 
 1. Download the EFA software installation files. The software installation files are packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command.
 
-   ```
+   ```bash
    $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz
    ```
 
 1. Extract the files from the compressed `.tar.gz` file, delete the tarball, and navigate into the extracted directory.
 
-   ```
+   ```bash
    $ tar -xf aws-efa-installer-1.51.0.tar.gz && rm -rf aws-efa-installer-1.51.0.tar.gz && cd aws-efa-installer
    ```
 
@@ -447,7 +446,7 @@ The `--check-signatures` flag is optional. Without it, the installer does not pe
 **Note**  
 If you completed the previous optional step to set up package signature verification, append `--check-signatures` to the installation command and use `sudo -E` instead of `sudo`. For example: `sudo -E ./efa_installer.sh -y --check-signatures`.
 
-   ```
+   ```bash
    $ sudo ./efa_installer.sh -y
    ```
 
@@ -457,14 +456,14 @@ If you completed the previous optional step to set up package signature verifica
 
 1. Confirm that the EFA software components were successfully installed.
 
-   ```
+   ```bash
    $ fi_info -p efa -t FI_EP_RDM
    ```
 
    The command should return information about the Libfabric EFA interfaces. The following example shows the command output.
    + `p3dn.24xlarge` with single network interface
 
-     ```
+     ```YAML
      provider: efa
      fabric: EFA-fe80::94:3dff:fe89:1b70
      domain: efa_0-rdm
@@ -474,7 +473,7 @@ If you completed the previous optional step to set up package signature verifica
      ```
    + `p4d.24xlarge` and `p5.48xlarge` with multiple network interfaces
 
-     ```
+     ```YAML
      provider: efa
      fabric: EFA-fe80::c6e:8fff:fef6:e7ff
      domain: efa_0-rdm
@@ -514,24 +513,24 @@ Install NIXL. For more information about NIXL, see the [NIXL repository](https:/
 1. Install the required dependencies.
    + Amazon Linux 2023
 
-     ```
+     ```bash
      $ sudo dnf install -y python3.11 python3.11-pip
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt install pip
      ```
 
 1. Install NIXL.
    + Amazon Linux 2023
 
-     ```
+     ```bash
      $ pip3.11 install nixl
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ pip install nixl
      ```
 
@@ -543,38 +542,38 @@ Install NIXL. For more information about NIXL, see the [NIXL repository](https:/
 1. Install the required dependencies.
    + Amazon Linux 2023
 
-     ```
+     ```bash
      $ sudo dnf install -y cmake gcc-c++ git pkgconf-pkg-config ninja-build libaio-devel hwloc-devel numactl-devel python3-devel python3.11 python3.11-devel python3.11-pip \
      && sudo pip3.11 install meson ninja pybind11
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt install cmake pkg-config meson pybind11-dev libaio-dev nvidia-cuda-toolkit pip libhwloc-dev \
      && pip install meson ninja pybind11
      ```
 
 1. (Amazon Linux 2023 only) Create a `lib` symlink for the Libfabric installation. On Amazon Linux 2023, the EFA installer places the Libfabric libraries in `/opt/amazon/efa/lib64`, but the NIXL build expects them in `lib`.
 
-   ```
+   ```bash
    $ sudo ln -s /opt/amazon/efa/lib64 /opt/amazon/efa/lib
    ```
 
 1. Navigate to your home directory.
 
-   ```
+   ```bash
    $ cd $HOME
    ```
 
 1. Clone the official NIXL repository to the instance and navigate into the local cloned repository.
 
-   ```
+   ```bash
    $ sudo git clone https://github.com/ai-dynamo/nixl.git && cd nixl
    ```
 
 1. Build and install NIXL and specify the path to the Libfabric installation directory.
 
-   ```
+   ```bash
    $ sudo meson setup . nixl --prefix=/usr/local/nixl -Dlibfabric_path=/opt/amazon/efa
    $ cd nixl && sudo ninja && sudo ninja install
    ```
@@ -595,14 +594,14 @@ NIXL Benchmark (nixlbench) requires ETCD for coordination between client and ser
 
 1. Clone the official NIXL repository to the instance and navigate to the nixlbench build directory.
 
-   ```
+   ```bash
    $ git clone https://github.com/ai-dynamo/nixl.git
    $ cd nixl/benchmark/nixlbench/contrib
    ```
 
 1. Build the container.
 
-   ```
+   ```bash
    $ ./build.sh
    ```
 
@@ -611,19 +610,19 @@ NIXL Benchmark (nixlbench) requires ETCD for coordination between client and ser
 1. Install Docker.
    + Amazon Linux 2023
 
-     ```
+     ```bash
      $ sudo dnf install -y docker \
      && sudo systemctl enable --now docker
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt install docker.io -y
      ```
 
 1. Start the ETCD server for coordination.
 
-   ```
+   ```bash
    $ docker run -d --name etcd-server \
        -p 2379:2379 -p 2380:2380 \
        quay.io/coreos/etcd:v3.5.18 \
@@ -638,19 +637,19 @@ NIXL Benchmark (nixlbench) requires ETCD for coordination between client and ser
 
 1. Validate that the ETCD server is running.
 
-   ```
+   ```bash
    $ curl -L http://localhost:2379/health
    ```
 
    Expected output:
 
-   ```
+   ```JSON
    {"health":"true"}
    ```
 
 1. Open two terminals for the instance. On both terminals, run the following command to verify the installation. The command uses the ETCD server on the same instance, uses Libfabric as the backend, and operates using GPU memory.
 
-   ```
+   ```bash
    $ docker run -it --gpus all --network host nixlbench:latest \
        nixlbench --etcd_endpoints http://localhost:2379 \
        --backend LIBFABRIC \
@@ -671,19 +670,19 @@ Follow this tab only if you chose **Build from source** in Step 6.
 1. Install the required system dependencies.
    + Amazon Linux 2023
 
-     ```
+     ```bash
      $ sudo dnf install -y gflags-devel
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt install libgflags-dev
      ```
 
 1. Install ETCD Server and Client.
    + Amazon Linux 2023 does not provide ETCD packages. Download the prebuilt release binaries and install them.
 
-     ```
+     ```bash
      $ ETCD_VER=v3.5.18 \
      && curl -L https://github.com/etcd-io/etcd/releases/download/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd.tar.gz \
      && sudo mkdir -p /usr/local/etcd \
@@ -693,7 +692,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
      ```
    + Ubuntu 24.04 and Ubuntu 22.04
 
-     ```
+     ```bash
      $ sudo apt install -y etcd-server etcd-client
      ```
 
@@ -702,18 +701,18 @@ Follow this tab only if you chose **Build from source** in Step 6.
    1. Install the required dependencies for ETCD CPP API.
       + Amazon Linux 2023
 
-        ```
+        ```bash
         $ sudo dnf install -y boost-devel openssl-devel grpc-devel grpc-plugins protobuf-devel protobuf-compiler
         ```
       + Ubuntu 24.04 and Ubuntu 22.04
 
-        ```
+        ```bash
         $ sudo apt install libboost-all-dev libssl-dev libgrpc-dev libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcpprest-dev
         ```
 
    1. (Amazon Linux 2023 only) The C\+\+ REST SDK (`cpprest`) isn't available in the Amazon Linux 2023 repositories, so build and install it from source.
 
-      ```
+      ```bash
       $ cd $HOME
       $ git clone https://github.com/microsoft/cpprestsdk.git
       $ cd cpprestsdk
@@ -725,7 +724,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
    1. Clone and install ETCD CPP API.
 
-      ```
+      ```bash
       $ cd $HOME
       $ git clone https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3.git
       $ cd etcd-cpp-apiv3
@@ -736,7 +735,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
 1. Build and install nixlbench.
 
-   ```
+   ```bash
    $ sudo meson setup . $HOME/nixl/benchmark/nixlbench -Dnixl_path=/usr/local/nixl/
    $ sudo ninja && sudo ninja install
    ```
@@ -745,20 +744,20 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
 1. Start the ETCD server on the instance.
 
-   ```
+   ```bash
    $ etcd --listen-client-urls "http://0.0.0.0:2379" \
        --advertise-client-urls "http://localhost:2379" &
    ```
 
 1. Validate that the ETCD server is running.
 
-   ```
+   ```bash
    $ curl -L http://localhost:2379/health
    ```
 
    Expected output:
 
-   ```
+   ```JSON
    {"health":"true"}
    ```
 
@@ -766,7 +765,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
    1. Navigate to the directory where nixlbench is installed.
 
-      ```
+      ```bash
       $ cd /usr/local/nixlbench/bin/
       ```
 
@@ -776,7 +775,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
       For more information about the NIXL Benchmark arguments, see the [NIXLbench README](https://github.com/ai-dynamo/nixl/blob/main/benchmark/nixlbench/README.md) in the official nixlbench repository.
 
-      ```
+      ```bash
       $ export NIXL_LOG_LEVEL=INFO
       $ export LD_LIBRARY_PATH=/usr/local/nixl/lib/$(gcc -dumpmachine):$LD_LIBRARY_PATH
       
@@ -788,7 +787,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
       On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
 
-      ```
+      ```bash
       $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
       ```
 **Note**  
@@ -945,7 +944,7 @@ Run a test to ensure that your instances are properly configured for EFA and NIX
 
 1. Start the ETCD server on host 1.
 
-   ```
+   ```bash
    $ docker run -d --name etcd-server \
        -p 2379:2379 -p 2380:2380 \
        quay.io/coreos/etcd:v3.5.18 \
@@ -960,17 +959,17 @@ Run a test to ensure that your instances are properly configured for EFA and NIX
 
 1. Validate that the ETCD server is running.
 
-   ```
+   ```bash
    $ curl -L http://localhost:2379/health
    ```
 
-   ```
+   ```JSON
    {"health":"true"}
    ```
 
 1. Run the nixlbench benchmark on host 1.
 
-   ```
+   ```bash
    $ docker run -it --gpus all --network host nixlbench:latest \
        nixlbench --etcd_endpoints http://localhost:2379 \
        --backend LIBFABRIC \
@@ -979,7 +978,7 @@ Run a test to ensure that your instances are properly configured for EFA and NIX
 
 1. Run the nixlbench benchmark on host 2.
 
-   ```
+   ```bash
    $ docker run -it --gpus all --network host nixlbench:latest \
        nixlbench --etcd_endpoints http://{{ETCD_SERVER_IP}}:2379 \
        --backend LIBFABRIC \
@@ -998,24 +997,24 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
 1. Launch the ETCD server on host 1.
 
-   ```
+   ```bash
    $ etcd --listen-client-urls "http://0.0.0.0:2379" \
        --advertise-client-urls "http://localhost:2379" &
    ```
 
 1. Validate that the ETCD server is running.
 
-   ```
+   ```bash
    $ curl -L http://localhost:2379/health
    ```
 
-   ```
+   ```JSON
    {"health":"true"}
    ```
 
 1. Run the nixlbench benchmark on host 1.
 
-   ```
+   ```bash
    $ export NIXL_LOG_LEVEL=INFO
    $ export LD_LIBRARY_PATH=$HOME/nixl/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
    
@@ -1027,13 +1026,13 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
    On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
 
-   ```
+   ```bash
    $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
    ```
 
 1. Run the nixlbench benchmark on host 2.
 
-   ```
+   ```bash
    $ export NIXL_LOG_LEVEL=INFO
    $ export LD_LIBRARY_PATH=$HOME/nixl/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
    
@@ -1045,7 +1044,7 @@ Follow this tab only if you chose **Build from source** in Step 6.
 
    On Amazon Linux 2023, NIXL installs its libraries in `lib64` instead. Set the library path as follows.
 
-   ```
+   ```bash
    $ export LD_LIBRARY_PATH=/usr/local/nixl/lib64:/usr/local/nixl/lib64/plugins:$LD_LIBRARY_PATH
    ```
 
@@ -1060,7 +1059,7 @@ After NIXL is installed, you can use NIXL through LLM inference and serving fram
 
 1. Install vLLM.
 
-   ```
+   ```bash
    $ pip install vllm
    ```
 
@@ -1069,7 +1068,7 @@ After NIXL is installed, you can use NIXL through LLM inference and serving fram
    To use NIXL with EFA, set the environment variables based on your setup and use case.
    + Producer (Prefiller) configuration
 
-     ```
+     ```bash
      $ vllm serve {{your-application}} \
          --port 8200 \
          --enforce-eager \
@@ -1077,7 +1076,7 @@ After NIXL is installed, you can use NIXL through LLM inference and serving fram
      ```
    + Consumer (Decoder) configuration
 
-     ```
+     ```bash
      $ vllm serve {{your-application}} \
          --port 8200 \
          --enforce-eager \

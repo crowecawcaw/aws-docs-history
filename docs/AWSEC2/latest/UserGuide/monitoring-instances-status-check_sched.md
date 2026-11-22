@@ -1,7 +1,6 @@
 
 
 # Scheduled events for Amazon EC2 instances
-<a name="monitoring-instances-status-check_sched"></a>
 
 To ensure infrastructure reliability and performance, AWS can schedule events to reboot, stop, and retire your instances. These events do not occur frequently.
 
@@ -57,7 +56,7 @@ You can check what type of event is scheduled for your instance.
 **To determine the event type for an instance**  
 Use the [describe-instance-status](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-status.html) command. If the instance has an associated scheduled event, the output provides information about the scheduled event.
 
-```
+```bash
 aws ec2 describe-instance-status \
     --instance-ids {{i-1234567890abcdef0}} \
     --query InstanceStatuses[].Events
@@ -65,7 +64,7 @@ aws ec2 describe-instance-status \
 
 The following is example output. The scheduled event code is `system-reboot`.
 
-```
+```json
 [
     "Events": [
         {
@@ -86,7 +85,7 @@ The following is example output. The scheduled event code is `system-reboot`.
 **To determine the event type for an instance**  
 Use the [Get-EC2InstanceStatus](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceStatus.html) cmdlet. If the instance has an associated scheduled event, the output provides information about the scheduled event.
 
-```
+```powershell
 (Get-EC2InstanceStatus `
     -InstanceId {{i-1234567890abcdef0}}).Events
 ```

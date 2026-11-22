@@ -1,7 +1,6 @@
 
 
 # Monitor interruptible Capacity Reservations with EventBridge and CloudTrail
-<a name="monitor-interruptible-cr"></a>
 
 Interruptible Capacity Reservations send EventBridge notifications and CloudTrail events to help you monitor and respond to capacity changes.
 
@@ -19,7 +18,7 @@ You receive two types of EventBridge notifications. For information about how to
 
 If you're running instances in an interruptible reservation, you receive this notification 2 minutes before your instances are terminated:
 
-```
+```JSON
 {
     "version": "0",
     "id": "{{12345678-1234-1234-1234-123456789012}}",
@@ -43,7 +42,7 @@ If you're running instances in an interruptible reservation, you receive this no
 
 If you own the source reservation, you receive this notification when capacity reclamation finishes:
 
-```
+```JSON
 {
     "version": "0",
     "id": "{{12345678-1234-1234-1234-123456789012}}",

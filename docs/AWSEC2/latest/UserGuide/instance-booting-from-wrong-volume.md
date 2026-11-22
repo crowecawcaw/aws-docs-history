@@ -1,13 +1,12 @@
 
 
 # Troubleshoot an Amazon EC2 Linux instance booting from wrong volume
-<a name="instance-booting-from-wrong-volume"></a>
 
 In some situations, a volume other than the volume attached to `/dev/xvda` or `/dev/sda` becomes the root volume of a Linux instance. This can happen when you have attached the root volume of another instance, or a volume created from the snapshot of a root volume, to an instance with an existing root volume.
 
 This is due to how the initial ramdisk in Linux works. It chooses the volume defined as `/` in the `/etc/fstab`, and in some distributions, this is determined by the label attached to the volume partition. Specifically, you find that your `/etc/fstab` looks something like the following: 
 
-```
+```bash
 LABEL=/ / ext4 defaults,noatime 1 1 
 tmpfs /dev/shm tmpfs defaults 0 0 
 devpts /dev/pts devpts gid=5,mode=620 0 0 
@@ -17,7 +16,7 @@ proc /proc proc defaults 0 0
 
 If you check the label of both volumes, you see that they both contain the `/` label: 
 
-```
+```bash
 [ec2-user ~]$ sudo e2label /dev/xvda1 
 / 
 [ec2-user ~]$ sudo e2label /dev/xvdf1 
@@ -28,7 +27,7 @@ In this example, you could end up having `/dev/xvdf1` become the root volume tha
 
 In some cases, specifying a UUID in `/etc/fstab` can resolve this. However, if both volumes come from the same snapshot, or the secondary is created from a snapshot of the primary volume, they share a UUID.
 
-```
+```bash
 [ec2-user ~]$ sudo blkid 
 /dev/xvda1: LABEL="/" UUID=73947a77-ddbe-4dc7-bd8f-3fe0bc840778 TYPE="ext4" PARTLABEL="Linux" PARTUUID=d55925ee-72c8-41e7-b514-7084e28f7334 
 /dev/xvdf1: LABEL="old/" UUID=73947a77-ddbe-4dc7-bd8f-3fe0bc840778 TYPE="ext4" PARTLABEL="Linux" PARTUUID=d55925ee-72c8-41e7-b514-7084e28f7334
@@ -38,13 +37,13 @@ In some cases, specifying a UUID in `/etc/fstab` can resolve this. However, if b
 
 1. Use the **e2label** command to change the label of the volume to something other than `/`.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo e2label /dev/xvdf1 {{old/}} 
    ```
 
 1. Verify that the volume has the new label.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo e2label /dev/xvdf1 
    old/
    ```
@@ -52,7 +51,7 @@ In some cases, specifying a UUID in `/etc/fstab` can resolve this. However, if b
 **To change the label of an attached xfs volume**
 + Use the **xfs\_admin** command to change the label of the volume to something other than `/`.
 
-  ```
+  ```bash
   [ec2-user ~]$ sudo xfs_admin -L {{old/}} /dev/xvdf1
   writing all SBs
   new label = "old/"

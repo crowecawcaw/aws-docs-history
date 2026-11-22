@@ -1,7 +1,6 @@
 
 
 # Service-linked role for EC2 Fast Launch
-<a name="slr-windows-fast-launch"></a>
 
 Amazon EC2 uses service-linked roles for the permissions that it requires to call other AWS services on your behalf. A service-linked role is a unique type of IAM role that is linked directly to an AWS service. Service-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service-linked role. For more information about how Amazon EC2 uses IAM roles, including service-linked roles, see [IAM roles for Amazon EC2](iam-roles-for-amazon-ec2.md).
 
@@ -45,7 +44,7 @@ If the service-linked role is deleted from your account, you can enable EC2 Fast
 
 To enable EC2 Fast Launch for an [encrypted AMI](AMIEncryption.md) that uses a customer managed key for encryption, you must grant the AWSServiceRoleForEC2FastLaunch role permission to use the CMK. To do this, call the [create-grant](https://docs.aws.amazon.com/cli/latest/reference/kms/create-grant.html) command. For `--grantee-principal`, specify the ARN for the AWSServiceRoleForEC2FastLaunch role in your account. For `--operations`, specify `CreateGrant`.
 
-```
+```bash
 aws kms create-grant \
     --key-id arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}} \
     --grantee-principal arn:aws:iam::{{111122223333}}:role/AWSServiceRoleForEC2FastLaunch \

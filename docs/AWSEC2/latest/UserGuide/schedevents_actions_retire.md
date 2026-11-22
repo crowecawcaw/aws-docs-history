@@ -1,7 +1,6 @@
 
 
 # Manage Amazon EC2 instances scheduled to stop or retire
-<a name="schedevents_actions_retire"></a>
 
 When AWS detects irreparable failure of the underlying host for your instance, it schedules the instance to either stop or terminate, depending on the instance's root volume type.
 + If the instance has an Amazon EBS root volume, the instance is scheduled to stop.

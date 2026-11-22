@@ -1,7 +1,6 @@
 
 
 # Unlimited mode for burstable performance instances
-<a name="burstable-performance-instances-unlimited-mode"></a>
 
 A burstable performance instance configured as `unlimited` can sustain high CPU utilization for any period of time whenever required. The hourly instance price automatically covers all CPU usage spikes if the average CPU utilization of the instance is at or below the baseline over a rolling 24-hour period or the instance lifetime, whichever is shorter.
 
@@ -9,7 +8,7 @@ For the vast majority of general-purpose workloads, instances configured as `unl
 
 If your created your AWS account before July 15, 2025 and you use a `t2.micro` or `t3.micro` instance under the [AWS Free Tier](https://aws.amazon.com/free/) offer and use it in `unlimited` mode, charges might apply if your average utilization over a rolling 24-hour period exceeds the [baseline utilization](burstable-credits-baseline-concepts.md#baseline_performance) of the instance.
 
-T8i, T4g, T3a, and T3 instances launch as `unlimited` by default (unless you [change the default](burstable-performance-instances-how-to.md#burstable-performance-instance-set-default-credit-specification-for-account)). If the average CPU usage over a 24-hour period exceeds the baseline, you incur charges for surplus credits. If you launch Spot Instances as `unlimited` and plan to use them immediately and for a short duration, with no idle time for accruing CPU credits, you incur charges for surplus credits. We recommend that you launch your Spot Instances in [standard](burstable-performance-instances-standard-mode.md) mode to avoid paying higher costs. For more information, see [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits) and [Launch burstable performance instances](how-spot-instances-work.md#burstable-spot-instances).
+T9g, T8i, T4g, T3a, and T3 instances launch as `unlimited` by default (unless you [change the default](burstable-performance-instances-how-to.md#burstable-performance-instance-set-default-credit-specification-for-account)). If the average CPU usage over a 24-hour period exceeds the baseline, you incur charges for surplus credits. If you launch Spot Instances as `unlimited` and plan to use them immediately and for a short duration, with no idle time for accruing CPU credits, you incur charges for surplus credits. We recommend that you launch your Spot Instances in [standard](burstable-performance-instances-standard-mode.md) mode to avoid paying higher costs. For more information, see [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits) and [Launch burstable performance instances](how-spot-instances-work.md#burstable-spot-instances).
 
 **Note**  
 T3 instances launched on a Dedicated Host launch as `standard` by default; `unlimited` mode is not supported for T3 instances on a Dedicated Host.

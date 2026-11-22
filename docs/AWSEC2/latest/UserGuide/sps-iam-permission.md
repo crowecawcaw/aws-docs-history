@@ -1,7 +1,6 @@
 
 
 # Required permissions for Spot placement score
-<a name="sps-iam-permission"></a>
 
 By default, IAM identities (users, roles, or groups) don't have permission to use [Spot placement score](spot-placement-score.md). To allow IAM identities to use Spot placement score, you must create an IAM policy that grants permission to use the `ec2:GetSpotPlacementScores` EC2 API action. You then attach the policy to the IAM identities that require this permission.
 
@@ -12,7 +11,7 @@ The following is an example IAM policy that grants permission to use the `ec2:Ge
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

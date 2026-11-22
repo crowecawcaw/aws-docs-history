@@ -1,7 +1,6 @@
 
 
 # Tutorial: Connect an Amazon EC2 instance to an Amazon RDS database
-<a name="tutorial-connect-ec2-instance-to-rds-database"></a>
 
 ## Tutorial objective
 <a name="tutorial-connect-ec2-rds-objective"></a>

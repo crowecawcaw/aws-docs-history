@@ -1,7 +1,6 @@
 
 
 # Use Amazon S3 with Amazon EC2 instances
-<a name="AmazonS3"></a>
 
 Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. You can use Amazon S3 to store and retrieve any amount of data for a range of use cases, such as data lakes, websites, backups, and big data analytics, from an Amazon EC2 instance or from anywhere over the internet. For more information, see [What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
@@ -71,13 +70,13 @@ Before you set up S3 Files with your EC2 instance, make sure you have the follow
 
    1. If you’re using Amazon Linux, run the following command to install efs-utils from Amazon's repositories:
 
-      ```
+      ```bash
       sudo yum -y install amazon-efs-utils
       ```
 
    1. If you are using other [supported Linux distributions](https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils), run the following command:
 
-      ```
+      ```bash
       curl https://amazon-efs-utils.aws.com/efs-utils-installer.sh | sudo sh -s -- --install
       ```
 
@@ -85,27 +84,27 @@ Before you set up S3 Files with your EC2 instance, make sure you have the follow
 
 1. Create a directory for the file system mount point using the following command:
 
-   ```
+   ```bash
    sudo mkdir {path/to/mount}
    ```
 
 1. Mount the S3 file system:
 
-   ```
+   ```bash
    FS="{YOUR_FILE_SYSTEM_ID}"
    sudo mount -t s3files $FS:/ {path/to/mount}
    ```
 
 1. Confirm the file system is mounted:
 
-   ```
+   ```bash
    df -h {path/to/mount}
    ```
 
 **To view objects in your S3 bucket as files**  
 Having completed the preceding procedures, you can now read and write S3 objects as files on your local mount path using standard file system operations. If you have objects in your S3 bucket, you can view them as files by using the following command:
 
-```
+```bash
 ls {path/to/mount}
 ```
 
@@ -122,7 +121,7 @@ This method works for public objects only. If the object is not public, you rece
 
 The **wget** utility is an HTTP and FTP client that you can use to download public objects from Amazon S3. It is installed by default in Amazon Linux and most other distributions, and available for download on Windows. To download an Amazon S3 object, use the following command, substituting the URL of the object to download.
 
-```
+```bash
 [ec2-user ~]$ wget https://{{amzn-s3-demo-bucket}}.s3.amazonaws.com/{{path-to-file}}
 ```
 
@@ -133,7 +132,7 @@ You can use the [AWS Tools for Windows PowerShell](https://aws.amazon.com/powers
 
 Use the [Copy-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-S3Object.html) cmdlet to copy an Amazon S3 object to your Windows instance as follows.
 
-```
+```powershell
 Copy-S3Object `
     -BucketName {{amzn-s3-demo-bucket}} `
     -Key {{path-to-file}} `
@@ -151,13 +150,13 @@ The [aws s3 cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) com
 
 Use the following command to copy an object from Amazon S3 to your instance:
 
-```
+```bash
 aws s3 cp s3://{{amzn-s3-demo-bucket}}/{{my_folder}}/{{my_file.ext}} {{my_copied_file.ext}}
 ```
 
 Use the following command to copy an object from your instance back into Amazon S3:
 
-```
+```bash
 aws s3 cp {{my_copied_file.ext}} s3://{{amzn-s3-demo-bucket}}/{{my_folder}}/{{my_file.ext}}
 ```
 
@@ -165,7 +164,7 @@ The [aws s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
 
 Use the following command to download an entire Amazon S3 bucket to a local directory on your instance:
 
-```
+```bash
 aws s3 sync s3://{{amzn-s3-demo-source-bucket}} {{local_directory}}
 ```
 

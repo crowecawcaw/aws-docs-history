@@ -1,7 +1,6 @@
 
 
 # Onboard your address range for use in Amazon EC2
-<a name="byoip-onboard"></a>
 
 The onboarding process for BYOIP includes the following tasks, depending on your needs.
 
@@ -25,13 +24,13 @@ When you provision an address range for use with AWS, you are confirming that yo
 
    Compose the plaintext authorization message. The format of the message is as follows, where the date is the expiry date of the message: 
 
-   ```
+   ```bash
    1|aws|{{account}}|{{cidr}}|{{YYYYMMDD}}|SHA256|RSAPSS
    ```
 
    Replace the account number, address range, and expiry date with your own values to create a message resembling the following:
 
-   ```
+   ```bash
    text_message="1|aws|0123456789AB|198.51.100.0/24|20211231|SHA256|RSAPSS"
    ```
 
@@ -45,7 +44,7 @@ When you provision an address range for use with AWS, you are confirming that yo
 **Important**  
 We recommend that you copy and paste this command. Except for the message content, do not modify or replace any of the values.
 
-   ```
+   ```bash
    signed_message=$( echo -n $text_message | openssl dgst -sha256 -sigopt rsa_padding_mode:pss -sigopt rsa_pss_saltlen:-1 -sign private-key.pem -keyform PEM | openssl base64 | tr -- '+=/' '-_~' | tr -d "\n")
    ```
 
@@ -57,7 +56,7 @@ We recommend that you copy and paste this command. Except for the message conten
 **Important**  
 You must specify the AWS Region where the BYOIP range should be provisioned if it differs from your [Configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) `Default region name`.
 
-   ```
+   ```bash
    aws ec2 provision-byoip-cidr --cidr {{address-range}} --cidr-authorization-context Message="$text_message",Signature="$signed_message" --region {{us-east-1}}
    ```
 
@@ -69,7 +68,7 @@ You must specify the AWS Region where the BYOIP range should be provisioned if i
 
    While most provisioning will be completed within two hours, it might take up to one week to complete the provisioning process for publicly advertisable ranges. Use the [describe-byoip-cidrs](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-byoip-cidrs.html) command to monitor progress, as in this example:
 
-   ```
+   ```bash
    aws ec2 describe-byoip-cidrs --max-results 5 --region {{us-east-1}}
    ```
 
@@ -88,7 +87,7 @@ Amazon VPC doesn't support [unique local address](https://en.wikipedia.org/wiki/
 
 To provision an IPv6 address range that will not be publicly advertisable, use the following [provision-byoip-cidr](https://docs.aws.amazon.com/cli/latest/reference/ec2/provision-byoip-cidr.html) command.
 
-```
+```bash
 aws ec2 provision-byoip-cidr --cidr {{address-range}} --cidr-authorization-context Message="$text_message",Signature="$signed_message" --no-publicly-advertisable --region {{us-east-1}}
 ```
 
@@ -109,13 +108,13 @@ To minimize down time, you can configure your AWS resources to use an address fr
 
 To advertise the address range, use the following [advertise-byoip-cidr](https://docs.aws.amazon.com/cli/latest/reference/ec2/advertise-byoip-cidr.html) command.
 
-```
+```bash
 aws ec2 advertise-byoip-cidr --cidr {{address-range}} --region {{us-east-1}}
 ```
 
 To stop advertising the address range, use the following [withdraw-byoip-cidr](https://docs.aws.amazon.com/cli/latest/reference/ec2/withdraw-byoip-cidr.html) command.
 
-```
+```bash
 aws ec2 withdraw-byoip-cidr --cidr {{address-range}} --region {{us-east-1}}
 ```
 
@@ -131,25 +130,25 @@ You cannot deprovision a portion of the address range. If you want to use a more
 
 (IPv4) To release each Elastic IP address, use the following [release-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/release-address.html) command.
 
-```
+```bash
 aws ec2 release-address --allocation-id {{eipalloc-12345678abcabcabc}} --region {{us-east-1}}
 ```
 
 (IPv6) To disassociate an IPv6 CIDR block, use the following [disassociate-vpc-cidr-block](https://docs.aws.amazon.com/cli/latest/reference/ec2/disassociate-vpc-cidr-block.html) command.
 
-```
+```bash
 aws ec2 disassociate-vpc-cidr-block --association-id {{vpc-cidr-assoc-12345abcd1234abc1}} --region {{us-east-1}}
 ```
 
 To stop advertising the address range, use the following [withdraw-byoip-cidr](https://docs.aws.amazon.com/cli/latest/reference/ec2/withdraw-byoip-cidr.html) command.
 
-```
+```bash
 aws ec2 withdraw-byoip-cidr --cidr {{address-range}} --region {{us-east-1}}
 ```
 
 To deprovision the address range, use the following [deprovision-byoip-cidr](https://docs.aws.amazon.com/cli/latest/reference/ec2/deprovision-byoip-cidr.html) command.
 
-```
+```bash
 aws ec2 deprovision-byoip-cidr --cidr {{address-range}} --region {{us-east-1}}
 ```
 
@@ -166,13 +165,13 @@ It can take up to a day to deprovision an address range.
 
    You can inspect the `Public Comments` containing the certificate using the following command:
 
-   ```
+   ```bash
    whois -h whois.arin.net r + {{2001:0DB8:6172::/48}} | grep Comments | grep BEGIN
    ```
 
    This returns output with the contents of the key, which should be similar to the following:
 
-   ```
+   ```bash
    Public Comments:
    -----BEGIN CERTIFICATE-----
    MIID1zCCAr+gAwIBAgIUBkRPNSLrPqbRAFP8RDAHSP+I1TowDQYJKoZIhvcNAQE
@@ -203,13 +202,13 @@ It can take up to a day to deprovision an address range.
 
    You can inspect the `descr` containing the certificate using the following command:
 
-   ```
+   ```bash
    whois -r -h whois.ripe.net {{2001:0DB8:7269::/48}} | grep descr | grep BEGIN
    ```
 
    This returns output with the contents of the key, which should be similar to the following:
 
-   ```
+   ```bash
    descr:
    -----BEGIN CERTIFICATE-----MIID1zCCAr+gAwIBAgIUBkRPNSLrPqbRAFP8
    RDAHSP+I1TowDQYJKoZIhvcNAQELBQAwezELMAkGA1UEBhMCTloxETAPBgNVBAg
@@ -240,13 +239,13 @@ It can take up to a day to deprovision an address range.
 
    You can inspect the `remarks` containing the certificate using the following command:
 
-   ```
+   ```bash
    whois -h whois.apnic.net {{2001:0DB8:6170::/48}} | grep remarks | grep BEGIN
    ```
 
    This returns output with the contents of the key, which should be similar to the following:
 
-   ```
+   ```bash
    remarks:
    -----BEGIN CERTIFICATE-----
    MIID1zCCAr+gAwIBAgIUBkRPNSLrPqbRAFP8RDAHSP+I1TowDQYJKoZIhvcNAQE
@@ -279,13 +278,13 @@ It can take up to a day to deprovision an address range.
 
    You can inspect the ROA objects from different Amazon ASNs with your address range by using the following command:
 
-   ```
+   ```bash
    curl --location --request GET "https://stat.ripe.net/data/rpki-validation/data.json?resource={{ASN}}&prefix={{CIDR}}
    ```
 
    In this example output, the response has a result of `"status": "valid"` for the Amazon ASN 16509. This indicates the ROA object for the address range was created successfully:
 
-   ```
+   ```json
    {
        "messages": [],
        "see_also": [],

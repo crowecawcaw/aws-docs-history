@@ -1,7 +1,6 @@
 
 
 # Set up the Amazon EC2 AMI tools
-<a name="set-up-ami-tools"></a>
 
 You can use the AMI tools to create and manage Amazon S3-backed Linux AMIs. To use the tools, you must install them on your Linux instance. The AMI tools are available as both an RPM and as a .zip file for Linux distributions that don't support RPM. 
 
@@ -9,25 +8,25 @@ You can use the AMI tools to create and manage Amazon S3-backed Linux AMIs. To u
 
 1. Install Ruby using the package manager for your Linux distribution, such as yum. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install -y ruby
    ```
 
 1. Download the RPM file using a tool such as wget or curl. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ wget https://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.noarch.rpm
    ```
 
 1. Verify the RPM file's signature using the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ rpm -K ec2-ami-tools.noarch.rpm
    ```
 
    The command above should indicate that the file's SHA1 and MD5 hashes are `OK.` If the command indicates that the hashes are `NOT OK`, use the following command to view the file's Header SHA1 and MD5 hashes:
 
-   ```
+   ```bash
    [ec2-user ~]$ rpm -Kv ec2-ami-tools.noarch.rpm
    ```
 
@@ -39,13 +38,13 @@ You can use the AMI tools to create and manage Amazon S3-backed Linux AMIs. To u
 
 1. Install the RPM using the following command:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo yum install ec2-ami-tools.noarch.rpm
    ```
 
 1. Verify your AMI tools installation using the [ec2-ami-tools-version](ami-tools-commands.md#ami-tools-version) command.
 
-   ```
+   ```bash
    [ec2-user ~]$ ec2-ami-tools-version
    ```
 **Note**  
@@ -55,7 +54,7 @@ If you receive a load error such as "cannot load such file -- ec2/amitools/versi
 
    1. Run the following command to determine the paths to add.
 
-      ```
+      ```bash
       [ec2-user ~]$ rpm -qil ec2-ami-tools | grep ec2/amitools/version
       /usr/lib/ruby/site_ruby/ec2/amitools/version.rb
       /usr/lib64/ruby/site_ruby/ec2/amitools/version.rb
@@ -65,13 +64,13 @@ If you receive a load error such as "cannot load such file -- ec2/amitools/versi
 
    1. Add the locations from the previous step to your `RUBYLIB` path.
 
-      ```
+      ```bash
       [ec2-user ~]$ export RUBYLIB=$RUBYLIB:{{/usr/lib/ruby/site_ruby}}:{{/usr/lib64/ruby/site_ruby}}
       ```
 
    1. Verify your AMI tools installation using the [ec2-ami-tools-version](ami-tools-commands.md#ami-tools-version) command.
 
-      ```
+      ```bash
       [ec2-user ~]$ ec2-ami-tools-version
       ```
 
@@ -79,19 +78,19 @@ If you receive a load error such as "cannot load such file -- ec2/amitools/versi
 
 1. Install Ruby and unzip using the package manager for your Linux distribution, such as **apt-get**. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt-get update -y && sudo apt-get install -y ruby unzip
    ```
 
 1. Download the .zip file using a tool such as wget or curl. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ wget https://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.zip
    ```
 
 1. Unzip the files into a suitable installation directory, such as `/usr/local/ec2`.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo mkdir -p /usr/local/ec2
    $ sudo unzip ec2-ami-tools.zip -d /usr/local/ec2
    ```
@@ -100,19 +99,19 @@ If you receive a load error such as "cannot load such file -- ec2/amitools/versi
 
 1. Set the `EC2_AMITOOL_HOME` environment variable to the installation directory for the tools. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ export EC2_AMITOOL_HOME=/usr/local/ec2/ec2-ami-tools-{{x}}.{{x}}.{{x}}
    ```
 
 1. Add the tools to your `PATH` environment variable. For example:
 
-   ```
+   ```bash
    [ec2-user ~]$ export PATH=$EC2_AMITOOL_HOME/bin:$PATH
    ```
 
 1. You can verify your AMI tools installation using the [ec2-ami-tools-version](ami-tools-commands.md#ami-tools-version) command.
 
-   ```
+   ```bash
    [ec2-user ~]$ ec2-ami-tools-version
    ```
 
@@ -127,36 +126,36 @@ Certain commands in the AMI tools require a signing certificate (also known as X
 
 1. Create a private key using the `openssl genrsa` command and save the output to a `.pem` file. We recommend that you create a 2048- or 4096-bit RSA key.
 
-   ```
+   ```bash
    openssl genrsa 2048 > {{private-key.pem}}
    ```
 
 1. Generate a certificate using the `openssl req` command.
 
-   ```
+   ```bash
    openssl req -new -x509 -nodes -sha256 -days 365 -key {{private-key.pem}} -outform PEM -out {{certificate.pem}}
    ```
 
 To upload the certificate to AWS, use the [upload-signing-certificate](https://docs.aws.amazon.com/cli/latest/reference/iam/upload-signing-certificate.html) command.
 
-```
+```bash
 aws iam upload-signing-certificate --user-name {{user-name}} --certificate-body file://{{path/to/certificate}}.pem
 ```
 
 To list the certificates for a user, use the [list-signing-certificates](https://docs.aws.amazon.com/cli/latest/reference/iam/list-signing-certificates.html) command:
 
-```
+```bash
 aws iam list-signing-certificates --user-name {{user-name}}
 ```
 
 To disable or re-enable a signing certificate for a user, use the [update-signing-certificate](https://docs.aws.amazon.com/cli/latest/reference/iam/update-signing-certificate.html) command. The following command disables the certificate:
 
-```
+```bash
 aws iam update-signing-certificate --certificate-id {{OFHPLP4ZULTHYPMSYEX7O4BEXAMPLE}} --status {{Inactive}} --user-name {{user-name}}
 ```
 
 To delete a certificate, use the [delete-signing-certificate](https://docs.aws.amazon.com/cli/latest/reference/iam/delete-signing-certificate.html) command:
 
-```
+```bash
 aws iam delete-signing-certificate --user-name {{user-name}} --certificate-id {{OFHPLP4ZULTHYPMSYEX7O4BEXAMPLE}}
 ```

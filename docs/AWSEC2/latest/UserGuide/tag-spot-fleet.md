@@ -1,7 +1,6 @@
 
 
 # Tag a new or existing Spot Fleet request and the instances and volumes it launches
-<a name="tag-spot-fleet"></a>
 
 **Important**  
 Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).
@@ -39,7 +38,7 @@ Create an IAM policy that includes the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ Create an IAM policy that includes the following:
 **Important**  
 Resource-level permissions are not currently supported for the `spot-fleet-request` resource. If you specify `spot-fleet-request` as a resource, you will get an unauthorized exception when you try to tag the fleet. The following example illustrates how *not* to set the policy.   
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -124,7 +123,7 @@ To tag a Spot Fleet request when you create it, and to tag the instances and vol
 
 In the following example, the Spot Fleet request is tagged with two tags: Key=Environment and Value=Production, and Key=Cost-Center and Value=123. The instances that are launched by the fleet are tagged with one tag (which is the same as one of the tags for the Spot Fleet request): Key=Cost-Center and Value=123.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -181,7 +180,7 @@ To tag instances when they are launched by the fleet, you can either specify the
 
 In the following example, the instances that are launched by the fleet are tagged with one tag: Key=Cost-Center and Value=123.
 
-```
+```JSON
 {
     "SpotFleetRequestConfig": {
         "AllocationStrategy": "priceCapacityOptimized",
@@ -240,7 +239,7 @@ After you create a Spot Fleet request, you can add tags to the fleet request usi
 **To tag an existing Spot Fleet request using the AWS CLI**  
 You can use the [create-tags](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-tags.html) command to tag existing resources. In the following example, the existing Spot Fleet request is tagged with Key=purpose and Value=test.
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{sfr-11112222-3333-4444-5555-66666EXAMPLE}} \
     --tags Key={{purpose}},Value={{test}}
@@ -260,12 +259,12 @@ aws ec2 create-tags \
 **To describe Spot Fleet request tags**  
 Use the [describe-tags](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-tags.html) command to view the tags for the specified resource. In the following example, you describe the tags for the specified Spot Fleet request.
 
-```
+```bash
 aws ec2 describe-tags \
     --filters "Name=resource-id,Values={{sfr-11112222-3333-4444-5555-66666EXAMPLE}}"
 ```
 
-```
+```JSON 
 {
     "Tags": [
         {
@@ -288,12 +287,12 @@ You can also view the tags of a Spot Fleet request by describing the Spot Fleet 
 
 Use the [describe-spot-fleet-requests](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-spot-fleet-requests.html) command to view the configuration of the specified Spot Fleet request, which includes any tags that were specified for the fleet request.
 
-```
+```bash
 aws ec2 describe-spot-fleet-requests \
     --spot-fleet-request-ids {{sfr-11112222-3333-4444-5555-66666EXAMPLE}}
 ```
 
-```
+```JSON
 {
     "SpotFleetRequestConfigs": [
         {

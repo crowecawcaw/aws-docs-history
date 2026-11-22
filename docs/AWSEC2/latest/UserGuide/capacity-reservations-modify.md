@@ -1,7 +1,6 @@
 
 
 # Modify a Capacity Reservation
-<a name="capacity-reservations-modify"></a>
 
 If you have an active Capacity Reservation that isn't a good fit for the workload that needs the capacity, you can modify the instance quantity, instance eligibility (`open` or `targeted`), and end time (`At specific time` or `Manually`). If you specify a new instance quantity that exceeds your remaining On-Demand Instance limit for the selected instance type, the update fails.
 
@@ -42,7 +41,7 @@ Use the following procedures to change the capacity, instance eligibility, or en
 **To modify a Capacity Reservation**  
 Use the [modify-capacity-reservation](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-capacity-reservation.html) command. The following example modifies the specified Capacity Reservation to reserve capacity for eight instances.
 
-```
+```bash
 aws ec2 modify-capacity-reservation \
     --capacity-reservation-id {{cr-1234567890abcdef0}} \
     --instance-count {{8}}
@@ -54,7 +53,7 @@ aws ec2 modify-capacity-reservation \
 **To modify a Capacity Reservation**  
 Use the [Edit-EC2CapacityReservation](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2CapacityReservation.html) cmdlet. The following example modifies the specified Capacity Reservation to reserve capacity for eight instances.
 
-```
+```powershell
 Edit-EC2CapacityReservation `
     -CapacityReservationId {{cr-1234567890abcdef0}} `
     -InstanceCount {{8}}
@@ -124,7 +123,7 @@ A date-change quote is valid for 24 hours. After 24 hours, you must generate a n
 **To change the dates**  
 Use the [modify-capacity-reservation](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-capacity-reservation.html) command, specifying the new end date.
 
-```
+```bash
 aws ec2 modify-capacity-reservation \
     --capacity-reservation-id {{cr-1234567890abcdef0}} \
     --end-date {{2026-06-30T00:00:00.000Z}}
@@ -132,7 +131,7 @@ aws ec2 modify-capacity-reservation \
 
 To postpone the start date, first generate a date-change quote using [create-capacity-reservation-date-change-quote](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-capacity-reservation-date-change-quote.html), then pass the quote ID to the modify command.
 
-```
+```bash
 aws ec2 create-capacity-reservation-date-change-quote \
     --capacity-reservation-id {{cr-1234567890abcdef0}} \
     --new-start-date {{2026-05-22T00:00:00.000Z}}
@@ -140,7 +139,7 @@ aws ec2 create-capacity-reservation-date-change-quote \
 
 Review the `CapacityReservationModificationQuote` in the response, including any additional commitment and the resulting `CommitmentEndDate`. Then submit with the quote ID:
 
-```
+```bash
 aws ec2 modify-capacity-reservation \
     --capacity-reservation-id {{cr-1234567890abcdef0}} \
     --quote-id {{crmq-1a2b3c4d5e6f7g8h9i0j}} \
@@ -155,7 +154,7 @@ To track the request, use [describe-capacity-reservations](https://docs.aws.amaz
 **To change the dates**  
 Use the [Edit-EC2CapacityReservation](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2CapacityReservation.html) cmdlet, specifying the new end date.
 
-```
+```powershell
 Edit-EC2CapacityReservation `
     -CapacityReservationId {{cr-1234567890abcdef0}} `
     -EndDate {{2026-06-30T00:00:00.000Z}}
@@ -163,7 +162,7 @@ Edit-EC2CapacityReservation `
 
 To postpone the start date, first generate a date-change quote using [New-EC2CapacityReservationDateChangeQuote](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2CapacityReservationDateChangeQuote.html), then pass the quote ID to the `Edit-EC2CapacityReservation` cmdlet.
 
-```
+```powershell
 New-EC2CapacityReservationDateChangeQuote `
     -CapacityReservationId {{cr-1234567890abcdef0}} `
     -NewStartDate {{2026-05-22T00:00:00.000Z}}
@@ -171,7 +170,7 @@ New-EC2CapacityReservationDateChangeQuote `
 
 Review the `CapacityReservationModificationQuote` in the response, including any additional commitment and the resulting commitment end date. Then submit with the quote ID:
 
-```
+```powershell
 Edit-EC2CapacityReservation `
     -CapacityReservationId {{cr-1234567890abcdef0}} `
     -QuoteId {{crmq-1a2b3c4d5e6f7g8h9i0j}} `

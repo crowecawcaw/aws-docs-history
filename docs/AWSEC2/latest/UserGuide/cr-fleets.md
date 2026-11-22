@@ -1,7 +1,6 @@
 
 
 # Capacity Reservation Fleets
-<a name="cr-fleets"></a>
 
 An *On-Demand Capacity Reservation Fleet* is a group of Capacity Reservations.
 

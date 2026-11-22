@@ -1,7 +1,6 @@
 
 
 # Launch instances into Capacity Reservations in a group
-<a name="cr-groups-launch"></a>
 
 You can launch instances into your existing Capacity Reservations by specifying a Capacity Reservation Resource Group ARN. Instances that target a group match with any Capacity Reservation in the group that has matching attributes (instance type, platform, Availability Zone, and tenancy) and available capacity.
 

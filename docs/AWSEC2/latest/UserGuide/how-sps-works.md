@@ -1,7 +1,6 @@
 
 
 # How Spot placement score works
-<a name="how-sps-works"></a>
 
 When you use the Spot placement score feature, you first specify your compute requirements for your Spot Instances, and then Amazon EC2 returns the top 10 Regions or Availability Zones where your Spot request is likely to succeed. Each Region or Availability Zone is scored on a scale from 1 to 10, with 10 indicating that your Spot request is highly likely to succeed, and 1 indicating that your Spot request is not likely to succeed. Zonal results can include Availability Zones and Local Zones.
 

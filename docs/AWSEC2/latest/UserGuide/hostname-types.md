@@ -1,7 +1,6 @@
 
 
 # Hostname types
-<a name="hostname-types"></a>
 
 AWS provides two types of hostnames: **private** and **public**. The following table compares the key differences between private and public hostnames, including how they resolve, how they're configured, and when to use each type.
 
@@ -120,7 +119,7 @@ You can view the public hostnames for an instance or primary network interface.
 **To view the hostname type and DNS names of a network interface**  
 Use the [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) command.
 
-```
+```bash
 aws ec2 describe-network-interfaces \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --query NetworkInterfaces[].PublicIpDnsNameOptions
@@ -128,7 +127,7 @@ aws ec2 describe-network-interfaces \
 
 The following is example output. Because the hostname type is `public-dual-stack-dns-name`, the DNS hostname is the same as `PublicDualStackDnsName`.
 
-```
+```json
 [
      {
           "DnsHostnameType": "public-dual-stack-dns-name",
@@ -145,7 +144,7 @@ The following is example output. Because the hostname type is `public-dual-stack
 **To view the hostname type and DNS names of a network interface**  
 Use the [Get-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2NetworkInterface.html) cmdlet.
 
-```
+```powershell
 (Get-EC2NetworkInterface `
     -NetworkInterfaceId {{eni-1234567890abcdef0}}).PublicIpDnsNameOptions
 ```
@@ -201,7 +200,7 @@ The public hostname type options depend on the IP addresses associated with the 
 **To modify the public hostname type**  
 Use the [ modify-public-ip-dns-name-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-public-ip-dns-name-options.html) command.
 
-```
+```bash
 aws ec2 modify-public-ip-dns-name-options \
     --network-interface-id {{eni-1234567890abcdef0}} \
     --hostname-type {{public-dual-stack-dns-name}}
@@ -209,7 +208,7 @@ aws ec2 modify-public-ip-dns-name-options \
 
 The following is example output.
 
-```
+```json
 {
     "Successful": true
 }
@@ -221,7 +220,7 @@ The following is example output.
 **To modify the public hostname type**  
 Use the [Edit-EC2PublicIpDnsNameOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2PublicIpDnsNameOption.html) cmdlet.
 
-```
+```powershell
 Edit-EC2PublicIpDnsNameOption `
     -NetworkInterfaceId {{eni-1234567890abcdef0}} `
     -HostNameType {{public-dual-stack-dns-name}}
@@ -362,7 +361,7 @@ Open the Amazon VPC console and select the subnet. Choose **Actions**, **Edit su
 **To modify the options for a subnet**  
 Use the [modify-subnet-attribute](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-subnet-attribute.html) command.
 
-```
+```bash
 aws ec2 modify-subnet-attribute \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --private-dns-hostname-type-on-launch resource-name \
@@ -376,7 +375,7 @@ aws ec2 modify-subnet-attribute \
 **To modify the options for a subnet**  
 Use the [Edit-EC2SubnetAttribute](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2SubnetAttribute.html) cmdlet.
 
-```
+```powershell
 Edit-EC2SubnetAttribute `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -PrivateDnsHostnameTypeOnLaunch ResourceName `
@@ -419,7 +418,7 @@ Edit-EC2SubnetAttribute `
 **To modify the hostname type and DNS hostname options for an instance**  
 Use the [modify-private-dns-name-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-private-dns-name-options.html) command.
 
-```
+```bash
 aws ec2 modify-private-dns-name-options \
     --instance-id {{i-1234567890abcdef0}} \
     --private-dns-hostname-type resource-name \
@@ -433,7 +432,7 @@ aws ec2 modify-private-dns-name-options \
 **To modify the hostname type and DNS hostname options for an instance**  
 Use the [Edit-EC2PrivateDnsNameOption](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2PrivateDnsNameOption.html) cmdlet.
 
-```
+```powershell
 Edit-EC2PrivateDnsNameOption `
     -InstanceId {{i-1234567890abcdef0}} `
     -PrivateDnsHostnameType ResourceName `

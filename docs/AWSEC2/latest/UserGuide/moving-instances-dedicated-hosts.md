@@ -1,7 +1,6 @@
 
 
 # Modify Amazon EC2 Dedicated Host tenancy and affinity for an Amazon EC2 instance
-<a name="moving-instances-dedicated-hosts"></a>
 
 You can change the tenancy of an instance after you have launched it. You can also modify the affinity for your instance to target a specific host or allow it to launch on any available dedicated host with matching attributes in your account. To modify either instance tenancy or affinity, the instance must be in the `stopped` state. 
 
@@ -42,7 +41,7 @@ For T3 instances, you must launch the instance on a Dedicated Host to use a tena
 **To modify instance tenancy or affinity**  
 Use the [modify-instance-placement](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-placement.html) command. The following example changes the specified instance's affinity from `default` to `host`, and specifies the Dedicated Host that the instance has affinity with.
 
-```
+```bash
 aws ec2 modify-instance-placement \
     --instance-id {{i-1234567890abcdef0}} \
     --affinity {{host}} \
@@ -56,7 +55,7 @@ aws ec2 modify-instance-placement \
 **To modify instance tenancy or affinity**  
 Use the [Edit-EC2InstancePlacement](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2InstancePlacement.html) cmdlet. The following example changes the specified instance's affinity from `default` to `host`, and specifies the Dedicated Host that the instance has affinity with.
 
-```
+```powershell
 Edit-EC2InstancePlacement `
     -InstanceId {{i-1234567890abcdef0}} `
     -Affinity {{host}} `

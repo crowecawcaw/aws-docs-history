@@ -1,7 +1,6 @@
 
 
 # Get the status of a Spot Instance request
-<a name="spot-request-status"></a>
 
 To help you track your Spot Instance requests and plan your use of Spot Instances, use the request status provided by Amazon EC2. For example, the request status can provide the reason why your Spot request isn't fulfilled yet, or list the constraints that are preventing the fulfillment of your Spot request.
 
@@ -40,7 +39,7 @@ You can get status information for your Spot Instance request.
 **To get request status information**  
 Use the following [describe-spot-instance-requests](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-spot-instance-requests.html) command.
 
-```
+```bash
 aws ec2 describe-spot-instance-requests --spot-instance-request-ids {{sir-0e54a519c9EXAMPLE}}
 ```
 
@@ -50,7 +49,7 @@ aws ec2 describe-spot-instance-requests --spot-instance-request-ids {{sir-0e54a5
 **To get request status information**  
 Use the [Get-EC2SpotInstanceRequest](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2SpotInstanceRequest.html) cmdlet.
 
-```
+```powershell
 Get-EC2SpotInstanceRequest -SpotInstanceRequestId {{sir-0e54a519c9EXAMPLE}}
 ```
 
@@ -151,7 +150,7 @@ When a Spot Instance request is fulfilled, Amazon EC2 sends an EC2 Spot Instance
 
 The following is example data for this event.
 
-```
+```json
 {
     "version": "0",
     "id": "{{01234567-1234-0123-1234-012345678901}}",

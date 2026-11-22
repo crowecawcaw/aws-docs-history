@@ -1,7 +1,6 @@
 
 
 # Use Automation runbooks to upgrade an EC2 Windows instance
-<a name="automated-upgrades"></a>
 
 You can perform an automated upgrade of your Windows and SQL Server instances on AWS with AWS Systems Manager Automation runbooks. 
 

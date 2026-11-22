@@ -1,7 +1,6 @@
 
 
 # Spot Instance interruptions
-<a name="spot-interruptions"></a>
 
 You can launch Spot Instances on spare EC2 capacity for steep discounts in exchange for returning them when Amazon EC2 needs the capacity back. When Amazon EC2 reclaims a Spot Instance, we call this event a *Spot Instance interruption*.
 

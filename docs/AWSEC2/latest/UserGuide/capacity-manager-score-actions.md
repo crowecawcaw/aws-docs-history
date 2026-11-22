@@ -1,7 +1,6 @@
 
 
 # What to do based on your score
-<a name="capacity-manager-score-actions"></a>
 
 What you do next depends on how your fleet is configured and whether a launch has already failed.
 + **If your fleet can draw from multiple types (mixed fleet)** — Read the aggregate. High means proceed — your orchestrator (Auto Scaling group, Karpenter, Amazon EC2 Fleet) distributes across instance type and Availability Zone combinations at launch time. Medium or Low means capacity is tight across everything you listed. Add more instance type and Availability Zone combinations or try again later.

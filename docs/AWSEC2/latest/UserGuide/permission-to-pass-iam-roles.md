@@ -1,7 +1,6 @@
 
 
 # Grant permissions to attach an IAM role to an instance
-<a name="permission-to-pass-iam-roles"></a>
 
 The identities in your AWS account, such as IAM users, must have specific permissions to launch an Amazon EC2 instance with an IAM role, attach an IAM role to an instance, replace the IAM role for an instance, or detach an IAM role from an instance. You must grant permission to use the following API actions as required:
 + `iam:PassRole`
@@ -20,7 +19,7 @@ The following IAM policy grants permissions to launch instances with an IAM role
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

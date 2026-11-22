@@ -1,7 +1,6 @@
 
 
 # How Amazon EC2 topology works
-<a name="how-ec2-instance-topology-works"></a>
 
 The AWS network is arranged in a hierarchy of layers. EC2 instances connect into the network at or below the third layer, depending on the instance type. An instance's topology is described by a set of nodes, with one node in each layer of the network. The node set in the [DescribeInstanceTopology](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTopology.html) or [DescribeCapacityReservationTopology](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservationTopology.html) API response provides a top-down view of the network hierarchy, with the bottom node connected to an instance.
 
@@ -46,7 +45,7 @@ In the following example output, `i-1111111111example` and `i-2222222222example`
 **Note**  
 The response contains 3 or more network nodes. For information about the number of network nodes in the response for each supported instance type, see [Instance types](ec2-instance-topology-prerequisites.md#inst-net-topology-prereqs-instance-types).
 
-```
+```JSON
 {
     "Instances": [
         {
@@ -121,7 +120,7 @@ In the following example output, `cr-1111111111example` is located on `nn-222222
 **Note**  
 The response contains 1, 2, or 3 network nodes depending on the type of Capacity Reservation.
 
-```
+```JSON
 {
     "CapacityReservations": [
         {

@@ -1,7 +1,6 @@
 
 
 # Manage Amazon EC2 Dedicated Host recovery
-<a name="dedicated-hosts-recovery-enable"></a>
 
 Dedicated Host auto recovery restarts your instances on to a new replacement host when certain problematic conditions are detected on your Dedicated Host. You can enable host recovery when you allocate the Dedicated Host or after allocation.
 
@@ -19,7 +18,7 @@ When allocating a Dedicated Host using the Amazon EC2 console, for **Host recove
 **To enable host recovery at allocation**  
 Use the [allocate-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html) command.
 
-```
+```bash
 aws ec2 allocate-hosts \
     --instance-type {{m5.large}} \
     --availability-zone {{eu-west-1a}} \
@@ -34,7 +33,7 @@ aws ec2 allocate-hosts \
 **To enable host recovery at allocation**  
 Use the [New-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Host.html) cmdlet.
 
-```
+```powershell
 New-EC2Host `
     -InstanceType {{m5.large}} `
     -AvailabilityZone {{eu-west-1a}} `
@@ -70,7 +69,7 @@ Use the following procedures to manage host recovery for a Dedicated Host.
 **To enable host recovery after allocation**  
 Use the [modify-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-hosts.html) command.
 
-```
+```bash
 aws ec2 modify-hosts \
     --host-recovery on \
     --host-ids {{h-012a3456b7890cdef}}
@@ -79,7 +78,7 @@ aws ec2 modify-hosts \
 **To disable host recovery after allocation**  
 Use the [modify-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-hosts.html) command and specify the `host-recovery` parameter with a value of `off`.
 
-```
+```bash
 aws ec2 modify-hosts \
     --host-recovery off \
     --host-ids {{h-012a3456b7890cdef}}
@@ -91,7 +90,7 @@ aws ec2 modify-hosts \
 **To enable host recovery after allocation**  
 Use the [Edit-host](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Host.html) cmdlet.
 
-```
+```powershell
 Edit-EC2Host `
     -HostRecovery on `
     -HostId {{h-012a3456b7890cdef}}
@@ -100,7 +99,7 @@ Edit-EC2Host `
 **To disable host recovery after allocation**  
 Use the [Edit-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Host.html) cmdlet.
 
-```
+```powershell
 Edit-EC2Host `
     -HostRecovery off `
     -HostId {{h-012a3456b7890cdef}}

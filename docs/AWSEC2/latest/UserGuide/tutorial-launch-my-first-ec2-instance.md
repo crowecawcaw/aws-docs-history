@@ -1,7 +1,6 @@
 
 
 # Tutorial 1: Launch my very first Amazon EC2 instance
-<a name="tutorial-launch-my-first-ec2-instance"></a>
 
 
 | Attribute | Value | 

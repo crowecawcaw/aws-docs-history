@@ -1,7 +1,6 @@
 
 
 # Run Nitro Sandboxes with Firecracker
-<a name="nitro-sandboxes-run-firecracker"></a>
 
 You can run Nitro Sandboxes on an Amazon EC2 instance with your own orchestrator and Firecracker. For a container-focused flow in which Amazon Elastic Kubernetes Service (Amazon EKS) or Amazon Elastic Container Service (Amazon ECS) runs each pod or task in its own Nitro Sandbox, see [Sandboxing on Amazon EKS with isolated and confidential pods](https://docs.aws.amazon.com/eks/latest/userguide/sandboxing.html) in the *Amazon EKS User Guide* and [Isolated and confidential tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/isolated-confidential-tasks.html) in the *Amazon Elastic Container Service Developer Guide*. The operating system that runs in a Nitro Sandbox is called the *guest*. Your orchestrator operates the parent instance, and you are responsible for the following tasks:
 + Building guest images with the settings that your workload needs.
@@ -68,7 +67,7 @@ The parent instance and any Amazon EBS volumes that you create in these procedur
 
 1. Launch the parent instance with Nitro Enclaves enabled. Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--enclave-options Enabled=true` option.
 
-   ```
+   ```bash
    aws ec2 run-instances \
        --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.18-{{x86_64}} \
        --instance-type {{m7i.4xlarge}} \
@@ -83,25 +82,25 @@ The parent instance and any Amazon EBS volumes that you create in these procedur
 
 1. Check that the kernel version is `6.18.51-120.162.amzn2023` or later.
 
-   ```
+   ```bash
    uname -r
    ```
 
 1. Add the memory pool to the kernel command line. Size the pool for the memory of all the Nitro Sandboxes that you plan to run at the same time, plus their overhead. For the overhead, see [Considerations and limitations](amazon-ec2-nitro-sandboxes.md#nitro-sandboxes-considerations). On an instance with more than one NUMA node, see [Nitro Sandboxes on instances with multiple NUMA nodes](nitro-sandboxes-numa.md).
 
-   ```
+   ```bash
    sudo grubby --update-kernel=ALL --args="nitro_enclaves.mempool={{8G}}@0"
    ```
 
 1. Reboot the instance.
 
-   ```
+   ```bash
    sudo reboot
    ```
 
 1. Check that the parent instance reserved the pool.
 
-   ```
+   ```bash
    sudo dmesg | grep "nitro_enclaves: CMA pool"
    ```
 
@@ -115,7 +114,7 @@ The parent instance and any Amazon EBS volumes that you create in these procedur
 
 1. Download Firecracker from the [Firecracker releases](https://github.com/firecracker-microvm/firecracker/releases) on the GitHub website, and install it in `/usr/local/bin`. Replace {{version}} with version 1.18.0 or later.
 
-   ```
+   ```bash
    VERSION={{version}}
    ARCH=$(uname -m)
    curl -sSfL -o firecracker.tgz \
@@ -126,7 +125,7 @@ The parent instance and any Amazon EBS volumes that you create in these procedur
 
 1. Check the installed version.
 
-   ```
+   ```bash
    firecracker --version
    ```
 
@@ -136,13 +135,13 @@ Each running Nitro Sandbox uses one Nitro Sandbox slot. With a memory pool, the 
 
 1. View the current number of slots and the maximum for the instance.
 
-   ```
+   ```bash
    cat /sys/class/misc/nitro_enclaves/pcie_slots /sys/class/misc/nitro_enclaves/pcie_slots_total
    ```
 
 1. Raise the number of slots before you launch the additional Nitro Sandboxes.
 
-   ```
+   ```bash
    echo {{12}} | sudo tee /sys/class/misc/nitro_enclaves/pcie_slots
    ```
 
@@ -161,7 +160,7 @@ The following procedure builds a guest image from the AL2023 kernel of the paren
 
 1. Create a file named `sandbox-init` with the following content. The Nitro Sandbox runs it as its first process.
 
-   ```
+   ```bash
    #!/bin/bash
    export PATH=/usr/local/bin:/usr/sbin:/usr/bin
    mount -t proc proc /proc
@@ -183,19 +182,19 @@ The following procedure builds a guest image from the AL2023 kernel of the paren
 
 1. Make the file executable. The kernel does not start an init script without the execute permission.
 
-   ```
+   ```bash
    chmod +x sandbox-init
    ```
 
 1. Copy the kernel of the parent instance.
 
-   ```
+   ```bash
    cp /boot/vmlinuz-$(uname -r) vmlinuz
    ```
 
 1. Build the initial RAM disk. The `--install` option lists the programs that the init script calls, and **dracut** adds the libraries that they need.
 
-   ```
+   ```bash
    sudo dracut --force --no-hostonly --reproducible --no-early-microcode \
        --modules bash \
        --add-drivers "virtio_pci virtio_net vmw_vsock_virtio_transport nsm" \
@@ -218,7 +217,7 @@ You launch a Nitro Sandbox by passing a configuration to Firecracker, either as 
 
 1. Create a TAP device for the network interface of the Nitro Sandbox, give it the address of the default gateway of the guest, and turn on IP forwarding.
 
-   ```
+   ```bash
    sudo ip tuntap add dev {{tap0}} mode tap
    sudo ip addr add {{192.0.2.1/24}} dev {{tap0}}
    sudo ip link set {{tap0}} up
@@ -227,13 +226,13 @@ You launch a Nitro Sandbox by passing a configuration to Firecracker, either as 
 
 1. Install **nftables**.
 
-   ```
+   ```bash
    sudo dnf install -y nftables
    ```
 
 1. Route the traffic of the Nitro Sandbox through the primary network interface of the parent instance with NAT. The `reject` rule blocks the access of the Nitro Sandbox to the instance metadata service (IMDS) of the parent instance. Without it, the Nitro Sandbox can read the instance metadata and the IAM role credentials of the parent instance.
 
-   ```
+   ```bash
    IFACE=$(ip route show default | awk '{print $5; exit}')
    sudo nft -f - <<EOF
    table ip sandbox {
@@ -257,14 +256,14 @@ You launch a Nitro Sandbox by passing a configuration to Firecracker, either as 
 
 1. Create the directory for the vsock socket, and remove a socket that an earlier launch left behind. Firecracker does not create the directory and does not remove the socket when it stops. Use a different socket path and a different TAP device for each Nitro Sandbox that runs at the same time.
 
-   ```
+   ```bash
    sudo mkdir -p {{/run/sandbox}}
    sudo rm -f {{/run/sandbox/v.sock}}
    ```
 
 1. Save the following configuration as `sandbox.json`.
 
-   ```
+   ```json
    {
        "boot-source": {
            "kernel_image_path": "{{vmlinuz}}",
@@ -295,7 +294,7 @@ You launch a Nitro Sandbox by passing a configuration to Firecracker, either as 
 
 1. Run the following command in the directory that contains the guest image files.
 
-   ```
+   ```bash
    sudo firecracker --no-api --config-file sandbox.json
    ```
 
@@ -303,7 +302,7 @@ You launch a Nitro Sandbox by passing a configuration to Firecracker, either as 
 
 1. In another terminal, check that the Nitro Sandbox runs.
 
-   ```
+   ```bash
    cat /sys/class/misc/nitro_enclaves/pcie_slots_in_use
    ```
 
@@ -350,7 +349,7 @@ Firecracker rejects a Nitro Sandbox configuration that uses a memory balloon, vi
 
 You set the size of a Nitro Sandbox when you launch it, in the `machine-config` object.
 
-```
+```json
 "machine-config": {
     "vcpu_count": {{4}},
     "mem_size_mib": {{4096}}
@@ -379,14 +378,14 @@ Each entry in the `drives` array gives the Nitro Sandbox a block device. Firecra
 
 1. If the volume has no file system yet, create one on the parent instance. Then make sure that the parent instance does not mount the volume.
 
-   ```
+   ```bash
    sudo dnf install -y e2fsprogs
    sudo mkfs.ext4 {{/dev/nvme1n1}}
    ```
 
 1. In `sandbox.json`, replace the `drives` array with the following.
 
-   ```
+   ```json
    "drives": [
        {
            "drive_id": "data",
@@ -399,7 +398,7 @@ Each entry in the `drives` array gives the Nitro Sandbox a block device. Firecra
 
 1. Add the block device driver and the file system to the guest image from [Prepare a guest image](#nitro-sandboxes-guest-image). In `sandbox-init`, add the following lines before the line that starts your workload. The guest sees the first drive as `/dev/vda`.
 
-   ```
+   ```bash
    modprobe -a virtio_blk ext4
    mkdir -p /data
    mount /dev/vda /data
@@ -407,7 +406,7 @@ Each entry in the `drives` array gives the Nitro Sandbox a block device. Firecra
 
 1. Build the initial RAM disk again, with the additional drivers and programs.
 
-   ```
+   ```bash
    sudo dracut --force --no-hostonly --reproducible --no-early-microcode \
        --modules bash \
        --add-drivers "virtio_pci virtio_net vmw_vsock_virtio_transport nsm virtio_blk ext4" \
@@ -428,7 +427,7 @@ The parent instance can read the data on every block device that it presents. Fo
 
 When you no longer need the Nitro Sandboxes, stop them, and then terminate the parent instance with the [terminate-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/terminate-instances.html) command. Delete any Amazon EBS volumes that you created for data drives with the [delete-volume](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-volume.html) command.
 
-```
+```bash
 aws ec2 terminate-instances --instance-ids {{i-1234567890abcdef0}}
 aws ec2 delete-volume --volume-id {{vol-1234567890abcdef0}}
 ```

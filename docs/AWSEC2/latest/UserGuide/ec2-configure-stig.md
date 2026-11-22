@@ -1,7 +1,6 @@
 
 
 # STIG compliance for your EC2 instance
-<a name="ec2-configure-stig"></a>
 
 Security Technical Implementation Guides (STIGs) are the configuration hardening standards created by the Defense Information Systems Agency (DISA) to secure information systems and software. To make your systems compliant with STIG standards, you must install, configure, and test a variety of security settings.
 

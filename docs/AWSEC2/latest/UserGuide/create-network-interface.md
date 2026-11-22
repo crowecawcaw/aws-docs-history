@@ -1,7 +1,6 @@
 
 
 # Create a network interface for your EC2 instance
-<a name="create-network-interface"></a>
 
 You can create a network interface for use by your EC2 instances. When you create a network interface, you specify the subnet for which it is created. You can't move a network interface to another subnet after it's created. You must attach a network interface to an instance in the same Availability Zone. You can detach a secondary network interface from an instance and then attach it to a different instance in the same Availability Zone. You can't detach a primary network interface from an instance. For more information, see [Network interface attachments for your EC2 instance](network-interface-attachments.md).
 
@@ -69,7 +68,7 @@ You can create a network interface for use by your EC2 instances. When you creat
 **Example 1: To create a network interface with IP addresses chosen by Amazon EC2**  
 Use the following [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command. This example creates a network interface with a public IPv4 address and an IPv6 address chosen by Amazon EC2.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --description "{{my dual-stack network interface}}" \
@@ -80,7 +79,7 @@ aws ec2 create-network-interface \
 **Example 2: To create a network interface with specific IP addresses**  
 Use the following [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --description "{{my dual-stack network interface}}" \
@@ -92,7 +91,7 @@ aws ec2 create-network-interface \
 **Example 3: To create a network interface with a count of secondary IP addresses**  
 Use the following [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command. In this example, Amazon EC2 chooses both the primary IP address and the secondary IP addresses.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --description "{{my network interface}}" \
@@ -103,7 +102,7 @@ aws ec2 create-network-interface \
 **Example 4: To create a network interface with a specific secondary IP address**  
 Use the following [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command. This example specifies a primary IP address and a secondary IP address.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-0abcdef1234567890}} \
     --description "{{my network interface}}" \
@@ -118,7 +117,7 @@ aws ec2 create-network-interface \
 **Example 1: To create a network interface with IP addresses chosen by Amazon EC2**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet. This example creates a network interface with a public IPv4 address and an IPv6 address chosen by Amazon EC2.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -Description "{{my dual-stack network interface}}" `
@@ -129,7 +128,7 @@ New-EC2NetworkInterface `
 **Example 2: To create a network interface with specific IP addresses**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -Description "{{my dual-stack network interface}}" `
@@ -140,7 +139,7 @@ New-EC2NetworkInterface `
 
 Define the IPv6 addresses as follows.
 
-```
+```powershell
 $ipv6addr = New-Object Amazon.EC2.Model.InstanceIpv6Address
 $ipv6addr1.Ipv6Address = "{{2001:db8::1234:5678:1.2.3.4}}"
 ```
@@ -148,7 +147,7 @@ $ipv6addr1.Ipv6Address = "{{2001:db8::1234:5678:1.2.3.4}}"
 **Example 3: To create a network interface with a count of secondary IP addresses**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet. In this example, Amazon EC2 chooses both the primary IP address and the secondary IP addresses.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -Description "{{my network interface}}" `
@@ -159,7 +158,7 @@ New-EC2NetworkInterface `
 **Example 4: To create a network interface with a specific secondary IP address**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet. This example specifies a primary IP address and a secondary IP address.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId {{subnet-0abcdef1234567890}} `
     -Description "{{my network interface}}" `
@@ -169,7 +168,7 @@ New-EC2NetworkInterface `
 
 Define the secondary addresses as follows.
 
-```
+```powershell
 $primary = New-Object Amazon.EC2.Model.PrivateIpAddressSpecification
 $primary.PrivateIpAddress = "{{10.0.1.30}}"
 $primary.Primary = $true

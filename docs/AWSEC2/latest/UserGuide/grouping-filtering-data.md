@@ -1,7 +1,6 @@
 
 
 # Grouping and filtering data
-<a name="grouping-filtering-data"></a>
 
 Capacity Manager aggregates your metrics based on the dimensions and date period you choose. If no dimensions are chosen, Capacity Manager will aggregate the data and return one data point per period in the date range. You can group your data into smaller aggregations by adding dimensions, including tag dimensions from your Amazon EC2 resources.
 + **Grouping** — Break down your capacity data by dimensions such as Region, Instance Family, Account ID, or tag keys. You can group your metrics by multiple dimensions to break down your data further. For example, if you group by Region and Availability Zone, you get a data point for each Region and AZ combination where you have usage.

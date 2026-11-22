@@ -1,7 +1,6 @@
 
 
 # How Amazon EC2 Capacity Blocks work
-<a name="capacity-blocks-how"></a>
 
 You can reserve a Capacity Block with the following specifications: 
 + Reserve a start time up to 8 weeks in advance
@@ -11,7 +10,7 @@ You can reserve a Capacity Block with the following specifications:
 
 For Amazon EC2 UltraServers, each UltraServer corresponds to one Capacity Block. You can request multiple UltraServers through a single request.
 
-To reserve a Capacity Block, you start by specifying your capacity needs, including the instance type or UltraServer type, the number of instances or UltraServers, amount of time, earliest start date, and latest end date that you need. Then, you can see an available Capacity Block offering that meets your specifications. The Capacity Block offering includes details such as start time, Availability Zone, and reservation price. The price of a Capacity Block offering depends on available supply and demand at the time the offering was delivered. After you reserve a Capacity Block, the price doesn't change. For more information, see [Capacity Blocks pricing and billing](capacity-blocks-pricing-billing.md).
+To reserve a Capacity Block, you start by specifying your capacity needs, including the instance types (up to 10) or UltraServer type, the number of instances or UltraServers, amount of time, earliest start date, and latest end date that you need. In the Amazon EC2 console, you can also specify additional Regions to search. Then, you can see up to 6 offerings in the API and up to 10 in the console, ranked by earliest start date. The Capacity Block offering includes details such as instance type, start time, Availability Zone, and reservation price. The price of a Capacity Block offering depends on available supply and demand at the time the offering was delivered. After you reserve a Capacity Block, the price doesn't change. For more information, see [Capacity Blocks pricing and billing](capacity-blocks-pricing-billing.md).
 
 When you purchase a Capacity Block offering, your reservation is created for the date and number of instances that you selected. When your Capacity Block reservation begins, you can target instance launches by specifying the reservation ID in your launch requests. 
 

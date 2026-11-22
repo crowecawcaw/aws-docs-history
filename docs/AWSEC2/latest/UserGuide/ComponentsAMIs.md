@@ -1,7 +1,6 @@
 
 
 # AMI types and characteristics in Amazon EC2
-<a name="ComponentsAMIs"></a>
 
 When you launch an instance, the AMI that you choose must be compatible with the instance type that you choose. You can select an AMI to use based on the following characteristics:
 + [Region](using-regions-availability-zones.md)

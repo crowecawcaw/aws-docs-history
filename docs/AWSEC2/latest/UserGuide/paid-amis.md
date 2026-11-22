@@ -1,7 +1,6 @@
 
 
 # Paid AMIs in the AWS Marketplace for Amazon EC2 instances
-<a name="paid-amis"></a>
 
 A *paid AMI* is an AMI that is listed for sale in the AWS Marketplace. The AWS Marketplace is an online store where you can buy software that runs on AWS, including AMIs that you can use to launch your EC2 instance. The AWS Marketplace AMIs are organized into categories, such as Developer Tools, to enable you to find products to suit your requirements. For more information about AWS Marketplace, see the [AWS Marketplace](https://aws.amazon.com/marketplace) website.
 

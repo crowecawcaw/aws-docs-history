@@ -1,7 +1,6 @@
 
 
 # Grant IAM permissions for EC2 Instance Connect
-<a name="ec2-instance-connect-configure-IAM-role"></a>
 
 To connect to an instance using EC2 Instance Connect, you must create an IAM policy that grants your users permissions for the following actions and condition:
 + `ec2-instance-connect:SendSSHPublicKey` action – Grants permission to push the public key to an instance.
@@ -31,7 +30,7 @@ In the following example IAM policy, the following actions and condition are spe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -77,7 +76,7 @@ The `ec2:DescribeVpcs` action is specified to grant permission to users who will
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

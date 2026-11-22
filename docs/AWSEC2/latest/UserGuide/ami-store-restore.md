@@ -1,7 +1,6 @@
 
 
 # Store and restore an AMI using S3
-<a name="ami-store-restore"></a>
 
 You can store an Amazon Machine Image (AMI) in an Amazon S3 bucket, copy the AMI to another S3 bucket, and then restore it from the S3 bucket. By storing and restoring an AMI using S3 buckets, you can copy AMIs from one AWS partition to another, for example, from the main commercial partition to the AWS GovCloud (US) partition. You can also make archival copies of AMIs by storing them in an S3 bucket.
 
@@ -66,3 +65,6 @@ You can make archival copies of AMIs by storing them in an S3 bucket. The AMI is
 <a name="store-restore-costs"></a>
 
 When you store and restore AMIs using S3, you are charged for the services that are used by the store and restore APIs, and for data transfer. The APIs use S3 and the EBS Direct API (used internally by these APIs to access the snapshot data). For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/) and [Amazon EBS pricing](https://aws.amazon.com/ebs/pricing/).
+
+**Note**  
+If a store task fails or doesn't complete, the multipart upload that it started might remain incomplete in your S3 bucket. S3 charges you for the storage used by the uploaded parts until you abort the multipart upload. To avoid these charges, configure an S3 Lifecycle rule that aborts incomplete multipart uploads on the bucket. For more information, see [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.html).

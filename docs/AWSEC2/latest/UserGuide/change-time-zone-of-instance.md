@@ -1,7 +1,6 @@
 
 
 # Change the time zone of your instance
-<a name="change-time-zone-of-instance"></a>
 
 Amazon EC2 instances are set to the UTC (Coordinated Universal Time) time zone by default. You can change the time on an instance to the local time zone or to another time zone in your network.
 
@@ -17,25 +16,25 @@ This information applies to Amazon Linux. For information about other distributi
 
 1. View the system's current time zone setting.
 
-   ```
+   ```bash
    [ec2-user ~]$ timedatectl
    ```
 
 1. List the available time zones.
 
-   ```
+   ```bash
    [ec2-user ~]$ timedatectl list-timezones
    ```
 
 1. Set the chosen time zone.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo timedatectl set-timezone {{America/Vancouver}}
    ```
 
 1. (Optional) Confirm that the current time zone is updated to the new time zone by running the **timedatectl** command again.
 
-   ```
+   ```bash
    [ec2-user ~]$ timedatectl
    ```
 
@@ -48,13 +47,13 @@ This information applies to Amazon Linux. For information about other distributi
 
 1. Identify the time zone to use on the instance. To get a list of time zones, use the following command:
 
-   ```
+   ```bash
    tzutil /l
    ```
 
    This command returns a list of all available time zones in the following format:
 
-   ```
+   ```bash
    {{display name}}
    {{time zone ID}}
    ```
@@ -63,13 +62,13 @@ This information applies to Amazon Linux. For information about other distributi
 
 1. Example: Assign the UTC time zone:
 
-   ```
+   ```bash
    tzutil /s "UTC"
    ```
 
    Example: Assign Pacific Standard Time:
 
-   ```
+   ```bash
    tzutil /s "Pacific Standard Time"
    ```
 
@@ -81,19 +80,19 @@ When you change the time zone on a Windows instance, you must ensure that the ti
 
 1. Use the following command to add the registry key:
 
-   ```
+   ```batch
    reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
    ```
 
 1. (Optional) Verify that the instance saved the key successfully using the following command:
 
-   ```
+   ```bash
    reg query "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /s
    ```
 
    This command returns the subkeys for the **TimeZoneInformation** registry key. You should see the **RealTimeIsUniversal** key at the bottom of the list, similar to the following:
 
-   ```
+   ```bash
    HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation
        Bias                            REG_DWORD     0x1e0
        DaylightBias                    REG_DWORD     0xffffffc4

@@ -1,7 +1,6 @@
 
 
 # Shared placement groups
-<a name="share-placement-group"></a>
 
 Placement group sharing allows you to influence the placement of interdependent instances that are owned by separate AWS accounts. An owner can share a placement group across multiple AWS accounts or within their organization. A participant can launch instances in a placement group that is shared with their account.
 

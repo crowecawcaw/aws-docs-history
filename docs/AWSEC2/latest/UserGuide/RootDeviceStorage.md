@@ -1,7 +1,6 @@
 
 
 # Root volumes for your Amazon EC2 instances
-<a name="RootDeviceStorage"></a>
 
 When you launch an instance, we create a *root volume* for the instance. The root volume contains the image used to boot the instance. Each instance has a single root volume. You can add storage volumes to your instances during or after launch.
 

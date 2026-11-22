@@ -1,7 +1,6 @@
 
 
 # Migrate to a new instance type by launching a new EC2 instance
-<a name="migrate-instance-configuration"></a>
 
 You can change the instance type of an EC2 instance only if it is an EBS-backed instance with a configuration that is compatible with the new instance type that you want. Otherwise, if the configuration or your instance is not compatible with the new instance type, or it is an instance store-based instance, you must launch a replacement instance that is compatible with the instance type that you want. For more information about how compatibility is determined, see [Compatibility for changing the instance type](resize-limitations.md).
 

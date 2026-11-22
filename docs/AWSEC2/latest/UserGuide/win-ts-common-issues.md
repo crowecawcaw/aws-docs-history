@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with Amazon EC2 Windows instances
-<a name="win-ts-common-issues"></a>
 
 The following are troubleshooting tips to help you solve the issues with Amazon EC2 Windows instances.
 
@@ -21,7 +20,7 @@ You may encounter an issue connecting AWS Systems Manager Sessions Manager to a 
 
 You can also use the following PowerShell command to perform the same action:
 
-```
+```ps
 Start-Process -FilePath "$env:SystemRoot\system32\Dism.exe" -ArgumentList @('/Online', '/Add-Capability', '/CapabilityName:WMIC~~~~') -Wait; Restart-Service -Name AmazonSSMAgent
 ```
 
@@ -36,7 +35,7 @@ Instances created from Amazon Machine Images (AMIs) for Windows Server 2016 and 
 
 1. Specify the volume settings as follows:
 
-   ```
+   ```json
    {
    "driveLetterMapping": [
    	{
@@ -50,13 +49,13 @@ Instances created from Amazon Machine Images (AMIs) for Windows Server 2016 and 
 
 1. Open Windows PowerShell and use the following command to run the EC2Launch v1 script that initializes the disks:
 
-   ```
+   ```bash
    PS C:\>  C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeDisks.ps1
    ```
 
    To initialize the disks each time the instance boots, add the `-Schedule` flag as follows:
 
-   ```
+   ```bash
    PS C:\>  C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeDisks.ps1 -Schedule
    ```
 
@@ -64,7 +63,7 @@ Instances created from Amazon Machine Images (AMIs) for Windows Server 2016 and 
 **Note**  
 If the EC2Launch script does not initialize the volumes, ensure that the volumes are online. If the volumes are offline, run the following command to bring all disks online.  
 
-   ```
+   ```PowerShell
    PS C:\> Get-Disk | Where-Object IsOffline -Eq $True | Set-Disk -IsOffline $False
    ```
 
@@ -108,7 +107,7 @@ If you suspect that Active Directory has been corrupted and the instance is stil
 **To boot an online instance into DSRM using the command line**  
 From a Command Prompt window, run the following command:
 
-```
+```batch
 bcdedit /set safeboot dsrepair
 ```
 
@@ -134,7 +133,7 @@ If you do not create the instance in the same Availability Zone as the affected 
 
 1. Open a command prompt and run the following command. Replace *D* with the actual drive letter of the secondary volume you just attached:
 
-   ```
+   ```batch
    bcdedit /store D:\Boot\BCD /set {default} safeboot dsrepair
    ```
 
@@ -198,7 +197,7 @@ The following procedure describes how to edit the Windows Registry using Registr
 
 1. Locate the four-byte disk signature at offset 0x38 in the data. This is the Boot Configuration Database signature (BCD). Reverse the bytes to create the disk signature, and write it down. For example, the disk signature represented by the following data is `E9EB3AA5`:
 
-   ```
+   ```bash
    ...
    0030  00 00 00 00 01 00 00 00
    0038  {{A5 3A EB E9}} 00 00 00 00
@@ -208,7 +207,7 @@ The following procedure describes how to edit the Windows Registry using Registr
 
 1. In a Command Prompt window, run the following command to start Microsoft DiskPart.
 
-   ```
+   ```bash
    diskpart
    ```
 
@@ -216,7 +215,7 @@ The following procedure describes how to edit the Windows Registry using Registr
 **Tip**  
 To check the disk number for the volume with the disk signature collision, use the **Disk Management** utility. Open a command prompt, type `compmgmt.msc` and press **Enter**. In the left-hand navigation panel, open **Disk Management**. In the **Disk Management** utility, check the disk number for the offline volume with the disk signature collision.
 
-   ```
+   ```bash
    DISKPART> select disk {{1}}
    Disk {{1}} is now the selected disk.
    ```
@@ -230,6 +229,6 @@ To check the disk number for the volume with the disk signature collision, use t
 
 1. If the disk signature shown in the previous step doesn't match the disk signature that you wrote down earlier, use the following DiskPart command to change the disk signature so that it matches:
 
-   ```
+   ```bash
    DISKPART> uniqueid disk id={{E9EB3AA5}}
    ```

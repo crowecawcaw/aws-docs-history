@@ -1,7 +1,6 @@
 
 
 # Connect to your Mac instance using SSH or a GUI
-<a name="connect-to-mac-instance"></a>
 
 You can connect to your Mac instance using SSH or a graphical user interface (GUI).
 
@@ -26,7 +25,7 @@ Use the following procedure to connect to your Mac instance using an SSH client.
 
 1. Connect to your instance using the following **ssh** command, specifying the public DNS name of the instance and the `.pem` file.
 
-   ```
+   ```bash
    ssh -i {{/path/key-pair-name}}.pem ec2-user@{{instance-public-dns-name}}
    ```
 
@@ -48,13 +47,13 @@ macOS 10.14 and later only allows control if Screen Sharing is enabled through [
 
 1. Set up a password for the ec2-user account using the **passwd** command as follows.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo passwd ec2-user
    ```
 
 1. Install and start macOS Screen Sharing using the following command.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo launchctl enable system/com.apple.screensharing
    sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
    ```
@@ -63,7 +62,7 @@ macOS 10.14 and later only allows control if Screen Sharing is enabled through [
 
 1. From your computer, connect to your instance using the following **ssh** command. In addition to the options shown in the previous section, use the **-L** option to enable port forwarding and forward all traffic on local port 5900 to the ARD server on the instance.
 
-   ```
+   ```bash
    ssh -L 5900:localhost:5900 -i {{/path/key-pair-name}}.pem ec2-user@{{instance-public-dns-name}}
    ```
 
@@ -86,25 +85,25 @@ After you connect to your EC2 Mac instance using ARD or a VNC client that suppor
 
 1. Install displayplacer.
 
-   ```
+   ```bash
    [ec2-user ~]$ brew tap jakehilborn/jakehilborn && brew install displayplacer
    ```
 
 1. Show the current screen information and possible screen resolutions.
 
-   ```
+   ```bash
    [ec2-user ~]$ displayplacer list
    ```
 
 1. Apply the desired screen resolution.
 
-   ```
+   ```bash
    [ec2-user ~]$ displayplacer "id:<screenID> res:<width>x<height> origin:(0,0) degree:0"
    ```
 
    For example:
 
-   ```
+   ```bash
    RES="2560x1600"
    displayplacer "id:69784AF1-CD7D-B79B-E5D4-60D937407F68 res:${RES} scaling:off origin:(0,0) degree:0"
    ```

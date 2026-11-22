@@ -1,7 +1,6 @@
 
 
 # Add and remove tags for Amazon EC2 resources
-<a name="Using_Tags_Console"></a>
 
 When you create an Amazon EC2 resource, such as an Amazon EC2 instance, you can specify the tags to add to the resource. You can also use the Amazon EC2 console to display the tags for a specific Amazon EC2 resource. You can also add or remove tags from an existing Amazon EC2 resource.
 
@@ -42,7 +41,7 @@ You can add tags when you create a resource or to an existing resource.
 **To add a tag on resource creation**  
 Use the `-tag-specifications` option to tag a resource on creation. A tag specification requires the type of resource to be tagged, the tag key, and the tag value. The following example creates a tag and adds it to a tag specification.
 
-```
+```bash
 --tag-specifications 'ResourceType={{instance}},Tags=[{Key={{stack}},Value={{production}}}]'
 ```
 
@@ -52,7 +51,7 @@ The following examples demonstrate how to add tags to existing resources using t
 **Example: Add a tag to a resource**  
 The following command adds the tag **Stack=production** to the specified image, or overwrites an existing tag for the AMI where the tag key is stack. If the command succeeds, no output is returned.  
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{ami-0abcdef1234567890}} \
     --tags Key={{stack}},Value={{production}}
@@ -61,7 +60,7 @@ aws ec2 create-tags \
 **Example: Add tags to multiple resources**  
 This example adds (or overwrites) two tags for an AMI and an instance. One of the tags contains just a key (webserver), with no value (we set the value to an empty string). The other tag consists of a key (stack) and value (**Production**). If the command succeeds, no output is returned.  
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{ami-0abcdef1234567890}} {{i-1234567890abcdef0}} \
     --tags Key={{webserver}},Value=  Key={{stack}},Value={{Production}}
@@ -71,21 +70,21 @@ aws ec2 create-tags \
 This example adds the tag [Group]=test to an instance. The square brackets ([ and ]) are special characters, which must be escaped.  
 If you are using Linux or OS X, to escape the special characters, enclose the element with the special character with double quotes ("), and then enclose the entire key and value structure with single quotes (').  
 
-```
+```bash
 aws ec2 create-tags \
     --resources {{i-1234567890abcdef0}} \
     --tags 'Key="{{[Group]}}",Value={{test}}'
 ```
 If you are using Windows, to escape the special characters, enclose the element that has special characters with double quotes ("), and then precede each double quote character with a backslash (**\\**) as follows:  
 
-```
+```bash
 aws ec2 create-tags ^
     --resources {{i-1234567890abcdef0}} ^
     --tags Key=\"{{[Group]}}\",Value={{test}}
 ```
 If you are using Windows PowerShell, to escape the special characters, enclose the value that has special characters with double quotes (**"**), precede each double quote character with a backslash (**\\**), and then enclose the entire key and value structure with single quotes (**'**) as follows:  
 
-```
+```bash
 aws ec2 create-tags `
     --resources {{i-1234567890abcdef0}} `
     --tags 'Key=\"{{[Group]}}\",Value={{test}}'
@@ -99,7 +98,7 @@ You can add tags when you create a resource or to an existing resource.
 **To add a tag on resource creation**  
 Use the `-TagSpecification` parameter to tag a resource on creation. A tag specification requires the type of resource to be tagged, the tag key, and the tag value. The following example creates a tag and adds it to a tag specification.
 
-```
+```powershell
 $tag = @{Key="{{stack}}"; Value="{{production}}"}
 $tagspec = new-object Amazon.EC2.Model.TagSpecification
 $tagspec.ResourceType = "{{instance}}"
@@ -108,14 +107,14 @@ $tagspec.Tags.Add($tag)
 
 The following example specifies this tag in the `-TagSpecification` parameter.
 
-```
+```powershell
 -TagSpecification $tagspec
 ```
 
 **To add a tag to an existing resource**  
 Use the [New-EC2Tag](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Tag.html) cmdlet. You must specify the resource, the tag key, and the tag value.
 
-```
+```powershell
 New-EC2Tag `
     -Resource {{i-1234567890abcdef0}} `
     -Tag @{Key="{{purpose}}"; Value="{{production}}"}
@@ -130,7 +129,7 @@ The following examples add the tag **Stack=Production** to [AWS::EC2::Instance](
 
 **Example: Tags in YAML**  
 
-```
+```yaml
 Tags:
   - Key: "Stack"
     Value: "Production"
@@ -138,7 +137,7 @@ Tags:
 
 **Example: Tags in JSON**  
 
-```
+```json
 "Tags": [
     {
         "Key": "Stack",
@@ -151,7 +150,7 @@ The following examples add the tag **Stack=Production** to [AWS::EC2::LaunchTemp
 
 **Example: TagSpecifications in YAML**  
 
-```
+```yaml
 TagSpecifications:
   - ResourceType: "instance"
     Tags:
@@ -161,7 +160,7 @@ TagSpecifications:
 
 **Example: TagSpecifications in JSON**  
 
-```
+```json
 "TagSpecifications": [
     {
         "ResourceType": "instance",

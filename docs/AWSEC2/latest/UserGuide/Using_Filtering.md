@@ -1,7 +1,6 @@
 
 
 # Find your Amazon EC2 resources
-<a name="Using_Filtering"></a>
 
 You can get a list of some types of resources using the Amazon EC2 console. You can get a list of each type of resource using its corresponding command or API action. If you have many resources, you can filter the results to include, or exclude, only the resources that match certain criteria.
 
@@ -227,7 +226,7 @@ Each resource type has a corresponding API actions that you use to describe, lis
 + Your search can include the literal values of the wildcard characters; you just need to escape them with a backslash before the character. For example, a value of `\*amazon\?\\` searches for the literal string `*amazon?\`.
 + You can't specify a filter value of null. Instead, use client-side filtering. For example, the following command uses the **--query** option and returns the IDs of the instances that were launched without a key pair.
 
-  ```
+  ```bash
   aws ec2 describe-instances \
       --query 'Reservations[*].Instances[?!not_null(KeyName)].InstanceId' \
       --output text
@@ -239,12 +238,12 @@ Each resource type has a corresponding API actions that you use to describe, lis
 **Example: Specify a single filter**  
 You can list your Amazon EC2 instances using [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html). Without filters, the response contains information for all of your resources. You can use the following option to include only the running instances in the output.  
 
-```
+```bash
 --filters Name=instance-state-name,Values=running
 ```
 To list only the instance IDs for your running instances, add the `--query` option as follows.  
 
-```
+```bash
 --query "Reservations[*].Instances[*].InstanceId"
 ```
 
@@ -252,41 +251,41 @@ To list only the instance IDs for your running instances, add the `--query` opti
 If you specify multiple filters or multiple filter values, the resource must match all filters to be included in the output.  
 You can use the following option to list all instances whose type is either `m5.large` or `m5d.large`.  
 
-```
+```bash
 --filters Name=instance-type,Values=m5.large,m5d.large
 ```
 You can use the following option to list all stopped instances whose type is `t2.micro`.  
 
-```
+```bash
 --filters Name=instance-state-name,Values=stopped Name=instance-type,Values=t2.micro
 ```
 
 **Example: Use wildcards in a filter value**  
 You can use the following option with [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) to return only the snapshots whose description is "database".  
 
-```
+```bash
 --filters Name=description,Values=database
 ```
 The \* wildcard matches zero or more characters. You can use the following option to return only the snapshots whose description includes the word database.  
 
-```
+```bash
 --filters Name=description,Values=*database*
 ```
 The ? wildcard matches exactly 1 character. You can use the following option to return only the snapshots whose description is "database" or "database" followed by one character.  
 
-```
+```bash
 --filters Name=description,Values=database?
 ```
 You can use the following option to return only the snapshots whose description is "database" followed by up to four characters. This excludes descriptions with "database" followed by five or more characters.  
 
-```
+```bash
 --filters Name=description,Values=database????
 ```
 
 **Example: Filter based on date**  
 With the AWS CLI, you can use JMESPath to filter results using expressions. For example, the following [describe-snapshots](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html) command displays the IDs of all snapshots created by the specified AWS account before the specified date. If you do not specify the owner, the results include all public snapshots.  
 
-```
+```bash
 aws ec2 describe-snapshots \
     --filters Name=owner-id,Values={{123456789012}} \
     --query "Snapshots[?(StartTime<='{{2024-03-31}}')].[SnapshotId]" \
@@ -294,7 +293,7 @@ aws ec2 describe-snapshots \
 ```
 The following example displays the IDs of all snapshots created in the specified date range.  
 
-```
+```bash
 aws ec2 describe-snapshots \
     --filters Name=owner-id,Values={{123456789012}} \
     --query "Snapshots[?(StartTime>='{{2024-01-01}}') && (StartTime<='{{2024-12-31}}')].[SnapshotId]" \
@@ -310,13 +309,13 @@ For examples of how to filter a list of resources according to their tags, see [
 **Example: Specify a single filter**  
 You can list your Amazon EC2 instances using [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html). Without filters, the response contains information for all of your resources. You can use the following parameter to include only the running instances in the output.  
 
-```
+```powershell
 -Filter @{Name="instance-state-name"; Values="running"}
 ```
 
 The following example lists only the instance IDs for your running instances.
 
-```
+```powershell
 (Get-EC2Instance -Filter @{Name="instance-state-name"; Values="stopped"}).Instances | Select InstanceId
 ```
 
@@ -324,12 +323,12 @@ The following example lists only the instance IDs for your running instances.
 If you specify multiple filters or multiple filter values, the resource must match all filters to be included in the results.  
 You can use the following option to list all instances whose type is either `m5.large` or `m5d.large`.  
 
-```
+```powershell
 -Filter @{Name="instance-type"; Values="m5.large", "m5d.large"}
 ```
 You can use the following option to list all stopped instances whose type is `t2.micro`.  
 
-```
+```powershell
 -Filter @{Name="instance-state-name"; Values="stopped"}, @{Name="instance-type"; Values="t2.micro"}
 ```
 

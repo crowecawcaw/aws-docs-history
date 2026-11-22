@@ -1,7 +1,6 @@
 
 
 # Manage CloudWatch alarms for your EC2 instances in the Amazon EC2 console
-<a name="ec2-instance-alarms"></a>
 
 From the **Instances** screen in the Amazon EC2 console, you can manage the Amazon CloudWatch alarms for your instances. In the **Instances** table, the **Alarm status** column provides two console controls: a control for viewing alarms, and another for creating or editing them. The following screenshot indicates these console controls, numbered **1** (**View alarms**) and **2** (a **\+** sign for creating or editing an alarm).
 

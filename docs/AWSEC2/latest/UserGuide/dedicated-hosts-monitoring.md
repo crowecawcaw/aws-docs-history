@@ -1,7 +1,6 @@
 
 
 # Monitor the state of your Amazon EC2 Dedicated Hosts
-<a name="dedicated-hosts-monitoring"></a>
 
 Amazon EC2 constantly monitors the state of your Dedicated Hosts. Updates are communicated on the Amazon EC2 console. You can view information about a Dedicated Host using the following methods.
 
@@ -22,7 +21,7 @@ Amazon EC2 constantly monitors the state of your Dedicated Hosts. Updates are co
 **To view the state of a Dedicated Host**  
 Use the [describe-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-hosts.html) command.
 
-```
+```bash
 aws ec2 describe-hosts --host-id {{h-012a3456b7890cdef}}
 ```
 
@@ -32,7 +31,7 @@ aws ec2 describe-hosts --host-id {{h-012a3456b7890cdef}}
 **To view the state of a Dedicated Host**  
 Use the [Get-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Host.html) cmdlet.
 
-```
+```powershell
 Get-EC2Host -HostId {{h-012a3456b7890cdef}}
 ```
 

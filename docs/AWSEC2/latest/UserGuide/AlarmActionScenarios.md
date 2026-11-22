@@ -1,7 +1,6 @@
 
 
 # Amazon CloudWatch alarm action scenarios
-<a name="AlarmActionScenarios"></a>
 
 You can use the Amazon EC2 console to create alarm actions that stop or terminate an Amazon EC2 instance when certain conditions are met. In the following screen capture of the console page where you set the alarm actions, we've numbered the settings. We've also numbered the settings in the scenarios that follow, to help you create the appropriate actions.
 

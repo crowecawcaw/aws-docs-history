@@ -1,7 +1,6 @@
 
 
 # View resources across Regions using AWS Global View
-<a name="global-view"></a>
 
 AWS Global View enables you to view some of your resources across a single AWS Region, or across multiple Regions in a single console. AWS Global View also provides *global search* functionality that lets you search for specific resources or specific resource types across multiple Regions simultaneously. 
 
@@ -45,7 +44,7 @@ A user must have the following permissions to use AWS Global View.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

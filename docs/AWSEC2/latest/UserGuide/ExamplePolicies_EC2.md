@@ -1,7 +1,6 @@
 
 
 # Example policies to control access the Amazon EC2 API
-<a name="ExamplePolicies_EC2"></a>
 
 You can use IAM policies to grant users the permissions required to work with Amazon EC2. For step-by-step directions, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
@@ -36,7 +35,7 @@ Users don't have permission to perform any actions on the resources (unless anot
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -61,7 +60,7 @@ The following policy denies users permission to use all Amazon EC2 API actions u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -88,7 +87,7 @@ Alternatively, you can use the condition key `ec2:Region`, which is specific to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -127,7 +126,7 @@ The users don't have permission to use any other API actions (unless another sta
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -168,7 +167,7 @@ The third statement allows users to terminate all instances in the `us-east-1` R
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -234,7 +233,7 @@ The following policy allows users to launch instances using only the specified A
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -265,7 +264,7 @@ Alternatively, the following policy allows users to launch instances from all AM
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -309,7 +308,7 @@ The following policy allows users to launch instances using only the `t2.micro` 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -350,7 +349,7 @@ Alternatively, you can create a policy that denies users permissions to launch a
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -395,7 +394,7 @@ The following policy allows users to launch instances using only the specified s
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -425,7 +424,7 @@ Alternatively, you could create a policy that denies users permissions to launch
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -470,7 +469,7 @@ The following policy allows users to launch instances only if the EBS volumes fo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -518,7 +517,7 @@ For more information, see [Grant permission to tag Amazon EC2 resources during c
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -556,7 +555,7 @@ The following policy includes the `aws:RequestTag` condition key that requires u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -616,7 +615,7 @@ The following policy uses the `ForAnyValue` modifier on the `aws:TagKeys` condit
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -675,7 +674,7 @@ In the following policy, users do not have to specify tags in the request, but i
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -717,7 +716,7 @@ To disallow anyone called tag on create for RunInstances
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -761,7 +760,7 @@ In the following example, users can launch instances, but only if they use a spe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -808,7 +807,7 @@ The `ec2:ElasticGpuType` condition key ensures that instances use either the `eg
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -859,7 +858,7 @@ In the following example, users can launch instances, but only if they use a spe
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -886,7 +885,7 @@ In this example, users can launch instances only if they use a launch template. 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -916,7 +915,7 @@ The following example policy allows user to launch instances, but only if they u
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -958,7 +957,7 @@ The following example allows users to launch instances only if they use a launch
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	  
   "Statement": [
@@ -1019,7 +1018,7 @@ To use RunInstances to create Spot Instance requests, you can omit `spot-instanc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1053,7 +1052,7 @@ The following policy is meant to give users the permission to launch On-Demand I
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1095,7 +1094,7 @@ If you tag a Spot Instance request on create, Amazon EC2 evaluates the `spot-ins
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1139,7 +1138,7 @@ The first statement allows RunInstances to create the listed resources. The `spo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1182,7 +1181,7 @@ Note that specifying another tag other than `environment=production` results in 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1237,7 +1236,7 @@ The second statement denies users the permission to create a Spot Instance reque
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1295,7 +1294,7 @@ The `Resource` element uses a \* wildcard to indicate that users can specify all
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -1323,7 +1322,7 @@ To allow users to view and modify the Reserved Instances in your account, but no
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -1352,7 +1351,7 @@ The following policy allows users to use the `CreateTags` action to apply tags t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1381,7 +1380,7 @@ The following policy allows users to tag any taggable resource that already has 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1414,7 +1413,7 @@ If you delete a resource, all tags associated with the resource are also deleted
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1441,7 +1440,7 @@ This policy allows users to delete only the `environment=prod` tag on any resour
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1479,7 +1478,7 @@ Users must have permission to use the `iam:PassRole` action to pass the role to 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1520,7 +1519,7 @@ The following policy allows users to attach or replace an IAM role for any insta
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1558,7 +1557,7 @@ The following policy allows users to add, remove, and replace routes for route t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1594,7 +1593,7 @@ The following is an example of a policy that you might attach to an IAM role. Th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1631,7 +1630,7 @@ The following policy allows users to create a launch template version and modify
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1656,7 +1655,7 @@ The following policy allows users to delete any launch template and launch templ
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -1714,7 +1713,7 @@ The following policy specifies that you can’t call the RunInstances API unless
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1745,7 +1744,7 @@ The following policy specifies that you cannot call the `ModifyInstanceMetadataO
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -1777,7 +1776,7 @@ The following policy specifies that you can’t call the RunInstances API unless
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1813,7 +1812,7 @@ The following policy specifies that if this policy is applied to a role, and the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

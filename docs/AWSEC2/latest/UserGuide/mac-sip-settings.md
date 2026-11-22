@@ -1,7 +1,6 @@
 
 
 # Configure System Integrity Protection for Amazon EC2 Mac instances
-<a name="mac-sip-settings"></a>
 
 You can configure System Integrity Protection (SIP) settings for x86 Mac instances and Apple silicon Mac instances. SIP is a critical macOS security feature that helps to prevent unauthorized code execution and system-level modifications. For more information, see [About System Integrity Protection](https://support.apple.com/en-us/102149).
 
@@ -59,7 +58,7 @@ We recommend that you check your SIP configuration before and after making chang
 **To check the SIP configuration for an Amazon EC2 Mac instance**  
 [Connect to the instance using SSH](connect-to-mac-instance.md#mac-instance-ssh), and then run the following command at the command line.
 
-```
+```bash
 $ csrutil status
 ```
 
@@ -95,19 +94,19 @@ All macOS usernames and passwords used for macOS authentication are required to 
 
 1. Set the password for the `ec2-user` user.
 
-   ```
+   ```bash
    $ sudo /usr/bin/dscl . -passwd /Users/ec2-user
    ```
 
 1. Enable the secure token for the `ec2-user` user. For `-oldPassword`, specify the same password from the previous step. For `-newPassword`, specify a different password. The following command assumes that you have your old and new passwords saved in `.txt` files.
 
-   ```
+   ```bash
    $ sysadminctl -oldPassword `cat old_password.txt` -newPassword `cat new_password.txt`
    ```
 
 1. Verify that the secure token is enabled.
 
-   ```
+   ```bash
    $ sysadminctl -secureTokenStatus ec2-user
    ```
 
@@ -162,7 +161,7 @@ To completely enable or disable all SIP settings, use only the `--mac-system-int
 
 The following example command enables all SIP settings.
 
-```
+```bash
 aws ec2 create-mac-system-integrity-protection-modification-task \
 --instance-id {{i-0abcdef9876543210}} \
 --mac-system-integrity-protection-status {{enabled}} \
@@ -174,7 +173,7 @@ To specify a custom SIP configuration that selectively enables or disable specif
 
 The following example command creates a SIP configuration task to enable all SIP settings, except `NvramProtections` and `FilesystemProtections`.
 
-```
+```bash
 aws ec2 create-mac-system-integrity-protection-modification-task \
 --instance-id {{i-0abcdef9876543210}} \
 --mac-system-integrity-protection-status {{enabled}} \
@@ -184,7 +183,7 @@ aws ec2 create-mac-system-integrity-protection-modification-task \
 
 The following example command creates a SIP configuration task to disable all SIP settings, except `DtraceRestrictions`.
 
-```
+```bash
 aws ec2 create-mac-system-integrity-protection-modification-task \
 --instance-id {{i-0abcdef9876543210}} \
 --mac-system-integrity-protection-status {{disabled}} \
@@ -195,7 +194,7 @@ aws ec2 create-mac-system-integrity-protection-modification-task \
 **Contents of the `mac-credentials.json` file**  
 The following is the contents of the `mac-credentials.json` file referenced in the preceding examples.
 
-```
+```JSON
 {
   "internalDiskPassword":"internal-disk-admin_password",
   "rootVolumeUsername":"root-volume-admin_username",

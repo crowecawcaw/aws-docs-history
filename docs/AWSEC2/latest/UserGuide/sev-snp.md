@@ -1,7 +1,6 @@
 
 
 # AMD SEV-SNP for Amazon EC2 instances
-<a name="sev-snp"></a>
 
 AMD Secure Encrypted Virtualization-Secure Nested Paging (AMD SEV-SNP) is a CPU feature that provides the following properties:
 + **Attestation** – AMD SEV-SNP enables you to retrieve a signed attestation report that contains a cryptographic measure that can be used to validate the instance's state and identity, and that it is running on genuine AMD hardware. For more information, see [Attest an Amazon EC2 instance with AMD SEV-SNP](snp-attestation.md).

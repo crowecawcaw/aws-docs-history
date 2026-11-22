@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon EC2 instance hibernation
-<a name="troubleshoot-instance-hibernate"></a>
 
 Use this information to help diagnose and fix issues that you might encounter when hibernating an instance.
 
@@ -75,7 +74,7 @@ Wait for about two minutes for Linux instances and about five minutes for Window
 
 If your Spot Instance was hibernated successfully but failed to resume, and instead rebooted (a fresh restart where the hibernated state is not retained), it might be because the user data contained the following script:
 
-```
+```bash
 /usr/bin/enable-ec2-spot-hibernation
 ```
 

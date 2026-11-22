@@ -1,7 +1,6 @@
 
 
 # Spot Fleet request states
-<a name="spot-fleet-states"></a>
 
 **Important**  
 Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).

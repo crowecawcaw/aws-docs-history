@@ -1,7 +1,6 @@
 
 
 # Manage prefixes for your network interfaces
-<a name="work-with-prefixes"></a>
 
 When you assign prefixes to a network interface, you can choose whether to let us automatically assign the prefixes or you can specify custom prefixes. If you let us automatically assign prefixes and the subnet for the network interface has a subnet CIDR reservation of type `prefix`, we select the prefixes from the subnet CIDR reservation. Otherwise, we select them from the subnet CIDR range.
 
@@ -50,7 +49,7 @@ You can assign automatic or custom prefixes when you create a network interface.
 **To assign automatic IPv4 prefixes during network interface creation**  
 Use the [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command and set `--ipv4-prefix-count` to the number of IPv4 prefixes for AWS to assign. In the following example, AWS assigns one IPv4 prefix.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-047cfed18eEXAMPLE}} \
     --description "{{IPv4 automatic example}}" \
@@ -60,7 +59,7 @@ aws ec2 create-network-interface \
 **To assign specific IPv4 prefixes during network interface creation**  
 Use the [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command and set `--ipv4-prefixes` to the prefixes. AWS selects IPv4 addresses from this range. In the following example, the prefix CIDR is 10.0.0.208/28.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-047cfed18eEXAMPLE}} \
     --description "{{IPv4 manual example}}" \
@@ -70,7 +69,7 @@ aws ec2 create-network-interface \
 **To assign automatic IPv6 prefixes during network interface creation**  
 Use the [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command and set `--ipv6-prefix-count` to the number of IPv6 prefixes for AWS to assign. In the following example, AWS assigns one IPv6 prefix.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-047cfed18eEXAMPLE}} \
     --description "{{IPv6 automatic example}}" \
@@ -80,7 +79,7 @@ aws ec2 create-network-interface \
 **To assign specific IPv6 prefixes during network interface creation**  
 Use the [create-network-interface](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-interface.html) command and set `--ipv6-prefixes` to the prefixes. AWS selects IPv6 addresses from this range. In the following example, the prefix CIDR is 2600:1f13:fc2:a700:1768::/80.
 
-```
+```bash
 aws ec2 create-network-interface \
     --subnet-id {{subnet-047cfed18eEXAMPLE}} \
     --description "{{IPv6 manual example}}" \
@@ -93,7 +92,7 @@ aws ec2 create-network-interface \
 **To assign automatic IPv4 prefixes during network interface creation**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet and set `Ipv4PrefixCount` to the number of IPv4 prefixes for AWS to assign. In the following example, AWS assigns one IPv4 prefix.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId '{{subnet-047cfed18eEXAMPLE}}' `
     -Description '{{IPv4 automatic example}}' `
@@ -103,7 +102,7 @@ New-EC2NetworkInterface `
 **To assign specific IPv4 prefixes during network interface creation**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet and set `Ipv4Prefix` to the prefixes. AWS selects IPv4 addresses from this range. In the following example, the prefix CIDR is 10.0.0.208/28.
 
-```
+```powershell
 Import-Module AWS.Tools.EC2
 New-EC2NetworkInterface `
     -SubnetId '{{subnet-047cfed18eEXAMPLE}}' `
@@ -116,7 +115,7 @@ New-EC2NetworkInterface `
 **To assign automatic IPv6 prefixes during network interface creation**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet and set `Ipv6PrefixCount` to the number of IPv6 prefixes for AWS to assign. In the following example, AWS assigns one IPv6 prefix.
 
-```
+```powershell
 New-EC2NetworkInterface `
     -SubnetId '{{subnet-047cfed18eEXAMPLE}}' `
     -Description '{{IPv6 automatic example}}' `
@@ -126,7 +125,7 @@ New-EC2NetworkInterface `
 **To assign specific IPv6 prefixes during network interface creation**  
 Use the [New-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2NetworkInterface.html) cmdlet and set `Ipv6Prefixes` to the prefixes. AWS selects IPv6 addresses from this range. In the following example, the prefix CIDR is 2600:1f13:fc2:a700:1768::/80.
 
-```
+```powershell
 Import-Module AWS.Tools.EC2
 New-EC2NetworkInterface `
     -SubnetId '{{subnet-047cfed18eEXAMPLE}}' `
@@ -174,7 +173,7 @@ Use the [assign-ipv6-addresses](https://docs.aws.amazon.com/cli/latest/reference
 **To assign automatic IPv4 prefixes to an existing network interface**  
 Use the [assign-private-ip-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/assign-private-ip-addresses.html) command and set `--ipv4-prefix-count` to the number of IPv4 prefixes for AWS to assign. In the following example, AWS assigns one IPv4 prefix.
 
-```
+```bash
 aws ec2 assign-private-ip-addresses \
     --network-interface-id {{eni-081fbb4095EXAMPLE}} \
     --ipv4-prefix-count {{1}}
@@ -183,7 +182,7 @@ aws ec2 assign-private-ip-addresses \
 **To assign specific IPv4 prefixes to an existing network interface**  
 Use the [assign-private-ip-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/assign-private-ip-addresses.html) command and set `--ipv4-prefixes` to the prefix. AWS selects IPv4 addresses from this range. In the following example, the prefix CIDR is 10.0.0.208/28.
 
-```
+```bash
 aws ec2 assign-private-ip-addresses \
     --network-interface-id {{eni-081fbb4095EXAMPLE}} \
     --ipv4-prefixes {{10.0.0.208/28}}
@@ -192,7 +191,7 @@ aws ec2 assign-private-ip-addresses \
 **To assign automatic IPv6 prefixes to an existing network interface**  
 Use the [assign-ipv6-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/assign-ipv6-addresses.html) command and set `--ipv6-prefix-count` to the number of IPv6 prefixes for AWS to assign. In the following example, AWS assigns one IPv6 prefix.
 
-```
+```bash
 aws ec2 assign-ipv6-addresses \
     --network-interface-id {{eni-00d577338cEXAMPLE}} \
     --ipv6-prefix-count {{1}}
@@ -201,7 +200,7 @@ aws ec2 assign-ipv6-addresses \
 **To assign specific IPv6 prefixes to an existing network interface**  
 Use the [assign-ipv6-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/assign-ipv6-addresses.html) command and set `--ipv6-prefixes` to the prefix. AWS selects IPv6 addresses from this range. In the following example, the prefix CIDR is 2600:1f13:fc2:a700:18bb::/80.
 
-```
+```bash
 aws ec2 assign-ipv6-addresses \
     --network-interface-id {{eni-00d577338cEXAMPLE}} \
     --ipv6-prefixes {{2600:1f13:fc2:a700:18bb::/80}}
@@ -213,7 +212,7 @@ aws ec2 assign-ipv6-addresses \
 **To assign automatic IPv4 prefixes to an existing network interface**  
 Use the [Register-EC2PrivateIpAddress](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2PrivateIpAddress.html) cmdlet and set `Ipv4PrefixCount` to the number of IPv4 prefixes for AWS to assign. In the following example, AWS assigns one IPv4 prefix.
 
-```
+```powershell
 Register-EC2PrivateIpAddress `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv4PrefixCount {{1}}
@@ -222,7 +221,7 @@ Register-EC2PrivateIpAddress `
 **To assign specific IPv4 prefixes to an existing network interface**  
 Use the [Register-EC2PrivateIpAddress](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2PrivateIpAddress.html) cmdlet and set `Ipv4Prefix` to the prefix. AWS selects IPv4 addresses from this range. In the following example, the prefix CIDR is 10.0.0.208/28.
 
-```
+```powershell
 Register-EC2PrivateIpAddress `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv4Prefix '{{10.0.0.208/28}}'
@@ -231,7 +230,7 @@ Register-EC2PrivateIpAddress `
 **To assign automatic IPv6 prefixes to an existing network interface**  
 Use the [Register-EC2Ipv6AddressList](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Ipv6AddressList.html) cmdlet and set `Ipv6PrefixCount` to the number of IPv4 prefixes for AWS to assign. In the following example, AWS assigns one IPv6 prefix.
 
-```
+```powershell
 Register-EC2Ipv6AddressList `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv6PrefixCount {{1}}
@@ -240,7 +239,7 @@ Register-EC2Ipv6AddressList `
 **To assign specific IPv6 prefixes to an existing network interface**  
 Use the [Register-EC2Ipv6AddressList](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-EC2Ipv6AddressList.html) cmdlet and set `Ipv6Prefix` to the prefix. AWS selects IPv6 addresses from this range. In the following example, the prefix CIDR is 2600:1f13:fc2:a700:18bb::/80.
 
-```
+```powershell
 Register-EC2Ipv6AddressList `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv6Prefix '{{2600:1f13:fc2:a700:18bb::/80}}'
@@ -284,7 +283,7 @@ You can use the [unassign-ipv6-addresses](https://docs.aws.amazon.com/cli/latest
 
 Use the [unassign-private-ip-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/unassign-private-ip-addresses.html) command and set `--ipv4-prefix` to the prefix CIDR to remove.
 
-```
+```bash
 aws ec2 unassign-private-ip-addresses \
     --network-interface-id {{eni-081fbb4095EXAMPLE}} \
     --ipv4-prefixes {{10.0.0.176/28}}
@@ -293,7 +292,7 @@ aws ec2 unassign-private-ip-addresses \
 **To remove IPv6 prefixes from a network interface**  
 Use the [unassign-ipv6-addresses](https://docs.aws.amazon.com/cli/latest/reference/ec2/unassign-ipv6-addresses.html) command and set `--ipv6-prefix` to the prefix CIDR to remove.
 
-```
+```bash
 aws ec2 unassign-ipv6-addresses \
     --network-interface-id {{eni-00d577338cEXAMPLE}} \
     --ipv6-prefix {{2600:1f13:fc2:a700:18bb::/80}}
@@ -305,7 +304,7 @@ aws ec2 unassign-ipv6-addresses \
 **To remove IPv4 prefixes from a network interface**  
 Use the [Unregister-EC2PrivateIpAddress](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2PrivateIpAddress.html) cmdlet and set `Ipv4Prefix` to the prefix CIDR to remove.
 
-```
+```powershell
 Unregister-EC2PrivateIpAddress `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv4Prefix '{{10.0.0.208/28}}'
@@ -314,7 +313,7 @@ Unregister-EC2PrivateIpAddress `
 **To remove IPv6 prefixes from a network interface**  
 Use the [Unregister-EC2Ipv6AddressList](https://docs.aws.amazon.com/powershell/latest/reference/items/Unregister-EC2Ipv6AddressList.html) cmdlet and set `Ipv6Prefix` to the prefix CIDR to remove.
 
-```
+```powershell
 Unregister-EC2Ipv6AddressList `
     -NetworkInterfaceId '{{eni-00d577338cEXAMPLE}}' `
     -Ipv6Prefix '{{2600:1f13:fc2:a700:18bb::/80}}'

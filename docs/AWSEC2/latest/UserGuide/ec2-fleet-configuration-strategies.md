@@ -1,7 +1,6 @@
 
 
 # Configuration options for your EC2 Fleet or Spot Fleet
-<a name="ec2-fleet-configuration-strategies"></a>
 
 When planning your EC2 Fleet or Spot Fleet, we recommend that you consider the following options when deciding how to configure your fleet.
 

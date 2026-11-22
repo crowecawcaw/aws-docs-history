@@ -1,7 +1,6 @@
 
 
 # Enabling EC2 Capacity Manager at the account-level
-<a name="enable-capacity-manager-account"></a>
 
 Enable Capacity Manager at the account-level to monitor and analyze your EC2 capacity usage within a single AWS account. After you enable it, Capacity Manager collects data about your On-Demand Instances, Spot Instances, and Capacity Reservations to help you identify optimization opportunities and track usage patterns.
 
@@ -25,7 +24,7 @@ Enable Capacity Manager at the account-level to monitor and analyze your EC2 cap
 **To enable Capacity Manager for your account**  
 Run the following command:
 
-```
+```bash
 aws ec2 enable-capacity-manager
 ```
 
@@ -35,7 +34,7 @@ aws ec2 enable-capacity-manager
 **To enable Capacity Manager for your account**  
 Use the [Enable-EC2CapacityManager](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2CapacityManager.html) cmdlet.
 
-```
+```powershell
 Enable-EC2CapacityManager
 ```
 

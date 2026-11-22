@@ -1,7 +1,6 @@
 
 
 # Rules for specifying CPU options for an Amazon EC2 instance
-<a name="instance-cpu-options-rules"></a>
 
 To specify the CPU options for your instance, be aware of the following rules:
 + You can't specify CPU options for bare metal instances.

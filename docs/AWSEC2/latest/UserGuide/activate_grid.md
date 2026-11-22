@@ -1,7 +1,6 @@
 
 
 # Activate NVIDIA GRID Virtual Applications on your Amazon EC2 GPU-based instances
-<a name="activate_grid"></a>
 
 To activate the GRID Virtual Applications on GPU-based instances that have NVIDIA GPUs (NVIDIA GRID Virtual Workstation is enabled by default), you must define the product type for the driver. The process that you use depends on the operating system of your instance.
 
@@ -12,7 +11,7 @@ To activate the GRID Virtual Applications on GPU-based instances that have NVIDI
 
 1. Create the `/etc/nvidia/gridd.conf` file from the provided template file.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
 
@@ -20,7 +19,7 @@ To activate the GRID Virtual Applications on GPU-based instances that have NVIDI
 
 1. Find the `FeatureType` line, and set it equal to `0`. Then add a line with `IgnoreSP=TRUE`.
 
-   ```
+   ```bash
    FeatureType=0 IgnoreSP=TRUE
    ```
 
@@ -28,7 +27,7 @@ To activate the GRID Virtual Applications on GPU-based instances that have NVIDI
 
 1. Reboot the instance to pick up the new configuration.
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo reboot
    ```
 

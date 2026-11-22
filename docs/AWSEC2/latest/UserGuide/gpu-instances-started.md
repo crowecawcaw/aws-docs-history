@@ -1,7 +1,6 @@
 
 
 # Get started with GPU accelerated instances
-<a name="gpu-instances-started"></a>
 
 The latest generation of GPU accelerated instance types, such as those shown in the following list deliver the highest performance capabilities for deep learning and high performance computing (HPC) applications. Select the instance type link to learn more about its capabilities.
 + [P6 family](https://aws.amazon.com/ec2/instance-types/p6/)

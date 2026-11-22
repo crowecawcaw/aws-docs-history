@@ -1,7 +1,6 @@
 
 
 # EC2 Windows Utility Driver version history
-<a name="ec2winutil-driver-version-history"></a>
 
 The following table shows which `EC2WinUtil` drivers run on each version of Windows Server on Amazon EC2. Earlier versions of the operating system use the driver that's preinstalled on AWS Windows Server AMIs that the instance launched from. AMIs that are shared with you or that you subscribe to through AWS Marketplace don't have the driver preinstalled.
 

@@ -1,7 +1,6 @@
 
 
 # Perform an in-place upgrade on your EC2 Windows instance
-<a name="os-inplaceupgrade"></a>
 
 Before you perform an in-place upgrade, you must determine which network drivers the instance is running. PV network drivers enable you to access your instance using Remote Desktop. Instances use either AWS PV, Intel Network Adapter, or the Enhanced Networking drivers. For more information, see [Paravirtual drivers for Windows instances](xen-drivers-overview.md).
 
@@ -78,7 +77,7 @@ Do not initialize the disk because doing so will delete the existing data.
 
    1. If you are upgrading to Windows Server 2016 or later, run the following:
 
-      ```
+      ```batch
       .\setup.exe /auto upgrade /dynamicupdate disable
       ```
 **Note**  
@@ -86,7 +85,7 @@ Running the setup.exe with the `/dynamicupdate` option set to disabled prevents 
 
       If you are upgrading to an earlier version of Windows Server, run the following:
 
-      ```
+      ```batch
       Sources\setup.exe
       ```
 

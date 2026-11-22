@@ -1,7 +1,6 @@
 
 
 # Enable AMD SEV-SNP for an EC2 instance
-<a name="snp-work-launch"></a>
 
 You can launch an instance with AMD SEV-SNP enabled. You can't enable AMD SEV-SNP after launch.
 
@@ -38,7 +37,7 @@ Before you can launch instances with AMD SEV-SNP on a Dedicated Host, you must a
 **To allocate a Dedicated Host with AMD SEV-SNP enabled**  
 Use the [allocate-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-hosts.html) command with the `--instance-type` and `--cpu-options` parameters.
 
-```
+```bash
 aws ec2 allocate-hosts \
     --instance-type "{{m6a.large}}" \
     --availability-zone "{{us-east-1a}}" \
@@ -49,7 +48,7 @@ aws ec2 allocate-hosts \
 
 The following is example output.
 
-```
+```json
 {
     "HostIds": [
         "h-0123456789abcdef0"
@@ -76,7 +75,7 @@ You can also launch instances without AMD SEV-SNP enabled on a Dedicated Host th
 **To launch an instance with AMD SEV-SNP on a Dedicated Host**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--cpu-options` and `--placement` options. Replace {{h-0123456789abcdef0}} with the ID of your allocated Dedicated Host.
 
-```
+```bash
 aws ec2 run-instances \
     --instance-type {{m6a.xlarge}} \
     --image-id {{ami-0123456789example}} \
@@ -90,7 +89,7 @@ aws ec2 run-instances \
 **To launch an instance with AMD SEV-SNP on a Dedicated Host**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-CpuOption` and `-Placement_HostId` parameters.
 
-```
+```powershell
 New-EC2Instance `
     -InstanceType {{m6a.xlarge}} `
     -ImageId {{ami-0123456789example}} `
@@ -111,14 +110,14 @@ To apply firmware updates, allocate a new host (which receives the latest firmwa
 
 1. Stop the running instances on the old Dedicated Host.
 
-   ```
+   ```bash
    aws ec2 stop-instances \
        --instance-ids {{i-0123456789example}}
    ```
 
 1. Modify the instance placement to target the new Dedicated Host. Use the [modify-instance-placement](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-placement.html) command.
 
-   ```
+   ```bash
    aws ec2 modify-instance-placement \
        --instance-id {{i-0123456789example}} \
        --host-id {{h-09876543210abcdef}}
@@ -126,14 +125,14 @@ To apply firmware updates, allocate a new host (which receives the latest firmwa
 
 1. Start the instances on the new Dedicated Host.
 
-   ```
+   ```bash
    aws ec2 start-instances \
        --instance-ids {{i-0123456789example}}
    ```
 
 1. Release the old Dedicated Host. Use the [release-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/release-hosts.html) command.
 
-   ```
+   ```bash
    aws ec2 release-hosts \
        --host-ids {{h-0123456789abcdef0}}
    ```
@@ -152,7 +151,7 @@ You can launch an instance with AMD SEV-SNP on shared tenancy in US East (Ohio) 
 **To launch an instance with AMD SEV-SNP on shared tenancy**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command with the `--cpu-options` option.
 
-```
+```bash
 aws ec2 run-instances \
     --instance-type {{m6a.xlarge}} \
     --image-id {{ami-0123456789example}} \
@@ -165,7 +164,7 @@ aws ec2 run-instances \
 **To launch an instance with AMD SEV-SNP on shared tenancy**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet with the `-CpuOption` parameter.
 
-```
+```powershell
 New-EC2Instance `
     -InstanceType {{m6a.xlarge}} `
     -ImageId {{ami-0123456789example}} `
@@ -185,7 +184,7 @@ You can find instances that are enabled for AMD SEV-SNP. The Amazon EC2 console 
 **To check whether AMD SEV-SNP is enabled for an instance**  
 Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html) command.
 
-```
+```bash
 aws ec2 describe-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --query Reservations[].Instances[].CpuOptions
@@ -193,7 +192,7 @@ aws ec2 describe-instances \
 
 The following is example output. If `AmdSevSnp` is not present in `CpuOptions`, then AMD SEV-SNP is disabled.
 
-```
+```json
 [
     {
         "AmdSevSnp": "enabled",
@@ -209,14 +208,14 @@ The following is example output. If `AmdSevSnp` is not present in `CpuOptions`, 
 **To check whether AMD SEV-SNP is enabled for an instance**  
 Use the [Get-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Instance.html) cmdlet.
 
-```
+```powershell
 (Get-EC2Instance `
     -InstanceId {{i-1234567890abcdef0}}).Instances.CpuOptions
 ```
 
 The following is example output. If the value of `AmdSevSnp` is not present, then AMD SEV-SNP is disabled.
 
-```
+```bash
 AmdSevSnp CoreCount ThreadsPerCore
 --------- --------- --------------
 enabled   1         2
@@ -227,7 +226,7 @@ enabled   1         2
 
 In the AWS CloudTrail event for the instance launch request, the following property indicates that AMD SEV-SNP is enabled for the instance.
 
-```
+```bash
 "cpuOptions": {"AmdSevSnp": "enabled"}
 ```
 

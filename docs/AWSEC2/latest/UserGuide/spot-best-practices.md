@@ -1,7 +1,6 @@
 
 
 # Best practices for Amazon EC2 Spot
-<a name="spot-best-practices"></a>
 
 Amazon EC2 provides access to spare EC2 compute capacity in the AWS Cloud through Spot Instances at savings of up to 90% compared to On-Demand prices. The only difference between On-Demand Instances and Spot Instances is that Spot Instances can be interrupted by Amazon EC2, with two minutes of notice, if Amazon EC2 needs to reclaim the capacity. To ensure the best experience with Spot Instances, it's important to understand and apply best practices for their use.
 

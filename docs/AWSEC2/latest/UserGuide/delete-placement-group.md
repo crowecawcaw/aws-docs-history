@@ -1,7 +1,6 @@
 
 
 # Delete a placement group
-<a name="delete-placement-group"></a>
 
 If you need to replace a placement group or no longer need one, you can delete it. Before you can delete a placement group, it must contain no instances. You can terminate the instances, move them to another placement group, or remove them from the placement group.
 
@@ -26,7 +25,7 @@ You can't delete a placement group that is a parent of a cluster placement group
 **To delete a placement group**  
 Use the [delete-placement-group](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-placement-group.html) command.
 
-```
+```bash
 aws ec2 delete-placement-group --group-name {{my-cluster}}
 ```
 
@@ -36,7 +35,7 @@ aws ec2 delete-placement-group --group-name {{my-cluster}}
 **To delete a placement group**  
 Use the [Remove-EC2PlacementGroup](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2PlacementGroup.html) cmdlet.
 
-```
+```powershell
 Remove-EC2PlacementGroup -GroupName {{my-cluster}}
 ```
 

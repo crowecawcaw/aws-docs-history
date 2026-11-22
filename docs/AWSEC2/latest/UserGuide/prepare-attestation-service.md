@@ -1,7 +1,6 @@
 
 
 # Prepare AWS KMS for attestation
-<a name="prepare-attestation-service"></a>
 
 **Note**  
 If you are attesting to a third-party service, you must build your own custom mechanisms for receiving, parsing, and validating Attestation Documents. For more information, see [Validate a NitroTPM Attestation Document](nitrotpm-attestation-document-validate.md).
@@ -14,7 +13,7 @@ AWS KMS provides `kms:RecipientAttestation:NitroTPMPCR4`, `kms:RecipientAttestat
 
 For example, the following AWS KMS key policy allows key access only if the request originates from an instance with the `MyEC2InstanceRole` instance profile attached, and if the request includes an Attestation Document with specific PCR 4 and PCR 12 values.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

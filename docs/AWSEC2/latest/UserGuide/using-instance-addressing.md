@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 instance IP addressing
-<a name="using-instance-addressing"></a>
 
 Amazon EC2 and Amazon VPC support both the IPv4 and IPv6 addressing protocols. By default, Amazon VPC uses the IPv4 addressing protocol; you can't disable this behavior. When you create a VPC, you must specify an IPv4 CIDR block (a range of private IPv4 addresses). You can optionally assign an IPv6 CIDR block to your VPC and assign IPv6 addresses from that block to instances in your subnets.
 
@@ -77,7 +76,7 @@ The following list contains actions you can take to optimize the number of publi
 + If the only reason for using a NAT gateway is to SSH into an EC2 instance in a private subnet for maintenance or emergencies, consider using [EC2 Instance Connect Endpoint](connect-using-eice.md) instead. With EC2 Instance Connect Endpoint, you can connect to an instance from the internet without requiring the instance to have a public IPv4 address.
 + If your EC2 instances are in a public subnet with public IP addresses allocated to them, consider moving the instances to a private subnet, removing the public IP addresses, and using a [public NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) to allow access to and from your EC2 instances. There are cost considerations for using NAT gateways. Use this calculation method to decide if NAT gateways are cost effective. You can get the `Number of public IPv4 addresses` required for this calculation by [creating an AWS Billing Cost and Usage Report](https://aws.amazon.com/blogs/networking-and-content-delivery/identify-and-optimize-public-ipv4-address-usage-on-aws/).
 
-  ```
+  ```bash
   NAT gateway per hour + NAT gateway public IPs + NAT gateway transfer / Existing public IP cost
   ```
 

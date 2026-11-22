@@ -1,7 +1,6 @@
 
 
 # Validate a NitroTPM Attestation Document
-<a name="nitrotpm-attestation-document-validate"></a>
 
 **Note**  
 This topic is intended for users who are using a third-party key management service, and need to build their own Attestation Document validation mechanisms.
@@ -28,7 +27,7 @@ For more information about CBOR, see [RFC 8949: Concise Binary Object Representa
 
 The following shows the structure of an Attestation Document.
 
-```
+```YAML
 AttestationDocument = {
     module_id: text,                     ; issuing Nitro hypervisor module ID
     timestamp: uint .size 8,             ; UTC time when document was created, in
@@ -70,13 +69,13 @@ When you request an Attestation Document from the Nitro Hypervisor, you receive 
 
 Attestation Documents are signed by the AWS Nitro Attestation PKI, which includes a root certificate for the commercial AWS partitions. The root certificate can be downloaded from [https://aws-nitro-enclaves.amazonaws.com/AWS\_NitroEnclaves\_Root-G1.zip](https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip), and it can be verified using the following fingerprint.
 
-```
+```bash
 64:1A:03:21:A3:E2:44:EF:E4:56:46:31:95:D6:06:31:7E:D7:CD:CC:3C:17:56:E0:98:93:F3:C6:8F:79:BB:5B
 ```
 
 The root certificate is based on an AWS Certificate Manager Private Certificate Authority (AWS Private CA) private key and it has a lifetime of 30 years. The subject of the PCA has the following format.
 
-```
+```bash
 CN=aws.nitro-enclaves, C=US, O=Amazon, OU=AWS
 ```
 
@@ -93,7 +92,7 @@ Usually, the COSE\_Sign1 signature structure is used when only one signature is 
 
 The CBOR object that carries the body, the signature, and the information about the body and signature is called the COSE\_Sign1 structure. The COSE\_Sign1 structure is a CBOR array. The array includes the following fields.
 
-```
+```JSON
 [
   protected:   Header,
   unprotected: Header,
@@ -104,7 +103,7 @@ The CBOR object that carries the body, the signature, and the information about 
 
 In the context of an Attestation Document, the array includes the following.
 
-```
+```bash
 18(/* COSE_Sign1 CBOR tag is 18 */
     {1: -35}, /* This is equivalent with {algorithm: ECDS 384} */
     {}, /* We have nothing in unprotected */
@@ -120,7 +119,7 @@ For more information about CBOR, see [RFC 8949: Concise Binary Object Representa
 
 An Attestation Document will always have their CA bundle in the following order.
 
-```
+```JSON
 [ ROOT_CERT - INTERM_1 - INTERM_2 .... - INTERM_N]
       0          1          2             N - 1
 ```
@@ -129,7 +128,7 @@ Keep this ordering in mind, as some existing tools, such as Java’s CertPath fr
 
 To validate the certificates, start from the Attestation Document CA bundle and generate the required chain, Where `TARGET_CERT` is the certificate in the Attestation Document.
 
-```
+```JSON
 [TARGET_CERT, INTERM_N, ..... , INTERM_2, INTERM_1, ROOT_CERT]
 ```
 
@@ -148,7 +147,7 @@ CRL must be disabled when doing the validation.
 
 Using Java, starting from the root path and the generated certificate chain, the chain validation is as follows.
 
-```
+```bash
 validateCertsPath(certChain, rootCertficate) {
     /* The trust anchor is the root CA to trust */
     trustAnchors.add(rootCertificate);

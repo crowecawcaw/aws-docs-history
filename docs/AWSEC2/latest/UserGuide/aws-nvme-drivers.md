@@ -1,7 +1,6 @@
 
 
 # NVMe drivers
-<a name="aws-nvme-drivers"></a>
 
 Amazon EBS volumes and instance store volumes are exposed as NVMe block devices on [Nitro-based instances](instance-types.md#instance-hypervisor-type). To fully use the performance and capabilities of Amazon EBS features for volumes exposed as NVMe block devices, the instance must have the AWS NVMe driver installed. All current generation AWS Windows AMIs come with the AWS NVMe driver installed by default.
 
@@ -26,14 +25,14 @@ AWS Graviton-based instance types require Ubuntu 18.04 or later with `linux-aws`
 You can confirm that your instance has the NVMe driver using the following command.
 + Amazon Linux, RHEL, CentOS, and SUSE Linux Enterprise Server
 
-  ```
+  ```bash
   $ modinfo nvme
   ```
 
   If the instance has the NVMe driver, the command returns information about the driver.
 + Amazon Linux 2 and Ubuntu
 
-  ```
+  ```bash
   $ ls /sys/module/ | grep nvme
   ```
 
@@ -48,30 +47,30 @@ If your instance has the NVMe driver, you can update the driver to the latest ve
 1. Update your package cache to get necessary package updates as follows.
    + For Amazon Linux 2, Amazon Linux, CentOS, and Red Hat Enterprise Linux:
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo yum update -y
      ```
    + For Ubuntu and Debian:
 
-     ```
+     ```bash
      [ec2-user ~]$ sudo apt-get update -y
      ```
 
 1. Ubuntu 16.04 and later include the `linux-aws` package, which contains the NVMe and ENA drivers required by Nitro-based instances. Upgrade the `linux-aws` package to receive the latest version as follows:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt-get install --only-upgrade -y linux-aws
    ```
 
    For Ubuntu 14.04, you can install the latest `linux-aws` package as follows:
 
-   ```
+   ```bash
    [ec2-user ~]$ sudo apt-get install linux-aws
    ```
 
 1. Reboot your instance to load the latest kernel version.
 
-   ```
+   ```bash
    sudo reboot
    ```
 
@@ -109,14 +108,14 @@ If you did not launch your instance from one of the latest AWS Windows AMIs prov
    + **Browser** – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip) the latest driver package to the instance and extract the zip archive.
    + **PowerShell** – Run the following commands:
 
-     ```
+     ```powershell
      Invoke-WebRequest https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip -outfile $env:USERPROFILE\nvme_driver.zip
      Expand-Archive $env:userprofile\nvme_driver.zip -DestinationPath $env:userprofile\nvme_driver
      ```
 
      If you receive an error when downloading the file, and you are using Windows Server 2016 or earlier, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:
 
-     ```
+     ```powershell
      [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
      ```
 
@@ -126,13 +125,13 @@ If you did not launch your instance from one of the latest AWS Windows AMIs prov
 
       You can enable the feature when running the `install.ps1` script to install the driver by specifying the `EnableSCSIPersistentReservations` parameter with a value of `$true`.
 
-      ```
+      ```powershell
       PS C:\> .\install.ps1 -EnableSCSIPersistentReservations $true
       ```
 
       You can disable the feature when running the `install.ps1` script to install the driver by specifying the `EnableSCSIPersistentReservations` parameter with a value of `$false`.
 
-      ```
+      ```powershell
       PS C:\> .\install.ps1 -EnableSCSIPersistentReservations $false
       ```
 
@@ -194,14 +193,14 @@ After AWS NVMe driver version `1.5.0` or later has been installed, you can enabl
 
 You can enable SCSI persistent reservations with the following command which sets the `EnableSCSIPersistentReservations` to a value of `1`.
 
-```
+```powershell
 PS C:\> $registryPath = "HKLM:\SYSTEM\CurrentControlSet\Services\AWSNVMe\Parameters\Device"
 Set-ItemProperty -Path $registryPath -Name EnableSCSIPersistentReservations -Value 1
 ```
 
 You can disable SCSI persistent reservations with the following command which sets the `EnableSCSIPersistentReservations` to a value of `0`.
 
-```
+```powershell
 PS C:\> $registryPath = "HKLM:\SYSTEM\CurrentControlSet\Services\AWSNVMe\Parameters\Device"
 Set-ItemProperty -Path $registryPath -Name EnableSCSIPersistentReservations -Value 0
 ```

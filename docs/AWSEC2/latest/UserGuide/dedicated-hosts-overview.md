@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Dedicated Hosts
-<a name="dedicated-hosts-overview"></a>
 
 An Amazon EC2 Dedicated Host is a physical server that is fully dedicated for your use. You can optionally choose to share the instance capacity with other AWS accounts. For more information, see [Cross-account Amazon EC2 Dedicated Host sharing](dh-sharing.md).
 
@@ -104,7 +103,7 @@ Dedicated Host Reservations provide you with a discount of up to 70 percent comp
 
    The term is specified in seconds. A one-year term includes 31,536,000 seconds, and a three-year term includes 94,608,000 seconds.
 
-   ```
+   ```bash
    aws ec2 describe-host-reservation-offerings \
        --filter Name={{instance-family}},Values={{m4}} \
        --max-duration {{31536000}}
@@ -114,7 +113,7 @@ Dedicated Host Reservations provide you with a discount of up to 70 percent comp
 
 1. Use the [purchase-host-reservation](https://docs.aws.amazon.com/cli/latest/reference/ec2/purchase-host-reservation.html) command to purchase the offering and provide the `offeringId` noted in the previous step. The following example purchases the specified reservation and associates it with a specific Dedicated Host that is already allocated in the AWS account, and it applies a tag with a key of `purpose` and a value of `production`.
 
-   ```
+   ```bash
    aws ec2 purchase-host-reservation \
        --offering-id {{hro-03f707bf363b6b324}} \
        --host-id-set {{h-013abcd2a00cbd123}} \
@@ -130,7 +129,7 @@ Dedicated Host Reservations provide you with a discount of up to 70 percent comp
 
    The term is specified in seconds. A one-year term includes 31,536,000 seconds, and a three-year term includes 94,608,000 seconds.
 
-   ```
+   ```powershell
    $filter = @{Name="instance-family"; Values="m5"}
    Get-EC2HostReservationOffering `
        -Filter $filter `
@@ -141,7 +140,7 @@ Dedicated Host Reservations provide you with a discount of up to 70 percent comp
 
 1. Use the [New-EC2HostReservation](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2HostReservation.html) cmdlet to purchase the offering and provide the offering ID noted in the previous step. The following example purchases the specified reservation and associates it with a specific Dedicated Host that is already allocated in the AWS account.
 
-   ```
+   ```powershell
    New-EC2HostReservation `
        -OfferingId {{hro-03f707bf363b6b324}} `
        -HostIdSet {{h-013abcd2a00cbd123}}

@@ -1,7 +1,6 @@
 
 
 # Sell Reserved Instances for Amazon EC2 in the Reserved Instance Marketplace
-<a name="ri-market-general"></a>
 
 The Amazon EC2 Reserved Instance Marketplace is a platform that facilitates the sale of unused Standard Reserved Instances from AWS customers and third-party sellers. These Reserved Instances can vary in term lengths and pricing options. You might want to sell your Reserved Instances when you no longer need them, such as when you move your instances to a new AWS Region, change to a different instance type, finish projects before the Reserved Instance term expires, your business needs change, or you have excess capacity.
 
@@ -243,7 +242,7 @@ When your Reserved Instance is sold, AWS sends you an email notification. Each d
 **To track the status of a Reserved Instance listing**  
 Use the [describe-reserved-instances-listings](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-reserved-instances-listings.html) command with the appropriate filter to obtain information about your listings.
 
-```
+```bash
 aws ec2 describe-reserved-instances-listings
 ```
 
@@ -253,7 +252,7 @@ aws ec2 describe-reserved-instances-listings
 **To track the status of a Reserved Instance listing**  
 Use the [Get-EC2ReservedInstancesListing](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ReservedInstancesListing.html) cmdlet.
 
-```
+```powershell
 Get-EC2ReservedInstancesListing
 ```
 

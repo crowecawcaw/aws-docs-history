@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon EC2 security group
-<a name="deleting-security-group"></a>
 
 When you are finished with a security group that you created for use with your Amazon EC2 instances, you can delete it.
 
@@ -40,7 +39,7 @@ When you are finished with a security group that you created for use with your A
 **To delete a security group**  
 Use the following [delete-security-group](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-security-group.html) command.
 
-```
+```bash
 aws ec2 delete-security-group --group-id {{sg-1234567890abcdef0}}
 ```
 
@@ -50,7 +49,7 @@ aws ec2 delete-security-group --group-id {{sg-1234567890abcdef0}}
 **To delete a security group**  
 Use the [Remove-EC2SecurityGroup](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2SecurityGroup.html) cmdlet.
 
-```
+```powershell
 Remove-EC2SecurityGroup -GroupId {{sg-1234567890abcdef0}}
 ```
 

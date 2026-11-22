@@ -1,7 +1,6 @@
 
 
 # View AMIs with EC2 Fast Launch enabled
-<a name="win-view-fast-launch"></a>
 
 You can use the [describe-fast-launch-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-fast-launch-images.html) command in the AWS CLI, or the [Get-EC2FastLaunchImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2FastLaunchImage.html) Tools for PowerShell Cmdlet to get details for AMIs that have EC2 Fast Launch enabled.
 
@@ -24,13 +23,13 @@ You can also see the current state displayed in the **Manage image optimization*
 **To find AMIs configured for EC2 Fast Launch**  
 Use the following [describe-fast-launch-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-fast-launch-images.html) command to describe the details for each of the AMIs in the account that are configured for EC2 Fast Launch. In this example, only one AMI in the account is configured for EC2 Fast Launch.
 
-```
+```bash
 aws ec2 describe-fast-launch-images
 ```
 
 The following is example output.
 
-```
+```json
 {
     "FastLaunchImages": [
         {
@@ -58,7 +57,7 @@ The following is example output.
 **To find AMIs configured for EC2 Fast Launch**  
 Use the following [Get-EC2FastLaunchImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2FastLaunchImage.html) cmdlet to describe the details for each of the AMIs in the account that are configured for EC2 Fast Launch. In this example, only one AMI in the account is configured for EC2 Fast Launch.
 
-```
+```powershell
 Get-EC2FastLaunchImage -ImageId {{ami-0abcdef1234567890}}
 ```
 

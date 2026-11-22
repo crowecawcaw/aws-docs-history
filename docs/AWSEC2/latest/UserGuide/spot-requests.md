@@ -1,7 +1,6 @@
 
 
 # Create a Spot Instance request
-<a name="spot-requests"></a>
 
 To use Spot Instances, you create a Spot Instance request that includes the desired number of instances, the instance type, and the Availability Zone. If capacity is available, Amazon EC2 fulfills your request immediately. Otherwise, Amazon EC2 waits until your request can be fulfilled or until you cancel the request.
 
@@ -108,7 +107,7 @@ Amazon EC2 creates a separate request for each Spot Instance.
 **To create a Spot Instance request using run-instances**  
 Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command and specify the Spot Instance options in the `--instance-market-options` parameter as follows.
 
-```
+```bash
 --instance-market-options file://{{spot-options.json}}
 ```
 
@@ -116,7 +115,7 @@ The following is the data structure to specify in the JSON file. You can also sp
 
 The following example creates a `persistent` request.
 
-```
+```json
 {
   "MarketType": "spot",
   "SpotOptions": {
@@ -132,7 +131,7 @@ We strongly discourage using the [request-spot-instances](https://docs.aws.amazo
 
 Use the [request-spot-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-instances.html) command to create a one-time request.
 
-```
+```bash
 aws ec2 request-spot-instances \
     --instance-count {{5}} \
     --type "one-time" \
@@ -141,7 +140,7 @@ aws ec2 request-spot-instances \
 
 Use the [request-spot-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/request-spot-instances.html) command to create a persistent request.
 
-```
+```bash
 aws ec2 request-spot-instances \
     --instance-count {{5}} \
     --type "persistent" \
@@ -156,13 +155,13 @@ For example launch specification files to use with these commands, see [Spot Ins
 **To create a Spot Instance request**  
 Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet and specify the Spot Instance options using the `-InstanceMarketOption` parameter.
 
-```
+```powershell
 -InstanceMarketOptions $marketOptions
 ```
 
 Create the data structure for the Spot Instance options as follows.
 
-```
+```powershell
 $spotOptions = New-Object Amazon.EC2.Model.SpotMarketOptions
 $spotOptions.SpotInstanceType="persistent"
 $marketOptions = New-Object Amazon.EC2.Model.InstanceMarketOptionsRequest

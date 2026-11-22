@@ -1,7 +1,6 @@
 
 
 # Instance lifecycle in a group
-<a name="cr-groups-lifecycle"></a>
 
 When a Capacity Reservation in a group changes state, the impact on your running instances depends on the reservation type.
 

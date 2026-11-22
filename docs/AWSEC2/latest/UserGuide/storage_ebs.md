@@ -1,7 +1,6 @@
 
 
 # Amazon EBS persistent block storage for Amazon EC2 instances
-<a name="storage_ebs"></a>
 
 Amazon Elastic Block Store (Amazon EBS) provides scalable, high-performance block storage resources that can be used with Amazon EC2 instances. With Amazon EBS, you can create and manage the following block storage resources:
 + **Amazon EBS volumes** — These are storage volumes that you attach to Amazon EC2 instances. After you attach a volume to an instance, you can use it in the same way you would use block storage. The instance can interact with the volume just as it would with a local drive.

@@ -1,7 +1,6 @@
 
 
 # Create CloudWatch alarms for Amazon EC2 instances that fail status checks
-<a name="creating_status_check_alarms"></a>
 
 You can use the [status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics) to create CloudWatch alarms to notify you when an instance has a failed status check.
 
@@ -65,13 +64,13 @@ In the following example, the alarm publishes a notification to an SNS topic whe
 
 1. Use the following [list-metrics](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/list-metrics.html) command to view the available Amazon CloudWatch metrics for Amazon EC2.
 
-   ```
+   ```bash
    aws cloudwatch list-metrics --namespace AWS/EC2
    ```
 
 1. Use the following [put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html) command to create the alarm.
 
-   ```
+   ```bash
    aws cloudwatch put-metric-alarm \
        --alarm-name {{StatusCheckFailed-Alarm-for-i-1234567890abcdef0}} \
        --metric-name StatusCheckFailed \
@@ -94,7 +93,7 @@ In the following example, the alarm publishes a notification to an SNS topic whe
 **To create a status check alarm**  
 Use the [Write-CWMetricAlarm](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-CWMetricAlarm.html) cmdlet as follows to publish notifications to an SNS topic when the instance fails status checks for at least two consecutive periods.
 
-```
+```powershell
 Write-CWMetricAlarm `
     -AlarmName "{{StatusCheckFailed-Alarm-for-i-1234567890abcdef0}}" `
     -MetricName "StatusCheckFailed" `

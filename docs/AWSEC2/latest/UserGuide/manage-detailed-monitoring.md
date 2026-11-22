@@ -1,7 +1,6 @@
 
 
 # Manage detailed monitoring for your EC2 instances
-<a name="manage-detailed-monitoring"></a>
 
 Amazon CloudWatch provides two categories of monitoring: *basic monitoring* and *detailed monitoring*. By default, your instance is configured for basic monitoring. You can enable detailed monitoring to receive the default instance metrics in 1-minute periods. You can also associate metric categories with an instance to publish additional metrics. You can manage detailed monitoring and metric categories at launch or when the instance is running or stopped.
 
@@ -71,7 +70,7 @@ The GPU metrics are available only for supported accelerated computing instance 
 
 The following AWS CLI example creates a category for CPU utilization measured every 10 seconds:
 
-```
+```bash
 aws ec2 create-metric-category \
     --metrics CPUUtilization10Sec \
     --tag-specifications 'ResourceType=metric-category,Tags=[{Key=Name,Value=cpu-10-second}]'
@@ -87,19 +86,19 @@ The response includes the metric category ID. Use this ID when you associate the
 Use the following commands to manage your metric categories.
 + To list all metric categories, use `describe-metric-categories` with no parameters:
 
-  ```
+  ```bash
   aws ec2 describe-metric-categories
   ```
 + To replace the complete metric set in a category, use `modify-metric-category`:
 
-  ```
+  ```bash
   aws ec2 modify-metric-category \
       --metric-category-id {{mc-0123456789abcdef0}} \
       --metrics GPUUtilization GPUMemoryUtilization GPUNVLinkUtilization
   ```
 + To delete a category, use `delete-metric-category`:
 
-  ```
+  ```bash
   aws ec2 delete-metric-category \
       --metric-category-id {{mc-0123456789abcdef0}}
   ```
@@ -125,7 +124,7 @@ When launching an instance using the Amazon EC2 console, under **Advanced detail
 **To enable detailed monitoring when launching an instance**  
 Use the `run-instances` command with the `--monitoring` option. The following AWS CLI option enables detailed monitoring and associates a metric category:
 
-```
+```bash
 --monitoring '{"Enabled":true,"MetricCategoryIds":["mc-0123456789abcdef0"]}'
 ```
 
@@ -137,7 +136,7 @@ For more information about the `run-instances` command, see the [AWS CLI Command
 **To enable detailed monitoring when launching an instance**  
 Use the `New-EC2Instance` cmdlet with the `-Monitoring` parameter.
 
-```
+```powershell
 -Monitoring $true
 ```
 
@@ -173,7 +172,7 @@ Use the following procedures to manage detailed monitoring for a running or stop
 **To enable detailed monitoring**  
 Use the following AWS CLI command:
 
-```
+```bash
 aws ec2 monitor-instances --instance-ids {{i-1234567890abcdef0}}
 ```
 
@@ -182,7 +181,7 @@ For more information about the `monitor-instances` command, see the [AWS CLI Com
 **To associate a metric category**  
 Use `monitor-instances` with `--metric-category-ids`:
 
-```
+```bash
 aws ec2 monitor-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --metric-category-ids {{mc-0123456789abcdef0}}
@@ -193,7 +192,7 @@ This command enables detailed monitoring if needed and adds the categories that 
 **To remove a metric category association**  
 Use `unmonitor-instances` with `--metric-category-ids`:
 
-```
+```bash
 aws ec2 unmonitor-instances \
     --instance-ids {{i-1234567890abcdef0}} \
     --metric-category-ids {{mc-0123456789abcdef0}}
@@ -204,7 +203,7 @@ Detailed monitoring remains enabled.
 **To disable detailed monitoring**  
 Use the following AWS CLI command without metric category IDs:
 
-```
+```bash
 aws ec2 unmonitor-instances --instance-ids {{i-1234567890abcdef0}}
 ```
 
@@ -216,14 +215,14 @@ This command removes all metric category associations. For more information abou
 **To enable detailed monitoring**  
 Use the [Start-EC2InstanceMonitoring](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2InstanceMonitoring.html) cmdlet.
 
-```
+```powershell
 Start-EC2InstanceMonitoring -InstanceId {{i-1234567890abcdef0}}
 ```
 
 **To disable detailed monitoring**  
 Use the [Stop-EC2InstanceMonitoring](https://docs.aws.amazon.com/powershell/latest/reference/items/Stop-EC2InstanceMonitoring.html) cmdlet.
 
-```
+```powershell
 Stop-EC2InstanceMonitoring -InstanceId {{i-1234567890abcdef0}}
 ```
 

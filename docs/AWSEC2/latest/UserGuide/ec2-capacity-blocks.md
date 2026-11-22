@@ -1,7 +1,6 @@
 
 
 # Capacity Blocks for ML
-<a name="ec2-capacity-blocks"></a>
 
 Capacity Blocks for ML allow you to reserve GPU-based accelerated computing instances on a future date to support your short duration machine learning (ML) workloads. Instances that run inside a Capacity Block are automatically placed close together inside [ Amazon EC2 UltraClusters](https://aws.amazon.com/ec2/ultraclusters/), for low-latency, petabit-scale, non-blocking networking.
 
@@ -63,10 +62,11 @@ Capacity Block sizes of 64 instances are not supported for all instance types in
 <a name="capacity-blocks-ultraserver-prerequisites"></a>
 
 
-| Instance type | US East (Ohio) us-east-2 | US East (Dallas) us-east-1-dfw-2a | 
-| --- | --- | --- | 
-| Trn2 | ✓ |  | 
-| P6e-GB200 |  | ✓ | 
+| Instance type | US East (Ohio) us-east-2 | US East (Dallas) us-east-1-dfw-2a | US East (South Bend) us-east-2-sbn-1a | 
+| --- | --- | --- | --- | 
+| Trn2 | ✓ |  |  | 
+| Trn3 | ✓ |  | ✓ | 
+| P6e-GB200 |  | ✓ |  | 
 
 ## Supported platforms
 <a name="capacity-blocks-platforms"></a>
@@ -100,6 +100,7 @@ Before you use Capacity Blocks, consider the following details and limitations.
 + Instances in a Capacity Block don't count against your On-Demand Instances limits.
 + For P5 instances using a custom AMI, ensure that you have the [required software and configuration for EFA](gpu-instances-started.md).
 + For Amazon EKS managed node groups, see [Create a managed node group with Amazon EC2 Capacity Blocks for ML](https://docs.aws.amazon.com/eks/latest/userguide/capacity-blocks-mng.html). For Amazon EKS self-managed node groups, see [Use Capacity Blocks for ML with self-managed nodes](https://docs.aws.amazon.com/eks/latest/userguide/capacity-blocks.html).
++ You can search for Capacity Blocks across multiple instance types in a single request. Search across multiple AWS Regions is available only in the Amazon EC2 console. When you use the AWS CLI, AWS SDK, or API, a search covers only the Region that you send the request to.
 
 ## Related resources
 <a name="capacity-blocks-related-resources"></a>

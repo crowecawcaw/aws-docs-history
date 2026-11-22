@@ -1,7 +1,6 @@
 
 
 # Supported CPU options for Amazon EC2 instance types
-<a name="cpu-options-supported-instances-values"></a>
 
 The following tables list the instance types that support specifying CPU options.
 
@@ -360,6 +359,10 @@ The following tables list the instance types that support specifying CPU options
 | t8i.micro | 2 | 1 | 2 | 1 | 1, 2 | 
 | t8i.small | 2 | 1 | 2 | 1 | 1, 2 | 
 | t8i.medium | 2 | 1 | 2 | 1 | 1, 2 | 
+| t9g.nano | 2 | 2 | 1 | 1, 2 | 1 | 
+| t9g.micro | 2 | 2 | 1 | 1, 2 | 1 | 
+| t9g.small | 2 | 2 | 1 | 1, 2 | 1 | 
+| t9g.medium | 2 | 2 | 1 | 1, 2 | 1 | 
 
 ## Compute optimized instances
 <a name="cpu-options-compute-optimized"></a>
@@ -1170,11 +1173,11 @@ The following tables list the instance types that support specifying CPU options
 | g6.xlarge | 4 | 2 | 2 | 1, 2 | 1, 2 | 
 | g6.2xlarge | 8 | 4 | 2 | 1, 2, 3, 4 | 1, 2 | 
 | g6.4xlarge | 16 | 8 | 2 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2 | 
-| g6.8xlarge | 32 | 16 | 2 | 1, 2, 4, 6, 8, 10, 12, 14, 16 | 1, 2 | 
-| g6.12xlarge | 48 | 24 | 2 | 1, 2, 3, 6, 9, 12, 15, 18, 21, 24 | 1, 2 | 
-| g6.16xlarge | 64 | 32 | 2 | 1, 2, 3, 4, 8, 12, 16, 20, 24, 28, 32 | 1, 2 | 
-| g6.24xlarge | 96 | 48 | 2 | 1, 2, 3, 4, 5, 6, 12, 18, 24, 30, 36, 42, 48 | 1, 2 | 
-| g6.48xlarge | 192 | 96 | 2 | 4, 6, 8, 10, 12, 24, 36, 48, 60, 72, 84, 96 | 1, 2 | 
+| g6.8xlarge | 32 | 16 | 2 | 2, 4, 6, 8, 10, 12, 14, 16 | 1, 2 | 
+| g6.12xlarge | 48 | 24 | 2 | 3, 6, 9, 12, 15, 18, 21, 24 | 1, 2 | 
+| g6.16xlarge | 64 | 32 | 2 | 4, 8, 12, 16, 20, 24, 28, 32 | 1, 2 | 
+| g6.24xlarge | 96 | 48 | 2 | 6, 12, 18, 24, 30, 36, 42, 48 | 1, 2 | 
+| g6.48xlarge | 192 | 96 | 2 | 12, 24, 36, 48, 60, 72, 84, 96 | 1, 2 | 
 | g6e.xlarge | 4 | 2 | 2 | 1, 2 | 1, 2 | 
 | g6e.2xlarge | 8 | 4 | 2 | 1, 2, 3, 4 | 1, 2 | 
 | g6e.4xlarge | 16 | 8 | 2 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2 | 
@@ -1188,7 +1191,7 @@ The following tables list the instance types that support specifying CPU options
 | g6f.2xlarge | 8 | 4 | 2 | 1, 2, 3, 4 | 1, 2 | 
 | g6f.4xlarge | 16 | 8 | 2 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2 | 
 | gr6.4xlarge | 16 | 8 | 2 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2 | 
-| gr6.8xlarge | 32 | 16 | 2 | 1, 2, 4, 6, 8, 10, 12, 14, 16 | 1, 2 | 
+| gr6.8xlarge | 32 | 16 | 2 | 2, 4, 6, 8, 10, 12, 14, 16 | 1, 2 | 
 | gr6f.4xlarge | 16 | 8 | 2 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2 | 
 | g7.2xlarge | 8 | 8 | 1 | 1, 2, 3, 4, 5, 6, 7, 8 | 1 | 
 | g7.4xlarge | 16 | 16 | 1 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 | 1 | 

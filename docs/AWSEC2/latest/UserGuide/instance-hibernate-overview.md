@@ -1,7 +1,6 @@
 
 
 # How Amazon EC2 instance hibernation works
-<a name="instance-hibernate-overview"></a>
 
 The following diagram shows a basic overview of the hibernation process for EC2 instances.
 

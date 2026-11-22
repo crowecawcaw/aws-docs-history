@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon EC2 Linux instances with failed status checks
-<a name="TroubleshootingInstances"></a>
 
 The following information can help you troubleshoot issues if your Linux instance fails a status check. First determine whether your applications are exhibiting any problems. If you verify that the instance is not running your applications as expected, review the status check information and the system logs.
 
@@ -114,7 +113,7 @@ For Linux instances that have failed an instance status check, such as the insta
 
 An out-of-memory error is indicated by a system log entry similar to the one shown below.
 
-```
+```JSON
 [115879.769795] {{Out of memory: kill process}} 20273 (httpd) score 1285879
 or a child 
 [115879.769795] Killed process 1917 (php-cgi) vsz:467184kB, anon-
@@ -140,7 +139,7 @@ Exhausted memory
 
 Memory management update failures are indicated by a system log entry similar to the following:
 
-```
+```bash
 ...
 Press `ESC' to enter the menu... 0   [H[J  Booting 'Amazon Linux 2011.09 (2.6.35.14-95.38.amzn1.i686)'
 
@@ -173,7 +172,7 @@ Post your issue to [AWS re:Post](https://repost.aws/) or contact [Support](https
 
 An input/output error is indicated by a system log entry similar to the following example:
 
-```
+```JSON
 [9943662.053217] end_request: {{I/O error}}, dev sde, {{sector 52428288}}
 [9943664.191262] end_request: I/O error, dev sde, sector 52428168
 [9943664.191285] Buffer I/O error on device md0, logical block 209713024
@@ -219,7 +218,7 @@ An input/output error is indicated by a system log entry similar to the followin
 
 An input/output error on the device is indicated by a system log entry similar to the following example:
 
-```
+```bash
 ...
 block drbd1: Local IO failed in request_timer_fn. Detaching...
 
@@ -255,7 +254,7 @@ For an Amazon EBS-backed instance you can recover data from a recent snapshot by
 
 This condition is indicated by a system log similar to the one shown below. Using an unstable or old Linux kernel (for example, 2.6.16-xenU) can cause an interminable loop condition at startup.
 
-```
+```bash
 Linux version {{2.6.16-xenU}} (builder@xenbat.amazonsa) (gcc version 4.0.1 
 20050727 (Red Hat 4.0.1-5)) #1 SMP Mon May 28 03:41:49 SAST 2007
 
@@ -291,7 +290,7 @@ request_module: runaway loop modprobe binfmt-464c
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 Linux version 2.6.16.33-xenU (root@dom0-0-50-45-1-a4-ee.z-2.aes0.internal) 
 (gcc version 4.1.1 20070105 (Red Hat 4.1.1-52)) #2 SMP Wed Aug 15 17:27:36 SAST 2007
 ...
@@ -318,7 +317,7 @@ Incompatible kernel and userland
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```JSON
 [    0.370415] Freeing unused kernel memory: 1716k freed 
 Loading, please wait...
 WARNING: Couldn't open directory /lib/modules/2.6.34-4-virtual: No such file or directory
@@ -374,7 +373,7 @@ One or more of the following conditions can cause this problem:
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 ...
 root (hd0)
 
@@ -422,7 +421,7 @@ One or both of the following conditions can cause this problem:
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 		Welcome to Fedora 
 		Press 'I' to enter interactive startup.
 Setting clock : Wed Oct 26 05:52:05 EDT 2011 [  OK  ]
@@ -480,7 +479,7 @@ Give root password for maintenance
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 Loading xenblk.ko module 
 xen-vbd: registered block device major 8
 
@@ -540,7 +539,7 @@ Press enter for maintenance
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 Linux version 2.6.16-xenU (builder@xenbat.amazonsa) (gcc version 4.0.1 
  20050727 (Red Hat 4.0.1-5)) #1 SMP Mon May 28 03:41:49 SAST 2007
 ...
@@ -574,7 +573,7 @@ Registering block device major 8
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 ...
 XENBUS: Device with no driver: device/vif/0
 XENBUS: Device with no driver: device/vbd/2048
@@ -615,7 +614,7 @@ sh: can't access tty; job control turned off
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 XENBUS: Device with no driver: device/vbd/2048
 drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
 Initializing network drop monitor service
@@ -654,7 +653,7 @@ sh: can't access tty; job control turned off
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 ...
 Checking filesystems
 Checking all file systems.
@@ -677,7 +676,7 @@ Filesystem check time passed; a filesystem check is being forced.
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 Cleaning up ifupdown....
 Loading kernel modules...done.
 ...
@@ -708,7 +707,7 @@ Checking file systems...fsck from util-linux-ng 2.16.2
 
 This condition is indicated by a system log similar to the one shown below. 
 
-```
+```PowerShell
     GNU GRUB  version 0.97  (629760K lower / 0K upper memory)
 
        [ Minimal BASH-like line editing is supported.   For
@@ -745,7 +744,7 @@ This condition is indicated by a system log similar to the one shown below.
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 ... 
 Bringing up loopback interface:  [  OK  ]
 
@@ -774,7 +773,7 @@ There is a hardcoded interface MAC in the AMI configuration
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 audit(1313445102.626:2): enforcing=1 old_enforcing=0 auid=4294967295
 {{Unable to load SELinux Policy. Machine is in enforcing mode. Halting now.
 Kernel panic - not syncing: Attempted to kill init!}}
@@ -801,7 +800,7 @@ SELinux has been enabled in error:
 
 This condition is indicated by a system log similar to the one shown below.
 
-```
+```bash
 Linux version 2.6.16-xenU (builder@xenbat.amazonsa) (gcc version 4.0.1 
 20050727 (Red Hat 4.0.1-5)) #1 SMP Mon May 28 03:41:49 SAST 2007
 ...

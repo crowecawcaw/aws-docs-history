@@ -1,7 +1,6 @@
 
 
 # Create an AMI using Windows Sysprep with EC2Launch v2
-<a name="sysprep-using-ec2launchv2"></a>
 
 When you create an image from an instance with the EC2Launch v2 agent installed, EC2Launch v2 performs specific tasks as the image is prepared. This includes working with Windows Sysprep. For more information, see [Windows Sysprep phases](ami-create-win-sysprep.md#sysprep-phases).
 
@@ -48,14 +47,14 @@ The system generates OS-specific requirements, such as a computer name and an SI
 + **TimeZone**: The time zone is set to Coordinate Universal Time (UTC) by default.
 + **Synchronous command with order 1**: The system runs the following command, which enables the administrator account and specifies the password requirement:
 
-  ```
+  ```sh
   net user Administrator /ACTIVE:YES /LOGONPASSWORDCHG:NO /EXPIRES:NEVER /PASSWORDREQ:YES
   ```
 + **Synchronous command with order 2**: The system scrambles the administrator password. This security measure is designed to prevent the instance from being accessible after Windows Sysprep completes if you did not configure the `setAdminAccount` task.
 
   The system runs the following command from your local launch agent directory (`C:\Program Files\Amazon\EC2Launch\`).
 
-  ```
+  ```sh
   EC2Launch.exe internal randomize-password --username Administrator
   ```
 + To enable remote desktop connections, the system sets the Terminal Server `fDenyTSConnections` registry key to false.
@@ -77,7 +76,7 @@ The system generates OS-specific requirements, such as a computer name and an SI
    + `<RegisteredOwner>EC2</RegisteredOwner>`
 **Note**  
 During the generalize and specialize phases, EC2Launch v2 monitors the status of the OS. If EC2Launch v2 detects that the OS is in a Sysprep phase, then it publishes the following message to the system log:  
-Windows is being configured. SysprepState=IMAGE\_STATE\_UNDEPLOYABLE
+`Windows is being configured. SysprepState=IMAGE_STATE_UNDEPLOYABLE`
 
 1. The system runs EC2Launch v2.
 
@@ -123,6 +122,6 @@ When you are asked to confirm that you want to run Windows Sysprep and shut down
 
 You can manually invoke the Windows Sysprep tool from the command line using the following command:
 
-```
+```batch
 "%programfiles%\amazon\ec2launch\ec2launch.exe" sysprep --shutdown=true
 ```

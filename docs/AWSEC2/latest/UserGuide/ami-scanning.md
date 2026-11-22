@@ -1,7 +1,6 @@
 
 
 # Scan an Amazon EC2 AMI for software vulnerabilities with Amazon Inspector
-<a name="ami-scanning"></a>
 
 Amazon Inspector is a vulnerability management service that scans your AWS workloads, including your Amazon EC2 AMIs, for software vulnerabilities. Two scan types are available: an on-demand scan of an AMI, and continuous AMI scanning on an AWS account. For more information, see [Scanning machine images with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-machine-images.html) in the *Amazon Inspector User Guide*.
 
@@ -44,7 +43,7 @@ You can run an on-demand scan of an AMI that you own. You don't need to activate
 **To run an on-demand scan of an AMI**  
 Use the following Amazon Inspector **start-on-demand-scan** command. For more information, see [start-on-demand-scan](https://docs.aws.amazon.com/cli/latest/reference/inspector2/start-on-demand-scan.html) in the *AWS CLI Command Reference*.
 
-```
+```bash
 aws inspector2 start-on-demand-scan \
     --resource-id {{ami-1234567890EXAMPLE}} \
     --resource-type AMI
@@ -92,7 +91,7 @@ In the AMIs list, you can also display the **Highest vulnerability severity** an
 **To view a summary of the scan results for an AMI**  
 Use the following **describe-images** command. The `--query` option limits the output to the `ScanResults` field. For more information, see [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) in the *AWS CLI Command Reference*.
 
-```
+```bash
 aws ec2 describe-images \
     --image-ids {{ami-1234567890EXAMPLE}} \
     --query "Images[].ScanResults"
@@ -100,7 +99,7 @@ aws ec2 describe-images \
 
 The following is example output.
 
-```
+```json
 [
     {
         "HighestFindingSeverityLabel": "high",
@@ -114,7 +113,7 @@ The following is example output.
 **To find AMIs by their scan results**  
 Use the `scan-result.*` filters. For example, the following command finds AMIs whose highest finding severity is `critical`. For the full list of filters, see [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) in the *AWS CLI Command Reference*.
 
-```
+```bash
 aws ec2 describe-images \
     --filters "Name=scan-result.highest-finding-severity-label,Values=critical" \
     --query "Images[].ImageId"
@@ -148,14 +147,14 @@ To view the history of on-demand scans for an AMI, select the AMI in the Amazon 
 **To view the findings for an AMI**  
 Use the [get-image-findings](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-image-findings.html) command.
 
-```
+```bash
 aws ec2 get-image-findings \
     --image-id {{ami-1234567890EXAMPLE}}
 ```
 
 The following is example output.
 
-```
+```json
 {
     "ImageFindings": [
         {

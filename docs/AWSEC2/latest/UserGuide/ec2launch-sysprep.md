@@ -1,7 +1,6 @@
 
 
 # Create an AMI using Windows Sysprep with EC2Launch
-<a name="ec2launch-sysprep"></a>
 
 When you create an image from an instance with the EC2Launch agent installed, EC2Launch performs specific tasks as the image is prepared. This includes working with Windows Sysprep. For more information, see [Windows Sysprep phases](ami-create-win-sysprep.md#sysprep-phases).
 

@@ -1,7 +1,6 @@
 
 
 # AMI billing information fields
-<a name="billing-info-fields"></a>
 
 The following fields provide billing information associated with an AMI:
 

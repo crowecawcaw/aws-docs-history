@@ -1,7 +1,6 @@
 
 
 # Limit access to the Instance Metadata Service
-<a name="instance-metadata-limiting-access"></a>
 
 You can consider using local firewall rules to disable access from some or all processes to the Instance Metadata Service (IMDS).
 
@@ -14,7 +13,7 @@ For [Nitro-based instances](instance-types.md#instance-hypervisor-type), the IMD
 
 The following example uses Linux iptables and its `owner` module to prevent the Apache webserver (based on its default installation user ID of `apache`) from accessing 169.254.169.254. It uses a *deny rule* to reject all instance metadata requests (whether IMDSv1 or IMDSv2) from any process running as that user.
 
-```
+```PowerShell
 $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache --jump REJECT
 ```
 
@@ -22,7 +21,7 @@ Or, you can consider only allowing access to particular users or groups, by usin
 
 The following example prevents access to the IMDS by all processes, except for processes running in the user account `trustworthy-user`.
 
-```
+```PowerShell
 $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner {{trustworthy-user}} --jump REJECT
 ```
 
@@ -37,21 +36,21 @@ If you are using FreeBSD or OpenBSD, you can also consider using PF or IPFW. The
 
 **PF**
 
-```
+```bash
 $ block out inet proto tcp from any to 169.254.169.254
 ```
 
-```
+```bash
 $ pass out inet proto tcp from any to 169.254.169.254 user root
 ```
 
 **IPFW**
 
-```
+```bash
 $ allow tcp from any to 169.254.169.254 uid root
 ```
 
-```
+```bash
 $ deny tcp from any to 169.254.169.254
 ```
 
@@ -65,7 +64,7 @@ The order of the PF and IPFW commands matter. PF defaults to last matching rule 
 
 The following PowerShell example uses the built-in Windows firewall to prevent the Internet Information Server webserver (based on its default installation user ID of `NT AUTHORITY\IUSR`) from accessing 169.254.169.254. It uses a *deny rule* to reject all instance metadata requests (whether IMDSv1 or IMDSv2) from any process running as that user.
 
-```
+```PowerShell
 PS C:\> $blockPrincipal = New-Object -TypeName System.Security.Principal.NTAccount ("NT AUTHORITY\IUSR")
 PS C:\> $BlockPrincipalSID = $blockPrincipal.Translate([System.Security.Principal.SecurityIdentifier]).Value
 PS C:\> $BlockPrincipalSDDL = "D:(A;;CC;;;$BlockPrincipalSID)"
@@ -77,7 +76,7 @@ Or, you can consider only allowing access to particular users or groups, by usin
 
 The following example prevents access to instance metadata by all processes running as an OS group specified in the variable `blockPrincipal` (in this example, the Windows group `Everyone`), except for processes specified in `exceptionPrincipal` (in this example, a group called `trustworthy-users`). You must specify both deny and allow principals because Windows Firewall, unlike the `! --uid-owner trustworthy-user` rule in Linux iptables, does not provide a shortcut mechanism to allow only a particular principal (user or group) by denying all the others.
 
-```
+```PowerShell
 PS C:\> $blockPrincipal = New-Object -TypeName System.Security.Principal.NTAccount ("Everyone")
 PS C:\> $BlockPrincipalSID = $blockPrincipal.Translate([System.Security.Principal.SecurityIdentifier]).Value
 PS C:\> $exceptionPrincipal = New-Object -TypeName System.Security.Principal.NTAccount ("trustworthy-users")
@@ -94,7 +93,7 @@ To use local firewall rules, you need to adapt the preceding example commands to
 
 You can consider blocking all software using `netsh` rules, but those are much less flexible.
 
-```
+```batch
 C:\> netsh advfirewall firewall add rule name="Block metadata service altogether" dir=out protocol=TCP remoteip=169.254.169.254 action=block
 ```
 

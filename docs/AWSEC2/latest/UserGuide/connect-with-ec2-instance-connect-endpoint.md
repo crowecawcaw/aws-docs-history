@@ -1,7 +1,6 @@
 
 
 # Connect to your instances using a private IP address and EC2 Instance Connect Endpoint
-<a name="connect-with-ec2-instance-connect-endpoint"></a>
 
 EC2 Instance Connect Endpoint allows you to connect securely to an instance from the internet, without using a bastion host, or requiring that your virtual private cloud (VPC) has direct internet connectivity.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Configure EC2 Fleet to launch On-Demand Instances using targeted Capacity Reservations
-<a name="ec2-fleet-launch-on-demand-instances-using-targeted-capacity-reservations-walkthrough"></a>
 
 This tutorial walks you through all the steps that you must perform so that your EC2 Fleet launches On-Demand Instances into `targeted` Capacity Reservations.
 
@@ -35,7 +34,7 @@ Use the [create-capacity-reservation](https://docs.aws.amazon.com/cli/latest/ref
 
 **3 Capacity Reservations in `us-east-1a`**
 
-```
+```bash
 aws ec2 create-capacity-reservation \
     --availability-zone us-east-1a \
     --instance-type c5.xlarge \
@@ -46,13 +45,13 @@ aws ec2 create-capacity-reservation \
 
 Example of resulting Capacity Reservation ID
 
-```
+```bash
 cr-1234567890abcdef1
 ```
 
 **3 Capacity Reservations in `us-east-1b`**
 
-```
+```bash
 aws ec2 create-capacity-reservation \
     --availability-zone us-east-1b \
     --instance-type c5.xlarge \
@@ -63,7 +62,7 @@ aws ec2 create-capacity-reservation \
 
 Example of resulting Capacity Reservation ID
 
-```
+```bash
 cr-54321abcdef567890
 ```
 
@@ -72,7 +71,7 @@ cr-54321abcdef567890
 
 Use the `resource-groups` service and the [create-group](https://docs.aws.amazon.com/cli/latest/reference/resource-groups/create-group.html) command to create a Capacity Reservation resource group. In this example, the resource group is named `my-cr-group`. For information about why you must create a resource group, see [Use Capacity Reservations to reserve On-Demand capacity in EC2 Fleet](ec2-fleet-on-demand-capacity-reservations.md).
 
-```
+```bash
 aws resource-groups create-group \
     --name {{my-cr-group}} \
     --configuration '{"Type":"AWS::EC2::CapacityReservationPool"}' '{"Type":"AWS::ResourceGroups::Generic", "Parameters": [{"Name": "allowed-resource-types", "Values": ["AWS::EC2::CapacityReservation"]}]}'
@@ -83,7 +82,7 @@ aws resource-groups create-group \
 
 Use the `resource-groups` service and the [group-resources](https://docs.aws.amazon.com/cli/latest/reference/resource-groups/group-resources.html) command to add the Capacity Reservations that you created in Step 1 to the Capacity Reservations resource group. Note that you must reference the On-Demand Capacity Reservations by their ARNs.
 
-```
+```bash
 aws resource-groups group-resources \
     --group {{my-cr-group}} \
     --resource-arns \
@@ -93,7 +92,7 @@ aws resource-groups group-resources \
 
 Example output
 
-```
+```JSON
 {
    "Failed": [], 
    "Succeeded": [ 
@@ -108,13 +107,13 @@ Example output
 
 Use the `resource-groups` service and the [list-group-resources](https://docs.aws.amazon.com/cli/latest/reference/resource-groups/list-group-resources.html) command to optionally describe the resource group to view its Capacity Reservations.
 
-```
+```bash
 aws resource-groups list-group-resources --group {{my-cr-group}}
 ```
 
 Example output
 
-```
+```JSON
 {
     "ResourceIdentifiers": [
         {
@@ -134,7 +133,7 @@ Example output
 
 Use the [create-launch-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-launch-template.html) command to create a launch template in which to specify the Capacity Reservations to use. In this example, the fleet will use `targeted` Capacity Reservations, which have been added to a resource group. Therefore, the launch template data specifies that the Capacity Reservation targets a specific resource group. In this example, the launch template is named `my-launch-template`. 
 
-```
+```bash
 aws ec2 create-launch-template \
     --launch-template-name {{my-launch-template}} \
     --launch-template-data \
@@ -151,13 +150,13 @@ aws ec2 create-launch-template \
 
 Use the [describe-launch-template-versions](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-launch-template-versions.html) command to optionally describe the launch template to view its configuration.
 
-```
+```bash
 aws ec2 describe-launch-template-versions --launch-template-name {{my-launch-template}}
 ```
 
 Example output
 
-```
+```JSON
 {
     "LaunchTemplateVersions": [
         {
@@ -188,7 +187,7 @@ Create an EC2 Fleet that specifies the configuration information for the instanc
 **Note**  
 The fleet type must be `instant`. Other fleet types do not support `use-capacity-reservations-first`.
 
-```
+```JSON
 {
     "LaunchTemplateConfigs": [
         {
@@ -233,7 +232,7 @@ After you create the `instant` fleet using the preceding configuration, the foll
 
 After the fleet is launched, you can optionally run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the Capacity Reservations in all of the pools were used.
 
-```
+```JSON
 { "CapacityReservationId":  "cr-111",
      "InstanceType":  "c5.xlarge",  
      "AvailableInstanceCount":  0

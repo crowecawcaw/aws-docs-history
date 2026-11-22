@@ -1,7 +1,6 @@
 
 
 # Create an Amazon EC2 launch template
-<a name="create-launch-template"></a>
 
 You can create an Amazon EC2 launch template by specifying your own values for the instance configuration parameters, or by getting the values from an existing launch template or Amazon EC2 instance.
 
@@ -92,7 +91,7 @@ To tag the launch template itself, you must specify the tags under **Template ta
 **To create a launch template**  
 Use the [create-launch-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-launch-template.html) command.
 
-```
+```bash
 aws ec2 create-launch-template \
     --launch-template-name {{TemplateForWebServer}} \
     --version-description {{WebVersion1}} \
@@ -102,7 +101,7 @@ aws ec2 create-launch-template \
 
 The following is example JSON that specifies the launch template data for the instance configuration. Save the JSON to a file and include it in the `--launch-template-data` parameter as shown in the example command.
 
-```
+```json
 {
     "NetworkInterfaces": [{
         "AssociatePublicIpAddress": true,
@@ -128,7 +127,7 @@ The following is example JSON that specifies the launch template data for the in
 
 The following is example output.
 
-```
+```json
 {
     "LaunchTemplate": {
         "LatestVersionNumber": 1, 
@@ -147,7 +146,7 @@ The following is example output.
 **To create a launch template**  
 Use the [New-EC2LaunchTemplate](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2LaunchTemplate.html) cmdlet.
 
-```
+```powershell
 $launchTemplateData = [Amazon.EC2.Model.RequestLaunchTemplateData]@{
     ImageId = '{{ami-0abcdef1234567890}}'
     InstanceType = '{{r5.4xlarge}}'
@@ -258,7 +257,7 @@ You can use the AWS CLI to create a launch template from an existing instance by
 **To get launch template data from an instance**
 + Use the [get-launch-template-data](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-launch-template-data.html) command and specify the instance ID. You can use the output as a base to create a new launch template or launch template version. By default, the output includes a top-level `LaunchTemplateData` object, which cannot be specified in your launch template data. Use the `--query` option to exclude this object.
 
-  ```
+  ```bash
   aws ec2 get-launch-template-data \
       --instance-id {{i-0123d646e8048babc}} \
       --query "LaunchTemplateData"
@@ -266,7 +265,7 @@ You can use the AWS CLI to create a launch template from an existing instance by
 
   The following is example output.
 
-  ```
+  ```json
       {
           "Monitoring": {}, 
           "ImageId": "ami-8c1be5f6", 
@@ -312,7 +311,7 @@ You can use the AWS CLI to create a launch template from an existing instance by
 
   You can write the output directly to a file, for example:
 
-  ```
+  ```bash
   aws ec2 get-launch-template-data \
       --instance-id {{i-0123d646e8048babc}} \
       --query "LaunchTemplateData" >> {{instance-data.json}}
@@ -444,7 +443,7 @@ For more information, see [Create a launch template by specifying parameters](#c
     + The instance type to launch (`{{m5.4xlarge}}`)
     + A tag for the instance (`{{Name}}`=`{{webserver}}`)
 
-  ```
+  ```bash
   aws ec2 create-launch-template \
       --launch-template-name {{TemplateForWebServer}} \
       --tag-specifications 'ResourceType=launch-template,Tags=[{Key={{purpose}},Value={{production}}}]' \
@@ -453,7 +452,7 @@ For more information, see [Create a launch template by specifying parameters](#c
 
   The following is an example JSON file that contains the launch template data for the instance configuration. The value for `ImageId` is the Systems Manager parameter name, entered in the required format `resolve:ssm:{{golden-ami}}`.
 
-  ```
+  ```json
   {"LaunchTemplateData": {
       "ImageId": "resolve:ssm:{{golden-ami}}",
       "InstanceType": "{{m5.4xlarge}}",
@@ -476,7 +475,7 @@ For more information, see [Create a launch template by specifying parameters](#c
 **To resolve the Systems Manager parameter to the actual AMI ID**  
 Use the [describe-launch-template-versions](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-launch-template-versions.html) command and include the `--resolve-alias` parameter.
 
-```
+```bash
 aws ec2 describe-launch-template-versions \
     --launch-template-name {{my-launch-template}} \
     --versions {{$Default}} \
@@ -485,7 +484,7 @@ aws ec2 describe-launch-template-versions \
 
 The response includes the AMI ID for `ImageId`. In this example, when an instance is launched using this launch template, the AMI ID resolves to `ami-0ac394d6a3example`.
 
-```
+```json
 {
     "LaunchTemplateVersions": [
         {

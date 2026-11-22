@@ -1,7 +1,6 @@
 
 
 # Troubleshoot impaired Windows instance with the EC2Rescue GUI
-<a name="ec2rw-gui"></a>
 
 EC2Rescue for Windows Server can perform the following analysis on ** offline instances**:
 
@@ -51,7 +50,7 @@ The **Offline Instance** option is useful for debugging boot issues with Windows
 
    You can run the following PowerShell command to download EC2Rescue without changing your Internet Explorer Enhanced Security Configuration (ESC):
 
-   ```
+   ```powershell
    Invoke-WebRequest https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip -OutFile $env:USERPROFILE\Desktop\EC2Rescue_latest.zip
    ```
 
@@ -59,7 +58,7 @@ The **Offline Instance** option is useful for debugging boot issues with Windows
 **Note**  
 If you receive an error when downloading the file, and you are using Windows Server 2016 or earlier, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:  
 
-   ```
+   ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    ```
 
@@ -90,7 +89,7 @@ You can collect logs and other data from an active instance.
 
    You can run the following PowerShell command to download EC2Rescue without changing your Internet Explorer Enhanced Security Configuration (ESC):
 
-   ```
+   ```powershell
    Invoke-WebRequest https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip -OutFile $env:USERPROFILE\Desktop\EC2Rescue_latest.zip
    ```
 
@@ -98,7 +97,7 @@ You can collect logs and other data from an active instance.
 **Note**  
 If you receive an error when downloading the file, and you are using Windows Server 2016 or earlier, TLS 1.2 might need to be enabled for your PowerShell terminal. You can enable TLS 1.2 for the current PowerShell session with the following command and then try again:  
 
-   ```
+   ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    ```
 

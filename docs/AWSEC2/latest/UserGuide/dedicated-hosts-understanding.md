@@ -1,7 +1,6 @@
 
 
 # Amazon EC2 Dedicated Host auto-placement and host affinity
-<a name="dedicated-hosts-understanding"></a>
 
 Placement control for Dedicated Hosts happens on both the instance level and host level.
 

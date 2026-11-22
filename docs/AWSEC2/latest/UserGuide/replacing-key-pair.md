@@ -1,7 +1,6 @@
 
 
 # Add or replace a public key on your Linux instance
-<a name="replacing-key-pair"></a>
 
 
 | Description | 

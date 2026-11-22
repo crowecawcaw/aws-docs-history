@@ -1,7 +1,6 @@
 
 
 # Transition to using Instance Metadata Service Version 2
-<a name="instance-metadata-transition-to-version-2"></a>
 
 If you want to configure your instances to only accept Instance Metadata Service Version 2 (IMDSv2) calls, we recommend that you use the following tools and transition path.
 
@@ -82,7 +81,15 @@ To assess your IMDSv2 migration scope, identify instances that are configured to
 
 1. **Identify instances that are configured to allow either IMDSv1 or IMDSv2:**
 
-   To see how many instances in an account and Region still allow IMDSv1, use the `ImdsV1Enabled` CloudWatch metric. This metric is published for each instance based on its configuration, so the Sum of the metric is the number of instances that still allow IMDSv1, even when no IMDSv1 calls are being made. Track it across your accounts and Regions to measure your migration progress. Then, to identify which specific instances still allow IMDSv1, use the Amazon EC2 console or the AWS CLI. For a description of the `ImdsV1Enabled` metric and its statistics, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics).
+   To see how many instances in an account and Region still allow IMDSv1, use the `ImdsV1Enabled` CloudWatch metric. This metric is published for each instance based on its configuration, so it reports instances that allow IMDSv1 even when no IMDSv1 calls are being made. Because each instance can report more than one data point per period, use the Maximum statistic for each instance and then add the results. For example, the following metric math expression returns the number of instances that allow IMDSv1:
+
+   ```
+   SUM(SEARCH('{AWS/EC2,InstanceId} MetricName="ImdsV1Enabled"', 'Maximum', 300))
+   ```
+
+   To get the percentage of instances that allow IMDSv1, replace `SUM` with `100*AVG`. Track these values across your accounts and Regions to measure your migration progress. To identify specific instances that still allow IMDSv1, use the Amazon EC2 console or the AWS CLI. For more information about the `ImdsV1Enabled` metric and its statistics, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics).
+
+   A `SEARCH` expression includes a limited number of instances. For an account and Region with a large number of instances, use a CloudWatch Metrics Insights query, such as `SELECT AVG(ImdsV1Enabled) FROM SCHEMA("AWS/EC2", InstanceId)`, to track your migration at scale. This query returns the proportion of instances that allow IMDSv1 (multiply by 100 for a percentage). For more information, including query quotas, see [Query your metrics with CloudWatch Metrics Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html) in the *Amazon CloudWatch User Guide*.
 
 ------
 #### [ Amazon EC2 console ]
@@ -100,7 +107,7 @@ To assess your IMDSv2 migration scope, identify instances that are configured to
 
    Use the [describe-instances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-instance-metadata-options.html) command and filter by `metadata-options.http-tokens = optional`, as follows:
 
-   ```
+   ```bash
    aws ec2 describe-instances --filters "Name=metadata-options.http-tokens,Values=optional" --query "Reservations[*].Instances[*].[InstanceId]" --output text
    ```
 

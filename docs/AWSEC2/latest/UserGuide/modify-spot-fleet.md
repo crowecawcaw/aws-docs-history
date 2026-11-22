@@ -1,7 +1,6 @@
 
 
 # Modify a Spot Fleet request
-<a name="modify-spot-fleet"></a>
 
 **Important**  
 Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).
@@ -45,7 +44,7 @@ When you decrease the total target capacity, the Spot Fleet cancels any open req
 **To modify a Spot Fleet request**  
 Use the [modify-spot-fleet-request](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-spot-fleet-request.html) command to update the target capacity of the specified Spot Fleet request.
 
-```
+```bash
 aws ec2 modify-spot-fleet-request \
     --spot-fleet-request-id {{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --target-capacity {{20}}
@@ -53,7 +52,7 @@ aws ec2 modify-spot-fleet-request \
 
 You can modify the previous command as follows to decrease the target capacity of the specified Spot Fleet without terminating any Spot Instances as a result.
 
-```
+```bash
 aws ec2 modify-spot-fleet-request \
     --spot-fleet-request-id {{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}} \
     --target-capacity {{10}} \
@@ -66,7 +65,7 @@ aws ec2 modify-spot-fleet-request \
 **To modify a Spot Fleet request**  
 Use the [Edit-EC2SpotFleetRequest](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2SpotFleetRequest.html) cmdlet to update the target capacity of the specified Spot Fleet request.
 
-```
+```powershell
 Edit-EC2SpotFleetRequest `
     -SpotFleetRequestId "{{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TargetCapacity {{20}}
@@ -74,7 +73,7 @@ Edit-EC2SpotFleetRequest `
 
 You can modify the previous command as follows to decrease the target capacity of the specified Spot Fleet without terminating any Spot Instances as a result.
 
-```
+```powershell
 Edit-EC2SpotFleetRequest `
     -SpotFleetRequestId "{{sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE}}" `
     -TargetCapacity {{20}} `

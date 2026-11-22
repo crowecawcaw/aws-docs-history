@@ -1,7 +1,6 @@
 
 
 # Use AWS Systems Manager to apply STIG settings to your instance
-<a name="ec2-stig-ssm-cmd-doc"></a>
 
 You can use the `AWSEC2-ConfigureSTIG` Systems Manager command document to apply STIG settings to an existing EC2 instance. You must run the command document from the instance that it updates. The command document applies appropriate settings based on the operating system and configuration of the instance where it runs.
 
@@ -64,7 +63,7 @@ If you select instances manually, and an instance you expect to see is not inclu
 **Example 1: Run with default values**  
 Run the following command to install the STIG script and run it with default values. For more information about input parameters, see [AWSEC2-ConfigureSTIG input parameters](#ec2-stig-ssm-cmd-doc-params).
 
-```
+```sh
 aws ssm send-command \
 	--document-name "AWSEC2-ConfigureSTIG" \
 	--instance-ids "{{i-1234567890abcdef0}}"'
@@ -73,7 +72,7 @@ aws ssm send-command \
 **Example 2: Configure Medium level STIG settings on your instance**  
 Run the following command to install the STIG script and run it with the `Level` input parameter set to `Medium`. For more information about input parameters, see [AWSEC2-ConfigureSTIG input parameters](#ec2-stig-ssm-cmd-doc-params).
 
-```
+```sh
 aws ssm send-command \
 	--document-name "AWSEC2-ConfigureSTIG" \
 	--instance-ids "{{i-1234567890abcdef0}}"
@@ -88,14 +87,14 @@ If successful, the command document installs the script and configures your inst
 **Example 1: Run with default values**  
 Run the following command to install the STIG script and run it with default values. For more information about input parameters, see [AWSEC2-ConfigureSTIG input parameters](#ec2-stig-ssm-cmd-doc-params).
 
-```
+```ps
 Send-SSMCommand -DocumentName "AWSEC2-ConfigureSTIG" -InstanceId "{{i-1234567890abcdef0}}"}
 ```
 
 **Example 2: Configure Medium level STIG settings on your instance**  
 Run the following command to install the STIG script and run it with the `Level` input parameter set to `Medium`. For more information about input parameters, see [AWSEC2-ConfigureSTIG input parameters](#ec2-stig-ssm-cmd-doc-params).
 
-```
+```ps
 Send-SSMCommand -DocumentName "AWSEC2-ConfigureSTIG" -InstanceId "{{i-1234567890abcdef0}}" -Parameter @{'Level'='Medium'}
 ```
 

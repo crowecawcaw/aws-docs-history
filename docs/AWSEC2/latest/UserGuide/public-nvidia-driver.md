@@ -1,7 +1,6 @@
 
 
 # Install NVIDIA public drivers
-<a name="public-nvidia-driver"></a>
 
 If the AWS Marketplace AMIs described in [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md) don't fit your use case, you can install the public drivers and bring your own license. Installation options include the following:
 + [Option 1: Driver-only install](#public-nvidia-driver-only-install)
@@ -67,7 +66,7 @@ For `arm64-sbsa` commands, see [CUDA Toolkit Downloads](https://developer.nvidia
 **Prerequisite**  
 Before installing the toolkit and drivers, run the following command to ensure that you have the correct version of the kernel headers and development packages.
 
-```
+```sh
 [ec2-user ~]$ sudo dnf install kernel-devel-$(uname -r) kernel-headers-$(uname -r) -y
 ```
 
@@ -88,7 +87,7 @@ You can follow these instructions to download the CUDA toolkit installer reposit
 
 To view instructions on the NVIDIA developer website, see [CUDA Toolkit Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Amazon-Linux&target_version=2023&target_type=rpm_local).
 
-```
+```sh
 [ec2-user ~]$ wget https://developer.download.nvidia.com/compute/cuda/{{13.0.0}}/local_installers/{{cuda-repo-amzn2023-13-0-local-13.0.0_580.65.06-1.x86_64.rpm}}
 [ec2-user ~]$ sudo rpm -i {{cuda-repo-amzn2023-13-0-local-13.0.0_580.65.06-1.x86_64.rpm}}
 ```
@@ -100,7 +99,7 @@ You can follow these instructions to register the CUDA repository with the packa
 
 To view instructions on the NVIDIA developer website, see [CUDA Toolkit Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Amazon-Linux&target_version=2023&target_type=rpm_network).
 
-```
+```sh
 [ec2-user ~]$ sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/amzn2023/x86_64/cuda-amzn2023.repo
 ```
 
@@ -110,27 +109,27 @@ Remaining steps are the same for both RPM local and RPM network installation.
 
 1. Complete the CUDA toolkit install
 
-   ```
+   ```sh
    [ec2-user ~]$ sudo dnf clean all
    [ec2-user ~]$ sudo dnf install cuda-toolkit -y
    ```
 
 1. Install the open kernel module variant of the driver
 
-   ```
+   ```sh
    [ec2-user ~]$ sudo dnf module install nvidia-driver:open-dkms -y
    ```
 
 1. Install GPUDirect Storage and Fabric Manager
 
-   ```
+   ```sh
    [ec2-user ~]$ sudo dnf install nvidia-gds -y
    [ec2-user ~]$ sudo dnf install nvidia-fabric-manager -y
    ```
 
 1. Enable Fabric Manager and driver persistence
 
-   ```
+   ```sh
    [ec2-user ~]$ sudo systemctl enable nvidia-fabricmanager
    [ec2-user ~]$ sudo systemctl enable nvidia-persistenced
    ```
@@ -139,19 +138,19 @@ Remaining steps are the same for both RPM local and RPM network installation.
 
    1. Install NVIDIA Link Subnet Manager and `ibstat`.
 
-      ```
+      ```sh
       [ec2-user ~]$ sudo dnf install nvlink5
       ```
 
    1. Enable automatic loading of the Infiniband module on startup.
 
-      ```
+      ```sh
       [ec2-user ~]$ echo "ib_umad" | sudo tee -a /etc/modules-load.d/modules.conf
       ```
 
 1. Reboot the instance
 
-   ```
+   ```sh
    [ec2-user ~]$ sudo reboot
    ```
 
@@ -165,7 +164,7 @@ For `arm64-sbsa` commands, see [CUDA Toolkit Downloads](https://developer.nvidia
 **Prerequisite**  
 Before installing the toolkit and drivers, run the following command to ensure that you have the correct version of the kernel headers and development packages.
 
-```
+```sh
 $ apt install linux-headers-$(uname -r)
 ```
 
@@ -179,7 +178,7 @@ You can follow these instructions to download the CUDA toolkit installer reposit
 
 To view instructions on the NVIDIA developer website, see [CUDA Toolkit Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_local).
 
-```
+```sh
 $ wget https://developer.download.nvidia.com/compute/cuda/repos/{{ubuntu2404}}/x86_64/{{cuda-ubuntu2404.pin}}
 $ sudo mv {{cuda-ubuntu2404.pin}} /etc/apt/preferences.d/cuda-repository-pin-600
 $ wget https://developer.download.nvidia.com/compute/cuda/{{13.0.0}}/local_installers/{{cuda-repo-ubuntu2404-13-0-local_13.0.0-580.65.06-1_amd64.deb}}
@@ -194,7 +193,7 @@ You can follow these instructions to register the CUDA repository with the packa
 
 To view instructions on the NVIDIA developer website, see [CUDA Toolkit Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network).
 
-```
+```sh
 $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
 $ sudo dpkg -i cuda-keyring_1.1-1_all.deb
 ```
@@ -205,27 +204,27 @@ Remaining steps are the same for both local and network installation.
 
 1. Complete the CUDA toolkit install
 
-   ```
+   ```sh
    $ sudo apt update
    $ sudo apt install cuda-toolkit -y
    ```
 
 1. Install the open kernel module variant of the driver
 
-   ```
+   ```sh
    $ sudo apt install nvidia-open -y
    ```
 
 1. Install GPUDirect Storage and Fabric Manager
 
-   ```
+   ```sh
    $ sudo apt install nvidia-gds -y
    $ sudo apt install nvidia-fabricmanager -y
    ```
 
 1. Enable Fabric Manager and driver persistence
 
-   ```
+   ```sh
    $ sudo systemctl enable nvidia-fabricmanager
    $ sudo systemctl enable nvidia-persistenced
    ```
@@ -234,26 +233,26 @@ Remaining steps are the same for both local and network installation.
 
    1. Install the latest InfiniBand-specific device driver and diagnostic utilities.
 
-      ```
+      ```sh
       $ sudo apt install linux-modules-extra-$(uname -r) -y
       $ sudo apt install infiniband-diags -y
       ```
 
    1. Install NVIDIA Link Subnet Manager.
 
-      ```
+      ```sh
       $ sudo apt install nvlsm -y
       ```
 
 1. Reboot the instance
 
-   ```
+   ```sh
    sudo reboot
    ```
 
 1. Update your path and add the following environment variable.
 
-   ```
+   ```sh
    $ export PATH=${PATH}:/usr/local/{{cuda-13.0}}/bin
    $ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/{{cuda-13.0}}/lib64
    ```

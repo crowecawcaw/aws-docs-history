@@ -1,7 +1,6 @@
 
 
 # Key concepts for burstable performance instances
-<a name="burstable-credits-baseline-concepts"></a>
 
 Traditional Amazon EC2 instance types provide fixed CPU resources, while burstable performance instances provide a baseline level of CPU utilization with the ability to burst CPU utilization above the baseline level. This ensures that you pay only for baseline CPU plus any additional burst CPU usage resulting in lower compute costs. The baseline utilization and ability to burst are governed by CPU credits. Burstable performance instances are the only instance types that use credits for CPU usage.
 
@@ -87,6 +86,7 @@ The following table summarizes the key credit differences between the burstable 
 </thead>
 <tbody>
   <tr><td colspan="4"><b>Latest generation</b></td></tr>
+  <tr><td>T9g</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T8i</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T4g</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
   <tr><td>T3a</td><td>Earned credits, Accrued credits, Spent credits, Surplus credits (Unlimited mode only)</td><td>Standard, Unlimited (default)</td><td>7 days (credits persist for 7 days after an instance stops)</td></tr>
@@ -112,6 +112,11 @@ The following table lists the burstable performance instance types, the rate at 
 
 |  Instance type  |  CPU credits earned per hour  |  Maximum earned credits that can be accrued\*  |  vCPUs\*\*\*  |  Baseline utilization per vCPU  | 
 | --- | --- | --- | --- | --- | 
+| **T9g** |  |  |  |  | 
+| t9g.nano | 6 | 144 | 2 | 5%\*\* | 
+| t9g.micro | 12 | 288 | 2 | 10%\*\* | 
+| t9g.small | 24 | 576 | 2 | 20%\*\* | 
+| t9g.medium | 24 | 576 | 2 | 20%\*\* | 
 | **T8i** |  |  |  |  | 
 | t8i.nano | 6 | 144 | 2 | 5%\*\* | 
 | t8i.micro | 12 | 288 | 2 | 10%\*\* | 
@@ -174,7 +179,7 @@ The CPU credit balance limit differs for each instance size. For example, a `t3.
 
 T2 Standard instances also earn launch credits. Launch credits do not count towards the CPU credit balance limit. If a T2 instance has not spent its launch credits, and remains idle over a 24-hour period while accruing earned credits, its CPU credit balance appears as over the limit. For more information, see [Launch credits](burstable-performance-instances-standard-mode-concepts.md#launch-credits). 
 
-T8i, T4g, T3a, and T3 instances do not earn launch credits. These instances launch as `unlimited` by default, and therefore can burst immediately upon start without any launch credits. T3 instances launched on a Dedicated Host launch as `standard` by default; `unlimited` mode is not supported for T3 instances on a Dedicated Host.
+T9g, T8i, T4g, T3a, and T3 instances do not earn launch credits. These instances launch as `unlimited` by default, and therefore can burst immediately upon start without any launch credits. T3 instances launched on a Dedicated Host launch as `standard` by default; `unlimited` mode is not supported for T3 instances on a Dedicated Host.
 
 ## Accrued CPU credits life span
 <a name="accrued-CPU-credits-life-span"></a>
@@ -183,7 +188,7 @@ CPU credits on a running instance do not expire.
 
 For T2, the CPU credit balance does not persist between instance stops and starts. If you stop a T2 instance, the instance loses all its accrued credits.
 
-For T8i, T4g, T3a, and T3, the CPU credit balance persists for seven days after an instance stops and the credits are lost thereafter. If you start the instance within seven days, no credits are lost.
+For T9g, T8i, T4g, T3a, and T3, the CPU credit balance persists for seven days after an instance stops and the credits are lost thereafter. If you start the instance within seven days, no credits are lost.
 
 For more information, see `CPUCreditBalance` in the [CloudWatch metrics table](burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-CW-metrics-table).
 

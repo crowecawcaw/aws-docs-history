@@ -1,7 +1,6 @@
 
 
 # Disconnect from the EC2 Serial Console
-<a name="disconnect-serial-console-session"></a>
 
 If you no longer need to be connected to your instance's EC2 Serial Console, you can disconnect from it. When you disconnect from the serial console, any shell session running on the instance will continue to run. If you want to end the shell session, you'll need to end it before disconnecting from the serial console.
 
@@ -17,7 +16,7 @@ To disconnect from the serial console, close the serial console in-browser termi
 **Standard OpenSSH client**  
 To disconnect from the serial console, use the following command to close the SSH connection. This command must be run immediately following a new line.
 
-```
+```bash
 ~.
 ```
 

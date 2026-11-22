@@ -1,7 +1,6 @@
 
 
 # Configure the host maintenance setting for an Amazon EC2 Dedicated Host
-<a name="dedicated-hosts-maintenance-configuring"></a>
 
 Enable host maintenance to ensure that your instances running on a Dedicated Host are automatically recovered onto a new Dedicated Host during a scheduled maintenance event.
 
@@ -36,7 +35,7 @@ If you disable host maintenance, you receive an email notification to evict the 
 **To enable host maintenance for your Dedicated Host**  
 Use the [modify-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-hosts.html) command.
 
-```
+```bash
 aws ec2 modify-hosts \
     --host-maintenance on \
     --host-ids {{h-0d123456bbf78910d}}
@@ -45,7 +44,7 @@ aws ec2 modify-hosts \
 **To disable host maintenance for your Dedicated Host**  
 Use the [modify-hosts](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-hosts.html) command.
 
-```
+```bash
 aws ec2 modify-hosts \
     --host-maintenance off \
     --host-ids {{h-0d123456bbf78910d}}
@@ -57,7 +56,7 @@ aws ec2 modify-hosts \
 **To enable host maintenance for your Dedicated Host**  
 Use the [Edit-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Host.html) cmdlet.
 
-```
+```powershell
 Edit-EC2Host `
     -HostMaintenance on `
     -HostId {{h-0d123456bbf78910d}}
@@ -66,7 +65,7 @@ Edit-EC2Host `
 **To disable host maintenance for your Dedicated Host**  
 Use the [Edit-EC2Host](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2Host.html) cmdlet.
 
-```
+```poewrshell
 Edit-EC2Host `
     -HostMaintenance off `
     -HostId {{h-0d123456bbf78910d}}

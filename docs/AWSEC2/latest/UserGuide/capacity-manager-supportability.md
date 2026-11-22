@@ -1,7 +1,6 @@
 
 
 # Check supportability
-<a name="capacity-manager-supportability"></a>
 
 Use real-time supportability checks to score a configuration against current Amazon EC2 capacity when you plan or scale up a workload. You define your flexibility: the instance types and Availability Zones your workload can use, and how much capacity you need. In return, you get a score for each option plus one for the set as a whole. These checks help you decide where to flex: confirm that a launch is supportable, find where capacity is strongest across your options, or diagnose a launch failure, all without launching instances or incurring cost.
 

@@ -1,7 +1,6 @@
 
 
 # Prefix delegation for Amazon EC2 network interfaces
-<a name="ec2-prefix-eni"></a>
 
 You can assign a private IPv4 or IPv6 CIDR range, either automatically or manually, to your network interfaces. By assigning prefixes, you scale and simplify the management of applications, including container and networking applications that require multiple IP addresses on an instance. For more information about IPv4 and IPv6 addresses, see [Amazon EC2 instance IP addressing](using-instance-addressing.md).
 
@@ -36,12 +35,12 @@ Assigning prefixes has the following benefits:
 + We assign each private IPv4 address for a network interface, including those from prefixes, using the following format:
   + `us-east-1` Region
 
-    ```
+    ```bash
     {{ip-private-ipv4-address}}.ec2.internal
     ```
   + All other Regions
 
-    ```
+    ```bash
     {{ip-private-ipv4-address}}.{{region}}.compute.internal
     ```
 
