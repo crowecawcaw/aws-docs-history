@@ -1,7 +1,6 @@
 
 
 # Connect to a Windows Server Amazon EC2 instance created from a Lightsail snapshot
-<a name="amazon-lightsail-connecting-to-windows-server-amazon-ec2-instances"></a>
 
 After your new Windows Server instance is created in Amazon Elastic Compute Cloud (Amazon EC2), you can connect to it using Remote Desktop Protocol (RDP). This is similar to how you connected to the source Amazon Lightsail instance. Connect to your EC2 instance using the default Lightsail key pair for the source instance’s AWS Region. This guide shows you how to connect to your Windows Server instance using Microsoft Remote Desktop Connection.
 

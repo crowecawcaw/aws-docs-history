@@ -1,7 +1,6 @@
 
 
 # Work with Bitnami applications and stacks on Lightsail
-<a name="bitnami-tutorials"></a>
 
 This section covers the following topics related to Bitnami applications on Amazon Lightsail instances:
 

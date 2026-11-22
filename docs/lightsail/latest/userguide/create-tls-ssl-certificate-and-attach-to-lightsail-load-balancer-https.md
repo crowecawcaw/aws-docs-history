@@ -1,7 +1,6 @@
 
 
 # Enable HTTPS with an SSL/TLS certificate for your Lightsail load balancer
-<a name="create-tls-ssl-certificate-and-attach-to-lightsail-load-balancer-https"></a>
 
 After you create a Lightsail load balancer, you can attach a Transport Layer Security (TLS) certificate to enable HTTPS. The SSL/TLS certificate lets your load balancer handle encrypted web traffic so that you can provide a more secure experience for your users. To learn more, see [SSL/TLS certificates](understanding-tls-ssl-certificates-in-lightsail-https.md).
 

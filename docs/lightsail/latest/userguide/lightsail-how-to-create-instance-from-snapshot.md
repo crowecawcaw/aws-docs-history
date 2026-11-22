@@ -1,7 +1,6 @@
 
 
 # Create Lightsail instances from snapshots
-<a name="lightsail-how-to-create-instance-from-snapshot"></a>
 
 After you create a snapshot in Lightsail, you can create a new instance from that snapshot. You can change attributes of the new instance, such as instance size and networking type – dual-stack or IPv6-only. The new instance includes the system disk and the attached block storage disks that you added.
 

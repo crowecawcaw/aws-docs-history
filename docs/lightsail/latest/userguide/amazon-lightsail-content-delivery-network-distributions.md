@@ -1,7 +1,6 @@
 
 
 # Serve web content globally with Lightsail content delivery distributions
-<a name="amazon-lightsail-content-delivery-network-distributions"></a>
 
 A Lightsail distribution uses a globally distributed network of servers, also known as *edge locations*, to provide faster delivery of your content to your users. To use a distribution, you first create and host your website or web application on a Lightsail instance or container service, or multiple instances attached to a Lightsail load balancer, or store your static content on a Lightsail bucket. You then create and configure a Lightsail distribution to pull, cache, and serve content from your instance, container service, load balancer, or bucket. Your instance, container service, load balancer, or bucket, also known as your distribution's *origin*, is the definitive source of your content.
 
@@ -84,7 +83,7 @@ These are the general steps to follow to serve your website or web application u
 
      1. **Add an alias record to your domain's DNS to begin routing traffic for your domain to your distribution.** After you add the alias record, users who visit your domain are routed through your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
 
-1. **(Optional) Enable the Web Application Firewall (WAF) for your distribution.** For more information, see [Protect your distribution with the Web Application Firewall (WAF)](amazon-lightsail-distribution-waf.md).
+1. **(Optional) Enable the Web Application Firewall (WAF) for your distribution.** For more information, see [Protect your distribution with the Web Application Firewall (WAF)](amazon-lightsail-distribution-security.md#amazon-lightsail-distribution-waf).
 
 1. **Test that your distribution is caching your content.** For more information, see [Test your distribution](amazon-lightsail-testing-distribution.md).
 
@@ -109,7 +108,7 @@ This section contains the following topics to help you create, configure, and ma
   + [Disable distribution custom domains](amazon-lightsail-disabling-distribution-custom-domains.md)
   + [Add distribution domain to container service](amazon-lightsail-adding-distribution-default-domain-to-container-service.md)
 + [Understand distribution security controls](amazon-lightsail-distribution-security.md)
-  + [Protect your distribution with WAF](amazon-lightsail-distribution-waf.md)
+  + [Protect your distribution with WAF](amazon-lightsail-distribution-security.md#amazon-lightsail-distribution-waf)
 + [Distribution metrics](amazon-lightsail-viewing-distribution-health-metrics.md)
   + [Create distribution alarms](amazon-lightsail-adding-distribution-health-metric-alarms.md)
 + [Delete your distribution](amazon-lightsail-deleting-distribution.md)

@@ -1,7 +1,6 @@
 
 
 # Create Lightsail object storage bucket access keys
-<a name="amazon-lightsail-creating-bucket-access-keys"></a>
 
 You can use access keys to create a set of credentials that grant full access to a bucket and its objects. Access keys consist of an access key ID and a secret access key as a set. The secret access key is visible only when you create it. When you configure access keys on your software or plugin, it can have full read and write access to a bucket using the AWS APIs, and AWS SDKs. You can also configure access keys on the AWS CLI.
 

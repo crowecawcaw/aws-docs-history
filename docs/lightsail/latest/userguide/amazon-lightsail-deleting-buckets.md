@@ -1,7 +1,6 @@
 
 
 # Delete Lightsail object storage buckets
-<a name="amazon-lightsail-deleting-buckets"></a>
 
 Delete your bucket in the Amazon Lightsail object storage service if you're no longer using it. When you delete your bucket, all objects in the bucket, including stored versions of objects and access keys, are permanently deleted.
 
@@ -136,4 +135,4 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Tutorial: Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md)
    + [Tutorial: Using an Amazon Lightsail bucket with a Lightsail content delivery network distribution](amazon-lightsail-using-distributions-with-buckets.md)
 
-1. Delete your bucket if you're no longer using it. For more information, see [Deleting buckets in Amazon Lightsail](#amazon-lightsail-deleting-buckets).
+1. Delete your bucket if you're no longer using it. For more information, see [Deleting buckets in Amazon Lightsail](amazon-lightsail-deleting-buckets.md).

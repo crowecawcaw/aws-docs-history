@@ -1,7 +1,6 @@
 
 
 # Load balancers
-<a name="amazon-lightsail-faq-load-balancers"></a>
 
 ## What can I do with Lightsail load balancers?
 <a name="what-can-i-do-with-load-balancers"></a>

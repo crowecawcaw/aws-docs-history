@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Lightsail load balancer issues
-<a name="troubleshooting-lightsail-load-balancer-issues"></a>
 
 You might encounter errors with your Lightsail load balancers. This topic identifies common issues and workarounds for those errors.
 

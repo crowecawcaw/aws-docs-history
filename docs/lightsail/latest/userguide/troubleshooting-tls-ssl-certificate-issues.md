@@ -1,7 +1,6 @@
 
 
 # Troubleshoot SSL/TLS certificates in Lightsail
-<a name="troubleshooting-tls-ssl-certificate-issues"></a>
 
 You might encounter errors with your Lightsail load balancers. This topic identifies common issues and workarounds for those errors.
 

@@ -1,7 +1,6 @@
 
 
 # Configure caching for your Lightsail distribution
-<a name="amazon-lightsail-changing-default-cache-behavior"></a>
 
 A cache behavior lets you configure what is cached or isn't cached from your origin by your Amazon Lightsail distribution. For example, you can specify to cache individual directories, files, or file types from your origin. You can also specify the HTML methods and headers that are forwarded to your origin. In this guide, we show you how to change the caching behavior of your distribution. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 

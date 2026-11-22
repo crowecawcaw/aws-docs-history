@@ -1,7 +1,6 @@
 
 
 # Grant access to specific Lightsail resources using IAM policies
-<a name="security_iam_resource-based-policy-examples"></a>
 
 The term *resource-level permissions* refers to the ability to specify which resources users are allowed to perform actions on. Amazon Lightsail supports resource-level permissions. This means that for certain Lightsail actions, you can control when users are allowed to use those actions based on conditions that have to be fulfilled, or specific resources that users are allowed to use or edit. For example, you can grant users permissions to manage an instance or database with a specific Amazon Resource Name (ARN).
 
@@ -20,7 +19,7 @@ The following policy grants access to reboot/start/stop an instance, manage inst
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ The following policy grants access to reboot/start/stop and update a specific da
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Networking resources in Amazon Lightsail
-<a name="understanding-networking-resources-in-lightsail"></a>
 
 Lightsail networking resources improve how users and outside services connect to your Lightsail instances. 
 

@@ -1,7 +1,6 @@
 
 
 # Choose a domain for your Lightsail distribution
-<a name="amazon-lightsail-enabling-distribution-custom-domains"></a>
 
 Every Lightsail distribution has a default domain, such as `d111111abcdef8.cloudfront.net`, that is always available. To serve your content at a name that's easier to remember, give your distribution one of the following:
 + **A Lightsail web address** – Lightsail web addresses are subdomains of `amazonlightsail.com`, such as `mysite.amazonlightsail.com`, that are automatically configured for HTTPS traffic. Lightsail creates and manages the DNS records and the SSL/TLS certificate for you. For instructions, see [Attach a Lightsail web address to your distribution](amazon-lightsail-distribution-web-address.md).

@@ -1,7 +1,6 @@
 
 
 # Verify SSL/TLS certificate domains with CNAME records in Lightsail
-<a name="verify-tls-ssl-certificate-using-dns-cname-https"></a>
 
 After you create an SSL/TLS certificate in Lightsail, you need to verify that you control all the domains and subdomains that you added to the certificate.
 

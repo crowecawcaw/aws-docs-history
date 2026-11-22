@@ -1,7 +1,6 @@
 
 
 # Cross-origin resource sharing (CORS) in Lightsail
-<a name="configure-cors"></a>
 
 Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Lightsail object storage and selectively allow cross-origin access to your bucket resources. For more information about CORS, see [What is CORS?](https://aws.amazon.com/what-is/cross-origin-resource-sharing/).
 

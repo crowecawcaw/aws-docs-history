@@ -1,7 +1,6 @@
 
 
 # Get started with OpenClaw on Lightsail
-<a name="amazon-lightsail-quick-start-guide-openclaw"></a>
 
 OpenClaw is an AI-powered chat gateway that runs on Amazon Lightsail, giving you a private, self-hosted AI assistant accessible from your browser, Telegram, WhatsApp, and more. This tutorial walks you through launching an Amazon Lightsail OpenClaw instance, pairing your browser, enabling AI capabilities, and optionally connecting messaging channels.
 

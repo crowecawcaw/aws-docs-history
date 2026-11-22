@@ -1,7 +1,6 @@
 
 
 # Delete a static IP address in Lightsail
-<a name="how-to-delete-static-ip"></a>
 
 You can create up to five static IPs per AWS Region in your Amazon Lightsail account. If you delete an instance that has a static IP address attached to it, the static IP address remains in your account. If you no longer need the static IP address, you can delete it using the Lightsail console or the AWS Command Line Interface (AWS CLI). In this guide, we show you how to delete a static IP address from your Lightsail account. For more information about static IPs, see [IP addresses](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md).
 

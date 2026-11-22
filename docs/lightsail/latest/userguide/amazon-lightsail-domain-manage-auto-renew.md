@@ -1,7 +1,6 @@
 
 
 # Renew or deactivate domain registration in Lightsail
-<a name="amazon-lightsail-domain-manage-auto-renew"></a>
 
 When you register a domain with Amazon Lightsail, we configure the domain to renew automatically by default. The default automatic renewal period is one year, although the registries for some top-level domains (TLDs) have longer renewal periods. All generic TLDs let you extend domain registration for longer periods, typically up to ten years in one-year increments. 
 

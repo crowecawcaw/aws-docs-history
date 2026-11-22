@@ -1,7 +1,6 @@
 
 
 # Resource health metrics and alarms
-<a name="faq-metrics-and-alarms"></a>
 
 ## What are metrics?
 <a name="what-are-metrics"></a>

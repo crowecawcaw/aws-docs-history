@@ -1,7 +1,6 @@
 
 
 # Detect Lightsail instance bursting for optimal performance
-<a name="amazon-lightsail-viewing-instance-burst-capacity"></a>
 
 **Did you know?**  
  You can change your instance bundle to a larger size when you create an instance from an instance snapshot. For more information, see [ Upsize a Lightsail instance, storage, or database from snapshots ](https://docs.aws.amazon.com/lightsail/latest/userguide/how-to-create-larger-instance-from-snapshot-using-console.html) . 

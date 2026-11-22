@@ -1,7 +1,6 @@
 
 
 # Optimize Lightsail database performance with parameter updates
-<a name="amazon-lightsail-updating-database-parameters"></a>
 
 Database parameters, also known as database system variables, define fundamental properties of a managed database in Amazon Lightsail. For example, you can define a database parameter to limit the number of database connections, or define another parameter to limit the database buffer pool size. This guide shows you how to get a list of the parameters for your managed database, and how to update them using the AWS Command Line Interface (AWS CLI).
 

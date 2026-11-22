@@ -1,7 +1,6 @@
 
 
 # Create a snapshot of your Lightsail Windows Server instance
-<a name="prepare-windows-based-instance-and-create-snapshot"></a>
 
 A snapshot is a copy of the system disk and original configuration of an instance. The snapshot includes such information as memory, CPU, disk size, and data transfer rate. For more information, see [Snapshots](understanding-snapshots-in-amazon-lightsail.md).
 

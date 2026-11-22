@@ -1,7 +1,6 @@
 
 
 # Configure IPv6-only networking for Lightsail instances
-<a name="amazon-lightsail-ipv6-only-plans"></a>
 
 Lightsail instances support two types of networking—*dual-stack networking* (IPv4 and IPv6) and *IPv6-only networking*. With dual-stack networking, your instance is assigned a public IPv4 and a public IPv6 address. For instances with dual-stack networking, you can enable or disable IPv6 as needed.
 

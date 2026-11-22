@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Ghost instance 503 service unavailable error on Lightsail
-<a name="troubleshoot-ghost-instance-service-unavailable"></a>
 
 After you create a new Ghost instance in Amazon Lightsail, and try to access your website, you might see an error stating that the service is unavailable (503). In some cases, the Ghost service on the instance is not automatically started when the instance is created. This can happen when you select the $5 USD/month bundle for your instance. Use the following procedure to start the Ghost service, and resolve the "service is unavailable" error.
 

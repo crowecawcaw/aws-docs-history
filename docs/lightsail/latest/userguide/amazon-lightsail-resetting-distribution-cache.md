@@ -1,7 +1,6 @@
 
 
 # Reset the cache of your Lightsail distribution
-<a name="amazon-lightsail-resetting-distribution-cache"></a>
 
 The cache lifespan (time to live) setting controls the amount of time your content stays in your Amazon Lightsail distribution's cache. You can also manually reset the cache on your distribution if you need to clear it before the cache lifespan interval. After you clear the cache, the next time a user requests content, your distribution pulls the latest version of your content from your origin and caches it. In this guide, we show you how to manually reset the cache on your distribution. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 

@@ -1,7 +1,6 @@
 
 
 # Route domain traffic to a Lightsail container service using Route 53
-<a name="amazon-lightsail-route-53-alias-record-for-container-service"></a>
 
 You can route traffic for a registered domain, such as `example.com`, to the applications running on a Amazon Lightsail container service. You do this by adding an alias record to the hosted zone of your domain that points to the default domain of your Lightsail container service.
 

@@ -1,7 +1,6 @@
 
 
 # Enable or disable dual-stack networking for Lightsail resources
-<a name="amazon-lightsail-enable-disable-ipv6"></a>
 
 IPv6 is enabled by default for Lightsail dual-stack instances, container services, and load balancers created on or after January 12, 2021. You can optionally enable IPv6 for those resources that were created before January 12, 2021. In this guide, we show you how to enable or disable IPv6 networking for a dual-stack instance. For more information about IPv6, see [IP addresses](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md).
 

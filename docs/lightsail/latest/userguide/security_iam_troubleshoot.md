@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Identity and Access Management (IAM) in Lightsail
-<a name="security_iam_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Lightsail and IAM.
 

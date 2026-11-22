@@ -1,7 +1,6 @@
 
 
 # Review Lightsail alarm notifications and contacts pending verification
-<a name="amazon-lightsail-alarm-notifications"></a>
 
 You can review active alarms and notifications for all of your Amazon Lightsail resources in the Lightsail console on the **Alarm notifications** page. This page consolidates your alarms that are in the `In alarm` state—alarms that are enabled and currently breaching your defined thresholds. You can also review your email contacts that are pending verification. For more information about alarms, see [Metric alarms in Lightsail](amazon-lightsail-alarms.md). For more information about notifications for alarms, see [Configure metric notifications for Lightsail resources](amazon-lightsail-notifications.md).
 

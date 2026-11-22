@@ -1,7 +1,6 @@
 
 
 # Configure WordPress with a Lightsail content delivery network
-<a name="amazon-lightsail-configure-wordpress-for-distribution"></a>
 
 In this guide, we show you how to configure your WordPress instance to work with a Amazon Lightsail distribution.
 

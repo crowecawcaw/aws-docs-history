@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Lightsail Connect errors
-<a name="amazon-lightsail-troubleshooting-connect-errors"></a>
 
 This guide explains the error codes you might see when connecting to a Lightsail instance through the browser and what you can do to connect again. Find the error code you encountered in the list below, and work through its steps.
 

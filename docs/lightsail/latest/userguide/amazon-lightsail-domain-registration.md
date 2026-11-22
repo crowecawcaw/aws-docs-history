@@ -1,7 +1,6 @@
 
 
 # Register and manage domains for your website in Lightsail
-<a name="amazon-lightsail-domain-registration"></a>
 
 Your website needs a name, such as `example.com`. With Amazon Lightsail you can register a name for your website, known as a domain name. To access your website, users type your domain name into their web browser.
 

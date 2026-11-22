@@ -1,7 +1,6 @@
 
 
 # Obtain the default application username and password for Lightsail Bitnami instances
-<a name="log-in-to-your-bitnami-application-running-on-amazon-lightsail"></a>
 
 Bitnami provides many of the application instance images, or blueprints, that you can create as Amazon Lightsail instances, which are your virtual private servers. These blueprints are described as “Packaged by Bitnami” in the instance creation page in the Lightsail console.
 

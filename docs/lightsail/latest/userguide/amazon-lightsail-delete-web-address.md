@@ -1,7 +1,6 @@
 
 
 # Delete a Lightsail web address
-<a name="amazon-lightsail-delete-web-address"></a>
 
 Delete a Lightsail web address that you no longer need. You can delete a web address with the **Unattached** or **Create failed** status. If your web address is attached to a resource, detach it first. For instructions, see [Detach a web address using the Lightsail console](amazon-lightsail-detach-transfer-web-address.md#detach-web-address).
 

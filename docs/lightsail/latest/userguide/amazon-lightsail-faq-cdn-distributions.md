@@ -1,7 +1,6 @@
 
 
 # Content delivery network distributions
-<a name="amazon-lightsail-faq-cdn-distributions"></a>
 
 ## What can I do with Lightsail CDN distributions?
 <a name="what-to-do-with-distribution"></a>

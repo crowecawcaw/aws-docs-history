@@ -1,7 +1,6 @@
 
 
 # Create and attach Lightsail block storage disks to Windows Server instances
-<a name="create-and-attach-additional-block-storage-disks-windows"></a>
 
 If you need additional storage space, you can create and attach block storage disks to your Windows Server instance in Amazon Lightsail. For more information about block storage disks, see [Block storage disks](elastic-block-storage-and-ssd-disks-in-amazon-lightsail.md).
 

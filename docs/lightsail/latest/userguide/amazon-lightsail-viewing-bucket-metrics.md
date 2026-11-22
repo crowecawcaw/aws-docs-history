@@ -1,7 +1,6 @@
 
 
 # Monitor Lightsail bucket performance and usage
-<a name="amazon-lightsail-viewing-bucket-metrics"></a>
 
 After you create a bucket in the Amazon Lightsail object storage service, you can view its metric graphs on the **Metrics** tab of the bucket's management page. Monitoring metrics is an important part of maintaining the availability, and performance of your bucket. Monitor and collect metric data from your bucket regularly so that you can upsize or downsize the storage space and network transfer quota of your bucket when you need to. For more information about metrics, see [Resource metrics](amazon-lightsail-resource-health-metrics.md).
 
@@ -84,7 +83,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 
 1. After enabling object versioning, you can restore previous versions of objects in your bucket. For more information, see [Restoring previous versions of objects in a bucket in Amazon Lightsail](amazon-lightsail-restoring-bucket-object-versions.md).
 
-1. Monitor the utilization of your bucket. For more information, see [Viewing metrics for your bucket in Amazon Lightsail](#amazon-lightsail-viewing-bucket-metrics).
+1. Monitor the utilization of your bucket. For more information, see [Viewing metrics for your bucket in Amazon Lightsail](amazon-lightsail-viewing-bucket-metrics.md).
 
 1. Configure an alarm for bucket metrics to be notified when the utilization of your bucket crosses a threshold. For more information, see [Creating bucket metric alarms in Amazon Lightsail](amazon-lightsail-adding-bucket-metric-alarms.md).
 

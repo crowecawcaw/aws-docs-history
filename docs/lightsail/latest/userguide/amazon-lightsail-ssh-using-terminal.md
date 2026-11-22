@@ -1,7 +1,6 @@
 
 
 # Connect to Lightsail Linux or Unix instances with the SSH command
-<a name="amazon-lightsail-ssh-using-terminal"></a>
 
 If your local machine uses a Linux or Unix operating system, including macOS, then you can connect to your Linux or Unix instance in Amazon Lightsail using the SSH client through a terminal window.
 
@@ -102,6 +101,7 @@ In the following procedure you will change the permissions of your private key f
      + Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
      + Ruby on Rails instances: `ec2-user`
      + OpenClaw instances: `ubuntu`
+     + Kiro Crew instances: `ubuntu`
      + Plesk instances: `ubuntu`
      + cPanel & WHM (AlmaLinux) instances: `ec2-user`
      + cPanel & WHM (CentOS 7) instances: `centos`

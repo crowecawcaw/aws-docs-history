@@ -1,7 +1,6 @@
 
 
 # Lightsail Partner Program
-<a name="lightsail-partners"></a>
 
 If you are looking to scale up on Amazon Lightsail, you can become a registered partner to get benefits such as higher default instance quotas based on your tier. You also get access to an in-console feedback form exclusive to registered partners. The Lightsail Partner Program offers four tiers (Essential, Growth, Accelerate, and Premier).
 

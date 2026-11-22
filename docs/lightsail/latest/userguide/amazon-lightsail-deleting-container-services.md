@@ -1,7 +1,6 @@
 
 
 # Delete a Lightsail container service
-<a name="amazon-lightsail-deleting-container-services"></a>
 
 You can delete your Amazon Lightsail container service at any time if you're no longer using it. When you delete your container service, all deployments and registered container images associated with that service are permanently destroyed. However, the SSL/TLS certificates and domains that you created remain in your Lightsail account so that you can use them with another resource. For more information about container services, see [Container services in Amazon Lightsail](amazon-lightsail-container-services.md).
 

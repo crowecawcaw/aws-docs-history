@@ -1,7 +1,6 @@
 
 
 # Manage files and folders in Lightsail buckets
-<a name="amazon-lightsail-viewing-objects-in-a-bucket"></a>
 
 You can view all objects stored in your bucket in the Amazon Lightsail object storage service by using the Lightsail console. You can also use the AWS Command Line Interface (AWS CLI) and AWS SDKs to list object keys in your bucket. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -128,7 +127,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 1. Learn how to upload files and manage objects in your buckets. For more information, see the following guides.
    + [Uploading files to a bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md)
    + [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md)
-   + [Viewing objects in a bucket in Amazon Lightsail](#amazon-lightsail-viewing-objects-in-a-bucket)
+   + [Viewing objects in a bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md)
    + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)
    + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
    + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)

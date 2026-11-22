@@ -1,7 +1,6 @@
 
 
 # Upgrade the major version of a Lightsail database
-<a name="amazon-lightsail-upgrade-database-major-version"></a>
 
 When Amazon Lightsail supports a new version of a database engine, you can upgrade your database to the new version. Lightsail offers two database blueprints, MySQL and PostgreSQL. This guide describes how to upgrade the major version for your MySQL or PostgreSQL database instance. You can upgrade the database major version only by using the [update-relational-database](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateRelationalDatabase.html) API action.
 

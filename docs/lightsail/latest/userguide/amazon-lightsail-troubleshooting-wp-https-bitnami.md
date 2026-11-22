@@ -1,7 +1,10 @@
 
 
 # Lightsail Setup failed
-<a name="amazon-lightsail-troubleshooting-wp-https-bitnami"></a>
+
+**This blueprint packaged by Bitnami was deprecated on November 19, 2026**  
+You can no longer create new instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. When creating new instances, we recommend using the equivalent blueprint packaged by Lightsail if available. [Learn more](amazon-lightsail-faq-bitnami-blueprints.md)  
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to migrate to a blueprint packaged by Lightsail, see [Migrating from Bitnami blueprints to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md).
 
 Two types of error messages can appear during the WordPress setup workflow in Amazon Lightsail:
 
@@ -24,7 +27,7 @@ To begin troubleshooting, match the error that appeared in the message with one 
 ## Setup failures
 <a name="setup-failures-bitnami"></a>
 
-These errors appear within a few minutes in the **Set up your WordPress website** section of the instance **Connect** tab. They're caused when the Let's Encrypt HTTPS certificate cannot be configured on your instance.
+These errors appear within a few minutes in the **Set up your WordPress website** section of the instance **Getting started** tab. They're caused when the Let's Encrypt HTTPS certificate cannot be configured on your instance.
 
 ![WordPress setup failure message in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-setup-failure-message.png)
 
@@ -56,6 +59,7 @@ The **A** or **AAAA** DNS records do not point to the public IP address of the i
 
 **Fix**  
 Confirm that the **A** or **AAAA** DNS records are present in the DNS zone, and that they point to the public IP address of your instance. For more information, see [DNS in Lightsail](understanding-dns-in-amazon-lightsail.md).  
+If your domain has an **AAAA** record, it must point to your instance's IPv6 address. If you don't use IPv6, delete the **AAAA** record.  
 Allow time for any DNS record changes to propagate through the internet's DNS, which may take several hours.
 
 ## Unable to connect to your instance. Allow a few minutes for the SSH connection to become ready. Then, start setup again.
@@ -87,14 +91,17 @@ The instance that is being used with setup, might contain outdated software. Old
 Create a new WordPress instance from the Lightsail console. Then, migrate the WordPress website from the older instance to the new one. For more information, see [Migrate an existing WordPress blog](migrate-your-wordpress-blog-to-amazon-lightsail.md).  
 If you're creating a new instance to replace the existing instance, make sure to update your application dependencies to your new instance.
 
-## Instance firewall ports 22, 80, and 443 must allow a TCP connection from any IP address during the setup workflow. You can change these settings from the instance Networking tab.
+## Instance firewall port 22 must allow Lightsail Setup, and ports 80 and 443 must allow TCP connections from any IP address during the setup workflow. You can change these settings from the instance Networking tab.
 <a name="firewall-ports-error-bitnami"></a>
 
 **Reason**  
-Instance firewall ports 22, 80, and 443 must allow TCP connections from any IP address while setup is running. This error is generated when one or more of these ports are closed. For more information, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).
+Lightsail Setup connects to your instance on port 22 to configure HTTPS, Let's Encrypt validates your domain over port 80, and your website serves HTTPS traffic on port 443. This error appears when port 22 doesn't allow **Lightsail Setup**, or when port 80 or 443 doesn't allow TCP connections from any IPv4 and IPv6 address. For more information, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).
 
 **Fix**  
-Add or edit the instance's IPv4 and IPv6 firewall rules to allow TCP connections over ports 22, 80, and 443. For more information, see [Add and edit instance firewall rules](amazon-lightsail-editing-firewall-rules.md). 
+On the instance **Networking** tab, add or edit the firewall rules as follows, then run Lightsail Setup again:  
++ **SSH** (TCP 22): edit the rule and select **Lightsail Setup access**.
++ **HTTP** (TCP 80) and **HTTPS** (TCP 443): allow any IPv4 address and any IPv6 address.
+For more information, see [Add and edit instance firewall rules](amazon-lightsail-editing-firewall-rules.md).
 
 ## Certbot.errors.AuthorizationError: Some challenges have failed
 <a name="certbot-authorization-error-bitnami"></a>

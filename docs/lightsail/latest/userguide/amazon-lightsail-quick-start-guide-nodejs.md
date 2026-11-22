@@ -1,7 +1,6 @@
 
 
 # Deploy and manage a Node.js stack on Lightsail
-<a name="amazon-lightsail-quick-start-guide-nodejs"></a>
 
 **Did you know?**  
  Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable automatic snapshots for your instance. For more information, see [ Configure automatic snapshots for Lightsail instances and disks ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots.html) . 
@@ -16,6 +15,8 @@ Select the appropriate guide for your Node.js instance:
 ------
 #### [ Lightsail ]
 
+<a name="amazon-lightsail-nodejs-get-the-default-user-password"></a>**Step 1: Get the default application password for your Node.js instance**
+
 You need the default application password to access pre-installed applications or services on your instance.
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.
@@ -29,12 +30,16 @@ You need the default application password to access pre-installed applications o
    You should see a response similar to this, which contains the default application password:  
 ![Default application password.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-application-password.png)
 
+<a name="amazon-lightsail-nodejs-attach-static-ip"></a>**Step 2: Attach a static IP address to your Node.js instance**
+
 The default dynamic public IP address attached to your instance changes every time you stop and start the instance. You can create a static IP address and attach it to your instance to keep the public IP address from changing. Later, when you use your domain name with your instance, you don’t have to update your domain’s DNS records each time you stop and start the instance. You can attach only one static IP address to each instance.
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
 ![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
+
+<a name="amazon-lightsail-nodejs-sign-in"></a>**Step 3: Visit your Node.js instance welcome page**
 
 Navigate to the static IP address of your instance to access the application installed on it or access phpMyAdmin.
 
@@ -46,19 +51,25 @@ Navigate to the static IP address of your instance to access the application ins
 
 For more information, see the [Node.js admin guide](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs/).
 
+<a name="amazon-lightsail-nodejs-map-your-domain-to-your-instance"></a>**Step 4: Map your domain name to your Node.js instance**
+
 To map your domain name, such as `example.com`, to your instance, you add a record to the domain name system (DNS) of your domain. DNS records are typically managed and hosted at the registrar where you registered your domain. However, we recommend that you transfer management of your domain's DNS records to Lightsail so that you can administer it using the Lightsail console.
 
 On the Lightsail console home page, under the **Networking** tab, choose **Create DNS zone**, then follow the instructions on the page.
 
 For more information, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md).
 
-1. Follow the instructions from [ Transfer files between Linux instances on Lightsail using scp ](amazon-lightsail-transfer-files-between-linux-instances.md) to copy your application to `/var/www/html/` 
+<a name="amazon-lightsail-nodejs-deploy-your-application"></a>**Step 5: Deploy your application**
+
+1. Follow the instructions from [ Transfer files between Linux instances on Lightsail using scp ](amazon-lightsail-transfer-files-between-linux-instances.md) to copy your application to `/var/www/nodeapp/` 
 
 1. On your instance management page, under the **Connect** tab, choose **Connect using SSH**.
 
-1. Run `sudo pm2 restart nodeapp`
+1. Run `sudo systemctl restart pm2-nodeapp`
 
 1. Navigate to your instance's static IP address
+
+<a name="amazon-lightsail-nodejs-create-a-snapshot"></a>**Step 6: Create a snapshot of your Node.js instance**
 
 After you configure your website the way you want it, create periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A snapshot contains all of the data that is needed to restore your instance (from the moment when the snapshot was taken).
 
@@ -72,12 +83,20 @@ You can work with snapshots on your instance's management page on the **Snapshot
 ------
 #### [ Bitnami ]
 
+**This blueprint packaged by Bitnami was deprecated on November 19, 2026**  
+You can no longer create new instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. When creating new instances, we recommend using the equivalent blueprint packaged by Lightsail if available. [Learn more](amazon-lightsail-faq-bitnami-blueprints.md)  
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to migrate to a blueprint packaged by Lightsail, see [Migrating from Bitnami blueprints to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md).
+
+<a name="amazon-lightsail-nodejs-attach-static-ip"></a>**Step 1: Attach a static IP address to your Node.js instance**
+
 The default dynamic public IP address attached to your instance changes every time you stop and start the instance. You can create a static IP address and attach it to your instance to keep the public IP address from changing. Later, when you use your domain name with your instance, you don’t have to update your domain’s DNS records each time you stop and start the instance. You can attach only one static IP address to each instance.
 
 On the instance management page, under the **Networking** tab, choose **Create a static IP** or **Attach static IP** (if you previously created a static IP that you can attach to your instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
 
 ![Attach static IP address in the Lightsail console](https://docs.aws.amazon.com/lightsail/latest/userguide/images/quick-start-static-ip-address.png)
 
+
+<a name="amazon-lightsail-nodejs-sign-in"></a>**Step 2: Visit your Node.js instance welcome page**
 
 Navigate to the public IP address of your instance to access the application installed on it, access phpMyAdmin, or access the Bitnami documentation.
 
@@ -87,15 +106,21 @@ Navigate to the public IP address of your instance to access the application ins
 
 For more information, see [Getting the application user name and password for your Bitnami instance in Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
+<a name="amazon-lightsail-nodejs-map-your-domain-to-your-instance"></a>**Step 3: Map your domain name to your Node.js instance**
+
 To map your domain name, such as `example.com`, to your instance, you add a record to the domain name system (DNS) of your domain. DNS records are typically managed and hosted at the registrar where you registered your domain. However, we recommend that you transfer management of your domain's DNS records to Lightsail so that you can administer it using the Lightsail console.
 
 On the Lightsail console home page, under the **Networking** tab, choose **Create DNS zone**, then follow the instructions on the page.
 
 For more information, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md).
 
+<a name="amazon-lightsail-nodejs-read-the-bitnami-documentation"></a>**Step 4: Read the Bitnami documentation**
+
 Read the Bitnami documentation to learn how to deploy your Node.js application, enable HTTPS support with SSL certificates, upload files to the server with SFTP, and more.
 
 For more information, see the [Bitnami Node.js for AWS Cloud](https://docs.bitnami.com/general/infrastructure/nodejs/).
+
+<a name="amazon-lightsail-nodejs-create-a-snapshot"></a>**Step 5: Create a snapshot of your Node.js instance**
 
 After you configure your website the way you want it, create periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A snapshot contains all of the data that is needed to restore your instance (from the moment when the snapshot was taken).
 

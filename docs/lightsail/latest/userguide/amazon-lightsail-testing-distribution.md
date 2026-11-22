@@ -1,7 +1,6 @@
 
 
 # Validate your Lightsail distribution's content caching
-<a name="amazon-lightsail-testing-distribution"></a>
 
 In this guide, you will learn how to test that your Amazon Lightsail distribution is caching and serving content from your origin. You should perform this test after you add your registered domain name to your distribution. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 

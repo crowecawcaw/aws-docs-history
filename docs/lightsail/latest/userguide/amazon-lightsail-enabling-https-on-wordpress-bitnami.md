@@ -1,7 +1,10 @@
 
 
 # Secure your WordPress site with HTTPS on Lightsail
-<a name="amazon-lightsail-enabling-https-on-wordpress-bitnami"></a>
+
+**This blueprint packaged by Bitnami was deprecated on November 19, 2026**  
+You can no longer create new instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. When creating new instances, we recommend using the equivalent blueprint packaged by Lightsail if available. [Learn more](amazon-lightsail-faq-bitnami-blueprints.md)  
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to migrate to a blueprint packaged by Lightsail, see [Migrating from Bitnami blueprints to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md).
 
 **This tutorial applies to instances that use WordPress packaged by Bitnami only**  
 If your instance uses the WordPress blueprint packaged by Lightsail, see [WordPress](amazon-lightsail-wordpress.md) instead.

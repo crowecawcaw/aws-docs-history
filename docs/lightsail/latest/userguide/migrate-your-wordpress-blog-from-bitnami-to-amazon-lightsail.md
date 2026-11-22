@@ -1,7 +1,6 @@
 
 
 # Migrate from WordPress by Bitnami to WordPress by Lightsail
-<a name="migrate-your-wordpress-blog-from-bitnami-to-amazon-lightsail"></a>
 
 If you're running on a WordPress blueprint provided by Bitnami and want to move to a WordPress blueprint provided by Lightsail, this tutorial walks you through the migration process.
 

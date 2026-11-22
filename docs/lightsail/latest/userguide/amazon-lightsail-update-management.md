@@ -1,7 +1,6 @@
 
 
 # Update your Lightsail instances and containers
-<a name="amazon-lightsail-update-management"></a>
 
 Amazon Web Services (AWS), Amazon Lightsail, and third-party application vendors periodically update and patch the instance images (also known as *blueprints*) that are available on Lightsail. AWS and Lightsail do not update or patch the operating system or applications on instances after you create them. Lightsail also does not update or patch the operating system and software that you configure on your Lightsail container services. Therefore, we recommend that you regularly update, patch, and secure the operating system and applications on your Amazon Lightsail instances and container services. For more information, see the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/).
 

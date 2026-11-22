@@ -1,7 +1,6 @@
 
 
 # Migrate to Lightsail
-<a name="migrate-to-lightsail-tutorials"></a>
 
 This section covers the following topics related to migrating to Lightsail:
 

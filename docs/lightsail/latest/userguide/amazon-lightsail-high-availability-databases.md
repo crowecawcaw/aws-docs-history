@@ -1,7 +1,6 @@
 
 
 # High availability databases in Lightsail
-<a name="amazon-lightsail-high-availability-databases"></a>
 
 A Lightsail high availability managed database provides failover support with a primary database in one Availability Zone, and a secondary standby database in another. We recommend high availability databases for production workloads that experience heavy use and require data redundancy. For development and test purposes, you can use a standard database that isn't high availability.
 

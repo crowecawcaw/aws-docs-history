@@ -1,7 +1,6 @@
 
 
 # Change content origin for Lightsail distributions
-<a name="amazon-lightsail-changing-distribution-origin"></a>
 
 In this guide, we show you how to change the origin of your Amazon Lightsail distribution after you create it. An origin is the definitive source of content for your distribution. When you create your distribution, you choose the Lightsail instance, Lightsail bucket, or Lightsail load balancer (with one or more instances attached to it) that hosts the content of your website or web application. For more information, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 

@@ -1,7 +1,6 @@
 
 
 # Control access to Lightsail buckets for instances
-<a name="amazon-lightsail-configuring-bucket-resource-access"></a>
 
 Attach an Amazon Lightsail instance to a Lightsail bucket to give it full programmatic access to the bucket and its objects. When you attach instances to buckets, you don't have to manage credentials like access keys. The instances and buckets that you attach must be in the same AWS Region. You cannot attach instances to buckets that are in a different Region.
 

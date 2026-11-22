@@ -1,7 +1,6 @@
 
 
 # Manage Lightsail buckets with an IAM policy
-<a name="amazon-lightsail-bucket-management-policies"></a>
 
 The following policy grants a user access to manage a specific bucket in the Amazon Lightsail object storage service. This policy grants access to buckets through the Lightsail console, the AWS Command Line Interface (AWS CLI), AWS API, and AWS SDKs. In the policy, replace {{<BucketName>}} with the name of the bucket to manage. For more information about IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *AWS Identity and Access Management User Guide*. For more information about creating IAM users and user groups, see [Creating your first IAM delegated user and user group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-delegated-user.html) in the *AWS Identity and Access Management User Guide*.
 
@@ -13,7 +12,7 @@ Users who don't have this policy will experience errors when viewing the **Objec
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Enabling access logging for a bucket in the Amazon Lightsail object storage service](amazon-lightsail-enabling-bucket-access-logs.md)
    + [Using access logs for a bucket in Amazon Lightsail to identify requests](amazon-lightsail-using-bucket-access-logs.md)
 
-1. Create an IAM policy that grants a user the ability to manage a bucket in Lightsail. For more information, see [IAM policy to manage buckets in Amazon Lightsail](#amazon-lightsail-bucket-management-policies).
+1. Create an IAM policy that grants a user the ability to manage a bucket in Lightsail. For more information, see [IAM policy to manage buckets in Amazon Lightsail](amazon-lightsail-bucket-management-policies.md).
 
 1. Learn about the way that objects in your bucket are labeled and identified. For more information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md).
 

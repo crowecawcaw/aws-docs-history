@@ -1,7 +1,6 @@
 
 
 # Restrict public access to Lightsail buckets and objects
-<a name="amazon-lightsail-block-public-access-for-buckets"></a>
 
 Amazon Simple Storage Service (Amazon S3) is an object storage service on which customers can store and protect data. The Amazon Lightsail object storage service is built on Amazon S3 technology. Amazon S3 offers *account-level block public access*, which you can use to limit public access to all S3 buckets in an AWS account. Account-level block public access can make all S3 buckets in an AWS account private, regardless of existing individual bucket and object permissions.
 
@@ -61,7 +60,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 1. Learn about security best practices for buckets and the access permissions that you can configure for your bucket. You can make all objects in your bucket public or private, or you can choose to make individual objects public. You can also grant access to your bucket by creating access keys, attaching instances to your bucket, and granting access to other AWS accounts. For more information, see [Security Best Practices for Amazon Lightsail object storage](amazon-lightsail-bucket-security-best-practices.md) and [Understanding bucket permissions in Amazon Lightsail](amazon-lightsail-understanding-bucket-permissions.md).
 
    After learning about bucket access permissions, see the following guides to grant access to your bucket:
-   + [Block public access for buckets in Amazon Lightsail](#amazon-lightsail-block-public-access-for-buckets)
+   + [Block public access for buckets in Amazon Lightsail](amazon-lightsail-block-public-access-for-buckets.md)
    + [Configuring bucket access permissions in Amazon Lightsail](amazon-lightsail-configuring-bucket-permissions.md)
    + [Configuring access permissions for individual objects in a bucket in Amazon Lightsail](amazon-lightsail-configuring-individual-object-access.md)
    + [Creating access keys for a bucket in Amazon Lightsail](amazon-lightsail-creating-bucket-access-keys.md)

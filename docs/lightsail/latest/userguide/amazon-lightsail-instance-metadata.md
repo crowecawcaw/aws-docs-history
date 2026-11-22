@@ -1,7 +1,6 @@
 
 
 # Access Instance Metadata Service (IMDS) and user data in Lightsail
-<a name="amazon-lightsail-instance-metadata"></a>
 
 *Instance metadata* is data about your instance that you can use to configure or manage the running instance. Instance metadata is divided into categories, for example, hostname, events, and security groups. You can also use instance metadata to access user data that you specified when launching your instance. For example, you can specify parameters for configuring your instance, or include a simple script. Instances can also include dynamic data, such as an instance identity document that is generated when the instance is launched.
 

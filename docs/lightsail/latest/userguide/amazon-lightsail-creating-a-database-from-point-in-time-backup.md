@@ -1,7 +1,6 @@
 
 
 # Restore a database from a point-in-time backup in Lightsail
-<a name="amazon-lightsail-creating-a-database-from-point-in-time-backup"></a>
 
 You can create a new managed database by using a point-in-time backup in Amazon Lightsail. Point-in-time backups of your database are available in 5-minute increments, and for the previous seven days. This gives you the ability to restore a failed database to a specific date and time in the last week.
 

@@ -1,7 +1,6 @@
 
 
 # Configure Lightsail instances for load balancing
-<a name="configure-lightsail-instances-for-load-balancing"></a>
 
 Before you attach instances to your Amazon Lightsail load balancer, you need to evaluate your application's configuration. For example, load balancers often work better when the data tier is separated from the rest of the application. This topic tells you about each Lightsail instance and makes recommendations about whether to load balance (or *horizontally scale*) and how to best configure your application.
 
@@ -25,7 +24,12 @@ For Lightsail applications that use a database, we recommend that you separate t
 **Horizontally scale?** Yes, with some considerations.
 
  **Configuration recommendations before using a Lightsail load balancer** 
-+ In Lightsail, the Node.js stack packaged by Bitnami contains Node.js, Apache, Redis (an in-memory database), and Python. Depending on the application you're deploying, you can load balance across a few servers. However, you would need to configure a load balancer to balance the traffic among all the web servers and move Redis to another server.
++ 
+**This blueprint packaged by Bitnami was deprecated on November 19, 2026**  
+You can no longer create new instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. When creating new instances, we recommend using the equivalent blueprint packaged by Lightsail if available. [Learn more](amazon-lightsail-faq-bitnami-blueprints.md)  
+If you have an existing instance that uses a blueprint packaged by Bitnami and want to migrate to a blueprint packaged by Lightsail, see [Migrating from Bitnami blueprints to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md).
+
+  In Lightsail, the Node.js stack packaged by Bitnami contains Node.js, Apache, Redis (an in-memory database), and Python. Depending on the application you're deploying, you can load balance across a few servers. However, you would need to configure a load balancer to balance the traffic among all the web servers and move Redis to another server.
 + Split the Redis server to another server to communicate with all the instances. Add a database server, if necessary.
 + One of the primary use cases for Redis is to cache data locally so you don't have to constantly hit the central database. We recommend that you enable session persistence to leverage the performance improvement from Redis. For more information, see [Enable session persistence for a load balancer](enable-session-stickiness-persistence-or-change-cookie-duration.md).
 + You can also have a shared Redis node, so you can also share a node or use a local cache on each machine using session persistence.

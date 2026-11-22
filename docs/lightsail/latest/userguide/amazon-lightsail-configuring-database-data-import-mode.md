@@ -1,7 +1,6 @@
 
 
 # Import large datasets to your Lightsail database without delays
-<a name="amazon-lightsail-configuring-database-data-import-mode"></a>
 
 Regular database backup operations can cause substantial delays, or slowdowns, when importing large amounts of data all at once. Enable the data import mode for your Amazon Lightsail managed database to suspend these operations while you import large amounts of data.
 

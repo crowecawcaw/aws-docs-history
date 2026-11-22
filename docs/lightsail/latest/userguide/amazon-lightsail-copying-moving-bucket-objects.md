@@ -1,7 +1,6 @@
 
 
 # Copy and move objects between Lightsail buckets
-<a name="amazon-lightsail-copying-moving-bucket-objects"></a>
 
 You can copy objects that are already stored in your bucket in the Amazon Lightsail object storage service. In this guide, we show you how to copy objects using the Lightsail console and using the AWS Command Line Interface (AWS CLI). Copy objects in your bucket to create duplicate copies of objects, rename objects, or move objects across Lightsail locations (for example, moving objects from one AWS Region to another one, in which Lightsail is available). You can copy objects across locations only using the AWS APIs, AWS SDKs, and AWS Command Line Interface (AWS CLI).
 
@@ -106,7 +105,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Uploading files to a bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md)
    + [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md)
    + [Viewing objects in a bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md)
-   + [Copying or moving objects in a bucket in Amazon Lightsail](#amazon-lightsail-copying-moving-bucket-objects)
+   + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)
    + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
    + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)
    + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)

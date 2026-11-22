@@ -1,7 +1,6 @@
 
 
 # Create block storage disks from snapshots in Lightsail
-<a name="create-new-block-storage-disk-from-snapshot"></a>
 
 You can create a new block storage disk from a disk snapshot. If you're creating an entirely new disk, see one of the following topics instead: [Create additional block storage disks (Linux/Unix)](create-and-attach-additional-block-storage-disks-linux-unix.md) or [Create and attach block storage disks to your Windows Server instance](create-and-attach-additional-block-storage-disks-windows.md).
 

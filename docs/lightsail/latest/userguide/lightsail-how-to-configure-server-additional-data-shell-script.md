@@ -1,7 +1,6 @@
 
 
 # Configure Linux/Unix instances with launch scripts in Lightsail
-<a name="lightsail-how-to-configure-server-additional-data-shell-script"></a>
 
 When you create a Linux or Unix-based instance, you can add a launch script to add or update software, or configure your instance in some other way. To configure a Windows-based instance with additional data, see [Configure your new Lightsail instance using Windows PowerShell](create-powershell-script-that-runs-when-you-create-windows-based-instance-in-lightsail.md).
 
@@ -48,7 +47,7 @@ The following example updates the package list, and then downloads and installs 
    wget "https://downloads.wordpress.org/plugin/buddypress.14.0.0.zip"
    apt-get install unzip
    # unzip into wordpress plugin directory
-   unzip buddypress.14.0.0.zip -d /bitnami/wordpress/wp-content/plugins
+   unzip buddypress.14.0.0.zip -d /var/www/html/wp-content/plugins
    ```
 
 1. Choose **Create instance**.

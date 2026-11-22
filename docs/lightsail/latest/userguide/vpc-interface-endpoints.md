@@ -1,7 +1,6 @@
 
 
 # Access Amazon Lightsail using an interface endpoint (AWS PrivateLink)
-<a name="vpc-interface-endpoints"></a>
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon Lightsail. You can access Amazon Lightsail as if it were in your VPC, without the use of an internet gateway, NAT device, VPN connection, or Direct Connect connection. Instances in your VPC don't need public IP addresses to access Amazon Lightsail.
 
@@ -65,7 +64,7 @@ For more information, see [Control access to services using endpoint policies](h
 **Example: VPC endpoint policy for Amazon Lightsail actions**  
 The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, it denies everyone permission to delete block storage disks in Lightsail through the endpoint and grants everyone permission to perform all other Lightsail actions.
 
-```
+```json
 {
   "Statement": [
     {

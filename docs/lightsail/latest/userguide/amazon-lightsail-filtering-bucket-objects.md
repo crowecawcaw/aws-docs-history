@@ -1,7 +1,6 @@
 
 
 # Filter objects in Lightsail buckets by name prefix
-<a name="amazon-lightsail-filtering-bucket-objects"></a>
 
 You can use filtering to find objects in your bucket in the Amazon Lightsail object storage service. In this guide, we show you how to filter objects using the Lightsail console, and the AWS Command Line Interface (AWS CLI). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -91,7 +90,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Viewing objects in a bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md)
    + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)
    + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
-   + [Filtering objects in a bucket in Amazon Lightsail](#amazon-lightsail-filtering-bucket-objects)
+   + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)
    + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)
    + [Deleting objects in a bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md)
 

@@ -1,7 +1,6 @@
 
 
 # Schedule maintenance and backups for Lightsail databases
-<a name="amazon-lightsail-changing-preferred-maintenance-and-backup-windows"></a>
 
 When a new version of a database is supported by Amazon Lightsail, your existing managed database can be upgraded to it. There are two kinds of upgrades—minor version upgrades and major version upgrades. Currently, Lightsail supports only minor version upgrades.
 

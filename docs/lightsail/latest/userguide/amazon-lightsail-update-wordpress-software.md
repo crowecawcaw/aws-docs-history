@@ -1,7 +1,6 @@
 
 
 # Update software on your WordPress instance
-<a name="amazon-lightsail-update-wordpress-software"></a>
 
 **Important**  
 This tutorial applies to instances that use the **WordPress** blueprint. If your instance uses **WordPress packaged by Bitnami**, see the [Bitnami WordPress documentation](https://docs.bitnami.com/general/apps/wordpress/administration/upgrade/) instead. Instances that use WordPress packaged by Bitnami store WordPress in a different location (`/opt/bitnami`) and use different service management tools.
@@ -100,33 +99,33 @@ Run WP-CLI commands as the `admin` user that you sign in with. Do not run them w
 
 1. Verify the WP-CLI version. WP-CLI is preinstalled on the WordPress blueprint:
 
-   ```
+   ```bash
    wp --version
    ```
 
 1. Check the currently installed WordPress version and available updates:
 
-   ```
+   ```bash
    wp core check-update
    ```
 
 1. Update WordPress core, then update the database schema:
 
-   ```
+   ```bash
    wp core update
    wp core update-db
    ```
 
 1. Update all plugins and themes:
 
-   ```
+   ```bash
    wp plugin update --all
    wp theme update --all
    ```
 
 1. Verify the installed version:
 
-   ```
+   ```bash
    wp core version
    ```
 
@@ -159,14 +158,14 @@ You can also turn on automatic plugin and theme updates with WP-CLI instead of t
 
 1. Turn on automatic updates for all plugins and themes:
 
-   ```
+   ```bash
    wp plugin auto-updates enable --all
    wp theme auto-updates enable --all
    ```
 
 1. Confirm which plugins and themes have automatic updates turned on:
 
-   ```
+   ```bash
    wp plugin auto-updates status --all
    wp theme auto-updates status --all
    ```
@@ -183,14 +182,14 @@ Updating the WordPress application alone is not enough to keep your instance sec
 
 1. Update the package lists and apply all available upgrades:
 
-   ```
+   ```bash
    sudo apt update
    sudo apt upgrade -y
    ```
 
 1. If a kernel update was installed, reboot the instance during a low-traffic window:
 
-   ```
+   ```bash
    sudo reboot
    ```
 
@@ -205,7 +204,7 @@ If your instance doesn't have a static IP address attached, its public IP addres
 
 If an update is interrupted, your website might continue to display "Briefly unavailable for scheduled maintenance." To resolve this, connect to your instance by using SSH and delete the maintenance flag file from the WordPress installation directory:
 
-```
+```bash
 rm /var/www/html/.maintenance
 ```
 
@@ -219,7 +218,7 @@ Restore your instance from the snapshot that you created in [Step 1](#update-wor
 
 Before installing an update, WordPress moves the old version to `wp-content/upgrade-temp-backup` so that it can restore it if the update fails. If you see this warning, update the directory's ownership and permissions, and then retry the update:
 
-```
+```bash
 sudo chown -R admin:www-data /var/www/html/wp-content/upgrade-temp-backup
 sudo find /var/www/html/wp-content/upgrade-temp-backup -type d -exec chmod 2775 {} \;
 sudo find /var/www/html/wp-content/upgrade-temp-backup -type f -exec chmod 0664 {} \;
@@ -232,7 +231,7 @@ The update fails safely: your website continues to run the old plugin or theme v
 
 The dashboard update runs as the web server user, which requires group write access to the WordPress files. This typically happens after you upload plugin, theme, or other files manually over SSH or SFTP, which creates files without group write permission. Connect to your instance by using SSH and restore the ownership and permissions that the blueprint uses:
 
-```
+```bash
 sudo chown -R admin:www-data /var/www/html/wp-content
 sudo find /var/www/html/wp-content -type d -exec chmod 2775 {} \;
 sudo find /var/www/html/wp-content -type f -exec chmod 0664 {} \;

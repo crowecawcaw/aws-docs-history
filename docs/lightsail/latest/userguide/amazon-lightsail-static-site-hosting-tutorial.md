@@ -1,7 +1,6 @@
 
 
 # Host a static site using a Lightsail bucket and distribution
-<a name="amazon-lightsail-static-site-hosting-tutorial"></a>
 
 ## Overview
 <a name="static-site-overview"></a>
@@ -30,6 +29,7 @@ You can use an AI assistant of your choice to generate your static site content�
 + [Step 3: Create a distribution with your bucket as the origin](#static-site-create-distribution)
 + [Step 4: Add a custom error response](#static-site-add-error-response)
 + [Step 5: (Optional) Set up a domain](#static-site-custom-domain)
++ [Step 6: (Optional) Earn Lightsail credits with Amazon Content Partners](#static-site-amazon-content-partners)
 + [Troubleshooting](#static-site-troubleshooting)
 + [Next steps and related resources](#static-site-next-steps)
 
@@ -156,6 +156,29 @@ To use your own domain (for example, `www.example.com`) instead of the default d
 1. **Enable custom domains** on your distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).
 
 1. **Add a DNS alias record** pointing your domain to your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
+
+## Step 6: (Optional) Earn Lightsail credits with Amazon Content Partners
+<a name="static-site-amazon-content-partners"></a>
+
+If your static site publishes original editorial content, you can earn USD $100 per month in Lightsail credits through Amazon Content Partners, a program for independent content creators. For eligibility requirements and other program benefits, see the [Amazon Content Partners website](https://contentpartners.amazon.com?ref=acp_ls_doc).
+
+**Note**  
+To enroll in Amazon Content Partners, you need an Amazon account. This is a different account from your AWS account. If you don't have an Amazon account, you can create one when you sign up for Amazon Content Partners.
+
+1. On the [Amazon Content Partners website](https://contentpartners.amazon.com?ref=acp_ls_doc), sign in with your Amazon account.
+
+1. Add your website, and then verify that you own it. Follow the instructions on the Amazon Content Partners website, and use one of the following methods:
+   + **HTML file** – Upload the verification file to the root of your bucket, the same way that you uploaded your website files in [Step 2](#static-site-upload-files).
+   + **Meta tag** – Add the meta tag to the `<head>` section of your homepage (for example, `index.html`), and then upload the updated file to your bucket.
+   + **DNS record** – If you configured a custom domain in [Step 5](#static-site-custom-domain), add the record to the DNS zone for your domain.
+
+   If you updated a file that your distribution already serves, such as your homepage, reset your distribution's cache so that visitors and Amazon get the new version. For more information, see [Reset the cache for your distribution](amazon-lightsail-resetting-distribution-cache.md).
+
+1. Make sure that Amazon's crawlers can access your site. If your site includes a `robots.txt` file, confirm that it doesn't block Amazonbot or other Amazon crawlers. If you block them, your site isn't eligible for the program's benefits.
+
+1. After your website is verified, sign up for the hosting benefit on the Amazon Content Partners website, and add your AWS account.
+
+   Your credits are activated within 24 hours of enrollment, and appear each month in the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/).
 
 ## Troubleshooting
 <a name="static-site-troubleshooting"></a>

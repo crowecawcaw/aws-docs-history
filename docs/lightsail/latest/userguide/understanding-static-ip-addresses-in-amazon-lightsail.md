@@ -1,7 +1,6 @@
 
 
 # Static IP addresses in Lightsail
-<a name="understanding-static-ip-addresses-in-amazon-lightsail"></a>
 
 A static IP is a fixed, public IP address that you can assign and reassign to an instance or other resource. If you haven't set up a static IP address, each time you stop or restart your instance, Lightsail assigns a new public IP address.
 

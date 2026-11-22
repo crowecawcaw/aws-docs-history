@@ -1,7 +1,6 @@
 
 
 # View CloudFormation stacks for Lightsail instances
-<a name="amazon-lightsail-cloudformation-stacks"></a>
 
 Amazon Lightsail uses CloudFormation to create Amazon Elastic Compute Cloud (Amazon EC2) instances from exported snapshots. A CloudFormation stack is created when you request to create an Amazon EC2 instance using the Lightsail console or Lightsail API. The stack performs a series of actions in your Amazon Web Services (AWS) account to create all of the related resources for the instance, such as the Amazon EC2 instance from an Amazon Machine Image (AMI), the Elastic Block Store (EBS) system volume from an EBS snapshot, and the security group for the instance. To learn more about CloudFormation stacks, see [Working with Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the CloudFormation documentation.
 

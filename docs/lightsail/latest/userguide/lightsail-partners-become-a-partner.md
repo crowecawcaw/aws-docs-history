@@ -1,7 +1,6 @@
 
 
 # Become a Lightsail partner
-<a name="lightsail-partners-become-a-partner"></a>
 
 You must submit a form to be considered for becoming an Amazon Lightsail partner. The request will be filed using the AWS account that you are logged in with at the time you complete the form. Upon approval, Lightsail evaluates your account and places you in the appropriate partner tier. You immediately receive the default instance quota for that tier in each AWS Region.
 

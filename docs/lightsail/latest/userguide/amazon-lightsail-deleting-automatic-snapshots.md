@@ -1,7 +1,6 @@
 
 
 # Delete unused Lightsail instance and disk snapshots
-<a name="amazon-lightsail-deleting-automatic-snapshots"></a>
 
 You can delete automatic snapshots of an instance or block storage disk in Amazon Lightsail at any time; whether the feature is enabled, or if it's disabled after it had been enabled. You will be billed the [snapshot storage fee](https://aws.amazon.com/lightsail/pricing/) for the automatic snapshots stored on your Lightsail account. Follow the steps in this guide to delete automatic snapshots if you no longer need them. For example, if you've [copied an automatic snapshot to a manual snapshot](amazon-lightsail-keeping-automatic-snapshots.md) and you no longer need the original, or if you've [disabled the automatic snapshots feature](amazon-lightsail-configuring-automatic-snapshots.md) for your resource and you don't need the existing automatic snapshots that were kept.
 

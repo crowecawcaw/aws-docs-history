@@ -1,7 +1,6 @@
 
 
 # Follow bucket naming requirements for Lightsail object storage
-<a name="bucket-naming-rules-in-amazon-lightsail"></a>
 
 When you create a bucket in the Amazon Lightsail object storage service, you must give it a name. The name of the bucket is part of the URL that your customers will use when accessing objects that are stored in the bucket. For example, if you name your bucket `amzn-s3-demo-bucket` in the `us-east-1` AWS Region, the URL for your bucket is `amzn-s3-demo-bucket.s3.us-east-1.amazonaws.com`. You cannot change the name of your bucket after you create it. Keep in mind that your customers are able to see the bucket name that you specify. For more information about the Lightsail object storage service, see [Object storage](buckets-in-amazon-lightsail.md). For more information about creating buckets, see [Create a bucket](amazon-lightsail-creating-buckets.md).
 

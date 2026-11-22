@@ -1,7 +1,6 @@
 
 
 # Create a Lightsail instance
-<a name="how-to-create-amazon-lightsail-instance-virtual-private-server-vps"></a>
 
 This section covers the following topics related to creating instances in Amazon Lightsail:
 

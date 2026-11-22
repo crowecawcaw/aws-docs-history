@@ -1,7 +1,6 @@
 
 
 # Metric alarms in Lightsail
-<a name="amazon-lightsail-alarms"></a>
 
 You can create an alarm in Amazon Lightsail that watches a single metric for your instances, databases, load balancers, and content delivery network (CDN) distributions. The alarm can be configured to notify you based on the value of the metric relative to a threshold that you specify. Notifications can be a banner displayed in the Lightsail console, an email sent to your email address, and an SMS text message sent to your mobile phone number. In this guide, we describe the alarm conditions and settings that you can configure. For more information on how to review your active alarms across all Lightsail resources, see [Review alarm notifications for active alarms](amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-alarms).
 

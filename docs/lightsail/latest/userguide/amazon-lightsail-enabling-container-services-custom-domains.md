@@ -1,7 +1,6 @@
 
 
 # Enable secure web access with custom domains in Lightsail
-<a name="amazon-lightsail-enabling-container-services-custom-domains"></a>
 
 Enable custom domains for your Amazon Lightsail container service to use your registered domain names with your service. Before you enable custom domains, your container service accepts traffic only for the default domain that is associated with your service when you first create it (e.g., `containerservicename.123456abcdef.us-west-2.cs.amazonlightsail.com`). When you enable custom domains, you choose the Lightsail SSL/TLS certificate that you created for the domains that you want to use with your container service, and then you choose the domains you want to use from that certificate. After you enable custom domains, your container service accepts traffic for all of the domains that are associated with the certificate that you chose.
 

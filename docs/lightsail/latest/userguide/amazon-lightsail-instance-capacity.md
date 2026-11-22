@@ -1,7 +1,6 @@
 
 
 # Resolve insufficient instance capacity errors in Lightsail
-<a name="amazon-lightsail-instance-capacity"></a>
 
 You might get an insufficient error when you try to launch an instance or restart a stopped instance. This means that AWS doesn’t have the available instance capacity to fulfill your request at the current time. Following is an example of the insufficient instance capacity error:
 

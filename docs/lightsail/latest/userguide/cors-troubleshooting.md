@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CORS
-<a name="cors-troubleshooting"></a>
 
 If you're experiencing issues with CORS, check the following:
 + **Verify CORS configuration** – Ensure your CORS configuration is properly formatted JSON and includes the necessary rules for your use case.

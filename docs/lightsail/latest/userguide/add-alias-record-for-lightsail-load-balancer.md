@@ -1,7 +1,6 @@
 
 
 # Point your domain to a Lightsail load balancer
-<a name="add-alias-record-for-lightsail-load-balancer"></a>
 
 After you [verify that you control the domain where you want to have encrypted (HTTPS) traffic](verify-tls-ssl-certificate-using-dns-cname-https.md), you need to add an address (A) record to your domain's DNS hosting provider that points your domain to your Lightsail load balancer. In this guide, we show you how to add the A record to a Lightsail DNS zone, and an Amazon Route 53 hosted zone.
 

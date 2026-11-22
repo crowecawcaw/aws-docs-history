@@ -1,7 +1,6 @@
 
 
 # Securely connect to Lightsail MySQL databases with SSL/TLS
-<a name="amazon-lightsail-connecting-to-mysql-database-using-ssl"></a>
 
 Amazon Lightsail creates an SSL certificate, and installs it on your MySQL managed database when it’s provisioned. The certificate is signed by a certificate authority (CA), and it includes the database endpoint as the Common Name (CN) for the SSL certificate to guard against spoofing attacks.
 

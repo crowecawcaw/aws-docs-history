@@ -1,7 +1,6 @@
 
 
 # Transfer files between Linux instances on Lightsail using scp
-<a name="amazon-lightsail-transfer-files-between-linux-instances"></a>
 
 Use the secure copy (scp) command in Linux to transfer files from your local computer to your Linux or Unix instance, and from one instance to another in Amazon Lightsail. To learn more about the scp command, see [scp(1) — Linux manual page](https://man7.org/linux/man-pages/man1/scp.1.html) on the *man7* website.
 
@@ -84,6 +83,7 @@ Bitnami instances: `bitnami`
 Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
 Ruby on Rails instances: `ec2-user`
 OpenClaw instances: `ubuntu`
+Kiro Crew instances: `ubuntu`
 Plesk instances: `ubuntu`
 cPanel & WHM (AlmaLinux) instances: `ec2-user`
 cPanel & WHM (CentOS 7) instances: `centos`

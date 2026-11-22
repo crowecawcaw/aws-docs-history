@@ -1,7 +1,6 @@
 
 
 # Enable HTTPS on your WordPress instance with a Lightsail managed domain
-<a name="amazon-lightsail-enabling-https-on-wordpress"></a>
 
 Lightsail Setup helps you quickly connect your domain to your WordPress instance. Lightsail Setup creates a Let's Encrypt certificate that automatically renews every 60 to 90 days. When the setup is complete, visitors can securely access your website using your custom domain name.
 
@@ -14,12 +13,17 @@ If your domain is registered with a third-party registrar (such as GoDaddy, Name
 ## Step 1: Complete the prerequisites
 <a name="before-you-begin-https"></a>
 
-Complete the following prerequisites if you haven't already done so:
-+ Create a WordPress instance in Lightsail. Your instance must be in a running state. To learn more, see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md).  
+Before starting Lightsail Setup, confirm the following:
++ **A running Lightsail WordPress instance.** Create a WordPress instance in Lightsail. Your instance must be in a running state. To learn more, see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md).  
 ![A WordPress instance in a running state in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/instance-running.png)
-+ Register a domain name through Lightsail or Route 53. For more information, see [Register a domain in Lightsail](amazon-lightsail-register-new-domain.md). Also ensure the domain is verified, active, and in the same account that you are using for Lightsail Setup. See [Verify the domain contact information](amazon-lightsail-register-new-domain.md#reg-new-domain-verify-info).
-+ Ensure that ports 22, 80, and 443 are configured on your instance's firewall to enable Lightsail Setup. Port 22 is required for Lightsail Setup to connect to your instance. Port 80 is required for domain ownership validation during certificate installation. Port 443 is required for serving HTTPS traffic after installation. To verify, open the **Networking** tab of your instance and check that all three ports appear in the firewall rules. To learn more, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).  
-![Firewall rules showing ports 22, 80, and 443 configured on the Networking tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/ports-open.png)
++ **A domain registered through Lightsail or Route 53.** Register a domain name through Lightsail or Route 53. For more information, see [Register a domain in Lightsail](amazon-lightsail-register-new-domain.md). Also ensure the domain is verified, active, and in the same account that you are using for Lightsail Setup. See [Verify the domain contact information](amazon-lightsail-register-new-domain.md#reg-new-domain-verify-info).
++ **Your instance firewall allows Lightsail Setup.** Ensure that your instance's firewall allows the following traffic, so that Lightsail Setup can configure HTTPS:
+  + **SSH** (TCP 22) – Must allow **Lightsail Setup**. Lightsail Setup uses this port to connect to your instance.
+  + **HTTP** (TCP 80) – Must allow any IPv4 and IPv6 address. Let's Encrypt uses this port to validate domain ownership.
+  + **HTTPS** (TCP 443) – Must allow any IPv4 and IPv6 address. Your website uses this port to serve HTTPS traffic.
+
+  To check, open the **Networking** tab of your instance. If the **SSH** rule doesn't allow **Lightsail Setup**, edit the rule and select **Lightsail Setup access**. To learn more, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).  
+![Firewall rules on the Networking tab in the Lightsail console showing HTTP (80) and HTTPS (443) open to any IPv4 or IPv6 address, and SSH (22) allowing Lightsail browser SSH and Lightsail Setup.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/ports-open.png)
 
 **Note**  
 If your domain is registered with a third-party registrar, or your DNS is not managed using a Lightsail DNS zone, see [Enable HTTPS on your WordPress instance with a domain registered outside of Lightsail](amazon-lightsail-enabling-https-on-wordpress-thirdparty.md).
@@ -32,8 +36,8 @@ If your domain is registered with a third-party registrar, or your DNS is not ma
 1. Choose your WordPress instance from the instance list.  
 ![Selecting a WordPress instance from the instance list in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/instance-selection.png)
 
-1. Choose the **Connect** tab and choose **Set up your website**.  
-![The Set up your website button on the Connect tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/your-website.png)
+1. In the **Getting started** tab, choose **Start Lightsail Setup**.  
+![The "Start Lightsail Setup" button on the "Getting started" tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/your-website.png)
 
 ## Step 3: Select your domain
 <a name="setup-wizard-domain-lightsail"></a>
@@ -43,6 +47,9 @@ If your domain is registered with a third-party registrar, or your DNS is not ma
 1. Select your domain from the dropdown list.
 
 Your domain appears in this list if it is registered through Lightsail or Route 53 in the same account that you are using for Lightsail Setup.
+
+**Note**  
+Your domain must be in **Registered** status for Lightsail Setup to work.
 
 ![Selecting a domain name in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/domain-name.png)
 
@@ -102,15 +109,15 @@ Domain assignments are DNS records that direct traffic for your domain to your i
 
 1. Choose **Add assignment**.
 
-1. Add your apex domain (for example, `example.com`).
+1. Add your apex domain (for example, `exampletest.com`).
 
-1. (Optional) To also secure your www subdomain, choose **Add assignment** again and add your www subdomain (for example, `www.example.com`).
+1. (Optional) To also secure your www subdomain, choose **Add assignment** again and add your www subdomain (for example, `www.exampletest.com`).
 
 ![Managing domain assignments in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/manage-domains.png)
 
 
 **Tip**  
-If you skip the www subdomain, visitors who type `www.example.com` will not reach your site. Add it if you want both addresses to work.
+If you skip the www subdomain, visitors who type `www.exampletest.com` will not reach your site. Add it if you want both addresses to work.
 
 ## Step 7: Create SSL/TLS certificate
 <a name="setup-wizard-certificate-lightsail"></a>
@@ -144,10 +151,18 @@ After Lightsail Setup completes:
 
 1. (Optional) Test `https://www.{{yourdomain.com}}` to confirm both addresses work.
 
-![WordPress website loaded successfully with HTTPS enabled.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/https-verified.png)
+To confirm that your website uses the certificate that Lightsail Setup created, view the certificate in your browser. For example, in Google Chrome:
 
+1. In the address bar, choose the site information icon to the left of the URL, and then choose **Connection is secure**.  
+![The "Connection is secure" option in the Google Chrome site information menu.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/https-verified.png)
 
-Your website is now configured with HTTPS and an **automatic redirect from HTTP to HTTPS**. You can sign in to the WordPress administration dashboard to customize your site, install plugins, and manage content.
+1. Choose **Certificate details**.  
+![The "Certificate details" option in the Google Chrome Security panel.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/https-certificate-details.png)
+
+1. Confirm that the certificate is issued to your domain. Under **Issued By**, confirm that **Organization (O)** is Let's Encrypt.  
+![Certificate details in Google Chrome showing Let's Encrypt as the issuing organization.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/https-certificate-issuer.png)
+
+Your website is now configured with HTTPS and an **automatic redirect from HTTP to HTTPS**.
 
 **Note**  
 Let's Encrypt certificates will automatically renew every 60 to 90 days. If renewal fails in the future, see [Certificate did not automatically renew](amazon-lightsail-troubleshooting-wp-cert-renewal-lightsail.md).

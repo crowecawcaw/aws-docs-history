@@ -1,7 +1,6 @@
 
 
 # Enable IPv6 networking for Lightsail resources
-<a name="enable-ipv6"></a>
 
 Complete the following procedure to enable IPv6 for instances, CDN distributions, and load balancers.
 

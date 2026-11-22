@@ -1,7 +1,6 @@
 
 
 # Download an SSL/TLS certificate for secure app connectivity to Lightsail databases
-<a name="amazon-lightsail-download-ssl-certificate-for-managed-database"></a>
 
 You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a managed database in Amazon Lightsail running MySQL, or PostgreSQL. Each DB engine has its own process for implementing SSL/TLS. For more information, see [Using SSL to connect to your MySQL database](amazon-lightsail-connecting-to-mysql-database-using-ssl.md) or [Using SSL to connect to your PostgreSQL database](amazon-lightsail-connecting-to-postgres-database-using-ssl.md).
 

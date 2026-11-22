@@ -1,7 +1,6 @@
 
 
 # Control secure instance connectivity with Lightsail SSH keys
-<a name="amazon-lightsail-managing-ssh-keys"></a>
 
 You can establish a secure connection to your Amazon Lightsail instances using key pairs. When you first create an Amazon Lightsail instance, you can choose to use a key pair that Lightsail creates for you (the Lightsail default key pair) or a custom key pair that you create. For more information, see [Key pairs and connecting to instances in Amazon Lightsail](understanding-ssh-in-amazon-lightsail.md).
 

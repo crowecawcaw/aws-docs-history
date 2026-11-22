@@ -1,7 +1,6 @@
 
 
 # Access Lightsail
-<a name="access-lightsail"></a>
 
 You can access Amazon Lightsail using a variety of interfaces and service endpoints.
 
@@ -17,6 +16,9 @@ You can create and manage your Lightsail resources with the following interfaces
 
 **Amazon Lightsail console**  
 A simple web interface to create and manage Lightsail instances and resources. If you've signed up for an AWS account, you can either access the [Lightsail console](https://lightsail.aws.amazon.com/) directly or sign into the AWS Management Console and choose **Lightsail** from the console home page.
+
+**AI agents**  
+With Lightsail agent skills, you can have an AI agent create and manage your Lightsail resources from a request that you write in your own words. The agent calls the Lightsail APIs on your behalf. For instructions, see [Set up an AI agent for Amazon Lightsail](agent-setup-guide.md).
 
 **AWS Command Line Interface**  
 Enables you to interact with AWS services using commands in your command-line shell. It is supported on Windows, Mac, and Linux. For more information about the AWS CLI, see [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/). You can find the Lightsail commands in the [Lightsail section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/lightsail/#cli-aws-lightsail).

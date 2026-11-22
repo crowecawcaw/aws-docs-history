@@ -1,7 +1,6 @@
 
 
 # Configure IPv6 connectivity for Plesk instances in Lightsail
-<a name="amazon-lightsail-configure-ipv6-on-plesk"></a>
 
 You must perform an additional set of steps to make an instance that uses the Plesk blueprint aware of its IPv6 address. In this guide, we show you the additional steps that you must perform for Plesk instances.
 

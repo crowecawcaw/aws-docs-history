@@ -1,7 +1,6 @@
 
 
 # Create a Lightsail bucket for object storage
-<a name="amazon-lightsail-creating-buckets"></a>
 
 Create a bucket in the Amazon Lightsail object storage service when you're ready to start uploading your files to the cloud. Every file that you upload to the Lightsail object storage service is stored in a Lightsail bucket. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -43,7 +42,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 
 1. Learn about the names that you can give your buckets in Amazon Lightsail. For more information, see [Bucket naming rules in Amazon Lightsail](bucket-naming-rules-in-amazon-lightsail.md).
 
-1. Get started with the Lightsail object storage service by creating a bucket. For more information, see [Creating buckets in Amazon Lightsail](#amazon-lightsail-creating-buckets).
+1. Get started with the Lightsail object storage service by creating a bucket. For more information, see [Creating buckets in Amazon Lightsail](amazon-lightsail-creating-buckets.md).
 
 1. Learn about security best practices for buckets and the access permissions that you can configure for your bucket. You can make all objects in your bucket public or private, or you can choose to make individual objects public. You can also grant access to your bucket by creating access keys, attaching instances to your bucket, and granting access to other AWS accounts. For more information, see [Security Best Practices for Amazon Lightsail object storage](amazon-lightsail-bucket-security-best-practices.md) and [Understanding bucket permissions in Amazon Lightsail](amazon-lightsail-understanding-bucket-permissions.md).
 

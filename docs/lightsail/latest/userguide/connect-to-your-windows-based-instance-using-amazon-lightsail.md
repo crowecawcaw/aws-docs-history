@@ -1,7 +1,6 @@
 
 
 # Connect to your Lightsail Windows instance using RDP
-<a name="connect-to-your-windows-based-instance-using-amazon-lightsail"></a>
 
 You can connect to your Windows Server instance in Amazon Lightsail using the browser-based RDP client that is available in the Lightsail console. The browser-based RDP client does not require software installation, and you can connect to your Windows Server instance immediately after you create it, and it becomes available. Connect to your instance to perform administrative tasks on the server, such as installing software, or configuring web applications.
 

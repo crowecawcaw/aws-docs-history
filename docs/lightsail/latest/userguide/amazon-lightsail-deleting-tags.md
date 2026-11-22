@@ -1,7 +1,6 @@
 
 
 # Remove tags from Lightsail resources
-<a name="amazon-lightsail-deleting-tags"></a>
 
 You can delete tags from an Amazon Lightsail resource. Deleting a tag from one resource does not delete the same tag from all other resources. To completely delete a tag from all resources, you must remove that tag from each resource. This guide provides the steps to delete tags from a resource.
 

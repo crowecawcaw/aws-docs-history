@@ -1,7 +1,9 @@
 
 
 # Migrating from Bitnami blueprints to Lightsail blueprints
-<a name="migrate-from-bitnami-to-lightsail-blueprints"></a>
+
+**The WordPress, WordPress Multisite, LAMP, Node.js, and Nginx blueprints packaged by Bitnami were deprecated on November 19, 2026**  
+You can no longer create new instances with these blueprints. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. To move to the equivalent blueprint packaged by Lightsail, follow the steps in this guide. [Learn more](amazon-lightsail-faq-bitnami-blueprints.md)
 
 Amazon Lightsail offers blueprints packaged by Lightsail for several popular application stacks. Lightsail blueprints offer default security settings, including IMDSv2 enforced by default and port 22 restricted on launch. This guide walks you through migrating an existing Lightsail instance running a Bitnami blueprint to a new Lightsail instance running the equivalent Lightsail blueprint.
 
@@ -10,7 +12,7 @@ Your application version on your instance may become outdated over time as newer
 ## Supported Lightsail blueprints
 <a name="migrate-bitnami-supported-blueprints"></a>
 
-Lightsail-packaged blueprints are currently available for the following applications:
+Blueprints packaged by Lightsail are currently available for the following applications:
 + [WordPress](migrate-your-wordpress-blog-from-bitnami-to-amazon-lightsail.md)
 + WordPress Multisite
 + LAMP

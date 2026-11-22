@@ -1,7 +1,6 @@
 
 
 # Monitor Lightsail instance performance with metrics
-<a name="amazon-lightsail-viewing-instance-health-metrics"></a>
 
 After you launch an instance in Amazon Lightsail, you can view its metric graphs on the **Metrics** tab of the instance’s management page. Monitoring metrics is an important part of maintaining the reliability, availability, and performance of your resources. Monitor and collect metric data from your resources regularly so that you can more readily debug a multi-point failure, if one occurs. For more information about metrics, see [Metrics in Amazon Lightsail](amazon-lightsail-resource-health-metrics.md).
 

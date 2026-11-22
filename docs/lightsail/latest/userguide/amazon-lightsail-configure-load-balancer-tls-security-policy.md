@@ -1,7 +1,6 @@
 
 
 # Configure TLS security policies for your Lightsail load balancer
-<a name="amazon-lightsail-configure-load-balancer-tls-security-policy"></a>
 
 After you enable HTTPS on your Amazon Lightsail load balancer, you can configure a TLS security policy for the encrypted connections. This guide provides information about the security policies that you can configure on Lightsail load balancers, and the procedures for updating your load balancer's security policy. For more information about load balancers, see [Load balancers](understanding-lightsail-load-balancers.md).
 

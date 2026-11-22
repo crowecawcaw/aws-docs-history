@@ -1,7 +1,6 @@
 
 
 # Keep automatic snapshots from being replaced in Lightsail
-<a name="amazon-lightsail-keeping-automatic-snapshots"></a>
 
 When you [enable the automatic snapshots feature](amazon-lightsail-configuring-automatic-snapshots.md) for an instance or block storage disk in Amazon Lightsail, only the latest seven daily automatic snapshots of the resource are stored. Then, the oldest one is replaced with the newest one. Additionally, all automatic snapshots associated with a resource are deleted when you delete the source resource.
 

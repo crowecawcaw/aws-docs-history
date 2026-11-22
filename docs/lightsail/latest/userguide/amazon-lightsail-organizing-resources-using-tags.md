@@ -1,7 +1,6 @@
 
 
 # Tag Lightsail resources for organization and filtering
-<a name="amazon-lightsail-organizing-resources-using-tags"></a>
 
 After you tag your Amazon Lightsail resources, you can filter your resources by the tags you have added. You do this in the Lightsail console by choosing or searching for a tag. This guide shows you how to view and filter your Lightsail resources by tags.
 

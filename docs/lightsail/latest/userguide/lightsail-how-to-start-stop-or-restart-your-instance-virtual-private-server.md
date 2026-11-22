@@ -1,7 +1,6 @@
 
 
 # Start, stop, or reboot your Lightsail instance
-<a name="lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server"></a>
 
 When Amazon Lightsail creates your instance, your machine goes into a **Pending** state before it starts **Running**. After your instance is running, you can reboot it or stop and then start it. The cycle looks like this:
 

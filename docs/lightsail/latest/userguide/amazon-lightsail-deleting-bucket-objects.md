@@ -1,7 +1,6 @@
 
 
 # Clear Lightsail bucket storage by deleting objects
-<a name="amazon-lightsail-deleting-bucket-objects"></a>
 
 You can delete objects from your bucket in the Amazon Lightsail object storage service. To free-up storage space, delete objects that you no longer need . For example, if you're collecting log files, it's a good idea to delete them when you don't need them anymore.
 
@@ -233,7 +232,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
    + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)
    + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)
-   + [Deleting objects in a bucket in Amazon Lightsail](#amazon-lightsail-deleting-bucket-objects)
+   + [Deleting objects in a bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md)
 
 1. Enable object versioning to preserve, retrieve, and restore every version of every object stored in your bucket. For more information, see [Enabling and suspending object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md).
 

@@ -1,7 +1,6 @@
 
 
 # Redirect HTTP to HTTPS for Lightsail load balancers
-<a name="amazon-lightsail-configure-load-balancer-https-redirection"></a>
 
 After you configure HTTPS on your Amazon Lightsail load balancer, you can configure an HTTP to HTTPS redirect so that users who browse to your website or web application using an HTTP connection are automatically redirected to the encrypted HTTPS connection. For more information about load balancers, see [Load balancers](understanding-lightsail-load-balancers.md).
 

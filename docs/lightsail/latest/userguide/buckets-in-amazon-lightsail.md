@@ -1,7 +1,6 @@
 
 
 # Store and manage data with Lightsail object storage buckets
-<a name="buckets-in-amazon-lightsail"></a>
 
 Use the Amazon Lightsail object storage service to store and retrieve objects, at any time, from anywhere on the internet. It is designed to make web-scale computing easier for developers, and is built using the Amazon Simple Storage Service (Amazon S3). Lightsail object storage gives you access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of websites. The service aims to maximize benefits of scale and to pass those benefits on to you.
 

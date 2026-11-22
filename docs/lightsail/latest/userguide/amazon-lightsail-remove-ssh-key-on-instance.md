@@ -1,7 +1,6 @@
 
 
 # Manage SSH keys on Lightsail Linux instances
-<a name="amazon-lightsail-remove-ssh-key-on-instance"></a>
 
 You can establish a secure connection to your Amazon Lightsail instances using key pairs. Lightsail configures the public key of a key pair on your Linux or Unix instance when you first create it. You use the private key of the key pair to authenticate to your instance when establishing an SSH connection to it. For more information about keys, see [Key pairs and connecting to instances](understanding-ssh-in-amazon-lightsail.md).
 

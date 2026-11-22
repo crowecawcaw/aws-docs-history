@@ -1,7 +1,6 @@
 
 
 # Disable point-in-time backups for Lightsail databases
-<a name="amazon-lightsail-turn-off-database-point-in-time-backup"></a>
 
 Use the following procedure to disable point-in-time backups for your Lightsail managed database.
 

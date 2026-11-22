@@ -1,7 +1,6 @@
 
 
 # Getting started with virtual private servers on Lightsail
-<a name="getting-started"></a>
 
 In Lightsail, an instance is a virtual private server (also called a virtual machine). You create and manage Lightsail instances in the AWS Cloud. When you create an instance, you choose an image that has an operating system (OS) on it. You can also choose an instance image that has an application or development stack on it, including the base OS.
 
@@ -64,10 +63,10 @@ Within minutes, your Lightsail instance is ready and you can connect to it.
 ![Animation showing how to connect to an instance from the Lightsail console home page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/animation_connect_instance.gif)
 
    Alternatively, you can connect from your instance's management page. Select your instance's name, choose the **Connect** tab, then choose **Connect using SSH**.  
-![Image showing how to connect to your instance from the instance's management page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
+![Image showing how to connect to your instance from the instance's management page.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-instance-management-page-connect-tab.png)
 
 1. You can now type commands into the terminal and manage your Lightsail instance without setting up an SSH client.  
-![Browser-based SSH terminal in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal in Amazon Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-ssh-terminal.png)
 
 To learn how to connect to add additional storage to your virtual computer, continue to the next step of this tutorial.
 

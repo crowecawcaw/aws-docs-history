@@ -1,7 +1,6 @@
 
 
 # Create a Lightsail database
-<a name="amazon-lightsail-creating-a-database"></a>
 
 Create a managed database in Amazon Lightsail in minutes. You can choose between the latest major versions of MySQL or PostgreSQL, and configure your database with a standard or high availability plan.
 

@@ -1,7 +1,6 @@
 
 
 # Understanding DNS in Lightsail
-<a name="understanding-dns-in-amazon-lightsail"></a>
 
 People can access the web application on your Lightsail instance by browsing to the public internet protocol (IP) address of your instance, which could be an IPv4 or IPv6 address. However, IP addresses are complex and difficult for people to remember. Therefore, you should have people browse to an easy-to-remember domain name, like `example.com`, to access the web application on your instance. This is achieved through the Domain Name System (DNS), which functions as a directory that maps registered domain names to IP addresses.
 

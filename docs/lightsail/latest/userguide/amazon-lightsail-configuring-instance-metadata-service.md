@@ -1,7 +1,6 @@
 
 
 # Access and configure Instance Metadata Service (IMDS) on Lightsail
-<a name="amazon-lightsail-configuring-instance-metadata-service"></a>
 
 You can access instance metadata from a running instance by using one of the following methods:
 + Instance Metadata Service Version 1 (IMDSv1) – a request/response method

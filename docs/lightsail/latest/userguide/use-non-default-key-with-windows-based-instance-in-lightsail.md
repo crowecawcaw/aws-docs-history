@@ -1,7 +1,6 @@
 
 
 # Change the Administrator password for Lightsail Windows instances
-<a name="use-non-default-key-with-windows-based-instance-in-lightsail"></a>
 
 When you create a Windows Server-based Lightsail instance, we use the default password for the AWS Region where we create the instance. This makes it easier to connect using the browser-based remote desktop (RDP) client, as well as a client such as Remote Desktop Connection. 
 

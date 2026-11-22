@@ -1,7 +1,9 @@
 
 
 # Push, view, and delete container images for a Lightsail container service
-<a name="amazon-lightsail-pushing-container-images"></a>
+
+**Did you know?**  
+ Lightsail publishes an agent skill that deploys a container image to a container service and finds why a deployment isn't serving traffic. For more information, see [ Set up an AI agent for Amazon Lightsail ](https://docs.aws.amazon.com/lightsail/latest/userguide/agent-setup-guide.html) . 
 
 When you create a deployment in your Amazon Lightsail container service, you must specify a source container image for each container entry. You can use images from a public registry, such as Amazon ECR Public Gallery, or you can use images that you create on your local machine. In this guide, we show you how to push container images from your local machine to your Lightsail container service. For more information about creating container images, see [Create container service images](amazon-lightsail-creating-container-images.md).
 

@@ -1,7 +1,6 @@
 
 
 # Connect Lightsail resources to AWS services using VPC peering
-<a name="lightsail-how-to-set-up-vpc-peering-with-aws-resources"></a>
 
 With Amazon Lightsail, you can connect to AWS resources, such as an Amazon RDS database, through virtual private cloud (VPC) peering. A VPC is a virtual network dedicated to your AWS account. Everything you create inside Lightsail is inside a VPC, and you can connect your Lightsail VPC to an Amazon VPC.
 

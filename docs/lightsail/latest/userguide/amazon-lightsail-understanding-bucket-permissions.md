@@ -1,7 +1,6 @@
 
 
 # Control access to Lightsail buckets and objects
-<a name="amazon-lightsail-understanding-bucket-permissions"></a>
 
 By default, all Amazon Lightsail object storage resources—buckets and objects—are private. This means that only the bucket owner, the Lightsail account that created it, can access the bucket and its objects. The bucket owner can optionally grant access to others. You can grant access to a bucket and its objects in the following ways:
 + **Read-only access** – The following options control read-only access to a bucket and its objects through the bucket's URL (for example, `https://amzn-s3-demo-bucket.us-east-1.amazonaws.com/media/sailbot.jpg`).

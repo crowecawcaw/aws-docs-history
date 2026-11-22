@@ -1,7 +1,6 @@
 
 
 # Migrate your WordPress blog to Lightsail
-<a name="migrate-your-wordpress-blog-to-amazon-lightsail"></a>
 
 Looking to change your WordPress hosting provider? Amazon Lightsail is the easiest way to run a WordPress site on AWS.
 

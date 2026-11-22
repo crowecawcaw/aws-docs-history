@@ -1,7 +1,6 @@
 
 
 # Adjust automatic snapshot schedule for Lightsail instances and disks
-<a name="amazon-lightsail-changing-automatic-snapshot-time"></a>
 
 When you [enable the automatic snapshots feature](amazon-lightsail-configuring-automatic-snapshots.md) for an instance or block storage disk, Lightsail creates daily snapshots of the resource during the [default automatic snapshot time](#default-automatic-snapshot-times), or a time you specify. Follow the steps in this guide to change the automatic snapshot time for your resource.
 

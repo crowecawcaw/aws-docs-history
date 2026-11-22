@@ -1,7 +1,6 @@
 
 
 # Export Lightsail snapshots to Amazon EC2
-<a name="amazon-lightsail-exporting-snapshots-to-amazon-ec2"></a>
 
 You can export Amazon Lightsail instance and block storage disk snapshots to Amazon Elastic Compute Cloud (Amazon EC2). Exporting a Lightsail instance snapshot results in an Amazon Machine Image (AMI) and an Amazon Elastic Block Store (Amazon EBS) snapshot being created in Amazon EC2. This is because Lightsail instances consist of an image and a system disk, which are grouped together as a single instance entity in the Lightsail console for more efficient management. If the source Lightsail instance has one or more block storage disks attached to it when the snapshot is created, then additional EBS snapshots for each attached disk are created in Amazon EC2.
 
@@ -32,7 +31,7 @@ The following additional permissions may need to be configured in IAM depending 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

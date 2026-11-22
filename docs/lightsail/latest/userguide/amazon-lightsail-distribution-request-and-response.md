@@ -1,7 +1,6 @@
 
 
 # Manage request and response behaviors for Lightsail distributions
-<a name="amazon-lightsail-distribution-request-and-response"></a>
 
 In this guide, we describe the way your Amazon Lightsail distribution behaves when processing and forwarding requests to your origin, and processing responses from your origin. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 

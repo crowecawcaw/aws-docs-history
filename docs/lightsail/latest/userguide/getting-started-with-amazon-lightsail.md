@@ -1,7 +1,6 @@
 
 
 # Create Linux/Unix instances with apps on Lightsail
-<a name="getting-started-with-amazon-lightsail"></a>
 
 **Did you know?**  
  Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable automatic snapshots for your instance. For more information, see [ Configure automatic snapshots for Lightsail instances and disks ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots.html) . 
@@ -64,12 +63,12 @@ Within minutes, your Lightsail instance is ready and you can connect to it via S
 ![Instance connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance.png)
 
    Alternately, you can open your instance management page, choose the **Connect** tab, then choose **Connect using SSH**.  
-![Instance connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-connect-to-your-instance-from-instance-management-page.png)
+![Instance connect.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-instance-management-page-connect-tab.png)
 **Note**  
 To connect to your instance using an SSH client such as PuTTY, you can follow this procedure: [Set up PuTTY to connect to your Lightsail instance](lightsail-how-to-set-up-putty-to-connect-using-ssh.md).
 
 1. Now you can type commands into the terminal and manage your Lightsail instance without setting up an SSH client.  
-![Browser-based SSH terminal.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-web-based-ssh-terminal.png)
 
 ## Next steps
 <a name="linux-unix-next-steps"></a>

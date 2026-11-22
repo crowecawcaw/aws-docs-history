@@ -1,7 +1,6 @@
 
 
 # Point a domain to your Lightsail instance using Amazon Route 53
-<a name="amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance"></a>
 
 The DNS zone in Amazon Lightsail makes it easy to point a registered domain name, like `example.com`, to your website running on a Lightsail instance. You can create up to six Lightsail DNS zones, and not all DNS record types are supported. For more information about Lightsail DNS zones, see [DNS](understanding-dns-in-amazon-lightsail.md).
 

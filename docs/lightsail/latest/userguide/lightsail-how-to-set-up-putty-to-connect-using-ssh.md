@@ -1,7 +1,6 @@
 
 
 # Connect to your Lightsail Linux instance with PuTTY
-<a name="lightsail-how-to-set-up-putty-to-connect-using-ssh"></a>
 
 You can use an SSH client like PuTTY to connect to your Amazon Lightsail instance. PuTTY requires a copy of your private SSH key. You might already have a key, or you might want to use the key pair that Lightsail creates. Either way, we've got you covered. For more information about SSH, see [SSH key pairs](understanding-ssh-in-amazon-lightsail.md). This topic walks you through the steps to download a key pair and set up PuTTY to connect to your instance.
 
@@ -104,6 +103,7 @@ Port 22 is already open for SSH on your Lightsail instance, so accept the defaul
    + Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
    + Ruby on Rails instances: `ec2-user`
    + OpenClaw instances: `ubuntu`
+   + Kiro Crew instances: `ubuntu`
    + Plesk instances: `ubuntu`
    + cPanel & WHM (AlmaLinux) instances: `ec2-user`
    + cPanel & WHM (CentOS 7) instances: `centos`

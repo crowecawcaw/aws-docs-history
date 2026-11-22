@@ -1,7 +1,6 @@
 
 
 # Block storage (Disks)
-<a name="amazon-lightsail-faq-block-storage"></a>
 
 ## What can I do with Lightsail block storage?
 <a name="what-can-i-do-with-block-storage"></a>

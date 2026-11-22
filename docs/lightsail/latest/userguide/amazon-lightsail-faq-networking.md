@@ -1,7 +1,6 @@
 
 
 # Networking
-<a name="amazon-lightsail-faq-networking"></a>
 
 ## How do I use IP addresses in Lightsail?
 <a name="how-do-i-use-ips"></a>

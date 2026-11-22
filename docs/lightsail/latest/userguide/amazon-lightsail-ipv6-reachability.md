@@ -1,7 +1,6 @@
 
 
 # Verify IPv6 reachability for Lightsail instances
-<a name="amazon-lightsail-ipv6-reachability"></a>
 
 You can verify IPv6 connectivity from your local computer to an Amazon Lightsail instance using the ping tool. Ping is a network diagnostic utility that’s used to troubleshoot connectivity issues between two or more networked devices. If ping succeeds, you should be able to connect to your instance over IPv6. If a network setting or device isn't configured to allow IPv6, the ping command fails. For more information, see [IPv6-only considerations](amazon-lightsail-ipv6-only-plans.md)
 

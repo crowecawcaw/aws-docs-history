@@ -1,7 +1,6 @@
 
 
 # Create larger instances, block storage disks, or databases from Lightsail snapshots using the AWS CLI
-<a name="lightsail-how-to-create-larger-instance-from-snapshot-using-aws-cli"></a>
 
 It happens. Your cloud project is growing and you need more compute power right away\! We can help you with that. You can do everything from within the Lightsail console, or you can use the AWS Command Line Interface (AWS CLI) to do it.
 

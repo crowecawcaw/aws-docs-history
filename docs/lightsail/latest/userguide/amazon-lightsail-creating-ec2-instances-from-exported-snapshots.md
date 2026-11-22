@@ -1,7 +1,6 @@
 
 
 # Create Amazon EC2 instances from exported Lightsail snapshots
-<a name="amazon-lightsail-creating-ec2-instances-from-exported-snapshots"></a>
 
 After a Lightsail instance snapshot is exported and available in Amazon EC2 (as an AMI and an EBS snapshot), you can create an Amazon EC2 instance from the snapshot using the **Create an Amazon EC2 instance** page in the Amazon Lightsail console, also known as the Upgrade to Amazon EC2 wizard. It guides you through the EC2 instance configuration options, such as choosing an EC2 instance type that matches your requirements, configuring your security group ports, adding a launch script, and more. The wizard in the Lightsail console simplifies the process of creating new EC2 instances and their related resources.
 

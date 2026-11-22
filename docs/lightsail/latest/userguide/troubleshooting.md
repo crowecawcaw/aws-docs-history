@@ -1,7 +1,6 @@
 
 
 # Troubleshoot common Lightsail resource issues
-<a name="troubleshooting"></a>
 
 This section covers troubleshooting topics for the following Amazon Lightsail resources. Follow the step-by-step instructions and guidance to diagnose and resolve common problems you might encounter while working with Lightsail instances, databases, networking, load balancers, and other resources.
 
@@ -17,7 +16,7 @@ The troubleshooting topics cover a wide range of scenarios, including WordPress 
 + [Troubleshoot Identity and Access Management (IAM) in Lightsail](security_iam_troubleshoot.md)
 + [Verify IPv6 reachability for Lightsail instances](amazon-lightsail-ipv6-reachability.md)
 + [Resolve insufficient instance capacity errors in Lightsail](amazon-lightsail-instance-capacity.md)
-+ [Resolve common Lightsail instance issues](amazon-lightsail-troubleshooting-instances.md)
++ [Resolving common Lightsail instance issues](amazon-lightsail-troubleshooting-instances.md)
 + [Troubleshoot Lightsail load balancer issues](troubleshooting-lightsail-load-balancer-issues.md)
 + [Troubleshoot notification delivery in Lightsail](amazon-lightsail-troubleshooting-notifications.md)
 + [Troubleshoot SSL/TLS certificates in Lightsail](troubleshooting-tls-ssl-certificate-issues.md)

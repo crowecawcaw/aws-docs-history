@@ -1,7 +1,6 @@
 
 
 # LAMP
-<a name="amazon-lightsail-lamp-lightsail"></a>
 
 This section covers topics related to LAMP instances packaged by Lightsail:
 

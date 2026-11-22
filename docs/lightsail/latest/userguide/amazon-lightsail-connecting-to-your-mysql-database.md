@@ -1,7 +1,6 @@
 
 
 # Connect to your Lightsail MySQL database from a client app
-<a name="amazon-lightsail-connecting-to-your-mysql-database"></a>
 
 After your MySQL managed database is created in Amazon Lightsail, you can use any standard MySQL client application or utility to connect to it. You must get the database endpoint, port, user name, and password from your database management page in the Lightsail console. Specify those values when configuring the database connection in your client or web application.
 

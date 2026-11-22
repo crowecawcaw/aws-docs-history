@@ -1,7 +1,6 @@
 
 
 # Create SSL/TLS certificates for secure Lightsail container service domains
-<a name="amazon-lightsail-creating-container-services-certificates"></a>
 
 You can create Amazon Lightsail TLS/SSL certificates for your Lightsail container service. When you create a certificate, you specify the primary and alternate domain names for the certificate. When you enable custom domains for your container service, and choose the certificate, you can choose up to four domains from the certificate that will be added as the custom domains of your container service. After you update the DNS record of your domains to direct traffic to your container service, your service accepts the traffic and serves your content using HTTPS. There is a quota for the number of certificates that you can create. For more information, see [Lightsail service quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html).
 

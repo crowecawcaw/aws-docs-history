@@ -1,7 +1,6 @@
 
 
 # Connect a Lightsail container service to a Lightsail database
-<a name="amazon-lightsail-connecting-container-service-to-database"></a>
 
 An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run, and manage containers. For more information, see [Deploy and manage containers on Amazon Lightsail](amazon-lightsail-container-services.md).
 

@@ -1,7 +1,9 @@
 
 
 # Build and test Docker images for Lightsail container services
-<a name="amazon-lightsail-creating-container-images"></a>
+
+**Did you know?**  
+ Lightsail publishes an agent skill that deploys a container image to a container service and finds why a deployment isn't serving traffic. For more information, see [ Set up an AI agent for Amazon Lightsail ](https://docs.aws.amazon.com/lightsail/latest/userguide/agent-setup-guide.html) . 
 
 With Docker, you can build, run, test, and deploy distributed applications that are based on containers. Amazon Lightsail container services use Docker container images in deployments to launch containers.
 

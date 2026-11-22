@@ -1,7 +1,6 @@
 
 
 # Securely connect to Lightsail PostgreSQL databases with SSL
-<a name="amazon-lightsail-connecting-to-postgres-database-using-ssl"></a>
 
 Amazon Lightsail creates an SSL certificate, and installs it on your PostgreSQL (Postgres) managed database when it’s provisioned. The certificate is signed by a certificate authority (CA), and it includes the database endpoint as the Common Name (CN) for the SSL certificate to guard against spoofing attacks.
 

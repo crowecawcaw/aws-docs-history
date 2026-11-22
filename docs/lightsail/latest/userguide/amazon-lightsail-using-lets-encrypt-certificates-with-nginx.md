@@ -1,7 +1,6 @@
 
 
 # Enable HTTPS on your Nginx instance with Let's Encrypt and Certbot
-<a name="amazon-lightsail-using-lets-encrypt-certificates-with-nginx"></a>
 
 Amazon Lightsail makes it easy to secure your websites and applications with SSL/TLS using Lightsail load balancers. However, using a Lightsail load balancer might not generally be the right choice. Perhaps your site doesn't need the scalability or fault tolerance load balancers provide, or maybe you're optimizing for cost.
 

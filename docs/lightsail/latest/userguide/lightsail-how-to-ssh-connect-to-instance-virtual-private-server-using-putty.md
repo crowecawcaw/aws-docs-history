@@ -1,7 +1,6 @@
 
 
 # Connect to Linux/Unix Lightsail instances with PuTTY
-<a name="lightsail-how-to-ssh-connect-to-instance-virtual-private-server-using-putty"></a>
 
 In addition to the browser-based SSH terminal in Lightsail, you can also connect to your Linux-based instance using an SSH client such as PuTTY. To learn how to set up PuTTY, see [Download and set up PuTTY to connect using SSH in Lightsail](lightsail-how-to-set-up-putty-to-connect-using-ssh.md).
 
@@ -24,6 +23,7 @@ You can use the default private key that Lightsail provides, a new private key f
    + Lightsail packaged versions of WordPress, Nginx, WordPress Multisite, LAMP, Node.js instances: `admin`
    + Ruby on Rails instances: `ec2-user`
    + OpenClaw instances: `ubuntu`
+   + Kiro Crew instances: `ubuntu`
    + Plesk instances: `ubuntu`
    + cPanel & WHM (AlmaLinux) instances: `ec2-user`
    + cPanel & WHM (CentOS 7) instances: `centos`

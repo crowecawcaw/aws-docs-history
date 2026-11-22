@@ -1,7 +1,6 @@
 
 
 # Grant Lightsail container services access to Amazon ECR private repositories
-<a name="amazon-lightsail-container-service-ecr-private-repo-access"></a>
 
 Amazon Elastic Container Registry (Amazon ECR) is an AWS managed container image registry service that supports private repositories with resource-based permissions using AWS Identity and Access Management (IAM). You can give your Amazon Lightsail container services access to your Amazon ECR private repositories AWS Region. Then, you can deploy images from your private repository to your container services.
 
@@ -32,7 +31,7 @@ The following permissions policy grants a user permission to configure access to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ Following is an example of the permissions policy populated with example values.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -248,7 +247,7 @@ You must install the AWS CLI and configure it for Amazon ECR before continuing w
 
 ****  
 
-   ```
+   ```json
    { 
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -371,7 +370,7 @@ You must install the AWS CLI and configure it for Amazon ECR before you can cont
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

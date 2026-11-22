@@ -1,7 +1,6 @@
 
 
 # Using Amazon Lightsail with the AWS CLI
-<a name="getstarted-awscli"></a>
 
 This tutorial guides you through common Amazon Lightsail operations using the AWS Command Line Interface (AWS CLI). You will learn how to create and manage Lightsail resources including key pairs, instances, storage, and snapshots.
 
@@ -86,7 +85,7 @@ The following command creates a new WordPress instance using the `nano_3_0` bund
 
 ```
 $ aws lightsail create-instances --instance-names cli-tutorial \
-        --availability-zone ${AWS_REGION}a --blueprint-id wordpress \
+        --availability-zone ${AWS_REGION}a --blueprint-id wordpress_ls_1_0 \
         --bundle-id nano_3_0 --key-pair-name cli-tutorial-keys
 {
     "operations": [
@@ -127,7 +126,7 @@ $ aws lightsail get-instance --instance-name cli-tutorial
         },
         "resourceType": "Instance",
         "tags": [],
-        "blueprintId": "wordpress",
+        "blueprintId": "wordpress_ls_1_0",
         "blueprintName": "WordPress",
         "bundleId": "nano_3_0",
         "isStaticIp": false,
@@ -177,17 +176,18 @@ $ aws lightsail get-instance --instance-name cli-tutorial
                     "fromPort": 22,
                     "toPort": 22,
                     "protocol": "tcp",
-                    "accessFrom": "Anywhere (0.0.0.0/0 and ::/0)",
+                    "accessFrom": "Custom",
                     "accessType": "public",
                     "commonName": "",
                     "accessDirection": "inbound",
-                    "cidrs": [
-                        "0.0.0.0/0"
-                    ],
-                    "ipv6Cidrs": [
-                        "::/0"
-                    ],
-                    "cidrListAliases": []
+                    "cidrs": [],
+                    "ipv6Cidrs": [],
+                    "cidrListAliases": [
+                        "lightsail-connect",
+                        "lightsail-connect-ipv6",
+                        "lightsail-setup-ipv4",
+                        "lightsail-setup-ipv6"
+                    ]
                 },
                 {
                     "fromPort": 443,
@@ -211,7 +211,7 @@ $ aws lightsail get-instance --instance-name cli-tutorial
             "code": 16,
             "name": "running"
         },
-        "username": "bitnami",
+        "username": "admin",
         "sshKeyName": "cli-tutorial-keys",
         "metadataOptions": {
             "state": "applied",
@@ -231,11 +231,19 @@ The output provides comprehensive information about your instance, including its
 
 After creating your instance, you can connect to it using SSH with the key pair you created earlier. This section shows you how to establish an SSH connection and manage security settings.
 
+**Example – Open port 22 for your IP address**  
+Blueprints packaged by Lightsail restrict port 22 on launch. By default, port 22 allows connections only from the browser-based SSH client in the Lightsail console and from Lightsail setup features, such as HTTPS setup for WordPress. To connect with your own SSH client, use the following command to allow SSH connections from your IP address, replacing the IP address with your own.  
+
+```
+$ aws lightsail open-instance-public-ports --instance-name cli-tutorial \
+        --port-info fromPort=22,protocol=TCP,toPort=22,cidrs={{198.51.100.1}}/32
+```
+
 **Example – SSH into your instance**  
 Use the following command to connect to your instance via SSH, replacing the IP address with your instance's public IP.  
 
 ```
-$ ssh -i ~/.ssh/cli-tutorial-keys.pem bitnami@{{192.0.2.1}}
+$ ssh -i ~/.ssh/cli-tutorial-keys.pem admin@{{192.0.2.1}}
 Linux ip-172-26-6-136 6.1.0-32-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -244,17 +252,7 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-       ___ _ _                   _
-      | _ |_) |_ _ _  __ _ _ __ (_)
-      | _ \ |  _| ' \/ _` | '  \| |
-      |___/_|\__|_|_|\__,_|_|_|_|_|
-
-  *** Welcome to the Bitnami package for WordPress 6.7.2           ***
-  *** Documentation:  https://docs.bitnami.com/general/apps/wordpress/ ***
-  ***                 https://docs.bitnami.com/general/                ***
-  *** Bitnami Forums: https://github.com/bitnami/vms/              ***
-  
-bitnami@ip-172-26-6-136:~$ df
+admin@ip-172-26-6-136:~$ df
 Filesystem      1K-blocks    Used Available Use% Mounted on
 udev               217920       0    217920   0% /dev
 tmpfs               45860     480     45380   2% /run

@@ -1,7 +1,6 @@
 
 
 # Install Docker, AWS CLI, and the Lightsail Control plugin for containers
-<a name="amazon-lightsail-install-software"></a>
 
 You can use the Amazon Lightsail console to create your Lightsail container services, and create deployments using container images from an online public registry, such as Amazon ECR Public Gallery. To create your own container images, and push them to your container service, you must install the following additional software on the same computer on which you plan to create your container images:
 + **Docker** – Run, test, and create your own container images that you can then use with your Lightsail container service.

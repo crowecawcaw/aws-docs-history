@@ -1,7 +1,6 @@
 
 
 # Resolve 403 (unauthorized) errors in the Lightsail console
-<a name="create-policy-that-grants-access-to-amazon-lightsail"></a>
 
 If you get a 403 error when trying to access the [Lightsail console](https://lightsail.aws.amazon.com/), don’t panic. Try these steps to troubleshoot the problem:
 + If your AWS account or your AWS Identity and Access Management (IAM) user was recently created, wait a few minutes, and then refresh your browser.

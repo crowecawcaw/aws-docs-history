@@ -1,7 +1,6 @@
 
 
 # Transfer DNS management for your Lightsail domain
-<a name="amazon-lightsail-domain-register-other-dns-service-procedure"></a>
 
 You can use an Amazon Lightsail DNS zone to manage the DNS records for a domain that you registered using Lightsail. Or, if you'd like, you can transfer management of DNS records for the domain to another DNS hosting provider. In this guide, we show you how to transfer management of DNS records for a domain you registered with Lightsail to another DNS hosting provider.
 

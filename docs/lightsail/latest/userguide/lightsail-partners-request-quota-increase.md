@@ -1,7 +1,6 @@
 
 
 # Request a service quota increase for your partner accounts
-<a name="lightsail-partners-request-quota-increase"></a>
 
 After you become an Amazon Lightsail partner, the default service quotas for Lightsail instances are increased for the current account and any member accounts across your organization. If you want to further increase your limits for a member account, you should use the following process to request quota increases. You can view your current quotas and request increases from the Lightsail console.
 

@@ -1,7 +1,6 @@
 
 
 # View your Lightsail database logs and history
-<a name="amazon-lightsail-viewing-database-logs-and-history"></a>
 
 View your database logs and history of changes in the Amazon Lightsail console. Database logs provide useful information that could help you diagnose issues with your database. Likewise, database history shows you changes made to your database, which allows you to associate problems with a recent change.
 

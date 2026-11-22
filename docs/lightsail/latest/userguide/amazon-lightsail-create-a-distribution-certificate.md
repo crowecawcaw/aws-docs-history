@@ -1,7 +1,6 @@
 
 
 # Secure Lightsail CDN distributions with SSL/TLS certificates
-<a name="amazon-lightsail-create-a-distribution-certificate"></a>
 
 You can create Amazon Lightsail TLS/SSL certificates for your Lightsail distributions. When you create a certificate, you specify the primary and alternate domain names for the certificate. When you enable custom domains for your distribution, and choose the certificate, those domains are added as the custom domains of your distribution. After you update the DNS record of your domains to point to your distribution, your distribution accepts the traffic and serves your content using HTTPS. There is a quota for the number of certificates that you can create. For more information, see [Lightsail service quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html#limits_lightsail).
 

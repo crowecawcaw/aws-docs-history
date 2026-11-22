@@ -1,7 +1,6 @@
 
 
 # Enable email for WordPress instances in Lightsail
-<a name="amazon-lightsail-enabling-email-on-wordpress"></a>
 
 You can enable email on your WordPress instance in Amazon Lightsail. Configure the SMTP service in the Amazon Simple Email Service (Amazon SES). Then activate and configure the WP Mail SMTP plugin on your instance. After email is enabled, your WordPress administrators can request password resets for their user profiles, and will be sent email notifications for blog posts, website updates, and other plugin messages. This guide shows you how to enable email on your WordPress instance in Amazon Lightsail using Amazon SES.
 

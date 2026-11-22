@@ -1,7 +1,6 @@
 
 
 # Track object storage bucket requests with access logs
-<a name="amazon-lightsail-bucket-access-logs"></a>
 
 Access logging provides detailed records for the requests that are made to a bucket in the Amazon Lightsail object storage service. This information can include the request type, the resources that are specified in the request, and the time and date that the request was processed. Access logs are useful for many applications. For example, access log information can be useful in security and access audits. It can also help you learn about your customer base.
 

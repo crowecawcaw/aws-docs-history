@@ -1,7 +1,6 @@
 
 
 # Secure your Lightsail distribution with minimum TLS protocol version
-<a name="amazon-lightsail-configure-distribution-tls-version"></a>
 
 Amazon Lightsail uses SSL/TLS certificates to validate custom (registered) domains that you can use with your Lightsail distribution. This guide provides information about the viewer minimum TLS protocol versions (protocol versions) that you can configure for your SSL/TLS certificate. For more information about SSL/TLS certificates, see [SSL/TLS certificates in Lightsail](understanding-tls-ssl-certificates-in-lightsail-https.md). A viewer is an application that makes HTTP requests to the edge locations that are associated to your Lightsail distribution. For more information about distributions, see [Content delivery network distributions in Lightsail](amazon-lightsail-content-delivery-network-distributions.md).
 

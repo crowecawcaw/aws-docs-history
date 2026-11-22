@@ -1,7 +1,6 @@
 
 
 # Use service-linked roles for Amazon Lightsail
-<a name="amazon-lightsail-using-service-linked-roles"></a>
 
 Amazon Lightsail uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Amazon Lightsail. Service-linked roles are predefined by Amazon Lightsail and include all the permissions that Lightsail requires to call other AWS services on your behalf. 
 
@@ -41,7 +40,7 @@ Add the following policy to the IAM entity that needs to create the service-link
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Launch and configure a Windows Server 2016 instance on Lightsail
-<a name="amazon-lightsail-tutorial-launching-and-configuring-windows-server-2016"></a>
 
 **Important**  
 Windows Server 2016 will reach End of Extended Support on January 12, 2027. You will not be able to create new Lightsail instances with this blueprint on or after January 12, 2027. We recommend that you use Windows Server 2022 or Windows Server 2025 instead.  

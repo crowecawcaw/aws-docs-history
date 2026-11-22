@@ -1,7 +1,6 @@
 
 
 # Create and configure a Lightsail content delivery network distribution
-<a name="amazon-lightsail-creating-content-delivery-network-distribution"></a>
 
 In this guide, we show you how to create an Amazon Lightsail distribution using the Lightsail console, and describe the distribution settings that you can configure. For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 
@@ -79,7 +78,7 @@ The advanced cache settings are not available on the **Create distribution** pag
 
 1. Choose your distribution plan. For more information, see [Understand distribution plans](amazon-lightsail-distribution-plans.md).
 
-1. In the **Security controls** section, keep **Enable WAF** selected to enable the Web Application Firewall (WAF) for your distribution. After you create your distribution, you can enable WAF rule groups on the **Security** tab on your distribution's management page. For more information, see [Protect your distribution with WAF](amazon-lightsail-distribution-waf.md).
+1. In the **Security controls** section, keep **Enable WAF** selected to enable the Web Application Firewall (WAF) for your distribution. After you create your distribution, you can enable WAF rule groups on the **Security** tab on your distribution's management page. For more information, see [Protect your distribution with WAF](amazon-lightsail-distribution-security.md#amazon-lightsail-distribution-waf).
 **Note**  
 WAF isn't supported on the USD $2.50/month distribution plan. To use WAF, choose the USD $10/month or USD $35/month plan. For more information, see [Web Application Firewall (WAF) by distribution plan](amazon-lightsail-distribution-plans.md#distribution-plans-waf).  
 ![The Security controls section of the Create distribution page, with the Enable WAF check box selected.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-distribution-waf.png)

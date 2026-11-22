@@ -1,7 +1,6 @@
 
 
 # Update Amazon Linux on Lightsail instances
-<a name="update-amazon-linux"></a>
 
 This guide explains how to update Amazon Lightsail instances created from the Amazon Linux 2023 (AL2023) or Amazon Linux 2 blueprints. The AL2023 blueprint runs Linux kernel 6.1, and the Amazon Linux 2 blueprint runs Linux kernel 4.14. To protect these instances from security vulnerabilities, keep their operating system and kernel up to date.
 

@@ -1,7 +1,6 @@
 
 
 # Switch instance networking type to IPv6 or dual-stack in Lightsail
-<a name="migrate-to-ipv6-only-plan"></a>
 
 Your instance’s networking type determines which protocol it uses to communicate over the Internet. When you create an instance, you choose between **dual-stack** or **IPv6-only** networking. You can also change the networking type of an existing instance from dual-stack to IPv6-only, and the other way around. Change the networking type by using a guided, step-by-step workflow, or by completing the individual steps.
 

@@ -1,7 +1,6 @@
 
 
 # View and manage IP addresses for Lightsail resources
-<a name="understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail"></a>
 
 You can communicate with your Lightsail instance, and other Lightsail resources, using their IP addresses. For example, using the public IP address of your instance, you can check the network status of your instance (using PING), establish an SSH connection to your instance, and route traffic to your instance from a custom domain name. There are many more things you can do with the IP address of your Lightsail resources.
 

@@ -1,7 +1,6 @@
 
 
 # Enable session persistence for Lightsail load balancers
-<a name="enable-session-stickiness-persistence-or-change-cookie-duration"></a>
 
 You can enable *session persistence* for your users. This is helpful if you're storing session information locally in the user's browser. For example, you might be running a Magento e-commerce application with a shopping cart on Amazon Lightsail. If you turn on session persistence, your users can add items to their shopping carts, leave the site, and still find the items in their carts when they come back.
 

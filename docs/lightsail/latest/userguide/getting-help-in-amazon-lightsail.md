@@ -1,7 +1,6 @@
 
 
 # Find helpful resources for Lightsail
-<a name="getting-help-in-amazon-lightsail"></a>
 
 In Amazon Lightsail, you can find help in several ways.
 

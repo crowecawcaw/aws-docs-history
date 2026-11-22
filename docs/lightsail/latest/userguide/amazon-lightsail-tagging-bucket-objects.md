@@ -1,7 +1,6 @@
 
 
 # Tag objects in Lightsail buckets
-<a name="amazon-lightsail-tagging-bucket-objects"></a>
 
 Tag objects in your bucket to categorize them by purpose, owner, environment, or other criteria. Tags can be added to objects when you upload them, or after they are uploaded. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -116,7 +115,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)
    + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
    + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)
-   + [Tagging objects in a bucket in Amazon Lightsail](#amazon-lightsail-tagging-bucket-objects)
+   + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)
    + [Deleting objects in a bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md)
 
 1. Enable object versioning to preserve, retrieve, and restore every version of every object stored in your bucket. For more information, see [Enabling and suspending object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md).

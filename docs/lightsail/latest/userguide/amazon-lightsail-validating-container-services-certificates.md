@@ -1,7 +1,6 @@
 
 
 # Validate SSL/TLS certificates for Lightsail container services
-<a name="amazon-lightsail-validating-container-services-certificates"></a>
 
 An Amazon Lightsail SSL/TLS certificate must be validated after it's created, and before you can use it with your Lightsail container service. After your certificate request is submitted, the status of your new certificate is changed to **Attempting to validate your certificate**. During this time, Lightsail attempts to add the certificate's validation record to the DNS of the domain names that you specified for the certificate. After a while, the status will change to **Valid**, or **Validation timed out**.
 

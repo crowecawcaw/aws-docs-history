@@ -1,7 +1,6 @@
 
 
 # Migrate data from a MySQL 5.6 database to a newer version in Lightsail
-<a name="amazon-lightsail-migrate-mysql-56-to-newer-database"></a>
 
 In this tutorial, we show you how to migrate data from a MySQL 5.6 database to a new MySQL 5.7 database in Amazon Lightsail. To perform the migration, you connect to your MySQL 5.6 database and export the existing data. You then connect to the MySQL 5.7 database and import the data. After the new database has the required data, you can reconfigure your application to connect to the new database.
 

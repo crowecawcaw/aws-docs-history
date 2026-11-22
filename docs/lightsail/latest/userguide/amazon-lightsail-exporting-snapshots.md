@@ -1,7 +1,6 @@
 
 
 # Learn how to export Lightsail snapshots to Amazon EC2
-<a name="amazon-lightsail-exporting-snapshots"></a>
 
 You can export Lightsail snapshots to Amazon EC2, create EC2 resources from exported snapshots, choose compatible EC2 instance types, connect to EC2 instances, and secure EC2 instances created from Lightsail snapshots. Amazon Lightsail instance and block storage disk snapshots can be exported to Amazon Elastic Compute Cloud (Amazon EC2) using one of the following methods:
 + The Lightsail console. For more information, see [Export snapshots to Amazon EC2](amazon-lightsail-exporting-snapshots-to-amazon-ec2.md).

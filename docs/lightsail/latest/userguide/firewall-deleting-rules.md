@@ -1,7 +1,6 @@
 
 
 # Delete firewall rules
-<a name="firewall-deleting-rules"></a>
 
 In addition to adding and editing firewall rules, you might also want to delete existing rules for your Amazon Lightsail instances. Removing firewall rules can be necessary if you no longer require certain inbound traffic to be allowed to your instance. The process for deleting IPv4 and IPv6 firewall rules is straightforward and can be done directly through the Lightsail console. Complete the following steps to delete instance firewalls rule in the Lightsail console.
 

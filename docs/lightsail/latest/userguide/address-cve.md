@@ -1,7 +1,6 @@
 
 
 # Address CVEs on Lightsail instances
-<a name="address-cve"></a>
 
 This section contains guidance for protecting Amazon Lightsail instances from specific Common Vulnerabilities and Exposures (CVEs). Each page describes which instances are affected, how to install the fix, and any temporary steps you can take until a fix is available.
 

@@ -1,7 +1,6 @@
 
 
 # Delete Lightsail instances
-<a name="delete-an-amazon-lightsail-instance"></a>
 
 If you no longer need an instance, you can delete it using the Amazon Lightsail console or the AWS Command Line Interface (AWS CLI). You stop incurring charges for the instance as soon as it’s deleted. However, resources that were attached to the deleted instance will continue to incur charges until you delete them as well. For more information on these resources and how to delete them after deleting your instance, see [Next steps](#delete-instance-next-steps).
 

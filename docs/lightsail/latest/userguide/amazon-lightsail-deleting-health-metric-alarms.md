@@ -1,7 +1,6 @@
 
 
 # Delete or disable Lightsail metric alarms
-<a name="amazon-lightsail-deleting-health-metric-alarms"></a>
 
 You can delete an Amazon Lightsail alarm to stop notifications of when the metric being monitored by the alarm crosses a threshold. You can also disable the alarm to stop receiving notifications. For more information, see [Alarms](amazon-lightsail-alarms.md).
 

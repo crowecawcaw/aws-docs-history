@@ -1,7 +1,6 @@
 
 
 # Lightsail instance bundles
-<a name="amazon-lightsail-bundles"></a>
 
 Lightsail offers a variety of instance bundles (also known as instance plans) to meet different workload requirements. Each bundle provides compute power (vCPUs), memory (RAM), storage, and a data transfer allowance. Bundles are billed on an on-demand hourly rate, so you pay only for what you use. For every bundle you use, we charge you the fixed hourly price, up to the maximum monthly plan cost.
 
@@ -18,7 +17,7 @@ If your instance uses previous-generation hardware, you can update it to run on 
 + [Linux/Unix bundles (IPv6-only)](#linux-unix-ipv6-bundles)
 + [Windows bundles (with public IPv4 addressing)](#windows-bundles)
 + [Windows bundles (IPv6-only)](#windows-ipv6-bundles)
-+ [Choose the right plan for your Lightsail instance](amazon-lightsail-right-size-instance.md)
++ [Choosing the right plan for your Lightsail instance](amazon-lightsail-right-size-instance.md)
 
 ## Linux/Unix bundles (with public IPv4 addressing)
 <a name="linux-unix-bundles"></a>

@@ -1,7 +1,6 @@
 
 
 # Review the Lightsail instance blueprint offerings
-<a name="compare-options-choose-lightsail-instance-image"></a>
 
 Lightsail provides several options for you to create your virtual private server. This topic helps you decide which operating system (OS), application, or development stack is right for your project. We organized the applications by functional area (such as CMS and ecommerce).
 
@@ -112,6 +111,7 @@ Lightsail instances launched from WordPress will have Instance Metadata Service 
 Learn more about the [WordPress stack](https://wordpress.org/) at the *WordPress* website.
 
 ** **WordPress certified by Bitnami** **  
+WordPress certified by Bitnami was deprecated on November 19, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. For more information, see [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md).
 Bitnami WordPress is a preconfigured, ready-to-use image for running WordPress on Lightsail. WordPress is a popular web publishing platform for building blogs and websites. You can customize it by using a wide selection of themes, extensions, plugins, and widgets.  
  WordPress features a full theme system, which enables you to change the look and feel of your site with a few clicks. You can also use existing free or commercial WordPress themes. WordPress is in full compliance with the standards of the [*World Wide Web Consortium (W3C)*](https://www.w3.org/).  
 [WordPress by Bitnami](amazon-lightsail-wordpress-bitnami.md)  
@@ -124,6 +124,7 @@ Lightsail instances launched from WordPress Multisite will have Instance Metadat
 Learn more about [WordPress Multisite](https://developer.wordpress.org/advanced-administration/multisite/) at the *WordPress* website.
 
 ** **WordPress Multisite certified by Bitnami** **  
+WordPress Multisite certified by Bitnami was deprecated on November 19, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. For more information, see [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md).
 WordPress Multisite enables administrators to host and manage multiple websites from the same WordPress instance. These websites can all have unique domain names and can be customized by their owners, while sharing assets such as themes and plugins that are made available by the server admin. Updates to all sites can be pushed at once, ensuring that they are always kept safe and secure.  
 WordPress Multisite is great for organizations such as universities, corporations, and agencies that need to enable many people to host their own websites while giving overall control to a central administrator.  
 [Set up WordPress Multisite on Lightsail](amazon-lightsail-quick-start-guide-wordpress-multisite.md)  
@@ -167,12 +168,18 @@ Lightsail instances launched from OpenClaw will have Instance Metadata Service V
 [Get started with OpenClaw on Lightsail](amazon-lightsail-quick-start-guide-openclaw.md)  
 Learn more about [OpenClaw](https://openclaw.ai) at the *OpenClaw* website.
 
+** **Kiro Crew** **  
+Kiro Crew is an autonomous AI agent management layer that runs continuously on your own server. It provides persistent memory, scheduled jobs, background subagents, and multi-session orchestration, connecting to messaging platforms such as Slack, Telegram, and Discord. You manage Kiro Crew from a web dashboard that your instance serves over HTTPS.  
+Lightsail instances launched from Kiro Crew have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
+[Get started with Kiro Crew on Lightsail](amazon-lightsail-quick-start-guide-kiro-crew.md)
+
 ** **LAMP stack** **  
  The LAMP blueprint provides a complete production environment with PHP, Apache, and MariaDB on Linux. This blueprint also includes phpMyAdmin, PHP core modules, and Composer.   
 Lightsail instances launched from LAMP will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 [Launch and configure a LAMP instance](amazon-lightsail-launch-and-configure-lamp.md)
 
 ** **LAMP stack (PHP 8) packaged by Bitnami** **  
+LAMP stack (PHP 8) packaged by Bitnami was deprecated on November 19, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. For more information, see [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md).
 The Bitnami LAMP stack simplifies the development and deployment of PHP applications. It includes ready-to-run versions of Apache, MySQL, PHP, and phpMyAdmin, and also the other software required to run each of those components. Bitnami LAMP stack is completely integrated and configured, so you will be ready to start developing your application as soon as you create your instance in Lightsail. Bitnami LAMP stack is regularly updated to ensure that you always have access to the latest stable releases for each bundled component.  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 [Launch and configure a LAMP packaged by Bitnami instance](amazon-lightsail-quick-start-guide-lamp-bitnami.md)  
@@ -189,6 +196,7 @@ Lightsail instances launched from Node.js will have Instance Metadata Service Ve
 Learn more about the [Node.js stack](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) at the *Node.js* website.
 
 ** **Node.js packaged by Bitnami** **  
+Node.js packaged by Bitnami was deprecated on November 19, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. For more information, see [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md).
 Bitnami Node.js is a preconfigured, ready-to-use image for running Node.js on Lightsail. Node.js is a platform built on Chrome's JavaScript runtime for easily creating fast, scalable network applications. It uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js is well suited for data-intensive, real-time applications.  
 [Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md)  
 Learn more about the [Node.js stack](https://bitnami.com/stack/nodejs) at the *Bitnami* website.
@@ -212,6 +220,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about the [NGINX stack](https://nginx.org/en/) at the *NGINX* website.
 
 ** **Nginx (LEMP stack) packaged by Bitnami** **  
+Nginx (LEMP stack) packaged by Bitnami was deprecated on November 19, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. You are responsible for keeping the software on these instances up to date. For more information, see [Blueprints packaged by Bitnami](amazon-lightsail-faq-bitnami-blueprints.md).
 Bitnami NGINX Stack provides a complete PHP, MySQL, and NGINX development environment that you can launch in one click. It also bundles phpMyAdmin, SQLite, ImageMagick, FastCGI, Memcache, GD, CURL, PEAR, PECL, and other components.  
  NGINX is an asynchronous server and its main advantage is scalability. The NGINX stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).   
 [Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md)  

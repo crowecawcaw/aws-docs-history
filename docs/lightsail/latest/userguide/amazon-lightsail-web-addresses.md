@@ -1,7 +1,6 @@
 
 
 # Lightsail web addresses
-<a name="amazon-lightsail-web-addresses"></a>
 
 Lightsail web addresses are subdomains of `amazonlightsail.com`, such as `mysite.amazonlightsail.com`, that are automatically configured for HTTPS traffic. When you attach a web address to a distribution, Lightsail creates the DNS records and the SSL/TLS certificate for it, so visitors can reach the distribution over HTTPS. Lightsail manages the certificate and the DNS records for you: they don't appear with your SSL/TLS certificates or in your DNS zones, and you can't change them.
 

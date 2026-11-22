@@ -1,7 +1,6 @@
 
 
 # Regions and Availability Zones for Lightsail
-<a name="understanding-regions-and-availability-zones-in-amazon-lightsail"></a>
 
 When creating resources in Amazon Lightsail, create them in an AWS Region that is closer to your users. You can also leverage multiple Availability Zones for fault tolerance and high availability with your applications. By provisioning resources closer to your users, your users can benefit from lower latency and increased performance. For example, if your blog traffic comes mostly from Switzerland, choose **Frankfurt** or **Paris**.
 

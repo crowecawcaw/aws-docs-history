@@ -1,7 +1,6 @@
 
 
 # Upsize a Lightsail instance, storage, or database from snapshots
-<a name="how-to-create-larger-instance-from-snapshot-using-console"></a>
 
 It happens. Your cloud project is growing and you need more compute power right away\! We can help you with that. To upsize your Lightsail instance, block storage disk, or database, create a snapshot of your resource, and then create a new, larger version of that resource using the snapshot.
 

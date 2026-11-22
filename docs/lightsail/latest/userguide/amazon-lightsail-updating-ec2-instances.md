@@ -1,7 +1,6 @@
 
 
 # Enable enhanced networking for Amazon EC2 instances
-<a name="amazon-lightsail-updating-ec2-instances"></a>
 
 Some Lightsail instances are incompatible with the current generation EC2 instance types (T3, M5, C5, or R5) because they are not enabled for enhanced networking. If your source Lightsail instance is incompatible, you will need to choose a previous generation instance type (T2, M4, C4, or R4) when creating an EC2 instance from your exported snapshot. These instance type options are presented to you when creating an EC2 instance using the **Create an Amazon EC2 instance** page in the Lightsail console.
 

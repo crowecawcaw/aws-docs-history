@@ -1,7 +1,6 @@
 
 
 # Monitor your Lightsail resource metrics
-<a name="amazon-lightsail-resource-health-metrics"></a>
 
 Monitor the performance of your instances, databases, distributions, load balancers, container services, and buckets in Amazon Lightsail by checking and collecting their metric data. Establish a baseline over time, so that you can configure alarms to more easily detect anomalies and issues with the performance of your resources.
 

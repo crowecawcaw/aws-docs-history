@@ -1,7 +1,6 @@
 
 
 # Set up notification contacts for Lightsail monitoring
-<a name="amazon-lightsail-adding-editing-notification-contacts"></a>
 
 You can configure Amazon Lightsail to notify you when a metric for one of your instances, databases, load balancers, or content delivery network (CDN) distributions crosses a specified threshold. Notifications can be in the form of a banner displayed in the Lightsail console, an email sent to an address you specify, or an SMS text message sent to a mobile phone number you specify. To be notified by email and SMS text message, you must add your email address and mobile phone number as notification contacts in each AWS Region where you want to monitor your resources. For more information about notifications, see [Notifications](amazon-lightsail-notifications.md).
 

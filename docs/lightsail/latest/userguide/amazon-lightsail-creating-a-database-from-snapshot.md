@@ -1,7 +1,6 @@
 
 
 # Create a managed database from a snapshot in Lightsail
-<a name="amazon-lightsail-creating-a-database-from-snapshot"></a>
 
 You can create a new managed database from a snapshot in Amazon Lightsail if something goes wrong with your original database. You can also change your database to a different plan, such as a high availability or standard plan. You can also create a new database from a point-in-time backup of your original database. For more information, see [Create a database from a point-in-time backup in Amazon Lightsail](amazon-lightsail-creating-a-database-from-point-in-time-backup.md).
 

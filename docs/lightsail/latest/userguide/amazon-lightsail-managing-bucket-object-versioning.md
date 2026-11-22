@@ -1,7 +1,6 @@
 
 
 # Enable and suspend object versioning in Lightsail
-<a name="amazon-lightsail-managing-bucket-object-versioning"></a>
 
 Versioning in Amazon Lightsail object storage service is a means of keeping multiple variants of an object in the same bucket. You can use the versioning feature to preserve, retrieve, and restore every version of every object stored in your buckets. With versioning, you can recover more easily from both unintended user actions and application failures. When you enable versioning for a bucket, if the Lightsail object storage service receives multiple write requests for the same object simultaneously, it stores all of those objects. Versioning is disabled by default on buckets in the Lightsail object storage service, so you must explicitly enable it. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -123,7 +122,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)
    + [Deleting objects in a bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md)
 
-1. Enable object versioning to preserve, retrieve, and restore every version of every object stored in your bucket. For more information, see [Enabling and suspending object versioning in a bucket in Amazon Lightsail](#amazon-lightsail-managing-bucket-object-versioning).
+1. Enable object versioning to preserve, retrieve, and restore every version of every object stored in your bucket. For more information, see [Enabling and suspending object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md).
 
 1. After enabling object versioning, you can restore previous versions of objects in your bucket. For more information, see [Restoring previous versions of objects in a bucket in Amazon Lightsail](amazon-lightsail-restoring-bucket-object-versions.md).
 

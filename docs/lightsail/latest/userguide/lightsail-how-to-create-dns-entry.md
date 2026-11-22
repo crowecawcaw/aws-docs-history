@@ -1,7 +1,6 @@
 
 
 # Create a DNS zone to manage domain records for Lightsail instances
-<a name="lightsail-how-to-create-dns-entry"></a>
 
 To route traffic for a domain name, such as `example.com`, to an Amazon Lightsail instance, you add a record to the Domain Name System (DNS) of your domain. You can manage the DNS records of your domain using the registrar where you registered your domain, or you can manage them using Lightsail.
 

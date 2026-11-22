@@ -1,7 +1,6 @@
 
 
 # Attach a Lightsail web address to your distribution
-<a name="amazon-lightsail-distribution-web-address"></a>
 
 Attach a Lightsail web address, such as `mysite.amazonlightsail.com`, to your distribution from the distribution's management page, so that visitors can reach your content over HTTPS. You can also detach the web address from the same page.
 

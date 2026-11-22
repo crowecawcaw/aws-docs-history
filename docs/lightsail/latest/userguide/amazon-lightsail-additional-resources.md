@@ -1,7 +1,6 @@
 
 
 # Explore Lightsail resources for app deployment
-<a name="amazon-lightsail-additional-resources"></a>
 
 The following list includes links to additional information for Amazon Lightsail that is not published in the Lightsail User Guide.
 

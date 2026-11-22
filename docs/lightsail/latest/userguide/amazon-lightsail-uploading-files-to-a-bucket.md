@@ -1,7 +1,6 @@
 
 
 # Upload files to an Lightsail object storage bucket
-<a name="amazon-lightsail-uploading-files-to-a-bucket"></a>
 
 When you upload a file to your bucket in the Amazon Lightsail object storage service, it is stored as an object. Objects consist of the file data and metadata that describe the object. You can have any number of objects in a bucket.
 
@@ -139,7 +138,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 1. Learn about the way that objects in your bucket are labeled and identified. For more information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md).
 
 1. Learn how to upload files and manage objects in your buckets. For more information, see the following guides.
-   + [Uploading files to a bucket in Amazon Lightsail](#amazon-lightsail-uploading-files-to-a-bucket)
+   + [Uploading files to a bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md)
    + [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md)
    + [Viewing objects in a bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md)
    + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)

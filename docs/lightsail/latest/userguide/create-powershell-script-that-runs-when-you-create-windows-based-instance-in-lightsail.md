@@ -1,7 +1,6 @@
 
 
 # Configure Windows Lightsail instances with PowerShell and batch scripts
-<a name="create-powershell-script-that-runs-when-you-create-windows-based-instance-in-lightsail"></a>
 
 When you create a Windows-based instance, you can configure it using a Windows PowerShell script or any other batch script. This is a one-time script that runs right after your instance launches. This topic shows the syntax of the scripts and provides an example to get you started. We also show you how to test your script to see if it ran successfully.
 

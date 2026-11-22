@@ -1,7 +1,6 @@
 
 
 # IPv6 compatible blueprints
-<a name="ipv6-only-blueprints"></a>
 
 The following Lightsail blueprints are compatible with an IPv6-only instance plan
 + [Windows Server 2025](compare-options-choose-lightsail-instance-image.md#WS2025)

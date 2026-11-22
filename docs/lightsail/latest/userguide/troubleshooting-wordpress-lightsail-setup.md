@@ -1,7 +1,6 @@
 
 
 # Lightsail Setup
-<a name="troubleshooting-wordpress-lightsail-setup"></a>
 
 Lightsail Setup configures HTTPS on your WordPress instance using a Let's Encrypt SSL/TLS certificate. If setup fails or the certificate stops renewing automatically, use the following guides to diagnose and resolve the issue.
 

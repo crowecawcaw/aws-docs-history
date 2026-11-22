@@ -1,7 +1,6 @@
 
 
 # Add alternate domains and subdomains to your Lightsail SSL/TLS certificate
-<a name="add-alternate-domain-names-to-tls-ssl-certificate-https"></a>
 
 When you create your SSL/TLS certificate for your Lightsail load balancer, you can add alternate domains and subdomains to it. These alternate names help ensure that all traffic to your load balancer is encrypted.
 

@@ -1,7 +1,6 @@
 
 
 # Monitor Lightsail API activity with AWS CloudTrail
-<a name="logging-lightsail-api-calls-using-aws-cloudtrail"></a>
 
 Amazon Lightsail is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Lightsail. CloudTrail captures all API calls for Lightsail as events. The calls captured include calls from the Lightsail console and code calls to the Lightsail API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Lightsail. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Lightsail, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 

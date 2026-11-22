@@ -1,7 +1,6 @@
 
 
 # Connect to your Lightsail PostgreSQL database instance
-<a name="amazon-lightsail-connecting-to-your-postgres-database"></a>
 
 After your PostgreSQL managed database is created in Amazon Lightsail, you can use any standard PostgreSQL client application or utility to connect to it. You must get the database endpoint, port, user name, and password from your database management page in the Lightsail console. Specify those values when configuring the database connection in your client or web application.
 

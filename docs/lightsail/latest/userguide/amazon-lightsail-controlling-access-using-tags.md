@@ -1,7 +1,6 @@
 
 
 # Control Lightsail resource access with tags
-<a name="amazon-lightsail-controlling-access-using-tags"></a>
 
 You can use tags in Amazon Lightsail to control access to resources, control access to requests, and control access to tag keys. In this guide, you’ll learn how to create an AWS Identity and Access Management (IAM) policy that specifies a key-value tag required to create or delete Lightsail resources, and attach the policy to users or groups who need to make those requests.
 
@@ -20,7 +19,7 @@ The following policy restricts users from creating new Lightsail resources unles
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ The following policy restricts users from changing the tag for resources that ha
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

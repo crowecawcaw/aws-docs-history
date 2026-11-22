@@ -1,13 +1,12 @@
 
 
 # Understand distribution plans in Amazon Lightsail
-<a name="amazon-lightsail-distribution-plans"></a>
 
-A *distribution plan* is a monthly charge that comes with a monthly data transfer quota. Your data transfer quota resets at the start of each month. If your distribution exceeds its monthly data transfer quota, you may be charged for overage. Your plan also determines whether you can use the Web Application Firewall (WAF) and which WAF rule groups you can enable.
+A *distribution plan* is a monthly charge that comes with a monthly data transfer quota. Your data transfer quota resets at the start of each month. If your distribution exceeds its monthly data transfer quota, you might be charged for overage. Your plan also determines whether you can use the Web Application Firewall (WAF) and which WAF rule groups you can enable.
 
 To avoid an overage fee, change your distribution's current plan to a different plan that offers a greater amount of monthly data transfer before your distribution exceeds its monthly quota. You can change your distribution's plan only one time during each AWS billing cycle. For more information about changing your distribution's plan after you create it, see [Change the plan of your distribution](amazon-lighstail-changing-distribution-plan.md).
 
-## How is Lightsail distribution data transfer aggregated?
+## Distribution data transfer aggregation
 <a name="amazon-lightsail-distribution-data-transfer"></a>
 
 Lightsail aggregates your distribution's data transfer over each monthly AWS billing cycle and compares the total against your plan's monthly data transfer quota to determine whether you incur an overage. The following points explain what data transfer counts towards your quota and how overage is calculated:
@@ -20,7 +19,7 @@ Lightsail aggregates your distribution's data transfer over each monthly AWS bil
 ## Distribution data transfer overage pricing
 <a name="distribution-data-transfer-overage-pricing"></a>
 
-Your content is served from your distribution to each viewer from the AWS edge location closest to them. Data transfer overage is billed per GB, and the overage rate is charged at the rate of the geographic location of the edge location that serves the request — not the location of your distribution's origin.
+Your content is served from your distribution to each viewer from the AWS edge location closest to them. Data transfer overage is billed per GB, and the overage rate is charged at the rate of the geographic location of the edge location that serves the request—not the location of your distribution's origin.
 
 For example, if your distribution's origin is in the United States, a viewer in the United States is served from a nearby edge location, so overage for that request is billed at USD $0.09/GB. A viewer in Australia is served from an edge location in Australia, so overage for that request is billed at a rate of USD $0.17/GB. Your overage bill is the sum of the data transfer OUT served from each edge location, charged at that location's rate.
 
@@ -40,7 +39,7 @@ The following table lists the data transfer overage rates by geographic location
 | South America | USD $0.11/GB | 
 | United States | USD $0.09/GB | 
 
-## Web Application Firewall (WAF) by distribution plan
+## WAF by distribution plan
 <a name="distribution-plans-waf"></a>
 
 The following table lists whether WAF is supported on each distribution plan and which WAF rule groups you can enable. For more information, see [Web Application Firewall (WAF)](amazon-lightsail-distribution-security.md#distribution-security-waf).
@@ -49,5 +48,7 @@ The following table lists whether WAF is supported on each distribution plan and
 | Plan | WAF | Managed WAF rule groups | Custom WAF rule groups | 
 | --- | --- | --- | --- | 
 | USD $2.50/month | Not supported | None | None | 
-| USD $10/month | Supported | Core rule set, Known bad inputs, and Anonymous IP list | None | 
-| USD $35/month | Supported | Core rule set, Known bad inputs, Anonymous IP list, Admin protection, SQL database, Linux operating system, POSIX operating system, Windows operating system, PHP application, WordPress application, and Amazon IP reputation list | Account takeover prevention, Account creation fraud prevention, and Bot control | 
+| USD $10.00/month | Supported | Core rule set, Known bad inputs, and Anonymous IP list | None | 
+| USD $35.00/month | Supported | Core rule set, Known bad inputs, Anonymous IP list, Admin protection, SQL database, Linux operating system, POSIX operating system, Windows operating system, PHP application, WordPress application, and Amazon IP reputation list | Account takeover prevention, Account creation fraud prevention, and Bot control | 
+
+For current pricing, see [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/).

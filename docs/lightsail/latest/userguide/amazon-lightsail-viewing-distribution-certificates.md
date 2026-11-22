@@ -1,7 +1,6 @@
 
 
 # View SSL/TLS certificates for Lightsail distributions
-<a name="amazon-lightsail-viewing-distribution-certificates"></a>
 
 You can view the Amazon Lightsail SSL/TLS certificates that you created for your Lightsail distributions. You do this by accessing the management page of any distribution in the Lightsail console.
 

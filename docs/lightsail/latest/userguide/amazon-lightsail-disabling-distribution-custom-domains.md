@@ -1,7 +1,6 @@
 
 
 # Disable custom domains for Lightsail distributions
-<a name="amazon-lightsail-disabling-distribution-custom-domains"></a>
 
 Disable custom domains for your Amazon Lightsail distribution to stop using your registered domain names with your distribution. After you disable custom domains, your distribution accepts traffic only for the default domain that is associated with your distribution when you first create it (e.g., `d111111abcdef8.cloudfront.net`), and traffic for the previously associated custom domains will see a 403 error.
 

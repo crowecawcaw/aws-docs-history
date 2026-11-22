@@ -1,7 +1,6 @@
 
 
 # Set up AWS account and administrative users for Lightsail
-<a name="setting-up"></a>
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>

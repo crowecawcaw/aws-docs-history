@@ -1,7 +1,6 @@
 
 
 # Back up Linux/Unix Lightsail instances with snapshots
-<a name="lightsail-how-to-create-a-snapshot-of-your-instance"></a>
 
 You can create snapshots of your Linux/Unix-based Amazon Lightsail instances. An *instance snapshot* is a copy of the system disk and matches the original machine configuration (memory, CPU, disk size, and data transfer rate). If you've attached block storage disks to your instance, Lightsail copies those additional disks as part of your snapshot. For more information, see [Snapshots](understanding-snapshots-in-amazon-lightsail.md).
 

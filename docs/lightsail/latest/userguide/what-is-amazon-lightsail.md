@@ -1,7 +1,9 @@
 
 
 # What is Amazon Lightsail?
-<a name="what-is-amazon-lightsail"></a>
+
+**Earn Lightsail credits as a content creator**  
+You can earn USD $100 per month in Lightsail credits through Amazon Content Partners, a program for independent content creators. Enrollment takes less than 10 minutes. To learn who's eligible and how to enroll, see the [Amazon Content Partners website](https://contentpartners.amazon.com?ref=acp_ls_doc).
 
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for anyone who needs to build websites or web applications. It includes everything you need to launch your project quickly—instances (virtual private servers), container services, managed databases, content delivery network (CDN) distributions, load balancers, SSD-based block storage, static IP addresses, DNS management of registered domains, and resource snapshots (backups)—for a low, predictable monthly price.
 
@@ -64,6 +66,8 @@ You can also create a Lightsail load balancer and attach target instances to cre
 <a name="how-to-get-started-lightsail"></a>
 
 After you set up to use Lightsail, you can walk through [Getting started with virtual private servers on Lightsail](getting-started.md) to launch, connect to, and clean up an instance. For more information on how to access Lightsail, see [Access Lightsail](access-lightsail.md) .
+
+You can also have an AI agent do this work for you. Lightsail publishes agent skills that create and manage your resources from a request that you write in your own words. For instructions, see [Set up an AI agent for Amazon Lightsail](agent-setup-guide.md).
 
 ## Related services
 <a name="related-services"></a>

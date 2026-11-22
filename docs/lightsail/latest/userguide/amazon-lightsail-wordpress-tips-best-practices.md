@@ -1,7 +1,6 @@
 
 
 # Tips and best practices for WordPress instances in Amazon Lightsail
-<a name="amazon-lightsail-wordpress-tips-best-practices"></a>
 
 This guide collects practical tips for keeping a WordPress instance on Amazon Lightsail fast, stable, and secure.
 

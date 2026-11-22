@@ -1,7 +1,6 @@
 
 
 # Connect to Linux or Unix instances on Lightsail
-<a name="lightsail-how-to-connect-to-your-instance-virtual-private-server"></a>
 
 Amazon Lightsail provides you with a browser-based SSH client, which is the fastest way to connect to your Linux or Unix instance. You can also use your own SSH client to connect to your instance. For more information, see [Download and set up PuTTY](lightsail-how-to-set-up-putty-to-connect-using-ssh.md).
 

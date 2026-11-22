@@ -1,7 +1,6 @@
 
 
 # Distribute web traffic with a Lightsail load balancer
-<a name="create-lightsail-load-balancer-and-attach-lightsail-instances"></a>
 
 Create a load balancer to add redundancy to your application or to handle more web traffic. After the load balancer is created, you can attach the Lightsail instances that you want to balance. To learn more, see [Load balancers](understanding-lightsail-load-balancers.md)
 

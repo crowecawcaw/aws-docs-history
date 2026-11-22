@@ -1,7 +1,6 @@
 
 
 # Back up your Lightsail database with snapshots
-<a name="amazon-lightsail-creating-a-database-snapshot"></a>
 
 You can create a snapshot of your managed database in Amazon Lightsail. A snapshot is a copy of your database that you can use to restore it if something goes wrong. You can also use a snapshot to create a new database using a different plan, such as a high availability or standard plan.
 

@@ -1,7 +1,6 @@
 
 
 # Billing and account management
-<a name="amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management"></a>
 
 **Note**  
 Topics about data transfer in Lightsail have been relocated to [Data transfer in Lightsail](amazon-lightsail-faq-data-transfer-allowance.md).
@@ -55,7 +54,7 @@ Lightsail block storage costs $0.10 USD per GB per month.
 Lightsail load balancers cost $18 USD per month.
 
 ## What does certificate management cost?
-<a name="w2aac95c15c23"></a>
+<a name="w2aac99c15c23"></a>
 
 Lightsail certificates and certificate management are free.
 

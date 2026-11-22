@@ -1,7 +1,6 @@
 
 
 # Download objects from a Lightsail bucket
-<a name="amazon-lightsail-downloading-bucket-objects"></a>
 
 You can download objects from buckets that you have access to or that are public (read-only) in the Amazon Lightsail object storage service. You can download a single object at a time using the Lightsail console. To download multiple objects in one request, use the AWS Command Line Interface (AWS CLI), AWS SDKs, or REST API. In this guide, we show you how to download objects using the Lightsail console and AWS CLI. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -91,7 +90,7 @@ These are the general steps to manage your Lightsail object storage bucket:
    + [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md)
    + [Viewing objects in a bucket in Amazon Lightsail](amazon-lightsail-viewing-objects-in-a-bucket.md)
    + [Copying or moving objects in a bucket in Amazon Lightsail](amazon-lightsail-copying-moving-bucket-objects.md)
-   + [Downloading objects from a bucket in Amazon Lightsail](#amazon-lightsail-downloading-bucket-objects)
+   + [Downloading objects from a bucket in Amazon Lightsail](amazon-lightsail-downloading-bucket-objects.md)
    + [Filtering objects in a bucket in Amazon Lightsail](amazon-lightsail-filtering-bucket-objects.md)
    + [Tagging objects in a bucket in Amazon Lightsail](amazon-lightsail-tagging-bucket-objects.md)
    + [Deleting objects in a bucket in Amazon Lightsail](amazon-lightsail-deleting-bucket-objects.md)

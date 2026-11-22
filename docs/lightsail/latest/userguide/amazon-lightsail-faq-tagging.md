@@ -1,7 +1,6 @@
 
 
 # Tags in Lightsail
-<a name="amazon-lightsail-faq-tagging"></a>
 
 ## What are tags?
 <a name="what-are-tags"></a>

@@ -1,7 +1,6 @@
 
 
 # Monitor Lightsail load balancer health metrics
-<a name="amazon-lightsail-viewing-load-balancer-health-metrics"></a>
 
 After you create a load balancer in Amazon Lightsail, and attach instances to it, you can view its metric graphs on the **Metrics** tab of the load balancer’s management page. Monitoring metrics is an important part of maintaining the reliability, availability, and performance of your resources. Monitor and collect metric data from your resources regularly so that you can more readily debug a multi-point failure, if one occurs. For more information about metrics, see [Metrics](amazon-lightsail-resource-health-metrics.md).
 

@@ -1,7 +1,6 @@
 
 
 # Format domain names in Lightsail
-<a name="amazon-lightsail-domain-name-format"></a>
 
 To help people access the website or application, choose a domain name that’s easy to remember. Domain names (and the names of DNS zones, and records) consist of a series of labels separated by periods (.). Naming requirements depend on whether you're registering a domain name or specifying the name of a DNS zone or a record.
 

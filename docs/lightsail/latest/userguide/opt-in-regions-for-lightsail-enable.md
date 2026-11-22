@@ -1,7 +1,6 @@
 
 
 # Enable opt-in Regions for Lightsail
-<a name="opt-in-regions-for-lightsail-enable"></a>
 
 You can enable the supported opt-in Region for Lightsail for no additional charge. You're charged only for resources that you create in the newly enabled Region. This process takes a few minutes for most accounts. For additional information about working with Regions, see [Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html).
 

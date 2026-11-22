@@ -1,7 +1,9 @@
 
 
 # Analyze Lightsail container service logs
-<a name="amazon-lightsail-viewing-container-service-container-logs"></a>
+
+**Did you know?**  
+ Lightsail publishes an agent skill that deploys a container image to a container service and finds why a deployment isn't serving traffic. For more information, see [ Set up an AI agent for Amazon Lightsail ](https://docs.aws.amazon.com/lightsail/latest/userguide/agent-setup-guide.html) . 
 
 Every container in your Amazon Lightsail container service deployment generates a log. The container logs provide the stdout and stderr streams of processes that run inside your containers. Access your containers' logs periodically to diagnose their operations. The latest three days of log entries are stored before the oldest ones are replaced by the newest entries.
 

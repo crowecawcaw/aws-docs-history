@@ -1,7 +1,6 @@
 
 
 # Contacts and monitoring notifications
-<a name="faq-contacts-and-notifications"></a>
 
 ## What are notifications?
 <a name="what-are-notifications"></a>

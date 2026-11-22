@@ -1,7 +1,6 @@
 
 
 # Control instance traffic with firewalls in Lightsail
-<a name="understanding-firewall-and-port-mappings-in-amazon-lightsail"></a>
 
 The firewall in the Amazon Lightsail console acts as a virtual firewall that controls the traffic allowed to connect to your instance through its public IP address. Each instance that you create in Lightsail has two firewalls; one for IPv4 addresses and another for IPv6 addresses. Each firewall contains a set of rules that filter traffic coming into the instance. Both firewalls are independent of each other; you must configure firewall rules separately for IPv4 and IPv6. Edit your instance's firewall, at any time, by adding and deleting rules to allow or restrict traffic. 
 

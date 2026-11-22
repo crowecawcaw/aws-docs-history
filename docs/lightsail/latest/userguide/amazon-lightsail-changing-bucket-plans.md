@@ -1,7 +1,6 @@
 
 
 # Adjust Lightsail bucket storage plan for usage fluctuations
-<a name="amazon-lightsail-changing-bucket-plans"></a>
 
 In the Amazon Lightsail object storage service, a bucket's storage plan specifies its monthly cost, storage space quota, and data transfer quota. You can update your bucket's storage plan only one time within a monthly AWS billing cycle. When you change your bucket's storage plan, the storage space and network transfer quotas are reset. However, the excess storage space and data transfer charges you might have incurred from using the previous storage plan are not covered.
 

@@ -1,7 +1,6 @@
 
 
 # Key names for Lightsail object storage buckets
-<a name="understanding-bucket-object-key-names-in-amazon-lightsail"></a>
 
 Files that you upload to your bucket are stored as objects in the Amazon Lightsail object storage service. An object key (or key name) uniquely identifies an object stored in a bucket. This guide explains the concept of key names and key name prefixes that make up the folder structure of buckets viewed through the Lightsail console. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 
@@ -26,7 +25,7 @@ The Lightsail console allows for folder creation by creating a zero-byte object 
 You can use any UTF-8 character in an object key name. However, using certain characters in key names can cause problems with some applications and protocols. The following guidelines help you maximize compliance with DNS, web-safe characters, XML parsers, and other APIs.
 
 ### Safe characters
-<a name="w2aac59c39b7b5"></a>
+<a name="w2aac63c39b7b5"></a>
 
 The following character sets are generally safe for use in key names.
 + Alphanumeric characters

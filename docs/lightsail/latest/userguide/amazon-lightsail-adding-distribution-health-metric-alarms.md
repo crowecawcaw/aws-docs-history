@@ -1,7 +1,6 @@
 
 
 # Monitor Lightsail distribution health with metric alarms
-<a name="amazon-lightsail-adding-distribution-health-metric-alarms"></a>
 
 You can create an Amazon Lightsail alarm that watches a single distribution metric. An alarm can be configured to notify you based on the value of the metric relative to a threshold that you specify. Notifications can be a banner displayed in the Lightsail console, an email sent to your email address, and an SMS text message sent to your mobile phone number. For more information about alarms, see [Alarms](amazon-lightsail-alarms.md).
 

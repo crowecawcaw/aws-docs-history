@@ -1,7 +1,6 @@
 
 
 # Connect a Lightsail WordPress instance to an Amazon Aurora database
-<a name="amazon-lightsail-connect-wordpress-to-aurora"></a>
 
 Website data for posts, pages, and users is stored on a database that is running on your WordPress instance in Amazon Lightsail. If your instance fails, your data may become unrecoverable. To prevent this scenario, you should transfer your website data to an Amazon Aurora database in the Amazon Relational Database Service (Amazon RDS).
 

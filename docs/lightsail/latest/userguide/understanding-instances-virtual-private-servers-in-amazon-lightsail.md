@@ -1,7 +1,6 @@
 
 
 # Virtual private server instances in Lightsail
-<a name="understanding-instances-virtual-private-servers-in-amazon-lightsail"></a>
 
 Your Lightsail instance is a virtual private server (also called a *virtual machine*). When you create your instance, you choose an image that has an operating system (OS) on it. You can also choose an instance image that has an application or development stack on it, including the base OS.
 

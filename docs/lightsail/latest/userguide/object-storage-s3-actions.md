@@ -1,7 +1,6 @@
 
 
 # API actions for Lightsail objects
-<a name="object-storage-s3-actions"></a>
 
 Use the following API actions for Amazon Simple Storage Service (Amazon S3) to manage buckets and objects in the Amazon Lightsail object storage service. Choose the name of an API action to view the documentation for it in the *Amazon S3 API reference*. For more information about buckets in Lightsail, see [Store and manage data with Lightsail object storage buckets](buckets-in-amazon-lightsail.md).
 

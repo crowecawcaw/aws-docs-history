@@ -1,7 +1,6 @@
 
 
 # Connect to and manage your Lightsail instance
-<a name="managing-your-instance-using-lightsail"></a>
 
 This guide covers the following topics related to managing and connecting to your Amazon Lightsail instances:
 

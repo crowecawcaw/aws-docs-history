@@ -1,7 +1,6 @@
 
 
 # Disable opt-in Regions for Lightsail
-<a name="opt-in-regions-for-lightsail-disable"></a>
 
 If you decide you no longer want to operate resources in an opt-in Region, you can disable it. Before you disable the Region, you should evaluate whether you have any resources in that Region that you want to delete. You can do this by reviewing your resources in the Lightsail console or checking the Billing and Cost Management console. Reviewing your costs from the Billing and Cost Management console can help you identify resources used across all AWS services in the Region. For additional information about working with Regions, see [Enable or disable AWS Regions in your account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html).
 

@@ -1,7 +1,6 @@
 
 
 # Launch and configure a WordPress instance
-<a name="amazon-lightsail-launch-and-configure-wordpress"></a>
 
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS). Lightsail includes everything you need to launch your project quickly — instances (virtual private servers), managed databases, SSD-based storage, backups (snapshots), data transfer, domain DNS management, static IPs, and load balancers — for a [low, predictable price](https://aws.amazon.com/lightsail/pricing/).
 

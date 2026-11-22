@@ -1,7 +1,6 @@
 
 
 # Serve media files efficiently with a Lightsail bucket and CDN distribution
-<a name="amazon-lightsail-using-distributions-with-buckets"></a>
 
 This tutorial describes the steps required to configure your Amazon Lightsail bucket as the origin of a Lightsail content delivery network (CDN) distribution. It also describes how to configure your WordPress website to upload and store media (such as images and movies files) on your bucket, and deliver media from your distribution. One example of how to do this is with the [WP Offload Media Lite plugin](https://deliciousbrains.com/wp-offload-media/). The following diagram illustrates this configuration.
 
@@ -253,6 +252,6 @@ These are the general steps to manage your Lightsail object storage bucket:
 
 1. Learn how to connect your bucket to other resources. For more information, see the following tutorials.
    + [Tutorial: Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md)
-   + [Tutorial: Using an Amazon Lightsail bucket with a Lightsail content delivery network distribution](#amazon-lightsail-using-distributions-with-buckets)
+   + [Tutorial: Using an Amazon Lightsail bucket with a Lightsail content delivery network distribution](amazon-lightsail-using-distributions-with-buckets.md)
 
 1. Delete your bucket if you're no longer using it. For more information, see [Deleting buckets in Amazon Lightsail](amazon-lightsail-deleting-buckets.md).

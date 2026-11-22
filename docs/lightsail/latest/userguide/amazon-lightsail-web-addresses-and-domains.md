@@ -1,7 +1,6 @@
 
 
 # Choose a domain for your Lightsail website
-<a name="amazon-lightsail-web-addresses-and-domains"></a>
 
 A domain is the name in the URL that people use to reach your website or application, such as `example.com` in `https://example.com`. In Lightsail, you can use one of two kinds of domain:
 + **A Lightsail web address** is a subdomain of `amazonlightsail.com`, such as `mysite.amazonlightsail.com`. Lightsail manages its DNS records and SSL/TLS certificate on your behalf. For more information, see [Lightsail web addresses](amazon-lightsail-web-addresses.md).

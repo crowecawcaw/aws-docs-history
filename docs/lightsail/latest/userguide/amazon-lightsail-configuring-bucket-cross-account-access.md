@@ -1,7 +1,6 @@
 
 
 # Grant read-only access to Lightsail buckets across AWS accounts
-<a name="amazon-lightsail-configuring-bucket-cross-account-access"></a>
 
 Use cross-account access to grant read-only access to all objects in a bucket for other AWS accounts and their users. Cross-account access is ideal if you want to share objects with another AWS account. When you grant cross-account access to another AWS account, users in that account have read-only access to objects in a bucket through the URL of the bucket and objects (for example, `https://amzn-s3-demo-bucket.us-east-1.amazonaws.com/media/sailbot.jpg`). You can give bucket access to a maximum of 10 AWS accounts.
 

@@ -1,7 +1,6 @@
 
 
 # View registration details for domains that are registered with Amazon Registrar
-<a name="amazon-lightsail-domain-whois-rdap"></a>
 
 You can view information about .com, .net, and .org domains that were registered using Amazon Lightsail and Amazon Route 53, for which Amazon Registrar is the registrar. This information includes details such as when the domain was originally registered and contact information for the domain owner and for the technical and administrative contacts.
 

@@ -1,7 +1,6 @@
 
 
 # Expand storage and performance with Lightsail block storage disks
-<a name="elastic-block-storage-and-ssd-disks-in-amazon-lightsail"></a>
 
 System disks offer the consistent and low-latency performance you need to run your workloads. With Lightsail disks, you can scale your usage up or down within minutes—and pay a low price for only what you provision.
 

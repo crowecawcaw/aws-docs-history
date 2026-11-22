@@ -1,7 +1,6 @@
 
 
 # Recover previous object versions in Lightsail buckets
-<a name="amazon-lightsail-restoring-bucket-object-versions"></a>
 
 If your bucket in the Amazon Lightsail object storage service is version-enabled, then you can restore previous versions of an object. Restore a previous version of an object recover from unintended user actions or application failures.
 
@@ -105,7 +104,7 @@ These are the general steps to manage your Lightsail object storage bucket:
 
 1. Enable object versioning to preserve, retrieve, and restore every version of every object stored in your bucket. For more information, see [Enabling and suspending object versioning in a bucket in Amazon Lightsail](amazon-lightsail-managing-bucket-object-versioning.md).
 
-1. After enabling object versioning, you can restore previous versions of objects in your bucket. For more information, see [Restoring previous versions of objects in a bucket in Amazon Lightsail](#amazon-lightsail-restoring-bucket-object-versions).
+1. After enabling object versioning, you can restore previous versions of objects in your bucket. For more information, see [Restoring previous versions of objects in a bucket in Amazon Lightsail](amazon-lightsail-restoring-bucket-object-versions.md).
 
 1. Monitor the utilization of your bucket. For more information, see [Viewing metrics for your bucket in Amazon Lightsail](amazon-lightsail-viewing-bucket-metrics.md).
 

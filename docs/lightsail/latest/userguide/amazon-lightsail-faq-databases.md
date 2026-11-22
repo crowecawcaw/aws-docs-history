@@ -1,7 +1,6 @@
 
 
 # Databases
-<a name="amazon-lightsail-faq-databases"></a>
 
 ## What are Lightsail managed databases?
 <a name="what-are-lightsail-databases"></a>

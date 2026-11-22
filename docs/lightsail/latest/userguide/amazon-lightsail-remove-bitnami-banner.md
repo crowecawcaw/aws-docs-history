@@ -1,7 +1,6 @@
 
 
 # Remove the Bitnami banner from Lightsail instances
-<a name="amazon-lightsail-remove-bitnami-banner"></a>
 
 Some of the Bitnami blueprints that can be selected for Amazon Lightsail instances display a Bitnami banner on the home page of the application. In the following example from a "Certified by Bitnami" WordPress instance, the Bitnami banner is displayed in the bottom-right corner of the home page. In this guide, we show you how to permanently remove the Bitnami icon from the home page of the application on your instance.
 

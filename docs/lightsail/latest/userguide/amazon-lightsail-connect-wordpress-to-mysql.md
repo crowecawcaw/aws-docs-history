@@ -1,7 +1,6 @@
 
 
 # Transfer WordPress data to a MySQL managed database in Lightsail
-<a name="amazon-lightsail-connect-wordpress-to-mysql"></a>
 
 Crucial WordPress website data for posts, pages, and users, is stored on the MySQL database that is running on your instance in Amazon Lightsail. If your instance fails, your data may become unrecoverable. To prevent this scenario, you should transfer your website data to a MySQL managed database.
 

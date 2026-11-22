@@ -1,7 +1,6 @@
 
 
 # Upload files to a Lightsail bucket with multipart upload
-<a name="amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload"></a>
 
 With multipart upload, you can upload a single file to your bucket as a set of parts. Each part is a contiguous portion of the file's data. You can upload these file parts independently and in any order. If transmission of any part fails, you can retransmit that part without affecting other parts. After all parts of your file are uploaded, Amazon S3 assembles these parts and creates the object in your bucket in Amazon Lightsail. In general, when your object size reaches 100 MB, you should consider using multipart uploads instead of uploading the object in a single operation. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md).
 

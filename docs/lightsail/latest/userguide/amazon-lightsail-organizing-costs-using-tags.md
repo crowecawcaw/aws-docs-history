@@ -1,7 +1,6 @@
 
 
 # Organize Lightsail resource costs using tags
-<a name="amazon-lightsail-organizing-costs-using-tags"></a>
 
 You can use tags in Amazon Lightsail to organize your AWS billing to reflect your own cost structure. To do this, add key-value tags to your Lightsail resources. Then activate those tags in the AWS Billing and Cost Management console. Finally, sign up to get your AWS account bill with the tag key values included in your cost allocation report. This guide provides the steps to set this up.
 

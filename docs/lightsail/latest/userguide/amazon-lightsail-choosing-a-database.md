@@ -1,7 +1,6 @@
 
 
 # Select the right Lightsail database engine for your project
-<a name="amazon-lightsail-choosing-a-database"></a>
 
 Amazon Lightsail provides the latest major versions of the MySQL and PostgreSQL databases. This guide helps you decide which database is right for your project.
 

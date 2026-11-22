@@ -1,7 +1,6 @@
 
 
 # Update Lightsail instances to run on newer-generation hardware
-<a name="amazon-lightsail-update-instance-newer-generation"></a>
 
 You can update an eligible Amazon Lightsail instance to run on newer-generation hardware when you start it. The instance keeps its name, private IP address, attached disks, and data, and moves to the equivalent bundle at the same price. For more information about instance states, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
 
