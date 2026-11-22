@@ -1,7 +1,6 @@
 
 
 # Performance
-<a name="aurora-features-performance"></a>
 
 **Topics**
 + [Up to 6x the throughput of PostgreSQL and MySQL](#aurora-features-throughput)

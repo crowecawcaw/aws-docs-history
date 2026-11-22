@@ -1,7 +1,6 @@
 
 
 # Migration
-<a name="aurora-faq-migration"></a>
 
 **Topics**
 + [How do I migrate a MySQL database to Amazon Aurora (and back)?](#aurora-faq-how-do-i-migrate-a-mysql-database-to-amazon-aurora-and-back)

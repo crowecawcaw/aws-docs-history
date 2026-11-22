@@ -1,7 +1,6 @@
 
 
 # Agentic AI
-<a name="aurora-features-agentic-ai"></a>
 
 **Topics**
 + [Agent memory](#aurora-features-agent-memory)

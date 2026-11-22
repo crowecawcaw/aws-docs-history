@@ -1,7 +1,6 @@
 
 
 # Aurora MySQL
-<a name="aurora-customers-mysql"></a>
 
 ## 8x8
 <a name="aurora-customers-8x8"></a>

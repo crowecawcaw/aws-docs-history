@@ -1,7 +1,6 @@
 
 
 # Migration support
-<a name="aurora-features-migration"></a>
 
 **Topics**
 + [MySQL migration](#aurora-features-mysql-migration)

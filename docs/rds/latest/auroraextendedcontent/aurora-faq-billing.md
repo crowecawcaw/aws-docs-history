@@ -1,7 +1,6 @@
 
 
 # Billing
-<a name="aurora-faq-billing"></a>
 
 **Topics**
 + [How much does Amazon Aurora cost?](#aurora-faq-how-much-does-amazon-aurora-cost)

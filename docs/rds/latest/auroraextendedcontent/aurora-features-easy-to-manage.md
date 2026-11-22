@@ -1,7 +1,6 @@
 
 
 # Easy to manage
-<a name="aurora-features-easy-to-manage"></a>
 
 **Topics**
 + [Quick create and connect](#aurora-features-quick-create)

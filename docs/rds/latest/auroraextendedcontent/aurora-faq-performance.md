@@ -1,7 +1,6 @@
 
 
 # Performance
-<a name="aurora-faq-performance"></a>
 
 **Topics**
 + [How does Amazon Aurora improve MySQL performance?](#aurora-faq-how-does-amazon-aurora-improve-mysql-performance)

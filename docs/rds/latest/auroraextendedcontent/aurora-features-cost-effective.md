@@ -1,7 +1,6 @@
 
 
 # Cost-effective
-<a name="aurora-features-cost-effective"></a>
 
 **Topics**
 + [Pay only for what you use](#aurora-features-pay-for-use)

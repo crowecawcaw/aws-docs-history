@@ -1,7 +1,6 @@
 
 
 # Scalability
-<a name="aurora-faq-scalability"></a>
 
 How does Amazon Aurora scale?
 

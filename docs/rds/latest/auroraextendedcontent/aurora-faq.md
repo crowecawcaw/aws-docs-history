@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora FAQ
-<a name="aurora-faq"></a>
 
 ## What is Amazon Aurora?
 <a name="aurora-faq-what-is-amazon-aurora"></a>

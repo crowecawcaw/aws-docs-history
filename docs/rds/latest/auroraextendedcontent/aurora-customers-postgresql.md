@@ -1,7 +1,6 @@
 
 
 # Aurora PostgreSQL
-<a name="aurora-customers-postgresql"></a>
 
 ## Amazon.com
 <a name="aurora-customers-amazon-com"></a>

@@ -1,7 +1,6 @@
 
 
 # Why customers choose Amazon Aurora
-<a name="aurora-customers"></a>
 
 Amazon Aurora customers – from startups to global enterprises – rely on Aurora PostgreSQL, MySQL, and DSQL to power high-performance, data-driven and agentic AI applications. Built to eliminate the operational burden of managing database fleets at [Amazon.com](http://Amazon.com) scale, Aurora delivers availability and scalability that [Intuit](aurora-customers-postgresql.md#aurora-customers-intuit-pg) and [Netflix](aurora-customers-mysql.md#aurora-customers-netflix) depend on to serve customers worldwide. Now, [Bio-Rad Laboratories](aurora-customers-postgresql.md#aurora-customers-bio-rad), [LeadSquared](aurora-customers-postgresql.md#aurora-customers-leadsquared), [CORTO](aurora-customers-postgresql.md#aurora-customers-corto), and [SurveySparrow](aurora-customers-postgresql.md#aurora-customers-surveysparrow) are using Aurora to drive hybrid search and agentic AI workloads to ground agents in their operational data, enabling agents to reason over truth. It also provides memory for agents to recall past interactions and deliver more context aware and personalized conversations.
 

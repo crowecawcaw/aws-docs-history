@@ -1,7 +1,6 @@
 
 
 # Amazon Aurora features
-<a name="aurora-features"></a>
 
 For Aurora PostgreSQL and Aurora MySQL
 

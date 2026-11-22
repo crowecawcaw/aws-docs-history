@@ -1,7 +1,6 @@
 
 
 # Developer Tools
-<a name="aurora-faq-developer-tools"></a>
 
 **Topics**
 + [What are Aurora MCP servers?](#aurora-faq-what-are-aurora-mcp-servers)

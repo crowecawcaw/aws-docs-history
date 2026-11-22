@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="aurora-features-security"></a>
 
 **Topics**
 + [Network isolation](#aurora-features-network-isolation)

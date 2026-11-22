@@ -1,7 +1,6 @@
 
 
 # Scalability
-<a name="aurora-features-scalability"></a>
 
 **Topics**
 + [Serverless](#aurora-features-serverless)
