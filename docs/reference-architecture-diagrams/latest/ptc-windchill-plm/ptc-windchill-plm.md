@@ -1,7 +1,6 @@
 
 
 # PTC Windchill Product Lifecycle Management on AWS
-<a name="ptc-windchill-plm"></a>
 
 Publication date: **2020 ([Diagram history](#ptcw-diagram-history))**
 
