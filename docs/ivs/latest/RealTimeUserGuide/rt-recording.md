@@ -1,7 +1,6 @@
 
 
 # IVS Recording \| Real-Time Streaming
-<a name="rt-recording"></a>
 
 There are two recording options for IVS real-time streaming:
 + With individual participant recording, each publisher’s media is recorded in separate files.

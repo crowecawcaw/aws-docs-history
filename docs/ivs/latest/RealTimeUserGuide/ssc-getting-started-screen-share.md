@@ -1,7 +1,6 @@
 
 
 # Enabling Screen Share in IVS Server-Side Composition
-<a name="ssc-getting-started-screen-share"></a>
 
 To use a fixed screen-share layout, follow the steps below.
 

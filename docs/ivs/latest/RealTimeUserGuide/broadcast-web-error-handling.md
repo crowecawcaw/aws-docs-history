@@ -1,11 +1,10 @@
 
 
 # Error Handling in the IVS Web Broadcast SDK \| Real-Time Streaming
-<a name="broadcast-web-error-handling"></a>
 
 This section is an overview of error conditions, how the Web broadcast SDK reports them to the application, and what an application should do when those errors are encountered. Errors are reported by the SDK to listeners of the `StageEvents.ERROR` event:
 
-```
+```javascript
 stage.on(StageEvents.ERROR, (error: StageError) => {
     // log or handle errors here
     console.log(`${error.code}, ${error.category}, ${error.message}`);
@@ -42,7 +41,7 @@ The code property of a `StageError` reports the specific problem:
 
 Use the StageError code to determine if the error is due to an expired token:
 
-```
+```javascript
 stage.on(StageEvents.ERROR, (error: StageError) => {
     if (error.code === StageError.TOKEN_EXPIRED) {
         // recreate the token and stage instance and re-join
@@ -71,7 +70,7 @@ We recommend you use these states for application logging and to display messagi
 
 The SDK reports `ERRORED` when a publish fails.
 
-```
+```javascript
 stage.on(StageEvents.STAGE_PARTICIPANT_PUBLISH_STATE_CHANGED, (participantInfo, state) => {
   if (state === StageParticipantPublishState.ERRORED) {
       // Log and/or display message to user
@@ -84,7 +83,7 @@ stage.on(StageEvents.STAGE_PARTICIPANT_PUBLISH_STATE_CHANGED, (participantInfo, 
 
 The SDK reports `ERRORED` when a subscribe fails. This can occur due to network conditions or if a stage is at capacity for subscribers.
 
-```
+```javascript
 stage.on(StageEvents.STAGE_PARTICIPANT_SUBSCRIBE_STATE_CHANGED, (participantInfo, state) => {
   if (state === StageParticipantSubscribeState.ERRORED) {
     // Log and/or display message to user

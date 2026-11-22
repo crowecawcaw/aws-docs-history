@@ -1,7 +1,6 @@
 
 
 # Using BytePlus with the IVS Broadcast SDK
-<a name="broadcast-3p-camera-filters-integrating-byteplus"></a>
 
 This document explains how to use the BytePlus Effects SDK with the IVS broadcast SDK.
 
@@ -21,7 +20,7 @@ After initializing the SDK, feed processed camera frames with a filter effect ap
 #### Java
 <a name="integrating-byteplus-android-setup-image-source-code"></a>
 
-```
+```java
 var deviceDiscovery = DeviceDiscovery(applicationContext)
 var customSource = deviceDiscovery.createImageInputSource( BroadcastConfiguration.Vec2(
 720F, 1280F
@@ -38,7 +37,7 @@ To enable camera frames with a filter effect applied from the BytePlus Effect SD
 #### Java
 <a name="integrating-byteplus-android-convert-to-bitmap-code"></a>
 
-```
+```java
 import com.bytedance.labcv.core.util.ImageUtil;
 ...
 protected ImageUtil imageUtility;

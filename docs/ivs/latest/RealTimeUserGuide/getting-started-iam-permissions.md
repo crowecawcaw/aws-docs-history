@@ -1,7 +1,6 @@
 
 
 # Step 1: Set Up IAM Permissions
-<a name="getting-started-iam-permissions"></a>
 
 Next, you must create an AWS Identity and Access Management (IAM) policy that gives users a basic set of permissions (e.g., to create an Amazon IVS stage and create participant tokens) and assign that policy to users. You can either assign the permissions when creating a [new user](#iam-permissions-new-user) or add permissions to an [existing user](#iam-permissions-existing-user). Both procedures are given below.
 
@@ -35,7 +34,7 @@ Follow these steps:
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

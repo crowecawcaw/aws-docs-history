@@ -1,7 +1,6 @@
 
 
 # Publishing & Subscribing with the IVS Web Broadcast SDK \| Real-Time Streaming
-<a name="web-publish-subscribe"></a>
 
 This document takes you through the steps involved in publishing and subscribing to a stage using the IVS real-time streaming Web broadcast SDK.
 
@@ -15,7 +14,7 @@ Three core concepts underlie real-time functionality: [stage](#web-publish-subsc
 
 The `Stage` class is the main point of interaction between the host application and the SDK. It represents the stage itself and is used to join and leave the stage. Creating and joining a stage requires a valid, unexpired token string from the control plane (represented as `token`). Joining and leaving a stage are simple:
 
-```
+```javascript
 const stage = new Stage(token, strategy)
 
 try {
@@ -34,7 +33,7 @@ The `StageStrategy` interface provides a way for the host application to communi
 
 To use a defined strategy, pass it to the `Stage` constructor. The following is a complete example of an application using a strategy to publish a participant's webcam to the stage and subscribe to all participants. Each required strategy function's purpose is explained in detail in the subsequent sections.
 
-```
+```javascript
 const devices = await navigator.mediaDevices.getUserMedia({ 
    audio: true,
    video: {
@@ -93,7 +92,7 @@ When a remote participant joins the stage, the SDK queries the host application 
 
 Here is a sample implementation:
 
-```
+```javascript
 const strategy = {
    
    shouldSubscribeToParticipant: (participant) => {
@@ -108,7 +107,7 @@ This is the complete implementation of this function for a host application that
 
 More advanced implementations also are possible. For example, assume the application provides a `role` attribute when creating the token with CreateParticipantToken. The application could use the `attributes` property on `StageParticipantInfo` to selectively subscribe to participants based on the server-provided attributes:
 
-```
+```javascript
 const strategy = {
    
    shouldSubscribeToParticipant(participant) {
@@ -138,7 +137,7 @@ If a remote participant is being subscribed to (see [Subscribing to Participants
 
 Here is a sample implementation:
 
-```
+```javascript
 const strategy = {
    
    subscribeConfiguration: (participant) => {
@@ -169,7 +168,7 @@ Once connected to the stage, the SDK queries the host application to see if a pa
 
 Here is a sample implementation:
 
-```
+```javascript
 const strategy = {
    
    shouldPublishParticipant: (participant) => {
@@ -205,7 +204,7 @@ Generally, the stage uses the strategy to most efficiently apply the difference 
 
 A `Stage` instance is an event emitter. Using `stage.on()`, the state of the stage is communicated to the host application. Updates to the host application’s UI usually can be supported entirely by the events. The events are as follows:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_CONNECTION_STATE_CHANGED, (state) => {})
 stage.on(StageEvents.STAGE_PARTICIPANT_JOINED, (participant) => {})
 stage.on(StageEvents.STAGE_PARTICIPANT_LEFT, (participant) => {})
@@ -229,7 +228,7 @@ It is not expected that the information provided by the events impacts the retur
 
 Local devices like microphones and cameras are retrieved using the same steps as outlined above in [Retrieve a MediaStream from a Device](broadcast-web-getting-started.md#broadcast-web-retrieve-mediastream)​. In the example we use `MediaStream` to create a list of `LocalStageStream` objects used for publishing by the SDK:
 
-```
+```javascript
 try {
     // Get stream using steps outlined in document above
     const stream = await getMediaStreamFromDevice();
@@ -250,7 +249,7 @@ try {
 
 Applications often need to publish a screenshare in addition to the user's web camera. Publishing a screenshare necessitates creating an additional token for the stage, specifically for publishing the screenshare's media. Use `getDisplayMedia` and constrain the resolution to a maximum of 720p. After that, the steps are similar to publishing a camera to the stage.
 
-```
+```javascript
 // Invoke the following lines to get the screenshare's tracks
 const media = await navigator.mediaDevices.getDisplayMedia({
    video: {
@@ -283,7 +282,7 @@ await screenshareStage.join();
 
 After subscribing is completed, you receive an array of `StageStream` objects through the `STAGE_PARTICIPANT_STREAMS_ADDED` event. The event also gives you participant info to help when displaying media streams:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_PARTICIPANT_STREAMS_ADDED, (participant, streams) => {
     let streamsToDisplay = streams;
 
@@ -323,7 +322,7 @@ Because `STAGE_PARTICIPANT_STREAMS_REMOVED` is invoked for all scenarios, no cus
 
 When participants change the mute state of their video or audio, the `STAGE_STREAM_MUTE_CHANGED` event is triggered with a list of streams that have changed. Use the `isMuted` property on `StageStream` to update your UI accordingly:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_STREAM_MUTE_CHANGED, (participant, stream) => {
    if (stream.streamType === 'video' && stream.isMuted) {
        // handle UI changes for video track getting muted
@@ -333,7 +332,7 @@ stage.on(StageEvents.STAGE_STREAM_MUTE_CHANGED, (participant, stream) => {
 
 Also, you can look at [StageParticipantInfo](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference#stageparticipantinfo) for state information on whether audio or video is muted:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_STREAM_MUTE_CHANGED, (participant, stream) => {
    if (participant.videoStopped || participant.audioMuted) {
        // handle UI changes for either video or audio
@@ -358,7 +357,7 @@ Note that for video streams with simulcast, the array contains multiple stat obj
 
 **Example Usage**
 
-```
+```javascript
 // For local streams
 const localStats = await localVideoStream.requestQualityStats();
 const audioStats = await localAudioStream.requestQualityStats();
@@ -393,7 +392,7 @@ const statsInterval = setInterval(async () => {
 
 It's recommended to limit `getUserMedia` and `getDisplayMedia` calls to the following constraints for the best performance:
 
-```
+```javascript
 const CONSTRAINTS = {
     video: {
         width: { ideal: 1280 }, // Note: flip width and height values if portrait is desired
@@ -405,7 +404,7 @@ const CONSTRAINTS = {
 
 You can further constrain the media through additional options passed to the `LocalStageStream` constructor:
 
-```
+```javascript
 const localStreamOptions = {
     minBitrate?: number;
     maxBitrate?: number;
@@ -432,7 +431,7 @@ In the code above:
 
 If you specify attributes in the `CreateParticipantToken` operation request, you can see the attributes in `StageParticipantInfo` properties:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_PARTICIPANT_JOINED, (participant) => {
    console.log(`Participant ${participant.id} info:`, participant.attributes);
 })
@@ -473,7 +472,7 @@ vidStream.insertSeiMessage(payload, { repeatCount: 5 }); // Optional config, rep
 
 Subscribing clients can read SEI payloads from a publisher who is publishing H.264 video if present by configuring the subscriber(s) `SubscribeConfiguration` to enable `inBandMessaging` and listening to the `StageEvents.STAGE_STREAM_SEI_MESSAGE_RECEIVED` event, as shown in the following example:
 
-```
+```javascript
 const strategy = {
     subscribeConfiguration: (participant) => {
         return {
@@ -656,7 +655,7 @@ When the local device’s network connection is lost, the SDK internally tries t
 
 Broadly the state of the stage can be handled via the `STAGE_CONNECTION_STATE_CHANGED` event:
 
-```
+```javascript
 stage.on(StageEvents.STAGE_CONNECTION_STATE_CHANGED, (state) => {
    switch (state) {
       case StageConnectionState.DISCONNECTED:
@@ -682,7 +681,7 @@ In general, you can ignore an errored state that is encountered after successful
 
 To broadcast a stage, create a separate `IVSBroadcastClient` session and then follow the usual instructions for broadcasting with the SDK, described above. The list of `StageStream` exposed via `STAGE_PARTICIPANT_STREAMS_ADDED` can be used to retrieve the participant media streams which can be applied to the broadcast stream composition, as follows:
 
-```
+```javascript
 // Setup client with preferred settings
 const broadcastClient = getIvsBroadcastClient();
 

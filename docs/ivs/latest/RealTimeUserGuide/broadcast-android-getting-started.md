@@ -1,7 +1,6 @@
 
 
 # Getting Started​ with the IVS Android Broadcast SDK \| Real-Time Streaming
-<a name="broadcast-android-getting-started"></a>
 
 This document takes you through the steps involved in getting started with the IVS real-time streaming Android broadcast SDK.
 
@@ -18,7 +17,7 @@ repositories {
 }
  
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.48.1:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.49.0:stages@aar'
 }
 ```
 
@@ -37,7 +36,7 @@ Then include the following in the `libs.version.toml` file (for the latest versi
 
 ```
 [versions]
-ivs="1.48.1"
+ivs="1.49.0"
 
 [libraries]
 ivs = {module = "com.amazonaws:ivs-broadcast", version.ref = "ivs"}

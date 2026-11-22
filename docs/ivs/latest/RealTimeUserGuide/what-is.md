@@ -1,7 +1,6 @@
 
 
 # What is Amazon IVS Real-Time Streaming?
-<a name="what-is"></a>
 
 Amazon Interactive Video Service (IVS) Real-Time Streaming gives you everything you need to add real-time audio and video to your applications. 
 

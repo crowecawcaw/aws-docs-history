@@ -1,9 +1,8 @@
 
 
 # Step 4: Integrate the IVS Broadcast SDK
-<a name="getting-started-broadcast-sdk"></a>
 
-IVS provides a broadcast SDK for web, Android, and iOS that you can integrate into your application. The broadcast SDK is used for both sending and receiving video. If you have [configured RTMP Ingest for your stage](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-stream-ingest.html), you may use any encoder that can broadcast to an RTMP endpoint (e.g., OBS or ffmpeg).
+IVS provides a broadcast SDK for web, Android, iOS, and Linux that you can integrate into your application. The broadcast SDK is used for both sending and receiving video. If you have [configured RTMP Ingest for your stage](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/rt-stream-ingest.html), you may use any encoder that can broadcast to an RTMP endpoint (e.g., OBS or ffmpeg).
 
 In this section, we write a simple application that enables two or more participants to interact in real time. The steps below guide you through creating an app called BasicRealTime. The full app code is on CodePen and GitHub:
 +  Web: [https://codepen.io/amazon-ivs/pen/ZEqgrpo](https://codepen.io/amazon-ivs/pen/ZEqgrpo) 
@@ -30,7 +29,7 @@ You can install the broadcast SDK using a script tag or npm. Our example uses th
 ### Using a Script Tag
 <a name="getting-started-broadcast-sdk-web-script"></a>
 
-The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.41.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.41.0/amazon-ivs-web-broadcast.js).
+The Web broadcast SDK is distributed as a JavaScript library and can be retrieved at [https://web-broadcast.live-video.net/1.42.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.42.0/amazon-ivs-web-broadcast.js).
 
 When loaded via `<script>` tag, the library exposes a global variable in the window scope named `IVSBroadcastClient`.
 
@@ -39,13 +38,13 @@ When loaded via `<script>` tag, the library exposes a global variable in the win
 
 To install the npm package:
 
-```
+```bash
 npm install amazon-ivs-web-broadcast
 ```
 
 You can now access the IVSBroadcastClient object:
 
-```
+```javascript
 const { Stage } = IVSBroadcastClient;
 ```
 
@@ -78,7 +77,7 @@ repositories {
 }
  
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.48.1:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.49.0:stages@aar'
 }
 ```
 

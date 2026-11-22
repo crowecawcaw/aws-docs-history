@@ -1,7 +1,6 @@
 
 
 # IVS Document History \| Real-Time Streaming
-<a name="doc-history"></a>
 
 The following tables describe the important changes to the documentation for Amazon IVS Real-Time Streaming. We update the documentation frequently, for new releases and to address the feedback that you send us.
 
@@ -10,6 +9,10 @@ The following tables describe the important changes to the documentation for Ama
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Broadcast SDK: Android 1.49.0, iOS 1.49.0](#history-user-guide) | Updated version number and artifact links in the real-time-streaming broadcast SDK guides: [Android](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/broadcast-android.html) and [iOS](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/broadcast-ios.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#nov20-26-broadcast-mobile-rt). | November 20, 2026 | 
+| [Broadcast SDK: Web 1.42.0](#history-user-guide) | Updated version number and artifact links in the real-time-streaming broadcast SDK guide: [Web](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/broadcast-web.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#nov19-26-broadcast-web-rt). | November 19, 2026 | 
+| [Broadcast SDK: Linux 1.49.0](#history-user-guide) | Releasing SDK for Linux Platform. Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#nov19-26-broadcast-linux-rt). | November 19, 2026 | 
+| [Stage participants (publishers) quota now adjustable](#history-user-guide) | In Service Quotas > [Other Quotas](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/service-quotas.html#quotas-other), we made the "Stage participants (publishers)" quota adjustable; the default remains 12 and customers can request an increase up to 25. | November 17, 2026 | 
 | [Broadcast SDK: Android 1.48.1, iOS 1.48.1](#history-user-guide) | Updated version number and artifact links in the real-time-streaming broadcast SDK guides: [Android](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/broadcast-android.html) and [iOS](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/broadcast-ios.html). Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#nov04-26-broadcast-mobile-rt). | November 4, 2026 | 
 | [RTX Publishers limit change](#history-user-guide) | Added an SSC video publisher quota (default 12) and a note that publishers beyond it are recorded audio only. | October 28, 2026 | 
 | [Connection Reuse Across Stages](#history-user-guide) | Updated [Streaming Optimizations](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/real-time-streaming-optimization.html) for Web on reducing time to video when switching between stages for `RealTimeConnection`. Added a new section in the API reference doc for the `RevokeConnectionToken` API. Also see the [Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#oct22-26-connection-reuse-rt). | October 22, 2026 | 

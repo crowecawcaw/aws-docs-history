@@ -1,7 +1,6 @@
 
 
 # IVS Costs \| Real-Time Streaming
-<a name="rt-costs"></a>
 
 See the [IVS Pricing page](https://aws.amazon.com/ivs/pricing/) for details about costs for IVS.
 + **Subscribing and publishing to stages** — Subscribing and publishing consume resources, and you will incur an hourly rate for the time you are connected to the stage. 

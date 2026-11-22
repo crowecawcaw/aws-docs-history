@@ -1,7 +1,6 @@
 
 
 # Publishing & Subscribing with the IVS iOS Broadcast SDK \| Real-Time Streaming
-<a name="ios-publish-subscribe"></a>
 
 This document takes you through the steps involved in publishing and subscribing to a stage using the IVS real-time streaming iOS broadcast SDK.
 
@@ -80,7 +79,7 @@ If a remote participant is being subscribed to (see [Subscribing to Participants
 
 Here is a sample implementation:
 
-```
+```swift
 func stage(_ stage: IVSStage, subscribeConfigurationForParticipant participant: IVSParticipantInfo) -> IVSSubscribeConfiguration {
     let config = IVSSubscribeConfiguration()
 

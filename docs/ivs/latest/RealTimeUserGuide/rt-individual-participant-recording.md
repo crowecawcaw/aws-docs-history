@@ -1,7 +1,6 @@
 
 
 # IVS Individual Participant Recording \| Real-Time Streaming
-<a name="rt-individual-participant-recording"></a>
 
 This document explains how to use individual participant recording with IVS real-time streaming.
 

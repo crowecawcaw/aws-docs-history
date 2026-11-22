@@ -1,7 +1,6 @@
 
 
 # IVS Broadcast SDK \| Real-Time Streaming
-<a name="broadcast"></a>
 
 The Amazon Interactive Video Services (IVS) Real-Time Streaming broadcast SDK is for developers who are building applications with Amazon IVS. This SDK is designed to leverage the Amazon IVS architecture and will see continual improvement and new features, alongside Amazon IVS. As a native broadcast SDK, it is designed to minimize the performance impact on your application and on the devices with which your users access your application.
 
@@ -25,6 +24,7 @@ Your application can leverage the key features of the Amazon IVS broadcast SDK:
 | --- | --- | 
 | Android | 9.0\+ -- note customers can build with versions 6.0\+ but will not be able to use real-time streaming functionality. | 
 | iOS | 14\+ | 
+| Linux | x86\_64 (amd64), arm64. glibc 2.34\+, libcurl 7.68\+ | 
 
 IVS supports a minimum of 4 major iOS versions and 6 major Android versions. Our current version support may extend beyond these minimums. Customers will be notified via SDK release notes at least 3 months in advance of a major version no longer being supported.
 

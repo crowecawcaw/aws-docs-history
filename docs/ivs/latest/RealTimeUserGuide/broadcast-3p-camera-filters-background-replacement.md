@@ -1,7 +1,6 @@
 
 
 # Using Background Replacement with the IVS Broadcast SDK
-<a name="broadcast-3p-camera-filters-background-replacement"></a>
 
 Background replacement is a type of camera filter that enables live-stream creators to change their backgrounds. As shown in the following diagram, replacing your background involves:
 
@@ -55,7 +54,7 @@ To start, install the `@mediapipe/tasks-vision` and `webpack` npm packages. The 
 #### JavaScript
 <a name="background-replacement-web-install-mediapipe-webpack-code"></a>
 
-```
+```javascript
 npm i @mediapipe/tasks-vision webpack webpack-cli
 ```
 
@@ -64,7 +63,7 @@ Make sure to also update your `package.json` to specify `webpack` as your build 
 #### JavaScript
 <a name="background-replacement-web-update-package-json-code"></a>
 
-```
+```javascript
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
@@ -79,7 +78,7 @@ Next, create the HTML boilerplate and import the Web broadcast SDK as a script t
 #### JavaScript
 <a name="background-replacement-web-create-index-code"></a>
 
-```
+```javascript
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +105,7 @@ Next, add a video element and two canvas elements within the body tag. The video
 #### JavaScript
 <a name="background-replacement-web-add-media-elements-code"></a>
 
-```
+```javascript
 <div class="row local-container">
       <video id="webcam" autoplay style="display: none"></video>
     </div>
@@ -141,7 +140,7 @@ Next, create a JavaScript file to get the element objects for the canvas and vid
 #### JavaScript
 <a name="create-appjs-import-imagesegmenter-fileresolver-code"></a>
 
-```
+```javascript
 const canvasElement = document.getElementById("canvas");
 const background = document.getElementById("background");
 const canvasCtx = canvasElement.getContext("2d");
@@ -158,7 +157,7 @@ Note that when joining a stage, we pass in a variable named `segmentationStream`
 #### JavaScript
 <a name="create-appjs-create-init-code"></a>
 
-```
+```javascript
 const init = async () => {
   await initializeDeviceSelect();
 
@@ -195,7 +194,7 @@ At the bottom of the `init` function, add code to call a function named `initBac
 #### JavaScript
 <a name="background-replacement-web-load-background-image-code"></a>
 
-```
+```javascript
 initBackgroundCanvas();
 
   video.srcObject = localCamera;
@@ -207,7 +206,7 @@ Let’s implement the `initBackgroundCanvas` function, which loads an image from
 #### JavaScript
 <a name="background-replacement-web-implement-initBackgroundCanvas-code"></a>
 
-```
+```javascript
 const initBackgroundCanvas = () => {
   let img = new Image();
   img.src = "beach.jpg";
@@ -227,7 +226,7 @@ Next, create an instance of `ImageSegmenter`, which will segment the image and r
 #### JavaScript
 <a name="background-replacement-web-imagesegmenter-code"></a>
 
-```
+```javascript
 const createImageSegmenter = async () => {
   const audio = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2/wasm");
 
@@ -250,7 +249,7 @@ Next, create the function that renders the video feed to the other canvas elemen
 #### JavaScript
 <a name="background-replacement-web-render-video-to-canvas-code"></a>
 
-```
+```javascript
 const renderVideoToCanvas = async () => {
   if (video.currentTime === lastWebcamTime) {
     window.requestAnimationFrame(renderVideoToCanvas);
@@ -277,7 +276,7 @@ Create the `replaceBackground` function, which merges the custom background imag
 #### JavaScript
 <a name="background-replacement-web-logic-create-replacebackground-code"></a>
 
-```
+```javascript
 function replaceBackground(result) {
   let imageData = canvasCtx.getImageData(0, 0, video.videoWidth, video.videoHeight).data;
   let backgroundData = backgroundCtx.getImageData(0, 0, video.videoWidth, video.videoHeight).data;
@@ -310,7 +309,7 @@ For reference, here is the complete `app.js` file containing all the logic above
 #### JavaScript
 <a name="background-replacement-web-logic-app-js-code"></a>
 
-```
+```javascript
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 // All helpers are expose on 'media-devices.js' and 'dom.js'
@@ -542,7 +541,7 @@ Add this configuration to your Webpack config file to bundle `app.js`, so the im
 #### JavaScript
 <a name="background-replacement-web-webpack-config-code"></a>
 
-```
+```javascript
 const path = require("path");
 module.exports = {
   entry: ["./app.js"],
@@ -595,7 +594,7 @@ To extract images from the live camera feed, use Android’s CameraX library. To
 #### Java
 <a name="background-replacement-android-install-camerax-googleml-code"></a>
 
-```
+```java
 implementation "com.google.mlkit:segmentation-selfie:${google_ml_kit_version}"
 implementation "androidx.camera:camera-core:${camerax_version}"
 implementation "androidx.camera:camera-lifecycle:${camerax_version}"
@@ -606,7 +605,7 @@ Import the following libraries:
 #### Java
 <a name="background-replacement-android-import-libraries-code"></a>
 
-```
+```java
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -622,7 +621,7 @@ Initialize an instance of `ImageAnalysis` and an instance of an `ExecutorService
 #### Java
 <a name="background-replacement-android-initialize-imageanalysis-executorservice-code"></a>
 
-```
+```java
 private lateinit var binding: ActivityMainBinding
 private lateinit var cameraExecutor: ExecutorService
 private var analysisUseCase: ImageAnalysis? = null
@@ -633,7 +632,7 @@ Initialize a Segmenter instance in [STREAM\_MODE](https://developers.google.com/
 #### Java
 <a name="background-replacement-android-initialize-segmenter-code"></a>
 
-```
+```java
 private val options =
         SelfieSegmenterOptions.Builder()
             .setDetectorMode(SelfieSegmenterOptions.STREAM_MODE)
@@ -650,7 +649,7 @@ In the `onCreate` method of your activity, create an instance of a `DeviceDiscov
 #### Java
 <a name="background-replacement-android-create-image-source-code"></a>
 
-```
+```java
 var deviceDiscovery = DeviceDiscovery(applicationContext)
 var customSource = deviceDiscovery.createImageInputSource( BroadcastConfiguration.Vec2(
 720F, 1280F
@@ -671,7 +670,7 @@ You then add a listener to `cameraProviderFuture`. This listener is notified whe
 #### Java
 <a name="background-replacement-android-initialize-camera-code"></a>
 
-```
+```java
 private fun startCamera(surface: Surface) {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         val imageResource = R.drawable.beach
@@ -726,7 +725,7 @@ Within the listener, create `ImageAnalysis.Builder` to access each individual fr
 #### Java
 <a name="background-replacement-android-create-imageanalysisbuilder-code"></a>
 
-```
+```java
 val imageAnalyzer = ImageAnalysis.Builder()
 analysisUseCase = imageAnalyzer
     .setTargetResolution(Size(360, 640))
@@ -747,7 +746,7 @@ Next, create an `InputImage` and pass it to the instance of Segmenter for proces
 #### Java
 <a name="background-replacement-android-frames-to-mlkit-code"></a>
 
-```
+```java
 if (mediaImage != null) {
         val inputImage =
             InputImage.fromMediaImag
@@ -770,7 +769,7 @@ With the mask containing the confidence scores, the camera frame as a bitmap, an
 #### Java
 <a name="background-replacement-android-call-overlayforeground-code"></a>
 
-```
+```java
 resultBitmap = overlayForeground(mask, maskWidth, maskHeight, inputBitmap, backgroundPixels)
 ```
 
@@ -779,7 +778,7 @@ This function iterates through the mask and checks the confidence values to dete
 #### Java
 <a name="background-replacement-android-run-overlayforeground-code"></a>
 
-```
+```java
 private fun overlayForeground(
         byteBuffer: ByteBuffer,
         maskWidth: Int,
@@ -821,7 +820,7 @@ You can then write the new bitmap to the `Surface` provided by a custom image so
 #### Java
 <a name="background-replacement-android-custom-image-source-code"></a>
 
-```
+```java
 resultBitmap = overlayForeground(mask, inputBitmap, mutableBitmap, bgBitmap)
 canvas = surface.lockCanvas(null);
 canvas.drawBitmap(resultBitmap, 0f, 0f, null)
@@ -832,7 +831,7 @@ Here is the complete function for getting the camera frames, passing it to Segme
 #### Java
 <a name="background-replacement-android-custom-image-source-startcamera-code"></a>
 
-```
+```java
 @androidx.annotation.OptIn(androidx.camera.core.ExperimentalGetImage::class)
     private fun startCamera(surface: Surface) {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)

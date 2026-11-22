@@ -1,7 +1,6 @@
 
 
 # IVS Broadcast SDK: Web Guide \| Real-Time Streaming
-<a name="broadcast-web"></a>
 
 The IVS real-time streaming Web broadcast SDK gives developers the tools to build interactive, real-time experiences on the web. This SDK is for developers who are building web applications with Amazon IVS.
 
@@ -13,7 +12,7 @@ The Web broadcast SDK enables participants to send and receive video. The SDK su
 + Get WebRTC statistics for each peer connection
 + All operations from the IVS low-latency streaming Web broadcast SDK
 
-**Latest version of Web broadcast SDK:** 1.41.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#oct22-26-broadcast-web-rt)) 
+**Latest version of Web broadcast SDK:** 1.42.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/release-notes.html#nov19-26-broadcast-web-rt)) 
 
 **Reference documentation:** For information on the most important methods available in the Amazon IVS Web Broadcast SDK, see [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference). Make sure the most current version of the SDK is selected.
 

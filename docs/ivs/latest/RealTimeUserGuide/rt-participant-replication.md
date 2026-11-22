@@ -1,7 +1,6 @@
 
 
 # IVS Participant Replication \| Real-Time Streaming
-<a name="rt-participant-replication"></a>
 
 Participant replication allows you to copy a participant from one stage to another. This is useful when you want the same participant to appear in multiple stages at the same time, enabling cross-stage interactions.
 

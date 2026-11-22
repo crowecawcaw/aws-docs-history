@@ -1,7 +1,6 @@
 
 
 # IVS Service Quotas \| Real-Time Streaming
-<a name="service-quotas"></a>
 
 The following are service quotas and limits for Amazon Interactive Video Service (IVS) real-time endpoints, resources, and other operations. Service quotas (also known as limits) are the maximum number of service resources or operations for your AWS account. That is, these limits are per AWS account, unless noted otherwise in the table. Also see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html).
 
@@ -83,7 +82,7 @@ API call rate quotas are not adjustable.
 | Participant publish or subscribe duration | 24 | No | Maximum length of time a participant can publish or remain subscribed to a stage, in hours. | 
 | Participant publish resolution | 720p | No | Maximum resolution of video published by participants. | 
 | PublicKeys | 3 | No | Maximum number of public keys, per AWS Region. | 
-| Stage participants (publishers) | 12 | No | Maximum number of participants who can be publishing to a stage at once. | 
+| Stage participants (publishers) | 12 | Yes | Maximum number of participants who can be publishing to a stage at once. | 
 | Stage participants (subscribers) | 10,000 | Yes | Maximum number of participants who can be subscribing to a stage at once. | 
 | Stages | 1,000 | Yes | Maximum number of stages, per AWS Region. | 
 | StorageConfigurations | 5 | Yes | Maximum number of StorageConfiguration resources per account. | 

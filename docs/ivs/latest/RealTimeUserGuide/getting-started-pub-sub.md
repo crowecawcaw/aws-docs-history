@@ -1,7 +1,6 @@
 
 
 # Step 5: Publish and Subscribe to Video
-<a name="getting-started-pub-sub"></a>
 
 You can publish/subscribe (real-time) to IVS with:
 + The native [IVS broadcast SDKs](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/getting-started-set-up-streaming.html#broadcast-sdk), which support WebRTC and RTMPS. We recommend this, especially for production scenarios. See the details below for [Web](getting-started-pub-sub-web.md), [Android](getting-started-pub-sub-android.md), and [iOS](getting-started-pub-sub-ios.md).

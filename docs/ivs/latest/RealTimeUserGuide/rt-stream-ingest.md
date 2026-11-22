@@ -1,7 +1,6 @@
 
 
 # IVS Stream Ingest \| Real-Time Streaming
-<a name="rt-stream-ingest"></a>
 
 As an alternative to using the IVS broadcast SDK, you can publish video to an IVS stage from a WHIP or RTMP source. This approach offers flexibility for workflows where using the SDK is not feasible or preferred, such as when publishing video from OBS Studio or a hardware encoder. Whenever possible, we recommend using the IVS broadcast SDK, as we cannot guarantee the performance or compatibility of third-party solutions with IVS.
 

@@ -1,7 +1,6 @@
 
 
 # IVS Broadcast SDK: Third-Party Camera Filters \| Real-Time Streaming
-<a name="broadcast-3p-camera-filters"></a>
 
 This guide assumes you are already familiar with [custom image](broadcast-custom-image-sources.md) sources as well as integrating the [IVS real-time streaming broadcast SDK](broadcast.md) into your application.
 

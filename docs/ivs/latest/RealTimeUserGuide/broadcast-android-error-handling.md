@@ -1,7 +1,6 @@
 
 
 # Error Handling in the IVS Android Broadcast SDK \| Real-Time Streaming
-<a name="broadcast-android-error-handling"></a>
 
 This section is an overview of error conditions, how the IVS real-time streaming Android broadcast SDK reports them to the application, and what an application should do when those errors are encountered.
 

@@ -1,9 +1,61 @@
 
 
 # IVS Release Notes \| Real-Time Streaming
-<a name="release-notes"></a>
 
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first, organized by date of release.
+
+## November 20, 2026
+<a name="nov20-26-broadcast-mobile-rt"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.49.0, iOS 1.49.0 (Real-Time Streaming)
+<a name="nov20-26-broadcast-mobile-rt-1490"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.49.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/android/)+  Fixed an issue where the `onStreamsRemoved` and `onStreamsAdded` callbacks failed to be emitted after a low-latency broadcaster reconnects (if using both `Stage` and `BroadcastSession`) <br />+  Added the `subscribeConfigurationForParticipant` API, which corrects spelling from the now-deprecated `subscribeConfigrationForParticipant` API  | 
+| [iOS Broadcast SDK 1.49.0](broadcast-ios.md) | **Download for real-time streaming: ** [https://broadcast.live-video.net/1.49.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.49.0/AmazonIVSBroadcast-Stages.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/ios/)+  Added modern Swift async annotations for the following classes: `IVSCodecDiscovery`, `IVSDevice`, and `IVSSession` <br />+  Fixed a rare race condition that could occur during network state changes, which could cause delayed network recovery or lead to a crash <br />+  Reduced the freeze rate in H.264 streams on iPhone 17 and later  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1490-rt-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 6.258 MB | 15.214 MB | 
+| armeabi-v7a | 5.408 MB | 10.506 MB | 
+| x86\_64 | 6.372 MB | 15.815 MB | 
+| x86 | 6.663 MB | 16.510 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1490-rt-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 4.220 MB | 8.598 MB | 
+
+## November 19, 2026
+<a name="nov19-26-broadcast-web-rt"></a>
+
+### IVS Broadcast SDK: Web 1.42.0 (Real-Time Streaming)
+<a name="nov19-26-broadcast-web-rt-1420"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.42.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Fixed bug where stale stage state (muted, publishing) messages could arrive out of order causing temporary desync before new updates arrived.  | 
+
+## November 19, 2026
+<a name="nov19-26-broadcast-linux-rt"></a>
+
+### Amazon IVS Broadcast SDK: Linux 1.49.0 (Real-Time Streaming)
+<a name="nov19-26-broadcast-linux-rt-1490"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Linux Broadcast SDK 1.49.0](broadcast-linux.md) | **Reference Documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/linux/c](https://aws.github.io/amazon-ivs-broadcast-docs/1.49.0/linux/c)+  Releasing Broadcast SDK for Linux Platform.  | 
 
 ## November 4, 2026
 <a name="nov04-26-broadcast-mobile-rt"></a>

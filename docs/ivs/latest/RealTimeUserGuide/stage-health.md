@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon IVS Real-Time Streaming
-<a name="stage-health"></a>
 
 This document provides details about options available for monitoring your IVS real-time streaming application.
 

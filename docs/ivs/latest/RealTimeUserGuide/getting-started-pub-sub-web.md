@@ -1,7 +1,6 @@
 
 
 # Publish & Subscribe with the IVS Web Broadcast SDK
-<a name="getting-started-pub-sub-web"></a>
 
 This section takes you through the steps involved in publishing and subscribing to a stage using your web app.
 
@@ -20,7 +19,7 @@ First let's create the HTML boilerplate and import the library as a script tag:
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Import the SDK -->
-  <script src="https://web-broadcast.live-video.net/1.41.0/amazon-ivs-web-broadcast.js"></script>
+  <script src="https://web-broadcast.live-video.net/1.42.0/amazon-ivs-web-broadcast.js"></script>
 </head>
 
 <body>
@@ -74,7 +73,7 @@ This completes the HTML page and you should see this when loading `index.html` i
 
 Let's move to defining the contents of our `app.js` file. Begin by importing all the requisite properties from the SDK's global:
 
-```
+```JavaScript
 const {
   Stage,
   LocalStageStream,
@@ -90,7 +89,7 @@ const {
 
 Establish variables to hold references to our **Join** and **Leave** button HTML elements and store state for the application:
 
-```
+```JavaScript
 let joinButton = document.getElementById("join-button");
 let leaveButton = document.getElementById("leave-button");
 
@@ -111,7 +110,7 @@ The `joinStage` function takes the input token, creates a connection to the stag
 
 To start, we define the function and validate the state and token input. We'll flesh out this function in the next few sections.
 
-```
+```JavaScript
 const joinStage = async () => {
   if (connected || joining) {
     return;
@@ -135,7 +134,7 @@ const joinStage = async () => {
 
 Here is the media that will be published to the stage:
 
-```
+```JavaScript
 async function getCamera() {
   // Use Max Width and Height
   return navigator.mediaDevices.getUserMedia({
@@ -167,7 +166,7 @@ This stage strategy is the heart of the decision logic that the SDK uses to deci
 
 This strategy is simple. After joining the stage, publish the streams we just retrieved and subscribe to every remote participant's audio and video:
 
-```
+```JavaScript
 const strategy = {
   stageStreamsToPublish() {
     return [cameraStageStream, micStageStream];
@@ -190,7 +189,7 @@ Stages emit many events. We'll need to listen to the `STAGE_PARTICIPANT_STREAMS_
 
 Note that we create four helper functions here to assist us in managing necessary DOM elements: `setupParticipant`, `teardownParticipant`, `createVideoEl`, and `createContainer`.
 
-```
+```JavaScript
 stage.on(StageEvents.STAGE_CONNECTION_STATE_CHANGED, (state) => {
   connected = state === ConnectionState.CONNECTED;
 
@@ -281,7 +280,7 @@ function createContainer(id) {
 
 Let's complete our `joinStage` function by finally joining the stage\!
 
-```
+```JavaScript
 try {
   await stage.join();
 } catch (err) {
@@ -296,7 +295,7 @@ try {
 
 Define the `leaveStage` function which the leave button will invoke.
 
-```
+```JavaScript
 const leaveStage = async () => {
   stage.leave();
 
@@ -310,7 +309,7 @@ const leaveStage = async () => {
 
 We'll add one last function to our `app.js` file. This function is invoked immediately when the page loads and establishes event handlers for joining and leaving the stage.
 
-```
+```JavaScript
 const init = async () => {
   try {
     // Prevents issues on Safari/FF so devices are not blank

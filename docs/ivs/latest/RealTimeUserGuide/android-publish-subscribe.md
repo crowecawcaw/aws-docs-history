@@ -1,7 +1,6 @@
 
 
 # Publishing & Subscribing with the IVS Android Broadcast SDK \| Real-Time Streaming
-<a name="android-publish-subscribe"></a>
 
 This document takes you through the steps involved in publishing and subscribing to a stage using the IVS real-time streaming Android broadcast SDK.
 
@@ -87,7 +86,7 @@ If a remote participant is being subscribed to (see [Subscribing to Participants
 
 Here is a sample implementation:
 
-```
+```java
 @Override
 public SubscribeConfiguration subscribeConfigrationForParticipant(@NonNull Stage stage, @NonNull ParticipantInfo participantInfo) {
     SubscribeConfiguration config = new SubscribeConfiguration();

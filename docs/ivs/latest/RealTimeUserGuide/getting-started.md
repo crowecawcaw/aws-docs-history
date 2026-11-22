@@ -1,7 +1,6 @@
 
 
 # Getting Started with IVS Real-Time Streaming
-<a name="getting-started"></a>
 
 This document takes you through the steps involved in integrating Amazon IVS Real-Time Streaming into your app.
 

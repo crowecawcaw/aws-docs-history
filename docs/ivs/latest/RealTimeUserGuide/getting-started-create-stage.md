@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a Stage with Optional Participant Recording
-<a name="getting-started-create-stage"></a>
 
 A stage is a virtual space where participants can exchange video in real time. It is the foundational resource of the Real-Time Streaming API. You can create a stage using either the console or the CreateStage operation.
 

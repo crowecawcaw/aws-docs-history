@@ -1,7 +1,6 @@
 
 
 # IVS Composite Recording \| Real-Time Streaming
-<a name="rt-composite-recording"></a>
 
 This document explains how to use the composite-recording feature within [server-side composition](server-side-composition.md). Composite recording allows you to generate HLS recordings of an IVS stage by effectively combining all stage publishers into one view using an IVS server, and then saving the resulting video to an S3 bucket.
 
@@ -155,7 +154,7 @@ The example below shows an S3 bucket policy that allows IVS to write to the S3 b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -476,7 +475,7 @@ The snippet below illustrates an S3 bucket policy that allows CloudFront to read
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

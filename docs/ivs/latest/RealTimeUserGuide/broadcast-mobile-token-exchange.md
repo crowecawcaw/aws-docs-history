@@ -1,7 +1,6 @@
 
 
 # IVS Broadcast SDK: Token Exchange \| Real-Time Streaming
-<a name="broadcast-mobile-token-exchange"></a>
 
 Token exchange enables you to upgrade or downgrade participant-token capabilities and update token attributes within the broadcast SDK, without requiring participants to reconnect. This is useful for scenarios like co-hosting, where participants may start with subscribe-only capabilities and later need publish capabilities.
 
@@ -36,7 +35,7 @@ The remaining fields can be changed, including:
 
 
 
-```
+```swift
 let stage = try IVSStage(token: originalToken, strategy: self)
 stage.join()
 stage.exchangeToken(newToken)
@@ -47,7 +46,7 @@ stage.exchangeToken(newToken)
 
 
 
-```
+```kotlin
 val stage = Stage(context, originalToken, strategy)
 stage.join()
 stage.exchangeToken(newToken)
@@ -58,7 +57,7 @@ stage.exchangeToken(newToken)
 
 
 
-```
+```Typescript
 const stage = new Stage(originalToken, strategy);
 await stage.join();
 await stage.exchangeToken(newToken);
@@ -74,7 +73,7 @@ A function in `StageRenderer` / `IVSStageRenderer` receives updates about alread
 
 
 
-```
+```swift
 class MyStageRenderer: NSObject, IVSStageRenderer {
     func stage(_ stage: IVSStage, participantMetadataDidUpdate participant: IVSParticipantInfo) {
         // participant will be a new IVSParticipantInfo instance with updated properties.
@@ -87,7 +86,7 @@ class MyStageRenderer: NSObject, IVSStageRenderer {
 
 
 
-```
+```kotlin
 private val stageRenderer = object : StageRenderer {
     override fun onParticipantMetadataUpdated(stage: Stage, participantInfo: ParticipantInfo) {
         // participantInfo will be a new ParticipantInfo instance with updated properties.
@@ -100,7 +99,7 @@ private val stageRenderer = object : StageRenderer {
 
 
 
-```
+```Transcript
 stage.on(StageEvents.STAGE_PARTICIPANT_METADATA_CHANGED, (participantInfo: StageParticipantInfo) => { 
     // participantInfo properties will be updated with the changed properties 
     }

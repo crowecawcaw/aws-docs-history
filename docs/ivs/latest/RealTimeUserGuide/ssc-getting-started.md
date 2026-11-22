@@ -1,7 +1,6 @@
 
 
 # Getting Started with IVS Server-Side Composition
-<a name="ssc-getting-started"></a>
 
 This document takes you through the steps involved in getting started with IVS server-side composition.
 

@@ -1,7 +1,6 @@
 
 
 # Publish & Subscribe with the IVS iOS Broadcast SDK
-<a name="getting-started-pub-sub-ios"></a>
 
 This section takes you through the steps involved in publishing and subscribing to a stage using your iOS app.
 

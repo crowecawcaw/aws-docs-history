@@ -1,7 +1,6 @@
 
 
 # Using DeepAR with the IVS Broadcast SDK
-<a name="broadcast-3p-camera-filters-integrating-deepar"></a>
 
 This document explains how to use the DeepAR SDK with the IVS broadcast SDK.
 

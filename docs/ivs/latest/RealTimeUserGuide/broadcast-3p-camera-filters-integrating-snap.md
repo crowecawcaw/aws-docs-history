@@ -1,7 +1,6 @@
 
 
 # Using Snap with the IVS Broadcast SDK
-<a name="broadcast-3p-camera-filters-integrating-snap"></a>
 
 This document explains how to use Snap’s Camera Kit SDK with the IVS broadcast SDK.
 
@@ -59,7 +58,7 @@ Next, create the HTML boilerplate and import the Web broadcast SDK as a script t
 #### HTML
 <a name="integrating-snap-web-create-index-code"></a>
 
-```
+```html
 <!--
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 -->
@@ -111,7 +110,7 @@ Create the HTML for selecting a camera, microphone, and lens and specifying a pa
 #### HTML
 <a name="integrating-snap-web-setup-controls-code"></a>
 
-```
+```html
 <!-- Setup Controls -->
   <div class="row">
     <div class="column">
@@ -144,7 +143,7 @@ Add additional HTML beneath that to display camera feeds from local and remote p
 #### HTML
 <a name="integrating-snap-web-local-remote-participants-code"></a>
 
-```
+```html
  <!-- Local Participant -->
 <div class="row local-container">
     <canvas id="canvas"></canvas>
@@ -170,7 +169,7 @@ Load additional logic, including helper methods for setting up the camera and th
 #### HTML
 <a name="integrating-snap-web-load-all-scripts-code"></a>
 
-```
+```html
 <!-- Load all Desired Scripts -->
   <script src="./helpers.js"></script>
   <script src="./media-devices.js"></script>
@@ -188,7 +187,7 @@ Create a CSS source file to style the page. We will not be going over this code 
 #### CSS
 <a name="integrating-snap-web-create-index-css-code"></a>
 
-```
+```css
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 html,
@@ -310,7 +309,7 @@ Next, create `helpers.js`, which contains helper methods that you will use to di
 #### JavaScript
 <a name="integrating-snap-web-setup-participants-code"></a>
 
-```
+```javascript
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 function setupParticipant({ isLocal, id }) {
@@ -367,7 +366,7 @@ Next, create `media-devices.js`, which contains helper methods for displaying ca
 #### JavaScript
 <a name="integrating-snap-web-display-cameras-microphones-code"></a>
 
-```
+```javascript
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 /**
@@ -441,7 +440,7 @@ Create `stages.js`, which contains the logic for applying a Lens to the camera f
 #### JavaScript
 <a name="integrating-snap-web-camera-kit-session-code"></a>
 
-```
+```javascript
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 const {
@@ -658,7 +657,7 @@ In the first part of this file, we import the broadcast SDK and Camera Kit Web S
 #### JavaScript
 <a name="integrating-snap-web-camera-kit-session-code-2"></a>
 
-```
+```javascript
 /*! Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. SPDX-License-Identifier: Apache-2.0 */
 
 const {
@@ -718,7 +717,7 @@ To fetch your Lenses, replace the placeholder for the Lens Group ID with your ow
 #### JavaScript
 <a name="integrating-snap-web-fetch-apply-lens-code"></a>
 
-```
+```javascript
 session = await cameraKit.createSession({ liveRenderTarget });
   const { lenses } = await cameraKit.lensRepository.loadLensGroups([
     'INSERT_YOUR_LENS_GROUP_ID_HERE',
@@ -736,7 +735,7 @@ Use the [captureStream](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCan
 #### JavaScript
 <a name="integrating-snap-web-render-output-to-canvas-code"></a>
 
-```
+```javascript
 const snapStream = liveRenderTarget.captureStream();
 
   lensSelector.addEventListener('change', handleLensChange);
@@ -771,7 +770,7 @@ Create the following function to populate the **Lens** selector with the lenses 
 #### JavaScript
 <a name="integrating-snap-web-populate-lens-dropdown-code"></a>
 
-```
+```javascript
 const populateLensSelector = (lenses) => {
   lensSelector.innerHTML = '<option selected disabled>Choose Lens</option>';
 
@@ -801,7 +800,7 @@ With Lens now applied to the `MediaStream` captured from the canvas, we can then
 #### JavaScript
 <a name="integrating-snap-web-publish-localstagestream-code"></a>
 
-```
+```javascript
 async function setCameraKitSource(session, mediaStream) {
   const source = createMediaStreamSource(mediaStream);
   await session.setSource(source);
@@ -850,7 +849,7 @@ The remaining code below is for creating and managing our stage:
 #### JavaScript
 <a name="integrating-snap-web-create-manage-stage-code"></a>
 
-```
+```javascript
 stage = new Stage(token, strategy);
 
   // Other available events:
@@ -958,7 +957,7 @@ Create `webpack.config.js` and add the following code. This bundles the code we 
 #### JavaScript
 <a name="integrating-snap-web-webpack-config-code"></a>
 
-```
+```javascript
 const path = require('path');
 module.exports = {
   entry: ['./stage.js'],
@@ -987,7 +986,7 @@ This creates two files: `key.pem` (the private key) and `cert.pem` (the self-sig
 #### Python
 <a name="integrating-snap-web-https-server-test-code"></a>
 
-```
+```python
 import http.server
 import ssl
 
@@ -1030,7 +1029,7 @@ To install the Camera Kit SDK, add the following to your module’s `build.gradl
 ### Java
 <a name="integrating-snap-android-install-camerakit-sdk-code"></a>
 
-```
+```java
 implementation "com.snap.camerakit:camerakit:$cameraKitVersion"
 ```
 
@@ -1039,7 +1038,7 @@ Initialize and obtain a `cameraKitSession`. Camera Kit also provides a convenien
 ### Java
 <a name="integrating-snap-android-initialize-camerakitsession-code"></a>
 
-```
+```java
  protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -1067,7 +1066,7 @@ You can configure Lenses and their ordering in the carousel on the [Camera Kit D
 #### Java
 <a name="integrating-snap-android-configure-lenses-code"></a>
 
-```
+```java
 // Fetch lenses from repository and apply them
  // Replace LENS_GROUP_ID with Lens Group ID from https://camera-kit.snapchat.com
 cameraKitSession.getLenses().getRepository().get(new Available(LENS_GROUP_ID), available -> {
@@ -1083,7 +1082,7 @@ To broadcast, send processed frames to the underlying `Surface` of a custom imag
 #### Java
 <a name="integrating-snap-android-broadcast-code"></a>
 
-```
+```java
 val publishStreams = ArrayList<LocalStageStream>()
 
 val deviceDiscovery = DeviceDiscovery(applicationContext)

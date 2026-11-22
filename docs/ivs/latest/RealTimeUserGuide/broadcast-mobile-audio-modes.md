@@ -1,7 +1,6 @@
 
 
 # IVS Broadcast SDK: Mobile Audio Modes \| Real-Time Streaming
-<a name="broadcast-mobile-audio-modes"></a>
 
 Audio quality is an important part of any real-team media experience, and there isn’t a one-size-fits-all audio configuration that works best for every use case. To ensure that your users have the best experience when listening to an IVS real-time stream, our mobile SDKs provide several preset audio configurations, as well as more powerful customizations as needed.
 
@@ -17,7 +16,7 @@ Before you create your first `DeviceDiscovery` or `Stage` object, the `StageAudi
 ------
 #### [ Android (Kotlin) ]
 
-```
+```kotlin
 StageAudioManager.getInstance(context).setPreset(StageAudioManager.UseCasePreset.VIDEO_CHAT) // The default value
 
 val deviceDiscovery = DeviceDiscovery(context)
@@ -29,7 +28,7 @@ val stage = Stage(context, token, this)
 ------
 #### [ iOS (Swift) ]
 
-```
+```swift
 IVSStageAudioManager.sharedInstance().setPreset(.videoChat) // The default value
 
 let deviceDiscovery = IVSDeviceDiscovery()
@@ -108,7 +107,7 @@ Note: When using these audio SDK methods, it is possible to incorrectly configur
 ------
 #### [ Android (Kotlin) ]
 
-```
+```kotlin
 // This would act similar to the Subscribe Only preset, but it uses a different ContentType.
 StageAudioManager.getInstance(context)
     .setConfiguration(StageAudioManager.Source.GENERIC,
@@ -123,7 +122,7 @@ val stage = Stage(context, token, this)
 ------
 #### [ iOS (Swift) ]
 
-```
+```swift
 // This would act similar to the Subscribe Only preset, but it uses a different mode and options.
 IVSStageAudioManager.sharedInstance()
     .setCategory(.playback,
