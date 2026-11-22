@@ -1,7 +1,6 @@
 
 
 # Step 1: Set up your Amazon S3 infrastructure
-<a name="inbound-tutorial-step1-s3-setup"></a>
 
 AWS B2B Data Interchange requires Amazon S3 buckets to store input EDI documents and output transformed files. You need to configure proper permissions and enable EventBridge notifications for the service to automatically process your documents.
 

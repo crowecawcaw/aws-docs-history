@@ -1,7 +1,6 @@
 
 
 # Next steps
-<a name="outbound-tutorial-conclusion"></a>
 
 This outbound tutorial provides a complete foundation for generating X12 EDI documents from JSON data using AWS B2B Data Interchange. You can extend this setup by adding more transaction sets, creating additional outbound transformations, or integrating with AWS Transfer Family for automated EDI transmission to trading partners.
 

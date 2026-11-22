@@ -1,7 +1,6 @@
 
 
 # EDI Validation
-<a name="edi-validation"></a>
 
 EDI Validation is the process of confirming whether an EDI file adheres to an EDI standard. EDI standards define how business documents should be organized and ensure smooth communication between trading partners and their systems. AWS B2B Data Interchange performs EDI validation at various points when you interact with the service, such as when transforming an EDI file to XML or JSON.
 

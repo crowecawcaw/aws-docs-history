@@ -1,7 +1,6 @@
 
 
 # Supported X12 transaction sets
-<a name="x12-transaction-sets"></a>
 
 ANSI X12 defines and maintains transaction sets that establish the data content exchanged for specific business purposes. Transaction sets are identified by a numeric identifier and a name. For more details about X12 transaction sets, see [X12 Transaction Sets](https://x12.org/products/transaction-sets). The following table lists the X12 transaction sets that AWS B2B Data Interchange currently supports.
 

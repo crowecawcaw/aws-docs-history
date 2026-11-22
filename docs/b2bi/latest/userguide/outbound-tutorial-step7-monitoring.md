@@ -1,7 +1,6 @@
 
 
 # Step 7: Monitor your outbound workflow
-<a name="outbound-tutorial-step7-monitoring"></a>
 
 Monitoring helps you track transformation success, identify issues, and maintain operational visibility for your outbound EDI generation. AWS B2B Data Interchange integrates with CloudWatch and EventBridge for comprehensive monitoring.
 

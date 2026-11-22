@@ -1,7 +1,6 @@
 
 
 # Quick setup using the console
-<a name="getting-started-quick"></a>
 
 This topic provides instructions on how to quickly setup B2B Data Interchange. From the B2B Data Interchange landing page ([https://console.aws.amazon.com/b2bi/](https://console.aws.amazon.com/b2bi/)), choose the **Quick setup** option. The quick setup makes it easy for you to create the resources needed to build and run your EDI-based workflows on AWS B2B Data Interchange. Follow the steps below to connect with your trading partners and start transforming EDI data in JSON and XML to simplify your downstream integrations.
 

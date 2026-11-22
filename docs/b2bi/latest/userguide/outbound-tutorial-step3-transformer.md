@@ -1,7 +1,6 @@
 
 
 # Step 3: Creating an outbound transformer
-<a name="outbound-tutorial-step3-transformer"></a>
 
 An outbound transformer defines how to convert JSON data to X12 EDI format. It contains the mapping logic that takes structured JSON purchase order data and transforms it into properly formatted X12 850 EDI documents for transmission to your trading partners.
 
@@ -15,7 +14,7 @@ Before creating the transformer, you must create sample documents in the buckets
 
    1. Save the following JSON code to a file named `sample-purchase-order.json`:
 
-      ```
+      ```json
       {
         "purchaseOrder": {
           "poNumber": "PO789012",

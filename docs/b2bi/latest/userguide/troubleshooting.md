@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS B2B Data Interchange
-<a name="troubleshooting"></a>
 
 This section provides solutions to common issues you might encounter when working with AWS B2B Data Interchange.
 

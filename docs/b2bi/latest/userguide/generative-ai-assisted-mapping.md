@@ -1,7 +1,6 @@
 
 
 # Generative AI-assisted EDI mapping
-<a name="generative-ai-assisted-mapping"></a>
 
 The AWS B2B Data Interchange generative AI-assisted EDI mapping capability expedites the process of writing and testing bi-directional EDI mappings, reducing the time, effort, and costs associated with migrating your EDI workloads to AWS. This capability leverages your existing EDI documents and transactional data samples to generate mapping code using generative AI. You can then use the generated mapping code as a starting point and further customize it to produce output formats that align with downstream data integration needs.
 

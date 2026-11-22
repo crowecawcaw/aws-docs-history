@@ -1,7 +1,6 @@
 
 
 # Step 3: Create an inbound transformer
-<a name="inbound-tutorial-step3-transformer"></a>
 
 An inbound transformer defines how to convert X12 EDI documents to JSON or XML format. It contains the mapping logic that extracts data from the structured EDI format and transforms it into a more accessible JSON structure for your applications.
 
@@ -41,7 +40,7 @@ Before creating the transformer, you need to create sample input and output file
 
 1. Create a file named `sample-purchase-order-output.json` with the following content:
 
-   ```
+   ```json
    {
      "purchaseOrder": {
        "poNumber": "PO123456",

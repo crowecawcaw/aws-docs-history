@@ -1,7 +1,6 @@
 
 
 # Step 6: Test your outbound configuration
-<a name="outbound-tutorial-step6-testing"></a>
 
 Testing ensures your complete outbound workflow functions correctly before processing real business documents. This validates that all components work together and that your JSON data is properly transformed into valid X12 EDI documents.
 
@@ -9,7 +8,7 @@ Testing ensures your complete outbound workflow functions correctly before proce
 
 1. Create a test JSON file named `test-purchase-order.json` with this content:
 
-   ```
+   ```json
    {
      "purchaseOrder": {
        "poNumber": "TEST-PO-001",

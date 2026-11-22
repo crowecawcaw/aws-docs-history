@@ -1,7 +1,6 @@
 
 
 # AWS B2B Data Interchange events detail reference
-<a name="events-detail-reference"></a>
 
 All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that is the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
@@ -27,7 +26,7 @@ This section describes the detail fields for the following events:
 
 The `source` and `detail-type` fields are included because they contain specific values for AWS B2B Data Interchange events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
   . . .,
   "detail-type": "string",
@@ -128,7 +127,7 @@ This section describes the detail fields for the following events:
 
 The `source` and `detail-type` fields are included because they contain specific values for AWS B2B Data Interchange events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
    "version": "0",
    "id": "12345678-abcd-efgh-ijkl-mnopqrstuvwx",
@@ -216,7 +215,7 @@ This section describes the detail fields for the following events:
 
 The `source` and `detail-type` fields are included because they contain specific values for AWS B2B Data Interchange events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-```
+```json
 {
   . . .,
   "detail-type": "string",

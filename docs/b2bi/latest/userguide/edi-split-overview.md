@@ -1,7 +1,6 @@
 
 
 # EDI splitting
-<a name="edi-split-overview"></a>
 
 AWS B2B Data Interchange supports splitting of inbound X12 EDI documents that contain multiple transactions into individually processed single-transaction documents. This capability increases the maximum supported file size for multi-transaction EDI documents from 150MB to 5GB and enables independent processing of each transaction, even when trading partners send them batched in a single EDI file.
 

@@ -1,7 +1,6 @@
 
 
 # Transforming and generating EDI
-<a name="transform-variations"></a>
 
 There are multiple ways to transform or generate X12 EDI in AWS B2B Data Interchange. This topic describes the various ways you can create and configure inbound and outbound transformations.
 + *Inbound EDI*: you receive an X12 EDI document from your trading partner. AWS B2B Data Interchange converts this X12 EDI document into a JSON or XML formatted data file with a service-defined structure. You can optionally apply a mapping—written in JSONata or XSLT—to produce a custom JSON or XML formatted data file. 

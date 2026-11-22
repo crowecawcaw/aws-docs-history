@@ -1,7 +1,6 @@
 
 
 # Configure AWS B2B Data Interchange using an CloudFormation template
-<a name="quickstart-template"></a>
 
 We provide a basic stack that you can use to quickly configure all the resources you need to work with AWS B2B Data Interchange.
 

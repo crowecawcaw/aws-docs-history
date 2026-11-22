@@ -1,7 +1,6 @@
 
 
 # Cleanup steps
-<a name="inbound-tutorial-cleanup"></a>
 
 Proper cleanup prevents ongoing charges for unused resources and maintains a clean AWS environment. This section ensures you remove all tutorial resources while preserving any configurations you want to keep.
 

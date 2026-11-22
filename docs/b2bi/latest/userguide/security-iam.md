@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS B2B Data Interchange
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS B2B Data Interchange resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -221,7 +220,7 @@ To ensure that users and roles can still use the B2B Data Interchange console, a
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

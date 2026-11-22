@@ -1,7 +1,6 @@
 
 
 # Step 4: Create a trading capability
-<a name="inbound-tutorial-step4-capability"></a>
 
 A trading capability connects your transformer to specific Amazon S3 directories and defines the automated workflow. It monitors your input directory for new EDI files and automatically processes them using your transformer, placing results in the output directory.
 

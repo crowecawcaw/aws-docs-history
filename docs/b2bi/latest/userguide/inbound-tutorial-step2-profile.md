@@ -1,7 +1,6 @@
 
 
 # Step 2: Create your business profile
-<a name="inbound-tutorial-step2-profile"></a>
 
 A profile stores your business contact information and serves as the foundation for all your AWS B2B Data Interchange activities. It represents your organization in trading partnerships and provides logging configuration for monitoring transformations.
 

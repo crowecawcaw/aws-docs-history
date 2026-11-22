@@ -1,7 +1,6 @@
 
 
 # Inbound EDI
-<a name="transform-inbound-variations"></a>
 
 There are two ways that you can invoke a transformer to convert inbound X12 documents to XML or JSON format.
 + **Invoking `StartTransformerJob` API**. With this approach, you create an inbound transformer that is configured to transform a specific transaction set and version into JSON or XML. You then invoke the `StartTransformerJob` action, which requires a Transformer ID, the absolute file path in Amazon S3 for the input EDI document, and the output directory path in Amazon S3 for the transformed JSON/XML file.

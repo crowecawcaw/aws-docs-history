@@ -1,7 +1,6 @@
 
 
 # Step 6: Test your inbound configuration
-<a name="inbound-tutorial-step6-testing"></a>
 
 Testing ensures your complete inbound workflow functions correctly before processing real business documents. This validates that all components work together and helps identify any configuration issues.
 
