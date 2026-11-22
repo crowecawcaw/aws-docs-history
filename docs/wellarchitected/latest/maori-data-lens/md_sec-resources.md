@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="md_sec-resources"></a>
 
 The following resources are specific to security and can help you apply Māori data considerations.
 +  [AWS Well Architect Framework – Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) 

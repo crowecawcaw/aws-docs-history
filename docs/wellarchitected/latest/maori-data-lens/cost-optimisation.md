@@ -1,7 +1,6 @@
 
 
 # Cost optimisation
-<a name="cost-optimisation"></a>
 
  The [Cost Optimization Pillar](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html) provides guidance on a cost-optimised workload. A cost-optimised workload fully uses all resources, achieves an outcome at the lowest possible price point, and meets your functional requirements. This document provides in-depth guidance for building capability within your organisation, designing your workload, selecting your services, configuring and operating the services, and applying cost optimisation techniques. You can find prescriptive guidance on implementation in the [Cost Optimization Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html). 
 

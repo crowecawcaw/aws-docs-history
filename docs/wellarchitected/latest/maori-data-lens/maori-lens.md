@@ -1,7 +1,6 @@
 
 
 # Māori Data Lens - AWS Well-Architected Framework
-<a name="maori-lens"></a>
 
 Publication date: **August 1, 2024** ([Document history](document-history.md))
 

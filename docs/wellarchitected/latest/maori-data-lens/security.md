@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The Security Pillar helps you meet your business and regulatory requirements by following current AWS recommendations. It's intended for those in technology roles, such as chief technology officers (CTOs), chief information security officers (CSOs/CISOs), architects, chief information/privacy officers (CIOs/CPOs), developers, and operations team members. After reading this document, you can understand current AWS recommendations and strategies to use when designing cloud architectures with security in mind. You can find prescriptive guidance on implementation in the [Security Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html?ref=wellarchitected-wp). 
 

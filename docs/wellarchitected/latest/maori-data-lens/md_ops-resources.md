@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="md_ops-resources"></a>
 
 The following resources are specific to operational excellence and can help you apply Māori data considerations.
 +  [FAIR principles](https://www.go-fair.org/fair-principles/) 

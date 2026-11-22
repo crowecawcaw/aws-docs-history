@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
 The Operational Excellence Pillar provides guidance on running and monitoring systems to deliver customer value and continually improving the supporting processes and procedures. The pillar also provides an overview of design principles, best practices, and questions. You can find prescriptive guidance on implementation in the [Operational Excellence Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Scenario: Digital archive solution
-<a name="scenarios"></a>
 
 The following example explains a digital archive solution scenario, its requirements, relevant Māori data considerations, and how to apply the AWS Well-Architected Pillars.
 

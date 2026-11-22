@@ -1,7 +1,6 @@
 
 
 # Sustainability
-<a name="sustainability"></a>
 
  The Sustainability Pillar provides design principles, operational guidance, best-practices, potential trade-offs, and improvement plans you can use to meet sustainability targets for your AWS workloads. If relevant, you can find prescriptive guidance on implementation in the [Sustainability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html). 
 

@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
  The [Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html) addresses best practices for managing production environments. This document does not cover the design and management of non-production environments and processes, such as continuous integration or delivery. The Well-Architected Performance Efficiency Pillar provides an overview of design principles, best practices, and questions. If relevant, you can find guidance on implementation in the [Performance Efficiency Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html). 
 

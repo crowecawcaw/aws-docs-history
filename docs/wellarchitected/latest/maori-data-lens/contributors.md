@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 +  Craig Hind, Solutions Architect, Worldwide Public Sector, ANZ AWS 

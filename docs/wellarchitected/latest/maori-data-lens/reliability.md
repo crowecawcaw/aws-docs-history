@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The Reliability Pillar encompasses the ability of a workload to perform its intended function correctly and consistently when it's expected to. This includes the ability to operate and test the workload through its total lifecycle. This document provides in-depth, best practice guidance for implementing reliable workloads on AWS. If relevant, you can find prescriptive guidance on implementation in the [Reliability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html). This pillar encompasses the ability of a workload to perform its intended function correctly and consistently when it's expected to.
 
