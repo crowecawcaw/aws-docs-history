@@ -1,7 +1,6 @@
 
 
 # What is the Amazon MWAA migration guide?
-<a name="about-mwaa-migration"></a>
 
  Amazon Managed Workflows for Apache Airflow is a managed orchestration service for [Apache Airflow](https://airflow.apache.org/) that allows you to operate data pipelines in the cloud at scale. Amazon MWAA manages the provisioning and ongoing maintenance of Apache Airflow so you no longer need to worry about patching, scaling, or securing instances. 
 

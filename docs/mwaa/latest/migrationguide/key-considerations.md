@@ -1,7 +1,6 @@
 
 
 # Key considerations for migrating to a new MWAA environment
-<a name="key-considerations"></a>
 
  Learn more about key considerations, such as authentication and the Amazon MWAA execution role, as you plan to migrate your Apache Airflow workloads to Amazon MWAA. 
 
@@ -32,7 +31,7 @@
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

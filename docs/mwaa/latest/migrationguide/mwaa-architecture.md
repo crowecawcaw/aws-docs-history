@@ -1,7 +1,6 @@
 
 
 # Explore Amazon MWAA network architecture
-<a name="mwaa-architecture"></a>
 
 The following section describes the main components that make up an Amazon MWAA environment, and the set of AWS services that each environment integrates with to manage its resources, keep your data secure, and provide monitoring and visibility for your workflows.
 
