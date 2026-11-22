@@ -3,7 +3,6 @@
 AWS Blockchain Templates was discontinued on April 30, 2019. No further updates to this service or this supporting documentation will be made. For the best Managed Blockchain experience on AWS, we recommend that you use [ Amazon Managed Blockchain (AMB)](https://aws.amazon.com/managed-blockchain/). To learn more about getting started with Amazon Managed Blockchain, see our [ workshop on Hyperledger Fabric](https://catalog.us-east-1.prod.workshops.aws/workshops/008da2cb-8454-42d0-877b-bc290bff7fcf/en-US), or our [blog on deploying an Ethereum node](https://aws.amazon.com/blogs/database/deploy-an-ethereum-node-on-amazon-managed-blockchain/). If you have questions about AMB or require further support, [contact Support](https://console.aws.amazon.com/support/home#/case/create?issueType=technical) or your AWS account team.
 
 # Using the AWS Blockchain Template for Ethereum
-<a name="blockchain-templates-ethereum"></a>
 
 Ethereum is a blockchain framework that runs smart contracts using Solidity, an Ethereum-specific language. Homestead is the most recent release of Ethereum. For more information, see the [Ethereum Homestead Documentation](http://www.ethdocs.org/en/latest/) and the [Solidity](https://solidity.readthedocs.io/en/v0.4.21/#) documentation.
 

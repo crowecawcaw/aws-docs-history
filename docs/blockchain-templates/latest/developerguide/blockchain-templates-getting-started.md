@@ -3,7 +3,6 @@
 AWS Blockchain Templates was discontinued on April 30, 2019. No further updates to this service or this supporting documentation will be made. For the best Managed Blockchain experience on AWS, we recommend that you use [ Amazon Managed Blockchain (AMB)](https://aws.amazon.com/managed-blockchain/). To learn more about getting started with Amazon Managed Blockchain, see our [ workshop on Hyperledger Fabric](https://catalog.us-east-1.prod.workshops.aws/workshops/008da2cb-8454-42d0-877b-bc290bff7fcf/en-US), or our [blog on deploying an Ethereum node](https://aws.amazon.com/blogs/database/deploy-an-ethereum-node-on-amazon-managed-blockchain/). If you have questions about AMB or require further support, [contact Support](https://console.aws.amazon.com/support/home#/case/create?issueType=technical) or your AWS account team.
 
 # Getting Started with AWS Blockchain Templates
-<a name="blockchain-templates-getting-started"></a>
 
 This tutorial demonstrates how to use the AWS Blockchain Template for Ethereum to create a private blockchain network on AWS through CloudFormation. The network that you create has two Ethereum clients and one miner running on Amazon EC2 instances in an Amazon ECS cluster. Amazon ECS runs these services in Docker containers pulled from Amazon ECR. Before you start this tutorial, it's helpful to know about blockchain networks and the AWS services involved, but not required.
 
