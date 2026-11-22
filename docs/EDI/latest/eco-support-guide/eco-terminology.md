@@ -1,7 +1,6 @@
 
 
 # EDI Cloud Operations terminology
-<a name="eco-terminology"></a>
 
 ECO uses the following general terms:
 + Managed environment or EDI environment: The AWS accounts where EDI on AWS is deployed (only EDI resources).

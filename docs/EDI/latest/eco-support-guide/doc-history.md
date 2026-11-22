@@ -1,7 +1,6 @@
 
 
 # Document history for EDI Cloud Operations Support Guide
-<a name="doc-history"></a>
 
 | Change | Description | Date | 
 | --- |--- |--- |

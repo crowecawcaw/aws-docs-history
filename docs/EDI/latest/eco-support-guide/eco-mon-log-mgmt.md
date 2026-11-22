@@ -1,7 +1,6 @@
 
 
 # Log management in EDI
-<a name="eco-mon-log-mgmt"></a>
 
 ECO conﬁgures supported AWS services to collect logs. ECO uses the logs to monitor compliance and audit resources within your account.
 

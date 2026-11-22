@@ -1,7 +1,6 @@
 
 
 # Service request management in ECO
-<a name="service-request-mgmt"></a>
 
 ECO uses service request management to record, act on, communicate the progress of, and provide notiﬁcation of active service requests.
 

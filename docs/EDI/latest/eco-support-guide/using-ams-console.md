@@ -1,7 +1,6 @@
 
 
 # Using the AMS console
-<a name="using-ams-console"></a>
 
 The AMS console is available for you to interact with ECO. The console behaves similarly to other AWS consoles. However, only EDI on AWS enabled accounts can access the AMS console for EDI. After EDI is deployed in your account, you can search for **Managed Services** in the uniﬁed search bar to access the AMS console.
 

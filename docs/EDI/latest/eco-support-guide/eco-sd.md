@@ -1,7 +1,6 @@
 
 
 # ECO service description
-<a name="eco-sd"></a>
 
 EDI Cloud Operations (ECO) provides operational solutions and support for EDI on AWS.
 

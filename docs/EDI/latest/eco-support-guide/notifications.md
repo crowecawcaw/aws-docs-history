@@ -1,7 +1,6 @@
 
 
 # Setting up notifications
-<a name="notifications"></a>
 
 Communication between you and your ECO team occurs for the following reasons:
 + Events that monitoring alerts create

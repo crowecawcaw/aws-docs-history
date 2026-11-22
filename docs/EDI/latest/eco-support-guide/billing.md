@@ -1,7 +1,6 @@
 
 
 # Submit EDI billing questions
-<a name="billing"></a>
 
 To submit a billing-related question:
 

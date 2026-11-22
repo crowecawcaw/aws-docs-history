@@ -1,7 +1,6 @@
 
 
 # Onboarding to EDI Cloud Operations
-<a name="onboarding"></a>
 
 After you sign up for EDI and accept the terms of agreement, your E-SDM guides you through the onboarding process and checklist. 
 

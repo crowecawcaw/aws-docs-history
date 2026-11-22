@@ -1,7 +1,6 @@
 
 
 # EDI Cloud Operations features and entitlements
-<a name="eco-features"></a>
 
 ECO offers the following features:
 + **Deployment and upgrades** – ECO deploys EDI on AWS instances in your AWS accounts, provides initial setup and configuration support, and deploys maintenance and feature upgrades as necessary.

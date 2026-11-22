@@ -1,7 +1,6 @@
 
 
 # ECO SIR roles and responsibilities
-<a name="eco-raci-sir"></a>
 
 The following tables describe your (the "Customer") responsibilities compared with our ("AWS") responsibilities for the phases of security incident response (SIR).
 

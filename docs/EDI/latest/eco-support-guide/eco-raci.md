@@ -1,7 +1,6 @@
 
 
 # EDI Cloud Operations roles and responsibilities
-<a name="eco-raci"></a>
 
 The ECO responsible, accountable, consulted, and informed, or RACI, matrix assigns primary responsibility either to you or ECO for a variety of activities.
 

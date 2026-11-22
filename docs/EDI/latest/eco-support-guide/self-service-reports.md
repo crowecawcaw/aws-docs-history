@@ -1,7 +1,6 @@
 
 
 # EDI self-service reports and options
-<a name="self-service-reports"></a>
 
 The following self-service reports are available to you:
 + **Monthly billing charges report** – Details about EDI monthly billing charges.

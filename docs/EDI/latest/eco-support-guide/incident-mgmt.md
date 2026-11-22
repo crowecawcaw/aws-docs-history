@@ -1,7 +1,6 @@
 
 
 # Incident management in ECO
-<a name="incident-mgmt"></a>
 
 In ECO, you can use the AWS Support Center Console to create incidents. Incidents are EDI performance issues that affect your managed environment, as determined by ECO or you. An incident that the ECO team identiﬁes is ﬁrst received as an "event," which is a change in the system state that monitoring captures. If a conﬁgured threshold is exceeded, then the event initiates an alarm, also called an alert. The ECO team determines if the event is non-impacting, an incident, or a problem. The ECO team also receives incidents that you programmatically create using the AWS Support API with the `service-ams-operations-report-incident` service code.
 

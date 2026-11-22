@@ -1,7 +1,6 @@
 
 
 # What is EDI Cloud Operations?
-<a name="what-is-eco"></a>
 
 Energy Data Insights on AWS (EDI) managed by AWS Managed Services (AMS) helps you to easily deploy, manage, and operate your subsurface data management platform on AWS, in compliance with the [Open Subsurface Data Universe (OSDU®)](https://osduforum.org/) technical standards. For information, see [AWS Announces Managed Support for Energy Data Insights](https://aws.amazon.com/about-aws/whats-new/2025/05/managed-support-energy-data-insights).
 

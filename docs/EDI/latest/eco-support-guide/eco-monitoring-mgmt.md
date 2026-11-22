@@ -1,7 +1,6 @@
 
 
 # Monitoring and event management for EDI
-<a name="eco-monitoring-mgmt"></a>
 
 The ECO monitors your EDI resources, including Amazon EKS resources for failures, performance degradation, and security issues. 
 

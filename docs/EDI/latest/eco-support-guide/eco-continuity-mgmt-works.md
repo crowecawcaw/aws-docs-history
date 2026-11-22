@@ -1,7 +1,6 @@
 
 
 # How continuity management works
-<a name="eco-continuity-mgmt-works"></a>
 
 AMS backup plans for EDI deﬁne how frequently AWS Backup backs up your data and the retention policy for your backups. ECO backup vaults keep your backup data organized. After you associate a compatible resource with a backup plan, AWS Backup automatically backs up the resource. The ﬁrst backup is a full copy, and subsequent backups capture incremental changes.
 
