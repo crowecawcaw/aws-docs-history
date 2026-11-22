@@ -1,7 +1,6 @@
 
 
 # Content Domain 4: Design Cost-Optimized Architectures
-<a name="solutions-architect-associate-03-domain4"></a>
 
 **Topics**
 + [Task 4.1: Design cost-optimized storage solutions](#solutions-architect-associate-03-domain4-task1)

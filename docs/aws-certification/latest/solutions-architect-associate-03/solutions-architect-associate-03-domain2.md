@@ -1,7 +1,6 @@
 
 
 # Content Domain 2: Design Resilient Architectures
-<a name="solutions-architect-associate-03-domain2"></a>
 
 **Topics**
 + [Task 2.1: Design scalable and loosely coupled architectures](#solutions-architect-associate-03-domain2-task1)

@@ -1,7 +1,6 @@
 
 
 # Content Domain 1: Design Secure Architectures
-<a name="solutions-architect-associate-03-domain1"></a>
 
 **Topics**
 + [Task 1.1: Design secure access to AWS resources](#solutions-architect-associate-03-domain1-task1)

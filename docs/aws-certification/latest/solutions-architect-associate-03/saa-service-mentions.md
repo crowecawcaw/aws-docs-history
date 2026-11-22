@@ -1,7 +1,6 @@
 
 
 # Mentions of AWS Services on the Exam
-<a name="saa-service-mentions"></a>
 
 AWS Certification is reducing the reading load on this exam by using official short names for well-known AWS service names that contain abbreviations or parenthetical information. For example, *Amazon Simple Notification Service (Amazon SNS)* appears on the exam as *Amazon SNS*.
 + The Help feature in the exam (available for every question) contains the list of the short AWS service names and their corresponding full names.

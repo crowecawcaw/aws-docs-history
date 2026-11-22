@@ -1,7 +1,6 @@
 
 
 # Content Domain 3: Design High-Performing Architectures
-<a name="solutions-architect-associate-03-domain3"></a>
 
 **Topics**
 + [Task 3.1: Determine high-performing and/or scalable storage solutions](#solutions-architect-associate-03-domain3-task1)
