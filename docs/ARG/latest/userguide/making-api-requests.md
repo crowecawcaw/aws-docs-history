@@ -1,7 +1,6 @@
 
 
 # Making API requests
-<a name="making-api-requests"></a>
 
 Query requests for the AWS Resource Groups are HTTP or HTTPS requests that use an HTTP verb such as `GET` or `POST`.
 

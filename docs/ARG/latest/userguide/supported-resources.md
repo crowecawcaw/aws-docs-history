@@ -1,7 +1,6 @@
 
 
 # Resource types you can use with AWS Resource Groups and Tag Editor
-<a name="supported-resources"></a>
 
 You can use the AWS Management Console or the AWS CLI to create resource groups and then interact with the member resources through those groups. You can add tags to many AWS resources and then use those tags to manage group membership. This topic describes the AWS resource types that you can include in resource groups by using AWS Resource Groups, and the resource types that you can tag by using Tag Editor.
 

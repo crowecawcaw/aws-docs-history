@@ -1,7 +1,6 @@
 
 
 # Group lifecycle events: Monitoring resource groups for changes
-<a name="monitor-groups"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).

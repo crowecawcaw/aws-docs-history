@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Resource Groups
-<a name="using-service-linked-roles"></a>
 
 AWS Resource Groups uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Resource Groups. Service-linked roles are predefined by Resource Groups and include all the permissions that the service requires to call other AWS services on your behalf. 
 
@@ -71,7 +70,7 @@ The role disappears from your list of roles in the IAM console.
 **To delete the Resource Groups service-linked role**  
 To delete the role, enter the following command with the parameters exactly as shown. Do not replace any of the values.
 
-```
+```bash
 $ aws iam delete-service-linked-role \
     --role-name AWSServiceRoleForResourceGroups
 {
@@ -81,7 +80,7 @@ $ aws iam delete-service-linked-role \
 
 The command returns a task ID. The actual role deletion occurs asynchronously. You can check the status of the role deletion by passing the provided task identifier to the following AWS CLI command.
 
-```
+```bash
 $ aws iam get-service-linked-role-deletion-status \
     --deletion-task-id "task/aws-service-role/resource-groups.amazonaws.com/AWSServiceRoleForResourceGroups/34e58943-e9a5-4220-9856-fc565EXAMPLE"
 {

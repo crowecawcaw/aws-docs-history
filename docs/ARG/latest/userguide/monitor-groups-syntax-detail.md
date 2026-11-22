@@ -1,7 +1,6 @@
 
 
 # Structure of the `detail` field
-<a name="monitor-groups-syntax-detail"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
@@ -58,7 +57,7 @@ The event indicates that a new group was created. The event carries all the grou
 
 The following example event indicates a newly created resource group named `my-service-group`. In this example, the group uses a tag-based query that matches only Amazon Elastic Compute Cloud (Amazon EC2) instances that have the tag `"project"="my-service"`.
 
-```
+```json
 {
     "version": "0",
     "id": "08f00e24-2e30-ec44-b824-8acddf1ac868",
@@ -100,7 +99,7 @@ The event indicates that an existing group was modified in some way. The event c
 
 The following example event indicates that the tag-based query in the previous example's resource group was modified to also include Amazon EC2 volume resources in the group.
 
-```
+```json
 {
     "version": "0",
     "id": "08f00e24-2e30-ec44-b824-8acddf1ac868",
@@ -149,7 +148,7 @@ The following example event indicates that the tag-based query in the previous e
 
 The event indicates that an existing group was deleted. The detail field includes no metadata about the group other than its identification. The `event-sequence` field is reset after this event as it is, by definition, the last event for this `arn` and `unique-id`.
 
-```
+```json
 {
     "version": "0",
     "id": "08f00e24-2e30-ec44-b824-8acddf1ac868",
@@ -191,7 +190,7 @@ The information included in the `details` section when this `detail-type` is spe
 
 The following code example illustrates the contents of the event for a typical membership change type. This example shows one resource being added to the group, and one resource being removed from the group.
 
-```
+```json
 {
     "version": "0",
     "id": "08f00e24-2e30-ec44-b824-8acddf1ac868",

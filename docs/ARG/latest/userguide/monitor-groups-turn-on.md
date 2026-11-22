@@ -1,7 +1,6 @@
 
 
 # Turning on group lifecycle events in Resource Groups
-<a name="monitor-groups-turn-on"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
@@ -50,7 +49,7 @@ That completes the first part of the process. After you turn on event notificati
 **To turn on group lifecycle events by using the AWS CLI or the AWS SDKs**  
 The following example show how to use the AWS CLI to turn on group lifecycle events in Resource Groups. Enter the command with the service principal parameter exactly as shown. The output shows both the current status and the desired status of the feature.
 
-```
+```bash
 $ aws resource-groups update-account-settings \
     --group-lifecycle-events-desired-status ACTIVE
 {
@@ -63,7 +62,7 @@ $ aws resource-groups update-account-settings \
 
 You can confirm that the feature is turned on by running the following example command. When both status fields show the same value, then the operation is complete.
 
-```
+```bash
 $ aws resource-groups get-account-settings
 {
     "AccountSettings": {

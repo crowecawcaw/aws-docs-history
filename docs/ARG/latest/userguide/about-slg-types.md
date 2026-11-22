@@ -1,7 +1,6 @@
 
 
 # Supported configuration types and parameters
-<a name="about-slg-types"></a>
 
 Resource Groups supports using the following configuration types. Each configuration type has a set of parameters that are valid for that type.
 
@@ -119,7 +118,7 @@ This application resource group automatically includes as group members the [res
 
 The following example shows what the configuration section of a `AWS::AppRegistry::Application` service-linked group looks like.
 
-```
+```json
 [
   {
     "Type": "AWS::AppRegistry::Application",
@@ -184,7 +183,7 @@ To change any of these elements, you must modify the application using the AppRe
 
 The following example shows what the configuration section of an `AWS::CloudFormation::Stack` service-linked group looks like.
 
-```
+```json
 [
   {
     "Type": "AWS::CloudFormation::Stack",
@@ -222,7 +221,7 @@ If you configure a service-linked resource group with a `Configuration` item of 
 
 The following example shows the `Configuration` section of an On-Demand Capacity Reservation:
 
-```
+```json
 {
   "Configuration": [
     {
@@ -246,7 +245,7 @@ The following example shows the `Configuration` section of an On-Demand Capacity
 
 The following example shows the `Configuration` section supporting Amazon EC2 UltraServer Capacity Blocks:
 
-```
+```json
 {
   "Configuration": [
     {
@@ -459,7 +458,7 @@ The following parameters are supported for the `AWS::EC2::HostManagement` servic
 
   The following example configuration item specifies that group members can use the two specified License Manager configurations.
 
-  ```
+  ```json
   [
     {
       "Type": "AWS::EC2::HostManagement",
@@ -539,7 +538,7 @@ The following parameters are supported for the `AWS::EC2::HostManagement` servic
 
 The following example illustrates how to include all of the host management settings together in a single configuration.
 
-```
+```json
 [
   {
     "Type": "AWS::EC2::HostManagement",
@@ -607,7 +606,7 @@ Resource groups of this configuration type have the following restrictions:
 
 The following example illustrates the `Configuration` and `ResourceQuery` sections for a group of this type.
 
-```
+```json
 {
   "Configuration": [
     {

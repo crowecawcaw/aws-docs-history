@@ -1,7 +1,6 @@
 
 
 # Structure and syntax of Resource Groups lifecycle events
-<a name="monitor-groups-syntax"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
@@ -12,7 +11,7 @@ AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer ope
 
 The lifecycle events for AWS Resource Groups take the form of [JSON](https://json.org) object strings in the following general format.
 
-```
+```JSON
 {
     "version": "0",
     "id": "08f00e24-2e30-ec44-b824-8acddf1ac868",

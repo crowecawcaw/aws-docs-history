@@ -1,7 +1,6 @@
 
 
 # Create an CloudFormation stack-based group
-<a name="gettingstarted-query-stack-based"></a>
 
 The following procedures show you how to build a stack-based query and use it to create a resource group.
 
@@ -45,7 +44,7 @@ An CloudFormation stack-based group is based on a query of type `CLOUDFORMATION_
 
    The {{stack\_identifier}} is the stack ARN, as shown in the example command.
 
-   ```
+   ```bash
    $ aws resource-groups create-group \
        --name {{group_name}} \
        --description "{{description}}" \
@@ -54,7 +53,7 @@ An CloudFormation stack-based group is based on a query of type `CLOUDFORMATION_
 
    The following command is an example.
 
-   ```
+   ```bash
    $ aws resource-groups create-group \
        --name My-CFN-stack-group \
        --description "My first CloudFormation stack-based group" \

@@ -1,7 +1,6 @@
 
 
 # Update an CloudFormation stack-based group
-<a name="updating-stack-based-resource-groups"></a>
 
 The following procedures show you how to update a CloudFormation stack-based group.
 

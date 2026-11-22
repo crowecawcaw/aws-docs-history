@@ -1,7 +1,6 @@
 
 
 # Learn more about AWS Resource Groups authorization and access control
-<a name="rg-auth-access"></a>
 
 Resource Groups supports the following.
 + **Action-based policies.** For example, you can create a policy that allows users to perform [**ListGroups**](https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroups.html) operations, but no others.

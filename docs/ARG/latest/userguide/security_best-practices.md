@@ -1,7 +1,6 @@
 
 
 # Security best practices for Resource Groups
-<a name="security_best-practices"></a>
 
 The following best practices are general guidelines and don’t represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 + **Use the principle of least privilege** to grant access to groups. Resource Groups supports resource-level permissions. Grant access to specific groups only as required for specific users. Avoid using asterisks in policy statements that assign permissions to all users or all groups. For more information about least privilege, see [Grant Least Privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) in the *IAM User Guide*.

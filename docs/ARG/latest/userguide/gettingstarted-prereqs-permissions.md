@@ -1,7 +1,6 @@
 
 
 # Set up permissions
-<a name="gettingstarted-prereqs-permissions"></a>
 
 
 
@@ -48,7 +47,7 @@ An allow list strategy takes advantage of the fact that access is denied by defa
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -64,7 +63,7 @@ Alternatively, you could use a "deny list" strategy that allows access to all re
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

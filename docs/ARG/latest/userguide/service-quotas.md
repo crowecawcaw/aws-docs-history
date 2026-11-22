@@ -1,7 +1,6 @@
 
 
 # Service quotas for Resource Groups
-<a name="service-quotas"></a>
 
 The following table describes quotas within AWS Resource Groups (Resource Groups). For adjustable quota, you can request an increase in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home). 
 

@@ -1,7 +1,6 @@
 
 
 # Example EventBridge custom event patterns for different use cases
-<a name="monitor-groups-example-eventbridge-filters"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
@@ -12,7 +11,7 @@ In the following code examples, if a specific group or resource is needed, repla
 
 All Resource Groups events  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ]
 }
@@ -21,7 +20,7 @@ All Resource Groups events
 Group state or membership change events  
 The following code example is for all group *state* changes.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group State Change " ]
@@ -29,7 +28,7 @@ The following code example is for all group *state* changes.
 ```
 The following code example is for all group *membership* changes.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group Membership Change" ]
@@ -38,7 +37,7 @@ The following code example is for all group *membership* changes.
 
 Events for a specific group  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail": {
@@ -50,7 +49,7 @@ Events for a specific group
 ```
 The previous example captures changes to the specified group. The following example does the same and also captures changes when the group is a member resource of another group.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "resources": [ "{{my-group-arn}}" ]
@@ -60,7 +59,7 @@ The previous example captures changes to the specified group. The following exam
 Events for a specific resource  
 You can filter only group membership change events for specific member resources.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group Membership Change " ],
@@ -71,7 +70,7 @@ You can filter only group membership change events for specific member resources
 Events for a specific resource type  
 You can use prefix matching with ARNs to match events for a specific resource type.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "resources": [
@@ -81,7 +80,7 @@ You can use prefix matching with ARNs to match events for a specific resource ty
 ```
 Alternatively, you can use exact matching by using `resource-type` identifiers, potentially matching on more than one type concisely. Unlike the previous example, the following example matches only group membership change events because group state change events don't include a `resources` field in their `detail` field.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail": {
@@ -94,7 +93,7 @@ Alternatively, you can use exact matching by using `resource-type` identifiers, 
 
 All resource removal events  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group Membership Change" ],
@@ -108,7 +107,7 @@ All resource removal events
 
 All resource removal events for a specific resource  
 
-```
+```json
  {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group Membership Change" ],
@@ -122,7 +121,7 @@ All resource removal events for a specific resource
 ```
 You can't use the **top-level** `resources` array that was used in the first example in this section for this type of event filtering. That's because a resource in the top-level `resources` element might be a resource being added to a group and the event would still match. In other words, the following code example might return unexpected events. Instead, use the syntax shown in the previous example.  
 
-```
+```json
 {
     "source": [ "aws.resource-groups" ],
     "detail-type": [ "ResourceGroups Group Membership Change" ],

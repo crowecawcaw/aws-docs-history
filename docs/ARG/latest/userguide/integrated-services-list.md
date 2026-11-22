@@ -1,7 +1,6 @@
 
 
 # AWS services that work with AWS Resource Groups
-<a name="integrated-services-list"></a>
 
 You can use the following AWS services with AWS Resource Groups. 
 

@@ -1,7 +1,6 @@
 
 
 # Turning off group lifecycle events
-<a name="monitor-groups-turn-off"></a>
 
 **Note**  
 AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
@@ -41,7 +40,7 @@ At this point, Resource Groups no longer sends events to the EventBridge default
 **To turn off group lifecycle event notifications to EventBridge**  
 The following example show how to use the AWS CLI to turn off group lifecycle events in Resource Groups. 
 
-```
+```bash
 $ aws resource-groups update-account-settings \
     ----group-lifecycle-events-desired-status INACTIVE
 {

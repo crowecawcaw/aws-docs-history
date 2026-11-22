@@ -1,7 +1,6 @@
 
 
 # Build a tag-based query and create a group
-<a name="gettingstarted-query-tag-based"></a>
 
 The following procedures show you how to build a tag-based query and use it to create a resource group.
 
@@ -43,7 +42,7 @@ A tag-based group is based on a query of type `TAG_FILTERS_1_0`.
 
    At least one value for `ResourceTypeFilters` is required. To specify all resource types, use `AWS::AllSupported` as the `ResourceTypeFilters` value.
 
-   ```
+   ```bash
    $ aws resource-groups create-group \
        --name {{resource-group-name}} \
        --resource-query '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"{{resource_type1}}\",\"{{resource_type2}}\"],\"TagFilters\":[{\"Key\":\"{{Key1}}\",\"Values\":[\"{{Value1}}\",\"{{Value2}}\"]},{\"Key\":\"{{Key2}}\",\"Values\":[\"{{Value1}}\",\"{{Value2}}\"]}]}"}'
@@ -51,7 +50,7 @@ A tag-based group is based on a query of type `TAG_FILTERS_1_0`.
 
    The following command is an example.
 
-   ```
+   ```bash
    $ aws resource-groups create-group \
        --name my-resource-group \
        --resource-query '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"AWS::EC2::Instance\"],\"TagFilters\":[{\"Key\":\"Stage\",\"Values\":[\"Test\"]}]}"}'
@@ -59,7 +58,7 @@ A tag-based group is based on a query of type `TAG_FILTERS_1_0`.
 
    The following command is an example that includes all supported resource types.
 
-   ```
+   ```bash
    $ aws resource-groups create-group \
        --name my-resource-group \
        --resource-query '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[{\"Key\":\"Stage\",\"Values\":[\"Test\"]}]}"}'
