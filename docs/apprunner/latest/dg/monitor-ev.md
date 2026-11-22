@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Handling App Runner events in EventBridge
-<a name="monitor-ev"></a>
 
 Using Amazon EventBridge, you can set up event-driven rules that monitor a stream of real-time data from your AWS App Runner service for certain patterns. When a pattern for a rule is matched, EventBridge initiates an action in a target such as AWS Lambda, Amazon ECS, AWS Batch, and Amazon SNS. For example, you can set a rule for sending out email notifications by signaling an Amazon SNS topic whenever a deployment to your service fails. Or, you can set a Lambda function to notify a Slack channel whenever a service update fails. For more information about EventBridge, see [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
 
@@ -117,7 +116,7 @@ The following examples demonstrate event patterns that you can use in EventBridg
 
 A service status change event has `detail-type` set to `AppRunner Service Status Change`. It has the following detail fields and values:
 
-```
+```json
 "serviceId": "{{your service ID}}",
 "serviceName": "{{your service name}}",
 "message": "Service status is set to {{CurrentStatus}}.",
@@ -131,7 +130,7 @@ A service status change event has `detail-type` set to `AppRunner Service Status
 
 An operation status change event has `detail-type` set to `AppRunner Service Operation Status Change`. It has the following detail fields and values:
 
-```
+```json
 "operationStatus": "{{see following table}}",
 "serviceName": "{{your service name}}",
 "serviceId": "{{your service ID}}",

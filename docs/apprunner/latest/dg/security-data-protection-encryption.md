@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Protecting data using encryption
-<a name="security-data-protection-encryption"></a>
 
 AWS App Runner reads your application source (source image or source code) from a repository that you specify and stores it for deployment to your service. For more information, see [App Runner architecture and concepts](architecture.md). 
 

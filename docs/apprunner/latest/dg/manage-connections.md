@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Managing App Runner connections
-<a name="manage-connections"></a>
 
 When you [create a service](manage-create.md) in AWS App Runner, you configure an application source—a container image or a source repository that's stored with a provider. App Runner has to establish an authenticated and authorized connection with the provider. Then, App Runner can read your repository and deploy it to your service. App Runner doesn't require connection establishment when you create a service that accesses code stored in your AWS account.
 

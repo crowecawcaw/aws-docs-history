@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Logging App Runner API calls with AWS CloudTrail
-<a name="monitor-ct"></a>
 
 App Runner is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in App Runner. CloudTrail captures all API calls for App Runner as events. The calls captured include calls from the App Runner console and code calls to the App Runner API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for App Runner. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to App Runner, the IP address from where the request was made, who made the request, when it was made, and additional details. 
 
@@ -42,7 +41,7 @@ For security reasons, some property values are redacted in the logs and replaced
 ### Example CloudTrail log entry for the `CreateService` App Runner action
 <a name="understanding-apprunner-entries.example"></a>
 
-```
+```json
 {
   "eventVersion": "1.08",
   "userIdentity": {

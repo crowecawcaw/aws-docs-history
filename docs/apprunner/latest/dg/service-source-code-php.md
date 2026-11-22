@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the PHP platform
-<a name="service-source-code-php"></a>
 
 **Important**  
 App Runner will end the support for **PHP 8.1** on December 31, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos).
@@ -110,7 +109,7 @@ The following example is a minimal configuration file that you can use with a PH
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0 
 runtime: php81
 build:
@@ -131,7 +130,7 @@ The runtime version that's used in these examples is {{8.1.10}}. You can replace
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: php81
 build:
@@ -203,7 +202,7 @@ stderr_logfile_maxbytes=0
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: php81
 build:
@@ -220,7 +219,7 @@ run:
 
 **Example index.php**  
 
-```
+```html
 <html>
 <head> <title>First PHP App</title> </head>
 <body>
@@ -249,7 +248,7 @@ run:
 
 **Example startup.sh**  
 
-```
+```sh
 #!/bin/bash
 
 set -o monitor
@@ -271,7 +270,7 @@ If you don't save the `startup.sh` file as an executable, enter `chmod +x startu
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: php81
 build:
@@ -287,7 +286,7 @@ run:
 
 **Example index.php**  
 
-```
+```html
 <html>
 <head> <title>First PHP App</title> </head>
 <body>
@@ -341,7 +340,7 @@ stderr_logfile_maxbytes=0
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: php81
 build:
@@ -358,7 +357,7 @@ run:
 
 **Example index.php**  
 
-```
+```html
 <html>
 <head> <title>First PHP App</title> </head>
 <body>
@@ -387,7 +386,7 @@ run:
 
 **Example startup.sh**  
 
-```
+```sh
 #!/bin/bash
 
 set -o monitor
@@ -409,7 +408,7 @@ If you don't save the `startup.sh` file as an executable, enter `chmod +x startu
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: php81
 build:
@@ -425,7 +424,7 @@ run:
 
 **Example index.php**  
 
-```
+```html
 <html>
 <head> <title>First PHP App</title> </head>
 <body>

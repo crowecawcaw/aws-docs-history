@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Configuring observability for your service
-<a name="manage-configure-observability"></a>
 
 AWS App Runner integrates with several AWS services to provide you with an extensive observability suite of tools for your App Runner service. For more information, see [Observability for your App Runner service](monitor.md).
 

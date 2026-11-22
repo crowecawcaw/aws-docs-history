@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Managing Private endpoints
-<a name="network-pl-manage"></a>
 
 Manage the Private endpoint for the incoming traffic using one of the following methods:
 + [App Runner console](#network-pl-manage.console)
@@ -131,7 +130,7 @@ If your App Runner application requires source IP/CIDR incoming traffic control 
 To learn more about infrastructure security and security groups, including best practices, see the following topics in the *Amazon VPC User Guide*: [Control network traffic](https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html#control-network-traffic) and [Control traffic to your AWS resources using security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html).  
 **Example**  
 
-   ```
+   ```sh
    aws ec2 create-vpc-endpoint
     --vpc-endpoint-type: Interface
     --service-name: {{com.amazonaws.us-east-1.apprunner.requests}}
@@ -142,7 +141,7 @@ To learn more about infrastructure security and security groups, including best 
 1. Reference the VPC interface endpoint by using the [CreateService](https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html) or [UpdateService](https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html) App Runner API actions through the CLI. Configure your service to not be publicly accessible. Set `IsPubliclyAccessible` to `False` in the `IngressConfiguration` member of the `NetworkConfiguration` parameter. Optionally you can set the `IpAddressType` field to `IPV4` or `DUAL_STACK`. If not set, this value defaults to IPV4. The following example references the VPC interface endpoint.   
 **Example**  
 
-   ```
+   ```sh
    aws apprunner create-service
     --network-configuration:
       {
@@ -167,7 +166,7 @@ To learn more about infrastructure security and security groups, including best 
    ```  
 **Example Response**  
 
-   ```
+   ```json
    {
       "VpcIngressConnectionArn": <vpc_ingress_connection_arn>,
       "VpcIngressConnectionName": <vic_connection_name>,
@@ -192,14 +191,14 @@ The following is an example of updating a VPC Ingress Connection resource.
 
 **Example Request**  
 
-```
+```sh
 aws apprunner update-vpc-ingress-connection
       --vpc-ingress-connection-arn: {{<vpc_ingress_connection_arn>}}
 ```
 
 **Example Response**  
 
-```
+```json
 {
     "VpcIngressConnectionArn":  <vpc_ingress_connection_arn>,
     "VpcIngressConnectionName":  <vic_connection_name>,
@@ -227,14 +226,14 @@ The following is an example of deleting a VPC Ingress Connection
 
 **Example Request**  
 
-```
+```sh
 aws apprunner delete-vpc-ingress-connection
       --vpc-ingress-connection-arn: {{<vpc_ingress_connection_arn>}}
 ```
 
 **Example Response**  
 
-```
+```json
 {
    "VpcIngressConnectionArn": <vpc_ingress_connection_arn>,
    "VpcIngressConnectionName": <vic_connection_name>,

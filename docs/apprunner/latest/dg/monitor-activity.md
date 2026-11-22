@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Tracking App Runner service activity
-<a name="monitor-activity"></a>
 
 AWS App Runner uses a list of operations to keep track of activity in your App Runner service. An operation represents an asynchronous call to an API action, such as creating a service, updating a configuration, and deploying a service. The following sections show you how to track activity in the App Runner console and using the API.
 

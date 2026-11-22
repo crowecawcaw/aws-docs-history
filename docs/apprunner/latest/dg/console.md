@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the App Runner console
-<a name="console"></a>
 
 Use the AWS App Runner console to create, manage, and monitor your App Runner services and related resources, such as connected accounts. You can view existing services, create new ones, and configure a service. You can view the status of an App Runner service as well as view logs, monitor activity, and track metrics. You can also navigate to the website of your service or to your source repository.
 

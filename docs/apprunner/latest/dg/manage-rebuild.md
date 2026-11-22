@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Rebuilding a failed App Runner service
-<a name="manage-rebuild"></a>
 
  If you receive a **Failed to create** error when creating an App Runner service, you can do one of the following.
 + Follow the steps in [When the service fails to create](troubleshooting-create-failure.md) to identify the cause of the error. 
@@ -63,7 +62,7 @@ To rebuild a failed service:
 In the following example the source configuration of an image-based service is being updated. The value of the `Port` is changed to `80`.   
 Updating the `input.json` file for image-based App Runner service   
 
-```
+```json
 {
   "ServiceArn": "arn:aws:apprunner:us-east-1:123456789012:service/python-app/8fe1e10304f84fd2b0df550fe98a71fa",
   "SourceConfiguration": {
@@ -77,7 +76,7 @@ Updating the `input.json` file for image-based App Runner service
 ```
 Calling the `UpdateService` API action.  
 
-```
+```sh
 aws apprunner update-service
 --cli-input-json file:{{//input.json}}
 ```

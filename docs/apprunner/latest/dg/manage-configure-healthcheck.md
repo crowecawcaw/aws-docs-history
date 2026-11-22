@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Configuring health checks for your service
-<a name="manage-configure-healthcheck"></a>
 
 AWS App Runner monitors the health of your service by performing health checks. The default health check protocol is TCP. App Runner pings the domain assigned to your service. You can alternatively set the health check protocol to HTTP. App Runner sends health check HTTP requests to your web application.
 

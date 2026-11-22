@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the Java platform
-<a name="service-source-code-java"></a>
 
 The AWS App Runner Java platform provides managed runtimes. Each runtime makes it easy to build and run containers with web applications based on a Java version. When you use a Java runtime, App Runner starts with a managed Java runtime image. This image is based on the [Amazon Linux Docker image](https://hub.docker.com/_/amazonlinux) and contains the runtime package for a version of Java and some tools. App Runner uses this managed runtime image as a base image, and adds your application code to build a Docker image. It then deploys this image to run your web service in a container.
 
@@ -55,7 +54,7 @@ This example shows a minimal configuration file that you can use with a Corretto
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: corretto11
 build:
@@ -76,7 +75,7 @@ The runtime version that's used in these examples is {{11.0.13.08.1}}. You can r
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: corretto11
 build:
@@ -111,7 +110,7 @@ This example shows the source code for a complete Java application that you can 
 
 **Example src/main/java/com/HelloWorld/HelloWorld.java**  
 
-```
+```java
 package com.HelloWorld;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -130,7 +129,7 @@ public class HelloWorld {
 
 **Example src/main/java/com/HelloWorld/Main.java**  
 
-```
+```java
 package com.HelloWorld;
 
 import org.springframework.boot.SpringApplication;
@@ -148,7 +147,7 @@ public class Main {
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: corretto11
 build:
@@ -163,7 +162,7 @@ run:
 
 **Example pom.xml**  
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

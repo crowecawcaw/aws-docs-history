@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Configuring service settings using sharable resources
-<a name="manage-configure-resources"></a>
 
 For some features, it makes sense to share configuration across AWS App Runner services. For example, you might want a set of services to have the same auto scaling behavior. Or you might want identical observability settings for all of your services. App Runner lets you share settings by using separate sharable resources. You create a resource that defines a set of configuration settings for a feature, and then you provide the Amazon Resource Name (ARN) of this configuration resource to one or more App Runner services.
 

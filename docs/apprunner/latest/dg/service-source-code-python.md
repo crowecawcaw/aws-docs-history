@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the Python platform
-<a name="service-source-code-python"></a>
 
 **Important**  
 App Runner will end the support for **Python 3.7** and **Python 3.8** on December 1, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos).
@@ -53,7 +52,7 @@ Use the following settings in the *apprunner.yaml* for the managed Python 3.11 r
 + Set the `runtime` key in the Top section to `python311`   
 **Example**  
 
-  ```
+  ```yaml
   runtime: python311
   ```
 + Use the `pip3` instead of `pip` to install dependencies.
@@ -61,7 +60,7 @@ Use the following settings in the *apprunner.yaml* for the managed Python 3.11 r
 + Run the `pip3` installer as a `pre-run`command. Python installs dependencies outside of the `/app` directory. Since App Runner runs the revised App Runner build for Python 3.11, anything installed outside of the `/app` directory through commands in the Build section of the `apprunner.yaml` file will be lost. For more information, see [The revised App Runner build](service-source-code.md#service-source-code.build-detail.v2).  
 **Example**  
 
-  ```
+  ```yaml
   run:
     runtime-version: {{3.11}}
     pre-run:  
@@ -90,7 +89,7 @@ Python 3.11 uses the `pip3` and `python3` commands. For more information, see th
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3 
 build:
@@ -113,7 +112,7 @@ Python 3.11 uses the `pip3` and `python3` commands. For more information, see th
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3 
 build:
@@ -160,7 +159,7 @@ The runtime version that's used in these examples is {{3.11}}. You can replace i
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python311
 build:
@@ -212,7 +211,7 @@ pyramid==2.0
 
 **Example server.py**  
 
-```
+```python
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
@@ -237,7 +236,7 @@ if __name__ == '__main__':
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3
 build:

@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Enabling Private endpoint for incoming traffic
-<a name="network-pl"></a>
 
 By default when you create an AWS App Runner service, the service is accessible over the internet. However, you can also make your App Runner service private and only accessible from within an Amazon Virtual Private Cloud (Amazon VPC).
 

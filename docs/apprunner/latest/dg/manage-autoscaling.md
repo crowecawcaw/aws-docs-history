@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Managing App Runner automatic scaling
-<a name="manage-autoscaling"></a>
 
 AWS App Runner automatically scales compute resources, specifically instances, up or down for your App Runner application. Automatic scaling provides adequate request handling when traffic is heavy, and reduces your cost when traffic slows down. 
 
@@ -66,6 +65,8 @@ Manage the App Runner auto scaling configurations and revisions for your account
 ------
 #### [ App Runner console ]
 
+<a name="manage-autoscaling.manage-asc-asc"></a>**Manage auto scaling configurations**
+
 The **Auto scaling configurations** page lists the auto scaling configurations that you have set up in your account. You can create and manage your auto scaling configurations on this page and then later assign them to one or more App Runner services. 
 
 You can do any of the following from this page:
@@ -126,6 +127,8 @@ App Runner validates that your deletion choice is not set as a default or is cur
 When you set an auto scaling configuration as default, it automatically gets assigned as the default configuration to the new services you create in future.
 The new default designation doesn't affect the associations that were previously set for existing services.
 If the designated default auto scaling configuration has revisions, App Runner assigns its latest revision as the default.
+
+<a name="manage-autoscaling.manage-asc-revisions"></a>**Manage revisions**
 
 The console also has a page for creating and managing your existing auto scaling revisions called **Auto scaling revisions**. Access this page by selecting the name of a configuration on the **Auto scaling configurations** page.
 

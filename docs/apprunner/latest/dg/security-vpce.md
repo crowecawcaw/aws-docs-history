@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using App Runner with VPC endpoints
-<a name="security-vpce"></a>
 
 Your AWS application might integrate AWS App Runner services with other AWS services that run in a VPC from [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) (Amazon VPC). Parts of your application might make requests to App Runner from within the VPC. For example, you might use AWS CodePipeline to continuously deploy to your App Runner service. One way to improve the security of your application is to send these App Runner requests (and requests to other AWS services) over a VPC endpoint.
 

@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the Node.js platform
-<a name="service-source-code-nodejs"></a>
 
 **Important**  
 App Runner will end the support for **Node.js 12**, **Node.js 14**, **Node.js 16** and **Node.js 18** on December 1, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos).
@@ -51,7 +50,7 @@ The following is an example `package.json` file.
 ### package.json
 <a name="service-source-code-nodejs.config.package-json-example"></a>
 
-```
+```json
 {
   "name": "node-js-getting-started",
   "version": "0.3.0",
@@ -83,7 +82,7 @@ If your `package.json` file defines a **start** command, you can use it as a **r
 **Example**  
 package.json  
 
-  ```
+  ```json
   {
     "scripts": {
       "start": "node index.js"
@@ -92,7 +91,7 @@ package.json
   ```
 apprunner.yaml  
 
-  ```
+  ```yaml
   run:
     command: npm start
   ```
@@ -122,7 +121,7 @@ This example shows a minimal configuration file that you can use with a Node.js 
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: nodejs22
 build:
@@ -143,7 +142,7 @@ The runtime version that's used in these examples is {{22.14.0}}. You can replac
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: nodejs22
 build:
@@ -181,7 +180,7 @@ The runtime version that's used in these examples is {{22.14.0}}. You can replac
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: nodejs22
 build:
@@ -216,7 +215,7 @@ This example shows how to configure a Node.js application that's developed with 
 
 **Example package.json**  
 
-```
+```json
 {
   "scripts": {
     "build": "grunt uglify",
@@ -236,7 +235,7 @@ This example shows how to configure a Node.js application that's developed with 
 
 **Example Gruntfile.js**  
 
-```
+```javascript
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -265,7 +264,7 @@ module.exports = function(grunt) {
 **Example apprunner.yaml**  
 The runtime version that's used in these examples is {{22.14.0}}. You can replace it with a version you want to use. For latest supported Node.js runtime version, see [Node.js runtime release information](service-source-code-nodejs-releases.md).
 
-```
+```yaml
 version: 1.0
 runtime: nodejs22
 build:

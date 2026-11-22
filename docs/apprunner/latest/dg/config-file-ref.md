@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # App Runner configuration file reference
-<a name="config-file-ref"></a>
 
 **Note**  
 Configuration files are applicable only to [services that are based on source code](service-source-code.md). You can't use configuration files with [image-based services](service-source-image.md).
@@ -30,12 +29,12 @@ The keys at the top of the file provide general information about the file and y
 
   **Syntax**
 
-  ```
+  ```yaml
   version: {{version}}
   ```  
 **Example**  
 
-  ```
+  ```yaml
   version: 1.0
   ```
 + `runtime` – *Required.* The name of the runtime that your application uses. To learn about available runtimes for the different programming platforms that App Runner offers, see [App Runner service based on source code](service-source-code.md).
@@ -44,12 +43,12 @@ The keys at the top of the file provide general information about the file and y
 
   **Syntax**
 
-  ```
+  ```yaml
   runtime: {{runtime-name}}
   ```  
 **Example**  
 
-  ```
+  ```yaml
   runtime: python3
   ```
 
@@ -66,7 +65,7 @@ The section starts with the `build:` key, and has the following subkeys:
 
   **Syntax**
 
-  ```
+  ```yaml
   build:
     commands:
       pre-build:
@@ -81,7 +80,7 @@ The section starts with the `build:` key, and has the following subkeys:
   ```  
 **Example**  
 
-  ```
+  ```yaml
   build:
     commands:
       pre-build:
@@ -100,7 +99,7 @@ The `env` set in the Run section can be referenced by the `run` command in the r
 
   **Syntax**
 
-  ```
+  ```yaml
   build:
     env:
       - name: {{name1}}
@@ -111,7 +110,7 @@ The `env` set in the Run section can be referenced by the `run` command in the r
   ```  
 **Example**  
 
-  ```
+  ```yaml
   build:
     env:
       - name: DJANGO_SETTINGS_MODULE
@@ -132,7 +131,7 @@ The section starts with the `run:` key, and has the following subkeys:
 
   **Syntax**
 
-  ```
+  ```yaml
   run:
     runtime-version: {{major[.minor[.patch]]}}
   ```
@@ -140,7 +139,7 @@ The section starts with the `run:` key, and has the following subkeys:
 The runtimes of some platforms have different version components. See specific platform topics for details.  
 **Example**  
 
-  ```
+  ```yaml
   runtime: python3
   run:
     runtime-version: 3.7
@@ -152,7 +151,7 @@ The `pre-run` parameter is only supported by the revised App Runner build. Do no
 
   **Syntax**
 
-  ```
+  ```yaml
   run:
     pre-run:
         - {{command}}
@@ -162,7 +161,7 @@ The `pre-run` parameter is only supported by the revised App Runner build. Do no
 
   **Syntax**
 
-  ```
+  ```yaml
   run:
     command: {{command}}
   ```
@@ -172,7 +171,7 @@ The `pre-run` parameter is only supported by the revised App Runner build. Do no
 
   **Syntax**
 
-  ```
+  ```yaml
   run:
     network:
       port: {{port-number}}
@@ -180,7 +179,7 @@ The `pre-run` parameter is only supported by the revised App Runner build. Do no
   ```  
 **Example**  
 
-  ```
+  ```yaml
   run:
     network:
       port: 8000
@@ -195,7 +194,7 @@ The `env` set in the Run section can be referenced by the `run` command in the r
 
   **Syntax**
 
-  ```
+  ```yaml
   run:
     env:
       - name: {{name1}}
@@ -211,7 +210,7 @@ The `env` set in the Run section can be referenced by the `run` command in the r
   ```  
 **Example**  
 
-  ```
+  ```yaml
   run:
     env:
       - name: MY_VAR_EXAMPLE

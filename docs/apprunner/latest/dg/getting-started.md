@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Getting started with App Runner
-<a name="getting-started"></a>
 
 AWS App Runner is an AWS service that provides a fast, simple, and cost-effective way to turn an existing container image or source code directly into a running web service in the AWS Cloud.
 
@@ -46,7 +45,7 @@ pyramid==2.0
 
 **Example server.py**  
 
-```
+```python
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response

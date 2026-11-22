@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using AWS CloudShell to work with AWS App Runner
-<a name="api-cshell"></a>
 
 AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console. You can run AWS CLI commands against AWS services (including AWS App Runner) using your preferred shell (Bash, PowerShell or Z shell). And you can do this without needing to download or install command line tools.
 
@@ -51,7 +50,7 @@ When using AWS CLI in AWS CloudShell, you don't need to download or install any 
 
    The output lists summary information for your services.
 
-   ```
+   ```json
    {
      "ServiceSummaryList": [
        {
@@ -84,7 +83,7 @@ When using AWS CLI in AWS CloudShell, you don't need to download or install any 
 
    The output lists a detailed description of the service you specified.
 
-   ```
+   ```json
    {
      "Service": {
        "ServiceName": "my-app-1",

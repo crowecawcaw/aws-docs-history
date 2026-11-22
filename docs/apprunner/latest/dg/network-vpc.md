@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Enabling VPC access for outgoing traffic
-<a name="network-vpc"></a>
 
 By default, your AWS App Runner application can send messages to public endpoints. This includes your own solutions, AWS services, and any other public website or web service. Your application can even send messages to public endpoints of applications that run in a VPC from [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/) (Amazon VPC). If you don't configure a VPC when you launch your environment, App Runner uses the default VPC, which is public. 
 

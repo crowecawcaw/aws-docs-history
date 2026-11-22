@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # When the service fails to connect to Amazon RDS or downstream service
-<a name="troubleshooting.vpc-outbound-connect-failure"></a>
 
 There may be a network configuration issue with your service if it fails to connect to an Amazon RDS database or other downstream application or service. This topic walks you through some steps to determine if there are any issues with your network configuration and the options to correct them. To learn more about outbound traffic configuration for App Runner, see [Enabling VPC access for outgoing traffic](network-vpc.md).
 

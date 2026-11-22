@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Tracing for your App Runner application with X-Ray
-<a name="monitor-xray"></a>
 
 AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization. For any traced request to your application, you can see detailed information not only about the request and response, but also about calls that your application makes to downstream AWS resources, microservices, databases and HTTP web APIs.
 
@@ -37,7 +36,7 @@ Depending on the specific ADOT SDK that you use in your application, ADOT suppor
 **Note**  
 The following example lists the important environment variables to add to the `apprunner.yaml` file. Add these environment variables to your Dockerfile if you are using a container image. However, each runtime can have their own idiosyncrasies and you may need to add more environment variables to the following list. For more information on your runtime specific instructions and examples on how to setup your application for your runtime, see [AWS Distro for OpenTelemetry](https://aws-otel.github.io/docs/introduction) and go to your runtime, under *Getting Started*. 
 
-   ```
+   ```yaml
    env:
        - name: OTEL_PROPAGATORS
          value: xray
@@ -75,7 +74,7 @@ When your service source is an image, you can directly instrument the Dockerfile
 
 **Example Dockerfile**  
 
-```
+```dockerfile
 FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 RUN yum install python3.7 -y && curl -O https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && yum update -y
 COPY . /app
@@ -96,7 +95,7 @@ When your service source is a repository containing your application source, you
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3 
 build:

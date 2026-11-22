@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # App Runner architecture and concepts
-<a name="architecture"></a>
 
 AWS App Runner takes your source code or source image from a repository, and creates and maintains a running web service for you in the AWS Cloud. Typically, you need to call just one App Runner action, [CreateService](https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html), to create your service.
 

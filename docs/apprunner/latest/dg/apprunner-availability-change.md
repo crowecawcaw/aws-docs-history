@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # AWS App Runner availability change
-<a name="apprunner-availability-change"></a>
 
 After careful consideration, we decided to close AWS App Runner to new customers. Existing AWS App Runner customers can continue to use the service as normal, including creating new resources and services. AWS continues to invest in security and availability for AWS App Runner, but we do not plan to introduce new features.
 
@@ -77,7 +76,7 @@ Create an ECS Express Mode service using the same container image used by your A
 
 **Example CLI command:**
 
-```
+```bash
 aws ecs create-express-gateway-service \
     --execution-role-arn arn:aws:iam::{{123456789012}}:role/ecsTaskExecutionRole \
     --infrastructure-role-arn arn:aws:iam::{{123456789012}}:role/ecsInfrastructureRoleForExpressServices \
@@ -185,7 +184,7 @@ After verifying that the ECS Express Mode service handles production traffic cor
 
 **Delete the App Runner service:**
 
-```
+```bash
 aws apprunner delete-service --service-arn {{your-app-runner-service-arn}}
 ```
 
@@ -245,7 +244,7 @@ To replicate App Runner's automatic deployment on code push, configure GitHub Ac
 
 Create a workflow file at `.github/workflows/deploy.yml`:
 
-```
+```yaml
 name: Build and Deploy to ECS
 
 on:

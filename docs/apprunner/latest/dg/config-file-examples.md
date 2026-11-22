@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # App Runner configuration file examples
-<a name="config-file-examples"></a>
 
 **Note**  
 Configuration files are applicable only to [services that are based on source code](service-source-code.md). You can't use configuration files with [image-based services](service-source-image.md).
@@ -23,7 +22,7 @@ With a minimal configuration file, App Runner makes the following assumptions:
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3 
 build:
@@ -42,7 +41,7 @@ This example shows the use of all configuration keys in the `apprunner.yaml` ori
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python3 
 build:
@@ -89,7 +88,7 @@ Since this examples is for Python 3.11, we use the `pip3` and `python3` commands
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: python311
 build:

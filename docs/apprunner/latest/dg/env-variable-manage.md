@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Managing your environment variables
-<a name="env-variable-manage"></a>
 
 Manage the environment variables for your App Runner service by using one of the following methods:
 + [App Runner console](#env-variable-manage.console)
@@ -109,7 +108,7 @@ Update the IAM policy of your instance role so App Runner can access secrets and
    The following examples shows how to reference secrets and configurations as environment variables on a code-based and an image-based App Runner service.  
 **Example Input.json file for image-based App Runner service**  
 
-   ```
+   ```json
    {
      "ServiceName": "example-secrets",
      "SourceConfiguration": {
@@ -140,7 +139,7 @@ Update the IAM policy of your instance role so App Runner can access secrets and
    ```  
 **Example Image-based App Runner service – Response**  
 
-   ```
+   ```json
    {
    ...
          "ImageRepository": {
@@ -164,7 +163,7 @@ Update the IAM policy of your instance role so App Runner can access secrets and
    ```  
 **Example Input.json file for code-based App Runner service**  
 
-   ```
+   ```json
    {
      "ServiceName": "example-secrets",
      "SourceConfiguration": {
@@ -208,7 +207,7 @@ Update the IAM policy of your instance role so App Runner can access secrets and
    ```  
 **Example Code-based App Runner service – Response**  
 
-   ```
+   ```json
    {
    ...
       "SourceConfiguration":{
@@ -246,7 +245,7 @@ Update the IAM policy of your instance role so App Runner can access secrets and
    The following is an example of the updated `apprunner.yaml`model.  
 **Example `apprunner.yaml`**  
 
-   ```
+   ```yaml
    version: 1.0
    runtime: python3
    build:

@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Deleting an App Runner service
-<a name="manage-delete"></a>
 
 When you want to terminate the web application that's running in your AWS App Runner service, you can delete the service. Deleting a service stops the running web service, removes the underlying resources, and deletes your associated data.
 

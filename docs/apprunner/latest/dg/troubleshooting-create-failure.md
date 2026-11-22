@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # When the service fails to create
-<a name="troubleshooting-create-failure"></a>
 
 If your attempt to create an App Runner service fails, the service enters a `CREATE_FAILED` status. This status appears as **Create failed** on the console. A service might fail to create because of issues that are related to one or more of the following:
 + Your application code

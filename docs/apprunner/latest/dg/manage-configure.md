@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Configuring an App Runner service
-<a name="manage-configure"></a>
 
 When you [create an AWS App Runner service](manage-create.md), you set various configuration values. You can change some of these configuration settings after you create the service. Other settings can be applied only while creating the service and cannot be changed thereafter. This topic discusses the configuration of your service using the App Runner API, the App Runner console, and an App Runner configuration file.
 

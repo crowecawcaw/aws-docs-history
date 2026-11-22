@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Configure Amazon Route 53 alias record for your target DNS
-<a name="manage-custom-domains-route53"></a>
 
 **Note**  
 You don't need to follow this procedure if Amazon Route 53 is your DNS provider. In this case App Runner automatically configures your Route 53 domain with the required certificate validation and DNS records to link to your App Runner web application.  

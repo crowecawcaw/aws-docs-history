@@ -3,7 +3,6 @@
 AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal. This guide applies only to existing customers. If you're not an existing customer, AWS recommends Amazon ECS Express Mode. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Using the .NET platform
-<a name="service-source-code-net6"></a>
 
 **Important**  
 App Runner will end the support for **.NET 6** on December 1, 2025. For recommendations and more information, see [End of support for managed runtime versions](service-source-code.md#service-source-code.managed-platforms.eos).
@@ -54,7 +53,7 @@ This example shows a minimal configuration file that you can use with a .NET man
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: dotnet6
 build:
@@ -75,7 +74,7 @@ The runtime version that's used in these examples is {{6.0.9}}. You can replace 
 
 **Example apprunner.yaml**  
 
-```
+```yaml
 version: 1.0
 runtime: dotnet6
 build:
@@ -111,7 +110,7 @@ This example shows the source code for a complete .NET application that you can 
 
 **Example HelloWorldDotNetApp**  
 
-```
+```yaml
 version: 1.0
 runtime: dotnet6
 build:
