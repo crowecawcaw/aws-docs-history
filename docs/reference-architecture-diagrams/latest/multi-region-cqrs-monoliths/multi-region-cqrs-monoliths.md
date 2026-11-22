@@ -1,7 +1,6 @@
 
 
 # Multi-Region CQRS for On-Premises Monoliths
-<a name="multi-region-cqrs-monoliths"></a>
 
 Publication date: **July 1, 2022 ([Diagram history](#diagram-history))**
 
