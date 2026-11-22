@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Service-linked role permissions for Amazon Monitron
-<a name="slr-permissions"></a>
 
 Amazon Monitron uses the service-linked role named **AWSServiceRoleForMonitron[\_{SUFFIX}]** – Amazon Monitron uses AWSServiceRoleForMonitron to access other AWS services, including Cloudwatch Logs, Kinesis Data Streams, KMS keys, and SSO. For more information about the policy, see [AWSServiceRoleForMonitronPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSServiceRoleForMonitronPolicy.html) in the *AWS Managed Policy Reference Guide*
 

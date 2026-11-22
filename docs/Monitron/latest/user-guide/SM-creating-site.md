@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Creating a site
-<a name="SM-creating-site"></a>
 
 To add a site to a project, you must be a project-level admin user. You can create up to 50 sites within a project, and add up to 100 assets and 200 gateways to each site. You can make up to 20 users into admin users or technicians for a site.
 

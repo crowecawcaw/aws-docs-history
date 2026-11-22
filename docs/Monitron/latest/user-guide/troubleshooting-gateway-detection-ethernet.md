@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Troubleshooting Ethernet gateway detection
-<a name="troubleshooting-gateway-detection-ethernet"></a>
 
 When you add a gateway to your project or site, as soon as you choose **Add Gateway**, the Amazon Monitron mobile app starts scanning for the gateway. If the app can't find the gateway, try the following troubleshooting tips.
 + **Make sure that the gateway is powered up.** Check the small green light near the upper right corner of the gateway. If it's on, the gateway has power.

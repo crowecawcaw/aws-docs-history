@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Removing a user
-<a name="deleting-user"></a>
 
 Removing a user removes their permissions to access the site or project. It doesn't affect the user directory. Additionally, if the user has permissions to other sites or projects, this won't remove those permissions.
 

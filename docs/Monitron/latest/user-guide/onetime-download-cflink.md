@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Exporting your data with CloudFormation (recommended option)
-<a name="onetime-download-cflink"></a>
 
 **Topics**
 + [Step 1: Create your Amazon S3 bucket, IAM role, and IAM policies.](#gdpr-cloudfront-makestack)

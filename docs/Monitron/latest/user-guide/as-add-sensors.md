@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Pairing a sensor to an asset
-<a name="as-add-sensors"></a>
 
 After you've added an asset, pair it to one or more of the sensors to monitor its health. Each sensor is mounted on the asset in its own position. Each sensor mounted on the asset can be assigned its own machine class.
 

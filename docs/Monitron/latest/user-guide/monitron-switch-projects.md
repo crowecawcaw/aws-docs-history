@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Switching between projects
-<a name="monitron-switch-projects"></a>
 
 You can switch between Amazon Monitron projects from both your mobile and web app to manage your resources.
 

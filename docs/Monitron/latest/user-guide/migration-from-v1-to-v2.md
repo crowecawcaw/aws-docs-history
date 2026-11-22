@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Migration from Kinesis v1 to v2
-<a name="migration-from-v1-to-v2"></a>
 
  If you are currently using the v1 data schema, you may already be sending data to Amazon S3, or further processing the data stream payload with Lambda. 
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Changing a user role
-<a name="editing-user-role"></a>
 
 You can change a user's role, but not a user's name. That's because the name is linked to the user directory that is linked to by Amazon Monitron.
 

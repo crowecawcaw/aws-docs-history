@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Quotas in Amazon Monitron
-<a name="quotas"></a>
 
 You can request an increase for many of the Amazon Monitron quotas if your applications require it. For information about service quotas and to request a quota increase, see [AWS Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). You can also contact your IT Manager for assistance with requesting a quota increase.
 

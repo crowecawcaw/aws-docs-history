@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Organizing a project into sites
-<a name="site-organization"></a>
 
 You can organize a project into sites based on your business needs. For example, you can organize a project in one of the following ways: 
 + **No sites at all**. Everything is contained in a project, without any sites. This option is best for projects with a few assets and users that you can easily keep track of because it provides the greatest simplicity.

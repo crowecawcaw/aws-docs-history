@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a project
-<a name="mp-delete-project"></a>
 
 With the `deleteProject` operation, you must have the AWS IAM Identity Center permissions for deletion. Without these permissions, the console's delete project functionality will still remove the project. However, it will not remove the resources from IAM Identity Center and you may end up with dangling references on IAM Identity Center.
 

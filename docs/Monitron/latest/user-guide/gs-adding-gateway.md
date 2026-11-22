@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 1: Add a Gateway
-<a name="gs-adding-gateway"></a>
 
 In Amazon Monitron, sensors collect data from machines and pass it to gateways, which transmit the data to the AWS Cloud and thus to Amazon Monitron for analysis. These gateways are usually mounted on the wall of a factory within 20 to 30 meters from the sensor and connect to the AWS Cloud using the local Wi-Fi network.
 

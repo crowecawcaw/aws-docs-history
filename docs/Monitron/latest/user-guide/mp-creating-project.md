@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Creating a project
-<a name="mp-creating-project"></a>
 
 Although an AWS account can have multiple Amazon Monitron projects, typically you have one per account. The project name must be unique in your AWS account and AWS Region.
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 1: Understanding asset health
-<a name="gsg-asset-list"></a>
 
 To monitor assets using the Amazon Monitron mobile app, start with the **Assets** list. This list is displayed when you open the mobile app. 
 

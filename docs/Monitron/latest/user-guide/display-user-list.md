@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Displaying a list of users
-<a name="display-user-list"></a>
 
 As an admin, you can use the list of users to manage users in the Amazon Monitron app. There are three levels you can choose from (depending on your admin role) to view a list of users:
 + As project level admin, you can view all users at the project level.

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Positioning a sensor
-<a name="as-where-sensors"></a>
 
 To detect abnormalities in machine components, mount sensors in all locations where temperature and vibrations can be measured effectively. 
 

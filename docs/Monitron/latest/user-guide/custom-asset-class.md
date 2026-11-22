@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Creating asset classes
-<a name="custom-asset-class"></a>
 
 Amazon Monitron offers four [default machine classes based on ISO 20816 Standards](https://docs.aws.amazon.com/Monitron/latest/user-guide/assets-chapter.html). When you add an asset position, you can choose any of these four default classes as the machine class to use for detecting anomalies with your assets. Amazon Monitron then uses the assigned asset class to generate warnings and alarms on asset condition.
 

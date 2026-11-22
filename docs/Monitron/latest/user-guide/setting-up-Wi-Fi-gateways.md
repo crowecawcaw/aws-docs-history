@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Wi-Fi gateways
-<a name="setting-up-Wi-Fi-gateways"></a>
 
 This topic explains how to install your Wi-Fi gateway. It also explains how to delete an unnecessary gateway. 
 

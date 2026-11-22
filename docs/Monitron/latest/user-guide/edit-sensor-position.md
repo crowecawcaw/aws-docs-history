@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Editing machine class
-<a name="edit-sensor-position"></a>
 
 You can edit the machine class of a sensor from both the mobile and web apps, from either the **Asset detail** section or the **Position detail** section.
 

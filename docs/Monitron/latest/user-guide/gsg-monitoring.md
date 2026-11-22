@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 2: Viewing asset conditions
-<a name="gsg-monitoring"></a>
 
 Viewing assets is more than simply understanding the icons that show the asset and position health status. It is often useful to see the data collected by the sensors yourself. 
 

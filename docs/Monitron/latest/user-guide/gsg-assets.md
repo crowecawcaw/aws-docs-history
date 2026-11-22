@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 2: Adding Assets
-<a name="gsg-assets"></a>
 
 In Amazon Monitron, the machines you monitor are known as *assets*. Assets are usually individual machines, but they can also be specific sections of equipment. Assets are paired to sensors, which directly monitor temperature and vibration to check for potential failures. You can add assets using both the Amazon Monitron web app and the Amazon Monitron mobile app.
 

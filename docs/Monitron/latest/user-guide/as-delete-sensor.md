@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a sensor
-<a name="as-delete-sensor"></a>
 
 Deleting a sensor prevents Amazon Monitron from collecting more data with it. It doesn't delete the data that it has already collected. 
 

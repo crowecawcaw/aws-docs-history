@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Understanding sensor measurements
-<a name="anom-sensor-measure"></a>
 
 When a sensor is initially paired to an asset, Amazon Monitron will learn from the vibration and temperature data collected from the equipment, establishing a baseline to determine what is "normal" for that asset. It will use this learning to detect potential failures in the future.
 
@@ -20,7 +19,7 @@ If temperature or vibration levels inconsistently rise above the modified thresh
 
 |  |  | 
 | --- |--- |
-|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)  | 
+|  ![Notifications list showing alarm and warning entries with position names, vibration and temperature detection details.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/mobileapp_notification.png)<br />a mobile app notification  |  ![Notifications panel showing alarms and warnings for positions with vibration and temperature alerts.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_notification.png)<br />a web app notification  | 
 
  
 

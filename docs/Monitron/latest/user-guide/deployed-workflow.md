@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # The Amazon Monitron workflow
-<a name="deployed-workflow"></a>
 
 The following diagram shows the basic workflow of Amazon Monitron. 
 

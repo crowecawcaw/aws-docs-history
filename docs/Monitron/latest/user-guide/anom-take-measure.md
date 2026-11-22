@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Taking a one-time measurement
-<a name="anom-take-measure"></a>
 
 In addition to viewing the measurements that a sensor normally makes, you can take a one-time measurement with a sensor at any time.
 

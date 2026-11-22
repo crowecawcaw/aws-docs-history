@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Troubleshooting Wi-Fi gateway detection
-<a name="gateway-failure-Wi-Fi"></a>
 
 When you add a gateway to your project or site, as soon as you choose **Add gateway** the Amazon Monitron mobile app starts scanning to find it. If the mobile app can't find the gateway, try the following troubleshooting tips.
 

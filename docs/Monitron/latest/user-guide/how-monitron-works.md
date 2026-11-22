@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # How Amazon Monitron works
-<a name="how-monitron-works"></a>
 
 Amazon Monitron is a machine learning end-to-end condition monitoring solution system that detects developing faults within machinery, enabling you to implement a predictive maintenance program and reduce lost productivity from unplanned machine downtime.
 

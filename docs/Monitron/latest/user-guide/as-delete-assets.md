@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting an asset
-<a name="as-delete-assets"></a>
 
 Deleting an asset removes all associated sensors and their positions, in addition to any historical data associated with them. 
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Storing exported data in Amazon S3
-<a name="kinesis-store-S3"></a>
 
 **Topics**
 + [Using a predefined CloudFormation template](#kinesis-cloudfront-makestack)

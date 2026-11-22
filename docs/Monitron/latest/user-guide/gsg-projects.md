@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 2: Create a project
-<a name="gsg-projects"></a>
 
 Now that you've signed in to the AWS Management Console, you can use the Amazon Monitron console to create your project.
 

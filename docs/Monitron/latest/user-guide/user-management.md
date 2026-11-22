@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Managing users
-<a name="user-management"></a>
 
 After creating a project, you need to assign at least one admin user to help manage it. You can also add admin users to a project or remove them from a project later. After using the console to add the first admin user, you can add additional admin users with the Amazon Monitron mobile app. 
 

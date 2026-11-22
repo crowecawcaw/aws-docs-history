@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 5: Muting and unmuting alerts
-<a name="gs-muting-alerts"></a>
 
 You can choose to mute and unmute alerts (alarms and warnings) for a position.
 

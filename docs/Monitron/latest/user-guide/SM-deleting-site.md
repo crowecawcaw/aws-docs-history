@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a site
-<a name="SM-deleting-site"></a>
 
 Before you can delete a site, you must delete all of the site's assets. The **Sites** list displays all of the devices and users associated with a site. 
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 3: Create admin users
-<a name="ags-project-admin"></a>
 
 Give access to one or more people in your organization (such as reliability managers) as *admin users*. An *admin user* is a person who belongs to an Amazon Monitron project and who can add other users to the project.
 

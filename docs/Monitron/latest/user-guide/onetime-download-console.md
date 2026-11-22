@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Exporting your data with the console
-<a name="onetime-download-console"></a>
 
 **Topics**
 + [Step 1: Setting up your Amazon S3 bucket](#gdpr-console-s3)
@@ -62,7 +61,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
    
@@ -159,7 +158,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [{

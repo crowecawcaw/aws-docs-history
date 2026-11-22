@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Moving an asset
-<a name="moving-assets"></a>
 
 Assets in a project can be grouped under various [sites](https://docs.aws.amazon.com/Monitron/latest/user-guide/site-management-chapterSM.html). If you need to re-organize your assets and sites, you can choose to move an asset from one site to another without having to create each asset again.
 

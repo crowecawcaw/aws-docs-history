@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Choosing your measurement viewing platform
-<a name="platform-chapter"></a>
 
 There are two ways to use Amazon Monitron to view your assets' measurements and abnormalities. You can view them in the mobile app, or you can view them in the web app. Each way has its advantages.
 

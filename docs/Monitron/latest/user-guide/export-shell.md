@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Exporting your data with CloudShell
-<a name="export-shell"></a>
 
 **Topics**
 + [Step 1: Creating an Amazon S3 bucket (with AWS CloudShell)](#create-s3-with-shell)
@@ -55,7 +54,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [{
@@ -79,7 +78,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
    
@@ -120,7 +119,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
    
@@ -164,7 +163,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
     You should see output that looks something like this: 
 
-   ```
+   ```json
     {
    	"Role": {
    		"Path": "/",
@@ -201,7 +200,7 @@ You are responsible for taking the appropriate steps to secure your data. We str
 
     You should see output that looks something like this: 
 
-   ```
+   ```json
     {
    	"Policy": {
    		"PolicyName": "role-uses-bucket",

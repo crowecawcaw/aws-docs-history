@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Troubleshooting Amazon Monitron device issues
-<a name="troubleshooting"></a>
 
 If you have problems with one of your Amazon Monitron devices, use these suggestions to troubleshoot the problem. Then, if you're still having trouble, contact AWS Support.
 
@@ -86,7 +85,7 @@ If you choose **Add gateway** in your mobile app, but the app can't find the gat
 
 |  |  | 
 | --- |--- |
-|  ![Mobile phone connecting via Bluetooth to AWS service represented by orange square icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)  |  ![Smartphone connecting via Bluetooth to a streaming device with cable.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway-small.png)  | 
+|  ![Mobile phone connecting via Bluetooth to AWS service represented by orange square icon.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/gs-gateway-bluetooth.png)<br />Bluetooth pairing with a Wi-Fi gateway  |  ![Smartphone connecting via Bluetooth to a streaming device with cable.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway-small.png)<br />Bluetooth pairing with an Ethernet gateway.  | 
 + **Make sure that the gateway is turned on.**
 
   Check the lights on the front of the gateway. If at least one of them is on, then the gateway has power. If the gateway has no power, check the following:

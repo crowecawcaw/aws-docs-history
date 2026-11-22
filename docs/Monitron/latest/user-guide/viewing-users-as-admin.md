@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Managing users as an admin user
-<a name="viewing-users-as-admin"></a>
 
 As an admin, you can use the list of users to manage users in the Amazon Monitron web app. As project level admin, you can view all users at the project level and all users at a particular site level.
 

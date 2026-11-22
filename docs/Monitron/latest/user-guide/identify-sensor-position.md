@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Identifying sensor position
-<a name="identify-sensor-position"></a>
 
 Use the mobile app to find sensors in the factory or shop floor without searching through your asset list.
 

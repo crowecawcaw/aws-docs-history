@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Assets
-<a name="assets-chapter"></a>
 
 *Assets*, in Amazon Monitron, are the pieces of equipment on your factory floor. Typically, assets are individual machines, but they can also be sections of a larger piece of equipment, part of an industrial process, or any element of your manufacturing model.
 

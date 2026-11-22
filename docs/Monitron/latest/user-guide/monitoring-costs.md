@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Monitoring costs
-<a name="monitoring-costs"></a>
 
 Amazon Monitron assigns [AWS–generated tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tags.html) to each sensor: a project tag and a site tag. If you use [AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html), you can use these assigned tag values to get cost reports filtered to specific Amazon Monitron projects and sites.
 

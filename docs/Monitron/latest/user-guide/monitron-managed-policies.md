@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # AWS managed policies for Amazon Monitron
-<a name="monitron-managed-policies"></a>
 
 You can attach AmazonMonitronFullAccess to your IAM entities. This policy grants *administrative* permissions that allow access to all Amazon Monitron resources and operations.
 
@@ -12,7 +11,7 @@ You can attach AmazonMonitronFullAccess to your IAM entities. This policy grants
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # User directory setup
-<a name="mu-adding-user"></a>
 
 Amazon Monitron uses AWS IAM Identity Center to manage user access. Users are added from this IAM Identity Center user directory.
 
@@ -176,7 +175,7 @@ There are two ways to log out of IAM Identity Center:
 ![Amazon Monitron signed out screen with gear icon and Sign back in button.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/log-back-in.png)
 
 
-To learn about admin users using IAM Identity Center, see [User directory setup](#mu-adding-user).
+To learn about admin users using IAM Identity Center, see [User directory setup](mu-adding-user.md).
 
 To learn about security best practices with Amazon Monitron and IAM Identity Center, see [Security best practices for Amazon Monitron](https://docs.aws.amazon.com/Monitron/latest/user-guide/security-best-practices.html).
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Sending an email invitation
-<a name="resending-email"></a>
 
 When you add a user to an Amazon Monitron project or site, you send them an email and invite them to download and log in to the Amazon Monitron mobile or web app. This invitation also contains instructions for connecting to your project. 
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Monitoring with Amazon CloudWatch Logs
-<a name="data-export-cloudwatch-logs-v2"></a>
 
 You can monitor Amazon Monitron live data export using Amazon CloudWatch Logs. When a measurement fails to export, Amazon Monitron will send a log event to your CloudWatch Logs. You can also set up a metric filter on the error log to generate metrics and set up alarms. An alarm can watch for certain thresholds and send notifications or take actions when those thresholds are met. For more information, see [the CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 

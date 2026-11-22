@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Commissioning a Wi-Fi gateway
-<a name="adding-gateway-Wi-Fi"></a>
 
 When your gateway is mounted in your factory, you will need access to the Amazon Monitron mobile app to commission it. Amazon Monitron supports only smartphones using Android 8.0\+ or iOS 14\+ with Near Field Communication (NFC) and Bluetooth.
 

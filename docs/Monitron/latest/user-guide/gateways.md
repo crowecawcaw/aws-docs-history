@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Gateways
-<a name="gateways"></a>
 
  Amazon Monitron uses gateways to transfer the data collected by the Amazon Monitron Sensors to the AWS Cloud. Gateways are positioned in factories within 20 to 30 meters of the sensors. They communicate with the sensors over Bluetooth Low Energy (BLE), and with the AWS Cloud using either Wi-Fi or Ethernet.
 

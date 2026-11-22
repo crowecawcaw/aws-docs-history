@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Ex-rated sensors
-<a name="ex-rated-sensors"></a>
 
 **Warning**  
 Before installing and using a sensor, see [ Ex Safety and Compliance Guide](https://aws.amazon.com/monitron/terms/safety-and-compliance-information/) for all warnings and instructions. 

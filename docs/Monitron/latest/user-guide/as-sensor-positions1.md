@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Sensors
-<a name="as-sensor-positions1"></a>
 
 Sensors collect the data from your equipment, then Amazon Monitron uses that data to detect developing abnormalities. Where you mount a sensor (the *position*) is extremely important for collecting and analyzing data. 
 

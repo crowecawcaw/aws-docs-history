@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Exporting your Amazon Monitron data to Amazon S3
-<a name="data-download-monitron"></a>
 
 You may sometimes want to access the raw data that Amazon Monitron is storing for you, in order to stay informed about exactly what kind of data you’re securely storing with AWS.
 

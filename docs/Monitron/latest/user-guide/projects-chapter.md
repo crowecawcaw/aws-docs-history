@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Projects
-<a name="projects-chapter"></a>
 
 A *Project* is the foundation for using Amazon Monitron. A project is where your team sets up the gateways, assets, and sensors that Amazon Monitron uses to detect the abnormal conditions that can lead to equipment failure.
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # What is Amazon Monitron?
-<a name="what-is-monitron"></a>
 
 Amazon Monitron is a machine-learning based end-to-end condition monitoring system that detects potential failures within equipment. You can use it to implement a predictive maintenance program and reduce lost productivity from unplanned machine downtime.
 
@@ -27,12 +26,16 @@ You mount the sensors directly on the machines (or *assets*) that you want to mo
 
 ![Orange sensor device with Amazon smile logo and regulatory compliance markings.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-sensor.png)
 
+*An Amazon Monitron sensor*
+
 
 Each sensor collects data from the asset and sends it through the AWS Cloud to Amazon Monitron using a gateway mounted on the factory wall and plugged into a standard outlet.
 
 The Amazon Monitron Starter Kit, which is available at [Amazon.com](https://amazon.com/) or [Amazon Business](https://business.amazon.com/), contains five sensors and one Wi-Fi gateway. You can add more sensors and gateways as needed.
 
 ![Two orange Amazon Monitron devices: a sensor with cable and a Wi-Fi gateway unit.](https://docs.aws.amazon.com/Monitron/latest/user-guide/images/both-gateways.png)
+
+*An Amazon Monitron gateway*
 
 
 ## Amazon Monitron software

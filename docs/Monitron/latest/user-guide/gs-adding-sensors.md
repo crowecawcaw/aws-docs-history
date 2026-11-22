@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 4: Pairing Sensors to an Asset
-<a name="gs-adding-sensors"></a>
 
 Each sensor that you pair to an asset has a designated position and is set to monitor a specific part of the asset. For example, a sensor set up to monitor bearings on a conveyor belt might have the position of Left bearing 1 with a position type of Bearing. 
 

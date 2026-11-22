@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Amazon Monitron alerts
-<a name="how-it-works-alerts"></a>
 
 To track equipment health, the Amazon Monitron mobile app displays an icon for each asset, so you can see its condition at a glance.
 

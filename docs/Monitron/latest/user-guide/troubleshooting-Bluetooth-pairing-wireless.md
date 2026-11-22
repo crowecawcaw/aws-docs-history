@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Troubleshooting Bluetooth pairing
-<a name="troubleshooting-Bluetooth-pairing-wireless"></a>
 
 You may find yourself attempting to pair your iOS mobile device with a gateway that it has already been paired with. This could happen because the gateway has changed locations, or because you have altered the general configuration of your Monitron site.
 

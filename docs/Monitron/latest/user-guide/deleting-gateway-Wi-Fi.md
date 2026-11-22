@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a Wi-Fi gateway
-<a name="deleting-gateway-Wi-Fi"></a>
 
 Sensors need a gateway to relay their data to the AWS Cloud. Deleting a gateway might cause some sensors to lose their connection. Exercise caution before deleting a gateway. 
 

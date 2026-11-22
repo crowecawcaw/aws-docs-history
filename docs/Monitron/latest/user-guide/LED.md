@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Reading the LED lights on a Wi-Fi gateway
-<a name="LED"></a>
 
 The LED lights on the top of your Amazon Monitron gateway indicate the status of the gateway. Each LED light has one orange light and one blue light. The orange light indicates that the gateway is connected to a Wi-Fi network. The blue light indicates that the gateway's Bluetooth is connected to the sensors. 
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Placing and installing a Wi-Fi gateway
-<a name="installing-gateway"></a>
 
 Unlike sensors, a Wi-Fi gateway doesn't need to be attached to the machines that are being monitored. However, it does need an available Wi-Fi network through which Amazon Monitron can connect to the AWS Cloud.
 

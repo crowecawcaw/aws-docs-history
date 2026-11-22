@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Editing Ethernet gateway name
-<a name="editing-gateway-ethernet"></a>
 
 You can change the display name for your Ethernet gateway to find it faster. To edit a gateway name, open your web or mobile app and do the following.
 

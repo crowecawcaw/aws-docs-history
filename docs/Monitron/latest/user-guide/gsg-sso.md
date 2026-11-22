@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Step 4: (optional) Add Amazon Monitron users to your project
-<a name="gsg-sso"></a>
 
 In addition to admin users, you can also add users who lack admin permissions. For example, these users might be technicians who only use the Amazon Monitron mobile app to monitor assets, acknowledge notifications and enter closure codes.
 

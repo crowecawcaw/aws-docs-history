@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a sensor position
-<a name="as-delete-sensorposition"></a>
 
 Deleting a sensor position removes that data collection point from the asset. If a sensor is still paired to this position, you need to remove it before you can delete the position. 
 

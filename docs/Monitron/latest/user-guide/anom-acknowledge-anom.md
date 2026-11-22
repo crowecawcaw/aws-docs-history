@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Acknowledging a machine abnormality
-<a name="anom-acknowledge-anom"></a>
 
 After receiving a notification, the admin user or technician must acknowledge it. Acknowledging the notification lets other users know that the issue has been noted and that action will be taken.
 

@@ -3,7 +3,6 @@
 Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Adding a sensor position
-<a name="adding-position"></a>
 
 When you pair a sensor to an asset, you record the type of position. The type of position tells Amazon Monitron how to assess the position when it analyzes the data from that sensor.
 
