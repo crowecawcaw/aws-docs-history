@@ -1,7 +1,6 @@
 
 
 # REMOVE\_OUTLIERS
-<a name="recipe-actions.outliers.REMOVE_OUTLIERS"></a>
 
 Removes data points that classify as outliers, based on the settings in the parameters.
 
@@ -54,7 +53,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in YAML**  
 
-```
+```yaml
 - Action:
   Operation: REMOVE_OUTLIERS
   Parameters:

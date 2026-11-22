@@ -1,7 +1,6 @@
 
 
 # ROLLING\_VARIANCE
-<a name="recipe-actions.functions.ROLLING_VARIANCE"></a>
 
 Returns in a new column the rolling variance of values from a specified number of rows before to a specified number of rows after the current row in the specified column.
 

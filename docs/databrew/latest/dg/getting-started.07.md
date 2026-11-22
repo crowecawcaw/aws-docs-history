@@ -1,7 +1,6 @@
 
 
 # Step 7: (Optional) Clean up
-<a name="getting-started.07"></a>
 
 The walkthrough is complete. You can keep using the DataBrew and Amazon S3 resources that you created, or delete them.
 

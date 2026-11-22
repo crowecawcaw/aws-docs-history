@@ -1,7 +1,6 @@
 
 
 # EXPONENT
-<a name="recipe-actions.functions.EXPONENT"></a>
 
 Returns Euler’s number raised to the *n*th degree in a new column.
 

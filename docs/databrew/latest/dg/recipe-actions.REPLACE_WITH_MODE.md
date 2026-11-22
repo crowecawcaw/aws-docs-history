@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_MODE
-<a name="recipe-actions.REPLACE_WITH_MODE"></a>
 
 Replaces each invalid value in a column with the mode of all other values.
 

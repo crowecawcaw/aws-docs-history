@@ -1,7 +1,6 @@
 
 
 # Data quality recipe steps
-<a name="recipe-actions.data-quality"></a>
 
 Use these data quality recipe steps to populate missing values, remove invalid data, or remove duplicates.
 

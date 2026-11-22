@@ -1,7 +1,6 @@
 
 
 # Connecting to data with AWS Glue DataBrew
-<a name="datasets"></a>
 
 In AWS Glue DataBrew, a *dataset* represents data that's either uploaded from a file or stored elsewhere. For example, data can be stored in Amazon S3, in a supported JDBC data source, or an AWS Glue Data Catalog. If you're not uploading a file directly to DataBrew, the dataset also contains details on how DataBrew can connect to the data.
 

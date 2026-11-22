@@ -1,7 +1,6 @@
 
 
 # Creating and using AWS Glue DataBrew projects
-<a name="projects"></a>
 
 In AWS Glue DataBrew, a *project* is the centerpiece of your data analysis and transformation efforts.
 

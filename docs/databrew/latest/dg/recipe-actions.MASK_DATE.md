@@ -1,7 +1,6 @@
 
 
 # MASK\_DATE
-<a name="recipe-actions.MASK_DATE"></a>
 
 Masks components of a date with a user-specified mask symbol.
 

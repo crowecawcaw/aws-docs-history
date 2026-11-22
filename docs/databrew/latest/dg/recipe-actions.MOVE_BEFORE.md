@@ -1,7 +1,6 @@
 
 
 # MOVE\_BEFORE
-<a name="recipe-actions.MOVE_BEFORE"></a>
 
 Moves a column to the position immediately before another column.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring IAM policies for DataBrew
-<a name="iam-policy-config-for-databrew"></a>
 
 Following, you can find details and examples about IAM policies that you can use with DataBrew. Details about the basic policies are provided here. Plus, there are more examples that are not required to use DataBrew. They are additional configurations that you might use in certain situations.
 

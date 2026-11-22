@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_ROLLING\_AVERAGE
-<a name="recipe-actions.REPLACE_WITH_ROLLING_AVERAGE"></a>
 
 Replaces each value in a column with the rolling average from a previous "window" of rows.
 

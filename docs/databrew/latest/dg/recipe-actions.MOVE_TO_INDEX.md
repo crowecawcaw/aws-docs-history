@@ -1,7 +1,6 @@
 
 
 # MOVE\_TO\_INDEX
-<a name="recipe-actions.MOVE_TO_INDEX"></a>
 
 Moves a column to a position specified by a number.
 

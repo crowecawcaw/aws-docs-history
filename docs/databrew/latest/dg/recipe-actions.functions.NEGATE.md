@@ -1,7 +1,6 @@
 
 
 # NEGATE
-<a name="recipe-actions.functions.NEGATE"></a>
 
 Negates a value and returns the result in a new column. 
 

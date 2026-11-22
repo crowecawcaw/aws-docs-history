@@ -1,7 +1,6 @@
 
 
 # TOKENIZATION
-<a name="recipe-actions.TOKENIZATION"></a>
 
 Splits text into smaller units, or tokens, such as individual words or terms.
 

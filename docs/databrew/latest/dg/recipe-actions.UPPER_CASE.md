@@ -1,7 +1,6 @@
 
 
 # UPPER\_CASE
-<a name="recipe-actions.UPPER_CASE"></a>
 
 Changes each string in a column to uppercase, for example: THE QUICK BROWN FOX JUMPED OVER THE FENCE
 

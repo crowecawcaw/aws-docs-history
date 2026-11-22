@@ -1,7 +1,6 @@
 
 
 # Automating DataBrew with CloudWatch Events
-<a name="monitoring.cloudwatch-events"></a>
 
 Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system events such as application availability issues or resource changes. Events from AWS services are delivered to CloudWatch Events in near-real time. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
 + Invoking the Amazon EC2 run command
@@ -13,7 +12,7 @@ DataBrew reports an event to CloudWatch Events whenever the state of a resource 
 
 Following are examples of several events, showing various states of a DataBrew job: `SUCCEEDED`, `FAILED`, `TIMEOUT`, and `STOPPED`.
 
-```
+```json
 {
   "version": "0",
   "id": "abcdef00-1234-5678-9abc-def012345678",

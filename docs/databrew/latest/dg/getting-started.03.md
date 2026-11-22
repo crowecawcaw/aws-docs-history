@@ -1,7 +1,6 @@
 
 
 # Step 3: Add more transformations
-<a name="getting-started.03"></a>
 
 In this step, you add more transformations to your recipe and publish another version of it. To refine our example, we use the information that not all chess games result in a clear winner; some games are played to a draw. 
 

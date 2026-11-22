@@ -1,7 +1,6 @@
 
 
 # NEST\_TO\_MAP
-<a name="recipe-actions.NEST_TO_MAP"></a>
 
 Converts user-selected columns into key-value pairs, each with a key representing the column name and a value representing the row value. The order of the selected column is not maintained while creating the resultant map. The different column data types are typecast to a common type that supports the data types of all columns.
 

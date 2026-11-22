@@ -1,7 +1,6 @@
 
 
 # Other functions
-<a name="recipe-actions.functions.other"></a>
 
 Following, find reference topics for other functions that work with recipe actions. 
 

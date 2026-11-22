@@ -1,7 +1,6 @@
 
 
 # TO\_STRING\_COLUMN
-<a name="recipe-actions.TO_STRING_COLUMN"></a>
 
 Changes the data type of an existing column to STRING.
 

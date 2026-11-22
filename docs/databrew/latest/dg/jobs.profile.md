@@ -1,7 +1,6 @@
 
 
 # Creating and working with AWS Glue DataBrew profile jobs
-<a name="jobs.profile"></a>
 
 *Profile jobs* run a series of evaluations on a dataset and output the results to Amazon S3. The information that data profiling gathers helps you understand your dataset and decide what kind of data preparation steps you might want to run in your recipe jobs. 
 

@@ -1,7 +1,6 @@
 
 
 # RIGHT\_FIND
-<a name="recipe-actions.functions.RIGHT_FIND"></a>
 
 Searching right to left, finds strings that match a specified string from the source column or from a custom value, and returns the result in a new column. 
 

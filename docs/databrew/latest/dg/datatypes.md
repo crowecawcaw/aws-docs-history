@@ -1,7 +1,6 @@
 
 
 # Data types
-<a name="datatypes"></a>
 
 The data for each column of your dataset are converted to one of the following data types:
 + **byte** – 1-byte signed integer numbers. The range of numbers is from -128 to 127.

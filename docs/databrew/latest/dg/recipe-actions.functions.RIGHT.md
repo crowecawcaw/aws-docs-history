@@ -1,7 +1,6 @@
 
 
 # RIGHT
-<a name="recipe-actions.functions.RIGHT"></a>
 
 Given a number of characters, takes the rightmost number of characters in the strings from the source column or custom strings, and returns the specified number of rightmost characters in a new column.
 

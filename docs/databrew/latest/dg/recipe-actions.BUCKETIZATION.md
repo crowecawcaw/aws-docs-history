@@ -1,7 +1,6 @@
 
 
 # BUCKETIZATION
-<a name="recipe-actions.BUCKETIZATION"></a>
 
 Bucketization (called Binning in the console) takes the items in a column of numeric values, groups them into bins defined by numeric ranges, and outputs a new column that displays the bin for each row. Bucketization can be done using splits or percentage. The first example below uses splits and the second example uses a percentage.
 

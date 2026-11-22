@@ -1,7 +1,6 @@
 
 
 # CEILING
-<a name="recipe-actions.functions.CEILING"></a>
 
 Returns the smallest integer number greater than or equal to the input decimal numbers in a new column.
 

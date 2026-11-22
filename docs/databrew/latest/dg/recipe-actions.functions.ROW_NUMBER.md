@@ -1,7 +1,6 @@
 
 
 # ROW\_NUMBER
-<a name="recipe-actions.functions.ROW_NUMBER"></a>
 
 Returns in a new column a session identifier based on a window created by column names from "group by" and "order by" statements.
 

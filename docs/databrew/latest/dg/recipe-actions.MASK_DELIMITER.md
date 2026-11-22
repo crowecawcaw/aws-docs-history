@@ -1,7 +1,6 @@
 
 
 # MASK\_DELIMITER
-<a name="recipe-actions.MASK_DELIMITER"></a>
 
 Masks characters between two delimiters with a user-specified masking symbol.
 

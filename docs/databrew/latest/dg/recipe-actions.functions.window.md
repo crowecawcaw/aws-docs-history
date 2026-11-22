@@ -1,7 +1,6 @@
 
 
 # Window functions
-<a name="recipe-actions.functions.window"></a>
 
 Following, find reference topics for window functions that work with recipe actions.
 

@@ -1,7 +1,6 @@
 
 
 # DECRYPT
-<a name="recipe-actions.DECRYPT"></a>
 
 You can use the DECRYPT transform to decrypt inside of DataBrew. Your data can also be decrypted outside of DataBrew with the AWS Encryption SDK. If the provided KMS key ARN does not match what was used to encrypt the column, the decrypt operation fails. For more information on the AWS Encryption SDK, see [What is the AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) in the *AWS Encryption SDK Developer Guide*.
 
@@ -25,7 +24,7 @@ When working in the interactive experience, in addition to the project’s role,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

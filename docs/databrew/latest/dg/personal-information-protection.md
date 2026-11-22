@@ -1,7 +1,6 @@
 
 
 # Identifying and handling personally identifiable information (PII)
-<a name="personal-information-protection"></a>
 
 When you build analytic functions or machine learning models, you need safeguards to prevent exposure of personally identifiable information (PII) data. *PII* is personal data that can be used to identify an individual, such as an address, bank account number, or phone number. For example, when data analysts and data scientists use datasets to discover general demographic information, they should not have access to specific individuals' PII. 
 

@@ -1,7 +1,6 @@
 
 
 # TRIM
-<a name="recipe-actions.functions.TRIM"></a>
 
 Removes leading and trailing white space from the strings in the source column or custom strings, and returns the result in a new column. Spaces between words aren't removed.
 

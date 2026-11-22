@@ -1,7 +1,6 @@
 
 
 # ADD
-<a name="recipe-actions.functions.ADD"></a>
 
  Sums the input column values in a new column, using (`sourceColumn1` \+ `sourceColumn2`) or (`sourceColumn1` \+ `value1`).
 

@@ -1,7 +1,6 @@
 
 
 # COALESCE
-<a name="recipe-actions.COALESCE"></a>
 
 Returns in a new column the first non-null value found in the array of columns. The order of the columns listed in the function determines the order in which they're searched.
 

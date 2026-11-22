@@ -1,7 +1,6 @@
 
 
 # FILL\_WITH\_EMPTY
-<a name="recipe-actions.FILL_WITH_EMPTY"></a>
 
 Returns a column with missing data replaced by an empty string.
 

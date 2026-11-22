@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Glue DataBrew
-<a name="security-databrew-compliance"></a>
 
 Third-party auditors assess the security and compliance of AWS Glue DataBrew as part of multiple AWS compliance programs. These include SOC, PCI, FedRAMP, HIPAA, and others.
 

@@ -1,7 +1,6 @@
 
 
 # FORMAT\_DATE
-<a name="recipe-actions.FORMAT_DATE"></a>
 
 Returns a column in which a date string is converted into a formatted value.
 

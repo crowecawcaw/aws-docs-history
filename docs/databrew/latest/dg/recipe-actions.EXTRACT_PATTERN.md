@@ -1,7 +1,6 @@
 
 
 # EXTRACT\_PATTERN
-<a name="recipe-actions.EXTRACT_PATTERN"></a>
 
 Creates a new column, based on a regular expression, from the values in an existing column. 
 

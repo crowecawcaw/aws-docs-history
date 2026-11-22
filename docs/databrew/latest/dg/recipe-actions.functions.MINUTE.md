@@ -1,7 +1,6 @@
 
 
 # MINUTE
-<a name="recipe-actions.functions.MINUTE"></a>
 
 Creates a new column containing the minute value, from a string that represents a date.
 

@@ -1,7 +1,6 @@
 
 
 # MONTH\_NAME
-<a name="recipe-actions.functions.MONTH_NAME"></a>
 
 Creates a new column containing the name of the month, from a string that represents a date.
 

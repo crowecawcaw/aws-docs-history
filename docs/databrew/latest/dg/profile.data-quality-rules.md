@@ -1,7 +1,6 @@
 
 
 # Validating data quality in AWS Glue DataBrew
-<a name="profile.data-quality-rules"></a>
 
 To ensure the quality of your datasets, you can define a list of data quality rules in a ruleset. A *ruleset* is a set of rules that compare different data metrics against expected values. If any of a rule's criteria isn't met, the ruleset as a whole fails validation. You can then inspect individual results for each rule. For any rule that causes a validation failure, you can make the necessary corrections and revalidate.
 
@@ -35,7 +34,7 @@ When a DataBrew profile job completes, DataBrew sends an Amazon CloudWatch event
 
  Following is an example of a DataBrew Validation Result event:
 
-```
+```json
 {
   "version": "0",
   "id": "fb27348b-112d-e7c2-560d-85e7c2c09964",
@@ -58,7 +57,7 @@ When a DataBrew profile job completes, DataBrew sends an Amazon CloudWatch event
 
 You can use attributes of events such as `detail-type`, `source` and nested properties of the `detail` attribute to [create event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html#eb-create-pattern) in Amazon Eventbridge. For example an event pattern to match all failed validations from any DataBrew job would look like this:
 
-```
+```json
 {
   "source": ["aws.databrew"],
   "detail-type": ["DataBrew Ruleset Validation Result"],

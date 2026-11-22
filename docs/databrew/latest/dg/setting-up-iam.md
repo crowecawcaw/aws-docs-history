@@ -1,7 +1,6 @@
 
 
 # Setting up AWS Identity and Access Management (IAM) permissions
-<a name="setting-up-iam"></a>
 
 Before you get started, you need to set up a few things in IAM. You need to be an administrator or have help from one. However, if you have an account with administrator access, you can do these tasks yourself. You can find simple instructions for each task in this section. 
 

@@ -1,7 +1,6 @@
 
 
 # DATE\_TIME
-<a name="recipe-actions.functions.DATETIME"></a>
 
 Creates a new column containing the date and time value, from the source columns or from values provided.
 

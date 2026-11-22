@@ -1,7 +1,6 @@
 
 
 # CHANGE\_DATA\_TYPE
-<a name="recipe-actions.CHANGE_DATA_TYPE"></a>
 
 Changes the data type of an existing column.
 

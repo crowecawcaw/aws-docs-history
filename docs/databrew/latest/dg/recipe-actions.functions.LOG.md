@@ -1,7 +1,6 @@
 
 
 # LOG
-<a name="recipe-actions.functions.LOG"></a>
 
 Returns the logarithm of a value in a new column.
 

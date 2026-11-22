@@ -1,7 +1,6 @@
 
 
 # ROLLING\_SUM
-<a name="recipe-actions.functions.ROLLING_SUM"></a>
 
 Returns in a new column the rolling sum of values from a specified number of rows before to a specified number of rows after the current row in the specified column. 
 

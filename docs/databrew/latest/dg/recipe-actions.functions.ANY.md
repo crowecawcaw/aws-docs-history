@@ -1,7 +1,6 @@
 
 
 # ANY
-<a name="recipe-actions.functions.ANY"></a>
 
  Returns any values from the selected source columns in a new column. Empty and null values are ignored.
 

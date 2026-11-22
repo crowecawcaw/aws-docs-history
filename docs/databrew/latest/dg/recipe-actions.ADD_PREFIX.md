@@ -1,7 +1,6 @@
 
 
 # ADD\_PREFIX
-<a name="recipe-actions.ADD_PREFIX"></a>
 
 Adds one or more characters, concatenating them as a prefix to the beginning of a column.
 

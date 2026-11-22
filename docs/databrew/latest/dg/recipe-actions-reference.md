@@ -1,7 +1,6 @@
 
 
 # Recipe step and function reference
-<a name="recipe-actions-reference"></a>
 
 In this reference, you can find descriptions of the recipe steps and functions that you can use programmatically, either from the AWS CLI or by using one of the AWS SDKs. In DataBrew, a *recipe step* is an action that transforms your raw data into a form that is ready to be consumed by your data pipeline. A DataBrew *function* is a special kind of recipe step that performs a computation based on parameters.
 

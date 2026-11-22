@@ -1,7 +1,6 @@
 
 
 # Column formatting recipe steps
-<a name="recipe-actions.column-formatting"></a>
 
 Use column formatting recipe steps to change the format of the data in your columns.
 

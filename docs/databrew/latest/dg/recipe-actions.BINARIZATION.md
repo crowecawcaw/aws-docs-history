@@ -1,7 +1,6 @@
 
 
 # BINARIZATION
-<a name="recipe-actions.BINARIZATION"></a>
 
 Takes all the values in a selected numeric source column, compares them to a threshold value, and outputs a new column with a 1 or 0 for each row. 
 

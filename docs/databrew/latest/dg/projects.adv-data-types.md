@@ -1,7 +1,6 @@
 
 
 # Advanced data types
-<a name="projects.adv-data-types"></a>
 
  *Advanced data types* are data types that DataBrew detects within a string column in a project by means of pattern matching. When you click on a string column, the column is flagged as the corresponding advanced data type if 50% or more of the values in the column meet the criteria for that data type. 
 

@@ -1,7 +1,6 @@
 
 
 # ENCRYPT
-<a name="recipe-actions.ENCRYPT"></a>
 
 Encrypts values in the source columns with the [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html). The DECRYPT transform can be used to decrypt inside of DataBrew. You can also decrypt the data outside of DataBrew using the AWS Encryption SDK.
 
@@ -35,7 +34,7 @@ When working in the interactive experience, in addition to the project’s role,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

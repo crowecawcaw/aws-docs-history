@@ -1,7 +1,6 @@
 
 
 # ENDS\_WITH
-<a name="recipe-actions.functions.ENDS_WITH"></a>
 
 Returns `true` in a new column if a specified number of rightmost characters, or custom string, matches a pattern.
 

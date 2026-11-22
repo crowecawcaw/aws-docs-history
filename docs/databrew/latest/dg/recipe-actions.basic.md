@@ -1,7 +1,6 @@
 
 
 # Basic column recipe steps
-<a name="recipe-actions.basic"></a>
 
 Use these basic column recipe actions to perform simple transformations on your data.
 

@@ -1,7 +1,6 @@
 
 
 # Step 4: Review your DataBrew resources
-<a name="getting-started.04"></a>
 
 Now that you worked with a sample project, review the DataBrew resources you created so far.
 

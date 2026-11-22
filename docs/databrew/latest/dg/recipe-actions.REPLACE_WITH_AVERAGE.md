@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_AVERAGE
-<a name="recipe-actions.REPLACE_WITH_AVERAGE"></a>
 
 Replaces each invalid value in a column with the average of all other values.
 

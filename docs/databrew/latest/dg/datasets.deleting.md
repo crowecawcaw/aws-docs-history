@@ -1,7 +1,6 @@
 
 
 # Deleting a dataset
-<a name="datasets.deleting"></a>
 
 If you no longer need a dataset, you can delete it. Deleting a dataset doesn't affect the underlying data source in any way. It simply removes the information that DataBrew used to access the data source.
 

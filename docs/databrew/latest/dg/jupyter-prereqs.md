@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="jupyter-prereqs"></a>
 
 Before you begin, set up the following items:
 + An AWS account – If you don't have one yet, start with [Setting up a new AWS account](setting-up-aws.md). 

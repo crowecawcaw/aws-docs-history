@@ -1,7 +1,6 @@
 
 
 # Mathematical functions
-<a name="recipe-actions.functions.math"></a>
 
 Following, find reference topics for mathematical functions that work with recipe actions.
 

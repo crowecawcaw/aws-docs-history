@@ -1,7 +1,6 @@
 
 
 # REMOVE\_COMBINED
-<a name="recipe-actions.REMOVE_COMBINED"></a>
 
 Removes one or more characters from a column, according to what a user specifies.
 

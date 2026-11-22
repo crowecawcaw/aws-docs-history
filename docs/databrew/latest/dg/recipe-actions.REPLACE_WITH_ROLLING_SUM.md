@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_ROLLING\_SUM
-<a name="recipe-actions.REPLACE_WITH_ROLLING_SUM"></a>
 
 Replaces each value in a column with the rolling sum from a previous "window" of rows.
 

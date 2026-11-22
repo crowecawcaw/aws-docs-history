@@ -1,7 +1,6 @@
 
 
 # REMOVE\_INVALID
-<a name="recipe-actions.REMOVE_INVALID"></a>
 
 Deletes an entire row if an invalid value is encountered in a column of that row.
 

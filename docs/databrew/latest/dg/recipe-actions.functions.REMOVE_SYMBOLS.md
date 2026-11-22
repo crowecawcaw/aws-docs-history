@@ -1,7 +1,6 @@
 
 
 # REMOVE\_SYMBOLS
-<a name="recipe-actions.functions.REMOVE_SYMBOLS"></a>
 
 Removes characters that aren't letters, numbers, accented Latin characters, or white space from the strings in the source column or custom strings, and returns the result in a new column.
 

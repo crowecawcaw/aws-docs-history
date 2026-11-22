@@ -1,7 +1,6 @@
 
 
 # GET\_ACTION\_RESULT
-<a name="recipe-actions.GET_ACTION_RESULT"></a>
 
 Fetches the result of a previously submitted action. Only for use in the interactive experience.
 

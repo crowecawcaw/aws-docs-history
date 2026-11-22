@@ -1,7 +1,6 @@
 
 
 # MOVE\_AFTER
-<a name="recipe-actions.MOVE_AFTER"></a>
 
 Moves a column to the position immediately after another column.
 

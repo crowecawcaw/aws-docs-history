@@ -1,7 +1,6 @@
 
 
 # SORT
-<a name="recipe-actions.SORT"></a>
 
 Sorts the data in one or more columns of a dataset in ascending, descending, or custom order.
 

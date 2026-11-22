@@ -1,7 +1,6 @@
 
 
 # FLOOR
-<a name="recipe-actions.functions.FLOOR"></a>
 
 Returns the largest integral number greater than or equal to the input number in a new column.
 

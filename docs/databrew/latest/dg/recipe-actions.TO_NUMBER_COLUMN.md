@@ -1,7 +1,6 @@
 
 
 # TO\_NUMBER\_COLUMN
-<a name="recipe-actions.TO_NUMBER_COLUMN"></a>
 
 Changes the data type of an existing column to NUMBER.
 

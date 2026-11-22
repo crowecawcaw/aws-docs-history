@@ -1,7 +1,6 @@
 
 
 # ADD\_SINGLE\_QUOTES
-<a name="recipe-actions.ADD_SINGLE_QUOTES"></a>
 
 Encloses the characters in a column with single quotation marks.
 

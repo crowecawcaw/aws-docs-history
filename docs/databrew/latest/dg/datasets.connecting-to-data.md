@@ -1,7 +1,6 @@
 
 
 # Connecting to your data
-<a name="datasets.connecting-to-data"></a>
 
 For more information on connecting to the following data sources, choose the section that applies to you. 
 + **AWS Glue Data Catalog** – You can use the Data Catalog to define references to data objects stored in the AWS Cloud, including the following services:

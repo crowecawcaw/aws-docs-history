@@ -1,7 +1,6 @@
 
 
 # Encryption in transit
-<a name="encryption-in-transit"></a>
 
 AWS provides Secure Sockets Layer (SSL) encryption for data in flight. 
 

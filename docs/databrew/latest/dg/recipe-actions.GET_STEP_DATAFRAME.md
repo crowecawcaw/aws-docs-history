@@ -1,7 +1,6 @@
 
 
 # GET\_STEP\_DATAFRAME
-<a name="recipe-actions.GET_STEP_DATAFRAME"></a>
 
 Fetches the data frame from a step in the project's recipe. Only for use in the interactive experience. Used with the ViewFrame parameter to paginate across a large data frame.
 

@@ -1,7 +1,6 @@
 
 
 # UNION
-<a name="recipe-actions.UNION"></a>
 
 Combines the rows from two or more datasets into a single result.
 

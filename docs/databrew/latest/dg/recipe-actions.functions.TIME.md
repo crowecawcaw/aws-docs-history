@@ -1,7 +1,6 @@
 
 
 # TIME
-<a name="recipe-actions.functions.TIME"></a>
 
 Creates a new column containing the time value, from the source columns or values provided.
 

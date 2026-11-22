@@ -1,7 +1,6 @@
 
 
 # NOW
-<a name="recipe-actions.functions.NOW"></a>
 
 Creates a new column containing the current date and time in the format `yyyy-mm-dd HH:MM:SS`.
 

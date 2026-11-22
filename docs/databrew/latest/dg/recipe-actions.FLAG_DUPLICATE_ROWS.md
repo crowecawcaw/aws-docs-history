@@ -1,7 +1,6 @@
 
 
 # FLAG\_DUPLICATE\_ROWS
-<a name="recipe-actions.FLAG_DUPLICATE_ROWS"></a>
 
 Returns a new column with a specified value in each row that indicates whether that row is an exact match of an earlier row in the dataset. When matches are found, they are flagged as duplicates. The initial occurrence is not flagged, because it doesn't match an earlier row.
 

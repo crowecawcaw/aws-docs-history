@@ -1,7 +1,6 @@
 
 
 # Supported JDBC drivers
-<a name="jdbc-drivers"></a>
 
 
 | Product | Supported version | Driver instructions and downloads | SQL queries supported | 

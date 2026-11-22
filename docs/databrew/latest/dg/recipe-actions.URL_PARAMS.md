@@ -1,7 +1,6 @@
 
 
 # URL\_PARAMS
-<a name="recipe-actions.URL_PARAMS"></a>
 
 Extracts query parameters from a URL string, formats them as a JSON object, and returns the result in a new column.
 

@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_LAST\_VALID
-<a name="recipe-actions.REPLACE_WITH_LAST_VALID"></a>
 
 Replaces each invalid value in a column with the last valid value.
 

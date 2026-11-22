@@ -1,7 +1,6 @@
 
 
 # STANDARD\_DEVIATION
-<a name="recipe-actions.functions.STDDEV"></a>
 
  Returns the standard deviation from the selected source columns in a new column. 
 

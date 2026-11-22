@@ -1,7 +1,6 @@
 
 
 # SPLIT\_COLUMN\_FROM\_START
-<a name="recipe-actions.SPLIT_COLUMN_FROM_START"></a>
 
 Splits a column into two new columns, at an offset from the beginning of the string.
 

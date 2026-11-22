@@ -1,7 +1,6 @@
 
 
 # CONVERT\_TIMEZONE
-<a name="recipe-actions.functions.CONVERT_TIMEZONE"></a>
 
 Converts a time value from the source column into a new column based on a specified timezone.
 

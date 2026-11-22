@@ -1,7 +1,6 @@
 
 
 # CRYPTOGRAPHIC\_HASH
-<a name="recipe-actions.CRYPTOGRAPHIC_HASH"></a>
 
 Applies an algorithm to hash values in the column.
 
@@ -34,7 +33,7 @@ When working in the interactive experience, in addition to the project’s role,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

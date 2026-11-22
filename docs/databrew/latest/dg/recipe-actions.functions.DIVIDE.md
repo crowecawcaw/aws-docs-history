@@ -1,7 +1,6 @@
 
 
 # DIVIDE
-<a name="recipe-actions.functions.DIVIDE"></a>
 
 Divides one input number by another and returns the result in a new column.
 

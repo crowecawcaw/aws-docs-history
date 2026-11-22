@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_NULL
-<a name="recipe-actions.REPLACE_WITH_NULL"></a>
 
 Replaces each invalid value in a column with a null value.
 

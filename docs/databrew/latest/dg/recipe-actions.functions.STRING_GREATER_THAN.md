@@ -1,7 +1,6 @@
 
 
 # STRING\_GREATER\_THAN
-<a name="recipe-actions.functions.STRING_GREATER_THAN"></a>
 
 Creates a new column populated with one of the following:
 + `True` if one string in a column (or value) is greater than another string in a different column (or value).

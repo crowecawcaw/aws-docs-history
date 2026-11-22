@@ -1,7 +1,6 @@
 
 
 # Creating and using AWS Glue DataBrew recipes
-<a name="recipes"></a>
 
 In DataBrew, a *recipe* is a set of data transformation steps. You can apply these steps to a sample of your data, or apply that same recipe to a dataset.
 
@@ -52,13 +51,13 @@ The downloaded JSON file contains recipe actions corresponding to the transforma
 
 A new recipe doesn't have any steps. You can represent a new recipe as an empty JSON list, as shown following.
 
-```
+```json
 [ ]
 ```
 
 Following is an example of such a file, for `chess-project-recipe`. The JSON list contains several objects that describe the recipe steps. Each object in the JSON list is enclosed in curly braces (`{ }`). The JSON lines are delimited by commas. 
 
-```
+```json
 [
     {
         "Action": {
@@ -150,7 +149,7 @@ Following is an example of such a file, for `chess-project-recipe`. The JSON lis
 
 It's easier to see each that each action is an individual line if we only add new lines for new actions, as shown following.
 
-```
+```json
 [
  { "Action": { "Operation": "REMOVE_VALUES", "Parameters": { "sourceColumn": "black_rating" } }, "ConditionExpressions": [ { "Condition": "LESS_THAN", "Value": "1800", "TargetColumn": "black_rating" } ] },
  { "Action": { "Operation": "REMOVE_VALUES", "Parameters": { "sourceColumn": "white_rating" } }, "ConditionExpressions": [ { "Condition": "LESS_THAN", "Value": "1800", "TargetColumn": "white_rating" } ] },
@@ -179,7 +178,7 @@ You can use *conditions* to narrow the scope of a recipe action. Conditions are 
 
 Let's take a closer look at a recipe actions from `chess-project-recipe`.
 
-```
+```json
   {
     "Action": {
       "Operation": "REMOVE_VALUES",
@@ -203,7 +202,7 @@ A follow-up transformation in the recipe does the same thing, for `white_rating`
 
 Here's another example of a condition, applied to a column of character data.
 
-```
+```json
   {
     "Action": {
       "Operation": "REMOVE_VALUES",

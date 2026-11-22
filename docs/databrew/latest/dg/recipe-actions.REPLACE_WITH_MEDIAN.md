@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_MEDIAN
-<a name="recipe-actions.REPLACE_WITH_MEDIAN"></a>
 
 Replaces each invalid value in a column with the median of all other values.
 

@@ -1,7 +1,6 @@
 
 
 # Product and service integrations
-<a name="databrew-integrations"></a>
 
 Use this section to know which products and services integrate with DataBrew. 
 

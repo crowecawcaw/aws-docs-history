@@ -1,7 +1,6 @@
 
 
 # Setting up a new AWS account
-<a name="setting-up-aws"></a>
 
 If you don't have an AWS account, sign up for an AWS account and create an IAM admin user.
 

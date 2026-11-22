@@ -1,7 +1,6 @@
 
 
 # UNNEST\_MAP
-<a name="recipe-actions.UNNEST_MAP"></a>
 
 Unnests a column of type `map` and generates a column for the key and value. If there is more than one key-value pair, a row corresponding to each key value would be generated. This function only unnests one level of a map column.
 

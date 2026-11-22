@@ -1,7 +1,6 @@
 
 
 # RESCALE\_OUTLIERS\_WITH\_SKEW
-<a name="recipe-actions.outliers.RESCALE_OUTLIERS_WITH_SKEW"></a>
 
 Returns a new column with a rescaled outlier value in each row, based on the settings in the parameters. This action works to reduce distribution skewness by applying the specified log or root transform. We recommend this action for handling skewed data. 
 
@@ -30,7 +29,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in JSON**  
 
-```
+```json
 {
     "Action": {
         "Operation": "RESCALE_OUTLIERS_WITH_SKEW",
@@ -55,7 +54,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in YAML**  
 
-```
+```yaml
 - Action:
   Operation: RESCALE_OUTLIERS_WITH_SKEW
   Parameters:

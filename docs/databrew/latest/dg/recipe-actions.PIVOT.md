@@ -1,7 +1,6 @@
 
 
 # PIVOT
-<a name="recipe-actions.PIVOT"></a>
 
 Converts all the row values in a selected column into individual columns with values.
 

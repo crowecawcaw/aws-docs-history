@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Glue DataBrew
-<a name="data-protection"></a>
 
 DataBrew offers several features that are designed to help protect your data.
 

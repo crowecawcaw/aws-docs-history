@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_RANDOM\_DATE\_BETWEEN
-<a name="recipe-actions.REPLACE_WITH_RANDOM_DATE_BETWEEN"></a>
 
 Replaces values with a random date.
 

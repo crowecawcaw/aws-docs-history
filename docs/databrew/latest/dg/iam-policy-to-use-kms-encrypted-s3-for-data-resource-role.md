@@ -1,7 +1,6 @@
 
 
 # IAM policy to use encryption with DataBrew
-<a name="iam-policy-to-use-kms-encrypted-s3-for-data-resource-role"></a>
 
 The `AwsGlueDataBrewS3EncryptedPolicy` policy grants the permissions needed to access S3 objects encrypted with AWS Key Management Service (AWS KMS) on behalf of nonadministrative users.
 

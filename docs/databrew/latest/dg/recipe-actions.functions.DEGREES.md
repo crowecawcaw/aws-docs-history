@@ -1,7 +1,6 @@
 
 
 # DEGREES
-<a name="recipe-actions.functions.DEGREES"></a>
 
 Converts radians for an angle to degrees and returns the result in a new column.
 

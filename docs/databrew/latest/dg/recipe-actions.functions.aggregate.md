@@ -1,7 +1,6 @@
 
 
 # Aggregate functions
-<a name="recipe-actions.functions.aggregate"></a>
 
 Following, find reference topics for aggregate functions that work with recipe actions.
 

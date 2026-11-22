@@ -1,7 +1,6 @@
 
 
 # SPLIT\_COLUMN\_MULTIPLE\_DELIMITER
-<a name="recipe-actions.SPLIT_COLUMN_MULTIPLE_DELIMITER"></a>
 
 Splits a column according to multiple delimiters.
 

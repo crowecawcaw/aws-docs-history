@@ -1,7 +1,6 @@
 
 
 # REPLACE\_BETWEEN\_DELIMITERS
-<a name="recipe-actions.REPLACE_BETWEEN_DELIMITERS"></a>
 
 Replaces the characters between two delimiters with user-specified text.
 

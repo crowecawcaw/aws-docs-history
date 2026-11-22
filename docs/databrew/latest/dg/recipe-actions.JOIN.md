@@ -1,7 +1,6 @@
 
 
 # JOIN
-<a name="recipe-actions.JOIN"></a>
 
 Performs a join operation on two datasets.
 

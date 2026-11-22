@@ -1,7 +1,6 @@
 
 
 # FLAG\_COLUMN\_FROM\_NULL
-<a name="recipe-actions.FLAG_COLUMN_FROM_NULL"></a>
 
 Creates a new column, based on the presence of null values in an existing column.
 

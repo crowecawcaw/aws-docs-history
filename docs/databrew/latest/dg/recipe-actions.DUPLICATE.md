@@ -1,7 +1,6 @@
 
 
 # DUPLICATE
-<a name="recipe-actions.DUPLICATE"></a>
 
 Creates a new column with the different name, but with all of the same data. Both the old and new columns are retained in the dataset.
 

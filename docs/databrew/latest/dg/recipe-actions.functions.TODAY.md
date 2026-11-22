@@ -1,7 +1,6 @@
 
 
 # TODAY
-<a name="recipe-actions.functions.TODAY"></a>
 
 Creates a new column containing the current date in the format `yyyy-mm-dd`.
 

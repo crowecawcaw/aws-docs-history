@@ -1,7 +1,6 @@
 
 
 # MERGE
-<a name="recipe-actions.MERGE"></a>
 
 Merges two or more columns into a new column.
 

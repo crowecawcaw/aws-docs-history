@@ -1,7 +1,6 @@
 
 
 # Enabling the DataBrew extension for JupyterLab
-<a name="jupyter-enabling-databrew"></a>
 
 After you have a secure installation of JupyterLab with extensions enabled, install the DataBrew extension so you can run DataBrew in your notebook. 
 

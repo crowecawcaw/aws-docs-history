@@ -1,7 +1,6 @@
 
 
 # Core concepts and terms in AWS Glue DataBrew
-<a name="core-concepts-and-terms"></a>
 
 Following, you can find an overview of the core concepts and terminology in AWS Glue DataBrew. After you read this section, see [Getting started with AWS Glue DataBrew](getting-started.md), which walks you through the process of creating projects and connecting datasets and running jobs.
 

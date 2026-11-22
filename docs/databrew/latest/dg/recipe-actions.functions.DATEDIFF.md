@@ -1,7 +1,6 @@
 
 
 # DATE\_DIFF
-<a name="recipe-actions.functions.DATEDIFF"></a>
 
 Creates a new column containing the difference between two dates.
 

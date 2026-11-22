@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Glue DataBrew
-<a name="infrastructure-security"></a>
 
 As part of a managed service, AWS Glue DataBrew is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper.
 

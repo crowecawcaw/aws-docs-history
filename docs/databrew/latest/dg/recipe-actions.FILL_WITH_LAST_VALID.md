@@ -1,7 +1,6 @@
 
 
 # FILL\_WITH\_LAST\_VALID
-<a name="recipe-actions.FILL_WITH_LAST_VALID"></a>
 
 Returns a column with missing data replaced by the most recent valid value for that column.
 

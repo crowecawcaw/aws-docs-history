@@ -1,7 +1,6 @@
 
 
 # TRANSPOSE
-<a name="recipe-actions.TRANSPOSE"></a>
 
 Converts all selected rows to columns and columns to rows.
 

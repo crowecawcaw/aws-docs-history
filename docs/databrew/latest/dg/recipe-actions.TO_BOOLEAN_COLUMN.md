@@ -1,7 +1,6 @@
 
 
 # TO\_BOOLEAN\_COLUMN
-<a name="recipe-actions.TO_BOOLEAN_COLUMN"></a>
 
 Changes the data type of an existing column to BOOLEAN.
 

@@ -1,7 +1,6 @@
 
 
 # YEAR
-<a name="recipe-actions.functions.YEAR"></a>
 
 Creates a new column containing the year, from a string that represents a date.
 

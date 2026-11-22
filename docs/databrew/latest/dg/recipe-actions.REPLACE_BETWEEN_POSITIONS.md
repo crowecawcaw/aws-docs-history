@@ -1,7 +1,6 @@
 
 
 # REPLACE\_BETWEEN\_POSITIONS
-<a name="recipe-actions.REPLACE_BETWEEN_POSITIONS"></a>
 
 Replaces the characters between two positions with user-specified text.
 

@@ -1,7 +1,6 @@
 
 
 # Connecting data in multiple files in Amazon S3
-<a name="datasets.multiple-files"></a>
 
 With the DataBrew console, you can navigate Amazon S3 buckets and folders and choose a file for your dataset. However, a dataset doesn't need to be limited to one file.
 

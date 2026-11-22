@@ -1,7 +1,6 @@
 
 
 # SPLIT\_COLUMN\_FROM\_END
-<a name="recipe-actions.SPLIT_COLUMN_FROM_END"></a>
 
 Splits a column into two new columns, at an offset from the end of the string.
 

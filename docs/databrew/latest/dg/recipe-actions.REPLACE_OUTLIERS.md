@@ -1,7 +1,6 @@
 
 
 # REPLACE\_OUTLIERS
-<a name="recipe-actions.REPLACE_OUTLIERS"></a>
 
 Updates the data point values that classify as outliers, based on the settings in the parameters.
 
@@ -39,7 +38,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in JSON**  
 
-```
+```json
 {
     "Action": {
         "Operation": "REPLACE_OUTLIERS",
@@ -66,7 +65,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in YAML**  
 
-```
+```yaml
 - Action:
   Operation: REMOVE_OUTLIERS
   Parameters:

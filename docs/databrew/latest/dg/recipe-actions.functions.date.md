@@ -1,7 +1,6 @@
 
 
 # Date and time functions
-<a name="recipe-actions.functions.date"></a>
 
 Following, find reference topics for date and time functions that work with recipe actions.
 

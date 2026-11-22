@@ -1,7 +1,6 @@
 
 
 # FLAG\_OUTLIERS
-<a name="recipe-actions.FLAG_OUTLIERS"></a>
 
 Returns a new column containing a customizable value in each row that indicates if the source column value is an outlier.
 
@@ -25,7 +24,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in JSON**  
 
-```
+```json
 {
     "Action": {
         "Operation": "FLAG_OUTLIERS",
@@ -50,7 +49,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in YAML**  
 
-```
+```yaml
 - Action:
   Operation: FLAG_OUTLIERS
   Parameters:

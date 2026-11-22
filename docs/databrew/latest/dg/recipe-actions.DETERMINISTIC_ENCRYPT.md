@@ -1,7 +1,6 @@
 
 
 # DETERMINISTIC\_ENCRYPT
-<a name="recipe-actions.DETERMINISTIC_ENCRYPT"></a>
 
 Encrypts the column using AES-GCM-SIV with a 256 bit key. Data encrypted with DETERMINISTIC\_ENCRYPT can only be decrypted inside of DataBrew with the DETERMINISTIC\_DECRYPT transform. This transform does not use AWS KMS or the AWS Encryption SDK, and instead uses the [AWS LC github library](https://github.com/awslabs/aws-lc).
 
@@ -37,7 +36,7 @@ When working in the interactive experience, in addition to the project’s role,
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

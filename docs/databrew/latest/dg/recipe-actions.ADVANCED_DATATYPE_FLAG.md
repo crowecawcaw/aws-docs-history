@@ -1,7 +1,6 @@
 
 
 # ADVANCED\_DATATYPE\_FLAG
-<a name="recipe-actions.ADVANCED_DATATYPE_FLAG"></a>
 
 Creates a new flag column based on the values for the current source column. For example, given a source column containing zip codes, this transform can be used to flag values as `true` or `false` based on a particular timezone. The details that you can extract depend on the pattern that is detected, as described in **Notes** below.
 

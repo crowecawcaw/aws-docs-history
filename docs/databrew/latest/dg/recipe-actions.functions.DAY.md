@@ -1,7 +1,6 @@
 
 
 # DAY
-<a name="recipe-actions.functions.DAY"></a>
 
 Creates a new column containing the day of the month, from a string that represents a date.
 

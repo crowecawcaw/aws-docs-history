@@ -1,7 +1,6 @@
 
 
 # MILLISECOND
-<a name="recipe-actions.functions.MILLISECOND"></a>
 
 Creates a new column containing the millisecond value from a source column or input value.
 

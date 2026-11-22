@@ -1,7 +1,6 @@
 
 
 # REPLACE\_TEXT
-<a name="recipe-actions.REPLACE_TEXT"></a>
 
 Replaces a specified sequence of characters with another.
 

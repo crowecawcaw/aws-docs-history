@@ -1,7 +1,6 @@
 
 
 # Creating, running, and scheduling AWS Glue DataBrew jobs
-<a name="jobs"></a>
 
 AWS Glue DataBrew has a job subsystem that serves two purposes:
 

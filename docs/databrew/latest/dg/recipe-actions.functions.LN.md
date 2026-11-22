@@ -1,7 +1,6 @@
 
 
 # LN
-<a name="recipe-actions.functions.LN"></a>
 
 Returns the natural logarithm (Euler’s number) of a value in a new column.
 

@@ -1,7 +1,6 @@
 
 
 # MASK\_CUSTOM
-<a name="recipe-actions.MASK_CUSTOM"></a>
 
 Masks characters that match a provided custom value.
 

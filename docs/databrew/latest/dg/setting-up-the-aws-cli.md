@@ -1,7 +1,6 @@
 
 
 # Setting up the AWS CLI
-<a name="setting-up-the-aws-cli"></a>
 
 If you plan to use JupyterLab or the DataBrew API, make sure to install the AWS Command Line Interface (AWS CLI). You don't need it to use the DataBrew console or perform the steps in the Getting Started exercises. 
 

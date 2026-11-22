@@ -1,7 +1,6 @@
 
 
 # UNNEST\_STRUCT\_N
-<a name="recipe-actions.UNNEST_STRUCT_N"></a>
 
 Creates a new column for each field of a selected column of type `struct`.
 

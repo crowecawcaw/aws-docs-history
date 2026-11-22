@@ -1,7 +1,6 @@
 
 
 # MERGE\_COLUMNS\_AND\_VALUES
-<a name="recipe-actions.functions.MERGE"></a>
 
 Concatenates the strings in the source columns and returns the result in a new column. You can insert a delimiter between the merged values.
 

@@ -1,7 +1,6 @@
 
 
 # RENAME
-<a name="recipe-actions.RENAME"></a>
 
 Creates a new column with the different name, but with all of the same data. The old column is then removed from the dataset.
 

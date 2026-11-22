@@ -1,7 +1,6 @@
 
 
 # DataBrew dependency on other AWS services
-<a name="dependency-on-other-services"></a>
 
 To work with the DataBrew console, you need a minimum set of permissions to work with the DataBrew resources for your AWS account. In addition to these DataBrew permissions, the console requires permissions from the following services: 
 + CloudWatch Logs permissions to display logs.

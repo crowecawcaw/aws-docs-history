@@ -1,7 +1,6 @@
 
 
 # Available checks
-<a name="profile.data-quality-available-checks"></a>
 
 The following table lists references for all available conditions that can be used in your rules. Note that aggregated conditions cannot be combined with non-aggregated conditions in the same rule. 
 

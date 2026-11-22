@@ -1,7 +1,6 @@
 
 
 # STARTS\_WITH
-<a name="recipe-actions.functions.STARTS_WITH"></a>
 
 Returns `true` in a new column if a specified number of leftmost characters, or custom string, matches a pattern.
 

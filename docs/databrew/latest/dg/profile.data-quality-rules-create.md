@@ -1,7 +1,6 @@
 
 
 # Creating a ruleset with data quality rules
-<a name="profile.data-quality-rules-create"></a>
 
 In the following procedure, you can find an example of creating a ruleset and applying it to a dataset. A *ruleset* is a set of rules that compare different data metrics against expected values. You then can use this ruleset in a profile job to validate the data quality rules that it includes.
 

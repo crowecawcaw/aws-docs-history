@@ -1,7 +1,6 @@
 
 
 # DELETE
-<a name="recipe-actions.DELETE"></a>
 
 Removes a column from the dataset.
 

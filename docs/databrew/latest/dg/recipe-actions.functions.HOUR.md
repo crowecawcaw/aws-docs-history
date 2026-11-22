@@ -1,7 +1,6 @@
 
 
 # HOUR
-<a name="recipe-actions.functions.HOUR"></a>
 
 Creates a new column containing the hour value, from a string that represents a date.
 

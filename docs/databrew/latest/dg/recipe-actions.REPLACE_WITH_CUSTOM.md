@@ -1,7 +1,6 @@
 
 
 # REPLACE\_WITH\_CUSTOM
-<a name="recipe-actions.REPLACE_WITH_CUSTOM"></a>
 
 Replace detected entities with a custom value.
 

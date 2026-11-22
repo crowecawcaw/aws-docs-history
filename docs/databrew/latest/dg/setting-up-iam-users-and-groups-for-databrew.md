@@ -1,7 +1,6 @@
 
 
 # Adding users or groups with DataBrew permissions
-<a name="setting-up-iam-users-and-groups-for-databrew"></a>
 
 You assign policies to roles, and roles to users and groups to manage permissions. For more information, see [IAM Identities (users, groups, and roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html) in the *IAM User Guide*.
 

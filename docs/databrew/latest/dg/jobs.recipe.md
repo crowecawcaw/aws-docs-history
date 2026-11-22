@@ -1,7 +1,6 @@
 
 
 # Creating and working with AWS Glue DataBrew recipe jobs
-<a name="jobs.recipe"></a>
 
 Use a DataBrew *recipe job* to clean and normalize the data in a DataBrew dataset and write the result to an output location of your choice. Running a recipe job doesn't affect the dataset or the underlying source data. When a job runs, it connects to the source data in a read-only fashion. The job output is written to an output location that you define in Amazon S3, the AWS Glue Data Catalog, or a supported JDBC database.
 

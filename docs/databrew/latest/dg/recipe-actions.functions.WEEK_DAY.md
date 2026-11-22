@@ -1,7 +1,6 @@
 
 
 # WEEK\_DAY
-<a name="recipe-actions.functions.WEEK_DAY"></a>
 
 Creates a new column containing the day of the week, from a string that represents a date.
 

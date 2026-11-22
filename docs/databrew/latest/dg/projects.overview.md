@@ -1,7 +1,6 @@
 
 
 # Overview of a DataBrew project session
-<a name="projects.overview"></a>
 
 In a DataBrew project session, you work within an interactive workspace.
 

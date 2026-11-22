@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a project
-<a name="getting-started.01"></a>
 
 In this step, you use the DataBrew console to quickly get started with a sample project.
 

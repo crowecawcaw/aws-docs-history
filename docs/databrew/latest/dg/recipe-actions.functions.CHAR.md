@@ -1,7 +1,6 @@
 
 
 # CHAR
-<a name="recipe-actions.functions.CHAR"></a>
 
 Returns in a new column the Unicode character for each integer in the source column, or for a custom integer value.
 

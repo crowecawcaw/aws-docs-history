@@ -1,7 +1,6 @@
 
 
 # RADIANS
-<a name="recipe-actions.functions.RADIANS"></a>
 
 Converts degrees to radians (divides by 180/pi) and returns the value in a new column.
 

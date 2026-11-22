@@ -1,7 +1,6 @@
 
 
 # EXTRACT\_BETWEEN\_POSITIONS
-<a name="recipe-actions.EXTRACT_BETWEEN_POSITIONS"></a>
 
 Creates a new column, based on character positions, from the values in an existing column. 
 

@@ -1,7 +1,6 @@
 
 
 # Building a profile job configuration programmatically in AWS Glue DataBrew
-<a name="profile.configuration"></a>
 
 In this section, you can find descriptions of profile job steps and functions that you can use programmatically. You can use them either from the AWS Command Line Interface (AWS CLI) or by using one of the AWS SDKs.
 

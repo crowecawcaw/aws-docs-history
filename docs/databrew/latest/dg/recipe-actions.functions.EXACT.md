@@ -1,7 +1,6 @@
 
 
 # EXACT
-<a name="recipe-actions.functions.EXACT"></a>
 
 Creates a new column populated with one of the following:
 + `True` if one string in a column (or value) exactly matches another string in a different column (or value).

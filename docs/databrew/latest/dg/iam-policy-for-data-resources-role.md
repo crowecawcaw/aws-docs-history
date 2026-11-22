@@ -1,7 +1,6 @@
 
 
 # AwsGlueDataBrewDataResourcePolicy
-<a name="iam-policy-for-data-resources-role"></a>
 
 The `AwsGlueDataBrewDataResourcePolicy` policy grants the permissions needed to connect to data and to configure DataBrew.
 

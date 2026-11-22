@@ -1,7 +1,6 @@
 
 
 # Supported file types for data sources
-<a name="supported-data-file-sources"></a>
 
 The following file requirements apply to files stored in Amazon S3 and to files that you upload from a local drive. DataBrew supports the following file formats: comma-separated value (CSV), Microsoft Excel, JSON, ORC, and Parquet. You can use files with a nonstandard extension or no extension if the file is of one of the supported types. 
 

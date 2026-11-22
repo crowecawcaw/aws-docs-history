@@ -1,7 +1,6 @@
 
 
 # MULTIPLY
-<a name="recipe-actions.functions.MULTIPLY"></a>
 
 Multiplies two numbers and returns the result in a new column.
 

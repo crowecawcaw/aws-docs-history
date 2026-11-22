@@ -1,7 +1,6 @@
 
 
 # RESCALE\_OUTLIERS\_WITH\_Z\_SCORE
-<a name="recipe-actions.RESCALE_OUTLIERS_WITH_Z_SCORE"></a>
 
 Returns a new column with a rescaled outlier value in each row, based on the settings in the parameters. This action also applies Z-score normalization to linearly scale data values to have a mean (μ) of 0 and standard deviation (σ) of 1. We recommend this action for handling outliers. 
 
@@ -23,7 +22,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in JSON**  
 
-```
+```json
 {
     "Action": {
         "Operation": "RESCALE_OUTLIERS_WITH_Z_SCORE",
@@ -46,7 +45,7 @@ The following shows an example `RecipeAction` to use as member of an example `Re
 
 **Example in YAML**  
 
-```
+```yaml
 - Action:
   Operation: REMOVE_OUTLIERS
   Parameters:

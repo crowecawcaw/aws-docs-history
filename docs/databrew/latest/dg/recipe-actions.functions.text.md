@@ -1,7 +1,6 @@
 
 
 # Text functions
-<a name="recipe-actions.functions.text"></a>
 
 Following, find reference topics for text functions that work with recipe actions.
 

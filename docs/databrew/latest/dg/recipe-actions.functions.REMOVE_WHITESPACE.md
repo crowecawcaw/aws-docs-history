@@ -1,7 +1,6 @@
 
 
 # REMOVE\_WHITESPACE
-<a name="recipe-actions.functions.REMOVE_WHITESPACE"></a>
 
 Removes white space from the strings in the source column or custom strings, and returns the result in a new column.
 

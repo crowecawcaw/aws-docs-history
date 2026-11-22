@@ -1,7 +1,6 @@
 
 
 # Adding an IAM policy for a console user
-<a name="setting-up-iam-policy-for-databrew-console-access"></a>
 
 Setting up permissions for a user for the AWS Management Console is optional, but if you require console access, take this step first.
 

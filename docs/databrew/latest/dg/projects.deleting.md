@@ -1,7 +1,6 @@
 
 
 # Deleting a project
-<a name="projects.deleting"></a>
 
 If you no longer need a project, you can delete it.
 

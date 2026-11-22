@@ -1,7 +1,6 @@
 
 
 # Personally identifiable information (PII) recipe steps
-<a name="recipe-actions.pii"></a>
 
 Use these recipe steps to perform transformations on personally identifiable information (PII) in a dataset.
 

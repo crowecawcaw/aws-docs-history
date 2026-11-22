@@ -1,7 +1,6 @@
 
 
 # SQUARE\_ROOT
-<a name="recipe-actions.functions.SQUARE_ROOT"></a>
 
 Returns the square root of a value in a new column.
 

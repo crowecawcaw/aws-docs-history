@@ -1,7 +1,6 @@
 
 
 # SKEWNESS
-<a name="recipe-actions.SKEWNESS"></a>
 
 Applies transformations on your data values to change the distribution shape and its skew.
 

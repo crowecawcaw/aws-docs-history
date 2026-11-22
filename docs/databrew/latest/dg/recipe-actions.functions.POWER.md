@@ -1,7 +1,6 @@
 
 
 # POWER
-<a name="recipe-actions.functions.POWER"></a>
 
 Returns the value of a number to the power of the exponent in a new column.
 

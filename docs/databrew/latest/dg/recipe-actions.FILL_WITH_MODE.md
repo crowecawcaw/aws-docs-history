@@ -1,7 +1,6 @@
 
 
 # FILL\_WITH\_MODE
-<a name="recipe-actions.FILL_WITH_MODE"></a>
 
 Returns a column with missing data replaced by the mode of all values.
 

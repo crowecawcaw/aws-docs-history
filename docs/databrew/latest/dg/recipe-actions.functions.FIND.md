@@ -1,7 +1,6 @@
 
 
 # FIND
-<a name="recipe-actions.functions.FIND"></a>
 
 Searching left to right, finds strings that match a specified string from the source column or from a custom value, and returns the result in a new column. 
 

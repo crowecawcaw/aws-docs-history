@@ -1,7 +1,6 @@
 
 
 # QUARTER
-<a name="recipe-actions.functions.QUARTER"></a>
 
 Creates a new column containing the date-based quarter from a string that represents a date.
 

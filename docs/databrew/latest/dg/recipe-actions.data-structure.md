@@ -1,7 +1,6 @@
 
 
 # Data structure recipe steps
-<a name="recipe-actions.data-structure"></a>
 
 Use these recipe steps to tabulate and summarize data from different perspectives, or to perform advanced functions.
 

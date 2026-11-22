@@ -1,7 +1,6 @@
 
 
 # DATE\_ADD
-<a name="recipe-actions.functions.DATEADD"></a>
 
 Adds a year, month, or day to the date from a source column or value, and creates a new column containing the results.
 

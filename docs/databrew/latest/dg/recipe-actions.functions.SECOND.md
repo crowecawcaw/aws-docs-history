@@ -1,7 +1,6 @@
 
 
 # SECOND
-<a name="recipe-actions.functions.SECOND"></a>
 
 Creates a new column containing the second value, from a string that represents a date.
 

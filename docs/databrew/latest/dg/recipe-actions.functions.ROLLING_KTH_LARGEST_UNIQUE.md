@@ -1,7 +1,6 @@
 
 
 # ROLLING\_KTH\_LARGEST\_UNIQUE
-<a name="recipe-actions.functions.ROLLING_KTH_LARGEST_UNIQUE"></a>
 
 Returns in a new column the rolling unique *k*th largest value from a specified number of rows before to a specified number of rows after the current row in the specified column.
 

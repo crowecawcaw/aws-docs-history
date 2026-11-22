@@ -1,7 +1,6 @@
 
 
 # UNNEST\_ARRAY
-<a name="recipe-actions.UNNEST_ARRAY"></a>
 
 Unnests a column of type `array` into a new column. If the array contains more than one value, then a row corresponding to each element is generated. This function only unnests one level of an array column.
 

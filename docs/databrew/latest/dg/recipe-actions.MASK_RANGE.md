@@ -1,7 +1,6 @@
 
 
 # MASK\_RANGE
-<a name="recipe-actions.MASK_RANGE"></a>
 
 Masks characters between two positions with a user-specified masking symbol.
 

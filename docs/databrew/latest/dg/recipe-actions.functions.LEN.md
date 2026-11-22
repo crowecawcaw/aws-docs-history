@@ -1,7 +1,6 @@
 
 
 # LEN
-<a name="recipe-actions.functions.LEN"></a>
 
 Returns in a new column the length of strings from the source column or of custom strings.
 

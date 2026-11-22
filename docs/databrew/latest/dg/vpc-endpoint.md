@@ -1,7 +1,6 @@
 
 
 # Using AWS Glue DataBrew with VPC endpoints
-<a name="vpc-endpoint"></a>
 
 If you use Amazon VPC to host your AWS resources, you can establish a private connection between your VPC and DataBrew by provisioning an VPC endpoint. Using this VPC endpoint, you can make DataBrew API calls.
 

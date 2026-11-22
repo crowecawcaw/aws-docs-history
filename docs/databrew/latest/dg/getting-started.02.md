@@ -1,7 +1,6 @@
 
 
 # Step 2: Summarize the data
-<a name="getting-started.02"></a>
 
 In this step, you build a DataBrew recipe—a set of transformations that can be applied to this dataset and others like it. When the recipe is complete, you publish it so that it's available for use.
 

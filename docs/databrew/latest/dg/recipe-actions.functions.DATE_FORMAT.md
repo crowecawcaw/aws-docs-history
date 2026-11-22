@@ -1,7 +1,6 @@
 
 
 # DATE\_FORMAT
-<a name="recipe-actions.functions.DATE_FORMAT"></a>
 
 Creates a new column containing a date, in a specific format, from a string that represents a date.
 

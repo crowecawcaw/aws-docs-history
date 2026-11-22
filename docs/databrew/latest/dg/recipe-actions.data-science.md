@@ -1,7 +1,6 @@
 
 
 # Data science recipe steps
-<a name="recipe-actions.data-science"></a>
 
 Use these recipe steps to tabulate and summarize data from different perspectives, or to perform advanced transformations.
 

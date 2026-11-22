@@ -1,7 +1,6 @@
 
 
 # ADD\_SUFFIX
-<a name="recipe-actions.ADD_SUFFIX"></a>
 
 Adds one more characters concatenating them as a suffix to the end of a column.
 

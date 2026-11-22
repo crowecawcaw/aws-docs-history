@@ -1,7 +1,6 @@
 
 
 # SUBTRACT
-<a name="recipe-actions.functions.SUBTRACT"></a>
 
 Subtracts one number from another and returns the result in a new column. 
 

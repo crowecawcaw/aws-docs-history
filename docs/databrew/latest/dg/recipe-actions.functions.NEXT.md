@@ -1,7 +1,6 @@
 
 
 # NEXT
-<a name="recipe-actions.functions.NEXT"></a>
 
 Returns a new column, where each value represents a value that is *n* rows later in the source column. 
 

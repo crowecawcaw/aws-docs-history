@@ -1,7 +1,6 @@
 
 
 # KTH\_LARGEST
-<a name="recipe-actions.functions.KTH_LARGEST"></a>
 
  Returns the *k*th largest number from the selected source columns in a new column. 
 

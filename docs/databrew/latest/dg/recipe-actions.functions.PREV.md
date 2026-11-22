@@ -1,7 +1,6 @@
 
 
 # PREV
-<a name="recipe-actions.functions.PREV"></a>
 
 Returns a new column, where each value represents a value that is *n* rows earlier in the source column.
 

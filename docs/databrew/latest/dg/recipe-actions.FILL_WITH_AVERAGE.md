@@ -1,7 +1,6 @@
 
 
 # FILL\_WITH\_AVERAGE
-<a name="recipe-actions.FILL_WITH_AVERAGE"></a>
 
 Returns a column with missing data replaced by the average of all values.
 
