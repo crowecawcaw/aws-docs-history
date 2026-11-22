@@ -3,7 +3,6 @@
 AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Release: App Runner adds new service level metrics for CPU, memory, and concurrency on February 17, 2023
-<a name="release-2023-02-17-metrics"></a>
 
 AWS App Runner adds new service level metrics for CPU utilization, memory utilization, and concurrent requests.
 

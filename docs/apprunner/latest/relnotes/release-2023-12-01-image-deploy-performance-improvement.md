@@ -3,7 +3,6 @@
 AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Release: App Runner improves performance for image-based deployments on December 01, 2023
-<a name="release-2023-12-01-image-deploy-performance-improvement"></a>
 
 AWS App Runner now includes enhancements to reduce the time taken for image-based service deployment.
 

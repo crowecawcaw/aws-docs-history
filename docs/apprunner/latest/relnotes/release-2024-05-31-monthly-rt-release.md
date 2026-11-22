@@ -3,7 +3,6 @@
 AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Release: App Runner runtime updates on May 31, 2024
-<a name="release-2024-05-31-monthly-rt-release"></a>
 
 This release provides minor version updates for the following language runtimes: .NET, Node.js. It also provides package updates to the following platforms: Java, .NET, Node.js, Python, Ruby. 
 

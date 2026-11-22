@@ -3,7 +3,6 @@
 AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Release: App Runner adds support for referencing secrets and configurations from AWS Secrets Manager and AWS Systems Manager Parameter Store on January 5, 2023
-<a name="release-2023-01-05-secrets-paramters"></a>
 
 AWS App Runner now supports referencing secrets and configuration data stored in AWS Secrets Manager and AWS SSM Parameter Store in App Runner service.
 
