@@ -1,7 +1,6 @@
 
 
 # Satellite Operator High Resiliency
-<a name="satellite-operator-high-resiliency"></a>
 
 Publication date: **April 25, 2023 ([Diagram history](diagram-history.md))**
 

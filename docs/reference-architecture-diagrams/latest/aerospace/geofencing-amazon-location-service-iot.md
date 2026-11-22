@@ -1,7 +1,6 @@
 
 
 # Geofencing with Amazon Location Service and AWS IoT
-<a name="geofencing-amazon-location-service-iot"></a>
 
 Publication date: **December 21, 2020 ([Diagram history](diagram-history.md))**
 

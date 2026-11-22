@@ -1,7 +1,6 @@
 
 
 # Electro-Optical Imagery on AWS
-<a name="electro-optical-imagery"></a>
 
 Publication date: **May 13, 2021 ([Diagram history](diagram-history.md))**
 

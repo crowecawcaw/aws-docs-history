@@ -1,7 +1,6 @@
 
 
 # Enterprise Esri ArcGIS Platform on AWS
-<a name="enterprise-esri-arcgis-platform"></a>
 
 Publication date: **April 20, 2022 ([Diagram history](diagram-history.md))**
 

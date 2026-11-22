@@ -1,7 +1,6 @@
 
 
 # Aerospace Virtual Desktop Infrastructure (VDI) and High Performance Computing (HPC) on AWS
-<a name="aws-aerospace-vdi-reference-architecture"></a>
 
 Publication date: **January 26, 2023 ([Diagram history](diagram-history.md))**
 
