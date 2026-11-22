@@ -1,7 +1,6 @@
 
 
 # Connect AWS Security Agent to Azure DevOps repositories
-<a name="connect-azure-devops"></a>
 
 Connect your AWS Security Agent to Azure DevOps repositories to enable code review, threat modeling, penetration testing, and automated remediation capabilities. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces and shared across capabilities.
 
@@ -103,7 +102,7 @@ Grant it at the organization level. The Service Hooks security namespace is hier
 
 1. Get the service principal descriptor:
 
-   ```
+   ```bash
    az rest --method get \
      --resource 499b84ac-1321-427f-aa17-267ca6975798 \
      --url "https://vssps.dev.azure.com/ORG_NAME/_apis/graph/serviceprincipals?api-version=7.1-preview.1" \
@@ -115,7 +114,7 @@ Grant it at the organization level. The Service Hooks security namespace is hier
 
 1. Grant View and Edit Subscriptions for the organization:
 
-   ```
+   ```bash
    az devops security permission update \
      --org "https://dev.azure.com/ORG_NAME" \
      --namespace-id "cb594ebe-87dd-4fc9-ac2c-6a10a4c92046" \
@@ -130,7 +129,7 @@ Grant it at the organization level. The Service Hooks security namespace is hier
 **Note**  
 To scope the grant to a single project instead of the whole organization, get the project ID and append it to the token as `PublisherSecurity/PROJECT_ID`:  
 
-```
+```bash
 az devops project show \
   --org "https://dev.azure.com/ORG_NAME" \
   --project "PROJECT_NAME" \

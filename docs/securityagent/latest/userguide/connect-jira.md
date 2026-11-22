@@ -1,7 +1,6 @@
 
 
 # Connect AWS Security Agent to Jira
-<a name="connect-jira"></a>
 
 Connect AWS Security Agent to Jira Cloud, Atlassian’s issue tracking service, so you can track security findings as Jira issues. After you connect a Jira project to an Agent Space, you can create a Jira issue for a finding, and AWS Security Agent can add comments and links to that issue as the finding progresses. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces.
 

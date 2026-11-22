@@ -1,7 +1,6 @@
 
 
 # Create an Agent Space
-<a name="create-agent-space"></a>
 
 Create Agent Spaces to secure applications or projects in your organization. Each Agent Space provides a workspace for security assessments, findings, and configurations specific to that application or project and can be accessed by multiple users.
 

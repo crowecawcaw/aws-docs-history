@@ -1,7 +1,6 @@
 
 
 # Service Quotas
-<a name="quotas"></a>
 
 AWS Security Agent has quotas that limit the number of resources you can create and the rate at which you can perform operations. Quotas marked as adjustable can be increased by submitting a request through AWS Support. For more information, see [Creating support cases and case management.](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) 
 

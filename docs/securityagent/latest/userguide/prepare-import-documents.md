@@ -1,7 +1,6 @@
 
 
 # Prepare documents for requirement generation
-<a name="prepare-import-documents"></a>
 
 When you generate security requirements from documents, AWS Security Agent reads your documents and produces structured requirements from the security-relevant content it finds. You do not need to format your documents in any particular way or pre-write the applicability, compliance criteria, and remediation guidance. AWS Security Agent derives those from the content you provide. Upload the security documentation you already have, written in your own words.
 

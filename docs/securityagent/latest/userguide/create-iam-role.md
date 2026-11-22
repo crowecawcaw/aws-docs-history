@@ -1,7 +1,6 @@
 
 
 # Create the IAM roles for AWS Security Agent
-<a name="create-iam-role"></a>
 
 AWS Security Agent assumes IAM service roles in your account. It uses these roles to call its own APIs on behalf of web application users and to reach the AWS resources that you want it to assess. If you schedule penetration tests, Amazon EventBridge Scheduler also assumes a role in your account to start the scheduled runs. There are three roles:
 +  **Application role** – One per application. AWS Security Agent assumes this role to give web application users permission to call AWS Security Agent APIs.
@@ -22,7 +21,7 @@ The application role is created once for your application, when you enable AWS S
 
 The trust policy allows the AWS Security Agent service principal to assume the role. It also lets the service set the IAM Identity Center identity context on the resulting session. Both statements are required. Without `sts:SetContext`, IAM Identity Center sign-in to the web application fails. The `aws:SourceAccount` and `aws:SourceArn` conditions restrict the role to calls that AWS Security Agent makes on behalf of resources in your own account. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -76,7 +75,7 @@ The trust policy allows the AWS Security Agent service principal to assume the r
 
 The application role carries two sets of permissions, and it needs both. The first is the AWS managed policy `AWSSecurityAgentWebAppPolicy`, which grants the AWS Security Agent API permissions that web application users need. Use the managed policy rather than writing an equivalent policy yourself, so that your role picks up new permissions as AWS Security Agent adds capabilities. For its contents, see [AWS managed policies for AWS Security Agents](security-iam-awsmanpol.md). The second is a customer managed policy with the following permissions.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -113,7 +112,7 @@ To schedule penetration tests in the web application, you need permissions in Am
 
 This role does not use an external ID. The `aws:SourceAccount` and `aws:SourceArn` conditions serve the same purpose for an AWS service principal. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -158,7 +157,7 @@ In the policies that follow, `my-agent-space` is the name of your Agent Space an
 
 The base policy, which the console always creates:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -208,7 +207,7 @@ The base policy, which the console always creates:
 
 The VPC policy, which lets AWS Security Agent attach an elastic network interface to your VPC so that it can reach targets inside it:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -245,7 +244,7 @@ The VPC policy, which lets AWS Security Agent attach an elastic network interfac
 
 The CloudWatch Logs policy, scoped to the log groups you selected, with the Agent Space name as the log stream prefix:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -282,7 +281,7 @@ The CloudWatch Logs policy, scoped to the log groups you selected, with the Agen
 
 The Secrets Manager policy, scoped to the secrets you selected:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -299,7 +298,7 @@ The Secrets Manager policy, scoped to the secrets you selected:
 
 The Lambda policy, scoped to the functions you selected, such as a function that resolves penetration test credentials:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -316,7 +315,7 @@ The Lambda policy, scoped to the functions you selected, such as a function that
 
 The Amazon S3 policy, scoped to the buckets you selected, such as a bucket that holds source code for a code review:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -352,7 +351,7 @@ In the policies that follow, `as-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` is the ID
 
 With the following JSON trust policy, EventBridge Scheduler can assume the role only for schedules in the schedule group for this Agent Space. The schedule group has the same name as the Agent Space ID. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -379,7 +378,7 @@ With the following JSON trust policy, EventBridge Scheduler can assume the role 
 
 The console attaches the following JSON customer managed policy, named `continuum-schedule-agentSpaceId-SchedulerPolicy-suffix `. With this policy, the role can start jobs only in this Agent Space. The policy also includes the actions to start code review and threat model jobs and to create design reviews, but scheduled penetration test runs use only `securityagent:StartPentestJob`. For more information about these actions, see the [AWS Security Agent API Reference](https://docs.aws.amazon.com/securityagent/latest/APIReference/Welcome.html).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -400,7 +399,7 @@ The console attaches the following JSON customer managed policy, named `continuu
 
 If you encrypt the Agent Space with a customer managed key, the console adds the following JSON statement to the policy. With this statement, the role can use the key only through AWS Security Agent, and only for data in this Agent Space.
 
-```
+```json
 {
   "Sid": "AllowKmsKeyDecryptionForAgentSpaceData",
   "Effect": "Allow",

@@ -1,7 +1,6 @@
 
 
 # Quickstart: Run a code review
-<a name="quickstart-code-review"></a>
 
 This quickstart walks you through running your first code review with AWS Security Agent. AWS Security Agent scans your source code repositories for security vulnerabilities and compliance with your organization’s security requirements.
 

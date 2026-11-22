@@ -1,7 +1,6 @@
 
 
 # Create a code review
-<a name="perform-code-review-scan"></a>
 
 Create code reviews in the AWS Security Agent web application to scan your source code repositories and S3 sources for security vulnerabilities. Code reviews perform comprehensive static analysis across your entire codebase, identifying security issues and providing remediation guidance.
 

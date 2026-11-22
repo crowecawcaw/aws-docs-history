@@ -1,7 +1,6 @@
 
 
 # Review code security findings in pull requests
-<a name="review-code-findings-github"></a>
 
 After enabling code review for pull requests for your repositories, AWS Security Agent automatically analyzes pull requests and posts security findings directly in your source control provider. This allows developers to address security issues within their normal workflow without leaving the pull request.
 

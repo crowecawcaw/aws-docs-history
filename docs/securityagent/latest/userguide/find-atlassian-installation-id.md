@@ -1,7 +1,6 @@
 
 
 # Find your Atlassian installation ID
-<a name="find-atlassian-installation-id"></a>
 
 The Atlassian installation ID uniquely identifies the AWS Security Agent Forge app installed on your Atlassian site, so AWS can securely link your site to your AWS account during integration setup. You need this ID when you register a Bitbucket, Confluence, or Jira integration in the AWS Console. Find the installation ID from the AWS Security Agent Forge app installed on your Atlassian site, then paste it into the registration flow.
 

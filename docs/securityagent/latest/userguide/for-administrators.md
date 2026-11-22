@@ -1,7 +1,6 @@
 
 
 # For administrators (console)
-<a name="for-administrators"></a>
 
 As an administrator, you set up AWS Security Agent in the AWS Management Console and configure Agent Spaces that users access through the AWS Security Agent web application. Each Agent Space represents a distinct environment with specific permissions and resources.
 

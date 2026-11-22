@@ -1,7 +1,6 @@
 
 
 # How integrations work with Agent Spaces
-<a name="about-integrations"></a>
 
 AWS Security Agent connects to third-party source code and documentation providers so the agent can analyze your code and documentation during security assessments. Before you connect a specific provider, it helps to understand how integrations relate to Agent Spaces and capabilities.
 

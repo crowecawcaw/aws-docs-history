@@ -1,7 +1,6 @@
 
 
 # Security Considerations for AWS Security Agent and AI assisted penetration testing
-<a name="security-guidance"></a>
 
 AWS Security Agent is a frontier agent that proactively secures your applications throughout the development lifecycle across all your environments. It conducts automated security reviews customized to your requirements, with security teams centrally defining standards that are automatically validated during reviews. Security Agent performs on-demand penetration testing customized to your application, discovering and reporting verified security risks. This approach scales security expertise across your applications to match development velocity while providing comprehensive security coverage. By integrating security from design to deployment, it helps prevent vulnerabilities early and at scale.
 
@@ -187,7 +186,7 @@ Currently there is no way to preview the course of action for AWS Security Agent
 #### Does AWS Security Agent integrate with security tools (SIEM, vulnerability management) or CI/CD pipelines?
 <a name="_does_aws_security_agent_integrate_with_security_tools_siem_vulnerability_management_or_cicd_pipelines"></a>
 
-AWS Security Agent does not integrate with any existing security tools or CI/CD pipelines.
+AWS Security Agent does not integrate with any existing security tools. You can run a penetration test from a CI/CD pipeline as a post-deployment gate that tests each deployed change and can block promotion on findings. For more information, see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md).
 
 #### How does AWS Security Agent handle environment-specific configurations?
 <a name="_how_does_aws_security_agent_handle_environment_specific_configurations"></a>

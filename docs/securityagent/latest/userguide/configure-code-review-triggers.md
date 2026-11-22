@@ -1,7 +1,6 @@
 
 
 # Configure pull request code review triggers
-<a name="configure-code-review-triggers"></a>
 
 Configure when AWS Security Agent reviews pull requests and merge requests in connected repositories. By default, AWS Security Agent reviews a pull request when it’s ready for review. It doesn’t review draft pull requests.
 

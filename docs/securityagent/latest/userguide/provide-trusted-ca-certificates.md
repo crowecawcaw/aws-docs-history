@@ -1,7 +1,6 @@
 
 
 # Provide trusted CA certificates for a penetration test
-<a name="provide-trusted-ca-certificates"></a>
 
 If a target endpoint uses a Transport Layer Security (TLS) certificate that is not publicly trusted, provide the trust anchor. This applies when the certificate is issued by a private or internal certificate authority (CA), an intermediate CA, or a self-signed certificate. AWS Security Agent uses the trust anchor to validate the connection during testing. Without the trust anchor, endpoint validation rejects the target before testing begins.
 
@@ -38,7 +37,7 @@ Set `trustedCaCertificates` in the `assets` parameter of your `create-pentest` o
 
 The following example attaches an inline certificate:
 
-```
+```bash
 aws securityagent create-pentest \
   --title "My penetration test" \
   --agent-space-id "your-agent-space-id" \
@@ -47,7 +46,7 @@ aws securityagent create-pentest \
 
 The following example reads the certificate from Amazon S3 when the penetration test runs. AWS Security Agent reads the object using the penetration test service role, so the role must have `s3:GetObject` permission for the object.
 
-```
+```bash
 aws securityagent create-pentest \
   --title "My penetration test" \
   --agent-space-id "your-agent-space-id" \

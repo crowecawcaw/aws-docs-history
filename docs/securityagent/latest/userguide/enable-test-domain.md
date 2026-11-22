@@ -1,7 +1,6 @@
 
 
 # Enable an application domain for penetration testing
-<a name="enable-test-domain"></a>
 
 Before you can run a penetration test on an application, you need to add a target domain and verify ownership. AWS Security Agent will only perform penetration tests against verified domains.
 
@@ -60,7 +59,7 @@ This method proves domain ownership by placing a unique token on your web server
 
 1. Place the token provided by AWS Security Agent in the file using this format:
 
-   ```
+   ```json
    {
      "tokens": ["<insert-token>"]
    }

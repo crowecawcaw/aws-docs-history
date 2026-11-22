@@ -1,7 +1,6 @@
 
 
 # Connect AWS Security Agent to GitLab repositories
-<a name="connect-gitlab"></a>
 
 Connect your AWS Security Agent to GitLab Cloud repositories to enable code review, threat modeling, penetration testing, and automated remediation capabilities. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces and shared across capabilities.
 
@@ -97,7 +96,7 @@ If you encounter issues during the GitLab integration process, use the following
 **Tip**  
 To confirm whether a token is valid independently of AWS Security Agent, call the GitLab REST API directly. A valid token returns HTTP 200 with a JSON list; an invalid, expired, or wrong-scope token returns `{"message":"401 Unauthorized"}`.  
 
-```
+```bash
 curl --header "PRIVATE-TOKEN: <your-token>" https://gitlab.example.com/api/v4/projects
 ```
 

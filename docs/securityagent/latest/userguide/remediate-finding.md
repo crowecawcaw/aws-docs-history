@@ -1,7 +1,6 @@
 
 
 # Remediate a penetration test finding
-<a name="remediate-finding"></a>
 
 When viewing the findings for a penetration test, you can request AWS Security Agent attempt to remediate a finding. For a connected private repository, AWS Security Agent opens a pull request (or a merge request, for GitLab) with the proposed fix. For Amazon S3 sources, the remediation is available as a downloadable code diff that you can apply locally. AWS Security Agent supports several third-party source code providers — see [How integrations work with Agent Spaces](about-integrations.md).
 

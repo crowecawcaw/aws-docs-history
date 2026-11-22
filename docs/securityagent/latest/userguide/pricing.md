@@ -1,7 +1,6 @@
 
 
 # Pricing and billing
-<a name="pricing"></a>
 
 With AWS Security Agent, you pay for penetration testing in *task hours*. Task hours measure the time the agent spends reasoning and acting, not the time you wait for a run to finish. This topic explains what accrues task hours so that you can predict and track what a penetration test costs.
 
@@ -86,7 +85,7 @@ No. Quotas limit how many resources you can create and how many reviews you can 
 ### Can I estimate what a penetration test will cost before I start it?
 <a name="_can_i_estimate_what_a_penetration_test_will_cost_before_i_start_it"></a>
 
-There is no precise estimation. Task hours depend on the breadth of the target application and the risk types you select. The agent also adapts its plan as it explores your application. If you have run the same configuration before, use the task hours from those runs as a baseline. For worked examples, see [AWS Security Agent pricing](https://aws.amazon.com/security-agent/pricing/).
+Yes. After you create a penetration test, you can request an estimate of the task hours that it’s likely to need from the **Pentest cost estimate** tab. Requesting an estimate is free. The estimate is a guide and not a quote, and the task hours that a test uses can be higher or lower. For more information, see [Estimate task hours (optional)](perform-penetration-test.md#task-hour-estimate). For worked examples, see [AWS Security Agent pricing](https://aws.amazon.com/security-agent/pricing/).
 
 ### If I stop a run before it finishes, am I charged?
 <a name="_if_i_stop_a_run_before_it_finishes_am_i_charged"></a>

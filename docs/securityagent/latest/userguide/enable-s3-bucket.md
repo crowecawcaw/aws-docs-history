@@ -1,7 +1,6 @@
 
 
 # Provide agent resources from an S3 bucket
-<a name="enable-s3-bucket"></a>
 
 Connect an Amazon S3 bucket to your Agent Space to give AWS Security Agent the source code and documents it works from, such as source code archives, API documents, and threat model or design documents.
 

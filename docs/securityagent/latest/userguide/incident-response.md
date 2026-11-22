@@ -1,7 +1,6 @@
 
 
 # Incident response
-<a name="incident-response"></a>
 
 AWS Security Agent is a proactive security testing service designed to identify and prevent vulnerabilities before they can be exploited. The service focuses on preventative security validation through design reviews, code analysis, and penetration testing rather than reactive incident detection or response.
 

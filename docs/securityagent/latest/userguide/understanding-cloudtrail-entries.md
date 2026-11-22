@@ -1,7 +1,6 @@
 
 
 # Example: AWS Security Agent log file entries
-<a name="understanding-cloudtrail-entries"></a>
 
 ## Understanding AWS Security Agent log file entries
 <a name="understanding_shared_aws_security_agent_log_file_entries"></a>
@@ -10,7 +9,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreatePentest` action:
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

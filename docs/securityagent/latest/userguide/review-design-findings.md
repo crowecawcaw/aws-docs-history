@@ -1,7 +1,6 @@
 
 
 # Review findings from a design review
-<a name="review-design-findings"></a>
 
 Review findings help you understand which security requirements are met, which need attention, and what actions to take to improve your design’s security posture before implementation begins.
 

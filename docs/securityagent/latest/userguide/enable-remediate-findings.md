@@ -1,7 +1,6 @@
 
 
 # Enable users to start remediation of penetration test and code review findings
-<a name="enable-remediate-findings"></a>
 
 In the AWS Management Console, you can enable automatic remediation so users of the AWS Security Agent web application can request fixes for a specific finding. AWS Security Agent delivers each fix as a GitHub pull request on the affected repository.
 

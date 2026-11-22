@@ -1,7 +1,6 @@
 
 
 # How AWS Security Agent works
-<a name="how-it-works"></a>
 
 AWS Security Agent operates across three interfaces to provide proactive application security throughout the development lifecycle. Security configurations are managed in the AWS Management Console, security reviews are conducted in the Security Agent web application, and automated code and security finding remediation occur directly in code repository platforms like GitHub.
 

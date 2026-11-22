@@ -1,7 +1,6 @@
 
 
 # How AWS Security Agent works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Security Agent, learn what IAM features are available to use with AWS Security Agent.
 
@@ -81,13 +80,13 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 For actions that don’t support resource-level permissions, such as listing operations, use a wildcard (\*) to indicate that the statement applies to all resources.
 
-```
+```json
 "Resource": "*"
 ```
 
 Some AWS Security Agent API actions support multiple resources. For example, multiple environments can be referenced when calling the `ListEnvironments` API action. To specify multiple resources in a single statement, separate the ARNs with commas.
 
-```
+```json
 "Resource": [
       "EXAMPLE-RESOURCE-1",
       "EXAMPLE-RESOURCE-2"
@@ -101,7 +100,7 @@ arn:${Partition}:securityagent:${Region}:${Account}:environment/${EnvironmentId}
 
 To specify the environments `my-environment-1` and `my-environment-2` in your statement, use the following example ARNs:
 
-```
+```json
 "Resource": [
          "arn:aws:securityagent:us-east-1:123456789012:environment/my-environment-1",
          "arn:aws:securityagent:us-east-1:123456789012:environment/my-environment-2"
@@ -109,7 +108,7 @@ To specify the environments `my-environment-1` and `my-environment-2` in your st
 
 To specify all environments that belong to a specific account, use the wildcard (\*):
 
-```
+```json
 "Resource": "arn:aws:securityagent:us-east-1:123456789012:environment/*"
 ```
 

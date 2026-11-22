@@ -1,7 +1,6 @@
 
 
 # IAM actions and resources migration
-<a name="security-iam-migration"></a>
 
 AWS Security Agent is a frontier agent that proactively secures your applications throughout the development lifecycle across all your environments. If you onboarded to AWS Security Agent prior to February 9, 2026, you will be impacted by upcoming changes on March 9, 2026 to your existing Agent Instance resources and AWS Security Agent IAM actions. In preparation for releasing public API/SDK support, the Agent Instance resource is being renamed to Agent Space, and specific IAM actions are being renamed. These changes will affect any Application or Agent Instances IAM roles you have created prior to March 9, 2026. In order to avoid seeing authentication issues after March 9, 2026, you will need to follow the steps under Preparing for Migration.
 
@@ -48,7 +47,7 @@ In order to avoid seeing issues after March 9, 2026 while continuing to use AWS 
 
 1. Update your trust policy to the following format, replacing **{{accountId}}** with your AWS account ID
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -109,7 +108,7 @@ In order to avoid seeing issues after March 9, 2026 while continuing to use AWS 
 
    1. Update your trust policy to the following format, replacing **{{accountId}}** with your AWS account ID
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

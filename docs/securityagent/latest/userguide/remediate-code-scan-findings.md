@@ -1,7 +1,6 @@
 
 
 # Remediate code review findings
-<a name="remediate-code-scan-findings"></a>
 
 After reviewing security findings from a code review, you can use AWS Security Agent to generate code fixes. Supported sources include connected third-party source code providers (such as GitHub, GitLab, or Bitbucket) and Amazon S3. For a connected private repository, AWS Security Agent opens a pull request (or a merge request, for GitLab) with the proposed fix. For Amazon S3 sources, it attaches a downloadable code diff that you can apply locally. For the list of supported providers and how to connect them, see [How integrations work with Agent Spaces](about-integrations.md).
 

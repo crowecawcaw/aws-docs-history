@@ -1,7 +1,6 @@
 
 
 # Tutorial: Gate a GitLab CI/CD deployment with a scoped penetration test
-<a name="sample-cicd-gitlab"></a>
 
 **Public preview**  
 CI/CD pipeline integration is in preview and is subject to change.  
@@ -48,7 +47,7 @@ Throughout this tutorial, replace the following placeholders with your own value
 
 Create a small Flask application with one endpoint that builds a SQL query by string concatenation — a classic SQL injection. In your project, add `app.py`:
 
-```
+```python
 import sqlite3
 from flask import Flask, request
 
@@ -80,7 +79,7 @@ The component authenticates to AWS with GitLab OIDC ID tokens — no long-lived 
 
 1. If you do not already have one, create the GitLab OIDC identity provider. The client ID is the audience (`aud`) that the component sets on the ID token, which defaults to `https://gitlab.com`:
 
-   ```
+   ```bash
    aws iam create-open-id-connect-provider \
      --url https://gitlab.com \
      --client-id-list https://gitlab.com
@@ -88,7 +87,7 @@ The component authenticates to AWS with GitLab OIDC ID tokens — no long-lived 
 
 1. Create the IAM role with a trust policy scoped to your project. Save the following as `trust-policy.json`, replacing the account ID and project path:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -115,7 +114,7 @@ The component authenticates to AWS with GitLab OIDC ID tokens — no long-lived 
 
 1. Save the least-privilege permissions policy as `permissions.json`:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -139,7 +138,7 @@ The component authenticates to AWS with GitLab OIDC ID tokens — no long-lived 
 
 1. Create the role and attach the policy. The component asks AWS STS for a credential lifetime derived from the gate timeout, so the role’s maximum session duration has to cover it. Size it as `(timeout-minutes + 10) * 60` seconds — the extra ten minutes cover findings collection and cleanup. IAM’s own minimum for a role’s maximum session duration is 3,600 seconds, so that formula asks for more than IAM’s floor only once your timeout passes 50 minutes. This tutorial’s `timeout-minutes: "45"` is already covered by 3,600; the example sets 4,200 so that raising the timeout to the 60-minute default needs no change to the role:
 
-   ```
+   ```bash
    aws iam create-role --role-name my-pentest-gate-role \
      --assume-role-policy-document file://trust-policy.json \
      --max-session-duration 4200
@@ -171,7 +170,7 @@ Without the token the gate still runs, but it has no persistent baseline: each r
 
 Edit `.gitlab-ci.yml`. Place the gate in a stage **after** your deploy stage, and gate the production job on it with `needs`. Because a failed job fails the pipeline, the production job does not run when the gate fails.
 
-```
+```yaml
 stages: [build, deploy-preprod, security-gate, deploy-prod]
 
 # The baseline is a tag in your own project, and creating a tag starts a
@@ -226,7 +225,7 @@ Pin the component to a released version rather than a moving reference, so that 
 
 Before you rely on the gate, run it once in dry-run mode. Add `dry-run: "true"` to the component inputs and run the pipeline:
 
-```
+```yaml
   - component: $CI_SERVER_FQDN/aws/continuum/pentest/run-pentest@1
     inputs:
       agent-space-id: "as-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -266,7 +265,7 @@ The job writes its outputs as a dotenv report artifact that downstream jobs can 
 
 Fix the vulnerability by using a parameterized query instead of string concatenation. In `app.py`, replace the query construction:
 
-```
+```python
     category = request.args.get("category", "")
     conn = sqlite3.connect("products.db")
     cursor = conn.cursor()
@@ -296,7 +295,7 @@ To avoid ongoing cost and to remove the intentionally vulnerable application:
 
 1. If you created the IAM role and OIDC provider only for this tutorial, delete them:
 
-   ```
+   ```bash
    aws iam delete-role-policy --role-name my-pentest-gate-role \
      --policy-name securityagent-run-pentest
    aws iam delete-role --role-name my-pentest-gate-role

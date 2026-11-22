@@ -1,7 +1,6 @@
 
 
 # What is AWS Security Agent (now part of AWS Continuum)?
-<a name="what-is"></a>
 
 AWS Security Agent (now part of AWS Continuum) is a frontier agent that proactively secures your applications throughout the development lifecycle. It conducts automated security reviews tailored to your organizational requirements, builds threat models to identify how your applications could be attacked, and delivers context-aware penetration testing on demand. By continuously validating security from design to deployment, AWS Security Agent helps prevent vulnerabilities early across all your environments.
 

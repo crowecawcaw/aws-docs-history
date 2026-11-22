@@ -1,7 +1,6 @@
 
 
 # Revalidate penetration test findings
-<a name="revalidate-findings"></a>
 
 After you remediate a vulnerability, use AWS Security Agent to revalidate the finding and confirm whether it is still exploitable. Revalidation re-tests one or more existing findings without running a full penetration test. You get a fast answer on whether your fix worked.
 

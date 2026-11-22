@@ -1,7 +1,6 @@
 
 
 # Tutorial: Gate an Azure DevOps deployment with a scoped penetration test
-<a name="sample-cicd-azure-devops"></a>
 
 **Public preview**  
 CI/CD pipeline integration is in preview and is subject to change.  
@@ -48,7 +47,7 @@ Throughout this tutorial, replace the following placeholders with your own value
 
 Create a small Flask application with one endpoint that builds a SQL query by string concatenation — a classic SQL injection. In your repository, add `app.py`:
 
-```
+```python
 import sqlite3
 from flask import Flask, request
 
@@ -80,7 +79,7 @@ Azure DevOps authenticates to AWS through an AWS service connection that uses **
 
 1. Create the IAM OIDC identity provider for Azure DevOps in your AWS account. The provider URL is your organization’s Azure DevOps issuer, and the audience is `api://AzureADTokenExchange`:
 
-   ```
+   ```bash
    aws iam create-open-id-connect-provider \
      --url https://vstoken.dev.azure.com/YOUR_ORGANIZATION_ID \
      --client-id-list api://AzureADTokenExchange
@@ -90,7 +89,7 @@ Azure DevOps authenticates to AWS through an AWS service connection that uses **
 
 1. Create the IAM role with a trust policy scoped to your Azure DevOps organization, project, and pipeline through the token’s subject. Save the following as `trust-policy.json`, replacing the account ID, issuer host, and subject:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -115,7 +114,7 @@ Azure DevOps authenticates to AWS through an AWS service connection that uses **
 
 1. Save the least-privilege permissions policy as `permissions.json`:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -139,7 +138,7 @@ Azure DevOps authenticates to AWS through an AWS service connection that uses **
 
 1. Create the role and attach the policy. A penetration test job can run for tens of minutes, so create the role with a maximum session duration long enough to outlast the task:
 
-   ```
+   ```bash
    aws iam create-role --role-name my-pentest-gate-role \
      --assume-role-policy-document file://trust-policy.json \
      --max-session-duration 7200
@@ -165,7 +164,7 @@ Name the connection (for example, `aws-pentest-gate`). Azure DevOps generates th
 
 Edit your pipeline YAML. Run the deploy stage, then a gate stage that depends on it. In the gate stage, run the AWS Toolkit task for the integration, referencing your service connection.
 
-```
+```yaml
 trigger:
   branches:
     include: [main]
@@ -219,7 +218,7 @@ Because `DeployProd` declares `dependsOn: SecurityGate` and a failed task fails 
 
 Before you rely on the gate, run it once in dry-run mode. Add the dry-run input to the task and run the pipeline:
 
-```
+```yaml
           - task: RunPentest@1
             inputs:
               awsCredentials: aws-pentest-gate
@@ -235,7 +234,7 @@ The dry run checks AWS authentication, the Region, and that your repository reso
 On Azure DevOps the gate falls back to the last successful build of this pipeline when it has no baseline to read, and a dry-run build succeeds. So on a pipeline with no baseline yet — which is the case the first time you run this tutorial — the commit you dry-ran on can become the base of the next real run. The gate then tests only what changed after it, rather than the range you meant to gate.  
 Dry-run on the commit you intend to gate next, so that the range is the one you want either way. If you’ve already dry-run on an earlier commit, pin the base on your first real run by adding `baseCommitSha` to the task:  
 
-```
+```yaml
           - task: RunPentest@1
             inputs:
               awsCredentials: aws-pentest-gate
@@ -273,7 +272,7 @@ For the full gating behavior — including how authentication failures always bl
 
 Fix the vulnerability by using a parameterized query instead of string concatenation. In `app.py`, replace the query construction:
 
-```
+```python
     category = request.args.get("category", "")
     conn = sqlite3.connect("products.db")
     cursor = conn.cursor()
@@ -303,7 +302,7 @@ To avoid ongoing cost and to remove the intentionally vulnerable application:
 
 1. If you created the IAM role and OIDC provider only for this tutorial, delete them:
 
-   ```
+   ```bash
    aws iam delete-role-policy --role-name my-pentest-gate-role \
      --policy-name securityagent-run-pentest
    aws iam delete-role --role-name my-pentest-gate-role

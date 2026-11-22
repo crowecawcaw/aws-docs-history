@@ -1,7 +1,6 @@
 
 
 # Choose your path
-<a name="choose-your-path"></a>
 
 Find the right starting point for what you want to do with AWS Security Agent. Use the table below to match your goal to a task, then go directly to that page. If you’re new to AWS Security Agent, read [What is AWS Security Agent (now part of AWS Continuum)?](what-is.md) first for a quick overview.
 

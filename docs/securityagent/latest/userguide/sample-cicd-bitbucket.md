@@ -1,7 +1,6 @@
 
 
 # Tutorial: Gate a Bitbucket Pipelines deployment with a scoped penetration test
-<a name="sample-cicd-bitbucket"></a>
 
 **Public preview**  
 CI/CD pipeline integration is in preview and is subject to change.  
@@ -47,7 +46,7 @@ Throughout this tutorial, replace the following placeholders with your own value
 
 Create a small Flask application with one endpoint that builds a SQL query by string concatenation — a classic SQL injection. In your repository, add `app.py`:
 
-```
+```python
 import sqlite3
 from flask import Flask, request
 
@@ -81,7 +80,7 @@ Bitbucket Pipelines authenticates to AWS with OIDC — no long-lived access keys
 
 1. Create the IAM OIDC identity provider in your AWS account using the identity provider URL and audience you copied:
 
-   ```
+   ```bash
    aws iam create-open-id-connect-provider \
      --url https://api.bitbucket.org/2.0/workspaces/my-workspace/pipelines-config/identity/oidc \
      --client-id-list ari:cloud:bitbucket::workspace/YOUR_WORKSPACE_UUID
@@ -91,7 +90,7 @@ Bitbucket Pipelines authenticates to AWS with OIDC — no long-lived access keys
 
 1. Create the IAM role with a trust policy scoped to your repository. Bitbucket includes the repository UUID in the token’s `sub` claim, so scope the role to that UUID rather than to a wildcard. Save the following as `trust-policy.json`, replacing the account ID, the provider host portion, the audience, and the repository UUID:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -118,7 +117,7 @@ Bitbucket Pipelines authenticates to AWS with OIDC — no long-lived access keys
 
 1. Save the least-privilege permissions policy as `permissions.json`:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -142,7 +141,7 @@ Bitbucket Pipelines authenticates to AWS with OIDC — no long-lived access keys
 
 1. Create the role and attach the policy. A penetration test job can run for tens of minutes, so create the role with a maximum session duration long enough to outlast the step:
 
-   ```
+   ```bash
    aws iam create-role --role-name my-pentest-gate-role \
      --assume-role-policy-document file://trust-policy.json \
      --max-session-duration 7200
@@ -159,7 +158,7 @@ Bitbucket Pipelines authenticates to AWS with OIDC — no long-lived access keys
 
 Edit `bitbucket-pipelines.yml`. Run the deploy step, then the gate step. Use a **Pipe** to run the integration, and enable OIDC on the gate step. Store the role ARN as a repository variable named `AWS_PENTEST_ROLE_ARN`, and the baseline token as `SA_BITBUCKET_TOKEN`.
 
-```
+```yaml
 image: atlassian/default-image:4
 
 pipelines:
@@ -198,7 +197,7 @@ Pass **every** value the Pipe reads through `variables:`, including `AWS_ROLE_AR
 **Pinning the commit range**  
 The Pipe reads the commit range through `variables:` like everything else. To test a specific range instead of the one the gate resolves, add `BASE_COMMIT_SHA`, `HEAD_COMMIT_SHA`, or both:  
 
-```
+```yaml
             - pipe: docker://public.ecr.aws/aws-continuum/run-pentest:1-bitbucket
               variables:
                 AGENT_SPACE_ID: "as-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -219,7 +218,7 @@ Pin the Pipe to an immutable image digest (for example, `docker://public.ecr.aws
 
 Before you rely on the gate, run it once in dry-run mode. Add the dry-run variable to the Pipe and run the pipeline:
 
-```
+```yaml
             - pipe: docker://public.ecr.aws/aws-continuum/run-pentest:1-bitbucket
               variables:
                 AGENT_SPACE_ID: "as-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -258,7 +257,7 @@ For the full gating behavior — including how authentication failures always bl
 
 Fix the vulnerability by using a parameterized query instead of string concatenation. In `app.py`, replace the query construction:
 
-```
+```python
     category = request.args.get("category", "")
     conn = sqlite3.connect("products.db")
     cursor = conn.cursor()
@@ -292,7 +291,7 @@ If you stop a pipeline while the gate is waiting, open the penetration test in t
 
 1. If you created the IAM role and OIDC provider only for this tutorial, delete them:
 
-   ```
+   ```bash
    aws iam delete-role-policy --role-name my-pentest-gate-role \
      --policy-name securityagent-run-pentest
    aws iam delete-role --role-name my-pentest-gate-role

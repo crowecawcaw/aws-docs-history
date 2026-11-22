@@ -1,7 +1,6 @@
 
 
 # Log in to the AWS Security Agent web application
-<a name="login-web-app"></a>
 
 You should log in to the AWS Security Agent web application to complete tasks such as:
 + Perform a design review

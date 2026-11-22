@@ -1,7 +1,6 @@
 
 
 # Create a penetration test
-<a name="perform-penetration-test"></a>
 
 Set up automated penetration testing for your web applications by configuring test scope, target domains, and AWS resource access. Penetration tests help identify security vulnerabilities in running applications by simulating real-world attack scenarios against your verified domains.
 
@@ -32,7 +31,7 @@ Navigate to the penetration test creation page in the web application.
 **Tip**  
 Only verified domains can be included in penetration tests. Ask your admin to verify the domain in AWS management console. See [Enable an application domain for penetration testing](enable-test-domain.md).
 
-When you complete the **Credentials** and **Network configuration** steps, AWS Security Agent tests more of your application and stays away from anything you do not want reached. The wizard has five steps:
+When you complete the **Credentials** and **Network configuration** steps, AWS Security Agent tests more of your application and stays away from anything you don’t want reached. The wizard has five steps:
 
 1.  **Penetration test details** – Name the test, choose the test scope, set the target URLs, and choose the service role and log group.
 
@@ -397,20 +396,23 @@ To manage resources:
 You can sort the table by Name or Type by clicking the column headers. This helps organize resources when working with many files.
 
 ## Set a maximum task-hours limit
-<a name="_set_a_maximum_task_hours_limit"></a>
+<a name="set-max-task-hours"></a>
 
 Limit how much work AWS Security Agent performs for a penetration test by setting a maximum number of task hours. Task hours measure the cumulative time the agent spends actively working on the test, including time across parallel testing. Task hours are not the same as elapsed wall-clock time, because AWS Security Agent runs multiple tasks at once. Total task hours is also the unit that AWS Security Agent bills for a run, so setting a limit caps how much a test can cost. The smallest limit you can set is 20 hours.
 
-1. (Optional) In the **Max task hours** section, choose a limit:
-   + Choose a preset value, such as **20** or **30** hours.
+1. (Optional) On the **Additional configuration** step, in the **Max task hours** section, choose a limit. You can also change the limit later on the **Pentest cost estimate** tab.
+   + Choose a preset value.
    + Choose **No limit** to run the test to completion without a task-hours limit.
    + Choose **Custom** to enter your own value. A custom limit must be at least 20 hours.
 
 **Tip**  
-For larger applications, or to get the most complete results, set a higher limit such as **30** hours or more. AWS Security Agent bills only for the task hours a run actually uses, so a higher limit does not increase cost unless the test needs the extra time.
+For larger applications, or to get the most complete results, set a higher limit. To help you choose one, request an estimate. For more information, see [Estimate task hours (optional)](#task-hour-estimate). AWS Security Agent bills only for the task hours a run actually uses, so a higher limit does not increase cost unless the test needs the extra time.
 
 **Note**  
-When a test reaches its maximum task hours, AWS Security Agent stops working on the test and keeps the findings already discovered. The run finishes with a status of **Completed**. You can review these findings or create and run a new test.
+When a test reaches its maximum task hours, AWS Security Agent stops working on the test and keeps the findings already discovered. The run finishes with a status of **Complete**. You can review these findings, raise the limit and resume the run, or create and run a new test. For more information about resuming a run, see [Pause and resume a penetration test run](pause-resume-penetration-test.md).
+
+**Note**  
+For continuous testing runs, which a CI/CD pipeline starts, use the **Max task hours per run** setting in the **Continuous testing** section instead of this limit. For more information, see [Set a task-hours limit for each continuous testing run](cicd-pentest.md#cicd-pentest-max-task-hours).
 
 ## Exclude risk types (optional)
 <a name="exclude-risk-types-optional"></a>
@@ -443,6 +445,37 @@ Cleanup is best effort. If a deletion fails, AWS Security Agent continues with t
    +  **Enabled** (default) – AWS Security Agent tries to delete the resources it created when the run ends.
    +  **Disabled** – AWS Security Agent does not delete the resources it created.
 
+## Estimate task hours (optional)
+<a name="task-hour-estimate"></a>
+
+After you create the penetration test, you can request an estimate of the billable task hours that it’s likely to need from the **Pentest cost estimate** tab on the penetration test’s page. Use the estimate to help you choose a maximum task-hours limit. Requesting an estimate is free. The analysis doesn’t accrue billable task hours. For more information about task hours, see [Pricing and billing](pricing.md).
+
+Estimates are available only for penetration tests that use the **Web application** test scope. For more information, see [Choose a test scope](#choose-a-test-scope). The number of estimates that your account can request each month is limited.
+
+When you request an estimate, AWS Security Agent runs a short preliminary analysis of your application’s scope, without starting a penetration test. It then draws on expertise from past penetration tests to estimate the task hours that your penetration test is likely to need. The estimate shows the number of task hours that most similar applications finish within. When a few applications take noticeably longer, the estimate also shows the higher range that those applications require, for example: *Most similar applications finish within 19 task hours, and a few take up to 28 task hours.* 
+
+If you haven’t changed the penetration test’s configuration since its recent runs, AWS Security Agent can base the estimate on the task hours that those runs used, instead of running an analysis.
+
+During the analysis, AWS Security Agent sends live requests to the application that you configured. These requests can be authenticated, and they can change data in your application. For this reason, you must acknowledge this behavior before you can request an estimate.
+
+**Important**  
+The estimate isn’t exact and can be inaccurate. The task hours that a penetration test actually uses can be higher or lower than the estimate. Applications with an unusual size, behavior, or findings can take longer than comparable applications. The estimate isn’t a quote, a price commitment, or a guarantee.  
+The estimate doesn’t limit the task hours that a penetration test uses. Only the maximum task-hours limit does. When a penetration test reaches its maximum task-hours limit, AWS Security Agent stops the test and keeps the findings discovered so far. For more information, see [Set a maximum task-hours limit](#set-max-task-hours).
+
+To request an estimate:
+
+1. Open the penetration test, and then choose the **Pentest cost estimate** tab.
+
+1. In the **Estimate and task-hour limit** section, select **I acknowledge that the estimate sends live requests to my application**.
+
+1. Choose **Estimate cost**. An estimate usually takes about 20 minutes. For a large application, it can take more than an hour.
+
+1. When the estimate is ready, review the task hours that similar applications needed.
+
+1. (Optional) Use the estimate as a guide to choose a value for **Maximum task hours**, and then choose **Save**. Future runs of the penetration test use the new limit. For more information, see [Set a maximum task-hours limit](#set-max-task-hours).
+
+If you change the penetration test configuration, you can choose **Estimate again** to request a new estimate. You can set a maximum task-hours limit and run the penetration test with or without an estimate.
+
 ## Create the penetration test
 <a name="_create_the_penetration_test"></a>
 
@@ -465,4 +498,4 @@ Out-of-scope paths are properly configured to prevent testing destructive operat
 You have authorization to perform security testing on all target domains
 
 **Note**  
-After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test can take several hours to complete, depending on the scope and complexity of your application. If you set a maximum task-hours limit, AWS Security Agent stops the test when it reaches that limit. AWS Security Agent preserves the findings discovered so far.
+After the penetration test starts, you can monitor its progress from the **Penetration test runs** section. The test can take several hours to complete, depending on the scope and complexity of your application. If you set a maximum task-hours limit, AWS Security Agent stops the test when it reaches that limit. AWS Security Agent preserves the findings discovered so far. You can also pause a run and resume it later. For more information, see [Pause and resume a penetration test run](pause-resume-penetration-test.md).

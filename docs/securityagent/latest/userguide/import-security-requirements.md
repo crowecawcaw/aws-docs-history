@@ -1,7 +1,6 @@
 
 
 # Generate security requirements from documents
-<a name="import-security-requirements"></a>
 
 Generate the security requirements for a custom pack by uploading your existing security documentation. AWS Security Agent reads the documents you upload, identifies the security-relevant content, and generates structured security requirements with applicability, compliance criteria, and remediation guidance. You can review and edit the generated requirements before they are used in reviews.
 

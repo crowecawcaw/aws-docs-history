@@ -1,7 +1,6 @@
 
 
 # Remove a GitHub integration
-<a name="remove-github"></a>
 
 Remove a GitHub integration when you no longer need AWS Security Agent to access repositories from a specific GitHub organization or user account. You must first uninstall the AWS Security Agent GitHub App from GitHub before removing the integration in the AWS Console.
 

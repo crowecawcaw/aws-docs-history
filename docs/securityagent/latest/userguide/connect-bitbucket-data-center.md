@@ -1,7 +1,6 @@
 
 
 # Connect AWS Security Agent to Bitbucket Data Center
-<a name="connect-bitbucket-data-center"></a>
 
 Connect your AWS Security Agent to a Bitbucket Data Center instance to enable code review, threat modeling, penetration testing, and automated remediation capabilities for repositories hosted on your own infrastructure.
 

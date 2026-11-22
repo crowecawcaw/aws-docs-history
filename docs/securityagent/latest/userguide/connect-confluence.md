@@ -1,7 +1,6 @@
 
 
 # Connect AWS Security Agent to Confluence
-<a name="connect-confluence"></a>
 
 Connect your AWS Security Agent to Confluence Cloud to provide documentation context for security assessments. You can also use this connection to publish AWS Security Agent assessment results back to your Confluence site. Confluence serves as a documentation source that provides threat models, architecture documents, API specifications, and other materials that enhance the quality of security reviews. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces.
 

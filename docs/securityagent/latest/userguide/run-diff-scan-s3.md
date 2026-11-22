@@ -1,7 +1,6 @@
 
 
 # Run a differential code scan with S3
-<a name="run-diff-scan-s3"></a>
 
 Run a differential (diff) code scan to analyze only the changed lines in your source code, rather than performing a full repository scan. Differential scans are faster than full scans and produce findings targeted to specific code changes, making them ideal for pre-merge validation in development workflows.
 
@@ -75,7 +74,7 @@ aws securityagent start-code-review-job \
 ### Using the AWS SDK (Python)
 <a name="_using_the_aws_sdk_python"></a>
 
-```
+```python
 import boto3
 
 client = boto3.client('securityagent')
@@ -94,7 +93,7 @@ print(f"Job started: {response['codeReviewJobId']}")
 ### Using the AWS SDK (JavaScript/TypeScript)
 <a name="_using_the_aws_sdk_javascripttypescript"></a>
 
-```
+```typescript
 import { SecurityAgentClient, StartCodeReviewJobCommand } from '@aws-sdk/client-securityagent';
 
 const client = new SecurityAgentClient({ region: 'us-east-1' });

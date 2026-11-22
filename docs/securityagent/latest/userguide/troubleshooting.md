@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 Find solutions to commonly seen errors when using AWS Security Agent.
 

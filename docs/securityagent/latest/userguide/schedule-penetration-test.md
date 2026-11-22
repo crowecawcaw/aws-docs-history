@@ -1,7 +1,6 @@
 
 
 # Schedule a penetration test
-<a name="schedule-penetration-test"></a>
 
 In AWS Security Agent, you can schedule a penetration test to run automatically, either once at a date and time that you choose or on a repeating schedule. For example, you can run a penetration test every Monday at 09:00 to retest an application after each weekly release. AWS Security Agent uses [Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) to start each run.
 

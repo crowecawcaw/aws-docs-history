@@ -1,7 +1,6 @@
 
 
 # Connect to privately hosted source control
-<a name="connect-private-connection"></a>
 
 AWS Security Agent can connect to source control systems running in private networks, such as GitLab Self-Managed, GitHub Enterprise Server, and Bitbucket Data Center instances. Private connections use Amazon VPC Lattice to establish secure connectivity between AWS Security Agent and your private infrastructure without exposing your systems to the public internet.
 
