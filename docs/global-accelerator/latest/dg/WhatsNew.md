@@ -1,7 +1,6 @@
 
 
 # Document history
-<a name="WhatsNew"></a>
 
 The following entries describe important changes made to the AWS Global Accelerator documentation.
 + **API version: latest**

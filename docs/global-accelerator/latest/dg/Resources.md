@@ -1,7 +1,6 @@
 
 
 # AWS Global Accelerator related information
-<a name="Resources"></a>
 
 The information and resources listed here can help you learn more about Global Accelerator.
 

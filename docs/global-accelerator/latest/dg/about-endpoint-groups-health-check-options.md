@@ -1,7 +1,6 @@
 
 
 # Ensure health check access for your accelerator
-<a name="about-endpoint-groups-health-check-options"></a>
 
 Each listener for a standard accelerator routes requests only to healthy, active endpoints. When you add an endpoint, it must pass a health check to be considered healthy. AWS Global Accelerator also regularly sends health check requests to all endpoints on standard accelerators, to test their status. Global Accelerator automatically runs these regular health checks. After each health check is completed, the listener closes the connection that was established for the health check. 
 

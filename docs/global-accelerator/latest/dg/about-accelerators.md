@@ -1,7 +1,6 @@
 
 
 # Standard accelerators in AWS Global Accelerator
-<a name="about-accelerators"></a>
 
 A *standard accelerator* in AWS Global Accelerator directs traffic over the AWS global network to endpoints that you include in specified AWS Regions. Each accelerator includes one or more listeners. A listener processes inbound connections from clients to Global Accelerator, based on the protocol (or protocols) and port (or port range) that you configure. 
 

@@ -1,7 +1,6 @@
 
 
 # Remove a standard listener
-<a name="about-listeners.creating-listeners-remove"></a>
 
 This section provides the steps to remove a standard listener on the AWS Global Accelerator console. To complete this task by using an API operation instead of the console, see [`DeleteListener`](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteListener.html) in the *AWS Global Accelerator API Reference*.
 

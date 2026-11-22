@@ -1,7 +1,6 @@
 
 
 # Responsibilities and permissions for cross-account resources in Global Accelerator
-<a name="cross-account-resources-endpoints.responsibilities-cross-account"></a>
 
 The following sections list the permissions you have as a resource owner or as a principal for cross-account access in AWS Global Accelerator.
 

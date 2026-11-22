@@ -1,7 +1,6 @@
 
 
 # Endpoint groups for standard accelerators in AWS Global Accelerator
-<a name="about-endpoint-groups"></a>
 
 An endpoint group routes requests to one or more registered endpoints in AWS Global Accelerator. When you add a listener in a standard accelerator, you specify the endpoint groups for Global Accelerator to direct traffic to. An endpoint group, and all the endpoints in it, must be in one AWS Region. You can add different endpoint groups for different purposes, for example, for blue/green deployment testing.
 

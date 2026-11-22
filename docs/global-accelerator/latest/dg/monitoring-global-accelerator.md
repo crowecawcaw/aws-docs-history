@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Global Accelerator
-<a name="monitoring-global-accelerator"></a>
 
 You can use Amazon CloudWatch, flow logs, and AWS CloudTrail to monitor your accelerator in AWS Global Accelerator. For example, you can troubleshoot issues with your listeners and endpoints, analyze traffic patterns, and get information that's required for audits.
 

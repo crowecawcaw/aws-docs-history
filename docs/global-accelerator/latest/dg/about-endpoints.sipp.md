@@ -1,7 +1,6 @@
 
 
 # Transition endpoints with client IP address preservation
-<a name="about-endpoints.sipp"></a>
 
 If you haven't yet configured client IP address preservation for the endpoints in your accelerator, follow the guidance in this section to add and transition one or more endpoints to endpoints that preserve the user’s client IP address. You can choose to transition an Application Load Balancer, Network Load Balancer with security groups, or an Elastic IP address endpoint to a corresponding endpoint—a corresponding load balancer endpoint or an EC2 instance endpoint—that has client IP address preservation.
 

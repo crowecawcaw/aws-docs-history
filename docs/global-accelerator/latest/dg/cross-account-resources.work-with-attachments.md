@@ -1,7 +1,6 @@
 
 
 # Work with cross-account attachments in Global Accelerator
-<a name="cross-account-resources.work-with-attachments"></a>
 
 To allow someone to add a resource from another account as an endpoint or a BYOIP address for an accelerator, the owner of the resource must create a *cross-account attachment* in Global Accelerator. In the attachment, the resource owner specifies one or more accelerators or accounts—principals— that are allowed to add resources, along with the specific resources that the principals can add to accelerators.
 

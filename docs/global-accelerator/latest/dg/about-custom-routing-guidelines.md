@@ -1,7 +1,6 @@
 
 
 # Guidelines and restrictions for custom routing accelerators
-<a name="about-custom-routing-guidelines"></a>
 
 When you create and work with custom routing accelerators in AWS Global Accelerator, keep the following guidelines and restrictions in mind.
 

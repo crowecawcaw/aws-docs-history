@@ -1,7 +1,6 @@
 
 
 # Remove a standard endpoint group
-<a name="about-endpoint-groups.delete-endpoint-group"></a>
 
 This section explains how to remove a standard endpoint group on the AWS Global Accelerator console. If you want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html).
 

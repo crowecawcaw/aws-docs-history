@@ -1,7 +1,6 @@
 
 
 # Add cross-account endpoints in AWS Global Accelerator
-<a name="cross-account-resources.add-endpoints"></a>
 
 Follow the steps in this section to add cross-account endpoints using the Global Accelerator console. 
 

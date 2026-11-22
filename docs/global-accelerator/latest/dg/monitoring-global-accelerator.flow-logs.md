@@ -1,7 +1,6 @@
 
 
 # Configuring and using flow logs in AWS Global Accelerator
-<a name="monitoring-global-accelerator.flow-logs"></a>
 
 Flow logs enable you to capture information about the IP address traffic going to and from network interfaces in your accelerator in AWS Global Accelerator. Flow log data is published to Amazon S3, where you can retrieve and view your data after you've created a flow log.
 
@@ -104,7 +103,7 @@ An IAM principal, such as an IAM role or user, must have sufficient permissions 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ If the user creating the flow log owns the bucket, the service automatically att
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -186,7 +185,7 @@ For example, the following bucket policy allows AWS accounts 123123123123 and 45
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

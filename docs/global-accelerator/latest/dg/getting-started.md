@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Global Accelerator
-<a name="getting-started"></a>
 
 To help you get started with AWS Global Accelerator, this chapter provides tutorials for setting up a standard accelerator and a custom routing accelerator. 
 

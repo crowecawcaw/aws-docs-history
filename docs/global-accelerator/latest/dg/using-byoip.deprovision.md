@@ -1,7 +1,6 @@
 
 
 # Deprovision the address range
-<a name="using-byoip.deprovision"></a>
 
 To stop using your address range with AWS, you first must remove any accelerators that have static IP addresses that are allocated from the address pool and stop advertising your address range. After you complete those steps, you can deprovision the address range.
 

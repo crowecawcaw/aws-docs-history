@@ -1,7 +1,6 @@
 
 
 # How cross-account works in Global Accelerator
-<a name="cross-account-resources.how-it-works"></a>
 
 With cross-account support in Global Accelerator, resource owners control whether their resources are shared with accelerators owned by other accounts. To enable resource sharing for your resources, you—as a resource owner—create a Global Accelerator *cross-account attachment* to authorize resources in your account to be added to an accelerator by another account.
 

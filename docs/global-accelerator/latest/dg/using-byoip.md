@@ -1,7 +1,6 @@
 
 
 # Bring your own IP addresses (BYOIP) in Global Accelerator
-<a name="using-byoip"></a>
 
 You can bring part or all of your public IPv4 address ranges from your on-premises network to your AWS account to use with AWS Global Accelerator. You continue to own the address ranges, but AWS advertises them on the internet. BYOIP with IPv6 is not supported at this time.
 

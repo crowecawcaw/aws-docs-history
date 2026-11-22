@@ -1,7 +1,6 @@
 
 
 # Using tag-based policies with AWS Global Accelerator
-<a name="security_iam-tag-policies"></a>
 
 When you design IAM policies, you might set granular permissions by granting access to specific resources. However, as the number of resources that you manage grows, this task becomes more difficult. Tagging a resource, and then using tags in policy statement conditions can make this task easier. You can grant access in bulk to any resource that has a certain tag. You can repeatedly apply this tag to relevant resources, when you create the resource or by updating the resource later.
 
@@ -19,7 +18,7 @@ For example, the AWS `GlobalAcceleratorFullAccess` managed user policy gives use
 
 ****  
 
-```
+```json
 { 
    "Version":"2012-10-17",		 	 	 
    "Statement":[ 

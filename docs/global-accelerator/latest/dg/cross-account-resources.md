@@ -1,7 +1,6 @@
 
 
 # Configure cross-account access in Global Accelerator
-<a name="cross-account-resources"></a>
 
 By using cross-account support, you can use AWS Global Accelerator as a fixed entry point to your application that accesses resources in multiple accounts, or choose IP addresses for your accelerator from shared CIDR blocks. Using cross-account permissions for allowing access to resources in different accounts is an AWS best practice. With cross-account support for bring your own IP (BYOIP) address CIDR blocks, you can use the same address pool for accelerators in different accounts in your organization. You can also organize AWS resources under one account that controls internet access to your applications, which can simplify monitoring and security, as well as provide visibility to inbound connections. 
 

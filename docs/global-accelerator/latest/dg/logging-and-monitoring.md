@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Global Accelerator
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the availability and performance of Global Accelerator and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. AWS provides several tools for monitoring your Global Accelerator resources and activity, and responding to potential incidents:
 

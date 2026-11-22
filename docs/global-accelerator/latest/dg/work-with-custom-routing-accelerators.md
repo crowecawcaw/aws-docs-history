@@ -1,7 +1,6 @@
 
 
 # Working with custom routing accelerators in AWS Global Accelerator
-<a name="work-with-custom-routing-accelerators"></a>
 
 This chapter includes information about how a custom routing accelerator in AWS Global Accelerator works, and how to configure accelerators, listeners, endpoint groups, and VPC subnet endpoints for a custom routing accelerator.
 

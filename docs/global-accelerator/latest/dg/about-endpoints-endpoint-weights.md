@@ -1,7 +1,6 @@
 
 
 # How endpoint weights work to manage traffic volume
-<a name="about-endpoints-endpoint-weights"></a>
 
 Weighted routing lets you choose how much traffic is routed to a specific resource (endpoint) in an endpoint group. This can be useful in several ways, including for load balancing and for testing new versions of your application.
 

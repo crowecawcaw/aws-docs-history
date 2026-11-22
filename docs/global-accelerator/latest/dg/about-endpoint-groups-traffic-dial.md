@@ -1,7 +1,6 @@
 
 
 # Use traffic dials to adjust traffic flow to Regions
-<a name="about-endpoint-groups-traffic-dial"></a>
 
 For each standard endpoint group, you can set a traffic dial to control the percentage of traffic that is directed to the endpoint group (AWS Region). The percentage is applied only to traffic that is already directed to the endpoint group, not to all listener traffic.
 

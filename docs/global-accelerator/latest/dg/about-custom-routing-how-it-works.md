@@ -1,7 +1,6 @@
 
 
 # How custom routing accelerators work in Global Accelerator
-<a name="about-custom-routing-how-it-works"></a>
 
 By using a custom routing accelerator in AWS Global Accelerator, you can use application logic to directly map one or more users to a specific destination among many destinations while still gaining the performance benefits of Global Accelerator. A custom routing accelerator maps listener port ranges to EC2 instance destinations in Amazon VPC (VPC) subnets. This allows Global Accelerator to deterministically route traffic to a specific Amazon EC2 private IP address and port destination in your subnet. 
 

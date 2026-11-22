@@ -1,7 +1,6 @@
 
 
 # Secure VPC connections in AWS Global Accelerator
-<a name="secure-vpc-connections"></a>
 
 When you add a Network Load Balancer, an internal Application Load Balancer, or an Amazon EC2 instance endpoint in AWS Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds (VPCs) by targeting it in a private subnet. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic. However, you don't need public IP addresses on the load balancer or EC2 instance. You also don't need an associated internet gateway route for the subnet.
 

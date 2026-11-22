@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Global Accelerator TCP reset issues
-<a name="cloudwatch-metrics-globalaccelerator-tcp-resets"></a>
 
 A certain number of TCP resets (RSTs) are expected as customers use your application with AWS Global Accelerator. However, there are scenarios where the number of RSTs can become concerning. There are actions you can take to help prevent RSTs, or troubleshoot situations where you're seeing a lot of RSTs unexpectedly. This section includes detailed information about what can cause RSTs with Global Accelerator, along with steps that you can take to prevent or troubleshoot issues, and guidance about when specific levels of RSTs are typical and when they warrant a deeper look.
 

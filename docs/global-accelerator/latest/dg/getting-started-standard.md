@@ -1,7 +1,6 @@
 
 
 # Getting started with a standard accelerator
-<a name="getting-started-standard"></a>
 
 This section provides steps for creating a standard accelerator, which routes traffic to an optimal endpoint.
 

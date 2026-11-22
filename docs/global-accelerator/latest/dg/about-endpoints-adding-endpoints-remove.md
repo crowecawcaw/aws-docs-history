@@ -1,7 +1,6 @@
 
 
 # Remove a standard endpoint
-<a name="about-endpoints-adding-endpoints-remove"></a>
 
 This section explains how to remove an endpoint on the AWS Global Accelerator console. If you want to use API operations with AWS Global Accelerator, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html).
 

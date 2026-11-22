@@ -1,7 +1,6 @@
 
 
 # Advertise the address range through AWS
-<a name="using-byoip.advertise"></a>
 
 After the address range is provisioned, it's ready to be advertised. You must advertise the exact address range that you provisioned. You can't advertise only a portion of the provisioned address range. In addition, you must stop advertising your IP address range from other locations before you advertise it through AWS.
 

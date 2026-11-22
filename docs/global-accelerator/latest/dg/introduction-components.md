@@ -1,7 +1,6 @@
 
 
 # AWS Global Accelerator components
-<a name="introduction-components"></a>
 
 AWS Global Accelerator includes the following components:
 

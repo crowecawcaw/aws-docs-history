@@ -1,7 +1,6 @@
 
 
 # Common API actions for AWS Global Accelerator
-<a name="global-accelerator-actions"></a>
 
 This section lists common AWS Global Accelerator actions that you can use with Global Accelerator resources, with links to relevant documentation.
 

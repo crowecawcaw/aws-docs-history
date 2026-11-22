@@ -1,7 +1,6 @@
 
 
 # What is AWS Global Accelerator?
-<a name="what-is-global-accelerator"></a>
 
 AWS Global Accelerator is a service in which you create *accelerators* to improve the performance of your applications for local and global users. Depending on the type of accelerator you choose, you can gain additional benefits: 
 + With a standard accelerator, you can improve availability of your internet applications that are used by a global audience. With a standard accelerator, Global Accelerator directs traffic over the AWS global network to endpoints in the nearest Region to the client. 

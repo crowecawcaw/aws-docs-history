@@ -1,7 +1,6 @@
 
 
 # AWS Region availability for AWS Global Accelerator
-<a name="preserve-client-ip-address.regions"></a>
 
 For detailed information about Regional support and service endpoints for AWS Global Accelerator, see [AWS Global Accelerator endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/global_accelerator.html) in the *Amazon Web Services General Reference*.
 

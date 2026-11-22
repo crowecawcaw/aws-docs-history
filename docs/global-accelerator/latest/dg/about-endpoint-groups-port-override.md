@@ -1,7 +1,6 @@
 
 
 # Override listener ports for restricted ports or connection collisions
-<a name="about-endpoint-groups-port-override"></a>
 
 By default, an accelerator routes user traffic to endpoints in AWS Regions using the protocol and port ranges that you specify when you create a listener. For example, if you define a listener that accepts TCP traffic on ports 80 and 443, the accelerator routes traffic to those ports on an endpoint.
 

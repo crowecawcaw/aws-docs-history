@@ -1,7 +1,6 @@
 
 
 # How client affinity works in Global Accelerator
-<a name="about-listeners-client-affinity"></a>
 
 If you have stateful applications that you use with a standard accelerator, you can configure *client affinity* to have Global Accelerator direct all requests from a user at a specific source (client) IP address to the same endpoint resource. Choosing this option maintains client affinity for your users.
 

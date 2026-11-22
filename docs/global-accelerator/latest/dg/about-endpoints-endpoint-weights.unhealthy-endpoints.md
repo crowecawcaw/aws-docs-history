@@ -1,7 +1,6 @@
 
 
 # How failover works for unhealthy endpoints
-<a name="about-endpoints-endpoint-weights.unhealthy-endpoints"></a>
 
 If there are no healthy endpoints in an endpoint group that have a weight greater than zero, Global Accelerator tries to fail over to a healthy endpoint with a weight greater than zero in another endpoint group. Note that for this failover, Global Accelerator ignores the traffic dial setting. So if, for example, an endpoint group has a traffic dial set to zero, Global Accelerator still includes that endpoint group in the failover attempt.
 

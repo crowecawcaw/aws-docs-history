@@ -1,7 +1,6 @@
 
 
 # How to avoid connection collisions that result in TCP connection time delays
-<a name="about-endpoints.avoid-connection-collisions"></a>
 
 Intermittent connectivity issues can be caused by connection collisions in AWS Global Accelerator. These can occur when users (with the same source IP and source port) access resources in Global Accelerator in certain scenarios. The collisions can result in TCP connection time delays for traffic that goes through your accelerators.
 

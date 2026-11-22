@@ -1,7 +1,6 @@
 
 
 # Custom routing accelerators in AWS Global Accelerator
-<a name="about-custom-routing-accelerators"></a>
 
 A *custom routing accelerator* in AWS Global Accelerator lets you use custom application logic to direct one or more users to a specific destination among many destinations, while using the AWS global network to improve the availability and performance of your application. 
 

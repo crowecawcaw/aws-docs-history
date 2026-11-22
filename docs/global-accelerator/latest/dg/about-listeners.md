@@ -1,7 +1,6 @@
 
 
 # Listeners for standard accelerators in AWS Global Accelerator
-<a name="about-listeners"></a>
 
 With AWS Global Accelerator, you add listeners that process inbound connections from clients based on the ports and protocols that you specify. Listeners support TCP and UDP protocols.
 

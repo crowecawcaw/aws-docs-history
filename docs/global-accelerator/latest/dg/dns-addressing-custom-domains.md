@@ -1,7 +1,6 @@
 
 
 # DNS addressing and custom domains in AWS Global Accelerator
-<a name="dns-addressing-custom-domains"></a>
 
 This chapter explains how AWS Global Accelerator does DNS routing and includes information about using a custom domain with Global Accelerator. It also includes the steps for configuring bring your own IP (BYOIP) addresses to use with accelerators in Global Accelerator.
 + **DNS addressing**: When you create an accelerator, Global Accelerator assigns a default Domain Name System (DNS) name to your accelerator.

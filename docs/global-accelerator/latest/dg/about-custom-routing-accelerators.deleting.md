@@ -1,7 +1,6 @@
 
 
 # Delete a custom routing accelerator in Global Accelerator
-<a name="about-custom-routing-accelerators.deleting"></a>
 
 If you created a custom routing accelerator as a test, or if you're no longer using an accelerator, you can delete it. On the console, disable the accelerator, and then you can delete it. You don't have to remove listeners and endpoint groups from the accelerator.
 

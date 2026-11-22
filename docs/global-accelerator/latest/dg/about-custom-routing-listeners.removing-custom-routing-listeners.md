@@ -1,7 +1,6 @@
 
 
 # Remove a listener for a custom routing accelerator in Global Accelerator
-<a name="about-custom-routing-listeners.removing-custom-routing-listeners"></a>
 
 This section explains how to remove a listener for a custom routing accelerator on the AWS Global Accelerator console. To learn about using API operations with AWS Global Accelerator, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html).
 

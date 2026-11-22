@@ -1,7 +1,6 @@
 
 
 # How the client IP address is preserved in AWS Global Accelerator
-<a name="preserve-client-ip-address.headers"></a>
 
 AWS Global Accelerator preserves the source IP address of the client differently for Amazon EC2 instances, Network Load Balancers, and Application Load Balancers:
 + For an EC2 instance endpoint, the client’s IP address is preserved for all traffic.

@@ -1,7 +1,6 @@
 
 
 # Remove an endpoint group for a custom routing accelerator in Global Accelerator
-<a name="about-custom-routing-endpoint-groups.remove-endpoint-group"></a>
 
 You work with an endpoint group for your custom routing accelerator on the AWS Global Accelerator console or by using an API operation.
 

@@ -1,7 +1,6 @@
 
 
 # Pricing for AWS Global Accelerator
-<a name="introduction-pricing"></a>
 
 With AWS Global Accelerator, you are charged a *fixed hourly fee* for each accelerator that is provisioned in your account (whether it's enabled or disabled), and an *incremental charge*, in addition to standard data transfer rates, for each gigabyte of traffic in the dominant direction that flows through the accelerator. The incremental rate depends on the AWS Region that serves the request (the source) and the AWS edge location where the responses are directed (the destination). Customers typically create one accelerator for each application, but customers with complex applications might require more accelerators. 
 

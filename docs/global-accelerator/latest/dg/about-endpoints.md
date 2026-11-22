@@ -1,7 +1,6 @@
 
 
 # Endpoints for standard accelerators in AWS Global Accelerator
-<a name="about-endpoints"></a>
 
 Endpoints for standard accelerators in AWS Global Accelerator can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses. In AWS Global Accelerator, static IP addresses serve as a single point of contact for clients, and, with a standard accelerator, Global Accelerator distributes incoming traffic across healthy endpoints. Global Accelerator directs traffic to endpoints by using the port (or port range) that you specify for the listener that the endpoint group for the endpoint belongs to. 
 

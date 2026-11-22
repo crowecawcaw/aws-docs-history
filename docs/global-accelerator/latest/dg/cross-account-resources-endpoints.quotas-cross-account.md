@@ -1,7 +1,6 @@
 
 
 # Quotas for cross-account resources in Global Accelerator
-<a name="cross-account-resources-endpoints.quotas-cross-account"></a>
 
 The following applies when you work with cross-account attachments and cross-account resources in AWS Global Accelerator:
 + All cross-account resources, and other resources, that are added as endpoints for an accelerator—including resources added by all principals with cross-account permission—count toward quotas in effect for the accelerator.

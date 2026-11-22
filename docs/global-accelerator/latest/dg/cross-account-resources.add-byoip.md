@@ -1,7 +1,6 @@
 
 
 # Add a cross-account BYOIP address in Global Accelerator
-<a name="cross-account-resources.add-byoip"></a>
 
 Follow the steps in this section to configure cross-account bring your own IP (BYOIP) IP addresses using the Global Accelerator console. 
 

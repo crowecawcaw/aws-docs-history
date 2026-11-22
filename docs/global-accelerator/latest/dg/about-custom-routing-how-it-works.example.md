@@ -1,7 +1,6 @@
 
 
 # Example of how custom routing works in Global Accelerator
-<a name="about-custom-routing-how-it-works.example"></a>
 
 As an example, let's say that you want to support 10,000 sessions where groups of users interact, such as gaming sessions or VoIP call sessions, across 1,000 Amazon EC2 instances behind Global Accelerator. In this example, we'll specify a listener port range of 10001–20040 and a destination port range of 81–90. We'll say that we have the four VPC subnets in us-east-1: subnet-1, subnet-2, subnet-3, and subnet-4.
 

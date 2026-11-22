@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Global Accelerator
-<a name="security-iam"></a>
 
 
 

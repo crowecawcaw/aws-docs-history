@@ -1,7 +1,6 @@
 
 
 # Delete accelerator
-<a name="about-accelerators.deleting"></a>
 
 If you created an accelerator as a test or if you're no longer using an accelerator, you can delete it. On the console, disable the accelerator, and then you can delete it. You don't have to remove listeners and endpoint groups from the accelerator.
 
