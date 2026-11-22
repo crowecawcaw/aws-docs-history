@@ -1,7 +1,6 @@
 
 
 # Operational readiness
-<a name="operational-readiness"></a>
 
 A successful approach to operations is critical to the success of every organization and its digital transformation. [Operational excellence](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/operational-excellence.html) is required to ensure that your transformation achieves its purpose and that applications consistently meet their business outcomes and the expectations of their users. This topic is intended to help you get a head start on your operations.
 

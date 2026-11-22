@@ -1,7 +1,6 @@
 
 
 # AWS Transform
-<a name="aws-transform"></a>
 
 AWS Transform is a collaborative enterprise IT transformation workbench powered by specialized AI agents, agentic workflows, and continuous learning that accelerates cloud migration, legacy application modernization, and tech debt reduction. It offers purpose-built transformations for mainframe, VMware, and Windows workloads, and automates code modernization at scale—from version and framework upgrades to fully custom, organization-specific transformations.
 

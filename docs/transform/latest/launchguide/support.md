@@ -1,7 +1,6 @@
 
 
 # Getting support
-<a name="support"></a>
 
 [AWS Support](https://aws.amazon.com/premiumsupport/) provides a mix of tools and technology, people, and programs designed to proactively help you optimize performance, lower costs, and innovate faster. We save time for your team by helping you move faster in the cloud and focus on your core business. We are determined to make our customers successful on their cloud journey and address requests that range from answering best practices questions, guidance on configuration, all the way to break-fix and problem resolution.
 

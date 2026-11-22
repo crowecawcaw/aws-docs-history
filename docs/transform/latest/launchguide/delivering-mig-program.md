@@ -1,7 +1,6 @@
 
 
 # Delivering a migration program
-<a name="delivering-mig-program"></a>
 
 AWS recommends performing the migration process in three phases: Assess, Mobilize, and Migrate and Modernize. To learn about these phases and about tools and services that are available to you as you go through your migration, see [How to migrate ](https://aws.amazon.com/cloud-migration/how-to-migrate). For more detailed guidance and to learn about migration strategies, guides, and patterns, see [AWS Prescriptive Guidance](https://aws.amazon.com/prescriptive-guidance).
 

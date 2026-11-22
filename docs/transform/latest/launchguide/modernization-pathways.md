@@ -1,7 +1,6 @@
 
 
 # Modernization pathways
-<a name="modernization-pathways"></a>
 
 AWS modernization pathways provide organizations with structured approaches to modernize their application portfolios after migration. Each pathway provides a proven route to specific business outcomes. These include reducing licensing costs, increasing developer velocity, enabling data-driven decisions, and embedding AI into existing workflows.
 

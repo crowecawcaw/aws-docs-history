@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
 This page aggregates links referenced throughout the Migration Launch Guide for quicker access.
 

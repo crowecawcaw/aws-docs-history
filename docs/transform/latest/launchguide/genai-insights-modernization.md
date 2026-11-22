@@ -1,7 +1,6 @@
 
 
 # Generative AI insights for modernization pathways
-<a name="genai-insights-modernization"></a>
 
 Once organizations have explored or implemented a [modernization pathway](modernization-pathways.md), they unlock a new class of opportunities powered by generative AI. Modernized architectures, with clean APIs, event-driven patterns, managed data stores, and containerized workloads, are inherently AI-ready. This page maps the Gen AI insights and use cases that become available as a natural next step along each pathway.
 
