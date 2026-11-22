@@ -1,7 +1,6 @@
 
 
 # Set up the Elastic Beanstalk Command Line Interface with AWS Elastic Beanstalk and AWS Identity and Access Management (IAM)
-<a name="set-up-command-line-elastic-beanstalk"></a>
 
 
 |  |  | 
@@ -98,25 +97,25 @@ In this step, you will install the EB command line interface. Follow the OS spec
 
 1. Using the Windows Command Prompt, confirm that Python is installed properly by running: 
 
-   ```
+   ```bash
    python --version
    ```
 
 1. Using the Windows Command Prompt, confirm that pip is installed properly by running: 
 
-   ```
+   ```bash
    pip --version
    ```
 
 1. Now that Python and pip has been installed, install the EB CLI by running: 
 
-   ```
+   ```bash
    pip install awsebcli --upgrade --use
    ```
 
 1. Now confirm that the EB CLI is installed correctly by running: 
 
-   ```
+   ```bash
    eb --version
    ```
 
@@ -128,7 +127,7 @@ In this step, you will install the EB command line interface. Follow the OS spec
 
 1. Your modern Linux distro probably includes Python by default. Confirm that Python is installed by starting a terminal session and running the following command: 
 
-   ```
+   ```bash
    python -–version
    ```
 
@@ -136,19 +135,19 @@ In this step, you will install the EB command line interface. Follow the OS spec
 
 1. Now confirm that the pip Python package manager is installed by running the following command: 
 
-   ```
+   ```bash
    pip -–version
    ```
 
 1. Now that Python and pip have been verified, install the EB CLI by running: 
 
-   ```
+   ```bash
    pip install awsebcli --upgrade --user
    ```
 
 1. Now confirm that the EB CLI is installed correctly by running: 
 
-   ```
+   ```bash
    eb –-version
    ```
 
@@ -159,25 +158,25 @@ In this step, you will install the EB command line interface. Follow the OS spec
 
 1. If you have the [Homebrew package manager](https://brew.sh/) on your mac, update your homebrew fomulae by running the following command in Terminal: 
 
-   ```
+   ```bash
    brew update
    ```
 
 1. If you don't have the the [Homebrew package manager](https://brew.sh/) installed, install it by running the following command in Terminal: 
 
-   ```
+   ```bash
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    ```
 
 1. Using Homebrew, install the EB CLI by running the following command in Terminal: 
 
-   ```
+   ```bash
    brew install awsebcli
    ```
 
 1. Now confirm that the EB CLI is installed correctly by running: 
 
-   ```
+   ```bash
    eb --version
    ```
 
