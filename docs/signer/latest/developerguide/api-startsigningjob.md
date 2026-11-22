@@ -1,11 +1,10 @@
 
 
 # StartSigningJob
-<a name="api-startsigningjob"></a>
 
 The following Java example shows how to use the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob.html) operation. You must call `StartSigningJob` before you call any other AWS Signer API operation. `StartSigningJob` returns a `jobId` value that you can use when calling [`DescribeSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_DescribeSigningJob.html) operation.
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.signer.AWSSigner;

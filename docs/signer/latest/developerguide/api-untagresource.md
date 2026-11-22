@@ -1,11 +1,10 @@
 
 
 # UntagResource
-<a name="api-untagresource"></a>
 
 The following Java example shows how to use the [`UntagResource`](url-signer-api;API_UntagResource.html) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

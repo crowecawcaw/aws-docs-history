@@ -1,13 +1,12 @@
 
 
 # PutSigningProfile
-<a name="api-putsigningprofile"></a>
 
 **Code signing for AWS IoT**
 
 The following Java examples show how to use the [`PutSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_PutSigningProfile.html) operation to create a new signing profile. Code signing profiles can be used in the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -44,7 +43,7 @@ public class PutSigningProfile {
 
 The next example shows how to use the [`PutSigningProfileProfile`](url-signer-api;API_PutSigningProfile.html) operation to create a new signing profile for AWS Lambda. Code signing profiles can be used in the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

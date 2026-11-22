@@ -1,11 +1,10 @@
 
 
 # GetSigningProfile
-<a name="api-getsigningprofile"></a>
 
 The following Java example shows how to use the [`GetSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_SetSigningProfile.html) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

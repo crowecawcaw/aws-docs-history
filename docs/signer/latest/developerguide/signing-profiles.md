@@ -1,7 +1,6 @@
 
 
 # Create a Signer signing profile
-<a name="signing-profiles"></a>
 
 Before you can perform signing jobs, you must create a *signing profile*. A signing profile is unique AWS Signer resource that you can use to perform signing jobs. Signing profiles enable you to sign and verify code artifacts, such as container images and AWS Lambda deployment bundles. Each signing profile designates the signing platform to sign for, a platform ID, and other platform-specific information.
 

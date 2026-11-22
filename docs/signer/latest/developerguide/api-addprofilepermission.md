@@ -1,11 +1,10 @@
 
 
 # AddProfilePermission
-<a name="api-addprofilepermission"></a>
 
 The following Java example shows how to use the [`AddProfilePermission`](https://docs.aws.amazon.com/signer/latest/api/API_AddProfilePermission.html) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

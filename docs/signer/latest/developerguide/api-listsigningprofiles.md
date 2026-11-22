@@ -1,11 +1,10 @@
 
 
 # ListSigningProfiles
-<a name="api-listsigningprofiles"></a>
 
 The following Java example shows how to use the [`ListSigningProfiles`](https://docs.aws.amazon.com/signer/latest/api/API_ListSigningProfiles.html) operation.
 
-```
+```java
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.signer.AWSsigner;
 import com.amazonaws.services.signer.AWSsignerClient;

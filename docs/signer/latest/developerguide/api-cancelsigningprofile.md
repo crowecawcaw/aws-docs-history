@@ -1,11 +1,10 @@
 
 
 # CancelSigningProfile
-<a name="api-cancelsigningprofile"></a>
 
 The following Java example shows how to use the [`CancelSigningProfile`](https://docs.aws.amazon.com/signer/latest/api/API_CancelSigningProfile.html) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

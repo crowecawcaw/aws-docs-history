@@ -1,7 +1,6 @@
 
 
 # Sign an image
-<a name="image-signing-steps"></a>
 
 The procedures on this page show you how create a signing profile, install a helper program, and sign a container image.
 

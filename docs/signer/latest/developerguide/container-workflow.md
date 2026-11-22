@@ -1,7 +1,6 @@
 
 
 # Sign container images in Signer
-<a name="container-workflow"></a>
 
 This section describes procedures for signing container images stored in an Open Container Initiative (OCI) compliant container registry. Before you begin, make sure you have completed the prerequisites listed in [Get started with AWS Signer](getting-started.md).
 

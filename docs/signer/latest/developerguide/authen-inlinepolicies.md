@@ -1,7 +1,6 @@
 
 
 # Inline policies for Signer
-<a name="authen-inlinepolicies"></a>
 
 Inline policies are standalone identity-based policies that an administrator creates and embeds directly into a single principal (user, group, or role). Administrators can create and manage policies using the [AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html), the [AWS Command Line Interface (AWS CLI)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-cli.html), or the [IAM API](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-api.html). 
 
@@ -36,7 +35,7 @@ The following policies allow a principal to discover every `SigningProfile` with
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -64,7 +63,7 @@ The following policies allow a principal to discover every `SigningProfile` with
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -98,7 +97,7 @@ The following policies allow a principal to call `GetSigningProfile` and `StartS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -132,7 +131,7 @@ The following policies allow a principal to call `GetSigningProfile` and `StartS
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -169,7 +168,7 @@ The following policy allows a principal to call `GetSigningProfile` and `StartSi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -211,7 +210,7 @@ The following policy allows a principal to call `GetSigningProfile` and `StartSi
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

@@ -1,7 +1,6 @@
 
 
 # Set up cross-account signing for Signer
-<a name="signing-profile-cross-account"></a>
 
 **Note**  
 Cross-account signing is only available for AWS Lambda and container registries signing platforms, which are referred to as [platformId](https://docs.aws.amazon.com/signer/latest/api/API_PutSigningProfile.html#signer-PutSigningProfile-request-platformId) in the AWS CLI and API.

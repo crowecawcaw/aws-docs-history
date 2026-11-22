@@ -1,7 +1,6 @@
 
 
 # Use Signer actions in IAM
-<a name="authen-apipermissions"></a>
 
 Administrators who set up access control and write permissions policies that they attach to an IAM identity (identity-based policies) can use the following table as a reference. The first column in the table lists each AWS Signer API operation. You specify actions in a policy's `Action` element. You can use the IAM policy elements in your ACM policies to express conditions. For a complete list, see [IAM JSON policy element reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*. 
 

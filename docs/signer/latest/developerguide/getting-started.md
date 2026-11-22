@@ -1,7 +1,6 @@
 
 
 # Get started with AWS Signer
-<a name="getting-started"></a>
 
 Before you can begin signing code and binaries with AWS Signer, you need to set up an AWS account, create administrative and root users, apply security policies using AWS Identity and Access Management (IAM), and create a signing profile that contains the configuration for your signing tasks. 
 

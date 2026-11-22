@@ -1,11 +1,10 @@
 
 
 # SignPayload
-<a name="api-signpayload"></a>
 
 The following Java example shows how to use the [`SignPayload`](https://docs.aws.amazon.com/signer/latest/api/API_SignPayload.html) operation.
 
-```
+```java
 package com.examples;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

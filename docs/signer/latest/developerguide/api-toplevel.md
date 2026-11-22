@@ -1,7 +1,6 @@
 
 
 # Code examples
-<a name="api-toplevel"></a>
 
 The following code examples show how to use Signer with the Java AWS software development kit (SDK).
 

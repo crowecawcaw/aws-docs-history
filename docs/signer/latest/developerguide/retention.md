@@ -1,7 +1,6 @@
 
 
 # Data Retention for Signer
-<a name="retention"></a>
 
 **Signing Profiles **are automatically scheduled for deletion once they are [`canceled`](https://docs.aws.amazon.com/signer/latest/api/API_CancelSigningProfile.html) or [`revoked`](https://docs.aws.amazon.com/signer/latest/api/API_RevokeSigningProfile.html).
 

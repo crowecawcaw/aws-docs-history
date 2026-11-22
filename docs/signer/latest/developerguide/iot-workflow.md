@@ -1,7 +1,6 @@
 
 
 # Sign Internet of Things (IoT) objects
-<a name="iot-workflow"></a>
 
 This section describes procedures for signing binary objects intended for deployment on Internet of Things (IoT) devices. Before you begin, make sure you have completed the prerequisites listed in [Get started with AWS Signer](getting-started.md).
 

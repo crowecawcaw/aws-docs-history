@@ -1,11 +1,10 @@
 
 
 # ListSigningJobs
-<a name="api-listsigningjobs"></a>
 
 The following Java example shows how to use the [`ListSigningJobs`](https://docs.aws.amazon.com/signer/latest/api/API_ListSigningJobs.html) operations. This operation lists all of the signing jobs that you have performed in your account. Call the [`StartSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_StartSigningJob.html) operation before you call `ListSigningJobs`. You can also call [`DescribeSigningJob`](https://docs.aws.amazon.com/signer/latest/api/API_DescribeSigningJob.html) and specify a `jobId` to see information about a specific signing job created by calling `StartSigningJob`. 
 
-```
+```java
 package com.amazonaws.samples;
 
 import com.amazonaws.services.signer.AWSSigner;

@@ -1,7 +1,6 @@
 
 
 # Create a signing job for Lambda in AWS Signer
-<a name="signing-jobs-lambda"></a>
 
 To start a signing job, you need to specify the following:
 + The source S3 bucket of the IoT code or Lambda zip file to be signed

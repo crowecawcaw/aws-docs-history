@@ -1,7 +1,6 @@
 
 
 # Sign AWS Lambda code
-<a name="lambda-workflow"></a>
 
 This section describes procedures for signing code intended for deployment on AWS Lambda. Before you begin, make sure you have completed the prerequisites listed in [Get started with AWS Signer](getting-started.md).
 

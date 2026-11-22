@@ -1,7 +1,6 @@
 
 
 # Prerequisites for signing container images
-<a name="image-signing-prerequisites"></a>
 
 Before you begin signing, you need to set up an environment that bridges AWS Signer with Amazon ECR. Complete the following steps.
 
@@ -292,7 +291,7 @@ The following is an example of a user managed policy that allows Notation to int
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
