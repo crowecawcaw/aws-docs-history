@@ -1,7 +1,6 @@
 
 
 # Multicast Traffic in Multi-Account Environments
-<a name="multicast-multi-account"></a>
 
 Publication date: **May 5, 2022 ([Diagram history](#mmulti-diagram-history))**
 

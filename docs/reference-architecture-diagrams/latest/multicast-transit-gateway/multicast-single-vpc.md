@@ -1,7 +1,6 @@
 
 
 # Multicast Traffic in a Single VPC
-<a name="multicast-single-vpc"></a>
 
 Publication date: **May 5, 2022 ([Diagram history](#msvpc-diagram-history))**
 

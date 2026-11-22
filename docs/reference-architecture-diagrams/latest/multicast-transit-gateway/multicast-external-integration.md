@@ -1,7 +1,6 @@
 
 
 # Integrating External Multicast Services and AWS
-<a name="multicast-external-integration"></a>
 
 Publication date: **May 5, 2022 ([Diagram history](#mext-diagram-history))**
 
