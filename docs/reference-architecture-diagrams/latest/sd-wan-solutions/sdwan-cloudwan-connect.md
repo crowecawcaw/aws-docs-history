@@ -1,7 +1,6 @@
 
 
 # SD-WAN Connectivity with AWS Cloud WAN Connect Attachments
-<a name="sdwan-cloudwan-connect"></a>
 
 Publication date: **December 28, 2024 ([Diagram history](#sdwan2-diagram-history))**
 

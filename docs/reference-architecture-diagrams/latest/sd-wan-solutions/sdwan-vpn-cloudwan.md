@@ -1,7 +1,6 @@
 
 
 # SD-WAN Connectivity with AWS Site-to-Site VPN to AWS Cloud WAN
-<a name="sdwan-vpn-cloudwan"></a>
 
 Publication date: **December 28, 2024 ([Diagram history](#sdwan5-diagram-history))**
 

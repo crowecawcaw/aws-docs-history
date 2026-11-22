@@ -1,7 +1,6 @@
 
 
 # SD-WAN Connectivity with AWS Cloud WAN Tunnel-less Connect Attachments
-<a name="sdwan-cloudwan-tunnelless"></a>
 
 Publication date: **December 28, 2024 ([Diagram history](#sdwan3-diagram-history))**
 

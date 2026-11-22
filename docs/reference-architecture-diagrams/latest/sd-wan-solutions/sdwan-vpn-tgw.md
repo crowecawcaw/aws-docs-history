@@ -1,7 +1,6 @@
 
 
 # SD-WAN Connectivity with AWS Site-to-Site VPN to AWS Transit Gateway
-<a name="sdwan-vpn-tgw"></a>
 
 Publication date: **December 28, 2024 ([Diagram history](#sdwan4-diagram-history))**
 
