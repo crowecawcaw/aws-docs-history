@@ -1,7 +1,6 @@
 
 
 # Set up an AWS user account
-<a name="setting-up-aws-login"></a>
 
 **Tip**  
 Use these topics to get help with these tasks:   

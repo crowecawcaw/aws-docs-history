@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon GameLift Servers
-<a name="security-best-practices"></a>
 
 If you're using Amazon GameLift Servers FleetIQ as a standalone feature with Amazon EC2, see [Security in Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security.html) in the *Amazon EC2 User Guide*.
 
@@ -31,7 +30,7 @@ Updating a fleet (such as using [UpdateFleetAttributes](https://docs.aws.amazon.
 
 We strongly recommend against opening ports to the Internet because doing so poses a security risk. For example, the following configuration opens a remote desktop port that allows anyone on the Internet to access the instance:
 
-```
+```json
 {
   "FleetId": "{{<fleet identifier>}}",
   "InboundPermissionAuthorizations": [ 
@@ -47,7 +46,7 @@ We strongly recommend against opening ports to the Internet because doing so pos
 
  Instead, use [UpdateFleetPortSettings](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateFleetPortSettings.html) to open a port with a specific IP address or range of addresses, as shown in this example: 
 
-```
+```json
 {
   "FleetId": "{{<fleet identifier>}}",
   "InboundPermissionAuthorizations": [ 

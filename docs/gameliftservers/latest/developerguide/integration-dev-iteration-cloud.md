@@ -1,17 +1,18 @@
 
 
-# Build a cloud-based test environment
-<a name="integration-dev-iteration-cloud"></a>
+# Building a cloud-based test environment
 
 **Note**  
-This topic covers iterative testing for games that are integrated with the server SDK for Amazon GameLift Servers version 5.x. If your game uses server SDK version 4.x or earlier, see [Test your integration using Amazon GameLift Servers Local](integration-testing-local.md).
+This topic covers iterative testing for games that are integrated with the server SDK for Amazon GameLift Servers version 5.x. If your game uses server SDK version 4.x or earlier, see [Testing your integration using Amazon GameLift Servers Local](integration-testing-local.md).
 
 Use an Amazon GameLift Servers Anywhere fleet to iteratively build and test your game components in a cloud-based hosted environment. Create an Anywhere fleet with hosting resources and a connection to the Amazon GameLift Servers service, run your game servers on them, and test game functionality as needed. 
 
-**Deploy an Anywhere fleet with the Amazon GameLift Servers Agent**  
+## Deploying an Anywhere fleet with the Amazon GameLift Servers Agent
+<a name="integration-dev-iteration-cloud-agent"></a>
+
 If your game server build is integrated with Amazon GameLift Servers SDK 5.x or later, you can deploy it to a cloud-based Anywhere fleet with the Amazon GameLift Servers Agent. The Agent is a background process that manages game server life cycles and other tasks on each compute in a fleet. These tasks include registering the compute with an Anywhere fleet, acquiring an authentication token, and starting/stopping game server processes based on a set of instructions. The Agent is controlled by a fleet's runtime configuration, which you can update at any time during the life of the fleet. (The Agent is automatically deployed to managed EC2 fleets.) For more information and to download the Agent, see the [Amazon GameLift Servers GitHub repository](https://github.com/aws/amazon-gamelift-agent).
 
-## Set up iterative testing with Amazon EC2
+## Setting up iterative testing with Amazon EC2
 <a name="integration-dev-iteration-cloud-ec2"></a>
 
 Use the guided workflow in this [Amazon GameLift Servers toolkit solution]( https://github.com/aws/amazon-gamelift-toolkit/tree/main/development-instance-with-amazon-gamelift-anywhere-and-gamelift-agent) to set up a cloud-based hosting environment that mirrors the managed hosting experience with Amazon GameLift Servers. 
@@ -39,7 +40,7 @@ The workflow covers the following tasks:
   As you develop your game components, including a game client and client-side backend service, you can include these in your test scenarios. Use a game client to request a game session, retrieve connection info from the Amazon GameLift Servers service, and then connect directly to the game session.
 + **Deploy a new game server build and repeat tests.** As you develop your game, you can generate new game server builds, then quickly deploy them to the EC2 test environment for testing. Upload them to the Amazon S3 bucket and then use the workflow scripts to update the test environment.
 
-## Transition your game to Amazon GameLift Servers managed fleets
+## Transitioning your game to Amazon GameLift Servers managed fleets
 <a name="integration-dev-iteration-cloud-transition"></a>
 
 After you've completed development testing and you're ready to prepare for launch, this is a good time to switch over to Amazon GameLift Servers managed fleets. Use managed fleets to fine-tune and test your game hosting resources. Implement your game session placement solution (queues and matchmakers), select optimum hosting hardware (including Spot fleets) and locations, and choose a strategy for scaling capacity. You might also want to start using AWS CloudFormation to more efficiently manage the life cycles of all your game hosting resources, including fleets, queues, and matchmakers.

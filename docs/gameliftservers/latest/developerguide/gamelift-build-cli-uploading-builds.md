@@ -1,7 +1,6 @@
 
 
 # Create an Amazon GameLift Servers build resource for managed hosting
-<a name="gamelift-build-cli-uploading-builds"></a>
 
 When creating a build and uploading your files, you have a couple of options:
 + [Create a build from a file directory](gamelift-build-cli-uploading-upload-build.md). This is the simplest and most commonly used option.

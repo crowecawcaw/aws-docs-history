@@ -1,7 +1,6 @@
 
 
 # IAM permission examples for Amazon GameLift Servers
-<a name="gamelift-iam-policy-examples"></a>
 
 Use the syntax in these examples to set AWS Identity and Access Management (IAM) permissions for users that need access to Amazon GameLift Servers resources. For more information on managing user permissions, see [Set user permissions for Amazon GameLift Servers](setting-up-aws-login.md#getting-started-create-iam-user). When managing permissions for users outside of the IAM Identity Center, as a best practice always attach permissions to IAM roles or user groups, not individual users.
 
@@ -16,7 +15,7 @@ These examples give a hosting administrator or developer targeted access to mana
 The following example extends full access to all Amazon GameLift Servers resources.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -31,7 +30,7 @@ The following example extends full access to all Amazon GameLift Servers resourc
 The following example extends access to all Amazon GameLift Servers resources and AWS Regions that aren't enabled by default. For more information about Regions that aren't enabled by default and how to enable them, see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) in the *AWS General Reference*.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -49,7 +48,7 @@ The following example extends access to all Amazon GameLift Servers resources an
 The following example extends access to Amazon Elastic Container Registry (Amazon ECR) actions that Amazon GameLift Servers users need when working with managed container fleets.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -68,7 +67,7 @@ The following example extends access to Amazon Elastic Container Registry (Amazo
 The following example extends access to all Amazon GameLift Servers resources and allows a user to pass an IAM service role to Amazon GameLift Servers. A service role gives Amazon GameLift Servers limited ability to access other resources and services on your behalf, as is described in [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md). For example, when responding to a `CreateBuild` request, Amazon GameLift Servers needs access to your build files in an Amazon S3 bucket. For more information about the `PassRole` action, see [IAM: Pass an IAM role to a specific AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_iam-passrole-service.html) in the *IAM User Guide*.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -100,7 +99,7 @@ These examples allow a backend service or other entity to make API calls to the 
 The following example extends access to the Amazon GameLift Servers APIs that use game session placement queues to create game sessions and manage player sessions.     
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -123,7 +122,7 @@ The following example extends access to the Amazon GameLift Servers APIs that us
 The following example extends access to the Amazon GameLift Servers APIs that manage FlexMatch matchmaking activities. FlexMatch matches players for new or existing game sessions and initiates game session placement for games hosted on Amazon GameLift Servers. For more information about FlexMatch, see [What is Amazon GameLift Servers FlexMatch?](https://docs.aws.amazon.com/gameliftservers/latest/flexmatchguide/match-intro.html)    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -146,7 +145,7 @@ The following example extends access to the Amazon GameLift Servers APIs that ma
 The following example extends access to the Amazon GameLift Servers APIs that manually create game sessions and player sessions on specified fleets. This scenario supports games that don't use placement queues, such as games that let players join by choosing from a list of available game sessions (the "list-and-pick" method).    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

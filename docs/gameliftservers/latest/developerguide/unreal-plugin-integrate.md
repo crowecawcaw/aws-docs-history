@@ -1,7 +1,6 @@
 
 
 # Plugin for Unreal: Integrate your game code
-<a name="unreal-plugin-integrate"></a>
 
 Before you can deploy your game server to a fleet, you need to make a series of updates to game code and package game components for use with the Amazon GameLift Servers service.
 

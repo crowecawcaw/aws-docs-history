@@ -1,7 +1,6 @@
 
 
 # Customize an Amazon GameLift Servers container fleet
-<a name="containers-design-fleet"></a>
 
 The topics in this section describe some of the optional features for Amazon GameLift Servers managed containers. You can choose to use any or all of these features.
 
@@ -213,7 +212,7 @@ Set the `ContainerDefinition` property `Essential` to either true or false for e
 
 You can customize network access to allow external traffic to connect to any container in a container fleet. For example, you must establish network connections to the container that runs your game server processes, so that game clients can join and play your game. Game clients connect to game servers using ports and IP addresses.
 
-In a container fleet, the connection between a client and server is not direct. Internally, a process in a container listens on a *container port*. Externally, incoming traffic connects to a fleet instance using a *connection port*. Amazon GameLift Servers maintains the mappings between internal container ports and external-facing connection ports, so that incoming traffic gets routed to the correct process on the instance. To retrieve the current port mappings for a specific container group, call the [DescribeContainerGroupPortMappings](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeContainerGroupPortMappings.html) operation. For more information about viewing port mappings, see [View container port mappings](containers-remote-access.md#containers-remote-access-port-mappings).
+In a container fleet, the connection between a client and server is not direct. Internally, a process in a container listens on a *container port*. Externally, incoming traffic connects to a fleet instance using a *connection port*. Amazon GameLift Servers maintains the mappings between internal container ports and external-facing connection ports, so that incoming traffic gets routed to the correct process on the instance. To retrieve the current port mappings for a specific container group, call the [DescribeContainerGroupPortMappings](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeContainerGroupPortMappings.html) operation. For more information about viewing port mappings, see [Viewing container port mappings](containers-remote-access.md#containers-remote-access-port-mappings).
 
 Amazon GameLift Servers provides an extra layer of control for your network connections. Each container fleet has an *inbound permissions* setting, which allows you to control access to each external-facing connection port. For example, you could remove permissions for all connection ports to shut off all access to the fleet's containers.
 

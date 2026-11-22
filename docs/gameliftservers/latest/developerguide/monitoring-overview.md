@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon GameLift Servers
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon GameLift Servers and your other AWS solutions. There are three primary uses for metrics with Amazon GameLift Servers: to monitor system health and set up alarms, to track game server performance and usage, and to manage capacity using manual or auto-scaling. 
 

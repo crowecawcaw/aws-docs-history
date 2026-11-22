@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers managed EC2 fleets
-<a name="fleets-intro-managed"></a>
 
 Amazon GameLift Servers managed EC2 fleets provide cloud-based resources for production hosting. With a managed fleet, you get the flexibility, security, and reliability of AWS Cloud resources optimized for multiplayer game hosting. Amazon GameLift Servers provides robust host management tools. 
 

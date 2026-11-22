@@ -1,7 +1,6 @@
 
 
 # Prepare your Unreal or Unity game with the Amazon GameLift Servers plugin
-<a name="getting-started-plugin"></a>
 
 The Amazon GameLift Servers plugin is a full-featured add-on to your Unreal or Unity game engine. It guides you through the basic steps to deploy your game for hosting with Amazon GameLift Servers. With the plugin's tool set and workflows, you can work in your game engine development environment to prepare your game server for hosting, set up hosting on a local machine for testing, create a simple backend service, and deploy your game server to managed cloud-based hosting. 
 

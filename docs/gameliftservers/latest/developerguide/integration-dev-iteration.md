@@ -1,7 +1,6 @@
 
 
-# Set up for iterative development with Amazon GameLift Servers Anywhere
-<a name="integration-dev-iteration"></a>
+# Setting up for iterative development with Amazon GameLift Servers Anywhere
 
 Amazon GameLift Servers provides tools and solutions to help you set up a hosted test environment for use during game development. With these tools, you can create an environment that mirrors the real-world player experience of managed hosting with Amazon GameLift Servers and supports a rapid, iterative development process.
 
@@ -28,6 +27,6 @@ The Fast Build Update Tool lets you bypass these steps during development, savin
 To get the Fast Build Update Tool and learn more about how to use it, visit the Amazon GameLift Servers Toolkit repo for [ The Fast Build Update Tool](https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool) in GitHub. 
 
 **Topics**
-+ [Build a cloud-based test environment](integration-dev-iteration-cloud.md)
-+ [Set up local testing with Amazon GameLift Servers Anywhere](integration-testing.md)
-+ [Test your integration using Amazon GameLift Servers Local](integration-testing-local.md)
++ [Building a cloud-based test environment](integration-dev-iteration-cloud.md)
++ [Setting up local testing with Amazon GameLift Servers Anywhere](integration-testing.md)
++ [Testing your integration using Amazon GameLift Servers Local](integration-testing-local.md)

@@ -1,7 +1,6 @@
 
 
 # Create an Amazon GameLift Servers managed EC2 fleet
-<a name="fleets-creating"></a>
 
 This topic describes how to create an Amazon GameLift Servers managed EC2 fleet. Managed fleets use Amazon Elastic Compute Cloud (Amazon EC2) compute instances that are optimized for multiplayer game hosting. You can create managed fleets that deploy computes globally to AWS Regions and Local Zones supported by Amazon GameLift Servers.
 

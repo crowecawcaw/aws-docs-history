@@ -1,7 +1,6 @@
 
 
 # C\# server SDK for Amazon GameLift Servers 4.x -- Actions
-<a name="integration-server-sdk-csharp-ref-actions"></a>
 
 Use the server SDK reference to integrate your multiplayer game for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md).
 
@@ -209,7 +208,7 @@ For more information about the certificate and certificate chain data, see [GetC
 ### Example
 <a name="integration-server-sdk-csharp-ref-getinstancecertificate-example"></a>
 
-```
+```cpp
 var getInstanceCertificateOutcome = GameLiftServerAPI.GetInstanceCertificate();
 ```
 

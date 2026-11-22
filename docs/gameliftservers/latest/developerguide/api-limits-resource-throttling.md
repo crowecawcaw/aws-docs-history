@@ -1,7 +1,6 @@
 
 
 # Resource-level throttling
-<a name="api-limits-resource-throttling"></a>
 
 Some API operations are subject to resource-level throttling to prevent database hot key issues. While increasing API-level limits for these operations, they may still be throttled at the resource level.
 

@@ -1,7 +1,6 @@
 
 
 # Implementation
-<a name="gamelift-servers-metrics-setup"></a>
 
 Select your implementation path based on your development environment:
 

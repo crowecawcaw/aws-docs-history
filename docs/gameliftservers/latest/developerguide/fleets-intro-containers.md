@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers managed container fleets
-<a name="fleets-intro-containers"></a>
 
 Amazon GameLift Servers managed container fleets provide cloud-based resources for hosting your containerized game server software. With a managed container fleet, you get the flexibility, security, and reliability of AWS Cloud resources, optimized for multiplayer game hosting. Amazon GameLift Servers provides robust host management tools.
 
@@ -30,4 +29,4 @@ See these topics about how to set up and maintain managed container fleets:
 +  [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md)
 +  [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md)
 +  [Update an Amazon GameLift Servers managed container fleet](containers-update-fleet.md)
-+  [Validate and troubleshoot container fleet deployments](containers-deployment-validation.md)
++  [Validating and troubleshooting container fleet deployments](containers-deployment-validation.md)

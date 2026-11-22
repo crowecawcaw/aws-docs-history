@@ -1,7 +1,6 @@
 
 
 # Update fleet locations
-<a name="fleets-update-locations"></a>
 
 You can add or remove a fleet's remote locations using the Amazon GameLift Servers console or the AWS CLI. You can't change a fleet's home Region.
 

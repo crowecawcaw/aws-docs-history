@@ -1,7 +1,6 @@
 
 
 # Logging server messages in Amazon GameLift Servers
-<a name="logging-server-messages"></a>
 
 You can capture custom server messages from your Amazon GameLift Servers servers in log files. The way you configure logging depends on whether you use custom servers or Amazon GameLift Servers Realtime, and whether you're using managed EC2 fleets or container fleets (see the appropriate subsections in this chapter).
 

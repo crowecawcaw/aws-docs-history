@@ -1,7 +1,6 @@
 
 
 # Server SDK (Unreal) for Amazon GameLift Servers -- Actions
-<a name="integration-server-sdk-unreal-ref-actions"></a>
 
 Use the server SDK for Unreal to integrate your multiplayer game for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md).
 
@@ -173,7 +172,7 @@ If successful, returns the current SDK version as an `FGameLiftStringOutcome` ob
 ### Example
 <a name="integration-server-sdk-unreal-ref-getsdk-example"></a>
 
-```
+```cpp
 Aws::GameLift::AwsStringOutcome SdkVersionOutcome = 
     Aws::GameLift::Server::GetSdkVersion();
 ```

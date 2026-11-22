@@ -1,7 +1,6 @@
 
 
 # Standalone game session servers with a serverless backend
-<a name="gamelift_quickstart_customservers_designbackend_arch_serverless"></a>
 
 Using a serverless client service architecture, the backend can view the status of matchmaking tickets from a highly scalable database instead of by directly accessing the Amazon GameLift Servers API.
 

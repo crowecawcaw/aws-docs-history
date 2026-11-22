@@ -1,7 +1,6 @@
 
 
 # Target-based auto scaling
-<a name="fleets-autoscaling-target"></a>
 
 Target-based auto scaling for Amazon GameLift Servers adjusts capacity levels based on the fleet metric `PercentAvailableGameSessions`. This metric represents the fleet's available buffer for sudden increases in player demand.
 

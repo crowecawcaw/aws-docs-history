@@ -1,7 +1,6 @@
 
 
 # Add FlexMatch matchmaking to Amazon GameLift Servers
-<a name="gamelift-match-intro"></a>
 
 Use Amazon GameLift Servers FlexMatch to add player matchmaking functionality to your Amazon GameLift Servers hosted games. You can use FlexMatch with either custom game servers or Amazon GameLift Servers Realtime. 
 

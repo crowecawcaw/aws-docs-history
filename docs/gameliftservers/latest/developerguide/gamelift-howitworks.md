@@ -1,7 +1,6 @@
 
 
 # How hosting with Amazon GameLift Servers works
-<a name="gamelift-howitworks"></a>
 
 Amazon GameLift Servers is a service that provides dedicated, low-cost servers, infrastructure provisioning, scaling, and session management for your session-based multiplayer games. The service offers flexible tools and features that you can customize for your games or use in collaboration with your own systems. Take advantage of Amazon GameLift Servers managed hosting so you can focus on creating gameplay experiences rather than managing server operations.
 

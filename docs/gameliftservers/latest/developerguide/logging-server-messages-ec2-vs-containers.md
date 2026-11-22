@@ -1,7 +1,6 @@
 
 
 # Logging differences: Managed EC2 vs Container fleets
-<a name="logging-server-messages-ec2-vs-containers"></a>
 
 Logging behavior differs significantly between managed EC2 fleets and container fleets. Understanding these differences is crucial when migrating from EC2 to containers or choosing the right fleet type for your logging requirements.
 

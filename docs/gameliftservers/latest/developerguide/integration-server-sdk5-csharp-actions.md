@@ -1,7 +1,6 @@
 
 
 # C\# server SDK 5.x for Amazon GameLift Servers -- Actions
-<a name="integration-server-sdk5-csharp-actions"></a>
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md). If you're using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md).
 
@@ -605,7 +604,7 @@ Returns a GetComputeCertificateResponse object that contains the following:
 ### Example
 <a name="integration-server-sdk5-csharp-getcomputecertificate-example"></a>
 
-```
+```cs
 GetComputeCertificateOutcome getComputeCertificateOutcome = GameLiftServerAPI.GetComputeCertificate();
 ```
 
@@ -635,7 +634,7 @@ Returns a [GetFleetRoleCredentialsOutcome](integration-server-sdk5-csharp-dataty
 ### Example
 <a name="integration-server-sdk5-csharp-getfleetrolecredentials-example"></a>
 
-```
+```cs
 // form the fleet credentials request  
 GetFleetRoleCredentialsRequest getFleetRoleCredentialsRequest = new GetFleetRoleCredentialsRequest(){  
   RoleArn = "arn:aws:iam::123456789012:role/service-role/exampleGameLiftAction"  
@@ -665,7 +664,7 @@ Returns a [ListContainersNetworkInfoOutcome](integration-server-sdk5-csharp-data
 ### Example
 <a name="integration-server-sdk5-csharp-listcontainersnetworkinfo-example"></a>
 
-```
+```cs
 ListContainersNetworkInfoOutcome listContainersNetworkInfoOutcome = GameLiftServerAPI.ListContainersNetworkInfo();
 ```
 

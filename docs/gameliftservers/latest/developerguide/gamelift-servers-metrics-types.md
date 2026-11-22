@@ -1,7 +1,6 @@
 
 
 # Available metrics
-<a name="gamelift-servers-metrics-types"></a>
 
 Metrics fall into three categories:
 + Automatically collected metrics

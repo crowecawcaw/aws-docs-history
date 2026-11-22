@@ -1,7 +1,6 @@
 
 
 # Dashboard organization and usage
-<a name="gamelift-servers-metrics-dashboards"></a>
 
 View your metrics on comprehensive dashboards in [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html). The available dashboards depend on your fleet type:
 

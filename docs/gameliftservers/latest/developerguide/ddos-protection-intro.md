@@ -1,7 +1,6 @@
 
 
 # DDoS protection with Amazon GameLift Servers
-<a name="ddos-protection-intro"></a>
 
 Amazon GameLift Servers provides multiple layers of DDoS protection to defend your game servers from DDoS attacks. All layers of protection are provided at no additional cost when you use Amazon GameLift Servers.
 

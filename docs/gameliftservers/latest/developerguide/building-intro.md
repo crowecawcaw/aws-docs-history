@@ -1,7 +1,6 @@
 
 
 # Building a game hosting solution with Amazon GameLift Servers
-<a name="building-intro"></a>
 
 This section includes guidance on how to build all the components of an Amazon GameLift Servers game hosting solution, including design best practices. Whether you're starting from scratch or migrating an existing game, you'll find comprehensive information to help you architect, implement, and optimize your game hosting infrastructure using Amazon GameLift Servers.
 

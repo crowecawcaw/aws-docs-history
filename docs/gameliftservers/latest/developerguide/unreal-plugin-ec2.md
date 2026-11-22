@@ -1,7 +1,6 @@
 
 
 # Plugin for Unreal: Deploy your game to a managed EC2 fleet
-<a name="unreal-plugin-ec2"></a>
 
 In this workflow, deploy your game for hosting on cloud-based compute resources managed by Amazon GameLift Servers. Upload your integrated game server build to the Amazon GameLift Servers service for deployment. If you haven't yet integrated your game code, see [Plugin for Unreal: Integrate your game code](unreal-plugin-integrate.md). When this workflow is complete, you'll have a working game client that can connect to your game servers in the cloud. 
 

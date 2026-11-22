@@ -1,7 +1,6 @@
 
 
 # Development roadmap for hosting with Amazon GameLift Servers managed EC2
-<a name="gamelift-roadmap-managed"></a>
 
 This roadmap guides you through how to develop an Amazon GameLift Servers managed EC2 hosting solution for your multiplayer game. Amazon GameLift Servers offers several game hosting options; for more information on these options, see [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md).
 
@@ -30,7 +29,7 @@ Add functionality to your game server so that it can communicate with the Amazon
   + Implement the required callback functions `OnProcessTerminate()`, and `OnStartGameSession()`. With these functions, game server processes can maintain a connection with the Amazon GameLift Servers service, initiate a game session when prompted by Amazon GameLift Servers, and respond to a prompt to end the game server process.
   + Add code to report to the Amazon GameLift Servers service when the server process is ending a game session. Use the server SDK action `ProcessEnding()`.
 + **Package your game server build.** Create an install script with your build files, dependencies and supporting software. See [Package your game build files](gamelift-build-packaging.md). We recommend using an Amazon Simple Storage Service (Amazon S3) bucket to store versions of your game build.
-+ **Test your game server integration.** For this task, we recommend setting up an Amazon GameLift Servers Anywhere fleet for a local workstation, as described in [Set up local testing with Amazon GameLift Servers Anywhere](integration-testing.md). For this step, manually install your game server build onto the test device and start a server process. Use the AWS CLI to request a new game session, and verify that the Amazon GameLift Servers service successfully prompts your server process to start a game session.
++ **Test your game server integration.** For this task, we recommend setting up an Amazon GameLift Servers Anywhere fleet for a local workstation, as described in [Setting up local testing with Amazon GameLift Servers Anywhere](integration-testing.md). For this step, manually install your game server build onto the test device and start a server process. Use the AWS CLI to request a new game session, and verify that the Amazon GameLift Servers service successfully prompts your server process to start a game session.
 
 ## Step 2: Prepare your game client to join hosted game sessions
 <a name="gamelift-roadmap-managed-step2"></a>

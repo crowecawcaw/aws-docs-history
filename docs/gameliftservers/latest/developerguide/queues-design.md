@@ -1,7 +1,6 @@
 
 
 # Customize a game session queue
-<a name="queues-design"></a>
 
 This topic describes how to customize your game session queues to make the best possible decisions about game session placement. For more information about game session queues and how they work, see [Configure game session placement](queues-intro.md).
 

@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon GameLift Servers
-<a name="gamelift-compliance"></a>
 
 Amazon GameLift Servers is not in scope of any AWS compliance programs.
 

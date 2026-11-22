@@ -1,7 +1,6 @@
 
 
 # Work with the Amazon GameLift Servers Agent
-<a name="integration-dev-iteration-agent"></a>
 
 The Amazon GameLift Servers Agent oversees the running of game server processes on your Amazon GameLift Servers fleets. The Agent is deployed to each compute in a fleet, and it provides automated process management, hosting management, and logging for the compute. To use the Agent, you must have your game server build integrated with the server SDK for Amazon GameLift Servers version 5.x or later. 
 

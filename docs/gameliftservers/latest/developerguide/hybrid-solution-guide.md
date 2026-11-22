@@ -1,7 +1,6 @@
 
 
 # Build a hybrid hosting solution
-<a name="hybrid-solution-guide"></a>
 
 A hybrid hosting solution combines multiple sources of game hosting resources to host your game, including Amazon GameLift Servers managed fleets that run in the AWS Cloud and resources that you supply and manage on your own. This topic describes some common patterns for building a hybrid solution, and provides tips on how to successfully combine self-managed game hosting with cloud-based game hosting managed by Amazon GameLift Servers.
 

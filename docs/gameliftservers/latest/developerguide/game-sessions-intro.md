@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers and the player experience
-<a name="game-sessions-intro"></a>
 
 Players expect fast, fair, and reliable multiplayer gaming experiences. Amazon GameLift Servers delivers these experiences by providing game developers with tools that directly enhance how players connect and engage with multiplayer games. This topic outlines the key player benefits Amazon GameLift Servers features provide.
 

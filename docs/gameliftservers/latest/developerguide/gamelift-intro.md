@@ -1,7 +1,6 @@
 
 
 # What is Amazon GameLift Servers?
-<a name="gamelift-intro"></a>
 
 Use Amazon GameLift Servers to deploy, operate, and scale dedicated, low-cost servers in the cloud for session-based multiplayer games. Built on AWS global computing infrastructure, Amazon GameLift Servers helps deliver high-performance, high-reliability game servers while dynamically scaling your resource usage to meet worldwide player demand.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Quick onboarding with the Amazon GameLift Servers wrapper
-<a name="gamelift-wrapper-tutorial"></a>
 
 Welcome to the onboarding tutorial for Amazon GameLift Servers. In this tutorial, you rapidly deploy your game server to be hosted on a fleet of cloud-based compute resources. Use this tutorial to skip the work of integrating the server SDK for Amazon GameLift Servers into your game code, and instead deploy your game with the minimal functionality to communicate with the Amazon GameLift Servers service and run game sessions. You will set up a basic hosting solution and use it to experience the full range of features such as automatic scaling and matchmaking. It's also a great way to host a prototype of your game as part of a live demo or for testing.
 

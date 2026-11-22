@@ -1,7 +1,6 @@
 
 
 # Plugin for Unity: Deploy your game to a managed EC2 fleet
-<a name="unity-plug-in-ec2"></a>
 
 In this workflow, you use the plugin to prepare your game for hosting on cloud-based compute resources that are managed by Amazon GameLift Servers. You add client and server game code for Amazon GameLift Servers functionality, then upload your server build to the Amazon GameLift Servers service for hosting. When this workflow is complete, you’ll have game servers running in the cloud and a working game client that can connect to them. 
 

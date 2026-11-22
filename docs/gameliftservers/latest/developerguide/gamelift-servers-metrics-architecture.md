@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="gamelift-servers-metrics-architecture"></a>
 
 The telemetry metrics system follows a simple four-stage data flow from your game servers to visualization dashboards.
 

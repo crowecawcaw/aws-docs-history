@@ -1,7 +1,6 @@
 
 
 # Update a container group definition for an Amazon GameLift Servers container fleet
-<a name="containers-modify-groups"></a>
 
 You can update most of the properties of a container group definition, including the individual container definitions. Container group definitions have a version number. When you update a container group definition, Amazon GameLift Servers saves the update and increments the definition's version number. When configuring a container fleet, you can specify which version of a container group definition to deploy.
 

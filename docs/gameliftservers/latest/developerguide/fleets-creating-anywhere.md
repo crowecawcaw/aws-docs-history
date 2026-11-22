@@ -1,14 +1,13 @@
 
 
 # Create an Amazon GameLift Servers Anywhere fleet
-<a name="fleets-creating-anywhere"></a>
 
 This topic describes how to create an Amazon GameLift Servers Anywhere fleet. With an Anywhere fleet, you can use core Amazon GameLift Servers game session management features while hosting game sessions with your own compute resources. Create an Anywhere fleet for your on-premises hardware or other cloud-based resources.
 
 Anywhere fleets are commonly used alongside Amazon GameLift Servers managed fleets in a hybrid hosting solution. They also provide useful test environments when developing a game for hosting with Amazon GameLift Servers. See these topics to learn more about when and how to incorporate Amazon GameLift Servers Anywhere fleets into a game hosting solution: 
 + [Hybrid hosting](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-hybrid)
 + [Deploy hosting fleets for Amazon GameLift Servers](fleets-intro.md)
-+ [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
++ [Setting up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
 
 Because Anywhere fleets are self-managed, setting up a fleet requires some additional work. To get an Anywhere fleet ready to host game sessions and players, you need to complete the following tasks:
 
@@ -23,7 +22,7 @@ Because Anywhere fleets are self-managed, setting up a fleet requires some addit
 <a name="fleet-anywhere-start"></a>
 
 Before creating an Anywhere fleet, do the following tasks. For more detailed guidance, see the [Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md) or [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md). 
-+ **Integrate your game server code with the Amazon GameLift Servers server SDK version 5.x (or higher).** You don't need to complete all game integration tasks, just those required for a game server build. A common practice is to set up your local machine as an Anywhere fleet and use a command line interface to test your game server integration (see [Set up local testing with Amazon GameLift Servers Anywhere](integration-testing.md)). You can incorporate additional components (such as an Amazon GameLift Servers enabled game client) as you develop them. 
++ **Integrate your game server code with the Amazon GameLift Servers server SDK version 5.x (or higher).** You don't need to complete all game integration tasks, just those required for a game server build. A common practice is to set up your local machine as an Anywhere fleet and use a command line interface to test your game server integration (see [Setting up local testing with Amazon GameLift Servers Anywhere](integration-testing.md)). You can incorporate additional components (such as an Amazon GameLift Servers enabled game client) as you develop them. 
 + **Package your game server software for installation onto your Anywhere fleet computes.** The package should include your integrated game server build and all support software needed to run your game server.
 + **Decide whether to use the Amazon GameLift Servers Agent with your Anywhere fleet.** The Agent is an on-compute process management tool that automates some of the key tasks related to managing server processes and computes for use with Amazon GameLift Servers. For more information, see [Work with the Amazon GameLift Servers Agent](integration-dev-iteration-agent.md).
 

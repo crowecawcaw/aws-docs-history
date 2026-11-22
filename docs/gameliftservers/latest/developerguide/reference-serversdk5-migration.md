@@ -1,7 +1,6 @@
 
 
 # Migrate to server SDK 5.x for Amazon GameLift Servers
-<a name="reference-serversdk5-migration"></a>
 
 To update a game project to use server SDK version 5.x, make the following changes:
 
@@ -43,4 +42,4 @@ If you need to continue using server SDK version 4.x or earlier, see [Server SDK
        --region us-west-2
    ```
 
-1. If you use scripts to remotely connect to managed fleets, update the scripts to use the new process, as described in [Connect to fleet instances](fleets-remote-access.md).
+1. If you use scripts to remotely connect to managed fleets, update the scripts to use the new process, as described in [Connecting to fleet instances](fleets-remote-access.md).

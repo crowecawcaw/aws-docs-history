@@ -1,11 +1,10 @@
 
 
 # Create an Amazon GameLift Servers managed container fleet
-<a name="containers-build-fleet"></a>
 
 Create an Amazon GameLift Servers managed container fleet to deploy and host your containerized game server in the AWS Cloud. When you create a container fleet, specify container group definitions that specify one or more container images (at least one that includes your game server build) and configuration settings. 
 
-When you create a new managed container fleet resource, you immediately initiate the first phase of fleet creation. Managed fleet creation passes through several phases as Amazon GameLift Servers provisions an EC2 instance, installs a runtime environment, deploys your container groups onto the instance, and begins launching game server processes. Depending on the runtime environment your game server build requires, Amazon GameLift Servers deploys the latest version of the Amazon Machine Image (AMI) at the time of fleet creation (and all future instances in the fleet will use the same version). You can monitor a fleet's status in the console or using the AWS Command Line Interface (AWS CLI). When a fleet is ready to host game sessions, the status changes to `ACTIVE`. For help with fleet creation issues, see [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md).
+When you create a new managed container fleet resource, you immediately initiate the first phase of fleet creation. Managed fleet creation passes through several phases as Amazon GameLift Servers provisions an EC2 instance, installs a runtime environment, deploys your container groups onto the instance, and begins launching game server processes. Depending on the runtime environment your game server build requires, Amazon GameLift Servers deploys the latest version of the Amazon Machine Image (AMI) at the time of fleet creation (and all future instances in the fleet will use the same version). You can monitor a fleet's status in the console or using the AWS Command Line Interface (AWS CLI). When a fleet is ready to host game sessions, the status changes to `ACTIVE`. For help with fleet creation issues, see [Debugging Amazon GameLift Servers fleet issues](fleets-creating-debug.md).
 
 You can opt to create an empty container fleet and then add or update the fleet's container group definitions later. If you create a fleet without a container group definition, the fleet will not reach active status. 
 

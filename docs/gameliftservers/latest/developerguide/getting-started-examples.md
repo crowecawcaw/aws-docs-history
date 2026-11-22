@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers examples
-<a name="getting-started-examples"></a>
 
 If you're considering using Amazon GameLift Servers to manage your custom game server, or you're interested in taking advantage of Amazon GameLift Servers Realtime, we recommend that you try the following examples before you use the service for your own game. The custom game server example gives you experience with game hosting in the Amazon GameLift Servers console. The Amazon GameLift Servers Realtime example shows you how to prepare a game for hosting using Realtime servers.
 

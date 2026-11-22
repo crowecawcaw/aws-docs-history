@@ -1,7 +1,6 @@
 
 
 # Build a multi-location queue
-<a name="queues-design-multiregion"></a>
 
 We recommend a multi-location design for all queues. This design can improve placement speed and hosting resiliency. A multi-location design is required to use player latency data to put players into game sessions with minimal latency. If you're building multi-location queues that use Spot Instance fleets, follow the instructions in [Reduce game hosting costs with Spot fleets](fleets-spot.md).
 

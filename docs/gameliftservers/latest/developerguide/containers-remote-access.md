@@ -1,42 +1,45 @@
 
 
-# Connect to containers
-<a name="containers-remote-access"></a>
+# Connecting to containers
 
 For Amazon GameLift Servers container fleets, you can access game server containers running on a fleet instance. Use container access to troubleshoot game sessions, inspect logs, and debug runtime issues.
 
-## Connect to a container
+## Connecting to a container
 <a name="containers-remote-access-connect"></a>
 
 **Before you start:**  
-Connect to the fleet instance. For instructions, see [Connect to fleet instances](fleets-remote-access.md).
+Connect to the fleet instance. For instructions, see [Connecting to fleet instances](fleets-remote-access.md).
 
-Run the following command to list running containers on the instance:
+**To connect to a container**
 
-```
-sudo docker ps
-```
+1. Run the following command to list running containers on the instance:
 
-The output lists all containers running on the instance, including game server containers and internal Amazon GameLift Servers containers. Look for containers with your game server image to identify the game server containers.
+   ```
+   sudo docker ps
+   ```
 
-**Example output:**
+   The output lists all containers running on the instance, including game server containers and internal Amazon GameLift Servers containers. Look for containers with your game server image to identify the game server containers.
 
-```
-CONTAINER ID   IMAGE                  COMMAND                  CREATED      STATUS
-b9676e9489f5   game-server-container  "/bin/sh -c ./$GAME_…"   2 days ago   Up 2 days
-1d1c8443efe2   support-container      "/bin/sh -c ./$SUPPO…"   2 days ago   Up 2 days
-```
+   **Example output:**
 
-To connect to a game server container, use the container short ID from the `CONTAINER ID` column. This gives you full read and write access to the container filesystem.
+   ```
+   CONTAINER ID   IMAGE                  COMMAND                  CREATED      STATUS
+   b9676e9489f5   game-server-container  "/bin/sh -c ./$GAME_…"   2 days ago   Up 2 days
+   1d1c8443efe2   support-container      "/bin/sh -c ./$SUPPO…"   2 days ago   Up 2 days
+   ```
 
-```
-sudo docker exec -it {{container-short-id}} sh
-```
+1. To connect to a game server container, use the container short ID from the `CONTAINER ID` column. This gives you full read and write access to the container filesystem.
 
-## Connect to a container through the console
+   ```
+   sudo docker exec -it {{container-short-id}} sh
+   ```
+
+## Connecting to a container through the console
 <a name="containers-remote-access-console"></a>
 
 You can connect to game server containers from the Amazon GameLift Servers console using Amazon EC2 Systems Manager (SSM). This method provides secure access without requiring additional setup or credential management. You can connect to a container from either the **Computes** tab or the **Game sessions** tab on the fleet details page.
+
+**To connect to a container through the console**
 
 1. In the Amazon GameLift Servers console, choose **Managed containers** from the navigation pane, and then **Fleets**.
 
@@ -48,14 +51,16 @@ You can connect to game server containers from the Amazon GameLift Servers conso
 
 1. Choose **Connect**. Copy the command displayed to connect to the container, then choose **Connect** again.
 
-1. In the connection dialog, choose **Run** to create a new SSM session. The system authenticates your session through AWS Key Management Service (AWS KMS) and opens a terminal in your browser.
+1. In the connection dialog, choose **Run** to create a new SSM session. Your session is authenticated through AWS Key Management Service (AWS KMS), and a terminal opens in your browser. It might take a few moments for the session to start and the terminal to open.
 
 1. Once you have connected to the instance, paste the docker command from step 4 and execute it on the instance to access the container.
 
-## Connect to container hosting a game session
+## Connecting to container hosting a game session
 <a name="containers-remote-access-game-session"></a>
 
 To connect to the game server container hosting a specific game session, follow these steps.
+
+**To connect to the container hosting a game session**
 
 1. **Get the compute name.** Call [describe-game-sessions](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-game-sessions.html) to get the `ComputeName` for the game session.
 
@@ -63,8 +68,8 @@ To connect to the game server container hosting a specific game session, follow 
 
    ```
    aws gamelift describe-game-sessions \
-       --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
-       --game-session-id arn:aws:gamelift:us-west-2::gamesession/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa/gs-1111aaaa-2222-3333-4444-5555bbbb66cc
+       --fleet-id {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
+       --game-session-id {{arn:aws:gamelift:us-west-2::gamesession/fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa/gs-1111aaaa-2222-3333-4444-5555bbbb66cc}}
    ```
 
    **Response**
@@ -96,8 +101,8 @@ To connect to the game server container hosting a specific game session, follow 
 
    ```
    aws gamelift get-compute-access \
-       --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
-       --compute-name 62c5ff7f7a9a445d84877074c80aeafc
+       --fleet-id {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
+       --compute-name {{62c5ff7f7a9a445d84877074c80aeafc}}
    ```
 
    **Response**
@@ -121,7 +126,7 @@ To connect to the game server container hosting a specific game session, follow 
    }
    ```
 
-1. **Connect to the instance.** Use the credentials from step 2 to connect to the fleet instance. For detailed instructions, see [Connect to fleet instances](fleets-remote-access.md).
+1. **Connect to the instance.** Use the credentials from step 2 to connect to the fleet instance. For detailed instructions, see [Connecting to fleet instances](fleets-remote-access.md).
 
 1. **Find the game server container name.** Call [describe-container-group-definition](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-container-group-definition.html) using the `GameServerContainerGroupDefinitionArn` from step 2 to identify the game server container name.
 
@@ -129,7 +134,7 @@ To connect to the game server container hosting a specific game session, follow 
 
    ```
    aws gamelift describe-container-group-definition \
-       --name arn:aws:gamelift:us-west-2::containergroupdefinition/MyGameServerGroup
+       --name {{arn:aws:gamelift:us-west-2::containergroupdefinition/MyGameServerGroup}}
    ```
 
    **Response**
@@ -156,24 +161,30 @@ To connect to the game server container hosting a specific game session, follow 
 1. **Connect to the container.** Use the `ContainerRuntimeId` as the container ID and run the following command:
 
    ```
-   sudo docker exec -it 02accb92cd9bef3373300e7151d5c2b3dcca3b06eff1bb4e345085fc008d4678 sh
+   sudo docker exec -it {{02accb92cd9bef3373300e7151d5c2b3dcca3b06eff1bb4e345085fc008d4678}} sh
    ```
 
-## View container port mappings
+## Viewing container port mappings
 <a name="containers-remote-access-port-mappings"></a>
 
 Port mappings show how container ports map to connection ports on your fleet instances. Each container port that accepts inbound traffic is assigned a connection port on the instance. You can check port mappings to discover which connection ports map to your container ports or to troubleshoot connection issues. You can view port mappings in the Amazon GameLift Servers console, or use the AWS CLI or AWS SDK.
 
-### View port mappings in the console
+### Viewing port mappings in the console
 <a name="containers-remote-access-port-mappings-console"></a>
 
-In the Amazon GameLift Servers console, choose **Managed containers** from the navigation pane, and then **Fleets**. Choose a fleet to open the fleet details page. You can view port mappings in the following locations:
-+ **Instance details page** – Shows port mappings for the per-instance container group on the selected instance.
-+ **Compute details page** – Shows port mappings for the game server container group on the selected compute.
+**To view port mappings in the console**
+
+1. In the Amazon GameLift Servers console, choose **Managed containers** from the navigation pane, and then **Fleets**.
+
+1. Choose a fleet to open the fleet details page.
+
+1. View port mappings on one of the following pages:
+   + **Instance details page** – Shows port mappings for the per-instance container group on the selected instance.
+   + **Compute details page** – Shows port mappings for the game server container group on the selected compute.
 
 Both pages include a search field to filter port mappings by container name.
 
-### View port mappings with the AWS CLI
+### Viewing port mappings with the AWS CLI
 <a name="containers-remote-access-port-mappings-cli"></a>
 
 Use the `describe-container-group-port-mappings` command to retrieve port mappings for a container group on a fleet instance. Specify the container group type and either a `--compute-name` (for game server groups) or an `--instance-id` (for per-instance groups). Optionally, include the `--container-name` parameter to filter results to a specific container.
@@ -184,9 +195,9 @@ The following command retrieves port mappings for the game server container grou
 
 ```
 aws gamelift describe-container-group-port-mappings \
-    --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
+    --fleet-id {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
     --container-group-type GAME_SERVER \
-    --compute-name 62c5ff7f7a9a445d84877074c80aeafc
+    --compute-name {{62c5ff7f7a9a445d84877074c80aeafc}}
 ```
 
 If successful, Amazon GameLift Servers returns a response like the following:
@@ -226,9 +237,9 @@ The following command retrieves port mappings for the per-instance container gro
 
 ```
 aws gamelift describe-container-group-port-mappings \
-    --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
+    --fleet-id {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
     --container-group-type PER_INSTANCE \
-    --instance-id i-1234567890abcdef0
+    --instance-id {{i-1234567890abcdef0}}
 ```
 
 If successful, Amazon GameLift Servers returns a response like the following:

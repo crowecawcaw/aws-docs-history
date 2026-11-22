@@ -1,7 +1,6 @@
 
 
 # Look up player session data
-<a name="player-sessions"></a>
 
 If your game hosting solution uses player sessions and provides unique player IDs, you can explore player-specific activity for past or present game sessions across multiple fleets. Open the Player session lookup tool using either of the following methods: 
 + In the Amazon GameLift Servers console, open the left navigation pane and choose **Player session lookup** and select the filter type to use.

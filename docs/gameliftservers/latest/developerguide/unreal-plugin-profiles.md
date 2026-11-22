@@ -1,7 +1,6 @@
 
 
 # Plugin for Unreal: Set up an AWS user profile
-<a name="unreal-plugin-profiles"></a>
 
 After installing the plugin, set up a user profile with a valid AWS account. You can maintain multiple profiles in the plugin, but you can have only one profile selected at a time. Whenever you work in the plugin, select a profile to use. Each workflow page displays the currently selected profile. 
 

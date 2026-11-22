@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers key terms
-<a name="gamelift-key-terms"></a>
 
 This topic provides definitions for key technical terms used in Amazon GameLift Servers documentation and services.
 

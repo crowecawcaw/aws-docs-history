@@ -1,7 +1,6 @@
 
 
-# Debug Amazon GameLift Servers fleet issues
-<a name="fleets-creating-debug"></a>
+# Debugging Amazon GameLift Servers fleet issues
 
 This topic provides guidance on how to resolve issues with your Amazon GameLift Servers managed EC2 fleets. 
 
@@ -10,7 +9,7 @@ This topic provides guidance on how to resolve issues with your Amazon GameLift 
 
 When you create a managed EC2 fleet, the Amazon GameLift Servers service initiates a workflow that creates the fleet, deploys EC2 instances with your game server build installed, and starts game server processes on each instance. For a detailed description, see . A fleet cannot host game sessions and players until it reaches **Active** status. 
 
-You can debug issues that prevent fleets from becoming active by identifying the fleet creation phase where the issue occurred and reviewing fleet creation events and logs. If the logs do not offer useful information, it's possible that the problem is due to an internal service error. In this situation, try to create the fleet again. If the problem persists, try re-uploading the game build to resolve possible file corruption. You can also contact Amazon GameLift Servers support or post a question on the forum. 
+You can debug issues that prevent fleets from becoming active by identifying the fleet creation phase where the issue occurred and reviewing fleet creation events and logs. If the logs do not offer useful information, it's possible that the issue is due to an internal service error. In this situation, try to create the fleet again. If the issue persists, try re-uploading the game build to resolve possible file corruption. You can also contact Amazon GameLift Servers support or post a question on the forum. 
 
 **Downloading and validating the build**  
 During this phase, Amazon GameLift Servers gets your uploaded game server build, extracts the files, and runs any install scripts. If fleet creation fails during these phases, look at fleet events and logs to pinpoint the issue. Possible causes include:   
@@ -25,7 +24,7 @@ Issues during this phase usually involve the allocation and deployment of fleet 
 
 **Activating game server processes**  
 During this phase, Amazon GameLift Servers is attempting a number of tasks and testing key elements, including the game server's viability, runtime configuration settings, and the game server's ability to connect with the Amazon GameLift Servers service using the Server SDK.   
-In this phase, you can remotely access a fleet instance to further investigate issues. See [Connect to fleet instances](fleets-remote-access.md).
+In this phase, you can remotely access a fleet instance to further investigate issues. See [Connecting to fleet instances](fleets-remote-access.md).
 Possible issues include:   
 + Server processes don't start running. This suggests an issue with the fleet's runtime configuration settings (events `FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND` or `FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE`. Verify that you've correctly set the launch path and optional launch parameters.
 + Server processes start running, but the fleet fails to activate. If server processes start and run successfully, but the fleet does not move to **Active** status, a likely cause is that the server process is failing to communicate with the Amazon GameLift Servers service. Verify that your game server is making these correct server SDK calls (see [Initialize the server process](gamelift-sdk-server-api.md#gamelift-sdk-server-initialize)): 

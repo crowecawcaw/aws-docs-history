@@ -1,7 +1,6 @@
 
 
 # Manage Amazon GameLift Servers hosting resources using CloudFormation
-<a name="resources-cloudformation"></a>
 
 You can use CloudFormation to manage your Amazon GameLift Servers resources. In CloudFormation, you create a template that models each resource and then use the template to create your resources. To update resources, you make the changes to your template and use CloudFormation to implement the updates. You can organize your resources into logical groups, called stacks and stack sets. 
 

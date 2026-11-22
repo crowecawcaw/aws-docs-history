@@ -1,7 +1,6 @@
 
 
 # Generate player IDs
-<a name="player-sessions-player-identifiers"></a>
 
 Amazon GameLift Servers uses a player session to represent a player connected to a game session. Amazon GameLift Servers creates a player session each time a player connects to a game session using a game client integrated with Amazon GameLift Servers. When a player leaves a game, the player session ends. Amazon GameLift Servers doesn't reuse player sessions.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers Anywhere fleets
-<a name="fleets-intro-anywhere"></a>
 
 Use Anywhere fleets when you want to take advantage of Amazon GameLift Servers features with your own hosting resources. Anywhere fleets are commonly used as test environments for iterative development or alongside managed fleets in a hybrid hosting solution.
 
@@ -17,7 +16,7 @@ Optionally deploy your Anywhere fleet with the Amazon GameLift Servers Agent to 
 See these topics about how to set up and maintain Anywhere fleets: 
 +  [Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md)
 +  [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md)
-+ [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
++ [Setting up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
 +  [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md)
 +  [Update an Amazon GameLift Servers fleet configuration](fleets-editing.md)
 

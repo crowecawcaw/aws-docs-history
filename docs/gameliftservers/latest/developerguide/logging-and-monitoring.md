@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring with Amazon GameLift Servers
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon GameLift Servers and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. 
 

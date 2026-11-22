@@ -1,7 +1,6 @@
 
 
 # Edit an alias
-<a name="aliases-editing"></a>
 
 You can edit an alias using the Amazon GameLift Servers console or with the AWS CLI command [update-alias](https://docs.aws.amazon.com/cli/latest/reference/gamelift/update-alias.html).
 

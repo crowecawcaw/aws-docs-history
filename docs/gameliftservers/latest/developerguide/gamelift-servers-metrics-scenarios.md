@@ -1,7 +1,6 @@
 
 
 # Common monitoring scenarios
-<a name="gamelift-servers-metrics-scenarios"></a>
 
 ## Dive deep performance investigation
 <a name="scenario-dive-deep-performance"></a>

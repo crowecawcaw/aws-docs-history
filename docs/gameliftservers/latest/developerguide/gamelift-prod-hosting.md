@@ -1,7 +1,6 @@
 
 
 # Managing game hosting in production with Amazon GameLift Servers
-<a name="gamelift-prod-hosting"></a>
 
 After you've launched your game with Amazon GameLift Servers, you'll need to manage your game hosting infrastructure to ensure optimal performance, reliability, and player experience. This topic covers the key features and tools for managing game hosting lifecycles during production.
 

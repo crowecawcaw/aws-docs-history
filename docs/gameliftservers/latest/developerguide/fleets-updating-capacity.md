@@ -1,7 +1,6 @@
 
 
 # Manually set capacity for an Amazon GameLift Servers fleet
-<a name="fleets-updating-capacity"></a>
 
 When you create a new fleet, Amazon GameLift Servers automatically sets the desired instances to one instance in each fleet location. Then, Amazon GameLift Servers deploys one new instance in each location. To change fleet capacity, you can add a target-based auto scaling policy, or you can manually set the number of instances that you want for a location. 
 

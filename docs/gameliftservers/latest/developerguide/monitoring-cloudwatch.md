@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon GameLift Servers with Amazon CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 You can monitor Amazon GameLift Servers using Amazon CloudWatch, an AWS service that collects raw data and processes it into readable, near real-time metrics. These statistics are kept for 15 months to provide a historical perspective on how your game server hosting with Amazon GameLift Servers is performing. You can set alarms that watch for certain thresholds and send notifications or take actions when those thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

@@ -1,7 +1,6 @@
 
 
 # Build a container image for Amazon GameLift Servers
-<a name="containers-prepare-images"></a>
 
 This topic describes how to create a container image with your game server software to use with Amazon GameLift Servers. A game server container image includes the game server executable and any dependencies it needs to run. Game server container images are used with an Amazon GameLift Servers managed containers hosting solution. For details on building the complete solution, see:
 + [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md)
@@ -22,7 +21,7 @@ Follow these instructions while working on a Linux-based platform or using Windo
 
 1. Prepare a working directory with your game server software. On a local machine, create a working directory to organize the files for your game server container. Your container image uses this file structure when deploying the container to Amazon GameLift Servers resources for hosting. For example:
 
-   ```
+   ```zsh
    [~/]$ mkdir -p work/glc/gamebuild && cd work && find .
    .
    ./glc
@@ -39,7 +38,7 @@ If you're trying out this feature and don't have a working game server build yet
 
 1. Build the container image. Run the `docker build`, specifying your own repository name. For example:
 
-   ```
+   ```zsh
    [~/work/glc]$ docker build -t {{<local repository name>}}:{{<optional tag>}} .
    ```
 
@@ -50,7 +49,7 @@ If you're trying out this feature and don't have a working game server build yet
 
 This template contains the minimum instructions that a game server container needs to be usable in an Amazon GameLift Servers fleet. Modify the content as needed for your game server. 
 
-```
+```dockerfile
 # Base image
 # ----------
   # Add the base image that you want to use,
@@ -117,7 +116,7 @@ If you don't yet have an Amazon ECR private repository, then [create one](https:
 
 1. Get your Amazon ECR credentials. Before pushing a container image to Amazon ECR, first acquire your AWS credentials in temporary form and provide them to Docker. Docker needs these credentials to log in.
 
-   ```
+   ```zsh
    [~/work/glc]$ aws ecr get-login-password --region {{us-west-2}} | docker login --username AWS --password-stdin {{aws_account_id}}.dkr.ecr.{{us-west-2}}.amazonaws.com
    WARNING! Your password will be stored unencrypted in 
    /home/{{user-name}}/.docker/config.json.
@@ -132,13 +131,13 @@ If you don't yet have an Amazon ECR private repository, then [create one](https:
 1. Apply an Amazon ECR tag to your container image.  
 **Example**  
 
-   ```
+   ```zsh
    [~/work/glc]$ docker tag {{<IMAGE ID from above>}} {{<Amazon ECR private repository URI>}}:{{<optional tag>}}
    ```
 
 1. Push your container image to Amazon ECR  
 **Example**  
 
-   ```
+   ```zsh
    [~/work/glc]$ docker image push  {{<Amazon ECR private repository URI>}}
    ```

@@ -1,7 +1,6 @@
 
 
 # Server SDK for Amazon GameLift Servers version 4 and earlier
-<a name="reference-serversdk4"></a>
 
 This reference documents the server SDK for Amazon GameLift Servers, version 4.x and earlier. The server SDK provides core functionality that your game servers use to communicate with the Amazon GameLift Servers service. For example, your game server receives prompts from the service to start and stop game sessions and it provides regular game session status updates to the service. Integrate your game servers with the server SDK before you deploy them for hosting.
 

@@ -1,7 +1,6 @@
 
 
 # Configure game session placement
-<a name="queues-intro"></a>
 
 Game session placement is the process of finding available game servers to host new game sessions. Amazon GameLift Servers uses game session queues to intelligently place game sessions across your fleets, taking into account factors like player latency, fleet capacity, and cost optimization.
 

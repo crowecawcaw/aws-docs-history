@@ -1,7 +1,6 @@
 
 
 # Service API for Amazon GameLift Servers
-<a name="reference-awssdk"></a>
 
 Use this task-based list to find API operations when building your Amazon GameLift Servers game hosting solutions and other features. The AWS SDK includes these operations in the `aws.gamelift` namespace. [Download the AWS SDK](https://aws.amazon.com/developer/tools/#SDKs) or [view the Amazon GameLift Servers API reference documentation](https://docs.aws.amazon.com/gameliftservers/latest/apireference/Welcome.html). You can also use the API with the AWS command line interface (AWS CLI), as documented in the [AWS CLI command reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/gamelift/index.html).
 

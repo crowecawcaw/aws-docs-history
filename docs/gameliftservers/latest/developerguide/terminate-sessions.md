@@ -1,7 +1,6 @@
 
 
 # Shut down a game session
-<a name="terminate-sessions"></a>
 
 Use the Amazon GameLift Servers console to shut down a specific game session. This feature gives you a simple and fast method for locating a game session and sending a signal to terminate it. Another termination method requires that you find the fleet instance where the game session is running, remotely access the instance, and manually shut down the game session. 
 

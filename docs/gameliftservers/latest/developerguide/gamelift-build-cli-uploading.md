@@ -1,7 +1,6 @@
 
 
 # Create a game server build for Amazon GameLift Servers
-<a name="gamelift-build-cli-uploading"></a>
 
 After you integrate your game server with Amazon GameLift Servers (see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md)), install the game server software onto your compute resources for hosting. This process varies depending on the type of Amazon GameLift Servers hosting you're using.
 

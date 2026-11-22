@@ -1,7 +1,6 @@
 
 
 # Hosting resource customizations
-<a name="fleets-design"></a>
 
 This section provides advanced options for configuring and managing your Amazon GameLift Servers infrastructure to meet specific performance, cost, and operational requirements. In particular, the topics in this section describe how you can customize your Amazon GameLift Servers managed hosting resources to best fit your game and your players. 
 

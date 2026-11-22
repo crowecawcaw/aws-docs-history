@@ -1,7 +1,6 @@
 
 
 # Generate Amazon GameLift Servers pricing estimates
-<a name="gamelift-calculator"></a>
 
 With AWS Pricing Calculator, you can [create a pricing estimate for Amazon GameLift Servers](https://calculator.aws/#/createCalculator/GameLiftServers). You don't need an AWS account or in-depth knowledge of AWS to use the calculator.
 

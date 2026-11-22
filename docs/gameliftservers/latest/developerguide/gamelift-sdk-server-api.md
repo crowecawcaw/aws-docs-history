@@ -1,7 +1,6 @@
 
 
 # Add Amazon GameLift Servers to your game server with the server SDK
-<a name="gamelift-sdk-server-api"></a>
 
 This topic provides general guidance on the server SDK functionality that you need to add to your game server code. This functionality enables game server processes to communicate with the Amazon GameLift Servers service. Use these instructions for game servers that you plan to deploy onto Amazon GameLift Servers managed EC2 fleets, managed container fleets, or Anywhere fleets. 
 

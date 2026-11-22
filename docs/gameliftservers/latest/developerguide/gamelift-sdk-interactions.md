@@ -1,7 +1,6 @@
 
 
 # Game client/server interactions with Amazon GameLift Servers
-<a name="gamelift-sdk-interactions"></a>
 
 The components in your Amazon GameLift Servers hosting solution interact with each other in specific ways to run game sessions in response to player demand. This topic describes how components communicate with each other when your game server is hosted on Amazon GameLift Servers managed EC2 fleets, self-managed Amazon GameLift Servers Anywhere fleets, or a hybrid solution. 
 

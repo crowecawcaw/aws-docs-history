@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon GameLift Servers into an Unreal Engine project
-<a name="integration-engines-setup-unreal"></a>
 
 Learn how to integrate the Amazon GameLift Servers SDK for Unreal Engine into your game projects to access the full server SDK feature set. 
 
@@ -113,7 +112,7 @@ This topic provides sample code that adds the minimum functionality required to 
 ### Sample code for GameMode.h
 <a name="w2aab9c11c11b9c17c15b9b1"></a>
 
-```
+```cpp
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
@@ -166,7 +165,7 @@ Ensures compatibility across different Unreal build targets
 ### Sample code for GameMode.cpp
 <a name="w2aab9c11c11b9c17c15c13b1"></a>
 
-```
+```cpp
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
@@ -475,7 +474,7 @@ Copy the OpenSSL libraries to your game build package in the same directory as t
 
 Now that you've prepared a game server build with the minimum required functionality for hosting with Amazon GameLift Servers, consider these potential next steps: 
 + Deploy your integrated game server for testing and development. With an Anywhere fleet, you can set up your local machine as a hosting resource and use it to test your game server and game client connections. For cloud-based hosting, deploy your game server to a managed EC2 or managed container fleet. See these topics for guidance:
-  + [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
+  + [Setting up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md)
   + [Amazon GameLift Servers Anywhere fleets](fleets-intro-anywhere.md)
   + [Amazon GameLift Servers managed EC2 fleets](fleets-intro-managed.md)
   + [Amazon GameLift Servers managed container fleets](fleets-intro-containers.md)

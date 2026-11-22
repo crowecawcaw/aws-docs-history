@@ -1,7 +1,6 @@
 
 
 # Prioritize game session placement
-<a name="queues-design-priority"></a>
 
 Amazon GameLift Servers uses an algorithm to determine how to prioritize a queue's destinations and determine where to place a new game session. The algorithm is based on an ordered set of criteria. You can use the default priority order, or you can customize the order. You can edit a queue's priority order at any time. 
 

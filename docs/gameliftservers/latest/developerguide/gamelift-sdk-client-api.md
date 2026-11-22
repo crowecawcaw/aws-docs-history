@@ -1,7 +1,6 @@
 
 
 # Integrate Amazon GameLift Servers game client functionality
-<a name="gamelift-sdk-client-api"></a>
 
 Integrate Amazon GameLift Servers game hosting functionality into any solution components that need to communicate with the Amazon GameLift Servers service, such as to get game session information or create new game sessions. In most cases, this functionality is built into the backend service component. Add functionality for core tasks, including:
 + Request information and status of active game sessions.

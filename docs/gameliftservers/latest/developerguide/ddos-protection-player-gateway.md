@@ -1,7 +1,6 @@
 
 
 # Amazon GameLift Servers player gateway
-<a name="ddos-protection-player-gateway"></a>
 
 Amazon GameLift Servers player gateway is a relay-based network that routes UDP traffic between game clients and game servers hosted on Amazon GameLift Servers. Player gateway provides proactive DDoS protection by validating traffic before it reaches game servers, rate limiting player traffic, hiding game server IP addresses from the public, and providing updated endpoints when relay endpoints become unhealthy. This feature helps protect your game servers from volumetric attacks with negligible added latency.
 

@@ -1,7 +1,6 @@
 
 
 # Let your game server access Amazon GameLift Servers fleet data
-<a name="gamelift-sdk-server-fleetinfo"></a>
 
 There are some situations where your custom game build or Amazon GameLift Servers Realtime script may require information about the Amazon GameLift Servers fleet. For example, your game build or script might include code to:
 + Monitor activity based on fleet data.

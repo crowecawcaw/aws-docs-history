@@ -1,7 +1,6 @@
 
 
 # Game session placement events
-<a name="queue-events"></a>
 
 Amazon GameLift Servers emits events for each game session placement request as it is processed. You can publish these events to an Amazon SNS topic, as described in [Set up event notification for game session placement](queue-notification.md). These events are also emitted to Amazon CloudWatch Events in near real time and on a best-effort basis.
 

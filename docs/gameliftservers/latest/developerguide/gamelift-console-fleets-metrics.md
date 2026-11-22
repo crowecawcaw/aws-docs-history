@@ -1,7 +1,6 @@
 
 
 # Fleet details in the Amazon GameLift Servers console
-<a name="gamelift-console-fleets-metrics"></a>
 
 Access a **Fleet** detail page from the dashboard or the **Fleets** page by choosing the fleet name.
 

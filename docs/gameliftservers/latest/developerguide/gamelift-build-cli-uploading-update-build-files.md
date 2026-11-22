@@ -1,7 +1,6 @@
 
 
 # Update a game server build
-<a name="gamelift-build-cli-uploading-update-build-files"></a>
 
 When you deploy your game server build for Amazon GameLift Servers managed EC2 hosting, you upload your game server software and create an Amazon GameLift Servers build resource. After you've created an Amazon GameLift Servers build, you can update the build's metadata, but you can't update the build files themselves. To deploy updates to your game server build, you must upload a new set of files and create a new Amazon GameLift Servers build using the AWS CLI [`upload-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html) command. Alternatively, you can use the [`create-build`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/create-build.html) command to upload a new build from an Amazon S3 bucket that you control. Then deploy the new build by creating a new fleet for it.
 
@@ -13,7 +12,7 @@ You can update a build's metadata, including the name and description. For these
 Follow these tips to help automate and streamline the process of updating game server builds for Amazon GameLift Servers managed fleets:
 + **Use game session queues and swap out fleets as needed.** When sending game session requests to Amazon GameLift Servers, specify a game session queue instead of a specific fleet. With queues, you can add fleets with a new build and remove old fleets as needed. For more information, see [Configure game session placement](queues-intro.md).
 + **Use aliases to transfer players to a new game build.** When sending game session requests to Amazon GameLift Servers, specify a fleet alias instead of a fleet ID. For more information, see [Create an Amazon GameLift Servers alias](aliases-creating.md).
-+ **Set up for iterative development.** During game development, explore options for setting up a hosted test environment that supports rapid iterative development. See [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md).
++ **Set up for iterative development.** During game development, explore options for setting up a hosted test environment that supports rapid iterative development. See [Setting up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md).
 
 Try out these resources from the [Amazon GameLift Servers Toolkit](https://github.com/aws/amazon-gamelift-toolkit) on GitHub:
 

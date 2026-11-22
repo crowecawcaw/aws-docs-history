@@ -1,11 +1,10 @@
 
 
 # Game session placement insights
-<a name="queues-placement-insights"></a>
 
 Game session placement insights give you detailed logs about how Amazon GameLift Servers processes game session placement requests through a game session queue. The logs show how Amazon GameLift Servers applied the queue's priority configuration, along with player latency and cost data, to each game session placement request. Use game session placement insights to diagnose why game session placements succeed, fail, or time out.
 
-## Enable game session placement insights
+## Enabling game session placement insights
 <a name="queues-placement-insights-enable"></a>
 
 You turn on game session placement insight logging in the game session queue's log configuration when you create or update a game session queue. When logging is enabled, Amazon GameLift Servers delivers a set of log records for each game session placement. You can deliver logs to Amazon CloudWatch Logs, Amazon S3, and Amazon Data Firehose. Set 1 to 3 destinations in the game session queue's log configuration `DeliveryDestinations` list. Each destination has a `LogDestination` (`CLOUDWATCH`, `S3`, or `FIREHOSE`) and an optional `DestinationArn`. For more information about log destination fields, see [CreateGameSessionQueue](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateGameSessionQueue.html) and [UpdateGameSessionQueue](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateGameSessionQueue.html) in the *Amazon GameLift Servers API Reference*.
@@ -21,7 +20,7 @@ The following rules apply to delivery destinations:
 **Note**  
 Amazon CloudWatch Logs vended log charges apply to each destination. Amazon S3 and Amazon Data Firehose destinations also incur their own service charges. For more information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
-### Set up log delivery
+### Setting up log delivery
 <a name="queues-placement-insights-enable-paths"></a>
 
 Amazon GameLift Servers delivers game session placement insight logs through Amazon CloudWatch Logs vended log delivery. A delivery uses three CloudWatch Logs resources: a delivery source (the game session queue), a delivery destination, and a delivery that connects them. You can set up these resources in either of the following ways:
@@ -49,7 +48,7 @@ The following example policy grants the permissions that Amazon GameLift Servers
 
 ****  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -140,7 +139,7 @@ The following example policy grants the permissions that Amazon GameLift Servers
 
 ------
 
-## Understand game session placement insight logs
+## Understanding game session placement insight logs
 <a name="queues-placement-insights-schema"></a>
 
 Amazon GameLift Servers emits multiple log records over the lifecycle of a single game session placement. All records for one game session placement share the same `placement_id`, so you can group and order the records to reconstruct the full history of a game session placement.
@@ -264,12 +263,12 @@ The `viability_reason` field explains the disposition of each evaluated location
 **Log delivery**  
 Amazon GameLift Servers delivers game session placement insight logs asynchronously after a game session placement reaches a terminal state. The logs don't affect the game session placement itself. If you deliver logs to Amazon CloudWatch Logs, individual log events are subject to the CloudWatch Logs limit of 1 MB per event.
 
-## Diagnose game session placement with CloudWatch Logs Insights
+## Diagnosing game session placement with CloudWatch Logs Insights
 <a name="queues-placement-insights-queries"></a>
 
 After you deliver game session placement insight logs to Amazon CloudWatch Logs, use CloudWatch Logs Insights to run queries against them. For more information about running queries, see [Analyze log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) in the *Amazon CloudWatch Logs User Guide*. The `data` payload is a structured object, so you can reference its fields directly with dot notation, such as `data.status` or `data.duration.total_ms`. Run the following queries against the log group where you deliver the game session queue's logs.
 
-View the full timeline of a single game session placement, in the order that the events occurred.
+The following CloudWatch Logs Insights query displays the full timeline of a single game session placement, in the order that the events occurred:
 
 ```
 filter placement_id = "{{placement-id}}"
@@ -277,7 +276,7 @@ filter placement_id = "{{placement-id}}"
 | display event_timestamp, event_type, summary
 ```
 
-View the most recent records for a game session queue. Records don't include a queue name field, so the query matches the end of `resource_arn`.
+The following CloudWatch Logs Insights query displays the most recent records for a game session queue. Records don't include a queue name field, so the query matches the end of `resource_arn`:
 
 ```
 filter resource_arn like /:gamesessionqueue\/{{queue-name}}$/
@@ -285,21 +284,21 @@ filter resource_arn like /:gamesessionqueue\/{{queue-name}}$/
 | display event_timestamp, placement_id, event_type, summary
 ```
 
-Find game session placements that timed out.
+The following CloudWatch Logs Insights query finds game session placements that timed out:
 
 ```
 filter event_type = "placement_ended" and data.status = "TIMED_OUT"
 | sort event_timestamp desc
 ```
 
-See which fleet location each fulfilled game session placement landed on, including the billing type and total placement time.
+The following CloudWatch Logs Insights query shows which fleet location each fulfilled game session placement landed on, including the billing type and total placement time:
 
 ```
 filter event_type = "placement_ended" and data.status = "FULFILLED"
 | display event_timestamp, placement_id, data.fulfilled_destination.location_name, data.fulfilled_destination.billing_type, data.duration.total_ms
 ```
 
-Find the most common game session creation failure reasons.
+The following CloudWatch Logs Insights query finds the most common game session creation failure reasons:
 
 ```
 filter event_type = "game_session_creation" and data.result = "ERROR"
@@ -307,14 +306,14 @@ filter event_type = "game_session_creation" and data.result = "ERROR"
 | sort failures desc
 ```
 
-Measure game session placement duration for fulfilled game session placements, including the average and the 95th and 99th percentiles.
+The following CloudWatch Logs Insights query measures game session placement duration for fulfilled game session placements, including the average and the 95th and 99th percentiles:
 
 ```
 filter event_type = "placement_ended" and data.status = "FULFILLED"
 | stats avg(data.duration.total_ms) as avg_ms, pct(data.duration.total_ms, 95) as p95_ms, pct(data.duration.total_ms, 99) as p99_ms
 ```
 
-Find game session placements that required multiple game session creation attempts.
+The following CloudWatch Logs Insights query finds game session placements that required multiple game session creation attempts:
 
 ```
 filter event_type = "game_session_creation"

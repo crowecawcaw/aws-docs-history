@@ -1,7 +1,6 @@
 
 
 # Package your game build files
-<a name="gamelift-build-packaging"></a>
 
 Before uploading your configured game server to Amazon GameLift Servers, package the game build files into a build directory. This process is a requirement when hosting with an EC2 managed fleet, and is a best practice when hosting with an Anywhere fleet. The build directory should include all the components that are required to run your game servers and host game sessions. This might include the following:
 + **Game server binaries** – The binary files required to run the game server. A build can include binaries for multiple game servers built to run on the same platform. For a list of supported platforms, see [Get Amazon GameLift Servers development tools](gamelift-supported.md).

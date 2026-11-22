@@ -1,7 +1,6 @@
 
 
 # Auto scale with rule-based policies
-<a name="fleets-autoscaling-rule"></a>
 
 Rule-based scaling policies in Amazon GameLift Servers provide fine-grained control when auto scaling a fleet's capacity in response to player activity. For each policy, you can link scaling to one of several fleet metrics, identify a trigger point, and customize the responding scale-up or scale-down event. Rule-based policies are useful for supplementing [target-based scaling](fleets-autoscaling-target.md) to handle special circumstances. 
 

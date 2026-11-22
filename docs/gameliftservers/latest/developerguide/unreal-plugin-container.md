@@ -1,7 +1,6 @@
 
 
 # Plugin for Unreal: Deploy your game to a managed container fleet
-<a name="unreal-plugin-container"></a>
 
 Use this guided plugin workflow to create a container image for your game server and deploy it to a container-based hosting solution. If you haven't yet integrated your game code, see [Plugin for Unreal: Integrate your game code](unreal-plugin-integrate.md). When you’ve successfully completed this workflow, your containerized game server is running in the cloud, and you can use the plugin to start a game client, connect to a game session, and play the game.
 

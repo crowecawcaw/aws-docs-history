@@ -1,14 +1,15 @@
 
 
-# Connect to fleet instances
-<a name="fleets-remote-access"></a>
+# Connecting to fleet instances
 
 You can remotely connect to any active Amazon GameLift Servers managed EC2 or managed container fleet instance to troubleshoot game server issues, inspect logs, and debug runtime behavior. Connect using the Amazon GameLift Servers console or the AWS CLI.
 
 ## Remote access through the console
 <a name="fleets-remote-access-console"></a>
 
-You can connect to fleet instances directly from the Amazon GameLift Servers console using Amazon EC2 Systems Manager (SSM). This method provides secure access without requiring additional setup or credential management. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connect to containers](containers-remote-access.md).
+You can connect to fleet instances directly from the Amazon GameLift Servers console using Amazon EC2 Systems Manager (SSM). This method provides secure access without requiring additional setup or credential management. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connecting to containers](containers-remote-access.md).
+
+**To connect to an instance through the console**
 
 1. In the Amazon GameLift Servers console, choose **Managed EC2** or **Managed containers** from the navigation pane, and then **Fleets**.
 
@@ -16,9 +17,11 @@ You can connect to fleet instances directly from the Amazon GameLift Servers con
 
 1. On the fleet details page, choose the **Instances** tab to view all compute instances for the fleet.
 
-1. Select the instance you want to connect to, then choose **Connect**. This displays the Connect to instance dialog which informs you of the details of the connection, and allows you to view the script that will be used to connect to your instance. Confirm by choosing **Connect** again.
+1. Select the instance you want to connect to, then choose **Connect**. This displays the Connect to instance dialog, which informs you of the details of the connection and allows you to view the script that will be used to connect to your instance.
 
-1. In the connection dialog, choose **Run** to create a new SSM session. The system authenticates your session through AWS Key Management Service (AWS KMS) and opens a terminal in your browser.
+1. Confirm by choosing **Connect** again.
+
+1. In the connection dialog, choose **Run** to create a new SSM session. Your session is authenticated through AWS Key Management Service (AWS KMS), and a terminal opens in your browser. It might take a few moments for the session to start and the terminal to open.
 
 **Note**  
 Console-based remote access is available for fleets running server SDK version 5.x. For fleets running earlier SDK versions, use the AWS CLI method described in the following section.
@@ -28,12 +31,14 @@ Console-based remote access is available for fleets running server SDK version 5
 
 The following instructions describe how to remotely connect to an instance using the AWS command line interface (CLI). You can also make programmatic calls using the AWS SDK, as documented in the [service API reference for Amazon GameLift Servers](https://docs.aws.amazon.com/gamelift/latest/apireference/).
 
-### Gather instance data
+### Gathering instance data
 <a name="fleets-remote-access-getinfo"></a>
 
 To connect to an Amazon GameLift Servers managed EC2 fleet instance, you need the following information: 
 + The ID of the instance you want to connect to. You can use either the instance ID or ARN.
-+ the server SDK for Amazon GameLift Servers version being used on the instance. The server SDK is integrated with the game build that is running on the instance. 
++ The server SDK for Amazon GameLift Servers version being used on the instance. The server SDK is integrated with the game build that is running on the instance. 
+
+**To gather instance data**
 
 The following instructions describe how to complete these tasks using the AWS CLI. You must know the fleet ID for the instance you want to connect to.
 
@@ -43,8 +48,8 @@ The following instructions describe how to complete these tasks using the AWS CL
 
    ```
    aws gamelift list-compute \
-     --fleet-id  fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa \
-     --location sa-east-1
+     --fleet-id  {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
+     --location {{sa-east-1}}
    ```
 
    **Response**
@@ -72,58 +77,58 @@ The following instructions describe how to complete these tasks using the AWS CL
 
    1. Call [describe-fleet-attributes](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-fleet-attributes.html) with a fleet ID or ARN to get the fleet's build ID and ARN.
 
-   1. Call [describe-build](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-build.html) with the build ID or ARN to get the build's server SDK version. 
+      **Request**
 
-      For example:
+      ```
+      aws gamelift describe-fleet-attributes \
+        --fleet-ids  {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}}
+      ```
+
+      **Response**
+
+      ```
+      {
+        "FleetAttributes": [
+          {
+            "FleetId": "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa",
+            "ComputeType": "EC2",
+            "BuildId": "build-3333cccc-44dd-55ee-66ff-00001111aa22",
+            . . .
+          }
+        ]
+      }
+      ```
+
+   1. Call [describe-build](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-build.html) with the build ID or ARN to get the build's server SDK version. 
 
       **Request**
 
-   ```
-   aws gamelift describe-fleet-attributes \
-     --fleet-ids  fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa
-   ```
+      ```
+      aws gamelift describe-build \
+        --build-id {{build-3333cccc-44dd-55ee-66ff-00001111aa22}}
+      ```
 
-   **Response**
+      **Response**
 
-   ```
-   {
-     "FleetAttributes": [
-       {
-         "FleetId": "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa",
-         "ComputeType": "EC2",
-         "BuildId": "build-3333cccc-44dd-55ee-66ff-00001111aa22",
-         . . .
-       }
-     ]
-   }
-   ```
+      ```
+      "Build": {
+        "BuildId": "build-1111aaaa-22bb-33cc-44dd-5555eeee66ff",
+        "Name": "My_Game_Server_Build_One",
+        "OperatingSystem": "AMAZON_LINUX_2023",
+        "ServerSdkVersion": "5.1.1",
+        . . .
+      }
+      ```
 
-   **Request**
-
-   ```
-   aws gamelift describe-build \
-     --build-id build-3333cccc-44dd-55ee-66ff-00001111aa22
-   ```
-
-   **Response**
-
-   ```
-   "Build": {
-     "BuildId": "build-1111aaaa-22bb-33cc-44dd-5555eeee66ff",
-     "Name": "My_Game_Server_Build_One",
-     "OperatingSystem": "AMAZON_LINUX_2023",
-     "ServerSdkVersion": "5.1.1",
-     . . .
-   }
-   ```
-
-## Connect to an instance (server SDK 5)
+## Connecting to an instance (server SDK 5)
 <a name="fleets-remote-access-connect-5"></a>
 
-If the instance you want to connect to is running a game build with server SDK version 5.x, connect to the instance using Amazon EC2 Systems Manager (SSM). You can access remote instances that are running either Windows or Linux. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connect to containers](containers-remote-access.md).
+If the instance you want to connect to is running a game build with server SDK version 5.x, connect to the instance using Amazon EC2 Systems Manager (SSM). You can access remote instances that are running either Windows or Linux. For container fleets, after connecting to the instance, you can access individual containers running on it. For more information, see [Connecting to containers](containers-remote-access.md).
 
 **Before you start:**  
 Complete the SSM setup steps and install the SSM plugin on your local machine. For more information, see [ Setting up SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html) and [Install the Session Manager plugin for the AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) in the *Amazon EC2 Systems Manager User Guide*.
+
+**To connect to an instance (server SDK 5)**
 
 1. **Request access credentials for the instance.** Call [get-compute-access](https://docs.aws.amazon.com/cli/latest/reference/gamelift/get-compute-access.html) with the fleet ID and the compute name for the instance you want to connect to. Amazon GameLift Servers returns a set of temporary credentials for accessing the instance. For example: 
 
@@ -131,9 +136,9 @@ Complete the SSM setup steps and install the SSM plugin on your local machine. F
 
    ```
    aws gamelift get-compute-access \
-   --compute-name i-11111111a222b333c \
-   --fleet-id fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa
-   --region us-west-2
+   --compute-name {{i-11111111a222b333c}} \
+   --fleet-id {{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}} \
+   --region {{us-west-2}}
    ```
 
    **Response**
@@ -151,7 +156,7 @@ Complete the SSM setup steps and install the SSM plugin on your local machine. F
    }
    ```
 
-1. **Export the access credentials (optional).** You can export the credentials to environment variables and use them to configure the AWS CLI for the default user. For more details, see [ Environment variables to configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html) in the AWS Command Line Interface User Guide.
+1. **(Optional) Export the access credentials.** You can export the credentials to environment variables and use them to configure the AWS CLI for the default user. For more details, see [ Environment variables to configure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html) in the AWS Command Line Interface User Guide.
 
    ```
    export AWS_ACCESS_KEY_ID=ASIAIOSFODNN7EXAMPLE
@@ -165,16 +170,18 @@ Complete the SSM setup steps and install the SSM plugin on your local machine. F
 
    ```
    aws ssm start-session \
-   --target i-11111111a222b333c \
-   --region us-west-2 \
+   --target {{i-11111111a222b333c}} \
+   --region {{us-west-2}} \
    ```
 **Note**  
 If you get an access denied error, you might have an `AWS_PROFILE` environment variable set to an AWS profile, which causes AWS CLI to use the wrong credentials for remote access. To resolve, temporarily unset your `AWS_PROFILE` environment variable. Alternatively, you can create a custom AWS profile for your remote access credentials and add the `--profile` command line parameter to your `start-session` request. 
 
-## Connect to an instance (server SDK 4.x or earlier)
+## Connecting to an instance (server SDK 4.x or earlier)
 <a name="fleets-remote-access-connect"></a>
 
 If the instance you want to connect to is running a game build with server SDK version 4 or earlier, use the following instructions. You can connect to instances that are running either Windows or Linux. Connect to a Windows instance using a remote desktop protocol (RDP) client. Connect to a Linux instance using an SSH client. 
+
+**To connect to an instance (server SDK 4.x or earlier)**
 
 1. **Request access credentials for the instance.** When you have an instance ID, use the command [get-instance-access](https://docs.aws.amazon.com/cli/latest/reference/gamelift/get-instance-access.html) to request access credentials. If successful, Amazon GameLift Servers returns the instance's operating system, IP address, and a set of credentials (user name and secret key). The credentials format depends on the instance operating system. Use the following instructions to retrieve credentials for either RDP or SSH. 
    + **For Windows instances** – To connect to a Windows instance, RDP requires a user name and password. The `get-instance-access` request returns these values as simple strings, so you can use the returned values as is. Example credentials: 
@@ -194,12 +201,12 @@ If the instance you want to connect to is running a game build with server SDK v
      }
      ```
 
-     When using the AWS CLI, you can automatically generate a `.pem` file by including the *--query* and *--output* parameters to your `get-instance-access` request. 
+     When using the AWS CLI, you can automatically generate a `.pem` file by including the `--query` and `--output` parameters to your `get-instance-access` request. 
 
      To set permissions on the `.pem` file, run the following command:
 
      ```
-     $ chmod 400 MyPrivateKey.pem
+     $ chmod 400 {{MyPrivateKey.pem}}
      ```
 
 1. **Open a port for the remote connection.** You can access instances in Amazon GameLift Servers fleets through any port authorized in the fleet configuration. You can view a fleet's port settings using the command [`describe-fleet-port-settings`](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-fleet-port-settings.html). 
@@ -210,16 +217,16 @@ If the instance you want to connect to is running a game build with server SDK v
 
    ```
    $ AWS gamelift update-fleet-port-settings
-       --fleet-id  "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa"
-       --inbound-permission-authorizations "FromPort=22,ToPort=22,IpRange=54.186.139.221/32,Protocol=TCP"
+       --fleet-id  "{{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}}"
+       --inbound-permission-authorizations "FromPort=22,ToPort=22,IpRange={{192.0.2.1/32}},Protocol=TCP"
    ```
 
    The following example opens up port 3389 on a Windows fleet
 
    ```
    $ AWS gamelift update-fleet-port-settings
-   --fleet-id  "fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa"
-       --inbound-permission-authorizations "FromPort=3389,ToPort=3389,IpRange=54.186.139.221/32,Protocol=TCP"
+   --fleet-id  "{{fleet-2222bbbb-33cc-44dd-55ee-6666ffff77aa}}"
+       --inbound-permission-authorizations "FromPort=3389,ToPort=3389,IpRange={{192.0.2.1/32}},Protocol=TCP"
    ```
 
 1. **Open a remote connection client.** Use Remote Desktop for Windows or SSH for Linux instances. Connect to the instance using the IP address, port setting, and access credentials.
@@ -227,15 +234,15 @@ If the instance you want to connect to is running a game build with server SDK v
    SSH example: 
 
    ```
-   ssh -i MyPrivateKey.pem gl-user-remote@192.0.2.0
+   ssh -i {{MyPrivateKey.pem}} gl-user-remote@{{192.0.2.1}}
    ```
 
-## View files on remote instances
+## Viewing files on remote instances
 <a name="fleets-remote-access-permissions"></a>
 
 Once connected to a fleet instance, you have full user and administrative access. This means you also have the ability to cause errors or failures with game hosting. If the instance is hosting games with active players, you might run the risk of crashing game sessions and dropping players, or disrupting game shutdown processes which could cause errors in saved game data and logs.
 
-For container fleets, after accessing the container (see [Connect to containers](containers-remote-access.md)), the following file locations apply within the container filesystem. For EC2 fleets, these file locations apply directly on the instance.
+For container fleets, after accessing the container (see [Connecting to containers](containers-remote-access.md)), the following file locations apply within the container filesystem. For EC2 fleets, these file locations apply directly on the instance.
 
 Look for these resources on a hosting instance:
 + **Game build files.** These files are the game build that you uploaded to Amazon GameLift Servers. They include one or more game server executables, assets, and dependencies. Game build files are in a root directory called `game`: 

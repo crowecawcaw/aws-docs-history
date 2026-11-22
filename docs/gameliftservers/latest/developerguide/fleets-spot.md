@@ -1,7 +1,6 @@
 
 
 # Reduce game hosting costs with Spot fleets
-<a name="fleets-spot"></a>
 
 When hosting multiplayer game servers using Amazon GameLift Servers managed hosting, Spot instances can provide a cost-effective alternative to On-Demand instances. The Spot pricing model offers the same hardware and performance as On-Demand but at potentially significant cost savings (up to 70-90%). However, they come with a limitation: when AWS needs capacity back, it can reclaim these instances with a two-minute interruption notification. 
 

@@ -1,7 +1,6 @@
 
 
 # Go server SDK for Amazon GameLift Servers -- Actions
-<a name="integration-server-sdk-go-actions"></a>
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md).
 
@@ -39,7 +38,7 @@ Returns the current version number of the SDK built into the server process.
 ### Syntax
 <a name="integration-server-sdk-go-getsdkversion-syntax"></a>
 
-```
+```go
 func GetSdkVersion() (string, error)
 ```
 
@@ -51,7 +50,7 @@ If successful, returns the current SDK version as a string. The returned string 
 ### Example
 <a name="integration-server-sdk-go-getsdkversion-example"></a>
 
-```
+```go
 version, err := server.GetSdkVersion()
 ```
 
@@ -63,7 +62,7 @@ Initializes metrics collection for the Amazon GameLift Servers SDK. This method 
 ### Syntax
 <a name="integration-server-sdk-go-initmetrics-syntax"></a>
 
-```
+```go
 func InitMetrics() error
 func InitMetrics(metricsParameters MetricsParameters) error
 ```
@@ -91,13 +90,13 @@ If successful, returns `nil` error to indicate that metrics collection has been 
 
 Initialize metrics with default configuration:
 
-```
+```go
 err := server.InitMetrics()
 ```
 
 Initialize metrics with custom configuration:
 
-```
+```go
 metricsParams := MetricsParameters{
     StatsdHost:        "localhost",
     StatsdPort:        8125,
@@ -120,7 +119,7 @@ Call this method after [InitSDK()](#integration-server-sdk-go-initsdk) but befor
 ### Syntax
 <a name="integration-server-sdk-go-initmetricsfromenv-syntax"></a>
 
-```
+```go
 func InitMetricsFromEnvironment() error
 ```
 
@@ -132,7 +131,7 @@ If successful, returns `nil` error to indicate that metrics collection has been 
 ### Example
 <a name="integration-server-sdk-go-initmetricsfromenv-example"></a>
 
-```
+```go
 err := server.InitMetricsFromEnvironment()
 ```
 
@@ -144,7 +143,7 @@ Initializes the Amazon GameLift Servers SDK. Call this method on launch before a
 ### Syntax
 <a name="integration-server-sdk-go-initsdk-syntax"></a>
 
-```
+```go
 func InitSDK(params ServerParameters) error 
 ```
 
@@ -173,7 +172,7 @@ If calls to `InitSDK()` are failing for game builds deployed to Anywhere fleets,
 
 Amazon GameLift Servers Anywhere example
 
-```
+```go
 //Define the server parameters
 serverParameters := ServerParameters {
   WebSocketURL: "wss://us-west-1.api.amazongamelift.com",
@@ -205,7 +204,7 @@ Notifies Amazon GameLift Servers that the server process is ready to host game s
 ### Syntax
 <a name="integration-server-sdk-go-processready-syntax"></a>
 
-```
+```go
 func ProcessReady(param ProcessParameters) error
 ```
 
@@ -228,7 +227,7 @@ Returns an error with an error message if the method fails. Returns `nil` if the
 
 This example illustrates both the [ProcessReady()](#integration-server-sdk-go-processready) call and delegate function implementations.
 
-```
+```go
 // Define the process parameters
 processParams := ProcessParameters {
   OnStartGameSession: gameProcess.OnStartGameSession,
@@ -252,7 +251,7 @@ Notifies Amazon GameLift Servers that the server process is terminating. Call th
 ### Syntax
 <a name="integration-server-sdk-go-processending-syntax"></a>
 
-```
+```go
 func ProcessEnding() error
 ```
 
@@ -264,7 +263,7 @@ Returns a 0 error code or a defined error code.
 ### Example
 <a name="integration-server-sdk-go-processending-example"></a>
 
-```
+```go
 // operations to end game sessions and the server process
 defer func() {
   err := server.ProcessEnding()
@@ -286,7 +285,7 @@ Notifies Amazon GameLift Servers that the server process has activated a game se
 ### Syntax
 <a name="integration-server-sdk-go-activategamesession-syntax"></a>
 
-```
+```go
 func ActivateGameSession() error
 ```
 
@@ -300,7 +299,7 @@ Returns an error with an error message if the method fails.
 
 This example shows `ActivateGameSession()` called as part of the `onStartGameSession()` delegate function. 
 
-```
+```go
 func OnStartGameSession(GameSession gameSession) {
   // game-specific tasks when starting a new game session, such as loading map   
   // Activate when ready to receive players   
@@ -316,7 +315,7 @@ Updates the current game session's ability to accept new player sessions. A game
 ### Syntax
 <a name="integration-server-sdk-go-updateplayersessioncreationpolicy-syntax"></a>
 
-```
+```go
 func UpdatePlayerSessionCreationPolicy(policy model.PlayerSessionCreationPolicy) error
 ```
 
@@ -339,7 +338,7 @@ Returns an error with an error message if failure occurs.
 
 This example sets the current game session's join policy to accept all players.
 
-```
+```go
 err := server.UpdatePlayerSessionCreationPolicy(model.AcceptAll)
 ```
 
@@ -351,7 +350,7 @@ Retrieves the ID of the game session hosted by the active server process.
 ### Syntax
 <a name="integration-server-sdk-go-getgamesessionid-syntax"></a>
 
-```
+```go
 func GetGameSessionID() (string, error)
 ```
 
@@ -368,7 +367,7 @@ If successful, returns the game session ID and nil error. For idle processes tha
 ### Example
 <a name="integration-server-sdk-go-getgamesessionid-example"></a>
 
-```
+```go
 gameSessionID, err := server.GetGameSessionID()
 ```
 
@@ -383,7 +382,7 @@ Returns the time that a server process is scheduled to be shut down if a termina
 ### Syntax
 <a name="integration-server-sdk-go-getterm-syntax"></a>
 
-```
+```go
 func GetTerminationTime() (int64, error)
 ```
 
@@ -395,7 +394,7 @@ If successful, returns the timestamp in epoch seconds that the server process is
 ### Example
 <a name="integration-server-sdk-go-getterm-example"></a>
 
-```
+```go
 terminationTime, err := server.GetTerminationTime()
 ```
 
@@ -407,7 +406,7 @@ Notifies Amazon GameLift Servers that a player with the specified player session
 ### Syntax
 <a name="integration-server-sdk-go-acceptplayersession-syntax"></a>
 
-```
+```go
 func AcceptPlayerSession(playerSessionID string) error
 ```
 
@@ -427,7 +426,7 @@ Returns a generic outcome consisting of success or failure with an error message
 
 This example handles a connection request that includes validating and rejecting non-valid player session IDs. 
 
-```
+```go
 func ReceiveConnectingPlayerSessionID(conn Connection, playerSessionID string) {
     err := server.AcceptPlayerSession(playerSessionID)
     if err != nil {
@@ -446,7 +445,7 @@ Notifies Amazon GameLift Servers that a player has disconnected from the server 
 ### Syntax
 <a name="integration-server-sdk-go-removeplayersession-syntax"></a>
 
-```
+```go
 func RemovePlayerSession(playerSessionID string) error
 ```
 
@@ -464,7 +463,7 @@ Returns a generic outcome consisting of success or failure with an error message
 ### Example
 <a name="integration-server-sdk-go-removeplayersession-example"></a>
 
-```
+```go
 err := server.RemovePlayerSession(playerSessionID)
 ```
 
@@ -479,7 +478,7 @@ Retrieves player session data which includes settings, session metadata, and pla
 ### Syntax
 <a name="integration-server-sdk-go-describeplayersessions-syntax"></a>
 
-```
+```go
 func DescribePlayerSessions(req request.DescribePlayerSessionsRequest) (result.DescribePlayerSessionsResult, error) {
 	return srv.describePlayerSessions(&req)
 }
@@ -501,7 +500,7 @@ If successful, returns a `DescribePlayerSessionsResult` object that contains a s
 
 This example requests all player sessions actively connected to a specified game session. By omitting *NextToken* and setting the *Limit* value to 10, Amazon GameLift Servers returns the first 10 player session records matching the request.
 
-```
+```go
 // create request
 describePlayerSessionsRequest := request.NewDescribePlayerSessions() 
 describePlayerSessionsRequest.GameSessionID, _ = server.GetGameSessionID() // get ID for the current game session
@@ -523,7 +522,7 @@ A server process can have only one active match backfill request at a time. To s
 ### Syntax
 <a name="integration-server-sdk-go-startmatchbackfill-syntax"></a>
 
-```
+```go
 func StartMatchBackfill(req request.StartMatchBackfillRequest) (result.StartMatchBackfillResult, error)
 ```
 
@@ -545,7 +544,7 @@ Returns a `StartMatchBackfillResult` object with the match backfill ticket ID, o
 ### Example
 <a name="integration-server-sdk-go-startmatchbackfill-example"></a>
 
-```
+```go
 // form the request
 startBackfillRequest := request.NewStartMatchBackfill()
 startBackfillRequest.RequestID = "1111aaaa-22bb-33cc-44dd-5555eeee66ff"          // optional
@@ -571,7 +570,7 @@ Cancels an active match backfill request. For more information, see [FlexMatch b
 ### Syntax
 <a name="integration-server-sdk-go-stopmatchbackfill-syntax"></a>
 
-```
+```go
 func StopMatchBackfill(req request.StopMatchBackfillRequest) error
 ```
 
@@ -592,7 +591,7 @@ Returns a generic outcome consisting of success or failure with an error message
 ### Example
 <a name="integration-server-sdk-go-stopmatchbackfill-example"></a>
 
-```
+```go
 stopBackfillRequest := request.NewStopMatchBackfill()  // Use this function to create request
 stopBackfillRequest.TicketID = "1111aaaa-22bb-33cc-44dd-5555eeee66ff"
 stopBackfillRequest.MatchmakingConfigurationArn = "arn:aws:gamelift:us-west-2:111122223333:matchmakingconfiguration/MyMatchmakerConfig"
@@ -609,7 +608,7 @@ Retrieves the path to the TLS certificate used to encrypt the network connection
 ### Syntax
 <a name="integration-server-sdk-go-getcomputecertificate-syntax"></a>
 
-```
+```go
 func GetComputeCertificate() (result.GetComputeCertificateResult, error)
 ```
 
@@ -627,7 +626,7 @@ Returns a `GetComputeCertificateResult` object that contains the following:
 ### Example
 <a name="integration-server-sdk-go-getcomputecertificate-example"></a>
 
-```
+```go
 tlsCertificate, err := server.GetFleetRoleCredentials(getFleetRoleCredentialsRequest)
 ```
 
@@ -639,7 +638,7 @@ Retrieves the service role credentials that you create to extend permissions to 
 ### Syntax
 <a name="integration-server-sdk-go-getfleetrolecredentials-syntax"></a>
 
-```
+```go
 func GetFleetRoleCredentials(
   req request.GetFleetRoleCredentialsRequest,
 ) (result.GetFleetRoleCredentialsResult, error) {
@@ -667,7 +666,7 @@ Returns a `GetFleetRoleCredentialsResult` object that contains the following:
 ### Example
 <a name="integration-server-sdk-go-getfleetrolecredentials-example"></a>
 
-```
+```go
 // form the customer credentials request
 getFleetRoleCredentialsRequest := request.NewGetFleetRoleCredentials()
 getFleetRoleCredentialsRequest.RoleArn = "arn:aws:iam::123456789012:role/service-role/exampleGameLiftAction"
@@ -685,7 +684,7 @@ This action is supported only on container fleets. When called from any other co
 ### Syntax
 <a name="integration-server-sdk-go-listcontainersnetworkinfo-syntax"></a>
 
-```
+```go
 func ListContainersNetworkInfo() (result.ListContainersNetworkInfoResult, error)
 ```
 
@@ -702,7 +701,7 @@ If successful, returns a `ListContainersNetworkInfoResult` object that contains 
 ### Example
 <a name="integration-server-sdk-go-listcontainersnetworkinfo-example"></a>
 
-```
+```go
 networkInfo, err := server.ListContainersNetworkInfo()
 if err != nil {
   fmt.Println("ListContainersNetworkInfo() failed. Error: ", err)
@@ -723,7 +722,7 @@ Frees the Amazon GameLift Servers game server SDK from memory. As a best practic
 ### Syntax
 <a name="integration-server-sdk-go-destroy-syntax"></a>
 
-```
+```go
 func Destroy() error {
 	return srv.destroy()
 }
@@ -737,7 +736,7 @@ Returns an error with an error message if the method fails.
 ### Example
 <a name="integration-server-sdk-go-destroy-example"></a>
 
-```
+```go
 // operations to end game sessions and the server process
 defer func() {
   err := server.ProcessEnding()

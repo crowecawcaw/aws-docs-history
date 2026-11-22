@@ -1,7 +1,6 @@
 
 
 # Deploy hosting fleets for Amazon GameLift Servers
-<a name="fleets-intro"></a>
 
 Deploying hosting resources involves creating and configuring the compute infrastructure that will run your game servers. Amazon GameLift Servers offers several fleet types to match different hosting needs, from fully managed AWS Cloud resources to hybrid solutions that combine cloud and on-premises infrastructure.
 

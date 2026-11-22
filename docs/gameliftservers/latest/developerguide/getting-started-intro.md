@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon GameLift Servers
-<a name="getting-started-intro"></a>
 
 Take advantage of these getting started resources to learn more about the Amazon GameLift Servers service and how you can start developing a custom hosting solution for your session-based multiplayer games.
 

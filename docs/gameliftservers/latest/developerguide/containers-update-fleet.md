@@ -1,7 +1,6 @@
 
 
 # Update an Amazon GameLift Servers managed container fleet
-<a name="containers-update-fleet"></a>
 
 You can update most of the properties of a managed container fleet, including the container group definitions. Depending on the settings being updated, a fleet update might initiate a new fleet deployment. In a fleet deployment, all instances in the fleet are removed and replaced with instances with the new configuration. Settings that require a deployment include: 
 + Container group definitions, including updates to container images
@@ -25,9 +24,9 @@ Open the console’s left navigation bar and choose **Managed containers: Fleets
 1. If your updates require a fleet deployment, you're asked to specify deployment options as follows: 
    + Game session protection. You can choose to protect fleet instances that have active game sessions (safe deployment). With this setting, the fleet instances aren't replaced until after the game sessions end. Alternatively, you can choose to replace fleet instances regardless of game session activity (unsafe deployment). Unsafe deployments are useful during development and testing phases in order to reduce deployment time. 
    + Minimum healthy percentage. You can manage how quickly the fleet's instances are replaced. Use this setting to maintain a minimal amount of healthy tasks during deployment. A low value prioritizes deployment speed, while a high value ensures that game server availability remains high throughout the deployment. 
-   + Deployment failure strategy. Decide what actions to take if a deployment fails. A deployment failure means that some of the updated containers have failed status checks and are considered impaired. You can set deployments to automatically roll back all fleet instances to the previously deployed state. Alternatively you can choose to maintain some of the impaired fleet instances for use in debugging. For information about how Amazon GameLift Servers detects deployment failures and how to debug them, see [Validate and troubleshoot container fleet deployments](containers-deployment-validation.md).
+   + Deployment failure strategy. Decide what actions to take if a deployment fails. A deployment failure means that some of the updated containers have failed status checks and are considered impaired. You can set deployments to automatically roll back all fleet instances to the previously deployed state. Alternatively you can choose to maintain some of the impaired fleet instances for use in debugging. For information about how Amazon GameLift Servers detects deployment failures and how to debug them, see [Validating and troubleshooting container fleet deployments](containers-deployment-validation.md).
 
-If your request is successful, the console displays the **Deployments** tab for the managed container fleet. Use this tab to track the status of each deployment. If you start a new deployment for the fleet, this action automatically cancels any deployment that is currently in process for the fleet. For instructions on canceling a deployment that you don't want to wait for, see [Cancel a deployment by starting a new one](containers-deployment-validation.md#containers-deployment-validation-cancel). 
+If your request is successful, the console displays the **Deployments** tab for the managed container fleet. Use this tab to track the status of each deployment. If you start a new deployment for the fleet, this action automatically cancels any deployment that is currently in process for the fleet. For instructions on canceling a deployment that you don't want to wait for, see [Canceling a deployment by starting a new one](containers-deployment-validation.md#containers-deployment-validation-cancel). 
 
 ------
 #### [ AWS CLI ]

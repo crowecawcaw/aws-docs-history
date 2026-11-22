@@ -1,7 +1,6 @@
 
 
 # Abstract an Amazon GameLift Servers fleet designation with an alias
-<a name="aliases-intro"></a>
 
 An Amazon GameLift Servers *alias* is used to abstract a hosting destination. Hosting destinations tell Amazon GameLift Servers where to look for available resources to host a new game session for players. Aliases are useful in the following scenarios: 
 + If your game doesn't use multi-fleet queues for game session placement, it requests new game sessions by specifying an Amazon GameLift Servers fleet ID. During the life of a game, you'll replace the fleet multiple times, to update a server build, update hosting hardware and operating system, or resolve performance issues. Use an alias to abstract the fleet ID so that you can seamlessly switch player traffic from an existing fleet to the new one. 

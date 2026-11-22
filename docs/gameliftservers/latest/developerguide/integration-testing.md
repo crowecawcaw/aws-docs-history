@@ -1,10 +1,9 @@
 
 
-# Set up local testing with Amazon GameLift Servers Anywhere
-<a name="integration-testing"></a>
+# Setting up local testing with Amazon GameLift Servers Anywhere
 
 **Note**  
-This topic covers local testing for games that are integrated with the server SDK for Amazon GameLift Servers version 5.x. If your game uses server SDK version 4.x or earlier, see [Test your integration using Amazon GameLift Servers Local](integration-testing-local.md).
+This topic covers local testing for games that are integrated with the server SDK for Amazon GameLift Servers version 5.x. If your game uses server SDK version 4.x or earlier, see [Testing your integration using Amazon GameLift Servers Local](integration-testing-local.md).
 
 Use an Amazon GameLift Servers Anywhere fleet and your own hardware to iteratively build and test your game components in a simulated hosted environment. Set up an Anywhere fleet and register a local device to establish a connection to the Amazon GameLift Servers service. Install your game server build onto the device, start a game server process, and test game functionality as needed. You can update your game server build as often as needed to test each new build iteration.
 
@@ -16,13 +15,13 @@ Testing locally with an Anywhere fleet is particularly useful for testing your g
 Are you using the Amazon GameLift Servers plugin for Unreal Engine or Unity? These tools include guided workflows for setting up local testing with an Anywhere fleet. Follow the documentation for [Plugin for Unity: Set up local testing with Amazon GameLift Servers Anywhere](unity-plug-in-anywhere.md) or [Plugin for Unreal: Host your game locally with Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md).
 
 **Topics**
-+ [Set up a local Anywhere fleet](#integration-testing-anywhere-fleet)
-+ [Update and install your game server](#integration-testing-dev)
-+ [Test game session activity](#integration-testing-test)
-+ [Iterate on your game server](#fleet-anywhere-iteration)
-+ [Transition your game to Amazon GameLift Servers managed fleets](#fleet-anywhere-transition)
++ [Setting up a local Anywhere fleet](#integration-testing-anywhere-fleet)
++ [Updating and installing your game server](#integration-testing-dev)
++ [Testing game session activity](#integration-testing-test)
++ [Iterating on your game server](#fleet-anywhere-iteration)
++ [Transitioning your game to Amazon GameLift Servers managed fleets](#fleet-anywhere-transition)
 
-## Set up a local Anywhere fleet
+## Setting up a local Anywhere fleet
 <a name="integration-testing-anywhere-fleet"></a>
 
 Follow these steps to create an Anywhere fleet for your local workstation. For detailed instructions using either the AWS CLI or the AWS Management Console for Amazon GameLift Servers, see [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md).
@@ -43,7 +42,7 @@ Follow these steps to create an Anywhere fleet for your local workstation. For d
 
    Make a note of the `GameLiftServiceSdkEndpoint` return value. You'll need this value when you update your game server to run on an Anywhere fleet.
 
-## Update and install your game server
+## Updating and installing your game server
 <a name="integration-testing-dev"></a>
 
 This task assumes that you've already integrated a game server build with Amazon GameLift Servers server SDK 5.x. The integration process involves adding code to your game server so that it can interact with the Amazon GameLift Servers service to start and manage game sessions. 
@@ -73,7 +72,7 @@ For an Anywhere fleet, you need to manually configure certain game server settin
 
 1. Start one or more game server processes running on the local compute. When the game server process calls the server SDK action `ProcessReady()`, the process is ready to host a game session.
 
-## Test game session activity
+## Testing game session activity
 <a name="integration-testing-test"></a>
 
 Test your game server integration by working with game sessions. If you don't have a game client integrated with Amazon GameLift Servers functionality, you can use the AWS CLI to start game sessions. Try the following scenarios:
@@ -81,7 +80,7 @@ Test your game server integration by working with game sessions. If you don't ha
 + **Check game session status. **Call [describe-game-sessions](https://docs.aws.amazon.com/cli/latest/reference/gamelift/describe-game-sessions.html) command (or the [DescribeGameSessions](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeGameSessions.html) API action). Specify the game session ID to retrieve a specific session, or specify the fleet ID to retrieve all game sessions for the fleet. This call returns detailed game session information, including the game session status. Game sessions in Active status are ready for players to connect.
 + **Connect to the game session.** If your game client has the ability to join a game session, use the connection information included in the game session information.
 
-## Iterate on your game server
+## Iterating on your game server
 <a name="fleet-anywhere-iteration"></a>
 
 You can use the same Anywhere fleet and compute to test other versions of your game server build. 
@@ -96,7 +95,7 @@ You can use the same Anywhere fleet and compute to test other versions of your g
 
 1. **Start one or more game server processes running on the local compute.** When the game server process calls `ProcessReady()`, it's ready to be used for testing.
 
-## Transition your game to Amazon GameLift Servers managed fleets
+## Transitioning your game to Amazon GameLift Servers managed fleets
 <a name="fleet-anywhere-transition"></a>
 
 After you've completed development testing and you're ready to prepare for launch, this is a good time to switch over to Amazon GameLift Servers managed fleets. Use managed fleets to fine-tune and test your game hosting resources. Implement your game session placement solution (queues and matchmakers), select optimum hosting hardware (including Spot fleets) and locations, and choose a strategy for scaling capacity. You might also want to start using AWS CloudFormation to more efficiently manage the life cycles of all your game hosting resources, including fleets, queues, and matchmakers.

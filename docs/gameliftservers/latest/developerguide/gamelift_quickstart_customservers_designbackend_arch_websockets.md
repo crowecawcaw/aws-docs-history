@@ -1,7 +1,6 @@
 
 
 # Standalone game session servers with a WebSocket-based backend
-<a name="gamelift_quickstart_customservers_designbackend_arch_websockets"></a>
 
 Using an Amazon API Gateway WebSocket-based architecture, you can make matchmaking requests with WebSockets and send push notifications for matchmaking completion using server-initiated messages. This architecture improves performance by having two-way communication between the client and the server.
 

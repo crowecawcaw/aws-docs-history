@@ -1,7 +1,6 @@
 
 
 # Add a build install script
-<a name="gamelift-build-cli-uploading-install"></a>
 
 Create an install script for the operating system (OS) of your game build:
 + Windows: Create a batch file named `install.bat`.
@@ -15,7 +14,7 @@ When creating an install script, keep in mind the following:
   + Windows fleets: `C:\game`
   + Linux fleets: `/local/game`
 + During the installation process for Linux fleets, the run-as user has limited access to the instance file structure. This user has full rights to the directory where your build files are installed. If your install script performs actions that require administrator permissions, then specify admin access using **sudo**. The run-as user for Windows fleets has administrator permissions by default. Permission failures related to the install script generate an event message that indicates a problem with the script.
-+ On Linux, Amazon GameLift Servers supports common shell interpreter languages such as bash. Add a shebang (such as `#!/bin/bash`) to the top of your install script. To verify support for your preferred shell commands, remotely access an active Linux instance and open a shell prompt. For more information, see [Connect to fleet instances](fleets-remote-access.md).
++ On Linux, Amazon GameLift Servers supports common shell interpreter languages such as bash. Add a shebang (such as `#!/bin/bash`) to the top of your install script. To verify support for your preferred shell commands, remotely access an active Linux instance and open a shell prompt. For more information, see [Connecting to fleet instances](fleets-remote-access.md).
 + The install script can't rely on a VPC peering connection. A VPC peering connection isn't available until after Amazon GameLift Servers installs the build on fleet instances.
 + The install script might run more than once as part of fleet creation. As a best practice, make sure the script is idempotent and robust to being run multiple times.
 

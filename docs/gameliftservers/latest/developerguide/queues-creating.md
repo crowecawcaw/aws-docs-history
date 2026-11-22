@@ -1,7 +1,6 @@
 
 
 # Create a game session queue
-<a name="queues-creating"></a>
 
 Queues are used to place new game sessions across multiple fleets and locations. Your game starts new game sessions by submitting placement requests to a queue. A queue is configured with instructions for how to process requests. Learn more about initiating game session placement requests in [Create game sessions](gamelift-sdk-client-api.md#gamelift-sdk-client-api-create). 
 

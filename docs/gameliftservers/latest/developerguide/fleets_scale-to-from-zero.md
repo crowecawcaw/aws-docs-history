@@ -1,7 +1,6 @@
 
 
 # Manage Scaling an Amazon GameLift Servers Fleet To/From Zero
-<a name="fleets_scale-to-from-zero"></a>
 
 Amazon GameLift Servers supports automatic scaling to and from zero instances based on game session activity. This managed capacity option allows your fleet locations to scale-in to zero instances following a defined period of no game session activity and automatically scale-out when game sessions are requested.
 

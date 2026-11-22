@@ -1,7 +1,6 @@
 
 
 # Connect your Amazon GameLift Servers hosted game server to other AWS resources
-<a name="gamelift-sdk-server-resources"></a>
 
 When you're creating a game server build for deployment on Amazon GameLift Servers fleets, you might want the applications in your game build to communicate directly and securely with other AWS resources that you own. Because Amazon GameLift Servers manages your game hosting fleets, you must give Amazon GameLift Servers limited access to these resources and services.
 

@@ -1,7 +1,6 @@
 
 
 # Fleets in the Amazon GameLift Servers console
-<a name="gamelift-console-fleets"></a>
 
 The fleet resource represents a set of compute machines that are deployed with and run your game servers. Depending on your hosting solution, you might have managed EC2 fleets, managed container fleets, Anywhere fleets, or a combination.
 

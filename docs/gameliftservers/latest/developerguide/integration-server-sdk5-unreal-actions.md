@@ -1,7 +1,6 @@
 
 
 # C\+\+ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions
-<a name="integration-server-sdk5-unreal-actions"></a>
 
 Use the Amazon GameLift Servers Unreal server SDK 5.x reference to help you prepare your multiplayer game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md). If you're using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md).
 
@@ -654,7 +653,7 @@ Returns a `GetComputeCertificateResponse` object containing the following:
 ### Example
 <a name="integration-server-sdk5-unreal-getcomputecertificate-example"></a>
 
-```
+```cpp
 FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertificate()
 {
   #if WITH_GAMELIFT
@@ -700,7 +699,7 @@ Returns a [FGameLiftGetFleetRoleCredentialsOutcome](integration-server-sdk5-unre
 ### Example
 <a name="integration-server-sdk5-unreal-getfleetrolecredentials-example"></a>
 
-```
+```cpp
 FGameLiftGetFleetRoleCredentialsOutcome FGameLiftServerSDKModule::GetFleetRoleCredentials(const FGameLiftGetFleetRoleCredentialsRequest &request)
 {
   #if WITH_GAMELIFT
@@ -752,7 +751,7 @@ Returns a [FGameLiftListContainersNetworkInfoOutcome](integration-server-sdk5-un
 ### Example
 <a name="integration-server-sdk5-unreal-listcontainersnetworkinfo-example"></a>
 
-```
+```cpp
 FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContainersNetworkInfo()
 {
 #if WITH_GAMELIFT

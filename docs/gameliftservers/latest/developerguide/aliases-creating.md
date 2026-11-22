@@ -1,7 +1,6 @@
 
 
 # Create an Amazon GameLift Servers alias
-<a name="aliases-creating"></a>
 
 This topic describes how to create an Amazon GameLift Servers alias for use with game session placement. 
 

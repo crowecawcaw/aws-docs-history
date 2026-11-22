@@ -1,7 +1,6 @@
 
 
 # Troubleshooting guide
-<a name="gamelift-servers-metrics-troubleshooting"></a>
 
 ## Common issues and resolution steps
 <a name="common-issues-resolution"></a>
