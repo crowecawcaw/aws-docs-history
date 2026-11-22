@@ -1,7 +1,6 @@
 
 
 # DT4o Faktory Vision: Quality Insights on AWS
-<a name="dt4o-faktory-vision"></a>
 
 Publication date: **December 11, 2022 ([Diagram history](#dfv-diagram-history))**
 
