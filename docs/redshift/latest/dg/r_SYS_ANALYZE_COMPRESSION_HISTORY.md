@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_ANALYZE\_COMPRESSION\_HISTORY
-<a name="r_SYS_ANALYZE_COMPRESSION_HISTORY"></a>
 
 Records details for compression analysis operations during COPY or ANALYZE COMPRESSION commands.
 
@@ -30,7 +29,7 @@ SYS\_ANALYZE\_COMPRESSION\_HISTORY is visible to all users. Superusers can see a
 
 The following example inspects the details of compression analysis on the `lineitem` table by the last COPY command run in the same session. 
 
-```
+```sql
 select transaction_id, table_id, btrim(table_name) as table_name, column_position, old_encoding, new_encoding, mode 
 from sys_analyze_compression_history
 where transaction_id = (select transaction_id from sys_query_history where query_id = pg_last_copy_id()) order by column_position;

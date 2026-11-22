@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Managing AWS Data Exchange datashares
-<a name="manage-adx-datashare-console"></a>
 
 With Amazon Redshift, you can securely share and receive live data from AWS Data Exchange without having to create and manage data extracts or pipelines. By managing AWS Data Exchange datashares, you can subscribe to third-party data products and integrate live data streams directly into your Amazon Redshift data warehouse. The following sections demonstrate managing AWS Data Exchange datashares within your Amazon Redshift clusters.
 

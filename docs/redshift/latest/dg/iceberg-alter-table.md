@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Altering table definitions
-<a name="iceberg-alter-table"></a>
 
 `ALTER TABLE` statements are used to change table definitions, including schema, partition specs, and properties. You can use these DDL statements to manage your Iceberg tables directly through Amazon Redshift.
 
 All `ALTER TABLE` statements support using external schema references or three-part notation references for Iceberg tables. In the syntax examples below, `{{iceberg_table}}` can be any of the following:
 
-```
+```sql
 -- External schema notation:
 {{<external_schema>}}.{{<table_name>}}
 
@@ -41,7 +40,7 @@ Consider the following when using `ALTER TABLE` statements:
 
 You can upgrade an Iceberg v2 table to v3 using `ALTER TABLE SET TABLE PROPERTIES`:
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 SET TABLE PROPERTIES ('format-version' = '3');
 ```
@@ -51,7 +50,7 @@ For additional details, see [Upgrading from v2 to v3](iceberg-v3-features.md#ice
 ## ALTER TABLE RENAME COLUMN
 <a name="iceberg-alter-table-rename-column"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 RENAME [COLUMN] {{col_name}} TO {{new_name}};
 ```
@@ -64,12 +63,12 @@ RENAME [COLUMN] {{col_name}} TO {{new_name}};
 ## ALTER TABLE ADD/DROP COLUMN
 <a name="iceberg-alter-table-add-drop-column"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 ADD [COLUMN] {{col_name}} {{col_type}};
 ```
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 DROP [COLUMN] {{col_name}};
 ```
@@ -82,7 +81,7 @@ DROP [COLUMN] {{col_name}};
 
 For Iceberg v3 tables, you can specify a default value when adding a column. Existing data files return the specified default instead of NULL for the newly added column without requiring a data rewrite. Default column values are supported only for Iceberg v3 tables. Amazon Redshift returns an error if you specify a default value on an Iceberg v2 table.
 
-```
+```sql
 -- External schema notation
 ALTER TABLE my_external_schema.orders
 ADD COLUMN priority INT DEFAULT 0;
@@ -98,7 +97,7 @@ ADD COLUMN priority INT DEFAULT 0;
 
 For existing rows, the default value is filled in for the newly added column:
 
-```
+```sql
 -- Existing table with rows
 SELECT id FROM my_external_schema.orders;
 --  1
@@ -117,7 +116,7 @@ SELECT id, status FROM my_external_schema.orders;
 ## ALTER TABLE ALTER COLUMN
 <a name="iceberg-alter-table-alter-column"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
     ALTER COLUMN {{column_name}} TYPE {{updated_data_type}};
 ```
@@ -134,13 +133,13 @@ In Amazon Redshift, data types can have aliases. For example, 4-byte integers us
 
 For example, an Iceberg table is created using 4-byte integer types:
 
-```
+```sql
 CREATE TABLE {{iceberg_table}} (cint int) USING ICEBERG LOCATION 's3://{{your-bucket-name}}/prefix/';
 ```
 
 It can be widened by this `ALTER` statement:
 
-```
+```sql
 ALTER TABLE {{iceberg_table}} ALTER COLUMN cint TYPE int8;
 ```
 
@@ -150,7 +149,7 @@ Widening the type of a column that belongs to the existing partition spec is not
 
 For Iceberg v3 tables, you can set or remove a default value on an existing column:
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 ALTER COLUMN {{column_name}} SET DEFAULT {{literal_value}};
 
@@ -162,7 +161,7 @@ SET DEFAULT changes the default value of an existing column. The new default app
 
 DROP DEFAULT removes the default value that is applied to new writes, equivalent to setting the default to NULL. Data files that do not contain the column continue to return the column's initial default value.
 
-```
+```sql
 -- External schema notation
 ALTER TABLE my_external_schema.orders
 ALTER COLUMN status SET DEFAULT 'active';
@@ -185,7 +184,7 @@ ALTER COLUMN status DROP DEFAULT;
 ## ALTER TABLE SET TABLE PROPERTIES
 <a name="iceberg-alter-table-set-properties"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 SET TABLE PROPERTIES (
  'compression_type' = '{{compression_value}}');
@@ -197,7 +196,7 @@ The possible values for `compression_type` are: `brotli`, `gzip`, `snappy`, `unc
 
 You can also upgrade an existing Iceberg v2 table to v3 by setting the format version:
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 SET TABLE PROPERTIES ('format-version' = '3');
 ```
@@ -207,17 +206,17 @@ For additional details, see [Upgrading from v2 to v3](iceberg-v3-features.md#ice
 ## ALTER TABLE ADD, DROP, and REPLACE PARTITION FIELD
 <a name="iceberg-alter-table-partition-field"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
     ADD PARTITION FIELD {{column_name}} | {{transform_function}};
 ```
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
     DROP PARTITION FIELD {{column_name}} | {{transform_function}};
 ```
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
     REPLACE PARTITION FIELD {{column_name}} | {{transform_function}}
         WITH {{column_name}} | {{transform_function}};
@@ -232,31 +231,31 @@ Consider the following limitations for these statements:
 
   For example, when you have a table:
 
-  ```
+  ```sql
   CREATE TABLE {{iceberg_table}} ... PARTITIONED BY year(ship_date) USING ICEBERG ...;
   ```
 
   The following fails because `ship_date` is already part of an existing partition field:
 
-  ```
+  ```sql
   ALTER TABLE {{iceberg_table}} ADD PARTITION FIELD bucket(128, ship_date);
   ```
 + When adding a new partition field, the newly added field is always treated as the last level of partition of the table. For example:
 
-  ```
+  ```sql
   CREATE TABLE {{iceberg_table}} ... PARTITIONED BY year(ship_date) USING ICEBERG ...;
   ALTER TABLE {{iceberg_table}} ADD PARTITION FIELD bucket(256, item_id);
   ```
 
   The table partition spec is the same as:
 
-  ```
+  ```sql
   CREATE TABLE {{iceberg_table}} ... PARTITIONED BY (year(ship_date), bucket(256, item_id))
       USING ICEBERG ...;
   ```
 + When dropping a partition field, it's not limited to the last level of partition. You can drop any existing partition field. For example:
 
-  ```
+  ```sql
   CREATE TABLE {{iceberg_table}} ... PARTITIONED BY (year(ship_date), bucket(256, item_id))
       USING ICEBERG ...;
   ALTER TABLE {{iceberg_table}} DROP PARTITION FIELD year(ship_date);
@@ -265,7 +264,7 @@ Consider the following limitations for these statements:
   After this `ALTER`, the table is only partitioned by `bucket(256, item_id)`.
 + When calling `REPLACE PARTITION FIELD ... WITH ...`, the partition field to be replaced can be any field in the spec and is not limited to the last field. For example:
 
-  ```
+  ```sql
   CREATE TABLE {{iceberg_table}} ... PARTITIONED BY (year(ship_date), bucket(256, item_id))
       USING ICEBERG ...;
   ALTER TABLE {{iceberg_table}} REPLACE PARTITION FIELD year(ship_date) WITH month(ship_date);

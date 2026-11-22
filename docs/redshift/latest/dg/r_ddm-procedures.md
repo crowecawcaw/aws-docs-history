@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SQL commands for managing dynamic data masking policies
-<a name="r_ddm-procedures"></a>
 
 You can perform the following actions to create, attach, detach, and delete dynamic data masking policies:
 + To create a DDM policy, use the [CREATE MASKING POLICY](r_CREATE_MASKING_POLICY.md) command.

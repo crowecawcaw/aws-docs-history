@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # IS\_VALID\_JSON function
-<a name="IS_VALID_JSON"></a>
 
 **Note**  
 CAN\_JSON\_PARSE and its associated functions parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.  
@@ -36,7 +35,7 @@ A string or expression that evaluates to a JSON string.
 
 To create a table and insert JSON strings for testing, use the following example.
 
-```
+```sql
 CREATE TABLE test_json(id int IDENTITY(0,1), json_strings VARCHAR);
 
 -- Insert valid JSON strings --
@@ -54,7 +53,7 @@ INSERT INTO test_json(json_strings) VALUES
 
 To validate the strings in the preceding example, use the following example.
 
-```
+```sql
 SELECT id, json_strings, IS_VALID_JSON(json_strings) 
 FROM test_json
 ORDER BY id;

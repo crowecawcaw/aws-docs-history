@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LN function
-<a name="r_LN"></a>
 
 Returns the natural logarithm of the input parameter.
 
@@ -46,7 +45,7 @@ The LN function returns the same type as the input *expression*.
 
 To return the natural logarithm or base `e` logarithm of the number 2.718281828, use the following example. 
 
-```
+```sql
 SELECT LN(2.718281828);
 
 +--------------------+
@@ -62,7 +61,7 @@ The following example uses the TICKIT sample database. For more information, see
 
 To return the natural logarithm of the values in the userid column in the USERS table, use the following example. 
 
-```
+```sql
 SELECT username, LN(userid) FROM users ORDER BY userid LIMIT 10;
 
 +----------+--------------------+

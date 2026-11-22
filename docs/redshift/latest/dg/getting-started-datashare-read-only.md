@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with read-only data sharing in the console
-<a name="getting-started-datashare-read-only"></a>
 
 With Amazon Redshift, you can manage data sharing with writes using the console to control access and govern data across Amazon Redshift clusters and AWS accounts. The following sections provide step-by-step instructions on configuring and managing data sharing with writes using the Amazon Redshift console.
 

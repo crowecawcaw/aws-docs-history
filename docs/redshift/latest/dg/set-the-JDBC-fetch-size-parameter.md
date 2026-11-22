@@ -3,13 +3,16 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Setting the JDBC fetch size parameter
-<a name="set-the-JDBC-fetch-size-parameter"></a>
 
 By default, the Redshift JDBC driver uses a ring buffer to manage memory efficiently and prevent out-of-memory errors. The fetch size parameter is only applicable when the ring buffer is explicitly disabled. For more information, review the [link](https://docs.aws.amazon.com/redshift/latest/mgmt/jdbc20-configuration-options.html#jdbc20-enablefetchringbuffer-option). In this configuration, you should set the fetch size to control how many rows are retrieved in each batch.
+
+**When to Use Fetch Size?**
 
 Use the fetch size parameter when:
 + You need fine-grained control over row-based batching
 + Working with legacy applications that require traditional fetch size behavior
+
+**Setting Fetch Size**
 
 When ring buffer is disabled, the JDBC driver collects all results for a query at one time by default. Queries that return large result sets can consume excessive memory. To retrieve result sets in batches instead of all at once, set the JDBC fetch size parameter in your application.
 

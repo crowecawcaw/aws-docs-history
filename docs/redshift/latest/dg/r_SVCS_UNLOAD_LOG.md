@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_UNLOAD\_LOG
-<a name="r_SVCS_UNLOAD_LOG"></a>
 
 Use the SVCS\_UNLOAD\_LOG to get details of UNLOAD operations.
 
@@ -37,7 +36,7 @@ To get a list of the files that were written to Amazon S3 by an UNLOAD command, 
 
 The following query returns the path name for files that were created by an UNLOAD for the last query completed:
 
-```
+```sql
 select query, substring(path,0,40) as path
 from svcs_unload_log
 where query = pg_last_query_id()

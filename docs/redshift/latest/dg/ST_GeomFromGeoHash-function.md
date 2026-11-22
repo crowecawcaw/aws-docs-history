@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromGeoHash
-<a name="ST_GeomFromGeoHash-function"></a>
 
 ST\_GeomFromGeoHash constructs a geometry object from the geohash representation of an input geometry. ST\_GeomFromGeoHash returns a two-dimensional (2D) geometry with the spatial reference identifier (SRID) of zero (0). For more information about the geohash format, see [Geohash](https://en.wikipedia.org/wiki/Geohash) in Wikipedia. 
 
@@ -41,7 +40,7 @@ If *geohash\_string* is not valid, then an error is returned.
 
 The following SQL returns a polygon with high precision. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoHash('9qqj7nmxncgyy4d0dbxqz0'));
 ```
 
@@ -53,7 +52,7 @@ SELECT ST_AsText(ST_GeomFromGeoHash('9qqj7nmxncgyy4d0dbxqz0'));
 
 The following SQL returns a point with high precision. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoHash('9qqj7nmxncgyy4d0dbxqz00'));
 ```
 
@@ -65,7 +64,7 @@ SELECT ST_AsText(ST_GeomFromGeoHash('9qqj7nmxncgyy4d0dbxqz00'));
 
 The following SQL returns a polygon with low precision. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoHash('9qq'));
 ```
 
@@ -77,7 +76,7 @@ SELECT ST_AsText(ST_GeomFromGeoHash('9qq'));
 
 The following SQL returns a polygon with precision 3. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoHash('9qqj7nmxncgyy4d0dbxqz0', 3));
 ```
 

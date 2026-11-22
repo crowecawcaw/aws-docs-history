@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_S3QUERY\_SUMMARY
-<a name="r_SVCS_S3QUERY_SUMMARY"></a>
 
 Use the SVCS\_S3QUERY\_SUMMARY view to get a summary of all data lake queries that have been run on the system. One segment can perform one external table scan. 
 
@@ -62,7 +61,7 @@ For information about SVL\_S3QUERY, see [SVL\_S3QUERY](r_SVL_S3QUERY.md).
 
 The following example gets the scan step details for the last query run.
 
-```
+```sql
 select query, segment, elapsed, s3_scanned_rows, s3_scanned_bytes, s3query_returned_rows, s3query_returned_bytes, files 
 from svcs_s3query_summary 
 where query = pg_last_query_id() 

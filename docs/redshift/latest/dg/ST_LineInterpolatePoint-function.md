@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_LineInterpolatePoint
-<a name="ST_LineInterpolatePoint-function"></a>
 
 ST\_LineInterpolatePoint returns a point along a line at a fractional distance from the start of the line. 
 
@@ -45,7 +44,7 @@ If *geom* is not a linestring, then an error is returned.
 
 The following SQL returns a point halfway along a linestring.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_LineInterpolatePoint(ST_GeomFromText('LINESTRING(0 0, 5 5, 7 7, 10 10)'), 0.50));
 ```
 
@@ -57,7 +56,7 @@ st_asewkt
 
 The following SQL returns a point 90 percent of the way along a linestring.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_LineInterpolatePoint(ST_GeomFromText('LINESTRING(0 0, 5 5, 7 7, 10 10)'), 0.90));
 ```
 

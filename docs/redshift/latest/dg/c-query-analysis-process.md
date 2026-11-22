@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Query analysis workflow
-<a name="c-query-analysis-process"></a>
 
 If a query is taking longer than expected, use the following steps to identify and correct issues that might be negatively affecting the query’s performance. If you aren’t sure what queries in your system might benefit from performance tuning, start by running the diagnostic query in [Identifying queries that are top candidates for tuning](identify-queries-that-are-top-candidates-for-tuning.md).
 

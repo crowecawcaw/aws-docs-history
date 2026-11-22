@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Reviewing query plan steps
-<a name="reviewing-query-plan-steps"></a>
 
 You can see the steps in a query plan by running the EXPLAIN command. The following example shows an SQL query and explains the output. Reading the query plan from the bottom up, you can see each of the logical operations used to perform the query. For more information, see [Creating and interpreting a query plan](c-the-query-plan.md).
 

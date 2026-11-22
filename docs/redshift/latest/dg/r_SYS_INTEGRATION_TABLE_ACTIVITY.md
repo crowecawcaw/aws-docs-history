@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_INTEGRATION\_TABLE\_ACTIVITY
-<a name="r_SYS_INTEGRATION_TABLE_ACTIVITY"></a>
 
 SYS\_INTEGRATION\_TABLE\_ACTIVITY displays details of insert, delete, and update activity of zero-ETL integrations. There is one row added for each completed ingestion.
 
@@ -35,7 +34,7 @@ For more information, see [zero-ETL integrations](https://docs.aws.amazon.com/re
 
 The following SQL command displays activity of the integration. 
 
-```
+```sql
 select * from sys_integration_table_activity;
 
           integration_id              | checkpoint_name | target_database | schema_name |     table_name    | table_id     | record_time                | transaction_id  | inserted_rows  | deleted_rows | updated_rows | bytes_ingested 

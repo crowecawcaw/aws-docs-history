@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LOWER function
-<a name="r_LOWER"></a>
 
 Converts a string to lowercase. LOWER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 
@@ -33,7 +32,7 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To convert the `VARCHAR` strings in the CATNAME column to lowercase, use the following example. 
 
-```
+```sql
 SELECT catname, LOWER(catname) FROM category ORDER BY 1,2;
 
 +-----------+-----------+

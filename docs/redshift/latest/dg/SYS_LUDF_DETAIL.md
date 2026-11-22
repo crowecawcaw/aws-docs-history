@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_LUDF\_DETAIL
-<a name="SYS_LUDF_DETAIL"></a>
 
 SYS\_LUDF\_DETAIL records information and metrics for Lambda User Defined Functions (LUDFs) that were used in a particular query.
 
@@ -38,7 +37,7 @@ SYS\_LUDF\_DETAIL is visible only to superusers. For more information, see [Visi
 
 The following example uses a Lambda UDF in a query, and then shows how to query the SYS\_LUDF\_DETAIL view to see the function execution details.
 
-```
+```sql
 SET SESSION AUTHORIZATION regular_user;
 
 CREATE EXTERNAL FUNCTION exfunc_sum(INT,INT) RETURNS INT STABLE

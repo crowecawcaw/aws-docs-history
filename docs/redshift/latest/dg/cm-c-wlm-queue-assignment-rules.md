@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # WLM queue assignment rules
-<a name="cm-c-wlm-queue-assignment-rules"></a>
 
 With Amazon Redshift, you can control the allocation of memory and CPU resources to user queries by defining queue assignment rules in a workload management (WLM) configuration. The following section describes creating and managing WLM queue assignment rules to achieve efficient resource allocation and meet service-level agreements for diverse workloads in Amazon Redshift.
 

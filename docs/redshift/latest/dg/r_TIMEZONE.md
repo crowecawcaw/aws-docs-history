@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TIMEZONE function
-<a name="r_TIMEZONE"></a>
 
 TIMEZONE returns a timestamp for the specified time zone and timestamp value.
 
@@ -49,7 +48,7 @@ TIMESTAMP when used with a TIMESTAMPTZ expression.
 
 The following returns a timestamp for the UTC time zone using the timestamp `2008-06-17 09:44:54` from the PST timezone.
 
-```
+```sql
 SELECT TIMEZONE('PST', '2008-06-17 09:44:54');
 
 timezone
@@ -59,7 +58,7 @@ timezone
 
 The following returns a timestamp for the PST time zone using the timestamp with UTC time zone `2008-06-17 09:44:54+00`.
 
-```
+```sql
 SELECT TIMEZONE('PST', timestamptz('2008-06-17 09:44:54+00'));
 
 timezone

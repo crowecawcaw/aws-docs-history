@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # AWS Data Exchange datashares
-<a name="adx_datashare_overview"></a>
 
 You can use AWS Data Exchange datashares to manage billing for Amazon Redshift data sharing.
 
@@ -45,10 +44,10 @@ For *AWS Data Exchange datashares*, consider the following:
 
 Data producers (also known as providers on AWS Data Exchange) for AWS Data Exchange datashares can license data through AWS Data Exchange. Approved providers can add AWS Data Exchange datashares to AWS Data Exchange products. 
 
-When a customer subscribes to a product with AWS Data Exchange datashares, AWS Data Exchange automatically adds the customer as a data consumer on all AWS Data Exchange datashares included with the product. AWS Data Exchange also removes all customers from AWS Data Exchange datashares when their subscription ends. AWS Data Exchange also automatically manages billing, invoicing, payment collection, and payment distribution for paid products with AWS Data Exchange datashares. For more information, see [AWS Data Exchange datashares](#adx_datashare_overview). To register as an AWS Data Exchange data provider, see [Getting started as a provider](https://docs.aws.amazon.com/data-exchange/latest/userguide/provider-getting-started.html).
+When a customer subscribes to a product with AWS Data Exchange datashares, AWS Data Exchange automatically adds the customer as a data consumer on all AWS Data Exchange datashares included with the product. AWS Data Exchange also removes all customers from AWS Data Exchange datashares when their subscription ends. AWS Data Exchange also automatically manages billing, invoicing, payment collection, and payment distribution for paid products with AWS Data Exchange datashares. For more information, see [AWS Data Exchange datashares](adx_datashare_overview.md). To register as an AWS Data Exchange data provider, see [Getting started as a provider](https://docs.aws.amazon.com/data-exchange/latest/userguide/provider-getting-started.html).
 
 *Data consumers* (also known as data sharing consumers or datashare consumers) are clusters that receive datashares from producer clusters. 
 
 Amazon Redshift clusters that share data can be in the same or different AWS accounts or different AWS Regions, so you can share data across organizations and collaborate with other parties. consumer administrators receive the datashares that they are granted usage for and review the contents of each datashare. To consume shared data, the consumer administrator creates an Amazon Redshift database from the datashare. The administrator then assigns permissions for the database to users and roles in the consumer cluster. After permissions are granted, users and roles can list the shared objects as part of the standard metadata queries, along with the local data on the consumer cluster. They can start querying immediately.
 
-If you are a *consumer with an active AWS Data Exchange subscription* (also known as subscribers on AWS Data Exchange), you can find, subscribe to, and query granular, up-to-date data in Amazon Redshift without the need to extract, transform, and load the data. For more information, see [AWS Data Exchange datashares](#adx_datashare_overview).
+If you are a *consumer with an active AWS Data Exchange subscription* (also known as subscribers on AWS Data Exchange), you can find, subscribe to, and query granular, up-to-date data in Amazon Redshift without the need to extract, transform, and load the data. For more information, see [AWS Data Exchange datashares](adx_datashare_overview.md).

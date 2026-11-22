@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started using federated queries to PostgreSQL with AWS CloudFormation
-<a name="getting-started-federated-CF"></a>
 
 You can use federated queries to query across operational databases. In this getting-started guide, you can automate setup by using a sample AWS CloudFormation stack to enable a federated query from an Amazon Redshift cluster to an Aurora PostgreSQL serverless database. You can get up and running quickly without having to run SQL statements to provision your resources.
 

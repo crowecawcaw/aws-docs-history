@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CAN\_JSON\_PARSE function
-<a name="CAN_JSON_PARSE"></a>
 
 The CAN\_JSON\_PARSE function parses data in JSON format and returns `true` if the result can be converted to a `SUPER` value using the JSON\_PARSE function.
 
@@ -37,7 +36,7 @@ A VARBYTE type binary value.
 
  The following example shows CAN\_JSON\_PARSE running on a properly formed JSON array using a CASE condition. It returns true, so Amazon Redshift runs the JSON\_PARSE function on the example value. 
 
-```
+```SQL
 SELECT CASE 
             WHEN CAN_JSON_PARSE('[10001,10002,"abc"]')
             THEN JSON_PARSE('[10001,10002,"abc"]')
@@ -50,7 +49,7 @@ SELECT CASE
 
  The following example shows CAN\_JSON\_PARSE running on a value that isn’t JSON format using a CASE condition. It returns false, so Amazon Redshift returns the segment in the ELSE clause of the CASE condition instead. 
 
-```
+```SQL
 SELECT CASE 
             WHEN CAN_JSON_PARSE('This is a string.')
             THEN JSON_PARSE('This is a string.')

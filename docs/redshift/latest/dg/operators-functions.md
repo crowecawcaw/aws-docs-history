@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Operators and functions
-<a name="operators-functions"></a>
 
 With Amazon Redshift, you can perform advanced analytics on large datasets using SUPER data using operators and functions. Operators and functions for SUPER data are SQL constructs that enable complex analysis and manipulation of semi-structured data stored in Amazon Redshift tables. 
 
@@ -184,7 +183,7 @@ When you set the `enable_large_strings_opt_in` parameter to `Yes`, [String funct
 
 The following example uses SUBSTRING to extract the preview of a string with size 5,000,000 bytes stored in a SUPER JSON object
 
-```
+```SQL
 CREATE TABLE customer_data (
    customer_id INT,
    profile SUPER
@@ -208,7 +207,7 @@ FROM customer_data;
 
 The following example demonstrates LEFT, RIGHT, and CONCAT functions on string literals from a SUPER array:
 
-```
+```SQL
 CREATE TABLE documents (
    doc_id INT,
    chapters SUPER
@@ -233,7 +232,7 @@ FROM documents;
 
 The following example stores standalone string in SUPER:
 
-```
+```SQL
 CREATE TABLE text_storage (
    text_id INT,
    content SUPER

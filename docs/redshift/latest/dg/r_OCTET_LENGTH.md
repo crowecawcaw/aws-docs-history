@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # OCTET\_LENGTH function
-<a name="r_OCTET_LENGTH"></a>
 
 Returns the length of the specified string as the number of bytes. 
 
@@ -39,7 +38,7 @@ If *expression* is a `VARCHAR` string, trailing spaces are counted.
 
 To return the number of bytes when the string `francais` with three trailing spaces is cast to a `CHAR` and a `VARCHAR` type, use the following example. For more information, see the [CAST function](r_CAST_function.md).
 
-```
+```sql
 SELECT OCTET_LENGTH(CAST('francais   ' AS CHAR(15))) AS octet_length_char, OCTET_LENGTH(CAST('francais   ' AS VARCHAR(15))) AS octet_length_varchar;
 
 +-------------------+----------------------+
@@ -51,7 +50,7 @@ SELECT OCTET_LENGTH(CAST('francais   ' AS CHAR(15))) AS octet_length_char, OCTET
 
 To return the number of bytes and the number of characters in the string `français`, use the following example.
 
-```
+```sql
 SELECT OCTET_LENGTH('français'), LEN('français');
 
 +--------------+-----+
@@ -63,7 +62,7 @@ SELECT OCTET_LENGTH('français'), LEN('français');
 
 To return the number of bytes when the string `français` is cast as a `VARBYTE`, use the following example.
 
-```
+```sql
 SELECT OCTET_LENGTH(CAST('français' AS VARBYTE));
 
 +--------------+

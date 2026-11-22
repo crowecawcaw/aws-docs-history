@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying spatial data in Amazon Redshift
-<a name="geospatial-overview"></a>
 
 *Spatial data* describes the position and shape of a geometry in a defined space (a spatial reference system). Amazon Redshift supports spatial data with the `GEOMETRY` and `GEOGRAPHY` data types, which contain spatial data and optionally the data's spatial reference system identifier (SRID). 
 
@@ -15,7 +14,7 @@ The `GEOMETRY` data type operations work on the Cartesian plane. Although the sp
 
 You can use the ST\_Transform function to transform the coordinates from various spatial reference systems. After the transformation of the coordinates is done, you can also use a simple cast between the two, as long as the input `GEOMETRY` is encoded with the geographic SRID. This cast simply copies coordinates without any further transformation. For example:
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeomFromEWKT('SRID=4326;POINT(10 20)')::geography);
 ```
 
@@ -70,7 +69,7 @@ You can cast between `GEOMETRY` and `GEOGRAPHY` data types.
 
 The following SQL casts a linestring from a `GEOMETRY` to a `GEOGRAPHY`. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeomFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)')::geography);
 ```
 
@@ -82,7 +81,7 @@ SELECT ST_AsEWKT(ST_GeomFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)')::geogr
 
 The following SQL casts a linestring from a `GEOGRAPHY` to a `GEOMETRY`. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeogFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)')::geometry);
 ```
 

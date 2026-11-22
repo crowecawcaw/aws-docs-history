@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ROUND function
-<a name="r_ROUND"></a>
 
 The ROUND function rounds numbers to the nearest integer or decimal. 
 
@@ -39,7 +38,7 @@ The following examples use the TICKIT sample database. For more information, see
 
 To round the commission paid for a given transaction to the nearest whole number, use the following example. 
 
-```
+```sql
 SELECT commission, ROUND(commission)
 FROM sales WHERE salesid=10000;
 
@@ -52,7 +51,7 @@ FROM sales WHERE salesid=10000;
 
 To round the commission paid for a given transaction to the first decimal place, use the following example. 
 
-```
+```sql
 SELECT commission, ROUND(commission, 1)
 FROM sales WHERE salesid=10000;
 
@@ -65,7 +64,7 @@ FROM sales WHERE salesid=10000;
 
 To extend the precision in the opposite direction as the previous example, use the following example. 
 
-```
+```sql
 SELECT commission, ROUND(commission, -1)
 FROM sales WHERE salesid=10000;
 

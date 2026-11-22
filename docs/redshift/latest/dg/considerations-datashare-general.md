@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # General considerations for data sharing in Amazon Redshift
-<a name="considerations-datashare-general"></a>
 
 The following are general considerations when working with datashares in Amazon Redshift:
 + *Default database* – When you read data from a datashare, you remain connected to your local cluster database. For more information about setting up and reading from a database created from a datashare, see [Querying datashare objects](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-datashare-using.html#query-editor-v2-datashare-consumer) and [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md).

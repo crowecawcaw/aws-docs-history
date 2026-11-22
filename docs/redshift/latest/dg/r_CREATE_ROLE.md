@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE ROLE
-<a name="r_CREATE_ROLE"></a>
 
 Creates a new custom role that is a collection of permissions. For a list of Amazon Redshift system-defined roles, see [Amazon Redshift system-defined roles](r_roles-default.md). Query [SVV\_ROLES](r_SVV_ROLES.md) to view the currently created roles in your cluster or workgroup.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REPLACE function
-<a name="r_REPLACE"></a>
 
 Replaces all occurrences of a set of characters within an existing string with other specified characters. 
 
@@ -41,7 +40,7 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To convert the string `Shows` to `Theatre` in the CATGROUP field, use the following example. 
 
-```
+```sql
 SELECT catid, catgroup, REPLACE(catgroup, 'Shows', 'Theatre')
 FROM category
 ORDER BY 1,2,3;

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Introduction to Amazon Redshift
-<a name="welcome"></a>
 
 Welcome to the *Amazon Redshift Database Developer Guide*. This guide focuses on helping you understand how to use Amazon Redshift to create and manage a data warehouse. If you work with databases as a designer, software developer, or administrator, this guide gives you the information you need to design, build, query, and maintain your data warehouse.
 

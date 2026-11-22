@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Considerations when using dynamic data masking
-<a name="t_ddm-considerations"></a>
 
 When using dynamic data masking, consider the following: 
 +  When querying objects created from tables, such as views, users will see results based on their own masking policies, not the policies of the user who created the objects. For example, a user with the analyst role querying a view created by a secadmin would see results with masking policies attached to the analyst role. 

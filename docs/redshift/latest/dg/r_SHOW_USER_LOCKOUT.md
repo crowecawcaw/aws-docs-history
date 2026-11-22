@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW USER LOCKOUT
-<a name="r_SHOW_USER_LOCKOUT"></a>
 
 Use SHOW USER LOCKOUT to audit which users are currently locked, determine whether each lockout was automatic or manual, and review recent failed-login activity before you unlock a user. Federated users aren't included. This command is available only to superusers. For more information, see [max\_failed\_login\_attempts](max_failed_login_attempts.md).
 

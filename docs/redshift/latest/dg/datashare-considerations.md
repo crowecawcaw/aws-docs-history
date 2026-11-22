@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Considerations for data sharing in Amazon Redshift
-<a name="datashare-considerations"></a>
 
 With Amazon Redshift *data sharing*, you can securely share access to live data across Amazon Redshift clusters, workgroups, AWS accounts, and AWS Regions without manually moving or copying the data. Previously, objects in datashares were read only in all circumstances. Writing to an object in a datashare is a new feature. Objects in datashares are only write-enabled when a producer specifically grants write privileges like INSERT or CREATE on objects to the datashare. Additionally, for cross-account sharing, a producer has to authorize the datashare for writes and the consumer has to associate specific clusters and workgroups for writes.
 

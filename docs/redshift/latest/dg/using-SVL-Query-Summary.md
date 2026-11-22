@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using the SVL\_QUERY\_SUMMARY view
-<a name="using-SVL-Query-Summary"></a>
 
 To analyze query summary information by stream using [SVL\_QUERY\_SUMMARY](r_SVL_QUERY_SUMMARY.md), do the following:
 

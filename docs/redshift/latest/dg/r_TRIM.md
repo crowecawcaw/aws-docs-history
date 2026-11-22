@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRIM function
-<a name="r_TRIM"></a>
 
 Trims a string by blanks or specified characters.
 
@@ -36,7 +35,7 @@ The TRIM function returns a `VARCHAR` or `CHAR` string. If you use the TRIM func
 
 To trim both leading and trailing blanks from the string ` dog `, use the following example. 
 
-```
+```sql
 SELECT TRIM('    dog    ');
 
 +-------+
@@ -48,7 +47,7 @@ SELECT TRIM('    dog    ');
 
 To trim both leading and trailing blanks from the string ` dog `, use the following example. 
 
-```
+```sql
 SELECT TRIM(BOTH FROM '    dog    ');
 
 +-------+
@@ -60,7 +59,7 @@ SELECT TRIM(BOTH FROM '    dog    ');
 
 To remove the leading double quotation marks from the string `"dog"`, use the following example.
 
-```
+```sql
 SELECT TRIM(LEADING '"' FROM'"dog"');
 
 +-------+
@@ -72,7 +71,7 @@ SELECT TRIM(LEADING '"' FROM'"dog"');
 
 To remove the trailing double quotation marks from the string `"dog"`, use the following example. 
 
-```
+```sql
 SELECT TRIM(TRAILING '"' FROM'"dog"');
 
 +-------+
@@ -84,7 +83,7 @@ SELECT TRIM(TRAILING '"' FROM'"dog"');
 
 TRIM removes any of the characters in *trim\_chars* when they appear at the beginning or end of *string*. The following example trims the characters 'C', 'D', and 'G' when they appear at the beginning or end of VENUENAME, which is a `VARCHAR` column. For more information, see [Sample database](c_sampledb.md).
 
-```
+```sql
 SELECT venueid, venuename, TRIM('CDG' FROM venuename)
 FROM venue
 WHERE venuename LIKE '%Park'

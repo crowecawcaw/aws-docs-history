@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # VAR\_SAMP and VAR\_POP functions
-<a name="r_VARIANCE_functions"></a>
 
  The VAR\_SAMP and VAR\_POP functions return the sample and population variance of a set of numeric values (integer, decimal, or floating-point). The result of the VAR\_SAMP function is equivalent to the squared sample standard deviation of the same set of values. 
 

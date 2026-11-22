@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromText
-<a name="ST_GeomFromText-function"></a>
 
 ST\_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry. 
 
@@ -52,7 +51,7 @@ If *srid* is not valid, then an error is returned.
 
 The following SQL constructs a geometry object from the WKT representation and SRID value. 
 
-```
+```sql
 SELECT ST_GeomFromText('POLYGON((0 0,0 1,1 1,1 0,0 0))',4326);
 ```
 

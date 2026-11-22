@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Working with AWS Data Exchange datashares as a producer
-<a name="adx-getting-started-producer"></a>
 
 With Amazon Redshift, you can share live data products with AWS Data Exchange as a producer by creating and managing datashares. 
 
@@ -66,7 +65,7 @@ With Amazon Redshift, you can share live data products with AWS Data Exchange as
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

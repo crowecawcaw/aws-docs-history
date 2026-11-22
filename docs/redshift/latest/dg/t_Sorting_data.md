@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sort keys
-<a name="t_Sorting_data"></a>
 
 **Note**  
 We recommend that you create your tables with `SORTKEY AUTO`. If you do so, then Amazon Redshift uses automatic table optimization to choose the sort key. For more information, see [Automatic table optimization](t_Creating_tables.md). The rest of this section provides details about the sort order. 

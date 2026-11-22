@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MERGE
-<a name="r_MERGE"></a>
 
 Conditionally merges rows from a source table into a target table. Traditionally, this can only be achieved by using multiple insert, update or delete statements separately. For more information on the operations that you can combine with MERGE, see [UPDATE](https://docs.aws.amazon.com/redshift/latest/dg/r_UPDATE.html), [DELETE](https://docs.aws.amazon.com/redshift/latest/dg/r_DELETE.html), and [INSERT](https://docs.aws.amazon.com/redshift/latest/dg/r_INSERT_30.html).
 
@@ -125,9 +124,9 @@ Using REMOVE DUPLICATES gives better performance than using WHEN MATCHED and WHE
   WHEN MATCHED THEN UPDATE SET id = my_source.id, name = my_source.name
   WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
   ```
-+ The target cannot be a data source of any subquery of the same MERGE statement. For example, the following SQL command returns an error like ERROR: Source view/subquery in Merge statement cannot reference target table. because the subquery references `target` instead of `source`.
++ The target cannot be a data source of any subquery of the same MERGE statement. For example, the following SQL command returns an error like `ERROR: Source view/subquery in Merge statement cannot reference target table.` because the subquery references `target` instead of `source`.
 
-  ```
+  ```sql
   MERGE INTO target
   USING (SELECT id, name FROM {{target}} GROUP BY 1, 2) as my_source
   ON target.id = my_source.id

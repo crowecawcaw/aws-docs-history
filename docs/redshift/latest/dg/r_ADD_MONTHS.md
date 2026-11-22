@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ADD\_MONTHS function
-<a name="r_ADD_MONTHS"></a>
 
 ADD\_MONTHS adds the specified number of months to a date or timestamp value or expression. The [DATEADD](r_DATEADD_function.md) function provides similar functionality. 
 
@@ -33,7 +32,7 @@ TIMESTAMP
 
 The following query uses the ADD\_MONTHS function inside a TRUNC function. The TRUNC function removes the time of day from the result of ADD\_MONTHS. The ADD\_MONTHS function adds 12 months to each value from the CALDATE column. The values in the CALDATE column are dates. 
 
-```
+```sql
 select distinct trunc(add_months(caldate, 12)) as calplus12,
 trunc(caldate) as cal
 from date
@@ -50,7 +49,7 @@ order by 1 asc;
 
 The following example uses the ADD\_MONTHS function to add 1 month to a *timestamp*. 
 
-```
+```sql
 select add_months('2008-01-01 05:07:30', 1); 
 
 add_months
@@ -60,7 +59,7 @@ add_months
 
 The following examples demonstrate the behavior when the ADD\_MONTHS function operates on dates with months that have different numbers of days. This example shows how the function handles adding 1 month to March 31 and adding 1 month to April 30. April has 30 days, so adding 1 month to March 31 results in April 30. May has 31 days, so adding 1 month to April 30 results in May 31. 
 
-```
+```sql
 select add_months('2008-03-31',1);
 
 add_months

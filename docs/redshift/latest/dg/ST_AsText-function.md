@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_AsText
-<a name="ST_AsText-function"></a>
 
 ST\_AsText returns the well-known text (WKT) representation of an input geometry or geography. For 3DZ, 3DM, and 4D geometries or geographies, ST\_AsEWKT appends Z, M, or ZM to the WKT value for the geometry or geography type.
 
@@ -43,7 +42,7 @@ If the result is larger than a 64-KB `VARCHAR`, then an error is returned.
 
 The following SQL returns the WKT representation of a linestring. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromText('LINESTRING(3.141592653589793 -6.283185307179586,2.718281828459045 -1.414213562373095)', 4326));
 ```
 
@@ -55,7 +54,7 @@ LINESTRING(3.14159265358979 -6.28318530717959,2.71828182845905 -1.41421356237309
 
 The following SQL returns the WKT representation of a linestring. The coordinates of the geometries are displayed with six digits of precision. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromText('LINESTRING(3.141592653589793 -6.283185307179586,2.718281828459045 -1.414213562373095)', 4326), 6);
 ```
 
@@ -67,7 +66,7 @@ st_astext
 
 The following SQL returns the WKT representation of a geography. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeogFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)'));
 ```
 

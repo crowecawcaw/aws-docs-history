@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # INSERT examples
-<a name="c_Examples_of_INSERT_30"></a>
 
 The CATEGORY table in the TICKIT database contains the following rows: 
 
@@ -134,13 +133,13 @@ The following example shows an insert into a temporary table populated with data
 
 First, create the temporary table `#venuetemp`.
 
-```
+```sql
 CREATE TABLE #venuetemp AS SELECT * FROM venue;
 ```
 
 List the rows in the `#venuetemp` table.
 
-```
+```sql
 SELECT * FROM #venuetemp ORDER BY venueid;
          
 venueid | venuename                | venuecity  | venuestate| venueseats
@@ -155,13 +154,13 @@ venueid | venuename                | venuecity  | venuestate| venueseats
 
 Insert 10 duplicate rows in the `#venuetemp` table using the `WITH SELECT` clause.
 
-```
+```sql
 INSERT INTO #venuetemp (WITH venuecopy AS (SELECT * FROM venue) SELECT * FROM venuecopy ORDER BY 1 LIMIT 10);
 ```
 
 List the rows in the `#venuetemp` table.
 
-```
+```sql
 SELECT * FROM #venuetemp ORDER BY venueid;
          
 venueid | venuename                | venuecity  | venuestate| venueseats

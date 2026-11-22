@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Overview of stored procedures in Amazon Redshift
-<a name="stored-procedure-create"></a>
 
 This topic describes details about the purpose and use of stored procedures.
 
@@ -50,7 +49,7 @@ You can use a client with support for parsing CREATE PROCEDURE statements, such 
 
 The following example shows a procedure with no output arguments. By default, arguments are input (IN) arguments.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE test_sp1(f1 int, f2 varchar)
 AS $$
 BEGIN

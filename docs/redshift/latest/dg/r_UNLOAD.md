@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # UNLOAD
-<a name="r_UNLOAD"></a>
 
 
 |  | 
@@ -239,14 +238,14 @@ You might encounter loss of precision for floating-point data that is successive
 
 The SELECT query can't use a LIMIT clause in the outer SELECT. For example, the following UNLOAD statement fails.
 
-```
+```sql
 unload ('select * from venue limit 10')
 to 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
 ```
 
 Instead, use a nested LIMIT clause, as in the following example.
 
-```
+```sql
 unload ('select * from venue where venueid in
 (select venueid from venue order by venueid desc limit 10)')
 to 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
@@ -266,7 +265,7 @@ You can only unload HLLSKETCH columns to text or CSV format. You can't unload HL
 
 The following example exports a table containing HLLSKETCH columns into a file.
 
-```
+```sql
 CREATE TABLE a_table(an_int INT, b_int INT);
 INSERT INTO a_table VALUES (1,1), (2,1), (3,1), (4,1), (1,2), (2,2), (3,2), (4,2), (5,2), (6,2);
 

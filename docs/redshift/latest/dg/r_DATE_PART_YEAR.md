@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DATE\_PART\_YEAR function
-<a name="r_DATE_PART_YEAR"></a>
 
 The DATE\_PART\_YEAR function extracts the year from a date. 
 
@@ -30,7 +29,7 @@ INTEGER
 
 The following example finds the year from a date literal. 
 
-```
+```sql
 SELECT DATE_PART_YEAR(date '20220502 04:05:06.789');
 
 date_part_year
@@ -40,7 +39,7 @@ date_part_year
 
 The following example extracts the year from the CALDATE column. The values in the CALDATE column are dates. For more information about the data used in this example, see [Sample database](c_sampledb.md).
 
-```
+```sql
 select caldate, date_part_year(caldate)
 from date
 order by

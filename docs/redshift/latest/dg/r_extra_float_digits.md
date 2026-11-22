@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # extra\_float\_digits
-<a name="r_extra_float_digits"></a>
 
 ## Values (default in bold)
 <a name="r_extra_float_digits-values"></a>
@@ -20,7 +19,7 @@ Sets the number of digits displayed for floating-point values, including float4 
 
 The following example sets `extra_float_digits` to `-2`. First, show the current parameter setting.
 
-```
+```sql
 show all;
       name                      | setting      
 --------------------------+----------------
@@ -36,13 +35,13 @@ wlm_query_slot_count      | 1
 
 Then, set the new value to `-2`.
 
-```
+```sql
 set extra_float_digits to -2;
 ```
 
 Finally show the updated parameter setting.
 
-```
+```sql
 show all;
       name                      | setting      
 --------------------------+----------------

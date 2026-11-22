@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # GETDATE function
-<a name="r_GETDATE"></a>
 
 GETDATE returns the current date and time in the current session time zone (UTC by default). It returns the start date or time of the current statement, even when it is within a transaction block.
 
@@ -26,7 +25,7 @@ TIMESTAMP
 
 The following example uses the GETDATE function to return the full timestamp for the current date. 
 
-```
+```sql
 select getdate();
 
 timestamp
@@ -36,7 +35,7 @@ timestamp
 
 The following example uses the GETDATE function inside the TRUNC function to return the current date without the time.
 
-```
+```sql
 select trunc(getdate());
 
 trunc

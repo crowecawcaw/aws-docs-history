@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TIMESTAMP\_CMP function
-<a name="r_TIMESTAMP_CMP"></a>
 
 Compares the value of two timestamps and returns an integer. If the timestamps are identical, the function returns `0`. If the first timestamp is greater, the function returns `1`. If the second timestamp is greater, the function returns `-1`.
 
@@ -33,7 +32,7 @@ INTEGER
 
 The following example compares timestamps and shows the results of the comparison.
 
-```
+```sql
 SELECT TIMESTAMP_CMP('2008-01-24 06:43:29', '2008-01-24 06:43:29'), TIMESTAMP_CMP('2008-01-24 06:43:29', '2008-02-18 02:36:48'), TIMESTAMP_CMP('2008-02-18 02:36:48', '2008-01-24 06:43:29');
 
 timestamp_cmp  | timestamp_cmp | timestamp_cmp 
@@ -43,7 +42,7 @@ timestamp_cmp  | timestamp_cmp | timestamp_cmp
 
 The following example compares the LISTTIME and SALETIME for a listing. The value for TIMESTAMP\_CMP is `-1` for all listings because the timestamp for the sale is after the timestamp for the listing.
 
-```
+```sql
 select listing.listid, listing.listtime,
 sales.saletime, timestamp_cmp(listing.listtime, sales.saletime)
 from listing, sales
@@ -68,7 +67,7 @@ limit 10;
 
 This example shows that TIMESTAMP\_CMP returns a 0 for identical timestamps: 
 
-```
+```sql
 select listid, timestamp_cmp(listtime, listtime)
 from listing
 order by 1 , 2

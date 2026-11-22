@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Intersects
-<a name="ST_Intersects-function"></a>
 
 ST\_Intersects returns true if the 2D projections of the two input geometries have at least one point in common. 
 
@@ -39,7 +38,7 @@ If *geom1* or *geom2* is a geometry collection, then an error is returned.
 
 The following SQL checks if the first polygon intersects the second polygon. 
 
-```
+```sql
 SELECT ST_Intersects(ST_GeomFromText('POLYGON((0 0,10 0,10 10,0 10,0 0),(2 2,2 5,5 5,5 2,2 2))'), ST_GeomFromText('MULTIPOINT((4 4),(6 6))'));
 ```
 

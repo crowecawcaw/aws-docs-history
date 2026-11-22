@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Removing association of a datashare from data consumers in a different AWS account in Amazon Redshift
-<a name="writes-disassociating-datashare"></a>
 
 With Amazon Redshift, you can remove association from datashares shared by other AWS accounts. Datashares are shareable database objects that encapsulate data from one or more Redshift databases. The following sections demonstrate the process of disassociating datashares within your Redshift environment.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorial: Building XGBoost models
-<a name="tutorial_xgboost"></a>
 
 In this tutorial, you create a model with data from Amazon S3 and run prediction queries with the model using Amazon Redshift ML. The XGBoost algorithm is an optimized implementation of the gradient boosted trees algorithm. XGBoost handles more data types, relationships, and distributions than other gradient boosted trees algorithms. You can use XGBoost for regression, binary classification, multi-class classification, and ranking problems. For more information about the XGBoost algorithm, see [XGBoost algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html) in the Amazon SageMaker AI Developer Guide.
 

@@ -3,13 +3,12 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Verifying that the data loaded correctly
-<a name="verifying-that-data-loaded-correctly"></a>
 
 After the load operation is complete, query the [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md) system table to verify that the expected files were loaded. Run the COPY command and load verification within the same transaction so that if there is problem with the load you can roll back the entire transaction.
 
 The following query returns entries for loading the tables in the TICKIT database:
 
-```
+```sql
 SELECT query, trim(filename) AS filename, curtime, status
 FROM stl_load_commits
 WHERE filename like '%tickit%' order by query;

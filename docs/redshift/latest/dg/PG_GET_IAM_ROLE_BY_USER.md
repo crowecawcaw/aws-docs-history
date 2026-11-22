@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_GET\_IAM\_ROLE\_BY\_USER
-<a name="PG_GET_IAM_ROLE_BY_USER"></a>
 
 Returns all IAM roles and command privileges granted to a user.
 
@@ -39,7 +38,7 @@ You must be a superuser to use this function.
 
 The following example indicates that user `reg_user1` can specify any available IAM role to perform COPY operations. The user can also specify the `Redshift-S3-Write` role for UNLOAD operations.
 
-```
+```sql
 select pg_get_iam_role_by_user('reg_user1');
 ```
 
@@ -52,7 +51,7 @@ select pg_get_iam_role_by_user('reg_user1');
 
 The following example of the PG\_GET\_IAM\_ROLE\_BY\_USER function formats the result as a table.
 
-```
+```sql
 select username, iam_role, cmd FROM pg_get_iam_role_by_user('reg_user1') res_iam_role(username text, iam_role text, cmd text);
 ```
 

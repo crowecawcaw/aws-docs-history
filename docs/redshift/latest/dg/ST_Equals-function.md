@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Equals
-<a name="ST_Equals-function"></a>
 
 ST\_Equals returns true if the 2D projections of the input geometries are geometrically equal. Geometries are considered geometrically equal if they have equal point sets and their interiors have a nonempty intersection. 
 
@@ -39,7 +38,7 @@ If *geom1* or *geom2* is a geometry collection, then an error is returned.
 
 The following SQL checks if the two polygons are geometrically equal. 
 
-```
+```sql
 SELECT ST_Equals(ST_GeomFromText('POLYGON((0 2,1 1,0 -1,0 2))'), ST_GeomFromText('POLYGON((-1 3,2 1,0 -3,-1 3))'));
 ```
 
@@ -51,7 +50,7 @@ st_equals
 
 The following SQL checks if the two linestrings are geometrically equal. 
 
-```
+```sql
 SELECT ST_Equals(ST_GeomFromText('LINESTRING(1 0,10 0)'), ST_GeomFromText('LINESTRING(1 0,5 0,10 0)'));
 ```
 

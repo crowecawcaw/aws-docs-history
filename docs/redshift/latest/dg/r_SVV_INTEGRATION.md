@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_INTEGRATION
-<a name="r_SVV_INTEGRATION"></a>
 
 SVV\_INTEGRATION displays details about the configuration of integrations.
 
@@ -39,7 +38,7 @@ For information about zero-ETL integrations, see [Zero-ETL integrations](https:/
 
 The following SQL command displays the currently defined integrations. 
 
-```
+```sql
 select * from svv_integration;
 
            integration_id              | target_database | source |      state      | current_lag |      last_replicated_checkpoint     | total_tables_replicated | total_tables_failed |       creation_time       |  refresh_interval  | source_database | is_history_mode

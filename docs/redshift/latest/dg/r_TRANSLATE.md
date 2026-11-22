@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRANSLATE function
-<a name="r_TRANSLATE"></a>
 
 For a given expression, replaces all occurrences of specified characters with specified substitutes. Existing characters are mapped to replacement characters by their positions in the *characters\_to\_replace* and *characters\_to\_substitute* arguments. If more characters are specified in the *characters\_to\_replace* argument than in the *characters\_to\_substitute* argument, the extra characters from the *characters\_to\_replace* argument are omitted in the return value.
 
@@ -40,7 +39,7 @@ VARCHAR
 
 To replace several characters in a string, use the following example. 
 
-```
+```sql
 SELECT TRANSLATE('mint tea', 'inea', 'osin');
 
 +-----------+
@@ -54,7 +53,7 @@ The following examples use data from the USERS table in the TICKIT sample databa
 
 To replace the at sign (@) with a period for all values in a column, use the following example. 
 
-```
+```sql
 SELECT email, TRANSLATE(email, '@', '.') as obfuscated_email
 FROM users LIMIT 10;
 
@@ -76,7 +75,7 @@ FROM users LIMIT 10;
 
  To replace spaces with underscores and strips out periods for all values in a column, use the following example. 
 
-```
+```sql
 SELECT city, TRANSLATE(city, ' .', '_') 
 FROM users
 WHERE city LIKE 'Sain%' OR city LIKE 'St%'

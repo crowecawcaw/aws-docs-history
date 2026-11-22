@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # UPPER function
-<a name="r_UPPER"></a>
 
 Converts a string to uppercase. UPPER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 
@@ -32,7 +31,7 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To convert the CATNAME field to uppercase, use the following. 
 
-```
+```sql
 SELECT catname, UPPER(catname) 
 FROM category 
 ORDER BY 1,2;

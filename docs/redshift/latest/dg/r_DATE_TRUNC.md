@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DATE\_TRUNC function
-<a name="r_DATE_TRUNC"></a>
 
 The DATE\_TRUNC function truncates a timestamp expression or literal based on the date part that you specify, such as hour, day, or month. 
 
@@ -47,7 +46,7 @@ TIMESTAMP
 
 Truncate the input timestamp to the second.
 
-```
+```sql
 SELECT DATE_TRUNC('second', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-30 04:05:06
@@ -55,7 +54,7 @@ date_trunc
 
 Truncate the input timestamp to the minute.
 
-```
+```sql
 SELECT DATE_TRUNC('minute', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-30 04:05:00
@@ -63,7 +62,7 @@ date_trunc
 
 Truncate the input timestamp to the hour.
 
-```
+```sql
 SELECT DATE_TRUNC('hour', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-30 04:00:00
@@ -71,7 +70,7 @@ date_trunc
 
 Truncate the input timestamp to the day.
 
-```
+```sql
 SELECT DATE_TRUNC('day', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-30 00:00:00
@@ -79,7 +78,7 @@ date_trunc
 
 Truncate the input timestamp to the first day of a month.
 
-```
+```sql
 SELECT DATE_TRUNC('month', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-01 00:00:00
@@ -87,7 +86,7 @@ date_trunc
 
 Truncate the input timestamp to the first day of a quarter.
 
-```
+```sql
 SELECT DATE_TRUNC('quarter', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-04-01 00:00:00
@@ -95,7 +94,7 @@ date_trunc
 
 Truncate the input timestamp to the first day of a year.
 
-```
+```sql
 SELECT DATE_TRUNC('year', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2020-01-01 00:00:00
@@ -103,7 +102,7 @@ date_trunc
 
 Truncate the input timestamp to the first day of a century.
 
-```
+```sql
 SELECT DATE_TRUNC('millennium', TIMESTAMP '20200430 04:05:06.789');
 date_trunc
 2001-01-01 00:00:00
@@ -111,7 +110,7 @@ date_trunc
 
 Truncate the input timestamp to the Monday of a week.
 
-```
+```sql
 select date_trunc('week', TIMESTAMP '20220430 04:05:06.789');
 date_trunc
 2022-04-25 00:00:00
@@ -119,7 +118,7 @@ date_trunc
 
 In the following example, the DATE\_TRUNC function uses the 'week' date part to return the date for the Monday of each week. 
 
-```
+```sql
 select date_trunc('week', saletime), sum(pricepaid) from sales where
 saletime like '2008-09%' group by date_trunc('week', saletime) order by 1;
 

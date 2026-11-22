@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Deregistering Amazon Redshift clusters and namespaces from the AWS Glue Data Catalog
-<a name="iceberg-integration-deregister"></a>
 
 You can deregister a provisioned cluster or serverless namespace from the AWS Glue Data Catalog using the Amazon Redshift console or the AWS CLI. Data warehouses that you deregister from the AWS Glue Data Catalog are only removed from the AWS Glue Data Catalog itself. The warehouses remain part of your Amazon Redshift account. Additionally, the catalog remains in AWS Glue and must be manually removed. When you remove the catalog from AWS Glue, the managed workgroup associated with it is also removed.
 

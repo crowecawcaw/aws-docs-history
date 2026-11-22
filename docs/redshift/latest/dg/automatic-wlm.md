@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Implementing automatic WLM
-<a name="automatic-wlm"></a>
 
 With automatic workload management (WLM), Amazon Redshift manages query concurrency and memory allocation. You can create up to eight queues with the service class identifiers 100–107. Each queue has a priority. For more information, see [Query priority](query-priority.md). 
 

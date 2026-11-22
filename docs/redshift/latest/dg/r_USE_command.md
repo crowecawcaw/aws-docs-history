@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # USE
-<a name="r_USE_command"></a>
 
 Changes the database on which queries run. SHOW USE points to the database that most recently is used with the USE command. RESET USE resets the used database. This means that if the database is not specified in the SQL, the objects are searched in the current database.
 

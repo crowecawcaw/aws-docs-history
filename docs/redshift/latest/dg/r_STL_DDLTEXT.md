@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_DDLTEXT
-<a name="r_STL_DDLTEXT"></a>
 
 Captures the following DDL statements that were run on the system.
 
@@ -64,7 +63,7 @@ The following is sample output that shows four CREATE TABLE statements. The DDL 
 
 The following SQL lists rows stored in the `text` column of STL\_DDLTEXT. The rows are ordered by `xid` and `sequence`. If the original SQL was longer than 200 characters multiple rows, STL\_DDLTEXT can contain multiple rows by `sequence`. 
 
-```
+```sql
 SELECT xid, sequence, LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') WITHIN GROUP (ORDER BY sequence) as query_statement 
 FROM stl_ddltext GROUP BY xid, sequence ORDER BY xid, sequence;
 ```
@@ -81,7 +80,7 @@ xid     |  sequence | query_statement
 
 To reconstruct the SQL stored in the `text` column of STL\_DDLTEXT, run the following SQL statement. It puts together DDL statements from one or more segments in the `text` column. Before running the reconstructed SQL, replace any (`\n`) special characters with a new line in your SQL client. The results of the following SELECT statement puts together three rows in sequence order to reconstruct the SQL, in the `query_statement` field. 
 
-```
+```sql
 SELECT LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END) WITHIN GROUP (ORDER BY sequence) as query_statement
 FROM stl_ddltext GROUP BY xid, endtime order by xid, endtime;
 ```

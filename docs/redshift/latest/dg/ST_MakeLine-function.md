@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MakeLine
-<a name="ST_MakeLine-function"></a>
 
 ST\_MakeLine creates a linestring from the input geometries. 
 
@@ -49,7 +48,7 @@ If *geom1* and *geom2* have different dimensions, then an error is returned.
 
 The following SQL constructs a linestring from two input linestrings. 
 
-```
+```sql
 SELECT ST_MakeLine(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'), ST_GeomFromText('LINESTRING(88.29 39.07,88.42 39.26,88.27 39.31,88.29 39.07)'));
 ```
 

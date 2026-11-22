@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Query priority
-<a name="query-priority"></a>
 
 With Amazon Redshift, you can manage query prioritization and resource allocation across concurrent queries and workloads using Workload Management (WM). The following sections detail how to configure WM query queues, define queue properties like memory allocation and concurrency scaling, and implement priority rules tailored to your workload requirements.
 
@@ -76,7 +75,7 @@ With query monitoring rules (QMR), you can change the priority of a query based 
 
 For example, you can define a rule to cancel any query classified as `high` priority that runs for more than 10 minutes.
 
-```
+```json
 "rules" :[
   {
     "rule_name":"rule_abort",
@@ -99,7 +98,7 @@ For example, you can define a rule to cancel any query classified as `high` prio
 
 Another example is to define a rule to change the query priority to `lowest` for any query with current priority `normal` that spills more than 1 TB to disk. 
 
-```
+```json
 "rules":[
   {
     "rule_name":"rule_change_priority",
@@ -141,7 +140,7 @@ query    | service_cl | wlm_start_time             | state            | queue_ti
 
 To list query priority for completed queries, see the `query_priority` column in the stl\_wlm\_query system table.
 
-```
+```sql
 select query, service_class as svclass, service_class_start_time as starttime, query_priority 
 from stl_wlm_query order by 3 desc limit 10;
 ```

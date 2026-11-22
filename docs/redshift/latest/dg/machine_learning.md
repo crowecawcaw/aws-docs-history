@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Machine learning
-<a name="machine_learning"></a>
 
 Amazon Redshift machine learning (Amazon Redshift ML) is a robust, cloud-based service that makes it easier for analysts and data scientists of all skill levels to use machine learning technology. Amazon Redshift ML uses a model to generate results. You can use models in the following ways:
 + You can provide the data that you want to train a model, and metadata associated with data inputs to Amazon Redshift. Then Amazon Redshift ML creates models in Amazon SageMaker AI that capture patterns in the input data. By using your own data for the model, you can use Amazon Redshift ML to identify trends in the data, such as churn prediction, customer lifetime value, or revenue prediction. You can use these models to generate predictions for new input data without incurring additional costs.

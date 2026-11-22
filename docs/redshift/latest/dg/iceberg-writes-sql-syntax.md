@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SQL commands
-<a name="iceberg-writes-sql-syntax"></a>
 
 Apache Iceberg tables in Amazon Redshift provide a powerful way to manage large analytic datasets in your data lake. These tables support ACID transactions, schema evolution, and time travel capabilities while maintaining high performance for analytics workloads. Using Apache Iceberg tables, you can efficiently organize and partition your data, control file formats and compression, and seamlessly integrate with other AWS services. 
 
@@ -36,7 +35,7 @@ The following sections demonstrate SQL syntax for creating, inserting, modifying
 ## CREATE TABLE
 <a name="iceberg-writes-create-table"></a>
 
-```
+```sql
 CREATE TABLE [IF NOT EXISTS] {{<external_schema>}}.{{<table_name>}} (
   column_name data_type [DEFAULT literal_value] [, ...]
 )
@@ -48,7 +47,7 @@ USING ICEBERG
 
 You can also use three-part notation for S3 table buckets:
 
-```
+```sql
 CREATE TABLE "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{<table_name>}} (
   column_name data_type [DEFAULT literal_value] [, ...]
 )
@@ -59,7 +58,7 @@ USING ICEBERG
 
 For the auto-mounted root catalog `awsdatacatalog`:
 
-```
+```sql
 CREATE TABLE awsdatacatalog.{{<database_name>}}.{{<table_name>}} (
   column_name data_type [DEFAULT literal_value] [, ...]
 )
@@ -88,7 +87,7 @@ For the full definitions of these transforms and the compatible data types, see 
 
 The `PARTITIONED BY` supports multi-level partitioning. For example, you can run the following command:
 
-```
+```sql
 CREATE TABLE ...
 USING ICEBERG
 LOCATION ...
@@ -97,7 +96,7 @@ PARTITIONED BY (bucket(16, id), year(ship_date));
 
 However, Amazon Redshift doesn't support using a single column in more than one transform. For example, the following syntax is not supported:
 
-```
+```sql
 CREATE TABLE ...
 USING ICEBERG
 LOCATION ...
@@ -108,7 +107,7 @@ The `TABLE PROPERTIES` clause defines the extra table properties for this Iceber
 
 For Iceberg v3 tables, you can specify default values for columns using the DEFAULT keyword. Default column values are supported only for Iceberg v3 tables. Amazon Redshift returns an error if you specify a default value on an Iceberg v2 table. Only literal values are supported as defaults.
 
-```
+```sql
 CREATE TABLE {{<external_schema>}}.{{<table_name>}} (
   column_name data_type [DEFAULT literal_value] [, ...]
 )
@@ -120,7 +119,7 @@ LOCATION 's3://{{your-bucket-name}}/{{prefix}}/'
 
 Examples with defaults:
 
-```
+```sql
 -- External schema notation
 CREATE TABLE my_external_schema.orders (
   order_id INT,
@@ -159,7 +158,7 @@ Alternatively, you can create and populate an Iceberg table in a single operatio
 ## CREATE TABLE AS SELECT
 <a name="iceberg-writes-create-table-as-select"></a>
 
-```
+```sql
 CREATE TABLE {{<external_schema>}}.{{<table_name>}} [(
   column_name[, ...]
 )]
@@ -173,7 +172,7 @@ SELECT query
 
 You can also use three-part notation to create tables in auto-mounted catalogs:
 
-```
+```sql
 CREATE TABLE "{{<catalog_name>}}".{{<database_name>}}.{{<table_name>}} [(
   column_name[, ...]
 )]
@@ -193,7 +192,7 @@ If the `SELECT` query fails for any reason, this query will fail and the Iceberg
 
 For Iceberg v3 tables, specify `'format-version'='3'` in the TABLE PROPERTIES clause. Default column values are not inherited from the source table.
 
-```
+```sql
 -- External schema notation
 CREATE TABLE my_external_schema.orders_backup (
   order_id, status, region
@@ -232,19 +231,19 @@ You can view the structure of your Iceberg tables using `SHOW TABLE`:
 ## SHOW TABLE
 <a name="iceberg-writes-show-table"></a>
 
-```
+```sql
 SHOW TABLE {{<external_schema>}}.{{<table_name>}}
 ```
 
 You can also use three-part notation with auto-mounted catalogs:
 
-```
+```sql
 SHOW TABLE "{{<catalog_name>}}".{{<database_name>}}.{{<table_name>}}
 ```
 
 `SHOW TABLE` displays the `CREATE TABLE` statement for Iceberg table. The command will show the appropriate results based on the type of the table. The following is an example of the `SHOW TABLE` output for Iceberg table:
 
-```
+```sql
 CREATE TABLE my_schema.items (id int, price decimal(5, 2))
 USING ICEBERG
 LOCATION 's3://my_s3_bucket/items/'
@@ -257,7 +256,7 @@ For Amazon S3 tables, since the table location is managed by Amazon S3 tables ca
 
 For Iceberg v3 tables, `SHOW TABLE` displays default column values in its output.
 
-```
+```sql
 SHOW TABLE my_external_schema.orders;
 
 -- Output includes the default values in the column definitions:
@@ -276,7 +275,7 @@ After creating tables, you can add data using `INSERT INTO`:
 ## INSERT INTO
 <a name="iceberg-writes-insert-into"></a>
 
-```
+```sql
 INSERT INTO {{<external_schema>}}.{{<table_name>}} [(column_name [, ...])] VALUES (...)
 INSERT INTO {{<external_schema>}}.{{<table_name>}} [(column_name [, ...])] (SELECT query)
 
@@ -300,7 +299,7 @@ For Iceberg v3 tables with default column values, if a column with a default is 
 
 The `DELETE` query for Iceberg table uses the existing `DELETE` syntax in the RMS table:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 DELETE [ FROM ] {{iceberg_table}}
 [ { USING } {{table_name, ...}} ] [ WHERE {{condition}} ]
@@ -308,7 +307,7 @@ DELETE [ FROM ] {{iceberg_table}}
 
 You can also use three-part notation for S3 table buckets:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 DELETE [ FROM ] "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{<table_name>}}
 [ { USING } {{table_name, ...}} ] [ WHERE {{condition}} ]
@@ -316,7 +315,7 @@ DELETE [ FROM ] "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{
 
 For the auto-mounted root catalog `awsdatacatalog`:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 DELETE [ FROM ] awsdatacatalog.{{<database_name>}}.{{<table_name>}}
 [ { USING } {{table_name, ...}} ] [ WHERE {{condition}} ]
@@ -330,7 +329,7 @@ Since Iceberg uses hidden partition scheme, user can use `DELETE` query to remov
 
 For example, consider a partitioned Iceberg table like the following:
 
-```
+```sql
 CREATE TABLE my_external_schema.lineitem
 (l_item_id int,
  l_ship_date varchar,
@@ -343,13 +342,13 @@ PARTITIONED BY l_ship_date;
 
 Then you can remove a partition by using a query like the following:
 
-```
+```sql
 DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
 ```
 
 For query like this, Amazon Redshift will optimize the execution to only conduct metadata only operation and short circuit the execution. Thus unlike normal `DELETE` query, the metadata only delete query doesn't show execution steps in `EXPLAIN`:
 
-```
+```sql
 explain DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
 
  QUERY PLAN
@@ -363,7 +362,7 @@ explain DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
 
 The `UPDATE` query syntax for Iceberg table is very similar to the existing `UPDATE` syntax for the RMS table:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 UPDATE {{iceberg_table}} [ [ AS ] alias ] SET column = { {{expression}} } [,...]
 [ FROM {{fromlist}} ]
@@ -372,7 +371,7 @@ UPDATE {{iceberg_table}} [ [ AS ] alias ] SET column = { {{expression}} } [,...]
 
 You can also use three-part notation for S3 table buckets:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 UPDATE "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{<table_name>}} [ [ AS ] alias ] SET column = { {{expression}} } [,...]
 [ FROM {{fromlist}} ]
@@ -381,7 +380,7 @@ UPDATE "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{<table_na
 
 For the auto-mounted root catalog `awsdatacatalog`:
 
-```
+```sql
 [ WITH [RECURSIVE] {{common_table_expression}} [, {{common_table_expression}} , ...] ]
 UPDATE awsdatacatalog.{{<database_name>}}.{{<table_name>}} [ [ AS ] alias ] SET column = { {{expression}} } [,...]
 [ FROM {{fromlist}} ]
@@ -396,7 +395,7 @@ You can update a table by referencing information in other tables. List these ot
 
 For example, consider a partitioned Iceberg table like the following:
 
-```
+```sql
 CREATE TABLE my_external_schema.lineitem
 (l_item_id int,
  l_ship_date varchar,
@@ -411,7 +410,7 @@ INSERT INTO my_external_schema.lineitem VALUES (10099, '20251231', ...);
 
 And when you run the following update query:
 
-```
+```sql
 UPDATE my_external_schema.lineitem SET l_ship_date = '20260101'
 WHERE l_item_id = 10099;
 ```
@@ -420,7 +419,7 @@ the row with `l_item_id` 10099 moves from partition `20251231` to the new partit
 
 It's also important to note that it's possible `UPDATE` has multiple candidate values. Consider below query:
 
-```
+```sql
 CREATE TABLE my_ext_schema.t1(x1 int, y1 int) USING ICEBERG LOCATION ...;
 CREATE TABLE my_ext_schema.t2(x2 int, y2 int) USING ICEBERG LOCATION ...;
 INSERT INTO my_ext_schema.t1 VALUES (1,10), (2,20), (3,30);
@@ -435,7 +434,7 @@ In this case, y1 can be 40 or 50. The result is nondeterministic. You can set th
 
 The `MERGE` query conditionally merges rows from a source table into a target table. It shares the same `MERGE` query syntax as the existing RMS table:
 
-```
+```sql
 MERGE INTO {{target_iceberg_table}} USING {{source_table}} [ [ AS ] {{alias}} ]
 ON {{match_condition}}
 [ WHEN MATCHED THEN { UPDATE SET {{col_name}} = { {{expr}} } [,...] | DELETE }
@@ -446,7 +445,7 @@ ON {{match_condition}}
 
 You can also use three-part notation for S3 table buckets:
 
-```
+```sql
 MERGE INTO "{{<table_bucket_name>}}@s3tablescatalog".{{<database_name>}}.{{<table_name>}} USING {{source_table}} [ [ AS ] {{alias}} ]
 ON {{match_condition}}
 [ WHEN MATCHED THEN { UPDATE SET {{col_name}} = { {{expr}} } [,...] | DELETE }
@@ -457,7 +456,7 @@ ON {{match_condition}}
 
 For the auto-mounted root catalog `awsdatacatalog`:
 
-```
+```sql
 MERGE INTO awsdatacatalog.{{<database_name>}}.{{<table_name>}} USING {{source_table}} [ [ AS ] {{alias}} ]
 ON {{match_condition}}
 [ WHEN MATCHED THEN { UPDATE SET {{col_name}} = { {{expr}} } [,...] | DELETE }
@@ -479,13 +478,13 @@ While executing `MERGE` query, Amazon Redshift generates and stores intermediate
 
 To remove an Iceberg table from the catalog, use the `DROP TABLE` command:
 
-```
+```sql
 DROP TABLE {{<external_schema>}}.{{<table_name>}}
 ```
 
 You can also use three-part notation with auto-mounted catalogs:
 
-```
+```sql
 DROP TABLE "{{<catalog_name>}}".{{<database_name>}}.{{<table_name>}}
 ```
 

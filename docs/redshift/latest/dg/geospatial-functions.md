@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Spatial functions
-<a name="geospatial-functions"></a>
 
 Relationships between geometry objects are based on the Dimensionally Extended nine-Intersection Model (DE-9IM). This model defines predicates such as equals, contains, and covers. For more information about the definition of spatial relationships, see [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) in Wikipedia.
 

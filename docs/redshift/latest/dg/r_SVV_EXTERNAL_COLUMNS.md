@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_EXTERNAL\_COLUMNS
-<a name="r_SVV_EXTERNAL_COLUMNS"></a>
 
 Use SVV\_EXTERNAL\_COLUMNS to view details for columns in external tables. Use SVV\_EXTERNAL\_COLUMNS also for cross-database queries to view details on all columns from the table on unconnected databases that users have access to. 
 

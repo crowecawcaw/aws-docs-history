@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_IsRing
-<a name="ST_IsRing-function"></a>
 
 ST\_IsRing returns true if the input linestring is a ring. A linestring is a ring if it is closed and simple. 
 
@@ -32,7 +31,7 @@ If *geom* is not a `LINESTRING`, then an error is returned.
 
 The following SQL checks if the specified linestring is a ring. 
 
-```
+```sql
 SELECT ST_IsRing(ST_GeomFromText('linestring(0 0, 1 1, 1 2, 0 0)'));
 ```
 

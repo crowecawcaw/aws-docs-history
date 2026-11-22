@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Users
-<a name="r_Users"></a>
 
 You can create and manage database users using the Amazon Redshift SQL commands CREATE USER and ALTER USER. Or you can configure your SQL client with custom Amazon Redshift JDBC or ODBC drivers. These manage the process of creating database users and temporary passwords as part of the database logon process.
 

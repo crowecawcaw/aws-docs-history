@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying semi-structured data
-<a name="query-super"></a>
 
 With Amazon Redshift, you can query and analyze semi-structured data, such as JSON, Avro, or Ion, alongside your structured data. Semi-structured data refers to data that has a flexible schema, allowing for hierarchical or nested structures. The following sections demonstrate querying semi-structured data using Amazon Redshift's support for open data formats, so you can unlock valuable information from complex data structures.
 
@@ -16,7 +15,7 @@ PartiQL operates with dynamic types. This approach enables intuitive filtering, 
 
 Amazon Redshift uses PartiQL to enable navigation into arrays and structures using the [...] bracket and dot notation respectively. Furthermore, you can mix navigation into structures using the dot notation and arrays using the bracket notation. For example, the following statement selects only the third element in an array nested one level deep in a SUPER object:
 
-```
+```sql
 SELECT super_object.array[2];
          
  array
@@ -26,7 +25,7 @@ SELECT super_object.array[2];
 
 You can use the dot and bracket notation when doing data operations such as filtering, joining, and aggregating. You can use these notations anywhere in a query where there are normally column references. For example, the following statement selects the number of events with the type `UPDATED`. 
 
-```
+```sql
 SELECT COUNT(*)
 FROM test_json
 WHERE all_data.data.pnr.events[0]."eventType" = 'UPDATED';

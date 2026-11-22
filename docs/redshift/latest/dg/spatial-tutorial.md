@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorial: Using spatial SQL functions with Amazon Redshift
-<a name="spatial-tutorial"></a>
 
 This tutorial demonstrates how to use some of the spatial SQL functions with Amazon Redshift. 
 
@@ -50,7 +49,7 @@ Use the following procedure to create tables and load test data.
 
    To create the `accommodations` table, run the following SQL statement in the Amazon Redshift query editor. 
 
-   ```
+   ```sql
    CREATE TABLE public.accommodations (
      id INTEGER PRIMARY KEY,
      shape GEOMETRY,
@@ -75,7 +74,7 @@ Use the following procedure to create tables and load test data.
 
    To create the `zipcode` table, run the following SQL statement in the Amazon Redshift query editor. 
 
-   ```
+   ```sql
    CREATE TABLE public.zipcode (
      ogc_field INTEGER PRIMARY KEY NOT NULL,
      wkb_geometry GEOMETRY,
@@ -92,7 +91,7 @@ Use the following procedure to create tables and load test data.
 
    To load test data to your tables, run the following COPY commands. Replace {{`account-number`}} with your own AWS account number. The segment of the credentials string that is enclosed in single quotation marks can't contain any spaces or line breaks. 
 
-   ```
+   ```sql
    COPY public.accommodations 
    FROM 's3://redshift-downloads/spatial-data/accommodations.csv' 
    DELIMITER ';' 
@@ -100,7 +99,7 @@ Use the following procedure to create tables and load test data.
    CREDENTIALS 'aws_iam_role=arn:aws:iam::{{account-number}}:role/mySpatialDemoRole';
    ```
 
-   ```
+   ```sql
    COPY public.zipcode 
    FROM 's3://redshift-downloads/spatial-data/zipcode.csv' 
    DELIMITER ';' 
@@ -110,11 +109,11 @@ Use the following procedure to create tables and load test data.
 
 1. Verify that each table loaded correctly by running the following commands. 
 
-   ```
+   ```sql
    select count(*) from accommodations;
    ```
 
-   ```
+   ```sql
    select count(*) from zipcode;
    ```
 
@@ -141,7 +140,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Query to get the count of the total number of listings stored in the `accommodations` table, as shown following. The spatial reference system is World Geodetic System (WGS) 84, which has the unique spatial reference identifier 4326.
 
-   ```
+   ```sql
    SELECT count(*) FROM public.accommodations WHERE ST_SRID(shape) = 4326;
    ```
 
@@ -153,7 +152,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Fetch the geometry objects in well-known text (WKT) format with some additional attributes. Additionally, you can validate if this postal code data is also stored in World Geodetic System (WGS) 84, which uses the spatial reference ID (SRID) 4326. Spatial data must be stored in the same spatial reference system to be interoperable. 
 
-   ```
+   ```sql
    SELECT ogc_field, spatial_name, spatial_type, ST_SRID(wkb_geometry), ST_AsText(wkb_geometry) 
    FROM public.zipcode 
    ORDER BY spatial_name;
@@ -171,7 +170,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Select the polygon of Berlin Mitte (10117), a borough of Berlin, in GeoJSON format, its dimension, and the number of points in this polygon. 
 
-   ```
+   ```sql
    SELECT ogc_field, spatial_name, ST_AsGeoJSON(wkb_geometry), ST_Dimension(wkb_geometry), ST_NPoints(wkb_geometry)
    FROM public.zipcode 
    WHERE spatial_name='10117';
@@ -185,7 +184,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Run the following SQL command to view how many accommodations are within 500 meters of the Brandenburg Gate. 
 
-   ```
+   ```sql
    SELECT count(*) 
    FROM public.accommodations 
    WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500;
@@ -201,7 +200,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
    This query requires a subselect. It leads to a different count because the requested location is not the same as the previous query because it is closer to the accommodations. 
 
-   ```
+   ```sql
    WITH poi(loc) as (
      SELECT st_astext(shape) FROM accommodations WHERE name LIKE '%brandenburg gate%'
    )
@@ -218,7 +217,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Run the following query to show the details of all accommodations around the Brandenburg Gate, ordered by price in descending order. 
 
-   ```
+   ```sql
    SELECT name, price, ST_AsText(shape) 
    FROM public.accommodations
    WHERE ST_DistanceSphere(shape, ST_GeomFromText('POINT(13.377704 52.516431)', 4326)) < 500
@@ -236,7 +235,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Run the following query to retrieve the most expensive accommodation with its postal code. 
 
-   ```
+   ```sql
    SELECT 
      a.price, a.name, ST_AsText(a.shape), 
      z.spatial_name, ST_AsText(z.wkb_geometry) 
@@ -254,7 +253,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
    The following query lists the median price of accommodations by postal code. 
 
-   ```
+   ```sql
    SELECT 
      a.price, a.name, ST_AsText(a.shape), 
      z.spatial_name, ST_AsText(z.wkb_geometry) 
@@ -275,7 +274,7 @@ After your tables are created and loaded, you can query them using SQL SELECT st
 
 1. Run the following query to retrieve the number of accommodations listed in Berlin. To find the hot spots, these are grouped by postal code and sorted by the amount of supply. 
 
-   ```
+   ```sql
    SELECT z.spatial_name as zip, count(*) as numAccommodations 
    FROM public.accommodations a, public.zipcode z
    WHERE ST_Within(a.shape, z.wkb_geometry)
@@ -301,10 +300,10 @@ Your cluster continues to accrue charges as long as it's running. When you have 
 
 If you want to keep the cluster but recover the storage used by the test data tables, run the following commands to delete the tables. 
 
-```
+```sql
 drop table public.accommodations cascade;
 ```
 
-```
+```sql
 drop table public.zipcode cascade;
 ```

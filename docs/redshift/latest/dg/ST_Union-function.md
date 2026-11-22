@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Union
-<a name="ST_Union-function"></a>
 
 ST\_Union returns a geometry representing the union of two geometries. That is, it merges the input geometries to produce a resulting geometry with no overlaps. 
 
@@ -45,7 +44,7 @@ If *geom1* or *geom2* is not a two-dimensional (2D) geometry, then an error is r
 
 The following SQL returns the non-empty geometry representing the union of two input geometries. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Union(ST_GeomFromText('POLYGON((0 0,100 100,0 200,0 0))'), ST_GeomFromText('POLYGON((0 0,10 0,0 10,0 0))')));
 ```
 

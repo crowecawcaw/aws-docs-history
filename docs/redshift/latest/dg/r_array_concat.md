@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ARRAY\_CONCAT function
-<a name="r_array_concat"></a>
 
 Concatenates two arrays to create an array that contains all the elements in the first array followed by all the elements in the second array. The two arguments must be valid SUPER arrays.
 

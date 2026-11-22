@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SUPER configurations
-<a name="super-configurations"></a>
 
 You can configure your SUPER data for specific scenarios. The following sections provide details on choosing and applying the appropriate SUPER configurations based on your data format requirements.
 
@@ -75,12 +74,12 @@ For more information about the JSON\_PARSE function, see [JSON\_PARSE function](
 
 The following example shows how to set the `json_parse_dedup_attributes` configuration option to the default behavior of returning an error for duplicate attributes.
 
-```
+```SQL
 SET json_parse_dedup_attributes=OFF;  --default behavior of returning error instead of de-duplicating attributes
 ```
 
 The following example shows how to set the `json_parse_truncate_strings` configuration option for the default behavior of returning an error for strings that are longer than this limit.
 
-```
+```SQL
 SET json_parse_truncate_strings=OFF;  --default behavior of returning error instead of truncating strings
 ```

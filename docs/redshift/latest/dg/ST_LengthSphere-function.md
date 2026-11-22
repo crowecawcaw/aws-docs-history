@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_LengthSphere
-<a name="ST_LengthSphere-function"></a>
 
 ST\_LengthSphere returns the length of a linear geometry in meters. For point, multipoint, and areal geometries, ST\_LengthSphere returns 0. For geometry collections, ST\_LengthSphere returns the total length of the linear geometries in the collection in meters. 
 
@@ -34,7 +33,7 @@ If *geom* is null, then null is returned.
 
 The following example SQL computes the length of a linestring in meters. 
 
-```
+```sql
 SELECT ST_LengthSphere(ST_GeomFromText('LINESTRING(10 10,45 45)'));
 ```
 

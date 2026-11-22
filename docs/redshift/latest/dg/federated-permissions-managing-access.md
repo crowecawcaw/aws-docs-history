@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Managing access control on Amazon Redshift federated permissions catalog
-<a name="federated-permissions-managing-access"></a>
 
 With Amazon Redshift federated permissions, users can define both coarse-grained and fine-grained access controls from any Redshift warehouse in the AWS account. Coarse-grained permissions manage access to tables, views, and database objects, including scoped permissions, while fine-grained controls allow column-level privileges and the application of security policies such as row-level security (RLS) and dynamic data masking (DDM).
 

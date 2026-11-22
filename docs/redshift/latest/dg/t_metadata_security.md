@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Metadata security
-<a name="t_metadata_security"></a>
 
 Like Amazon Redshift’s row-level security, metadata security gives you more granular control over your metadata. If metadata security is enabled for your provisioned cluster or serverless workgroup, users can see metadata for the objects for which they have viewing access. With metadata security, you can separate visibility based on your needs. For example, you can use a single data warehouse to centralize all of your data storage. However, if you store data for multiple sectors, managing security can become troublesome. With metadata security enabled, you can configure your visibility. Users of one sector can have more visibility over their objects, while you restrict viewing access to users of another sector. Metadata security supports all object types, such as schemas, tables, views, materialized views, stored procedures, user-defined functions, and machine learning models.
 

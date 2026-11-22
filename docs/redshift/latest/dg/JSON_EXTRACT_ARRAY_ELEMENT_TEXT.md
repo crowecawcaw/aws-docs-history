@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT function
-<a name="JSON_EXTRACT_ARRAY_ELEMENT_TEXT"></a>
 
 **Note**  
 JSON\_PARSE and its associated functions parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.  
@@ -43,7 +42,7 @@ A `VARCHAR` string representing the JSON array element referenced by *pos*.
 
 To return array element at position 2, which is the third element of a zero-based array index, use the following example. 
 
-```
+```sql
 SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('[111,112,113]', 2);
  
 +---------------------------------+
@@ -55,7 +54,7 @@ SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('[111,112,113]', 2);
 
 To return an error because the JSON is invalid, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1);
  
 ERROR: invalid json array object ["a",["b",1,["c",2,3,null,]]]
@@ -63,7 +62,7 @@ ERROR: invalid json array object ["a",["b",1,["c",2,3,null,]]]
 
 To set *null\_if\_invalid* to *true*, so the statement returns `NULL` instead of returning an error for invalid JSON, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1,true);
  
 +---------------------------------+
@@ -75,7 +74,7 @@ SELECT JSON_EXTRACT_ARRAY_ELEMENT_TEXT('["a",["b",1,["c",2,3,null,]]]',1,true);
 
 Consider the following example statements. If the provided JSON string or the index is NULL, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL regardless of the value of any other parameters. 
 
-```
+```SQL
 --Statement where json_string is NULL.
 SELECT json_extract_array_element_text(NULL, 0)
 
@@ -100,7 +99,7 @@ SELECT json_extract_array_element_text(NULL, 0, FALSE);
 
 Consider the following example statements. When *null\_if\_invalid* is TRUE, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL when *json\_string* is invalid JSON. If *null\_if\_invalid* is FALSE or isn’t set, the function returns an error when *json\_string* is invalid.
 
-```
+```SQL
 --Statement with invalid JSON where null_if_invalid is TRUE.
 SELECT json_extract_array_element_text('invalid_json', 0, TRUE);
 
@@ -116,7 +115,7 @@ ERROR:  JSON parsing error
 
 Consider the following example, where *json\_string* is valid JSON, and *pos* refers to a JSON `null` value. In this case, JSON\_EXTRACT\_ARRAY\_ELEMENT\_TEXT returns NULL, regardless of the value of *null\_if\_invalid*.
 
-```
+```SQL
 --Statement selecting a null value.
 SELECT json_extract_array_element_text('[null]', 0);
 

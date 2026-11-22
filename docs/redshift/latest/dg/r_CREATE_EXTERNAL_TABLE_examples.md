@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples
-<a name="r_CREATE_EXTERNAL_TABLE_examples"></a>
 
 The following example creates a table named SALES in the Amazon Redshift external schema named `spectrum`. The data is in tab-delimited text files. The TABLE PROPERTIES clause sets the numRows property to 170,000 rows.
 
@@ -324,7 +323,7 @@ location 's3://DOC-EXAMPLE-BUCKET/grok/logs';
 
 The following shows an example of defining an Amazon S3 server access log in an S3 bucket. You can use Redshift Spectrum to query Amazon S3 access logs.
 
-```
+```sql
 CREATE EXTERNAL TABLE spectrum.mybucket_s3_logs(
 bucketowner varchar(255),
 bucket varchar(255),
@@ -355,7 +354,7 @@ LOCATION 's3://amzn-s3-demo-bucket/s3logs’;
 
 The following shows an example of specifying the ROW FORMAT SERDE parameters for ION format data.
 
-```
+```SQL
 CREATE EXTERNAL TABLE {{tbl_name}} ({{columns}})
 ROW FORMAT SERDE 'com.amazon.ionhiveserde.IonHiveSerDe'
 STORED AS
@@ -371,7 +370,7 @@ The following examples access the file: [spi\_global\_rankings.csv](https://s3.a
 
 The following example creates the external schema `schema_spectrum_uddh` and database `spectrum_db_uddh`. For `aws-account-id`, enter your AWS account ID and for `role-name` enter your Redshift Spectrum role name.
 
-```
+```SQL
 create external schema schema_spectrum_uddh
 from data catalog
 database 'spectrum_db_uddh'
@@ -381,7 +380,7 @@ create external database if not exists;
 
 The following example creates the external table `soccer_league` in the external schema `schema_spectrum_uddh`.
 
-```
+```SQL
 CREATE EXTERNAL TABLE schema_spectrum_uddh.soccer_league
 (
   league_rank smallint,
@@ -403,7 +402,7 @@ table properties ('skip.header.line.count'='1');
 
 Check the number of rows in the `soccer_league` table.
 
-```
+```SQL
 select count(*) from schema_spectrum_uddh.soccer_league;
 ```
 
@@ -416,13 +415,13 @@ count
 
 The following query displays the top 10 clubs. Because club `Barcelona` has an invalid character in the string, a NULL is displayed for the name.
 
-```
+```SQL
 select league_rank,club_name,league_name,league_nspi
 from schema_spectrum_uddh.soccer_league
 where league_rank between 1 and 10;
 ```
 
-```
+```SQL
 league_rank	club_name	league_name			league_nspi
 1		Manchester City	Barclays Premier Lea		34595
 2		Bayern Munich	German Bundesliga		34151
@@ -438,14 +437,14 @@ league_rank	club_name	league_name			league_nspi
 
 The following example alters the `soccer_league` table to specify the `invalid_char_handling`, `replacement_char`, and `data_cleansing_enabled` external table properties to insert a question mark (?) as a substitute for unexpected characters.
 
-```
+```SQL
 alter  table schema_spectrum_uddh.soccer_league
 set table properties ('invalid_char_handling'='REPLACE','replacement_char'='?','data_cleansing_enabled'='true');
 ```
 
 The following example queries the table `soccer_league` for teams with a rank from 1 to 10.
 
-```
+```SQL
 select league_rank,club_name,league_name,league_nspi
 from schema_spectrum_uddh.soccer_league
 where league_rank between 1 and 10;
@@ -469,14 +468,14 @@ league_rank	club_name	league_name		league_nspi
 
 The following example alters the `soccer_league` table to specify the `invalid_char_handling` external table properties to drop rows with unexpected characters.
 
-```
+```SQL
 alter table schema_spectrum_uddh.soccer_league
 set table properties ('invalid_char_handling'='DROP_ROW','data_cleansing_enabled'='true');
 ```
 
 The following example queries the table `soccer_league` for teams with a rank from 1 to 10.
 
-```
+```SQL
 select league_rank,club_name,league_name,league_nspi
 from schema_spectrum_uddh.soccer_league
 where league_rank between 1 and 10;

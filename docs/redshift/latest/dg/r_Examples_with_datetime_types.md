@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples with datetime types
-<a name="r_Examples_with_datetime_types"></a>
 
 Following, you can find examples for working with datetime types supported by Amazon Redshift.
 
@@ -12,11 +11,11 @@ Following, you can find examples for working with datetime types supported by Am
 
 The following examples insert dates that have different formats and display the output. 
 
-```
+```sql
 create table datetable (start_date date, end_date date);
 ```
 
-```
+```sql
 insert into datetable values ('2008-06-01','2008-12-31');
 
 insert into datetable values ('Jun 1,2008','20081231');
@@ -38,11 +37,11 @@ If you insert a timestamp value into a DATE column, the time portion is ignored 
 
 The following examples insert TIME and TIMETZ values that have different formats and display the output.
 
-```
+```sql
 create table timetable (start_time time, end_time timetz);
 ```
 
-```
+```sql
 insert into timetable values ('19:11:19','20:41:19 UTC');
 insert into timetable values ('191119', '204119 UTC');
 ```
@@ -64,7 +63,7 @@ To change the time zone for the current session, use the [SET](r_SET.md) command
 
 The following example inserts timestamps that have different formats and display the resulting table. 
 
-```
+```sql
 create table tstamp(timeofday timestamp, timeofdaytz timestamptz);
 
 insert into tstamp values('Jun 1,2008  09:59:59', 'Jun 1,2008 09:59:59 EST' );

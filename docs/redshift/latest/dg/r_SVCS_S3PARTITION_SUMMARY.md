@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_S3PARTITION\_SUMMARY
-<a name="r_SVCS_S3PARTITION_SUMMARY"></a>
 
 Use the SVCS\_S3PARTITION\_SUMMARY view to get a summary of Redshift Spectrum queries partition processing at the segment level. One segment can perform one external table scan.
 
@@ -39,7 +38,7 @@ For information about SVL\_S3PARTITION, see [SVL\_S3PARTITION](r_SVL_S3PARTITION
 
 The following example gets the partition scan details for the last query performed.
 
-```
+```sql
 select query, segment, assignment, min_starttime, max_endtime, min_duration, avg_duration 
 from svcs_s3partition_summary 
 where query = pg_last_query_id() 

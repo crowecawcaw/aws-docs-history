@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Compression encodings
-<a name="c_Compression_encodings"></a>
 
 <a name="compression-encoding-list"></a>A *compression encoding* specifies the type of compression that is applied to a column of data values as rows are added to a table.
 

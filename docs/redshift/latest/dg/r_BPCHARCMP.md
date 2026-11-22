@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # BPCHARCMP function
-<a name="r_BPCHARCMP"></a>
 
 Compares the value of two strings and returns an integer. If the strings are identical, the function returns `0`. If the first string is greater alphabetically, the function returns `1`. If the second string is greater, the function returns `-1`. 
 
@@ -14,7 +13,7 @@ Synonym of [BTTEXT\_PATTERN\_CMP function](r_BTTEXT_PATTERN_CMP.md).
 ## Syntax
 <a name="r_BPCHARCMP-synopsis"></a>
 
-```
+```sql
 BPCHARCMP(string1, string2)
 ```
 
@@ -39,7 +38,7 @@ A `CHAR` string or a `VARCHAR` string.
 
 To determine whether a user's first name is alphabetically greater than the user's last name for the first ten entries in the USERS table, use the following example. For entries where the string for FIRSTNAME is later alphabetically than the string for LASTNAME, the function returns `1`. If the LASTNAME is alphabetically later than FIRSTNAME, the function returns `-1`.
 
-```
+```sql
 SELECT userid, firstname, lastname, BPCHARCMP(firstname, lastname)
 FROM users
 ORDER BY 1, 2, 3, 4
@@ -63,7 +62,7 @@ LIMIT 10;
 
 To return all entries in the USERS table where the function returns `0`, use the following example. The function returns `0` when FIRSTNAME is identical to LASTNAME. 
 
-```
+```sql
 SELECT userid, firstname, lastname,
 BPCHARCMP(firstname, lastname)
 FROM users 

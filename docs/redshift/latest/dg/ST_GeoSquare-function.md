@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeoSquare
-<a name="ST_GeoSquare-function"></a>
 
 ST\_GeoSquare recursively subdivides the domain ([-180, 180], [-90, 90]) into equal square regions called *geosquares* to a specified depth. The subdivision is based on the location of a provided point. One of the geosquares containing the point is subdivided at each step until reaching the maximum depth. The selection of this geosquare is stable, that is, the function result depends on the input arguments only. The function returns a unique value that identifies the final geosquare in which the point is located.
 
@@ -53,7 +52,7 @@ If the input *max\_depth* is out of range, the function returns an error.
 
 The following SQL returns a geosquare from an input point. 
 
-```
+```sql
 SELECT ST_GeoSquare(ST_Point(13.5, 52.5));
 ```
 
@@ -65,7 +64,7 @@ SELECT ST_GeoSquare(ST_Point(13.5, 52.5));
 
 The following SQL returns a geosquare from an input point with a maximum depth of `10`. 
 
-```
+```sql
 SELECT ST_GeoSquare(ST_Point(13.5, 52.5), 10);
 ```
 

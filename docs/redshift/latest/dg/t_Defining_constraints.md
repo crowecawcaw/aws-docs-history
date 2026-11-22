@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Table constraints
-<a name="t_Defining_constraints"></a>
 
 Uniqueness, primary key, and foreign key constraints are informational only; *they are not enforced by Amazon Redshift* when you populate a table. For example, if you insert data into a table with dependencies, the insert can succeed even if it violates the constraint. Nonetheless, primary keys and foreign keys are used as planning hints and they should be declared if your ETL process or some other process in your application enforces their integrity.
 

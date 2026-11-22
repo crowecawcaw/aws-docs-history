@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_GET\_COLS
-<a name="PG_GET_COLS"></a>
 
 Returns the column metadata for a table or view definition.
 
@@ -37,7 +36,7 @@ The following examples return results for a view named `SALES_VW` in schema `pub
 
 The following example returns the column metadata for a view named `SALES_VW`.
 
-```
+```sql
 select pg_get_cols('sales_vw');
 
 pg_get_cols                                                
@@ -56,7 +55,7 @@ pg_get_cols
 
 The following example returns the column metadata for the `SALES_VW` view in table format.
 
-```
+```sql
 select * from pg_get_cols('sales_vw') 
 cols(view_schema name, view_name name, col_name name, col_type varchar, col_num int);
 
@@ -76,7 +75,7 @@ public      | sales_vw  | saletime   | timestamp without time zone |      10
 
 The following example returns the column metadata for the `SALES` table in schema `mytickit1`in table format.
 
-```
+```sql
 select * from pg_get_cols('"mytickit1"."sales"') 
 cols(view_schema name, view_name name, col_name name, col_type varchar, col_num int);
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_DISK\_FULL\_DIAG
-<a name="r_STL_DISK_FULL_DIAG"></a>
 
 Logs information about errors recorded when the disk is full.
 
@@ -31,7 +30,7 @@ select * from stl_disk_full_diag
 
 The following example converts the `currenttime` to a timestamp. 
 
-```
+```sql
 select '2000-01-01'::timestamp + (currenttime/1000000.0)* interval '1 second' as currenttime,node_num,query_id,temp_blocks from pg_catalog.stl_disk_full_diag;
 ```
 

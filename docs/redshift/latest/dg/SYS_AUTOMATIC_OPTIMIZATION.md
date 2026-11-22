@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_AUTOMATIC\_OPTIMIZATION
-<a name="SYS_AUTOMATIC_OPTIMIZATION"></a>
 
 Use SYS\_AUTOMATIC\_OPTIMIZATION to view details on the tasks that Amazon Redshift runs for automatic optimization, also known as autonomics. For more information on automatic optimization, see [Automatic database optimization](c_autonomics.md).
 
@@ -36,7 +35,7 @@ The compute\_type column will be empty for serverless clusters because Amazon Re
 
 The following query displays the automatic optimizations performed on table 155259.
 
-```
+```sql
 SELECT pid, trim(task_type) as task_type,
   trim(database) as database,
   trim(status) as status,
@@ -53,7 +52,7 @@ AND status = 'Task completed successfully';
 
 The following query shows all executed automatic "VacuumSort" optimizations. For more information about "VacuumSort", see [Automatic table sort](t_Reclaiming_storage_space202.md#automatic-table-sort).
 
-```
+```sql
 SELECT trim(task_type) as task_type,
   trim(database) as database,
   trim(object_type) as object_type,

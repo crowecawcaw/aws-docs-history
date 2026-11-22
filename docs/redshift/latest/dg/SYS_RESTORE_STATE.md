@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_RESTORE\_STATE
-<a name="SYS_RESTORE_STATE"></a>
 
 Use SYS\_RESTORE\_STATE to monitor the migration progress of each table during a classic resize. For more information about classic resize, see [Classic resize](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster).
 
@@ -29,7 +28,7 @@ SYS\_RESTORE\_STATE is visible only to superusers. For more information, see [Vi
 
 The following query returns records for running and queued queries.
 
-```
+```sql
 SELECT * FROM sys_restore_state;
 ```
 
@@ -46,7 +45,7 @@ Sample output.
 
 The following gives you the data-processing status.
 
-```
+```sql
 SELECT
     redistribution_status, ROUND(SUM(block_count) / 1024.0, 2) AS total_size_gb
 FROM sys_restore_state sys inner join stv_tbl_perm stv

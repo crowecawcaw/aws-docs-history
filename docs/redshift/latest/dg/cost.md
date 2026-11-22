@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Costs for using Amazon Redshift ML
-<a name="cost"></a>
 
 With Amazon Redshift, you can leverage machine learning capabilities to gain insights from your data without the need for extensive data engineering or machine learning expertise. The following sections describe the costs associated with using Amazon Redshift ML, helping you plan and optimize your expenses while leveraging this powerful machine learning integration.
 

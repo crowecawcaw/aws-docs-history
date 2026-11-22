@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # VARBYTE operators
-<a name="r_VARBYTE_OPERATORS"></a>
 
  The following table lists the VARBYTE operators. The operator works with binary value of data type VARBYTE. If one or both inputs is null, the result is null.
 
@@ -33,7 +32,7 @@ In the following examples, the value of `'a'::VARBYTE` is `61` and the value of 
 
 To compare if `'a'` is less than `'b'` using the `<` operator, use the following example.
 
-```
+```sql
 SELECT 'a'::VARBYTE < 'b'::VARBYTE AS less_than;
                
 +-----------+
@@ -45,7 +44,7 @@ SELECT 'a'::VARBYTE < 'b'::VARBYTE AS less_than;
 
 To compare if `'a'` equals `'b'` using the `=` operator, use the following example.
 
-```
+```sql
 SELECT 'a'::VARBYTE = 'b'::VARBYTE AS equal;
                
 +-------+
@@ -57,7 +56,7 @@ SELECT 'a'::VARBYTE = 'b'::VARBYTE AS equal;
 
 To concatenate two binary values using the `||` operator, use the following example.
 
-```
+```sql
 SELECT 'a'::VARBYTE || 'b'::VARBYTE AS concat;
                
 +--------+
@@ -69,7 +68,7 @@ SELECT 'a'::VARBYTE || 'b'::VARBYTE AS concat;
 
 To concatenate two binary values using the `+` operator, use the following example.
 
-```
+```sql
 SELECT 'a'::VARBYTE + 'b'::VARBYTE AS concat;
                
 +--------+
@@ -81,7 +80,7 @@ SELECT 'a'::VARBYTE + 'b'::VARBYTE AS concat;
 
 To negate each bit of the input binary value using the FROM\_VARBYTE function, use the following example. The string `'a'` evaluates to `01100001`. For more information, see [FROM\_VARBYTE](r_FROM_VARBYTE.md).
 
-```
+```sql
 SELECT FROM_VARBYTE(~'a'::VARBYTE, 'binary');
                
 +--------------+
@@ -93,7 +92,7 @@ SELECT FROM_VARBYTE(~'a'::VARBYTE, 'binary');
 
 To apply the `&` operator on the two input binary values, use the following example. The string `'a'` evaluates to `01100001` and `'b'` evaluates to `01100010`.
 
-```
+```sql
 SELECT FROM_VARBYTE('a'::VARBYTE & 'b'::VARBYTE, 'binary');
                
 +--------------+

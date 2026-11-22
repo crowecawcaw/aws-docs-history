@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HLLSKETCH type
-<a name="r_HLLSKTECH_type"></a>
 
 Use the HLLSKETCH data type for HyperLogLog sketches. Amazon Redshift supports HyperLogLog sketch representations that are either sparse or dense. Sketches begin as sparse and switch to dense when the dense format is more efficient to minimize the memory footprint that is used.
 

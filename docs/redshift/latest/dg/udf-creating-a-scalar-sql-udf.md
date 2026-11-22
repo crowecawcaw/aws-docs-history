@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Scalar SQL UDFs
-<a name="udf-creating-a-scalar-sql-udf"></a>
 
 A scalar SQL UDF incorporates a SQL SELECT clause that runs when the function is called and returns a single value. The [CREATE FUNCTION](r_CREATE_FUNCTION.md) command defines the following parameters:
 + (Optional) Input arguments. Each argument must have a data type. 

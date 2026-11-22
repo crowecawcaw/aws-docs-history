@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_INTEGRATION\_TABLE\_MAPPING
-<a name="r_SVV_INTEGRATION_TABLE_MAPPING"></a>
 
 SVV\_INTEGRATION\_TABLE\_MAPPING displays the mapping of source database, schema, table, column, and data type to the target when the identifier value of those fields are different.
 
@@ -60,7 +59,7 @@ For information about zero-ETL integrations, see [Zero-ETL integrations](https:/
 
 The following SQL command displays mapping of metadata values from source to target.
 
-```
+```sql
 select * from svv_integration_table_mapping;
 
            integration_id              | source_database | target_database |  source_schema_name | target_schema_name | source_table_name | target_table_name | 

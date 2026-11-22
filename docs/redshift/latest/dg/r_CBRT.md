@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CBRT function
-<a name="r_CBRT"></a>
 
  The CBRT function is a mathematical function that calculates the cube root of a given number. 
 
@@ -31,7 +30,7 @@ The following example uses the TICKIT sample database. For more information, see
 
 To calculate the cube root of the commission paid for a given transaction, use the following example. 
 
-```
+```sql
 SELECT CBRT(commission) FROM sales WHERE salesid=10000;
 
 +--------------------+

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ARRAY\_POSITION function
-<a name="array_position"></a>
 
 Returns the position (index) of the first occurrence of a specified element in an array. The index is 0-based, where 0 indicates the first element, 1 indicates the second element, and so on. Returns -1 if the element is not found in the array.
 

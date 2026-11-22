@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Security and privileges for stored procedures
-<a name="stored-procedure-security-and-privileges"></a>
 
 This topic describes the database credentials needed to create and run stored procedures.
 
@@ -22,7 +21,7 @@ Because a SECURITY DEFINER procedure runs with the privileges of the user that o
 
 The following example sets `search_path` to `admin` to make sure that the `user_creds` table is accessed from the `admin` schema and not from public or any other schema in the caller's `search_path`.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE sp_get_credentials(userid int, o_creds OUT varchar)
 AS $$
 BEGIN

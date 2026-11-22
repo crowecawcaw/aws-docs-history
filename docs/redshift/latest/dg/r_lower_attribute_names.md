@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LOWER\_ATTRIBUTE\_NAMES function
-<a name="r_lower_attribute_names"></a>
 
 Converts all applicable attribute names in a SUPER value to lowercase, using the same case conversion routine as the [LOWER function](r_LOWER.md). LOWER\_ATTRIBUTE\_NAMES supports UTF-8 multibyte characters, up to a maximum of four bytes per character. 
 

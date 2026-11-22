@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_IsSimple
-<a name="ST_IsSimple-function"></a>
 
 ST\_IsSimple returns true if the 2D projection of the input geometry is simple. For more information about the definition of a simple geometry, see [Geometric simplicity](spatial-terminology.md#spatial-terminology-simplicity). 
 
@@ -32,7 +31,7 @@ If *geom* is null, then null is returned.
 
 The following SQL checks if the specified linestring is simple. In this example, it isn't simple because it has self-intersection. 
 
-```
+```sql
 SELECT ST_IsSimple(ST_GeomFromText('LINESTRING(0 0,10 0,5 5,5 -5)'));
 ```
 

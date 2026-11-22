@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_MV\_AQMV\_HISTORY
-<a name="SYS_MV_AQMV_HISTORY"></a>
 
 SYS\_MV\_AQMV\_HISTORY records automatic-query-rewrite decisions for user-created materialized views. Use this view to determine whether Amazon Redshift used a matched materialized view for a query or why the materialized view wasn't used.
 
@@ -54,7 +53,7 @@ Use `SVV_MV_INFO.autorewrite` and `SVV_MV_INFO.is_stale` together with `SYS_MV_A
 
 The following query displays decisions for a specific query.
 
-```
+```sql
 SELECT query_id,
        database_name,
        schema_name,

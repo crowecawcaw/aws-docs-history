@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading data from remote hosts
-<a name="loading-data-from-remote-hosts"></a>
 
 You can use the COPY command to load data in parallel from one or more remote hosts, such as Amazon EC2 instances or other computers. COPY connects to the remote hosts using SSH and runs commands on the remote hosts to generate text output. 
 
@@ -249,7 +248,7 @@ Upload the manifest file to an Amazon S3 bucket. If the Amazon S3 bucket does no
 
 Run a [COPY](r_COPY.md) command to connect to the host and load the data into an Amazon Redshift table. In the COPY command, specify the explicit Amazon S3 object path for the manifest file and include the SSH option. For example, 
 
-```
+```sql
 COPY sales
 FROM 's3://amzn-s3-demo-bucket/ssh_manifest'  
 IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'

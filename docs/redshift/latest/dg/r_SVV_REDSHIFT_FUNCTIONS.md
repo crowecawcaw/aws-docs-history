@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_REDSHIFT\_FUNCTIONS
-<a name="r_SVV_REDSHIFT_FUNCTIONS"></a>
 
 Use SVV\_REDSHIFT\_FUNCTIONS to view a list of all functions that a user has access to. This set of functions includes the functions on the cluster and the functions from datashares provided by remote clusters.
 

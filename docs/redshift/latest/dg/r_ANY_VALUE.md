@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ANY\_VALUE function
-<a name="r_ANY_VALUE"></a>
 
 The ANY\_VALUE function returns any value from the input expression values nondeterministically. This function returns `NULL` if the input expression doesn't result in any rows being returned. The function can also return `NULL` if there are `NULL` values in the input expression. If the input contains `NULL` values mixed with non-`NULL` values, `NULL` might be returned. If all values are `NULL`, `NULL` is returned. If no rows match the condition, `NULL` is returned.
 
@@ -59,7 +58,7 @@ If a statement that specifies the ANY\_VALUE function for a column also includes
 
 The examples use the event table that is created in [Step 4: Load sample data from Amazon S3](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-sample-db.html) in the *Amazon Redshift Getting Started Guide*. The following example returns an instance of any dateid where the eventname is Eagles. 
 
-```
+```sql
 select any_value(dateid) as dateid, eventname from event where eventname ='Eagles' group by eventname;
 ```
 
@@ -73,7 +72,7 @@ dateid | eventname
 
 The following example returns an instance of any dateid where the eventname is Eagles or Cold War Kids. 
 
-```
+```sql
 select any_value(dateid) as dateid, eventname from event where eventname in('Eagles', 'Cold War Kids') group by eventname;
 ```
 

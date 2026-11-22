@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Configuration reference
-<a name="cm_chap_ConfigurationRef"></a>
 
 You can use configurations to help customize your environment. With Amazon Redshift, you can customize and optimize your data warehousing environment by configuring various parameters and settings. The configuration reference outlines the available cluster properties, database parameters, and workload management (WLM) configuration options. You can consult this reference to fine-tune performance, security, and resource allocation based on their specific requirements. The following reference provides detailed guidance on modifying these configurations to achieve your desired data warehousing setup.
 
@@ -66,7 +65,7 @@ You can change the server configuration in the following ways:
 
 Use the SHOW command to view the current parameter settings. Use SHOW ALL to view all the settings that you can configure by using the [SET](r_SET.md) command.
 
-```
+```sql
 SHOW ALL;
 
 name                      | setting      

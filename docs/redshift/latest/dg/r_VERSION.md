@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # VERSION
-<a name="r_VERSION"></a>
 
  The VERSION function returns details about the currently installed release, with specific Amazon Redshift version information at the end. 
 
@@ -27,7 +26,7 @@ Returns a CHAR or VARCHAR string.
 
 The following example shows the cluster version information of the current cluster: 
 
-```
+```sql
 select version();
 ```
 

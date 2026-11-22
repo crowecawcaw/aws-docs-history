@@ -3,14 +3,13 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # OCTETINDEX function
-<a name="OCTETINDEX"></a>
 
 The OCTETINDEX function returns the location of a substring within a string as a number of bytes.
 
 ## Syntax
 <a name="OCTETINDEX-synopsis"></a>
 
-```
+```sql
 OCTETINDEX(substring, string)
 ```
 
@@ -34,7 +33,7 @@ The OCTETINDEX function returns an `INTEGER` value corresponding to the position
 
 To return the position of the substring `q` in the string `Amazon Redshift`, use the following example. This example returns `0` because the *substring* is not in the *string*.
 
-```
+```sql
 SELECT OCTETINDEX('q', 'Amazon Redshift');
 
 +------------+
@@ -46,7 +45,7 @@ SELECT OCTETINDEX('q', 'Amazon Redshift');
 
 To return the position of an empty substring in the string `Amazon Redshift`, use the following example. This example returns `1` because the *substring* is empty.
 
-```
+```sql
 SELECT OCTETINDEX('', 'Amazon Redshift');
 
 +------------+
@@ -58,7 +57,7 @@ SELECT OCTETINDEX('', 'Amazon Redshift');
 
 To return the position of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `8` because the *substring* begins on the eighth byte of the *string*.
 
-```
+```sql
 SELECT OCTETINDEX('Redshift', 'Amazon Redshift');
 
 +------------+
@@ -70,7 +69,7 @@ SELECT OCTETINDEX('Redshift', 'Amazon Redshift');
 
 To return the position of the substring `Redshift` in the string `Amazon Redshift`, use the following example. This example returns `21` because the first six characters of the *string* are double-byte characters.
 
-```
+```sql
 SELECT OCTETINDEX('Redshift', 'Άμαζον Amazon Redshift');
 
 +------------+

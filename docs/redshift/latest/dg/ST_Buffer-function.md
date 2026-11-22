@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Buffer
-<a name="ST_Buffer-function"></a>
 
 ST\_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance. 
 
@@ -44,7 +43,7 @@ If *geom* is a `GEOMETRYCOLLECTION`, then an error is returned.
 
 The following SQL returns the buffer of the input linestring. 
 
-```
+```sql
 SELECT ST_AsEwkt(ST_Buffer(ST_GeomFromText('LINESTRING(1 2,5 2,5 8)'), 2));
 ```
 
@@ -55,7 +54,7 @@ POLYGON((-1 2,-0.96157056080646 2.39018064403226,-0.847759065022573 2.7653668647
 
 The following SQL returns the buffer of the input point geometry which approximates a circle. Because the command doesn't specify the number of segments per quarter circle, the function uses the default value of eight segments to approximate the quarter circle.
 
-```
+```sql
 SELECT ST_AsEwkt(ST_Buffer(ST_GeomFromText('POINT(3 4)'), 2));
 ```
 
@@ -66,7 +65,7 @@ POLYGON((1 4,1.03842943919354 4.39018064403226,1.15224093497743 4.76536686473018
 
 The following SQL returns the buffer of the input point geometry which approximates a circle. Because the command specifies 3 as the number of segments per quarter circle, the function uses three segments to approximate the quarter circle.
 
-```
+```sql
 SELECT ST_AsEwkt(ST_Buffer(ST_GeomFromText('POINT(3 4)'), 2, 3));
 ```
 

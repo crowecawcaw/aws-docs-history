@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE TEMPLATE
-<a name="r_CREATE_TEMPLATE"></a>
 
 Creates reusable templates for Amazon Redshift commands like [COPY](r_COPY.md). Templates store commonly used parameters that can be referenced across multiple command executions, improving consistency and reducing manual parameter specification.
 
@@ -93,7 +92,7 @@ MAXERROR 100;
 
 Use [SHOW TEMPLATE](r_SHOW_TEMPLATE.md) to get the definition of the template:
 
-```
+```sql
 SHOW TEMPLATE test_schema.demo_template;
 CREATE OR REPLACE TEMPLATE dev.test_schema.demo_template FOR COPY AS FORMAT AS JSON 'auto' NULL '' MAXERROR 100;
 ```

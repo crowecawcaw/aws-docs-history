@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Dimension
-<a name="ST_Dimension-function"></a>
 
 ST\_Dimension returns the inherent dimension of an input geometry. The *inherent dimension* is the dimension value of the subtype that is defined in the geometry. 
 
@@ -45,7 +44,7 @@ The values returned are as follows.
 
 The following SQL converts a well-known text (WKT) representation of a four-point LINESTRING to a GEOMETRY object and returns the dimension of the linestring. 
 
-```
+```sql
 SELECT ST_Dimension(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
 ```
 

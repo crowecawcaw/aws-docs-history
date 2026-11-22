@@ -3,48 +3,47 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples
-<a name="r_GRANT-examples"></a>
 
  The following example grants the SELECT privilege on the SALES table to the user `fred`. 
 
-```
+```sql
 grant select on table sales to fred;
 ```
 
 The following example grants the SELECT privilege on all tables in the QA\_TICKIT schema to the user `fred`. 
 
-```
+```sql
 grant select on all tables in schema qa_tickit to fred;
 ```
 
 The following example grants all schema privileges on the schema QA\_TICKIT to the user group QA\_USERS. Schema privileges are CREATE and USAGE. USAGE grants users access to the objects in the schema, but doesn't grant privileges such as INSERT or SELECT on those objects. Grant privileges on each object separately.
 
-```
+```sql
 create group qa_users;
 grant all on schema qa_tickit to group qa_users;
 ```
 
 The following example grants all privileges on the SALES table in the QA\_TICKIT schema to all users in the group QA\_USERS.
 
-```
+```sql
 grant all on table qa_tickit.sales to group qa_users;
 ```
 
 The following example grants all privileges on the SALES table in the QA\_TICKIT schema to all users in the groups QA\_USERS and RO\_USERS.
 
-```
+```sql
 grant all on table qa_tickit.sales to group qa_users, group ro_users;
 ```
 
 The following example grants the DROP privilege on the SALES table in the QA\_TICKIT schema to all users in the group QA\_USERS.
 
-```
+```sql
 grant drop on table qa_tickit.sales to group qa_users;>
 ```
 
 The following sequence of commands shows how access to a schema doesn't grant privileges on a table in the schema. 
 
-```
+```sql
 create user schema_user in group qa_users password 'Abcd1234';
 create schema qa_tickit;
 create table qa_tickit.test (col1 int);
@@ -111,25 +110,25 @@ ERROR:  permission denied for relation date
 
 The following example grants SELECT privilege on the `cust_name` and `cust_phone` columns of the `cust_profile` table to the user `user1`. 
 
-```
+```sql
 grant select(cust_name, cust_phone) on cust_profile to user1;
 ```
 
 The following example grants SELECT privilege on the `cust_name` and `cust_phone` columns and UPDATE privilege on the `cust_contact_preference` column of the `cust_profile` table to the `sales_group` group. 
 
-```
+```sql
 grant select(cust_name, cust_phone), update(cust_contact_preference) on cust_profile to group sales_group;
 ```
 
 The following example shows the usage of the ALL keyword to grant both SELECT and UPDATE privileges on three columns of the table `cust_profile` to the `sales_admin` group. 
 
-```
+```sql
 grant ALL(cust_name, cust_phone,cust_contact_preference) on cust_profile to group sales_admin;
 ```
 
 The following example grants the SELECT privilege on the `cust_name` column of the `cust_profile_vw` view to the `user2` user. 
 
-```
+```sql
 grant select(cust_name) on cust_profile_vw to user2;
 ```
 
@@ -140,13 +139,13 @@ The following examples show GRANT datasharing usage permissions on a specific da
 
 In the following example, a producer-side admin grants the USAGE permission on the `salesshare` datashare to the specified namespace. 
 
-```
+```sql
 GRANT USAGE ON DATASHARE salesshare TO NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';
 ```
 
 In the following example, a consumer-side admin grants the USAGE permission on the `sales_db` to `Bob`.
 
-```
+```sql
 GRANT USAGE ON DATABASE sales_db TO Bob;
 ```
 
@@ -204,20 +203,20 @@ The following are examples of granting the ASSUMEROLE privilege.
 
 The following example shows the REVOKE statement that a superuser runs once on the cluster to enable the use of the ASSUMEROLE privilege for users and groups. Then, the superuser grants the ASSUMEROLE privilege to users and groups for the appropriate commands. For information on enabling the use of the ASSUMEROLE privilege for users and groups, see [Usage notes for granting the ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole).
 
-```
+```sql
 revoke assumerole on all from public for all;
 ```
 
 The following example grants the ASSUMEROLE privilege to the user `reg_user1` for the IAM role `Redshift-S3-Read` to perform COPY operations. 
 
-```
+```sql
 grant assumerole on 'arn:aws:iam::123456789012:role/Redshift-S3-Read'
 to reg_user1 for copy;
 ```
 
 The following example grants the ASSUMEROLE privilege to the user `reg_user1` for the IAM role chain `RoleA`, `RoleB` to perform UNLOAD operations. 
 
-```
+```sql
 grant assumerole
 on 'arn:aws:iam::123456789012:role/RoleA,arn:aws:iam::210987654321:role/RoleB'
 to reg_user1
@@ -226,7 +225,7 @@ for unload;
 
 The following is an example of the UNLOAD command using the IAM role chain `RoleA`, `RoleB`.
 
-```
+```sql
 unload ('select * from venue limit 10')
 to 's3://companyb/redshift/venue_pipe_'
 iam_role 'arn:aws:iam::123456789012:role/RoleA,arn:aws:iam::210987654321:role/RoleB';
@@ -234,14 +233,14 @@ iam_role 'arn:aws:iam::123456789012:role/RoleA,arn:aws:iam::210987654321:role/Ro
 
 The following example grants the ASSUMEROLE privilege to the user `reg_user1` for the IAM role `Redshift-Exfunc` to create external functions. 
 
-```
+```sql
 grant assumerole on 'arn:aws:iam::123456789012:role/Redshift-Exfunc'
 to reg_user1 for external function;
 ```
 
 The following example grants the ASSUMEROLE privilege to the user `reg_user1` for the IAM role `Redshift-model` to create machine learning models. 
 
-```
+```sql
 grant assumerole on 'arn:aws:iam::123456789012:role/Redshift-ML'
 to reg_user1 for create model;
 ```
@@ -251,14 +250,14 @@ to reg_user1 for create model;
 
 The following example grants sample\_role1 to user1.
 
-```
+```sql
 CREATE ROLE sample_role1;
 GRANT ROLE sample_role1 TO user1;
 ```
 
 The following example grants sample\_role1 to user1 with the WITH ADMIN OPTION, sets the current session for user1, and user1 grants sample\_role1 to user2.
 
-```
+```sql
 GRANT ROLE sample_role1 TO user1 WITH ADMIN OPTION;
 SET SESSION AUTHORIZATION user1;
 GRANT ROLE sample_role1 TO user2;

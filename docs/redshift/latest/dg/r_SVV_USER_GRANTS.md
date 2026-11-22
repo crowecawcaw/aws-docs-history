@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_USER\_GRANTS
-<a name="r_SVV_USER_GRANTS"></a>
 
 Use SVV\_USER\_GRANTS to view the list of users that are explicitly granted roles in the cluster.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Machine learning for novices and experts
-<a name="novice_expert"></a>
 
 With Amazon Redshift, you can leverage Machine Learning (ML) capabilities to gain insights from your data, whether you are a novice or an expert in ML. Machine Learning is an Amazon Redshift feature that you use to create, train, and deploy ML models using SQL commands, without the need for extensive ML expertise or complex data engineering.
 

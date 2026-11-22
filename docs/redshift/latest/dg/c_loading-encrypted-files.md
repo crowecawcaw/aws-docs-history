@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading encrypted data files from Amazon S3
-<a name="c_loading-encrypted-files"></a>
 
 You can use the COPY command to load data files that were uploaded to Amazon S3 using server-side encryption, client-side encryption, or both. 
 
@@ -25,7 +24,7 @@ The COPY command automatically recognizes and loads files encrypted using SSE-S3
 
 To load client-side encrypted data files, provide the root key value using the MASTER\_SYMMETRIC\_KEY parameter and include the ENCRYPTED option.
 
-```
+```sql
 COPY customer FROM 's3://amzn-s3-demo-bucket/encrypted/customer' 
 IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 MASTER_SYMMETRIC_KEY '{{<root_key>}}' 

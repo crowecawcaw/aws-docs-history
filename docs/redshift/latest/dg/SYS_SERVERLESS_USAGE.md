@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_SERVERLESS\_USAGE
-<a name="SYS_SERVERLESS_USAGE"></a>
 
 Use SYS\_SERVERLESS\_USAGE to view details of Amazon Redshift Serverless usage of resources. This system view doesn't apply to provisioned Amazon Redshift clusters.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Query troubleshooting in Amazon Redshift Spectrum
-<a name="c-spectrum-troubleshooting"></a>
 
 
 
@@ -109,7 +108,7 @@ The error message might be truncated due to the limit on message length. To retr
 
 The following example queries SVL\_S3LOG for the last query completed.
 
-```
+```sql
 select message 
 from svl_s3log 
 where query = pg_last_query_id() 

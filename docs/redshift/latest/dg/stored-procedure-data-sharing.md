@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Calling stored procedures across databases and through data sharing
-<a name="stored-procedure-data-sharing"></a>
 
 With Amazon Redshift, you can call stored procedures across databases and through data sharing. While connected to a database, you can call a stored procedure in another database on the same cluster. You can also call a procedure that a producer shares with you through a datashare. This topic explains how to use this feature and its limitations.
 
@@ -12,64 +11,76 @@ The examples in this section use a producer database named `producer_db` that is
 ## Sharing and calling a procedure
 <a name="stored-procedure-data-sharing-call"></a>
 
-To share a procedure, grant `EXECUTE` on it to the datashare, and give the consumer access to the datashare.
+**To share a procedure**
++ On the producer, use the following SQL statements to grant `EXECUTE` on the procedure to the datashare and give the consumer access to the datashare. Replace {{consumer-namespace-id}} with the namespace ID of the consumer cluster:
 
-To call a remote stored procedure, first run `USE` to set the database context to the database that contains the procedure. For a procedure shared through a datashare, that is the database that you created from the datashare. Then call the procedure by its one-part, two-part, or three-part name. You must run `USE` even when you call the procedure by its three-part name.
+  ```sql
+  -- On the producer, in producer_db
+  CREATE PROCEDURE public.refresh_summary(p_region varchar)
+  AS $$
+  BEGIN
+    DELETE FROM public.sales_summary WHERE region = p_region;
+    INSERT INTO public.sales_summary
+      SELECT region, SUM(amount) FROM public.sales WHERE region = p_region GROUP BY region;
+  END;
+  $$ LANGUAGE plpgsql;
+  
+  CREATE DATASHARE salesshare;
+  GRANT USAGE ON SCHEMA public TO DATASHARE salesshare;
+  GRANT SELECT ON public.sales TO DATASHARE salesshare;
+  GRANT SELECT, INSERT, DELETE ON public.sales_summary TO DATASHARE salesshare;
+  GRANT EXECUTE ON PROCEDURE public.refresh_summary(varchar) TO DATASHARE salesshare;
+  GRANT USAGE ON DATASHARE salesshare TO NAMESPACE '{{consumer-namespace-id}}';
+  ```
 
-```
--- On the producer, in producer_db
-CREATE PROCEDURE public.refresh_summary(p_region varchar)
-AS $$
-BEGIN
-  DELETE FROM public.sales_summary WHERE region = p_region;
-  INSERT INTO public.sales_summary
-    SELECT region, SUM(amount) FROM public.sales WHERE region = p_region GROUP BY region;
-END;
-$$ LANGUAGE plpgsql;
+**To call a remote stored procedure**
 
-CREATE DATASHARE salesshare;
-GRANT USAGE ON SCHEMA public TO DATASHARE salesshare;
-GRANT SELECT ON public.sales TO DATASHARE salesshare;
-GRANT SELECT, INSERT, DELETE ON public.sales_summary TO DATASHARE salesshare;
-GRANT EXECUTE ON PROCEDURE public.refresh_summary(varchar) TO DATASHARE salesshare;
-GRANT USAGE ON DATASHARE salesshare TO NAMESPACE 'consumer-namespace-id';
-```
+1. On the consumer, create a database from the datashare. Replace {{producer-namespace-id}} with the namespace ID of the producer cluster:
 
-On the consumer, create a database from the datashare, set the database context, and call the procedure.
+   ```sql
+   -- On the consumer, in consumer_db
+   CREATE DATABASE datashare_db FROM DATASHARE salesshare OF NAMESPACE '{{producer-namespace-id}}';
+   ```
 
-```
--- On the consumer, in consumer_db
-CREATE DATABASE datashare_db FROM DATASHARE salesshare OF NAMESPACE 'producer-namespace-id';
+1. Run `USE` to set the database context to the database that contains the procedure. For a procedure shared through a datashare, that is the database that you created from the datashare. You must run `USE` even when you call the procedure by its three-part name:
 
-USE datashare_db;
+   ```sql
+   USE datashare_db;
+   ```
 
--- Three-part name
-CALL datashare_db.public.refresh_summary('WEST');
+1. Call the procedure by its one-part, two-part, or three-part name:
 
--- Two-part name
-CALL public.refresh_summary('WEST');
+   ```sql
+   -- Three-part name
+   CALL datashare_db.public.refresh_summary('WEST');
+   
+   -- Two-part name
+   CALL public.refresh_summary('WEST');
+   
+   -- One-part name
+   SET search_path TO public;
+   CALL refresh_summary('WEST');
+   ```
 
--- One-part name
-SET search_path TO public;
-CALL refresh_summary('WEST');
-```
+**To stop sharing a procedure**
++ On the producer, revoke `EXECUTE` on the procedure from the datashare:
 
-To stop sharing the procedure, revoke `EXECUTE` on it from the datashare.
-
-```
--- On the producer
-REVOKE EXECUTE ON PROCEDURE public.refresh_summary(varchar) FROM DATASHARE salesshare;
-```
+  ```sql
+  -- On the producer
+  REVOKE EXECUTE ON PROCEDURE public.refresh_summary(varchar) FROM DATASHARE salesshare;
+  ```
 
 ## How object names resolve
 <a name="stored-procedure-data-sharing-names"></a>
+
+Object names resolve according to the following rules:
 + One-part and two-part names in the procedure body resolve in the database set by `USE`, so `public.sales` refers to `datashare_db.public.sales`.
 + Three-part names resolve the same way as in any other statement that you run on the consumer. Use the consumer-side name of a shared database, such as `datashare_db`, or the name of a database local to the consumer.
 + The same rules apply to dynamic SQL that the procedure runs with `EXECUTE` and to procedures that it calls.
 
-The following procedure compares a total in the shared table with a total in a table that is local to the consumer.
+The following procedure compares a total in the shared table with a total in a table that is local to the consumer:
 
-```
+```sql
 -- On the producer, in producer_db
 CREATE PROCEDURE public.compare_totals(p_region varchar)
 AS $$
@@ -88,7 +99,7 @@ $$ LANGUAGE plpgsql;
 GRANT EXECUTE ON PROCEDURE public.compare_totals(varchar) TO DATASHARE salesshare;
 ```
 
-```
+```sql
 -- On the consumer, in consumer_db
 USE datashare_db;
 CALL datashare_db.public.compare_totals('WEST');
@@ -103,9 +114,9 @@ A transaction can write to only one database. After `USE datashare_db`, writes t
 
 A `USE` or `RESET USE` in the procedure body applies to the statements that follow it, and stays in effect in your session after the procedure returns. After `RESET USE`, the statements run in the database that you're connected to on the consumer.
 
-The following procedure updates a summary in the shared database and then writes a log row to a database local to the consumer.
+The following procedure updates a summary in the shared database and then writes a log row to a database local to the consumer:
 
-```
+```sql
 -- On the producer, in producer_db
 CREATE PROCEDURE public.summarize_and_log(p_region varchar)
 AS $$
@@ -122,7 +133,7 @@ $$ LANGUAGE plpgsql;
 GRANT EXECUTE ON PROCEDURE public.summarize_and_log(varchar) TO DATASHARE salesshare;
 ```
 
-```
+```sql
 -- On the consumer, in consumer_db
 USE datashare_db;
 CALL datashare_db.public.summarize_and_log('EAST');

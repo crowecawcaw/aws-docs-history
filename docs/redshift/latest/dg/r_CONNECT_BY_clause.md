@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CONNECT BY clause
-<a name="r_CONNECT_BY_clause"></a>
 
 The CONNECT BY clause specifies the relationship between rows in a hierarchy. You can use CONNECT BY to select rows in a hierarchical order by joining the table to itself and processing the hierarchical data. For example, you can use it to recursively loop through an organization chart and list data.
 

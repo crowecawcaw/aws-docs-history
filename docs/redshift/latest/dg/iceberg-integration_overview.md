@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Apache Iceberg compatibility for Amazon Redshift
-<a name="iceberg-integration_overview"></a>
 
 You can register entire Amazon Redshift provisioned clusters or serverless namespaces to the AWS Glue Data Catalog to create catalogs that securely share live data across AWS accounts. You can access these catalogs from any SQL query engine that supports the Apache Iceberg REST API. AWS Lake Formation manages the permissions for the catalogs, letting you manage a single copy of data with a single set of permissions while leveraging Amazon Redshift features such as materialized views and zero-ETL integrations. 
 

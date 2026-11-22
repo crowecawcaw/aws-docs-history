@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # JSON\_SIZE function
-<a name="r_json_size"></a>
 
 The JSON\_SIZE function returns the number of bytes in the given `SUPER` expression when serialized into a string. 
 
@@ -36,7 +35,7 @@ JSON\_SIZE(x) is functionally identical to OCTET\_LENGTH(JSON\_SERIALIZE). Howev
 
 To return the length of a `SUPER` value serialized to a string, use the following example.
 
-```
+```sql
 SELECT JSON_SIZE(JSON_PARSE('[10001,10002,"⬤"]'));
 
 +-----------+

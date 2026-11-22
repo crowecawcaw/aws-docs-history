@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Azimuth
-<a name="ST_Azimuth-function"></a>
 
 ST\_Azimuth returns the north-based Cartesian azimuth using the 2D projections of the two input points. 
 
@@ -43,7 +42,7 @@ If *point1* and *point2* don't have the value for the spatial reference system i
 
 The following SQL returns the azimuth of the input points. 
 
-```
+```sql
 SELECT ST_Azimuth(ST_Point(1,2), ST_Point(5,6));
 ```
 

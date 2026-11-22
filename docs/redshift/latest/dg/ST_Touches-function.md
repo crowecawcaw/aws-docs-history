@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Touches
-<a name="ST_Touches-function"></a>
 
 ST\_Touches returns true if the 2D projections of the two input geometries touch. The two geometries touch if they are nonempty, intersect, and have no interior points in common. 
 
@@ -39,7 +38,7 @@ If *geom1* or *geom2* is a geometry collection, then an error is returned.
 
 The following SQL checks if a polygon touches a linestring. 
 
-```
+```sql
 SELECT ST_Touches(ST_GeomFromText('POLYGON((0 0,10 0,0 10,0 0))'), ST_GeomFromText('LINESTRING(20 10,20 0,10 0)'));
 ```
 

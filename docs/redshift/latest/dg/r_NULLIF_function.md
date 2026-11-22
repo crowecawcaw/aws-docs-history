@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # NULLIF function
-<a name="r_NULLIF_function"></a>
 
 ## Syntax
 <a name="r_NULLIF_function-synopsis"></a>
@@ -25,7 +24,7 @@ The target columns or expressions that are compared. The return type is the same
 
 In the following example, the query returns the string `first` because the arguments are not equal.
 
-```
+```sql
 SELECT NULLIF('first', 'second');
 
 case
@@ -35,7 +34,7 @@ first
 
 In the following example, the query returns `NULL` because the string literal arguments are equal.
 
-```
+```sql
 SELECT NULLIF('first', 'first');
 
 case
@@ -45,7 +44,7 @@ NULL
 
 In the following example, the query returns `1` because the integer arguments are not equal.
 
-```
+```sql
 SELECT NULLIF(1, 2);
 
 case
@@ -55,7 +54,7 @@ case
 
 In the following example, the query returns `NULL` because the integer arguments are equal.
 
-```
+```sql
 SELECT NULLIF(1, 1);
 
 case

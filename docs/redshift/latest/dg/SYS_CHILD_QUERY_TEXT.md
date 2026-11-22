@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_CHILD\_QUERY\_TEXT
-<a name="SYS_CHILD_QUERY_TEXT"></a>
 
 Returns the SQL text of a child query.
 
@@ -25,7 +24,7 @@ Returns the SQL text of a child query.
 
 In the following example, the rows in the result show actions taken by Amazon Redshift. 
 
-```
+```sql
 SELECT * from sys_child_query_text where query_id = '34487366' order by child_query_sequence asc, sequence asc;
                 
 user_id | query_id | child_query_sequence | sequence | text

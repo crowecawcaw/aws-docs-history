@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE VIEW
-<a name="r_CREATE_VIEW"></a>
 
 Creates a view in a database. The view isn't physically materialized; the query that defines the view is run every time the view is referenced in a query. To create a view with an external table, include the WITH NO SCHEMA BINDING clause.
 
@@ -127,7 +126,7 @@ To update the standard view to refer to the latest definition of the late-bindin
 
 See the following example of creating a standard view from a late-binding view.
 
-```
+```sql
 create view sales_vw_lbv as 
 select * from public.sales 
 with no schema binding;

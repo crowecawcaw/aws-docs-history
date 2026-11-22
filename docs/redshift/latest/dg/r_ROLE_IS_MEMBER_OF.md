@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ROLE\_IS\_MEMBER\_OF
-<a name="r_ROLE_IS_MEMBER_OF"></a>
 
 Returns true if the role is a member of another role. Superusers can check the membership of all roles. Regular users who have the ACCESS SYSTEM TABLE permission can check all users' membership. Otherwise, regular users can only check roles to which they have access. Amazon Redshift errors out if the provided roles don't exist or the current user doesn't have access to the role.
 

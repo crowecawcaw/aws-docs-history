@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Usage notes
-<a name="r_GRANT-usage-notes"></a>
 
 To grant privileges on an object, you must meet one of the following criteria:
 + Be the object owner.
@@ -30,7 +29,7 @@ Having privileges granted on a view doesn't imply having privileges on the under
 
 To grant privileges to an AWS Lake Formation table, the IAM role associated with the table's external schema must have permission to grant privileges to the external table. The following example creates an external schema with an associated IAM role `myGrantor`. The IAM role `myGrantor` has the permission to grant permissions to others. The GRANT command uses the permission of the IAM role `myGrantor` that is associated with the external schema to grant permission to the IAM role `myGrantee`.
 
-```
+```SQL
 create external schema mySchema
 from data catalog
 database 'spectrum_db'
@@ -38,7 +37,7 @@ iam_role 'arn:aws:iam::123456789012:role/myGrantor'
 create external database if not exists;
 ```
 
-```
+```SQL
 grant select
 on external table mySchema.mytable
 to iam_role 'arn:aws:iam::123456789012:role/myGrantee';
@@ -46,7 +45,7 @@ to iam_role 'arn:aws:iam::123456789012:role/myGrantee';
 
 If you GRANT ALL privileges to an IAM role, individual privileges are granted in the related Lake Formation–enabled Data Catalog. For example, the following GRANT ALL results in the granted individual privileges (SELECT, ALTER, DROP, DELETE, and INSERT) showing in the Lake Formation console.
 
-```
+```SQL
 grant all
 on external table mySchema.mytable
 to iam_role 'arn:aws:iam::123456789012:role/myGrantee';
@@ -88,7 +87,7 @@ Only a database superuser can grant or revoke the ASSUMEROLE permission for user
 To enable the use of the ASSUMEROLE permission for users, roles, and groups, a superuser performs the following two actions:
 + Run the following statement once on the cluster:
 
-  ```
+  ```SQL
   revoke assumerole on all from public for all;
   ```
 + Grant the ASSUMEROLE permission to users, roles, and groups for the appropriate commands.
@@ -97,7 +96,7 @@ You can specify role chaining in the ON clause when granting the ASSUMEROLE perm
 
 If a user attempts to perform a COPY, UNLOAD, EXTERNAL FUNCTION, or CREATE MODEL operation and hasn't been granted the ASSUMEROLE permission, a message similar to the following appears.
 
-```
+```sql
 ERROR:  User awsuser does not have ASSUMEROLE permission on IAM role "arn:aws:iam::123456789012:role/RoleA" for COPY 
 ```
 

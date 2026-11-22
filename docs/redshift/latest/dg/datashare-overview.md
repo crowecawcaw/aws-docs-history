@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data sharing in Amazon Redshift
-<a name="datashare-overview"></a>
 
 With Amazon Redshift, you can securely share data across Amazon Redshift clusters or with other AWS services. With data sharing, you can share live data, without having to create a copy or move it. Database administrators and data engineers can use data sharing to provide secure, read-only access to data for analytics purposes, while maintaining control over the data. Data analysts, business intelligence professionals, and data scientists can leverage shared data to gain insights without duplicating or moving data. Common use cases include sharing data with partners, enabling cross-functional analysis, and facilitating data democratization within an organization. The following sections cover the details of configuring and managing data sharing in Amazon Redshift.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connecting to a database
-<a name="connect-database-console"></a>
 
 With Amazon Redshift, you can establish a connection to your data warehouse cluster and execute SQL queries, load data, or perform administrative tasks. Connecting to a database refers to the process of creating a secure channel between a client application or tool and the Amazon Redshift cluster. The following sections will provide step-by-step instructions on how to connect to an Amazon Redshift database.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # NEXT\_DAY function
-<a name="r_NEXT_DAY"></a>
 
 NEXT\_DAY returns the date of the first instance of the specified day that is later than the given date.
 
@@ -53,7 +52,7 @@ DATE
 
 The following example returns the date of the first Tuesday after 8/20/2014.
 
-```
+```sql
 select next_day('2014-08-20','Tuesday');
 
 next_day
@@ -63,7 +62,7 @@ next_day
 
 The following example returns the date of the first Tuesday after 1/1/2008 at 5:54:44.
 
-```
+```sql
 select listtime, next_day(listtime, 'Tue') from listing limit 1;
 
 listtime            | next_day
@@ -73,7 +72,7 @@ listtime            | next_day
 
 The following example gets target marketing dates for the third quarter.
 
-```
+```sql
 select username, (firstname ||' '|| lastname) as name,
 eventname, caldate, next_day (caldate, 'Monday') as marketing_target
 from sales, date, users, event

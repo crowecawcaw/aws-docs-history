@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_AUTO\_TABLE\_OPTIMIZATION
-<a name="r_SYS_AUTO_TABLE_OPTIMIZATION"></a>
 
 Records automated actions taken by Amazon Redshift on tables defined for automatic optimization. 
 
@@ -28,7 +27,7 @@ SYS\_AUTO\_TABLE\_OPTIMIZATION is visible only to superusers. For more informati
 
 In the following example, the rows in the result show actions taken by Amazon Redshift. 
 
-```
+```sql
 SELECT table_id, alter_table_type, status, event_time, alter_from
 FROM SYS_AUTO_TABLE_OPTIMIZATION;
                 

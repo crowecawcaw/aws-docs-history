@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Supported PL/pgSQL statements
-<a name="c_PLpgSQL-statements"></a>
 
  PL/pgSQL statements augment SQL commands with procedural constructs, including looping and conditional expressions, to control logical flow. Most SQL commands can be used, including data manipulation language (DML) such as COPY, UNLOAD, and INSERT, and data definition language (DDL) such as CREATE TABLE. For a list of comprehensive SQL commands, see [SQL commands](c_SQL_commands.md). In addition, the following PL/pgSQL statements are supported by Amazon Redshift. 
 
@@ -59,7 +58,7 @@ If the query returns zero rows, NULL values are assigned to {{target}}. If the q
 
 To determine whether the assignment returned at least one row, use the special FOUND variable.
 
-```
+```sql
 SELECT INTO customer_rec * FROM cust WHERE custname = lname;
 IF NOT FOUND THEN
   RAISE EXCEPTION 'employee % not found', lname;
@@ -68,7 +67,7 @@ END IF;
 
 To test whether a record result is null, you can use the IS NULL conditional. There is no way to determine whether any additional rows might have been discarded. The following example handles the case where no rows have been returned.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE select_into_null(return_webpage OUT varchar(256))
 AS $$
 DECLARE
@@ -108,7 +107,7 @@ You can't use COMMIT and ROLLBACK statements from within dynamic SQL. For inform
 
 When working with dynamic commands, you often have to handle escaping of single quotation marks. We recommend enclosing fixed text in quotation marks in your function body using dollar quoting. Dynamic values to insert into a constructed query require special handling because they might themselves contain quotation marks. The following example assumes dollar quoting for the function as a whole, so the quotation marks don't need to be doubled.
 
-```
+```sql
 EXECUTE 'UPDATE tbl SET '
   || quote_ident(colname)
   || ' = '
@@ -121,7 +120,7 @@ The preceding example shows the functions `quote_ident(text)` and `quote_literal
 
 Dollar quoting is only useful for quoting fixed text. Don't write the preceding example in the following format.
 
-```
+```sql
 EXECUTE 'UPDATE tbl SET '
   || quote_ident(colname)
   || ' = $$'
@@ -143,7 +142,7 @@ RETURN;
 
 The following shows an example.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE return_example(a int)
 AS $$  
 BEGIN
@@ -172,7 +171,7 @@ The IF conditional statement can take the following forms in the PL/pgSQL langua
 
   The following shows an example.
 
-  ```
+  ```sql
   IF v_user_id <> 0 THEN
     UPDATE users SET email = v_email WHERE user_id = v_user_id;
   END IF;
@@ -189,7 +188,7 @@ The IF conditional statement can take the following forms in the PL/pgSQL langua
 
   The following shows an example.
 
-  ```
+  ```sql
   IF parentid IS NULL OR parentid = ''
   THEN
     return_name = fullname;
@@ -218,7 +217,7 @@ The IF conditional statement can take the following forms in the PL/pgSQL langua
 
   The following shows an example.
 
-  ```
+  ```sql
   IF number = 0 THEN
     result := 'zero';
   ELSIF number > 0 THEN
@@ -255,7 +254,7 @@ The CASE conditional statement can take the following forms in the PL/pgSQL lang
 
   The following shows an example.
 
-  ```
+  ```sql
   CASE x
   WHEN 1, 2 THEN
     msg := 'one or two';
@@ -283,7 +282,7 @@ The CASE conditional statement can take the following forms in the PL/pgSQL lang
 
   The following shows an example.
 
-  ```
+  ```sql
   CASE
   WHEN x BETWEEN 0 AND 10 THEN
     msg := 'value is between zero and ten';
@@ -309,7 +308,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   CREATE OR REPLACE PROCEDURE simple_loop()
   LANGUAGE plpgsql
   AS $$
@@ -340,7 +339,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   CREATE OR REPLACE PROCEDURE simple_loop_when(x int)
   LANGUAGE plpgsql
   AS $$
@@ -367,7 +366,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   You can use CONTINUE with all types of loops; it isn't limited to use with unconditional loops.
 
-  ```
+  ```sql
   CONTINUE mylabel;
   ```
 + WHILE loop 
@@ -383,7 +382,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   WHILE amount_owed > 0 AND gift_certificate_balance > 0 LOOP
     -- some computations here
   END LOOP;
@@ -409,7 +408,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   FOR i IN 1..10 LOOP
     -- i will take on the values 1,2,3,4,5,6,7,8,9,10 within the loop
   END LOOP;
@@ -433,7 +432,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   CREATE PROCEDURE cs_refresh_reports() AS $$
   DECLARE
     reports RECORD;
@@ -459,7 +458,7 @@ Loop statements can take the following forms in the PL/pgSQL language that Amazo
 
   The following shows an example.
 
-  ```
+  ```sql
   CREATE OR REPLACE PROCEDURE for_loop_dynamic_sql(x int)
   LANGUAGE plpgsql
   AS $$
@@ -495,7 +494,7 @@ In the preceding, {{arguments}} (if specified) is a comma-separated list of {{na
 
 The following shows examples.
 
-```
+```sql
 DECLARE
   curs1 refcursor;
   curs2 CURSOR FOR SELECT * FROM tenk1;
@@ -513,7 +512,7 @@ Before you can use a cursor to retrieve rows, it must be opened. PL/pgSQL has th
 
   The following shows an example.
 
-  ```
+  ```sql
   OPEN curs1 FOR SELECT * FROM foo WHERE key = mykey;    
   ```
 + Open for execute: The cursor variable is opened and given the specified query to run. The cursor can't be open already. Also, it must have been declared as an unbound cursor (that is, as a simple `refcursor` variable). The query is specified as a string expression in the same way as in the EXECUTE command. This approach gives flexibility so the query can vary from one run to the next.
@@ -524,7 +523,7 @@ Before you can use a cursor to retrieve rows, it must be opened. PL/pgSQL has th
 
   The following shows an example.
 
-  ```
+  ```sql
   OPEN curs1 FOR EXECUTE 'SELECT * FROM ' || quote_ident($1);
   ```
 + Open a bound cursor: This form of OPEN is used to open a cursor variable whose query was bound to it when it was declared. The cursor can't be open already. A list of actual argument value expressions must appear if and only if the cursor was declared to take arguments. These values are substituted in the query. 
@@ -535,7 +534,7 @@ Before you can use a cursor to retrieve rows, it must be opened. PL/pgSQL has th
 
   The following shows an example.
 
-  ```
+  ```sql
   OPEN curs2;
   OPEN curs3(42);
   ```
@@ -549,7 +548,7 @@ After a cursor has been opened, you can work with it by using the statements des
 
   The following shows an example.
 
-  ```
+  ```sql
   FETCH curs1 INTO rowvar;
   ```
 + CLOSE closes the portal underlying an open cursor. You can use this statement to release resources earlier than end of the transaction. You can also use this statement to free the cursor variable to be opened again.
@@ -560,7 +559,7 @@ After a cursor has been opened, you can work with it by using the statements des
 
   The following shows an example.
 
-  ```
+  ```sql
   CLOSE curs1;
   ```
 

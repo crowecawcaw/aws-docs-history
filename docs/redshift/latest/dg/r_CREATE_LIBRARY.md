@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE LIBRARY
-<a name="r_CREATE_LIBRARY"></a>
 
 Installs a Python library, which is available for users to incorporate when creating a user-defined function (UDF) with the [CREATE FUNCTION](r_CREATE_FUNCTION.md) command. The total size of user-installed libraries can't exceed 100 MB. 
 

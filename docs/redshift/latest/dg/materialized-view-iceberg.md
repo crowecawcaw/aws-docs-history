@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Materialized views stored as Apache Iceberg tables
-<a name="materialized-view-iceberg"></a>
 
 You can create materialized views that store their data as Apache Iceberg tables in Amazon S3 or Amazon S3 Table Buckets. Unlike standard Amazon Redshift materialized views, which store data internally in Redshift Managed Storage (RMS), Iceberg materialized views are stored as standard Iceberg tables and are accessible to any analytics engine that supports the Iceberg format, including Apache Spark, Amazon Athena, and Trino.
 

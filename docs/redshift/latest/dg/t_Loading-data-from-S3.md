@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading data from Amazon S3
-<a name="t_Loading-data-from-S3"></a>
 
 The COPY command leverages the Amazon Redshift massively parallel processing (MPP) architecture to read and load data in parallel from a file or multiple files in an Amazon S3 bucket. You can take maximum advantage of parallel processing by splitting your data into multiple files, in cases where the files are compressed. (There are exceptions to this rule. These are detailed in [Loading data files](https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-use-multiple-files.html).) You can also take maximum advantage of parallel processing by setting distribution keys on your tables. For more information about distribution keys, see [Data distribution for query optimization](t_Distributing_data.md). 
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # External schemas in Amazon Redshift Spectrum
-<a name="c-spectrum-external-schemas"></a>
 
 This topic describes how to create and use external schemas with Redshift Spectrum. External schemas are collections of tables that you use as references to access data outside your Amazon Redshift cluster. These tables contain metadata about the external data that Redshift Spectrum reads.
 

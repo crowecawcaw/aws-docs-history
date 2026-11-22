@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION
-<a name="SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION"></a>
 
 Use SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION to view the usage periods in which Amazon Redshift ran automatic optimization tasks using extra compute resources. For more information on automatic optimization, see [Automatic database optimization](c_autonomics.md). For more information on automatic optimizations run using extra compute resources, see [Allocating extra compute resources for automatic database optimization](t_extra-compute-autonomics.md).
 
@@ -27,7 +26,7 @@ SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is visible only to superusers.
 
 Following is an example query looking for automatic optimizations performed on September 16, 2025.
 
-```
+```sql
 SELECT *
 FROM sys_extra_compute_for_automatic_optimization
 WHERE start_time BETWEEN '2025-09-16 00:00:00' AND '2025-09-16 23:59:59';

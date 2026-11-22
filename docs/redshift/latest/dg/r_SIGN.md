@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SIGN function
-<a name="r_SIGN"></a>
 
  The SIGN function returns the sign (positive or negative) of a number. The result of the SIGN function is `1` if the argument is positive, `-1` if the argument is negative, or `0` if the argument is `0`. 
 
@@ -32,7 +31,7 @@ When the input is of the `SUPER` type, the output retains the same dynamic type 
 
 The following example shows that column `d` in table t2 has `DOUBLE PRECISION` as its type since the input is `DOUBLE PRECISION` and that column `n` in table t2 has `NUMERIC(1,0)` as the output since the input is `NUMERIC`. 
 
-```
+```sql
 CREATE TABLE t1(d DOUBLE PRECISION, n NUMERIC(12, 2));
 INSERT INTO t1 VALUES (4.25, 4.25), (-4.25, -4.25);
 CREATE TABLE t2 AS SELECT SIGN(d) AS d, SIGN(n) AS n FROM t1;
@@ -53,7 +52,7 @@ The following example uses the TICKIT sample database. For more information, see
 
 To determine the sign of the commission paid for a given transaction from the SALES table, use the following example. 
 
-```
+```sql
 SELECT commission, SIGN(commission)
 FROM sales WHERE salesid=10000;
 

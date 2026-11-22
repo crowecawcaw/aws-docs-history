@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # COPY JOB
-<a name="r_COPY-JOB"></a>
 
 For information about using this command, see [Create an S3 event integration to automatically copy files from Amazon S3 buckets](loading-data-copy-job.md).
 
@@ -105,7 +104,7 @@ COPY JOBS are not supported on zero-ETL databases as they operate in read-only m
 
 The following example shows creating a COPY JOB to load data from an Amazon S3 bucket. 
 
-```
+```sql
 COPY public.target_table
 FROM 's3://amzn-s3-demo-bucket/staging-folder'
 IAM_ROLE 'arn:aws:iam::123456789012:role/MyLoadRoleName' 

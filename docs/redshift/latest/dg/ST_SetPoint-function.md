@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_SetPoint
-<a name="ST_SetPoint-function"></a>
 
 ST\_SetPoint returns a linestring with updated coordinates with respect to the input linestring's position as specified by the index. The new coordinates are the coordinates of the input point. 
 
@@ -50,7 +49,7 @@ If *geom1* and *geom2* don't have the same value for the spatial reference syste
 
 The following SQL returns a new linestring where the second point of the input linestring is set to the specified point. 
 
-```
+```sql
 SELECT ST_AsText(ST_SetPoint(ST_GeomFromText('LINESTRING(1 2, 3 2, 5 2, 1 2)'), 2, ST_GeomFromText('POINT(7 9)')));
 ```
 
@@ -62,7 +61,7 @@ st_astext
 
 The following SQL example returns a new linestring where the third point from the right (the index is negative) of the linestring is set to the specified point. 
 
-```
+```sql
 SELECT ST_AsText(ST_SetPoint(ST_GeomFromText('LINESTRING(1 2, 3 2, 5 2, 1 2)'), -3, ST_GeomFromText('POINT(7 9)')));
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # BIT\_AND function
-<a name="r_BIT_AND"></a>
 
 The BIT\_AND function runs bit-wise AND operations on all of the values in a single integer column or expression. This function aggregates each bit of each binary value that corresponds to each integer value in the expression.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorials for Amazon Redshift ML
-<a name="tutorials_for_amazon_redshift_ml"></a>
 
 You can use Amazon Redshift ML to train machine learning models using SQL statements, and then invoke the models in SQL queries for prediction. Machine learning in Amazon Redshift trains a model with one SQL command. Amazon Redshift automatically launches a training job in Amazon SageMaker AI and generates a model. Once a model is created, you can perform predictions in Amazon Redshift using the model’s prediction function.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data warehouse system architecture
-<a name="c_high_level_system_architecture"></a>
 
 This section explains the components that make up the Amazon Redshift data warehouse architecture, as shown in the following figure.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TO\_HEX function
-<a name="r_TO_HEX"></a>
 
 TO\_HEX converts a number or binary value to a hexadecimal representation. 
 
@@ -30,7 +29,7 @@ Either a number or binary value (`VARBYTE`) to be converted.
 
 To convert a number to its hexadecimal representation, use the following example. 
 
-```
+```sql
 SELECT TO_HEX(2147676847);
                
 +----------+
@@ -42,7 +41,7 @@ SELECT TO_HEX(2147676847);
 
 To convert the `VARBYTE` representation of `'abc'` to a hexadecimal number, use the followign example. 
 
-```
+```sql
 SELECT TO_HEX('abc'::VARBYTE);
                
 +--------+
@@ -54,7 +53,7 @@ SELECT TO_HEX('abc'::VARBYTE);
 
 To create a table, insert the `VARBYTE` representation of `'abc'` to a hexadecimal number, and select the column with the value, use the following example.
 
-```
+```sql
 CREATE TABLE t (vc VARCHAR);
 INSERT INTO t SELECT TO_HEX('abc'::VARBYTE);
 SELECT vc FROM t;
@@ -68,7 +67,7 @@ SELECT vc FROM t;
 
 To show that when casting a `VARBYTE` value to `VARCHAR` the format is UTF-8, use the following example.
 
-```
+```sql
 CREATE TABLE t (vc VARCHAR);
 INSERT INTO t SELECT 'abc'::VARBYTE::VARCHAR;
 

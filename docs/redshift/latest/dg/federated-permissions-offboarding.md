@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Disabling AWS IAM Identity Center propagation
-<a name="federated-permissions-offboarding"></a>
 
 Before you can disable AWS IAM Identity Center propagation, your Amazon Redshift Cluster or Amazon Redshift Serverless Namespace must be registered for federated permissions and associated with a Lakehouse Redshift IdC Application. An Amazon Redshift Serverless namespace requires a workgroup attached to perform the related operations.
 

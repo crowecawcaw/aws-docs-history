@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CHANGE\_SESSION\_PRIORITY
-<a name="r_CHANGE_SESSION_PRIORITY"></a>
 
 CHANGE\_SESSION\_PRIORITY enables superusers to immediately change the priority of any session in the system. Only one session, user, or query can run with the priority `CRITICAL`.
 
@@ -33,7 +32,7 @@ None
 
 To return the process identifier of the server process handling the current session, use the following example.
 
-```
+```sql
 SELECT pg_backend_pid();
                
 +----------------+
@@ -45,7 +44,7 @@ SELECT pg_backend_pid();
 
 In this example, the priority is changed to `LOWEST` for the current session.
 
-```
+```sql
 SELECT CHANGE_SESSION_PRIORITY(30311, 'Lowest');
                
 +---------------------------------------------------------------------------------------+
@@ -57,7 +56,7 @@ SELECT CHANGE_SESSION_PRIORITY(30311, 'Lowest');
 
 In this example, the priority is changed to `HIGH` for the current session.
 
-```
+```sql
 SELECT CHANGE_SESSION_PRIORITY(-1, 'High');
 
 +-------------------------------------------------------------------------------------------------+
@@ -69,7 +68,7 @@ SELECT CHANGE_SESSION_PRIORITY(-1, 'High');
 
 To create a stored procedure that changes a session priority, use the following example. Permission to run this stored procedure is granted to the database user `test_user`.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE sp_priority_low(pid IN int, result OUT varchar)
 AS $$
 BEGIN
@@ -82,7 +81,7 @@ GRANT EXECUTE ON PROCEDURE sp_priority_low(int) TO test_user;
 
 Then the database user named `test_user` calls the procedure.
 
-```
+```sql
 CALL sp_priority_low(pg_backend_pid()); 
 
 +------------------------------------------------------+

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Onboarding
-<a name="federated-permissions-onboarding"></a>
 
 ## Redshift cluster registration
 <a name="federated-permissions-onboarding-cluster-registration"></a>
@@ -36,7 +35,7 @@ aws redshift create-cluster \
 
 1. In the registration section, select **Register with Amazon Redshift federated permissions** and choose a registration method:
    + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
-   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
 1. Complete the remaining cluster settings and choose **Create cluster**.
@@ -70,7 +69,7 @@ aws redshift restore-from-cluster-snapshot \
 
 1. In the registration section, select **Register with Amazon Redshift federated permissions** and choose a registration method:
    + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
-   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
 1. Complete the remaining cluster settings and choose **Create cluster**.
@@ -112,7 +111,7 @@ aws redshift modify-lakehouse-configuration \
 
 1. Choose a registration method and complete the registration:
    + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
-   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
 ------
@@ -155,7 +154,7 @@ aws redshift-serverless update-lakehouse-configuration \
 
 1. Choose a registration method and complete the registration:
    + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
-   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
 ------

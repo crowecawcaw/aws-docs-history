@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_COPY\_JOB\_DETAIL
-<a name="SYS_COPY_JOB_DETAIL"></a>
 
 Use SYS\_COPY\_JOB\_DETAIL to view details of COPY JOB commands.
 
@@ -32,7 +31,7 @@ SYS\_COPY\_JOB\_DETAIL is visible to all users. Superusers can see all rows; reg
 
 The following example returns one row where for ingested entries.
 
-```
+```sql
 SELECT * FROM SYS_COPY_JOB_DETAIL WHERE status ilike '%ingested%' limit 1;
 
 

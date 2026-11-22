@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STDDEV\_SAMP and STDDEV\_POP functions
-<a name="r_STDDEV_functions"></a>
 
  The STDDEV\_SAMP and STDDEV\_POP functions return the sample and population standard deviation of a set of numeric values (integer, decimal, or floating-point). The result of the STDDEV\_SAMP function is equivalent to the square root of the sample variance of the same set of values. 
 

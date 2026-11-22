@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_GET\_GRANTEE\_BY\_IAM\_ROLE
-<a name="PG_GET_GRANTEE_BY_IAMROLE"></a>
 
 Returns all users and groups granted a specified IAM role.
 
@@ -37,7 +36,7 @@ You must be a superuser to use this function.
 
 The following example indicates that the IAM role `Redshift-S3-Write` is granted to `group1` and `reg_user1`. Users in `group_1` can specify the role only for COPY operations, and user `reg_user1` can specify the role only to perform UNLOAD operations.
 
-```
+```sql
 select pg_get_grantee_by_iam_role('arn:aws:iam::123456789012:role/Redshift-S3-Write');
 ```
 
@@ -50,7 +49,7 @@ select pg_get_grantee_by_iam_role('arn:aws:iam::123456789012:role/Redshift-S3-Wr
 
 The following example of the PG\_GET\_GRANTEE\_BY\_IAM\_ROLE function formats the result as a table.
 
-```
+```sql
 select grantee, grantee_type, cmd_type FROM pg_get_grantee_by_iam_role('arn:aws:iam::123456789012:role/Redshift-S3-Write') res_grantee(grantee text, grantee_type text, cmd_type text) ORDER BY 1,2,3;
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LIKE
-<a name="r_patternmatching_condition_like"></a>
 
 The LIKE operator compares a string expression, such as a column name, with a pattern that uses the wildcard characters % (percent) and \_ (underscore). LIKE pattern matching always covers the entire string. To match a sequence anywhere within a string, the pattern must start and end with a percent sign. 
 
@@ -153,7 +152,7 @@ limit 5;
 
 The following example uses the `~~*` operator to do a case-insensitive (ILIKE) search for cities that start with "Ag". 
 
-```
+```sql
 select distinct city from users where city ~~* 'Ag%' order by city;
                    
 city

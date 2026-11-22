@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift federated permissions - end-to-end examples
-<a name="federated-permissions-end-examples"></a>
 
 The following is an end-to-end example showing how you can create and manage comprehensive data governance policies using Amazon Redshift Federated Permissions. These policies include Row Level Security (RLS), Dynamic Data Masking (DDM), and Column Level Permissions (CLP) that work together to control data access based on user roles and conditions.
 

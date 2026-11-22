@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_UNLOAD\_DETAIL
-<a name="SYS_UNLOAD_DETAIL"></a>
 
 Use SYS\_UNLOAD\_DETAIL to view details of an UNLOAD operation. It records one row for each file created by an UNLOAD statement. For example, if an UNLOAD creates 12 files, SYS\_UNLOAD\_DETAIL will contain 12 corresponding rows.
 
@@ -31,7 +30,7 @@ SYS\_UNLOAD\_DETAIL is visible to all users. Superusers can see all rows; regula
 
 The following query shows the unloaded query details, including format, rows, and file count of unload command.
 
-```
+```sql
 select query_id, substring(file_name, 0, 50), transfer_size, file_format from sys_unload_detail;
 ```
 

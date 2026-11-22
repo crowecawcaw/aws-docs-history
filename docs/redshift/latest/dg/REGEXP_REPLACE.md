@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REGEXP\_REPLACE function
-<a name="REGEXP_REPLACE"></a>
 
 Searches a string for a regular expression pattern and replaces every occurrence of the pattern with the specified string. REGEXP\_REPLACE is similar to the [REPLACE function](r_REPLACE.md), but with REGEXP\_REPLACE, you can search a string for a regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md) and [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) in Wikipedia.
 
@@ -49,7 +48,7 @@ If either *pattern* or *replace\_string* is `NULL`, the function returns `NULL`.
 
 To replace all occurrences of the string `FOX` within the value `quick brown fox` using case-insensitive matching, use the following example.
 
-```
+```sql
 SELECT REGEXP_REPLACE('the fox', 'FOX', 'quick brown fox', 1, 'i');
 
 +---------------------+
@@ -61,7 +60,7 @@ SELECT REGEXP_REPLACE('the fox', 'FOX', 'quick brown fox', 1, 'i');
 
 The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. To replace each occurrence of such a word with the value `[hidden]`, use the following example.
 
-```
+```sql
 SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'p');
 
 +-------------------------------+
@@ -73,7 +72,7 @@ SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])
 
 The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. To replace each occurrence of such a word with the value `[hidden]`, but differs from the previous example in that it uses case-insensitive matching, use the following example.
 
-```
+```sql
 SELECT REGEXP_REPLACE('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', '[hidden]', 1, 'ip');
 
 +----------------------------------+
@@ -87,7 +86,7 @@ The following examples use data from the USERS table in the TICKIT sample databa
 
 To delete the `@` and domain name from email addresses, use the following example.
 
-```
+```sql
 SELECT email, REGEXP_REPLACE(email, '@.*\\.(org|gov|com|edu|ca)$')
 FROM users
 ORDER BY userid LIMIT 4;
@@ -104,7 +103,7 @@ ORDER BY userid LIMIT 4;
 
 To replace the domain names of email addresses with `internal.company.com`, use the following example.
 
-```
+```sql
 SELECT email, REGEXP_REPLACE(email, '@.*\\.[[:alpha:]]{2,3}','@internal.company.com') 
 FROM users
 ORDER BY userid LIMIT 4;

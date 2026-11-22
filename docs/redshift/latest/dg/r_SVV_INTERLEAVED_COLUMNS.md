@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_INTERLEAVED\_COLUMNS
-<a name="r_SVV_INTERLEAVED_COLUMNS"></a>
 
 Use the SVV\_INTERLEAVED\_COLUMNS view to help determine whether a table that uses interleaved sort keys should be reindexed using [VACUUM REINDEX](r_VACUUM_command.md#vacuum-reindex). For more information about how to determine how often to run VACUUM and when to run a VACUUM REINDEX, see [Minimizing vacuum times](vacuum-managing-vacuum-times.md).
 

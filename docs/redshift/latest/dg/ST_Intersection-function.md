@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Intersection
-<a name="ST_Intersection-function"></a>
 
 ST\_Intersection returns a geometry representing the point-set intersection of two geometries. That is, it returns the portion of the two input geometries that is shared between them. 
 
@@ -43,7 +42,7 @@ If *geom1* or *geom2* is not a two-dimensional (2D) geometry, then an error is r
 
 The following SQL returns the non-empty geometry representing the intersection of two input geometries. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Intersection(ST_GeomFromText('polygon((0 0,100 100,0 200,0 0))'), ST_GeomFromText('polygon((0 0,10 0,0 10,0 0))')));
 ```
 
@@ -55,7 +54,7 @@ SELECT ST_AsEWKT(ST_Intersection(ST_GeomFromText('polygon((0 0,100 100,0 200,0 0
 
 The following SQL returns an empty geometry when passed disjoint (non-intersecting) input geometries. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Intersection(ST_GeomFromText('linestring(0 100,0 0)'), ST_GeomFromText('polygon((1 0,10 0,1 10,1 0))')));
 ```
 

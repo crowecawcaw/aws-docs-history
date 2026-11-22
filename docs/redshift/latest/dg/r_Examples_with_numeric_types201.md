@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples with numeric types
-<a name="r_Examples_with_numeric_types201"></a>
 
 
 
@@ -79,7 +78,7 @@ DETAIL:  The absolute value is greater than or equal to 10^2 for field with prec
 
 The following example inserts variable-precision values into a REAL column.
 
-```
+```sql
 insert into film(replacement_cost) values(1999999.99);
 
 insert into film(replacement_cost) values(1999.99);

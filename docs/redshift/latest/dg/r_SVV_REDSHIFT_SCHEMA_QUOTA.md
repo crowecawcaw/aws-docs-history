@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_REDSHIFT\_SCHEMA\_QUOTA
-<a name="r_SVV_REDSHIFT_SCHEMA_QUOTA"></a>
 
 Displays the quota and the current disk usage for each schema in a database.
 
@@ -28,7 +27,7 @@ This view is available when querying provisioned clusters or Redshift Serverless
 
 The following example displays the quota and the current disk usage for the schema named `sales_schema`.
 
-```
+```sql
 SELECT TRIM(SCHEMA_NAME) "schema_name", QUOTA, disk_usage FROM svv_redshift_schema_quota
 WHERE SCHEMA_NAME = 'sales_schema';
                 

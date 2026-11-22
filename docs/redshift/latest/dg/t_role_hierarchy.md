@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Role hierarchy
-<a name="t_role_hierarchy"></a>
 
 *Roles* are collections of permissions that you can assign to a user or another role. You can assign system or database permissions to a role. A user inherits permissions from an assigned role. 
 

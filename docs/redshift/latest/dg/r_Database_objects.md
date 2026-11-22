@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Database security
-<a name="r_Database_objects"></a>
 
 You manage database security by controlling which users have access to which database objects. Users can be assigned roles or groups, and the permissions you grant to users, roles, or groups decides which database objects they can access.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_QUERY\_TEXT
-<a name="SYS_QUERY_TEXT"></a>
 
 Use SYS\_QUERY\_TEXT to view the query text of all queries. Each row represents the query text of queries up to 4000 characters starting with sequence number 0. When the query statement contains more than 4000 characters, additional rows are logged for the statement by incrementing the sequence number for each row. This view logs all user query text such as DDL, utility, Amazon Redshift queries, and leader-node only queries.
 
@@ -29,7 +28,7 @@ SYS\_QUERY\_TEXT is visible to all users. Superusers can see all rows; regular u
 
 The following query returns running and queued queries.
 
-```
+```sql
 SELECT user_id, 
  query_id, 
  transaction_id, 
@@ -49,7 +48,7 @@ _time > '2023-04-28 16:44:55.922705+00:00'::timestamp order by sequence;
 
 The following query returns the permissions that have been granted or revoked from groups in your database.
 
-```
+```sql
 SELECT 
     SPLIT_PART(text, ' ', 1) as grantrevoke, 
     SPLIT_PART((SUBSTRING(text, STRPOS(UPPER(text), 'GROUP'))), ' ', 2) as group, 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # EXPLAIN\_MODEL function
-<a name="r_explain_model_function"></a>
 
 The EXPLAIN\_MODEL function returns a SUPER data type that contains a model explainability report in a JSON format. The explainability report contains information about the Shapley value for all model features.
 

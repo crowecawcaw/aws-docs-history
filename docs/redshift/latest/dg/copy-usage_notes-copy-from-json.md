@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # COPY from JSON format
-<a name="copy-usage_notes-copy-from-json"></a>
 
 The JSON data structure is made up of a set of objects or arrays. A JSON *object* begins and ends with braces, and contains an unordered collection of name-value pairs. Each name and value are separated by a colon, and the pairs are separated by commas. The name is a string in double quotation marks. The quotation mark characters must be simple quotation marks (0x22), not slanted or "smart" quotation marks. 
 

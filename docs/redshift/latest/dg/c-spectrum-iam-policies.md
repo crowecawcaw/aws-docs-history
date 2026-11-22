@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # IAM policies for Amazon Redshift Spectrum
-<a name="c-spectrum-iam-policies"></a>
 
 This topic describes the required IAM permissions for using Redshift Spectrum.
 
@@ -36,7 +35,7 @@ The following policy grants GET and LIST access to any Amazon S3 bucket. The pol
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [{
@@ -56,7 +55,7 @@ The following policy grants GET and LIST access to your Amazon S3 bucket named `
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [{
@@ -79,7 +78,7 @@ To grant Redshift Spectrum permission to access data in an Amazon S3 bucket that
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ The following example policy allows access to Amazon S3 buckets for Amazon Redsh
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -149,7 +148,7 @@ The following policy grants the minimum permissions required to use Redshift Spe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -203,7 +202,7 @@ If you use Athena for your data catalog instead of AWS Glue, the policy requires
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [{
@@ -269,7 +268,7 @@ The following IAM policy gives the minimum permissions required for creating a d
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -304,7 +303,7 @@ The following IAM policy gives the minimum permissions required to list the curr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -347,7 +346,7 @@ The following IAM policy gives the minimum permissions required to create an ext
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -395,7 +394,7 @@ The following IAM policy gives the minimum permissions required to list the curr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -431,7 +430,7 @@ The following IAM policy gives the minimum permissions required to alter an exis
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -466,7 +465,7 @@ The following IAM policy gives the minimum permissions required to drop an exist
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -508,7 +507,7 @@ The following IAM policy gives the minimum permissions required to create a part
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -545,7 +544,7 @@ The following IAM policy gives the minimum permissions required to list the curr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -582,7 +581,7 @@ The following IAM policy gives the minimum permissions required to alter an exis
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -617,7 +616,7 @@ The following IAM policy gives the minimum permissions required to drop an exist
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

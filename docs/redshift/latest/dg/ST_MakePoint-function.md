@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MakePoint
-<a name="ST_MakePoint-function"></a>
 
 ST\_MakePoint returns a point geometry whose coordinate values are the input values. 
 
@@ -51,7 +50,7 @@ If *x*, *y*, *z*, or *m* is null, then null is returned.
 
 The following SQL returns a `GEOMETRY` type of subtype `POINT` with the provided coordinates. 
 
-```
+```sql
 SELECT ST_AsText(ST_MakePoint(1,3));
 ```
 
@@ -63,7 +62,7 @@ st_astext
 
 The following SQL returns a `GEOMETRY` type of subtype `POINT` with the provided coordinates. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_MakePoint(1, 2, 3));
 ```
 
@@ -75,7 +74,7 @@ st_asewkt
 
 The following SQL returns a `GEOMETRY` type of subtype `POINT` with the provided coordinates. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_MakePoint(1, 2, 3, 4));
 ```
 

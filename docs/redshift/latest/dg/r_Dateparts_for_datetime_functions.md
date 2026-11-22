@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Date parts for date or timestamp functions
-<a name="r_Dateparts_for_datetime_functions"></a>
 
 The following table identifies the date part and time part names and abbreviations that are accepted as arguments to the following functions: 
 + DATEADD 
@@ -41,7 +40,7 @@ Minor differences in query results occur when different date functions specify s
 
 For example, compare the results of the following queries: 
 
-```
+```sql
 create table seconds(micro timestamp);
 
 insert into seconds values('2009-09-21 11:10:03.189717');
@@ -65,7 +64,7 @@ pgdate_part
 CENTURY or CENTURIES   
 Amazon Redshift interprets a CENTURY to start with year *\#\#\#1* and end with year `###0`:   
 
-```
+```sql
 select extract (century from timestamp '2000-12-16 12:21:13');
 date_part
 -----------
@@ -89,7 +88,7 @@ The Amazon Redshift implementation of EPOCH is relative to 1970-01-01 00:00:00.0
 
 1.  Selects EVENTNAME and STARTTIME from EVENT EXAMPLE as is. Converts epoch values in PGDATE\_PART using a 1 second interval to a timestamp without time zone, and returns the results in a column called CONVERTED\_TIMESTAMP. 
 
-```
+```sql
 create table event_example
 as select eventname, starttime, date_part(epoch, starttime) from event;
 
@@ -103,7 +102,7 @@ select "column", type from pg_table_def where tablename='event_example';
 (3 rows)
 ```
 
-```
+```sql
 select eventname, starttime, pgdate_part from event_example;
 
    eventname          |      starttime      | pgdate_part
@@ -143,7 +142,7 @@ from event_example;
 DECADE or DECADES   
 Amazon Redshift interprets the DECADE or DECADES DATEPART based on the common calendar. For example, because the common calendar starts from the year 1, the first decade (decade 1) is 0001-01-01 through 0009-12-31, and the second decade (decade 2) is 0010-01-01 through 0019-12-31. For example, decade 201 spans from 2000-01-01 to 2009-12-31:   
 
-```
+```sql
 select extract(decade from timestamp '1999-02-16 20:38:40');
 date_part
 -----------
@@ -163,7 +162,7 @@ date_part
 MIL or MILS   
 Amazon Redshift interprets a MIL to start with the first day of year *\#001* and end with the last day of year `#000`:   
 
-```
+```sql
 select extract (mil from timestamp '2000-12-16 12:21:13');
 date_part
 -----------

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_REDSHIFT\_SCHEMAS
-<a name="r_SVV_REDSHIFT_SCHEMAS"></a>
 
 Use SVV\_REDSHIFT\_SCHEMAS to view a list of all schemas that a user has access to. This set of schemas includes the schemas on the cluster and the schemas from datashares provided by remote clusters. 
 

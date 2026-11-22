@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeometryType
-<a name="ST_GeometryType-function"></a>
 
 ST\_GeometryType returns the subtype of an input geometry as a string. 
 
@@ -47,7 +46,7 @@ The values returned are as follows.
 
 The following SQL returns the subtype of the input linestring geometry. 
 
-```
+```sql
 SELECT ST_GeometryType(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
 ```
 

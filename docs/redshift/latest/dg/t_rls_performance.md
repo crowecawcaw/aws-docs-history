@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Best practices for RLS performance
-<a name="t_rls_performance"></a>
 
 Following are best practices for better performance from Amazon Redshift on tables protected by RLS.
 
@@ -83,14 +82,14 @@ When using functions such as DATE\_TRUNC, EXTRACT, DATEDIFF, TO\_CHAR, CONVERT\_
 
 For example, the following query allows predicate pushdown because the datepart argument is a constant:
 
-```
+```sql
 SELECT * FROM rls_protected_table
 WHERE DATE_TRUNC('month', event_date) = '2024-01-01';
 ```
 
 The following query prevents predicate pushdown because the datepart argument is a column reference:
 
-```
+```sql
 SELECT * FROM rls_protected_table
 WHERE DATE_TRUNC(datepart_col, event_date) = '2024-01-01';
 ```

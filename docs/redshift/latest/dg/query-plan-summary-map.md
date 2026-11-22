@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Mapping the query plan to the query summary
-<a name="query-plan-summary-map"></a>
 
 When analyzing the query summary, you can get further details by mapping the operations from the query plan to the steps (identified by the label field values) in the query summary. The following table maps query plan operations to query summary steps.
 

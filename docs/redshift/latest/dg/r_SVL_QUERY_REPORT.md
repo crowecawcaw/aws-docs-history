@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_QUERY\_REPORT
-<a name="r_SVL_QUERY_REPORT"></a>
 
 Amazon Redshift creates the SVL\_QUERY\_REPORT view from a UNION of a number of Amazon Redshift STL system tables to provide information about completed query steps.
 

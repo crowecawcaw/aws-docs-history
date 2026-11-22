@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LEFT and RIGHT functions
-<a name="r_LEFT"></a>
 
 These functions return the specified number of leftmost or rightmost characters from a character string.
 
@@ -39,7 +38,7 @@ The following example uses data from the EVENT table in the TICKIT sample databa
 
 To return the leftmost 5 and rightmost 5 characters from event names that have event IDs between 1000 and 1005, use the following example. 
 
-```
+```sql
 SELECT eventid, eventname,
 LEFT(eventname,5) AS left_5,
 RIGHT(eventname,5) AS right_5

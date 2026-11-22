@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # GeometryType
-<a name="GeometryType-function"></a>
 
 GeometryType returns the subtype of an input geometry as a string. 
 
@@ -45,7 +44,7 @@ The values returned are as follows.
 
 The following SQL converts a well-known text (WKT) representation of a polygon and returns the `GEOMETRY` subtype as a string.
 
-```
+```sql
 SELECT GeometryType(ST_GeomFromText('POLYGON((0 2,1 1,0 -1,0 2))'));
 ```
 

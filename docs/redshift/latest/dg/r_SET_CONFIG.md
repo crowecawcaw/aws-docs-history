@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SET\_CONFIG
-<a name="r_SET_CONFIG"></a>
 
 Sets a configuration parameter to a new setting.
 
@@ -47,7 +46,7 @@ Returns a `CHAR` or `VARCHAR` string.
 
 To set the value of the `query_group` parameter to `test` for the current transaction only, use the following example. 
 
-```
+```sql
 SELECT SET_CONFIG('query_group', 'test', true);
 
 +------------+
@@ -59,6 +58,6 @@ SELECT SET_CONFIG('query_group', 'test', true);
 
 To set session context variables, use the following example. 
 
-```
+```sql
 SELECT SET_CONFIG(‘app.username’, ‘cuddy’, FALSE);
 ```

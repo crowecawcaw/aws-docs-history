@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # JSON\_ARRAY\_LENGTH function
-<a name="JSON_ARRAY_LENGTH"></a>
 
 **Note**  
 JSON\_PARSE and its associated functions parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.  
@@ -39,7 +38,7 @@ A properly formatted JSON array.
 
 To return the number of elements in the array, use the following example. 
 
-```
+```sql
 SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14]'); 
 
 +-------------------+
@@ -51,7 +50,7 @@ SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14]');
 
 To return an error because the JSON is invalid, use the following example.
 
-```
+```sql
 SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14');
  
 ERROR: invalid json array object [11,12,13,{"f1":21,"f2":[25,26]},14
@@ -59,7 +58,7 @@ ERROR: invalid json array object [11,12,13,{"f1":21,"f2":[25,26]},14
 
 To set *null\_if\_invalid* to *true*, so the statement the returns `NULL` instead of returning an error for invalid JSON, use the following example.
 
-```
+```sql
 SELECT JSON_ARRAY_LENGTH('[11,12,13,{"f1":21,"f2":[25,26]},14',true);
 
 +-------------------+

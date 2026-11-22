@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW GRANTS
-<a name="r_SHOW_GRANTS"></a>
 
 Displays grants for a user, role, or object. The object can be a database, a schema, a table, a function, or a template. When you specify an object, such as a table or function, you need to qualify it with two-part or three-part notation. For example, `schema_name.table_name` or `database_name.schema_name.table_name`.
 

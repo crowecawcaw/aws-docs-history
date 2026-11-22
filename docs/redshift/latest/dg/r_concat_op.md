@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # \|\| (Concatenation) operator
-<a name="r_concat_op"></a>
 
 Concatenates two expressions on either side of the `||` symbol and returns the concatenated expression. 
 
@@ -40,7 +39,7 @@ A `CHAR` string, a `VARCHAR` string, a binary expression, or an expression that 
 
 To concatenate the FIRSTNAME and LASTNAME fields from the USERS table in the sample database, use the following example.
 
-```
+```sql
 SELECT (firstname || ' ' || lastname) as fullname
 FROM users
 ORDER BY 1
@@ -64,7 +63,7 @@ LIMIT 10;
 
  To concatenate columns that might contain nulls, use the [NVL and COALESCE functions](r_NVL_function.md) expression. The following example uses NVL to return a `0` whenever `NULL` is encountered. 
 
-```
+```sql
 SELECT (venuename || ' seats ' || NVL(venueseats, 0)) as seating
 FROM venue
 WHERE venuestate = 'NV' or venuestate = 'NC'

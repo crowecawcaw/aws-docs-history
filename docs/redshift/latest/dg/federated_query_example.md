@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples of using a federated query
-<a name="federated_query_example"></a>
 
 The following examples show how to run a federated query. Run the SQL using your SQL client connected to the Amazon Redshift database.
 
@@ -14,7 +13,7 @@ The following example shows how to set up a federated query that references an A
 
 Create an external schema that references an Aurora PostgreSQL database.
 
-```
+```sql
 CREATE EXTERNAL SCHEMA apg
 FROM POSTGRES
 DATABASE 'database-1' SCHEMA 'myschema'
@@ -25,7 +24,7 @@ SECRET_ARN 'arn:aws:secretsmanager:us-west-2:123456789012:secret:federation/test
 
 Create another external schema that references Amazon S3, which uses Amazon Redshift Spectrum. Also, grant permission to use the schema to `public`. 
 
-```
+```sql
 CREATE EXTERNAL SCHEMA s3 
 FROM DATA CATALOG 
 DATABASE 'default' REGION 'us-west-2' 
@@ -66,7 +65,7 @@ SELECT count(*) FROM s3.lineitem_1t_part;
 
 Create a view of the tables from Amazon Redshift, Aurora PostgreSQL, and Amazon S3. This view is used to run your federated query. 
 
-```
+```sql
 CREATE VIEW lineitem_all AS
   SELECT l_orderkey,l_partkey,l_suppkey,l_linenumber,l_quantity,l_extendedprice,l_discount,l_tax,l_returnflag,l_linestatus,
          l_shipdate::date,l_commitdate::date,l_receiptdate::date, l_shipinstruct ,l_shipmode,l_comment 
@@ -118,7 +117,7 @@ ORDER BY 1,2;
 
 To query a supported PostgreSQL remote database that has a mixed-case name of a database, schema, table, or column, then set `enable_case_sensitive_identifier` to `true`. For more information about this session parameter, see [enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md). 
 
-```
+```SQL
 SET enable_case_sensitive_identifier TO TRUE;
 ```
 
@@ -126,7 +125,7 @@ Typically, the database and schema names are in lowercase. The following example
 
 Create an external schema that references an Aurora PostgreSQL database that has a lowercase database name (`dblower`) and lowercase schema name (`schemalower`). 
 
-```
+```sql
 CREATE EXTERNAL SCHEMA apg_lower
 FROM POSTGRES
 DATABASE 'dblower' SCHEMA 'schemalower'
@@ -137,13 +136,13 @@ SECRET_ARN 'arn:aws:secretsmanager:us-west-2:123456789012:secret:federation/test
 
 In the session where the query runs, set `enable_case_sensitive_identifier` to `true`.
 
-```
+```SQL
 SET enable_case_sensitive_identifier TO TRUE;
 ```
 
 Run a federated query to select all data from the PostgreSQL database. The table (`MixedCaseTab`) and column (`MixedCaseName`) have mixed-case names. The result is one row (`Harry`). 
 
-```
+```SQL
 select * from apg_lower."MixedCaseTab";
 ```
 
@@ -159,7 +158,7 @@ Set `enable_case_sensitive_identifier` to `true` before you create the external 
 
 Create an external schema that references an Aurora PostgreSQL database that has a mixed-case database (`UpperDB`) and schema (`UpperSchema`) name.
 
-```
+```sql
 CREATE EXTERNAL SCHEMA apg_upper
 FROM POSTGRES
 DATABASE 'UpperDB' SCHEMA 'UpperSchema'
@@ -170,7 +169,7 @@ SECRET_ARN 'arn:aws:secretsmanager:us-west-2:123456789012:secret:federation/test
 
 Run a federated query to select all data from the PostgreSQL database. The table (`MixedCaseTab`) and column (`MixedCaseName`) have mixed-case names. The result is one row (`Harry`). 
 
-```
+```SQL
 select * from apg_upper."MixedCaseTab";
 ```
 
@@ -191,7 +190,7 @@ This example depends on the following prerequisites:
 
 Create an external schema that references an Aurora MySQL database. 
 
-```
+```sql
 CREATE EXTERNAL SCHEMA amysql
 FROM MYSQL
 DATABASE 'functional'

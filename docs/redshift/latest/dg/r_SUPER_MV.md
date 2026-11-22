@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SUPER data type and materialized views
-<a name="r_SUPER_MV"></a>
 
 With Amazon Redshift, you can use materialized views to enhance the performance and flexibility of queries run against the SUPER data type. With the SUPER data type, you can store a superset of columns from the base tables in a materialized view, letting you query the materialized view directly without joining the base tables. The following sections show you how to create and use materialized views with the SUPER data type in Amazon Redshift.
 

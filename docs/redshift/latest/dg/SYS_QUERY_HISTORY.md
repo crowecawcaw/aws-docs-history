@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_QUERY\_HISTORY
-<a name="SYS_QUERY_HISTORY"></a>
 
 Use SYS\_QUERY\_HISTORY to view details of user queries. Each row represents a user query with accumulated statistics for some of the fields. This view contains many types of queries, such as data definition language (DDL), data manipulation language (DML), copy, unload, and Amazon Redshift Spectrum. It contains both running and finished queries.
 
@@ -76,7 +75,7 @@ For more information, see [Improving query identifier tracking using the SYS mon
 
 The following query returns running and queued queries.
 
-```
+```sql
 SELECT user_id,
        query_id,
        transaction_id,
@@ -255,7 +254,7 @@ Sample output.
 
 The following example shows the difference in query hash results between several queries. Observe the following queries:
 
-```
+```sql
 CREATE TABLE test_table (col1 INT);
 
 INSERT INTO test_table VALUES (1),(2);
@@ -276,7 +275,7 @@ DESC LIMIT 10;
 
 Following is a sample output:
 
-```
+```sql
 query_id | user_query_hash | generic_query_hash | text
 ---------+-----------------+--------------------+----------
 24723049 | oPuFtjEPLTs=    | oPuFtjEPLTs=       | select query_id, trim(user_query_hash) as user_query_hash, trim(generic_query_hash) as generic_query_hash, query_hash_version, trim(query_text) as text from sys_query_history order by start_time\r\ndesc limit 20

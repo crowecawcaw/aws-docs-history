@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Y
-<a name="ST_Y-function"></a>
 
 ST\_Y returns the second coordinate of an input point. 
 
@@ -36,7 +35,7 @@ If *point* is not a `POINT`, then an error is returned.
 
 The following SQL returns the second coordinate of a point. 
 
-```
+```sql
 SELECT ST_Y(ST_Point(1,2));
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_ALL\_TABLES
-<a name="r_SVV_ALL_TABLES"></a>
 
 Use SVV\_ALL\_TABLES to view a union of Amazon Redshift tables as shown in SVV\_REDSHIFT\_TABLES and the consolidated list of all external tables from all external schemas. For information about Amazon Redshift tables, see [SVV\_REDSHIFT\_TABLES](r_SVV_REDSHIFT_TABLES.md).
 
@@ -32,7 +31,7 @@ Use the [SHOW TABLES](r_SHOW_TABLES.md) command for table discovery. SHOW TABLES
 
 The following example returns the output of SVV\_ALL\_TABLES.
 
-```
+```sql
 SELECT *
 FROM svv_all_tables
 WHERE database_name = 'tickit_db'

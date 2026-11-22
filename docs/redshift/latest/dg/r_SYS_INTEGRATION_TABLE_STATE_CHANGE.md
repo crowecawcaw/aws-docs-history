@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE
-<a name="r_SYS_INTEGRATION_TABLE_STATE_CHANGE"></a>
 
 SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE displays details about table state change logs for integrations.
 
@@ -31,7 +30,7 @@ For more information, see [Working with Zero-ETL integrations](https://docs.aws.
 
 The following SQL command displays the log of integrations. 
 
-```
+```sql
 select * from sys_integration_table_state_change;
                 
             integration_id            | database_name | schema_name | table_name | new_state |  table_last_replicated_checkpoint   | state_change_reason |        record_time

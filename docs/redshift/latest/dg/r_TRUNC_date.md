@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRUNC function
-<a name="r_TRUNC_date"></a>
 
 Truncates a `TIMESTAMP` and returns a `DATE`.
 
@@ -33,7 +32,7 @@ DATE
 
 The following example returns the date portion from the result of the SYSDATE function (which returns a timestamp). 
 
-```
+```sql
 SELECT SYSDATE;
 
 +----------------------------+
@@ -53,7 +52,7 @@ SELECT TRUNC(SYSDATE);
 
 The following example applies the TRUNC function to a `TIMESTAMP` column. The return type is a date. 
 
-```
+```sql
 SELECT TRUNC(starttime) FROM event
 ORDER BY eventid LIMIT 1;
 

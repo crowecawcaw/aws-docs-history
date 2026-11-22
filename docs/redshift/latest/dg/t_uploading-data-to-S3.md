@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Uploading files to Amazon S3 to use with COPY
-<a name="t_uploading-data-to-S3"></a>
 
 There are a couple approaches to take when uploading text files to Amazon S3:
 + If you have compressed files, we recommend that you split large files to take advantage of parallel processing in Amazon Redshift.

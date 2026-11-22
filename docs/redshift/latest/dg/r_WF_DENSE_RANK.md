@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DENSE\_RANK window function
-<a name="r_WF_DENSE_RANK"></a>
 
 The DENSE\_RANK window function determines the rank of a value in a group of values, based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is present, the rankings are reset for each group of rows. Rows with equal values for the ranking criteria receive the same rank. The DENSE\_RANK function differs from RANK in one respect: if two or more rows tie, there is no gap in the sequence of ranked values. For example, if two rows are ranked `1`, the next rank is `2`. 
 
@@ -48,7 +47,7 @@ The following examples use the sample table for window functions. For more infor
 
 The following example orders the table by the quantity sold and assigns both a dense rank and a regular rank to each row. The results are sorted after the window function results are applied. 
 
-```
+```sql
 SELECT salesid, qty,
 DENSE_RANK() OVER(ORDER BY qty DESC) AS d_rnk,
 RANK() OVER(ORDER BY qty DESC) AS rnk
@@ -76,7 +75,7 @@ Note the difference in rankings assigned to the same set of rows when the DENSE\
 
 The following example partitions the table by sellerid, orders each partition by the quantity, and assigns a dense rank to each row. The results are sorted after the window function results are applied. 
 
-```
+```sql
 SELECT salesid, sellerid, qty,
 DENSE_RANK() OVER(PARTITION BY sellerid ORDER BY qty DESC) AS d_rnk
 FROM winsales
@@ -101,13 +100,13 @@ ORDER BY 2,3,1;
 
 To successfully use the last example, use the following command to insert a row into the WINSALES table. This row has the same buyerid, sellerid, and qtysold as another row. This will cause two rows to tie in the last example and thus will show the difference between the DENSE\_RANK and RANK functions.
 
-```
+```sql
 INSERT INTO winsales VALUES(30009, '2/2/2003', 3, 'b', 20, NULL);
 ```
 
 The following example partitions the table by buyerid and sellerid, orders each partition by the quantity, and assigns both a dense rank and a regular rank to each row. The results are sorted after the window function is applied. 
 
-```
+```sql
 SELECT salesid, sellerid, qty, buyerid,
 DENSE_RANK() OVER(PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS d_rnk,
 RANK() OVER (PARTITION BY buyerid, sellerid ORDER BY qty DESC) AS rnk

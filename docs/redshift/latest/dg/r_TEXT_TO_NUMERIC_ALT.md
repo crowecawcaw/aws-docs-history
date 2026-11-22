@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TEXT\_TO\_NUMERIC\_ALT
-<a name="r_TEXT_TO_NUMERIC_ALT"></a>
 
 TEXT\_TO\_NUMERIC\_ALT performs a Teradata-style cast operation to convert a character string to a numeric data format. 
 
@@ -45,7 +44,7 @@ Amazon Redshift casts the input *expression* string to the numeric type with the
 
 The following example converts the input *expression* string '1.5' to the numeric value '2'. Because the statement doesn't specify *scale*, the *scale* defaults to 0 and the cast result doesn't include a fraction result. Because .5 is midway between 1 and 2, the cast result is rounded to the even value of 2.
 
-```
+```sql
 select text_to_numeric_alt('1.5');
 ```
 
@@ -57,7 +56,7 @@ select text_to_numeric_alt('1.5');
 
 The following example converts the input *expression* string '2.51' to the numeric value 3. Because the statement doesn't specify a *scale* value, the *scale* defaults to 0 and the cast result doesn't include a fraction result. Because .51 is closer to 3 than 2, the cast result is rounded to the value of 3.
 
-```
+```sql
 select text_to_numeric_alt('2.51');
 ```
 
@@ -69,7 +68,7 @@ select text_to_numeric_alt('2.51');
 
 The following example converts the input *expression* string 123.52501 with a *precision* of 10 and a *scale* of 2 to the numeric value 123.53. 
 
-```
+```sql
 select text_to_numeric_alt('123.52501', 10, 2);
 ```
 
@@ -81,7 +80,7 @@ select text_to_numeric_alt('123.52501', 10, 2);
 
 The following example converts the input *expression* string '123{' with the *format* phrase '999S' to the numeric 1230. The S character indicates a Signed Zoned Decimal. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
-```
+```sql
 select text_to_numeric_alt('123{', '999S');
 ```
 
@@ -93,7 +92,7 @@ text_to_int_alt
 
 The following example converts the input *expression* string 'USD123' with the *format* phrase 'C9(I)' to the numeric 124. See [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
-```
+```sql
 select text_to_numeric_alt('USD123.9', 'C9(I)');
 ```
 
@@ -105,7 +104,7 @@ text_to_numeric_alt
 
 The following example specifies a table column as the input *expression*.
 
-```
+```sql
 select text_to_numeric_alt(a), text_to_numeric_alt(b) from t_text2numeric order by 1;
 ```
 
@@ -121,11 +120,11 @@ select text_to_numeric_alt(a), text_to_numeric_alt(b) from t_text2numeric order 
 
 Following is the table definition and the insert statement for this example.
 
-```
+```sql
 create table  t_text2numeric (a varchar(200), b char(200));
 ```
 
-```
+```sql
 insert into  t_text2numeric values
 ('123', '123'),
 ('+123.456', '+123.456'),

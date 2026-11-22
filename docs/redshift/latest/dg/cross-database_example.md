@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Cross-database query examples
-<a name="cross-database_example"></a>
 
 This topic contains examples for how to use cross-database queries. Cross-database queries are queries that operate on multiple databases within a single Amazon Redshift cluster.
 

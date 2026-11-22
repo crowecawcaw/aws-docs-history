@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # COLLATE function
-<a name="r_COLLATE"></a>
 
 The COLLATE function overrides the collation of a string column or expression. 
 
@@ -50,7 +49,7 @@ INSERT INTO T VALUES ('john'),('JOHN');
 
  When you run the first query, Amazon Redshift only returns `john`. After the COLLATE function runs on col1, the collation becomes `case_insensitive`. The second query returns both `john` and `JOHN`. 
 
-```
+```sql
 SELECT * FROM T WHERE col1 = 'john';
 
 +------+
@@ -79,7 +78,7 @@ INSERT INTO A VALUES ('john'),('JOHN');
 
  When you run the first query, Amazon Redshift returns both `john` and `JOHN`. After the COLLATE function runs on col1, the collation becomes `case_sensitive`. The second query returns only `john`. 
 
-```
+```sql
 SELECT * FROM A WHERE col1 = 'john';
 
 +------+

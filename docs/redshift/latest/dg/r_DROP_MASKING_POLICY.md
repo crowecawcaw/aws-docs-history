@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP MASKING POLICY
-<a name="r_DROP_MASKING_POLICY"></a>
 
 Drops a dynamic data masking policy from all databases. You can't drop a masking policy that's still attached to one or more tables. For more information on dynamic data masking, see [Dynamic data masking](t_ddm.md).
 

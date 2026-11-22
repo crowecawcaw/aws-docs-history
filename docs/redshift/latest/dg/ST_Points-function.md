@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Points
-<a name="ST_Points-function"></a>
 
 ST\_Points returns a multipoint geometry containing all nonempty points in the input geometry. ST\_Points doesn't remove points that are duplicated in the input, including the start and end points of ring geometries.
 
@@ -36,7 +35,7 @@ If *geom* is empty, then the empty multipoint is returned.
 
 The following SQL examples construct a multipoint geometry from the input geometry. The result is a multipoint geometry containing the nonempty points in the input geometry.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Points(ST_SetSRID(ST_GeomFromText('LINESTRING(1 0,2 0,3 0)'), 4326)));
 ```
 
@@ -46,7 +45,7 @@ st_asewkt
 SRID=4326;MULTIPOINT((1 0),(2 0),(3 0))
 ```
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Points(ST_SetSRID(ST_GeomFromText('MULTIPOLYGON(((0 0,1 0,0 1,0 0)))'), 4326)));
 ```
 

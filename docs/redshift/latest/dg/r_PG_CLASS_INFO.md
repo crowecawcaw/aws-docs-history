@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_CLASS\_INFO
-<a name="r_PG_CLASS_INFO"></a>
 
 PG\_CLASS\_INFO is an Amazon Redshift system view built on the PostgreSQL catalog tables PG\_CLASS and PG\_CLASS\_EXTENDED. PG\_CLASS\_INFO includes details about table creation time and the current distribution style. For more information, see [Data distribution for query optimization](t_Distributing_data.md).
 
@@ -39,7 +38,7 @@ The following table gives the distribution style for each value in RELEFFECTIVED
 
 The following query returns the current distribution style of tables in the catalog. 
 
-```
+```sql
 select reloid as tableid,trim(nspname) as schemaname,trim(relname) as tablename,reldiststyle,releffectivediststyle, 
 CASE WHEN "reldiststyle" = 0 THEN 'EVEN'::text 
      WHEN "reldiststyle" = 1 THEN 'KEY'::text 

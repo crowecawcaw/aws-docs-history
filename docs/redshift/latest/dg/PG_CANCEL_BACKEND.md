@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_CANCEL\_BACKEND
-<a name="PG_CANCEL_BACKEND"></a>
 
 Cancels a query. PG\_CANCEL\_BACKEND is functionally equivalent to the [CANCEL](r_CANCEL.md) command. You can cancel queries currently being run by your user. Superusers can cancel any query.
 
@@ -35,7 +34,7 @@ If queries in multiple sessions hold locks on the same table, you can use the [P
 
 To cancel a currently running query, first retrieve the process ID for the query that you want to cancel. To determine the process IDs for all currently running queries, run the following command. 
 
-```
+```sql
 SELECT pid, TRIM(starttime) AS start, 
 duration, TRIM(user_name) AS user,
 SUBSTRING(query,1,40) AS querytxt
@@ -53,6 +52,6 @@ WHERE status = 'Running';
 
 To cancel the query with process ID 802, use the following example.
 
-```
+```sql
 SELECT PG_CANCEL_BACKEND(802);
 ```

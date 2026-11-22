@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_RemovePoint
-<a name="ST_RemovePoint-function"></a>
 
 ST\_RemovePoint returns a linestring geometry that has the point of the input geometry at an index position removed. 
 
@@ -41,7 +40,7 @@ If *index* is out of range, then an error is returned. Valid values for the inde
 
 The following SQL removes the last point in a linestring. 
 
-```
+```sql
 WITH tmp(g) AS (SELECT ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326))
 SELECT ST_AsEWKT(ST_RemovePoint(g, ST_NumPoints(g) - 1)) FROM tmp;
 ```

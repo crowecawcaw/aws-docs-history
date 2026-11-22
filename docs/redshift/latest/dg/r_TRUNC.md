@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRUNC function
-<a name="r_TRUNC"></a>
 
 The TRUNC function truncates numbers to the previous integer or decimal. 
 
@@ -41,7 +40,7 @@ Some of the following examples use the TICKIT sample database. For more informat
 
 To truncate the commission paid for a given sales transaction, use the following example. 
 
-```
+```sql
 SELECT commission, TRUNC(commission)
 FROM sales WHERE salesid=784;
 
@@ -54,7 +53,7 @@ FROM sales WHERE salesid=784;
 
 To truncate the same commission value to the first decimal place, use the following example. 
 
-```
+```sql
 SELECT commission, TRUNC(commission,1)
 FROM sales WHERE salesid=784;
 
@@ -67,7 +66,7 @@ FROM sales WHERE salesid=784;
 
 To truncate the commission with a negative value for the second argument, use the following example. Note that `111.15` is rounded down to `110`. 
 
-```
+```sql
 SELECT commission, TRUNC(commission,-1)
 FROM sales WHERE salesid=784;
 

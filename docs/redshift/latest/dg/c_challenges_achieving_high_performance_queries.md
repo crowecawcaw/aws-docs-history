@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift Performance
-<a name="c_challenges_achieving_high_performance_queries"></a>
 
 This topic describes the Amazon Redshift components that drive performance. Understanding these components will help you tune performance and troubleshoot poor performance with Amazon Redshift.
 

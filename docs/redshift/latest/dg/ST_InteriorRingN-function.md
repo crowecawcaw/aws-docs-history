@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_InteriorRingN
-<a name="ST_InteriorRingN-function"></a>
 
 ST\_InteriorRingN returns a closed linestring corresponding to the interior ring of an input polygon at the index position. The dimension of the returned geometry is the same as that of the input geometry.
 
@@ -43,7 +42,7 @@ If *geom* is an empty polygon, then null is returned.
 
 The following SQL returns the second ring of the polygon as a closed linestring. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_InteriorRingN(ST_GeomFromText('POLYGON((7 9,8 7,11 6,15 8,16 6,17 7,17 10,18 12,17 14,15 15,11 15,10 13,9 12,7 9),(9 9,10 10,11 11,11 10,10 8,9 9),(12 14,15 14,13 11,12 14))'),2));
 ```
 

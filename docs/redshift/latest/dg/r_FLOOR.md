@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # FLOOR function
-<a name="r_FLOOR"></a>
 
 The FLOOR function rounds a number down to the next whole number. 
 
@@ -34,7 +33,7 @@ The following examples use the TICKIT sample database. For more information, see
 
 To show the value of the commission paid for a given sales transaction before and after using the FLOOR function, use the following example. 
 
-```
+```sql
 SELECT commission 
 FROM sales 
 WHERE salesid=10000;

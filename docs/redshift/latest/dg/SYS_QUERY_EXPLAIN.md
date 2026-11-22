@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_QUERY\_EXPLAIN
-<a name="SYS_QUERY_EXPLAIN"></a>
 
 Displays the EXPLAIN plan for a query that has been submitted for execution.
 
@@ -29,7 +28,7 @@ SYS\_QUERY\_EXPLAIN is visible to all users. Superusers can see all rows; regula
 
 The following example is the EXPLAIN plan of a single query.
 
-```
+```sql
 SELECT * FROM sys_query_explain WHERE query_id = 612635 ORDER BY plan_node_id;
 
  userid | query_id | child_query_sequence | plan_node_id | plan_parent_id |                                                                                                                                                                                                    plan_node                                                                                                                                                                                                     |                                                                                                                                                                                                    plan_info                                                                                                                                                                                                     

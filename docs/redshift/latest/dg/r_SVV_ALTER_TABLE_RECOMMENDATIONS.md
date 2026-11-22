@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_ALTER\_TABLE\_RECOMMENDATIONS
-<a name="r_SVV_ALTER_TABLE_RECOMMENDATIONS"></a>
 
 Records the current Amazon Redshift Advisor recommendations for tables. This view shows recommendations for all tables, whether they are defined for automatic optimization or not. To view if a table is defined for automatic optimization, see [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md). Entries appear only for tables visible in the current session's database. After a recommendation has been applied (either by Amazon Redshift or by you), it no longer appears in the view. 
 
@@ -27,7 +26,7 @@ SVV\_ALTER\_TABLE\_RECOMMENDATIONS is visible only to superusers. For more infor
 
 In the following example, the rows in the result show recommendations for distribution key and sort key. The rows also show whether the recommendations are eligible for Amazon Redshift to automatically apply them. 
 
-```
+```sql
 select type, database, table_id, group_id, ddl, auto_eligible 
 from svv_alter_table_recommendations;
 ```

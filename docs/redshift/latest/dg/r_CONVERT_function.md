@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CONVERT function
-<a name="r_CONVERT_function"></a>
 
 Like the [CAST function](https://docs.aws.amazon.com/redshift/latest/dg/r_CAST_function.html), the CONVERT function converts one data type to another compatible data type. For instance, you can convert a string to a date, or a numeric type to a string. CONVERT performs a runtime conversion, which means that the conversion doesn't change a value's data type in a source table. It's changed only in the context of the query.
 
@@ -49,7 +48,7 @@ Some of the examples use the sample [TICKIT database](https://docs.aws.amazon.co
 
 The following query uses the CONVERT function to convert a column of decimals into integers
 
-```
+```sql
 SELECT CONVERT(integer, pricepaid)
 FROM sales WHERE salesid=100;
 ```
@@ -72,7 +71,7 @@ getdate
 
 This example converts the saletime column into just the time, removing the dates from each row.
 
-```
+```sql
 SELECT CONVERT(time, saletime), salesid
 FROM sales order by salesid limit 10;
 ```
@@ -88,7 +87,7 @@ SELECT CONVERT(datetime, '2008-02-18 02:36:48') as mysaletime;
 **Note**  
 You can't perform a CAST or CONVERT operation on the `GEOMETRY` data type to change it to another data type. However, you can provide a hexadecimal representation of a string literal in extended well-known binary (EWKB) format as input to functions that accept a `GEOMETRY` argument. For example, the `ST_AsText` function following expects a `GEOMETRY` data type.   
 
-```
+```sql
 SELECT ST_AsText('01010000000000000000001C400000000000002040');
 ```
 
@@ -99,7 +98,7 @@ st_astext
 ```
 You can also explicitly specify the `GEOMETRY` data type.   
 
-```
+```sql
 SELECT ST_AsText('010100000000000000000014400000000000001840'::geometry);
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # farmFingerprint64 function
-<a name="r_FARMFINGERPRINT64"></a>
 
 Computes the farmhash value of the input argument using the `Fingerprint64` function. 
 
@@ -30,7 +29,7 @@ The `farmFingerprint64` function returns a `BIGINT`.
 
 The following example returns the `farmFingerprint64` value of `Amazon Redshift` that is input as a `VARCHAR` data type. 
 
-```
+```sql
 SELECT farmFingerprint64('Amazon Redshift');
 ```
 
@@ -43,7 +42,7 @@ SELECT farmFingerprint64('Amazon Redshift');
 
 The following example returns the `farmFingerprint64` value of `Amazon Redshift` that is input as a `VARBYTE` data type. 
 
-```
+```sql
 SELECT farmFingerprint64('Amazon Redshift'::varbyte);
 ```
 

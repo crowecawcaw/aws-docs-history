@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_TERMINATE\_BACKEND
-<a name="PG_TERMINATE_BACKEND"></a>
 
 Terminates a session. You can terminate a session owned by your user. A superuser can terminate any session.
 
@@ -39,7 +38,7 @@ If a query is not in a transaction block (BEGIN … END), you can cancel the que
 
 To query the SVV\_TRANSACTIONS table to view all locks in effect for current transactions, use the following example.
 
-```
+```sql
 SELECT * FROM svv_transactions;
 
 +-----------+--------+-------+------+---------------------+-----------------+----------------------+----------+---------+
@@ -54,6 +53,6 @@ SELECT * FROM svv_transactions;
 
 TO terminate the session holding the locks, use the following example.
 
-```
+```sql
 SELECT PG_TERMINATE_BACKEND(8585); 
 ```

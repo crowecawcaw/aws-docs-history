@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Limitations
-<a name="limitations-super"></a>
 
 With Amazon Redshift, you can work with the SUPER data type to store and query semi-structured data like JSON, Avro, or Ion. The SUPER data type limitations refer to the constraints and boundaries when using this data type in Amazon Redshift. The following sections provide details on the specific limitations of the SUPER data type, such as maximum size, nesting levels, and data types supported within semi-structured data.
 + You can't define SUPER columns as either a distribution or sort key.

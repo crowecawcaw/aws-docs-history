@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HAVING clause
-<a name="r_HAVING_clause"></a>
 
 The HAVING clause applies a condition to the intermediate grouped result set that a query returns.
 
@@ -35,7 +34,7 @@ The condition itself takes the same form as any WHERE clause condition.
 
 The following query calculates total ticket sales for all events by name, then eliminates events where the total sales were less than $800,000. The HAVING condition is applied to the results of the aggregate function in the select list: `sum(pricepaid)`.
 
-```
+```sql
 select eventname, sum(pricepaid)
 from sales join event on sales.eventid = event.eventid
 group by 1
@@ -54,7 +53,7 @@ Legally Blonde   |  804583.00
 
 The following query calculates a similar result set. In this case, however, the HAVING condition is applied to an aggregate that isn't specified in the select list: `sum(qtysold)`. Events that did not sell more than 2,000 tickets are eliminated from the final result.
 
-```
+```sql
 select eventname, sum(pricepaid)
 from sales join event on sales.eventid = event.eventid
 group by 1
@@ -75,7 +74,7 @@ Spamalot         |  714307.00
 
 The following query calculates total ticket sales for all events by name, then eliminates events where the total sales were less than $800,000. The HAVING condition is applied to the results of the aggregate function in the select list using the alias `pp` for `sum(pricepaid)`.
 
-```
+```sql
 select eventname, sum(pricepaid) as pp
 from sales join event on sales.eventid = event.eventid
 group by 1

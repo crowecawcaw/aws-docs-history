@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CASE conditional expression
-<a name="r_CASE_function"></a>
 
 The CASE expression is a conditional expression, similar to if/then/else statements found in other languages. CASE is used to specify a result when there are multiple conditions. Use CASE where a SQL expression is valid, such as in a SELECT command.
 
@@ -56,7 +55,7 @@ The following examples use the VENUE table and SALES table from the sample TICKI
 
 Use a simple CASE expression to replace `New York City` with `Big Apple` in a query against the VENUE table. Replace all other city names with `other`.
 
-```
+```sql
 select venuecity,
   case venuecity
     when 'New York City'
@@ -76,7 +75,7 @@ Baltimore        | other
 
 Use a searched CASE expression to assign group numbers based on the PRICEPAID value for individual ticket sales:
 
-```
+```sql
 select pricepaid,
   case when pricepaid <10000 then 'group 1'
     when pricepaid >10000 then 'group 2'

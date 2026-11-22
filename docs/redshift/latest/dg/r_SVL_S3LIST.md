@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_S3LIST
-<a name="r_SVL_S3LIST"></a>
 
 Use the SVL\_S3LIST view to get details about data lake queries at the segment level.
 
@@ -38,7 +37,7 @@ SVL\_S3LIST only contains queries run on main provisioned clusters. It doesn't c
 
 The following example queries SVL\_S3LIST for the last query to run.
 
-```
+```sql
 select * 
 from svl_s3list 
 where query = pg_last_query_id() 

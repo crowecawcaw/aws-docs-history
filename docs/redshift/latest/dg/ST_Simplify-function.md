@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Simplify
-<a name="ST_Simplify-function"></a>
 
 ST\_Simplify returns a simplified copy of the input geometry using the Ramer-Douglas-Peucker algorithm with the given tolerance. The topology of the input geometry might not be preserved. For more information about the algorithm, see [Ramer–Douglas–Peucker algorithm](https://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm) in Wikipedia. 
 
@@ -41,7 +40,7 @@ If *geom* is null, then null is returned.
 
 The following SQL simplifies the input linestring using a Euclidean distance tolerance of 1 with the Ramer-Douglas-Peucker algorithm. The units of the distance are the same as those of the coordinates of the geometry.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Simplify(ST_GeomFromText('LINESTRING(0 0,1 2,1 1,2 2,2 1)'), 1));
 ```
 

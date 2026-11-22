@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift federated permissions
-<a name="federated-permissions"></a>
 
 Amazon Redshift federated permissions simplifies permissions management across multiple Redshift data warehouses so you can define data permissions once and automatically enforce them across all warehouses in your AWS account. This eliminates the need to redefine, manage permissions and fine grained access control policies across multiple warehouses.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_STATEMENTTEXT
-<a name="r_SVL_STATEMENTTEXT"></a>
 
 Use the SVL\_STATEMENTTEXT view to get a complete record of all of the SQL commands that have been run on the system.
 
@@ -53,14 +52,14 @@ starttime                  | type |              rtrim
 
 To reconstruct the SQL stored in the `text` column of SVL\_STATEMENTTEXT, run a SELECT statement to create SQL from 1 or more parts in the `text` column. Before running the reconstructed SQL, replace any (`\n`) special characters with a new line. The result of the following SELECT statement is rows of reconstructed SQL in the `query_statement` field.
 
-```
+```sql
 select LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') within group (order by sequence) AS query_statement 
 from SVL_STATEMENTTEXT where pid=pg_backend_pid();
 ```
 
 For example, the following query selects 3 columns. The query itself is longer than 200 characters and is stored in parts in SVL\_STATEMENTTEXT.
 
-```
+```sql
 select
 1 AS a0123456789012345678901234567890123456789012345678901234567890,
 2 AS b0123456789012345678901234567890123456789012345678901234567890,
@@ -70,7 +69,7 @@ FROM stl_querytext;
 
 In this example, the query is stored in 2 parts (rows) in the `text` column of SVL\_STATEMENTTEXT.
 
-```
+```sql
 select sequence, text from SVL_STATEMENTTEXT where pid = pg_backend_pid() order by starttime, sequence;
 ```
 

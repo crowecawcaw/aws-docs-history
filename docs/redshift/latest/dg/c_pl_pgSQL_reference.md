@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PL/pgSQL language reference
-<a name="c_pl_pgSQL_reference"></a>
 
 Stored procedures in Amazon Redshift are based on the PostgreSQL PL/pgSQL procedural language, with some important differences. In this reference, you can find details of PL/pgSQL syntax as implemented by Amazon Redshift. For more information about PL/pgSQL, see [PL/pgSQL - SQL procedural language](https://www.postgresql.org/docs/8.0/plpgsql.html) in the PostgreSQL documentation.
 

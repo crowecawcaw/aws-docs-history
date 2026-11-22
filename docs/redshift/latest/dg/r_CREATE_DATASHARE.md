@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE DATASHARE
-<a name="r_CREATE_DATASHARE"></a>
 
 Creates a new datashare in the current database. The owner of this datashare is the issuer of the CREATE DATASHARE command.
 

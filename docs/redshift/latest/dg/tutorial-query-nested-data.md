@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorial: Querying nested data with Amazon Redshift Spectrum
-<a name="tutorial-query-nested-data"></a>
 
 This tutorial demonstrates how to query nested data with Redshift Spectrum. Nested data is data that contains nested fields. Nested fields are fields that are joined together as a single entity, such as arrays, structs, or objects. 
 
@@ -22,7 +21,7 @@ Amazon Redshift Spectrum supports querying nested data in Parquet, ORC, JSON, an
 
 For example, suppose that your data file contains the following data in Amazon S3 in a folder named `customers`. Although there isn't a single root element, each JSON object in this sample data represents a row in a table. 
 
-```
+```json
 {"id": 1,
  "name": {"given": "John", "family": "Smith"},
  "phones": ["123-457789"],

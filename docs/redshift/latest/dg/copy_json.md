@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using COPY to load data into SUPER columns
-<a name="copy_json"></a>
 
 In the following sections, you can learn about different ways to use the COPY command to load JSON data into Amazon Redshift. For information about the data format parameters that Amazon Redshift uses to parse JSON in COPY commands, read the [JSON format for COPY](copy-parameters-data-format.md#copy-json) parameter description in [Data format parameters](copy-parameters-data-format.md).
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Usage metrics for autonomics operations
-<a name="t_autonomics-usage-metrics"></a>
 
 If you've enabled extra compute resources for automatic optimizations, you can see information about your billed autonomics usage using the Amazon Redshift console. For more information on autonomics metrics on the console for serverless workgroups, see the resource management section in [ Amazon Redshift Serverless console](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-console.html) in the *Amazon Redshift Management Guide*.
 

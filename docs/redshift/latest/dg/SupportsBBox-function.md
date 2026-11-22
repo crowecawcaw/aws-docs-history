@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SupportsBBox
-<a name="SupportsBBox-function"></a>
 
 SupportsBBox returns true if the input geometry supports encoding with a precomputed bounding box. For more information about support for bounding boxes, see [Bounding box](spatial-terminology.md#spatial-terminology-bounding-box).
 
@@ -32,7 +31,7 @@ If *geom* is null, then null is returned.
 
 The following SQL returns true because the input point geometry supports being encoded with a bounding box. 
 
-```
+```sql
 SELECT SupportsBBox(AddBBox(ST_GeomFromText('POLYGON((0 0,1 0,0 1,0 0))')));
 ```
 
@@ -44,7 +43,7 @@ t
 
 The following SQL returns false because the input point geometry doesn't support being encoded with a bounding box. 
 
-```
+```sql
 SELECT SupportsBBox(DropBBox(ST_GeomFromText('POLYGON((0 0,1 0,0 1,0 0))')));
 ```
 

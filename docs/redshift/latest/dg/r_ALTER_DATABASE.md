@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER DATABASE
-<a name="r_ALTER_DATABASE"></a>
 
 Changes the attributes of a database.
 
@@ -150,54 +149,54 @@ ALTER DATABASE sampledb ISOLATION LEVEL SNAPSHOT;
 
 The following example refreshes the tables **schema1.sample\_table1** and **schema2.sample\_table2** in the database **sample\_integration\_db** in your zero-ETL integration.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION REFRESH TABLE schema1.sample_table1, schema2.sample_table2;
 ```
 
 The following example refreshes all synced and failed tables within your zero-ETL integration.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION REFRESH ALL tables;
 ```
 
 The following example sets the refresh interval for zero-ETL integrations to 600 seconds..
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION SET REFRESH_INTERVAL 600;
 ```
 
 The following example refreshes all tables that are in the `ErrorState` in the schema **sample\_schema**.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION REFRESH INERROR TABLES in SCHEMA sample_schema;
 ```
 
 The following example switches history mode on for table `myschema.table1`.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION SET HISTORY_MODE = true FOR TABLE myschema.table1
 ```
 
 The following example switches history mode on for all tables in `myschema`. 
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION SET HISTORY_MODE = true for ALL TABLES IN SCHEMA myschema
 ```
 
 The following example enables automatic remediation of duplicate rows for a zero-ETL integration database.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION SET AUTO_REMEDIATION = true;
 ```
 
 The following example refreshes all tables affected by duplicate rows in the zero-ETL integration database.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION REFRESH REMEDIABLE TABLES;
 ```
 
 The following example refreshes tables affected by duplicate rows in the schema `myschema`.
 
-```
+```sql
 ALTER DATABASE sample_integration_db INTEGRATION REFRESH REMEDIABLE TABLES IN SCHEMA myschema;
 ```

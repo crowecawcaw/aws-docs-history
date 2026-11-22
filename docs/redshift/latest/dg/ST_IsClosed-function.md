@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_IsClosed
-<a name="ST_IsClosed-function"></a>
 
 ST\_IsClosed returns true if the 2D projection of the input geometry is closed. The following rules define a closed geometry: 
 + The input geometry is a point or a multipoint. 
@@ -40,7 +39,7 @@ If *geom* is null, then null is returned.
 
 The following SQL checks if the polygon is closed. 
 
-```
+```sql
 SELECT ST_IsClosed(ST_GeomFromText('POLYGON((0 2,1 1,0 -1,0 2))'));
 ```
 

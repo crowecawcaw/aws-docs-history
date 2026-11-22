@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_AddPoint
-<a name="ST_AddPoint-function"></a>
 
 ST\_AddPoint returns a linestring geometry that is the same as the input geometry with a point added. If an index is provided, then the point is added at the index position. If the index is -1 or not provided, then the point is appended to the linestring. 
 
@@ -54,7 +53,7 @@ If *index* is out of range, then an error is returned. Valid values for the inde
 
 The following SQL adds a point to a linestring to make it a closed linestring. 
 
-```
+```sql
 WITH tmp(g) AS (SELECT ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326))
 SELECT ST_AsEWKT(ST_AddPoint(g, ST_StartPoint(g))) FROM tmp;
 ```
@@ -67,7 +66,7 @@ SELECT ST_AsEWKT(ST_AddPoint(g, ST_StartPoint(g))) FROM tmp;
 
 The following SQL adds a point to a specific position in a linestring. 
 
-```
+```sql
 WITH tmp(g) AS (SELECT ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326))
 SELECT ST_AsEWKT(ST_AddPoint(g, ST_SetSRID(ST_Point(5, 10), 4326), 3)) FROM tmp;
 ```

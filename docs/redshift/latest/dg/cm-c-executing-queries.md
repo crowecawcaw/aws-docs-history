@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Assigning queries to queues
-<a name="cm-c-executing-queries"></a>
 
 With Amazon Redshift, you can manage workload concurrency and prioritize queries by assigning them to queues. Queues allow you to allocate resources like memory and CPU for different types of queries or users, ensuring critical queries get prioritized over less important ones. The following sections describe how to create queues, configure their properties, and assign incoming queries based on criteria you define.
 

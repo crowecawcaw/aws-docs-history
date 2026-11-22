@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW EXTERNAL TABLE
-<a name="r_SHOW_EXTERNAL_TABLE"></a>
 
 Shows the definition of an external table, including table attributes and column attributes. You can use the output of the SHOW EXTERNAL TABLE statement to recreate the table. 
 
@@ -36,7 +35,7 @@ Displays ALTER TABLE statements to add partitions to the table definition.
 
 The following examples are based on an external table defined as follows:
 
-```
+```sql
 CREATE EXTERNAL TABLE my_schema.alldatatypes_parquet_test_partitioned (
      csmallint smallint,
      cint int,
@@ -58,7 +57,7 @@ LOCATION 's3://amzn-s3-demo-bucket/alldatatypes_parquet_partitioned';
 
 Following is an example of the SHOW EXTERNAL TABLE command and output for the table `my_schema.alldatatypes_parquet_test_partitioned`.
 
-```
+```sql
 SHOW EXTERNAL TABLE my_schema.alldatatypes_parquet_test_partitioned;
 ```
 
@@ -86,7 +85,7 @@ LOCATION 's3://amzn-s3-demo-bucket/alldatatypes_parquet_partitioned';"
 
 Following is an example of the SHOW EXTERNAL TABLE command and output for the same table, but with the database also specified in the parameter.
 
-```
+```sql
 SHOW EXTERNAL TABLE my_database.my_schema.alldatatypes_parquet_test_partitioned;
 ```
 
@@ -114,7 +113,7 @@ LOCATION 's3://amzn-s3-demo-bucket/alldatatypes_parquet_partitioned';"
 
 Following is an example of the SHOW EXTERNAL TABLE command and output when using the `PARTITION` parameter. The output contains ALTER TABLE statements to add partitions to the table definition.
 
-```
+```sql
 SHOW EXTERNAL TABLE my_schema.alldatatypes_parquet_test_partitioned PARTITION;
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Managing cost control for cross-Region data sharing
-<a name="cross-region-billing"></a>
 
 With Amazon Redshift, you can manage cost control for cross-Region data sharing by configuring data sharing to limit the amount of data that is transferred between AWS Regions. By managing cost control for cross-Region data sharing, you can set data transfer limits, monitor data transfer usage, and receive notifications when approaching or exceeding those limits.
 

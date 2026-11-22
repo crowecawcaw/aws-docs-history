@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Unloading semi-structured data
-<a name="unload-super"></a>
 
 With Amazon Redshift, you can export semi-structured data from your Amazon Redshift cluster to Amazon S3 in a variety of formats, including text, Apache Parquet, Apache ORC, and Avro. The following sections will guide you through the process of configuring and executing unload operations for your semi-structured data in Amazon Redshift.
 

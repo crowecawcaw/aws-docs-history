@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DATEDIFF function
-<a name="r_DATEDIFF_function"></a>
 
 DATEDIFF returns the difference between the date parts of two date or time expressions. 
 
@@ -56,7 +55,7 @@ date_diff
 
 The following example finds the difference, in days, between two literal TIMESTAMETZ values. 
 
-```
+```sql
 Select datediff(days, 'Jun 1,2008  09:59:59 EST', 'Jul 4,2008  09:59:59 EST')
          
 date_diff

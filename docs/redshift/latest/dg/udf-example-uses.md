@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use case examples for user-defined functions (UDFs)
-<a name="udf-example-uses"></a>
 
 **Note**  
 Starting November 1, 2025, Amazon Redshift will no longer support the creation of new Python UDFs. Existing Python UDFs will continue to function until June 30, 2026. Starting July 1, 2026, Amazon Redshift will no longer support Python UDFs. We recommend that you migrate your existing Python UDFs to Lambda UDFs before November 1, 2025. For information on creating and using Lambda UDFs, see [Scalar Lambda UDFs](udf-creating-a-lambda-sql-udf.md). For information on converting existing Python UDFs to Lambda UDFs, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/).

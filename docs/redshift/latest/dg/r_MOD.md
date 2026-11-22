@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MOD function
-<a name="r_MOD"></a>
 
 Returns the remainder of two numbers, otherwise known as a *modulo* operation. To calculate the result, the first parameter is divided by the second.
 
@@ -38,7 +37,7 @@ You can use `%` as a modulo operator.
 
 To return the remainder when a number is divided by another, use the following example.
 
-```
+```sql
 SELECT MOD(10, 4);
                
 +-----+
@@ -50,7 +49,7 @@ SELECT MOD(10, 4);
 
 To return a `DECIMAL` result when using the MOD function, use the following example.
 
-```
+```sql
 SELECT MOD(10.5, 4);
                
 +-----+
@@ -62,7 +61,7 @@ SELECT MOD(10.5, 4);
 
 To cast a number before running the MOD function, use the following example. For more information, see [CAST function](r_CAST_function.md).
 
-```
+```sql
 SELECT MOD(CAST(16.4 AS INTEGER), 5);
                
 +-----+
@@ -74,7 +73,7 @@ SELECT MOD(CAST(16.4 AS INTEGER), 5);
 
 To check if the first parameter is even by dividing it by 2, use the following example.
 
-```
+```sql
 SELECT mod(5,2) = 0 AS is_even;
                
 +---------+
@@ -86,7 +85,7 @@ SELECT mod(5,2) = 0 AS is_even;
 
 To use *%* as a modulo operator, use the following example.
 
-```
+```sql
 SELECT 11 % 4 as remainder;
                
  +-----------+
@@ -100,7 +99,7 @@ The following example uses the TICKIT sample database. For more information, see
 
 To return information for odd-numbered categories in the CATEGORY table, use the following example. 
 
-```
+```sql
 SELECT catid, catname
 FROM category
 WHERE MOD(catid,2)=1

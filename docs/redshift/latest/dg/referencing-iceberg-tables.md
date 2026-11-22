@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Referencing Iceberg tables in Amazon Redshift
-<a name="referencing-iceberg-tables"></a>
 
 Amazon Redshift provides multiple ways to reference Apache Iceberg tables stored in your data lake. You can use external schemas to create references to Data Catalog databases containing Iceberg tables, or use three-part notation for direct access to auto-mounted catalogs.
 
@@ -14,7 +13,7 @@ External schemas provide a way to reference tables in your Data Catalog from wit
 
 To create an external schema for Iceberg tables:
 
-```
+```sql
 CREATE EXTERNAL SCHEMA {{schema_name}}
 FROM DATA CATALOG
 DATABASE '{{glue_database_name}}'
@@ -23,13 +22,13 @@ IAM_ROLE '{{arn:aws:iam::account-id:role/role-name}}';
 
 After creating the external schema, you can query Iceberg tables using two-part notation:
 
-```
+```sql
 SELECT * FROM {{schema_name}}.{{iceberg_table_name}};
 ```
 
 You can also join Iceberg tables with local Amazon Redshift tables:
 
-```
+```sql
 SELECT r.customer_id, i.order_date, r.customer_name
 FROM local_customers r
 JOIN {{schema_name}}.{{iceberg_orders}} i 
@@ -43,13 +42,13 @@ With three-part notation, you can directly reference tables in auto-mounted cata
 
 The syntax for three-part notation is:
 
-```
+```sql
 {{"catalog_name"}}.{{database_name}}.{{table_name}}
 ```
 
 For example, to query an Iceberg table in an auto-mounted Amazon S3 table catalog:
 
-```
+```sql
 SELECT * FROM "{{my_table_bucket}}@s3tablescatalog".{{my_database}}.{{my_iceberg_table}};
 ```
 
@@ -57,7 +56,7 @@ For more information about integrating Amazon S3 table buckets with Amazon Redsh
 
 You can also reference tables under the auto-mounted root catalog `awsdatacatalog`, which provides direct access to databases and tables registered in the AWS Glue Data Catalog:
 
-```
+```sql
 SELECT * FROM awsdatacatalog.{{my_database}}.{{my_iceberg_table}};
 ```
 
@@ -65,14 +64,14 @@ For more information about using the `awsdatacatalog` root catalog, see [Queryin
 
 You can also use the `USE` statement to set a default catalog and database for Amazon S3 table buckets:
 
-```
+```sql
 USE "{{my_table_bucket}}@s3tablescatalog".{{my_database}};
 SELECT * FROM {{my_iceberg_table}};
 ```
 
 To set a search path for schema resolution with Amazon S3 table buckets:
 
-```
+```sql
 USE "{{my_table_bucket}}@s3tablescatalog";
 SET search_path TO {{my_database}};
 SELECT * FROM {{my_iceberg_table}};
@@ -111,7 +110,7 @@ The following examples demonstrate common patterns for referencing Iceberg table
 
 **Aggregating data across multiple Iceberg tables:**
 
-```
+```sql
 SELECT 
     region,
     SUM(sales_amount) as total_sales,
@@ -124,7 +123,7 @@ ORDER BY total_sales DESC;
 
 **Joining Iceberg tables with local Amazon Redshift tables:**
 
-```
+```sql
 SELECT 
     c.customer_name,
     c.customer_tier,
@@ -137,7 +136,7 @@ GROUP BY c.customer_name, c.customer_tier;
 
 **Using three-part notation with complex queries:**
 
-```
+```sql
 WITH recent_orders AS (
     SELECT customer_id, order_date, order_amount
     FROM "analytics_bucket@s3tablescatalog".ecommerce.orders

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Authentication with mTLS for Redshift streaming ingestion from Apache Kafka sources
-<a name="materialized-view-streaming-ingestion-mtls"></a>
 
 Mutual transport-layer security (mTLS) provides the means for a server to authenticate a client it's sending information to, and for the client to authenticate the server. The benefit of using mTLS is to provide trusted authentication for a variety of use cases in several industry-vertical applications. These include use cases in financial, retail, government and healthcare industries. In the case of streaming ingestion to Redshift, authentication occurs between a server, which can be Amazon MSK, Apache Kafka, or Confluent Cloud, and an Amazon Redshift provisioned cluster or an Amazon Redshift Serverless workgroup.
 
@@ -116,7 +115,7 @@ You can configure mTLS for Redshift streaming ingestion by using AWS Secrets Man
 
 1. In Redshift, run the SQL command to create the external schema. You use the AUTHENTICATION type `mtls`. You also specify the URI of the cluster and the secret ARN in AWS Secrets Manager.
 
-   ```
+   ```sql
    CREATE EXTERNAL SCHEMA my_schema
    FROM KAFKA
    IAM_ROLE 'arn:aws:iam::012345678901:role/my_role'

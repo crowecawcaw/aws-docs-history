@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER EXTERNAL SCHEMA
-<a name="r_ALTER_EXTERNAL_SCHEMA"></a>
 
 Alters an existing external schema in the current database. Only schema owners, super-users, or users with ALTER privileges on the schema can alter it. Only external schemas created from DATA CATALOG, KAFKA, or MSK can be altered.
 

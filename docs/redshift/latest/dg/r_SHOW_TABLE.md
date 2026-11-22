@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW TABLE
-<a name="r_SHOW_TABLE"></a>
 
 Shows the definition of a table, including table attributes, table constraints, column attributes, column collation and column constraints. You can use the output of the SHOW TABLE statement to recreate the table. 
 
@@ -30,7 +29,7 @@ The name of the table to show.
 
 Following is an example of the SHOW TABLE output for the table `sales`.
 
-```
+```sql
 show table sales;
 ```
 
@@ -52,7 +51,7 @@ DISTSTYLE KEY SORTKEY ( dateid );
 
 Following is an example of the SHOW TABLE output for the table `category` in the schema `public`. The collation of the database is CASE\_SENSITIVE.
 
-```
+```sql
 show table public.category;
 ```
 
@@ -68,13 +67,13 @@ DISTSTYLE KEY SORTKEY ( catid );
 
 The following example creates table `foo` with a primary key.
 
-```
+```sql
 create table foo(a int PRIMARY KEY, b int);
 ```
 
 The SHOW TABLE results display the create statement with all properties of the `foo` table.
 
-```
+```sql
 show table foo;
 ```
 
@@ -88,7 +87,7 @@ DISTSTYLE AUTO;
 
 This example creates a table where column `a` inherits the database's default CASE\_SENSITIVE collation, while `b` and `c` are explicitly set to CASE\_INSENSITIVE collation.
 
-```
+```sql
 CREATE TABLE public.foo (
 a CHAR, 
 b VARCHAR(10) COLLATE CASE_INSENSITIVE, 
@@ -98,7 +97,7 @@ c SUPER COLLATE CASE_INSENSITIVE
 
 The SHOW TABLE results display the create statement with all properties of the `foo` table.
 
-```
+```sql
 show table public.foo;
 ```
 

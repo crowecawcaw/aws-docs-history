@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REPEAT function
-<a name="r_REPEAT"></a>
 
 Repeats a string the specified number of times. If the input parameter is numeric, REPEAT treats it as a string. 
 
@@ -37,7 +36,7 @@ The following example uses data from the CATEGORY table in the TICKIT sample dat
 
 To repeat the value of the CATID column in the CATEGORY table three times, use the following example. 
 
-```
+```sql
 SELECT catid, REPEAT(catid,3)
 FROM category
 ORDER BY 1,2;
@@ -61,7 +60,7 @@ ORDER BY 1,2;
 
 When you set the `enable_large_strings_opt_in` parameter to `Yes`, you can generate strings up to 16,000,000 bytes. The following example shows this behavior.
 
-```
+```SQL
 SELECT 
     LEN(REPEAT('X', 5000000)) AS five_million_bytes,
     LEN(REPEAT('Y', 16000000)) AS sixteen_million_bytes;

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Authorizing a datashare in Amazon Redshift
-<a name="writes-authorizing"></a>
 
 With Amazon Redshift, you can control access to datashares by authorizing specified consumers. With datashares, you can share live data across Amazon Redshift clusters in the same or different AWS accounts, providing a seamless way to distribute and consume analytical data. This section provides step-by-step instructions for authorizing and revoking consumer access to your datashares in Amazon Redshift.
 

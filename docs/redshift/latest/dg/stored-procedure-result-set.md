@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Returning a result set from a stored procedure
-<a name="stored-procedure-result-set"></a>
 
 This topic describes how stored procedures return data.
 
@@ -16,7 +15,7 @@ To return a cursor, create a procedure with an INOUT argument defined with a `re
 
 The following example creates a procedure named `get_result_set` with an INOUT argument named `rs_out` using the `refcursor` data type. The procedure opens the cursor using a SELECT statement.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE get_result_set (param IN integer, rs_out INOUT refcursor)
 AS $$
 BEGIN
@@ -27,7 +26,7 @@ $$ LANGUAGE plpgsql;
 
 The following CALL command opens the cursor with the name `mycursor`. Use cursors only within transactions. 
 
-```
+```sql
 BEGIN;
 CALL get_result_set(1, 'mycursor');
 ```
@@ -56,7 +55,7 @@ A cursor returned by a stored procedure is subject to the same constraints and p
 
 The following example shows the calling of the `get_result_set` stored procedure using a `refcursor` data type from JDBC. The literal `'mycursor'` (the name of the cursor) is passed to the `prepareStatement`. Then the results are fetched from the `ResultSet`.
 
-```
+```sql
 static void refcursor_example(Connection conn) throws SQLException {
     conn.setAutoCommit(false);
     PreparedStatement proc = conn.prepareStatement("CALL get_result_set(1, 'mycursor')");

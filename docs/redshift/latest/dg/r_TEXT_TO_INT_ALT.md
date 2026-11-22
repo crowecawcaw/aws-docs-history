@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TEXT\_TO\_INT\_ALT
-<a name="r_TEXT_TO_INT_ALT"></a>
 
 TEXT\_TO\_INT\_ALT converts a character string to an integer using Teradata-style formatting. Fraction digits in the result are truncated.
 
@@ -37,7 +36,7 @@ Amazon Redshift returns an error if the conversion to the *format* phrase that y
 
 The following example converts the input *expression* string '123-' to the integer -123.
 
-```
+```sql
 select text_to_int_alt('123-');
 ```
 
@@ -49,7 +48,7 @@ text_to_int_alt
 
 The following example converts the input *expression* string '2147483647\+' to the integer 2147483647.
 
-```
+```sql
 select text_to_int_alt('2147483647+');
 ```
 
@@ -61,7 +60,7 @@ text_to_int_alt
 
 The following example converts the exponential input *expression* string '-123E-2' to the integer -1.
 
-```
+```sql
 select text_to_int_alt('-123E-2');
 ```
 
@@ -73,7 +72,7 @@ text_to_int_alt
 
 The following example converts the input *expression* string '2147483647\+' to the integer 2147483647.
 
-```
+```sql
 select text_to_int_alt('2147483647+');
 ```
 
@@ -85,7 +84,7 @@ text_to_int_alt
 
 The following example converts the input *expression* string '123{' with the *format* phrase '999S' to the integer 1230. The S character indicates a Signed Zoned Decimal. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
-```
+```sql
 select text_to_int_alt('123{', '999S');
 ```
 
@@ -97,7 +96,7 @@ text_to_int_alt
 
 The following example converts the input *expression* string 'USD123' with the *format* phrase 'C9(I)' to the integer 123. See [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
-```
+```sql
 select text_to_int_alt('USD123', 'C9(I)');
 ```
 
@@ -109,7 +108,7 @@ text_to_int_alt
 
 The following example specifies a table column as the input *expression*.
 
-```
+```sql
 select text_to_int_alt(a), text_to_int_alt(b) from t_text2int order by 1;
 ```
 
@@ -124,10 +123,10 @@ select text_to_int_alt(a), text_to_int_alt(b) from t_text2int order by 1;
 
 Following is the table definition and the insert statement for this example.
 
-```
+```sql
 create table t_text2int (a varchar(200), b char(200));
 ```
 
-```
+```sql
 insert into t_text2int VALUES('123', '123'),('123.123', '123.123'), ('-123', '-123'), ('123-', '123-');
 ```

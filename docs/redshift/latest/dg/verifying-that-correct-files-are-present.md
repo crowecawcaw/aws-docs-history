@@ -3,11 +3,10 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Verifying that the correct files are present in your bucket
-<a name="verifying-that-correct-files-are-present"></a>
 
 After you upload your files to your Amazon S3 bucket, we recommend listing the contents of the bucket to verify that all of the correct files are present and that no unwanted files are present. For example, if the bucket `amzn-s3-demo-bucket` holds a file named `venue.txt.back`, that file will be loaded, perhaps unintentionally, by the following command:
 
-```
+```sql
 COPY venue FROM 's3://amzn-s3-demo-bucket/venue' … ;
 ```
 

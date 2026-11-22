@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorial: Building regression models
-<a name="tutorial_regression"></a>
 
 In this tutorial, you use Amazon Redshift ML to create a machine learning regression model and run prediction queries on the model. With regression models, you can predict numerical outcomes, such as the price of a house, or how many people will use a city’s bike rental service. You use the CREATE MODEL command in Amazon Redshift with your training data. Then, Amazon Redshift ML compiles the model, imports the trained model to Redshift, and prepares a SQL prediction function. You can use the prediction function in SQL queries in Amazon Redshift.
 

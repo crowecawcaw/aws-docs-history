@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Force2D
-<a name="ST_Force2D-function"></a>
 
 ST\_Force2D returns a 2D geometry of the input geometry. For 2D geometries, a copy of the input is returned. For 3DZ, 3DM, and 4D geometries, ST\_Force2D projects the geometry to the xy-Cartesian plane. Empty points in the input geometry remain empty points in the output geometry.
 
@@ -36,7 +35,7 @@ If *geom* is empty, then an empty geometry is returned.
 
 The following SQL returns a 2D geometry from a 3DZ geometry. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_Force2D(ST_GeomFromText('MULTIPOINT Z(0 1 2, EMPTY, 2 3 4, 5 6 7)')));
 ```
 

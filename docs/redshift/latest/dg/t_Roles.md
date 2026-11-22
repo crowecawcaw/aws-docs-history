@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Role-based access control (RBAC)
-<a name="t_Roles"></a>
 
 By using role-based access control (RBAC) to manage database permissions in Amazon Redshift, you can simplify the management of security permissions in Amazon Redshift. You can secure the access to sensitive data by controlling what users can do both at a broad or fine level. You can also control user access to tasks that are normally restricted to superusers. By assigning different permissions to different roles and assigning them to different users, you can have more granular control of user access.
 

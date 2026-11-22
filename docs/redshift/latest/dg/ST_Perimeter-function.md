@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Perimeter
-<a name="ST_Perimeter-function"></a>
 
 For an input areal geometry, ST\_Perimeter returns the Cartesian perimeter (length of the boundary) of the 2D projection. The perimeter units are the same as the units in which the coordinates of the input geometry are expressed. The function returns zero (0) for points, multipoints, and linear geometries. When the input is a geometry collection, the function returns the sum of the perimeters of the geometries in the collection. 
 
@@ -36,7 +35,7 @@ If the SRID value is not found, then an error is returned.
 
 The following SQL returns the Cartesian perimeter of a multipolygon. 
 
-```
+```sql
 SELECT ST_Perimeter(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,20 0,20 10,10 0)))'));
 ```
 
@@ -48,7 +47,7 @@ SELECT ST_Perimeter(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,2
 
 The following SQL returns the Cartesian perimeter of a multipolygon. 
 
-```
+```sql
 SELECT ST_Perimeter(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,20 0,20 10,10 0)))'));
 ```
 
@@ -60,7 +59,7 @@ SELECT ST_Perimeter(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,2
 
 The following SQL returns the perimeter of a polygon in a geography. 
 
-```
+```sql
 SELECT ST_Perimeter(ST_GeogFromText('SRID=4326;POLYGON((0 0,1 0,0 1,0 0))'));
 ```
 
@@ -72,7 +71,7 @@ SELECT ST_Perimeter(ST_GeogFromText('SRID=4326;POLYGON((0 0,1 0,0 1,0 0))'));
 
 The following SQL returns the perimeter of a linestring in a geography. 
 
-```
+```sql
 SELECT ST_Perimeter(ST_GeogFromText('SRID=4326;LINESTRING(5 0,10 0)'));
 ```
 

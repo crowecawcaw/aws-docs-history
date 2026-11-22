@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Allocating extra compute resources for automatic database optimization
-<a name="t_extra-compute-autonomics"></a>
 
 Autonomics improve query performances on your cluster and help manage storage costs and optimization. You can choose to allocate extra compute resources to make sure that autonomics features run consistently, even during times of high traffic, to benefit from the optimization. Note that autonomics run using these extra resources are billable. For more information on billing for autonomics, see [Billing for autonomics operations](t_autonomics-billing.md) and [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/). 
 
@@ -36,7 +35,7 @@ To enable extra compute resources after creating a cluster:
 
 To create a provisioned cluster with extra compute resources for autonomics, use the `create-cluster` command with the `extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift create-cluster --cluster-identifier <value> \
 --node-type <value> \
 --cluster-type <value> \
@@ -48,7 +47,7 @@ aws redshift create-cluster --cluster-identifier <value> \
 
 To enable extra compute resources for autonomics on an existing provisioned cluster, use the `modify-cluster` command with the `extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift modify-cluster --cluster-identifier <value> \
 --extra-compute-for-automatic-optimization \
 --region <value>
@@ -56,7 +55,7 @@ aws redshift modify-cluster --cluster-identifier <value> \
 
 To disable extra compute resources for autonomics on an existing provisioned cluster, use the `modify-cluster` command with the `no-extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift modify-cluster --cluster-identifier <value> \
 --no-extra-compute-for-automatic-optimization \
 --region <value>
@@ -86,7 +85,7 @@ The **Edit autonomics configuration** option might be grayed out if the workgrou
 
 To create a serverless workgroup with extra compute resources allocated for autonomics, use the `create-workgroup` command with the `extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift-serverless create-workgroup --base-capacity <value> \
 --namespace-name <value> \
 --workgroup-name <value> \
@@ -96,7 +95,7 @@ aws redshift-serverless create-workgroup --base-capacity <value> \
 
 To enable extra compute resources for autonomics on an existing serverless workgroup, use the `update-workgroup` command with the `--extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift-serverless update-workgroup \
 --workgroup-name <value> \
 --extra-compute-for-automatic-optimization \
@@ -105,7 +104,7 @@ aws redshift-serverless update-workgroup \
 
 To disable extra compute resources for autonomics on an existing serverless workgroup, use the `update-workgroup` command with the `--no-extra-compute-for-automatic-optimization` option.
 
-```
+```bash
 aws redshift-serverless update-workgroup \
 --workgroup-name <value> \
 --no-extra-compute-for-automatic-optimization \
@@ -127,7 +126,7 @@ To create a usage limit for extra compute using the console:
 
 To create a usage limit for extra compute using the AWS CLI, use the `create-usage-limit` command with the feature type `extra-compute-for-automatic-optimization`. The `--limit-type` parameter must be set to `time` for this feature type.
 
-```
+```bash
 aws redshift create-usage-limit \
 --cluster-identifier <value> \
 --feature-type extra-compute-for-automatic-optimization \

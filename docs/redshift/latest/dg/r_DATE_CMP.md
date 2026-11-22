@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DATE\_CMP function
-<a name="r_DATE_CMP"></a>
 
 DATE\_CMP compares two dates. The function returns `0` if the dates are identical, `1` if *date1* is greater, and `-1` if *date2* is greater.
 
@@ -33,7 +32,7 @@ INTEGER
 
 The following query compares the DATE values in the CALDATE column to the date January 4, 2008 and returns whether the value in CALDATE is before (`-1`), equal to (`0`), or after (`1`) January 4, 2008: 
 
-```
+```sql
 select caldate, '2008-01-04',
 date_cmp(caldate,'2008-01-04')
 from date

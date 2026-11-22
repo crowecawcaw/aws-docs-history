@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Terminology for Amazon Redshift spatial data
-<a name="spatial-terminology"></a>
 
 The following terms are used to describe some Amazon Redshift spatial functions. 
 
@@ -16,7 +15,7 @@ You can use spatial functions to add ([AddBBox](AddBBox-function.md)), drop ([Dr
 
 The following example shows how to update existing geometries in a table to store them with a bounding box. If your cluster is at cluster version 1.0.26809 or later, then all new geometries are created with a precomputed bounding box by default.
 
-```
+```sql
 UPDATE my_table SET geom = AddBBox(geom) WHERE SupportsBBox(geom) = false;
 ```
 

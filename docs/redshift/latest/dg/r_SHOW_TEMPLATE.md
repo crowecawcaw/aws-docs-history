@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW TEMPLATE
-<a name="r_SHOW_TEMPLATE"></a>
 
 Displays the complete definition of a template, including the fully qualified name (database, schema, and template name) and all parameters. The output is a valid CREATE TEMPLATE statement that you can use to recreate the template or create a similar template with modifications. 
 
@@ -40,11 +39,11 @@ The name of the template.
 
 The following is an example of the SHOW TEMPLATE output for the template `test_template`:
 
-```
+```sql
 CREATE TEMPLATE test_template FOR COPY AS NOLOAD DELIMITER ',' ENCODING UTF16 ENCRYPTED;
 ```
 
-```
+```sql
 SHOW TEMPLATE test_template;
 
 CREATE OR REPLACE TEMPLATE dev.public.test_template FOR COPY AS ENCRYPTED NOLOAD ENCODING UTF16 DELIMITER ',';
@@ -52,13 +51,13 @@ CREATE OR REPLACE TEMPLATE dev.public.test_template FOR COPY AS ENCRYPTED NOLOAD
 
 The following example creates template `demo_template` in schema `demo_schema`.
 
-```
+```sql
 CREATE OR REPLACE TEMPLATE demo_schema.demo_template FOR COPY AS
 ACCEPTANYDATE ACCEPTINVCHARS DATEFORMAT 'DD-MM-YYYY' EXPLICIT_IDS ROUNDEC
 TIMEFORMAT  AS 'DD.MM.YYYY HH:MI:SS' TRUNCATECOLUMNS NULL  AS 'null_string';
 ```
 
-```
+```sql
 SHOW TEMPLATE demo_schema.demo_template;
 
 CREATE OR REPLACE TEMPLATE dev.demo_schema.demo_template FOR COPY AS TRUNCATECOLUMNS NULL 'null_string' EXPLICIT_IDS TIMEFORMAT 'DD.MM.YYYY HH:MI:SS' ACCEPTANYDATE ROUNDEC ACCEPTINVCHARS DATEFORMAT 'DD-MM-YYYY';

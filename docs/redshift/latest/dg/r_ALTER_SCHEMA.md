@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER SCHEMA
-<a name="r_ALTER_SCHEMA"></a>
 
 Changes the definition of an existing schema. Use this command to rename a schema or change the owner of a schema. For example, rename an existing schema to preserve a backup copy of that schema when you plan to create a new version of that schema. For more information about schemas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md).
 

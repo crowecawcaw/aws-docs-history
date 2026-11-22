@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Adding data lake tables to a datashare
-<a name="create-datashare-external-views"></a>
 
 With a datashare, a data *producer* can securely share database objects of fine granularity, such as schemas and tables, with *consumers* in the same AWS account or in different accounts. The producer can also share objects across Regions. This topic describes how to add objects from a data lake, specifically, from the AWS Glue data catalog, to a datashare. It covers two use cases:
 + *Adding a late-binding view to a datashare that references a table from a data lake* – This is convenient for a consumer, because preliminary configuration, such as defining permissions on the external source data, for example with Lake Formation, is likely already completed. An additional benefit is that a view added to a datashare can join tables from the data lake with Redshift native tables.

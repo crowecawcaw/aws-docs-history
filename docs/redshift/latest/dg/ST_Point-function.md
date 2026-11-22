@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Point
-<a name="ST_Point-function"></a>
 
 ST\_Point returns a point geometry from the input coordinate values. 
 
@@ -37,7 +36,7 @@ If *x* or *y* is null, then null is returned.
 
 The following SQL constructs a point geometry from the input coordinates. 
 
-```
+```sql
 SELECT ST_AsText(ST_Point(5.0, 7.0));
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating Amazon Redshift scalar columns out of shredded data
-<a name="r_create_scalar"></a>
 
 Schemaless data stored in SUPER can affect the performance of Amazon Redshift. For instance, filter predicates or join conditions as range-restricted scans can't effectively use zone maps. Users and BI tools can use materialized views as the conventional presentation of the data and increase performance of analytical queries.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Reviewing queue wait times for queries
-<a name="review-queue-wait-times-for-queries"></a>
 
 The following query shows how long recent queries waited for an open slot in a query queue before running. If you see a trend of high wait times, you might want to modify your query queue configuration for better throughput. For more information, see [Implementing manual WLM](cm-c-defining-query-queues.md).
 

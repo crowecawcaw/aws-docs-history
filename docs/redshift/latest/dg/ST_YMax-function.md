@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_YMax
-<a name="ST_YMax-function"></a>
 
 ST\_YMax returns the maximum second coordinate of an input geometry. 
 
@@ -34,7 +33,7 @@ If *geom* is null, then null is returned.
 
 The following SQL returns the largest second coordinate of a linestring. 
 
-```
+```sql
 SELECT ST_YMax(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
 ```
 

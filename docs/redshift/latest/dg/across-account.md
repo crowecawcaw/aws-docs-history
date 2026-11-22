@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sharing data across AWS accounts
-<a name="across-account"></a>
 
 You can share data for read purposes across AWS accounts. Sharing data across AWS accounts works similarly to sharing data within an account. The difference is that there is a two-way handshake required in sharing data across AWS accounts. A producer account administrators can either authorize consumer accounts to access datashares or choose not to authorize any access. To use an authorized datashare, a consumer account administrator can associate the datashare. The administrator can associate the datashare with an entire AWS account or with specific clusters in the consumer account, or decline the datashare. For more information about sharing data within an account, see [Sharing read access to data within an AWS account](within-account.md).
 

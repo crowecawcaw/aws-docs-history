@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REGEXP\_INSTR function
-<a name="REGEXP_INSTR"></a>
 
 Searches a string for a regular expression pattern and returns an integer that indicates the beginning position or ending position of the matched substring. If no match is found, then the function returns `0`. REGEXP\_INSTR is similar to the [POSITION](r_POSITION.md) function, but with REGEXP\_INSTR, you can search a string for a regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md) and [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) in Wikipedia.
 
@@ -53,7 +52,7 @@ The following examples use data from the USERS table in the TICKIT sample databa
 
 To search for the `@` character that begins a domain name and returns the starting position of the first match, use the following example.
 
-```
+```sql
 SELECT email, REGEXP_INSTR(email, '@[^.]*')
 FROM users
 ORDER BY userid LIMIT 4;
@@ -70,7 +69,7 @@ ORDER BY userid LIMIT 4;
 
 To search for variants of the word `Center` and returns the starting position of the first match, use the following example.
 
-```
+```sql
 SELECT venuename, REGEXP_INSTR(venuename,'[cC]ent(er|re)$')
 FROM venue
 WHERE REGEXP_INSTR(venuename,'[cC]ent(er|re)$') > 0
@@ -88,7 +87,7 @@ ORDER BY venueid LIMIT 4;
 
 To find the starting position of the first occurrence of the string `FOX`, using case-insensitive matching logic, use the following example. 
 
-```
+```sql
 SELECT REGEXP_INSTR('the fox', 'FOX', 1, 1, 0, 'i');
 
 +--------------+
@@ -100,7 +99,7 @@ SELECT REGEXP_INSTR('the fox', 'FOX', 1, 1, 0, 'i');
 
 To use a pattern written in PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example finds the starting position of the second such word.
 
-```
+```sql
 SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'p');
 
 +--------------+
@@ -112,7 +111,7 @@ SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^
 
 To use a pattern written in PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example finds the starting position of the second such word, but differs from the previous example in that it uses case-insensitive matching.
 
-```
+```sql
 SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'ip');
 
 +--------------+

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_NumGeometries
-<a name="ST_NumGeometries-function"></a>
 
 ST\_NumGeometries returns the number of geometries in an input geometry. 
 
@@ -38,7 +37,7 @@ If *geom* is a `GEOMETRYCOLLECTION` or a `MULTI` subtype, then the number of geo
 
 The following SQL returns the number of geometries in the input multilinestring. 
 
-```
+```sql
 SELECT ST_NumGeometries(ST_GeomFromText('MULTILINESTRING((0 0,1 0,0 5),(3 4,13 26))'));
 ```
 

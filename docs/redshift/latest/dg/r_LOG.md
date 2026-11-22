@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LOG function
-<a name="r_LOG"></a>
 
 Returns logarithm of a number.
 
@@ -35,7 +34,7 @@ The LOG function returns a `DOUBLE PRECISION` number.
 
 To find the base 2 logarithm of 100, use the following example. 
 
-```
+```sql
 SELECT LOG(2, 100);
 +-------------------+
 |        log        |
@@ -46,7 +45,7 @@ SELECT LOG(2, 100);
 
 To find the base 10 logarithm of 100, use the following example. Note that if you omit the base parameter, Amazon Redshift assumes a base of 10.
 
-```
+```sql
 SELECT LOG(100);
             
 +-----+

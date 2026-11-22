@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Materialized views on external data lake tables in Amazon Redshift Spectrum
-<a name="materialized-view-external-table"></a>
 
 Materialized views can provide incremental maintenance on external data lake tables. With incremental maintenance, Amazon Redshift updates the data in the materialized view with only the changes to the data in the base tables since the last refresh. Incremental maintenance is more cost effective than fully recomputing the materialized view after every data change on the base table.
 

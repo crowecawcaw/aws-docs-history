@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples of using semi-structured data in Amazon Redshift
-<a name="super-examples"></a>
 
  The following examples demonstrate how to work with semi-structured data in Amazon Redshift using PartiQL syntax. You will create a sample table to load a sample set of semi-structured data, then query semi-structured data objects in a variety of use cases. 
 
@@ -15,7 +14,7 @@ We recommend that you set the `enable_case_sensitive_super_attribute` configurat
 
 The following statements create a sample table and load a sample JSON object into the `all_data` SUPER column.
 
-```
+```SQL
 DROP TABLE IF EXISTS test_json;
 
 SET enable_case_sensitive_super_attribute TO true;
@@ -308,7 +307,7 @@ INSERT INTO test_json VALUES (JSON_PARSE('
 
 The following statement uses PartiQL’s dot notation to extract the `pnrid` field, which is nested three levels deep inside the top-level `all_data` object.
 
-```
+```SQL
 select all_data.data.pnr.pnrid::varchar from test_json;
 
  pnrid
@@ -318,7 +317,7 @@ select all_data.data.pnr.pnrid::varchar from test_json;
 
 The following statement uses PartiQL’s bracket notation to specify and extract only the first element from the `events` array nested inside the top-level object.
 
-```
+```SQL
 SELECT
     all_data.data.pnr.events[0]
 FROM test_json;
@@ -334,7 +333,7 @@ FROM test_json;
 
 The following statement extracts the `eventType` property of only the specified element from the `events` array.
 
-```
+```SQL
 SELECT
     all_data.data.pnr.events[0].eventType
 FROM test_json;
@@ -384,7 +383,7 @@ FROM test_json;
 
 The following statement uses PartiQL syntax in the WHERE clause of a statement that counts events of the type `UPDATED` to retrieve data of a certain attribute from inside an array. You can use this syntax in any portion of the query where you would normally reference columns.
 
-```
+```SQL
 SELECT COUNT(*)
 FROM test_json
 WHERE all_data.data.pnr.events[0].eventType = 'UPDATED';
@@ -396,7 +395,7 @@ WHERE all_data.data.pnr.events[0].eventType = 'UPDATED';
 
 The following example uses PartiQL’s bracket and dot syntax in both GROUP BY and ORDER BY clauses.
 
-```
+```SQL
 SELECT all_data.data.pnr.events[0].eventType::varchar,
        COUNT(*)
 FROM test_json
@@ -416,7 +415,7 @@ The following statement uses PartiQL joins to unnest the `events` array. Note th
 
 For examples of unnesting semi-structured data using UNNEST in the FROM clause, see [UNNEST examples](r_FROM_clause-unnest-examples.md).
 
-```
+```SQL
 SELECT
 a.all_data.data.pnr.type::varchar type_info,
 a.all_data.data.pnr.pnrid::varchar pnr_id ,
@@ -440,7 +439,7 @@ The following statement uses PartiQL joins to unnest an array that’s nested in
 
 For examples of unnesting semi-structured data using UNNEST in the FROM clause, see [UNNEST examples](r_FROM_clause-unnest-examples.md).
 
-```
+```SQL
 SELECT
 a.all_data.data.pnr.type::varchar type_info,
 a.all_data.data.pnr.pnrid::varchar pnr_id ,
@@ -467,7 +466,7 @@ FROM test_json a,
 
 The following statement uses a subquery in the WHERE clause to return only a subsection of the results from the previous example.
 
-```
+```SQL
 SELECT
 a.all_data.data.pnr.type::varchar type_info,
 a.all_data.data.pnr.pnrid::varchar pnr_id ,
@@ -490,7 +489,7 @@ WHERE (SELECT COUNT(*) FROM d.purpose e WHERE e = 'BUSINESS') > 0;
 
 The following statement uses the COUNT function to aggregate the number of elements in the `PendingService` array.
 
-```
+```SQL
 SELECT
 a.all_data.data.pnr.type::varchar type_info,
 a.all_data.data.pnr.pnrid::varchar pnr_id ,
@@ -511,7 +510,7 @@ GROUP BY 1,2,3,4;
 
 The following statement uses the statement from the previous example to create a materialized view. The materialized view automatically refresh the number of pending services when the base table gets new data.
 
-```
+```SQL
 CREATE MATERIALIZED VIEW mv_total_pending_service
 AUTO REFRESH YES
 AS

@@ -3,19 +3,18 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER FUNCTION
-<a name="r_ALTER_FUNCTION"></a>
 
 Renames a function or changes the owner. Both the function name and data types are required. Only the owner or a superuser can rename a function. Only a superuser can change the owner of a function. 
 
 ## Syntax
 <a name="r_ALTER_FUNCTION-synopsis"></a>
 
-```
+```sql
 ALTER FUNCTION function_name ( { [ py_arg_name py_arg_data_type | sql_arg_data_type } [ , ... ] ] )
      RENAME TO new_name
 ```
 
-```
+```sql
 ALTER FUNCTION function_name ( { [ py_arg_name py_arg_data_type | sql_arg_data_type } [ , ... ] ] )
      OWNER TO { new_owner | CURRENT_USER | SESSION_USER }
 ```
@@ -40,13 +39,13 @@ A new owner for the user-defined function.
 
 The following example changes the name of a function from `first_quarter_revenue` to `quarterly_revenue`.
 
-```
+```sql
 ALTER FUNCTION first_quarter_revenue(bigint, numeric, int) 
          RENAME TO quarterly_revenue;
 ```
 
 The following example changes the owner of the `quarterly_revenue` function to `etl_user`.
 
-```
+```sql
 ALTER FUNCTION quarterly_revenue(bigint, numeric) OWNER TO etl_user;
 ```

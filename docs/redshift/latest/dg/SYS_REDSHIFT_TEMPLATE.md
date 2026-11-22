@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_REDSHIFT\_TEMPLATE
-<a name="SYS_REDSHIFT_TEMPLATE"></a>
 
 Use SYS\_REDSHIFT\_TEMPLATE to view details of Redshift TEMPLATES.
 
@@ -32,13 +31,13 @@ SYS\_REDSHIFT\_TEMPLATE is visible to all users. Superusers can see all rows; re
 
 The following query returns all templates visible to the current user:
 
-```
+```sql
 SELECT * FROM SYS_REDSHIFT_TEMPLATE;
 ```
 
 Sample output.
 
-```
+```SQL
  database_name | schema_name |   template_name    | template_type |        create_time         |     last_modified_time     | owner_id | last_modified_by | template_parameters
 ---------------+-------------+--------------------+---------------+----------------------------+----------------------------+----------+------------------+---------------------
  dev           | s1          | shapefile_template |             1 | 2025-12-17 22:42:02.079758 | 2025-12-17 22:42:02.079758 |      101 |              101 | {

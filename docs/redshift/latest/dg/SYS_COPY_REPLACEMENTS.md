@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_COPY\_REPLACEMENTS
-<a name="SYS_COPY_REPLACEMENTS"></a>
 
 Displays a log that records when invalid UTF-8 characters were replaced by the [COPY](r_COPY.md) command with the ACCEPTINVCHARS option. A log entry is added to SYS\_COPY\_REPLACEMENTS for each of the first 100 rows on each node slice that required at least one replacement. 
 
@@ -30,7 +29,7 @@ SYS\_COPY\_REPLACEMENTS is visible to all users. Superusers can see all rows; re
 
 The following example returns replacements for the most recent COPY operation.
 
-```
+```sql
 select query_idp, table_id, file_name, line_number, colname
 from sys_copy_replacements
 where query = pg_last_copy_id();

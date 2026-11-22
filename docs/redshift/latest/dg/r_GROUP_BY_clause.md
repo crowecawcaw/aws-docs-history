@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # GROUP BY clause
-<a name="r_GROUP_BY_clause"></a>
 
 The GROUP BY clause identifies the grouping columns for the query. It is used to group together those rows in a table that have the same values in all the columns listed. The order in which the columns are listed does not matter. The outcome is to combine each set of rows having common values into one group row that represents all rows in the group. Use a GROUP BY to eliminate redundancy in the output and to compute aggregates that apply to the groups. Grouping columns must be declared when the query computes aggregates with standard functions such as SUM, AVG, and COUNT. For more information, see [Aggregate functions](c_Aggregate_Functions.md).
 
@@ -69,12 +68,12 @@ listid | eventid | revenue | numtix
 ALL  
 ALL indicates to group by all columns specified in the SELECT list except those that are aggregated. For example, consider the following query which groups by `col1` and `col2` without having to specify them individually in the GROUP BY clause. The column `col3` is the argument of the `SUM` function and thus not grouped.  
 
-```
+```sql
 SELECT col1, col2 sum(col3) FROM testtable GROUP BY ALL
 ```
 If you EXCLUDE a column in the SELECT list, the GROUP BY ALL clause does not group the results based on that specific column.  
 
-```
+```sql
 SELECT * EXCLUDE col3 FROM testtable GROUP BY ALL
 ```
 
@@ -88,7 +87,7 @@ The following examples use the SALES table that contains columns: salesid, listi
 
 The following example query groups by `salesid` and `listid` without having to specify them individually in the GROUP BY clause. The column `qtysold` is the argument of the `SUM` function and thus not grouped.
 
-```
+```sql
 SELECT salesid, listid, sum(qtysold) FROM sales GROUP BY ALL;
 
 salesid | listid  | sum
@@ -101,7 +100,7 @@ salesid | listid  | sum
 
 The following example query excludes several columns in the SELECT list, so GROUP BY ALL only groups salesid and listid.
 
-```
+```sql
 SELECT * EXCLUDE sellerid, buyerid, eventid, dateid, qtysold, pricepaid, commission, saletime 
 FROM sales GROUP BY ALL;
 

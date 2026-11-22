@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Factors affecting query performance
-<a name="c-query-performance"></a>
 
 A number of factors can affect query performance. The following aspects of your data, cluster, and database operations all play a part in how quickly your queries process.
 + **Number of nodes, processors, or slices** – A compute node is partitioned into slices. More nodes means more processors and more slices, which enables your queries to process faster by running portions of the query concurrently across the slices. However, more nodes also means greater expense, so you need to find the balance of cost and performance that is appropriate for your system. For more information on Amazon Redshift cluster architecture, see [Data warehouse system architecture](c_high_level_system_architecture.md). 

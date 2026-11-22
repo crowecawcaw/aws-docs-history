@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use cases
-<a name="r_create_model_use_cases"></a>
 
 The following use cases demonstrate how to use CREATE MODEL to suit your needs.
 
@@ -15,7 +14,7 @@ The following summarizes the basic options of the CREATE MODEL syntax.
 ### Simple CREATE MODEL syntax
 <a name="r_simple-create-model-synposis"></a>
 
-```
+```sql
 CREATE MODEL model_name
 FROM { table_name | ( select_query ) }
 TARGET column_name
@@ -69,7 +68,7 @@ Then the CREATE MODEL follows your suggestions on the specified aspects, such as
 
 CREATE MODEL offers more flexibility on the aspects that you can specify and the aspects that Amazon Redshift automatically discovers.
 
-```
+```sql
 CREATE MODEL model_name
 FROM { table_name | ( select_statement ) }
 TARGET column_name
@@ -178,7 +177,7 @@ As an advanced user who already knows the model type that you want and hyperpara
 ### CREATE XGBoost models with AUTO OFF syntax
 <a name="r_auto_off-create-model-synposis"></a>
 
-```
+```sql
 CREATE MODEL model_name
 FROM { table_name | (select_statement ) }
 TARGET column_name
@@ -246,7 +245,7 @@ Specifies whether the default XGBoost parameters are used or overridden by user-
 
 The following example prepares data for XGBoost.
 
-```
+```sql
 DROP TABLE IF EXISTS abalone_xgb;
 
 CREATE TABLE abalone_xgb (
@@ -269,7 +268,7 @@ IGNOREHEADER 1 CSV;
 
 The following example creates an XGBoost model with specified advanced options, such as MODEL\_TYPE, OBJECTIVE, and PREPROCESSORS.
 
-```
+```sql
 DROP MODEL abalone_xgboost_multi_predict_age;
 
 CREATE MODEL abalone_xgboost_multi_predict_age
@@ -317,7 +316,7 @@ The following summarizes the options for the CREATE MODEL syntax for BYOM. You c
 
 The following describes the CREATE MODEL syntax for local inference.
 
-```
+```sql
 CREATE MODEL model_name
 FROM ('job_name' | 's3_path' )
 FUNCTION function_name ( data_type [, ...] )
@@ -361,7 +360,7 @@ For more information, see [CREATE MODEL with user guidance](#r_user_guidance_cre
 
 The following example creates a model that has been previously trained in Amazon SageMaker AI, outside of Amazon Redshift. Because the model type is supported by Amazon Redshift ML for local inference, the following CREATE MODEL creates a function that can be used locally in Amazon Redshift. You can provide a SageMaker AI training job name.
 
-```
+```sql
 CREATE MODEL customer_churn
 FROM 'training-job-customer-churn-v4'
 FUNCTION customer_churn_predict (varchar, int, float, float)
@@ -384,7 +383,7 @@ The following summarizes the options for the CREATE MODEL syntax for BYOM.
 
 The following describes the CREATE MODEL syntax for remote inference.
 
-```
+```sql
 CREATE MODEL model_name 
 FUNCTION function_name ( data_type [, ...] )
 RETURNS data_type
@@ -437,7 +436,7 @@ Before using CREATE MODEL for remote inference, consider the following:
 
 The following example creates a model that uses a SageMaker AI endpoint to make predictions. Make sure that the endpoint is running to make predictions and specify its name in the CREATE MODEL command.
 
-```
+```sql
 CREATE MODEL remote_customer_churn
 FUNCTION remote_fn_customer_churn_predict (varchar, int, float, float)
 RETURNS int
@@ -464,7 +463,7 @@ Amazon Redshift supports the K-Means algorithm that groups data that isn't label
 ### CREATE MODEL with K-MEANS syntax
 <a name="r_k-means-create-model-synposis"></a>
 
-```
+```sql
 CREATE MODEL model_name
 FROM { table_name | ( select_statement ) }
 FUNCTION function_name
@@ -503,7 +502,7 @@ Specifies whether the K-Means parameters are used. You must specify the `K` para
 
 The following example prepares data for K-Means.
 
-```
+```sql
 CREATE MODEL customers_clusters
 FROM customers
 FUNCTION customers_cluster
@@ -550,7 +549,7 @@ Note that Forecast models are currently only available in the following Regions:
 ### CREATE MODEL with Forecast syntax
 <a name="r_forecast_model-synopsis"></a>
 
-```
+```sql
 CREATE [ OR REPLACE ] MODEL forecast_model_name 
 FROM { table_name | ( select_query ) } 
 TARGET column_name
@@ -600,7 +599,7 @@ A comma-delimited string that specifies the forecast types used to train a predi
 
 The following example demonstrates how to create a simple forecast model.
 
-```
+```sql
 CREATE MODEL forecast_example
 FROM forecast_electricity_
 TARGET target 
@@ -616,12 +615,12 @@ SETTINGS (S3_BUCKET 'amzn-s3-demo-bucket',
 
 After you create the forecast model, you can create a new table with the prediction data.
 
-```
+```sql
 CREATE TABLE forecast_model_results as SELECT Forecast(forecast_example)
 ```
 
 You can then query the new table to get predictions.
 
-```
+```sql
 SELECT * FROM forecast_model_results
 ```

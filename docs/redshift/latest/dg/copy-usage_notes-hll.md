@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading the HLLSKETCH data type
-<a name="copy-usage_notes-hll"></a>
 
 You can copy HLL sketches only in sparse or dense format supported by Amazon Redshift. To use the COPY command on HyperLogLog sketches, use the Base64 format for dense HyperLogLog sketches and the JSON format for sparse HyperLogLog sketches. For more information, see [HyperLogLog functions](hyperloglog-functions.md). 
 

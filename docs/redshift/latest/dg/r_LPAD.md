@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LPAD and RPAD functions
-<a name="r_LPAD"></a>
 
 These functions prepend or append characters to a string, based on a specified length. 
 
@@ -42,7 +41,7 @@ The following examples use data from the EVENT table in the TICKIT sample databa
 
 To truncate a specified set of event names to 20 characters and prepend the shorter names with spaces, use the following example. 
 
-```
+```sql
 SELECT LPAD(eventname, 20) FROM event
 WHERE eventid BETWEEN 1 AND 5 ORDER BY 1;
 
@@ -59,7 +58,7 @@ WHERE eventid BETWEEN 1 AND 5 ORDER BY 1;
 
 To truncate the same set of event names to 20 characters but append the shorter names with `0123456789`, use the following example. 
 
-```
+```sql
 SELECT RPAD(eventname, 20,'0123456789') FROM event
 WHERE eventid BETWEEN 1 AND 5 ORDER BY 1;
 

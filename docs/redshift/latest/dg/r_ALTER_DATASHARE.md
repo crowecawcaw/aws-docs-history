@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER DATASHARE
-<a name="r_ALTER_DATASHARE"></a>
 
 Changes the definition of a datashare. You can add objects or remove objects using ALTER DATASHARE. You can only change a datashare in the current database. Add or remove objects from the associated database to a datashare. The owner of the datashare with the required permissions on the datashare objects to be added or removed can alter the datashare.
 

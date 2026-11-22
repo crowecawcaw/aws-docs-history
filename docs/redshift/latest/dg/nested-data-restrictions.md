@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Nested data limitations (preview)
-<a name="nested-data-restrictions"></a>
 
 This topic describes limitations for reading nested data with Redshift Spectrum. Nested data is data that contains nested fields. Nested fields are fields that are joined together as a single entity, such as arrays, structs, or objects. 
 
@@ -45,7 +44,7 @@ The following limitations apply to nested data:
 + Querying the pseudocolumns of nested data in a Redshift Spectrum table is not supported. For more information, see [Pseudocolumns](c-spectrum-external-tables.md#c-spectrum-external-tables-pseudocolumns). 
 + When extracting data from array or map columns by specifying them in a `FROM` clause, you can only select values from those columns if the values are `scalar`. For example, the following queries both try to `SELECT` elements from inside an array. The query that selects `arr.a` works because `arr.a` is a `scalar` value. The second query doesn't work because `array` is an array extracted from `s3.nested table` in the `FROM` clause. (preview)
 
-  ```
+  ```sql
   SELECT array_column FROM s3.nested_table;
   
   array_column

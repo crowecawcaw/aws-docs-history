@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REGEXP\_SUBSTR function
-<a name="REGEXP_SUBSTR"></a>
 
 Returns characters from a string by searching it for a regular expression pattern. REGEXP\_SUBSTR is similar to the [SUBSTRING function](r_SUBSTRING.md) function, but with REGEXP\_SUBSTR, you can search a string for a regular expression pattern. If the function can't match the regular expression to any characters in the string, it returns an empty string. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md) and [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) in Wikipedia.
 
@@ -50,7 +49,7 @@ VARCHAR
 
 The following example returns the portion of an email address between the @ character and the domain extension. The `users` data queried is from the Amazon Redshift sample data. For more information, see [Sample database](c_sampledb.md).
 
-```
+```sql
 SELECT email, regexp_substr(email,'@[^.]*')
 FROM users
 ORDER BY userid LIMIT 4;
@@ -65,7 +64,7 @@ ORDER BY userid LIMIT 4;
 
 The following example returns the portion of the input corresponding to the first occurrence of the string `FOX` using case-insensitive matching.
 
-```
+```sql
 SELECT regexp_substr('the fox', 'FOX', 1, 1, 'i');
 
  regexp_substr
@@ -75,7 +74,7 @@ SELECT regexp_substr('the fox', 'FOX', 1, 1, 'i');
 
 The following example returns the portion of the input corresponding to the second occurrence of the string `FOX` using case-insensitive matching. The result is empty (non-null, length 0) because there is no second occurrence.
 
-```
+```sql
 SELECT regexp_substr('the fox', 'FOX', 1, 2, 'i');
 
  regexp_substr
@@ -84,7 +83,7 @@ SELECT regexp_substr('the fox', 'FOX', 1, 2, 'i');
 
 The following example returns the first portion of the input that begins with lowercase letters. This is functionally identical to the same SELECT statement without the `c` parameter.
 
-```
+```sql
 SELECT regexp_substr('THE SECRET CODE IS THE LOWERCASE PART OF 1931abc0EZ.', '[a-z]+', 1, 1, 'c');
 
  regexp_substr
@@ -94,7 +93,7 @@ SELECT regexp_substr('THE SECRET CODE IS THE LOWERCASE PART OF 1931abc0EZ.', '[a
 
 The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example returns the portion of the input corresponding to the second such word.
 
-```
+```sql
 SELECT regexp_substr('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 'p');
 
  regexp_substr
@@ -104,7 +103,7 @@ SELECT regexp_substr('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[
 
 The following example uses a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example returns the portion of the input corresponding to the second such word, but differs from the previous example in that it uses case-insensitive matching.
 
-```
+```sql
 SELECT regexp_substr('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 'ip');
 
  regexp_substr
@@ -114,7 +113,7 @@ SELECT regexp_substr('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[
 
 The following example uses a subexpression to find the second string matching the pattern `'this is a (\\w+)'` using case-insensitive matching. It returns the subexpression inside the parentheses.
 
-```
+```sql
 SELECT regexp_substr(
                'This is a cat, this is a dog. This is a mouse.',
                'this is a (\\w+)', 1, 2, 'ie');

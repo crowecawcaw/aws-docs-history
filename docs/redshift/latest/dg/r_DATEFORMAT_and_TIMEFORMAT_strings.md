@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DATEFORMAT and TIMEFORMAT strings
-<a name="r_DATEFORMAT_and_TIMEFORMAT_strings"></a>
 
 The COPY command uses the DATEFORMAT and TIMEFORMAT options to parse date and time values in your source data. DATEFORMAT and TIMEFORMAT are formatted strings that must match the format of your source data's date and time values. For example, a COPY command loading source data with the date value `Jan-01-1999` must include the following DATEFORMAT string:
 

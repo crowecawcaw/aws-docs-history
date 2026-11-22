@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW MODEL
-<a name="r_SHOW_MODEL"></a>
 
 Shows useful information about a machine learning model, including its status, the parameters used to create it and the prediction function with its input argument types. You can use the information from the SHOW MODEL to recreate the model. If base tables have changed, running CREATE MODEL with the same SQL statement results in a different model. The information returned by the SHOW MODEL is different for the model owner and a user with the EXECUTE privilege. SHOW MODEL shows different outputs when a model is trained from Amazon Redshift or when the model is a BYOM model.
 

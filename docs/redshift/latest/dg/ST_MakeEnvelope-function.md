@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MakeEnvelope
-<a name="ST_MakeEnvelope-function"></a>
 
 ST\_MakeEnvelope returns a geometry as follows:
 + If the input coordinates specify a point, then the returned geometry is a point. 
@@ -57,7 +56,7 @@ If *srid* is negative, then an error is returned.
 
 The following SQL returns a polygon representing an envelope defined by the four input coordinate values. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_MakeEnvelope(2,4,5,7));
 ```
 
@@ -69,7 +68,7 @@ SELECT ST_AsEWKT(ST_MakeEnvelope(2,4,5,7));
 
 The following SQL returns a polygon representing an envelope defined by the four input coordinate values and an SRID value. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_MakeEnvelope(2,4,5,7,4326));
 ```
 

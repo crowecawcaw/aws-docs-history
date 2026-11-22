@@ -3,14 +3,13 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ROW\_NUMBER window function
-<a name="r_WF_ROW_NUMBER"></a>
 
 Assigns an ordinal number of the current row within a group of rows, counting from 1, based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is present, the ordinal numbers are reset for each group of rows. Rows with equal values for the ORDER BY expressions receive the different row numbers nondeterministically. 
 
 ## Syntax
 <a name="r_WF_ROW_NUMBER-synopsis"></a>
 
-```
+```sql
 ROW_NUMBER() OVER(
   [ PARTITION BY expr_list ]
   [ ORDER BY order_list ]
@@ -45,7 +44,7 @@ The following examples use the `WINSALES` table. For a description of the `WINSA
 
 The following example orders the table by QTY (in ascending order), then assigns a row number to each row. The results are sorted after the window function results are applied. 
 
-```
+```sql
 SELECT salesid, sellerid, qty, 
 ROW_NUMBER() OVER(
    ORDER BY qty ASC) AS row
@@ -69,7 +68,7 @@ salesid   sellerid   qty   row
 
 The following example partitions the table by SELLERID and orders each partition by QTY (in ascending order), then assigns a row number to each row. The results are sorted after the window function results are applied. 
 
-```
+```sql
 SELECT salesid, sellerid, qty, 
 ROW_NUMBER() OVER(
   PARTITION BY sellerid
@@ -94,7 +93,7 @@ ORDER BY 2,4;
 
 The following example shows the results when not using the optional clauses. 
 
-```
+```sql
 SELECT salesid, sellerid, qty, ROW_NUMBER() OVER() AS row
 FROM winsales
 ORDER BY 4,1;

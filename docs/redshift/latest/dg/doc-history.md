@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Document history
-<a name="doc-history"></a>
 
 **Note**  
 For a description of new features in Amazon Redshift, see [What's new](https://aws.amazon.com/redshift/whats-new).
@@ -20,7 +19,7 @@ For more information about new features, including a list of fixes and the assoc
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Dense compute (DC2) node types are no longer available](#doc-history) | Removed dense compute (DC2) node type references from the Amazon Redshift documentation. DC2 node types are no longer available. | November 2, 2026 | 
+| [Dense compute (DC2) node types are no longer available](doc-history.md) | Removed dense compute (DC2) node type references from the Amazon Redshift documentation. DC2 node types are no longer available. | November 2, 2026 | 
 | [Support for Amazon DynamoDB zero-ETL integration with Amazon Redshift](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) | You can now create zero-ETL integrations between DynamoDB and Amazon Redshift to enable near real-time analytics on DynamoDB data without traditional ETL processes. | December 1, 2024 | 
 | [Support for Amazon Aurora zero-ETL integrations with Amazon Redshift data filtering](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) | You can now apply data filters to Amazon Aurora zero-ETL integrations to selectively replicate specific data to Amazon Redshift. | June 1, 2024 | 
 | [Support for Multi-AZ deployment for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-multi-az.html) | Amazon Redshift now supports Multi-AZ deployments for RA3 clusters, providing high availability by deploying compute resources across two Availability Zones to continue operating during unexpected events in an AZ. | March 1, 2024 | 
@@ -82,7 +81,7 @@ For more information about new features, including a list of fixes and the assoc
 | [Concurrency scaling](https://docs.aws.amazon.com/redshift/latest/dg/concurrency-scaling.html) | When concurrency scaling is enabled, Amazon Redshift automatically adds additional cluster capacity when you need it to process an increase in concurrent read queries. | March 21, 2019 | 
 | [UNLOAD to CSV](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) | You can use the UNLOAD command to unload to a file formatted as CSV text. | March 13, 2019 | 
 | [AUTO distribution style](https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html) | To enable automatic distribution, you can specify the AUTO distribution style with a [CREATE TABLE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_TABLE_NEW.html) statement. When you enable automatic distribution, Amazon Redshift assigns an optimal distribution style based on the table data. The change in distribution occurs in the background, in a few seconds. | January 23, 2019 | 
-| [COPY from Parquet supports SMALLINT](#doc-history) | COPY now supports loading from Parquet formatted files into columns that use the SMALLINT data type. For more information, see [COPY from Columnar Data Formats](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-columnar.html)  | January 2, 2019 | 
+| [COPY from Parquet supports SMALLINT](doc-history.md) | COPY now supports loading from Parquet formatted files into columns that use the SMALLINT data type. For more information, see [COPY from Columnar Data Formats](https://docs.aws.amazon.com/redshift/latest/dg/copy-usage_notes-copy-from-columnar.html)  | January 2, 2019 | 
 | [DROP EXTERNAL DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_DROP_SCHEMA.html) | You can drop an external database by including the DROP EXTERNAL DATABASE clause with a [DROP SCHEMA](https://docs.aws.amazon.com/redshift/latest/dg/r_DROP_SCHEMA.html) command.  | December 3, 2018 | 
 | [Cross-region UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) | You can UNLOAD to an Amazon S3 bucket in another AWS Region by specifying the REGION parameter. | October 31, 2018 | 
 | [Automatic vacuum delete](https://docs.aws.amazon.com/redshift/latest/dg/t_Reclaiming_storage_space202.html) | Amazon Redshift automatically runs a [VACUUM DELETE](https://docs.aws.amazon.com/redshift/latest/dg/r_VACUUM_command.html) operation in the background, so you rarely, if ever, need to run a DELETE ONLY vacuum. Amazon Redshift schedules the VACUUM DELETE to run during periods of reduced load and pauses the operation during periods of high load.  | October 31, 2018 | 

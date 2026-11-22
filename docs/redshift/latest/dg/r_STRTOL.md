@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STRTOL function
-<a name="r_STRTOL"></a>
 
 Converts a string expression of a number of the specified base to the equivalent integer value. The converted value must be within the signed 64-bit range. 
 
@@ -34,7 +33,7 @@ If *num\_string* is null, the function returns `NULL`.
 
 To convert string and base value pairs to integers, use the following examples.
 
-```
+```sql
 SELECT STRTOL('0xf',16);
 
 +--------+

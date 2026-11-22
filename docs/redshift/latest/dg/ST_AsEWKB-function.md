@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_AsEWKB
-<a name="ST_AsEWKB-function"></a>
 
 ST\_AsEWKB returns the extended well-known binary (EWKB) representation of an input geometry. For 3DZ, 3DM, and 4D geometries, ST\_AsEWKB uses the Open Geospatial Consortium (OGC) standard value for the geometry type.
 
@@ -32,7 +31,7 @@ If *geom* is null, then null is returned.
 
 The following SQL returns the hexadecimal EWKB representation of a polygon. 
 
-```
+```sql
 SELECT ST_AsEWKB(ST_GeomFromText('POLYGON((0 0,0 1,1 1,1 0,0 0))',4326));
 ```
 

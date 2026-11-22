@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_S3LIST
-<a name="r_SVCS_S3LIST"></a>
 
 Use the SVCS\_S3LIST view to get details about Amazon Redshift Spectrum queries at the segment level. One segment can perform one external table scan. This view is derived from the SVL\_S3LIST system view but doesn't show slice-level for queries run on a concurrency scaling cluster. 
 
@@ -39,7 +38,7 @@ For information about SVL\_S3LIST, see [SVL\_S3LIST](r_SVL_S3LIST.md).
 
 The following example queries SVCS\_S3LIST for the last query performed.
 
-```
+```sql
 select * 
 from svcs_s3list 
 where query = pg_last_query_id() 

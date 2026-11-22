@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_PLAN\_INFO
-<a name="r_STL_PLAN_INFO"></a>
 
 Use the STL\_PLAN\_INFO view to look at the EXPLAIN output for a query in terms of a set of rows. This is an alternative way to look at query plans. 
 

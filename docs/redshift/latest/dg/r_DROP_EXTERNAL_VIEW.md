@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP EXTERNAL VIEW
-<a name="r_DROP_EXTERNAL_VIEW"></a>
 
 Drops an external view from the database. Dropping an external view removes it from all SQL engines the view is associated with, such as Amazon Athena and Amazon EMR Spark. This command can't be reversed. For more information about Data Catalog views, see [AWS Glue Data Catalog views](https://docs.aws.amazon.com/redshift/latest/dg/data-catalog-views-overview.html).
 

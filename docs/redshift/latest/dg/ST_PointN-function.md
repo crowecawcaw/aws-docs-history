@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_PointN
-<a name="ST_PointN-function"></a>
 
 ST\_PointN returns a point in a linestring as specified by an index value. Negative index values are counted backward from the end of the linestring, so that -1 is the last point. 
 
@@ -45,7 +44,7 @@ If *geom* is not a `LINESTRING`, then null is returned.
 
 The following SQL returns an extended well-known text (EWKT) representation of a six-point `LINESTRING` to a `GEOMETRY` object and returns the point at index 5 of the linestring. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_PointN(ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5,0 0)',4326), 5));
 ```
 

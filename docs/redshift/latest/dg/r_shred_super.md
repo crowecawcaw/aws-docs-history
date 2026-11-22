@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Shredding semi-structured data into SUPER columns with materialized views
-<a name="r_shred_super"></a>
 
 With Amazon Redshift, you can improve query performance by shredding data into SUPER columns using materialized views. Shredding refers to the process of breaking down complex data types like semi-structured JSON or XML into smaller, flatter columns. SUPER columns are a specialized form of columnar storage optimized for rapidly scanning shredded data. 
 

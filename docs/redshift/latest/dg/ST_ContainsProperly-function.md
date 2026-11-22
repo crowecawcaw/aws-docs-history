@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_ContainsProperly
-<a name="ST_ContainsProperly-function"></a>
 
 ST\_ContainsProperly returns true if both input geometries are nonempty, and all points of the 2D projection of the second geometry are interior points of the 2D projection of the first geometry. 
 
@@ -39,7 +38,7 @@ If *geom1* or *geom2* is a geometry collection, then an error is returned.
 
 The following SQL returns the values of ST\_Contains and ST\_ContainsProperly where the input linestring intersects the interior and the boundary of the input polygon (but not its exterior). The polygon contains the linestring but doesn't properly contain the linestring. 
 
-```
+```sql
 WITH tmp(g1, g2) 
 AS (SELECT ST_GeomFromText('POLYGON((0 0,10 0,10 10,0 10,0 0))'), ST_GeomFromText('LINESTRING(5 5,10 5,10 6,5 5)')) SELECT ST_Contains(g1, g2), ST_ContainsProperly(g1, g2) 
 FROM tmp;

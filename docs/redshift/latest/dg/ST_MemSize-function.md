@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MemSize
-<a name="ST_MemSize-function"></a>
 
 ST\_MemSize returns the amount of memory space (in bytes) used by the input geometry. This size depends on the Amazon Redshift internal representation of the geometry and thus can change if the internal representation changes. You can use this size as an indication of the relative size of geometry objects in Amazon Redshift. 
 
@@ -32,7 +31,7 @@ If *geom* is null, then null is returned.
 
 The following SQL returns the memory size of a geometry collection. 
 
-```
+```sql
 SELECT ST_MemSize(ST_GeomFromText('GEOMETRYCOLLECTION(POLYGON((0 0,10 0,0 10,0 0)),LINESTRING(20 10,20 0,10 0))'))::varchar + ' bytes';
 ```
 

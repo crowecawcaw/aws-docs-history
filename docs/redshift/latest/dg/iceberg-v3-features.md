@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Apache Iceberg v3 features in Amazon Redshift
-<a name="iceberg-v3-features"></a>
 
 Amazon Redshift supports Apache Iceberg v3 tables. Iceberg v3 introduces default column values, row lineage tracking, and deletion vectors. You can create new v3 tables or upgrade existing v2 tables to v3.
 
@@ -14,7 +13,7 @@ Iceberg v3 tables use the same SQL syntax for queries and DML operations (INSERT
 
 To create an Iceberg v3 table, specify `'format-version'='3'` in the TABLE PROPERTIES clause:
 
-```
+```sql
 CREATE TABLE {{external_schema}}.{{table_name}} (
   column_name data_type [DEFAULT literal_value] [, ...]
 )
@@ -27,7 +26,7 @@ TABLE PROPERTIES ('format-version'='3'
 
 The following SQL example creates an Iceberg v3 table with two columns that have default values:
 
-```
+```sql
 CREATE TABLE my_schema.orders (
   id int,
   status varchar DEFAULT 'pending',
@@ -45,7 +44,7 @@ If you do not specify format-version, Amazon Redshift creates the table as Icebe
 
 You can upgrade an existing Iceberg v2 table to v3:
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 SET TABLE PROPERTIES ('format-version' = '3');
 ```
@@ -59,6 +58,7 @@ Before upgrading to Iceberg v3, review the [Limitations](#iceberg-v3-limitations
 <a name="iceberg-v3-limitations"></a>
 
 Iceberg v3 has the following limitations:
++ You can use Iceberg v3 only on Amazon Redshift Serverless clusters and on provisioned clusters that use [Amazon Redshift RG instances](https://aws.amazon.com/redshift/features/rg/).
 + You can't read or write complex types (struct, list, map, variant) in Iceberg v3 tables.
 + You can't use the following data types in Iceberg v3 tables: struct, list, map, variant, geometry, geography, binary, uuid, time, timestamp\_ns, timestamptz\_ns, and unknown.
 + You can't use Iceberg v3 tables that contain equality deletes.
@@ -79,7 +79,7 @@ CREATE TABLE AS SELECT does not inherit default column values from the source ta
 ### Defining defaults at table creation
 <a name="iceberg-v3-default-values-create"></a>
 
-```
+```sql
 CREATE TABLE {{external_schema}}.{{table_name}} (
   column_name data_type DEFAULT literal_value [, ...]
 )
@@ -91,7 +91,7 @@ TABLE PROPERTIES ('format-version'='3');
 ### Adding a column with a default
 <a name="iceberg-v3-default-values-add-column"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 ADD COLUMN column_name data_type DEFAULT literal_value;
 ```
@@ -101,7 +101,7 @@ Existing data files return the default value for the newly added column without 
 ### Changing or removing a default
 <a name="iceberg-v3-default-values-change"></a>
 
-```
+```sql
 ALTER TABLE {{iceberg_table}}
 ALTER COLUMN column_name SET DEFAULT literal_value;
 
@@ -142,14 +142,14 @@ Row lineage is supported only for Iceberg v3 tables. It provides two pseudo-colu
 
 Row lineage columns must be explicitly named in the SELECT list. They are not included in SELECT \*.
 
-```
+```sql
 SELECT _row_id, _last_updated_sequence_number, *
 FROM my_schema.my_iceberg_v3_table;
 ```
 
 You can use row lineage columns in WHERE, ORDER BY, GROUP BY, and JOIN clauses:
 
-```
+```sql
 SELECT *
 FROM my_schema.my_iceberg_v3_table
 WHERE _last_updated_sequence_number >= 3

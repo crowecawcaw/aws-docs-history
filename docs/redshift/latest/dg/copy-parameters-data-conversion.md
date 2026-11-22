@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data conversion parameters
-<a name="copy-parameters-data-conversion"></a>
 
 As it loads the table, COPY attempts to implicitly convert the strings in the source data to the data type of the target column. If you need to specify a conversion that is different from the default behavior, or if the default conversion results in errors, you can manage data conversions by specifying the following parameters. For more information on the syntax of these parameters, see [COPY syntax](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html#r_COPY-syntax).
 + [ACCEPTANYDATE](#copy-acceptanydate) 

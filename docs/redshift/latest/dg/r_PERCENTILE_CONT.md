@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PERCENTILE\_CONT function
-<a name="r_PERCENTILE_CONT"></a>
 
 PERCENTILE\_CONT is an inverse distribution function that assumes a continuous distribution model. It takes a percentile value and a sort specification, and returns an interpolated value that would fall into the given percentile value with respect to the sort specification. 
 
@@ -57,7 +56,7 @@ If a statement includes multiple calls to sort-based aggregate functions (LISTAG
 
 For example, the following statement returns an error. 
 
-```
+```sql
 SELECT TOP 10 salesid, SUM(pricepaid), 
 PERCENTILE_CONT(0.6) WITHIN GROUP(ORDER BY salesid),
 MEDIAN(pricepaid)
@@ -76,7 +75,7 @@ ERROR: within group ORDER BY clauses for aggregate functions must be the same
 
 The following statement runs successfully. 
 
-```
+```sql
 SELECT TOP 10 salesid, SUM(pricepaid), 
 PERCENTILE_CONT(0.6) WITHIN GROUP(ORDER BY salesid),
 MEDIAN(salesid)
@@ -91,7 +90,7 @@ The following examples use the TICKIT sample database. For more information, see
 
 The following example shows that PERCENTILE\_CONT(0.5) produces the same results as MEDIAN. 
 
-```
+```sql
 SELECT TOP 10 DISTINCT sellerid, qtysold, 
 PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY qtysold),
 MEDIAN(qtysold) 
@@ -116,7 +115,7 @@ GROUP BY sellerid, qtysold;
 
 The following example finds PERCENTILE\_CONT(0.5) and PERCENTILE\_CONT(0.75) for the quantity sold for each sellerid in the SALES table.
 
-```
+```sql
 SELECT sellerid, 
 PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY qtysold) as pct_50,
 PERCENTILE_CONT(0.75) WITHIN GROUP(ORDER BY qtysold) as pct_75
@@ -143,7 +142,7 @@ LIMIT 10;
 
 To verify the results of the previous query for the first sellerid, use the following example.
 
-```
+```sql
 SELECT qtysold 
 FROM sales 
 WHERE sellerid=1;

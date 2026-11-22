@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER DEFAULT PRIVILEGES
-<a name="r_ALTER_DEFAULT_PRIVILEGES"></a>
 
 Defines the default set of access permissions to be applied to objects that are created in the future by the specified user. By default, users can change only their own default access permissions. Only a superuser can specify default permissions for other users.
 

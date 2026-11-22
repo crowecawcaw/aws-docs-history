@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REVERSE function
-<a name="r_REVERSE"></a>
 
 The REVERSE function operates on a string and returns the characters in reverse order. For example, `reverse('abcde')` returns `edcba`. This function works on numeric and date data types as well as character data types; however, in most cases it has practical value for character strings. 
 
@@ -32,7 +31,7 @@ The following examples use data from the USERS and SALES tables in the TICKIT sa
 
 To select five distinct city names and their corresponding reversed names from the USERS table, use the following example. 
 
-```
+```sql
 SELECT DISTINCT city AS cityname, REVERSE(cityname)
 FROM users 
 ORDER BY city LIMIT 5;
@@ -50,7 +49,7 @@ ORDER BY city LIMIT 5;
 
 To select five sales IDs and their corresponding reversed IDs cast as character strings, use the following example. 
 
-```
+```sql
 SELECT salesid, REVERSE(salesid)
 FROM sales 
 ORDER BY salesid DESC LIMIT 5;

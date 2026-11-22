@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Automatic database optimization
-<a name="c_autonomics"></a>
 
 Amazon Redshift hosts a set of automated features, termed collectively as autonomics, that enhance performance, reduce manual maintenance, and optimize resource usage. Autonomics leverage machine learning and background processes to manage database operations efficiently, automating many routine maintenance tasks to reduce database administrator workload.
 

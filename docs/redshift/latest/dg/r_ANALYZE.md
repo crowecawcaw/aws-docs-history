@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ANALYZE
-<a name="r_ANALYZE"></a>
 
 Updates table statistics for use by the query planner. 
 
@@ -44,7 +43,7 @@ A column is included in the set of predicate columns if any of the following is 
 + The column has been used in a query as a part of a filter, join condition, or group by clause.
 + The column is a distribution key.
 + The column is part of a sort key.
-If no columns are marked as predicate columns, for example because the table has not yet been queried, all of the columns are analyzed even when PREDICATE COLUMNS is specified. When this happens, Amazon Redshift might respond with a message like No predicate columns found for "{{table-name}}". Analyzing all columns. For more information about predicate columns, see [Analyzing tables](t_Analyzing_tables.md).
+If no columns are marked as predicate columns, for example because the table has not yet been queried, all of the columns are analyzed even when PREDICATE COLUMNS is specified. When this happens, Amazon Redshift might respond with a message like `No predicate columns found for "{{table-name}}". Analyzing all columns`. For more information about predicate columns, see [Analyzing tables](t_Analyzing_tables.md).
 
 ## Usage notes
 <a name="r_ANALYZE-usage-notes"></a>

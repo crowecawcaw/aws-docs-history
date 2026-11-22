@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Angle
-<a name="ST_Angle-function"></a>
 
 ST\_Angle returns the angle in radians between points measured clockwise as follows:
 + If three points are input, then the returned angle P1-P2-P3 is measured as if the angle was obtained by rotating from P1 to P3 around P2 clockwise. 
@@ -57,7 +56,7 @@ If *geom1*, *geom2*, *geom3*, and *geom4* don't have the same value for the spat
 
 The following SQL returns the angle converted to degrees of three input points. 
 
-```
+```sql
 SELECT ST_Angle(ST_Point(1,1), ST_Point(0,0), ST_Point(1,0)) / Pi() * 180.0 AS angle;
 ```
 
@@ -69,7 +68,7 @@ SELECT ST_Angle(ST_Point(1,1), ST_Point(0,0), ST_Point(1,0)) / Pi() * 180.0 AS a
 
 The following SQL returns the angle converted to degrees of four input points. 
 
-```
+```sql
 SELECT ST_Angle(ST_Point(1,1), ST_Point(0,0), ST_Point(1,0), ST_Point(2,0)) / Pi() * 180.0 AS angle;
 ```
 

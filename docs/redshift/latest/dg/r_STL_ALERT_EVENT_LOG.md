@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_ALERT\_EVENT\_LOG
-<a name="r_STL_ALERT_EVENT_LOG"></a>
 
 Records an alert when the query optimizer identifies conditions that might indicate performance issues. Use the STL\_ALERT\_EVENT\_LOG view to identify opportunities to improve query performance.
 

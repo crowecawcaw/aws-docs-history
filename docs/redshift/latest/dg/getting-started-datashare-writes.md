@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with multi-warehouse writes using data sharing in Amazon Redshift
-<a name="getting-started-datashare-writes"></a>
 
 You can share database objects for both reads and writes across different Amazon Redshift clusters or Amazon Redshift Serverless workgroups within the same AWS account, across accounts, and across Regions. The procedures in this topic show how to set up data sharing that includes write permissions. You can grant permissions such as SELECT, INSERT, and UPDATE for different tables and USAGE and CREATE for schemas. 
 

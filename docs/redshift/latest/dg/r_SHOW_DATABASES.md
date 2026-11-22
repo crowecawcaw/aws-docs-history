@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW DATABASES
-<a name="r_SHOW_DATABASES"></a>
 
 Displays databases from a Data Catalog or an Amazon Redshift data warehouse. SHOW DATABASES lists all accessible databases, such as, within the data warehouse, AWS Glue Data Catalog databases (awsdatacatalog), data sharing databases, and Lake Formation databases.
 
@@ -57,7 +56,7 @@ You can chain roles so that your cluster can assume another IAM role, possibly b
  To this IAM role, attach an IAM permissions policy similar to the following.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -121,7 +120,7 @@ SHOW DATABASES FROM DATA CATALOG ACCOUNT '123456789012' IAM_ROLE <iam-role-arn>;
 
 The following example displays all of the databases in the connected Amazon Redshift data warehouse.
 
-```
+```sql
 SHOW DATABASES
 
 database_name  | database_owner | database_type        | database_acl | parameters | database_isolation_level

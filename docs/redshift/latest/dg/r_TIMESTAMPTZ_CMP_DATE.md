@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TIMESTAMPTZ\_CMP\_DATE function
-<a name="r_TIMESTAMPTZ_CMP_DATE"></a>
 
 TIMESTAMPTZ\_CMP\_DATE compares the value of a timestamp and a date. If the timestamp and date values are identical, the function returns `0`. If the timestamp is greater chronologically, the function returns `1`. If the date is greater, the function returns `–1`.
 
@@ -33,7 +32,7 @@ INTEGER
 
 The following example compares LISTTIME as a timestamp with time zone to the date `2008-06-18`. Listings made after this date return `1`; listings made before this date return `-1`. 
 
-```
+```sql
 select listid, CAST(listtime as timestamptz) as tstz,
 timestamp_cmp_date(tstz, '2008-06-18')
 from listing

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CURRENT\_SETTING
-<a name="r_CURRENT_SETTING"></a>
 
  CURRENT\_SETTING returns the current value of the specified configuration parameter.
 
@@ -45,7 +44,7 @@ Returns a `CHAR` or `VARCHAR` string.
 
 To return the current setting for the `query_group` parameter, use the following example.
 
-```
+```sql
 SELECT CURRENT_SETTING('query_group');
 
 +-----------------+
@@ -57,6 +56,6 @@ SELECT CURRENT_SETTING('query_group');
 
 To return the current setting for the variable `app_context.user_id`, use the following example.
 
-```
+```sql
 SELECT CURRENT_SETTING('app_context.user_id', FALSE);
 ```

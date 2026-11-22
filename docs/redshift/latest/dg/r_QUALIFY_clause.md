@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # QUALIFY clause
-<a name="r_QUALIFY_clause"></a>
 
 The QUALIFY clause filters results of a previously computed window function according to user‑specified search conditions. You can use the clause to apply filtering conditions to the result of a window function without using a subquery.
 
@@ -24,7 +23,7 @@ If you're using the QUALIFY clause directly after the FROM clause, the FROM rela
 
 The examples in this section use the sample data below.
 
-```
+```sql
 create table store_sales (ss_sold_date date, ss_sold_time time, 
                ss_item text, ss_sales_price float);
 insert into store_sales values ('2022-01-01', '09:00:00', 'Product 1', 100.0),
@@ -38,7 +37,7 @@ insert into store_sales values ('2022-01-01', '09:00:00', 'Product 1', 100.0),
 
 The following example demonstrates how to find the two most expensive items sold after 12:00 each day.
 
-```
+```sql
 SELECT *
 FROM store_sales ss
 WHERE ss_sold_time > time '12:00:00'
@@ -55,7 +54,7 @@ OVER (PARTITION BY ss_sold_date ORDER BY ss_sales_price DESC) <= 2
 
 You can then find the last item sold each day.
 
-```
+```sql
 SELECT *
 FROM store_sales ss
 QUALIFY last_value(ss_item)
@@ -70,7 +69,7 @@ ss_sold_date | ss_sold_time |  ss_item  | ss_sales_price
 
 The following example returns the same records as the previous query, the last item sold each day, but it doesn't use the QUALIFY clause.
 
-```
+```sql
 SELECT * FROM (
   SELECT *,
   last_value(ss_item)

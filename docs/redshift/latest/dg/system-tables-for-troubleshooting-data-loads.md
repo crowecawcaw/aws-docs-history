@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # System tables for troubleshooting data loads
-<a name="system-tables-for-troubleshooting-data-loads"></a>
 
 The following Amazon Redshift system tables can be helpful in troubleshooting data load issues:
 + Query [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md) to discover the errors that occurred during specific loads.
@@ -14,7 +13,7 @@ The following Amazon Redshift system tables can be helpful in troubleshooting da
 
 1. Create a view or define a query that returns details about load errors. The following example joins the STL\_LOAD\_ERRORS table to the STV\_TBL\_PERM table to match table IDs with actual table names. 
 
-   ```
+   ```sql
    create view loadview as
    (select distinct tbl, trim(name) as table_name, query, starttime,
    trim(filename) as input, line_number, colname, err_code,
@@ -27,7 +26,7 @@ The following Amazon Redshift system tables can be helpful in troubleshooting da
 
 1. Query the LOADVIEW view to see error details. For example: 
 
-   ```
+   ```sql
    select * from loadview where table_name='venue';
    ```
 

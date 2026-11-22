@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Dynamic WLM example
-<a name="cm-c-wlm-dynamic-example"></a>
 
 With Amazon Redshift, you can automatically manage workload distribution and resource allocation across your Amazon Redshift clusters using Dynamic WLM (Workload Management). Dynamic WLM is an example of a Workload Management (WLM) configuration that dynamically adjusts memory allocations based on workload demands, allowing for optimal concurrency and performance. The following section provides details on implementing and configuring Dynamic WLM for your Amazon Redshift clusters.
 

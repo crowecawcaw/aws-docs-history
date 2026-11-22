@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MONTHS\_BETWEEN function
-<a name="r_MONTHS_BETWEEN_function"></a>
 
 MONTHS\_BETWEEN determines the number of months between two dates.
 
@@ -41,7 +40,7 @@ If *date1* and *date2* both contain the same date within a month (for example, 1
 
 The following example returns the months between 1/18/1969 and 3/18/1969. 
 
-```
+```sql
 select months_between('1969-01-18', '1969-03-18')
 as months;
 
@@ -52,7 +51,7 @@ months
 
 The following example returns the months between 1/18/1969 and 1/18/1969. 
 
-```
+```sql
 select months_between('1969-01-18', '1969-01-18')
 as months;
 
@@ -63,7 +62,7 @@ months
 
  The following example returns the months between the first and last showings of an event. 
 
-```
+```sql
 select eventname, 
 min(starttime) as first_show,
 max(starttime) as last_show,

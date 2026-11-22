@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # H3\_ToChildren
-<a name="H3_ToChildren-function"></a>
 
 H3\_ToChildren returns a list of child H3 cell IDs at a specified resolution for a given H3 index. For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3).
 
@@ -41,7 +40,7 @@ If the output size exceeds the maximum SUPER size limit, then an error is return
 
 The following SQL inputs a VARCHAR that represents the index of an H3 cell, and an INTEGER that represents the desired resolution of all the children, and returns a SUPER array containing the children at resolution 6.
 
-```
+```sql
 SELECT H3_ToChildren('85283473fffffff', 6);
 ```
 
@@ -53,7 +52,7 @@ SELECT H3_ToChildren('85283473fffffff', 6);
 
 The following SQL inputs a BIGINT that represents the index of an H3 cell, and an INTEGER that represents the desired resolution of all the children, and returns a SUPER array containing the children at resolution 6.
 
-```
+```sql
 SELECT H3_ToChildren(599686042433355775, 6);
 ```
 
@@ -67,7 +66,7 @@ Note: A difference of 7 or less between *resolution* and *index* resolution is s
 
 The following example demonstrates a workaround for queries that exceed the SUPER size limit. When the resolution difference between the input H3 index and the desired child resolution is too large (greater than 7). This procedure solves the problem by incrementally expanding children in smaller steps (maximum 5 resolution levels at a time) and storing the final results in a user-created table.
 
-```
+```sql
 CREATE OR REPLACE PROCEDURE generate_h3_children()
 LANGUAGE plpgsql
 AS $$

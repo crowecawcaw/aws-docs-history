@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_LineFromMultiPoint
-<a name="ST_LineFromMultiPoint-function"></a>
 
 ST\_LineFromMultiPoint returns a linestring from an input multipoint geometry. The order of the points is preserved. The spatial reference system identifier (SRID) of the returned geometry is the same as that of the input geometry. The dimension of the returned geometry is the same as that of the input geometry.
 
@@ -38,7 +37,7 @@ If *geom* isn't a `MULTIPOINT`, then error is returned.
 
 The following SQL creates a linestring from a multipoint. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_LineFromMultiPoint(ST_GeomFromText('MULTIPOINT(0 0,10 0,10 10,5 5,0 5)',4326)));
 ```
 

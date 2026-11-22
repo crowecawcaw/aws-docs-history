@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE USER
-<a name="r_CREATE_USER"></a>
 
 Creates a new database user. Database users can retrieve data, run commands, and perform other actions in a database, depending on their privileges and roles. You must be a database superuser to run this command.
 
@@ -92,7 +91,7 @@ Another secure alternative is to specify an SHA-256 hash of a password string; o
 ```
 In the following example, Amazon Redshift generates and manages the salt.   
 
-```
+```sql
 CREATE USER admin PASSWORD 'sha256|Mypassword1';
 ```
 In the following example, a valid SHA-256 digest and 256-bit salt that was used to create the digest are supplied.  

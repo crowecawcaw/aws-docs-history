@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # WLM query queue hopping
-<a name="wlm-queue-hopping"></a>
 
 With Amazon Redshift, you can manage workload concurrency and resource allocation by enabling WLM (Workload Management) query queue hopping. This feature allows queries to temporarily "hop" from an assigned queue to a higher priority queue when resources are available, improving overall query performance and system utilization. The following sections provide detailed guidance on configuring and utilizing WLM query queue hopping in Amazon Redshift.
 

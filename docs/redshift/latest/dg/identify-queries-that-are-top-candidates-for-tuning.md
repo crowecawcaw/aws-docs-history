@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Identifying queries that are top candidates for tuning
-<a name="identify-queries-that-are-top-candidates-for-tuning"></a>
 
 The following query identifies the top 50 most time-consuming statements that have been run in the last 7 days. You can use the results to identify queries that are taking unusually long. You can also identify queries that are run frequently (those that appear more than once in the result set). These queries are frequently good candidates for tuning to improve system performance.
 

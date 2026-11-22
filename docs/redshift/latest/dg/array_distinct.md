@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ARRAY\_DISTINCT function
-<a name="array_distinct"></a>
 
 Creates a new array containing only unique elements from the input array, removing all duplicates. The order of elements in the output array is not guaranteed to match the input order. NULL values are treated as valid elements; if multiple NULLs exist in the input array, only one NULL appears in the output.
 

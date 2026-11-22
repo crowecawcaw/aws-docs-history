@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW POLICIES
-<a name="r_SHOW_POLICIES"></a>
 
 Displays the row-level security (RLS) and dynamic data masking (DDM) policies defined in a database, as well as the RLS and DDM policies applied to specific relations. Only a superuser or a user with the `sys:secadmin` role on the database can view the results of these policies.
 

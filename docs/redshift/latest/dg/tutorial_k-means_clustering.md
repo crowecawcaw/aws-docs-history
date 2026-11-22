@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Tutorial: Building K-means clustering models
-<a name="tutorial_k-means_clustering"></a>
 
 In this tutorial, you use Amazon Redshift ML to create, train, and deploy a machine learning model based on the [K-means algorithm](url-sm-dev;k-means.html). This algorithm solves clustering problems where you want to discover groupings in the data. K-means helps in grouping data that has not been labeled yet. To learn more about K-means clustering, see [How K-means Clustering Works](https://docs.aws.amazon.com/sagemaker/latest/dg/algo-kmeans-tech-notes.html)in the Amazon SageMaker AI Developer Guide.
 

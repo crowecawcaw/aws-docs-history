@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Combining multiple policies per user
-<a name="t_rls_combine_policies"></a>
 
 RLS in Amazon Redshift supports attaching multiple policies per user and object. When there are multiple policies defined for a user, Amazon Redshift applies all the policies with either AND or OR syntax depending on the RLS CONJUNCTION TYPE setting for the table. For more information about conjunction type, see [ALTER TABLE](r_ALTER_TABLE.md). 
 

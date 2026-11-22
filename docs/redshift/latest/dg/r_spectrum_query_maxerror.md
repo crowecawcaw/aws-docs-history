@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # spectrum\_query\_maxerror
-<a name="r_spectrum_query_maxerror"></a>
 
 ## Values (default in bold)
 <a name="r_spectrum_query_maxerror-values"></a>
@@ -30,7 +29,7 @@ ab
 
 The following commands set the maximum number of errors to 1 and perform the query. 
 
-```
+```SQL
 set spectrum_query_maxerror to 1;
 SELECT my_string FROM orc_data;
 ```

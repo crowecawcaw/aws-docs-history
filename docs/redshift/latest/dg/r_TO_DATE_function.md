@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TO\_DATE function
-<a name="r_TO_DATE_function"></a>
 
 TO\_DATE converts a date represented by a character string to a DATE data type. 
 
@@ -45,7 +44,7 @@ If the conversion to *format* fails, then an error is returned.
 
  The following SQL statement converts the date `02 Oct 2001` into a date data type.
 
-```
+```sql
 select to_date('02 Oct 2001', 'DD Mon YYYY');
 
 to_date
@@ -56,7 +55,7 @@ to_date
 
  The following SQL statement converts the string `20010631` to a date.
 
-```
+```sql
 select to_date('20010631', 'YYYYMMDD', FALSE);
 ```
 

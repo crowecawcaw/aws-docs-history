@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # FIRST\_VALUE window function
-<a name="r_WF_first_value"></a>
 
  Given an ordered set of rows, FIRST\_VALUE returns the value of the specified expression with respect to the first row in the window frame.
 
@@ -61,7 +60,7 @@ The following example returns the seating capacity for each venue in the VENUE t
 
 For California, `Qualcomm Stadium` has the highest number of seats (`70561`), so this name is the first value for all of the rows in the `CA` partition. 
 
-```
+```sql
 select venuestate, venueseats, venuename,
 first_value(venuename)
 over(partition by venuestate
@@ -92,13 +91,13 @@ FL         |      36048 | Tropicana Field                | Dolphin Stadium
 
 The following example shows the use of the IGNORE NULLS option and relies on the addition of a new row to the VENUE table: 
 
-```
+```sql
 insert into venue values(2000,null,'Stanford','CA',90000);
 ```
 
 This new row contains a NULL value for the VENUENAME column. Now repeat the FIRST\_VALUE query that was shown earlier in this section: 
 
-```
+```sql
 select venuestate, venueseats, venuename,
 first_value(venuename)
 over(partition by venuestate
@@ -117,7 +116,7 @@ CA         |      69843 | Monster Park               | NULL
 
 Because the new row contains the highest VENUESEATS value (`90000`) and its VENUENAME is NULL, the FIRST\_VALUE function returns NULL for the `CA` partition. To ignore rows like this in the function evaluation, add the IGNORE NULLS option to the function argument: 
 
-```
+```sql
 select venuestate, venueseats, venuename,
 first_value(venuename) ignore nulls
 over(partition by venuestate

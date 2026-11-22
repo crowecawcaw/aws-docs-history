@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP PROCEDURE
-<a name="r_DROP_PROCEDURE"></a>
 
 Drops a procedure. To drop a procedure, both the procedure name and input argument data types (signature), are required. Optionally, you can include the full argument data types, including OUT arguments. To find the signature for a procedure, use the [SHOW PROCEDURE](r_SHOW_PROCEDURE.md) command. For more information about procedure signatures, see [PG\_PROC\_INFO](r_PG_PROC_INFO.md).
 

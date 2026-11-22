@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_CoveredBy
-<a name="ST_CoveredBy-function"></a>
 
 ST\_CoveredBy returns true if the 2D projection of the first input geometry is covered by the 2D projection of the second input geometry. Geometry `A` is covered by geometry `B` if both are nonempty and every point in `A` is a point in `B`. 
 
@@ -41,7 +40,7 @@ If *geom1* or *geom2* is a geometry collection, then an error is returned.
 
 The following SQL checks if the first polygon is covered by the second polygon. 
 
-```
+```sql
 SELECT ST_CoveredBy(ST_GeomFromText('POLYGON((0 2,1 1,0 -1,0 2))'), ST_GeomFromText('POLYGON((-1 3,2 1,0 -3,-1 3))'));
 ```
 

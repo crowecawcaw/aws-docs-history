@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REGEXP\_COUNT function
-<a name="REGEXP_COUNT"></a>
 
 Searches a string for a regular expression pattern and returns an integer that indicates the number of times the specified pattern occurs in the string. If no match is found, then the function returns `0`. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md) and [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) in Wikipedia.
 
@@ -42,7 +41,7 @@ INTEGER
 
 To count the number of times a three-letter sequence occurs, use the following example.
 
-```
+```sql
 SELECT REGEXP_COUNT('abcdefghijklmnopqrstuvwxyz', '[a-z]{3}');
 
 +--------------+
@@ -54,7 +53,7 @@ SELECT REGEXP_COUNT('abcdefghijklmnopqrstuvwxyz', '[a-z]{3}');
 
 To count the occurrences of the string `FOX` using case-insensitive matching, use the following example.
 
-```
+```sql
 SELECT REGEXP_COUNT('the fox', 'FOX', 1, 'i');
 
 +--------------+
@@ -66,7 +65,7 @@ SELECT REGEXP_COUNT('the fox', 'FOX', 1, 'i');
 
 To use a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. The example uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example counts the number of occurrences of such words, with case-sensitive matching. 
 
-```
+```sql
 SELECT REGEXP_COUNT('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 'p');
 
 +--------------+
@@ -78,7 +77,7 @@ SELECT REGEXP_COUNT('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^
 
 To use a pattern written in the PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator, which has a specific connotation in PCRE. This example counts the number of occurrences of such words, but differs from the previous example in that it uses case-insensitive matching.
 
-```
+```sql
 SELECT REGEXP_COUNT('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 'ip');
 
 +--------------+
@@ -92,7 +91,7 @@ The following example uses data from the USERS table in the TICKIT sample databa
 
 To count the number of times the top-level domain name is either `org` or `edu`, use the following example. 
 
-```
+```sql
 SELECT email, REGEXP_COUNT(email,'@[^.]*\.(org|edu)') FROM users
 ORDER BY userid LIMIT 4;
 

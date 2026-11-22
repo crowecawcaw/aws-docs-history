@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_AUTO\_WORKER\_ACTION
-<a name="r_SVL_AUTO_WORKER_ACTION"></a>
 
 Records automated actions taken by Amazon Redshift on tables defined for automatic optimization. 
 
@@ -39,7 +38,7 @@ Some examples of values of the `status` column are as follows:
 
 In the following example, the rows in the result show actions taken by Amazon Redshift. 
 
-```
+```sql
 select table_id, type, status, eventtime, sequence, previous_state
 from SVL_AUTO_WORKER_ACTION;
 ```

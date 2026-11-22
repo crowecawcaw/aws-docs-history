@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with data sharing with AWS CloudFormation in Amazon Redshift
-<a name="data-sharing-within-account-CF"></a>
 
 You can automate data sharing setup by using an AWS CloudFormation stack, which provisions AWS resources. The CloudFormation stack sets up data sharing between two Amazon Redshift clusters in the same AWS account. Thus, you can start data sharing without running SQL statements to provision your resources.
 
@@ -63,7 +62,7 @@ To use the following procedure, make sure that you have the required permissions
 
 1. Query for datashares.
 
-   ```
+   ```sql
    SHOW DATASHARES;
                      
    +------------------+-------------+-----------------+-------------------+------------+------------+---------------------+-----------+------------------+--------------------------------------+
@@ -79,7 +78,7 @@ To use the following procedure, make sure that you have the required permissions
 
 1. Describe objects in the datashare.
 
-   ```
+   ```sql
    DESC DATASHARE myproducer_share;
                      
    +------------------+--------------------------------------+------------+------------------+-------------+-------------------------------------+-------------+
@@ -111,7 +110,7 @@ To use the following procedure, make sure that you have the required permissions
 
 1. You can query tables in the datashare by specifying the datashare's database and schema. For more information, see [Cross-database query examples](cross-database_example.md). The following queries return sales and seller data from the SALES table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md).
 
-   ```
+   ```sql
    SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales_view;
                      
    +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+
@@ -129,7 +128,7 @@ The query runs against the view in the shared schema. You can't connect directly
 
 1. To run a query that includes aggregations, use the following example.
 
-   ```
+   ```sql
    SELECT * FROM myconsumer_db.myproducer_schema.tickit_sales ORDER BY 1,2 LIMIT 5;
                      
    +---------+--------+----------+---------+---------+--------+---------+-----------+------------+---------------------+

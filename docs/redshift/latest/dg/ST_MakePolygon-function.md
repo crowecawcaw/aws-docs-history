@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MakePolygon
-<a name="ST_MakePolygon-function"></a>
 
 ST\_MakePolygon has two variants that return a polygon. One takes a single geometry, and another takes two geometries. 
 + The input of the first variant is a linestring that defines the outer ring of the output polygon.
@@ -61,7 +60,7 @@ If *geom1* and *geom2* have different dimensions, then an error is returned.
 
 The following SQL returns a polygon from an input linestring. 
 
-```
+```sql
 SELECT ST_AsText(ST_MakePolygon(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)')));
 ```
 
@@ -73,7 +72,7 @@ POLYGON((77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07))
 
 The following SQL creates a polygon from a closed linestring and a closed multilinestring. The linestring is used for the exterior ring of the polygon. The linestrings in the multilinestrings are used for the interior rings of the polygon. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_MakePolygon(ST_GeomFromText('LINESTRING(0 0,10 0,10 10,0 10,0 0)'), ST_GeomFromText('MULTILINESTRING((1 1,1 2,2 1,1 1),(3 3,3 4,4 3,3 3))')));
 ```
 

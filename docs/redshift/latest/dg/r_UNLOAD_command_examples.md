@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # UNLOAD examples
-<a name="r_UNLOAD_command_examples"></a>
 
 These examples demonstrate various parameters of the UNLOAD command. The TICKIT sample data is used in many of the examples. For more information, see [Sample database](c_sampledb.md).
 
@@ -15,7 +14,7 @@ These examples contain line breaks for readability. Do not include line breaks o
 
 The following example unloads the VENUE table and writes the data to `s3://amzn-s3-demo-bucket/unload/`: 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
@@ -32,7 +31,7 @@ unload/0003_part_00
 
 To better differentiate the output files, you can include a prefix in the location. The following example unloads the VENUE table and writes the data to `s3://amzn-s3-demo-bucket/unload/venue_pipe_`: 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/venue_pipe_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
@@ -52,7 +51,7 @@ venue_pipe_0003_part_00
 
 The following example unloads the LINEITEM table in Parquet format, partitioned by the `l_shipdate` column. 
 
-```
+```sql
 unload ('select * from lineitem')
 to 's3://amzn-s3-demo-bucket/lineitem/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -81,7 +80,7 @@ s3://amzn-s3-demo-bucket/lineitem/l_shipdate=1992-01-04/0000_part_00.parquet
 **Note**  
 In some cases, the UNLOAD command used the INCLUDE option as shown in the following SQL statement.   
 
-```
+```sql
 unload ('select * from lineitem')
 to 's3://amzn-s3-demo-bucket/lineitem/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -95,7 +94,7 @@ In these cases, the `l_shipdate` column is also in the data in the Parquet files
 
 The following example unloads the VENUE table and writes the data in JSON format to `s3://amzn-s3-demo-bucket/unload/`.
 
-```
+```SQL
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -114,7 +113,7 @@ venueid | venuename                  | venuecity       | venuestate | venueseats
 
 After unloading to JSON, the format of the file is similar to the following.
 
-```
+```json
 {"venueid":1,"venuename":"Pinewood Racetrack","venuecity":"Akron","venuestate":"OH","venueseats":0}
 {"venueid":2,"venuename":"Columbus \"Crew\" Stadium ","venuecity":"Columbus","venuestate":"OH","venueseats":0}
 {"venueid":4,"venuename":"Community, Ballpark, Arena","venuecity":"Kansas City","venuestate":"KS","venueseats":0}
@@ -125,7 +124,7 @@ After unloading to JSON, the format of the file is similar to the following.
 
 The following example unloads the VENUE table and writes the data in CSV format to `s3://amzn-s3-demo-bucket/unload/`.
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -155,7 +154,7 @@ The unload file looks similar to the following.
 
 The following example unloads the VENUE table and writes the data in CSV format using the pipe character (\|) as the delimiter. The unloaded file is written to `s3://amzn-s3-demo-bucket/unload/`. The VENUE table in this example contains the pipe character in the value of the first row (`Pinewood Race|track`). It does this to show that the value in the result is enclosed in double quotation marks. A double quotation mark is escaped by a double quotation mark, and the entire field is enclosed in double quotation marks. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -188,7 +187,7 @@ To create a manifest file, include the MANIFEST option. The following example un
 **Important**  
 If you unload files with the MANIFEST option, you should use the MANIFEST option with the COPY command when you load the files. If you use the same prefix to load the files and don't specify the MANIFEST option, COPY fails because it assumes the manifest file is a data file.
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 manifest;
@@ -206,7 +205,7 @@ s3://amzn-s3-demo-bucket/venue_pipe_manifest
 
 The following shows the contents of the manifest file. 
 
-```
+```json
 {
   "entries": [
     {"url":"s3://amzn-s3-demo-bucket/tickit/venue_0000_part_00"},
@@ -227,7 +226,7 @@ When you specify the MANIFEST VERBOSE option, the manifest file includes the fol
 
 The following example unloads the VENUE table using the MANIFEST VERBOSE option. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload_venue_folder/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -236,7 +235,7 @@ manifest verbose;
 
 The following shows the contents of the manifest file.
 
-```
+```json
 {
   "entries": [
     {"url":"s3://amzn-s3-demo-bucket/venue_pipe_0000_part_00", "meta": { "content_length": 32295, "record_count": 10 }},
@@ -269,7 +268,7 @@ The following shows the contents of the manifest file.
 
 The following example unloads VENUE with a header row.
 
-```
+```sql
 unload ('select * from venue where venueseats > 75000')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -292,7 +291,7 @@ venueid|venuename|venuecity|venuestate|venueseats
 
 By default, the maximum file size is 6.2 GB. If the unload data is larger than 6.2 GB, UNLOAD creates a new file for each 6.2 GB data segment. To create smaller files, include the MAXFILESIZE parameter. Assuming the size of the data in the previous example was 20 GB, the following UNLOAD command creates 20 files, each 1 GB in size.
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -306,7 +305,7 @@ To unload serially, specify PARALLEL OFF. UNLOAD then writes one file at a time,
 
 The following example unloads the VENUE table and writes the data serially to `s3://amzn-s3-demo-bucket/unload/`. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/venue_serial_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -317,7 +316,7 @@ The result is one file named venue\_serial\_000.
 
 If the unload data is larger than 6.2 GB, UNLOAD creates a new file for each 6.2 GB data segment. The following example unloads the LINEORDER table and writes the data serially to `s3://amzn-s3-demo-bucket/unload/`. 
 
-```
+```sql
 unload ('select * from lineorder')
 to 's3://amzn-s3-demo-bucket/unload/lineorder_serial_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -335,7 +334,7 @@ lineorder_serial_0003.gz
 
 To better differentiate the output files, you can include a prefix in the location. The following example unloads the VENUE table and writes the data to `s3://amzn-s3-demo-bucket/venue_pipe_`: 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/unload/venue_pipe_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
@@ -355,7 +354,7 @@ venue_pipe_0003_part_00
 
 To load a table from a set of unload files, simply reverse the process by using a COPY command. The following example creates a new table, LOADVENUE, and loads the table from the data files created in the previous example.
 
-```
+```sql
 create table loadvenue (like venue);
 
 copy loadvenue from 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
@@ -363,7 +362,7 @@ copy loadvenue from 's3://amzn-s3-demo-bucket/venue_pipe_' iam_role 'arn:aws:iam
 
 If you used the MANIFEST option to create a manifest file with your unload files, you can load the data using the same manifest file. You do so with a COPY command with the MANIFEST option. The following example loads data using a manifest file.
 
-```
+```sql
 copy loadvenue
 from 's3://amzn-s3-demo-bucket/venue_pipe_manifest' iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 manifest;
@@ -374,7 +373,7 @@ manifest;
 
 The following example unloads the VENUE table to a set of encrypted files using an AWS KMS key. If you specify a manifest file with the ENCRYPTED option, the manifest file is also encrypted. For more information, see [Unloading encrypted data files](t_unloading_encrypted_files.md).
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_encrypt_kms'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -385,7 +384,7 @@ encrypted;
 
 The following example unloads the VENUE table to a set of encrypted files using a root symmetric key. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_encrypt_cmk'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -398,7 +397,7 @@ encrypted;
 
 To load tables from a set of files that were created by using UNLOAD with the ENCRYPT option, reverse the process by using a COPY command. With that command, use the ENCRYPTED option and specify the same root symmetric key that was used for the UNLOAD command. The following example loads the LOADVENUE table from the encrypted data files created in the previous example.
 
-```
+```sql
 create table loadvenue (like venue);
 
 copy loadvenue
@@ -412,7 +411,7 @@ encrypted;
 ## Unload VENUE data to a tab-delimited file
 <a name="unload-examples-venue-tab"></a>
 
-```
+```sql
 unload ('select venueid, venuename, venueseats from venue')
 to 's3://amzn-s3-demo-bucket/venue_tab_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -433,7 +432,7 @@ The output data files look like this:
 ## Unload VENUE to a fixed-width data file
 <a name="unload-venue-fixed-width"></a>
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_fw_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -454,7 +453,7 @@ The output data files look like the following.
 ## Unload VENUE to a set of tab-delimited GZIP-compressed files
 <a name="unload-examples-venue-gzip"></a>
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_tab_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -465,7 +464,7 @@ gzip;
 ## Unload VENUE to a GZIP-compressed text file
 <a name="unload-examples-venue-extension-gzip"></a>
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_tab_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -480,7 +479,7 @@ This example uses the ADDQUOTES option to unload comma-delimited data where some
 
 First, create a table that contains quotation marks.
 
-```
+```sql
 create table location (id int, location char(64));
 
 insert into location values (1,'Phoenix, AZ'),(2,'San Diego, CA'),(3,'Chicago, IL');
@@ -488,7 +487,7 @@ insert into location values (1,'Phoenix, AZ'),(2,'San Diego, CA'),(3,'Chicago, I
 
 Then, unload the data using the ADDQUOTES option.
 
-```
+```sql
 unload ('select id, location from location')
 to 's3://amzn-s3-demo-bucket/location_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -509,7 +508,7 @@ The unloaded data files look like this:
 
 The following example unloads the results of a join query that contains a window function. 
 
-```
+```sql
 unload ('select venuecity, venuestate, caldate, pricepaid,
 sum(pricepaid) over(partition by venuecity, venuestate
 order by caldate rows between 3 preceding and 3 following) as winsum
@@ -539,14 +538,14 @@ UNLOAD outputs null values as empty strings by default. The following examples s
 
 For these examples, add some null values to the VENUE table.
 
-```
+```sql
 update venue set venuestate = NULL
 where venuecity = 'Cleveland';
 ```
 
 Select from VENUE where VENUESTATE is null to verify that the columns contain NULL.
 
-```
+```sql
 select * from venue where venuestate is null;
 
  venueid |        venuename         | venuecity | venuestate | venueseats
@@ -558,7 +557,7 @@ select * from venue where venuestate is null;
 
 Now, UNLOAD the VENUE table using the NULL AS option to replace null values with the character string '`fred`'. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/nulls/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -585,7 +584,7 @@ To load a table from the unload files, use a COPY command with the same NULL AS 
 **Note**  
 If you attempt to load nulls into a column defined as NOT NULL, the COPY command fails.
 
-```
+```sql
 create table loadvenuenulls (like venue);
 
 copy loadvenuenulls from 's3://amzn-s3-demo-bucket/nulls/'
@@ -595,7 +594,7 @@ null as 'fred';
 
 To verify that the columns contain null, not just empty strings, select from LOADVENUENULLS and filter for null.
 
-```
+```sql
 select * from loadvenuenulls where venuestate is null or venueseats is null;
 
  venueid |        venuename         | venuecity | venuestate | venueseats
@@ -612,7 +611,7 @@ select * from loadvenuenulls where venuestate is null or venueseats is null;
 
 You can UNLOAD a table that contains nulls using the default NULL AS behavior and then COPY the data back into a table using the default NULL AS behavior; however, any non-numeric fields in the target table contain empty strings, not nulls. By default UNLOAD converts nulls to empty strings (white space or zero-length). COPY converts empty strings to NULL for numeric columns, but inserts empty strings into non-numeric columns. The following example shows how to perform an UNLOAD followed by a COPY using the default NULL AS behavior. 
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/nulls/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole' allowoverwrite;
@@ -624,7 +623,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';
 
 In this case, when you filter for nulls, only the rows where VENUESEATS contained nulls. Where VENUESTATE contained nulls in the table (VENUE), VENUESTATE in the target table (LOADVENUENULLS) contains empty strings.
 
-```
+```sql
 select * from loadvenuenulls where venuestate is null or venueseats is null;
 
  venueid |        venuename         | venuecity | venuestate | venueseats
@@ -637,7 +636,7 @@ select * from loadvenuenulls where venuestate is null or venueseats is null;
 
 To load empty strings to non-numeric columns as NULL, include the EMPTYASNULL or BLANKSASNULL options. It's OK to use both.
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/nulls/'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole' allowoverwrite;
@@ -649,7 +648,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole' EMPTYASNULL;
 
 To verify that the columns contain NULL, not just whitespace or empty strings, select from LOADVENUENULLS and filter for null.
 
-```
+```sql
 select * from loadvenuenulls where venuestate is null or venueseats is null;
 
  venueid |        venuename         | venuecity | venuestate | venueseats
@@ -668,7 +667,7 @@ select * from loadvenuenulls where venuestate is null or venueseats is null;
 
 By default, UNLOAD doesn't overwrite existing files in the destination bucket. For example, if you run the same UNLOAD statement twice without modifying the files in the destination bucket, the second UNLOAD fails. To overwrite the existing files, including the manifest file, specify the ALLOWOVERWRITE option.
 
-```
+```sql
 unload ('select * from venue')
 to 's3://amzn-s3-demo-bucket/venue_pipe_'
 iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
@@ -680,7 +679,7 @@ manifest allowoverwrite;
 
 You can UNLOAD a table in parallel and generate a manifest file. The Amazon S3 data files are all created at the same level and names are suffixed with the pattern `0000_part_00`. The manifest file is at the same folder level as the data files and suffixed with the text `manifest`. The following SQL unloads the EVENT table and creates files with the base name `parallel`
 
-```
+```sql
 unload ('select * from mytickit1.event')
 to 's3://amzn-s3-demo-bucket/parallel'
 iam_role 'arn:aws:iam::123456789012:role/MyRedshiftRole'
@@ -705,7 +704,7 @@ The Amazon S3 files listing is similar to the following.
 
 The `parallelmanifest` file content is similar to the following.
 
-```
+```JSON
 {
   "entries": [
     {"url":"s3://amzn-s3-demo-bucket/parallel0000_part_00", "meta": { "content_length": 53316 }},
@@ -725,7 +724,7 @@ The `parallelmanifest` file content is similar to the following.
 
 You can UNLOAD a table serially (PARALLEL OFF) and generate a manifest file. The Amazon S3 data files are all created at the same level and names are suffixed with the pattern `0000`. The manifest file is at the same folder level as the data files and suffixed with the text `manifest`.
 
-```
+```sql
 unload ('select * from mytickit1.event')
 to 's3://amzn-s3-demo-bucket/serial'
 iam_role 'arn:aws:iam::123456789012:role/MyRedshiftRole'
@@ -743,7 +742,7 @@ The Amazon S3 files listing is similar to the following.
 
 The `serialmanifest` file content is similar to the following.
 
-```
+```JSON
 {
   "entries": [
     {"url":"s3://amzn-s3-demo-bucket/serial000", "meta": { "content_length": 436991 }}
@@ -756,7 +755,7 @@ The `serialmanifest` file content is similar to the following.
 
 You can UNLOAD a table by partition and generate a manifest file. A new folder is created in Amazon S3 with child partition folders, and the data files in the child folders with a name pattern similar to `0000_par_00`. The manifest file is at the same folder level as the child folders with the name `manifest`.
 
-```
+```sql
 unload ('select * from mytickit1.event')
 to 's3://amzn-s3-demo-bucket/partition'
 iam_role 'arn:aws:iam::123456789012:role/MyRedshiftRole'
@@ -796,7 +795,7 @@ In the `eventname=Zucchero/` folder are the data files similar to the following.
 
 The bottom of the `manifest` file content is similar to the following.
 
-```
+```json
 {
   "entries": [
     ...
@@ -811,7 +810,7 @@ The bottom of the `manifest` file content is similar to the following.
 
 You can UNLOAD a table in parallel and generate a manifest file. The Amazon S3 data files are all created at the same level and names are suffixed with the pattern `0000_part_00`. The generated Parquet data files are limited to 256 MB and row group size 128 MB. The manifest file is at the same folder level as the data files and suffixed with `manifest`.
 
-```
+```sql
 unload ('select * from mytickit1.event')
 to 's3://amzn-s3-demo-bucket/eventsize'
 iam_role 'arn:aws:iam::123456789012:role/MyRedshiftRole'
@@ -839,7 +838,7 @@ The Amazon S3 files listing is similar to the following.
 
 The `eventsizemanifest` file content is similar to the following.
 
-```
+```JSON
 {
   "entries": [
     {"url":"s3://amzn-s3-demo-bucket/eventsize0000_part_00.parquet", "meta": { "content_length": 25130 }},

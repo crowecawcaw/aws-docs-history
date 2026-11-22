@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromGeoJSON
-<a name="ST_GeomFromGeoJSON-function"></a>
 
 ST\_GeomFromGeoJSON constructs a geometry object from the GeoJSON representation of an input geometry. For more information about the GeoJSON format, see [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) in Wikipedia. 
 
@@ -36,7 +35,7 @@ If *geojson\_string* is not valid, then an error is returned.
 
 The following SQL returns a 2D geometry represented in the input GeoJSON. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeomFromGeoJSON('{"type":"Point","coordinates":[1,2]}'));
 ```
 
@@ -48,7 +47,7 @@ SELECT ST_AsEWKT(ST_GeomFromGeoJSON('{"type":"Point","coordinates":[1,2]}'));
 
 The following SQL returns a 3DZ geometry represented in the input GeoJSON. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeomFromGeoJSON('{"type":"LineString","coordinates":[[1,2,3],[4,5,6],[7,8,9]]}'));
 ```
 
@@ -60,7 +59,7 @@ SELECT ST_AsEWKT(ST_GeomFromGeoJSON('{"type":"LineString","coordinates":[[1,2,3]
 
 The following SQL returns 3DZ geometry when only one point has three coordinates while all other points have two coordinates in the input GeoJSON. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[0, 0],[0, 1, 8],[1, 0],[0, 0]]]}'));
 ```
 

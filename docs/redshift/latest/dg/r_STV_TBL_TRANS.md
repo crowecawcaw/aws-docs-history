@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_TBL\_TRANS
-<a name="r_STV_TBL_TRANS"></a>
 
 Use the STV\_TBL\_TRANS table to find out information about the transient database tables that are currently in memory.
 

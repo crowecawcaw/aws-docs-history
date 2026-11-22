@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_ConvexHull
-<a name="ST_ConvexHull-function"></a>
 
 ST\_ConvexHull returns a geometry that represents the convex hull of the nonempty points contained in the input geometry. 
 
@@ -46,7 +45,7 @@ The values returned are as follows.
 
 The following SQL returns the extended well-known text (EWKT) representation of a linestring. In this case, the convex hull returned is a polygon.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 0,0 1,1 1,0.5 0.5)'))) as output;
 ```
 
@@ -58,7 +57,7 @@ POLYGON((0 0,0 1,1 1,1 0,0 0))
 
 The following SQL returns the EWKT representation of a linestring. In this case, the convex hull returned is a linestring.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('LINESTRING(0 0,1 1,0.2 0.2,0.6 0.6,0.5 0.5)'))) as output;
 ```
 
@@ -70,7 +69,7 @@ LINESTRING(0 0,1 1)
 
 The following SQL returns the EWKT representation of a multipoint. In this case, the convex hull returned is a point.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_ConvexHull(ST_GeomFromText('MULTIPOINT(0 0,0 0,0 0)'))) as output;
 ```
 

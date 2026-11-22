@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SUPER type
-<a name="r_SUPER_type"></a>
 
 Use the SUPER data type to store semi-structured data or documents as values. Although Amazon Redshift is capable of storing such values using VARCHAR, we recommend that you use the SUPER data type instead.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # IS\_VALID\_JSON\_ARRAY function
-<a name="IS_VALID_JSON_ARRAY"></a>
 
 **Note**  
 JSON\_PARSE and its associated functions parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.   
@@ -36,7 +35,7 @@ A string or expression that evaluates to a JSON array.
 
 To create a table and insert JSON strings for testing, use the following example.
 
-```
+```sql
 CREATE TABLE test_json_arrays(id int IDENTITY(0,1), json_arrays VARCHAR);
 
 -- Insert valid JSON array strings --
@@ -54,7 +53,7 @@ VALUES('{"a":1}'),
 
 To validate the strings in the preceding example, use the following example.
 
-```
+```sql
 SELECT json_arrays, IS_VALID_JSON_ARRAY(json_arrays) 
 FROM test_json_arrays ORDER BY id;
 

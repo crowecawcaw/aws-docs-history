@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW VIEW
-<a name="r_SHOW_VIEW"></a>
 
 Shows the definition of a view, including for materialized views and late-binding views. You can use the output of the SHOW VIEW statement to recreate the view. 
 
@@ -28,13 +27,13 @@ The name of the view to show.
 
  Following is the view definition for the view `LA_Venues_v`.
 
-```
+```sql
 create view LA_Venues_v as select * from venue where venuecity='Los Angeles';
 ```
 
 Following is an example of the SHOW VIEW command and output for the view defined preceding.
 
-```
+```sql
 show view LA_Venues_v;
 ```
 
@@ -49,13 +48,13 @@ FROM venue WHERE ((venue.venuecity)::text = 'Los Angeles'::text);
 
 Following is the view definition for the view `public.Sports_v` in the schema `public`.
 
-```
+```sql
 create view public.Sports_v as select * from category where catgroup='Sports';
 ```
 
 Following is an example of the SHOW VIEW command and output for the view defined preceding.
 
-```
+```sql
 show view public.Sports_v;
 ```
 

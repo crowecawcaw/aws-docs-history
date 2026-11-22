@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_AsGeoJSON
-<a name="ST_AsGeoJSON-function"></a>
 
 ST\_AsGeoJSON returns the GeoJSON representation of an input geometry or geography. For more information about GeoJSON, see [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) in Wikipedia.
 
@@ -47,7 +46,7 @@ If the result is larger than a 64-KB `VARCHAR`, then an error is returned.
 
 The following SQL returns the GeoJSON representation of a linestring. 
 
-```
+```sql
 SELECT ST_AsGeoJSON(ST_GeomFromText('LINESTRING(3.141592653589793 -6.283185307179586,2.718281828459045 -1.414213562373095)'));
 ```
 
@@ -59,7 +58,7 @@ st_asgeojson
 
 The following SQL returns the GeoJSON representation of a linestring. The coordinates of the geometries are displayed with six digits of precision. 
 
-```
+```sql
 SELECT ST_AsGeoJSON(ST_GeomFromText('LINESTRING(3.141592653589793 -6.283185307179586,2.718281828459045 -1.414213562373095)'), 6);
 ```
 
@@ -71,7 +70,7 @@ st_asgeojson
 
 The following SQL returns the GeoJSON representation of a geography. 
 
-```
+```sql
 SELECT ST_AsGeoJSON(ST_GeogFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)'));
 ```
 

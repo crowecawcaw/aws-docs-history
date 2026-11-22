@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE IDENTITY PROVIDER
-<a name="r_CREATE_IDENTITY_PROVIDER"></a>
 
 Defines a new identity provider. Only a superuser can create an identity provider.
 
@@ -81,7 +80,7 @@ If *filter\_pattern* does not contain metacharacters, then the pattern only repr
 
 The following example creates an identity provider named *oauth\_standard*, with a TYPE *azure*, to establish communication with Microsoft Azure Active Directory (AD).
 
-```
+```SQL
 CREATE IDENTITY PROVIDER oauth_standard TYPE azure
 NAMESPACE 'aad'
 PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c702/",
@@ -93,7 +92,7 @@ PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c7
 
 You can connect an IAM Identity Center managed application with an existing provisioned cluster or Amazon Redshift Serverless workgroup. This gives you the ability to manage access to a Redshift database through IAM Identity Center. To do so, run a SQL command like the following sample. You have to be a database administrator.
 
-```
+```SQL
 CREATE IDENTITY PROVIDER "redshift-idc-app" TYPE AWSIDC
 NAMESPACE 'awsidc'
 APPLICATION_ARN 'arn:aws:sso::123456789012:application/ssoins-12345f67fe123d4/apl-a0b0a12dc123b1a4'

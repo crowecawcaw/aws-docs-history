@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # External tables for Redshift Spectrum
-<a name="c-spectrum-external-tables"></a>
 
 This topic describes how to create and use external tables with Redshift Spectrum. External tables are tables that you use as references to access data outside your Amazon Redshift cluster. These tables contain metadata about the external data that Redshift Spectrum reads.
 
@@ -77,7 +76,7 @@ To view external tables, query the [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES
 
 By default, Amazon Redshift creates external tables with the pseudocolumns `$path`, `$size`, and `$spectrum_oid`. Select the `$path` column to view the path to the data files on Amazon S3, and select the `$size` column to view the size of the data files for each row returned by a query. The `$spectrum_oid` column provides the ability to perform correlated queries with Redshift Spectrum. For an example, see [Example: Performing correlated subqueries in Redshift Spectrum](c_performing-correlated-subqueries-spectrum.md). You must delimit the `$path`, `$size`, and `$spectrum_oid` column names with double quotation marks. A SELECT \* clause doesn't return the pseudocolumns. You must explicitly include the `$path`, `$size`, and `$spectrum_oid` column names in your query, as the following example shows.
 
-```
+```SQL
 select "$path", "$size", "$spectrum_oid"
 from spectrum.sales_part where saledate = '2008-12-01';
 ```
@@ -441,14 +440,14 @@ To query data in Apache Hudi Copy On Write (CoW) format, you can use Amazon Reds
 
 When you create an external table that references data in Hudi CoW format, you map each column in the external table to a column in the Hudi data. Mapping is done by column. 
 
-The data definition language (DDL) statements for partitioned and unpartitioned Hudi tables are similar to those for other Apache Parquet file formats. For Hudi tables, you define `INPUTFORMAT` as `org.apache.hudi.hadoop.HoodieParquetInputFormat`. The `LOCATION` parameter must point to the Hudi table base folder that contains the `.hoodie` folder, which is required to establish the Hudi commit timeline. In some cases, a SELECT operation on a Hudi table might fail with the message No valid Hudi commit timeline found. If so, check if the `.hoodie` folder is in the correct location and contains a valid Hudi commit timeline. 
+The data definition language (DDL) statements for partitioned and unpartitioned Hudi tables are similar to those for other Apache Parquet file formats. For Hudi tables, you define `INPUTFORMAT` as `org.apache.hudi.hadoop.HoodieParquetInputFormat`. The `LOCATION` parameter must point to the Hudi table base folder that contains the `.hoodie` folder, which is required to establish the Hudi commit timeline. In some cases, a SELECT operation on a Hudi table might fail with the message `No valid Hudi commit timeline found`. If so, check if the `.hoodie` folder is in the correct location and contains a valid Hudi commit timeline. 
 
 **Note**  
 Apache Hudi format is only supported when you use an AWS Glue Data Catalog. It's not supported when you use an Apache Hive metastore as the external catalog. 
 
 The DDL to define an unpartitioned table has the following format. 
 
-```
+```sql
 CREATE EXTERNAL TABLE tbl_name (columns)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
 STORED AS
@@ -459,7 +458,7 @@ LOCATION 's3://s3-bucket/prefix'
 
 The DDL to define a partitioned table has the following format. 
 
-```
+```sql
 CREATE EXTERNAL TABLE tbl_name (columns)
 PARTITIONED BY(pcolumn1 pcolumn1-type[,...])
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
@@ -473,7 +472,7 @@ To add partitions to a partitioned Hudi table, run an ALTER TABLE ADD PARTITION 
 
 The DDL to add partitions has the following format.
 
-```
+```sql
 ALTER TABLE tbl_name
 ADD IF NOT EXISTS PARTITION(pcolumn1=pvalue1[,...])
 LOCATION 's3://s3-bucket/prefix/partition-path'
@@ -492,7 +491,7 @@ The DDL for partitioned and unpartitioned Delta Lake tables is similar to that f
 
 The DDL to define an unpartitioned table has the following format. 
 
-```
+```sql
 CREATE EXTERNAL TABLE tbl_name (columns)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
 STORED AS
@@ -503,7 +502,7 @@ LOCATION 's3://s3-bucket/prefix/_symlink_format_manifest'
 
 The DDL to define a partitioned table has the following format. 
 
-```
+```sql
 CREATE EXTERNAL TABLE tbl_name (columns)
 PARTITIONED BY(pcolumn1 pcolumn1-type[,...])
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
@@ -517,7 +516,7 @@ To add partitions to a partitioned Delta Lake table, run an ALTER TABLE ADD PART
 
 The DDL to add partitions has the following format.
 
-```
+```sql
 ALTER TABLE tbl_name
 ADD IF NOT EXISTS PARTITION(pcolumn1=pvalue1[,...])
 LOCATION
@@ -526,7 +525,7 @@ LOCATION
 
 Or run DDL that points directly to the Delta Lake manifest file.
 
-```
+```sql
 ALTER TABLE tbl_name
 ADD IF NOT EXISTS PARTITION(pcolumn1=pvalue1[,...])
 LOCATION
@@ -545,8 +544,8 @@ The following table explains some potential reasons for certain errors when you 
 
 | Error message | Possible reason | 
 | --- | --- | 
-| Delta Lake manifest in bucket *s3-bucket-1* cannot contain entries in bucket *s3-bucket-2*. | The manifest entries point to files in a different Amazon S3 bucket than the specified one.  | 
-| Delta Lake files are expected to be in the same folder. | The manifest entries point to files that have a different Amazon S3 prefix than the specified one. | 
-| File *filename* listed in Delta Lake manifest *manifest-path* was not found. | A file listed in the manifest wasn't found in Amazon S3.  | 
-| Error fetching Delta Lake manifest. | The manifest wasn't found in Amazon S3.  | 
-| Invalid S3 Path. | An entry in the manifest file isn't a valid Amazon S3 path, or the manifest file has been corrupted.  | 
+| `Delta Lake manifest in bucket s3-bucket-1 cannot contain entries in bucket s3-bucket-2.` | The manifest entries point to files in a different Amazon S3 bucket than the specified one.  | 
+| `Delta Lake files are expected to be in the same folder.` | The manifest entries point to files that have a different Amazon S3 prefix than the specified one. | 
+| `File filename listed in Delta Lake manifest manifest-path was not found.` | A file listed in the manifest wasn't found in Amazon S3.  | 
+| `Error fetching Delta Lake manifest.` | The manifest wasn't found in Amazon S3.  | 
+| `Invalid S3 Path.` | An entry in the manifest file isn't a valid Amazon S3 path, or the manifest file has been corrupted.  | 

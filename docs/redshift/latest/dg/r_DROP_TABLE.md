@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP TABLE
-<a name="r_DROP_TABLE"></a>
 
 Removes a table from a database. 
 
@@ -104,7 +103,7 @@ drop table feedback cascade;
 
 To return the dependencies for your table, use the following example. Replace {{my\_schema}} and {{my\_table}} with your own schema and table. 
 
-```
+```sql
 SELECT dependent_ns.nspname as dependent_schema
 , dependent_view.relname as dependent_view 
 , source_ns.nspname as source_schema
@@ -128,7 +127,7 @@ LIMIT 10;
 
 To drop {{my\_table}} and its dependencies, use the following example. This example also returns all dependencies for the table that has been dropped.
 
-```
+```sql
 DROP TABLE my_table CASCADE;
          
 SELECT dependent_ns.nspname as dependent_schema

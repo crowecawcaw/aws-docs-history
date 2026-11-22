@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_RESTORE\_LOG
-<a name="SYS_RESTORE_LOG"></a>
 
 Use SYS\_RESTORE\_LOG to monitor the migration progress of each table in the cluster during a classic resize to RG or RA3 nodes. It captures the historic throughput of data migration during the resize operation. For more information about classic resize to RG or RA3 nodes, see [Classic resize](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster). 
 
@@ -32,7 +31,7 @@ SYS\_RESTORE\_LOG is visible only to superusers.
 
 The following query calculates the throughput of data processing, using SYS\_RESTORE\_LOG.
 
-```
+```sql
 SELECT
     ROUND(sum(delta_data_processed) / 1024.0, 2) as data_processed_gb,
     ROUND(datediff(sec, min(event_time), max(event_time)) / 3600.0, 2) as duration_hr,

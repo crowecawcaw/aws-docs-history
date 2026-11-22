@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW TEMPLATES
-<a name="r_SHOW_TEMPLATES"></a>
 
 Shows a list of templates in a schema, along with their attributes.
 
@@ -56,7 +55,7 @@ The maximum number of rows to return. Valid range is 0 to the template limit on 
 ## Examples
 <a name="r_SHOW_TEMPLATES-examples"></a>
 
-```
+```sql
 SHOW TEMPLATES FROM SCHEMA s1;
 
  template_name          | template_id | template_type | template_owner | database_name | schema_name |        create_time         |     last_modified_time     | last_modified_by
@@ -67,7 +66,7 @@ SHOW TEMPLATES FROM SCHEMA s1;
  csv_delimiter_template |      107688 | COPY          | alice          | dev           | s1          | 2025-12-16 19:31:42.354044 | 2025-12-16 19:31:42.354045 |              100
 ```
 
-```
+```sql
 SHOW TEMPLATES FROM SCHEMA dev.s1 LIKE '%template' LIMIT 1;
 
  template_name  | template_id | template_type | template_owner | database_name | schema_name |        create_time         |     last_modified_time     | last_modified_by 

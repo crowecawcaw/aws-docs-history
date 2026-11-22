@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_StartPoint
-<a name="ST_StartPoint-function"></a>
 
 ST\_StartPoint returns the first point of an input linestring. The spatial reference system identifier (SRID) value of the result is the same as that of the input geometry. The dimension of the returned geometry is the same as that of the input geometry.
 
@@ -36,7 +35,7 @@ If *geom* isn't a `LINESTRING`, then null is returned.
 
 The following SQL returns an extended well-known text (EWKT) representation of a four-point `LINESTRING` to a `GEOMETRY` object and returns the start point of the linestring. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_StartPoint(ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326)));
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE TABLE
-<a name="r_CREATE_TABLE_NEW"></a>
 
 Creates a new table in the current database. You define a list of columns, which each hold data of a distinct type. The owner of the table is the issuer of the CREATE TABLE command.
 
@@ -72,12 +71,12 @@ This clause is useful when scripting, so the script doesn’t fail if CREATE TAB
 Name of the table to be created.  
 If you specify a table name that begins with '\# ', the table is created as a temporary table. The following is an example:  
 
-```
+```sql
 create table #newtable (id int);
 ```
 You also reference the table with the '\# '. For example:   
 
-```
+```sql
 select * from #newtable;
 ```
 The maximum length for the table name is 127 bytes; longer names are truncated to 127 bytes. You can use UTF-8 multibyte characters up to a maximum of four bytes. Amazon Redshift enforces a quota of the number of tables per cluster by node type, including user-defined temporary tables and temporary tables created by Amazon Redshift during query processing or system maintenance. Optionally, the table name can be qualified with the database and schema name. In the following example, the database name is `tickit`, the schema name is `public`, and the table name is `test`.   
@@ -115,7 +114,7 @@ Keep in mind the following about default identity columns:
 + Default identity columns are NOT NULL. NULL can't be inserted.
 + To insert a generated value into a default identity column, use the keyword `DEFAULT`. 
 
-  ```
+  ```sql
   INSERT INTO {{tablename}} ({{identity-column-name}}) VALUES (DEFAULT);
   ```
 + Overriding values of a default identity column doesn't affect the next generated value. 

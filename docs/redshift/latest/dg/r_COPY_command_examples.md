@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # COPY examples
-<a name="r_COPY_command_examples"></a>
 
 **Note**  
 These examples contain line breaks for readability. Do not include line breaks or spaces in your *credentials-args* string.
@@ -971,7 +970,7 @@ The following steps show how to ingest OpenStreetMap data from Amazon S3 using t
 
 The following commands create tables and ingest data that can fit in the maximum geometry size without any simplification. Open the `gis_osm_natural_free_1.shp` in your preferred GIS software and inspect the columns in this layer. By default, either IDENTITY or GEOMETRY columns are first. When a GEOMETRY column is first, you can create the table as shown following.
 
-```
+```sql
 CREATE TABLE norway_natural (
    wkb_geometry GEOMETRY,
    osm_id BIGINT,
@@ -982,7 +981,7 @@ CREATE TABLE norway_natural (
 
 Or, when an IDENTITY column is first, you can create the table as shown following.
 
-```
+```sql
 CREATE TABLE norway_natural_with_id (
    fid INT IDENTITY(1,1),
    wkb_geometry GEOMETRY,
@@ -994,7 +993,7 @@ CREATE TABLE norway_natural_with_id (
 
 Now you can ingest the data using COPY.
 
-```
+```sql
 COPY norway_natural FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_natural_free_1.shp'
 FORMAT SHAPEFILE
 CREDENTIALS 'aws_iam_role=arn:aws:iam::123456789012:role/MyRoleName';
@@ -1003,7 +1002,7 @@ INFO: Load into table 'norway_natural' completed, 83891 record(s) loaded success
 
 Or you can ingest the data as shown following. 
 
-```
+```sql
 COPY norway_natural_with_id FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_natural_free_1.shp'
 FORMAT SHAPEFILE
 CREDENTIALS 'aws_iam_role=arn:aws:iam::123456789012:role/MyRoleName';
@@ -1015,7 +1014,7 @@ INFO: Load into table 'norway_natural_with_id' completed, 83891 record(s) loaded
 
 The following commands create a table and try to ingest data that can't fit in the maximum geometry size without any simplification. Inspect the `gis_osm_water_a_free_1.shp` shapefile and create the appropriate table as shown following.
 
-```
+```sql
 CREATE TABLE norway_water (
    wkb_geometry GEOMETRY,
    osm_id BIGINT,
@@ -1026,7 +1025,7 @@ CREATE TABLE norway_water (
 
 When the COPY command runs, it results in an error.
 
-```
+```sql
 COPY norway_water FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_water_a_free_1.shp'
 FORMAT SHAPEFILE
 CREDENTIALS 'aws_iam_role=arn:aws:iam::123456789012:role/MyRoleName';
@@ -1044,7 +1043,7 @@ SELECT line_number, btrim(colname), btrim(err_reason) FROM stl_load_errors WHERE
 
 To overcome this, the `SIMPLIFY AUTO` parameter is added to the COPY command to simplify geometries.
 
-```
+```sql
 COPY norway_water FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_water_a_free_1.shp'
 FORMAT SHAPEFILE
 SIMPLIFY AUTO
@@ -1065,7 +1064,7 @@ SELECT * FROM svl_spatial_simplify WHERE query = pg_last_copy_id();
 
 Using SIMPLIFY AUTO *max\_tolerance* with the tolerance lower than the automatically calculated ones probably results in an ingestion error. In this case, use MAXERROR to ignore errors.
 
-```
+```sql
 COPY norway_water FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_water_a_free_1.shp'
 FORMAT SHAPEFILE
 SIMPLIFY AUTO 1.1E-05
@@ -1093,7 +1092,7 @@ In this example, the first record didn’t manage to fit, so the `simplified` co
 
 Amazon Redshift COPY supports ingesting data from a compressed shapefile. All shapefile components must have the same Amazon S3 prefix and the same compression suffix. As an example, suppose that you want to load the data from the previous example. In this case, the files `gis_osm_water_a_free_1.shp.gz`, `gis_osm_water_a_free_1.dbf.gz`, and `gis_osm_water_a_free_1.shx.gz` must share the same Amazon S3 directory. The COPY command requires the GZIP option, and the FROM clause must specify the correct compressed file, as shown following.
 
-```
+```sql
 COPY norway_natural FROM 's3://{{bucket_name}}/shapefiles/norway/compressed/gis_osm_natural_free_1.shp.gz'
 FORMAT SHAPEFILE
 GZIP
@@ -1106,7 +1105,7 @@ INFO:  Load into table 'norway_natural' completed, 83891 record(s) loaded succes
 
 If you have a table that doesn't have `GEOMETRY` as the first column, you can use column mapping to map columns to the target table. For example, create a table with `osm_id` specified as a first column.
 
-```
+```sql
 CREATE TABLE norway_natural_order (
    osm_id BIGINT,
    wkb_geometry GEOMETRY,
@@ -1117,7 +1116,7 @@ CREATE TABLE norway_natural_order (
 
 Then ingest a shapefile using column mapping.
 
-```
+```sql
 COPY norway_natural_order(wkb_geometry, osm_id, code, fclass, name) 
 FROM 's3://{{bucket_name}}/shapefiles/norway/gis_osm_natural_free_1.shp'
 FORMAT SHAPEFILE
@@ -1130,19 +1129,19 @@ INFO:  Load into table 'norway_natural_order' completed, 83891 record(s) loaded 
 
 If you have a table that has a `GEOGRAPHY` column, you first ingest into a `GEOMETRY` column and then cast the objects to `GEOGRAPHY` objects. For example, after you copy your shapefile into a `GEOMETRY` column, alter the table to add a column of the `GEOGRAPHY` data type.
 
-```
+```sql
 ALTER TABLE norway_natural ADD COLUMN wkb_geography GEOGRAPHY;
 ```
 
 Then convert geometries to geographies.
 
-```
+```sql
 UPDATE norway_natural SET wkb_geography = wkb_geometry::geography;
 ```
 
 Optionally, you can drop the `GEOMETRY` column.
 
-```
+```sql
 ALTER TABLE norway_natural DROP COLUMN wkb_geometry;
 ```
 
@@ -1151,7 +1150,7 @@ ALTER TABLE norway_natural DROP COLUMN wkb_geometry;
 
 To validate data files before you actually load the data, use the NOLOAD option with the COPY command. Amazon Redshift parses the input file and displays any errors that occur. The following example uses the NOLOAD option and no rows are actually loaded into the table.
 
-```
+```sql
 COPY public.zipcode1
 FROM 's3://amzn-s3-demo-bucket/mydata/zipcode.csv' 
 DELIMITER ';' 
@@ -1168,7 +1167,7 @@ Load into table 'zipcode1' completed, 0 record(s) loaded successfully.
 
 The following example loads LATIN1 from an Amazon S3 file that contains multibyte data. The COPY command specifies the delimiter in octal form `\302\246\303\254` to separate the fields in the input file which is encoded as ISO-8859-1. To specify the same delimiter in UTF-8, specify `DELIMITER '¦ì'`.
 
-```
+```sql
 COPY latin1
 FROM 's3://amzn-s3-demo-bucket/multibyte/myfile' 
 IAM_ROLE 'arn:aws:iam::123456789012:role/myRedshiftRole'

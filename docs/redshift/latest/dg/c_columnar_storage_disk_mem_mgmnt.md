@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Columnar storage
-<a name="c_columnar_storage_disk_mem_mgmnt"></a>
 
 This section describes columnar storage, which is the method Amazon Redshift uses to store tabular data efficiently.
 

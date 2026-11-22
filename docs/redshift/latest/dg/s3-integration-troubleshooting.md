@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Troubleshooting S3 event integration and COPY JOB errors
-<a name="s3-integration-troubleshooting"></a>
 
 Use the following information to troubleshoot common issues with Amazon S3 event integrations and COPY JOB with Amazon Redshift.
 

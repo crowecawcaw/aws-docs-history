@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_SLICES
-<a name="r_STV_SLICES"></a>
 
 Use the STV\_SLICES table to view the current mapping of a slice to a node.
 
@@ -27,7 +26,7 @@ STV\_SLICES is visible to all users. Superusers can see all rows; regular users 
 
 To view which cluster nodes are managing which slices, type the following query:
 
-```
+```sql
 select node, slice from stv_slices;
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW COLUMNS
-<a name="r_SHOW_COLUMNS"></a>
 
 Shows a list of columns in a table, along with some column attributes.
 
@@ -64,7 +63,7 @@ The maximum number of rows to return. The *row\_limit* can be 0–10,000.
 
 Following example shows the columns in the Amazon Redshift database named `sample_data_dev` that are in schema `tickit` and table `event`.
 
-```
+```sql
 SHOW COLUMNS FROM TABLE demo_schema.compound_sort_table;
 
   database_name | schema_name |     table_name      | column_name | ordinal_position | column_default | is_nullable |     data_type     | character_maximum_length | numeric_precision | numeric_scale | remarks | sort_key_type | sort_key | dist_key | encoding | collation 
@@ -77,7 +76,7 @@ SHOW COLUMNS FROM TABLE demo_schema.compound_sort_table;
 
 Following example shows the tables in the AWS Glue Data Catalog database named `awsdatacatalog` that are in schema `batman` and table `nation`. Output is limited to `2` rows.
 
-```
+```sql
 SHOW COLUMNS FROM TABLE second_db.public.t22;
 
  database_name | schema_name | table_name | column_name | ordinal_position | column_default | is_nullable |          data_type          | character_maximum_length | numeric_precision | numeric_scale | remarks | sort_key_type | sort_key | dist_key | encoding | collation 

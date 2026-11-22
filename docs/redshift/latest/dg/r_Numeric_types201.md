@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Numeric types
-<a name="r_Numeric_types201"></a>
 
 **Topics**
 + [Integer types](#r_Numeric_types201-integer-types)
@@ -90,6 +89,6 @@ In addition to ordinary numeric values, the floating-point types have several sp
 
 For example, to insert not-a-number in column `day_charge` of table `customer_activity` run the following SQL:
 
-```
+```sql
 insert into customer_activity(day_charge) values('NaN');
 ```

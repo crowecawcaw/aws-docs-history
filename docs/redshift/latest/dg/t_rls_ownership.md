@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # RLS policy ownership and management
-<a name="t_rls_ownership"></a>
 
 As a superuser, security administrator, or user that has the sys:secadmin role, you can create, modify, attach, and detach RLS policies. RLS policies can be attached to tables, views, late binding views (LBVs), and materialized views (MVs). At the object level, you can turn row-level security on or off without modifying the schema definition for tables.
 

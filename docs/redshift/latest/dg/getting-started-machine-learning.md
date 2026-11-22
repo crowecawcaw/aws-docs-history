@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with Amazon Redshift ML
-<a name="getting-started-machine-learning"></a>
 
 Amazon Redshift ML makes it easy for SQL users to create, train, and deploy machine learning models using familiar SQL commands. With Amazon Redshift ML, you can use your data in your Redshift cluster to train models with Amazon SageMaker AI. Later, the models are localized and predictions can be made within an Amazon Redshift database. Amazon Redshift ML currently supports the machine learning algorithms: XGBoost (AUTO ON and OFF) and multilayer perceptron (AUTO ON), K-Means (AUTO OFF), and Linear Learner.
 
@@ -60,7 +59,7 @@ To perform one-time cluster setup for Amazon Redshift ML
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -139,7 +138,7 @@ To perform one-time cluster setup for Amazon Redshift ML
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

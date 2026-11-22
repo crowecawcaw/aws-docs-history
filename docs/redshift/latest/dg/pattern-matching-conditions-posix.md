@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # POSIX operators
-<a name="pattern-matching-conditions-posix"></a>
 
 A POSIX regular expression is a sequence of characters that specifies a match pattern. A string matches a regular expression if it is a member of the regular set described by the regular expression.
 
@@ -134,7 +133,7 @@ WHERE city ~ '.*E.*|.*H.*' ORDER BY city LIMIT 5;
 
 The following example finds cities whose names don't contain `E` or `H`: 
 
-```
+```sql
 SELECT DISTINCT city FROM users WHERE city !~ '.*E.*|.*H.*' ORDER BY city LIMIT 5;
 
       city

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromGeoSquare
-<a name="ST_GeomFromGeoSquare-function"></a>
 
 ST\_GeomFromGeoSquare returns a geometry that covers the area that is represented by an input geosquare value. The returned geometry is always two-dimensional. To calculate a geosquare value, see [ST\_GeoSquare](ST_GeoSquare-function.md).
 
@@ -41,7 +40,7 @@ If the input *max\_depth* is not within range, the function returns an error.
 
 The following SQL returns a geometry from a geosquare value.
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoSquare(797852));
 ```
 
@@ -53,7 +52,7 @@ SELECT ST_AsText(ST_GeomFromGeoSquare(797852));
 
 The following SQL returns a geometry from a geosquare value and a maximum depth of `3`. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoSquare(797852, 3));
 ```
 
@@ -65,7 +64,7 @@ SELECT ST_AsText(ST_GeomFromGeoSquare(797852, 3));
 
 The following SQL first calculates the geosquare value for Seattle by specifying the x coordinate as longitude and the y coordinate as latitude (-122.3, 47.6). Then it returns the polygon for the geosquare. Although the output is a two-dimensional geometry, it can be used to calculate spatial data in terms of longitude and latitude.
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromGeoSquare(ST_GeoSquare(ST_Point(-122.3, 47.6))));
 ```
 

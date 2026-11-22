@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # enable\_case\_sensitive\_super\_attribute
-<a name="r_enable_case_sensitive_super_attribute"></a>
 
 ## Values (default in bold)
 <a name="r_enable_case_sensitive_super_attribute-values"></a>
@@ -26,7 +25,7 @@ For more information on navigating uppercase and mixed-case JSON fields, see [Ac
 
 The following example shows the results of selecting SUPER values with `enable_case_sensitive_super_attribute` enabled and with it disabled.
 
-```
+```sql
 --Create a table with a SUPER column.
 CREATE TABLE tbl (col SUPER);
  

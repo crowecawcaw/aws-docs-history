@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Analyzing tables
-<a name="t_Analyzing_tables"></a>
 
 The ANALYZE operation updates the statistical metadata that the query planner uses to choose optimal plans.
 
@@ -53,7 +52,7 @@ To reduce processing time and improve overall system performance, Amazon Redshif
 
 Columns that are less likely to require frequent analysis are those that represent facts and measures and any related attributes that are never actually queried, such as large VARCHAR columns. For example, consider the LISTING table in the TICKIT database.
 
-```
+```sql
 select "column", type, encoding, distkey, sortkey
 from pg_table_def where tablename = 'listing';
 
@@ -72,7 +71,7 @@ listtime       | timestamp with...  | none     | f       | 0
 
 If this table is loaded every day with a large number of new records, the LISTID column, which is frequently used in queries as a join key, must be analyzed regularly. If TOTALPRICE and LISTTIME are the frequently used constraints in queries, you can analyze those columns and the distribution key on every weekday.
 
-```
+```sql
 analyze listing(listid, totalprice, listtime);
 ```
 
@@ -92,7 +91,7 @@ You might choose to use PREDICATE COLUMNS when your workload's query pattern is 
 
 To view details for predicate columns, use the following SQL to create a view named PREDICATE\_COLUMNS. 
 
-```
+```sql
 CREATE VIEW predicate_columns AS
 WITH predicate_column_info as (
 SELECT ns.nspname AS schema_name, c.relname AS table_name, a.attnum as col_num,  a.attname as col_name,
@@ -116,7 +115,7 @@ FROM predicate_column_info;
 
 Suppose that you run the following query against the LISTING table. Note that LISTID, LISTTIME, and EVENTID are used in the join, filter, and group by clauses.
 
-```
+```sql
 select s.buyerid,l.eventid, sum(l.totalprice)
 from listing l
 join sales s on l.listid = s.listid
@@ -126,7 +125,7 @@ group by l.eventid, s.buyerid;
 
 When you query the PREDICATE\_COLUMNS view, as shown in the following example, you see that LISTID, EVENTID, and LISTTIME are marked as predicate columns.
 
-```
+```sql
 select * from predicate_columns 
 where table_name = 'listing';
 ```
@@ -166,7 +165,7 @@ padb_fetch_sample: select * from table_name
 
 Query STL\_ANALYZE to view the history of analyze operations. If Amazon Redshift analyzes a table using automatic analyze, the `is_background` column is set to `t` (true). Otherwise, it is set to `f` (false). The following example joins STV\_TBL\_PERM to show the table name and runtime details.
 
-```
+```sql
 select distinct a.xid, trim(t.name) as name, a.status, a.rows, a.modified_rows, a.starttime, a.endtime
 from stl_analyze a 
 join stv_tbl_perm t  on t.id=a.table_id
@@ -186,7 +185,7 @@ xid    | name  | status          | rows  | modified_rows | starttime           |
 
 Alternatively, you can run a more complex query that returns all the statements that ran in every completed transaction that included an ANALYZE command: 
 
-```
+```sql
 select xid, to_char(starttime, 'HH24:MM:SS.MS') as starttime,
 datediff(sec,starttime,endtime ) as secs, substring(text, 1, 40)
 from svl_statementtext

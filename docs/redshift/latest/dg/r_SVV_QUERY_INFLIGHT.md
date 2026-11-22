@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_QUERY\_INFLIGHT
-<a name="r_SVV_QUERY_INFLIGHT"></a>
 
 Use the SVV\_QUERY\_INFLIGHT view to determine what queries are currently running on the database. This view joins [STV\_INFLIGHT](r_STV_INFLIGHT.md) to [STL\_QUERYTEXT](r_STL_QUERYTEXT.md). SVV\_QUERY\_INFLIGHT does not show leader-node only queries. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md).
 

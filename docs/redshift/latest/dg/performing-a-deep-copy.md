@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Performing a deep copy
-<a name="performing-a-deep-copy"></a>
 
 A deep copy recreates and repopulates a table by using a bulk insert, which automatically sorts the table. If a table has a large unsorted Region, a deep copy is much faster than a vacuum. We recommend that you only make concurrent updates during a deep copy operation if you can track them. After the process has completed, move the delta updates into the new table. A VACUUM operation supports concurrent updates automatically. 
 
@@ -49,7 +48,7 @@ Additionally, you might have to grant usage permission for the schema your deep 
 
 The following example performs a deep copy on the SAMPLE table using a duplicate of SAMPLE named sample\_copy.
 
-```
+```sql
 --Create a copy of the original table in the sample_namespace namespace using the original CREATE TABLE DDL.
 create table {{sample_namespace}}.sample_copy ( … );
 
@@ -93,7 +92,7 @@ alter table sample_namespace.sample_copy rename to sample;
 
 The following example performs a deep copy on the SAMPLE table using CREATE TABLE LIKE.
 
-```
+```sql
 --Create a copy of the original table in the sample_namespace namespace using CREATE TABLE LIKE.
 create table {{sameple_namespace}}.sample_copy (like {{public}}.sample);
 
@@ -131,7 +130,7 @@ alter table sample_namespace.sample_copy rename to sample;
 
 The following example performs a deep copy on the SALES table by creating a temporary table and truncating the original table. Since the original table remains, you don't need to grant permissions to the copy table.
 
-```
+```sql
 --Create a temp table copy using CREATE TABLE AS.
 create temp table salestemp as select * from sales;
 

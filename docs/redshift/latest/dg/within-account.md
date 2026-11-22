@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sharing read access to data within an AWS account
-<a name="within-account"></a>
 
 With Amazon Redshift, you can share read access to data across different database users or groups within the same AWS account. With this feature, you can control data access privileges at a granular level, ensuring that only authorized users or groups can read specific data sets. 
 

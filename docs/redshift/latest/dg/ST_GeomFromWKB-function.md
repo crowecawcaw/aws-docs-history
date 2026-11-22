@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromWKB
-<a name="ST_GeomFromWKB-function"></a>
 
 ST\_GeomFromWKB constructs a geometry object from a hexadecimal well-known binary (WKB) representation of an input geometry. 
 
@@ -47,7 +46,7 @@ If *srid* is not valid, then an error is returned.
 
 The following SQL constructs a polygon from a WKB value and returns the WKT representation of a polygon. 
 
-```
+```sql
 SELECT ST_AsText(ST_GeomFromWKB('01030000000100000005000000000000000000000000000000000000000000000000000000000000000000F03F000000000000F03F000000000000F03F000000000000F03F000000000000000000000000000000000000000000000000'));            
 ```
 

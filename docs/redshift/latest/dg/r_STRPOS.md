@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STRPOS function
-<a name="r_STRPOS"></a>
 
 Returns the position of a substring within a specified string. 
 
@@ -36,7 +35,7 @@ The STRPOS function returns an `INTEGER` corresponding to the position of the *s
 
 STRPOS returns `0` if the *substring* is not found within the *string*. 
 
-```
+```sql
 SELECT STRPOS('dogfish', 'fist');
 
 +--------+
@@ -51,7 +50,7 @@ SELECT STRPOS('dogfish', 'fist');
 
 To show the position of `fish` within `dogfish`, use the following example. 
 
-```
+```sql
 SELECT STRPOS('dogfish', 'fish');
 
 +--------+
@@ -65,7 +64,7 @@ The following example uses data from the SALES table in the TICKIT sample databa
 
 To return the number of sales transactions with a COMMISSION over 999.00 from the SALES table, use the following example. 
 
-```
+```sql
 SELECT DISTINCT STRPOS(commission, '.'),
 COUNT (STRPOS(commission, '.'))
 FROM sales

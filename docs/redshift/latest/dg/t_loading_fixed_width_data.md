@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading fixed-width data from Amazon S3
-<a name="t_loading_fixed_width_data"></a>
 
 Fixed-width data files have uniform lengths for each column of data. Each field in a fixed-width data file has exactly the same length and position. For character data (CHAR and VARCHAR) in a fixed-width data file, you must include leading or trailing spaces as placeholders in order to keep the width uniform. For integers, you must use leading zeros as placeholders. A fixed-width data file has no delimiter to separate columns.
 
@@ -11,7 +10,7 @@ To load a fixed-width data file into an existing table, USE the FIXEDWIDTH param
 
 To load fixed-width data from a file to a table, issue the following command:
 
-```
+```sql
 COPY table_name FROM 's3://amzn-s3-demo-bucket/prefix' 
 IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole' 
 FIXEDWIDTH 'fixedwidth_spec';
@@ -41,7 +40,7 @@ The following example shows fixed-width sample data that could be loaded into th
 
 The following COPY command loads this data set into the VENUE table:
 
-```
+```sql
 COPY venue
 FROM 's3://amzn-s3-demo-bucket/data/venue_fw.txt' 
 IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole' 

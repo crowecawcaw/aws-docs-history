@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Computations with numeric values
-<a name="r_numeric_computations201"></a>
 
 In this context, *computation* refers to binary mathematical operations: addition, subtraction, multiplication, and division. This section describes the expected return types for these operations, as well as the specific formula that is applied to determine precision and scale when DECIMAL data types are involved. 
 
@@ -115,7 +114,7 @@ If the calculated precision is greater than the maximum precision (38), the prec
 Overflow is checked for all numeric computations. DECIMAL data with a precision of 19 or less is stored as 64-bit integers. DECIMAL data with a precision that is greater than 19 is stored as 128-bit integers. The maximum precision for all DECIMAL values is 38, and the maximum scale is 37. Overflow errors occur when a value exceeds these limits, which apply to both intermediate and final result sets: 
 + Explicit casting results in runtime overflow errors when specific data values do not fit the requested precision or scale specified by the cast function. For example, you cannot cast all values from the PRICEPAID column in the SALES table (a DECIMAL(8,2) column) and return a DECIMAL(7,3) result: 
 
-  ```
+  ```sql
   select pricepaid::decimal(7,3) from sales;
   ERROR:  Numeric data overflow (result precision)
   ```
@@ -125,14 +124,14 @@ Overflow is checked for all numeric computations. DECIMAL data with a precision 
 
   The following example results in an overflow error.
 
-  ```
+  ```sql
   SELECT CAST(1 AS DECIMAL(38, 20)) * CAST(10 AS DECIMAL(38, 20));
   ERROR: 128 bit numeric data overflow (multiplication)
   ```
 
   You can work around the overflow error by using division instead of multiplication. Use the following example to divide by 1 divided by the original divisor.
 
-  ```
+  ```sql
   SELECT CAST(1 AS DECIMAL(38, 20)) / (1 / CAST(10 AS DECIMAL(38, 20)));
   +----------+
   | ?column? |

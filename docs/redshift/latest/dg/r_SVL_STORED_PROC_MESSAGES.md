@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_STORED\_PROC\_MESSAGES
-<a name="r_SVL_STORED_PROC_MESSAGES"></a>
 
 You can query the system view SVL\_STORED\_PROC\_MESSAGES to get information about stored procedure messages. Raised messages are logged even if the stored procedure call is canceled. Each stored procedure call receives a query ID. For more information about how to set the minimum level for logged messages, see stored\_proc\_log\_min\_messages.
 

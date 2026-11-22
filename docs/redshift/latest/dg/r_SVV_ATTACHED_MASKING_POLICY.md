@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_ATTACHED\_MASKING\_POLICY
-<a name="r_SVV_ATTACHED_MASKING_POLICY"></a>
 
 Use SVV\_ATTACHED\_MASKING\_POLICY to view all the relations and roles/users with policies attached on the currently connected database. 
 
@@ -40,7 +39,7 @@ Get the highest priority policy that applies to a given column/role pair.
 #### Syntax
 <a name="r_SVV_ATTACHED_MASKING_POLICY-internal-functions-get-pol-role-syntax"></a>
 
-```
+```SQL
 mask_get_policy_for_role_on_column 
                         (relschema, 
                         relname, 
@@ -71,7 +70,7 @@ Get the highest priority policy that applies to a given column/user pair.
 #### Syntax
 <a name="r_SVV_ATTACHED_MASKING_POLICY-internal-functions-get-pol-user-syntax"></a>
 
-```
+```SQL
 mask_get_policy_for_user_on_column 
                         (relschema, 
                         relname, 

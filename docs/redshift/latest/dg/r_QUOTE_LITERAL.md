@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # QUOTE\_LITERAL function
-<a name="r_QUOTE_LITERAL"></a>
 
 The QUOTE\_LITERAL function returns the specified string as a single quoted string so that it can be used as a string literal in a SQL statement. If the input parameter is a number, QUOTE\_LITERAL treats it as a string. Appropriately doubles any embedded single quotation marks and backslashes. 
 
@@ -30,7 +29,7 @@ The QUOTE\_LITERAL function returns a `CHAR` or `VARCHAR` string that is the sam
 
 To return the string `''CAT''` with SINGLE quotation marks, use the following example.
 
-```
+```sql
 SELECT QUOTE_LITERAL('''CAT''');
 
 +---------------+
@@ -44,7 +43,7 @@ The following examples use data from the CATEGORY table in the TICKIT sample dat
 
 To return the CATNAME column surrounded by single quotation marks, use the following example.
 
-```
+```sql
 SELECT catid, QUOTE_LITERAL(catname)
 FROM category
 ORDER BY 1,2;
@@ -68,7 +67,7 @@ ORDER BY 1,2;
 
 To return the CATID column surrounded by single quotation marks, use the following example.
 
-```
+```sql
 SELECT QUOTE_LITERAL(catid), catname
 FROM category
 ORDER BY 1,2;

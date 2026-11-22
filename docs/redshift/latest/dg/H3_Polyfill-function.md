@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # H3\_Polyfill
-<a name="H3_Polyfill-function"></a>
 
 H3\_Polyfill returns the corresponding H3 cell IDs that correspond to the hexagons and pentagons that are contained in the input polygon of the given resolution. For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3).
 
@@ -39,7 +38,7 @@ If *geom* is empty, then NULL is returned.
 
 The following SQL returns a SUPER data type array of H3 cell IDs from a polygon and resolution `4`. 
 
-```
+```sql
 SELECT H3_Polyfill(ST_GeomFromText('POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))'), 4);
 ```
 

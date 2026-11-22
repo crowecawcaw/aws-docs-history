@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Considerations for data sharing with AWS Data Exchange in Amazon Redshift
-<a name="adx-considerations"></a>
 
 When using AWS Data Exchange for Amazon Redshift, consider the following:
 + Both producers and consumers must use the RG or RA3 instance types to use Amazon Redshift datashares. Producers must use the RG or RA3 instance types with the latest Amazon Redshift cluster version.

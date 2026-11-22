@@ -3,17 +3,16 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Merge examples
-<a name="merge-examples"></a>
 
 The following examples perform a merge to update the SALES table. The first example uses the simpler method of deleting from the target table and then inserting all of the rows from the staging table. The second example requires updating on select columns in the target table, so it includes an extra update step. 
 
-The [Merge examples](#merge-examples) use a sample dataset for Amazon Redshift, called the TICKIT data set. As a prerequisite, you can set up the TICKIT tables and data by following the instructions available in the guide [Getting started with common database tasks](https://docs.aws.amazon.com/redshift/latest/gsg/database-tasks.html). More detailed information about the sample data set is found at [Sample database](https://docs.aws.amazon.com/redshift/latest/dg/c_sampledb.html). 
+The [Merge examples](merge-examples.md) use a sample dataset for Amazon Redshift, called the TICKIT data set. As a prerequisite, you can set up the TICKIT tables and data by following the instructions available in the guide [Getting started with common database tasks](https://docs.aws.amazon.com/redshift/latest/gsg/database-tasks.html). More detailed information about the sample data set is found at [Sample database](https://docs.aws.amazon.com/redshift/latest/dg/c_sampledb.html). 
 
 **Sample merge data source**
 
 The examples in this section use a sample data source that includes both updates and inserts. To set up the sample data, you create a table named SALES\_UPDATE from the SALES table and populate it with random data that represents new sales activity for December. The following examples use the SALES\_UPDATE table as the staging table. 
 
-```
+```sql
 -- Create a sample table as a copy of the SALES table.
 
 create table tickit.sales_update as
@@ -42,7 +41,7 @@ and mod(sellerid, 4) = 0;
 
 The following example uses the SALES\_UPDATE table to perform a merge operation on the SALES table with new data for December sales activity. The merge replaces rows in the SALES table that have updates, modifying the `qtysold` and `pricepaid` columns while leaving `commission` and `saletime` unchanged.
 
-```
+```sql
 MERGE into tickit.sales 
 USING tickit.sales_update sales_update  
 on ( sales.salesid = sales_update.salesid
@@ -77,7 +76,7 @@ OR sales.salestime != sales_update.salestime);
 
 The following example performs a merge operation on the SALES table with new data for December activity, using the SALES\_UPDATE table as the data source. The sample data includes updates, inserts, and unchanged rows. The merge updates the `qtysold` and `pricepaid` columns but leaves `commission` and `saletime` unchanged. 
 
-```
+```sql
 -- Create a staging table and populate it with rows from SALES_UPDATE for Dec
 create temp table stagesales as select * from sales_update
 where saletime > '2008-11-30';

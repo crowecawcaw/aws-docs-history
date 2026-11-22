@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Querying catalogs registered in the AWS Glue Data Catalog
-<a name="iceberg-integration-querying"></a>
 
 After you register an Amazon Redshift data warehouse to the AWS Glue Data Catalog and set permissions for the resulting catalog in AWS Lake Formation, the catalog is automatically mounted in all Amazon Redshift instances with access to the source data warehouse in the same account and AWS Region. You can then query that catalog as you would a local cluster or workgroup. You can also query catalogs registered to the AWS Glue Data Catalog using any SQL engine that supports the Apache Iceberg REST Open API. For more information on querying catalogs in the AWS Glue Data Catalog using the Apache Iceberg REST API, see [Accessing the Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/access_catalog.html) in the *AWS Glue Developer Guide*. For information on the Apache Iceberg REST API, see the [ Apache Iceberg REST Open API specification](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml).
 

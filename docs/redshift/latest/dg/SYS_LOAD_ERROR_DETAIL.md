@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_LOAD\_ERROR\_DETAIL
-<a name="SYS_LOAD_ERROR_DETAIL"></a>
 
 Use SYS\_LOAD\_ERROR\_DETAIL to view details of COPY command errors. Each row represents a COPY command. It contains both running and finished COPY commands.
 
@@ -36,7 +35,7 @@ SYS\_LOAD\_ERROR\_DETAIL is visible to all users. Superusers can see all rows; r
 
 The following query shows the load error details of copy command for specific query.
 
-```
+```sql
 SELECT query_id,
        table_id,
        start_time,

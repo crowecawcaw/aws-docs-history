@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_S3CLIENT
-<a name="r_STL_S3CLIENT"></a>
 
 Records transfer time and other performance metrics.
 
@@ -66,7 +65,7 @@ Result
 
 The following query converts the `start_time` and `end_time` to a timestamp. 
 
-```
+```sql
 select userid,query,slice,pid,recordtime,start_time,end_time,
 '2000-01-01'::timestamp + (start_time/1000000.0)* interval '1 second' as start_ts,
 '2000-01-01'::timestamp + (end_time/1000000.0)* interval '1 second' as end_ts 

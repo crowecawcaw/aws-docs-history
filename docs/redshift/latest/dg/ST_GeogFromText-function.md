@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeogFromText
-<a name="ST_GeogFromText-function"></a>
 
 ST\_GeogFromText constructs a geography object from a well-known text (WKT) or extended well-known text (EWKT) representation of an input geography. 
 
@@ -36,7 +35,7 @@ If *wkt\_string* is not valid, then an error is returned.
 
 The following SQL constructs a polygon from a geography object with an SRID value. 
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeogFromText('SRID=4324;POLYGON((0 0,0 1,1 1,10 10,1 0,0 0))'));
 ```
 
@@ -48,7 +47,7 @@ SELECT ST_AsEWKT(ST_GeogFromText('SRID=4324;POLYGON((0 0,0 1,1 1,10 10,1 0,0 0))
 
 The following SQL constructs a polygon from a geography object. The SRID value is set to `4326`.
 
-```
+```sql
 SELECT ST_AsEWKT(ST_GeogFromText('POLYGON((0 0,0 1,1 1,10 10,1 0,0 0))'));
 ```
 

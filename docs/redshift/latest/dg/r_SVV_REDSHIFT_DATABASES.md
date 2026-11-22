@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_REDSHIFT\_DATABASES
-<a name="r_SVV_REDSHIFT_DATABASES"></a>
 
 Use SVV\_ REDSHIFT\_DATABASES to view a list of all the databases that a user has access to. This includes the databases on the cluster and the databases created from datashares provided by remote clusters. 
 
@@ -32,7 +31,7 @@ Use the [SHOW DATABASES](r_SHOW_DATABASES.md) command for database discovery. SH
 
 The following example returns the output for SVV\_REDSHIFT\_DATABASES.
 
-```
+```sql
 select database_name, database_owner, database_type, database_options, database_isolation_level 
 from  svv_redshift_databases;
 

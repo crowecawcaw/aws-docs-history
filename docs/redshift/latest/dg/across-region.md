@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Sharing data across AWS Regions
-<a name="across-region"></a>
 
 You can share data for read purposes across Amazon Redshift clusters in AWS Regions. With cross-Region data sharing, you can share data across AWS Regions without the need to copy data manually. You don't have to unload your data into Amazon S3 and copy the data into a new Amazon Redshift cluster or perform cross-Region snapshot copy.
 

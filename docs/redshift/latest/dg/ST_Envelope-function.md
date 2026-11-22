@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Envelope
-<a name="ST_Envelope-function"></a>
 
 ST\_Envelope returns the minimum bounding box of the input geometry, as follows:
 + If the input geometry is empty, the returned geometry is a copy of the input geometry. 
@@ -40,7 +39,7 @@ If *geom* is null, then null is returned.
 
 The following SQL converts a well-known text (WKT) representation of a four-point `LINESTRING` to a `GEOMETRY` object and returns a polygon whose vertices whose corners are the minimum bounding box. 
 
-```
+```sql
 SELECT ST_AsText(ST_Envelope(ST_GeomFromText('GEOMETRYCOLLECTION(POLYGON((0 0,10 0,0 10,0 0)),LINESTRING(20 10,20 0,10 0))')));
 ```
 

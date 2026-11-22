@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Credentials and access permissions
-<a name="loading-data-access-permissions"></a>
 
  To load or unload data using another AWS resource, such as Amazon S3, Amazon DynamoDB, Amazon EMR, or Amazon EC2, Amazon Redshift must have permission to access the resource and perform the necessary actions to access the data. For example, to load data from Amazon S3, COPY must have LIST access to the bucket and GET access for the bucket objects. 
 
@@ -24,7 +23,7 @@ When you create an IAM role, IAM returns an Amazon Resource Name (ARN) for the r
 
 The following COPY command example uses IAM\_ROLE parameter with the role `MyRedshiftRole` for authentication.
 
-```
+```sql
 COPY customer FROM 's3://amzn-s3-demo-bucket/mydata' 
 IAM_ROLE 'arn:aws:iam::12345678901:role/MyRedshiftRole';
 ```

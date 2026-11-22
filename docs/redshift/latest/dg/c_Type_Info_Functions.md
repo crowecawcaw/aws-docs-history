@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SUPER type information functions
-<a name="c_Type_Info_Functions"></a>
 
 Following, you can find a description for the type information functions for SQL that Amazon Redshift supports to derive the dynamic information from inputs of the `SUPER` data type.
 

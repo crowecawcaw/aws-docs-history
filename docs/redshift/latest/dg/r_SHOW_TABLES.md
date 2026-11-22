@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW TABLES
-<a name="r_SHOW_TABLES"></a>
 
 Shows a list of tables in a schema, along with some table attributes.
 
@@ -61,7 +60,7 @@ The maximum number of rows to return. The *row\_limit* can be 0–10,000.
 ## Examples
 <a name="r_SHOW_TABLES-examples"></a>
 
-```
+```sql
 SHOW TABLES FROM SCHEMA s1;
 
  database_name | schema_name |    table_name     | table_type |              table_acl              | remarks | owner |     last_altered_time      |     last_modified_time     | dist_style |   table_subtype   
@@ -72,7 +71,7 @@ SHOW TABLES FROM SCHEMA s1;
  dev           | s1          | test_table        | TABLE      | alice=arwdRxtDPA/alice~bob=rw/alice |         | alice | 2025-11-18 15:52:00.010452 | 2025-11-18 15:44:34.856073 | AUTO (ALL) | REGULAR TABLE
 ```
 
-```
+```sql
 SHOW TABLES FROM SCHEMA dev.s1 LIKE '%view' LIMIT 1;
 
  database_name | schema_name |    table_name     | table_type |              table_acl               | remarks | owner | last_altered_time | last_modified_time | dist_style |   table_subtype   
@@ -84,6 +83,6 @@ Iceberg materialized views appear in SHOW TABLES output with `table_type = 'EXTE
 
 The following example lists tables in a AWS Glue database, where Iceberg materialized views can be identified by `table_subtype`:
 
-```
+```sql
 SHOW TABLES FROM SCHEMA awsdatacatalog.mydb LIKE '%';
 ```

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_INTEGRATION\_ACTIVITY
-<a name="r_SYS_INTEGRATION_ACTIVITY"></a>
 
 SYS\_INTEGRATION\_ACTIVITY displays details about completed integration runs.
 
@@ -33,7 +32,7 @@ For information about zero-ETL integrations, see [Working with zero-ETL integrat
 
 The following SQL command displays the log of integrations. 
 
-```
+```sql
 select * from sys_integration_activity;
 
           integration_id              | target_database | source |            checkpoint_name                  | checkpoint_type  | checkpoint_bytes | last_commit_timestamp   | modified_tables |   integration_start_time   |    integration_end_time

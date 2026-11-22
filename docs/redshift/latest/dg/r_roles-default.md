@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift system-defined roles
-<a name="r_roles-default"></a>
 
 Amazon Redshift provides a few system-defined roles that are defined with specific permissions. System-specific roles start with a `sys:` prefix. Only users with appropriate access can alter system-defined roles or create custom system-defined roles. You can't use the `sys:` prefix for a custom system-defined role. 
 

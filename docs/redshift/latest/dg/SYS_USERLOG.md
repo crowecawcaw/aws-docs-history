@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_USERLOG
-<a name="SYS_USERLOG"></a>
 
 Records details for the following changes to a database user:
 + Create user
@@ -38,7 +37,7 @@ SYS\_USERLOG is visible only to superusers. For more information, see [Visibilit
 
 The following example performs four user actions, then queries the SYS\_USERLOG view.
 
-```
+```sql
 CREATE USER userlog1 password 'Userlog1';
 ALTER USER userlog1 createdb createuser;
 ALTER USER userlog1 rename  to userlog2;

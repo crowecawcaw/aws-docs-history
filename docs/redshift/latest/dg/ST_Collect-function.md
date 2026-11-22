@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Collect
-<a name="ST_Collect-function"></a>
 
 ST\_Collect has two variants. One accepts two geometries, and one accepts an aggregate expression. 
 
@@ -75,7 +74,7 @@ If two geometries in *aggregate\_expression* are of different dimensions, then a
 
 The following SQL returns a geometry collection that contains the two input geometries. 
 
-```
+```sql
 SELECT ST_AsText(ST_Collect(ST_GeomFromText('LINESTRING(0 0,1 1)'), ST_GeomFromText('POLYGON((10 10,20 10,10 20,10 10))')));
 ```
 
@@ -87,7 +86,7 @@ st_astext
 
 The following SQL collects all the geometries from a table into a geometry collection. 
 
-```
+```sql
 WITH tbl(g) AS (SELECT ST_GeomFromText('POINT(1 2)', 4326) UNION ALL
 SELECT ST_GeomFromText('LINESTRING(0 0,10 0)', 4326) UNION ALL
 SELECT ST_GeomFromText('MULTIPOINT(13 4,8 5,4 4)', 4326) UNION ALL
@@ -109,7 +108,7 @@ The following SQL collects all geometries in the table grouped by the id column 
 + id 4 – polygons in a multipolygon.
 + id 5 – null and the result is null.
 
-```
+```sql
 WITH tbl(id, g) AS (SELECT 1, ST_GeomFromText('POINT(1 2)', 4326) UNION ALL
 SELECT 1, ST_GeomFromText('POINT(4 5)', 4326) UNION ALL
 SELECT 2, ST_GeomFromText('LINESTRING(0 0,10 0)', 4326) UNION ALL
@@ -135,7 +134,7 @@ SELECT id, ST_AsEWKT(ST_Collect(g)) FROM tbl GROUP BY id ORDER BY id;
 
 The following SQL collects all geometries from a table in a geometry collection. Results are ordered in descending order by `id`, and then lexicographically based on their minimum and maximum x-coordinates. 
 
-```
+```sql
 WITH tbl(id, g) AS (
 SELECT 1, ST_GeomFromText('POINT(4 5)', 4326) UNION ALL
 SELECT 1, ST_GeomFromText('POINT(1 2)', 4326) UNION ALL

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connecting to consumer databases in Amazon Redshift
-<a name="database-direct-connect"></a>
 
 With a direct connection to a datashare database, you can directly connect to a database created from a datashare in the same way as you can connect to any other type of Amazon Redshift database. For example, you can connect to a database created from a datashare using JDBC or ODBC drivers, the Amazon Redshift query editor v2, or any other tool that can connect to an Amazon Redshift database. For more information, see [Connecting to an Amazon Redshift data warehouse using SQL client tools](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-to-cluster.html).
 

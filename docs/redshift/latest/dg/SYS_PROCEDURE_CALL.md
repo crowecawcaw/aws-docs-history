@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_PROCEDURE\_CALL
-<a name="SYS_PROCEDURE_CALL"></a>
 
 Use the SYS\_PROCEDURE\_CALL view to get information about stored procedure calls, including start time, end time, status of a stored procedure call, and call hierarchy for nested stored procedure calls. Each stored procedure call receives a query ID.
 
@@ -30,7 +29,7 @@ SYS\_PROCEDURE\_CALL is visible to all users. Superusers can see all rows; regul
 
 The following query returns a nested stored procedure call hierarchy.
 
-```
+```sql
 select query_id, datediff(seconds, start_time, end_time) as elapsed_time, status, trim(query_text) as call, caller_procedure_query_id from sys_procedure_call;
 ```
 

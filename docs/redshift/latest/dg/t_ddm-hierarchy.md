@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Dynamic data masking policy hierarchy
-<a name="t_ddm-hierarchy"></a>
 
 When attaching multiple masking policies, consider the following:
 + You can attach multiple masking policies to a single column.
@@ -32,7 +31,7 @@ When attaching multiple masking policies, consider the following:
 
   The first example shows two masking policies attached on the same path, with the higher priority policy taking effect. 
 
-  ```
+  ```sql
   ATTACH MASKING POLICY hide_name
   ON employees(col_person.name)
   TO PUBLIC
@@ -49,7 +48,7 @@ When attaching multiple masking policies, consider the following:
 
   The second example shows two masking policies attached to different paths in the same SUPER object, with no conflict between the policies. Both attachments will apply at the same time.
 
-  ```
+  ```sql
   ATTACH MASKING POLICY hide_first_name
   ON employees(col_person.name.first)
   TO PUBLIC

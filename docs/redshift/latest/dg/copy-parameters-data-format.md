@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data format parameters
-<a name="copy-parameters-data-format"></a>
 
 By default, the COPY command expects the source data to be character-delimited UTF-8 text. The default delimiter is a pipe character ( \| ). If the source data is in another format, use the following parameters to specify the data format: 
 + [FORMAT](#copy-format)

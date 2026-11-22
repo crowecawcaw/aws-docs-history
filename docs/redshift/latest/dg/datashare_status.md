@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Datashare status values in Amazon Redshift
-<a name="datashare_status"></a>
 
 With Amazon Redshift, you can securely share live data across Amazon Redshift clusters without having to copy or transfer data. With datashares for Amazon Redshift, you can share live query results, including updates to the source data, with any Amazon Redshift cluster in the same or different AWS accounts and AWS Regions. This topic describes the possible statuses that datashares can have in Amazon Redshift.
 

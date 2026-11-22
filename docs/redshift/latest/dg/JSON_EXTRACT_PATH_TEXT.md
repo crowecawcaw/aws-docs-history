@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # JSON\_EXTRACT\_PATH\_TEXT function
-<a name="JSON_EXTRACT_PATH_TEXT"></a>
 
 **Note**  
 JSON\_PARSE and its associated functions parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.  
@@ -49,7 +48,7 @@ A `VARCHAR` string representing the JSON value referenced by the path elements.
 
 To return the value for the path `'f4', 'f6'`, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}}','f4', 'f6');
 
 +------------------------+
@@ -61,7 +60,7 @@ SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}}','f4',
 
 To return an error because the JSON is invalid, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}','f4', 'f6');
 
 ERROR: invalid json object {"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}
@@ -69,7 +68,7 @@ ERROR: invalid json object {"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}
 
 To set *null\_if\_invalid* to *TRUE*, so the statement returns `NULL` for invalid JSON instead of returning an error, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}','f4', 'f6',true);
 
 +------------------------+
@@ -81,7 +80,7 @@ SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}','f4', 
 
 Consider the following example, which selects the value for the path `'farm', 'barn', 'color'`, where the value retrieved is at the third level, use the following example. This sample is formatted with a JSON lint tool, to make it easier to read.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{
     "farm": {
         "barn": {
@@ -99,7 +98,7 @@ SELECT JSON_EXTRACT_PATH_TEXT('{
 
 To return `NULL` because the `'color'` element is missing, use the following example. This sample is formatted with a JSON lint tool.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{
     "farm": {
         "barn": {}
@@ -117,7 +116,7 @@ If the JSON is valid, trying to extract an element that's missing returns `NULL`
 
 To return the value for the path `'house', 'appliances', 'washing machine', 'brand'`, use the following example.
 
-```
+```sql
 SELECT JSON_EXTRACT_PATH_TEXT('{
   "house": {
     "address": {
@@ -152,7 +151,7 @@ SELECT JSON_EXTRACT_PATH_TEXT('{
 
 The following example creates a sample table and populates it with SUPER values, then returns the value for the path `'f2'` for both rows.
 
-```
+```sql
 CREATE TABLE json_example(id INT, json_text SUPER);
 
 INSERT INTO json_example VALUES
@@ -183,7 +182,7 @@ id          | json_text
 
 Consider the following example statements. The provided *path\_elem* is NULL, so JSON\_EXTRACT\_PATH\_TEXT returns NULL regardless of the value of any other parameters. 
 
-```
+```SQL
 --Statement where path_elem is NULL and json_string is valid JSON.
 SELECT JSON_EXTRACT_PATH_TEXT('{"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}}',NULL);
 
@@ -215,7 +214,7 @@ SELECT json_extract_path_text(NULL, 0, FALSE);
 
 Consider the following example statements. When *null\_if\_invalid* is TRUE, JSON\_EXTRACT\_PATH\_TEXT returns NULL when *json\_string* is invalid JSON. If *null\_if\_invalid* is FALSE or isn’t set, the function returns an error when *json\_string* is invalid.
 
-```
+```SQL
 --Statement with invalid JSON where null_if_invalid is TRUE.
 SELECT json_extract_path_text('invalid_json', 0, TRUE);
 
@@ -231,7 +230,7 @@ ERROR:  JSON parsing error
 
 Consider the following examples, where *json\_string* is valid JSON, and *path\_elem* refers to a JSON `null` value. In this case, JSON\_EXTRACT\_PATH\_TEXT returns NULL. Similarly, when *path\_elem* refers to a non-existing value, JSON\_EXTRACT\_PATH\_TEXT returns NULL, regardless of the value of *null\_if\_invalid*.
 
-```
+```SQL
 --Statement selecting a null value.
 SELECT json_extract_path_text('[null]', 0);
 

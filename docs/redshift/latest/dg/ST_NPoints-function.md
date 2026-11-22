@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_NPoints
-<a name="ST_NPoints-function"></a>
 
 ST\_NPoints returns the number of nonempty points in an input geometry or geography. 
 
@@ -34,7 +33,7 @@ If *geo* is null, then null is returned.
 
 The following SQL returns the number of points in a linestring. 
 
-```
+```sql
 SELECT ST_NPoints(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
 ```
 
@@ -46,7 +45,7 @@ st_npoints
 
 The following SQL returns the number of points in a linestring in a geography. 
 
-```
+```sql
 SELECT ST_NPoints(ST_GeogFromText('LINESTRING(110 40, 2 3, -10 80, -7 9)'));
 ```
 

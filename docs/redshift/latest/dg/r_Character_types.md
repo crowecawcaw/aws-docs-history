@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Character types
-<a name="r_Character_types"></a>
 
 **Topics**
 + [Storage and ranges](#r_Character_types-storage-and-ranges)
@@ -62,7 +61,7 @@ If you use the VARCHAR data type without a length specifier in a CREATE TABLE st
 
 When you set the `enable_large_strings_opt_in` parameter to `Yes`, [String functions](String_functions_header.md) support up to 16,000,000 bytes. For example, the CONCAT function supports output up to 16,000,000 bytes.
 
-```
+```SQL
 SELECT LEN(CONCAT(REPEAT('A', 5000000), REPEAT('B', 5000000))) AS total_length;
 
  total_length

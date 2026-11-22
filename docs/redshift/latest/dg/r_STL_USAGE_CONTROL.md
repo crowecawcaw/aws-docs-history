@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_USAGE\_CONTROL
-<a name="r_STL_USAGE_CONTROL"></a>
 
 The STL\_USAGE\_CONTROL view contains information that is logged when a usage limit is reached. For more information about usage limits, see [Managing Usage Limits](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-usage-limits.html) in the *Amazon Redshift Management Guide*. 
 
@@ -27,7 +26,7 @@ STL\_USAGE\_CONTROL is visible only to superusers. For more information, see [Vi
 
 The following SQL example returns some of the information logged when a usage limit is reached. 
 
-```
+```sql
 select query, pid, eventtime, feature_type
 from stl_usage_control
 order by eventtime desc

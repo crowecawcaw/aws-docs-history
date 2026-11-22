@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # \+ (Concatenation) operator
-<a name="r_DATE-CONCATENATE_function"></a>
 
 Concatenates a DATE to a TIME or TIMETZ on either side of the \+ symbol and returns a TIMESTAMP or TIMESTAMPTZ. 
 
@@ -43,7 +42,7 @@ TIMESTAMPTZ if input is *date* \+ *timetz*.
 
 To set up the TIME\_TEST and TIMETZ\_TEST tables used in the examples, use the following command.
 
-```
+```sql
 create table time_test(time_val time);
 
 insert into time_test values
@@ -64,7 +63,7 @@ insert into timetz_test values
 
 The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values inserted. 
 
-```
+```sql
 select time_val from time_test;
             
 time_val
@@ -76,7 +75,7 @@ time_val
 
 The following example concatenates a date literal and a TIME\_VAL column.
 
-```
+```sql
 select date '2000-01-02' + time_val as ts from time_test;
             
 ts
@@ -88,7 +87,7 @@ ts
 
 The following example concatenates a date literal and a time literal. 
 
-```
+```sql
 select date '2000-01-01' + time '20:00:00' as ts;
             
          ts
@@ -98,7 +97,7 @@ select date '2000-01-01' + time '20:00:00' as ts;
 
 The following example concatenates a time literal and a date literal. 
 
-```
+```sql
 select time '20:00:00' + date '2000-01-01' as ts;
             
          ts
@@ -111,7 +110,7 @@ select time '20:00:00' + date '2000-01-01' as ts;
 
 The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three values inserted. 
 
-```
+```sql
 select timetz_val from timetz_test;
             
 timetz_val
@@ -123,7 +122,7 @@ timetz_val
 
 The following example concatenates a date literal and a TIMETZ\_VAL column. 
 
-```
+```sql
 select date '2000-01-01' + timetz_val as ts from timetz_test;
 ts
 ---------------------
@@ -134,7 +133,7 @@ ts
 
 The following example concatenates a TIMETZ\_VAL column and a date literal. 
 
-```
+```sql
 select timetz_val + date '2000-01-01' as ts from timetz_test;
 ts
 ---------------------
@@ -145,7 +144,7 @@ ts
 
 The following example concatenates a DATE literal and a TIMETZ literal. The example returns a TIMESTAMPTZ which is in the time zone UTC by default. UTC is 8 hours ahead of PST, so the result is 8 hours ahead of the input time.
 
-```
+```sql
 select date '2000-01-01' + timetz '20:00:00 PST' as ts;
             
            ts

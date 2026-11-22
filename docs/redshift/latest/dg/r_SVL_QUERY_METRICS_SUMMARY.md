@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_QUERY\_METRICS\_SUMMARY
-<a name="r_SVL_QUERY_METRICS_SUMMARY"></a>
 
 The SVL\_QUERY\_METRICS\_SUMMARY view shows the maximum values of metrics for completed queries. This view is derived from the [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md) system table. Use the values in this view as an aid to determine threshold values for defining query monitoring rules. For more information about rules and metrics for query monitoring for Amazon Redshift, see [WLM query monitoring rules](cm-c-wlm-query-monitoring-rules.md).
 

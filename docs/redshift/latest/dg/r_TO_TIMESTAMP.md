@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TO\_TIMESTAMP function
-<a name="r_TO_TIMESTAMP"></a>
 
 TO\_TIMESTAMP converts a TIMESTAMP string to TIMESTAMPTZ. For a list of additional date and time functions for Amazon Redshift, see [Date and time functions](Date_functions_header.md).
 
@@ -40,7 +39,7 @@ TIMESTAMPTZ
 
 The following example demonstrates using the TO\_TIMESTAMP function to convert a TIMESTAMP string to a TIMESTAMPTZ. 
 
-```
+```sql
 select sysdate, to_timestamp(sysdate, 'YYYY-MM-DD HH24:MI:SS') as second;
 
 timestamp                  | second
@@ -50,7 +49,7 @@ timestamp                  | second
 
 It's possible to pass TO\_TIMESTAMP part of a date. The remaining date parts are set to default values. The time is included in the output:
 
-```
+```sql
 SELECT TO_TIMESTAMP('2017','YYYY');
 
 to_timestamp
@@ -60,7 +59,7 @@ to_timestamp
 
 The following SQL statement converts the string '2011-12-18 24:38:15' to a TIMESTAMPTZ. The result is a TIMESTAMPTZ that falls on the next day because the number of hours is more than 24 hours:
 
-```
+```sql
 SELECT TO_TIMESTAMP('2011-12-18 24:38:15', 'YYYY-MM-DD HH24:MI:SS');
          
 to_timestamp
@@ -70,7 +69,7 @@ to_timestamp
 
 The following SQL statement converts the string '2011-12-18 24:38:15' to a TIMESTAMPTZ. The result is an error because the time value in the timestamp is more than 24 hours:
 
-```
+```sql
 SELECT TO_TIMESTAMP('2011-12-18 24:38:15', 'YYYY-MM-DD HH24:MI:SS', TRUE);
          
 ERROR:  date/time field time value out of range: 24:38:15.0

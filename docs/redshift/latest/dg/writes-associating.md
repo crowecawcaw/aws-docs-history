@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Associating a datashare from a different AWS account in Amazon Redshift
-<a name="writes-associating"></a>
 
 With Amazon Redshift, you can associate datashares shared by other AWS accounts, enabling seamless and secure data sharing across organizational boundaries. Datashares are shareable database objects that encapsulate data from one or more Amazon Redshift databases. The following sections demonstrate the process of associating datashares.
 

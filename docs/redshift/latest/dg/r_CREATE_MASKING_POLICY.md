@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE MASKING POLICY
-<a name="r_CREATE_MASKING_POLICY"></a>
 
 Creates a new dynamic data masking policy to obfuscate data of a given format. For more information on dynamic data masking, see [Dynamic data masking](t_ddm.md).
 

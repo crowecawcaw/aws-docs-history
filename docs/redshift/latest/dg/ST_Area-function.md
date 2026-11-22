@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Area
-<a name="ST_Area-function"></a>
 
 For an input geometry, ST\_Area returns the Cartesian area of the 2D projection. The area units are the same as the units in which the coordinates of the input geometry are expressed. For points, linestrings, multipoints, and multilinestrings, the function returns 0. For geometry collections, it returns the sum of the areas of the geometries in the collection. 
 
@@ -34,7 +33,7 @@ If *geo* is null, then null is returned.
 
 The following SQL returns the Cartesian area of a multipolygon. 
 
-```
+```sql
 SELECT ST_Area(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,20 0,20 10,10 0)))'));
 ```
 
@@ -46,7 +45,7 @@ SELECT ST_Area(ST_GeomFromText('MULTIPOLYGON(((0 0,10 0,0 10,0 0)),((10 0,20 0,2
 
 The following SQL returns the area of a polygon in a geography. 
 
-```
+```sql
 SELECT ST_Area(ST_GeogFromText('polygon((34 35, 28 30, 25 34, 34 35))'));
 ```
 
@@ -58,7 +57,7 @@ SELECT ST_Area(ST_GeogFromText('polygon((34 35, 28 30, 25 34, 34 35))'));
 
 The following SQL returns zero for a linear geography. 
 
-```
+```sql
 SELECT ST_Area(ST_GeogFromText('multipoint(0 0, 1 1, -21.32 121.2)'));
 ```
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER TABLE ADD and DROP COLUMN examples
-<a name="r_ALTER_TABLE_COL_ex-add-drop"></a>
 
 The following examples demonstrate how to use ALTER TABLE to add and then drop a basic table column and also how to drop a column with a dependent object. 
 
@@ -39,7 +38,7 @@ likemusicals  | boolean                | none     | false   |       0
 
 Now add the feedback\_score column: 
 
-```
+```sql
 alter table users
 add column feedback_score int
 default NULL;
@@ -47,7 +46,7 @@ default NULL;
 
 Select the FEEDBACK\_SCORE column from USERS to verify that it was added: 
 
-```
+```sql
 select feedback_score from users limit 5;
 
 feedback_score
@@ -61,7 +60,7 @@ NULL
 
 Drop the column to reinstate the original DDL: 
 
-```
+```sql
 alter table users drop column feedback_score;
 ```
 
@@ -72,7 +71,7 @@ The following example drops a column that has a dependent object. As a result, t
 
 To start, add the FEEDBACK\_SCORE column to the USERS table again: 
 
-```
+```sql
 alter table users
 add column feedback_score int
 default NULL;
@@ -80,13 +79,13 @@ default NULL;
 
 Next, create a view from the USERS table called USERS\_VIEW: 
 
-```
+```sql
 create view users_view as select * from users;
 ```
 
 Now, try to drop the FEEDBACK\_SCORE column from the USERS table. This DROP statement uses the default behavior (RESTRICT): 
 
-```
+```sql
 alter table users drop column feedback_score;
 ```
 
@@ -94,7 +93,7 @@ Amazon Redshift displays an error message that the column can't be dropped becau
 
 Try dropping the FEEDBACK\_SCORE column again, this time specifying CASCADE to drop all dependent objects: 
 
-```
+```sql
 alter table users
 drop column feedback_score cascade;
 ```

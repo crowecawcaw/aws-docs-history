@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # enable\_case\_sensitive\_identifier
-<a name="r_enable_case_sensitive_identifier"></a>
 
 ## Values (default in bold)
 <a name="r_enable_case_sensitive_identifier-values"></a>
@@ -22,7 +21,7 @@ The case of a *username* enclosed in double quotation marks is always preserved 
 
 The following example shows how to create and use case sensitive identifiers for a table and column name.
 
-```
+```sql
 -- To create and use case sensitive identifiers
 SET enable_case_sensitive_identifier TO true;
         
@@ -60,7 +59,7 @@ mixedcasedcolumn
 
 The following example shows when the case of identifiers is not preserved.
 
-```
+```sql
 -- To not use case sensitive identifiers
 RESET enable_case_sensitive_identifier;
 

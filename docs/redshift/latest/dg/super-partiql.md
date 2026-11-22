@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PartiQL – an SQL-compatible query language for Amazon Redshift
-<a name="super-partiql"></a>
 
 Amazon Redshift supports PartiQL, an SQL-compatible query language, to select, insert, update, and delete data in Amazon Redshift. Using PartiQL, you can easily interact with Amazon Redshift tables and run ad hoc queries using the AWS Management Console, SQL Workbench/J, the AWS Command Line Interface, and Amazon Redshift Data APIs for PartiQL. 
 

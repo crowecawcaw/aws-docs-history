@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating a datashare in Amazon Redshift
-<a name="writes-creating-datashare"></a>
 
 A datashare is a logical container of database objects, permissions, and consumers. Consumers are Amazon Redshift provisioned clusters or Amazon Redshift Serverless namespaces in your account and other AWS accounts. Each datashare is associated with the database it's created in and only objects from that database can be added. As a producer administrator, you can create datashares on the console and with SQL by following one of the below procedures.
 
@@ -26,7 +25,7 @@ On the console, you can create datashares from the **Datashares** tabs in the cl
 
 1. Specify values for **Datashare name**, **Database name**, and **Publicly accessible**. When you change the database name, make a new database connection.
 
-1. Add objects to your datashare either using the **Scoped permissions** or **Direct permissions** sections. To add objects to a datashare, see [Creating a datashare in Amazon Redshift](#writes-creating-datashare). 
+1. Add objects to your datashare either using the **Scoped permissions** or **Direct permissions** sections. To add objects to a datashare, see [Creating a datashare in Amazon Redshift](writes-creating-datashare.md). 
 
 1. In the **Data consumers** section, you can choose to publish to Amazon Redshift, or publish to the AWS Glue Data Catalog, which starts the process of sharing data with Lake Formation. Publishing your datashare to Amazon Redshift means sharing your data with another namespace or Amazon Redshift account that acts as the consumer.
 **Note**  

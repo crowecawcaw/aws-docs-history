@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Working with views in Amazon Redshift data sharing
-<a name="datashare-views"></a>
 
 A producer cluster can share regular, late-binding, and materialized views. When sharing regular, late-binding views, or materialized views, you don't have to share the base tables. The following table shows how views are supported with data sharing.
 

@@ -3,7 +3,6 @@
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_S3LOG
-<a name="r_SVCS_S3LOG"></a>
 
 Use the SVCS\_S3LOG view to get troubleshooting details about data lake queries at the segment level. One segment can perform one external table scan. This view is derived from the SVL\_S3LOG system view but doesn't show slice-level for queries run on a concurrency scaling cluster. 
 
@@ -33,7 +32,7 @@ For information about SVL\_S3LOG, see [SVL\_S3LOG](r_SVL_S3LOG.md).
 
 The following example queries SVCS\_S3LOG for the last query that ran.
 
-```
+```sql
 select * 
 from svcs_s3log 
 where query = pg_last_query_id() 
