@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
  You can optimize cost over time by reviewing new instance types and implementing them in your workload. As AWS releases new instances and features, it is a best practice to review your existing architectural decisions to verify that they remain cost effective. As your requirements change, be aggressive in decommissioning resources, components, and workloads that you no longer require. 
 

@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sec"></a>
 +  [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html): A fully managed service that helps you search, ingest, and analyze data in real-time. 
 +  [Amazon Virtual Private Cloud (Amazon VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html): A virtual network dedicated to your AWS account, which you can use to launch AWS resources in a virtual environment. 
 +  [AWS Key Management Service (AWS KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html): A service that helps you manage the encryption and decryption of your data. 

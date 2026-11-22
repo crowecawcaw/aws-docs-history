@@ -1,7 +1,6 @@
 
 
 # Cost-effective resources
-<a name="cost-effective-resources"></a>
 
  OpenSearch Service offers a range of cost-effective resources that can help you optimize your search infrastructure costs. 
 

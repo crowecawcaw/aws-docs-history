@@ -1,7 +1,6 @@
 
 
 # AOSREL04-BP02 Implement an Index State Management (ISM) policy to generate snapshots for your crucial indices
-<a name="aosrel04-bp02"></a>
 
  Protect your critical Amazon OpenSearch Service indices by implementing an ISM policy that generates snapshots for disaster recovery, which helps you comply with regulatory requirements and simplify the recovery process. 
 

@@ -1,7 +1,6 @@
 
 
 # AOSPERF04-BP02 Use static mapping for your index
-<a name="aosperf04-bp02"></a>
 
  Improve indexing performance and query efficiency by using fixed, static mappings instead of dynamic ones. 
 

@@ -1,7 +1,6 @@
 
 
 # Software and architecture
-<a name="software-and-architecture"></a>
 
 
 | AOSSUS02: How do you use instance families in OpenSearch Service to support your organization's sustainability goals? | 

@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management"></a>
 
 
 | AOSPERF03: How do you monitor and optimize storage resource utilization in your OpenSearch Service domain? | 

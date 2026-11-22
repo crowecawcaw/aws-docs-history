@@ -1,7 +1,6 @@
 
 
 # AOSPERF06-BP01 Identify index refresh controls for optimal ingestion performance
-<a name="aosperf06-bp01"></a>
 
  Improve indexing throughput and speed by adjusting the refresh\_interval value to more than 30 seconds. 
 

@@ -1,7 +1,6 @@
 
 
 # AOSREL01-BP01 Implement a system update notification strategy
-<a name="aosrel01-bp01"></a>
 
  Stay informed about notifications regarding updates to Amazon OpenSearch Service, which prepares you for changes or new features. 
 

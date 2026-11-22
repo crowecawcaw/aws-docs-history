@@ -1,7 +1,6 @@
 
 
 # AOSREL05-BP01 Implement appropriate compute sizing for production workloads
-<a name="aosrel05-bp01"></a>
 
  Improve OpenSearch Service domain performance by implementing compute sizing that meets production workload requirements. This practice helps you avoid CPU throttling due to depleted burst credits and minimize risks. 
 

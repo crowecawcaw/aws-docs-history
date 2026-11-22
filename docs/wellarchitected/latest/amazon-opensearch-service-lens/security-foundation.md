@@ -1,7 +1,6 @@
 
 
 # Security foundation
-<a name="security-foundation"></a>
 
 
 | AOSSEC01: How do you implement robust security measures to protect your OpenSearch Service domain? | 

@@ -1,7 +1,6 @@
 
 
 # AOSPERF06-BP03 Implement HTTP compression
-<a name="aosperf06-bp03"></a>
 
  Reduce request and response payload sizes by enabling GZIP compression. 
 

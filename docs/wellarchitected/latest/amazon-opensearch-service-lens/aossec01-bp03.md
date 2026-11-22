@@ -1,7 +1,6 @@
 
 
 # AOSSEC01-BP03 Enable encryption at rest
-<a name="aossec01-bp03"></a>
 
  Protect data stored in OpenSearch by enabling encryption, keeping your data confidential even when not in transit. 
 

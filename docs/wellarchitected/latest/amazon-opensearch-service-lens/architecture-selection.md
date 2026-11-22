@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
 
 | AOSPERF01: How do you plan, monitor, and optimize your sharding strategy? | 

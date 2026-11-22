@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The Amazon OpenSearch Service Lens provides comprehensive guidance for organizations building search and analytics workloads on AWS. It offers best practices and strategies across the six pillars of Well-Architected, helping you design OpenSearch domains that are secure, reliable, performant, and cost-effective. By following the principles outlined in this lens, you can build and operate OpenSearch workloads that meet your business requirements while maintaining operational excellence and sustainability. 
 

@@ -1,7 +1,6 @@
 
 
 # Operational excellence
-<a name="operational-excellence"></a>
 
  The operational excellence pillar offers guidance on effectively running and monitoring systems to deliver business value, while continually improving supporting processes and procedures. This involves maintaining high-quality Amazon OpenSearch Service domains, gaining operational insights, and continually improving processes to achieve organizational outcomes and values. 
 

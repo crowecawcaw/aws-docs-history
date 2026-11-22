@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 | AOSREL01: How do you keep your OpenSearch version up to date? | 

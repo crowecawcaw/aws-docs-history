@@ -1,7 +1,6 @@
 
 
 # AOSSEC02-BP03 Monitor real-time events in your OpenSearch Service domains
-<a name="aossec02-bp03"></a>
 
  Track real-time events in your OpenSearch Service domains using Amazon EventBridge, enabling automated actions and notifications to improve visibility and response times. 
 

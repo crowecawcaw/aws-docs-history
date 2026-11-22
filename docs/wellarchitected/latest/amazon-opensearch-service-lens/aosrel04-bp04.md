@@ -1,7 +1,6 @@
 
 
 # AOSREL04-BP04 Employ cross-cluster replication to achieve higher availability
-<a name="aosrel04-bp04"></a>
 
  Enhance OpenSearch Service domain availability by employing cross-cluster replication, which replicates user indexes, mappings, and metadata between domains in different AWS accounts or Regions, improving disaster recovery capabilities. 
 

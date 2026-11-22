@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
 
 | AOSOPS01: How do you manage indexes in your OpenSearch Service domain? | 

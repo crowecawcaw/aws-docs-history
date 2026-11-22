@@ -1,7 +1,6 @@
 
 
 # AOSOPS01-BP02 Configure index templates to automate index configuration upon creation
-<a name="aosops01-bp02"></a>
 
  Use templates to automate index creation and maintain consistent settings. 
 

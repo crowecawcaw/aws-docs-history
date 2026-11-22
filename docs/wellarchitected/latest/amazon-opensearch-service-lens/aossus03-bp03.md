@@ -1,7 +1,6 @@
 
 
 # AOSSUS03-BP03 Take manual snapshots of your indices only when it is difficult to recreate the dataset
-<a name="aossus03-bp03"></a>
 
  Reduce unnecessary snapshot creation, Amazon EBS, and Amazon S3 storage costs by taking manual snapshots only when it's difficult to recreate the dataset. 
 

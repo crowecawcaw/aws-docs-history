@@ -1,7 +1,6 @@
 
 
 # Reliability
-<a name="reliability"></a>
 
  The reliability pillar focuses on verifying that your Amazon OpenSearch Service workload performs correctly and consistently when needed. This includes operating and testing the workload throughout its entire lifecycle. This paper provides best practices for building and maintaining reliable OpenSearch Service workloads. 
 

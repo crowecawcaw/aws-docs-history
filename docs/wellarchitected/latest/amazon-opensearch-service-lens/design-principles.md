@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  The AWS Well-Architected Framework identifies a set of general design principles to facilitate good design in the cloud for building and managing OpenSearch domains. 
 +  **High availability:** Provide high availability and fault tolerance by implementing Multi-Availability Zone (AZ) deployments. Distribute nodes across different Availability Zones to mitigate the impact of potential failures. 

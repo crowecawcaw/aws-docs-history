@@ -1,7 +1,6 @@
 
 
 # AOSREL02-BP01 Create Multi-AZ with Standby OpenSearch Service domains
-<a name="aosrel02-bp01"></a>
 
  Provide high availability and reliability in Amazon OpenSearch Service by creating Multi-AZ with Standby domains, minimizing downtime and simplifying domain management. 
 

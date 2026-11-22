@@ -1,7 +1,6 @@
 
 
 # AOSSEC01-BP02 Activate node-to-node encryption
-<a name="aossec01-bp02"></a>
 
  Activate encryption for secure transmission of data between nodes, protecting it from unauthorized access. 
 

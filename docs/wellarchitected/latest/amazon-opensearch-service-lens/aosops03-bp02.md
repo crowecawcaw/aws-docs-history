@@ -1,7 +1,6 @@
 
 
 # AOSOPS03-BP02 Configure notification services to receive monitoring alerts
-<a name="aosops03-bp02"></a>
 
  Connect monitoring alerts to your messaging infrastructure to stay informed about domain changes and potential issues. 
 

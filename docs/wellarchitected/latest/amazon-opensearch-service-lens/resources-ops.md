@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 +  [Learn how to add dedicated leader nodes in your OpenSearch Service domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) 
 +  [Making configuration changes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html) 
 +  [OpenSearch Service domain and instance quotas](https://docs.aws.amazon.com/general/latest/gr/opensearch-service.html#opensearch-limits-domain) 

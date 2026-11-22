@@ -1,7 +1,6 @@
 
 
 # AOSOPS01-BP01 Employ Index State Management (ISM) to manage logs or time series data
-<a name="aosops01-bp01"></a>
 
  Manage large volumes of log or time series data efficiently with automated index lifecycle tasks. 
 

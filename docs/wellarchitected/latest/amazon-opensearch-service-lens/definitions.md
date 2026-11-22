@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 +  **Domain:** The primary container for all OpenSearch resources. It represents the entire environment where your data is stored and indexed. 
 +  **Node:** A single instance of OpenSearch running within your domain. Nodes work together to form a cluster and distribute the workloads and data among them. 
 +  **Leader nodes:** Nodes that perform cluster management tasks but do not hold data or respond to data requests. 

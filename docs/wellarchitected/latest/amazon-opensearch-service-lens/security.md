@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  The security pillar includes the ability to protect information, systems, and assets while delivering business value. This section provides in-depth, best practice guidance for architecting secure OpenSearch domains. 
 

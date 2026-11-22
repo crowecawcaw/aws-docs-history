@@ -1,7 +1,6 @@
 
 
 # AOSCOST01-BP03 Evaluate manager nodes
-<a name="aoscost01-bp03"></a>
 
  Improve domain stability, reduce risk of data loss, and prevent over-provisioning by using an appropriate instance type for dedicated leader nodes. 
 

@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sus"></a>
 +  [Understanding your carbon emission estimations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ccft-estimation.html) 
 +  [Amazon Around the Globe](https://sustainability.aboutamazon.com/about/around-the-globe?energyType=true) 
 +  [Renewable Energy Methodology](https://sustainability.aboutamazon.com/amazon-renewable-energy-methodology) 

@@ -1,7 +1,6 @@
 
 
 # AOSSEC01-BP01 Launch your OpenSearch Service domains within a Virtual Private Cloud
-<a name="aossec01-bp01"></a>
 
  Host OpenSearch Service domains in a Virtual Private Cloud (VPC) for improved security, isolation, and network control. 
 

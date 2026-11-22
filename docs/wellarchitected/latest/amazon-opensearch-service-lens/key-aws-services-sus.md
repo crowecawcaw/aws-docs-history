@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sus"></a>
 +  [Amazon OpenSearch Service](https://aws.amazon.com/what-is/opensearch/) 
 +  [Amazon EC2](https://aws.amazon.com/ec2/instance-types/) 
 +  [Graviton-based instances](https://aws.amazon.com/ec2/graviton/): A type of instance family that uses up to 60% less energy than comparable instances. 

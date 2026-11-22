@@ -1,7 +1,6 @@
 
 
 # AOSCOST05-BP01 Assess the pricing for instances and storage in Amazon OpenSearch Service
-<a name="aoscost05-bp01"></a>
 
  Improve cost transparency and accuracy of cost estimation by assessing pricing for instances and storage to make informed decisions on resource allocation. 
 

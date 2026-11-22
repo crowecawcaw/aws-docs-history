@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
 
 | AOSPERF06: How do you balance throughput and latency through bulk request size? | 

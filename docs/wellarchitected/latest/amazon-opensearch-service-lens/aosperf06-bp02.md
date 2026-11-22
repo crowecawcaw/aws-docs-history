@@ -1,7 +1,6 @@
 
 
 # AOSPERF06-BP02 Evaluate bulk request size
-<a name="aosperf06-bp02"></a>
 
  Improve indexing performance and domain stability by adjusting bulk request size to a recommended range of 3-5 MiB. 
 

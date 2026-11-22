@@ -1,7 +1,6 @@
 
 
 # Workload architecture
-<a name="workload-architecture"></a>
 
 
 | AOSREL02: How do you provide high availability for your OpenSearch Service domain? | 

@@ -1,7 +1,6 @@
 
 
 # AOSPERF02-BP01 Implement processor utilization monitoring
-<a name="aosperf02-bp01"></a>
 
  Keep CPU usage under 75% to maintain efficient resource utilization and prevent potential performance issues. 
 

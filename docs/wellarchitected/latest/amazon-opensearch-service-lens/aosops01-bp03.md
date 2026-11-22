@@ -1,7 +1,6 @@
 
 
 # AOSOPS01-BP03 Remove unused indexes
-<a name="aosops01-bp03"></a>
 
  Regularly review and remove unused indexes to optimize your OpenSearch Service domain's performance and reduce costs. Unused indexes, even when inactive, continue to consume domain resources including memory, CPU, and storage. 
 

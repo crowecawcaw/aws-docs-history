@@ -1,7 +1,6 @@
 
 
 # Practice Cloud Financial Management (CFM)
-<a name="practice-cloud-financial-management-cfm"></a>
 
  Cloud Financial Management (CFM) refers to finance, product, technology, and business organizations managing, optimizing, and planning costs as they grow their usage and scale on AWS. Use CFM to manage, optimize, and plan costs as you grow usage and scale on AWS. AWS CFM offers a set of capabilities to manage, optimize, and plan for cloud costs while maintaining business agility. CFM is important not only to manage costs effectively but also to verify that investments are driving expected business outcomes. The four pillars of the Cloud Financial Management Framework in the AWS Cloud are see, save, plan, and run. Each of these pillar areas has a set of activities and capabilities. 
 
