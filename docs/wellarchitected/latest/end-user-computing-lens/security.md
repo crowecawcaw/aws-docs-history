@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security"></a>
 
  Using managed AWS End User Computing (EUC) services helps reduce the scope of your infrastructure management tasks, letting you focus on mitigating common security risks with less overhead. 
 

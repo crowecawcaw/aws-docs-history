@@ -1,7 +1,6 @@
 
 
 # EUCREL08-BP01 Test and validate changes to promote reliable deployment
-<a name="eucrel08-bp01"></a>
 
  Thoroughly test and validate changes in an isolated environment before implementing them in the production environment for Amazon WorkSpaces and WorkSpaces Applications. By conducting testing in a controlled environment, organizations can assess the impact of changes on WorkSpaces and application availability under conditions that closely resemble real-world usage scenarios. This approach evaluates whether the changes achieve the desired outcomes before deployment. 
 

@@ -1,7 +1,6 @@
 
 
 # EUCOPS02-BP02 Build a matrix of all internal and external stakeholders who may be affected by changes to the way you deliver EUC services
-<a name="eucops02-bp02"></a>
 
  To provide an initial starting point for building a project team, collate a list of all the technology areas which are directly or indirectly affected by an AWS EUC migration. Additionally, create a corresponding list of each service owner. This matrix helps you oversee a successful implementation or migration. 
 

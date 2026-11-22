@@ -1,7 +1,6 @@
 
 
 # Delivering desktops as a service
-<a name="delivering-desktops-as-a-service"></a>
 
  Delivering desktops as a service (DaaS) is a common approach to simplifying desktop delivery, reducing administrative overheads, and enabling flexible work models. DaaS offers flexibility when choosing an OS and underlying hardware specifications, enabling a wide variety of use cases with a pay-as-you-go pricing model and the freedom to alter the hardware specifications, if required. DaaS can also help improve your security posture by storing sensitive data on the virtual desktop instead of user devices or by simplifying access to network resources on-premises, in the cloud, or on the public Internet. In a corporate environment, DaaS can enable free seating by providing access to your personal virtual desktop from a desk using an inexpensive access device, like a thin client. Contrary to an application delivery scenario, a DaaS user can be given permission to install their own software and tooling on their personal virtual desktop. 
 

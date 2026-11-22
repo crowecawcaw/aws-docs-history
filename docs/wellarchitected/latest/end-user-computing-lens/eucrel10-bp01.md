@@ -1,7 +1,6 @@
 
 
 # EUCREL10-BP01 Implement communication plans with EUC environment stakeholders
-<a name="eucrel10-bp01"></a>
 
  Include WorkSpaces and WorkSpaces Applications users, administrators, and support teams in your communications. Provide advance notice of scheduled maintenance windows or change activities to minimize potential service interruptions for users. Coordinate with other teams or departments as necessary to implement changes smoothly and with minimal impact on related systems or services. 
 

@@ -1,7 +1,6 @@
 
 
 # Security foundations
-<a name="security-foundations"></a>
 
 
 |  EUCSEC01: How do you identify and categorize risk profiles for users accessing your EUC services?  | 

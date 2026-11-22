@@ -1,7 +1,6 @@
 
 
 # EUCSEC06-BP01 Rely on a centralized authentication system that satisfies security requirements for your EUC environment
-<a name="eucsec06-bp01"></a>
 
  Evaluate your organization's security policies to determine the requirements that authentication systems need to provide for end users accessing EUC services. 
 

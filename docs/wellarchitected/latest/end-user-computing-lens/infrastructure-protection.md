@@ -1,7 +1,6 @@
 
 
 # Infrastructure protection
-<a name="infrastructure-protection"></a>
 
 
 |  EUCSEC10: How do you implement network protection in your EUC environment?  | 

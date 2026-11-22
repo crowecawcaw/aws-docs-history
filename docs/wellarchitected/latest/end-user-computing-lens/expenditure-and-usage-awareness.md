@@ -1,7 +1,6 @@
 
 
 # Expenditure and usage awareness
-<a name="expenditure-and-usage-awareness"></a>
 
 
 |  EUCCOST02: How do you monitor cost and utilization of your EUC services?  | 

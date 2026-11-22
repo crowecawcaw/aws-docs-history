@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-rel"></a>
 
  **Related documents:** 
 +  [Amazon WorkSpaces Documentation](https://docs.aws.amazon.com/workspaces/) 

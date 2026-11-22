@@ -1,7 +1,6 @@
 
 
 # Detection
-<a name="detection"></a>
 
 
 |  EUCSEC07: How do you monitor and track access to EUC environment?  | 

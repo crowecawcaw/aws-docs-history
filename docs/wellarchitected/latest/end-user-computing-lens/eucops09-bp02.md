@@ -1,7 +1,6 @@
 
 
 # EUCOPS09-BP02 Allocate training time so your teams can build and maintain their skills to deploy and manage your AWS EUC environment
-<a name="eucops09-bp02"></a>
 
  Training and enablement are key to maintaining a reliable, successfully-evolving EUC deployment. 
 

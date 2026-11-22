@@ -1,7 +1,6 @@
 
 
 # EUCSEC11-BP01 Perform vulnerability scanning on EUC instances
-<a name="eucsec11-bp01"></a>
 
  The frequent release of patches for vulnerabilities in operating systems and applications means that you should patch them on a frequent basis to address potential risks. 
 

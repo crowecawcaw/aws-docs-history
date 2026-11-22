@@ -1,7 +1,6 @@
 
 
 # EUCOPS01-BP01 Build a project team which includes executive level sponsors and relevant business and technical communities
-<a name="eucops01-bp01"></a>
 
  When starting your AWS EUC project be sure to convene a project board which has sponsorship from a significant influencer or senior decision maker and buy in from both business and technology stakeholders, this will make sure that the views of the business and technology teams are considered when delivering the new service. Each invested project board member will have their own view of the governance and organizational challenges likely to arise throughout the project lifecycle, and their input is likely to reduce risk and enhance the chances of project success. 
 

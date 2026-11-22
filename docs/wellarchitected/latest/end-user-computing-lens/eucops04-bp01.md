@@ -1,7 +1,6 @@
 
 
 # EUCOPS04-BP01 Identify the key capabilities and features that deliver business value and drive project success
-<a name="eucops04-bp01"></a>
 
  While AWS EUC services may offer feature parity with your incumbent vendor, achieving this parity may require additional engineering effort to integrate with existing operational or support systems. 
 

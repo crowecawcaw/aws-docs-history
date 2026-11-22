@@ -1,7 +1,6 @@
 
 
 # EUCSEC14-BP02 Encrypt data in transit in your EUC environment
-<a name="eucsec14-bp02"></a>
 
  Use encryption to protect data confidentiality while in transit inside your EUC environment. 
 

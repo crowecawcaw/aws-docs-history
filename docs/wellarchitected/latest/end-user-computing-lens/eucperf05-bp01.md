@@ -1,7 +1,6 @@
 
 
 # EUCPERF05-BP01 Understand your existing storage requirements, policies, and solutions
-<a name="eucperf05-bp01"></a>
 
  If your EUC workload already uses storage volumes, operations policies, and vendor solutions, make sure that you not only understand what products and services they are based on, but also identify the features, advantages, and benefits associated with each in your existing workload. Decide whether these are best suited to your applications and technical goals. Otherwise, develop a set of new functional requirements and solutions that will better address your requirements. 
 

@@ -1,7 +1,6 @@
 
 
 # EUCREL03-BP01 Add redundancy to networking connections
-<a name="eucrel03-bp01"></a>
 
  Use a redundant networking architecture for Amazon WorkSpaces and WorkSpaces Applications, incorporating multiple Active Directory (AD) Controllers, AD connectors, DNS servers, gateways, VPNs, or AWS Direct Connect links. This approach supports continuous connectivity by providing alternative pathways for network traffic, reducing the risk of service disruptions due to network incidents and enhancing overall system resilience. Redundant networking helps mitigate the impact of network failures and supports uninterrupted access to WorkSpaces environments.
 

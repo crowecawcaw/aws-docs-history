@@ -1,7 +1,6 @@
 
 
 # Data management
-<a name="data-management"></a>
 
 
 |  EUCPERF05: How do you choose storage solutions that maximize performance efficiency in your EUC environment?  | 

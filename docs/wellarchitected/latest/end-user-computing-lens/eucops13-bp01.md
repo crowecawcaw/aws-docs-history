@@ -1,7 +1,6 @@
 
 
 # EUCOPS13-BP01 Perform regular service reviews to identify significant trends in performance, scalability, and availability
-<a name="eucops13-bp01"></a>
 
  Perform regular reviews of service performance and capabilities to maintain visibility of key issues and focus on service improvement and readiness. 
 

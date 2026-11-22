@@ -1,7 +1,6 @@
 
 
 # EUCPERF04-BP01 Evaluate available instance types (AppStream) and hardware bundles (WorkSpaces)
-<a name="eucperf04-bp01"></a>
 
 WorkSpaces Applications groups instances into families, such as General Purpose (stream.standard). Within each family, there are different instance sizes, such as stream.standard.medium and stream.standard.large. Each size has a different number of vCPUs and memory. Graphics optimized families include instances with one or more GPUs. For more information on the Graphics G4 (stream.graphics.g4dn), Graphics G5 (stream.graphics.g5), and Memory Optimized (stream.memory.z1d) families, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 

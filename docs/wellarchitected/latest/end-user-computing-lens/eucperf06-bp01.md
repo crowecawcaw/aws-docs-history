@@ -1,7 +1,6 @@
 
 
 # EUCPERF06-BP01 Minimize latency between end users and EUC services
-<a name="eucperf06-bp01"></a>
 
  Like many other vendors, AWS EUC solutions deliver their services using a remote display protocol to stream the pixel information to the endpoint device, which is highly efficient and capable of tolerating a variety of network conditions. Low latency, low packet loss, and jitter are key to delivering the best service for end users. 
 

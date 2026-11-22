@@ -1,7 +1,6 @@
 
 
 # EUCSUS01-BP02 Choose the appropriate running mode for your Amazon WorkSpaces
-<a name="eucsus01-bp02"></a>
 
  The running mode of a WorkSpace determines its immediate availability and how you pay for it (monthly or hourly). You can choose between the following running modes when you create the WorkSpace: 
 +  **AlwaysOn:** You are paying a fixed monthly fee for unlimited usage of your WorkSpaces. This mode is best for users who use their WorkSpace full time as their primary desktop. 

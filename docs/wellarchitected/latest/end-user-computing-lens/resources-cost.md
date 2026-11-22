@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-cost"></a>
 
  **Related documents:** 
 +  [Creating Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) 

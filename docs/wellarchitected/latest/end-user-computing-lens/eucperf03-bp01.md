@@ -1,7 +1,6 @@
 
 
 # EUCPERF03-BP01 Consider modernization of backend services to use managed services from AWS for best performance
-<a name="eucperf03-bp01"></a>
 
  By using AWS EUC services, you are already taking advantage of the reduced infrastructure and management overheads of maintaining your own environment. Taking the same approach to other backend services which support the EUC deployment can further increase operational efficiency. 
 

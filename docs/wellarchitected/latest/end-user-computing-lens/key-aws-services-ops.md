@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-ops"></a>
 
  **EUC:** 
 +  [Amazon WorkSpaces Applications](https://aws.amazon.com/appstream2/) 

@@ -1,7 +1,6 @@
 
 
 # EUCPERF07-BP01 Conduct realistic end-to-end testing aligned with organizational objectives
-<a name="eucperf07-bp01"></a>
 
  When planning to conduct testing, consider how your users interact with the EUC service and on an everyday basis. Create tests that align with the primary use of the service initially and expand to edge cases over time or in response to incidents to verify that they do not arise in future iterations of the service. 
 

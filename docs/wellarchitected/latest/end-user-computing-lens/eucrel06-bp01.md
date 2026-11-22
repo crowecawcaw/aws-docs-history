@@ -1,7 +1,6 @@
 
 
 # EUCREL06-BP01 Plan for disaster recovery of EUC through testing and procedures
-<a name="eucrel06-bp01"></a>
 
 Develop and regularly test disaster recovery plans for Amazon WorkSpaces and AppStream 2.0 deployments. Document procedures for restoring user data and configurations in the event of disruptive incidents or data loss. Conduct periodic disaster recovery drills to assess the effectiveness of recovery procedures and verify that you are ready to respond to unexpected incidents.
 

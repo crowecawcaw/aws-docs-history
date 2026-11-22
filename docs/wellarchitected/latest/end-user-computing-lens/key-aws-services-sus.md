@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-sus"></a>
 +  [Amazon WorkSpaces Applications ](https://aws.amazon.com/appstream2/) 
 +  [Amazon WorkSpaces](https://aws.amazon.com/workspaces/) 
 +  [Amazon S3](https://aws.amazon.com/pm/serv-s3) 

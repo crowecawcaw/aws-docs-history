@@ -1,7 +1,6 @@
 
 
 # EUCCOST05-BP02 Select the most cost-effective service for your EUC workload
-<a name="euccost05-bp02"></a>
 
  Invest time into planning your EUC deployment. A persistent Amazon WorkSpaces, for example, is a desktop as a service assigned to a named user. If this named user needs to run a certain resource-intensive application only occasionally, it is not recommended to over-provision the hardware resources for this WorkSpace to meet the application requirements, as these resources will be under-utilized most of the time. Instead, consider deploying this application to an Amazon WorkSpaces Applications fleet, where you have a more granular choice of instance types and are charged for the actual usage only per hour or even per second. 
 

@@ -1,7 +1,6 @@
 
 
 # EUCPERF10-BP05 Tune application performance where possible to optimize compute resource usage
-<a name="eucperf10-bp05"></a>
 
  To provide the optimal access to compute resource for your applications, consider tuning the performance of applications or software where possible to reduce their compute resource utilization. 
 

@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-sec"></a>
 
  There are several principles that can help strengthen the security of EUC workload in addition to the overall Well-Architected Framework security design principles: 
 +  **Implement lifecycle management for AWS End User Computing instances and applications delivered by End User Computing services:** End to end lifecycle management should be adopted for the software used to deliver applications to your end users. Lifecycle management includes considering the operating system, middleware, runtime environments and patches associated with this software to make sure that components are patched and updated to the most recent release. It also includes the ongoing management of user identities used to access End User Computing services to make sure that accounts are regularly validated and where used, that certificates are validated and renewed. 

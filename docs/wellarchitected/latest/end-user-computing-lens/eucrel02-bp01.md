@@ -1,7 +1,6 @@
 
 
 # EUCREL02-BP01 Use multiple regions for your EUC environment to minimize downtime
-<a name="eucrel02-bp01"></a>
 
  [Amazon WorkSpaces Multi-Region Resilience](https://docs.aws.amazon.com/workspaces/latest/adminguide/multi-region-resilience.html) offers cost-effective, easy-to-manage operational continuity solutions that keep your users online and productive . Organizations should proactively design their environment to anticipate failure and plan for a fast recovery. 
 

@@ -1,7 +1,6 @@
 
 
 # Optimize over time
-<a name="optimize-over-time"></a>
 
 
 |  EUCCOST08: How do you optimize your EUC service consumption over time?  | 

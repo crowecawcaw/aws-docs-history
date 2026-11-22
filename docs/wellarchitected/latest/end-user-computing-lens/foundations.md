@@ -1,7 +1,6 @@
 
 
 # Foundations
-<a name="foundations"></a>
 
 
 |  EUCREL01: How do you increase resilience and minimize impact of failure in your EUC environment?  | 

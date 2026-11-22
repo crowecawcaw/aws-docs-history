@@ -1,7 +1,6 @@
 
 
 # EUCOPS17-BP01 Provide time and resources for your teams to keep up to date with changes and feature updates
-<a name="eucops17-bp01"></a>
 
  Provide ongoing training to keep key personnel up to date with changes that are occurring in the industry and specifically in their domain of expertise. 
 

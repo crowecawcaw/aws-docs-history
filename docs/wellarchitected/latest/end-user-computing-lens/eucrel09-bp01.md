@@ -1,7 +1,6 @@
 
 
 # EUCREL09-BP01 Implement and test rollback plan for every change you make in EUC environments
-<a name="eucrel09-bp01"></a>
 
  Develop rollback plans for changes in Amazon WorkSpaces and WorkSpaces Applications to anticipate and address potential failures and their impacts to system stability or resilience. By establishing these plans, businesses can proactively address unforeseen situations that may arise during implementation, creating a smooth transition back to previous configurations if needed. Test rollback procedures beforehand to gain insights into their effectiveness and identify any potential areas of improvement. This proactive approach minimizes service interruptions and facilitates prompt recovery from incidents or failures, supporting continuous service delivery and reducing impact on users. 
 

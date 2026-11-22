@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  Well-Architected design principles are a set of considerations used as the basis for a well-architected workload. We recommend that you follow these design principles for a successful EUC implementation. 
 

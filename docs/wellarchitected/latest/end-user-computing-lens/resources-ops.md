@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-ops"></a>
 +  [AWS Compliance](https://aws.amazon.com/compliance/) 
 +  [Amazon Web Services: Risk and Compliance](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/welcome.html) 
 +  [AWS Cloud Security](https://aws.amazon.com/security/) 

@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The AWS Well-Architected Framework provides architectural best practices across the six pillars for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud. The End User Computing lens provides additional insights that allow you to dive further into an existing or proposed workload. Using the framework in your architecture will help you produce efficient end-user systems, freeing you to focus on innovation that delivers more value to your end-users. 
 

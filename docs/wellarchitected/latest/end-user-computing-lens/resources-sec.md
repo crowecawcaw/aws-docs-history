@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-sec"></a>
 
  **Related documents:** 
 +  [Identity and access management for WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html) 

@@ -1,7 +1,6 @@
 
 
 # Process and culture
-<a name="process-and-culture"></a>
 
  When architecting an AWS EUC solution, there are principles and practices that you can adopt to help you better run an efficient, high-performing environment. This focus area offers best practices to help adopt a culture that delivers and maintains a level of performance that both meet and exceed the requirements of the business. 
 

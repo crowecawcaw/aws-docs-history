@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources-perf"></a>
 
  **Related documents:** 
 +  **WorkSpaces Applications** 

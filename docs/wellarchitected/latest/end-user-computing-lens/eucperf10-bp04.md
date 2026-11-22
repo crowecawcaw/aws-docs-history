@@ -1,7 +1,6 @@
 
 
 # EUCPERF10-BP04 Remove caches, temporary data, log files, and unneeded files such as tutorials and sample data before creating an image
-<a name="eucperf10-bp04"></a>
 
  Remove non-required files that are installed, downloaded, or created by applications to optimize storage consumption. 
 

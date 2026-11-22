@@ -1,7 +1,6 @@
 
 
 # EUCSEC14-BP01 Encrypt disk volumes to protect data at rest
-<a name="eucsec14-bp01"></a>
 
  Protect security, integrity, and availability of data at rest to make sure it is reliably accessible when needed. 
 

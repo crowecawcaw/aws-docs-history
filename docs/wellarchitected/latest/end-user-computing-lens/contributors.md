@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations have contributed to this document: 
 +  Arvind Raghunathan, Principal Operations Lead SA, Amazon Web Services 

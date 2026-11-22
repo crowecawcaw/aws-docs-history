@@ -1,7 +1,6 @@
 
 
 # EUCSEC02-BP01 Identify external stakeholders and their security or regulatory compliance requirements
-<a name="eucsec02-bp01"></a>
 
  When creating and configuring an end user computing environment, verify that the regulatory requirements for the users of your environment are met. Consider the broader regulatory frameworks and their associated requirements in relation to accessibility that may be in scope for users with specific accessibility requirements. 
 

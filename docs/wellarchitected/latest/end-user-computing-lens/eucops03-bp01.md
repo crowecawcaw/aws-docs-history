@@ -1,7 +1,6 @@
 
 
 # EUCOPS03-BP01 Identify the business goals and success criteria for your EUC project
-<a name="eucops03-bp01"></a>
 
  Verify that the deployment of the selected AWS EUC services addresses the needs of both internal and external customers. For example, does the feature set of the selected AWS EUC technology stack meet the requirements of all user personas identified as part of the proposed project? Both employees, business partners, and external customers could be affected. 
 

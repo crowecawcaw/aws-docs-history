@@ -1,7 +1,6 @@
 
 
 # EUCSEC15-BP01 Encourage users to store data on long-term storage services
-<a name="eucsec15-bp01"></a>
 
  Educate users to avoid storing critical data directly on EUC systems without also saving that data to an approved, long-term storage solution that is regularly backed up. This practice verifies that data remains visible, accessible, and protected against loss in the event of an EUC instance failure or lifecycle event such as termination or rebuild. 
 

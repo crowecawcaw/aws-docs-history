@@ -1,7 +1,6 @@
 
 
 # Change management
-<a name="change-management"></a>
 
 
 |  EUCREL07: How do you track changes and implement reversible deployments in your change management process?  | 

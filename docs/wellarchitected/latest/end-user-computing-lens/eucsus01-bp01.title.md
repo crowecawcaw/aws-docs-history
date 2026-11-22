@@ -1,7 +1,6 @@
 
 
 # EUCSUS01-BP01 Choose the appropriate fleet type
-<a name="eucsus01-bp01.title"></a>
 
 By selecting [Always-On instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/fleet-type.html) in WorkSpaces Applications, your instances are constantly kept running and ready to receive user connection. With [On-Demand](https://docs.aws.amazon.com/appstream2/latest/developerguide/fleet-type.html), your instances will be provisioned based on your scaling policies, but instances start only when users initiate the connection. [Elastic fleet](https://docs.aws.amazon.com/appstream2/latest/developerguide/fleet-type.html) is a fleet of instances managed by AWS directly, and you only pay when your user is launching a new session and there is no scaling management.
 

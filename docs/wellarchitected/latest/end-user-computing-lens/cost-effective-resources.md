@@ -1,7 +1,6 @@
 
 
 # Cost effective resources
-<a name="cost-effective-resources"></a>
 
 
 |  EUCCOST04: How do you allocate cost to your business owners?  | 

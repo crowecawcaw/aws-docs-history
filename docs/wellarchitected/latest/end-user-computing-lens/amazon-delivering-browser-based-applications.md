@@ -1,7 +1,6 @@
 
 
 # Amazon delivering browser-based applications
-<a name="amazon-delivering-browser-based-applications"></a>
 
  An increasing number of applications are being delivered to users using a web browser. What was once an exceptional use case for an infrequently used application is now a mainstream delivery mechanism for a vast array of applications being used within AWS customer organizations. 
 

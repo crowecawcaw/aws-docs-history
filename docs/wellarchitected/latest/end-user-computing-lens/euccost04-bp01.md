@@ -1,7 +1,6 @@
 
 
 # EUCCOST04-BP01 Tag your Amazon WorkSpaces and Amazon WorkSpaces Applications resources
-<a name="euccost04-bp01"></a>
 
  [Tagging your Amazon WorkSpaces Applications resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) or [tagging WorkSpaces resources](https://docs.aws.amazon.com/workspaces/latest/adminguide/tag-workspaces-resources.html) helps you allocate your cost to logical groups, such as departments or business entities. 
 

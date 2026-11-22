@@ -1,7 +1,6 @@
 
 
 # Architecture selection
-<a name="architecture-selection"></a>
 
 
 |  EUCPERF01: How do you choose AWS Regions and Availability Zones for your EUC deployments?  | 

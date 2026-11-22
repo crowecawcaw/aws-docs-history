@@ -1,7 +1,6 @@
 
 
 # EUCSEC12-BP01 Allow user access to only the software binaries needed to perform their job
-<a name="eucsec12-bp01"></a>
 
  Users should only have access to the software binaries required for them to perform their role. Access to additional software that could introduce risks should be blocked. 
 

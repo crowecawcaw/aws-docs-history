@@ -1,7 +1,6 @@
 
 
 # EUCSUS05-BP01 Optimize machine image creation, copying, and sharing to each environment (like development, testing, and production) 
-<a name="eucsus05-bp01"></a>
 
  Using automation with machine images facilitates scalability and elasticity, minimizing over-provisioning and associated energy consumption. Centralized management and compliance reporting further support sustainability initiatives. Overall, automation pipelines contribute to lower environmental impact and improved resource optimization. 
 

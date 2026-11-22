@@ -1,7 +1,6 @@
 
 
 # EUCSEC04-BP01 Separate end user systems between different groups of users when required to satisfy policy or regulatory requirements
-<a name="eucsec04-bp01"></a>
 
  Many organizations have security requirements that mandate the segregation of systems accessed and interacted with by end users from servers that perform an infrastructure or application hosting function. Regardless of whether there is a specific security requirement, end user systems should be segregated from each other. This is for multiple reasons including reducing the risk of unintended access and exposure to unsafe software. 
 

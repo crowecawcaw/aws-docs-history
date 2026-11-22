@@ -1,7 +1,6 @@
 
 
 # Hardware and services 
-<a name="hardware-and-services"></a>
 
 
 |  EUCSUS08: What is your end user client device lifecyle strategy?   | 

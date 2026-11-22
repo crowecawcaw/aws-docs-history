@@ -1,7 +1,6 @@
 
 
 # EUCOPS06-BP01 Deploy test, development, and pre-production environments to reduce risk to production services
-<a name="eucops06-bp01"></a>
 
  Training and testing should be undertaken in isolated environments, with little or no connectivity to production services. 
 

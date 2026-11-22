@@ -1,7 +1,6 @@
 
 
 # EUCCOST01-BP01 Evaluate EUC specific cost model awareness in your cloud business
-<a name="euccost01-bp01"></a>
 
  You may have a cloud business office, Cloud Center of Excellence, or a FinOps team that is responsible for establishing and maintaining cost awareness across your organization. However, AWS EUC services often use many other services and may require a solid understanding of Microsoft licensing to optimize the cost. If you are using the ITIL framework, you may already have defined service owners for individual services who own the financials for their services. 
 

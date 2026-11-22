@@ -1,7 +1,6 @@
 
 
 # Prepare
-<a name="prepare"></a>
 
  To prepare for operational excellence, you must understand your workloads and their expected behaviors. You can then design them to provide insight to their status and build the procedures to support them. 
 

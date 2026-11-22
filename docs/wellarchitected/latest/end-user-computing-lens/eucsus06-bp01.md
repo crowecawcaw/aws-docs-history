@@ -1,7 +1,6 @@
 
 
 # EUCSUS06-BP01 Stop image builders and app block builders when not in use
-<a name="eucsus06-bp01"></a>
 
  In WorkSpaces Applications, image builders and app block builders are two instances used only when creating your baseline image or application package. There is no requirement to keep them running. 
 

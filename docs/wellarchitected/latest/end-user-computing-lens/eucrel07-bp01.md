@@ -1,7 +1,6 @@
 
 
 # EUCREL07-BP01 Document changes for transparency and traceability
-<a name="eucrel07-bp01"></a>
 
  Maintain comprehensive documentation of all modifications made to the EUC environment. Document the details of each change, including the rationale, implementation steps, and anticipated outcomes. Documentation helps promote transparency and traceability and provides a reference for future troubleshooting or auditing purposes. 
 

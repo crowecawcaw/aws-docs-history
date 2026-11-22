@@ -1,7 +1,6 @@
 
 
 # EUCPERF05-BP02 Understand integrated storage capabilities (AppStream)
-<a name="eucperf05-bp02"></a>
 
  For persistent, per-user storage, WorkSpaces Applications offers built-in connectors to Amazon S3 home folders, Google Drive for Google Workspace, and OneDrive for Business. For more information on these connectors, see [Enable and Administer Persistent Storage for Your WorkSpaces Applications Users](https://docs.aws.amazon.com/appstream2/latest/developerguide/persistent-storage.html). 
 

@@ -1,7 +1,6 @@
 
 
 # EUCPERF01-BP01 Check Regional support for the required EUC services
-<a name="eucperf01-bp01"></a>
 
  Not all AWS regions support EUC services such as WorkSpaces Applications, WorkSpaces and WorkSpaces Secure Browser. 
 

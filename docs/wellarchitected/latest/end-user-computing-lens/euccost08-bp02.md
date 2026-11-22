@@ -1,7 +1,6 @@
 
 
 # EUCCOST08-BP02 Monitor your Amazon WorkSpaces Applications fleet utilization, and optimize scaling policies and buffer capacity
-<a name="euccost08-bp02"></a>
 
  Use [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/?nc1=h_ls) to observe and monitor your Amazon WorkSpaces Applications resources. Amazon WorkSpaces Applications publishes several [WorkSpaces Applications Metrics and Dimensions](https://docs.aws.amazon.com/appstream2/latest/developerguide/monitoring-with-cloudwatch.html) to Amazon CloudWatch that you can visualize and use to check if you are overprovisioning buffer capacity or if you are running into capacity shortages at times. Use these metrics to adjust your WorkSpaces Applications Fleet capacity and scaling policies to minimize idle capacity and reduce insufficient capacity errors where possible.  
 

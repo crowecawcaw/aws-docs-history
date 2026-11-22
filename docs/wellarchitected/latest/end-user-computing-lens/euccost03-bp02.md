@@ -1,7 +1,6 @@
 
 
 # EUCCOST03-BP02 Use a self-service portal to request your ITSM
-<a name="euccost03-bp02"></a>
 
  Instead of enabling self-service capabilities for your users, use a self-service portal to allow users to request resources, or enable workflow-based request for EUC resources with your ITSM. This gives you better control and limits the exposure to unforeseen cost increases. 
 

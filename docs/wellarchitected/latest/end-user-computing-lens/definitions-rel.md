@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions-rel"></a>
 
  **Foundations:** 
 +  Foundational requirements are those whose scope extends beyond a single workload or project. Before architecting any system, foundational requirements that influence reliability should be in place. 

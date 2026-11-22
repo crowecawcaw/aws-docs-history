@@ -1,7 +1,6 @@
 
 
 # EUCCOST02-BP01 Monitor your EUC cost and usage proactively
-<a name="euccost02-bp01"></a>
 
  [AWS Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) help you gain detailed insights onboth your WorkSpaces Applications and your WorkSpaces service usage and cost. In addition, WorkSpaces Applications offers separate [Usage Reports](https://docs.aws.amazon.com/appstream2/latest/developerguide/configure-usage-reports.html) with further detail. Amazon WorkSpaces comes with a [WorkSpaces CloudWatch automatic dashboard](https://docs.aws.amazon.com/workspaces/latest/adminguide/cloudwatch-dashboard.html) that provides insight into the performance of your WorkSpaces resources and helps you identify performance issues. [Amazon WorkSpaces Applications Fleet Usage and Instance/Session Performance Metrics](https://docs.aws.amazon.com/appstream2/latest/developerguide/monitoring.html) are available in the WorkSpaces Applications Console and Amazon CloudWatch.
 

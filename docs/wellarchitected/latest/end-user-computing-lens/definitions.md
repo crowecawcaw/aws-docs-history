@@ -1,7 +1,6 @@
 
 
 # Definitions
-<a name="definitions"></a>
 
  Following is a list of definitions related to the AWS Well-Architected Framework and EUC workloads. 
 

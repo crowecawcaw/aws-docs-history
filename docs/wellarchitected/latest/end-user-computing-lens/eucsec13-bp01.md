@@ -1,7 +1,6 @@
 
 
 # EUCSEC13-BP01 Align your compliance of data storage with policies and regulatory requirements
-<a name="eucsec13-bp01"></a>
 
  The storage of data accessible by users and applications on end user systems should align with and comply with the data residency requirements for the data and the organization. 
 

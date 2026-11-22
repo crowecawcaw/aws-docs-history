@@ -1,7 +1,6 @@
 
 
 # EUCOPS05-BP02 Store and regularly analyze log files to detect anomalous activity and behaviors
-<a name="eucops05-bp02"></a>
 
  Maintaining a central store of log data and performance metrics is frequently a mandatory requirement if specific compliance standards need to be maintained. Even in the absence of compliance requirements, maintaining a central store of data facilitates a better understanding of service scaling, performance, and security enables analysis, which improves root cause analysis and drives incremental service improvement. 
 

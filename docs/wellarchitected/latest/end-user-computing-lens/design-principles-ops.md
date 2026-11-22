@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-ops"></a>
 +  **Design for the cloud:** You may be delivering a net new EUC service, migrating from an existing on-premises solution, or a hybrid of both, but regardless of approach, when you use cloud computing you can face the challenges and gain the advantages of the wide range of services on offer. Train your technical architects, delivery teams, and operations personnel so that they are ready to embrace this range of services to deliver cost efficiency, scalability, unparalleled resilience, and the global reach that AWS provides. 
 +  **Embrace automation:** The opportunities to automate the provisioning of desktop and application delivery services increase significantly when moving to an AWS Cloud-hosted EUC service. Automation accelerates your time to deliver value. This is because it can cover selection of a variety of compute, software bundles, and APIs in order to streamline configuration, deployment, delivery, maintenance, and ongoing support for an EUC environment. 
 +  **Define the service levels you need to provide**: The way your EUC workload is designed, built, and managed should be predicated upon business metrics that define the value of each service being offered. Some user personas, for example, may require higher resilience, better performance, and closer monitoring than users who require access to simple productivity applications. Service levels should reflect these requirements. 

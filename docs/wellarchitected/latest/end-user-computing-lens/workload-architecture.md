@@ -1,7 +1,6 @@
 
 
 # Workload architecture
-<a name="workload-architecture"></a>
 
 
 |  EUCREL02: How do you minimize impact of Regional disruptions in your EUC environment?  | 

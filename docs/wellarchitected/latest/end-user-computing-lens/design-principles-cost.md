@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles-cost"></a>
 
  The following design principles are additional considerations over and above the Well-Architected Framework cost optimization design principles.  
 +  **Establish ownership of cost optimization for your EUC services:** EUC services are typically consumed by end-users, which is why consumption and cost is highly dependent on user behavior, usage patterns, self-service capabilities, application requirements, and other factors. Over and above knowledge of the cloud financial management, cost optimization for EUC services requires knowledge of the specific EUC services in use and how EUC services generally work to understand the levers they have to optimize cost. This includes Operating System choices, application workloads and their hardware requirements, licensing, storage requirements, desktop & application management, and other areas. 

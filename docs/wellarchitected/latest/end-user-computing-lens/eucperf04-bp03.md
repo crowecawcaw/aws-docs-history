@@ -1,7 +1,6 @@
 
 
 # EUCPERF04-BP03 Determine the running mode and size of hardware bundles needed to support each user type's applications
-<a name="eucperf04-bp03"></a>
 
  It's important to have a high degree of familiarity with the applications that need to be delivered using Amazon WorkSpaces Personal in terms of their compute resource requirements and their usage pattern. By understanding core compute requirements such as the amount of memory, CPU, network bandwidth, latency, and disk space that applications require, you can more effectively determine the optimum WorkSpaces Personal bundle type. The optimal running mode required to support the workload is determined by understanding the pattern of usage of the application. 
 

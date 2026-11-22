@@ -1,7 +1,6 @@
 
 
 # EUCREL12-BP01 Develop an EUC-specific incident response plan that improves reliability in your environment
-<a name="eucrel12-bp01"></a>
 
  When developing incident response plans for Amazon WorkSpaces and WorkSpaces Applications, it's important to address their unique characteristics such as the session-based nature of AppStream 2.0 and the persistent data in WorkSpaces. Plans should include strategies for handling issues with scaling, session failures, and network dependencies like VPCs or AWS Direct Connect. Active Directory integration is crucial for both services, so steps for troubleshooting authentication failures or AD synchronization must be detailed. The plan should also account for Region-specific outages, using cross-Region backups or failover mechanisms for user data and application availability. 
 

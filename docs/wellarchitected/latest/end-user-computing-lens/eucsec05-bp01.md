@@ -1,7 +1,6 @@
 
 
 # EUCSEC05-BP01 Evaluate applications and data access requirements and implement entitlements accordingly
-<a name="eucsec05-bp01"></a>
 
  Assess the types of users, their associated risk profile, and the access that each group of users requires to understand the access permissions each group of users require. Map the requirements to security groups, such as Active Directory security groups and the required permissions granted to these groups. Continually maintain the users associated with the group to verify ongoing appropriate access to applications and data. 
 

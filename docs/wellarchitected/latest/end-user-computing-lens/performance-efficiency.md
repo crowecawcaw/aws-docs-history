@@ -1,7 +1,6 @@
 
 
 # Performance efficiency
-<a name="performance-efficiency"></a>
 
  The performance efficiency pillar includes the ability to use cloud resources efficiently to meet performance requirements, and to maintain that efficiency as demand changes and technologies evolve. This section provides in-depth, best practice guidance for architecting performant EUC workloads on AWS. 
 

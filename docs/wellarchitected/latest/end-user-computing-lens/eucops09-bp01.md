@@ -1,7 +1,6 @@
 
 
 # EUCOPS09-BP01 Maintain an up to date matrix of all EUC service owners and quick access links to the support plans for each service
-<a name="eucops09-bp01"></a>
 
  Amazon WorkSpaces and Amazon WorkSpaces Applications, although easier to implement and administer than traditional on-premises alternatives, still require specific knowledge to deploy, manage, and support. To simplify the process of routing issues to the right owners, you should be able to quickly identify the teams who are responsible for implementation and support along with clear support plans for each application being delivered, expediting time to resolution. 
 

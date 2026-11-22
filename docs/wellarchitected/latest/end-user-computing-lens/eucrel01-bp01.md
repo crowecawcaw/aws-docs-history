@@ -1,7 +1,6 @@
 
 
 # EUCREL01-BP01 Add redundancy and remove single points of failure in your environment
-<a name="eucrel01-bp01"></a>
 
  The principle of assuming that failures will occur represents a paradigm shift in the approach to designing Amazon WorkSpaces and WorkSpaces Applications environments. By adopting this mindset, organizations can prioritize resilience and develop strategies that minimize the impact of failures, thereby reducing downtime and mitigating potential business disruptions. 
 

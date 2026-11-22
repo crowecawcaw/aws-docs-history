@@ -1,7 +1,6 @@
 
 
 # Key AWS services
-<a name="key-aws-services-cost"></a>
 +  [Amazon WorkSpaces Applications](https://aws.amazon.com/appstream2/?nc1=h_ls) 
 +  [Amazon WorkSpaces](https://aws.amazon.com/workspaces/all-inclusive/) 
 +  [Amazon WorkSpaces Secure Browser](https://aws.amazon.com/workspaces/secure-browser/) 

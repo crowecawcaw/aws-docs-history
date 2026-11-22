@@ -1,7 +1,6 @@
 
 
 # Operate
-<a name="operate"></a>
 
  Observability helps you focus on meaningful data and understand your workload's interactions and output. By concentrating on essential insights and removing unnecessary data, you maintain a straightforward approach to understanding workload performance. It is essential not only to collect data but also to interpret it correctly. Define clear baselines, set appropriate alert thresholds, and actively monitor for any deviations. A shift in a key metric, especially when correlated with other data, can pinpoint specific problem areas. 
 
