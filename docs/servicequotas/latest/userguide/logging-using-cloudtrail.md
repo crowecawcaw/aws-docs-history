@@ -1,7 +1,6 @@
 
 
 # Logging Service Quotas API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Service Quotas is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Service Quotas. CloudTrail captures all API calls for Service Quotas as events. The calls captured include calls from the Service Quotas console and code calls to the Service Quotas API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Service Quotas. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Service Quotas, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -35,7 +34,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `RequestQuotaIncrease` action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -95,7 +94,7 @@ This example shows that the user named `admin` generated a request for additiona
 
 The following is an example of an approved quota increase in Service Quotas:
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

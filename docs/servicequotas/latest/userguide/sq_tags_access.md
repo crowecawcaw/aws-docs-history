@@ -1,7 +1,6 @@
 
 
 # Controlling access using Service Quotas tags
-<a name="sq_tags_access"></a>
 
 To control access to Service Quotas resources based on tags, you provide the tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys. For more information about these condition keys, see [Controlling access to AWS resources using resource tags ](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM User Guide*.
 
@@ -12,7 +11,7 @@ For example, when you attach the following policy to an AWS Identity and Access 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

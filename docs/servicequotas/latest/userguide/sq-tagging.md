@@ -1,7 +1,6 @@
 
 
 # Managing Service Quotas resources with tags
-<a name="sq-tagging"></a>
 
 You can use tags to categorize resources by purpose, owner, environment, or other criteria. A *tag* is a custom attribute label that you add to an AWS resource to make it easier to identify, organize, and search for resources. Each tag includes two parts: 
 + A **tag key**, such as `CostCenter`, `Environment`, or `Project`. Tag keys are case sensitive.

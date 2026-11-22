@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring Service Quotas
-<a name="monitoring-overview"></a>
 
 ## Overview
 <a name="monitor-sq"></a>

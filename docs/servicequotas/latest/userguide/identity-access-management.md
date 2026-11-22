@@ -1,7 +1,6 @@
 
 
 # Identity and access management in Service Quotas
-<a name="identity-access-management"></a>
 
 AWS uses security credentials to identify you and to grant you access to your AWS resources. You can use features of AWS Identity and Access Management (IAM) to allow other users, services, and applications to use your AWS resources fully or in a limited way. You can do this without sharing your security credentials.
 
@@ -31,13 +30,13 @@ An IAM policy is a JSON document that consists of one or more statements. The fo
 
 In the `Action` element of your IAM policy statement, you can specify any API action that Service Quotas offers. You must prefix the action name with the lowercase string `servicequotas:`, as shown in the following example.
 
-```
+```json
 "Action": "servicequotas:GetServiceQuota"
 ```
 
 To specify multiple actions in a single statement, enclose them in square brackets and separate them with a comma, as shown in the following example.
 
-```
+```json
 "Action": [
     "servicequotas:ListRequestedServiceQuotaChangeHistory",
     "servicequotas:ListRequestedServiceQuotaChangeHistoryByQuota"
@@ -46,13 +45,13 @@ To specify multiple actions in a single statement, enclose them in square bracke
 
 You can also specify multiple actions using the wildcard character (`*`). The following example specifies all API action names for Service Quotas that start with `Get`.
 
-```
+```json
 "Action": "servicequotas:Get*"
 ```
 
 To specify all API actions for Service Quotas, use the wildcard character (`*`), as shown in the following example.
 
-```
+```json
 "Action": "servicequotas:*"
 ```
 
@@ -71,7 +70,7 @@ arn:aws:servicequotas:{{region-code}}:{{account-id}}:{{service-code}}/{{quota-co
 
 For API actions that don't support resource-level permissions, you must specify the resource statement shown in the following example.
 
-```
+```json
 "Resource": "*"
 ```
 
@@ -138,7 +137,7 @@ The following IAM policy example allows these permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

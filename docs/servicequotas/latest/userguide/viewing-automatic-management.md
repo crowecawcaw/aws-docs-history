@@ -1,7 +1,6 @@
 
 
 # Viewing Service Quotas Automatic Management configuration
-<a name="viewing-automatic-management"></a>
 
 Use the following procedure to view Service Quotas Automatic Management configurations for your AWS account using the AWS Management Console or AWS CLI.
 

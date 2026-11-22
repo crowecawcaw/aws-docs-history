@@ -1,7 +1,6 @@
 
 
 # Managing Service Quotas tags
-<a name="sq_tags_managing-console"></a>
 
 You can manage Service Quotas tags by using the AWS Management Console, the AWS CLI, or the AWS API.
 

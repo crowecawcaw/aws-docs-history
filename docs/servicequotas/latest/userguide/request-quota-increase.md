@@ -1,7 +1,6 @@
 
 
 # Requesting a quota increase
-<a name="request-quota-increase"></a>
 
 For adjustable quotas, you can request a quota increase at the *account-level* or the *resource-level*. Smaller increases are usually automatically approved while larger requests are submitted to Support. Larger increase requests take time to review, process, approve, and deploy. You can track your request case in the Support console. 
 
@@ -49,7 +48,7 @@ The following example commands show how to request a quota increase at the accou
 
 1. Get the list of Amazon OpenSearch Service quotas and their corresponding applied quota values at the account-level by calling the [ListServiceQuotas](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html) operation with request parameters `ServiceCode` as `es`, and `QuotaAppliedAtLevel` as `ACCOUNT`. The response includes the `QuotaName`, `QuotaCode`, `Value`, and `QuotaAppliedAtLevel` for each quota of the Amazon OpenSearch Service that is applied at the account-level. If the value in the `QuotaAppliedAtLevel` field is `ACCOUNT`, then the `Value` represents the Applied quota value at the account-level. The following CLI example retrieves the quota code for a OpenSearch Service quota.
 
-   ```
+   ```bash
    $ aws service-quotas list-service-quotas \
            --service-code es \  
            --quota-applied-at-level ACCOUNT
@@ -117,7 +116,7 @@ The following example commands show how to request a quota increase at the accou
 **Note**  
 You can't request a quota increase at the account-level for a resource-level quota through the AWS CLI. This operation results in the creation of a support case where you can provide the ARN to specify the resource on which the new quota value should apply. However, the `Instances per domain` quota for Amazon OpenSearch Service is an exception. 
 
-   ```
+   ```bash
    $ aws service-quotas request-service-quota-increase \
            --service-code es \
            --quota-code L-6408ABDE \
@@ -161,7 +160,7 @@ The following example commands show how to request a resource-level quota increa
 
 1. Get the list of Amazon OpenSearch Service quotas and their corresponding applied quota values at the resource-level by calling the [ListServiceQuotas](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotas.html) operation with request parameters `ServiceCode` as `es`, and `QuotaAppliedAtLevel` as `RESOURCE`. The response includes the `QuotaName`, `QuotaCode`, `Value`, and `QuotaAppliedAtLevel` for each quota of the Amazon OpenSearch Service that is applied at the resource-level. If the value in the `QuotaAppliedAtLevel` field is `RESOURCE`, then the `Value` represents the Applied quota value at the resource-level. In this case, the response for this quota will also contain the `QuotaContext` structure which further specifies the `ContextId` or the ARN to which the quota value is applied. The following CLI example retrieves the quota code for a OpenSearch Service quota.
 
-   ```
+   ```bash
    $ aws service-quotas list-service-quotas \
            --service-code es \
            --quota-applied-at-level RESOURCE
@@ -209,7 +208,7 @@ The following example commands show how to request a resource-level quota increa
 
    The following example requests an increase in the `Instances per domain` quota to `100` for a specific Amazon OpenSearch Service domain with the ARN as arn:aws:es:us-east-1:123456789012:domain/opensearch-domain-1. If the command completes successfully, the `Status` field in the response displays the current status of the request. `QuotaRequestedAtLevel` field in the response contains the value `RESOURCE` which specifies that this request is for a specific resource.
 
-   ```
+   ```bash
    $ aws service-quotas request-service-quota-increase \
            --service-code es \
            --quota-code L-6408ABDE \

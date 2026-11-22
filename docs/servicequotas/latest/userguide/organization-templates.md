@@ -1,7 +1,6 @@
 
 
 # Using Service Quotas request templates
-<a name="organization-templates"></a>
 
 **Note**  
 Quota request templates are only supported in commercial AWS Regions. Templates are not supported in China Regions or opt-in Regions (Regions that require manual selection to be activated). 

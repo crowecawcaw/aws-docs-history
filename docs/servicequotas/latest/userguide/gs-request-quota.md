@@ -1,7 +1,6 @@
 
 
 # Viewing service quotas
-<a name="gs-request-quota"></a>
 
 **Note**  
 If you are searching for service quotas for a specific AWS service, review [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html) in the *AWS General Reference guide*. 
@@ -37,7 +36,7 @@ Your account's actual quota value may be less than the AWS default quota value i
 View the default values for the quotas for a specific AWS service.
 + Call the [ListDefaultServiceQuotas](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListDefaultServiceQuotas.html) operation with a service code. If you don't have the service code, you can get a list of supported services with the [ListServices](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServices.html) operation. The response includes the `ServiceCode` and `ServiceName` for each service. The `ServiceCode` for Amazon OpenSearch Service is `es`. The following CLI example retrieves default values for Amazon OpenSearch Service quotas.
 
-  ```
+  ```bash
   $ aws service-quotas list-aws-default-service-quotas \
           --service-code es \
   {
@@ -101,7 +100,7 @@ View the applied quota values for a specified AWS service. For some quotas, only
 
   The following CLI example retrieves all quota values applied at the account-level for OpenSearch Service. 
 
-  ```
+  ```bash
   $ aws service-quotas list-service-quotas \
           --service-code es \
           --quota-applied-at-level ACCOUNT

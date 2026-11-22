@@ -1,7 +1,6 @@
 
 
 # Updating Service Quotas Automatic Management configuration
-<a name="updating-automatic-management"></a>
 
 You can update your Service Quotas Automatic Management by adding service quotas to the exclusion list or changing your Automatic Management notification configuration. Use the following procedure to update Automatic Management configuration for your AWS account using the AWS Management Console or AWS CLI.
 

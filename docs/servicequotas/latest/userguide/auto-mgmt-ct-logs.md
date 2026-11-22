@@ -1,7 +1,6 @@
 
 
 # Service Quotas Automatic Management AWS CloudTrail logs
-<a name="auto-mgmt-ct-logs"></a>
 
 The following are AWS CloudTrail logs for Automatic Management critical and non-critical events.
 

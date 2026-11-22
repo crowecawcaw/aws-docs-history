@@ -1,7 +1,6 @@
 
 
 # Verifying your quota request
-<a name="quota-history"></a>
 
 Verify your quota request by viewing the request history history in the Service Quotas console. The console displays all open quota requests and requests closed in the last year.
 
@@ -41,7 +40,7 @@ View details about a service, quota name, and status in the **Quota request hist
 **To view the quota request history**
 + The `ListRequestedServiceQuotaChangeHistory` operation, which submits the request, requires a `QuotaRequestedAtLevel` parameter. The following CLI example is for all resource and account level requests.
 
-  ```
+  ```bash
   $ aws service-quotas list-requested-service-quota-change-history \
           --quota-applied-at-level ALL
   {

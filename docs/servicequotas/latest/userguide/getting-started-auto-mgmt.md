@@ -1,7 +1,6 @@
 
 
 # Getting started with Service Quotas Automatic Management
-<a name="getting-started-auto-mgmt"></a>
 
 Service Quotas Automatic Management monitors service quotas usage patterns and sends you notifications when your usage approaches your [utilization thresholds](automatic-management.md#notification-thresholds). Automatic Management works with both adjustable and non-adjustable quotas to help you track your quota utilization. To allow AWS to monitor quotas in your AWS account, you need to start the Automatic Management. The following procedures walks through how you can start Automatic Management with either the AWS Management Console or AWS CLI.
 

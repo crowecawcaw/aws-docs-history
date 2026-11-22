@@ -1,7 +1,6 @@
 
 
 # Service Quotas Automatic Management
-<a name="automatic-management"></a>
 
 Service Quotas Automatic Management monitors your service quotas usage and notifies you before you run out of your allocated quotas. You gain better visibility and proactive awareness, enabling you to run your applications without interruptions.Key features of Automatic Management
 

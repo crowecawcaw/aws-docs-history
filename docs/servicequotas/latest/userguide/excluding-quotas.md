@@ -1,7 +1,6 @@
 
 
 # Excluding service quotas from Service Quotas Automatic Management
-<a name="excluding-quotas"></a>
 
 You won't be notified of service quotas utilizations for AWS services added to the Automatic Management exclusion list. 
 

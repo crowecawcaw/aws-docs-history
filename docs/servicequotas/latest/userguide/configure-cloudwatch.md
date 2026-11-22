@@ -1,7 +1,6 @@
 
 
 # Service Quotas and Amazon CloudWatch alarms
-<a name="configure-cloudwatch"></a>
 
 You can create Amazon CloudWatch alarms to notify you when you're close to a quota value threshold. Setting an alarm can help alert you if you need to request a quota increase.
 

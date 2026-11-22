@@ -1,7 +1,6 @@
 
 
 # Service Quotas Automatic Management frequently asked questions
-<a name="automatic-management-faq"></a>
 
 ## Notifications and monitoring
 <a name="faq-notifications-monitoring"></a>

@@ -1,7 +1,6 @@
 
 
 # Stopping Service Quotas Automatic Management
-<a name="stopping-automatic-management"></a>
 
 Use the following procedure to stop Service Quotas Automatic Management of service quotas for supported AWS services in your AWS account using the AWS Management Console or AWS CLI.
 

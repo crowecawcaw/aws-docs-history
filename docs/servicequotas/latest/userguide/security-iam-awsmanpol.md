@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Service Quotas
-<a name="security-iam-awsmanpol"></a>
 
 
 
