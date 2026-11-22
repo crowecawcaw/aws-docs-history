@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon Q Developer CloudZero plugin
-<a name="cloudzero-plugin"></a>
 
 The CloudZero plugin is now part of the AWS assistant.
 

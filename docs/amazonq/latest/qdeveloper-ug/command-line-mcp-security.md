@@ -1,7 +1,6 @@
 
 
 # MCP security
-<a name="command-line-mcp-security"></a>
 
 When using MCP servers with Amazon Q Developer CLI, it's important to understand the security implications and best practices.
 

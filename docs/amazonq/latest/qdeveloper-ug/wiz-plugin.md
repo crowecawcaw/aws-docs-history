@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon Q Developer Wiz plugin
-<a name="wiz-plugin"></a>
 
 The Wiz plugin is now part of the AWS assistant.
 

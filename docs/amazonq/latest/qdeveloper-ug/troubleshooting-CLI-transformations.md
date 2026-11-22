@@ -1,7 +1,6 @@
 
 
 # Troubleshooting transformations on the command line
-<a name="troubleshooting-CLI-transformations"></a>
 
 The following information can help you troubleshoot common issues when transforming applications on the command line with Amazon Q Developer.
 
@@ -34,14 +33,14 @@ To make you're using the most recent version of the tool, download the [most rec
 ------
 #### [ Linux\_aarch64 ]
 
-```
+```bash
 pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall
 ```
 
 ------
 #### [ Linux\_x86\_64 ]
 
-```
+```bash
 pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall
 ```
 

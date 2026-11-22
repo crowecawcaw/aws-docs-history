@@ -1,7 +1,6 @@
 
 
 # What is the Amazon Q Developer profile?
-<a name="subscribe-understanding-profile"></a>
 
 **Note**  
 This section does not apply to personal accounts (Builder IDs).

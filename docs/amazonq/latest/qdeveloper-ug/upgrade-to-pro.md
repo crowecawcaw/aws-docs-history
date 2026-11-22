@@ -1,7 +1,6 @@
 
 
 # Upgrading to Amazon Q Developer Pro
-<a name="upgrade-to-pro"></a>
 
 How you upgrade to the Pro tier from the Free tier depends on whether you're an end-user with a personal account (Builder ID) or whether you're an administrator of IAM Identity Center workforce users.
 

@@ -1,7 +1,6 @@
 
 
 # Step 1: Choose a deployment option
-<a name="deployment-options"></a>
 
 Before you can subscribe users, you'll need to decide which AWS account or accounts you'll be working in. You'll need to make three key decisions:
 + **Decision 1: Where to enable IAM Identity Center** – For more information about IAM Identity Center, see [What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) in the *AWS IAM Identity Center User Guide*.

@@ -1,7 +1,6 @@
 
 
 # Subscribe users to Amazon Q Developer Pro in a standalone account
-<a name="subscribe-standalone"></a>
 
 A *standalone* account is one that is *not* part of an organization managed by [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 

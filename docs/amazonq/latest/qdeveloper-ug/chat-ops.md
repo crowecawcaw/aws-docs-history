@@ -1,7 +1,6 @@
 
 
 # Chatting about your telemetry and operations
-<a name="chat-ops"></a>
 
 This conversational experience is now part of the AWS assistant.
 

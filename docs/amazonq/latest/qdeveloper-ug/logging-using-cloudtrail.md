@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Q Developer API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Q Developer Pro is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Q. CloudTrail captures all API calls for Amazon Q as events. The calls captured include calls from the Amazon Q console and code calls to the Amazon Q API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Q. If you don’t configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Q, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -37,7 +36,7 @@ Amazon Q Developer also makes API calls with a `dryRun` parameter to verify that
 
 The following example shows a CloudTrail log entry that demonstrates the `SendMessage` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -110,7 +109,7 @@ The following example shows a CloudTrail log entry that demonstrates the `SendMe
 
 The following example shows a CloudTrail log entry that demonstrates the `PassRequest` action.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -154,7 +153,7 @@ The following example shows a CloudTrail log entry that demonstrates the `PassRe
 
 The following example shows a CloudTrail log entry that demonstrates Amazon Q calling the `s3:ListBuckets` action on your behalf.
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer subscription statuses
-<a name="q-admin-setup-subscribe-status"></a>
 
 Subscription status information varies depending on whether you're an end-user with a personal account (Builder ID), or you're an administrator of IAM Identity Center workforce users.
 

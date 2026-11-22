@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with .NET transformations in the IDE
-<a name="troubleshooting-dotnet-transformation-IDE"></a>
 
 Use the following sections to troubleshoot common issues with .NET transformations in the IDE with Amazon Q Developer.
 

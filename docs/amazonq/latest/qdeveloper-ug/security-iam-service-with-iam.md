@@ -1,7 +1,6 @@
 
 
 # How Amazon Q Developer works with IAM
-<a name="security-iam-service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon Q Developer, learn what IAM features are available to use with Amazon Q Developer.
 

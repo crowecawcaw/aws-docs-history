@@ -1,7 +1,6 @@
 
 
 # Creating project rules for use with Amazon Q Developer chat
-<a name="context-project-rules"></a>
 
 You can build a library of project rules that you can use when chatting with Amazon Q in the IDE. These rules describe coding standards and best practices across your team. For example, you could have a rule that states that all Python code must use type hints, or that all Java code must use Javadoc comments. By storing these rules in your project, you can ensure consistency across developers, regardless of their experience level.
 
@@ -45,7 +44,7 @@ You can create project rules either directly in the file system or through the A
 
 1. Add a detailed prompt to the file. For example:
 
-   ```
+   ```markdown
    All Amazon S3 buckets must have encryption enabled, enforce SSL, and block public access.
    All Amazon DynamoDB Streams tables must have encryption enabled. 
    All Amazon SNS topics must have encryption enabled and enforce SSL. 

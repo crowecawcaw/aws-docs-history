@@ -1,7 +1,6 @@
 
 
 # Code examples
-<a name="inline-suggestions-code-examples"></a>
 
 Amazon Q can suggest code in different scenarios. To understand how it can help you as you write code in your programming language of choice, view the following code examples.
 

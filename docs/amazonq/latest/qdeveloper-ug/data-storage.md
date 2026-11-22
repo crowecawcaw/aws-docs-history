@@ -1,7 +1,6 @@
 
 
 # Data storage in Amazon Q Developer
-<a name="data-storage"></a>
 
 Amazon Q stores your questions, its responses, and additional context, such as console metadata and code, to generate responses to your questions and requests. For information about how data is encrypted, see [Data encryption in Amazon Q Developer](data-encryption.md). For information about how AWS may use some questions that you ask Amazon Q and its responses to improve our services, see [Amazon Q Developer service improvement](service-improvement.md).
 

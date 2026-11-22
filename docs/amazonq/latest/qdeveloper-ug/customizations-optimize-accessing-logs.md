@@ -1,7 +1,6 @@
 
 
 # Accessing customization-related messages in Amazon CloudWatch Logs
-<a name="customizations-optimize-accessing-logs"></a>
 
 You can store information about the creation of your customizations in [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
@@ -14,7 +13,7 @@ To learn more about the permissions required to delivery logs to multiple resour
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

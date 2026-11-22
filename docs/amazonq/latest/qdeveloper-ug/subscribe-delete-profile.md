@@ -1,7 +1,6 @@
 
 
 # Deleting the Amazon Q Developer profile
-<a name="subscribe-delete-profile"></a>
 
 **Note**  
 This section does not apply to personal accounts (Builder IDs).

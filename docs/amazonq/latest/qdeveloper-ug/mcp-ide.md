@@ -1,7 +1,6 @@
 
 
 # MCP configuration for Q Developer in the IDE
-<a name="mcp-ide"></a>
 
 This page covers IDE-specific options for configuring MCP servers. 
 
@@ -122,6 +121,25 @@ To add an STDIO MCP server to the IDE:
 
 1. Follow the procedure under [Reviewing and adjusting tool permissions](#mcp-ide-configuration-review-adjust-tool) .
 
+## Working directory and workspace trust for STDIO MCP servers
+<a name="mcp-ide-configuration-stdio-working-directory"></a>
+
+Model Context Protocol (MCP) servers that use STDIO run as local processes on your computer. Q Developer starts them with your workspace folder as their working directory. If your workspace has more than one folder, Q Developer uses the first folder in the list, for example the top folder in the VS Code Explorer. This applies to servers at both global and local scope. Relative paths in a server's arguments are resolved from that folder.
+
+Commands such as `npx`, `uvx`, and `python -m` can load programs and settings from the working directory. For this reason, Q Developer starts STDIO MCP servers in a workspace folder only after that folder is trusted. This doesn't apply to HTTP MCP servers.
+
+How a folder is trusted depends on your IDE:
++ **Visual Studio Code**: Q Developer follows VS Code Workspace Trust. Q Developer doesn't run in Restricted Mode. After you trust the workspace, Q Developer starts and its MCP servers start. You don't need to restart VS Code.
++ **JetBrains IDEs**: Q Developer follows the IDE's project trust. If you open a project in safe mode, STDIO MCP servers wait until you trust the project. When you trust it, they start without restarting the IDE.
++ **Eclipse and Visual Studio**: the first time Q Developer starts STDIO MCP servers in a folder, it asks **Start MCP servers in this folder?**
+  + If you choose **Allow**, Q Developer remembers your choice for that folder. If you replace the folder, for example by deleting it and cloning it again at the same path, Q Developer asks again.
+  + If you choose **Don't allow**, the MCP servers won't start. To see the prompt again, refresh the MCP server list.
+  + To clear the folders you allowed, choose **Forget allowed folders** (the trash icon) at the top of the **MCP Servers** panel.
+
+While a server waits, the **MCP Servers** panel lists it under **Waiting for trust**, with what you need to do to start it.
+
+If no folder is open, Q Developer starts STDIO MCP servers in `~/.aws/amazonq/mcp-cwd`, an empty folder that it creates for this purpose.
+
 ## Troubleshooting your MCP configuration
 <a name="mcp-ide-configuration-troubleshooting"></a>
 
@@ -131,8 +149,10 @@ If there are connection issues, then an alert appears in the panel. You should n
 
 Choose **Fix Configuration** to return to the MCP configuration screen so that you can make the appropriate changes.
 
+If an STDIO MCP server is listed under **Waiting for trust**, it starts after the workspace folder is trusted. For more information, see [Working directory and workspace trust for STDIO MCP servers](#mcp-ide-configuration-stdio-working-directory).
+
 ## Enabling an MCP server
-<a name="mcp-ide-configuration-disable-server"></a>
+<a name="mcp-ide-configuration-enable-server"></a>
 
 The following procedure assumes that the MCP server in question is not already enabled.
 

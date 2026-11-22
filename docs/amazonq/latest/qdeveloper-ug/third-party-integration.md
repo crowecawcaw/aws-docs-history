@@ -1,7 +1,6 @@
 
 
 # Third-party integration with Amazon Q Developer
-<a name="third-party-integration"></a>
 
 Amazon Q Developer integrates with popular development platforms to enhance your software development workflows through specialized artificial intelligence (AI) capabilities. Supported integrations include and GitLab Duo and GitHub, providing AI-powered assistance throughout the development lifecycle. These integrations help streamline development by automating routine tasks and improving code quality.
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer for block completion
-<a name="code-block"></a>
 
 Block completion is used to complete your `if/for/while/try` code blocks.
 

@@ -1,7 +1,6 @@
 
 
 # Chatting inline with Amazon Q Developer
-<a name="q-in-IDE-inline-chat"></a>
 
 The *inline chat* feature lets you chat with Amazon Q from your IDE's main coding window. To use the inline chat feature, you highlight code that you want suggestions for, and provide instructions in the small input screen. Amazon Q proceeds to generate code for you, which it presents in a diff within the main coding window. You can then choose to accept or reject the changes.
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer IDE plugins end of support
-<a name="q-developer-ide-end-of-support"></a>
 
 On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support.
 

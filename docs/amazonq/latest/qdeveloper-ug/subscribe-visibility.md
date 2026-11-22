@@ -1,7 +1,6 @@
 
 
 # Viewing an aggregated list of Amazon Q Developer subscriptions
-<a name="subscribe-visibility"></a>
 
 **Note**  
 This section does not apply to personal accounts (Builder IDs).

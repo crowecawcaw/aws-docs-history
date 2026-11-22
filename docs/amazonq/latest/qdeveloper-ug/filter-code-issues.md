@@ -1,7 +1,6 @@
 
 
 # Filtering code issues
-<a name="filter-code-issues"></a>
 
 **Note**  
 You can only filter code issues in JetBrains IDEs and Visual Studio Code.

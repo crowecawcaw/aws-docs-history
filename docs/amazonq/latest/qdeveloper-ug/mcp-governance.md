@@ -1,7 +1,6 @@
 
 
 # MCP governance for Q Developer
-<a name="mcp-governance"></a>
 
  Pro-tier customers using IAM Identity Center as the sign-in method can control MCP access for users within their organization. By default, your users can use any MCP server in their Q client. As an administrator, you have the ability to either entirely disable the use of MCP servers by your users, or specify a vetted list of MCP servers that your users are allowed use. 
 

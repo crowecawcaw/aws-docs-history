@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer Pro subscription billing
-<a name="tracking-across-org-cost-usage"></a>
 
 Billing information for the Pro tier varies depending on whether you're an end-user with a personal account (Builder ID), or you're an administrator of IAM Identity Center workforce users.
 

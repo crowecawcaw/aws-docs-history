@@ -1,7 +1,6 @@
 
 
 # Disabling the Amazon Q Developer dashboard
-<a name="dashboard-disabling"></a>
 
 You might want to disable the Amazon Q Developer dashboard if you have concerns about data privacy, page load times, or other potential issues. When you disable the dashboard, the dashboard page (and any links to it) will no longer be available in the Amazon Q Developer console.
 

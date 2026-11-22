@@ -1,7 +1,6 @@
 
 
 # Unable to subscribe users
-<a name="unable-to-subscribe-standalone"></a>
 
 **Problem: Unable to subscribe users to Amazon Q Developer Pro**
 

@@ -1,7 +1,6 @@
 
 
 # Transforming code on the command line with Amazon Q Developer
-<a name="transform-CLI"></a>
 
 You can transform your applications from the command line with the Amazon Q Developer command line transformation tool. To transform your code, you provide the path to your source code and any necessary configuration files, and Amazon Q generates new code in a series of steps. Throughout the transformation, Amazon Q builds code on your local environment to verify changes. For more information, see [Building code in your local environment](#local-builds). Amazon Q creates a new branch in your repository where it commits the code changes. When the transformation is complete, you can merge the branch into your original branch to incorporate the changes into your codebase. 
 
@@ -31,13 +30,13 @@ For step-by-step instructions for running these commands, see [Running a transfo
 
 To configure a transformation and authenticate to Amazon Q Developer Pro, run:
 
-```
+```bash
 qct configure
 ```
 
 To start a transformation for a Java upgrade, run the following command. For {{<your-source-java-version>}}, you can enter `JAVA_1.8`, `JAVA_8`, `JAVA_11`, `JAVA_17`, or `JAVA_21`. For {{<your-target-java-version>}}, you can enter either `JAVA_17` or `JAVA_21`. Both `--source_version` and `--target_version` are optional. The `--trust` flag enables a transformation to run while vetting code to maintain security.
 
-```
+```sh
 qct transform --source_folder {{<path-to-folder>}}
     --source_version {{<your-source-java-version>}}        
     --target_version {{<your-target-java-version>}}
@@ -46,26 +45,26 @@ qct transform --source_folder {{<path-to-folder>}}
 
 To start a transformation for a SQL conversion, run:
 
-```
+```bash
 qct transform --source_folder {{<path-to-folder>}}
     --sql_conversion_config_file {{<path-to-sql-config-file>}}
 ```
 
 To see what version of the command line tool for transformation you are using, run:
 
-```
+```bash
 qct -v
 ```
 
 To get help with transformations, run:
 
-```
+```bash
 qct -h
 ```
 
 To view your transformation job history, run:
 
-```
+```bash
 qct history
 ```
 

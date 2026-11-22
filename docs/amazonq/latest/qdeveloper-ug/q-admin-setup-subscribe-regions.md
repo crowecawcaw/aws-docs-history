@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer Pro Region support
-<a name="q-admin-setup-subscribe-regions"></a>
 
 Region information for the Pro tier varies depending on whether you're an end-user with a personal account (Builder ID), or you're an administrator of IAM Identity Center workforce users.
 

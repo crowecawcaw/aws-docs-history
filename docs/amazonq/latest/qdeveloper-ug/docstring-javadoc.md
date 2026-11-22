@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer for Docstring, JSDoc, and Javadoc completion
-<a name="docstring-javadoc"></a>
 
 Amazon Q can help you generate or complete documentation inside your code.
 

@@ -1,7 +1,6 @@
 
 
 # GitLab Duo with Amazon Q
-<a name="gitlab-with-amazon-q"></a>
 
 [GitLab Duo with Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/) provides a suite of artificial intelligence (AI) experiences, such as propose code implementation for your idea, review merge requests for quality and vulnerabilities, and suggest unit tests. Additionally, you can use the GitLab Duo Chat feature that supports Amazon Q to address developmental tasks, such as vulnerability explanation, troubleshoot failed pipelines, and code refactoring. It's available for the GitLab Self-Managed offering and the Ultimate tier subscription (GitLab Duo with Amazon Q subscription add-on). For more information, see the [GitLab plans](https://docs.gitlab.com/subscriptions/choosing_subscription/) in the *GitLab documentation*.
 

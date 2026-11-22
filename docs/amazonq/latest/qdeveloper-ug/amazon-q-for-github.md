@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer for GitHub (Preview)
-<a name="amazon-q-for-github"></a>
 
 **Amazon Q Developer for GitHub: end of support**  
 On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
@@ -77,4 +76,4 @@ To register the app installation in the Amazon Q Developer console, you must mee
 You can use slash commands in comments within GitHub issues or pull requests to invoke Amazon Q Developer to perform development tasks or provide support.
 + `/q dev` - Invokes Amazon Q Developer in a GitHub issue to automatically implement new features and bug fixes. Amazon Q Developer creates a pull request with the changes and a summary of the changes.
 + `/q review` - Invokes Amazon Q Developer to automatically perform code reviews when pull requests are created or reopened. Code reviews provide feedback on code quality, potential issues, and security concerns, along with suggested fixes and code review summaries with threaded findings. Use `/q` in pull request comments to interact with findings. Automatic reviews are not triggered by subsequent commits to existing pull requests.
-+ `/q help` - Provides information about Amazon Q Developer for GitHub, including slash comannds, features, customization details, as well as a link to the [Amazon Q Developer for GitHub (Preview)](#amazon-q-for-github) documentation in the *Amazon Q Developer Developer Guide*.
++ `/q help` - Provides information about Amazon Q Developer for GitHub, including slash comannds, features, customization details, as well as a link to the [Amazon Q Developer for GitHub (Preview)](amazon-q-for-github.md) documentation in the *Amazon Q Developer Developer Guide*.

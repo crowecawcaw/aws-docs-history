@@ -1,7 +1,6 @@
 
 
 # MCP overview
-<a name="qdev-mcp-overview"></a>
 
 MCP (Model Context Protocol) is an open protocol that standardizes how AI assistants communicate with external tools. It defines a structured way for AI models to discover available tools, request tool execution with specific parameters, and receive and process tool results.
 

@@ -1,7 +1,6 @@
 
 
 # Enabling profile sharing in Amazon Q Developer
-<a name="q-admin-profile-sharing"></a>
 
 **Note**  
 This section does not apply to personal accounts (Builder IDs).

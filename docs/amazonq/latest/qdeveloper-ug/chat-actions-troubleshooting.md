@@ -1,7 +1,6 @@
 
 
 # Asking Amazon Q to troubleshoot your resources
-<a name="chat-actions-troubleshooting"></a>
 
 This conversational experience is now part of the AWS assistant.
 

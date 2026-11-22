@@ -1,7 +1,6 @@
 
 
 # Chatting about email sending
-<a name="chat-email"></a>
 
 This conversational experience is now part of the AWS assistant.
 

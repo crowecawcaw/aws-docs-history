@@ -1,7 +1,6 @@
 
 
 # Using Q artifacts in Amazon Q
-<a name="chat-artifacts"></a>
 
 Q artifacts are now part of the AWS assistant.
 

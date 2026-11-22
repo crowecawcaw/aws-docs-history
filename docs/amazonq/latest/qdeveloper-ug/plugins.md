@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer plugins
-<a name="plugins"></a>
 
 Plugins are now part of the AWS assistant.
 

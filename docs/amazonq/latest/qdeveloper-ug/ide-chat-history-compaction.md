@@ -1,7 +1,6 @@
 
 
 # Chat history compaction in Amazon Q Developer
-<a name="ide-chat-history-compaction"></a>
 
 As you interact with Amazon Q Developer in your IDE, your conversation accumulates in the chat history. This history provides important context that helps Amazon Q understand your project and deliver more relevant responses. However, there are limits to how much conversation history can be included in each request to the underlying model.
 

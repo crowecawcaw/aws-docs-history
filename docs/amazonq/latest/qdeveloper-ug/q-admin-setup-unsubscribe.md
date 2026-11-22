@@ -1,7 +1,6 @@
 
 
 # Unsubscribing from Amazon Q Developer Pro
-<a name="q-admin-setup-unsubscribe"></a>
 
 How you unsubscribe from the Pro tier depends on whether you're an end-user with a personal account (Builder ID) or an administrator of IAM Identity Center workforce users.
 

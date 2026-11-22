@@ -1,7 +1,6 @@
 
 
 # GitLab Duo concepts
-<a name="gitlab-concepts"></a>
 
 Here are some concepts and terms to know when using [GitLab Duo with Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/).
 
@@ -33,7 +32,7 @@ Alternatively, you can create an inline policy and add the required permissions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -62,7 +61,7 @@ Alternatively, you can create an inline policy and add the required permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

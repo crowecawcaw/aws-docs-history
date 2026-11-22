@@ -1,7 +1,6 @@
 
 
 # Explaining and updating code with Amazon Q Developer
-<a name="explain-update-code"></a>
 
 Amazon Q Developer can explain and update specific lines of code in your integrated development environment (IDE). To update your code, ask Amazon Q to make changes to a given line or block of code, and it will generate new code that reflects the changes that you asked it to make. Then, you can insert the updated code directly into the file where the code originated. 
 

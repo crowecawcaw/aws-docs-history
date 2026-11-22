@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer for line-by-line recommendations
-<a name="line-by-line-1"></a>
 
 Depending on your use case, Amazon Q may not be able to generate an entire function block in one recommendation. However, Amazon Q can still provide line-by-line recommendations.
 

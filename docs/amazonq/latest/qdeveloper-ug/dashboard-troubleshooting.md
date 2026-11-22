@@ -1,7 +1,6 @@
 
 
 # Troubleshooting the Amazon Q Developer dashboard
-<a name="dashboard-troubleshooting"></a>
 
 If the Amazon Q Developer dashboard page is not available, do the following:
 + **Verify your permissions**. To view the dashboard, you need the following permissions:

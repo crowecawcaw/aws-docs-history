@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer with AWS Glue Studio
-<a name="glue-setup"></a>
 
 This page describes how to set up and activate Amazon Q Developer for [AWS Glue Studio Notebook](https://docs.aws.amazon.com/glue/latest/ug/notebooks-chapter.html). Once activated, Amazon Q can make code recommendations automatically as you write your ETL code.
 
@@ -21,7 +20,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

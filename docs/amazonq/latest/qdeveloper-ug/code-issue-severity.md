@@ -1,7 +1,6 @@
 
 
 # Code issue severity in Amazon Q Developer code reviews
-<a name="code-issue-severity"></a>
 
 Amazon Q defines the severity of the code issues detected in your code so you can prioritize what issues to address and track the security posture of your application. The following sections explain what methods are used to determine the severity of code issues and what each level of severity means. 
 

@@ -1,7 +1,6 @@
 
 
 # Viewing, deleting, and exporting the Amazon Q Developer conversation history
-<a name="ide-chat-conversation"></a>
 
 When you chat with Amazon Q in the integrated development environment (IDE), Amazon Q saves each of your chat tabs as a separate conversation. You can view, search for, and delete these conversations. You can also export them to Markdown or HTML format files.
 

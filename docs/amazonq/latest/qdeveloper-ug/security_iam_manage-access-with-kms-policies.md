@@ -1,7 +1,6 @@
 
 
 # Manage access to Amazon Q Developer for third-party integration
-<a name="security_iam_manage-access-with-kms-policies"></a>
 
 For third-party integrations, you must use the AWS Key Management Service (KMS) to manage access to Amazon Q Developer instead of IAM policies that are neither identity-based or resource-based.
 
@@ -19,7 +18,7 @@ With KMS encryption context, you have an optional set of key-value pairs that ca
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

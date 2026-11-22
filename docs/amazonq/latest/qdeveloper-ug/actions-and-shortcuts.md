@@ -1,7 +1,6 @@
 
 
 # Using shortcut keys
-<a name="actions-and-shortcuts"></a>
 
 While getting inline suggestions from Amazon Q, you can use keyboard shortcuts for common actions you take, such as initiating Amazon Q or accepting a recommendation.
 

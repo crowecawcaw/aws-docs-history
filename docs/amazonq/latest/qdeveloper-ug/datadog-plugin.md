@@ -1,7 +1,6 @@
 
 
 # Configuring the Amazon Q Developer Datadog plugin
-<a name="datadog-plugin"></a>
 
 The Datadog plugin is now part of the AWS assistant.
 

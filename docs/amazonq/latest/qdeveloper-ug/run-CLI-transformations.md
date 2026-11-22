@@ -1,7 +1,6 @@
 
 
 # Running a transformation on the command line with Amazon Q Developer
-<a name="run-CLI-transformations"></a>
 
 Complete these steps to transform your code on the command line with the Amazon Q Developer command line tool.
 
@@ -49,13 +48,13 @@ You provide the Start URL in [Step 4: Configure and authenticate](#step-4-config
 
 1. We recommend that you set up a virtual environment in Python to install the tool. To create a virtual environment, open a terminal window in the directory where you want to install the tool and run:
 
-   ```
+   ```bash
    python -m venv qct-cli 
    ```
 
 1. To activate the virtual environment, run: 
 
-   ```
+   ```bash
    source qct-cli/bin/activate 
    ```
 
@@ -64,14 +63,14 @@ You provide the Start URL in [Step 4: Configure and authenticate](#step-4-config
 ------
 #### [ Linux\_aarch64 ]
 
-   ```
+   ```bash
    pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl
    ```
 
 ------
 #### [ Linux\_x86\_64 ]
 
-   ```
+   ```bash
    pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl
    ```
 
@@ -81,7 +80,7 @@ If you are using an older version of the command line tool for transformations, 
 
 1. To verify that the tool was installed, run:
 
-   ```
+   ```bash
    which qct
    ```
 
@@ -151,7 +150,7 @@ Before you can begin a transformation, you must authenticate with IAM Identity C
 
 1. To start the transformation configuration process, run the following command:
 
-   ```
+   ```bash
    qct configure
    ```
 
@@ -196,7 +195,7 @@ During Java version upgrades, Amazon Q generates a transformation plan that you 
 
 1. Run the following command to start a transformation for a Java upgrade. Replace `<path-to-folder>` with the path to the folder with the code you're transforming and `<your-target-java-version>` with either `JAVA_17` or `JAVA_21`.
 
-   ```
+   ```sh
    qct transform --source_folder {{<path-to-folder>}}
        --target_version {{<your-target-java-version>}}
    ```
@@ -207,7 +206,7 @@ During Java version upgrades, Amazon Q generates a transformation plan that you 
 
 1. Your Maven version is verified before the transformation begins. If you have at least the minimum supported version, you will see the following output: 
 
-   ```
+   ```bash
    Running command: mvn --version at: path/to/current/directory 
    Your Maven version is supported for transformations.
    ```
@@ -237,7 +236,7 @@ Before you begin, make you sure you've read [Converting embedded SQL in Java app
 
 1. Run the following command to start a transformation for a SQL conversion. Replace `<path-to-folder>` with the path to the folder with the code you're transforming and `<path-to-sql-config-file>` with the path to the YAML file you created in step 1.
 
-   ```
+   ```bash
    qct transform --source_folder {{<path-to-folder>}}
        --sql_conversion_config_file {{<path-to-sql-config-file>}}
    ```

@@ -1,7 +1,6 @@
 
 
 # Getting started with a personal account (Builder ID)
-<a name="getting-started-builderid"></a>
 
 If you want to use Amazon Q Developer for personal projects, and you don't need to administer other users, you'll want to get started with a personal account, also known as a Builder ID. A *Builder ID* is a special type of AWS account that gives you the ability to use Amazon Q in your Integrated Development Environment (IDE) and your terminal's command line. Unlike a regular AWS account, a Builder ID is meant to be used by you and you alone, does not allow access to the AWS Management Console, and cannot be assigned IAM roles or permissions.
 

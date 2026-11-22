@@ -1,7 +1,6 @@
 
 
 # Supported Regions for Amazon Q Developer
-<a name="regions"></a>
 
 **Note**  
 If you make a request that requires Amazon Q Developer to retrieve information from an opt-in Region not listed on this page, Amazon Q can make calls to that Region. To manage access to Regions Amazon Q can make calls to, see [Allow Amazon Q permission to perform actions on your behalf in specific regions](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions).

@@ -1,7 +1,6 @@
 
 
 # Amazon Q Developer Pro subscriptions
-<a name="q-admin-setup-subscribe-general"></a>
 
 An *Amazon Q Developer Pro subscription*, also called a *Pro tier subscription*, is a paid version of the Amazon Q Developer service. It offers enhanced AI development capabilities designed for professional developers and teams who require advanced features and higher usage limits beyond the Free tier offering. For more information about pricing tiers and feature availability, see the [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/).
 

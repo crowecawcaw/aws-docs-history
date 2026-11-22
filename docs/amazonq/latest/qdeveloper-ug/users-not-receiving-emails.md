@@ -1,7 +1,6 @@
 
 
 # Users not receiving activation emails
-<a name="users-not-receiving-emails"></a>
 
 **Problem: Users are not receiving activation emails**
 

@@ -1,7 +1,6 @@
 
 
 # Chatting about your resources with Amazon Q Developer
-<a name="chat-actions"></a>
 
 This conversational experience is now part of the AWS assistant.
 

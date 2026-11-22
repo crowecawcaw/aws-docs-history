@@ -1,7 +1,6 @@
 
 
 # Viewing the activity of specific users in Amazon Q Developer
-<a name="q-admin-user-telemetry"></a>
 
 You can configure Amazon Q to collect user activity telemetry of individual Amazon Q Developer subscribers in your organization and present that information in a report. The report gives you insights into how specific users are using Amazon Q.
 
@@ -34,7 +33,7 @@ Create an Amazon S3 bucket to hold the user activity report CSV file. The bucket
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -67,7 +66,7 @@ Create an Amazon S3 bucket to hold the user activity report CSV file. The bucket
 
   If you're configuring SSE-KMS on the bucket, add the below policy on the KMS key:
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Principal": {

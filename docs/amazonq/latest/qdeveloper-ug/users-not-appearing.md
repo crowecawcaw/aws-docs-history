@@ -1,7 +1,6 @@
 
 
 # Can't see subscribed users
-<a name="users-not-appearing"></a>
 
 **Problem: Subscribed users are not appearing in the Amazon Q Developer console.**
 

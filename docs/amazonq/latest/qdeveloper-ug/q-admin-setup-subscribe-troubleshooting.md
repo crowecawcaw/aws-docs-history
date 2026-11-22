@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon Q Developer Pro subscriptions
-<a name="q-admin-setup-subscribe-troubleshooting"></a>
 
 If you are having trouble with Amazon Q Developer Pro subscriptions, review the following issues to understand how to resolve them.
 

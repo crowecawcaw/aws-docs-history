@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer with other services
-<a name="other-setup"></a>
 
 ## AWS Identity and Access Management permissions for other services
 <a name="q-dev-IAM-policies-other"></a>
@@ -16,7 +15,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

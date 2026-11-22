@@ -1,7 +1,6 @@
 
 
 # Creating the Amazon Q Developer profile
-<a name="subscribe-create-profile"></a>
 
 **Note**  
 This section does not apply to personal accounts (Builder IDs).

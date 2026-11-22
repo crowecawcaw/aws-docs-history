@@ -1,7 +1,6 @@
 
 
 # Transforming Java applications with Amazon Q Developer
-<a name="transform-java"></a>
 
 **Note**  
 AWS Transform custom now available for Java upgrades. Agentic AI that handles version upgrades, SDK migration, and more, and improves with every execution. [Get started](https://docs.aws.amazon.com/transform/latest/userguide/custom-get-started.html)

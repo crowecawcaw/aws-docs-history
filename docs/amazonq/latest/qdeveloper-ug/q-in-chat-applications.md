@@ -1,7 +1,6 @@
 
 
 # Chatting with Amazon Q Developer in chat applications
-<a name="q-in-chat-applications"></a>
 
 You can chat with Amazon Q Developer in Microsoft Teams and Slack chat applications. In configured channels, Amazon Q can answer questions about best practices for building solutions, troubleshooting issues, and identifying next steps. The following Amazon Q chat features are available in configured chat applications: 
 + [Chatting about AWS](chat-with-q.md)

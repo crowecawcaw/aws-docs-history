@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer for full function generation
-<a name="full-function-generation"></a>
 
 Amazon Q can generate an entire function based on a comment that you've written. As you finish your comment Amazon Q will suggest a function signature. If you accept the suggestion, Amazon Q automatically advances your cursor to the next part of the function and makes a suggestion. Even if you enter an additional comment or line of code in between suggestions, Amazon Q will refactor based on your input.
 

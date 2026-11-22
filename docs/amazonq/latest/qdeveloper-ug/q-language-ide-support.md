@@ -1,7 +1,6 @@
 
 
 # Supported languages for Amazon Q Developer in the IDE
-<a name="q-language-ide-support"></a>
 
 **End of support notice**  
 On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html).

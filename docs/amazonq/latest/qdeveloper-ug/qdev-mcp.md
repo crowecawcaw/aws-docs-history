@@ -1,7 +1,6 @@
 
 
 # Using MCP with Amazon Q Developer
-<a name="qdev-mcp"></a>
 
 The Model Context Protocol (MCP) is an open standard that enables AI assistants to interact with external tools and services. Amazon Q Developer CLI now supports MCP, allowing you to extend Q's capabilities by connecting it to custom tools and services.
 
@@ -86,7 +85,7 @@ Each tool in MCP has:
 
 To see what tools are available in your Q CLI session:
 
-```
+```bash
 /tools
 ```
 
@@ -116,7 +115,7 @@ MCP servers can provide predefined prompts that help guide Q in specific tasks:
 
 Example of using a prompt with arguments:
 
-```
+```bash
 @fetch https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-mcp-configuration.html
 ```
 

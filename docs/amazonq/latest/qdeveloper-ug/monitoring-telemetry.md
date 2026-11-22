@@ -1,7 +1,6 @@
 
 
 # Identifying actions by specific users with Amazon CloudWatch Logs
-<a name="monitoring-telemetry"></a>
 
 It's possible to get user-level metrics on your Amazon Q Developer usage. To figure out which user has taken a particular action, look for the events called SendTelemetryEvent, and examine the JSON object of type SendTelemetryEventRequest that they contain. Within that object, the schema appears as follows.
 

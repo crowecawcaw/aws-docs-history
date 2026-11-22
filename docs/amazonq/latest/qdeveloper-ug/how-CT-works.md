@@ -1,7 +1,6 @@
 
 
 # How Amazon Q Developer transforms code for Java language upgrades
-<a name="how-CT-works"></a>
 
 To transform your code, Amazon Q Developer generates a transformation plan that it uses to upgrade the code language version of your project. After transforming your code, it provides a transformation summary and a file diff for you to review changes before accepting them. Since Amazon Q Developer makes the minimal changes necessary to make your upgraded code compatible with the target JDK, an additional transformation is required to upgrade your project's libraries and dependencies. The following sections provide more details on how Amazon Q performs the transformation.
 

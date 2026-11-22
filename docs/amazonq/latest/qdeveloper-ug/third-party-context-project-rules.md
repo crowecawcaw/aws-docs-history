@@ -1,7 +1,6 @@
 
 
 # Creating project rules for Amazon Q Developer in third-party platforms
-<a name="third-party-context-project-rules"></a>
 
 You can build a library of project rules that you can use with Amazon Q Developer in GitLab or GitHub. These rules describe coding standards and best practices across your team. For example, you could have a rule that states that all Python code must use type hints, or that all Java code must use Javadoc comments. By storing these rules in your project, you can ensure consistency across developers, regardless of their experience level.
 
@@ -27,7 +26,7 @@ Once you've created your project rules, Amazon Q Developer will automatically us
 
 1. Add a detailed prompt to the file. For example:
 
-   ```
+   ```markdown
    All Amazon S3 buckets must have encryption enabled, enforce SSL, and block public access.
    All Amazon DynamoDB Streams tables must have encryption enabled. 
    All Amazon SNS topics must have encryption enabled and enforce SSL. 

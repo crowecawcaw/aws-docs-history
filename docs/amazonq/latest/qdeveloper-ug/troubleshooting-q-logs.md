@@ -1,7 +1,6 @@
 
 
 # Accessing and using Amazon Q Developer logs
-<a name="troubleshooting-q-logs"></a>
 
 Amazon Q Developer generates detailed logs that can help you diagnose and resolve issues. This guide shows you how to access logs for different Amazon Q interfaces and configure logging levels to get the information you need for troubleshooting.
 

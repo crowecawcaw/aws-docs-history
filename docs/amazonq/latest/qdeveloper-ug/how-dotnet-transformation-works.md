@@ -1,7 +1,6 @@
 
 
 # How Amazon Q Developer transforms .NET applications
-<a name="how-dotnet-transformation-works"></a>
 
 Review the following sections for details about how .NET transformation with Amazon Q Developer works. 
 

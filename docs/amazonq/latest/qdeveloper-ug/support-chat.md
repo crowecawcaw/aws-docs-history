@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer to chat with AWS Support
-<a name="support-chat"></a>
 
 This console experience is now part of the AWS assistant.
 

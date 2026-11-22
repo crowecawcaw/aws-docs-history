@@ -1,7 +1,6 @@
 
 
 # Using Amazon Q Developer with AWS Lambda
-<a name="lambda-setup"></a>
 
 This document describes how to set up and activate Amazon Q Developer for the Lambda console. Once activated, Amazon Q can make code recommendations on demand in the Lambda code editor as you develop your function.
 
@@ -21,7 +20,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

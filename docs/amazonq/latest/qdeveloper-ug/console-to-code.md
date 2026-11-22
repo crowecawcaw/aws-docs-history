@@ -1,7 +1,6 @@
 
 
 # Automating AWS services with Amazon Q Developer Console-to-Code
-<a name="console-to-code"></a>
 
 ## What is Console-to-Code?
 <a name="console-to-code-what-is"></a>

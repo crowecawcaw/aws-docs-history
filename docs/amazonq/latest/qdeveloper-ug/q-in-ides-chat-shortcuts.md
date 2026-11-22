@@ -1,7 +1,6 @@
 
 
 # Using shortcut keys in chat with Amazon Q Developer
-<a name="q-in-ides-chat-shortcuts"></a>
 
 Amazon Q provides keyboard shortcuts to help you interact with the agentic chat interface efficiently. Using keyboard shortcuts can help you maintain your workflow without switching between keyboard and mouse.
 

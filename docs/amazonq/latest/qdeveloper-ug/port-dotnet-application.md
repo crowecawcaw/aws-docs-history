@@ -1,7 +1,6 @@
 
 
 # Porting a .NET application with Amazon Q Developer in Visual Studio
-<a name="port-dotnet-application"></a>
 
 Complete these steps to port a Windows-based .NET application to a Linux-compatible cross-platform .NET application with Amazon Q Developer in Visual Studio. 
 

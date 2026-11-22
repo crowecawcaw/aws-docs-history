@@ -1,7 +1,6 @@
 
 
 # Cross-region processing in Amazon Q Developer
-<a name="cross-region-processing"></a>
 
 The following sections describe how cross-region inference and cross-region calls are used to provide the Amazon Q Developer service. 
 

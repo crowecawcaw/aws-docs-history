@@ -1,7 +1,6 @@
 
 
 # Manage access to Amazon Q Developer with policies
-<a name="security_iam_manage-access-with-policies"></a>
 
 **Note**  
 The information on this page pertains to accessing Amazon Q Developer. For information about managing access to Amazon Q Business, see [Identity-based policy examples for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security_iam_id-based-policy-examples.html) in the *Amazon Q Business User Guide*.   
@@ -67,7 +66,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -105,7 +104,7 @@ Denying access to Amazon Q Developer doesn't hide the AWS assistant icon or chat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Adding context to Amazon Q Developer chat in the IDE
-<a name="ide-chat-context"></a>
 
 When you chat with Amazon Q in the integrated development environment (IDE), you can provide Amazon Q with additional *context*, such as files and folders, that Amazon Q can use to tailor and improve its answers.
 

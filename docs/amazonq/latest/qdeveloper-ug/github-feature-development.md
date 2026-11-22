@@ -1,7 +1,6 @@
 
 
 # Developing features and iterating with Amazon Q Developer in GitHub
-<a name="github-feature-development"></a>
 
 **Amazon Q Developer for GitHub: end of support**  
 On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  

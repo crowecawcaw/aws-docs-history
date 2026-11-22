@@ -1,7 +1,6 @@
 
 
 # Chatting about your costs
-<a name="chat-costs"></a>
 
 This conversational experience is now part of the AWS assistant.
 
