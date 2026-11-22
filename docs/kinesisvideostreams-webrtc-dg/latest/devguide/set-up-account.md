@@ -1,7 +1,6 @@
 
 
 # Set up an AWS account
-<a name="set-up-account"></a>
 
 Before you use Kinesis Video Streams with WebRTC for the first time, complete the following tasks: 
 

@@ -1,7 +1,6 @@
 
 
 # Access Kinesis Video Streams with WebRTC
-<a name="kvswebrtc-accessing"></a>
 
 You can work with Kinesis Video Streams with WebRTC in any of the following ways: 
 

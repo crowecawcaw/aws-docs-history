@@ -1,7 +1,6 @@
 
 
 # System requirements
-<a name="kvswebrtc-requirements"></a>
 
 This section covers basic system requirements for using Amazon Kinesis Video Streams with WebRTC, including network requirements and environment. It also includes information about debugging connections.
 
@@ -50,14 +49,14 @@ If no candidate pair is found within the allotted timeout, the ICE agent returns
 
 For additional information about log levels, see [GitHub](https://github.com/awslabs/amazon-kinesis-video-streams-webrtc-sdk-c/blob/master/README.md#setup-desired-log-level).
 
-```
+```bash
 export AWS_KVS_LOG_LEVEL=1
 ./kvsWebrtcClientMasterGstSample TestChannel
 ```
 
 You will see logs like the following. From these logs, you can confirm the Interactive Connectivity Establishment (ICE) candidate (IP address and port) and the selected candidate pair.
 
-```
+```bash
 2023-02-13 05:57:16 DEBUG   iceAgentReadyStateSetup(): Selected pair w1UdV9fE+_/CuBel1pl, local candidate type: srflx. Round trip time 7 ms. Local candidate priority: 1694498815, ice candidate pair priority: 7240977859836116990
 2023-02-13 05:57:16 INFO    onConnectionStateChange(): New connection state 3
 2023-02-13 05:57:16 DEBUG   rtcPeerConnectionGetMetrics(): ICE local candidate Stats requested at 16762678365731494

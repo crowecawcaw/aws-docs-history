@@ -1,7 +1,6 @@
 
 
 # Playback ingested media
-<a name="ingestion-view-media"></a>
 
 You can consume media data by either viewing it in the console, or by creating an application that reads media data from a stream using Hypertext Live Streaming (HLS).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams with WebRTC service quotas
-<a name="kvswebrtc-limits"></a>
 
 Kinesis Video Streams with WebRTC has the following service quotas:
 

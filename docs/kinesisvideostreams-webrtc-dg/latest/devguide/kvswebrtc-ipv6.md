@@ -1,7 +1,6 @@
 
 
 # Use IPv6/Dual-Stack endpoints with Amazon Kinesis Video WebRTC
-<a name="kvswebrtc-ipv6"></a>
 
 You can configure Amazon Kinesis Video WebRTC to use IPv6 for both control plane and data plane operations. This enables your applications to communicate with Kinesis Video WebRTC services using IPv6 addresses through dual-stack endpoints.
 

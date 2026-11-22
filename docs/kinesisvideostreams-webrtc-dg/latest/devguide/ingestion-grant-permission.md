@@ -1,7 +1,6 @@
 
 
 # Grant permission
-<a name="ingestion-grant-permission"></a>
 
 You must grant stream permission to your IAM roles in order to ingest streams in Amazon Kinesis Video Streams with WebRTC.
 
@@ -17,7 +16,7 @@ Refer to the sample IAM policy below for Master participants:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

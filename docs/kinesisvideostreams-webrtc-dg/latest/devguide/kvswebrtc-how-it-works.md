@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="kvswebrtc-how-it-works"></a>
 
 Amazon Kinesis Video Streams with WebRTC enables real-time video communication between web browsers, mobile devices, and other WebRTC-enabled applications. It provides a secure and scalable infrastructure for building video streaming applications, handling tasks such as signaling, media streaming, and integration with other AWS services. This section explains the underlying architecture, components, and workflows of the service, helping explain its design principles and mechanisms.
 

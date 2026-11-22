@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams WebRTC SDK for iOS
-<a name="kvswebrtc-sdk-ios"></a>
 
 The following step-by-step instructions describe how to download, build, and run the Kinesis Video Streams WebRTC SDK in iOS and its corresponding samples.
 
@@ -25,7 +24,7 @@ Complete the following steps:
 
    You might see the following error: 
 
-   ```
+   ```bash
    error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
    ```
 
@@ -33,14 +32,14 @@ Complete the following steps:
 
    1. Change your current working directory to `amazon-kinesis-video-streams-webrtc-sdk-ios/Swift` and run the following in the command line:
 
-      ```
+      ```bash
       pod cache clean --all
       pod install
       ```
 
    1. Change your current working directory to `amazon-kinesis-video-streams-webrtc-sdk-ios` and run the following at the command line:
 
-      ```
+      ```bash
       $ git checkout Swift/Pods/AWSCore/AWSCore/Service/AWSService.m
       ```
 
@@ -50,7 +49,7 @@ Complete the following steps:
 
 1. In your IDE, open the `awsconfiguration.json` file (from `/Swift/KVSiOSApp`). The file looks like the following:
 
-   ```
+   ```json
    {
        "Version": "1.0",
        "CredentialsProvider": {
@@ -79,7 +78,7 @@ Complete the following steps:
 
 1. In your IDE, open the `Constants.swift` file (from `/Swift/KVSiOSApp`). The file looks like the following:
 
-   ```
+   ```swift
    import Foundation
    import AWSCognitoIdentityProvider
    
@@ -262,7 +261,7 @@ Use the search bar, if needed.
 
    1. Select the **JSON** tab and replace the policy with the following:
 
-      ```
+      ```JSON
       {
           "Version": "2012-10-17",		 	 	 
           "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Connect to the storage session
-<a name="ingestion-initiate"></a>
 
 Follow these procedures to create the storage session and start the WebRTC connection process. The master participant should call [JoinStorageSession](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.html). Viewer participants should call [JoinStorageSessionAsViewer](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.html). 
 
@@ -29,14 +28,14 @@ This will have the storage session send an SDP offer and ICE candidates through 
 
    Run the following [Describe-Signaling-Channel](https://docs.aws.amazon.com/cli/latest/reference/kinesisvideo/describe-signaling-channel.html) command using the AWS CLI:
 
-   ```
+   ```bash
    aws kinesisvideo describe-signaling-channel \
      --channel-name "{{YourChannelName}}" \
    ```
 
    The response will look like the following:
 
-   ```
+   ```json
    {
        "ChannelInfo": {
            "ChannelName": "{{YourChannelName}}",
@@ -63,7 +62,7 @@ This will have the storage session send an SDP offer and ICE candidates through 
 
    Create the Kinesis Video Streams client. This is used to call the [DescribeSignalingChannel API](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeSignalingChannel.html).
 
-   ```
+   ```js
    const clientConfig = {
        accessKeyId: '{{YourAccessKey}}',
        secretAccessKey: '{{YourSecretKey}}',
@@ -74,7 +73,7 @@ This will have the storage session send an SDP offer and ICE candidates through 
 
    Use the client to call the `DescribeSignalingChannel` API.
 
-   ```
+   ```js
    const describeSignalingChannelResponse = await kinesisVideoClient
        .describeSignalingChannel({
            ChannelName: '{{YourChannelName'}},
@@ -114,7 +113,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Run the `Get-Signaling-Channel-Endpoint` command in the AWS CLI:
 
-   ```
+   ```bash
    aws kinesisvideo get-signaling-channel-endpoint \
      --channel-arn "arn:aws:kinesisvideo:{{us-west-2}}:{{123456789012}}:channel/{{YourChannelName}}/{{1234567890123}}" \
      --single-master-channel-endpoint-configuration "Protocols=['WEBRTC'],Role={{MASTER}}" \
@@ -123,7 +122,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    The response looks similar to the following:
 
-   ```
+   ```json
    {
        "ResourceEndpointList": [
            {
@@ -143,7 +142,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    If you created a Kinesis Video Streams client earlier to call `DescribeSignalingChannel`, you can reuse the same client.
 
-   ```
+   ```js
    const clientConfig = {
        accessKeyId: '{{YourAccessKey}}',
        secretAccessKey: '{{YourSecretKey}}',
@@ -154,7 +153,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Use the client to call the `GetSignalingChannelEndpoint` API.
 
-   ```
+   ```js
    const getSignalingChannelEndpointResponse = await kinesisVideoClient
        .getSignalingChannelEndpoint({
            ChannelARN: {{channelARN}},
@@ -168,7 +167,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Save the response:
 
-   ```
+   ```js
    const webrtcEndpoint = getSignalingChannelEndpointResponse.ResourceEndpointList[0].ResourceEndpoint;
    ```
 
@@ -197,7 +196,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Run the `Join-Storage-Session` command for master participants in the AWS CLI using the channel ARN and WEBRTC endpoint from previous steps:
 
-   ```
+   ```bash
    aws kinesis-video-webrtc-storage join-storage-session \
      --endpoint-url https://w-{{abcd1234}}.kinesisvideo.{{us-west-2}}.amazonaws.com \
      --channel-arn arn:aws:kinesisvideo:{{us-west-2}}:{{123456789012}}:channel/{{YourChannelName}}/{{1234567890123}} \
@@ -208,7 +207,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    In the case of a viewer participant, run the following `Join-Storage-Session-As-Viewer` command in the AWS CLI using the channel ARN and WEBRTC endpoint from before:
 
-   ```
+   ```bash
    aws kinesis-video-webrtc-storage join-storage-session-as-viewer \
      --endpoint-url https://w-{{abcd1234}}.kinesisvideo.{{us-west-2}}.amazonaws.com \
      --channel-arn arn:aws:kinesisvideo:{{us-west-2}}:{{123456789012}}:channel/{{YourChannelName}}/{{1234567890123}} \
@@ -225,7 +224,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Create the Kinesis Video Streams WebRTC storage client. This is the client used to call `JoinStorageSession` or `JoinStorageSessionAsViewer` and is different than the Kinesis Video Streams client created in earlier steps.
 
-   ```
+   ```js
    const webrtcStorageClientConfig = {
        accessKeyId: '{{YourAccessKey}}',
        secretAccessKey: '{{YourSecretKey}}',
@@ -237,7 +236,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    Use the client to call the `JoinStorageSession` API for master participants.
 
-   ```
+   ```js
    await kinesisVideoWebRTCStorageClient
        .joinStorageSession({
            channelArn: {{channelARN}},
@@ -247,7 +246,7 @@ This operation isn't currently supported in the Kinesis Video Streams AWS Manage
 
    In the case of a viewer participant, use the client to call the `JoinStorageSessionAsViewer` API.
 
-   ```
+   ```js
    await kinesisVideoWebRTCStorageClient
        .joinStorageSessionAsViewer({
            channelArn: {{channelARN}},

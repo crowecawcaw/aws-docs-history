@@ -1,7 +1,6 @@
 
 
 # What is Amazon Kinesis Video Streams with WebRTC?
-<a name="what-is-kvswebrtc"></a>
 
 WebRTC is an open technology specification for enabling real-time communication (RTC) across browsers and mobile applications via simple APIs. It uses peering techniques for real-time data exchange between connected peers and provides low latency media streaming required for human-to-human interaction. The WebRTC specification includes a set of IETF protocols including [Interactive Connectivity Establishment](https://www.ietf.org/rfc/rfc5245.txt), [Traversal Using Relay around NAT (TURN)](https://tools.ietf.org/html/rfc5766), and [Session Traversal Utilities for NAT (STUN)](https://www.ietf.org/rfc/rfc5389.txt) for establishing peer-to-peer connectivity, in addition to protocol specifications for reliable and secure real-time media and data streaming. 
 

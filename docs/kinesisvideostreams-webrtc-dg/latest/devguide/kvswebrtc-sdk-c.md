@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams with WebRTC SDK in C for embedded devices
-<a name="kvswebrtc-sdk-c"></a>
 
 The following step-by-step instructions describe how to download, build, and run the Kinesis Video Streams with WebRTC SDK in C for embedded devices and its corresponding samples.
 
@@ -20,7 +19,7 @@ The following codecs are supported:
 
 To download the Kinesis Video Streams with WebRTC SDK in C for embedded devices, run the following command:
 
-```
+```bash
 $ git clone https://github.com/awslabs/amazon-kinesis-video-streams-webrtc-sdk-c.git
 ```
 
@@ -40,7 +39,7 @@ Complete the following steps:
 
 1. Run the following command to create a `build` directory in your downloaded WebRTC C SDK, and execute `cmake` from it:
 
-   ```
+   ```bash
    $ mkdir -p amazon-kinesis-video-streams-webrtc-sdk-c/build; cd amazon-kinesis-video-streams-webrtc-sdk-c/build; cmake ..
    ```
 
@@ -60,7 +59,7 @@ To run any of these samples, complete the following steps:
 
 1. Setup your environment with your AWS account credentials:
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID={{YourAccessKey}}
    export AWS_SECRET_ACCESS_KEY={{YourSecretKey}}
    export AWS_DEFAULT_REGION={{YourAWSRegion}}
@@ -68,13 +67,13 @@ To run any of these samples, complete the following steps:
 
    If you're using temporary AWS credentials, also export your session token:
 
-   ```
+   ```bash
    export AWS_SESSION_TOKEN={{YourSessionToken}}
    ```
 
    If you have a custom CA certificate path to set, you can set it using:
 
-   ```
+   ```bash
    export AWS_KVS_CACERT_PATH={{../certs/cert.pem}}
    ```
 **Note**  
@@ -82,7 +81,7 @@ By default, the SSL CA certificate is set to ../certs/cert.pem which points to t
 
 1. Run either of the sample applications by passing to it the name that you want to give to your signaling channel. The application creates the signaling channel using the name you provide. For example, to create a signaling channel called `myChannel` and to start sending sample H264/Opus frames via this channel, run the following command: 
 
-   ```
+   ```bash
    ./kvsWebrtcClientMaster myChannel
    ```
 
@@ -101,4 +100,4 @@ By default, the SSL CA certificate is set to ../certs/cert.pem which points to t
 
 This video demonstrates how to connect your camera and get started with Amazon Kinesis Video Streams for WebRTC.
 
-
+[![AWS Videos](https://img.youtube.com/vi/8GZDmdBwVqU/0.jpg)](https://www.youtube.com/watch?v=8GZDmdBwVqU)

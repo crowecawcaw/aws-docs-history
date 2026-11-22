@@ -1,7 +1,6 @@
 
 
 # ConnectAsViewer
-<a name="ConnectAsViewer"></a>
 
 Connects as a viewer to the signaling channel specified by the endpoint. Any WebSocket-compliant library can be used to connect to the secure websocket (WSS) endpoint obtained from the `GetSignalingChannelEndpoint` API call. The Amazon Resource Name (ARN) of the signaling channel and the client ID must be provided as query string parameters. There are separate endpoints for connecting as a master and as a viewer. If there is an existing connection with the same `ClientId` as specified in the request, the new connection takes precedence. The connection metadata is overwritten with the new information.
 

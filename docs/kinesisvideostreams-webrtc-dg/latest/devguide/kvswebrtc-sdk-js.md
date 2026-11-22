@@ -1,7 +1,6 @@
 
 
 # Amazon Kinesis Video Streams with WebRTC SDK in JavaScript for web applications
-<a name="kvswebrtc-sdk-js"></a>
 
 You can find the Kinesis Video Streams with WebRTC SDK in JavaScript for web applications and its corresponding samples in [GitHub](https://github.com/awslabs/amazon-kinesis-video-streams-webrtc-sdk-js).
 
@@ -27,13 +26,13 @@ To install this SDK in your `Node.js` project, use the terminal to navigate to t
 
 Type the following:
 
-```
+```bash
 npm install amazon-kinesis-video-streams-webrtc
 ```
 
 You can import the SDK classes like typical Node.js modules:
 
-```
+```bash
 // JavaScript
 const SignalingClient = require('amazon-kinesis-video-streams-webrtc').SignalingClient;
 // TypeScript
@@ -47,7 +46,7 @@ You don't have to install the SDK to use it in browser scripts. You can load the
 
 To use the SDK in the browser, add the following script element to your HTML pages:
 
-```
+```html
 <script src="https://unpkg.com/amazon-kinesis-video-streams-webrtc/dist/kvs-webrtc.min.js"></script>
 ```
 
@@ -181,7 +180,7 @@ We recommend downloading the latest long term support (LTS) version from [https:
 
    Type the following in the terminal:
 
-   ```
+   ```bash
    git clone https://github.com/awslabs/amazon-kinesis-video-streams-webrtc-sdk-js.git
    ```
 
@@ -189,7 +188,7 @@ We recommend downloading the latest long term support (LTS) version from [https:
 
    Type the following in the terminal:
 
-   ```
+   ```bash
    cd amazon-kinesis-video-streams-webrtc-sdk-js
    ```
 
@@ -197,7 +196,7 @@ We recommend downloading the latest long term support (LTS) version from [https:
 
    Type the following [npm CLI](https://docs.npmjs.com/cli/v10/commands) command in the terminal:
 
-   ```
+   ```bash
    npm install
    ```
 
@@ -205,7 +204,7 @@ We recommend downloading the latest long term support (LTS) version from [https:
 
    Type the following [npm CLI](https://docs.npmjs.com/cli/v10/commands) command in the terminal:
 
-   ```
+   ```bash
    npm run develop
    ```
 

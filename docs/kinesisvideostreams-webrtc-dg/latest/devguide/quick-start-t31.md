@@ -1,7 +1,6 @@
 
 
 # Integrate with Ingenic T31
-<a name="quick-start-t31"></a>
 
 **Note**  
 AWS does not endorse this chipset in any way, nor do we guarantee the integration will work. This guide is based on testing by the Amazon Kinesis Video Streams team and is provided to assist customers in setting up their devices.
@@ -15,14 +14,14 @@ Follow these procedures to set up Amazon Kinesis Video Streams with WebRTC on In
 
    For this tutorial, create a directory called `ingenic` within the `Downloads` folder.
 
-   ```
+   ```bash
    mkdir ~/Downloads/{{ingenic}}
    cd ~/Downloads/{{ingenic}}
    ```
 
 1. Clone the following repo into your new directory: [https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface](https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface).
 
-   ```
+   ```bash
    git clone https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface.git
    ```
 
@@ -35,13 +34,13 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
 1. Load the `Ingenic-T31-app-build.tar.gz` docker image.
 
-   ```
+   ```bash
    docker load --input ./Ingenic-T31-app-build.tar.gz
    ```
 
    Expected output:
 
-   ```
+   ```bash
    580272b5675c: Loading layer [==================================================>]  1.666GB/1.666GB
    Loaded image ID: sha256:76d41ef9b2f53ad3f2a33f00ae110df3d1b491378a4005e19ea989ce97e99bc1
    ```
@@ -52,7 +51,7 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
    This command also runs the container in interactive mode with a terminal session. You'll be dropped into a Bash shell inside the container, which allows you to execute commands directly. 
 
-   ```
+   ```bash
    docker run \
       -v `pwd`:/ingenicMappedFolder \
       -it 76d41ef9b2f53ad3f2a33f00ae110df3d1b491378a4005e19ea989ce97e99bc1 \
@@ -63,13 +62,13 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
    **Prompt:**
 
-   ```
+   ```bash
    ls /ingenicMappedFolder
    ```
 
    **Response:**
 
-   ```
+   ```bash
    AWS-Solution-Remote-Diagnostic-Media-Interface Ingenic-T31-app-build.tar.gz
    ```
 
@@ -77,13 +76,13 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
    **Prompt:**
 
-   ```
+   ```bash
    env
    ```
 
    **Response:**
 
-   ```
+   ```bash
    CC=mips-linux-gnu-gcc
    CXX=mips-linux-gnu-g++
    PATH=/mips-gcc540-glibc222-64bit-r3.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -93,13 +92,13 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
    **Prompt:**
 
-   ```
+   ```bash
    ls /
    ```
 
    **Response:**
 
-   ```
+   ```bash
    bin   {{ingenic-sdk}}          libx32                             proc  sys
    boot  {{ingenicMappedFolder}}  media                              root  tmp
    dev   lib                  mips-gcc540-glibc222-64bit-r3.3.0  run   usr
@@ -112,7 +111,7 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
 1. Type the following:
 
-   ```
+   ```bash
    cd /ingenicMappedFolder/AWS-Solution-Remote-Diagnostic-Media-Interface
    cp -r /ingenic-sdk/* \
        /ingenicMappedFolder/amazon-kinesis-video-streams-media-interface/3rdparty/T31/
@@ -127,13 +126,13 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
 1. Run the following command to exit the docker container:
 
-   ```
+   ```bash
    exit
    ```
 
 1. On your host machine, verify that the `kvswebrtcmaster-static` application is present.
 
-   ```
+   ```bash
    ls ~/Downloads/ingenic/AWS-Solution-Remote-Diagnostic-Media-Interface/build/samples/webrtc/kvswebrtcmaster-static
    ```
 
@@ -142,7 +141,7 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
 1. On your host machine, copy the static binary to a micro SD Card.
 
-   ```
+   ```bash
    cp ~/Downloads/ingenic/AWS-Solution-Remote-Diagnostic-Media-Interface/build/samples/webrtc/kvswebrtcmaster-static /Volumes/IngenicSDCard
    ```
 
@@ -162,7 +161,7 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 
 1. Check for the connected devices:
 
-   ```
+   ```bash
    ls /dev/tty.*
    ```
 **Note**  
@@ -170,7 +169,7 @@ If you have multiple TTY devices, determine which TTY device is the Ingenic boar
 
 1. Connect to it using `screen` or another serial port tool (for example, Tera Term). Set the baud rate to 115200.
 
-   ```
+   ```bash
    screen /dev/tty.usbserial-{{XXXXXXX}} 115200
    ```
 
@@ -187,19 +186,19 @@ If you have multiple TTY devices, determine which TTY device is the Ingenic boar
 **Note**  
 For this example, we're using `sdcard`.
 
-   ```
+   ```bash
    mkdir /tmp/sdcard
    ```
 
 1. Type the following to mount the micro SD card to the folder:
 
-   ```
+   ```bash
    mount /dev/mmcblk0p1 /tmp/sdcard
    ```
 
 1. Review the contents of the folder:
 
-   ```
+   ```bash
    ls /tmp/sdcard
    ```
 
@@ -208,13 +207,13 @@ For this example, we're using `sdcard`.
 
 1. Navigate to the mounted directory:
 
-   ```
+   ```bash
    cd /tmp/sdcard
    ```
 
 1. Export your credentials and other information from the board:
 
-   ```
+   ```bash
    export AWS_ACCESS_KEY_ID=ID
    export AWS_SECRET_ACCESS_KEY=key
    export AWS_DEFAULT_REGION=us-west-2
@@ -223,7 +222,7 @@ For this example, we're using `sdcard`.
 
 1. Run the application:
 
-   ```
+   ```bash
    ./kvswebrtcmaster-static {{channel-name}}
    ```
 
@@ -255,7 +254,7 @@ If receive one of the following errors:
 
 **or**
 
-```
+```bash
 2024-09-19 08:56:34.920 WARN    lwsHttpCallbackRoutine(): Received client http read response:  { "message": "Signature expired: 20240919T085634Z is now earlier than 20240919T155135Z (20240919T155635Z - 5 min.)" }
 ```
 
@@ -266,7 +265,7 @@ It means the time is not correct on your Ingenic board. Verify this by running t
 
 If the error looks like:
 
-```
+```bash
 -sh ./kvswebrtcmaster-static: not found
 ```
 
@@ -281,6 +280,6 @@ Make sure that the correct toolchain (`uclibc` vs `glibc` and its version) match
 
 To unmount the micro SD card, use the command:
 
-```
+```bash
 umount /tmp/sdcard
 ```

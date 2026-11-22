@@ -1,7 +1,6 @@
 
 
 # SendSdpOffer
-<a name="SendSdpOffer"></a>
 
 Sends the offer to the target recipient. The prerequisite is that the client must be already connected to the WebSocket endpoint obtained from the `GetSignalingChannelEndpoint` API.
 

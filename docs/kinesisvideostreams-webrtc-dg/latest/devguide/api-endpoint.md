@@ -1,7 +1,6 @@
 
 
 # WebSocket endpoint APIs
-<a name="api-endpoint"></a>
 
 The following are the Amazon Kinesis Video Streams with WebRTC WebSocket endpoint APIs:
 

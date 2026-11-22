@@ -1,7 +1,6 @@
 
 
 # ConnectAsMaster
-<a name="ConnectAsMaster"></a>
 
 Connects as a master to the signaling channel specified by the endpoint. Any WebSocket-complaint library can be used to connect to the secure websocket (WSS) endpoint obtained from a `GetSignalingChannelEndpoint` API call. The Amazon Resource Name (ARN) of the signaling channel must be provided as a query string parameter. There are separate endpoints for connecting as a master and as a viewer. If more than one client connects as master to a specific channel, then the most recent request takes precedence. Existing connection metadata is overwritten by the new one.
 

@@ -1,7 +1,6 @@
 
 
 # Getting started
-<a name="kvswebrtc-getting-started"></a>
 
 This section describes how to perform the following tasks in Amazon Kinesis Video Streams with WebRTC: 
 + [Set up your AWS account and create an administrator.](set-up-account.md)

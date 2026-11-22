@@ -1,7 +1,6 @@
 
 
 # Region availability
-<a name="availability"></a>
 
 **Note**  
 Amazon Kinesis Video Streams with WebRTC is not yet supported in the AWS GovCloud (US) Region.

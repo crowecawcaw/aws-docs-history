@@ -1,7 +1,6 @@
 
 
 # Configure destination
-<a name="configure-ingestion"></a>
 
 Once you've created the Kinesis Video Streams resources, you need to tell the signaling channel which stream to save it to.
 
@@ -36,7 +35,7 @@ Alternatively, open the AWS CloudShell terminal, which has the AWS CLI installed
 
 Run the `Update-Media-Storage-Configuration` command in the AWS CLI:
 
-```
+```bash
 aws kinesisvideo update-media-storage-configuration \
   --channel-arn arn:aws:kinesisvideo:{{us-west-2}}:{{123456789012}}:channel/{{YourChannelName}}/{{1234567890123}} \
   --media-storage-configuration \
@@ -51,7 +50,7 @@ This code snippet shows you how to configure the signaling channel to ingest med
 
 Create the Kinesis Video Streams client. This is the client used to call the [UpdateMediaStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateMediaStorageConfiguration.html) API.
 
-```
+```js
 const clientConfig = {
     accessKeyId: '{{YourAccessKey}}',
     secretAccessKey: '{{YourSecretKey}}',
@@ -62,7 +61,7 @@ const kinesisVideoClient = new AWS.KinesisVideo(clientConfig);
 
 Use the client to call the `UpdateMediaStorageConfiguration` API.
 
-```
+```js
 await kinesisVideoClient
     .updateMediaStorageConfiguration({
         ChannelARN: '{{YourChannelARN}}',
@@ -109,7 +108,7 @@ Alternatively, open the AWS CloudShell terminal, which has the AWS CLI installed
 
 Run the `Update-Media-Storage-Configuration` command in the AWS CLI:
 
-```
+```bash
 aws kinesisvideo update-media-storage-configuration \
   --channel-arn arn:aws:kinesisvideo:{{us-west-2}}:{{123456789012}}:channel/{{YourChannelName}}/{{1234567890123}} \
   --media-storage-configuration \
@@ -124,7 +123,7 @@ This code snippet shows you how to configure the signaling channel to ingest med
 
 Create the Kinesis Video Streams client. This is the client used to call the [UpdateMediaStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateMediaStorageConfiguration.html) API.
 
-```
+```js
 const clientConfig = {
     accessKeyId: '{{YourAccessKey}}',
     secretAccessKey: '{{YourSecretKey}}',
@@ -135,7 +134,7 @@ const kinesisVideoClient = new AWS.KinesisVideo(clientConfig);
 
 Use the client to call the `UpdateMediaStorageConfiguration` API.
 
-```
+```js
 await kinesisVideoClient
     .updateMediaStorageConfiguration({
         ChannelARN: '{{YourChannelARN}}',

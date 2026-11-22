@@ -1,7 +1,6 @@
 
 
 # What is Amazon Kinesis Video Streams with WebRTC ingestion and storage?
-<a name="getting-started-ingestion"></a>
 
 Amazon Kinesis Video Streams offers capabilities to stream video and audio in real-time via WebRTC to the cloud for storage, playback, and analytical processing. This topic will provide step-by-step instructions to set up and use our WebRTC SDK and cloud APIs to enable both real-time streaming and media ingestion to the cloud. These instructions include guidance for using the AWS Command Line Interface and the Kinesis Video Streams console.
 

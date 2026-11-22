@@ -1,7 +1,6 @@
 
 
 # SendIceCandidate
-<a name="SendIceCandidate"></a>
 
 Sends the ICE candidate to the target recipient. The prerequisite is that the client must be already connected to the WebSocket endpoint obtained from the `GetSignalingChannelEndpoint` API.
 
