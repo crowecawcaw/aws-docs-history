@@ -1,7 +1,6 @@
 
 
 # Upload a rules configuration file to Amazon Managed Service for Prometheus
-<a name="AMP-rules-upload"></a>
 
 Once you know what rules you want in your rules configuration file, you can either create and edit it within the console, or you can upload a file with the console or AWS CLI.
 
@@ -34,13 +33,13 @@ If you are running an Amazon EKS cluster, you can also upload a rule configurati
 
 1. Base64 encode the contents of your alert manager file. On Linux, you can use the following command:
 
-   ```
+   ```bash
    base64 {{input-file}} {{output-file}}
    ```
 
    On macOS, you can use the following command:
 
-   ```
+   ```bash
    openssl base64 {{input-file}} {{output-file}}
    ```
 
@@ -48,19 +47,19 @@ If you are running an Amazon EKS cluster, you can also upload a rule configurati
 
    On AWS CLI version 2, enter:
 
-   ```
+   ```bash
    aws amp create-rule-groups-namespace --data file://{{path_to_base_64_output_file}} --name {{namespace-name}}  --workspace-id {{my-workspace-id}} --region {{region}}
    ```
 
    On AWS CLI version 1, enter:
 
-   ```
+   ```bash
    aws amp create-rule-groups-namespace --data fileb://{{path_to_base_64_output_file}} --name {{namespace-name}}  --workspace-id {{my-workspace-id}} --region {{region}}
    ```
 
 1. It takes a few seconds for your alert manager configuration to become active. To check the status, enter the following command:
 
-   ```
+   ```bash
    aws amp describe-rule-groups-namespace --workspace-id {{workspace_id}} --name {{namespace-name}} --region {{region}}
    ```
 

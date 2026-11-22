@@ -1,7 +1,6 @@
 
 
 # Query your Prometheus metrics
-<a name="AMP-onboard-query"></a>
 
 Now that metrics are being ingested to the workspace, you can query them. A common way to query your metrics is to use a service such as Grafana to query the metrics. In this section, you will learn how to use Amazon Managed Grafana to query metrics from Amazon Managed Service for Prometheus.
 

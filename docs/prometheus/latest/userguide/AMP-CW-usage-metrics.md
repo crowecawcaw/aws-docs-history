@@ -1,7 +1,6 @@
 
 
 # Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources
-<a name="AMP-CW-usage-metrics"></a>
 
 Amazon Managed Service for Prometheus vends usage metrics to CloudWatch. These metrics provide visibility about your workspace utilization. The vended metrics can be found in the `AWS/Usage` and `AWS/Prometheus` namespaces in CloudWatch. These metrics are available in CloudWatch for no charge. For more information about usage metrics, see [CloudWatch usage metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Usage-Metrics.html).
 

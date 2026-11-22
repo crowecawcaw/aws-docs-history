@@ -1,7 +1,6 @@
 
 
 # Set up high availability data to Amazon Managed Service for Prometheus using the Prometheus Operator Helm chart
-<a name="Send-high-availability-data-operator"></a>
 
 To set up a high availability configuration with the Prometheus Operator in Helm, you must apply external labels on all instances of a high availability group, so Amazon Managed Service for Prometheus can identify them. You also must set the attributes `replicaExternalLabelName` and `externalLabels` on the Prometheus Operator Helm chart.
 

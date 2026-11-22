@@ -1,7 +1,6 @@
 
 
 # Data collected by Amazon Managed Service for Prometheus
-<a name="data-protection-Amazon-Service-Prometheus"></a>
 
 Amazon Managed Service for Prometheus collects and stores operational metrics that you configure to be sent from Prometheus servers running in your account to Amazon Managed Service for Prometheus. This data includes the following:
 + Metric values

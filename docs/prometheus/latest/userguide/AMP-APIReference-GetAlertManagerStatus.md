@@ -1,7 +1,6 @@
 
 
 # GetAlertManagerStatus
-<a name="AMP-APIReference-GetAlertManagerStatus"></a>
 
 The `GetAlertManagerStatus` retrieves information about the status of alert manager.
 

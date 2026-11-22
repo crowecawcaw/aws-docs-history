@@ -1,7 +1,6 @@
 
 
 # ListAlertManagerReceivers
-<a name="AMP-APIReference-ListAlertManagerReceivers"></a>
 
 The `ListAlertManagerReceivers` operation retrieves information about the receivers configured in alert manager.
 

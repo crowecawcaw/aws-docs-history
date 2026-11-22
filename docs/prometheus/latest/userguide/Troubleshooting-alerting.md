@@ -1,7 +1,6 @@
 
 
 # Troubleshoot alert manager with CloudWatch Logs
-<a name="Troubleshooting-alerting"></a>
 
 Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md), you can troubleshoot Alert Manager and Ruler related issues. This section contains Alert Manager related troubleshooting topics. 
 

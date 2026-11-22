@@ -1,7 +1,6 @@
 
 
 # PutAlertManagerSilences
-<a name="AMP-APIReference-PutAlertManagerSilences"></a>
 
 The `PutAlertManagerSilences` operation creates a new alert silence or updates an existing one.
 

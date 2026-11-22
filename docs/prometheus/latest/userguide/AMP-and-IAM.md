@@ -1,7 +1,6 @@
 
 
 # IAM permissions and policies
-<a name="AMP-and-IAM"></a>
 
 Access to Amazon Managed Service for Prometheus actions and data requires credentials. Those credentials must have permissions to perform the actions and to access the AWS resources, such as retrieving Amazon Managed Service for Prometheus data about your cloud resources. The following sections provide details about how you can use AWS Identity and Access Management (IAM) and Amazon Managed Service for Prometheus to help secure your resources, by controlling who can access them. For more information, see [Policies and permissions in IAM.](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
 
@@ -22,7 +21,7 @@ The following IAM policy grants full access to Amazon Managed Service for Promet
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

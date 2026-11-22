@@ -1,7 +1,6 @@
 
 
 # Troubleshoot rule evaluations
-<a name="troubleshoot-rule-evaluations"></a>
 
 This guide provides step-by-step troubleshooting procedures for common issues with rule evaluations in Amazon Managed Service for Prometheus (AMP). Follow these procedures to diagnose and resolve problems with your alerting and recording rules.
 

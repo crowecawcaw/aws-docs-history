@@ -1,7 +1,6 @@
 
 
 # ListAlertManagerAlerts
-<a name="AMP-APIReference-ListAlertManagerAlerts"></a>
 
 The `ListAlertManagerAlerts` retrieves information about the alerts currently firing in alert manager in the workspace.
 

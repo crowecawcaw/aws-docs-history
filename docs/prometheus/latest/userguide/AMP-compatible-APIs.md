@@ -1,7 +1,6 @@
 
 
 # Use awscurl to query with Prometheus-compatible APIs
-<a name="AMP-compatible-APIs"></a>
 
 API requests for Amazon Managed Service for Prometheus must be signed with [SigV4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). You can use [awscurl](https://github.com/okigan/awscurl) to simplify the querying process.
 

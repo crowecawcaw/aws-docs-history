@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Ruler
-<a name="Troubleshooting-rule-fail-error"></a>
 
 Using [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md), you can troubleshoot Alert Manager and Ruler related issues. This section contains ruler related troubleshooting topics. 
 

@@ -1,7 +1,6 @@
 
 
 # Customer managed collectors
-<a name="self-managed-collectors"></a>
 
 This section contains information about ingesting data by setting up your own collectors that send metrics to Amazon Managed Service for Prometheus using Prometheus remote write.
 

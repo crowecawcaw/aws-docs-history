@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon SNS message validation rules
-<a name="AMP-alertmanager-receiver-validation-truncation"></a>
 
 Amazon Simple Notification Service (Amazon SNS) requires messages to meet certain standards. Messages that don't meed these standards will be modified when they are received. The alert messages will be validated, truncated, or modified, if necessary, by the Amazon SNS receiver based on the following rules:
 + Message contains non-utf characters.

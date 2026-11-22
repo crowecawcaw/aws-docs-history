@@ -1,7 +1,6 @@
 
 
 # Set up Grafana open source or Grafana Enterprise for use with Amazon Managed Service for Prometheus
-<a name="AMP-onboard-query-standalone-grafana"></a>
 
 You can use an instance of Grafana to query your metrics in Amazon Managed Service for Prometheus. This topic takes you through how to query metrics from Amazon Managed Service for Prometheus using a standalone instance of Grafana.
 

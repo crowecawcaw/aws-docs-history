@@ -1,7 +1,6 @@
 
 
 # ListRules
-<a name="AMP-APIReference-ListRules"></a>
 
 The `ListRules` operation retrieves information about the rules configured in the workspace.
 

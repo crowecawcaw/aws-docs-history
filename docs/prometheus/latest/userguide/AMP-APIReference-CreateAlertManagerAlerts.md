@@ -1,7 +1,6 @@
 
 
 # CreateAlertManagerAlerts
-<a name="AMP-APIReference-CreateAlertManagerAlerts"></a>
 
 The `CreateAlertManagerAlerts` operation creates an alert in the workspace.
 

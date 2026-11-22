@@ -1,7 +1,6 @@
 
 
 # Ingest metrics with AWS managed collectors
-<a name="AMP-collector"></a>
 
 A common use case for Amazon Managed Service for Prometheus is to monitor Kubernetes clusters managed by Amazon Elastic Kubernetes Service (Amazon EKS). Kubernetes clusters, and many applications that run within Amazon EKS, automatically export their metrics for Prometheus-compatible scrapers to access.
 

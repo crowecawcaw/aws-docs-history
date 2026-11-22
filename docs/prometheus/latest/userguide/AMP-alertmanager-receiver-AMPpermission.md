@@ -1,7 +1,6 @@
 
 
 # Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic
-<a name="AMP-alertmanager-receiver-AMPpermission"></a>
 
 You must give Amazon Managed Service for Prometheus permission to send messages to your Amazon SNS topic. The following policy statement will give that permission. It includes a `Condition` statement to help prevent a security problem known as the *confused deputy* problem. The `Condition` statement restricts access to the Amazon SNS topic to allow only operations coming from this specific account and Amazon Managed Service for Prometheus workspace. For more information about the confused deputy problem, see [Cross-service confused deputy prevention](#cross-service-confused-deputy-prevention).
 
@@ -17,7 +16,7 @@ You must give Amazon Managed Service for Prometheus permission to send messages 
 
 1. Choose **Access policy** and add the following policy statement to the existing policy.
 
-   ```
+   ```json
    {
        "Sid": "Allow_Publish_Alarms",
        "Effect": "Allow",
@@ -105,4 +104,4 @@ The value of `aws:SourceArn` must be the ARN of the Amazon Managed Service for P
 
 The most effective way to protect against the confused deputy problem is to use the `aws:SourceArn` global condition context key with the full ARN of the resource. If you don't know the full ARN of the resource or if you are specifying multiple resources, use the `aws:SourceArn` global context condition key with wildcards (`*`) for the unknown portions of the ARN. For example, `arn:aws:{{servicename}}::{{123456789012}}:*`. 
 
-The policy shown in [Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic](#AMP-alertmanager-receiver-AMPpermission) shows how you can use the `aws:SourceArn` and `aws:SourceAccount` global condition context keys in Amazon Managed Service for Prometheus to prevent the confused deputy problem.
+The policy shown in [Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md) shows how you can use the `aws:SourceArn` and `aws:SourceAccount` global condition context keys in Amazon Managed Service for Prometheus to prevent the confused deputy problem.

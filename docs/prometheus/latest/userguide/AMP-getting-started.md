@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Managed Service for Prometheus
-<a name="AMP-getting-started"></a>
 
 Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible service for monitoring container metrics that makes it easy to securely monitor container environments at scale. This section takes you through three key areas of using Amazon Managed Service for Prometheus:
 + [Create a workspace](AMP-onboard-create-workspace.md) – Create a Amazon Managed Service for Prometheus workspace to store and monitor your metrics.

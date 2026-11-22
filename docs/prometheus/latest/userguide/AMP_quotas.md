@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus service quotas
-<a name="AMP_quotas"></a>
 
 The following two sections describe the quotas and limits associated with Amazon Managed Service for Prometheus.
 
@@ -17,13 +16,13 @@ For all adjustable quotas, you can request a quota increase by choosing the link
 The *Active series per workspace* limit is dynamically applied. For more information, see [Active series default quotas](#AMP-dynamic-series). The *Ingestion rate per workspace* quota determines how quickly you can ingest data into your workspace. For more information see [Ingestion throttling](#AMP-request-throttling).
 
 **Note**  
-Unless otherwise noted, these quotas are per workspace. The maximum value for active series per workspace is 1.5 billion.
+Unless otherwise noted, these quotas are per workspace. The maximum value for active series per workspace is 2 billion.
 
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
 | Active metrics with metadata per workspace | Each supported Region: 20,000 | No | The number of unique active metrics with metadata per workspace. Note: If the limit is reached, metric sample is recorded, but metadata over the limit is dropped. | 
-| Active series per workspace | Each supported Region: 50,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-5A151448)  | The number of unique active series per workspace (up to a maximum of 1.5 billion). A series is active if a sample has been reported in the past 2 hours. Capacity from 2 M to 50 M is automatically adjusted based on the last 30 min of usage. | 
+| Active series per workspace | Each supported Region: 50,000,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-5A151448)  | The number of unique active series per workspace (up to a maximum of 2 billion). A series is active if a sample has been reported in the past 2 hours. Capacity from 2 M to 50 M is automatically adjusted based on the last 30 min of usage. | 
 | Alert aggregation group size in alert manager definition file | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/aps/quotas/L-BDF9895D)  | The maximum size of an alert aggregation group in alert manager definition file. Each label value combination of group\_by would create an aggregation group. | 
 | Alert manager definition file size | Each supported Region: 1,000,000 | No | The maximum size of an alert manager definition file, in bytes. | 
 | Alert payload size in Alert Manager | Each supported Region: 20,000,000 | No | The maximum alert payload size of all Alert Manager alerts per workspace, in bytes. Alert size is dependent on labels and annotations. | 

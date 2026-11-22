@@ -1,7 +1,6 @@
 
 
 # Create an alert manager configuration in Amazon Managed Service for Prometheus to manage and route alerts
-<a name="AMP-alertmanager-config"></a>
 
 To use alert manager and templating in Amazon Managed Service for Prometheus, you create an alert manager configuration YAML file. An Amazon Managed Service for Prometheus alert manager file has two main sections:
 + `template_files:` contains the templates used for messages sent by receivers. For more information, see [Template Reference](https://prometheus.io/docs/prometheus/latest/configuration/template_reference/) and [Template Examples](https://prometheus.io/docs/prometheus/latest/configuration/template_examples/) in the Prometheus documentation.
@@ -16,7 +15,7 @@ In Amazon Managed Service for Prometheus, your alert manager configuration file 
 
 The following is a basic example alert manager configuration file:
 
-```
+```yaml
 alertmanager_config: |
   route:
     receiver: 'default'
@@ -35,7 +34,7 @@ The only receiver currently supported is Amazon Simple Notification Service (Ama
 
 Here is another sample alert manager configuration file that uses both the `template_files` block and the `alertmanager_config` block.
 
-```
+```yaml
 template_files:
   default_template: |
     {{ define "sns.default.subject" }}[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}]{{ end }}
@@ -62,7 +61,7 @@ alertmanager_config: |
 
 The default Amazon SNS configuration uses the following template unless you explicitly override it.
 
-```
+```yaml
 {{ define "sns.default.message" }}{{ .CommonAnnotations.SortedPairs.Values | join " " }}
   {{ if gt (len .Alerts.Firing) 0 -}}
   Alerts Firing:

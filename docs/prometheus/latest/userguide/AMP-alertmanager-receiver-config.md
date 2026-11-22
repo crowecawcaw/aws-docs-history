@@ -1,7 +1,6 @@
 
 
 # Configure alert manager to send messages to your Amazon SNS topic
-<a name="AMP-alertmanager-receiver-config"></a>
 
 After you have a (new or existing) **Standard** type Amazon SNS topic, you can add it to your alert manager configuration as an alert receiver. Alert manager can forward your alerts to a configured alert receiver. To complete this, you must know the Amazon Resource Name (ARN) of your Amazon SNS topic.
 
@@ -23,7 +22,7 @@ Additionally, SigV4 settings are required to have a Region property. Without the
 
 1. Add the following YAML block within the `receivers` section.
 
-   ```
+   ```yaml
    - name: {{name_of_receiver}}
      sns_configs:
        - sigv4:

@@ -1,7 +1,6 @@
 
 
 # Send high-availability data to Amazon Managed Service for Prometheus with AWS Distro for OpenTelemetry
-<a name="Send-high-availability-data-ADOT"></a>
 
 AWS Distro for OpenTelemetry (ADOT) is a secure and production-ready distribution of the OpenTelemetry project. ADOT provides you with source APIs, libraries, and agents, so you can collect distributed traces and metrics for application monitoring. For information about ADOT, see [ About AWS Distro for Open Telemetry](https://aws-otel.github.io/about).
 

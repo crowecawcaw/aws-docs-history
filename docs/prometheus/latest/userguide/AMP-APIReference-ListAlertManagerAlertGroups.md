@@ -1,7 +1,6 @@
 
 
 # ListAlertManagerAlertGroups
-<a name="AMP-APIReference-ListAlertManagerAlertGroups"></a>
 
 The `ListAlertManagerAlertGroups` operation retrieves a list of alert groups configured in alert manager in the workspace.
 

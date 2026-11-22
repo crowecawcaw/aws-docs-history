@@ -1,7 +1,6 @@
 
 
 # Set up metrics ingestion from an Amazon EC2 instance using remote write
-<a name="AMP-onboard-ingest-metrics-remote-write-EC2"></a>
 
 This section explains how to run a Prometheus server with remote write in an Amazon Elastic Compute Cloud (Amazon EC2) instance. It explains how to collect metrics from a demo application written in Go and send them to an Amazon Managed Service for Prometheus workspace.
 
@@ -46,7 +45,7 @@ After creating your IAM role, and launching an EC2 instance with the role, you c
 
 1. Use the following template to create a Go file named `main.go`.
 
-   ```
+   ```go
    package main
    
    import (
@@ -63,7 +62,7 @@ After creating your IAM role, and launching an EC2 instance with the role, you c
 
 1. Run the following commands to install the correct dependencies.
 
-   ```
+   ```sh
    sudo yum update -y
    sudo yum install -y golang
    go get github.com/prometheus/client_golang/prometheus/promhttp
@@ -71,13 +70,13 @@ After creating your IAM role, and launching an EC2 instance with the role, you c
 
 1. Run the demo application.
 
-   ```
+   ```sh
    go run main.go
    ```
 
    The demo application should run on port 8000 and show all of the exposed Prometheus metrics. The following is an example of these metrics.
 
-   ```
+   ```sh
    curl -s http://localhost:8000/metrics 
    ...
    process_max_fds 4096# HELP process_open_fds Number of open file descriptors.# TYPE process_open_fds gauge
@@ -104,7 +103,7 @@ To create an Amazon Managed Service for Prometheus workspace, follow the instruc
 
    **Example: YAML file**
 
-   ```
+   ```sh
    global:
      scrape_interval: 15s
      external_labels:
@@ -128,7 +127,7 @@ To create an Amazon Managed Service for Prometheus workspace, follow the instruc
 
 1. Run the Prometheus server to send the demo application’s metrics to your Amazon Managed Service for Prometheus workspace.
 
-   ```
+   ```sh
    prometheus --config.file=prometheus.yaml
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Managed Service for Prometheus workspace
-<a name="AMP-onboard-create-workspace"></a>
 
 A *workspace* is a logical space dedicated to the storage and querying of Prometheus metrics. A workspace supports fine-grained access control for authorizing its management such as update, list, describe, and delete, and the ingestion and querying of metrics. You can have one or more workspaces in each Region in your account.
 

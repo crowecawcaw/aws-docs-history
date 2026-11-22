@@ -1,7 +1,6 @@
 
 
 # GetLabels
-<a name="AMP-APIReference-GetLabels"></a>
 
 The `GetLabels` operation retrieves the labels associated with a time series.
 

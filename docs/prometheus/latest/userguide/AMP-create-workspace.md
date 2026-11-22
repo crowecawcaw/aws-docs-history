@@ -1,7 +1,6 @@
 
 
 # Create a Amazon Managed Service for Prometheus workspace
-<a name="AMP-create-workspace"></a>
 
 Follow these steps to create a Amazon Managed Service for Prometheus workspace. You can choose to use the AWS CLI or the Amazon Managed Service for Prometheus console.
 
@@ -16,7 +15,7 @@ If you are running an Amazon EKS cluster, you can also create a new workspace us
 
    Parameters in brackets (`[]`) are optional, do not include the brackets in your command.
 
-   ```
+   ```cmd
    aws amp create-workspace [--alias {{my-first-workspace}}] [--kmsKeyArn {{arn:aws:aps:us-west-2:111122223333:workspace/ws-sample-1234-abcd-56ef-7890abcd12ef}}]  [--tags {{Status}}={{Secret}},{{Team}}={{My-Team}}]
    ```
 

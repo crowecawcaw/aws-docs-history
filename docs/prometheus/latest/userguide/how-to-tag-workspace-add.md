@@ -1,7 +1,6 @@
 
 
 # Add a tag to a workspace
-<a name="how-to-tag-workspace-add"></a>
 
 Adding tags to an Amazon Managed Service for Prometheus workspace can help you identify and organize your AWS resources and manage access to them. First, you add one or more tags (key-value pairs) to a workspace. After you have tags, you can create IAM policies to manage access to the workspace based on these tags. You can use the the console or the AWS CLI to add tags to an Amazon Managed Service for Prometheus workspace. 
 

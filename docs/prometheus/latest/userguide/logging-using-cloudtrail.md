@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Managed Service for Prometheus API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Managed Service for Prometheus is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon Managed Service for Prometheus as events. The calls captured include calls from the Amazon Managed Service for Prometheus console and code calls to the Amazon Managed Service for Prometheus API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Managed Service for Prometheus, the IP address from which the request was made, when it was made, and additional details.
 
@@ -39,7 +38,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail log entry that demonstrates the CreateWorkspace action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -97,7 +96,7 @@ The following example shows a CloudTrail log entry that demonstrates the CreateW
 
 The following example shows a CloudTrail log entry that demonstrates the CreateAlertManagerDefinition action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -154,7 +153,7 @@ The following example shows a CloudTrail log entry that demonstrates the CreateA
 
 The following example shows a CloudTrail log entry that demonstrates the CreateRuleGroupsNamespace action.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

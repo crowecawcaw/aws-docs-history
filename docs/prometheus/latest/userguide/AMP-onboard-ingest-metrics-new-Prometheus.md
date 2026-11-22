@@ -1,7 +1,6 @@
 
 
 # Set up ingestion from a new Prometheus server using Helm
-<a name="AMP-onboard-ingest-metrics-new-Prometheus"></a>
 
 The instructions in this section get you up and running with Amazon Managed Service for Prometheus quickly. You set up a new Prometheus server in an Amazon EKS cluster, and the new server uses a default configuration to send metrics to Amazon Managed Service for Prometheus. This method has the following prerequisites:
 + You must have an Amazon EKS cluster from which the new Prometheus server will collect metrics.
@@ -14,7 +13,7 @@ The instructions in this section get you up and running with Amazon Managed Serv
 
 To add new Helm chart repositories, enter the following commands. For more information about these commands, see [Helm Repo](https://helm.sh/docs/helm/helm_repo/).
 
-```
+```cmd
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
 helm repo update
@@ -53,7 +52,7 @@ To install the new Prometheus server that sends metrics to your Amazon Managed S
    + Replace {{WORKSPACE\_ID}} with the ID of your Amazon Managed Service for Prometheus workspace.
    + Replace {{REGION}} with the Region of your Amazon Managed Service for Prometheus workspace.
 
-   ```
+   ```yaml
    ## The following is a set of default values for prometheus server helm chart which enable remoteWrite to AMP
    ## For the rest of prometheus helm chart values see: https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
    ##
@@ -77,7 +76,7 @@ To install the new Prometheus server that sends metrics to your Amazon Managed S
    + Replace {{prometheus-chart-name}} with your Prometheus release name.
    + Replace {{prometheus-namespace}} with the name of your Prometheus namespace.
 
-   ```
+   ```cmd
    helm install {{prometheus-chart-name}} prometheus-community/prometheus -n {{prometheus-namespace}} \
    -f my_prometheus_values_yaml
    ```

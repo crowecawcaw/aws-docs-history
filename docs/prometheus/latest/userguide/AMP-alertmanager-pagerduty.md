@@ -1,7 +1,6 @@
 
 
 # Use PagerDuty as an alert receiver
-<a name="AMP-alertmanager-pagerduty"></a>
 
 You can configure Amazon Managed Service for Prometheus to send alerts directly to PagerDuty. This integration requires you to store your PagerDuty integration key in AWS Secrets Manager and grant Amazon Managed Service for Prometheus permission to read the secret.
 

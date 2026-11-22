@@ -1,7 +1,6 @@
 
 
 # Forward alerts to an alert receiver with alert manager in Amazon Managed Service for Prometheus
-<a name="AMP-alertmanager-receiver"></a>
 
 When an alert is raised by an alert rule, it is sent to alert manager. Alert manager performs functions such as de-duplicating alerts, inhibiting alerts during maintenance, or grouping them as needed. It then forwards the alert as a message to an *alert receiver*. You can set up an alert receiver that can notify operators, have automated responses, or respond to the alerts in other ways.
 

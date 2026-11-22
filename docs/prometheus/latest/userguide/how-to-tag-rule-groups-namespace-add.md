@@ -1,7 +1,6 @@
 
 
 # Add a tag to a rule groups namespace
-<a name="how-to-tag-rule-groups-namespace-add"></a>
 
 Adding tags to an Amazon Managed Service for Prometheus rule groups namespaces can help you identify and organize your AWS resources and manage access to them. First, you add one or more tags (key-value pairs) to a rule groups namespace. After you have tags, you can create IAM policies to manage access to the namespace based on these tags. You can use the the console or the AWS CLI to add tags to an Amazon Managed Service for Prometheus rule groups namespace. 
 

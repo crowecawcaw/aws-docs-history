@@ -1,7 +1,6 @@
 
 
 # Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager
-<a name="AMP-alert-manager"></a>
 
 When the [alerting rules](AMP-ruler-rulesfile.md) that Amazon Managed Service for Prometheus runs are firing, alert manager handles the alerts that are sent. It de-duplicates, groups, and routes the alerts to downstream receivers. Amazon Managed Service for Prometheus supports only Amazon Simple Notification Service as a receiver, and can route messages to Amazon SNS topics in the same account. You can also use alert manager to silence and inhibit alerts.
 

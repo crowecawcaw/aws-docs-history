@@ -1,7 +1,6 @@
 
 
 # Secure your metric queries
-<a name="AMP-secure-querying"></a>
 
 Amazon Managed Service for Prometheus provides ways of helping you secure the querying of your metrics.
 

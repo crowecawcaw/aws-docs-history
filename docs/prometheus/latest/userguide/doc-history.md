@@ -1,12 +1,12 @@
 
 
 # Document History for Amazon Managed Service for Prometheus User Guide
-<a name="doc-history"></a>
 
 The following table describes important documentation updates in the Amazon Managed Service for Prometheus User Guide. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Increased active series limit](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP_quotas.html) | To support larger workloads, Amazon Managed Service for Prometheus has increased the maximum active series limit per workspace to 2 billion, so you can monitor more series without hitting quota limits. | November 17, 2026 | 
 | [Updated the AmazonPrometheusScraperServiceRolePolicy managed IAM policy](https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#service-linked-role-permissions-prom-scraper) | AWS managed collectors can now write collected metrics to Amazon CloudWatch Metrics datasets as a new destination type. | July 14, 2026 | 
 | [Added native histogram support](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-CW-usage-metrics.html) | Amazon Managed Service for Prometheus now supports ingestion, storage, and querying of Prometheus native histograms. New CloudWatch usage metrics `NativeHistogramIngestionRate` and `NativeHistogramActiveSeries` are available to monitor native histogram usage against quota limits. A new service metric, `NativeHistogramIngestedBucketsRate`, provides visibility into bucket consumption. For more information, see [Monitor with CloudWatch metrics](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-CW-usage-metrics.html). | June 10, 2026 | 
 | [Added out-of-order ingestion and rule query offset support](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-manage-ingest-query.html#AMP-workspace-configuration) | Amazon Managed Service for Prometheus now supports configuring an out-of-order time window to accept samples that arrive out of chronological order, and a rule query offset to introduce a global delay before rule evaluations. Two new CloudWatch metrics, `OutOfOrderIngestionRate` and `OutOfOrderSampleAge`, are also available to monitor out-of-order ingestion. For more information, see [Configure your workspace](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-manage-ingest-query.html#AMP-workspace-configuration). | May 14, 2026 | 

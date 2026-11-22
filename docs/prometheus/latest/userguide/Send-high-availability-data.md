@@ -1,7 +1,6 @@
 
 
 # Send high availability data to Amazon Managed Service for Prometheus with Prometheus
-<a name="Send-high-availability-data"></a>
 
 To set up a high availability configuration with Prometheus, you must apply external labels on all instances of a high availability group, so Amazon Managed Service for Prometheus can identify them. Use the `cluster` label to identify a Prometheus instance agent as part of a high availability group. Use the `__replica__` label to identify each replica in the group separately. You need to apply both `__replica__` and `cluster` labels for de-duplication to work.
 

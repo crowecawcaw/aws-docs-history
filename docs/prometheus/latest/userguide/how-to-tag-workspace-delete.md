@@ -1,7 +1,6 @@
 
 
 # Remove a tag from a workspace
-<a name="how-to-tag-workspace-delete"></a>
 
 You can remove one or more tags associated with a workspace. Removing a tag does not delete the tag from other AWS resources that are associated with that tag.
 

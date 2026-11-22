@@ -1,7 +1,6 @@
 
 
 # Edit tags for a workspace
-<a name="how-to-tag-workspace-update"></a>
 
 You can change the value for a tag associated with a workspace. You can also change the name of the key, which is equivalent to removing the current tag and adding a different one with the new name and the same value as the other key. 
 

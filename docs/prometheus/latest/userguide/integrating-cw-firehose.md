@@ -1,7 +1,6 @@
 
 
 # Integrating CloudWatch metrics with Amazon Managed Service for Prometheus
-<a name="integrating-cw-firehose"></a>
 
 It can help to have all your metrics in one place. Amazon Managed Service for Prometheus does not automatically ingest Amazon CloudWatch metrics. However, you can use Amazon Data Firehose and AWS Lambda to push CloudWatch metrics to Amazon Managed Service for Prometheus.
 

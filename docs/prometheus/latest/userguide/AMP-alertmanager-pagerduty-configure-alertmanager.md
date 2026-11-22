@@ -1,14 +1,13 @@
 
 
 # Configure alert manager to send alerts to PagerDuty
-<a name="AMP-alertmanager-pagerduty-configure-alertmanager"></a>
 
 To configure alert manager to send alerts to PagerDuty, you need to update your alert manager definition. You can do this using the AWS Management Console, AWS CLI, or AWS SDKs.
 
 **Example alert manager configuration**  
 Following, is an example alert manager configuration that sends alerts to PagerDuty. In the example, replace the {{highlighted values}} with your specific values.  
 
-```
+```yaml
 alertmanager_config: |
   route:
     receiver: 'pagerduty-receiver'

@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus API Reference
-<a name="AMP-APIReference"></a>
 
 Amazon Managed Service for Prometheus offers two types of APIs:
 

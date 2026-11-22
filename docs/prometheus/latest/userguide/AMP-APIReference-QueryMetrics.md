@@ -1,7 +1,6 @@
 
 
 # QueryMetrics
-<a name="AMP-APIReference-QueryMetrics"></a>
 
 The `QueryMetrics` operation evaluates an instant query at a single point in time or over a range of time.
 

@@ -1,7 +1,6 @@
 
 
 # Consumer-group metrics
-<a name="prom-msk-consumer-metrics"></a>
 
 When you collect consumer-group metrics with the example configuration in [Collect Amazon MSK consumer-group metrics](prom-msk-kafka-exporter.md), the Amazon Managed Service for Prometheus collector sends the following metrics. Each metric has the `clusterArn` label from the scrape configuration, so that you can tell clusters apart.
 
@@ -14,7 +13,7 @@ When you collect consumer-group metrics with the example configuration in [Colle
 
 A value of `-1` for lag or committed offset means that the consumer group has not committed an offset for that partition yet. Leave these values out when you add up lag. For example, the following query shows the total lag of each consumer group for each topic:
 
-```
+```PromQL
 sum by (clusterArn, consumergroup, topic) (kafka_consumergroup_lag >= 0)
 ```
 

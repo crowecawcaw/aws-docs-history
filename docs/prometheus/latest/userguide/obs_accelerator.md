@@ -1,7 +1,6 @@
 
 
 # Set up Amazon Managed Service for Prometheus with AWS Observability Accelerator
-<a name="obs_accelerator"></a>
 
 AWS provides observability tools, including monitoring, logging, alerting, and dashboards, for your Amazon Elastic Kubernetes Service (Amazon EKS) projects. This includes Amazon Managed Service for Prometheus, [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html), [AWS Distro for OpenTelemetry](https://aws-otel.github.io/), and other tools. To help you use these tools together, AWS provides Terraform modules that configure observability with these services, called the [AWS Observability Accelerator](https://github.com/aws-observability/terraform-aws-observability-accelerator).
 

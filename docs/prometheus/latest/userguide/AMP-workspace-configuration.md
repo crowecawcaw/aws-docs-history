@@ -1,7 +1,6 @@
 
 
 # Configure your workspace
-<a name="AMP-workspace-configuration"></a>
 
 You can configure your workspace for the following:
 + Define *label sets* and define limits on the active time series that match your defined label sets. A label set is a set of one or more *labels*, which are name/value pairs that help give context to time series metrics.

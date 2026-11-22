@@ -1,7 +1,6 @@
 
 
 # GetSeries
-<a name="AMP-APIReference-GetSeries"></a>
 
 The `GetSeries` operation retrieves list of time series that match a certain label set.
 

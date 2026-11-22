@@ -1,7 +1,6 @@
 
 
 # Query using Grafana running in an Amazon EKS cluster
-<a name="AMP-onboard-query-grafana-7.3"></a>
 
 Amazon Managed Service for Prometheus supports the use of Grafana version 7.3.5 and later to query metrics in a Amazon Managed Service for Prometheus workspace. Versions 7.3.5 and later include support for AWS Signature Version 4 (SigV4) authentication.
 
@@ -60,7 +59,7 @@ You then need to add the Grafana service account in the conditions of the trust 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

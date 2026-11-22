@@ -1,7 +1,6 @@
 
 
 # Secure the ingestion of your metrics
-<a name="AMP-secure-metric-ingestion"></a>
 
 Amazon Managed Service for Prometheus provides ways of helping you secure the ingestion of your metrics.
 

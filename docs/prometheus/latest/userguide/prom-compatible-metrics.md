@@ -1,7 +1,6 @@
 
 
 # What are Prometheus-compatible metrics?
-<a name="prom-compatible-metrics"></a>
 
 To scrape Prometheus metrics from your applications and infrastructure for use in Amazon Managed Service for Prometheus, they must instrument and expose *Prometheus-compatible metrics* from Prometheus-compatible `/metrics` endpoints. You can implement your own metrics, but you don't have to. Kubernetes (including Amazon EKS) and many other libraries and services implement these metrics directly.
 

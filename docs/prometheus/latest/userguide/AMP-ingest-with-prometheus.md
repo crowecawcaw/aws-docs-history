@@ -1,7 +1,6 @@
 
 
 # Using a Prometheus instance as a collector
-<a name="AMP-ingest-with-prometheus"></a>
 
 You can use a Prometheus instance, running in *agent* mode (known as a *Prometheus agent*), to scrape metrics and send them to your Amazon Managed Service for Prometheus workspace.
 

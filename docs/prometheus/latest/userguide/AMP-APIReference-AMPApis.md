@@ -1,7 +1,6 @@
 
 
 # Amazon Managed Service for Prometheus APIs
-<a name="AMP-APIReference-AMPApis"></a>
 
 Amazon Managed Service for Prometheus provides API operations creating and maintaining your Amazon Managed Service for Prometheus workspaces. This includes APIs for workspaces, scrapers, alert manager definitions, rule groups namespaces, and logging.
 

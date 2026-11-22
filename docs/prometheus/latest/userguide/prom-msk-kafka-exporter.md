@@ -1,7 +1,6 @@
 
 
 # Collect Amazon MSK consumer-group metrics
-<a name="prom-msk-kafka-exporter"></a>
 
 With a managed Kafka exporter, an Amazon Managed Service for Prometheus collector collects consumer-group metrics from your Amazon MSK cluster, such as consumer lag, committed offsets, and the number of members in each consumer group. Amazon Managed Service for Prometheus runs the exporter for you, so you do not have to install or operate an exporter yourself. Your destination can be an Amazon Managed Service for Prometheus workspace or Amazon CloudWatch. These metrics complement the JMX and Node Exporter metrics that the collector scrapes from Open Monitoring.
 
@@ -36,7 +35,7 @@ You provide a scrape configuration when you create the scraper. The managed coll
 
 Use the scrape configuration to add labels and to filter the collected metrics. The following example keeps consumer lag, committed offsets, and group membership. It also adds a `clusterArn` label so that you can tell clusters apart when you query. Replace the cluster ARN with your cluster's ARN, and save the configuration as `msk-consumer.yaml`. Use the same cluster ARN when you create the scraper.
 
-```
+```yaml
 global:
   scrape_interval: 30s
 scrape_configs:
@@ -64,7 +63,7 @@ Use the `create-scraper` command to create a scraper using the AWS Command Line 
 **Note**  
 Configure the security group and subnets to match the Amazon VPC of your Amazon MSK cluster. Include at least two subnets across two Availability Zones.
 
-```
+```bash
 aws amp create-scraper \
   --region {{us-west-2}} \
   --alias msk-consumer-metrics \
@@ -81,7 +80,7 @@ The `topicFilter` selects the topics that the exporter reads topic metrics for. 
 
 Record the scraper ID. Check its status with the following command, and continue when the status is `ACTIVE`:
 
-```
+```bash
 aws amp describe-scraper \
   --region {{us-west-2}} \
   --scraper-id {{scraper-id}} \
@@ -107,7 +106,7 @@ Grant the scraper's service-linked role, even if the scraper uses `roleConfigura
 
 Get the scraper's role ARN with the following AWS CLI command:
 
-```
+```bash
 aws amp describe-scraper \
   --region {{us-west-2}} \
   --scraper-id {{scraper-id}} \
@@ -118,7 +117,7 @@ Each scraper has its own role, `AWSServiceRoleForAmazonPrometheusScraper_{{suffi
 
 Save the following policy as `policy.json`. Replace the role ARN, Region, account ID, cluster name, and cluster ID.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -158,7 +157,7 @@ To read and change the cluster policy, you need `kafka:GetClusterPolicy` and `ka
 
 1. Check whether the cluster already has a policy:
 
-   ```
+   ```bash
    aws kafka get-cluster-policy \
      --region {{us-west-2}} \
      --cluster-arn arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}}
@@ -168,7 +167,7 @@ To read and change the cluster policy, you need `kafka:GetClusterPolicy` and `ka
 
 1. If the cluster has no policy, add yours:
 
-   ```
+   ```bash
    aws kafka put-cluster-policy \
      --region {{us-west-2}} \
      --cluster-arn arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}} \
@@ -177,7 +176,7 @@ To read and change the cluster policy, you need `kafka:GetClusterPolicy` and `ka
 
 1. If the cluster already has a policy, merge the statements. `put-cluster-policy` replaces the whole policy document. The `Policy` value from `get-cluster-policy` is the existing policy as a JSON string. Add its statements to the `Statement` list in `policy.json`, so that the file has both the existing statements and the new ones. Then pass the `CurrentVersion` value from `get-cluster-policy`:
 
-   ```
+   ```bash
    aws kafka put-cluster-policy \
      --region {{us-west-2}} \
      --cluster-arn arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}} \
@@ -190,7 +189,7 @@ To read and change the cluster policy, you need `kafka:GetClusterPolicy` and `ka
 
 We recommend that you grant access to individual scraper role ARNs. If you need to grant every current and future scraper in the account, you can use the following policy instead. You can add it before you create a scraper, and it keeps working when you replace one. Keep both conditions in every statement. Save the following policy as `policy.json`. Replace the Region, account ID, cluster name, and cluster ID in each statement, and apply it as described in [Apply the policy](#prom-msk-kafka-exporter-access-apply).
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -242,15 +241,15 @@ To narrow a policy that you already applied, replace your earlier statements wit
 
 To confirm that the scraper is collecting metrics, run each of the following PromQL queries separately against your workspace. For more information, see [Query your Prometheus metrics](AMP-query.md). Replace the cluster ARN. Metrics appear only for consumer groups that match your consumer-group filter and that have members or committed offsets.
 
-```
+```PromQL
 kafka_consumergroup_members{clusterArn="arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}}"}
 ```
 
-```
+```PromQL
 kafka_consumergroup_current_offset{clusterArn="arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}}"}
 ```
 
-```
+```PromQL
 kafka_consumergroup_lag{clusterArn="arn:aws:kafka:{{us-west-2}}:{{111122223333}}:cluster/{{my-cluster}}/{{cluster-id}}"}
 ```
 
@@ -266,7 +265,7 @@ The first metrics can take a few minutes to appear after you add the cluster pol
 
 To change the filters, update the scraper with its full scrape configuration. The following command selects one topic and one consumer group. Keep the `kafka-exporter` job and the `clusterArn` label in your scrape configuration.
 
-```
+```bash
 aws amp update-scraper \
   --region {{us-west-2}} \
   --scraper-id {{scraper-id}} \
@@ -279,7 +278,7 @@ Omitting `exporters` in an update keeps the current exporter. To remove it, pass
 
 The following AWS CLI command deletes the scraper and stops all of its metric collection. It does not delete the Amazon MSK cluster or the destination workspace.
 
-```
+```bash
 aws amp delete-scraper \
   --region {{us-west-2}} \
   --scraper-id {{scraper-id}}

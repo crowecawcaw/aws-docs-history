@@ -1,7 +1,6 @@
 
 
 # Set up Amazon Managed Service for Prometheus for high availability data
-<a name="AMP-ingest-high-availability"></a>
 
 When you send data to Amazon Managed Service for Prometheus, it is automatically replicated across AWS Availability Zones in the Region, and is served to you from a cluster of hosts that provide scalability, availability, and security. You might want to add additional high availability fail-safes, depending on your particular setup. There are two common ways that you might additional high availability safeties to your setup:
 + If you have multiple containers or instances that have the same data, you can send that data to Amazon Managed Service for Prometheus and have the data automatically de-duplicated. This helps to ensure that your data will be sent to your Amazon Managed Service for Prometheus workspace.

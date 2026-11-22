@@ -1,7 +1,6 @@
 
 
 # GetMetricMetadata
-<a name="AMP-APIReference-GetMetricMetadata"></a>
 
 The `GetMetricMetadata` operation retrieves metadata about metrics that are currently being scraped from targets. It does not provide any target information.
 

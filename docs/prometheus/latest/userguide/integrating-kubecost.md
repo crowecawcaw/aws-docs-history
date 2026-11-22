@@ -1,7 +1,6 @@
 
 
 # Integrating with Amazon EKS cost monitoring
-<a name="integrating-kubecost"></a>
 
 Amazon Managed Service for Prometheus integrates with Amazon Elastic Kubernetes Service (Amazon EKS) cost monitoring (with Kubecost) to perform cost allocation calculations and provide insights into optimizing your Kubernetes clusters. Using Amazon Managed Service for Prometheus with Kubecost, you can reliably scale your cost monitoring to support larger clusters.
 

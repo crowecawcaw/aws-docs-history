@@ -1,7 +1,6 @@
 
 
 # Get statistics about your query usage for each query
-<a name="AMP-stats"></a>
 
 Query [pricing](https://aws.amazon.com/prometheus/pricing/) is based on the total number of query samples processed in a month from executed queries. You can get statistics about each query that you make to keep track of your samples processed. The query response for a `query` or a `queryRange` API can include the statistics data about query samples processed by including the query parameter `stats=all` in the request. A `samples` object is created in the `stats` object and the `stats` data is returned in the response.
 

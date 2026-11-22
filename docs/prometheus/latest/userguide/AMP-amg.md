@@ -1,7 +1,6 @@
 
 
 # Set up Amazon Managed Grafana for use with Amazon Managed Service for Prometheus
-<a name="AMP-amg"></a>
 
 Amazon Managed Grafana is a fully managed service for open-source Grafana that simplifies connecting to open-source, third-party ISV, and AWS services for visualizing and analyzing your data sources at scale.
 

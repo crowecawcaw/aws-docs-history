@@ -1,7 +1,6 @@
 
 
 # Anomaly detection
-<a name="prometheus-anomaly-detection"></a>
 
 Amazon Managed Service for Prometheus provides anomaly detection capabilities that use machine learning algorithms to automatically identify unusual patterns in your metric data. This feature helps you proactively detect potential issues, reduce alert fatigue, and improve your monitoring effectiveness by focusing on truly anomalous behavior rather than static thresholds.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon Managed Service for Prometheus errors
-<a name="AMP-troubleshooting"></a>
 
 Use the following sections to help troubleshoot issues with Amazon Managed Service for Prometheus.
 
@@ -84,13 +83,13 @@ For more details about how this works, or ways to check your setup, see the blog
 Amazon Managed Service for Prometheus provides [CloudWatch usage metrics](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-CW-usage-metrics.html) to monitor Prometheus resource usage. Using the CloudWatch usage metrics alarm feature, you can monitor Prometheus resources and usage to prevent limit errors.
 
 If you see one of the following error messages, you can request an increase in one of the Amazon Managed Service for Prometheus quotas to solve the issue. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md).
-+ per-user series limit of {{<value>}} exceeded, please contact administrator to raise it 
-+ per-metric series limit of {{<value>}} exceeded, please contact administrator to raise it 
-+ ingestion rate limit (...) exceeded
-+ series has too many labels (...) series: '%s'
-+ the query time range exceeds the limit (query length: xxx, limit: yyy)
-+ the query hit the max number of chunks limit while fetching chunks from ingesters
-+ Limit exceeded. Maximum workspaces per account.
++ `per-user series limit of {{<value>}} exceeded, please contact administrator to raise it `
++ `per-metric series limit of {{<value>}} exceeded, please contact administrator to raise it `
++ `ingestion rate limit (...) exceeded`
++ `series has too many labels (...) series: '%s'`
++ `the query time range exceeds the limit (query length: xxx, limit: yyy)`
++ `the query hit the max number of chunks limit while fetching chunks from ingesters`
++ `Limit exceeded. Maximum workspaces per account.`
 
 ## Your local Prometheus server output exceeds the limit.
 <a name="AMP-understand-output"></a>

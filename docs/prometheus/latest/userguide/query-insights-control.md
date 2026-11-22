@@ -1,7 +1,6 @@
 
 
 # Managing the query cost in Amazon Managed Service for Prometheus
-<a name="query-insights-control"></a>
 
 Amazon Managed Service for Prometheus offers the ability to limit query cost by providing limits on how much Query Samples Processed (QSP) can be used by a single query. You can configure two types of thresholds for QSP, *warning* and *error* to help manage and control query costs effectively.
 
@@ -30,7 +29,7 @@ Make sure the `logGroup` is already created. The ID or role used to configure sh
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
     "Statement": [

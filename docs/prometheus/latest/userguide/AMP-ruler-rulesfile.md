@@ -1,13 +1,12 @@
 
 
 # Create a rules file
-<a name="AMP-ruler-rulesfile"></a>
 
 To use rules in Amazon Managed Service for Prometheus, you create a rules file that defines the rules. An Amazon Managed Service for Prometheus rules file is a YAML text file that has the same format as a rules file in standalone Prometheus. For more information, see [Defining Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) and [Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) in the *Prometheus* documentation.
 
 The following is a basic example of a rules file:
 
-```
+```yaml
 groups:
   - name: cpu_metrics
      interval: 60s

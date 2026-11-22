@@ -1,7 +1,6 @@
 
 
 # GetAlertManagerSilence
-<a name="AMP-APIReference-GetAlertManagerSilence"></a>
 
 The `GetAlertManagerSilence` retrieves information about one alert silence.
 

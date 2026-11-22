@@ -1,7 +1,6 @@
 
 
 # Set up managed Prometheus collectors for Amazon MSK
-<a name="prom-msk-integration"></a>
 
 To use an Amazon Managed Service for Prometheus collector, you create a scraper that discovers and pulls metrics in your Amazon Managed Streaming for Apache Kafka cluster. You can also create a scraper that integrates with Amazon Elastic Kubernetes Service or with Amazon OpenSearch Service. For more information, see [Integrate Amazon EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html) and [Integrate Amazon OpenSearch Service](https://docs.aws.amazon.com/prometheus/latest/userguide/prom-opensearch-integration.html).
 
@@ -30,7 +29,7 @@ Use the `CreateScraper` API operation to create a scraper with the AWS API. The 
 **Note**  
 Configure the security group and subnets to match your target cluster. Include at least two subnets across two availability zones.
 
-```
+```JSON
                 POST /scrapers HTTP/1.1
 Content-Length: 415 
 Authorization: AUTHPARAMS
@@ -72,7 +71,7 @@ You have two options for configuring Prometheus to scrape metrics from your MSK 
 
    **Individual broker endpoints** – Specify each broker endpoint individually for granular control. Use the full broker identifiers (b-1, b-2) in your configuration. For example:
 
-   ```
+   ```YAML
    dns_sd_configs:
      - names:
        - b-1.clusterName.xxx.xxx.xxx
@@ -87,7 +86,7 @@ For more information, see [<dns\_sd\_config>](https://prometheus.io/docs/prometh
 
 The following is an example of the scraper configuration file:
 
-```
+```YAML
 global:
   scrape_interval: 30s
   external_labels:
@@ -137,13 +136,13 @@ Run one of the following commands to convert the YAML file to base64. You can al
 
 **Example Linux/macOS**  
 
-```
+```bash,sh,zsh
 echo -n {{scraper config updated with dns records}} | base64 
 ```
 
 **Example Windows PowerShell**  
 
-```
+```powershell,ps
 [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes({{scraper config updated with dns records}}))
 ```
 
@@ -182,7 +181,7 @@ For example, when you have two accounts, the first source account `account_id_so
 
 1. In the source account, create a role `arn:aws:iam::{{111122223333}}:role/Source` and add the following trust policy.
 
-   ```
+   ```JSON
    {
        "Effect": "Allow",
        "Principal": {
@@ -204,7 +203,7 @@ For example, when you have two accounts, the first source account `account_id_so
 
 1. On every combination of source (Amazon MSK cluster) and target (Amazon Managed Service for Prometheus workspace), you need to create a role `arn:aws:iam::{{444455556666}}:role/Target` and add the following trust policy with permissions for [AmazonPrometheusRemoteWriteAccess](https://docs.aws.amazon.com/prometheus/latest/userguide/security-iam-awsmanpol.html).
 
-   ```
+   ```JSON
    {
      "Effect": "Allow",
      "Principal": {
@@ -221,13 +220,13 @@ For example, when you have two accounts, the first source account `account_id_so
 
 1. Create a scraper with the `--role-configuration` option.
 
-   ```
+   ```JSON
    aws amp create-scraper \ --source vpcConfiguration="{subnetIds={{[subnet-subnet-id]}}, "securityGroupIds": ["{{sg-security-group-id}}"]}" \ --scrape-configuration configurationBlob={{<base64-encoded-blob>}} \ --destination ampConfiguration="{workspaceArn='arn:aws:aps:{{aws-region}}:{{444455556666}}:workspace/{{ws-workspace-id}}'}"\ --role-configuration '{"sourceRoleArn":"arn:aws:iam::{{111122223333}}:role/Source", "targetRoleArn":"arn:aws:iam::{{444455556666}}:role/Target"}'
    ```
 
 1. Validate the scraper creation.
 
-   ```
+   ```JSON
    aws amp list-scrapers
    {
        "scrapers": [
@@ -283,7 +282,7 @@ aws amp list-scrapers
 
 `ListScrapers` returns all of the scrapers in your account, for example:
 
-```
+```JSON
 {
     "scrapers": [
         {

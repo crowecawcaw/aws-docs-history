@@ -1,7 +1,6 @@
 
 
 # PreviewAnomalyDetector API
-<a name="anomaly-detection-api"></a>
 
 Use the `PreviewAnomalyDetector` operation to create an endpoint that demonstrates how your metric data will be analyzed by the anomaly detection algorithm during your specified time period. This endpoint helps you evaluate and validate the detector's performance before implementation.
 

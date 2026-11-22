@@ -1,7 +1,6 @@
 
 
 # Using rules to modify or monitor metrics as they are received
-<a name="AMP-Ruler"></a>
 
 You can set up rules to act upon metrics as they are received by Amazon Managed Service for Prometheus. These rules can monitor the metrics or even create new, computed, metrics based on the metrics received.
 

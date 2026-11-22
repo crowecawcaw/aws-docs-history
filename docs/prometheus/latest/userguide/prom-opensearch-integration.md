@@ -1,7 +1,6 @@
 
 
 # Set up managed Prometheus collectors for Amazon OpenSearch Service
-<a name="prom-opensearch-integration"></a>
 
 The Amazon Managed Service for Prometheus managed collector for Amazon OpenSearch Service automatically scrapes Prometheus-compatible metrics from your OpenSearch Service domain and forwards them to your destination. Amazon Managed Service for Prometheus manages the collector for you, giving you the scalability, security, and reliability that you need, without having to manage any instances, agents, or scrapers yourself. Your destination can be an Amazon Managed Service for Prometheus workspace or Amazon CloudWatch.
 
@@ -23,7 +22,7 @@ The scraper uses the domain's VPC endpoint as resolved when you create the scrap
 
 You provide a scrape configuration when you create the scraper. The managed collector connects to the domain that you specify and collects its metrics automatically, so you do not specify scrape targets in the configuration. The configuration must include a `scrape_configs` section with a job whose `job_name` is exactly `opensearch-exporter`. A configuration that does not contain a job named `opensearch-exporter` is rejected. Use the scrape configuration to set the scrape interval and, optionally, to filter or relabel the collected metrics. The following is an example scrape configuration:
 
-```
+```YAML
 global:
   external_labels:
     domain_name: {{my-opensearch-domain}}
@@ -43,7 +42,7 @@ Use the `CreateScraper` API operation to create a scraper with the AWS API. The 
 **Note**  
 Configure the security group and subnets to match the Amazon VPC of your OpenSearch Service domain. Include at least two subnets across two Availability Zones.
 
-```
+```JSON
 POST /scrapers HTTP/1.1
 
 {
@@ -74,7 +73,7 @@ POST /scrapers HTTP/1.1
 
 To send the metrics to Amazon CloudWatch instead of an Amazon Managed Service for Prometheus workspace, replace the `destination` with a CloudWatch configuration:
 
-```
+```JSON
     "destination": {
         "cloudWatchConfiguration": {
             "datasetArn": "arn:aws:cloudwatch:{{us-east-1}}:{{123456789012}}:dataset/default"
@@ -86,13 +85,13 @@ The `scrapeConfiguration` parameter requires a base64-encoded Prometheus configu
 
 **Example Linux/macOS**  
 
-```
+```bash,sh,zsh
 base64 -w0 {{scraper-config.yaml}}
 ```
 
 **Example Windows PowerShell**  
 
-```
+```powershell,ps
 [Convert]::ToBase64String([System.IO.File]::ReadAllBytes("{{scraper-config.yaml}}"))
 ```
 
@@ -135,7 +134,7 @@ The trust policies in the following steps refer to the scraper by its ARN, which
 
 1. In the source account, create a role `arn:aws:iam::{{111122223333}}:role/Source` and add the following trust policy.
 
-   ```
+   ```JSON
    {
        "Effect": "Allow",
        "Principal": {
@@ -157,7 +156,7 @@ The trust policies in the following steps refer to the scraper by its ARN, which
 
 1. In the target account, create a role `arn:aws:iam::{{444455556666}}:role/Target` and add the following trust policy, which allows the source role to assume it.
 
-   ```
+   ```JSON
    {
      "Effect": "Allow",
      "Principal": {

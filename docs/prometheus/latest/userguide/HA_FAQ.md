@@ -1,7 +1,6 @@
 
 
 # Answers to common questions about high availability configuration in Amazon Managed Service for Prometheus
-<a name="HA_FAQ"></a>
 
 ## Should I include the value *\_\_replica\_\_* into another label to track the sample points?
 <a name="HA_FAQ_replica-label"></a>

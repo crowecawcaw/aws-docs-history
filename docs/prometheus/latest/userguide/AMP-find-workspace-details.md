@@ -1,7 +1,6 @@
 
 
 # Find your Amazon Managed Service for Prometheus workspace details, including ARN
-<a name="AMP-find-workspace-details"></a>
 
 You can find the details of your Amazon Managed Service for Prometheus workspace by using either the AWS console or the AWS CLI.
 
@@ -40,7 +39,7 @@ You could create a dualstack (including support for IPv6), URL as follows:
 
 The following command returns the details of the workspace. You must replace {{my-workspace-id}} with the workspace ID of the workspace for which you want the details.
 
-```
+```cmd
 aws amp describe-workspace --workspace-id {{my-workspace-id}}
 ```
 

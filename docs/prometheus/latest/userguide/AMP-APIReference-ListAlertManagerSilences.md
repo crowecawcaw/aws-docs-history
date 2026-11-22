@@ -1,7 +1,6 @@
 
 
 # ListAlertManagerSilences
-<a name="AMP-APIReference-ListAlertManagerSilences"></a>
 
 The `ListAlertManagerSilences` operation retrieves information about the alert silences configured in the workspace.
 
