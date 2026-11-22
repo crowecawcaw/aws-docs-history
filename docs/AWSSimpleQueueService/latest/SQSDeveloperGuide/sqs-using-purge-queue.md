@@ -1,7 +1,6 @@
 
 
 # Purging messages from an queue using the Amazon SQS console
-<a name="sqs-using-purge-queue"></a>
 
 To keep an Amazon SQS queue but remove all its messages, you can purge the queue. This will delete all messages, including those that are currently invisible (in flight). The purge process can take up to 60 seconds, so wait the full 60 seconds regardless of the queue’s size.
 

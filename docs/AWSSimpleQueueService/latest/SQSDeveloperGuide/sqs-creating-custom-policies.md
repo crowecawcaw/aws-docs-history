@@ -1,7 +1,6 @@
 
 
 # Using custom policies with the Amazon SQS Access Policy Language
-<a name="sqs-creating-custom-policies"></a>
 
 To grant basic permissions (such as [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) or [`ReceiveMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html)) based only on an AWS account ID, you don’t need to write a custom policy. Instead, use the Amazon SQS [`AddPermission`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html) action.
 

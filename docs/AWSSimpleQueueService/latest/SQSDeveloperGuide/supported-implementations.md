@@ -1,7 +1,6 @@
 
 
 # Amazon SQS supported JMS 1.1 implementations
-<a name="supported-implementations"></a>
 
 The Amazon SQS Java Messaging Library supports the following [JMS 1.1 implementations](http://docs.oracle.com/javaee/6/api/javax/jms/package-summary.html). For more information about the supported features and capabilities of the Amazon SQS Java Messaging Library, see the [Amazon SQS FAQ](https://aws.amazon.com/sqs/faqs/).
 

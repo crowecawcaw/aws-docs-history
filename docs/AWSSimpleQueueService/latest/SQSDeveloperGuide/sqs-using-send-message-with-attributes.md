@@ -1,7 +1,6 @@
 
 
 # Sending a message with attributes using Amazon SQS
-<a name="sqs-using-send-message-with-attributes"></a>
 
 For standard and FIFO queues, you can include structured metadata to messages, including timestamps, geospatial data, signatures, and identifiers . For more information, see [Amazon SQS message attributes](sqs-message-metadata.md#sqs-message-attributes).
 

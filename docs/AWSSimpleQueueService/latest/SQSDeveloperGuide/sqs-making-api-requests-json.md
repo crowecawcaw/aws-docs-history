@@ -1,7 +1,6 @@
 
 
 # Making query API requests using AWS JSON protocol in Amazon SQS
-<a name="sqs-making-api-requests-json"></a>
 
 This topic explains how to construct an Amazon SQS endpoint, make POST requests, and interpret responses.
 

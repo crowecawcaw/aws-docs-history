@@ -1,7 +1,6 @@
 
 
 # Use `ReceiveMessage` with an AWS SDK or CLI
-<a name="example_sqs_ReceiveMessage_section"></a>
 
 The following code examples show how to use `ReceiveMessage`.
 
@@ -18,7 +17,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 Receive messages from a queue by using its URL.  
 
-```
+```csharp
     /// <summary>
     /// Receive messages from a queue by its URL.
     /// </summary>
@@ -41,7 +40,7 @@ Receive messages from a queue by using its URL.
 ```
 Receive a message from an Amazon SQS queue, and then delete the message.  
 
-```
+```csharp
         public static async Task Main()
         {
             // If the AWS Region you want to use is different from
@@ -122,7 +121,7 @@ Receive a message from an Amazon SQS queue, and then delete the message.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -257,7 +256,7 @@ For more information, see [Receiving and deleting a message in Amazon SQS](https
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -301,7 +300,7 @@ func (actor SqsActions) GetMessages(ctx context.Context, queueUrl string, maxMes
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
-```
+```java
         try {
             ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
                     .queueUrl(queueUrl)
@@ -324,7 +323,7 @@ func (actor SqsActions) GetMessages(ctx context.Context, queueUrl string, maxMes
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 Receive a message from an Amazon SQS queue.  
 
-```
+```javascript
 import {
   ReceiveMessageCommand,
   DeleteMessageCommand,
@@ -377,7 +376,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
 ```
 Receive a message from an Amazon SQS queue using long-poll support.  
 
-```
+```javascript
 import { ReceiveMessageCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -409,7 +408,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
 Receive a message from an Amazon SQS queue using long-poll support.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -445,7 +444,7 @@ sqs.receiveMessage(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
-```
+```kotlin
 suspend fun receiveMessages(queueUrlVal: String?) {
     println("Retrieving messages from $queueUrlVal")
 
@@ -471,7 +470,7 @@ suspend fun receiveMessages(queueUrlVal: String?) {
 **Tools for PowerShell V4**  
 **Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**  
 
-```
+```powershell
 Receive-SQSMessage -AttributeName SenderId, SentTimestamp -MessageAttributeName StudentName, StudentGrade -MessageCount 10 -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 ```
 **Output:**  
@@ -490,7 +489,7 @@ ReceiptHandle          : AQEBpfGp...20Q5cg==
 **Tools for PowerShell V5**  
 **Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.**  
 
-```
+```powershell
 Receive-SQSMessage -AttributeName SenderId, SentTimestamp -MessageAttributeName StudentName, StudentGrade -MessageCount 10 -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 ```
 **Output:**  
@@ -512,7 +511,7 @@ ReceiptHandle          : AQEBpfGp...20Q5cg==
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
-```
+```python
 def receive_messages(queue, max_number, wait_time):
     """
     Receive a batch of messages in a single request from an SQS queue.
@@ -541,7 +540,7 @@ def receive_messages(queue, max_number, wait_time):
         return messages
 ```
 
-```
+```python
 class SqsWrapper:
     """Wrapper class for managing Amazon SQS operations."""
 
@@ -601,7 +600,7 @@ class SqsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-sqs'
 require 'aws-sdk-sts'
 
@@ -675,7 +674,7 @@ run_me if $PROGRAM_NAME == __FILE__
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples). 
 
-```
+```rust
 async fn receive(client: &Client, queue_url: &String) -> Result<(), Error> {
     let rcv_message_output = client.receive_message().queue_url(queue_url).send().await?;
 
@@ -697,7 +696,7 @@ async fn receive(client: &Client, queue_url: &String) -> Result<(), Error> {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 Receive a message from an Amazon SQS queue.  
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->receivemessage( iv_queueurl = iv_queue_url ).    " oo_result is returned for testing purposes. "
         DATA(lt_messages) = oo_result->get_messages( ).
@@ -708,7 +707,7 @@ Receive a message from an Amazon SQS queue.
 ```
 Receive a message from an Amazon SQS queue using long-poll support.  
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->receivemessage(           " oo_result is returned for testing purposes. "
                 iv_queueurl = iv_queue_url
@@ -727,7 +726,7 @@ Receive a message from an Amazon SQS queue using long-poll support.
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
-```
+```swift
 import AWSSQS
 
         let config = try await SQSClient.SQSClientConfig(region: region)

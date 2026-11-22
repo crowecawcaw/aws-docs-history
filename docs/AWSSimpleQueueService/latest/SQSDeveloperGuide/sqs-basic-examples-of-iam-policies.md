@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon SQS
-<a name="sqs-basic-examples-of-iam-policies"></a>
 
 By default, users and roles don't have permission to create or modify Amazon SQS resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -38,7 +37,7 @@ To ensure that users and roles can still use the Amazon SQS console, also attach
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ Amazon SQS doesn't automatically grant the creator of a queue permissions to use
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -108,7 +107,7 @@ In the following example, we create a group for developers and attach a policy t
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -137,7 +136,7 @@ In the following example, we create a group for managers and attach a policy tha
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -170,7 +169,7 @@ This example performs the following actions:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{

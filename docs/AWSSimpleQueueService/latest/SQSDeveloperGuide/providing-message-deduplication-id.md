@@ -1,7 +1,6 @@
 
 
 # When to provide a message deduplication ID in Amazon SQS
-<a name="providing-message-deduplication-id"></a>
 
 A producer should specify a message deduplication ID in the following scenarios:
 + When sending identical message bodies that must be treated as unique.

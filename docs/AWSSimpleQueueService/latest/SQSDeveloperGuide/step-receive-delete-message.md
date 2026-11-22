@@ -1,7 +1,6 @@
 
 
 # Receiving and deleting a message in Amazon SQS
-<a name="step-receive-delete-message"></a>
 
 After sending messages to an Amazon SQS queue, you can retrieve and delete them to process your application workflow. This process ensures secure and reliable message handling. This topic walks you through retrieving and deleting messages using the Amazon SQS console and explains key settings to optimize this operation. The following are key concepts for receiving and deleting messages:
 

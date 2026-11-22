@@ -1,7 +1,6 @@
 
 
 # Amazon SQS FIFO queue quotas
-<a name="quotas-fifo"></a>
 
 ## Amazon SQS quotas
 <a name="quotas-fifo-queues"></a>

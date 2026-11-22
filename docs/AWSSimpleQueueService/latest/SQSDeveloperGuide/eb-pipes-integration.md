@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon EventBridge Pipes through the Amazon SQS console
-<a name="eb-pipes-integration"></a>
 
 Amazon EventBridge Pipes connect sources to targets. Pipes are intended for point-to-point integrations between supported sources and targets, with support for advanced transformations and enrichment. EventBridge Pipes provide a highly scalable way to connect your Amazon SQS queue to AWS services such as Step Functions, Amazon SQS, and API Gateway, as well as third-party software as a service (SaaS) applications like Salesforce. 
 

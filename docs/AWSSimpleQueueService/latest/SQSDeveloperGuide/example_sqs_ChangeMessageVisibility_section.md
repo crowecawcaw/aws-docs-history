@@ -1,7 +1,6 @@
 
 
 # Use `ChangeMessageVisibility` with an AWS SDK or CLI
-<a name="example_sqs_ChangeMessageVisibility_section"></a>
 
 The following code examples show how to use `ChangeMessageVisibility`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ChangeMessageVisibility`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -77,7 +76,7 @@ For more information, see [Amazon SQS visibility timeout](https://docs.aws.amazo
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 Receive an Amazon SQS message and change its timeout visibility.  
 
-```
+```javascript
 import {
   ReceiveMessageCommand,
   ChangeMessageVisibilityCommand,
@@ -118,7 +117,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
 Receive an Amazon SQS message and change its timeout visibility.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region to us-west-2
@@ -169,7 +168,7 @@ sqs.receiveMessage(params, function (err, data) {
 **Tools for PowerShell V4**  
 **Example 1: This example changes the visibility timeout for the message with the specified receipt handle in the specified queue to 10 hours (10 hours \* 60 minutes \* 60 seconds = 36000 seconds).**  
 
-```
+```powershell
 Edit-SQSMessageVisibility -QueueUrl https://sqs.us-east-1.amazonaws.com/8039EXAMPLE/MyQueue -ReceiptHandle AQEBgGDh...J/Iqww== -VisibilityTimeout 36000
 ```
 +  For API details, see [ChangeMessageVisibility](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -177,7 +176,7 @@ Edit-SQSMessageVisibility -QueueUrl https://sqs.us-east-1.amazonaws.com/8039EXAM
 **Tools for PowerShell V5**  
 **Example 1: This example changes the visibility timeout for the message with the specified receipt handle in the specified queue to 10 hours (10 hours \* 60 minutes \* 60 seconds = 36000 seconds).**  
 
-```
+```powershell
 Edit-SQSMessageVisibility -QueueUrl https://sqs.us-east-1.amazonaws.com/8039EXAMPLE/MyQueue -ReceiptHandle AQEBgGDh...J/Iqww== -VisibilityTimeout 36000
 ```
 +  For API details, see [ChangeMessageVisibility](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -188,7 +187,7 @@ Edit-SQSMessageVisibility -QueueUrl https://sqs.us-east-1.amazonaws.com/8039EXAM
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-sqs' # v2: require 'aws-sdk'
 # Replace us-west-2 with the AWS Region you're using for Amazon SQS.
 sqs = Aws::SQS::Client.new(region: 'us-west-2')

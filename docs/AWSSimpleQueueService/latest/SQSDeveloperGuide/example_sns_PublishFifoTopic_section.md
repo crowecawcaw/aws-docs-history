@@ -1,7 +1,6 @@
 
 
 # Create and publish to a FIFO Amazon SNS topic using an AWS SDK
-<a name="example_sns_PublishFifoTopic_section"></a>
 
 The following code examples show how to create and publish to a FIFO Amazon SNS topic.
 
@@ -15,7 +14,7 @@ This example
 + subscribes the queues to the topic and publishes a message to the topic.
 The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java) verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java) also shows the addition of access policies and deletes the resources at the end.  
 
-```
+```java
 public class PriceUpdateExample {
     public final static SnsClient snsClient = SnsClient.create();
     public final static SqsClient sqsClient = SqsClient.create();
@@ -160,7 +159,7 @@ public class PriceUpdateExample {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.  
 
-```
+```python
 def usage_demo():
     """Shows how to subscribe queues to a FIFO topic."""
     print("-" * 88)
@@ -397,7 +396,7 @@ class FifoTopicWrapper:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.  
 
-```
+```sap-abap
     " Creates a FIFO topic. "
     DATA lt_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>tt_topicattributesmap.
     DATA ls_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>ts_topicattributesmap_maprow.

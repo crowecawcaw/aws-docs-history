@@ -1,7 +1,6 @@
 
 
 # Amazon SQS queue and message identifiers
-<a name="sqs-queue-message-identifiers"></a>
 
 This topic describes the identifiers of standard and FIFO queues. These identifiers can help you find and manipulate specific queues and messages.
 

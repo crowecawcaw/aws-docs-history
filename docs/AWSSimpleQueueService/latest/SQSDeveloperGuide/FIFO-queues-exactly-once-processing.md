@@ -1,7 +1,6 @@
 
 
 # Exactly-once processing in Amazon SQS
-<a name="FIFO-queues-exactly-once-processing"></a>
 
 Unlike standard queues, FIFO queues don't introduce duplicate messages. FIFO queues help you avoid sending duplicates to a queue. If you retry the `SendMessage` action within the 5-minute deduplication interval, Amazon SQS doesn't introduce any duplicates into the queue.
 

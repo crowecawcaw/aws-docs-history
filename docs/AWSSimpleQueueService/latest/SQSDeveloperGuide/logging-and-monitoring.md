@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon SQS
-<a name="logging-and-monitoring"></a>
 
 Amazon Simple Queue Service is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Amazon SQS as events. The calls captured include calls from the Amazon SQS console and code calls to the Amazon SQS API operations. Using the information collected by CloudTrail, you can determine the request that was made to Amazon SQS, the IP address from which the request was made, when it was made, and additional details.
 

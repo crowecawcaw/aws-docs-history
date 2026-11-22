@@ -1,7 +1,6 @@
 
 
 # Learn how to configure a dead-letter queue redrive in Amazon SQS
-<a name="sqs-configure-dead-letter-queue-redrive"></a>
 
 Use dead-letter queue redrive to move unconsumed messages from a dead-letter queue to another destination for processing. By default, dead-letter queue redrive moves messages from a dead-letter queue to a source queue. However, you can also configure any other queue as the redrive destination if both queues are the same type. For example, if the dead-letter queue is a FIFO queue, the redrive destination queue must be a FIFO queue as well. Additionally, you can configure the redrive velocity to set the rate at which Amazon SQS moves messages.
 
@@ -99,7 +98,7 @@ Use the following steps to configure minimum permissions for a dead-letter queue
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -176,7 +175,7 @@ Follow these steps to configure the minimum permissions required for handling a 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -236,7 +235,7 @@ Follow these steps to configure the minimum permissions required for handling a 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "SQSRedriveWithVpcRestriction",
@@ -287,7 +286,7 @@ Follow these steps to configure the minimum permissions required for handling a 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "SQSRedriveWithVpcRestriction",

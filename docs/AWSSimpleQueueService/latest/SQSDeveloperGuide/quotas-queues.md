@@ -1,7 +1,6 @@
 
 
 # Amazon SQS standard queue quotas
-<a name="quotas-queues"></a>
 
 The following table lists quotas related to standard queues.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Sending a message to an Amazon SQS queue from Amazon Virtual Private Cloud
-<a name="sqs-sending-messages-from-vpc"></a>
 
 This tutorial shows you how to send messages to an Amazon SQS queue over a secure, private network. The network includes:
 + A VPC containing an Amazon EC2 instance.
@@ -35,7 +34,7 @@ Save this file in a safe place. EC2 does not generate a `.pem` file for the same
 
 1. To allow an SSH client to connect to your EC2 instance, set the permissions for your private key file so that only your user can have read permissions for it, for example:
 
-   ```
+   ```bsh
    chmod 400 SQS-VPCE-Tutorial-Key-Pair.pem
    ```
 
@@ -88,13 +87,13 @@ Your CloudFormation template launches an EC2 instance named `SQS-VPCE-Tutorial-E
 
 1. From the directory that contains [the key pair that you created earlier](#create-ec2-key-pair), connect to the instance using the following command, for example:
 
-   ```
+   ```bsh
    ssh -i SQS-VPCE-Tutorial-Key-Pair.pem ec2-user@{{ec2-203-0-113-0.us-east-2.compute.amazonaws.com}}
    ```
 
 1. Try to connect to any public endpoint, for example:
 
-   ```
+   ```bsh
    ping amazon.com
    ```
 
@@ -108,7 +107,7 @@ Your CloudFormation template launches an EC2 instance named `SQS-VPCE-Tutorial-E
 
 1. From your EC2 instance, try to publish a message to the queue using the following command, for example:
 
-   ```
+   ```bsh
    aws sqs send-message --region {{us-east-2}} --endpoint-url {{https://sqs.us-east-2.amazonaws.com/}} --queue-url {{https://sqs.us-east-2.amazonaws.com/123456789012/}} --message-body "Hello from Amazon SQS."
    ```
 
@@ -157,19 +156,19 @@ Now that your VPC includes an endpoint for Amazon SQS, you can connect to your E
 
 1. Reconnect to your EC2 instance, for example:
 
-   ```
+   ```bsh
    ssh -i SQS-VPCE-Tutorial-Key-Pair.pem ec2-user@{{ec2-203-0-113-0.us-east-2.compute.amazonaws.com}}
    ```
 
 1. Try to publish a message to the queue again using the following command, for example:
 
-   ```
+   ```bsh
    aws sqs send-message --region {{us-east-2}} --endpoint-url {{https://sqs.us-east-2.amazonaws.com/}} --queue-url {{https://sqs.us-east-2.amazonaws.com/123456789012/}} --message-body "Hello from Amazon SQS."
    ```
 
    The sending attempt succeeds and the MD5 digest of the message body and the message ID are displayed, for example:
 
-   ```
+   ```json
    {
    	"MD5OfMessageBody": "a1bcd2ef3g45hi678j90klmn12p34qr5",
    	"MessageId": "12345a67-8901-2345-bc67-d890123e45fg"

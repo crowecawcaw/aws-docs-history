@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon SQS FIFO queue and sending a message
-<a name="creating-sqs-fifo-queues"></a>
 
 You can create an Amazon SQS FIFO queue and send messages using the console. This topic explains how to set up queue parameters, including visibility timeout, message retention, and deduplication, while following security best practices such as avoiding sensitive information in queue names and enabling server-side encryption. It also covers defining access policies, configuring dead-letter queues, and sending messages with FIFO-specific attributes like message group ID and deduplication ID.
 

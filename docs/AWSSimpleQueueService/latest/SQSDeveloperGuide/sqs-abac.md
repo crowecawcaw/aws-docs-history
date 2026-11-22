@@ -1,7 +1,6 @@
 
 
 # Attribute-based access control for Amazon SQS
-<a name="sqs-abac"></a>
 
 ## What is ABAC?
 <a name="sqs-abac-whatis"></a>

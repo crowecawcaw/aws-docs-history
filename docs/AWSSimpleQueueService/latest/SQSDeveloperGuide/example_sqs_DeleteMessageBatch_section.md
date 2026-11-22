@@ -1,7 +1,6 @@
 
 
 # Use `DeleteMessageBatch` with an AWS SDK or CLI
-<a name="example_sqs_DeleteMessageBatch_section"></a>
 
 The following code examples show how to use `DeleteMessageBatch`.
 
@@ -16,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
-```
+```csharp
     /// <summary>
     /// Delete a batch of messages from a queue by its url.
     /// </summary>
@@ -51,7 +50,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -140,7 +139,7 @@ For more information, see [Amazon SQS batch actions](https://docs.aws.amazon.com
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -186,7 +185,7 @@ func (actor SqsActions) DeleteMessages(ctx context.Context, queueUrl string, mes
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 
-```
+```javascript
 import {
   ReceiveMessageCommand,
   DeleteMessageCommand,
@@ -245,7 +244,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**  
 
-```
+```powershell
 $deleteMessageRequest1 = New-Object Amazon.SQS.Model.DeleteMessageBatchRequestEntry
 $deleteMessageRequest1.Id = "Request1"
 $deleteMessageRequest1.ReceiptHandle = "AQEBX2g4...wtJSQg=="
@@ -268,7 +267,7 @@ Failed    Successful
 **Tools for PowerShell V5**  
 **Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.**  
 
-```
+```powershell
 $deleteMessageRequest1 = New-Object Amazon.SQS.Model.DeleteMessageBatchRequestEntry
 $deleteMessageRequest1.Id = "Request1"
 $deleteMessageRequest1.ReceiptHandle = "AQEBX2g4...wtJSQg=="
@@ -294,7 +293,7 @@ Failed    Successful
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
-```
+```python
 def delete_messages(queue, messages):
     """
     Delete a batch of messages from a queue in a single request.
@@ -324,7 +323,7 @@ def delete_messages(queue, messages):
         return response
 ```
 
-```
+```python
 class SqsWrapper:
     """Wrapper class for managing Amazon SQS operations."""
 
@@ -399,7 +398,7 @@ class SqsWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->deletemessagebatch(       " oo_result is returned for testing purposes. "
            iv_queueurl = iv_queue_url
@@ -423,7 +422,7 @@ class SqsWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
-```
+```swift
 import AWSSQS
 
         let config = try await SQSClient.SQSClientConfig(region: region)

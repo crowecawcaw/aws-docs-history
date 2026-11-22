@@ -1,7 +1,6 @@
 
 
 # Handling request errors in Amazon SQS
-<a name="handling-request-errors"></a>
 
 To handle request errors, use one of the following strategies:
 + If you use an AWS SDK, you already have automatic *retry and backoff* logic at your disposal. For more information, see [Error Retries and Exponential Backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html) in the *Amazon Web Services General Reference*.

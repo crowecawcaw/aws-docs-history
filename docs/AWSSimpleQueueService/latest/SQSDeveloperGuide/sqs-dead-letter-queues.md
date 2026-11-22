@@ -1,7 +1,6 @@
 
 
 # Using dead-letter queues in Amazon SQS
-<a name="sqs-dead-letter-queues"></a>
 
 Amazon SQS supports dead-letter queues (DLQs), which source queues can target for messages that are not processed successfully. DLQs are useful for debugging your application because you can isolate unconsumed messages to determine why processing did not succeed. The dead-letter queue must be in the same AWS account and Region as the source queue. Once messages are in a dead-letter queue, you can:
 + Examine logs for exceptions that might have caused messages to be moved to a dead-letter queue.

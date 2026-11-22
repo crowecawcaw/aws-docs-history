@@ -1,7 +1,6 @@
 
 
 # Amazon SQS message deduplication and grouping
-<a name="best-practices-message-deduplication"></a>
 
 This topic provides best practices for ensuring consistent message processing in Amazon SQS. It explains how to use:
 + [`MessageDeduplicationId`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html#API_SendMessage_RequestSyntax) to prevent duplicate messages in FIFO queues.

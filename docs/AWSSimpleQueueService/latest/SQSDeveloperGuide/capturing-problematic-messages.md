@@ -1,7 +1,6 @@
 
 
 # Capturing problematic messages in Amazon SQS
-<a name="capturing-problematic-messages"></a>
 
 To capture all messages that can't be processed, and to collect accurate CloudWatch metrics, configure a [dead-letter queue](sqs-dead-letter-queues.md).
 + The redrive policy redirects messages to a dead-letter queue after the source queue fails to process a message a specified number of times.

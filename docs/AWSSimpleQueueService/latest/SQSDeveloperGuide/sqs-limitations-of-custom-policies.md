@@ -1,7 +1,6 @@
 
 
 # Limitations of Amazon SQS custom policies
-<a name="sqs-limitations-of-custom-policies"></a>
 
 ## Cross-account access
 <a name="sqs-cross-account-access"></a>

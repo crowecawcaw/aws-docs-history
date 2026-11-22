@@ -1,7 +1,6 @@
 
 
 # High throughput for FIFO queues in Amazon SQS
-<a name="high-throughput-fifo"></a>
 
 High throughput FIFO queues in Amazon SQS efficiently manage high message throughput while maintaining strict message order, ensuring reliability and scalability for applications processing numerous messages. This solution is ideal for scenarios demanding both high throughput and ordered message delivery.
 

@@ -1,7 +1,6 @@
 
 
 # Hello Amazon SQS
-<a name="example_sqs_Hello_section"></a>
 
 The following code examples show how to get started using Amazon SQS.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Amazon SQS.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
-```
+```csharp
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
@@ -51,7 +50,7 @@ public static class HelloSQS
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs/hello_sqs#code-examples). 
 Code for the CMakeLists.txt CMake file.  
 
-```
+```cpp
 # Set the minimum required version of CMake for this project.
 cmake_minimum_required(VERSION 3.13)
 
@@ -93,7 +92,7 @@ target_link_libraries(${PROJECT_NAME}
 ```
 Code for the hello\_sqs.cpp source file.  
 
-```
+```cpp
 #include <aws/core/Aws.h>
 #include <aws/sqs/SQSClient.h>
 #include <aws/sqs/model/ListQueuesRequest.h>
@@ -169,7 +168,7 @@ int main(int argc, char **argv) {
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sqs#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -223,7 +222,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.SqsException;
@@ -270,7 +269,7 @@ public class HelloSQS {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 Initialize an Amazon SQS client and list queues.  
 
-```
+```javascript
 import { SQSClient, paginateListQueues } from "@aws-sdk/client-sqs";
 
 export const helloSqs = async () => {
@@ -306,7 +305,7 @@ export const helloSqs = async () => {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
-```
+```kotlin
 package com.kotlin.sqs
 
 import aws.sdk.kotlin.services.sqs.SqsClient
@@ -337,7 +336,7 @@ suspend fun listTopicsPag() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 The `Package.swift` file.  
 
-```
+```swift
 import PackageDescription
 
 let package = Package(
@@ -374,7 +373,7 @@ let package = Package(
 ```
 The Swift source code, `entry.swift`.  
 
-```
+```swift
 import ArgumentParser
 import AWSClientRuntime
 import AWSSQS

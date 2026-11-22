@@ -1,7 +1,6 @@
 
 
 # Use `ListQueues` with an AWS SDK or CLI
-<a name="example_sqs_ListQueues_section"></a>
 
 The following code examples show how to use `ListQueues`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `ListQueues`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -112,7 +111,7 @@ For more information, see [Amazon SQS list queue pagination](https://docs.aws.am
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sqs#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -166,7 +165,7 @@ func main() {
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
-```
+```java
         String prefix = "que";
 
         try {
@@ -190,7 +189,7 @@ func main() {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 List your Amazon SQS queues.  
 
-```
+```javascript
 import { paginateListQueues, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -218,7 +217,7 @@ export const main = async () => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
 List your Amazon SQS queues.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -246,7 +245,7 @@ sqs.listQueues(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
-```
+```kotlin
 suspend fun listQueues() {
     println("\nList Queues")
 
@@ -272,7 +271,7 @@ suspend fun listQueues() {
 **Tools for PowerShell V4**  
 **Example 1: This example lists all queues.**  
 
-```
+```powershell
 Get-SQSQueue
 ```
 **Output:**  
@@ -286,7 +285,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
 ```
 **Example 2: This example lists any queues that start with the specified name.**  
 
-```
+```powershell
 Get-SQSQueue -QueueNamePrefix My
 ```
 **Output:**  
@@ -301,7 +300,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
 **Tools for PowerShell V5**  
 **Example 1: This example lists all queues.**  
 
-```
+```powershell
 Get-SQSQueue
 ```
 **Output:**  
@@ -315,7 +314,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
 ```
 **Example 2: This example lists any queues that start with the specified name.**  
 
-```
+```powershell
 Get-SQSQueue -QueueNamePrefix My
 ```
 **Output:**  
@@ -333,7 +332,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
-```
+```python
 def get_queues(prefix=None):
     """
     Gets a list of SQS queues. When a prefix is specified, only queues with names
@@ -361,7 +360,7 @@ def get_queues(prefix=None):
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
-```
+```ruby
 require 'aws-sdk-sqs'
 require 'aws-sdk-sts'
 
@@ -430,7 +429,7 @@ end
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sqs#code-examples). 
 Retrieve the first Amazon SQS queue listed in the Region.  
 
-```
+```rust
 async fn find_first_queue(client: &Client) -> Result<String, Error> {
     let queues = client.list_queues().send().await?;
     let queue_urls = queues.queue_urls();
@@ -448,7 +447,7 @@ async fn find_first_queue(client: &Client) -> Result<String, Error> {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->listqueues( ).        " oo_result is returned for testing purposes. "
         MESSAGE 'Retrieved list of queues.' TYPE 'I'.
@@ -462,7 +461,7 @@ async fn find_first_queue(client: &Client) -> Result<String, Error> {
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
-```
+```swift
 import AWSSQS
 
         let config = try await SQSClient.SQSClientConfig(region: region)

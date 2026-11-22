@@ -1,7 +1,6 @@
 
 
 # Security in Amazon SQS
-<a name="security"></a>
 
 This section provides information about Amazon SQS security, authentication and access control, and the Amazon SQS Access Policy Language.
 

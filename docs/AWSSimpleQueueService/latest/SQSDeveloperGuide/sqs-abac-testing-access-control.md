@@ -1,7 +1,6 @@
 
 
 # Testing attribute-based access control in Amazon SQS
-<a name="sqs-abac-testing-access-control"></a>
 
 The following examples show you how to test attribute-based access control in Amazon SQS.
 
@@ -33,7 +32,7 @@ aws sqs create-queue --queue-name betaQueue —region us-east-1 —tags "environ
 
 You receive a message confirming the successful creation of the queue, similar to the one below.
 
-```
+```JSON
 {
 "QueueUrl": "<queueUrl>“
 }
@@ -50,7 +49,7 @@ aws sqs send-message --queue-url <queueUrl> --message-body testMessage
 
 The response shows a successful message delivery to the Amazon SQS queue. The IAM user permission allows you to send a message to a queue that has a `beta` tag. The response includes `MD5OfMessageBody` and `MessageId` containing the message.
 
-```
+```JSON
 {
 "MD5OfMessageBody": "<MD5OfMessageBody>",
 "MessageId": "<MessageId>"

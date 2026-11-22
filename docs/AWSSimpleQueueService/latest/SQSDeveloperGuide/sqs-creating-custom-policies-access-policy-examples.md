@@ -1,7 +1,6 @@
 
 
 # Custom Amazon SQS Access Policy Language examples
-<a name="sqs-creating-custom-policies-access-policy-examples"></a>
 
 The following are examples of typical Amazon SQS access policies.
 
@@ -15,7 +14,7 @@ The following example Amazon SQS policy gives AWS account 111122223333 permissio
 
 ****  
 
-```
+```json
 {   
    "Version":"2012-10-17",		 	 	 
    "Id": "UseCase1",
@@ -48,7 +47,7 @@ The following example Amazon SQS policy gives one or more AWS accounts access to
 
 ****  
 
-```
+```json
 {   
    "Version":"2012-10-17",		 	 	 
    "Id": "UseCase2",
@@ -87,7 +86,7 @@ The following example Amazon SQS policy gives access to requests that come from 
 
 ****  
 
-```
+```json
 {   
    "Version":"2012-10-17",		 	 	 
    "Id": "UseCase3",
@@ -128,7 +127,7 @@ The following example Amazon SQS policy denies a specific AWS account access to 
 
 ****  
 
-```
+```json
 { 
    "Version":"2012-10-17",		 	 	 
    "Id": "UseCase4",
@@ -165,7 +164,7 @@ You can modify the following example to restrict all actions to a specific VPC e
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "UseCase5",

@@ -1,7 +1,6 @@
 
 
 # Amazon SQS list queue pagination
-<a name="list-all-queues-pagination"></a>
 
 The [`listQueues`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html) and [`listDeadLetterQueues`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html) API methods support optional pagination controls. By default, these API methods return up to 1000 queues in the response message. You can set the `MaxResults` parameter to return fewer results in each response. 
 

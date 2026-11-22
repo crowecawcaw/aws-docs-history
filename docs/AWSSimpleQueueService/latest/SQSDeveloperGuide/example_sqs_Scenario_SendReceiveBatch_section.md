@@ -1,7 +1,6 @@
 
 
 # Send and receive batches of messages with Amazon SQS using an AWS SDK
-<a name="example_sqs_Scenario_SendReceiveBatch_section"></a>
 
 The following code examples show how to:
 + Create an Amazon SQS queue.
@@ -20,7 +19,7 @@ As shown in the following examples, you can handle batch message operations with
 Use explicit batching when you need fine-grained control over batch composition and error handling. Use automatic batching when you want to optimize performance with minimal code changes.  
 SendRecvBatch.java - Uses explicit batch operations with messages.  
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.sqs.SqsClient;
@@ -349,7 +348,7 @@ public class SendRecvBatch {
 ```
 SimpleProducerConsumer.java - Uses automatic batching of messages.  
 
-```
+```java
 package com.example.sqs;
 
 import org.slf4j.Logger;
@@ -957,7 +956,7 @@ public class SimpleProducerConsumer {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 Create functions to wrap Amazon SQS message functions.  
 
-```
+```python
 import logging
 import sys
 
@@ -1073,7 +1072,7 @@ def delete_messages(queue, messages):
 ```
 Use the wrapper functions to send and receive messages in batches.  
 
-```
+```python
 def usage_demo():
     """
     Shows how to:

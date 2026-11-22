@@ -1,7 +1,6 @@
 
 
 # Amazon SQS Access Policy Language key concepts
-<a name="sqs-creating-custom-policies-key-concepts"></a>
 
 To write your own policies, you must be familiar with [JSON](http://json.org/) and a number of key concepts.
 

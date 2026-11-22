@@ -1,7 +1,6 @@
 
 
 # Outage recovery scenarios in Amazon SQS
-<a name="designing-for-outage-recovery-scenarios"></a>
 
 The deduplication process in FIFO queues is time-sensitive. When designing your application, ensure that both the producer and consumer can recover from client or network outages without introducing duplicates or processing failures.
 

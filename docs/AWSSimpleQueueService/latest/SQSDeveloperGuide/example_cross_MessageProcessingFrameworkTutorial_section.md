@@ -1,7 +1,6 @@
 
 
 # Use the AWS Message Processing Framework for .NET to publish and receive Amazon SQS messages
-<a name="example_cross_MessageProcessingFrameworkTutorial_section"></a>
 
 The following code example shows how to create applications that publish and receive Amazon SQS messages using the AWS Message Processing Framework for .NET.
 

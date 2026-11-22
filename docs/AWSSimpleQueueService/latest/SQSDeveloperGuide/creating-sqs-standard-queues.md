@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon SQS standard queue and sending a message
-<a name="creating-sqs-standard-queues"></a>
 
 You can create a [standard queue](standard-queues.md) and send messages using the Amazon SQS console. This topic also emphasizes best practices, including avoiding sensitive information in queue names and utilizing managed server-side encryption.
 

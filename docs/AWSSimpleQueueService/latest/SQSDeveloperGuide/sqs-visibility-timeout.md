@@ -1,7 +1,6 @@
 
 
 # Amazon SQS visibility timeout
-<a name="sqs-visibility-timeout"></a>
 
 When you receive a message from an Amazon SQS queue, it remains in the queue but becomes temporarily invisible to other consumers. This invisibility is controlled by the visibility timeout, which ensures that other consumers cannot process the same message while you are working on it. Amazon SQS offers two options for deleting messages after processing:
 + **Manual deletion** – You explicitly delete messages using the [`DeleteMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) action.

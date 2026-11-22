@@ -1,7 +1,6 @@
 
 
 # Authenticating requests for Amazon SQS
-<a name="sqs-api-request-authentication"></a>
 
 Authentication is the process of identifying and verifying the party that sends a request. During the first stage of authentication, AWS verifies the identity of the producer and whether the producer is [registered to use AWS](https://aws.amazon.com/) (for more information, see [Setting up Amazon SQS](sqs-setting-up.md)). Next, AWS abides by the following procedure:
 
@@ -28,7 +27,7 @@ Amazon SQS supports Signature Version 4, which provides improved SHA256-based se
 
   1. Base64-encode the request signature. The following sample Java code does this:
 
-     ```
+     ```java
      package amazon.webservices.common;
      
      // Define common routines for encoding data in AWS requests.

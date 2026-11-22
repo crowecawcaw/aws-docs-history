@@ -1,7 +1,6 @@
 
 
 # Basic examples of Amazon SQS policies
-<a name="sqs-basic-examples-of-sqs-policies"></a>
 
 This section shows example policies for common Amazon SQS use cases.
 
@@ -20,7 +19,7 @@ The following example policy grants AWS account number `111122223333` the `SendM
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -50,7 +49,7 @@ The following example policy grants AWS account number `111122223333` both the `
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -83,7 +82,7 @@ The following example policy grants two different AWS accounts numbers (`1111222
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -128,7 +127,7 @@ Cross-account permissions don't apply to the following actions:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -159,7 +158,7 @@ The following example policy grants all users (anonymous users) `ReceiveMessage`
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -185,7 +184,7 @@ The following example policy grants all users (anonymous users) `ReceiveMessage`
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -219,7 +218,7 @@ The following example policy grants all users (anonymous users) permission to us
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",
@@ -252,7 +251,7 @@ The following example policy has two statements:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Queue1_Policy_UUID",

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues in Amazon SQS
-<a name="sqs-troubleshooting"></a>
 
 This topic provides troubleshooting advice for common errors and issues that you might encounter when using the Amazon SQS console, Amazon SQS API, or other tools with Amazon SQS. If you find an issue that is not listed here, you can use the **Feedback** button on this page to report it.
 

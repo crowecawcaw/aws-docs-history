@@ -1,7 +1,6 @@
 
 
 # Amazon SQS access control process workflow
-<a name="sqs-creating-custom-policies-process-workflow"></a>
 
 The following diagram describes the general workflow of access control with the Amazon SQS access policy language.
 

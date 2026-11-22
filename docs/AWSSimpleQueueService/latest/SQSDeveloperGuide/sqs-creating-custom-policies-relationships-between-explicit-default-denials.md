@@ -1,7 +1,6 @@
 
 
 # Relationships between explicit and default denials in the Amazon SQS Access Policy Language
-<a name="sqs-creating-custom-policies-relationships-between-explicit-default-denials"></a>
 
 If an Amazon SQS policy doesn't directly apply to a request, the request results in a *[Default-deny](sqs-creating-custom-policies-key-concepts.md#default-deny)*. For example, if a user requests permission to use Amazon SQS but the only policy that applies to the user can use DynamoDB, the requests results in a **default-deny**.
 

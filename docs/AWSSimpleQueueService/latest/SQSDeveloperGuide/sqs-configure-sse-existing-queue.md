@@ -1,7 +1,6 @@
 
 
 # Configuring server-side encryption for a queue using the Amazon SQS console
-<a name="sqs-configure-sse-existing-queue"></a>
 
 To protect the data in a queue’s messages, Amazon SQS has server-side encryption (SSE) enabled by default for all newly created queues. Amazon SQS integrates with the Amazon Web Services Key Management Service (Amazon Web Services KMS) to manage [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) for server-side encryption (SSE). For information about using SSE, see [Encryption at rest in Amazon SQS](sqs-server-side-encryption.md).
 

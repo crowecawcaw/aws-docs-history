@@ -1,7 +1,6 @@
 
 
 # Amazon SQS API permissions: Actions and resource reference
-<a name="sqs-api-permissions-reference"></a>
 
 When you set up [Access control](security_iam_service-with-iam.md#access-control) and write permissions policies that you can attach to an IAM identity, you can use the following table as a reference. The table lists each Amazon Simple Queue Service action, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions.
 

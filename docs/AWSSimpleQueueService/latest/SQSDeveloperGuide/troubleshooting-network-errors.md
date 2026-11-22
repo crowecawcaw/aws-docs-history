@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon SQS network errors
-<a name="troubleshooting-network-errors"></a>
 
 The following topics cover the most common causes for network issues in Amazon SQS, and how to troubleshoot them.
 
@@ -30,7 +29,7 @@ The ETIMEOUT error occurs when the client can't establish a TCP connection to an
 
  Also, the Amazon SQS VPC endpoint AWS Identity and Access Management (IAM) policy must allow access. The following example VPC endpoint policy specifies that the IAM user {{MyUser}} is allowed to send messages to the Amazon SQS queue {{MyQueue}}. Other actions, IAM users, and Amazon SQS resources are denied access through the VPC endpoint. 
 
-```
+```json
 {
     "Statement": [{
         "Action": ["sqs:SendMessage"],

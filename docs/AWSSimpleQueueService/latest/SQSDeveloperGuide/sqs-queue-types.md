@@ -1,7 +1,6 @@
 
 
 # Amazon SQS queue types
-<a name="sqs-queue-types"></a>
 
 Amazon SQS supports two types of queues: [**standard queues**](standard-queues.md) and [**FIFO**](sqs-fifo-queues.md) queues. Use the following table to determine which queue best fits your needs.
 

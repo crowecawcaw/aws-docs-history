@@ -1,7 +1,6 @@
 
 
 # Available CloudWatch metrics for Amazon SQS
-<a name="sqs-available-cloudwatch-metrics"></a>
 
 Amazon SQS sends the following metrics to CloudWatch.
 

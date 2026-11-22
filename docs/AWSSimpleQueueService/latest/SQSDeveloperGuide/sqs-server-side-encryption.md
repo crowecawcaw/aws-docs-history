@@ -1,7 +1,6 @@
 
 
 # Encryption at rest in Amazon SQS
-<a name="sqs-server-side-encryption"></a>
 
 Server-side encryption (SSE) lets you transmit sensitive data in encrypted queues. SSE protects the contents of messages in queues using SQS-managed encryption keys (SSE-SQS) or keys managed in the AWS Key Management Service (SSE-KMS). For information about managing SSE using the AWS Management Console, see the following:
 + [Configuring SSE-SQS for a queue (console)](sqs-configure-sqs-sse-queue.md)
@@ -11,14 +10,14 @@ Server-side encryption (SSE) lets you transmit sensitive data in encrypted queue
 + [Using server-side encryption with Amazon SQS queues](sqs-java-configure-sse.md)
 + [Configuring KMS permissions for AWS services](sqs-key-management.md#compatibility-with-aws-services)
 
-[![AWS Videos](https://img.youtube.com/vi/Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0/0.jpg)](https://www.youtube.com/watch?v=Mw1NVpJsOZc?rel=0&amp;controls=0&amp;showinfo=0)
+[![AWS Videos](https://img.youtube.com/vi/Mw1NVpJsOZc/0.jpg)](https://www.youtube.com/watch?v=Mw1NVpJsOZc)
 
 
 SSE encrypts messages as soon as Amazon SQS receives them. The messages are stored in encrypted form and Amazon SQS decrypts messages only when they are sent to an authorized consumer.
 
 **Important**  
 All requests to queues with SSE enabled must use HTTPS and [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).  
-An [encrypted queue](#sqs-server-side-encryption) that uses the default key (AWS managed KMS key for Amazon SQS) cannot invoke a Lambda function in a different AWS account.  
+An [encrypted queue](sqs-server-side-encryption.md) that uses the default key (AWS managed KMS key for Amazon SQS) cannot invoke a Lambda function in a different AWS account.  
 Some features of AWS services that can send notifications to Amazon SQS using the AWS Security Token Service `[AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)` action are compatible with SSE but work *only with standard queues:*  
 [Auto Scaling Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html)
 [AWS Lambda Dead-Letter Queues](https://docs.aws.amazon.com/lambda/latest/dg/dlq.html)

@@ -1,7 +1,6 @@
 
 
 # Receive and process Amazon S3 event notifications by using an AWS SDK
-<a name="example_s3_Scenario_ProcessS3EventNotification_section"></a>
 
 The following code example shows how to work with S3 event notifications in an object-oriented way.
 
@@ -12,7 +11,7 @@ The following code example shows how to work with S3 event notifications in an o
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 This example show how to process S3 notification event by using Amazon SQS.  
 
-```
+```java
     /**
      * This method receives S3 event notifications by using an SqsAsyncClient.
      * After the client receives the messages it deserializes the JSON payload and logs them. It uses

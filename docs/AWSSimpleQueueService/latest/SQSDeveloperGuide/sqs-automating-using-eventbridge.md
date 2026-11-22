@@ -1,7 +1,6 @@
 
 
 # Automating notifications from AWS services to Amazon SQS using Amazon EventBridge
-<a name="sqs-automating-using-eventbridge"></a>
 
 Amazon EventBridge allows you to automate AWS services and respond to events, such as application issues or resource changes, in near real-time.
 + You can create rules to filter specific events and define automated actions when a rule matches an event.

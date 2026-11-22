@@ -1,7 +1,6 @@
 
 
 # Amazon SQS tutorials
-<a name="sqs-other-tutorials"></a>
 
 This topic provides tutorials to help you explore Amazon SQS features and functionality.
 

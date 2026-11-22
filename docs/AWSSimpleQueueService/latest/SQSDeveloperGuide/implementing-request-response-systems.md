@@ -1,7 +1,6 @@
 
 
 # Implementing request-response systems in Amazon SQS
-<a name="implementing-request-response-systems"></a>
 
 When implementing a request-response or remote procedure call (RPC) system, keep the following best practices in mind:
 + **Create reply queues on start-up** – Instead of creating reply queues per message, create them on start-up, per producer. Use a correlation ID message attribute to map replies to requests efficiently.

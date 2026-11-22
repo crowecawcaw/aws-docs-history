@@ -1,7 +1,6 @@
 
 
 # Configuring an access policy in Amazon SQS
-<a name="sqs-configure-add-permissions"></a>
 
 When you [edit](sqs-configure-edit-queue.md) a queue, you can configure its access policy to control who can interact with it.
 + The access policy defines which accounts, users, and roles have permissions to access the queue.

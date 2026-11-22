@@ -1,7 +1,6 @@
 
 
 # Configuring server-side encryption for a queue using SQS-managed encryption keys
-<a name="sqs-configure-sqs-sse-queue"></a>
 
 In addition to the [default](creating-sqs-standard-queues.md#step-create-standard-queue) Amazon SQS managed server-side encryption (SSE) option, Amazon SQS managed SSE (SSE-SQS) lets you create custom managed server-side encryption that uses SQS-managed encryption keys to protect sensitive data sent over message queues. With SSE-SQS, you don't need to create and manage encryption keys, or modify your code to encrypt your data. SSE-SQS lets you transmit data securely and helps you meet strict encryption compliance and regulatory requirements at no additional cost.
 

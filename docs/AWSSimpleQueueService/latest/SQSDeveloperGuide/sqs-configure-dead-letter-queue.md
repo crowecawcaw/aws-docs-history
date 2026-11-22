@@ -1,7 +1,6 @@
 
 
 # Configure a dead-letter queue using the Amazon SQS console
-<a name="sqs-configure-dead-letter-queue"></a>
 
 A dead-letter queue (DLQ) is a queue that receives messages that were not successfully processed from another queue, known as the source queue. Amazon SQS does *not* create the dead-letter queue automatically. You must first create the queue before using it as a dead-letter queue. When configuring a DLQ, the queue type must match the source queue type—a [FIFO queue](sqs-fifo-queues.md) can only use a FIFO DLQ, and a [standard queue](standard-queues.md) can only use a standard DLQ. You can configure a dead-letter queue when you create or edit a queue. For more details, see [Using dead-letter queues in Amazon SQS](sqs-dead-letter-queues.md).
 

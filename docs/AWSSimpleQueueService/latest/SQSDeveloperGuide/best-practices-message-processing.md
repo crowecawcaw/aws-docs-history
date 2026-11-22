@@ -1,7 +1,6 @@
 
 
 # Amazon SQS message processing and timing
-<a name="best-practices-message-processing"></a>
 
 This topic provides a comprehensive guidance on optimizing the speed and efficiency of message handling in Amazon SQS, including strategies for timely message processing, selecting the best polling mode, and configuring long polling for improved performance.
 

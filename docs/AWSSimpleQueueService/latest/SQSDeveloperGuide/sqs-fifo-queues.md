@@ -1,7 +1,6 @@
 
 
 # Amazon SQS FIFO queues
-<a name="sqs-fifo-queues"></a>
 
 FIFO (First-In-First-Out) queues have all the capabilities of the [standard queues](standard-queues.md), but are designed to enhance messaging between applications when the order of operations and events is critical, or where duplicates can't be tolerated.
 

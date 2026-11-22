@@ -1,7 +1,6 @@
 
 
 # Using server-side encryption with Amazon SQS queues
-<a name="sqs-java-configure-sse"></a>
 
 Use the AWS SDK for Java to add server-side encryption (SSE) to an Amazon SQS queue. Each queue uses an AWS Key Management Service (AWS KMS) KMS key to generate the data encryption keys. This example uses the AWS managed KMS key for Amazon SQS.
 
@@ -16,7 +15,7 @@ The following code example sets the AWS KMS key as the AWS managed KMS key for A
 
  Before you run the example code, make sure that you have set your AWS credentials. For more information, see [Set up AWS Credentials and Region for Development](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java 2.x Developer Guide*. 
 
-```
+```java
     public static void addEncryption(String queueName, String kmsMasterKeyAlias) {
         SqsClient sqsClient = SqsClient.create();
 
@@ -72,7 +71,7 @@ The following example creates a new queue with SSE enabled. The queue uses the A
 
  Before you run the example code, make sure that you have set your AWS credentials. For more information, see [Set up AWS Credentials and Region for Development](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-credentials) in the *AWS SDK for Java 2.x Developer Guide*. 
 
-```
+```java
 // Create an SqsClient for the specified Region.
 SqsClient sqsClient = SqsClient.builder().region(Region.US_WEST_1).build();
 

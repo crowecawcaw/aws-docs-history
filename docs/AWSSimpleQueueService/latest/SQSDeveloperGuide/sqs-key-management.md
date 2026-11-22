@@ -1,7 +1,6 @@
 
 
 # Amazon SQS Key management
-<a name="sqs-key-management"></a>
 
 Amazon SQS integrates with the AWS Key Management Service (KMS) to manage [KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) for server-side encryption (SSE). See [Encryption at rest in Amazon SQS](sqs-server-side-encryption.md) for SSE information and key management definitions. Amazon SQS uses KMS keys to validate and secure the data keys that encrypt and decrypt the messages. The following sections provide information about working with KMS keys and data keys in the Amazon SQS service.
 
@@ -34,7 +33,7 @@ When changing the KMS key for encrypting your Amazon SQS messages, be aware that
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
          "Statement": [{
@@ -84,7 +83,7 @@ Add the following statement to the IAM policy of the producer. Remember to use t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -119,7 +118,7 @@ When the data key reuse period expires, the consumer's next call to `ReceiveMess
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ In this KMS key policy, a specific resource from *service* that is owned by acco
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

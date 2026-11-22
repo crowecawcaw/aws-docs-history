@@ -1,7 +1,6 @@
 
 
 # CloudTrail update and permission requirements for Amazon SQS dead-letter queue redrive
-<a name="sqs-dead-letter-queues-cloudtrail"></a>
 
 On June 8, 2023, Amazon SQS introduced dead-letter queue (DLQ) redrive for AWS SDK and AWS Command Line Interface (CLI). This capability is an addition to the already supported DLQ redrive for the AWS console. If you've previously used the AWS console to redrive dead-letter queue messages, you may be affected by the following changes:
 
@@ -46,7 +45,7 @@ The following are queue permission examples for each DLQ redrive option. When us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ The following managed policies contain the required updated permissions:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

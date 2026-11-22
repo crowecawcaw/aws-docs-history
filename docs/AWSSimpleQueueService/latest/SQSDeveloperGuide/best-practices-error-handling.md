@@ -1,7 +1,6 @@
 
 
 # Amazon SQS error handling and problematic messages
-<a name="best-practices-error-handling"></a>
 
 This topic provides detailed instructions on managing and mitigating errors in Amazon SQS, including techniques for handling request errors, capturing problematic messages, and configuring dead-letter queue retention to ensure message reliability.
 

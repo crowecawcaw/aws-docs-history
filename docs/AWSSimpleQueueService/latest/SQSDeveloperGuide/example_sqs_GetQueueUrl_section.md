@@ -1,7 +1,6 @@
 
 
 # Use `GetQueueUrl` with an AWS SDK or CLI
-<a name="example_sqs_GetQueueUrl_section"></a>
 
 The following code examples show how to use `GetQueueUrl`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `GetQueueUrl`.
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SQS#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.SQS;
@@ -58,7 +57,7 @@ The following code examples show how to use `GetQueueUrl`.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -118,7 +117,7 @@ For more information, see [Amazon SQS queue and message identifiers](https://doc
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
-```
+```java
             GetQueueUrlResponse getQueueUrlResponse = sqsClient
                     .getQueueUrl(GetQueueUrlRequest.builder().queueName(queueName).build());
             return getQueueUrlResponse.queueUrl();
@@ -132,7 +131,7 @@ For more information, see [Amazon SQS queue and message identifiers](https://doc
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 Get the URL for an Amazon SQS queue.  
 
-```
+```javascript
 import { GetQueueUrlCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -153,7 +152,7 @@ export const main = async (queueName = SQS_QUEUE_NAME) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
 Get the URL for an Amazon SQS queue.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -183,7 +182,7 @@ sqs.getQueueUrl(params, function (err, data) {
 **Tools for PowerShell V4**  
 **Example 1: This example lists the URL of the queue with the specified name.**  
 
-```
+```powershell
 Get-SQSQueueUrl -QueueName MyQueue
 ```
 **Output:**  
@@ -196,7 +195,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 **Tools for PowerShell V5**  
 **Example 1: This example lists the URL of the queue with the specified name.**  
 
-```
+```powershell
 Get-SQSQueueUrl -QueueName MyQueue
 ```
 **Output:**  
@@ -212,7 +211,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
-```
+```python
 def get_queue(name):
     """
     Gets an SQS queue by name.
@@ -237,7 +236,7 @@ def get_queue(name):
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->getqueueurl( iv_queuename = iv_queue_name ).        " oo_result is returned for testing purposes. "
         MESSAGE 'Queue URL retrieved.' TYPE 'I'.

@@ -1,7 +1,6 @@
 
 
 # Interpreting Amazon SQS XML API responses
-<a name="sqs-xml-api-responses"></a>
 
 When you send a request to Amazon SQS, it returns an XML response containing the results of the request. To understand the structure and details of these responses, refer to the specific [API actions](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_Operations.html) in the *Amazon Simple Queue Service API Reference*.
 
@@ -16,7 +15,7 @@ This element contains the following child elements:
 
 The following is an example successful response in XML format:
 
-```
+```xml
 <CreateQueueResponse
    xmlns=https://sqs.us-east-2.amazonaws.com/doc/2012-11-05/
    xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance
@@ -45,7 +44,7 @@ The `RequestId` element contains the UUID of the request.
 
 The following is an example error response in XML format:
 
-```
+```xml
 <ErrorResponse>
    <Error>
       <Type>Sender</Type>

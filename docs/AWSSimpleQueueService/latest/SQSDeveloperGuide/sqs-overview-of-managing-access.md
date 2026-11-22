@@ -1,7 +1,6 @@
 
 
 # Overview of managing access in Amazon SQS
-<a name="sqs-overview-of-managing-access"></a>
 
 Every AWS resource is owned by an AWS account, and permissions to create or access a resource are governed by permissions policies. An account administrator can attach permissions policies to IAM identities (users, groups, and roles), and some services (such as Amazon SQS) also support attaching permissions policies to resources.
 
@@ -130,7 +129,7 @@ The following is an example policy that allows a user to use all Amazon SQS acti
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{

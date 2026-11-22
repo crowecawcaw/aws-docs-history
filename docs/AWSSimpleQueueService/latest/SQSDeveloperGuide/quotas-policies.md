@@ -1,7 +1,6 @@
 
 
 # Amazon SQS policy quotas
-<a name="quotas-policies"></a>
 
 The following table lists quotas related to policies.
 

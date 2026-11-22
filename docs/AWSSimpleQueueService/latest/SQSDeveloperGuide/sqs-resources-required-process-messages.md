@@ -1,7 +1,6 @@
 
 
 # Resources required to process Amazon SQS messages
-<a name="sqs-resources-required-process-messages"></a>
 
 Amazon SQS provides estimates of the approximate number of delayed, visible, and not visible messages in a queue to help you assess the resources needed for processing. For more information about visibility, see [Amazon SQS visibility timeout](sqs-visibility-timeout.md).
 

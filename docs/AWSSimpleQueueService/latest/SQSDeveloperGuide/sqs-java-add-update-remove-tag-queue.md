@@ -1,7 +1,6 @@
 
 
 # Configuring tags for an Amazon SQS queue
-<a name="sqs-java-add-update-remove-tag-queue"></a>
 
 Use cost-allocation tags to help organize and identify your Amazon SQS queues. The following examples show how to configure tags using the AWS SDK for Java. For more information, see [Amazon SQS cost allocation tags](sqs-queue-tags.md).
 
@@ -12,7 +11,7 @@ Use cost-allocation tags to help organize and identify your Amazon SQS queues. T
 
 To list the tags for a queue, use the `ListQueueTags` method.
 
-```
+```java
 // Create an SqsClient for the specified region.
 SqsClient sqsClient = SqsClient.builder().region(Region.US_WEST_1).build();
 
@@ -38,7 +37,7 @@ System.out.println(String.format("ListQueueTags: \tTags for queue %s are %s.\n",
 
 To add or update tag values for a queue, use the `TagQueue` method.
 
-```
+```java
  // Create an SqsClient for the specified Region.
 SqsClient sqsClient = SqsClient.builder().region(Region.US_WEST_1).build();
 
@@ -67,7 +66,7 @@ sqsClient.tagQueue(tagQueueRequest);
 
 To remove one or more tags from the queue, use the `UntagQueue` method. The following example removes the `Accounting ID` tag.
 
-```
+```java
  
 // Create the UntagQueueRequest.
 final UntagQueueRequest untagQueueRequest = UntagQueueRequest.builder()

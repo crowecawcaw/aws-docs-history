@@ -1,7 +1,6 @@
 
 
 # Preventing duplicate processing in a multiple-producer/consumer system in Amazon SQS
-<a name="avoding-processing-duplicates-in-multiple-producer-consumer-system"></a>
 
 In a high-throughput, low-latency system where message ordering is not a priority, producers can assign a unique [`MessageGroupId`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) to each message. This ensures that Amazon SQS FIFO queues eliminate duplicates, even in a multiple-producer/multiple-consumer setup. While this approach prevents duplicate messages, it does not guarantee message ordering since each message is treated as its own independent group.
 

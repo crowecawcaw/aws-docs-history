@@ -1,7 +1,6 @@
 
 
 # Access management for encrypted Amazon SQS queues with least privilege policies
-<a name="sqs-least-privilege-policy"></a>
 
 You can use Amazon SQS to exchange sensitive data between applications by using server-side encryption (SSE) integrated with [AWS Key Management Service (KMS)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html). With the integration of Amazon SQS and AWS KMS, you can centrally manage the keys that protect Amazon SQS, as well as the keys that protect your other AWS resources.
 
@@ -46,7 +45,7 @@ In this section, we describe the required least privilege permissions in AWS KMS
 
 To create an AWS KMS key, you need to provide AWS KMS administrator permissions to the IAM role that you use to deploy the AWS KMS key. These administrator permissions are defined in the following `AllowKeyAdminPermissions` policy statement. When you add this statement to your AWS KMS key policy, make sure to replace {{<admin-role ARN>}} with the Amazon Resource Name (ARN) of the IAM role used to deploy the AWS KMS key, manage the AWS KMS key, or both. This can be the IAM role of your deployment pipeline, or the [administrator role for your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html) in your [AWS Organizations.](https://aws.amazon.com/organizations/)
 
-```
+```json
 {
   "Sid": "AllowKeyAdminPermissions",
   "Effect": "Allow",
@@ -83,7 +82,7 @@ In an AWS KMS key policy, the value of the `Resource` element needs to be `*`, w
 
 To grant other IAM roles read-only access to your key metadata, add the `AllowReadAccessToKeyMetaData` statement to your key policy. For example, the following statement lets you list all of the AWS KMS keys in your account for auditing purposes. This statement grants the AWS root user read-only access to the key metadata. Therefore, any IAM principal in the account can have access to the key metadata when their identity-based policies have the permissions listed in the following statement: `kms:Describe*`, `kms:Get*`, and `kms:List*`. Make sure to replace {{<account-ID>}} with your own information. 
 
-```
+```json
 {
   "Sid": "AllowReadAcesssToKeyMetaData",
   "Effect": "Allow",
@@ -109,7 +108,7 @@ To allow your Amazon SNS topic to publish messages to your encrypted Amazon SQS 
 **Note**  
 The `Condition` in the statement limits access to only the Amazon SNS service in the same AWS account.
 
-```
+```json
 {
   "Sid": "AllowSNSToSendToSQS",
   "Effect": "Allow",
@@ -136,7 +135,7 @@ The `Condition` in the statement limits access to only the Amazon SNS service in
 
 The following `AllowConsumersToReceiveFromTheQueue` statement grants the Amazon SQS message consumer the required permissions to decrypt messages received from the encrypted Amazon SQS queue. When you attach the policy statement, replace {{<consumer's runtime role ARN>}} with the IAM runtime role ARN of the message consumer.
 
-```
+```JSON
 {
   "Sid": "AllowConsumersToReceiveFromTheQueue",
   "Effect": "Allow",
@@ -170,7 +169,7 @@ The Amazon SQS policy includes the following statements, which we describe in de
 
 The following `RestrictAdminQueueActions` policy statement restricts the Amazon SQS management permissions to only the IAM role or roles that you use to deploy the queue, manage the queue, or both. Make sure to replace the {{<placeholder values>}} with your own information. Specify the ARN of the IAM role used to deploy the Amazon SQS queue, as well as the ARNs of any administrator roles that should have Amazon SQS management permissions. 
 
-```
+```JSON
 {
   "Sid": "RestrictAdminQueueActions",
   "Effect": "Deny",
@@ -200,7 +199,7 @@ The following `RestrictAdminQueueActions` policy statement restricts the Amazon 
 
 To help protect your Amazon SQS resources from external access (access by an entity outside of your [AWS organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)), use the following statement. This statement limits Amazon SQS queue access to the organization that you specify in the `Condition`. Make sure to replace {{<SQS queue ARN>}} with the ARN of the IAM role used to deploy the Amazon SQS queue; and the {{<org-id>}}, with your organization ID. 
 
-```
+```JSON
 {
   "Sid": "DenyQueueActionsOutsideOrg",
   "Effect": "Deny",
@@ -231,7 +230,7 @@ To help protect your Amazon SQS resources from external access (access by an ent
 
 To receive messages from the Amazon SQS queue, you need to provide the message consumer with the necessary permissions. The following policy statement grants the consumer, which you specify, the required permissions to consume messages from the Amazon SQS queue. When adding the statement to your Amazon SQS policy, make sure to replace {{<consumer's IAM runtime role ARN>}} with the ARN of the IAM runtime role used by the consumer; and {{<SQS queue ARN>}}, with the ARN of the IAM role used to deploy the Amazon SQS queue.
 
-```
+```JSON
 {
   "Sid": "AllowConsumersToReceiveFromTheQueue",
   "Effect": "Allow",
@@ -250,7 +249,7 @@ To receive messages from the Amazon SQS queue, you need to provide the message c
 
 To prevent other entities from receiving messages from the Amazon SQS queue, add the `DenyOtherConsumersFromReceiving` statement to the Amazon SQS queue policy. This statement restricts message consumption to the consumer that you specify—allowing no other consumers to have access, even when their identity-permissions would grant them access. Make sure to replace {{<SQS queue ARN>}} and {{<consumer’s runtime role ARN>}} with your own information.
 
-```
+```JSON
 {
   "Sid": "DenyOtherConsumersFromReceiving",
   "Effect": "Deny",
@@ -276,7 +275,7 @@ To prevent other entities from receiving messages from the Amazon SQS queue, add
 
 The following `DenyUnsecureTransport` policy statement enforces the consumers and producers to use secure channels (TLS connections) to send and receive messages from the Amazon SQS queue. Make sure to replace {{<SQS queue ARN>}} with the ARN of the IAM role used to deploy the Amazon SQS queue.
 
-```
+```JSON
 {
   "Sid": "DenyUnsecureTransport",
   "Effect": "Deny",
@@ -301,7 +300,7 @@ The following `DenyUnsecureTransport` policy statement enforces the consumers an
 
 The following `AllowSNSToSendToTheQueue` policy statement allows the specified Amazon SNS topic to send messages to the Amazon SQS queue. Make sure to replace {{<SQS queue ARN>}} with the ARN of the IAM role used to deploy the Amazon SQS queue; and {{<SNS topic ARN>}}, with the Amazon SNS topic ARN.
 
-```
+```JSON
 {
   "Sid": "AllowSNSToSendToTheQueue",
   "Effect": "Allow",
@@ -320,7 +319,7 @@ The following `AllowSNSToSendToTheQueue` policy statement allows the specified A
 
 The following `DenyAllProducersExceptSNSFromSending` policy statement prevents other producers from sending messages to the queue. Replace {{<SQS queue ARN>}} and {{<SNS topic ARN>}} with your own information.
 
-```
+```JSON
 {
   "Sid": "DenyAllProducersExceptSNSFromSending",
   "Effect": "Deny",
@@ -342,7 +341,7 @@ The following `DenyAllProducersExceptSNSFromSending` policy statement prevents o
 
 To restrict the receipt of messages to only a specific [VPC endpoint](https://aws.amazon.com/about-aws/whats-new/2018/12/amazon-sqs-vpc-endpoints-aws-privatelink/), add the following policy statement to your Amazon SQS queue policy. This statement prevents a message consumer from receiving messages from the queue unless the messages are from the desired VPC endpoint. Replace {{<SQS queue ARN>}} with the ARN of the IAM role used to deploy the Amazon SQS queue; and {{<vpce\_id>}} with the ID of the VPC endpoint.
 
-```
+```JSON
 {
   "Sid": "DenyReceivingIfNotThroughVPCE",
   "Effect": "Deny",
@@ -376,7 +375,7 @@ In addition to adding the preceding policy statements to your DLQ access policy,
 
 To restrict access to only Amazon SQS queues from the same account, add the following `DenyAnyProducersExceptSQS` policy statement to the DLQ queue policy. This statement doesn't limit message transmission to a specific queue because you need to deploy the DLQ before you create the main queue, so you won't know the Amazon SQS ARN when you create the DLQ. If you need to limit access to only one Amazon SQS queue, modify the `aws:SourceArn` in the `Condition` with the ARN of your Amazon SQS source queue when you know it.
 
-```
+```json
 {
   "Sid": "DenyAnyProducersExceptSQS",
   "Effect": "Deny",

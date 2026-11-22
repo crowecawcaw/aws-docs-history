@@ -1,7 +1,6 @@
 
 
 # Managing large Amazon SQS messages with Extended Client Library and Amazon Simple Storage Service
-<a name="sqs-managing-large-messages"></a>
 
 Use the [Amazon SQS Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib) and [Amazon SQS Extended Client Library for Python](https://github.com/awslabs/amazon-sqs-python-extended-client-lib/) to send large messages, especially for payloads between 256 KB and 2 GB. These libraries store the message payload in an Amazon S3 bucket and send a reference to the stored object in the Amazon SQS queue.
 

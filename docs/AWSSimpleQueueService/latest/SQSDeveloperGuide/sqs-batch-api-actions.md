@@ -1,7 +1,6 @@
 
 
 # Amazon SQS batch actions
-<a name="sqs-batch-api-actions"></a>
 
 Amazon SQS provides batch actions to help you reduce costs and manipulate up to 10 messages with a single action. These batch actions include:
 + `[SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html)`
@@ -19,7 +18,7 @@ Using batch actions, you can perform multiple operations in a single API call, w
 <a name="batching-message-actions"></a>
 
 To further optimize costs and efficiency, consider the following best practices for batching message actions:
-+ **Batch API Actions:** Use the [Amazon SQS batch API actions](#sqs-batch-api-actions) actions to send, receive, and delete messages, and to change the message visibility timeout for multiple messages with a single action. This reduces the number of API calls and associated costs.
++ **Batch API Actions:** Use the [Amazon SQS batch API actions](sqs-batch-api-actions.md) actions to send, receive, and delete messages, and to change the message visibility timeout for multiple messages with a single action. This reduces the number of API calls and associated costs.
 + **Client-Side Buffering and Long Polling:** Combine client-side buffering with request batching by using long polling together with the [ buffered asynchronous client](sqs-client-side-buffering-request-batching.md) included with the AWS SDK for Java. This approach helps to minimize the number of requests and optimizes the handling of large volumes of messages.
 
 **Note**  

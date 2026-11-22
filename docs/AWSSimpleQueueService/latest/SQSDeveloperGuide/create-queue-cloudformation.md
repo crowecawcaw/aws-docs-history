@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon SQS queue using CloudFormation
-<a name="create-queue-cloudformation"></a>
 
 Use the CloudFormation console along with a JSON or YAML template to create an Amazon SQS queue. For more details, see [Working with CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) and the [`AWS::SQS::Queue` Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html) in the *AWS CloudFormation User Guide*.
 
@@ -11,7 +10,7 @@ Use the CloudFormation console along with a JSON or YAML template to create an A
 **Note**  
 The name of a FIFO queue must end with the `.fifo` suffix.
 
-   ```
+   ```json
    {
       "AWSTemplateFormatVersion": "2010-09-09",
       "Resources": {

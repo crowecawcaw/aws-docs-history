@@ -1,7 +1,6 @@
 
 
 # Subscribing a queue to an Amazon SNS topic using the Amazon SQS console
-<a name="sqs-configure-subscribe-queue-sns-topic"></a>
 
 You can subscribe one or more Amazon SQS queues to an Amazon SNS topic. When you publish a message to a topic, Amazon SNS sends the message to each subscribed queue. Amazon SQS manages the subscription and handles the required permissions. For more information about Amazon SNS, see [What is Amazon SNS?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) in the *Amazon Simple Notification Service Developer Guide*.
 
@@ -37,7 +36,7 @@ If your Amazon SQS queue and Amazon SNS topic are in different AWS accounts, add
 
 Modify the Amazon SNS topic's access policy to allow the Amazon SQS queue's AWS account to subscribe. Example policy statement:
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": { "AWS": "arn:aws:iam::111122223333:root" },
@@ -52,7 +51,7 @@ This policy allows account `111122223333` to subscribe to `MyTopic`.
 
 Modify the Amazon SQS queue's access policy to allow the Amazon SNS topic to send messages. Example policy statement:
 
-```
+```json
 {
   "Effect": "Allow",
   "Principal": { "Service": "sns.amazonaws.com" },

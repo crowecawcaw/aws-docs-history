@@ -1,7 +1,6 @@
 
 
 # Amazon SQS FIFO queue key terms
-<a name="FIFO-key-terms"></a>
 
 The following key terms can help you better understand the functionality of FIFO queues. For more information, see the *[Amazon Simple Queue Service API Reference](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/)*.
 

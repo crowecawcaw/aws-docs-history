@@ -1,7 +1,6 @@
 
 
 # Amazon SQS message quotas
-<a name="quotas-messages"></a>
 
 The following table lists quotas related to messages.
 

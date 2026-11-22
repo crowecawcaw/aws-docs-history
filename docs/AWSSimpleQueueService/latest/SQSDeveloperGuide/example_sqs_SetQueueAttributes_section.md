@@ -1,7 +1,6 @@
 
 
 # Use `SetQueueAttributes` with an AWS SDK or CLI
-<a name="example_sqs_SetQueueAttributes_section"></a>
 
 The following code examples show how to use `SetQueueAttributes`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 Set the policy attribute of a queue for a topic.  
 
-```
+```csharp
     /// <summary>
     /// Set the policy attribute of a queue for a topic.
     /// </summary>
@@ -59,7 +58,7 @@ Set the policy attribute of a queue for a topic.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -104,7 +103,7 @@ bool AwsDoc::SQS::setQueueAttributes(const Aws::String &queueURL,
 ```
 Configure a dead-letter queue.  
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -169,7 +168,7 @@ Aws::String MakeRedrivePolicy(const Aws::String &queueArn, int maxReceiveCount) 
 ```
 Configure an Amazon SQS queue to use long polling.  
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -243,7 +242,7 @@ For more information, see [Configuring queue parameters using the Amazon SQS con
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -322,7 +321,7 @@ type PolicyCondition map[string]map[string]string
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 Configure an Amazon SQS to use server-side encryption (SSE) using a custom KMS key.  
 
-```
+```java
     public static void addEncryption(String queueName, String kmsMasterKeyAlias) {
         SqsClient sqsClient = SqsClient.create();
 
@@ -368,7 +367,7 @@ Configure an Amazon SQS to use server-side encryption (SSE) using a custom KMS k
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 
-```
+```javascript
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -389,7 +388,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
 ```
 Configure an Amazon SQS queue to use long polling.  
 
-```
+```javascript
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -410,7 +409,7 @@ export const main = async (queueUrl = SQS_QUEUE_URL) => {
 ```
 Configure a dead-letter queue.  
 
-```
+```javascript
 import { SetQueueAttributesCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -448,7 +447,7 @@ export const main = async (
 **Tools for PowerShell V4**  
 **Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**  
 
-```
+```powershell
 # create the queue and topic to be associated
 $qurl = New-SQSQueue -QueueName "myQueue"
 $topicarn = New-SNSTopic -Name "myTopic"
@@ -485,7 +484,7 @@ Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
 ```
 **Example 2: This example sets the specified attributes for the specified queue.**  
 
-```
+```powershell
 Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" = "131072"} -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 ```
 +  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -493,7 +492,7 @@ Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" =
 **Tools for PowerShell V5**  
 **Example 1: This example shows how to set a policy subscribing a queue to an SNS topic. When a message is published to the topic, a message is sent to the subscribed queue.**  
 
-```
+```powershell
 # create the queue and topic to be associated
 $qurl = New-SQSQueue -QueueName "myQueue"
 $topicarn = New-SNSTopic -Name "myTopic"
@@ -530,7 +529,7 @@ Set-SQSQueueAttribute -QueueUrl $qurl -Attribute @{ Policy=$policy }
 ```
 **Example 2: This example sets the specified attributes for the specified queue.**  
 
-```
+```powershell
 Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" = "131072"} -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 ```
 +  For API details, see [SetQueueAttributes](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -542,7 +541,7 @@ Set-SQSQueueAttribute -Attribute @{"DelaySeconds" = "10"; "MaximumMessageSize" =
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples). 
 Set the policy attribute of a queue for a topic.  
 
-```
+```python
 class SqsWrapper:
     """Wrapper class for managing Amazon SQS operations."""
 
@@ -619,7 +618,7 @@ class SqsWrapper:
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
-```
+```swift
 import AWSSQS
 
         let config = try await SQSClient.SQSClientConfig(region: region)

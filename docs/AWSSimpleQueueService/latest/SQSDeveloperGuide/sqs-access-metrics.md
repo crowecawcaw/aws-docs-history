@@ -1,7 +1,6 @@
 
 
 # Accessing CloudWatch metrics for Amazon SQS
-<a name="sqs-access-metrics"></a>
 
 Amazon SQS and Amazon CloudWatch are integrated so you can use CloudWatch to view and analyze metrics for your Amazon SQS queues. You can view and analyze your queues' metrics from the [Amazon SQS console](#access-cloudwatch-metrics-sqs-console), the [CloudWatch console](#access-metrics-cloudwatch-console), using the [AWS CLI](#access-cloudwatch-metrics-cli), or using the [CloudWatch API](#access-metrics-cloudwatch-api). You can also [set CloudWatch alarms](set-cloudwatch-alarms-for-metrics.md) for Amazon SQS metrics.
 

@@ -1,7 +1,6 @@
 
 
 # Message metadata for Amazon SQS
-<a name="sqs-message-metadata"></a>
 
 Use message attributes to add custom metadata to Amazon SQS messages for your applications. Use message system attributes to store metadata for integration with other AWS services, such as AWS X-Ray.
 

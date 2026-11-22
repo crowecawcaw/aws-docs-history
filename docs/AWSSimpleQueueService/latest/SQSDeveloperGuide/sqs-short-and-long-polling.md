@@ -1,7 +1,6 @@
 
 
 # Amazon SQS short and long polling
-<a name="sqs-short-and-long-polling"></a>
 
 Amazon SQS offers short and long polling options for receiving messages from a queue. Consider your application's requirements for responsiveness and cost efficiency when choosing between these two polling options:
 + **Short polling** (default) – The [`ReceiveMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html) request queries a subset of servers (based on a weighted random distribution) to find available messages and sends an immediate response, even if no messages are found. 

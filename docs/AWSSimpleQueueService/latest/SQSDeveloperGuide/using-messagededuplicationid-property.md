@@ -1,7 +1,6 @@
 
 
 # Using the message deduplication ID in Amazon SQS
-<a name="using-messagededuplicationid-property"></a>
 
 [`MessageDeduplicationId`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) is a token used only in Amazon SQS FIFO queues to prevent duplicate message delivery. It ensures that within a 5-minute deduplication window, only one instance of a message with the same deduplication ID is processed and delivered.
 

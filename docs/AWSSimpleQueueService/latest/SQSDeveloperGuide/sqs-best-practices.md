@@ -1,7 +1,6 @@
 
 
 # Amazon SQS best practices
-<a name="sqs-best-practices"></a>
 
 Amazon SQS manages and processes message queues, enabling different parts of an application to exchange messages reliably and at scale. This topic covers key operational best practices, including using long polling to reduce empty responses, implementing dead-letter queues to handle processing errors, and optimizing queue permissions for security.
 

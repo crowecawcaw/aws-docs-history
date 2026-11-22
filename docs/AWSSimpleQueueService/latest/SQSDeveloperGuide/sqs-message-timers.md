@@ -1,7 +1,6 @@
 
 
 # Amazon SQS message timers
-<a name="sqs-message-timers"></a>
 
 Message timers allow you to set an initial invisibility period for a message when it's added to a queue. For example, if you send a message with a 45-second timer, it remains hidden from consumers for the first 45 seconds. The default (minimum) delay for a message is 0 seconds. The maximum is 15 minutes. For information about sending messages with timers using the console, see [Sending a message using a standard queue](creating-sqs-standard-queues.md#sqs-send-messages).
 

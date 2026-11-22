@@ -1,7 +1,6 @@
 
 
 # Troubleshoot messages not returned for an Amazon SQS ReceiveMessage API call
-<a name="troubleshooting-messages-not-returned-ReceiveMessage"></a>
 
 The following topics cover the most common causes why an Amazon SQS message may not be returned to consumers, and how to troubleshoot them. For more information, see [Why can't I receive messages from my Amazon SQS queue?](https://repost.aws/knowledge-center/sqs-queue-message) in the *AWS Knowledge Center Guide*.
 

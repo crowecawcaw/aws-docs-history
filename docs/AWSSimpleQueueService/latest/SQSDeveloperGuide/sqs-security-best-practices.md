@@ -1,7 +1,6 @@
 
 
 # Amazon SQS security best practices
-<a name="sqs-security-best-practices"></a>
 
 AWS provides many security features for Amazon SQS, which you should review in the context of your own security policy. The following are preventative security best practices for Amazon SQS.
 

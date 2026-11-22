@@ -1,7 +1,6 @@
 
 
 # Configuring queue parameters using the Amazon SQS console
-<a name="sqs-configure-queue-parameters"></a>
 
 When [creating](creating-sqs-standard-queues.md#step-create-standard-queue) or [editing](sqs-configure-edit-queue.md) a queue, you can configure the following parameters:
 + **Visibility timeout** – The length of time that a message received from a queue (by one consumer) won't be visible to the other message consumers. For more information, see [Visibility timeout](sqs-visibility-timeout.md). 

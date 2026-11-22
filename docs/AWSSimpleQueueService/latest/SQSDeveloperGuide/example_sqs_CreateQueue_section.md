@@ -1,7 +1,6 @@
 
 
 # Use `CreateQueue` with an AWS SDK or CLI
-<a name="example_sqs_CreateQueue_section"></a>
 
 The following code examples show how to use `CreateQueue`.
 
@@ -17,7 +16,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 Create a queue with a specific name.  
 
-```
+```csharp
     /// <summary>
     /// Create a queue with a specific name.
     /// </summary>
@@ -64,7 +63,7 @@ Create a queue with a specific name.
 ```
 Create an Amazon SQS queue and send a message to it.  
 
-```
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -166,7 +165,7 @@ Create an Amazon SQS queue and send a message to it.
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sqs#code-examples). 
 
-```
+```cpp
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
@@ -235,7 +234,7 @@ For more information, see [Using dead-letter queues in Amazon SQS](https://docs.
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -284,7 +283,7 @@ func (actor SqsActions) CreateQueue(ctx context.Context, queueName string, isFif
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.ChangeMessageVisibilityRequest;
@@ -478,7 +477,7 @@ public class SQSExample {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sqs#code-examples). 
 Create an Amazon SQS standard queue.  
 
-```
+```javascript
 import { CreateQueueCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -500,7 +499,7 @@ export const main = async (sqsQueueName = SQS_QUEUE_NAME) => {
 ```
 Create an Amazon SQS queue with long polling.  
 
-```
+```javascript
 import { CreateQueueCommand, SQSClient } from "@aws-sdk/client-sqs";
 
 const client = new SQSClient({});
@@ -531,7 +530,7 @@ export const main = async (queueName = SQS_QUEUE_NAME) => {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/sqs#code-examples). 
 Create an Amazon SQS standard queue.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -558,7 +557,7 @@ sqs.createQueue(params, function (err, data) {
 ```
 Create an Amazon SQS queue that waits for a message to arrive.  
 
-```
+```javascript
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 // Set the region
@@ -591,7 +590,7 @@ sqs.createQueue(params, function (err, data) {
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sqs#code-examples). 
 
-```
+```kotlin
 suspend fun createQueue(queueNameVal: String): String {
     println("Create Queue")
     val createQueueRequest =
@@ -621,7 +620,7 @@ suspend fun createQueue(queueNameVal: String): String {
 **Tools for PowerShell V4**  
 **Example 1: This example creates a queue with the specified name.**  
 
-```
+```powershell
 New-SQSQueue -QueueName MyQueue
 ```
 **Output:**  
@@ -634,7 +633,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 **Tools for PowerShell V5**  
 **Example 1: This example creates a queue with the specified name.**  
 
-```
+```powershell
 New-SQSQueue -QueueName MyQueue
 ```
 **Output:**  
@@ -650,7 +649,7 @@ https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sqs#code-examples). 
 
-```
+```python
 def create_queue(name, attributes=None):
     """
     Creates an Amazon SQS queue.
@@ -674,7 +673,7 @@ def create_queue(name, attributes=None):
         return queue
 ```
 
-```
+```python
 class SqsWrapper:
     """Wrapper class for managing Amazon SQS operations."""
 
@@ -737,7 +736,7 @@ class SqsWrapper:
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sqs#code-examples). 
 
-```
+```ruby
 # This code example demonstrates how to create a queue in Amazon Simple Queue Service (Amazon SQS).
 
 require 'aws-sdk-sqs'
@@ -786,7 +785,7 @@ run_me if $PROGRAM_NAME == __FILE__
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sqs#code-examples). 
 Create an Amazon SQS standard queue.  
 
-```
+```sap-abap
     TRY.
         oo_result = lo_sqs->createqueue( iv_queuename = iv_queue_name ).        " oo_result is returned for testing purposes. "
         MESSAGE 'SQS queue created.' TYPE 'I'.
@@ -798,7 +797,7 @@ Create an Amazon SQS standard queue.
 ```
 Create an Amazon SQS queue that waits for a message to arrive.  
 
-```
+```sap-abap
     TRY.
         DATA lt_attributes TYPE /aws1/cl_sqsqueueattrmap_w=>tt_queueattributemap.
         DATA ls_attribute TYPE /aws1/cl_sqsqueueattrmap_w=>ts_queueattributemap_maprow.
@@ -823,7 +822,7 @@ Create an Amazon SQS queue that waits for a message to arrive.
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs#code-examples). 
 
-```
+```swift
 import AWSSQS
 
         let config = try await SQSClient.SQSClientConfig(region: region)

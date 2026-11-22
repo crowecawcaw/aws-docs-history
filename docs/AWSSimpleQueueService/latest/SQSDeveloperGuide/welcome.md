@@ -1,7 +1,6 @@
 
 
 # What is Amazon Simple Queue Service?
-<a name="welcome"></a>
 
 Amazon Simple Queue Service (Amazon SQS) offers a secure, durable, and available hosted queue that lets you integrate and decouple distributed software systems and components. Amazon SQS offers common constructs such as [dead-letter queues](sqs-dead-letter-queues.md) and [cost allocation tags](sqs-queue-tags.md). It provides a generic web services API that you can access using any programming language that the AWS SDK supports.
 
@@ -55,7 +54,7 @@ Amazon SQS automatically deletes messages that have been in a queue for more tha
 
  **Amazon SQS** decouples and scales distributed software systems and components as a queue service. It processes messages through a single subscriber typically, ideal for workflows where order and loss prevention are critical. For wider distribution, integrating Amazon SQS with Amazon SNS enables a [fanout messaging pattern](https://aws.amazon.com/getting-started/hands-on/send-fanout-event-notifications/), effectively pushing messages to multiple subscribers at once.
 
- **Amazon SNS** allows publishers to send messages to multiple subscribers through topics, which serve as communication channels. Subscribers receive published messages using a supported endpoint type, such as [Amazon Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html), [Amazon SQS](#welcome), [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), HTTP, email, mobile push notifications, and mobile text messages (SMS). This service is ideal for scenarios requiring immediate notifications, such as real-time user engagement or alarm systems. To prevent message loss when subscribers are offline, integrating Amazon SNS with Amazon SQS queue messages ensures consistent delivery.
+ **Amazon SNS** allows publishers to send messages to multiple subscribers through topics, which serve as communication channels. Subscribers receive published messages using a supported endpoint type, such as [Amazon Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html), [Amazon SQS](welcome.md), [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), HTTP, email, mobile push notifications, and mobile text messages (SMS). This service is ideal for scenarios requiring immediate notifications, such as real-time user engagement or alarm systems. To prevent message loss when subscribers are offline, integrating Amazon SNS with Amazon SQS queue messages ensures consistent delivery.
 
  **Amazon MQ** fits best with enterprises looking to migrate from traditional message brokers, supporting standard messaging protocols like AMQP and MQTT, along with [Apache ActiveMQ](http://activemq.apache.org/) and [RabbitMQ](https://www.rabbitmq.com/). It offers compatibility with legacy systems needing stable, reliable messaging without significant reconfiguration.
 

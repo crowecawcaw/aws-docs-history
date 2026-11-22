@@ -1,7 +1,6 @@
 
 
 # Managing large Amazon SQS messages using Java and Amazon S3
-<a name="sqs-s3-messages"></a>
 
 Use the [Amazon SQS Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib) with Amazon S3 to manage large Amazon SQS messages, particularly for payloads ranging from 256 KB to 2 GB. The library stores the message payload in an Amazon S3 bucket and sends a message containing a reference to the stored object in the Amazon SQS queue.
 
@@ -35,7 +34,7 @@ The following SDK for SDK for Java 2.x example uses the Extended Client Library 
 
 You can view the full example in [https://github.com/awsdocs/aws-doc-sdk-examples/blob/94d1b24df12deda0f4fd91433b8231fed6d18b85/javav2/example_code/sqs/src/main/java/com/example/sqs/SqsExtendedClientExample.java#L1](https://github.com/awsdocs/aws-doc-sdk-examples/blob/94d1b24df12deda0f4fd91433b8231fed6d18b85/javav2/example_code/sqs/src/main/java/com/example/sqs/SqsExtendedClientExample.java#L1). 
 
-```
+```java
 /*
  * Copyright 2010-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
@@ -195,7 +194,7 @@ public class SqsExtendedClientExamples {
 
  You can [use Apache Maven](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-project-maven.html) to configure and build Amazon SQS Extended Client for your Java project, or to build the SDK itself. Specify individual modules from the SDK that you use in your application. 
 
-```
+```java
 <properties>
     <aws-java-sdk.version>2.20.153</aws-java-sdk.version>
 </properties>

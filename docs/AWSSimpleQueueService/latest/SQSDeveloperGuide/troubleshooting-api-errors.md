@@ -1,7 +1,6 @@
 
 
 # Troubleshoot Amazon SQS API errors
-<a name="troubleshooting-api-errors"></a>
 
 The following topics cover the most common errors returned when making Amazon SQS API calls, and how to troubleshoot them.
 

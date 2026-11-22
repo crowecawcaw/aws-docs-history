@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy in Amazon SQS
-<a name="sqs-internetwork-traffic-privacy"></a>
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon SQS is a logical entity within a VPC that allows connectivity only to Amazon SQS. The VPC routes requests to Amazon SQS and routes responses back to the VPC. The following sections provide information about working with VPC endpoints and creating VPC endpoint policies.
 
@@ -33,7 +32,7 @@ For more information, see [Controlling Access to Services with VPC Endpoints](ht
 
 The following example VPC endpoint policy specifies that the user `MyUser` is allowed to send messages to the Amazon SQS queue `MyQueue`.
 
-```
+```json
 {
    "Statement": [{
       "Action": ["sqs:SendMessage"],

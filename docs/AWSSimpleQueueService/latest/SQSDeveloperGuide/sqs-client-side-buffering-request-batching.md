@@ -1,7 +1,6 @@
 
 
 # Enabling client-side buffering and request batching with Amazon SQS
-<a name="sqs-client-side-buffering-request-batching"></a>
 
 The [AWS SDK for Java](https://aws.amazon.com/sdkforjava/) includes `AmazonSQSBufferedAsyncClient` which accesses Amazon SQS. This client allows for simple request batching using client-side buffering. Calls made from the client are first buffered and then sent as a batch request to Amazon SQS.
 
@@ -22,7 +21,7 @@ Before you begin, complete the steps in [Setting up Amazon SQS](sqs-setting-up.m
 
 For AWS SDK for Java 1.x, you can create a new `AmazonSQSBufferedAsyncClient` based on the following example:
 
-```
+```java
 // Create the basic Amazon SQS async client
 final AmazonSQSAsync sqsAsync = new AmazonSQSAsyncClient();
  
@@ -32,7 +31,7 @@ final AmazonSQSAsync bufferedSqs = new AmazonSQSBufferedAsyncClient(sqsAsync);
 
 After you create the new `AmazonSQSBufferedAsyncClient`, you can use it to send multiple requests to Amazon SQS (just as you can with `AmazonSQSAsyncClient`), for example:
 
-```
+```java
 final CreateQueueRequest createRequest = new CreateQueueRequest().withQueueName("MyQueue");
  
 final CreateQueueResult res = bufferedSqs.createQueue(createRequest);
@@ -59,7 +58,7 @@ final ReceiveMessageResult rx = bufferedSqs.receiveMessage(receiveRq);
 
 1. Provide the instance to the `AmazonSQSBufferedAsyncClient` constructor.
 
-```
+```java
 // Create the basic Amazon SQS async client
 final AmazonSQSAsync sqsAsync = new AmazonSQSAsyncClient();
  
@@ -91,7 +90,7 @@ final AmazonSQSAsync bufferedSqs = new AmazonSQSBufferedAsyncClient(sqsAsync, co
 
 For AWS SDK for Java 2.x, you can create a new `SqsAsyncBatchManager` based on the following example:
 
-```
+```java
 // Create the basic Sqs Async Client
 SqsAsyncClient sqs = SqsAsyncClient.builder() 
     .region(Region.US_EAST_1) 
@@ -103,7 +102,7 @@ SqsAsyncBatchManager sqsAsyncBatchManager = sqs.batchManager();
 
 After you create the new `SqsAsyncBatchManager`, you can use it to send multiple requests to Amazon SQS (just as you can with `SqsAsyncClient`), for example:
 
-```
+```java
 final String queueName = "MyAsyncBufferedQueue" + UUID.randomUUID();
 final CreateQueueRequest request = CreateQueueRequest.builder().queueName(queueName).build();
 final String queueUrl = sqs.createQueue(request).join().queueUrl();
@@ -142,7 +141,7 @@ System.out.println("Queue is deleted, with statusCode " + code);
 
 Creating custom configuration via `SqsAsyncBatchManager.Builder`:
 
-```
+```java
 SqsAsyncBatchManager customizedBatchManager = SqsAsyncBatchManager.builder() 
     .client(sqs)
     .scheduledExecutor(Executors.newScheduledThreadPool(5))
