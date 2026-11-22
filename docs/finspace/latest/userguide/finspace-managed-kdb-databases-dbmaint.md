@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Database maintenance
-<a name="finspace-managed-kdb-databases-dbmaint"></a>
 
 Amazon FinSpace Managed kdb allows you to perform schema changes to your database like adding a new column, updating a column type, and renaming columns, etc. You can perform the database maintenance operations by creating a general purpose cluster with a writable dataview. A writable dataview allows you to make updates to your kdb database locally on a cluster. To avoid caching the whole kdb database on a cluster, you can enable on-demand caching for your dataview segments. The dataview will only load the filesystem metadata of your database files for the segments with on-demand caching and loads the actual file content as they are accessed by a database maintenance operation. 
 

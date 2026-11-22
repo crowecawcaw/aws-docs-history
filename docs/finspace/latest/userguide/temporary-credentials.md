@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Temporary credentials in Amazon FinSpace
-<a name="temporary-credentials"></a>
 
 Amazon FinSpace has an internal application authorization model that controls access to the functions in FinSpace and the FinSpace API operations. In order to use the FinSpace API operations, you must first obtain temporary security credentials, which are used when you call these API operations. These credentials are unique for each user and are only valid for 60 minutes. After the credentials expire, you need to obtain new credentials before making subsequent API calls.
 
@@ -24,7 +23,7 @@ You can obtain credentials from the web application if you're one of the followi
 
 1. Use these copied credentials to access the FinSpace data API operations.
 
-   ```
+   ```python
     #!/usr/bin/env python
    
     import boto3
@@ -86,7 +85,7 @@ You can also enable programmatic access for a user by using the `[CreateUser](ht
 
 **Example JSON for the `CreateUser` API operation**
 
-```
+```json
 {
     "emailAddress": "testemail1@amazon.com",
     "type": "APP_USER",
@@ -99,7 +98,7 @@ You can also enable programmatic access for a user by using the `[CreateUser](ht
 
  **Example JSON for the `UpdateUser` API operation**
 
-```
+```json
 {
     "type": "SUPER_USER",
     "firstName": "test",

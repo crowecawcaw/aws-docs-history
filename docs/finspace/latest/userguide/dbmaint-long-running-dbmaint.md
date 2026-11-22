@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Performing database maintenance
-<a name="dbmaint-long-running-dbmaint"></a>
 
 After you create a writeable dataview, you create a scaling group general purpose cluster to run a long-running database maintenance script. For this, you use the cluster `initializationScript` attribute. The database maintenance script could run for multiple hours without being terminated. When database maintenance script is running, monitor the cluster logs for progress and any errors from the database maintenance script. After the database maintenance script completes, connect to the cluster to verify the updated kdb database and commit changes to the underlying kdb database by using the `commit_kx_database` q API. You can also automate these steps in your database maintenance script itself. 
 

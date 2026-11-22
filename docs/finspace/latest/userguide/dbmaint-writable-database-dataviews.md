@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Setting up for database maintenance
-<a name="dbmaint-writable-database-dataviews"></a>
 
 To perform the database maintenance operations, you need a writeable shallow copy of a database . A writable shallow copy of a kdb database only loads the metadata of your database files to make them visible on the file system and loads the actual file content as they are accessed. To optimise time and memory utilization, it is recommended not to load file content initially, as not all files may be necessary for a database maintenance operation. For instance, in the case of renaming a table, no files are read or updated directly. 
 

@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Managed kdb volumes
-<a name="finspace-managed-kdb-volumes"></a>
 
 Volumes are managed storage that resides in your Managed kdb Insights environment and can be associated with clusters for storage of data such as TickerPlant (TP) logs, Real-time Database (RDB) savedown files, and temporary storage on General purpose (GP) type clusters. Volumes can also be used by dataview to store copies of your database of disk for fast access when reading data from a database. You can also use volumes to share data between RDB and Intra-day DB (IDB).
 

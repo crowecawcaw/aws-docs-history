@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Fill and filter operations in Amazon FinSpace
-<a name="time-series-fill-filter.title"></a>
 
 **Important**  
 Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
@@ -13,7 +12,7 @@ The data produced after summarizing bars could have missing bars where no data w
 ## Fill and filter functions
 <a name="_fill_and_filter_functions"></a>
 
-```
+```python
  aws.finspace.timeseries.spark.prepare.time_bar_fill_and_filter(data, timebar_column_name, business_calendar, time-bar_spec, start_date,
    end_date, fill_value=None, start_time=None, end_time=None)
 ```
@@ -45,14 +44,14 @@ Use the calendar module for defining a calendar schedule to be used in fill and 
 ### Abstract calendar
 <a name="_abstract_calendar"></a>
 
-```
+```python
 class aws.finspace.finance.calendars.AbstractCalendar
 Bases: object
 ```
 
 Defines abstract class for calendars.
 
-```
+```python
 DISRUPTIONS = 'DISRUPTIONS'
 EARLY_CLOSINGS = 'EARLY_CLOSING'
 EARLY_CLOSING_TIME = datetime.time(13, 30)
@@ -65,7 +64,7 @@ TZINFO ='TZINFO'
 ### Create schedule
 <a name="_create_schedule"></a>
 
-```
+```python
 create_schedule_from_to(from_date, to_date, time_bar_spec_window_duration, from_time=None, to_time=None, tzinfo=<UTC>)
 Abstract method, provide override
 ```
@@ -90,14 +89,14 @@ Returns raw calendar data
 ### NYSE calendar
 <a name="_nyse_calendar"></a>
 
-```
+```python
 class aws.finspace.finance.calendars.NYSECalendar20192020
 Bases: aws.finspace.finance.calendars.USEndOfDayCalendarActAct_NoWeekends
 ```
 
 Returns a holiday calendar with no weekends, and according to the NYSE exchange trading holidays and half-days for [2019](https://www.tradinghours.com/exchanges/nyse/market-holidays/2019) and [2020](https://www.tradinghours.com/exchanges/nyse/market-holidays/2020).
 
-```
+```python
 create_schedule_from_to(from_date, to_date, time_bar_spec_window_duration, from_time=None, to_time=None)
 ```
 
@@ -120,14 +119,14 @@ Returns raw calendar data
 ### End of day calendar actual
 <a name="_end_of_day_calendar_actual"></a>
 
-```
+```python
 class aws.finspace.finance.calendars.USEndOfDayCalendarActAct_NoWeekends
 Bases: aws.finspace.finance.calendars.AbstractCalendar
 ```
 
 Return 30/360 calendar, without weekends, without exchange hours.
 
-```
+```python
 create_schedule_from_to(from_date, to_date, time_bar_spec_window_duration, from_time=None, to_time=None)
 ```
 

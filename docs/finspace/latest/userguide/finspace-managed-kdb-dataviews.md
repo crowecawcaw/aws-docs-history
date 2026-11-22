@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Dataviews for querying data
-<a name="finspace-managed-kdb-dataviews"></a>
 
 Dataviews allow you to place portions of your Managed kdb Insights object store database onto disk for faster read-only access from your kdb clusters. To your kdb process, the dataview looks like a kdb segmented database, with data placed across one or more disk mounts (volumes) and the object store. This lets you place frequently-queried data on a fast-access disk for more performant access while keeping the rest of the data in the object store layer for less frequent access. With dataviews, the golden copy of your database’s data still remains in the object store format. The data stored on disk for faster access is a copy.
 

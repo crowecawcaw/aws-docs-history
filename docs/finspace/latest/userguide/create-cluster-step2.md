@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Step 2: Add code
-<a name="create-cluster-step2"></a>
 
 You can load q code onto your kdb cluster so that you can run it when the cluster is running. Additionally, you can configure your cluster to automatically run a particular q command script on cluster startup. By default, q writes files uncompressed. You can pass command line arguments to set compression defaults `.z.d` at the time of creating a cluster from the console or through CLI, which can be updated later.
 

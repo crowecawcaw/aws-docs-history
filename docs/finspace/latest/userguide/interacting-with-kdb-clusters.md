@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Interacting with a kdb cluster
-<a name="interacting-with-kdb-clusters"></a>
 
 To run commands on a Managed kdb Insights cluster, you must establish a q connection to a cluster endpoint or individual node in a cluster. If you don’t care which node in the cluster your connection is established with, use the cluster endpoint. The endpoint is an IP address (elastic network interface) that resides in your account. This provides a simple way to connect for a single-node cluster and for other scenarios. 
 
@@ -74,7 +73,7 @@ Next, using their IAM credentials, connecting users will request a SigV4 signed 
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -101,7 +100,7 @@ Next, using their IAM credentials, connecting users will request a SigV4 signed 
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Managed kdb Insights clusters
-<a name="finspace-managed-kdb-clusters"></a>
 
 A FinSpace Managed kdb Insights cluster is a set of compute resources that run kdb processes in a FinSpace Managed kdb environment. By using FinSpace Managed kdb clusters, you can easily set up your own private managed data processing and analytics hub for capital markets data. This provides access to real-time and historical data along with high-performance analytics.
 

@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Working with Spark clusters in Amazon FinSpace
-<a name="working-with-Spark-clusters"></a>
 
 **Important**  
 Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
@@ -28,7 +27,7 @@ You are charged by the minute for using the Spark clusters. Terminate your Spark
 
 Use the following code to import the cluster management library in a notebook.
 
-```
+```python
 %local
 from aws.finspace.cluster import FinSpaceClusterManager
 ```
@@ -38,7 +37,7 @@ from aws.finspace.cluster import FinSpaceClusterManager
 
 ****Use the following code to start and connect your notebook to a Spark cluster.
 
-```
+```python
 %local
 from aws.finspace.cluster import FinSpaceClusterManager
 
@@ -48,7 +47,7 @@ finspace_clusters.auto_connect()
 
 For a newly created cluster, the output should be similar to the following.
 
-```
+```python
 Cluster is starting. It will be operational in approximately 5 to 8 minutes
 Started cluster with cluster ID: 8x6zd9cq and state: STARTING
 ......
@@ -73,14 +72,14 @@ You can expect a startup time of about 5 to 8 minutes when instantiating a clust
 
  **Use the following code to list the Spark cluster name and details** 
 
-```
+```python
 %local
 finspace_clusters.list()
 ```
 
 The output should be similar to the following output.
 
-```
+```python
 {'clusters': [{'clusterId': '8x6zd9cq',
    'clusterStatus': {'state': 'RUNNING',
     'reason': 'Started successfully',
@@ -114,14 +113,14 @@ Scale your Spark cluster up or down based on your compute needs and the volume o
 
 1. Type the following code to update your cluster to a **Large** size.
 
-   ```
+   ```python
    %local
    finspace_clusters.update('8x6zd9cq','Large')
    ```
 
    The output will look like below
 
-   ```
+   ```python
    {'clusterId': '8x6zd9cq',
     'clusterStatus': {'state': 'UPDATING', 'reason': 'Initiated by user'}}
    ```
@@ -130,7 +129,7 @@ Scale your Spark cluster up or down based on your compute needs and the volume o
 
 1. Check the status of the update operation using the `list()` function.
 
-   ```
+   ```python
    {'clusters': [{'clusterId': '8x6zd9cq',
       'clusterStatus': {'state': 'UPDATING',
        'reason': 'Initiated by user',
@@ -154,7 +153,7 @@ Terminate your Spark cluster once your work is done, so that you don't incur add
 
 1. Type the following code to terminate a cluster.
 
-   ```
+   ```python
    %local
    finspace_clusters.terminate('8x6zd9cq')
    ```

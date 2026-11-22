@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Updating code configurations on a running cluster
-<a name="update-cluster-code"></a>
 
 Amazon FinSpace allows you to update code configurations on a running cluster. You can either use the console or the [UpdateKxClusterCodeConfiguration](https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxClusterCodeConfiguration) API to update the code. Both console and API allow you to choose how you want to update the code on a cluster by using different deployment modes. Based on the option you choose, you can reduce the time it takes to update the code on to a cluster. You can also add or delete default compression parameters for your files by using command-line arguments.
 

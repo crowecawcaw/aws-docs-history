@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Access datasets from a notebook
-<a name="access-datasets-notebook"></a>
 
 **Important**  
 Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
@@ -33,7 +32,7 @@ In order to use notebooks and Spark clusters, you must be a superuser or a membe
 
 1. Run the following code from your notebook to instantiate a cluster and connect the FinSpace PySpark image to the cluster.
 
-   ```
+   ```python
    %local
    from aws.finspace.cluster import FinSpaceClusterManager
    
@@ -43,7 +42,7 @@ In order to use notebooks and Spark clusters, you must be a superuser or a membe
 
    The output should be similar to the following output
 
-   ```
+   ```python
    Cluster is starting. It will be operational in approximately 5 to 8 minutes
    Started cluster with cluster ID: 8x6zd9cq and state: STARTING
    ......
@@ -75,14 +74,14 @@ Without the `%local` at the beginning of the cell, your code will be executed on
 
 1. Initialize dataset ID and data view ID in the notebook.
 
-   ```
+   ```python
    dataset_id    = "rgg1hj1"
    data_view_id  = "VrvKEKnA1El2nr821BaLTQ"
    ```
 
 1. Instantiate FinSpace Analytics Manager to access the data and read into a Spark DataFrame.
 
-   ```
+   ```python
    from aws.finspace.analytics import FinSpaceAnalyticsManager
    finspace_analytics = FinSpaceAnalyticsManager(Spark = Spark)
    

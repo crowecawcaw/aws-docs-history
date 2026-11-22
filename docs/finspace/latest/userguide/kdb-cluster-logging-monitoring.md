@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Logging and monitoring
-<a name="kdb-cluster-logging-monitoring"></a>
 
 Amazon FinSpace provides a variety of Amazon CloudWatch metrics that you can monitor to determine the health and performance of your FinSpace resources and instances. You can view these metrics using various tools, including the FinSpace console, the AWS CLI, the Amazon CloudWatch console.
 

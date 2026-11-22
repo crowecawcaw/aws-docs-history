@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Tutorial: Configuring and validating outbound network connectivity through transit gateway
-<a name="tutorial-outbound-ntw-tgw"></a>
 
 Amazon FinSpace Managed kdb environment allows you to connect to kdb or q processes in your account through transit gateway, without going over the internet. This section demonstrates how to setup outbound network connectivity from FinSpace Managed kdb environment to your virtual private cloud (VPC) and validate connectivity from an RDB cluster to a q process on an Amazon EC2 instance in your network.
 

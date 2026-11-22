@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Step 2: Adding DNS details to your network connection
-<a name="step2-dns-details"></a>
 
 The **Network** tab on the Kdb environments details page allows you to add custom DNS server name and IP address. This is used when you have a custom DNS server that you want to query for internal host names. The DNS server IP is used for DNS resolution of queries. 
 

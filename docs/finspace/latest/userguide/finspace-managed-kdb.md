@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Managed kdb Insights
-<a name="finspace-managed-kdb"></a>
 
 Amazon FinSpace with Managed kdb Insights provides a fully managed service for the latest version of kdb’s analytics engine. Kdb Insights is the leading time-series analytics engine used by capital markets customers to power their business-critical analytics workloads, such as liquidity insights, pricing, transaction cost analysis, and back-testing. 
 

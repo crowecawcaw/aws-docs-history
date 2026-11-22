@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Updating a kdb cluster database
-<a name="update-kdb-clusters-databases"></a>
 
 You can update the databases mounted on a kdb cluster using the console. This feature is only available for HDB clusters types. With this feature, you can update the data in a cluster by selecting a changeset. You can also update the cache by providing database paths. You can't change a database name or add a new database if you created a cluster without one. 
 

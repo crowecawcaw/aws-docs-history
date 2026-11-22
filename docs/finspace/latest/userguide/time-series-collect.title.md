@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Collect time bars operations in Amazon FinSpace
-<a name="time-series-collect.title"></a>
 
 **Important**  
 Amazon FinSpace Dataset Browser will be discontinued on {{March 26, 2025}}. Starting {{November 29, 2023}}, FinSpace will no longer accept the creation of new Dataset Browser environments. Customers using [Amazon FinSpace with Managed Kdb Insights](https://aws.amazon.com/finspace/features/managed-kdb-insights/) will not be affected. For more information, review the [FAQ](https://aws.amazon.com/finspace/faqs/) or contact [AWS Support](https://aws.amazon.com/contact-us/) to assist with your transition.
@@ -13,7 +12,7 @@ The objective of functions at this stage is to collect the series of events that
 ## Compute analytics on features
 <a name="_compute_analytics_on_features"></a>
 
-```
+```python
 aws.finspace.timeseries.spark.windows.compute_analytics_on_features(data, new_column, func, partition_col_list=None, add_intermediate=False)
 ```
 
@@ -34,7 +33,7 @@ Appends to data Dataframe, a new column whose value is computed by executing pan
 ## Compute features on time bars
 <a name="_compute_features_on_time_bars"></a>
 
-```
+```python
 aws.finspace.timeseries.spark.windows.compute_features_on_time_bars(data, new_column, func, force_ordering=False,*ordering_cols)
 ```
 
@@ -54,7 +53,7 @@ Reduces data by applying function preserving all other columns.
 ## Create time bars
 <a name="_create_time_bars"></a>
 
-```
+```python
 aws.finspace.timeseries.spark.windows.create_time_bars(data, timebar_column, grouping_col_list, input_spec, timebar_spec, force_ordering=False)
 ```
 
@@ -78,7 +77,7 @@ Appends a column to the data frame in data with a rolling window of data. An opt
 ### Bar input spec
 <a name="_bar_input_spec"></a>
 
-```
+```python
 class aws.finspace.timeseries.spark.spec.BarInputSpec(bar_structure_name, *bar_value_columns)
 ```
 
@@ -89,7 +88,7 @@ This class is responsible for modeling the input specification of bar operations
 ### Calc input spec
 <a name="_calc_input_spec"></a>
 
-```
+```python
 class aws.finspace.timeseries.spark.spec.CalcInputSpec(timestamp_column, holiday_calendar=<aws.finspace.finance.calendars.USEndOfDayCalenobject>, **kwargs_func_to_column)`
 ```
 
@@ -100,7 +99,7 @@ This class is responsible for modeling the input specification of calculation op
 ### Time bar spec
 <a name="_time_bar_spec"></a>
 
-```
+```python
 class aws.finspace.timeseries.spark.spec.TimeBarSpec(timestamp_column, window_duration, slide_duration=None, start_time=None)
 ```
 

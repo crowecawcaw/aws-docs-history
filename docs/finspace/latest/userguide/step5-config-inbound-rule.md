@@ -3,7 +3,6 @@
 After careful consideration, we decided to end support for Amazon FinSpace, effective October 7, 2026. Amazon FinSpace will no longer accept new customers beginning October 7, 2025. As an existing customer with an Amazon FinSpace environment created before October 7, 2025, you can continue to use the service as normal. After October 7, 2026, you will no longer be able to use Amazon FinSpace. For more information, see [Amazon FinSpace end of support](https://docs.aws.amazon.com/finspace/latest/userguide/amazon-finspace-end-of-support.html). 
 
 # Step 5: Configuring security group inbound rules
-<a name="step5-config-inbound-rule"></a>
 
 After you set up routing, you need to add inbound rule for the default security group to allow inbound traffic. The default security group comes with your AWS account. For more information, see [Default security groups](https://docs.aws.amazon.com/vpc/latest/userguide/default-security-group.html) in the *Amazon VPC User Guide*. 
 
