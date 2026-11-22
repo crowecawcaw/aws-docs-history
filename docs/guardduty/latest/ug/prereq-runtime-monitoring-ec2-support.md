@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Amazon EC2 instance support
-<a name="prereq-runtime-monitoring-ec2-support"></a>
 
 This section includes the prerequisites for monitoring runtime behavior of your Amazon EC2 instances. After these prerequisites are met, see [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md).
 

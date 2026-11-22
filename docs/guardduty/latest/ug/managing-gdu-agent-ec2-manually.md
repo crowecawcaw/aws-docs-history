@@ -1,7 +1,6 @@
 
 
 # Managing security agent manually for Amazon EC2 resource
-<a name="managing-gdu-agent-ec2-manually"></a>
 
 This section provides the steps to manually install and update the security agent for your Amazon EC2 resources.
 

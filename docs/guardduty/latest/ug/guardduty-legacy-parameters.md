@@ -1,7 +1,6 @@
 
 
 # GuardDuty legacy actions and parameters
-<a name="guardduty-legacy-parameters"></a>
 
 Amazon GuardDuty has deprecated the some of the API actions and parameters but still supports them. The best practice is to use the new API actions and parameters that replace the legacy options. The following table compares the legacy and new actions and parameters.
 

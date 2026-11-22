@@ -1,7 +1,6 @@
 
 
 # Understanding and generating Amazon GuardDuty findings
-<a name="guardduty_findings"></a>
 
 A GuardDuty finding represents a potential security issue detected within AWS accounts, workloads, and data. GuardDuty generates a finding whenever it detects unexpected and potentially malicious activity in your AWS environment.
 

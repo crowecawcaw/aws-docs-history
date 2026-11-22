@@ -1,7 +1,6 @@
 
 
 # Troubleshooting RDS Protection monitoring issues
-<a name="troubleshooting-rds-protection-guardduty"></a>
 
 GuardDuty RDS Protection analyzes and profiles your RDS login activity for potential access threats to the [Supported databases](rds-protection.md#rds-pro-supported-db). To collect security telemetry effectively, GuardDuty requires your database configured and operating without issues. If your database is misconfigured or experiencing issues, then security monitoring may be impacted. 
 

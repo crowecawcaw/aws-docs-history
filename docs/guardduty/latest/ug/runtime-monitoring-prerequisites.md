@@ -1,7 +1,6 @@
 
 
 # Prerequisites to enabling Runtime Monitoring
-<a name="runtime-monitoring-prerequisites"></a>
 
 To enable Runtime Monitoring and manage the GuardDuty security agent, you must meet the prerequisites for each resource type that you want to monitor for threat detection. Each resource type has different prerequisites. For example, GuardDuty supports different OS distributions based on the resource type.
 

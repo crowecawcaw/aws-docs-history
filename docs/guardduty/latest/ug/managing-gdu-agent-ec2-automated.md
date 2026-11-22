@@ -1,7 +1,6 @@
 
 
 # Enabling automated security agent for Amazon EC2 instance
-<a name="managing-gdu-agent-ec2-automated"></a>
 
 This section includes steps to enable GuardDuty automated agent for your Amazon EC2 resources in your standalone account or a multiple-account environment. 
 

@@ -1,7 +1,6 @@
 
 
 # GuardDuty Runtime Monitoring
-<a name="runtime-monitoring"></a>
 
 **Note**  
 You can configure Runtime Monitoring along with all other protection plans from a single page in the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md).

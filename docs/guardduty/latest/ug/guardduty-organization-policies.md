@@ -1,7 +1,6 @@
 
 
 # Managing accounts using organization policies
-<a name="guardduty-organization-policies"></a>
 
 A GuardDuty organization policy lets you centrally enable and manage Amazon GuardDuty across the accounts in your organization. You use an AWS Organizations declarative policy to specify which organizational entities (the organization root, organizational units (OUs), or individual accounts) have the GuardDuty foundational detector and its protection plans automatically enabled and managed through the delegated GuardDuty administrator account. Accounts that join the organization, or move into an OU that has an attached policy, inherit the policy and have GuardDuty and its protection plans configured according to what the effective policy defines for them.
 

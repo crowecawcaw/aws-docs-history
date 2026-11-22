@@ -1,7 +1,6 @@
 
 
 # Filter lifecycle metadata
-<a name="filter-lifecycle-metadata"></a>
 
 When you retrieve filter details using the [GetFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetFilter.html) API, you can view lifecycle metadata fields. These fields show when a filter was created and how many times it has been modified.
 

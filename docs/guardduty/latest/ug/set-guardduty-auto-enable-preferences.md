@@ -1,7 +1,6 @@
 
 
 # Setting organization auto-enable preferences
-<a name="set-guardduty-auto-enable-preferences"></a>
 
 The auto-enable organization feature in GuardDuty helps you set the same GuardDuty and protection plans status for `ALL` existing or `NEW` member accounts in your organization, in a single step. Similarly, you can also specify when you don't want to take any action on the member accounts, by choosing `NONE`. The following steps explain these settings and also indicate when you would want to use a specific setting.
 

@@ -1,7 +1,6 @@
 
 
 # GuardDuty IAM finding types
-<a name="guardduty_finding-types-iam"></a>
 
 The following findings are specific to IAM entities and access keys and always have a **Resource Type** of `AccessKey`. The severity and details of the findings differ based on the finding type.
 

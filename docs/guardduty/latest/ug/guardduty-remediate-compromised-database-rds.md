@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised database
-<a name="guardduty-remediate-compromised-database-rds"></a>
 
 GuardDuty generates [RDS Protection finding types](findings-rds-protection.md) that indicate potentially suspicious and anomalous login behavior in your [Supported databases](rds-protection.md#rds-pro-supported-db) after you enable [RDS Protection](rds-protection.md). Using RDS login activity, GuardDuty analyzes and profiles threats by identifying unusual patterns in login attempts.
 

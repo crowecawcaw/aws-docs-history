@@ -1,7 +1,6 @@
 
 
 # Disabling EKS Runtime Monitoring after migrating to Runtime Monitoring
-<a name="disabling-eks-runtime-monitoring"></a>
 
 After you have ensured that the existing settings for your account or organization have been replicated to Runtime Monitoring, you can disable EKS Runtime Monitoring.
 

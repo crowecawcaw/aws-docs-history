@@ -1,7 +1,6 @@
 
 
 # Managing GuardDuty accounts with AWS Organizations
-<a name="guardduty_organizations"></a>
 
 In an AWS organization, the management account can designate any account within this organization as the delegated GuardDuty administrator account. For this administrator account, GuardDuty gets enabled automatically only in the current AWS Region. By default, the administrator account can enable and manage GuardDuty for all the member accounts in the organization within that Region. The administrator account can view and add members to this AWS organization.
 

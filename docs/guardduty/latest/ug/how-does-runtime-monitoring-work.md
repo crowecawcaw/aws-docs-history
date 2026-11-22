@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="how-does-runtime-monitoring-work"></a>
 
 Runtime Monitoring uses a lightweight security agent to observe the runtime behavior of your Amazon EC2, Amazon EKS, and Amazon ECS on Fargate workloads and detect threats. It works end to end as follows:
 

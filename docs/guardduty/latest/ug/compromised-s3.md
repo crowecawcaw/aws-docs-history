@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised S3 bucket
-<a name="compromised-s3"></a>
 
 When GuardDuty generates [GuardDuty S3 Protection finding types](guardduty_finding-types-s3.md), it indicates that your Amazon S3 buckets have been compromised. If the behavior that caused the finding was expected in your environment, then consider creating [Suppression rules](findings_suppression-rule.md). If this behavior was not expected, then follow these recommended steps to remediate a potentially compromised Amazon S3 bucket in your AWS environment:
 

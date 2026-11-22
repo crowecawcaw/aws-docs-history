@@ -1,7 +1,6 @@
 
 
 # Managing security agent automatically for Amazon EKS resources
-<a name="managing-gdu-agent-eks-automatically"></a>
 
 Runtime Monitoring supports enabling the security agent through GuardDuty automated configuration and manually. This section provides the steps to enable automated agent configuration for Amazon EKS clusters.
 

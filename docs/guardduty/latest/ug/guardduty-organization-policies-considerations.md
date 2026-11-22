@@ -1,7 +1,6 @@
 
 
 # Considerations and limitations
-<a name="guardduty-organization-policies-considerations"></a>
 
 Keep the following in mind when you plan and manage GuardDuty organization policies:
 + **A policy applies only to accounts in AWS Organizations.** An organization policy can manage GuardDuty only in accounts that belong to your organization through AWS Organizations. It cannot manage accounts that are not part of your organization, such as accounts associated only by the legacy invitation method. Manage GuardDuty in those accounts separately, from the delegated GuardDuty administrator account account or in each account. For more information about the two association methods, see [Managing multiple accounts in Amazon GuardDuty](guardduty_accounts.md).

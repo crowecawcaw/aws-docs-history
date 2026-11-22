@@ -1,7 +1,6 @@
 
 
 # ECR repository for GuardDuty agent on ECS-EC2 Bottlerocket
-<a name="ecs-ec2-bottlerocket-runtime-agent-ecr-image-uri"></a>
 
 On Bottlerocket Amazon ECS-Amazon EC2 instances, the GuardDuty security agent runs as a host container. The agent container image is hosted in Amazon ECR. For information about prerequisites including network connectivity and required IAM permissions, see [Prerequisites for ECS-EC2 Bottlerocket support](prereq-runtime-monitoring-ecs-ec2-bottlerocket-support.md). The instance profile must include the `AmazonSSMManagedInstanceCore` and `AmazonEC2ContainerRegistryReadOnly` managed policies.
 

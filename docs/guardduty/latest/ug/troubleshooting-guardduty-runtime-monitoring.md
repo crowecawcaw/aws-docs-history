@@ -1,7 +1,6 @@
 
 
 # Runtime Monitoring issues
-<a name="troubleshooting-guardduty-runtime-monitoring"></a>
 
 This section lists the errors that you may experience when setting up or using Runtime Monitoring.
 

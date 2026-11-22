@@ -1,7 +1,6 @@
 
 
 # Creating suppression rules in GuardDuty
-<a name="create-suppression-rules-guardduty"></a>
 
 A suppression rule is a set of criteria that includes using filter attributes and providing values for which you don't want GuardDuty to generate a finding type. The finding types that match this criteria are automatically archived. To reduce noise, the suppressed findings are not sent to any of the AWS services with which you may integrate. For more information about common use cases for creating suppression rules, see [Suppression rules](findings_suppression-rule.md).
 
@@ -63,7 +62,7 @@ You can also create a suppression rule from an existing saved filter. For more i
 
    The following example adds a filter for low severity findings for lambda functions with function name prefix "MyFunc" and function tag with prefix not as "TestTag" 
 
-   ```
+   ```JSON
    {
        "Criterion": {
            "service.action.dnsRequestAction.domain": {
@@ -84,7 +83,7 @@ You can also create a suppression rule from an existing saved filter. For more i
 
     You can create suppression rules using wildcard characters \* and ? . Wildcards in filters are supported using **Matches** and **NotMatches** operators only. To match any number of characters, you can use \* in the attribute value and to match a single character, you can use ? in the attribute value. Filters support a maximum of 5 attributes under a single wildcard condition and a maximum of 5 wildcard character within a single attribute. The following example adds a filter for Lambda name matching the prefix “MyFunc" but not Lambda functions with tags with "TestTag" as prefix followed by 0-2 characters. 
 
-   ```
+   ```JSON
    {
        "Criterion": {
            "resource.lambdaDetails.functionName": {

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Amazon EKS cluster support
-<a name="prereq-runtime-monitoring-eks-support"></a>
 
 This section includes the prerequisites for monitoring runtime behavior of your Amazon EKS resources. These prerequisites are crucial for the GuardDuty agent to function as expected. After these prerequisites are met, see [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md) to start monitoring your resources.
 
@@ -34,6 +33,7 @@ The following table shows the Kubernetes versions for your EKS clusters that are
 
 | Amazon EKS add-on GuardDuty security agent version | Kubernetes version | 
 | --- | --- | 
+| v1.17.4 (latest - v1.17.4-eksbuild.2) | 1.31 - 1.37 | 
 | v1.17.3 (latest - v1.17.3-eksbuild.2) | 1.31 - 1.36 | 
 | v1.17.1 (latest - v1.17.1-eksbuild.2) | 1.31 - 1.36 | 
 | v1.16.0 (latest - v1.16.0-eksbuild.2) | 1.28 - 1.36 | 

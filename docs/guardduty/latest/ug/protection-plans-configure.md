@@ -1,7 +1,6 @@
 
 
 # Configuring all protection plans
-<a name="protection-plans-configure"></a>
 
 To configure protection plans from the unified page, use the following steps:
 

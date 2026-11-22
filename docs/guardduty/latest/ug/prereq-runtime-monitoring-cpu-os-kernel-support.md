@@ -1,7 +1,6 @@
 
 
 # Supported CPU architectures, operating systems, and kernel versions
-<a name="prereq-runtime-monitoring-cpu-os-kernel-support"></a>
 
 This section consolidates the CPU architectures, OS distributions, and kernel versions that have been verified to support the GuardDuty security agent. Unless a resource type is called out separately, these requirements apply to Runtime Monitoring for Amazon EC2 instances, AWS Fargate (Amazon ECS only), and Amazon EKS clusters.
 

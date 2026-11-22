@@ -1,7 +1,6 @@
 
 
 # Remediating EKS Protection findings
-<a name="guardduty-remediate-kubernetes"></a>
 
 Amazon GuardDuty generates [findings](guardduty_findings.md) that indicate potential Kubernetes security issues when EKS Protection is enabled for your account. For more information, see [EKS Protection](kubernetes-protection.md). The following sections describe the recommended remediation steps for these scenarios. Specific remediation actions are described in the entry for that specific finding type. You can access the full information about a finding type by selecting it from the [Active findings types table](guardduty_finding-types-active.md).
 

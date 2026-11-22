@@ -1,7 +1,6 @@
 
 
 # Enabling Runtime Monitoring
-<a name="runtime-monitoring-enablement"></a>
 
 Enabling Runtime Monitoring is a two-step process:
 

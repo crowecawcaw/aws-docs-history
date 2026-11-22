@@ -1,7 +1,6 @@
 
 
 # Suspending GuardDuty for member account
-<a name="suspending-guardduty-member-account-from-admin"></a>
 
 As a delegated GuardDuty administrator account, you can suspend the GuardDuty service for a member account in your organization. If you do this, the member account stills stays in your GuardDuty organization. You can also re-enable GuardDuty for these member accounts at a later time. However, if you eventually want to disassociate (remove) this member account, then **after** following the steps in this section, you must follow the steps in [Disassociating (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md).
 

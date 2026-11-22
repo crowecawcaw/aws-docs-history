@@ -1,7 +1,6 @@
 
 
 # Runtime coverage and troubleshooting for Amazon EC2 instance
-<a name="gdu-assess-coverage-ec2"></a>
 
 For an Amazon EC2 resource, the runtime coverage is evaluated at the instance level. Coverage for Amazon EC2 also reflects the instance-level status for Amazon ECS clusters running on Amazon EC2 instances.
 
@@ -92,7 +91,7 @@ In an EventBridge rule, you can use the pre-defined sample events and event patt
 
 Additionally, you can create a custom event pattern by using the following example notification schema. Make sure to replace the values for your account. To get notified when the coverage status of your Amazon EC2 instance changes from `Healthy` to `Unhealthy`, the `detail-type` should be {{GuardDuty Runtime Protection Unhealthy}}. To get notified when the coverage status changes from `Unhealthy` to `Healthy`, replace the value of `detail-type` with {{GuardDuty Runtime Protection Healthy}}.
 
-```
+```JSON
 {
   "version": "0",
   "id": "event ID",

@@ -1,7 +1,6 @@
 
 
 # Auto-enable options
-<a name="protection-plans-auto-enable"></a>
 
 Each protection plan provides the following auto-enable options for organization accounts:
 

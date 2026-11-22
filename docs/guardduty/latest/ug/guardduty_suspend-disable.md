@@ -1,7 +1,6 @@
 
 
 # Suspending or disabling GuardDuty
-<a name="guardduty_suspend-disable"></a>
 
 You can use the GuardDuty console to suspend or disable the GuardDuty service. You don't get charged for using GuardDuty when the service is suspended.
 + All member accounts must be disassociated or deleted before you can suspend or disable GuardDuty.

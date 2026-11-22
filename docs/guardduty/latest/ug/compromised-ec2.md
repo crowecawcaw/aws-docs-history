@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised Amazon EC2 instance
-<a name="compromised-ec2"></a>
 
 When GuardDuty generates [finding types that indicate potentially compromised Amazon EC2 resources](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html#findings-table), then your **Resource** will be **Instance**. Potential finding types could be [EC2 finding types](guardduty_finding-types-ec2.md), [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md), or [Malware Protection for EC2 finding types](findings-malware-protection.md). If the behavior that caused the finding was expected in your environment, then consider using [Suppression rules](findings_suppression-rule.md).
 

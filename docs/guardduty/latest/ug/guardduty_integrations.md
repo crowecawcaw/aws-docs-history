@@ -1,7 +1,6 @@
 
 
 # GuardDuty integrating with AWS security services
-<a name="guardduty_integrations"></a>
 
 GuardDuty can be integrated with other AWS security services. These services can ingest data from GuardDuty to allow you to view findings in new ways. Review the following integration options to learn more about how that service is set up to work with GuardDuty.
 

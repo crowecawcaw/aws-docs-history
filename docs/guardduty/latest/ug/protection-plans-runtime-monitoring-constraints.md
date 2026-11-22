@@ -1,7 +1,6 @@
 
 
 # Bidirectional constraints
-<a name="protection-plans-runtime-monitoring-constraints"></a>
 
 The Runtime Monitoring sub-features and infrastructure have the following relationships:
 

@@ -1,7 +1,6 @@
 
 
 # Feature names for protection plans in GuardDuty API
-<a name="guardduty-features-activation-model"></a>
 
 When you enable Amazon GuardDuty for the first time, it starts processing [Foundational data sources](guardduty_data-sources.md) within your AWS environment. GuardDuty uses these data sources to process an independent stream of events such as VPC flow logs, DNS logs, and AWS CloudTrail management events. It then analyzes these events to identify potential security threats and generates findings in your account.
 

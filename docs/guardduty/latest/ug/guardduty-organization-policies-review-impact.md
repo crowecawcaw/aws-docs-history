@@ -1,7 +1,6 @@
 
 
 # Reviewing a policy's impact before you apply it
-<a name="guardduty-organization-policies-review-impact"></a>
 
 Before you save a policy change that disables a protection plan, review which accounts and Regions currently have that protection plan enabled, so you understand what the change will turn off. Because a GuardDuty policy applies per Region, check the current enablement state per account and per Region.
 

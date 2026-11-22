@@ -1,7 +1,6 @@
 
 
 # Creating a policy in the console
-<a name="guardduty-organization-policies-create-console"></a>
 
 You create and manage GuardDuty policies from the delegated administrator account, on the **Organization policies** page in the GuardDuty console. Creating your first policy also enables the `GUARDDUTY_POLICY` policy type for your organization automatically.
 

@@ -1,7 +1,6 @@
 
 
 # Validating VPC endpoint configuration
-<a name="validate-vpc-endpoint-config-runtime-monitoring"></a>
 
 After you install the security agent manually or through GuardDuty automated configuration, you can use this document to validate that the VPC endpoint configuration. You can also use these steps after troubleshooting any [runtime coverage issue](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-assessing-coverage.html) for a resource type. You can ensure that the steps worked as expected and the coverage status would potentially show up as **Healthy**.
 

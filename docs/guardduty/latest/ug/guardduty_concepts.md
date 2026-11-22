@@ -1,7 +1,6 @@
 
 
 # Concepts and key terms in Amazon GuardDuty
-<a name="guardduty_concepts"></a>
 
 As you get started with Amazon GuardDuty, you can benefit from learning about its concepts and associated key terms.
 

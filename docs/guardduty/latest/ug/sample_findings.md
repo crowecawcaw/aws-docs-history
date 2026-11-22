@@ -1,7 +1,6 @@
 
 
 # Generating sample findings in GuardDuty
-<a name="sample_findings"></a>
 
 Amazon GuardDuty helps you generate sample findings to visualize and understand the various finding types that it can generate. When you generate sample findings, GuardDuty populates your current findings list with one sample for each supported finding type, including attack sequence finding types. 
 

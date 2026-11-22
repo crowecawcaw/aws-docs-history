@@ -1,7 +1,6 @@
 
 
 # GuardDuty AI Protection finding types
-<a name="findings-ai-protection"></a>
 
 When you enable AI Protection, GuardDuty analyzes AWS CloudTrail management events and data events from Amazon Bedrock and Amazon SageMaker AI. GuardDuty uses this data to detect potentially suspicious activity that targets your AI workloads. When GuardDuty detects a potential threat, it generates one of the following finding types. The `Resource type` for these findings is `AccessKey`, and the finding identifies the IAM identity that invoked the model.
 

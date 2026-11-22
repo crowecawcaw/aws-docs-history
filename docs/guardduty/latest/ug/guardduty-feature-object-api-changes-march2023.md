@@ -1,7 +1,6 @@
 
 
 # GuardDuty API changes in March 2023
-<a name="guardduty-feature-object-api-changes-march2023"></a>
 
 The GuardDuty APIs configure protection features that don't belong to the list of [GuardDuty foundational data sources](guardduty_data-sources.md). A feature object contains feature details, such as feature name and status, and may contain additional configuration for some of the protection plans. This migration affects the following APIs in the *Amazon GuardDuty API Reference*:
 + [CreateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateDetector.html)

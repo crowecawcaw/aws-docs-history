@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles for Amazon GuardDuty
-<a name="using-service-linked-roles"></a>
 
 Amazon GuardDuty uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role (SLR) is a unique type of IAM role that is linked directly to GuardDuty. Service-linked roles are predefined by GuardDuty and include all the permissions that GuardDuty requires to call other AWS services on your behalf. 
 

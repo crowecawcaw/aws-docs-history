@@ -1,7 +1,6 @@
 
 
 # Adding members to the organization
-<a name="add-member-accounts-guardduty-organization"></a>
 
 As a delegated GuardDuty administrator account, you can add one or more AWS accounts to the GuardDuty organization. When you add an account as a GuardDuty member, it will automatically have GuardDuty enabled in that Region. There is an exception to the organization management account. Before the management account account gets added as a GuardDuty member, it must have GuardDuty enabled.
 

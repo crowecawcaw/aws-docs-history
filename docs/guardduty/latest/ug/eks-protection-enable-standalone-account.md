@@ -1,7 +1,6 @@
 
 
 # Enabling EKS Protection for a standalone account
-<a name="eks-protection-enable-standalone-account"></a>
 
 A standalone account owns the decision to enable or disable a protection plan in their AWS account in a specific Region.
 

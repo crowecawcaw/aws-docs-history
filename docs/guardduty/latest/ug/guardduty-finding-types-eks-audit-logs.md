@@ -1,7 +1,6 @@
 
 
 # EKS Protection finding types
-<a name="guardduty-finding-types-eks-audit-logs"></a>
 
 The following findings are specific to Amazon EKS resources and have a **resource\_type** of `EKSCluster`. The severity and details of the findings differ based on finding type.
 

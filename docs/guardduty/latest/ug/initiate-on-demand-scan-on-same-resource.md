@@ -1,7 +1,6 @@
 
 
 # Re-scanning previously scanned Amazon EC2 instance
-<a name="initiate-on-demand-scan-on-same-resource"></a>
 
 Whether a scan is GuardDuty-initiated or started on-demand, you can start a new on-demand malware scan on the same Amazon EC2 instance after 1 hour from the start time of the previous malware scan. If the new malware scan gets started within 1 hour of initiation of the previous malware scan, your request will result in the following error, and no scan ID will get generated for this request.
 

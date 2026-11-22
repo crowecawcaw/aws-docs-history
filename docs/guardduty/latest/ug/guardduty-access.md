@@ -1,7 +1,6 @@
 
 
 # Accessing GuardDuty
-<a name="guardduty-access"></a>
 
 Amazon GuardDuty is available in most AWS Regions. For a list of Regions where GuardDuty is currently available, see [Regions and endpoints](guardduty_regions.md).
 

@@ -1,7 +1,6 @@
 
 
 # Remediating Runtime Monitoring findings
-<a name="guardduty-remediate-runtime-monitoring"></a>
 
 When you enable Runtime Monitoring for your account, Amazon GuardDuty may generate [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md) that indicate potential security issues in your AWS environment. The potential security issues indicate either a compromised Amazon EC2 instance, container workload, an Amazon EKS cluster, or a set of compromised credentials in your AWS environment. The security agent monitors runtime events from multiple resource types. To identify the potentially compromised resource, view **Resource type** in the generated finding details in the GuardDuty console. The following section describes the recommended remediation steps for each resource type. 
 

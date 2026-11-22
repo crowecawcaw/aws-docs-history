@@ -1,7 +1,6 @@
 
 
 # Configuring EKS Runtime Monitoring for a standalone account (API)
-<a name="eks-runtime-monitoring-configuration-standalone-acc"></a>
 
 A standalone account owns the decision to enable or disable a protection plan in their AWS account in a specific AWS Region. 
 

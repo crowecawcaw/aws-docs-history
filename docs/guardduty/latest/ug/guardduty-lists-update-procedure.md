@@ -1,7 +1,6 @@
 
 
 # Updating an entity list or IP address list
-<a name="guardduty-lists-update-procedure"></a>
 
 Entity lists and IP address lists help you customize the threat detection capabilities in GuardDuty. For more information about these lists, see [Understanding entity lists and IP address lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets).
 

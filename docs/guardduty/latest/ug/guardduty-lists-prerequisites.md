@@ -1,7 +1,6 @@
 
 
 # Setting up prerequisites for entity lists and IP address lists
-<a name="guardduty-lists-prerequisites"></a>
 
 GuardDuty uses entity lists and IP address lists to customize threat detection in your AWS environment. Entity lists (recommended) support both IP addresses and domain names, while IP address lists support only IP addresses. Before you begin creating these lists, you must add the required permissions for the type of list that you want to use.
 
@@ -20,7 +19,7 @@ If you don't already have the `s3:GetObject` permission for the S3 bucket locati
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -42,7 +41,7 @@ Various IAM identities require special permissions to work with trusted IP lists
 
 To grant various identities full access to working with trusted IP lists and threat lists (in addition to renaming and deactivating, this includes adding, activating, deleting, and updating the location or name of the lists), make sure that the following actions are present in the permissions policy attached to a user, group, or role: 
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -63,7 +62,7 @@ GuardDuty supports SSE-AES256 and SSE-KMS encryption for your lists. SSE-C is no
 
 Regardless of whether you use entity lists or IP lists, if you use SSE-KMS, then add the following statement to your AWS KMS key policy. Replace {{123456789012}} with your own account ID.
 
-```
+```json
 {
     "Sid": "AllowGuardDutyServiceRole",
     "Effect": "Allow",

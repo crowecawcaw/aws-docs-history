@@ -1,7 +1,6 @@
 
 
 # GuardDuty EC2 finding types
-<a name="guardduty_finding-types-ec2"></a>
 
 The following findings are specific to Amazon EC2 resources and always have a Resource Type of `Instance`. The severity and details of the findings differ based on the Resource Role, which indicates whether the EC2 resource was the target of suspicious activity or the actor performing the activity.
 

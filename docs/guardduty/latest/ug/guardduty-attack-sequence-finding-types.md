@@ -1,7 +1,6 @@
 
 
 # GuardDuty attack sequence finding types
-<a name="guardduty-attack-sequence-finding-types"></a>
 
 GuardDuty detects an attack sequence when a specific sequence of multiple actions aligns with a potentially suspicious activity. An attack sequence includes **signals** such as API activities and GuardDuty findings. When GuardDuty observes a group of signals in a specific sequence that indicates an in-progress, ongoing, or a recent security threat, GuardDuty generates an attack sequence finding. GuardDuty considers individual API activities as [weak signals](guardduty_concepts.md#guardduty-weak-signals-attack-sequence) because they don't present themselves as potential threat.
 

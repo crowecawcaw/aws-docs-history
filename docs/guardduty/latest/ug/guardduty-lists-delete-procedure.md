@@ -1,7 +1,6 @@
 
 
 # Deleting entity list or IP address list
-<a name="guardduty-lists-delete-procedure"></a>
 
 When you no longer want to keep a list entry in your entity set or IP address set, you can delete it. It might take a few minutes for the process to complete. For more information, see [Important considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations). 
 

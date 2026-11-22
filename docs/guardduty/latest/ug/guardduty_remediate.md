@@ -1,7 +1,6 @@
 
 
 # Remediating detected GuardDuty security findings
-<a name="guardduty_remediate"></a>
 
 Amazon GuardDuty generates [findings](guardduty_findings.md) that indicate potential security findings associated with GuardDuty foundational threat detection and dedicated protection plans. The following sections describe the recommended remediation steps for these scenarios. If there are alternative remediation scenarios, they will be described in the descriptions for each finding type. You can access the full information about a finding type by selecting it from the [Active findings types](guardduty_finding-types-active.md) table.
 

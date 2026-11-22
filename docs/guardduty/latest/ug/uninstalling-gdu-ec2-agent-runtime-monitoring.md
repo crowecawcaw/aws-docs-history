@@ -1,7 +1,6 @@
 
 
 # Uninstalling security agent manually for Amazon EC2 resources
-<a name="uninstalling-gdu-ec2-agent-runtime-monitoring"></a>
 
 This section provides methods to uninstall the GuardDuty security agent from your Amazon EC2 resources. When you manage the security agent manually, you're responsible for removing the agent from the resources. GuardDuty does not take any action on the resources that you manage.
 
@@ -50,12 +49,12 @@ When you installed the security agent with [Method 2 - Using Linux Package Manag
    The following command will uninstall the GuardDuty security agent from the Amazon EC2 instance to which you connect:
    + For RPM:
 
-     ```
+     ```bash
      sudo rpm -e amazon-guardduty-agent
      ```
    + For Debian:
 
-     ```
+     ```bash
      sudo dpkg --purge amazon-guardduty-agent
      ```
 

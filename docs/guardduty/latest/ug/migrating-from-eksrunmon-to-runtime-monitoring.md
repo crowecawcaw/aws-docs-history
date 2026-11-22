@@ -1,11 +1,10 @@
 
 
 # Migrating from EKS Runtime Monitoring to Runtime Monitoring
-<a name="migrating-from-eksrunmon-to-runtime-monitoring"></a>
 
 With the launch of GuardDuty Runtime Monitoring, the threat detection coverage has been expanded to Amazon ECS containers and Amazon EC2 instances. EKS Runtime Monitoring experience has now been consolidated into Runtime Monitoring. You can enable Runtime Monitoring and manage individual GuardDuty security agents for each resource type (Amazon EC2 instance, Amazon ECS cluster, and Amazon EKS cluster) for which you want to monitor the runtime behavior.
 
-GuardDuty has consolidated the console experience for EKS Runtime Monitoring into Runtime Monitoring. GuardDuty recommends [Checking EKS Runtime Monitoring configuration status](checking-eks-runtime-monitoring-enable-status.md) and [Migrating from EKS Runtime Monitoring to Runtime Monitoring](#migrating-from-eksrunmon-to-runtime-monitoring).
+GuardDuty has consolidated the console experience for EKS Runtime Monitoring into Runtime Monitoring. GuardDuty recommends [Checking EKS Runtime Monitoring configuration status](checking-eks-runtime-monitoring-enable-status.md) and [Migrating from EKS Runtime Monitoring to Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md).
 
 As a part of migrating to Runtime Monitoring, ensure to [Disable EKS Runtime Monitoring](disabling-eks-runtime-monitoring.md). This is important because if you later choose to disable Runtime Monitoring and you do not disable EKS Runtime Monitoring, you will continue incurring usage cost for EKS Runtime Monitoring.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting member accounts from GuardDuty organization
-<a name="delete-member-accounts-guardduty-organization"></a>
 
 As a delegated GuardDuty administrator account, after you have disassociated a member account and you no longer want to keep that member account in the GuardDuty organization, you can delete that member account from your GuardDuty organization. This member account will no longer appear in your account inventory. However, if GuardDuty was not suspended in this member account, the configuration of GuardDuty and dedicated protection plans remains the same. This account will now become a standalone account and can [disable GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) themselves. 
 

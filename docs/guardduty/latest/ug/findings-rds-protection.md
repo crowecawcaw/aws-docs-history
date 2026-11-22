@@ -1,7 +1,6 @@
 
 
 # GuardDuty RDS Protection finding types
-<a name="findings-rds-protection"></a>
 
 GuardDuty RDS Protection detects anomalous login behavior on your database instance. The following findings are specific to the [Supported Amazon Aurora, Amazon RDS, and Aurora Limitless databases](rds-protection.md#rds-pro-supported-db) and will have a **Resource Type** of `RDSDBInstance` or `RDSLimitlessDB`. The severity and details of the findings will differ based on the finding type.
 

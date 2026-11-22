@@ -1,7 +1,6 @@
 
 
 # Enabling Lambda Protection in multiple-account environments
-<a name="configure-lambda-protection-multi-acc-env"></a>
 
 In a multi-account environment, only the delegated GuardDuty administrator account has the option to enable or disable Lambda Protection for the member accounts in their organization. The GuardDuty member accounts can't modify this configuration from their accounts. The delegated GuardDuty administrator account manages member accounts using AWS Organizations. The delegated GuardDuty administrator account can choose to auto-enable Lambda Network Activity Monitoring for all the new accounts as they join the organization. For more information about multiple-account environments, see [Managing multiple accounts in Amazon GuardDuty.](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html)
 

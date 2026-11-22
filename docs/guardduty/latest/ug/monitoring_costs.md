@@ -1,7 +1,6 @@
 
 
 # Monitoring GuardDuty Usage and Estimating Costs
-<a name="monitoring_costs"></a>
 
 GuardDuty provides usage metrics that track the processing of protection plans data sources logs/events and GuardDuty Runtime monitored VCPUs over time.
 

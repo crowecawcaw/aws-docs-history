@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon GuardDuty
-<a name="troubleshooting"></a>
 
 When you receive issues related to performing an action specific to GuardDuty, consult the topics in this section.
 

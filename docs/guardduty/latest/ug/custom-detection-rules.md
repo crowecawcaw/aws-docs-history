@@ -1,7 +1,6 @@
 
 
 # Custom Detection Rules in GuardDuty
-<a name="custom-detection-rules"></a>
 
 Custom Detection Rules provide a library of prebuilt rules that detect activity you do not expect to occur in your AWS environment. GuardDuty builds and maintains these rules and describes each one using established threat technique vocabulary drawn from catalogs such as MITRE ATT&CK® and the AWS Threat Technique Catalog. You enable each rule for the activity you want to detect, in either dry run mode to measure it first or live mode to generate findings.
 

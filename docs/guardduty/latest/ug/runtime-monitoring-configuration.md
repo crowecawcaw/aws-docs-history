@@ -1,7 +1,6 @@
 
 
 # Enabling GuardDuty Runtime Monitoring
-<a name="runtime-monitoring-configuration"></a>
 
 Before enabling Runtime Monitoring in your account, make sure that the resource type for which you want to monitor the runtime events, supports the platforms requirements. For more information, see [Prerequisites](runtime-monitoring-prerequisites.md).
 

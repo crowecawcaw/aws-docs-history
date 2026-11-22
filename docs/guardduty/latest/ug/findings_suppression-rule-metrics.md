@@ -1,7 +1,6 @@
 
 
 # Suppression rule metrics
-<a name="findings_suppression-rule-metrics"></a>
 
 With Amazon GuardDuty, you can monitor how often each suppression rule matches and archives findings. GuardDuty publishes these metrics to Amazon CloudWatch under the AWS/GuardDuty namespace. 
 

@@ -1,7 +1,6 @@
 
 
 # Deploying the security agent to Amazon ECS on Fargate
-<a name="how-runtime-monitoring-works-ecs-fargate"></a>
 
 GuardDuty Runtime Monitoring monitors your Amazon ECS clusters on Fargate for threats by deploying the GuardDuty security agent to them.
 

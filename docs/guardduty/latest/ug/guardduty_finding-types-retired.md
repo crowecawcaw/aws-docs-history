@@ -1,7 +1,6 @@
 
 
 # Retired finding types
-<a name="guardduty_finding-types-retired"></a>
 
 A finding is a notification that contains details about a potential security issue that GuardDuty discovers. For information about important changes to the GuardDuty finding types, including newly added or retired finding types, see [Document history for Amazon GuardDuty](doc-history.md).
 

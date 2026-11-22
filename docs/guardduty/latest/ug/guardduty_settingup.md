@@ -1,7 +1,6 @@
 
 
 # Getting started with GuardDuty
-<a name="guardduty_settingup"></a>
 
 This tutorial provides a hands-on introduction to GuardDuty. The minimum requirements for enabling GuardDuty as a standalone account or as a GuardDuty administrator with AWS Organizations are covered in Step 1. Steps 2 through 5 cover using additional features recommended by GuardDuty to get the most out of your findings.
 
@@ -159,7 +158,7 @@ GuardDuty recommends configuring settings to export findings because it allows y
 
    1. Copy the following policy block to your KMS key policy:
 
-      ```
+      ```JSON
       {    
           "Sid": "AllowGuardDutyKey",
           "Effect": "Allow",
@@ -210,7 +209,7 @@ GuardDuty recommends configuring settings to export findings because it allows y
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -403,7 +402,7 @@ To check the email confirmation status, go to the SNS console and choose **Subsc
 
 1. In the **Target input transformer** section, for **Input path**, paste the following code:
 
-   ```
+   ```JSON
    {
      "severity": "$.detail.severity",
      "Finding_ID": "$.detail.id",
@@ -415,7 +414,7 @@ To check the email confirmation status, go to the SNS console and choose **Subsc
 
 1. To format the email, for **Template**, paste the following code. When EventBridge delivers each finding, the input transformer fills in the values in angle brackets, such as `<severity>` and `<Finding_ID>`, from the **Input path**, so you don't need to replace them.
 
-   ```
+   ```JSON
    {"message":"You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region.\n\nFinding Description:\n<Finding_Description>\n\nFor more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"}
    ```
 **Important**  

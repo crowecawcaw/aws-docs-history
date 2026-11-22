@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for Amazon GuardDuty
-<a name="security-iam"></a>
 
 
 

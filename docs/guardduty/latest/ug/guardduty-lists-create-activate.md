@@ -1,7 +1,6 @@
 
 
 # Adding and activating an entity list or IP list
-<a name="guardduty-lists-create-activate"></a>
 
 Entity lists and IP address lists help you customize the threat detection capabilities in GuardDuty. For more information about these lists, see [Understanding entity lists and IP address lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets). To manage the trusted and threat intelligence data for your AWS environment, GuardDuty recommends using entity lists. Before you begin, see [Setting up prerequisites for entity lists and IP address lists](guardduty-lists-prerequisites.md).
 

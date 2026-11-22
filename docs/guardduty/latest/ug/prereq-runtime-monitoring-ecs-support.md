@@ -1,7 +1,6 @@
 
 
 # Prerequisites for AWS Fargate (Amazon ECS only) support
-<a name="prereq-runtime-monitoring-ecs-support"></a>
 
 This section includes the prerequisites for monitoring runtime behavior of your Fargate-Amazon ECS resources. After these prerequisites are met, see [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md).
 
@@ -35,7 +34,7 @@ To authenticate the security agent, GuardDuty uses the task execution role.
 
 The task execution role requires certain Amazon Elastic Container Registry (Amazon ECR) permissions to download the GuardDuty security agent container image:
 
-```
+```json
 ...
       "ecr:GetAuthorizationToken",
       "ecr:BatchCheckLayerAvailability",
@@ -106,7 +105,7 @@ Perform the following steps for all the SCPs that you have set up in your multi-
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

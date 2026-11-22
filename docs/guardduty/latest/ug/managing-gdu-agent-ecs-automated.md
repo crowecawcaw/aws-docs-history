@@ -1,7 +1,6 @@
 
 
 # Managing automated security agent for Fargate (Amazon ECS only)
-<a name="managing-gdu-agent-ecs-automated"></a>
 
 Runtime Monitoring supports managing the security agent for your Amazon ECS clusters (AWS Fargate) only through GuardDuty. There is no support for managing the security agent manually on Amazon ECS clusters.
 
@@ -53,7 +52,7 @@ For steps to update the service, see the following resources:
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -157,7 +156,7 @@ Always add the exclusion tag to your Amazon ECS clusters before enabling Automat
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -270,7 +269,7 @@ The following steps assume that you chose **Enable for all accounts** in the Run
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -380,7 +379,7 @@ Regardless of how you choose to enable Runtime Monitoring, the following steps w
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -495,7 +494,7 @@ When using inclusion tags for your Amazon ECS clusters, you don't need to enable
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -601,7 +600,7 @@ Always add the exclusion tag to your Amazon ECS clusters before enabling Automat
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -714,7 +713,7 @@ When using inclusion tags for your Amazon ECS clusters, you don't need to enable
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -818,7 +817,7 @@ Always add the exclusion tag to your Amazon ECS clusters before enabling Automat
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -931,7 +930,7 @@ When using inclusion tags for your Amazon ECS clusters, you don't need to enable
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1039,7 +1038,7 @@ Always add the exclusion tag to your Amazon ECS clusters before enabling GuardDu
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -1151,7 +1150,7 @@ When using inclusion tags for your Amazon ECS clusters, you don't need to enable
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -1243,7 +1242,7 @@ Always add the exclusion tag to your Amazon ECS cluster before enabling GuardDut
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [

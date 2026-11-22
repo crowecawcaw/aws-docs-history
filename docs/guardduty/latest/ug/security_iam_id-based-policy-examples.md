@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon GuardDuty
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify GuardDuty resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -49,7 +48,7 @@ To grant permissions that various IAM identities (users, groups, and roles) must
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -96,7 +95,7 @@ To create a custom policy that grants an IAM role, user, or group read-only acce
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -139,7 +138,7 @@ You can use the following policy to deny an IAM role, user, or group access to G
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -235,7 +234,7 @@ The following examples show how to create policies using some of the preceding o
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -260,7 +259,7 @@ Make sure that the user has the permissions required to access trusted IP lists 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -285,7 +284,7 @@ Make sure that the user has the permissions required to access trusted IP lists 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -310,7 +309,7 @@ Make sure that the user has the permissions required to access trusted IP lists 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

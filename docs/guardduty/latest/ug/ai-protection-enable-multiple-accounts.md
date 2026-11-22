@@ -1,7 +1,6 @@
 
 
 # Enabling AI Protection in multiple-account environments
-<a name="ai-protection-enable-multiple-accounts"></a>
 
 In a multiple-account environment, only the delegated GuardDuty administrator account can enable or disable AI Protection for the member accounts in the organization. Member accounts can't modify this configuration from their own accounts. The delegated GuardDuty administrator account manages member accounts using AWS Organizations, and can choose to auto-enable AI Protection for all new accounts as they join the organization. For more information about multiple-account environments, see [Managing multiple accounts in Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html).
 

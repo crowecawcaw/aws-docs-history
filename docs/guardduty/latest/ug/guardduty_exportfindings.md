@@ -1,7 +1,6 @@
 
 
 # Exporting generated GuardDuty findings to Amazon S3 buckets
-<a name="guardduty_exportfindings"></a>
 
 GuardDuty retains the generated findings for a period of 90 days. GuardDuty exports the active findings to Amazon EventBridge (EventBridge). You can optionally export the generated findings to an Amazon Simple Storage Service (Amazon S3) bucket. This will help you to track the historical data of potentially suspicious activities in your account and evaluate whether the recommended remediation steps were successful.
 
@@ -70,7 +69,7 @@ The AWS Region of your KMS key and the Amazon S3 bucket must be the same.
 
 1. Copy the following policy block to your KMS key policy, to grant GuardDuty permission to use your key.
 
-   ```
+   ```JSON
    {    
        "Sid": "AllowGuardDutyKey",
        "Effect": "Allow",
@@ -135,7 +134,7 @@ If you do not already have an Amazon S3 bucket where you want to export these fi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -330,7 +329,7 @@ To add the expected bucket owner by using the AWS CLI, run the `update-publishin
 
 The following AWS CLI command adds the expected bucket owner to an existing publishing destination:
 
-```
+```bash
 aws guardduty update-publishing-destination \
     --detector-id {{12abc34d567e8fa901bc2d34EXAMPLE}} \
     --destination-id {{destination-id}} \

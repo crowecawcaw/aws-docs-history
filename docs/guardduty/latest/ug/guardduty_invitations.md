@@ -1,7 +1,6 @@
 
 
 # Managing GuardDuty accounts by invitation
-<a name="guardduty_invitations"></a>
 
 To manage accounts outside of your organization, you can use the legacy invitation method. When you use this method, your account is designated as a administrator account when another account accepts your invitation to become a member account. 
 

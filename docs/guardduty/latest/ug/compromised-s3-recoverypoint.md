@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised S3 Recovery Point
-<a name="compromised-s3-recoverypoint"></a>
 
 When GuardDuty generates an Execution:S3/MaliciousFile\!RecoveryPoint finding type, it indicates that malware has been detected in an S3 Recovery Point Backup resource. Perform the following steps to remediate the potentially compromised recovery point:
 

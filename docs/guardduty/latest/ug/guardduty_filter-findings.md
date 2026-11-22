@@ -1,7 +1,6 @@
 
 
 # Filtering findings in GuardDuty
-<a name="guardduty_filter-findings"></a>
 
 A finding filter allows you to view findings that match the criteria you specify and filter out any unmatched findings. You can easily create finding filters using the Amazon GuardDuty console, or you can create them with the [CreateFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateFilter.html) API using JSON. Review the following sections to understand how to create a filter in the console. To use these filters to automatically archive incoming findings, see [Suppression rules in GuardDuty](findings_suppression-rule.md).
 
@@ -76,7 +75,7 @@ You can create and test the finding filters by using either API or CLI commands.
 **Example 1**: Create a new filter to view all the findings that match a specific finding type  
 The following example creates a filter that matches all `PortScan` findings for an instance created from a specific image. The placeholder values are shown in red. Replace these values with suitable values for your account. For example, replace {{12abc34d567e8fa901bc2d34EXAMPLE}} with your regional detector ID.  
 
-  ```
+  ```JSON
   aws guardduty create-filter \
   --detector-id {{12abc34d567e8fa901bc2d34EXAMPLE}} \
   --name {{FilterExampleName}} \
@@ -85,7 +84,7 @@ The following example creates a filter that matches all `PortScan` findings for 
 **Example 2**: Create a new filter to view all the findings that match severity levels  
 The following example creates a filter that matches all findings associated with the `HIGH` severity levels. The placeholder values are shown in red. Replace these values with suitable values for your account. For example, replace {{12abc34d567e8fa901bc2d34EXAMPLE}} with your regional detector ID.  
 
-  ```
+  ```JSON
   aws guardduty create-filter \
   --detector-id {{12abc34d567e8fa901bc2d34EXAMPLE}} \
   --name {{FilterExampleName}} \

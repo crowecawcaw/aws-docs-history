@@ -1,7 +1,6 @@
 
 
 # Configuring EKS Runtime Monitoring for multiple-account environments (API)
-<a name="eks-runtime-monitoring-configuration-multiple-accounts"></a>
 
 In a multiple-account environments, only the delegated GuardDuty administrator account can enable or disable EKS Runtime Monitoring for the member accounts, and manage GuardDuty agent management for the EKS clusters belonging to the member accounts in their organization. The GuardDuty member accounts can't modify this configuration from their accounts. The delegated GuardDuty administrator account account manages their member accounts using AWS Organizations. For more information about multi-account environments, see [Managing multiple accounts](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html).
 

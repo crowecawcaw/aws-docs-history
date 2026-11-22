@@ -1,7 +1,6 @@
 
 
 # Integrating with AWS Security Hub CSPM
-<a name="securityhub-integration"></a>
 
 [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS and helps you to check your environment against security industry standards and best practices. Security Hub CSPM collects security data from across AWS accounts, services, and supported third-party partner products and helps you to analyze your security trends and identify the highest priority security issues.
 
@@ -310,7 +309,7 @@ GuardDuty sends findings to Security Hub CSPM using the [AWS Security Finding Fo
 
 Here is an example of a typical finding from GuardDuty.
 
-```
+```JSON
   {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:guardduty:us-east-1:193043430472:detector/d4b040365221be2b54a6264dc9a4bc64/finding/46ba0ac2845071e23ccdeb2ae03bfdea",

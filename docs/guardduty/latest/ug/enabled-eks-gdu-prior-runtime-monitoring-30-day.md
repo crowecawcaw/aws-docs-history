@@ -1,7 +1,6 @@
 
 
 # I enabled EKS Runtime Monitoring prior to the launch of Runtime Monitoring
-<a name="enabled-eks-gdu-prior-runtime-monitoring-30-day"></a>
 
 Use this section only when EKS Runtime Monitoring was enabled for your AWS account, and now you want to migrate to Runtime Monitoring.
 

@@ -1,7 +1,6 @@
 
 
 # Disabling, uninstalling, and cleaning up resources in Runtime Monitoring
-<a name="runtime-monitoring-agent-resource-clean-up"></a>
 
 This section applies to your AWS account if you choose to disable Runtime Monitoring, or only GuardDuty automated agent configuration for a resource type.
 

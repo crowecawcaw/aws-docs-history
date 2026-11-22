@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised EBS Snapshot
-<a name="compromised-snapshot"></a>
 
 When GuardDuty generates an Execution:EC2/MaliciousFile\!Snapshot finding type, it indicates that malware has been detected in an Amazon EBS snapshot. Perform the following steps to remediate the potentially compromised snapshot:
 

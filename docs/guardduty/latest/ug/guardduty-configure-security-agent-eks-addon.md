@@ -1,7 +1,6 @@
 
 
 # Configure GuardDuty security agent (add-on) parameters for Amazon EKS
-<a name="guardduty-configure-security-agent-eks-addon"></a>
 
 You can configure specific parameters of your GuardDuty security agent for Amazon EKS. This support is available for GuardDuty security agent version 1.5.0 and above. For information about latest add-on versions, see [GuardDuty security agent versions for Amazon EKS resources](runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history).
 
@@ -40,7 +39,7 @@ The `disableCpuLimits` parameter is available for GuardDuty security agent versi
 When you set `disableCpuLimits` to `true`, the security agent pod does not enforce a CPU limit. Other resource settings are unaffected.  
 To disable CPU limits, use the following configuration:  
 
-```
+```JSON
 {"resources":{"disableCpuLimits":true}}
 ```
 

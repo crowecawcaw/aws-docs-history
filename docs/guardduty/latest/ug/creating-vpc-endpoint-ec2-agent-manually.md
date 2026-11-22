@@ -1,7 +1,6 @@
 
 
 # Prerequisite – Creating Amazon VPC endpoint manually
-<a name="creating-vpc-endpoint-ec2-agent-manually"></a>
 
 Before you can install the GuardDuty security agent, you must create an Amazon Virtual Private Cloud (Amazon VPC) endpoint. This will help GuardDuty receive the runtime events of your Amazon EC2 instances.
 
@@ -31,7 +30,7 @@ There is no additional cost for the usage of the VPC endpoint.
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [
@@ -61,7 +60,7 @@ There is no additional cost for the usage of the VPC endpoint.
    The `aws:PrincipalAccount` account ID must match the account containing the VPC and VPC endpoint. The following list shows how to share the VPC endpoint with other AWS account IDs:<a name="gdu-runtime-ec2-organization-restrict-access-vpc-endpoint"></a>
    + To specify multiple accounts to access the VPC endpoint, replace `"aws:PrincipalAccount: "{{111122223333}}"` with the following block:
 
-     ```
+     ```JSON
      "aws:PrincipalAccount": [
                "666666666666",
                "555555555555"
@@ -71,14 +70,14 @@ There is no additional cost for the usage of the VPC endpoint.
      Make sure to replace the AWS account IDs with the account IDs of those accounts that need to access the VPC endpoint.
    + To allow all the members from an organization to access the VPC endpoint, replace `"aws:PrincipalAccount: "{{111122223333}}"` with the following line:
 
-     ```
+     ```JSON
      "aws:PrincipalOrgID": "{{o-abcdef0123}}"
      ```
 
      Make sure to replace the organization {{o-abcdef0123}} with your organization ID.
    + To restrict accessing a resource by an organization ID, add your `ResourceOrgID` to the policy. For more information, see [`aws:ResourceOrgID`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourceorgid) in the *IAM User Guide*.
 
-     ```
+     ```JSON
      "aws:ResourceOrgID": "o-abcdef0123"
      ```
 

@@ -1,7 +1,6 @@
 
 
 # GuardDuty Lambda Protection
-<a name="lambda-protection"></a>
 
 **Note**  
 You can configure Lambda Protection along with all other protection plans from a single page in the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md).

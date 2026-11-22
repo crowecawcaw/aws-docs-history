@@ -1,7 +1,6 @@
 
 
 # GuardDuty finding aggregation
-<a name="finding-aggregation"></a>
 
 GuardDuty updates the generated findings dynamically. If GuardDuty detects a new activity related to the same security issue, then instead of creating a new finding, GuardDuty will update the original finding with the latest details. This behavior allows you to identify any ongoing issues, without the need to look through multiple similar reports, and reduces the overall volume of findings for known security issues.
 

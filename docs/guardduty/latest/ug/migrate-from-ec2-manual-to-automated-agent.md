@@ -1,7 +1,6 @@
 
 
 # Migrating from Amazon EC2 manual agent to automated agent
-<a name="migrate-from-ec2-manual-to-automated-agent"></a>
 
 This section applies to your AWS account if you were previously managing the security agent manually and now want to use the GuardDuty automated agent configuration. If this doesn't apply to you, continue with configuring the security agent for your account.
 

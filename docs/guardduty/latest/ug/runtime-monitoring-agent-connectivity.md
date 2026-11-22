@@ -1,7 +1,6 @@
 
 
 # How the security agent connects to GuardDuty
-<a name="runtime-monitoring-agent-connectivity"></a>
 
 The Runtime Monitoring security agent delivers runtime events to GuardDuty over one of two connectivity methods: a link-local address or an Amazon VPC endpoint. Both keep data within the AWS network. There is no additional cost for GuardDuty connectivity.
 
@@ -34,6 +33,8 @@ For prerequisites, see [Prerequisites to enabling Runtime Monitoring](runtime-mo
 + **Existing Amazon VPC endpoints** – An Amazon VPC that GuardDuty already set up with an Amazon VPC endpoint keeps using it. GuardDuty doesn't add link-local connectivity to that Amazon VPC until you turn Runtime Monitoring off and then on again.
 + **Endpoint policies and security groups on the endpoint** – On the link-local path, the agent's traffic does not go through an Amazon VPC endpoint, so an endpoint policy or a security group on the `guardduty-data` endpoint does not apply to it.
 + **Host-level controls** – On the link-local path, if you run host-level controls that inspect or filter the agent's traffic, or apply security group outbound rules on your hosts, allow the link-local ranges `169.254.170.248/29` (IPv4) and `fd00:ec2:6d00::/64` (IPv6).
++ **Cross-Region routing through Amazon VPC endpoints** – GuardDuty is a Regional service. When the agent connects through an Amazon VPC endpoint, it must use a `guardduty-data` endpoint in the same AWS Region as the resource. If you route traffic between Regions, such as over a VPN or tunnel, don't send agent traffic to a `guardduty-data` endpoint in another Region. Agent traffic sent to another Region isn't supported.
++ **Cross-Region routing over link-local** – When the agent connects over link-local, it must reach GuardDuty in the same AWS Region as the resource. If you run host-level controls, such as a VPN, tunnel, or proxy, that forward traffic to another Region, exclude the link-local ranges `169.254.170.248/29` (IPv4) and `fd00:ec2:6d00::/64` (IPv6). Agent traffic sent to another Region isn't supported.
 
 ## Related topics
 <a name="runtime-monitoring-connectivity-related"></a>

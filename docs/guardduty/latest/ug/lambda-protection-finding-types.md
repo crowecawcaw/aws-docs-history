@@ -1,7 +1,6 @@
 
 
 # Lambda Protection finding types
-<a name="lambda-protection-finding-types"></a>
 
 This section describes the finding types that are specific to your AWS Lambda resources and have the `resourceType` listed as `Lambda`. For all Lambda findings, we recommend that you examine the resource in question and determine if it is behaving in an expected manner. If the activity is authorized, you can use [Suppression rules](https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html) or [Trusted IP and threat lists](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload-lists.html) to prevent false positive notifications for that resource.
 

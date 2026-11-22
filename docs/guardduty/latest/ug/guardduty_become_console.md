@@ -1,7 +1,6 @@
 
 
 # Adding accounts by invitation
-<a name="guardduty_become_console"></a>
 
 As an administrator account that already has GuardDuty enabled, you can add members to start using GuardDuty. After adding the members, you can invite them to join GuardDuty, and they can choose to respond to your invitation.
 

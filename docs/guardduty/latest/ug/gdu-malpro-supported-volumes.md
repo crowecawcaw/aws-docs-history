@@ -1,7 +1,6 @@
 
 
 # Supported Amazon EBS volumes for malware scan
-<a name="gdu-malpro-supported-volumes"></a>
 
 In all of the AWS Regions where GuardDuty supports the Malware Protection for EC2 feature, you can scan the Amazon EBS volumes that are unencrypted or encrypted. You can have Amazon EBS volumes that are encrypted with either [AWS managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) or [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). Presently, some of the Regions where Malware Protection for EC2 is available, may support both the ways to encrypt your Amazon EBS volumes, while others support only customer managed key. For information about supported Regions, see and [GuardDuty service accounts by AWS Region](gdu-service-account-region-list.md). For information about Regions where GuardDuty is available but Malware Protection for EC2 is not available, see [Region-specific feature availability](guardduty_regions.md#gd-regional-feature-availability).
 

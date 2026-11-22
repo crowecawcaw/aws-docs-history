@@ -1,7 +1,6 @@
 
 
 # Service-linked role permissions for GuardDuty
-<a name="slr-permissions"></a>
 
 GuardDuty uses the service-linked role (SLR) named `AWSServiceRoleForAmazonGuardDuty`. The SLR allows GuardDuty to perform the following tasks. It also allows GuardDuty to include the retrieved metadata belonging to the EC2 instance in the findings that GuardDuty may generate about the potential threat. The `AWSServiceRoleForAmazonGuardDuty` service-linked role trusts the `guardduty.amazonaws.com` service to assume the role.
 
@@ -27,7 +26,7 @@ The following is the trust policy that is attached to the `AWSServiceRoleForAmaz
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -64,7 +63,7 @@ Replace the sample {{account ID}} in the following example with your actual AWS 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # GuardDuty S3 Protection
-<a name="s3-protection"></a>
 
 **Note**  
 You can configure S3 Protection along with all other protection plans from a single page in the GuardDuty console. For more information, see [Configuring protection plans](protection-plans.md).

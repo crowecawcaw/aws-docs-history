@@ -1,7 +1,6 @@
 
 
 # Amazon GuardDuty Regions and endpoints
-<a name="guardduty_regions"></a>
 
 To view the AWS Regions where Amazon GuardDuty is available, see [Amazon GuardDuty endpoints](https://docs.aws.amazon.com/general/latest/gr/guardduty.html) in the *Amazon Web Services General Reference*.
 

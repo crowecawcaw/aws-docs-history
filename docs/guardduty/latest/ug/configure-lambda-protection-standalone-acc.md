@@ -1,7 +1,6 @@
 
 
 # Enabling Lambda Protection for a standalone account
-<a name="configure-lambda-protection-standalone-acc"></a>
 
 A standalone account owns the decision to enable or disable a protection plan in their AWS account in a specific AWS Region. 
 

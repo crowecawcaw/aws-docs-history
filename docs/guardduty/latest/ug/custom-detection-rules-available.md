@@ -1,7 +1,6 @@
 
 
 # Available Custom Detection Rules
-<a name="custom-detection-rules-available"></a>
 
 GuardDuty Custom Detection Rules offers a library of opt-in detections that target activity which might be routine in one environment but a sign of compromise in another. You can choose to enable these rules based on risks specific to your environment. To get the current list of available rules, use the [ListCustomDetectionRules](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListCustomDetectionRules.html) API operation. For the finding types that each rule generates, see [Custom Detection Rules finding types](findings-custom-detection-rules.md).
 

@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised ECS cluster
-<a name="compromised-ecs"></a>
 
 A potentially compromised ECS cluster finding indicates suspicious or malicious activity has been detected within your Amazon ECS environment. This could include unauthorized access, malware execution, or other malicious behavior that puts your container workloads at risk.
 

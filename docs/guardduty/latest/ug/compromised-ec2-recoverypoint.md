@@ -1,7 +1,6 @@
 
 
 # Remediating a potentially compromised EC2 Recovery Point
-<a name="compromised-ec2-recoverypoint"></a>
 
 When GuardDuty generates an Execution:EC2/MaliciousFile\!RecoveryPoint finding type, it indicates that malware has been detected in an EC2 Recovery Point Backup resource. Perform the following steps to remediate the potentially compromised recovery point:
 

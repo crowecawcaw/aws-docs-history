@@ -1,7 +1,6 @@
 
 
 # Updating suppression rules in GuardDuty
-<a name="update-suppression-rules-guardduty"></a>
 
  This section provides the steps to update a suppression rule in your AWS account in a specific AWS Region. 
 
@@ -37,7 +36,7 @@ If you're a member account, your administrator account can take this action on y
 
 1. If you want to update the existing criteria, create a JSON file with the updated criteria similar to how you first created the filter. An example criteria to suppress any unarchived low-severity findings that has a DNS request to the test.example.com domain. For medium severity findings, the input list will be ["4", "5", "7"]. For high severity findings, the input list will be ["6", "7", "8"]. For critical severity findings, the input list will be ["9", "10"]. You can also filter on the basis of any one value in the list. The following example adds a filter for low severity findings.
 
-   ```
+   ```JSON
    {
        "Criterion": {
            "service.action.dnsRequestAction.domain": {

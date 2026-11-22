@@ -1,7 +1,6 @@
 
 
 # GuardDuty considerations for exporting member account details in CSV format
-<a name="exporting-guardduty-accounts-data-to-csv"></a>
 
 As a GuardDuty administrator account, you can export the member account details in a CSV format. These details include the member account ID, name, type (added by AWS Organizations or through invitation), and configuration status of GuardDuty and dedicated protection plans.
 

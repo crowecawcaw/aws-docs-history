@@ -1,7 +1,6 @@
 
 
 # Disassociating (removing) member account from administrator account
-<a name="disassociate-remove-member-account-from-admin"></a>
 
 When you want to stop configuring the GuardDuty settings and accessing the data from a member account, remove that account as a GuardDuty member account. You can do it by disassociating (removing) that account from the GuardDuty administrator account. 
 

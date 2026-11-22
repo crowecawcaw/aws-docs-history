@@ -1,7 +1,6 @@
 
 
 # Collected runtime event types that GuardDuty uses
-<a name="runtime-monitoring-collected-events"></a>
 
 The GuardDuty security agent collects the following events types and sends them to the GuardDuty backend for threat detection and analysis. GuardDuty doesn't make these events accessible to you. If GuardDuty detects a potential threat and generates a [Runtime Monitoring finding types](findings-runtime-monitoring.md), you can view the corresponding finding details.
 

@@ -1,7 +1,6 @@
 
 
 # Checking EKS Runtime Monitoring configuration status
-<a name="checking-eks-runtime-monitoring-enable-status"></a>
 
 Use the following APIs or AWS CLI commands to check the existing configuration status of EKS Runtime Monitoring. 
 
@@ -9,7 +8,7 @@ Use the following APIs or AWS CLI commands to check the existing configuration s
 + Run [GetDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetDetector.html) to check the configuration status of your own account.
 + Alternatively, you can run the following command by using AWS CLI:
 
-  ```
+  ```json
   aws guardduty get-detector --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --region {{us-east-1}}
   ```
 
@@ -20,7 +19,7 @@ Use the following APIs or AWS CLI commands to check the existing configuration s
 
   Alternatively, you can run the following command using AWS CLI:
 
-  ```
+  ```json
   aws guardduty describe-organization-configuration --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --region {{us-east-1}}
   ```
 

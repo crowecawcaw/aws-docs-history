@@ -1,7 +1,6 @@
 
 
 # Prerequisites for ECS-EC2 Bottlerocket support
-<a name="prereq-runtime-monitoring-ecs-ec2-bottlerocket-support"></a>
 
 **Important**  
 This section applies only to *Bottlerocket ECS-optimized AMIs* version `v1.62.1` and above, including the following variants:  

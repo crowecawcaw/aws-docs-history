@@ -1,7 +1,6 @@
 
 
 # Updating the GuardDuty security agent for Amazon EC2 instance manually
-<a name="gdu-update-security-agent-ec2"></a>
 
 GuardDuty releases updates to the security agent versions. When you manage the security agent manually, you're responsible to update the agent for your Amazon EC2 instances. For information about new agent versions, see [GuardDuty security agent release versions](runtime-monitoring-agent-release-history.md) for Amazon EC2 instances. To receive notifications about a new agent version release, see [Subscribing to Amazon SNS GuardDuty announcements](guardduty_sns.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using shared VPC with Runtime Monitoring
-<a name="runtime-monitoring-shared-vpc"></a>
 
 GuardDuty Runtime Monitoring supports using shared Amazon Virtual Private Cloud (Amazon VPC) for your AWS accounts that belong to the same organization in AWS Organizations. You can use shared VPC in two ways:
 + **Automated agent configuration (Recommended)** – When GuardDuty automatically manages the security agent, it will also configure the Amazon VPC endpoint policy. This policy is based on your organization's shared VPC settings.
@@ -25,7 +24,7 @@ The following example shows the default VPC endpoint policy of the shared VPC ow
 **Example shared VPC endpoint policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{

@@ -1,7 +1,6 @@
 
 
 # Enabling GuardDuty automated agent for Amazon EC2 resources in a standalone account
-<a name="manage-agent-ec2-standalone-account"></a>
 
 A standalone account owns the decision to enable or disable a protection plan in their AWS account in a specific AWS Region. 
 

@@ -1,7 +1,6 @@
 
 
 # Managing security agent manually for Amazon EKS cluster
-<a name="managing-gdu-agent-eks-manually"></a>
 
 This section describes how you can manage your Amazon EKS add-on agent (GuardDuty agent) after you enable Runtime Monitoring (or EKS Runtime Monitoring). To use Runtime Monitoring, you must enable Runtime Monitoring and configure the Amazon EKS add-on, `aws-guardduty-agent`. You require to perform both the steps for GuardDuty to detect potential threats and generate [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md).
 

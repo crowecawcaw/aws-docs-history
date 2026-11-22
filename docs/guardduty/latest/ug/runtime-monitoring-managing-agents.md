@@ -1,7 +1,6 @@
 
 
 # Managing GuardDuty security agents
-<a name="runtime-monitoring-managing-agents"></a>
 
 You can manage the GuardDuty security agent for the resource that you want to monitor. If you want to monitor more than one resource type, make sure to manage the GuardDuty agent for that resource.
 

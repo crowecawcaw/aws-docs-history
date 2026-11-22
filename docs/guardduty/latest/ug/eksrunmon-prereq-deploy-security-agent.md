@@ -1,7 +1,6 @@
 
 
 # Prerequisite – Creating an Amazon VPC endpoint
-<a name="eksrunmon-prereq-deploy-security-agent"></a>
 
 Before you can install the GuardDuty security agent, you must create an Amazon Virtual Private Cloud (Amazon VPC) endpoint. This will help GuardDuty receive the runtime events of your Amazon EKS resources.
 
@@ -36,7 +35,7 @@ Choose a preferred access method to create an Amazon VPC endpoint.
 
 ****  
 
-   ```
+   ```json
    {
    	"Version":"2012-10-17",		 	 	 
    	"Statement": [
