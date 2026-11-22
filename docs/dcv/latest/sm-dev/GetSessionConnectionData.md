@@ -1,7 +1,6 @@
 
 
 # GetSessionConnectionData
-<a name="GetSessionConnectionData"></a>
 
 Gets connection information for a specific user's connection to a specific Amazon DCV session. 
 
@@ -117,7 +116,7 @@ dcv://{{{Ip}}}:{{{Port}{WebUrlPath}}}?authToken={{{ConnectionToken}}}#{{{Session
 **Request**  
 The following example gets connection information for a user with a user name of `user1` and a session with an ID of `sessionId12345`. 
 
-```
+```python
 def get_session_connection_api():
     api_instance = swagger_client.GetSessionConnectionDataApi(swagger_client.ApiClient(get_client_configuration()))
     set_request_headers(api_instance.api_client)
@@ -148,7 +147,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "Session": {
         "Id": "sessionId12345",

@@ -1,7 +1,6 @@
 
 
 # What is Amazon DCV Session Manager?
-<a name="what-is-sm"></a>
 
 **Note**  
 Amazon DCV was previously known as NICE DCV.

@@ -1,7 +1,6 @@
 
 
 # CloseServers
-<a name="CloseServers"></a>
 
 Closes one or more Amazon DCV servers. When you close a Amazon DCV server, you make it unavailable for Amazon DCV session placement. You cannot create Amazon DCV sessions on *closed* servers. Closing a server ensures that no sessions are running on it and that users cannot create new sessions on it.
 
@@ -56,7 +55,7 @@ The reason for the failure.
 **Request**  
 The following example closes two Amazon DCV servers (`serverId1` and `serverId2`). Server `serverId2` doesn't exist and results in a failure.
 
-```
+```python
 from swagger_client.models import CloseServerRequestData
 
 def get_servers_api():
@@ -79,7 +78,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "RequestId": "4d7839b2-a03c-4b34-a40d-06c8b21099e6",
     "SuccessfulList": [

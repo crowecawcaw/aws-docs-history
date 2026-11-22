@@ -1,7 +1,6 @@
 
 
 # GetSessionScreenshots
-<a name="GetSessionScreenshots"></a>
 
 Gets screenshots of one or more Amazon DCV sessions.
 
@@ -81,7 +80,7 @@ The original request that failed.
 **Request**  
 The following example gets screenshots from two sessions (`sessionId1` and `sessionId2`) with the max width set at 800 and the max height set at 600. Session `sessionId2` doesn't exist and results in a failure.
 
-```
+```python
 from swagger_client.models.describe_servers_request_data import GetSessionScreenshotRequestData
 
 def get_sessions_api():
@@ -103,7 +102,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "RequestId": "542735ef-f6ab-47d8-90e5-23df31d8d166",
     "SuccessfulList": [

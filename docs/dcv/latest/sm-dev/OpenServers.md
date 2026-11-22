@@ -1,7 +1,6 @@
 
 
 # OpenServers
-<a name="OpenServers"></a>
 
 Opens one or more Amazon DCV servers. Before you can create Amazon DCV sessions on a Amazon DCV server, you must change the server's state to *open*. After the Amazon DCV server is *open*, you can create Amazon DCV sessions on the server.
 
@@ -49,7 +48,7 @@ The reason for the failure.
 **Request**  
 The following example opens two Amazon DCV servers (`serverId1` and `serverId2`).
 
-```
+```python
 from swagger_client.models import OpenServerRequestData
 
 
@@ -72,7 +71,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "RequestId": "1e64830f-0a27-41bf-8147-0f3411791b64",
     "SuccessfulList": [

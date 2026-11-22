@@ -1,7 +1,6 @@
 
 
 # Step 1: Generate your API client
-<a name="client-sdk"></a>
 
 The Session Manager APIs are defined in a single YAML file. The APIs are based on the OpenAPI3.0 specification, which defines a standard, language-agnostic interface to RESTful APIs. For more information, see [OpenAPI Specification](https://swagger.io/specification/).
 

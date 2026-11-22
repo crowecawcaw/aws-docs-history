@@ -1,7 +1,6 @@
 
 
 # DeleteSessions
-<a name="DeleteSessions"></a>
 
 Deletes the specified Amazon DCV session and removes it from the Broker's cache.
 
@@ -51,7 +50,7 @@ Only returned if some sessions could not be deleted. Indicates why the session c
 **Request**  
 The following example deletes two sessions—a session with an ID of `SessionId123` that is owned by `user1`, and a session with an ID of `SessionIdabc` that is owned by `user99`.
 
-```
+```python
 from swagger_client.models.delete_session_request_data import DeleteSessionRequestData
 
 def get_sessions_api():
@@ -77,7 +76,7 @@ def main():
 **Response**  
 The following is the sample output. `SessionId123` was successfully deleted, while `SessionIdabc` could not be deleted.
 
-```
+```json
 {
     "RequestId": "10311636-df90-4cd1-bcf7-474e9675b7cd",
     "SuccessfulList": [

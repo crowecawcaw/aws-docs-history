@@ -1,7 +1,6 @@
 
 
 # DescribeSessions
-<a name="DescribeSessions"></a>
 
 Describes one or more Amazon DCV sessions.
 
@@ -108,7 +107,7 @@ Required: No
 **Request**  
 The following example describes sessions that are owned by `user1` and have a tag of `os=windows`.
 
-```
+```python
 from swagger_client.models.describe_sessions_request_data import DescribeSessionsRequestData
 from swagger_client.models.key_value_pair import KeyValuePair
 
@@ -142,7 +141,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "Sessions": [
         {

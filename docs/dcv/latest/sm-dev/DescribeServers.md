@@ -1,7 +1,6 @@
 
 
 # DescribeServers
-<a name="DescribeServers"></a>
 
 Describes one or more Amazon DCV servers.
 
@@ -160,7 +159,7 @@ The tag value.
 **Request**  
 The following example describes all available Amazon DCV servers. The results are paginated to show two results per page.
 
-```
+```python
 from swagger_client.models.describe_servers_request_data import DescribeServersRequestData
 
 def get_servers_api():
@@ -182,7 +181,7 @@ def main():
 **Response**  
 The following is the sample output.
 
-```
+```json
 {
     "RequestId": "request-id-123",
     "Servers": [

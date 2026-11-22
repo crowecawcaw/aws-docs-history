@@ -1,7 +1,6 @@
 
 
 # Release notes and document history for Amazon DCV Session Manager
-<a name="doc-history-release-notes"></a>
 
 This page provides the release notes and document history for Amazon DCV Session Manager.
 
