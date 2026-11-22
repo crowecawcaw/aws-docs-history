@@ -1,7 +1,6 @@
 
 
 # Centralized Log Analytics
-<a name="centralized-log-analytics"></a>
 
 Publication date: **November 7, 2022 ([Diagram history](#diagram-history))**
 
