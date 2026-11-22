@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Post Incident Report
-<a name="sir-post-report"></a>
 
 Post event, AMS runs an investigation review process for all security incidents. And, AMS initiates a correction of error (COE) process to address security incidents caused by a system or a procedural miss that plausibly has room for improvement. AMS partners with you to continuously-improve security investigation experience. The COE process helps AMS identify the contributing factors of customer-impacting events and connects those causes to next actions items that can prevent similar events from recurring, or helps mitigate the duration or level of impact.
 

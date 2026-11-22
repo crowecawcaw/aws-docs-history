@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS information resources
-<a name="ams-info-resources"></a>
 
 AMS provides several information resources to help you succeed.
 + **AMS Accelerate User Guide**: Helps you understand the components and features that AMS Accelerate provides and how to use them. Look here for AMS Accelerate background information and details on default settings, finding resources, and how-to examples. [HTML index](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/index.html), [PDF](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/accelerate-guide.pdf) 

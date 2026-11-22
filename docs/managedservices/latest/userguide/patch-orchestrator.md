@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Patch Orchestrator: a tag-based patching model
-<a name="patch-orchestrator"></a>
 
 If you have been onboarded to the new AMS Patch Orchestrator tag-based patching model, you can use tags to apply your patch configuration to a precise set of resources, called a *patch group*, ranging from one instance to all of your instances. For information about AMS tags, see [Using tags](https://docs.aws.amazon.com/managedservices/latest/userguide/ex-using-tags.html). Instructions on setting up Patch Orchestrator tags are provided in the following section.
 

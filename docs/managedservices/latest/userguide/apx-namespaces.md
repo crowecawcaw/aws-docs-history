@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS protected namespaces
-<a name="apx-namespaces"></a>
 
 The list of protected namespaces for AWS Managed Services (AMS). When you work with AWS resources, prevent conflict with AMS by not using these namespaces. For details on other AWS service namespaces, see [ Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces).
 + `ams-*` (this is the preferred naming standard for new resources)

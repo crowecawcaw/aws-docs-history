@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS key terms
-<a name="key-terms"></a>
 + *AMS Advanced*: The services described in the "Service Description" section of the AMS Advanced Documentation. See [Service Description](https://docs.aws.amazon.com/managedservices/latest/userguide/ams-sd.html).
 + *AMS Advanced Accounts*: AWS accounts that at all times meet all requirements in the AMS Advanced Onboarding Requirements. For information on AMS Advanced benefits, case studies, and to contact a sales person, see [AWS Managed Services](https://aws.amazon.com/managed-services/).
 + *AMS Accelerate Accounts*: AWS accounts that at all times meet all requirements in the AMS Accelerate Onboarding Requirements. See [Getting Started with AMS Accelerate](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/getting-started-acc.html).

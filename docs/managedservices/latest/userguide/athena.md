@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Athena in your AMS account
-<a name="athena"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Athena (Athena) capabilities directly in your AMS managed account. Athena is an interactive query service that helps you to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run. You point to your data in Amazon S3, define the schema, and start querying using standard SQL. Most results are delivered within seconds. With Athena, there’s no need for complex extract-transform-load (ETL) jobs to prepare your data for analysis. This makes it straight-forward for anyone with SQL skills to quickly analyze large-scale datasets. To learn more, see [Amazon Athena](https://aws.amazon.com/athena/).
 

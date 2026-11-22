@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS application deployments
-<a name="ams-deployments"></a>
 
 *AMS Application Developer's* guide provides detailed descriptions and walkthroughs for the following deployments:
 + The AMS workload ingest CT allows you and an AMS cloud migration partner to easily move your existing workloads into an AMS-managed VPC. Using AMS workload ingest, you can create an AMS AMI by submitting an RFC with the Deployment \| Ingestion \| Stack from migration partner migrated instance \| Create CT (ct-257p9zjk14ija). You must have an instance migrated from your on-premises to AWS by a migration partner, as well as a target AMS VPC and subnet, into which the instance will be ingested.

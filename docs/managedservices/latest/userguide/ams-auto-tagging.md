@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS infrastructure automatic tagging
-<a name="ams-auto-tagging"></a>
 
 AMS can tag all resources created by AMS for management purposes, in your multi-account landing zone (MALZ) and single-account landing zone (SALZ) accounts through a request for change (RFC) with the Deployment \| Advanced stack components \| Tag \| Create (managed automation) change type (ct-0176f0n99vcps). This can help you in identifying resources created by AMS for management purposes.
 

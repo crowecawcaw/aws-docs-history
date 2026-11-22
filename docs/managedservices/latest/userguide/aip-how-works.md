@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # How Automated IAM Provisioning in AMS works
-<a name="aip-how-works"></a>
 
 Automated IAM Provisioning relies on automated run-time checks for IAM to validate changes to IAM resources. These automated checks, performed when the Create, Update, or Delete change types are run, prevent IAM resources that are overly-permissive or have insecure patterns from being deployed into your account. This allows you to match the level of rigor in IAM reviews to the expertise of your team. We recommend that teams that are new to cloud services and need manual checks for all IAM resources changes use the existing review-required change type: Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| [Create entity or policy (managed automation)](https://docs.aws.amazon.com/managedservices/latest/ctref/deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-review-required.html), (ct-3dpd8mdd9jn1r). Teams with AWS expertise and control of their environments can use Automated IAM Provisioning to speed up their deployments. You can use this feature to perform validation through automated run-time checks or to perform validation and provisioning of IAM resources after successful validation.
 

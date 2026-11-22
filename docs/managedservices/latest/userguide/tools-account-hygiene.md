@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Tools account hygiene
-<a name="tools-account-hygiene"></a>
 
 You'll want to clean up after you are done in the account have shared the AMI and no longer have a need for the replicated instances:
 + Post instance WIGs ingestion:

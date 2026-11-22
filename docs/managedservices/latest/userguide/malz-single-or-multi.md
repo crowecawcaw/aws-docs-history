@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Choosing single MALZ or multiple MALZs
-<a name="malz-single-or-multi"></a>
 
 The following table provides some high level considerations on deciding between a single multi-account landing zone (MALZ) vs multiple multi-account landing zones (for example, two multi-account landing zones - Prod and non-Prod). In general, the choice depends upon individual needs, legal requirements, and operating practices.
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS responsibility matrix (RACI)
-<a name="raci-table"></a>
 
 **Note**  
 In order to fulfill its obligations in a timely manner, AWS Managed Services (AMS) may require inputs from you for deciding an appropriate course of action. AMS will contact the designated customer contact for all such clarifications and inputs. AMS will expect a response to such queries within 24 business hours. In case there is no reply within 24 business hours, AMS may choose an action on your behalf.

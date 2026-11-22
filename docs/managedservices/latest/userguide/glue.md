@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Glue in your AMS account
-<a name="glue"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Glue capabilities directly in your AMS managed account. AWS Glue is a fully managed extract, transform, and load (ETL) service that helps you to prepare and load your data for analytics. You can create and run an ETL job with a few clicks in the AWS Management Console. You point AWS Glue to your data stored on AWS, and AWS Glue discovers your data and stores the associated metadata (e.g. table definition and schema) in the AWS Glue Data Catalog. Once cataloged, your data is immediately searchable, queryable, and available for ETL actions. To learn more, see [AWS Glue](https://aws.amazon.com/glue/).
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # DNS resolution defaults (MALZ)
-<a name="default-dns-resolution"></a>
 
 AWS Managed Services (AMS) multi-account landing zone: In AWS environments, domain name system (DNS) resolution between Route 53 Resolver and DNS resolvers in a VPC can be integrated by configuring Resolver forwarding rules. Before these rules can be used for forwarding DNS queries, inbound and outbound resolver endpoints need to be set up to which these queries can be forwarded.
 

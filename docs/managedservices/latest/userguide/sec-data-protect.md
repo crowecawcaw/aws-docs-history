@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Data protection in AMS
-<a name="sec-data-protect"></a>
 
 AMS continuously monitors your managed accounts by leveraging native AWS services such as Amazon GuardDuty, Amazon Macie (optionally), and other internal proprietary tools and processes. After an alarm is triggered, AMS assumes responsibility for the initial triage and response to the alarm. Our response processes are based on NIST standards. AMS regularly tests its response processes using Security Incident Response Simulation with you to align your workflow with existing customer security response programs.
 

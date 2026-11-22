@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Creating custom CloudWatch metrics and alarms in AMS
-<a name="custom-cloudwatch-events"></a>
 
 You can store your business and application metrics in Amazon CloudWatch. You can view graphs, and set alarms based on these metrics, just as you can for the metrics that CloudWatch already stores for your AWS Managed Services (AMS) resources. To learn more about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
 

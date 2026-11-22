@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Advanced end of support
-<a name="SunsetPlan"></a>
 
 After careful consideration, we decided to end support for AMS Advanced, effective June 30, 2027. AMS Advanced will no longer accept new customers beginning June 30, 2026. As an existing customer with an account signed up for the service before June 30, 2026, you can continue to use AMS Advanced features. After June 30, 2027, you will no longer be able to use AMS Advanced.
 

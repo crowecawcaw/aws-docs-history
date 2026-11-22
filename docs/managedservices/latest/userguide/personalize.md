@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Personalize in your AMS account
-<a name="personalize"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Personalize capabilities directly in your AMS managed account. Amazon Personalize is a machine learning service that makes it easy for developers to create individualized recommendations for customers using their applications.
 
@@ -38,7 +37,7 @@ Amazon Personalize configuration is limited to resources without 'ams-' or 'mc-'
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "key-consolepolicy-3",
@@ -64,7 +63,7 @@ Amazon Personalize configuration is limited to resources without 'ams-' or 'mc-'
 
 ****  
 
-  ```
+  ```json
   {
   "Version":"2012-10-17",		 	 	 
   "Id": "PersonalizeS3BucketAccessPolicy",

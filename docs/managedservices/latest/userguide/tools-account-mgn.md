@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AWS Application Migration Service (AWS MGN)
-<a name="tools-account-mgn"></a>
 
 [AWS Application Migration Service](https://aws.amazon.com/application-migration-service/) (AWS MGN) can be used in your MALZ Tools account through the `AWSManagedServicesMigrationRole` IAM role that is created automatically during Tools account provisioning. You can use AWS MGN to migrate applications and databases that run on supported versions of Windows and Linux [operating systems](https://docs.aws.amazon.com/mgn/latest/ug/Supported-Operating-Systems.html).
 

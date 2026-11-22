@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Using AMS Resource Scheduler
-<a name="res-sched-using"></a>
 
 To configure AMS Resource Scheduler after the solution is deployed, use the automated Resource Scheduler CTs to create, delete, update, and describe (get details on) AMS Resource Scheduler periods (the times when Resource Scheduler runs) and schedules (the configured periods and other options). For an example of using the AMS Resource Scheduler change types, see [AMS Resource Scheduler](https://docs.aws.amazon.com/managedservices/latest/ctref/management-ams-resource-scheduler-section.html).
 

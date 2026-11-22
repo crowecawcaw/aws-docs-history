@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Elemental MediaStore in your AMS account
-<a name="elemental-media-store"></a>
 
 **Note**  
 After careful consideration, AWS has made the decision to discontinue MediaStore, effective November 13, 2025. If you are an active customer of MediaStore, you can use MediaStore as normal until November 13, 2025, when support for the service will end. After this date, you will no longer be able to use MediaStore or any of the capabilities provided by this service.

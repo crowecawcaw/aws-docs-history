@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Troubleshooting RFC errors in AMS
-<a name="rfc-troubleshoot"></a>
 
 Many AMS provisioning RFC failures can be investigated through the CloudFormation documentation. See [ Troubleshooting AWS CloudFormation: Troubleshooting Errors](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors)
 

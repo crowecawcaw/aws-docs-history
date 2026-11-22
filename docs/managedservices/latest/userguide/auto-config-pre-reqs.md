@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Prerequisites for automated instance configuration
-<a name="auto-config-pre-reqs"></a>
 
 For AMS Advanced customers who deploy instances with Change Management, the following prerequisites must be met: 
 + The SSM Agent is installed, and in a managed state.

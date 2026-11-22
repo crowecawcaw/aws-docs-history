@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS WAF - Web Application Firewall in your AMS account
-<a name="set-waf"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS WAF capabilities directly in your AMS managed account. AWS WAF is a web application firewall (AWS WAF) that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. AWS WAF gives you control over which traffic to allow, or block, to your web applications by defining customizable web security rules. You can use AWS WAF to create custom rules that block common attack patterns, such as SQL injection or cross-site scripting; and rules that are designed for your specific application.
 

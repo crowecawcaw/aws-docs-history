@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Accessing instances using bastions
-<a name="using-bastions"></a>
 
 All access to resources inside AMS-managed accounts, for both customers and AMS operators, is gated by the use of bastion hosts. We maintain both Linux and Windows RDP bastions for access for both Multi-account landing zone (MALZ) and Single-account landing zone (SALZ) AMS Advanced accounts.
 

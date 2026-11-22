@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Patch windows
-<a name="patch-windows"></a>
 
 Instances in a specific patch group are patched during one or more patch windows. Patch windows run on a schedule defined as a cron or rate expression, and have a configurable duration intended to keep patching-related disruption within a chosen time interval. AMS recommends creating multiple patch windows that collectively cover all of your instances, to match your organization’s specific patching routines, and to use the default maintenance window as a fallback. Patch windows are created with the RFC change type Deployment \| Patching \| SSM patch window \| Create (ct-0el2j07llrxs7). All instances that are not part of a patch window are patched during the default maintenance window created during onboarding.
 

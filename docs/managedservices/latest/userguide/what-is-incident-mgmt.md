@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # What is incident management?
-<a name="what-is-incident-mgmt"></a>
 
 Incident management is the process AMS uses to record, act on, communicate progress of, and provide notification of, active incidents.
 

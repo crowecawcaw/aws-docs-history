@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Automatically update the minimum version of SSM and CloudWatch agents
-<a name="auto-config-changes-agents"></a>
 
 The AMS Advanced *minimum version* (of the SSM or CloudWatch agents) is the version that has been tested by AMS service team and pre-approved for your operating system. We try to stay proactive and run the latest stable and compatible version, so the version number changes over time. You can find the current minimum version by raising a service request to AMS.
 + **SSM Agent Management**

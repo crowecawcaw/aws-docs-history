@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # CloudWatch configuration files, update details
-<a name="auto-config-files"></a>
 
  We read your custom CloudWatch configurations (JSON only) from the following CloudWatch directories (see [recommended directories](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html)), and merge them with the standard AMS CloudWatch configuration: 
 + CloudWatch Files

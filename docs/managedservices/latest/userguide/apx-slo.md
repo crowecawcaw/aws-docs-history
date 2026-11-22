@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS service level objectives (SLOs)
-<a name="apx-slo"></a>
 
 The following table describes the goals of the AWS Managed Services (AMS) service. Service Level Agreements (SLAs) for other aspects of the AMS service, including incident management, are covered in the SLA document shared with you when you subscribed to AMS. For more information, speak to your CSDM.
 

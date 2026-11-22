@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Amazon Machine Images (AMIs)
-<a name="ams-amis"></a>
 
 AMS produces updated Amazon Machine Images (AMIs) every month for AMS supported operating systems. In addition, AMS also produces security enhanced images (AMIs) based on CIS Level 1 benchmark for a subset of [AMS's supported operating systems](https://docs.aws.amazon.com/managedservices/latest/userguide/supported-configs.html). To find out which operating systems have a security enhanced image available, see the AMS Security User Guide, which is available through AWS Artifact -> Reports page (find the **Reports** option in the left navigation pane) filtered for AWS Managed Services. To access AWS Artifact, can contact your CSDM for instructions or go to [Getting Started with AWS Artifact](https://aws.amazon.com/artifact/getting-started).
 

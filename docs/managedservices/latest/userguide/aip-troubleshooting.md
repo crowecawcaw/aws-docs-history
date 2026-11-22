@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Troubleshooting AMS Automated IAM Provisioning fndings and errors
-<a name="aip-troubleshooting"></a>
 
 There are three ways you might run into problems when using AMS Automated IAM Provisioning:
 + RFC errors: These can happen for a variety of reasons; for example, incorrect input. For more information, see [Troubleshooting RFC errors in AMS](rfc-troubleshoot.md).

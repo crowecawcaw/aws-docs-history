@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Eradicate
-<a name="sir-eradicate"></a>
 
 After an incident is contained, eradication might be necessary to eliminate sources of threat altogether to secure the system before you proceed to the next recovery stage. Eradication steps might include deleting malware and removing compromised user accounts, as well as identifying and mitigating all vulnerabilities that were exploited. During eradication, it's important to identify all affected accounts, resources, and instances within the environment so that they can be remediated. 
 

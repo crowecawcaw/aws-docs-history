@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Transitioning from AMS Advanced to AMS Accelerate
-<a name="transition-to-accelerate"></a>
 
 AMS Advanced reaches end of support on June 30, 2027. After this date, AMS Advanced operational capabilities will no longer function and all customers will be offboarded from the service. Your underlying AWS infrastructure and workloads aren't affected - only the AMS Advanced management layer is removed.
 

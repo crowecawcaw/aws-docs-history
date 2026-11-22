@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Security Hub CSPM recommendations supported by Trusted Remediator
-<a name="tr-supported-sec-hub-recommendations"></a>
 
 The following table lists the supported Security Hub CSPM recommendations, SSM automation documents, preconfigured parameters, and the expected outcome of the automation documents. Review the expected outcome to help you understand possible risks based on your business requirements before you enable an SSM automation document for check remediation.
 

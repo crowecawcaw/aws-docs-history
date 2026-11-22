@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Operations On Demand
-<a name="ops-on-demand"></a>
 
 Operations on Demand (OOD) is an AWS Managed Services (AMS) feature that extends the standard scope of your AMS operations plan by providing operational services that are not currently offered natively by the [AMS operations plans](https://aws.amazon.com/managed-services/features/) or AWS.  Once selected, the catalog offering is delivered by a combination of automation and highly skilled AMS resources. There are no long term commitments or additional contracts, allowing you to extend your existing AMS and AWS operations and capabilities as needed. You agree to purchase blocks of hours (OOD blocks), 20 hours per block, on a monthly basis. 
 
@@ -41,7 +40,7 @@ For definitions of key terms refer to the AWS Managed Services documentation [Ke
 ## Requesting AMS Operations On Demand
 <a name="ops-on-demand-request"></a>
 
-AWS Managed Services (AMS) Operations on Demand (OOD) is available for all AWS accounts that have been onboarded to AMS. To take advantage of Operations on Demand, request additional information from your cloud service delivery manager (CSDM), Solutions Architect (SA), account manager, or Cloud Architect (CA). Available OOD offerings are listed in the preceding [Operations on Demand catalog of offerings](#ops-on-demand) table. After the engagement scoping is completed, submit a service request to AMS Operations to initiate an engagement for OOD.
+AWS Managed Services (AMS) Operations on Demand (OOD) is available for all AWS accounts that have been onboarded to AMS. To take advantage of Operations on Demand, request additional information from your cloud service delivery manager (CSDM), Solutions Architect (SA), account manager, or Cloud Architect (CA). Available OOD offerings are listed in the preceding [Operations on Demand catalog of offerings](ops-on-demand.md) table. After the engagement scoping is completed, submit a service request to AMS Operations to initiate an engagement for OOD.
 
 Each OOD service request must contain the following detailed information pertaining to the engagement:
 + The specific OOD offerings requested, and for each specific OOD offering:

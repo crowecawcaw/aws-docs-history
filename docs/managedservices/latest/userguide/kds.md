@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Kinesis Data Streams in your AMS account
-<a name="kds"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Kinesis Data Streams (KDS) capabilities directly in your AMS managed account. Amazon Kinesis Data Streams is a highly scalable, and durable, real-time data streaming service. KDS can continuously capture gigabytes of data per second from hundreds of thousands of sources such as website clickstreams, database event streams, financial transactions, social media feeds, IT logs, and location-tracking events. The data collected is available in milliseconds to enable real-time analytics use cases such as real-time dashboards, real-time anomaly detection, dynamic pricing, and more. To learn more, see [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/).
 

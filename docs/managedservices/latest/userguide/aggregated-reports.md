@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Aggregated reports
-<a name="aggregated-reports"></a>
 
 Aggregated self-service reporting (SSR) provides you a view of existing self-service reports aggregated at the organization level, cross-account. This gives you visibility into key operational metrics, like patch compliance, backup coverage, and incidents, across all the accounts under AMS management within your AWS Organizations.
 

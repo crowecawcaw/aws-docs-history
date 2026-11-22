@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon Simple Workflow Service in your AMS account
-<a name="workflow"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Simple Workflow Service (Amazon SWF) capabilities directly in your AMS managed account. Amazon Simple Workflow Service helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud. If your application's steps take more than 500 milliseconds to complete, you need to track the state of processing, or you need to recover or retry if a task fails, Amazon SWF can help you. To learn more, see [Amazon Simple Workflow Service](https://aws.amazon.com/swf/).
 

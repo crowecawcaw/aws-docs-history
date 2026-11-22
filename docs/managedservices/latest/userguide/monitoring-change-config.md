@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Changing the monitoring configuration for an AMS account
-<a name="monitoring-change-config"></a>
 
 You can change your baseline monitoring configuration for Amazon EC2 resources. For the alerts that can be configured, see [Alerts from baseline monitoring in AMS](monitoring-default-metrics.md). You can change the alarm definition, alarm destination, or opt-out of the alarm notification for the baseline monitors so that the alerts meet your application’s operational requirements. You can request any or all of the previously mentioned changes by submitting a Management \| Other \| Other \| Update CT (ct-0xdawir96cy7k) with the following details.
 + Instance IDs [optional, if not mentioned, all instances in the account are in-scope]

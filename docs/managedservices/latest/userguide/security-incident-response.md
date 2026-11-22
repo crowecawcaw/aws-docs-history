@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Security Incident Response in AMS
-<a name="security-incident-response"></a>
 
 Security is the top priority at AWS Managed Services (AMS). AMS deploys resources and controls in your accounts to manage them. AWS has a shared responsibility model: AWS manages the security of the cloud, and you are responsible for security in the cloud. AMS protects your data and assets and helps keep your AWS infrastructure secure by using security controls and active monitoring for security issues. These capabilities help you establish a security baseline for applications running in the AWS Cloud. AMS collaborates with you through Security Incident Response to assess the effect, and then carry out containment and remediations based on best practice recommendations.
 

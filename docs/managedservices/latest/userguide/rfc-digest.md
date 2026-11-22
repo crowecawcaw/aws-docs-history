@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Sign up for the RFC daily email
-<a name="rfc-digest"></a>
 
 You can sign up for a daily email summarizing the RFC activity in your account over the last 24 hours using the RFC digest feature. The RFC digest feature is a streamlined process that reduces the number of email notifications you receive regarding your account's RFCs. The RFC digest might reduce the likelihood that you miss actions that are pending your response.
 

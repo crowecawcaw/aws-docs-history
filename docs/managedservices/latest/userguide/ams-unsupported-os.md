@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Capabilities for unsupported operating systems in AMS
-<a name="ams-unsupported-os"></a>
 
 An *unsupported* operating system is any operating system not listed in the [Supported configurations](supported-configs.md). AMS considers instances with unsupported operating systems to be "Customer-Requested Configurations" that are subject to the [AWS Betas and Previews service terms](https://aws.amazon.com/service-terms/#2._Betas_and_Previews).
 

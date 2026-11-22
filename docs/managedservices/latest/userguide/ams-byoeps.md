@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS bring your own EPS
-<a name="ams-byoeps"></a>
 
 Use the AMS "bring your own end point security" (BYOEPS) feature to replace the default Trend Micro Deep Security agent with your own end point security solution, or Trend Micro license. If you already have cost effective licenses for products other than Trend Micro Deep Security, or a team that provides your EPS, or if you want to use a specific EPS tool, then use BYOEPS in your instances.
 

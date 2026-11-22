@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon WorkSpaces Applications in your AMS account
-<a name="amz-app-stream-2.0"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon WorkSpaces Applications (WorkSpaces Applications) capabilities directly in your AMS managed account. WorkSpaces Applications lets you move your desktop applications to AWS, without rewriting them. You can install your applications on WorkSpaces Applications, set launch configurations, and make your applications available to users. WorkSpaces Applications offers a wide selection of virtual machine options so that you can select the instance type that best matches your application requirements, and set the auto-scale parameters so that you can easily meet the needs of your end users. WorkSpaces Applications enables you to launch applications in your own network, which means your applications can interact with your existing AWS resources.
 

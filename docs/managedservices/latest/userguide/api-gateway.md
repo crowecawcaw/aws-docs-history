@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon API Gateway in your AMS account
-<a name="api-gateway"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon API Gateway capabilities directly in your AMS managed account. [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Using the AWS Management Console you can create REST and WebSocket APIs that act as a front door for applications to access data, business logic, or functionality from your back-end services, such as workloads running on Amazon Elastic Compute Cloud ([Amazon EC2](https://aws.amazon.com/ec2/)), code running on [AWS Lambda](https://aws.amazon.com/lambda/), any web application, or real-time communication applications.
 

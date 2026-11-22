@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Find Amazon Resource Names (ARNs) in AMS
-<a name="find-arn"></a>
 
 An Amazon Resource Name (ARN) is a string that uniquely identifies an AWS resource, such as EC2 instances, S3 buckets, accounts, Lambda functions, and so forth. AWS requires an ARN when you want to specify a resource unambiguously across all of AWS, such as in IAM policies, Amazon Relational Database Service (Amazon RDS) tags, and API calls. ARNs are constructed from identifiers that specify the service, Region, account, and other information. There are three ARN formats:
 

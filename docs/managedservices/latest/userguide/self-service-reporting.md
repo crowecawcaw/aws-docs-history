@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Self-service reports
-<a name="self-service-reporting"></a>
 
 AWS Managed Services (AMS) self-service reports (SSR) is a feature that collects data from various native AWS services and provides access to reports on major AMS offerings. SSR provides information that you can use to support operations, configuration management, asset management, security management, and compliance.
 

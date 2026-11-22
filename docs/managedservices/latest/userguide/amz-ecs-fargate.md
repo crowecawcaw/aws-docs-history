@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon ECS on AWS Fargate in your AMS account
-<a name="amz-ecs-fargate"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon ECS on AWS Fargate capabilities directly in your AMS managed account. AWS Fargate is a technology that you can use with Amazon ECS to run containers (see [Containers on AWS](https://aws.amazon.com/what-are-containers)) without having to manage servers or clusters of Amazon EC2 instances. With AWS Fargate, you no longer have to provision, configure, or scale, clusters of virtual machines to run containers. This removes the need to choose server types, decide when to scale your clusters, or optimize cluster packing.
 

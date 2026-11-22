@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Self-Service Provisioning mode in AMS
-<a name="self-service-provisioning-section"></a>
 
 AWS Managed Services (AMS) Self-Service Provisioning (SSP) mode provides full access to native AWS service and API capabilities in AMS managed accounts. You access services through standardized, scoped down, AWS Identity and Access Management roles. AMS provides service requests and incident management. Alerting, monitoring, logging, patch, back up, and change management are your responsibility. In many cases, Self-Service Provisioning services (SSPS) are self-managed, or serverless, and don’t require management of certain operational tasks like patching. You benefit from using these services within the environment boundary defined by AMS guardrails and any IAM changes (including service linked roles, service roles, cross-account roles, or policy updates) need to be approved by AMS Operations to maintain the baseline security of the platform. You can leverage CloudFormation templates to automate deployment of these services, but this isn't supported for all SSP services.
 

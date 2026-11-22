@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Find IAM entities in AMS
-<a name="find-iam-entities"></a>
 
 Your account has default IAM Roles and Policies; see [IAM user role in AMS](defaults-user-role.md) and default IAM instance profiles; see [EC2 IAM instance profile](defaults-instance-profile.md) with default policies. To discover your IAM roles and policies:
 + Console: Use the IAM console to view all IAM policies and roles for your account.

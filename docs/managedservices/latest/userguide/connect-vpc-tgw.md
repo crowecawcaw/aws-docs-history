@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Connecting a new VPC to the shared transit gateway
-<a name="connect-vpc-tgw"></a>
 
 When you create an account and VPC yourself, you configure Transit Gateway connectivity directly instead of through a managed request. The following AWS Command Line Interface (AWS CLI) procedure reproduces the connectivity that the Create application account (with VPC) change type previously configured. The procedure attaches the VPC, associates it with a route domain, applies your `routable` or `isolated` choice, and adds the routes that preserve shared-services, egress, and on-premises connectivity in both directions. It then points the VPC's subnet route tables at the Transit Gateway and verifies the result.
 

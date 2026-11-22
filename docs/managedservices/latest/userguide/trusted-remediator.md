@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Trusted Remediator in AMS
-<a name="trusted-remediator"></a>
 
 Trusted Remediator is an AWS Managed Services solution that automates the remediation of [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/), [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/), and [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) recommendations. Trusted Remediator creates recommendations when Trusted Advisor, Security Hub CSPM and Compute Optimizer indicate opportunities for you to reduce costs, improve system availability, optimize performance, or close security gaps for your AWS accounts. With Trusted Remediator, you can address these security, performance, cost optimization, fault tolerance, and service limit recommendations in a safe, standardized way that uses established best practices. Trusted Remediator allows you to configure a remediation solution and runs automatically on a schedule that you create, simplifying the remediation process. This streamlined approach addresses issues consistently, efficiently, and without manual intervention.
 

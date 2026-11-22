@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Work with remediations in Trusted Remediator
-<a name="tr-remediation"></a>
 
 ## Track remediations in Trusted Remediator
 <a name="tr-remediation-track"></a>
@@ -120,9 +119,9 @@ Remediation documents contain multiple steps that interact with AWS services per
 
      This error indicates that the incorrect bucket name was specified in the remediation configuration's preconfigured-parameters.
 
-     To resolve this error, [manually run the automation](#tr-remediation) using the correct bucket name. To prevent this issue from reoccurring, [update the remediation configuration](tr-configure-remediations.md) with the correct bucket name.
+     To resolve this error, [manually run the automation](tr-remediation.md) using the correct bucket name. To prevent this issue from reoccurring, [update the remediation configuration](tr-configure-remediations.md) with the correct bucket name.
    + `DB instance my-db-instance-1 is not in available status for modification.`
 
      This error indicates that the automation couldn't make the expected changes because the DB instance was in an invalid state.
 
-     To resolve this error, [manually run the automation](#tr-remediation).
+     To resolve this error, [manually run the automation](tr-remediation.md).

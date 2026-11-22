@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # How AMS standard patching works
-<a name="patching-how-works"></a>
 
 AMS uses the Systems Manager Run Command service for regularly scheduled monthly and as-needed critical patching, with two principal patching methods, in-place and AMI replacement, depending on your infrastructure deployment strategy (mutable vs. immutable). This section describes the AMS patching service, types, methods, and processes.
 

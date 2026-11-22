@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS on Outposts
-<a name="ams-outposts"></a>
 
 [AWS Outposts](https://aws.amazon.com/outposts/) is a managed hardware solution that extends AMS managed landing zones to customer data centers. With AMS support on AWS Outposts, customers seeking the cloud expertise, cost savings and standardized platform offered by AMS, are no longer limited to hosting resources inside AWS Regions. With AMS on AWS Outposts, customers with on-premise requirements can now modernize on AWS, while enjoying the patching, backup, provisioning, incident management, business continuity, and cost optimization services offered by AMS.
 

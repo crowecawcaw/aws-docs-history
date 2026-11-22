@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS-managed application accounts
-<a name="application-account-ams-managed"></a>
 
 Application accounts that are fully managed by AMS are referred to as AMS-managed application accounts, where some or all operational tasks, like service request management, incident management, security management, continuity management (backup), patch management, cost-optimization, or monitoring and event management of infrastructure, are performed by AMS.
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Update RFCs
-<a name="ex-update-rfcs"></a>
 
 You can resubmit an RFC that has been rejected or that has not yet been submitted, by updating the RFC and then submitting it, or re-submitting it. Note that most RFCs are rejected because the specified `RequestedStartTime` has passed before submission or the specified TimeoutInMinutes is inadequate to run the RFC (since TimeoutInMinutes does not prolong a successful RFC, we recommend always setting this to at least "60" and up to "360" for an Amazon EC2 or an Amazon EC2 Auto Scaling group with long-running UserData). This section describes how to use the CLI version of the `UpdateRfc` command to update an RFC with a new RFC parameter, or new parameters using either stringified JSON or an updated parameters file.
 

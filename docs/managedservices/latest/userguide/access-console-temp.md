@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Temporary AMS console access
-<a name="access-console-temp"></a>
 
 If you haven't yet set up an identity provider (for instance, SAML) to authenticate to AMS, you can get temporary access to the AMS console. Contact your CSDM to have a Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy change request (ct-3dpd8mdd9jn1r) submitted on your behalf with these values:
 + UserName: A name for the IAM user entity that you're creating

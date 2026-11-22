@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Using the AMS API in CLI, Ruby, Python, and Java
-<a name="sent-api-ruby-python-java"></a>
 
 The following is a list of code snippets for the AMS API `ListChangeTypeClassificationSummaries` operation, in all available languages.
 

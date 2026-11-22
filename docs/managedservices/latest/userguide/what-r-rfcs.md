@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # What are RFCs?
-<a name="what-r-rfcs"></a>
 
 A request for change, or RFC, is how you make a change in your AMS-managed environment, or ask AMS to make a change on your behalf. To create an RFC, you choose from AMS change types, choose RFC parameters (such as schedule), and then submit the request using either the AMS console or the API commands [CreateRfc](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html) and [SubmitRfc](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_SubmitRfc.html).
 

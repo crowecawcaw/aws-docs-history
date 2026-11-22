@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Tag-based alert notifications in AMS
-<a name="tag-alerts"></a>
 
 Use tags to send alert notifications for your resources to different email addresses. It's a best practice to use tag-based alert notifications because notifications sent to a single email address might cause confusion when multiple developer teams use the same account.
 

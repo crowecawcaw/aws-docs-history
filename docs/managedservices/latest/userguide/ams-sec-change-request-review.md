@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Change request security reviews in AMS Advanced
-<a name="ams-sec-change-request-review"></a>
 
 The AWS Managed Services change request review process ensures that AMS performs a security review of the requested changes as they are implemented on your behalf in your account.
 

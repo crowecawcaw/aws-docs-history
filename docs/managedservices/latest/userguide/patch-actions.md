@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Actions you can take in AMS standard patching
-<a name="patch-actions"></a>
 
 In addition to testing new AMIs, there are several actions you can take to manage the patching of your infrastructure:
 + If it took longer to test the updates than the patch window allowed, you can request that AMS apply the updates that were canceled when you're ready by submitting a service request (use the details in the original service notification as the basis).

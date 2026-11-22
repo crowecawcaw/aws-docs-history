@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Service description
-<a name="ams-sd"></a>
 
 AMS Advanced (AMS) is an operation plan of the AWS Managed Services service for managing operations of your AWS infrastructure. AMS Advanced provides routine infrastructure operations such as patch, continuity management, security management, and IT management processes such as incident, change and service request management. For a list of supported services, see [Supported AWS services](supported-services.md).
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Advanced interfaces
-<a name="ams-interfaces"></a>
 + *AMS Advanced console*: You use the AMS Advanced console to create RFCs, report and respond to incidents, make service requests, and find information on existing VPCs and stacks. When in doubt of what to do, or when you need help with AMS or your managed resources, create a service request by using this interface.
 + *AWS Management Console*: Many AWS consoles can be useful for viewing AMS information, for example:
   + *Amazon EC2 console*: Use to view instance information including bastion IP addresses, Amazon EC2 Auto Scaling groups, and load balancers.

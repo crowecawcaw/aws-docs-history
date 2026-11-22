@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Understand RFC update CTs and CloudFormation template drift detection
-<a name="ex-rfc-updates-and-dd"></a>
 
 Resources provisioned in AMS use a modified CloudFormation template. If a resource has a parameter changed directly through a service's AWS Management Console, then the CloudFormation creation record of that resource becomes out of sync. If this happens and you attempt to use an AMS update change type to update the resource in AMS, then AMS references the original resource configuration and potentially resets changed parameters. This reset might be damaging, so AMS disallows RFCs with update change types if any extra AMS configuration changes are detected.
 

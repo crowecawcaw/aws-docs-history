@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Managing EC2 instance access
-<a name="transition-managing-ec2-access-accelerate"></a>
 
 As part of your move to AMS Accelerate, AMS removes the bastion hosts and the management host from your accounts and hands the Active Directory (AD) infrastructure over to you. Instance access changes from a prescriptive, request-based model to one that you own and operate.
 

@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Email notifications
-<a name="console-event-triggers"></a>
 
 You can add email addresses to receive RFC state changes to an RFC that you create in the AMS console, or by using the AMS API/CLI.
 

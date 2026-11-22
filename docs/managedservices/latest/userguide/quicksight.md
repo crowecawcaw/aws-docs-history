@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Quick in your AMS account
-<a name="quicksight"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Quick capabilities directly in your AMS managed account. Quick is a fast, cloud-powered business intelligence service that delivers insights to everyone in your organization. As a fully managed service, Quick lets you easily create and publish interactive dashboards that include machine learning (ML) insights. To learn more, see [AWS Quick](https://aws.amazon.com/quicksight/).
 

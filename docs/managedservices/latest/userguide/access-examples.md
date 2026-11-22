@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Instance access examples in AMS
-<a name="access-examples"></a>
 
 These examples show how to log in to an instance in your AMS account by using a bastion after you've been granted access through an RFC. For information about getting access granted, see [Requesting instance access](access-justification.md#req-instance-access).
 

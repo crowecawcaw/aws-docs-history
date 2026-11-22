@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Setting permissions in AMS with IAM roles and profiles
-<a name="setting-permissions"></a>
 
 AMS uses AWS Identity and Access Management (IAM) to manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access. AMS provides a default IAM user role and a default Amazon EC2 instance profile (which includes a statement allowing the resource access to the default IAM user role).
 

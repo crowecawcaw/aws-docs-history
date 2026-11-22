@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Onboarding to AMS Automated IAM Provisioning in AMS
-<a name="aip-onboarding"></a>
 
 To use the new change types, first enable AMS Automated IAM Provisioning by submitting an RFC using the following change type: Management \| Managed account \| AMS Automated IAM Provisioning with read-write permissions \| [Enable (managed automation)](https://docs.aws.amazon.com/managedservices/latest/ctref/management-managed-automated-iam-provisioning-with-read-write-permissions-enable-review-required.html) (ct-1706xvvk6j9hf). AWS requires that your organization go through a customer security risk management (CSRM) process to ensure that the use of these change types are aligned with your organizational policies. The AWS operations team works with you to acquire explicit approval from your security team contact in the form of risk acceptance as part of the required review. To learn more, see the [RFC customer risk management (CSRM) process](https://docs.aws.amazon.com/managedservices/latest/userguide/rfc-security.html).
 

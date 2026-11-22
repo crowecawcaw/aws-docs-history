@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Offboard from SSR
-<a name="offboarding-ssr"></a>
 
 To offboard from the SSR service, create a service request (SR) through the AMS console. After you submit the SR, an AMS operations engineers helps you offboard from SSR. In the SR, provide the reason for that you want to offboard.
 

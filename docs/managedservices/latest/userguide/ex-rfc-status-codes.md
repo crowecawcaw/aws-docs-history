@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Understand RFC status codes
-<a name="ex-rfc-status-codes"></a>
 
 RFC status codes help you track your requests. You can observe these status codes during an RFC run in the CLI output, or by refreshing the RFC list page in the console.
 

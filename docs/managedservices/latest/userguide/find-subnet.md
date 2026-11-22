@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Finding subnet IDs in AMS
-<a name="find-subnet"></a>
 
 Several resources require that you specify a subnet, or list of subnets, at configuration time. To find subnets, you can use either the AMS console or AMS SKMS API/CLI. Note that the AMS SKMS API/CLI is private and must be installed before you can use it.
 

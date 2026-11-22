@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Direct Change mode in AMS
-<a name="direct-change-mode-section"></a>
 
 **Topics**
 + [Getting Started with Direct Change mode](dcm-get-started.md)
@@ -17,4 +16,4 @@ AWS Managed Services (AMS) Direct Change mode (DCM) extends AMS Advanced change 
 **Note**  
 Direct Change mode does not remove AMS change management RFCs. You have full access to AMS RFCs with DCM.
 
-[![AWS Videos](https://img.youtube.com/vi/Qu1aKIUPT28?si=KrOqr8pniwfh7Nob/0.jpg)](https://www.youtube.com/watch?v=Qu1aKIUPT28?si=KrOqr8pniwfh7Nob)
+[![AWS Videos](https://img.youtube.com/vi/Qu1aKIUPT28/0.jpg)](https://www.youtube.com/watch?v=Qu1aKIUPT28)

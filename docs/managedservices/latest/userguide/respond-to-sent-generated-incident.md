@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Responding to AMS-generated incidents
-<a name="respond-to-sent-generated-incident"></a>
 
 AMS proactively monitors your resources; for more information, see [Monitoring and event management](https://docs.aws.amazon.com/managedservices/latest/userguide/monitoring.html). Sometimes AMS identifies and creates an incident case, most often to notify you of an incident. In the event that action is required on your part to resolve an incident, AMS sends a notification to the contact information you have provided for the account. You respond to this incident in the same way as you would any other incident. You would usually respond to incidents via the AMS console; in some cases, contact by email or phone is required.
 

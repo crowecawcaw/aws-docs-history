@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Customer Security Risk Management process
-<a name="ams-sec-csrm-process"></a>
 
 The AMS Advanced Customer Security Risk Management (CSRM) process helps to clearly identify and communicate risks to the right owners. This process minimizes the security risks in your environment and reduces ongoing operational overhead for identified risks.
 

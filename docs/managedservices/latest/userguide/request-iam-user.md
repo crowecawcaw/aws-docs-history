@@ -3,7 +3,6 @@
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Restrict permissions with IAM role policy statements
-<a name="request-iam-user"></a>
 
 AMS uses an IAM role to set user permissions through your federation service.
 
@@ -42,7 +41,7 @@ AMS change type statement in the default IAM instance profile that allows access
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
