@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a patch baseline for installing Windows Service Packs using the console
-<a name="patch-manager-windows-service-pack-patch-baseline-tutorial"></a>
 
 When you create a custom patch baseline, you can specify that all, some, or only one type of supported patch is installed.
 

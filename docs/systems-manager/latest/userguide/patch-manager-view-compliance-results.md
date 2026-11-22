@@ -1,7 +1,6 @@
 
 
 # Viewing patch compliance results
-<a name="patch-manager-view-compliance-results"></a>
 
 Use these procedures to view patch compliance information about your managed nodes.
 

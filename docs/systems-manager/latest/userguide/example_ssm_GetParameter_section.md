@@ -1,7 +1,6 @@
 
 
 # Use `GetParameter` with an AWS SDK or CLI
-<a name="example_ssm_GetParameter_section"></a>
 
 The following code examples show how to use `GetParameter`.
 
@@ -112,7 +111,7 @@ For more information, see [Working with parameter labels](https://docs.aws.amazo
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ssm#code-examples). 
 
-```
+```rust
     pub async fn list_path(&self, path: &str) -> Result<Vec<Parameter>, EC2Error> {
         let maybe_params: Vec<Result<Parameter, _>> = TryFlatMap::new(
             self.inner

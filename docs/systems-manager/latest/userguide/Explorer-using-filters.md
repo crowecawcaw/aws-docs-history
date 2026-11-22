@@ -1,7 +1,6 @@
 
 
 # Customizing the Explorer display
-<a name="Explorer-using-filters"></a>
 
 You can customize widget layout in AWS Systems Manager Explorer by using a drag-and-drop capability. You can also customize the OpsData and OpsItems displayed in Explorer by using filters, as described in this topic. 
 

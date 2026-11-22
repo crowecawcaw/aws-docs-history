@@ -1,7 +1,6 @@
 
 
 # Setting up Automation
-<a name="automation-setup"></a>
 
 To set up Automation, you must verify user access to the Automation service and situationally configure roles so that the service can perform actions on your resources. We also recommend that you opt in to the adaptive concurrency mode in your Automation preferences. Adaptive concurrency automatically scales your automation quota to meet your needs. For more information, see [Allowing Automation to adapt to your concurrency needs](adaptive-concurrency.md).
 

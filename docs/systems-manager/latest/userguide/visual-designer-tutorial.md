@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a runbook using the visual design experience
-<a name="visual-designer-tutorial"></a>
 
 In this tutorial, you learn the basics of working with the visual design experience provided by Systems Manager Automation. In the visual design experience, you can create a runbook that uses multiple actions. You use the move feature to arrange actions on the canvas. You also search for, select, and configure these actions. Then, you can view the auto-generated YAML code for your runbook's workflow, exit the visual design experience, run the runbook, and review the execution details.
 

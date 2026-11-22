@@ -1,7 +1,6 @@
 
 
 # Tags applied to managed instances
-<a name="cloud-connector-gcp-managed-instance-tags"></a>
 
 When Systems Manager onboards a GCP virtual machine through a Cloud Connector, it automatically applies the following tag to the resulting managed instance. This tag identifies which Cloud Connector was used to onboard the VM and can be used to filter, organize, and apply policies to managed instances based on their originating connector.
 

@@ -1,7 +1,6 @@
 
 
 # Preventing access to Parameter Store API operations
-<a name="parameter-store-policy-conditions"></a>
 
 Using service-specific *[conditions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html)* supported by Systems Manager for AWS Identity and Access Management (IAM) policies, you can explicity allow or deny access to Parameter Store API operations and content. By using these conditions, you can allow only certain IAM Entities (users and roles) in your organization to call certain API actions, or prevent certain IAM Entities from running them. This includes actions run through the Parameter Store console, the AWS Command Line Interface (AWS CLI), and SDKs. 
 
@@ -42,7 +41,7 @@ However, the `"Deny"` statement prevents Entities from changing values of *exist
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ In the following policy example, the `"Allow"` statement grants general permissi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Updating AMIs
-<a name="automation-tutorial-update-ami"></a>
 
 The following tutorials explain how to update Amazon Machine Image (AMIs) to include the latest patches.
 
@@ -86,7 +85,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` runbook 
 
    The command returns an execution ID. Copy this ID to the clipboard. Use this ID to view the status of the automation.
 
-   ```
+   ```json
    {
        "AutomationExecutionId": "{{automation execution ID}}"
    }

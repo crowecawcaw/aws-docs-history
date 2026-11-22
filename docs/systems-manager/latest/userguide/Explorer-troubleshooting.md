@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Systems Manager Explorer
-<a name="Explorer-troubleshooting"></a>
 
 This topic includes information about how to troubleshoot common problems with AWS Systems Manager Explorer.
 

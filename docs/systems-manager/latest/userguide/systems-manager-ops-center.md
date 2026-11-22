@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager operations tools
-<a name="systems-manager-ops-center"></a>
 
 Operations tools are a suite of capabilities that help you manage your AWS resources.
 + [Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer.html) is a customizable operations dashboard that reports information about your AWS resources. Explorer displays an aggregated view of operations data (OpsData) for your AWS accounts and across AWS Regions. 

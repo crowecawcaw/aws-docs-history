@@ -1,7 +1,6 @@
 
 
 # Resetting passwords on managed nodes
-<a name="fleet-manager-reset-password"></a>
 
 You can reset the password for any user on a managed node. This includes Amazon Elastic Compute Cloud (Amazon EC2) instances; AWS IoT Greengrass core devices; and on-premises servers, edge devices, and virtual machines (VMs) that are managed by AWS Systems Manager. The password reset functionality is built on Session Manager. You can use this functionality to connect to managed nodes without opening inbound ports, maintaining bastion hosts, or managing SSH keys. 
 
@@ -51,7 +50,7 @@ To use the AWS CLI to reset a password, the Session Manager plugin must be insta
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-session \
        --target {{instance-id}} \
        --document-name "AWS-PasswordReset" \
@@ -61,7 +60,7 @@ To use the AWS CLI to reset a password, the Session Manager plugin must be insta
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-session ^
        --target {{instance-id}} ^
        --document-name "AWS-PasswordReset" ^

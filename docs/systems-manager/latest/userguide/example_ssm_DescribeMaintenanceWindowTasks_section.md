@@ -1,7 +1,6 @@
 
 
 # Use `DescribeMaintenanceWindowTasks` with a CLI
-<a name="example_ssm_DescribeMaintenanceWindowTasks_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowTasks`.
 
@@ -204,7 +203,7 @@ For more information, see [View information about maintenance windows (AWS CLI)]
 **Tools for PowerShell V4**  
 **Example 1: This example lists all of the tasks for a maintenance window.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
 ```
 **Output:**  
@@ -227,7 +226,7 @@ WindowTaskId   : a23e338d-ff30-4398-8aa3-09cd052ebf17
 **Tools for PowerShell V5**  
 **Example 1: This example lists all of the tasks for a maintenance window.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowTaskList -WindowId "mw-06cf17cbefcb4bf4f"
 ```
 **Output:**  

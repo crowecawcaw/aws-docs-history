@@ -1,7 +1,6 @@
 
 
 # Enable VM onboarding
-<a name="cloud-connector-gcp-enable-vm-onboarding"></a>
 
 After you create a Cloud Connector, you must enable VM onboarding so that Systems Manager can discover and register the GCP VMs targeted by the connector. Enabling VM onboarding creates a State Manager association named `AWSSSMGcpConnector-{{CONNECTOR_ID}}` that uses the `AWS-InstallSSMAgentOnGCP` Automation document. The association runs the `AWS-InstallSSMAgentOnGCP` runbook against the Cloud Connector.
 

@@ -1,7 +1,6 @@
 
 
 # Using native parameter support in Parameter Store for Amazon Machine Image IDs
-<a name="parameter-store-ec2-aliases"></a>
 
 When you create a `String` parameter, you can specify the *data type* as `aws:ec2:image` to make sure that the parameter value you enter is a valid Amazon Machine Image (AMI) ID format. 
 
@@ -15,7 +14,7 @@ The user who runs this command must have AWS Identity and Access Management (IAM
 ------
 #### [ Linux & macOS ]
 
-```
+```bash
 aws ec2 run-instances \
     --image-id resolve:ssm:/golden-ami \
     --count 1 \
@@ -27,7 +26,7 @@ aws ec2 run-instances \
 ------
 #### [ Windows ]
 
-```
+```bash
 aws ec2 run-instances ^
     --image-id resolve:ssm:/golden-ami ^
     --count 1 ^
@@ -56,7 +55,7 @@ The following example policy grants users permission to call the `PutParameter` 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -85,7 +84,7 @@ A parameter version number might be generated before the validation operation is
 
 To monitor whether your parameters are created successfully, we recommend using Amazon EventBridge to send you notifications about your `create` and `update` parameter operations. These notifications report whether a parameter operation was successful or not. If an operation fails, the notification includes an error message that indicates the reason for the failure. 
 
-```
+```json
 {
     "version": "0",
     "id": "eed4a719-0fa4-6a49-80d8-8ac65EXAMPLE",

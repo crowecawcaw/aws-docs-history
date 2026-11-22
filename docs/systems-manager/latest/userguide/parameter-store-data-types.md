@@ -1,7 +1,6 @@
 
 
 # Parameter data types in Parameter Store
-<a name="parameter-store-data-types"></a>
 
 When you create or update a parameter, you can specify a *data type* to tell Parameter Store how to validate the parameter value. For most data types, Parameter Store validates the value during the `PutParameter` operation and rejects values that don't conform. The exception is `aws:ec2:image`. For this data type, Parameter Store validates the value asynchronously. For more information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md).
 
@@ -54,7 +53,7 @@ The following AWS CLI example creates a `String` parameter with the data type `i
 ------
 #### [ Linux & macOS ]
 
-```
+```bash
 aws ssm put-parameter \
     --name "/myapp/config/port" \
     --value "443" \
@@ -65,7 +64,7 @@ aws ssm put-parameter \
 ------
 #### [ Windows ]
 
-```
+```bash
 aws ssm put-parameter ^
     --name "/myapp/config/port" ^
     --value "443" ^

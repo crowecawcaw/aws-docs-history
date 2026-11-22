@@ -1,7 +1,6 @@
 
 
 # Importing and managing events from third-party calendars
-<a name="third-party-events"></a>
 
 As an alternative to creating events directly in the AWS Systems Manager console, you can import an iCalendar (`.ics`) file from a supported third-party calendar application. Your calendar can include both imported events and events that you create in Change Calendar, which is a tool in AWS Systems Manager.
 

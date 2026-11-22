@@ -1,7 +1,6 @@
 
 
 # `aws:invokeWebhook` – Invoke an Automation webhook integration
-<a name="invoke-webhook"></a>
 
 Invokes the specified Automation webhook integration. For information about creating Automation integrations, see [Creating webhook integrations for Automation](creating-webhook-integrations.md).
 
@@ -20,7 +19,7 @@ Provide the information for the Automation integration you want to invoke.
 ------
 #### [ YAML ]
 
-```
+```yaml
 action: "aws:invokeWebhook"
 inputs: 
  IntegrationName: "{{exampleIntegration}}"
@@ -30,7 +29,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "action": "aws:invokeWebhook",
     "inputs": {

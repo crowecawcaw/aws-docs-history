@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a maintenance window for patching using the console
-<a name="maintenance-window-tutorial-patching"></a>
 
 **Important**  
 You can continue to use this legacy topic to create a maintenance window for patching. However, we recommend that you use a patch policy instead. For more information, see [Patch policy configurations in Quick Setup](patch-manager-policies.md) and [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md). 

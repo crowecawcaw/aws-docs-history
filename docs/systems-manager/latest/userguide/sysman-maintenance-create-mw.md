@@ -1,7 +1,6 @@
 
 
 # Create a maintenance window using the console
-<a name="sysman-maintenance-create-mw"></a>
 
 In this procedure, you create a maintenance window in Maintenance Windows, a tool in AWS Systems Manager. You can specify its basic options, such as name, schedule, and duration. In later steps, you choose the targets, or resources, that it updates and the tasks that run when the maintenance window runs.
 

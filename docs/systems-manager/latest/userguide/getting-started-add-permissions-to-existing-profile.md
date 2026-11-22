@@ -1,7 +1,6 @@
 
 
 # Add Session Manager permissions to an existing IAM role
-<a name="getting-started-add-permissions-to-existing-profile"></a>
 
 Use the following procedure to add Session Manager permissions to an existing AWS Identity and Access Management (IAM) role. By adding permissions to an existing role, you can enhance the security of your computing environment without having to use the AWS `AmazonSSMManagedInstanceCore` policy for instance permissions.
 
@@ -32,7 +31,7 @@ If the `ssmmessages:OpenControlChannel` permission is removed from policies atta
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -70,7 +69,7 @@ If the `ssmmessages:OpenControlChannel` permission is removed from policies atta
 
    If you won't use AWS KMS encryption for your session data, you can remove the following content from the policy.
 
-   ```
+   ```json
    ,
            {
                "Effect": "Allow",

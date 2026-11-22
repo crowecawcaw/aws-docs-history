@@ -1,7 +1,6 @@
 
 
 # Create a deny-access policy for just-in-time node access
-<a name="systems-manager-just-in-time-node-access-create-deny-access-policies"></a>
 
 Deny-access policies use the Cedar policy language to define which nodes users can't automatically connect to without manual approval. A deny-access policy contains multiple `forbid` statements specifying the `principal` and `resource`. Each statement includes a `when` clause defining the conditions for explicitly denying automatic approval.
 

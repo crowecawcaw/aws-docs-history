@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in AWS Systems Manager
-<a name="logging-and-monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Systems Manager and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more debug a multi-point failure if one occurs. AWS provides several tools for monitoring your Systems Manager and other resources and responding to potential incidents.
 

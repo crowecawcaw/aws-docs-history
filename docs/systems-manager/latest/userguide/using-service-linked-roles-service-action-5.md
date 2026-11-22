@@ -1,7 +1,6 @@
 
 
 # Using roles to maintain Quick Setup-provisioned resource health and consistency
-<a name="using-service-linked-roles-service-action-5"></a>
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSSMQuickSetup`**. 
 

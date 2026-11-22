@@ -1,7 +1,6 @@
 
 
 # Working with Parameter Store
-<a name="parameter-store-working-with"></a>
 
 Parameter Store lets you create, organize, and manage configuration data and secrets that your applications use at runtime.
 

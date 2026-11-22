@@ -1,7 +1,6 @@
 
 
 # Viewing details of an OpsItem
-<a name="OpsCenter-working-with-OpsItems-viewing-details"></a>
 
 To get a comprehensive view of an OpsItem, use the **OpsItem details** page in the OpsCenter console. The **Overview** page displays the following information: 
 + **OpsItems details**– Displays general information for the selected OpsItem.

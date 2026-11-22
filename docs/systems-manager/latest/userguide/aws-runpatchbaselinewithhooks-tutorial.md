@@ -1,7 +1,6 @@
 
 
 # Tutorial: Update application dependencies, patch a managed node, and perform an application-specific health check using the console
-<a name="aws-runpatchbaselinewithhooks-tutorial"></a>
 
 In many cases, a managed node must be rebooted after it has been patched with the latest software update. However, rebooting a node in production without safeguards in place can cause several problems, such as invoking alarms, recording incorrect metric data, and interrupting data synchronizations.
 

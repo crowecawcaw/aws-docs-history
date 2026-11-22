@@ -1,7 +1,6 @@
 
 
 # Use `RegisterTargetWithMaintenanceWindow` with a CLI
-<a name="example_ssm_RegisterTargetWithMaintenanceWindow_section"></a>
 
 The following code examples show how to use `RegisterTargetWithMaintenanceWindow`.
 
@@ -101,7 +100,7 @@ For more information, see [Register a Target Instance with the Maintenance Windo
 **Tools for PowerShell V4**  
 **Example 1: This example registers an instance with a maintenance window.**  
 
-```
+```powershell
 $option1 = @{Key="InstanceIds";Values=@("i-0000293ffd8c57862")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Single instance" -ResourceType "INSTANCE"
 ```
@@ -112,7 +111,7 @@ d8e47760-23ed-46a5-9f28-927337725398
 ```
 **Example 2: This example registers multiple instances with a maintenance window.**  
 
-```
+```powershell
 $option1 = @{Key="InstanceIds";Values=@("i-0000293ffd8c57862","i-0cb2b964d3e14fd9f")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Single instance" -ResourceType "INSTANCE"
 ```
@@ -123,7 +122,7 @@ Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target
 ```
 **Example 3: This example registers an instance with a maintenance window using EC2 tags.**  
 
-```
+```powershell
 $option1 = @{Key="tag:Environment";Values=@("Production")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Production Web Servers" -ResourceType "INSTANCE"
 ```
@@ -137,7 +136,7 @@ Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target
 **Tools for PowerShell V5**  
 **Example 1: This example registers an instance with a maintenance window.**  
 
-```
+```powershell
 $option1 = @{Key="InstanceIds";Values=@("i-0000293ffd8c57862")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Single instance" -ResourceType "INSTANCE"
 ```
@@ -148,7 +147,7 @@ d8e47760-23ed-46a5-9f28-927337725398
 ```
 **Example 2: This example registers multiple instances with a maintenance window.**  
 
-```
+```powershell
 $option1 = @{Key="InstanceIds";Values=@("i-0000293ffd8c57862","i-0cb2b964d3e14fd9f")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Single instance" -ResourceType "INSTANCE"
 ```
@@ -159,7 +158,7 @@ Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target
 ```
 **Example 3: This example registers an instance with a maintenance window using EC2 tags.**  
 
-```
+```powershell
 $option1 = @{Key="tag:Environment";Values=@("Production")}
 Register-SSMTargetWithMaintenanceWindow -WindowId "mw-06cf17cbefcb4bf4f" -Target $option1 -OwnerInformation "Production Web Servers" -ResourceType "INSTANCE"
 ```

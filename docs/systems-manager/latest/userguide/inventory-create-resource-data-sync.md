@@ -1,7 +1,6 @@
 
 
 # Creating a resource data sync for Inventory
-<a name="inventory-create-resource-data-sync"></a>
 
 This topic describes how to set up and configure resource data sync for AWS Systems Manager Inventory. For information about resource data sync for Systems Manager Explorer, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md).
 
@@ -53,7 +52,7 @@ Systems Manager Inventory can't add data to a specified Amazon S3 bucket if that
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -163,7 +162,7 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

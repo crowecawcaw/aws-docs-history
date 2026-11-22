@@ -1,7 +1,6 @@
 
 
 # Setting up notifications or triggering actions based on Parameter Store events
-<a name="sysman-paramstore-cwe"></a>
 
 You can use Amazon EventBridge and Amazon Simple Notification Service (Amazon SNS) to notify you about changes to AWS Systems Manager parameters. Events are emitted on a best effort basis. For example, you can create rules that do the following:
 + Notify you when a parameter or a parameter label version is created, updated, or deleted.

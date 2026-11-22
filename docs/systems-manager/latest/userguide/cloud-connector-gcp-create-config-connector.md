@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an AWS Config connector (optional)
-<a name="cloud-connector-gcp-create-config-connector"></a>
 
 Complete this step only if you want AWS Config to record the connector's GCP resources. If you don't, skip to [Step 2](cloud-connector-gcp-create-ssm-connector.md). The AWS Config connector uses workload identity federation to let AWS Config record GCP resource state. Create it before you create the Systems Manager Cloud Connector. AWS Config allows one Config connector per host project. If your host project already has one, skip this step and use that connector's ARN in Step 2. When you use the AWS Management Console, it detects and reuses an existing Config connector for the host project.
 

@@ -1,7 +1,6 @@
 
 
 # Document components
-<a name="documents-components"></a>
 
 This section includes information about the components that make up SSM documents.
 

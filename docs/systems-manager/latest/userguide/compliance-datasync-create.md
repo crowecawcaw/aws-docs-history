@@ -1,7 +1,6 @@
 
 
 # Creating a resource data sync for Compliance
-<a name="compliance-datasync-create"></a>
 
 You can use the resource data sync feature in AWS Systems Manager to send compliance data from all of your managed nodes to a target Amazon Simple Storage Service (Amazon S3) bucket. When you create the sync, you can specify managed nodes from multiple AWS accounts, AWS Regions, and your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment. Resource data sync then automatically updates the centralized data when new compliance data is collected. With all compliance data stored in a target S3 bucket, you can use services like Amazon Athena and AWS Quick to query and analyze the aggregated data. Configuring resource data sync for Compliance is a one-time operation.
 
@@ -22,7 +21,7 @@ Use the following procedure to create a resource data sync for Compliance by usi
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

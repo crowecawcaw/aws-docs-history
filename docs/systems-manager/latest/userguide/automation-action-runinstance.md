@@ -1,7 +1,6 @@
 
 
 # `aws:runInstances` – Launch an Amazon EC2 instance
-<a name="automation-action-runinstance"></a>
 
 Launches a new Amazon Elastic Compute Cloud (Amazon EC2) instance.
 
@@ -14,7 +13,7 @@ The action supports most API parameters. For more information, see the [RunInsta
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: launchInstance
 action: aws:runInstances
 maxAttempts: 3
@@ -38,7 +37,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "name":"launchInstance",
    "action":"aws:runInstances",

@@ -1,7 +1,6 @@
 
 
 # Running scripts from Amazon S3
-<a name="integration-s3"></a>
 
 This section describes how to download and run scripts from Amazon Simple Storage Service (Amazon S3). The following topic includes information and terminology relating to Amazon S3. To learn more about Amazon S3, see [What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) You can run different types of scripts, including Ansible Playbooks, Python, Ruby, Shell, and PowerShell. 
 
@@ -91,7 +90,7 @@ Replace https://s3.{{aws-api-domain}}/{{script path}} with the URL for your buck
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm send-command \
        --document-name "AWS-RunRemoteScript" \
        --output-s3-bucket-name "{{amzn-s3-demo-bucket}}" \
@@ -103,7 +102,7 @@ Replace https://s3.{{aws-api-domain}}/{{script path}} with the URL for your buck
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm send-command ^
        --document-name "AWS-RunRemoteScript" ^
        --output-s3-bucket-name "{{amzn-s3-demo-bucket}}" ^
@@ -115,7 +114,7 @@ Replace https://s3.{{aws-api-domain}}/{{script path}} with the URL for your buck
 ------
 #### [ PowerShell ]
 
-   ```
+   ```ps
    Send-SSMCommand `
        -DocumentName "AWS-RunRemoteScript" `
        -OutputS3BucketName "{{amzn-s3-demo-bucket}}" `

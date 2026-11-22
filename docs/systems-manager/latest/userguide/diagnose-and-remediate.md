@@ -1,7 +1,6 @@
 
 
 # Diagnosing and remediating
-<a name="diagnose-and-remediate"></a>
 
 Using the unified Systems Manager console, you can identify problems across your fleet in a single diagnosis operation. For organizations, you can then attempt remediation on all or only select targets using a single Automation operation. For an organization, as a delegated account administrator, you can select targets across all accounts and Regions. If you are working in a single account, you can select targets in a single Region at a time.
 

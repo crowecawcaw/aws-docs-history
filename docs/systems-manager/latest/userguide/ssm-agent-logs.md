@@ -1,7 +1,6 @@
 
 
 # Viewing SSM Agent logs
-<a name="ssm-agent-logs"></a>
 
 AWS Systems Manager Agent (SSM Agent) writes information about executions, commands, scheduled actions, errors, and health statuses to log files on each managed node. You can view log files by manually connecting to a managed node, or you can automatically send logs to Amazon CloudWatch Logs. For more information about sending logs to CloudWatch Logs, see [Logging and monitoring in AWS Systems Manager](monitoring.md).
 
@@ -55,11 +54,11 @@ Use the following procedure to allow SSM Agent debug logging on your managed nod
 **Note**  
 On Ubuntu Server 20.04 and 18.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`. You can create this directory and file by running the following commands.   
 
-   ```
+   ```sh
    sudo mkdir -p /etc/amazon/ssm
    ```
 
-   ```
+   ```sh
    sudo cp -p /snap/amazon-ssm-agent/current/seelog.xml.template /etc/amazon/ssm/seelog.xml
    ```
 
@@ -71,13 +70,13 @@ On Ubuntu Server 20.04 and 18.04 LTS, the file `seelog.xml` must be created in t
 
    Linux:
 
-   ```
+   ```sh
    sudo service amazon-ssm-agent restart
    ```
 
    macOS:
 
-   ```
+   ```sh
    sudo /opt/aws/ssm/bin/amazon-ssm-agent restart
    ```
 
@@ -114,7 +113,7 @@ On Ubuntu Server 20.04 and 18.04 LTS, the file `seelog.xml` must be created in t
 
 1. Restart SSM Agent using the following PowerShell command in Administrator mode.
 
-   ```
+   ```ps
    Restart-Service AmazonSSMAgent
    ```
 

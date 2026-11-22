@@ -1,7 +1,6 @@
 
 
 # Tutorial: Patching a server in an IPv6 only environment
-<a name="patch-manager-server-patching-iPv6-tutorial"></a>
 
 Patch Manager supports the patching of nodes in environments that only have IPv6. By updating the SSM Agent configuration, patching operations can be configured to only make calls to IPv6 service endpoints.
 

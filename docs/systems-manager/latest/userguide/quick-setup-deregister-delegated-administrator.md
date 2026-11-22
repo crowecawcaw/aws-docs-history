@@ -1,7 +1,6 @@
 
 
 # Deregister a delegated administrator for Quick Setup
-<a name="quick-setup-deregister-delegated-administrator"></a>
 
 Use the following procedure to deregister a delegated administrator for Quick Setup.
 

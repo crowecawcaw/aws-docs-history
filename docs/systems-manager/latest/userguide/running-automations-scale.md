@@ -1,7 +1,6 @@
 
 
 # Run automated operations at scale
-<a name="running-automations-scale"></a>
 
 With AWS Systems Manager Automation, you can run automations on a fleet of AWS resources by using *targets*. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold. The concurrency and error threshold features are collectively called *rate controls*. The concurrency value determines how many resources are allowed to run the automation simultaneously. Automation also provides an adaptive concurrency mode you can opt in to. Adaptive concurrency automatically scales your automation quota from 100 concurrently running automations up to 500. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the automation to other resources.
 
@@ -31,21 +30,23 @@ You can view information about a runbook by choosing the runbook name.
 
 1. Choose **Next**.
 
-1. In the **Execution Mode** section, choose **Rate Control**. You must use this mode or **Multi-account and Region** if you want to use targets and rate controls.
+1. In the **Execution Mode** section, choose **Rate Control**. You must use this mode or **Multi-account and Region** if you want to use targets and rate controls. To target Microsoft Azure or Google Cloud resources through a Cloud Connector, use **Rate control**.
 
-1. In the **Targets** section, choose how you want to target the AWS resources where you want to run the Automation. These options are required.
-
-   1. Use the **Parameter** list to choose a parameter. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure. By choosing a parameter you define the type of resource on which the Automation workflow runs. 
+1. In the **Targets** section, choose how you want to target the resources where you want to run the Automation. These options are required.
 
    1. Use the **Targets** list to choose how you want to target resources.
 
-      1. If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the **Input parameters** section.
+      1. If you chose to target resources by using parameter values, then enter the parameter values for the parameter that you choose in the next step in the **Input parameters** section.
 
       1. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list.
 
       1. If you chose to target resources by using tags, then enter the tag key and (optionally) the tag value in the fields provided. Choose **Add**.
 
       1. If you want to run an Automation runbook on all instances in the current AWS account and AWS Region, then choose **All instances**.
+
+      1. If you want to run the runbook on Microsoft Azure or Google Cloud resources, choose **Cloud Connector**, and then choose a connector and any filters. This option is available only in **Rate control**. For more information, see [Run an automation on Azure or Google Cloud resources (console)](running-automations-cloud-connector-console.md).
+
+   1. Use the **Parameter** list to choose a parameter. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure. By choosing a parameter you define the type of resource on which the Automation workflow runs. 
 
 1. In the **Input parameters** section, specify the required inputs. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list.
 **Note**  
@@ -85,21 +86,21 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm list-documents
    ```
 
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm list-documents
    ```
 
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMDocumentList
    ```
 
@@ -112,7 +113,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-document \
        --name {{runbook name}}
    ```
@@ -120,7 +121,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-document ^
        --name {{runbook name}}
    ```
@@ -128,7 +129,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMDocumentDescription `
        -Name {{runbook name}}
    ```
@@ -142,7 +143,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name {{runbook name}} \
        --targets Key=tag:{{key name}},Values={{value}} \
@@ -155,7 +156,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name {{runbook name}} ^
        --targets Key=tag:{{key name}},Values={{value}} ^
@@ -168,7 +169,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "tag:{{key name}}"
    $Targets.Values = "{{value}}"
@@ -189,7 +190,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name {{runbook name}} \
        --targets Key=ParameterValues,Values={{value}},{{value 2}},{{value 3}} \
@@ -202,7 +203,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name {{runbook name}} ^
        --targets Key=ParameterValues,Values={{value}},{{value 2}},{{value 3}} ^
@@ -215,7 +216,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "ParameterValues"
    $Targets.Values = "{{value}}","{{value 2}}","{{value 3}}"
@@ -236,7 +237,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name {{runbook name}} \
        --targets Key=ResourceGroup,Values={{Resource group nname}} \
@@ -249,7 +250,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name {{runbook name}} ^
        --targets Key=ResourceGroup,Values={{Resource group name}} ^
@@ -262,7 +263,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "ResourceGroup"
    $Targets.Values = "{{Resource group name}}"
@@ -283,7 +284,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name {{runbook name}} \
        --targets "Key=AWS::EC2::Instance,Values=*"  \
@@ -296,7 +297,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name {{runbook name}} ^
        --targets Key=AWS::EC2::Instance,Values=* ^
@@ -309,7 +310,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "AWS::EC2::Instance"
    $Targets.Values = "*"
@@ -359,7 +360,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-automation-executions \
        --filter Key=ExecutionId,Values={{automation execution ID}}
    ```
@@ -367,7 +368,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-automation-executions ^
        --filter Key=ExecutionId,Values={{automation execution ID}}
    ```
@@ -375,7 +376,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAutomationExecutionList | `
        Where {$_.AutomationExecutionId -eq "{{automation execution ID}}"}
    ```
@@ -387,7 +388,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm get-automation-execution \
        --automation-execution-id {{automation execution ID}}
    ```
@@ -395,7 +396,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm get-automation-execution ^
        --automation-execution-id {{automation execution ID}}
    ```
@@ -403,7 +404,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAutomationExecution `
        -AutomationExecutionId {{automation execution ID}}
    ```

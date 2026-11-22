@@ -1,7 +1,6 @@
 
 
 # Controlling access to Fleet Manager
-<a name="configuring-fleet-manager-permissions"></a>
 
 To use Fleet Manager, your AWS Identity and Access Management (IAM) user or role must have the required permissions. You can create an IAM policy that provides access to all Fleet Manager features, or modify your policy to grant access to the features you choose. You then grant these permissions to users, or identities, in your account.
 
@@ -26,7 +25,7 @@ The following policy provides permissions to all Fleet Manager features. This me
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -159,7 +158,7 @@ The following policy provides permissions to read-only Fleet Manager features. R
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

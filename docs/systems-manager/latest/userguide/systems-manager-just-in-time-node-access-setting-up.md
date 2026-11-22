@@ -1,7 +1,6 @@
 
 
 # Setting up just-in-time access with Systems Manager
-<a name="systems-manager-just-in-time-node-access-setting-up"></a>
 
 Setting up just-in-time node access with Systems Manager involved multiple steps. First, you choose the *targets* where you want to set up just-in-time node access. Targets consist of AWS Organizations organizational units (OUs) and AWS Regions. By default, the same targets you chose when setting up the unified Systems Manager console are selected for just-in-time node access. You can choose to set up just-in-time node access for all of the same targets, or a subset of the targets you specified when setting up the unified Systems Manager console. Adding new targets that weren't selected when you set up the unified Systems Manager console isn't supported.
 
@@ -29,7 +28,7 @@ The following IAM policies outline the permissions needed to administer and allo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -291,7 +290,7 @@ The following IAM policies outline the permissions needed to administer and allo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -639,7 +638,7 @@ The following IAM policies outline the permissions needed to administer and allo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -752,7 +751,7 @@ The following IAM policies outline the permissions needed to administer and allo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Receiving findings from AWS Security Hub CSPM in Explorer
-<a name="explorer-securityhub-integration"></a>
 
 [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides a comprehensive view of your security state in AWS. The service collects security data, called *findings*, from across AWS accounts, services, and supported third-party products. Security Hub CSPM findings can help you check your environment against security industry standards and best practices, analyze your security trends, and identify the highest priority security issues.
 

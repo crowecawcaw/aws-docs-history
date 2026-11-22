@@ -1,7 +1,6 @@
 
 
 # Configuring inventory collection
-<a name="inventory-collection"></a>
 
 This section describes how to configure AWS Systems Manager Inventory collection on one or more managed nodes by using the Systems Manager console. For an example of how to configure inventory collection by using the AWS Command Line Interface (AWS CLI), see [Using the AWS CLI to configure inventory data collection](inventory-collection-cli.md).
 

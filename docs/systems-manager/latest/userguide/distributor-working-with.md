@@ -1,7 +1,6 @@
 
 
 # Working with Distributor packages
-<a name="distributor-working-with"></a>
 
 You can use the AWS Systems Manager console, AWS command line tools (AWS CLI and AWS Tools for PowerShell), and AWS SDKs to add, manage, or deploy packages in Distributor. Distributor is a tool in AWS Systems Manager. Before you add a package to Distributor:
 + Create and zip installable assets.

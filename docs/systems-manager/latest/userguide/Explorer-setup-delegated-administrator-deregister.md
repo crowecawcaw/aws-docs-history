@@ -1,7 +1,6 @@
 
 
 # Deregister an Explorer delegated administrator
-<a name="Explorer-setup-delegated-administrator-deregister"></a>
 
 Use the following procedure to deregister an Explorer delegated administrator. A delegated administrator account can only be deregistered by the AWS Organizations management account. When a delegated administrator account is deregistered, the system deletes all AWS Organizations resource data syncs created by the delegated administrator.
 

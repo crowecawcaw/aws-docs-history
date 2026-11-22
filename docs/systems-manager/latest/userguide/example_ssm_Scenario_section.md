@@ -1,7 +1,6 @@
 
 
 # Learn the basics of Systems Manager with an AWS SDK
-<a name="example_ssm_Scenario_section"></a>
 
 The following code examples show how to:
 + Create a maintenance window.
@@ -18,7 +17,7 @@ The following code examples show how to:
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.services.ssm.model.DocumentAlreadyExistsException;
 import software.amazon.awssdk.services.ssm.model.SsmException;
 
@@ -271,7 +270,7 @@ public class SSMScenario {
 ```
 A wrapper class for Systems Manager SDK methods.  
 
-```
+```java
 public class SSMActions {
 
     private static SsmAsyncClient ssmAsyncClient;
@@ -845,7 +844,7 @@ public class SSMActions {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import {
   Scenario,
   ScenarioAction,
@@ -1378,7 +1377,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 Run an interactive scenario at a command prompt.  
 
-```
+```python
 class SystemsManagerScenario:
     """Runs an interactive scenario that shows how to get started using Amazon Systems Manager."""
 
@@ -1592,7 +1591,7 @@ if __name__ == "__main__":
 ```
 Define a class that wraps document and command actions.  
 
-```
+```python
 class DocumentWrapper:
     """Encapsulates AWS Systems Manager Document actions."""
 
@@ -1764,7 +1763,7 @@ class DocumentWrapper:
 ```
 Define a class that wraps ops item actions.  
 
-```
+```python
 class OpsItemWrapper:
     """Encapsulates AWS Systems Manager OpsItem actions."""
 
@@ -1899,7 +1898,7 @@ class OpsItemWrapper:
 ```
 Define a class that wraps maintenance window actions.  
 
-```
+```python
 class MaintenanceWindowWrapper:
     """Encapsulates AWS Systems Manager maintenance window actions."""
 

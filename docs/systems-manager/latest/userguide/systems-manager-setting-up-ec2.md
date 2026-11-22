@@ -1,7 +1,6 @@
 
 
 # Managing EC2 instances with Systems Manager
-<a name="systems-manager-setting-up-ec2"></a>
 
 Complete the tasks in this section to set up and configure roles, permissions, and initial resources for AWS Systems Manager. The tasks described in this section are typically performed by AWS account and systems administrators. After these steps are complete, users in your organization can use Systems Manager to configure, manage, and access Amazon Elastic Compute Cloud (Amazon EC2) instances.
 

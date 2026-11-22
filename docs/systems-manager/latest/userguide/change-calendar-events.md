@@ -1,7 +1,6 @@
 
 
 # Creating and managing events in Change Calendar
-<a name="change-calendar-events"></a>
 
 After you create a calendar in AWS Systems Manager Change Calendar, you can create, update, and delete events that are included in your open or closed calendar. Change Calendar is a tool in AWS Systems Manager.
 

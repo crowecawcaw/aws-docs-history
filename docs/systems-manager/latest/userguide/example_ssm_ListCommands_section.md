@@ -1,7 +1,6 @@
 
 
 # Use `ListCommands` with a CLI
-<a name="example_ssm_ListCommands_section"></a>
 
 The following code examples show how to use `ListCommands`.
 
@@ -278,7 +277,7 @@ For more information, see [Running Commands Using Systems Manager Run Command](h
 **Tools for PowerShell V4**  
 **Example 1: This example lists all commands requested.**  
 
-```
+```powershell
 Get-SSMCommand
 ```
 **Output:**  
@@ -307,12 +306,12 @@ Targets            : {}
 ```
 **Example 2: This example gets the status of a specific command.**  
 
-```
+```powershell
 Get-SSMCommand -CommandId "4b75a163-d39a-4d97-87c9-98ae52c6be35"
 ```
 **Example 3: This example retrieves all SSM commands invoked after 2019-04-01T00:00:00Z **  
 
-```
+```powershell
 Get-SSMCommand -Filter @{Key="InvokedAfter";Value="2019-04-01T00:00:00Z"} | Select-Object CommandId, DocumentName, Status, RequestedDateTime | Sort-Object -Property RequestedDateTime -Descending
 ```
 **Output:**  
@@ -332,7 +331,7 @@ fe123b45-240c-4123-a2b3-234bdd567ecf AWS-RunInspecChecks        Failed    4/1/20
 **Tools for PowerShell V5**  
 **Example 1: This example lists all commands requested.**  
 
-```
+```powershell
 Get-SSMCommand
 ```
 **Output:**  
@@ -361,12 +360,12 @@ Targets            : {}
 ```
 **Example 2: This example gets the status of a specific command.**  
 
-```
+```powershell
 Get-SSMCommand -CommandId "4b75a163-d39a-4d97-87c9-98ae52c6be35"
 ```
 **Example 3: This example retrieves all SSM commands invoked after 2019-04-01T00:00:00Z **  
 
-```
+```powershell
 Get-SSMCommand -Filter @{Key="InvokedAfter";Value="2019-04-01T00:00:00Z"} | Select-Object CommandId, DocumentName, Status, RequestedDateTime | Sort-Object -Property RequestedDateTime -Descending
 ```
 **Output:**  

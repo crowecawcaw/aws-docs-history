@@ -1,7 +1,6 @@
 
 
 # Working with Amazon EKS in Application Manager
-<a name="application-manager-working-EKS"></a>
 
 Application Manager integrates with [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) (Amazon EKS) to provide information about the health of your Amazon EKS cluster infrastructure. Application Manager applies a tag to your Amazon EKS cluster using the Amazon Resource Name (ARN) of the cluster as the tag value. Application Manager provides a component runtime view of the compute, networking, and storage resources in a cluster.
 

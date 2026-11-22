@@ -1,7 +1,6 @@
 
 
 # Deploy Distributor packages using Quick Setup
-<a name="quick-setup-distributor"></a>
 
 Distributor is a tool in AWS Systems Manager. A Distributor package is a collection of installable software or assets that can be deployed as a single entity. With Quick Setup, you can deploy a Distributor package in an AWS account and an AWS Region or across an organization in AWS Organizations. Currently, only the EC2Launch v2 agent, Amazon Elastic File System (Amazon EFS) utilities package and Amazon CloudWatch agent can be deployed with Quick Setup. For more information about Distributor, see [AWS Systems Manager Distributor](distributor.md).
 

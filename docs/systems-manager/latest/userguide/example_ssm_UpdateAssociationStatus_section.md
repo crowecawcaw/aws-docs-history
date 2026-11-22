@@ -1,7 +1,6 @@
 
 
 # Use `UpdateAssociationStatus` with a CLI
-<a name="example_ssm_UpdateAssociationStatus_section"></a>
 
 The following code examples show how to use `UpdateAssociationStatus`.
 
@@ -64,7 +63,7 @@ For more information, see [Working with associations in Systems Manager](https:/
 **Tools for PowerShell V4**  
 **Example 1: This example updates the association status of the association between an instance and a configuration document.**  
 
-```
+```powershell
 Update-SSMAssociationStatus -Name "AWS-UpdateSSMAgent" -InstanceId "i-0000293ffd8c57862" -AssociationStatus_Date "2015-02-20T08:31:11Z" -AssociationStatus_Name "Pending" -AssociationStatus_Message "temporary_status_change" -AssociationStatus_AdditionalInfo "Additional-Config-Needed"
 ```
 **Output:**  
@@ -83,7 +82,7 @@ Status.AdditionalInfo : Additional-Config-Needed
 **Tools for PowerShell V5**  
 **Example 1: This example updates the association status of the association between an instance and a configuration document.**  
 
-```
+```powershell
 Update-SSMAssociationStatus -Name "AWS-UpdateSSMAgent" -InstanceId "i-0000293ffd8c57862" -AssociationStatus_Date "2015-02-20T08:31:11Z" -AssociationStatus_Name "Pending" -AssociationStatus_Message "temporary_status_change" -AssociationStatus_AdditionalInfo "Additional-Config-Needed"
 ```
 **Output:**  

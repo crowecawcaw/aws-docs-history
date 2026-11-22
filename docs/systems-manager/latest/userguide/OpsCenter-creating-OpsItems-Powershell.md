@@ -1,7 +1,6 @@
 
 
 # Creating OpsItems manually (PowerShell)
-<a name="OpsCenter-creating-OpsItems-Powershell"></a>
 
 The following procedure describes how to create an OpsItem by using AWS Tools for Windows PowerShell. 
 
@@ -9,19 +8,19 @@ The following procedure describes how to create an OpsItem by using AWS Tools fo
 
 1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials. 
 
-   ```
+   ```ps
    Set-AWSCredentials –AccessKey {{key-name}} –SecretKey {{key-name}}
    ```
 
 1. Run the following command to set the AWS Region for your PowerShell session.
 
-   ```
+   ```ps
    Set-DefaultAWSRegion -Region {{Region}}
    ```
 
 1. Run the following command to create a new OpsItem. Replace each {{example resource placeholder}} with your own information. This command specifies a Systems Manager Automation runbook for remediating this OpsItem. 
 
-   ```
+   ```ps
    $opsItem = New-Object Amazon.SimpleSystemsManagement.Model.OpsItemDataValue
    $opsItem.Type = [Amazon.SimpleSystemsManagement.OpsItemDataType]::SearchableString 
    $opsItem.Value = '[{\"automationId\":\"{{runbook_name}}\",\"automationType\":\"AWS::SSM::Automation\"}]'
@@ -39,7 +38,7 @@ The following procedure describes how to create an OpsItem by using AWS Tools fo
 
 The following example specifies the Amazon Resource Name (ARN) of an impaired Amazon Elastic Compute Cloud (Amazon EC2) instance.
 
-```
+```ps
 $opsItem = New-Object Amazon.SimpleSystemsManagement.Model.OpsItemDataValue
 $opsItem.Type = [Amazon.SimpleSystemsManagement.OpsItemDataType]::SearchableString 
 $opsItem.Value = '[{\"arn\":\"arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\"}]'

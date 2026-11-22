@@ -1,7 +1,6 @@
 
 
 # Use `CreateActivation` with a CLI
-<a name="example_ssm_CreateActivation_section"></a>
 
 The following code examples show how to use `CreateActivation`.
 
@@ -35,7 +34,7 @@ For more information, see [Step 4: Create a Managed-Instance Activation for a Hy
 **Tools for PowerShell V4**  
 **Example 1: This example creates a managed instance.**  
 
-```
+```powershell
 New-SSMActivation -DefaultInstanceName "MyWebServers" -IamRole "SSMAutomationRole" -RegistrationLimit 10
 ```
 **Output:**  
@@ -50,7 +49,7 @@ KWChhOxBTiwDcKE9BlKC 08e51e79-1e36-446c-8e63-9458569c1363
 **Tools for PowerShell V5**  
 **Example 1: This example creates a managed instance.**  
 
-```
+```powershell
 New-SSMActivation -DefaultInstanceName "MyWebServers" -IamRole "SSMAutomationRole" -RegistrationLimit 10
 ```
 **Output:**  

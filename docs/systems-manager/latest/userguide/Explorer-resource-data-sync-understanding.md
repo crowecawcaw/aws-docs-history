@@ -1,7 +1,6 @@
 
 
 # Understanding resource data syncs for Explorer
-<a name="Explorer-resource-data-sync-understanding"></a>
 
 Resource data sync for Explorer offers two aggregation options:
 + **Single-account/Multiple-regions:** You can configure Explorer to aggregate OpsItems and OpsData data from multiple AWS Regions, but the data set is limited to the current AWS account.

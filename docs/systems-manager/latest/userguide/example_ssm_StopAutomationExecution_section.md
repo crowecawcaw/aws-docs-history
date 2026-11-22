@@ -1,7 +1,6 @@
 
 
 # Use `StopAutomationExecution` with a CLI
-<a name="example_ssm_StopAutomationExecution_section"></a>
 
 The following code examples show how to use `StopAutomationExecution`.
 
@@ -26,7 +25,7 @@ For more information, see [Running an Automation Workflow Manually](https://docs
 **Tools for PowerShell V4**  
 **Example 1: This example stops an Automation Execution. There is no output if the command succeeds.**  
 
-```
+```powershell
 Stop-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
 ```
 +  For API details, see [StopAutomationExecution](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Stop-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2
 **Tools for PowerShell V5**  
 **Example 1: This example stops an Automation Execution. There is no output if the command succeeds.**  
 
-```
+```powershell
 Stop-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
 ```
 +  For API details, see [StopAutomationExecution](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # Creating a Change Calendar event
-<a name="change-calendar-create-event"></a>
 
 When you add an event to an entry in Change Calendar, you specify a period of time when the default action of the calendar entry is suspended. For example, if the calendar entry type is closed by default, the calendar is open to changes during events. You can also create an advisory event, which serves an informational role on the calendar only.
 

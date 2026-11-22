@@ -1,7 +1,6 @@
 
 
 # Use `DescribeInstancePatchStates` with a CLI
-<a name="example_ssm_DescribeInstancePatchStates_section"></a>
 
 The following code examples show how to use `DescribeInstancePatchStates`.
 
@@ -55,12 +54,12 @@ For more information, see [About Patch Compliance](https://docs.aws.amazon.com/s
 **Tools for PowerShell V4**  
 **Example 1: This example gets the patch summary states for an instance.**  
 
-```
+```powershell
 Get-SSMInstancePatchState -InstanceId "i-08ee91c0b17045407"
 ```
 **Example 2: This example gets the patch summary states for two instances.**  
 
-```
+```powershell
 Get-SSMInstancePatchState -InstanceId "i-08ee91c0b17045407","i-09a618aec652973a9"
 ```
 +  For API details, see [DescribeInstancePatchStates](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -68,12 +67,12 @@ Get-SSMInstancePatchState -InstanceId "i-08ee91c0b17045407","i-09a618aec652973a9
 **Tools for PowerShell V5**  
 **Example 1: This example gets the patch summary states for an instance.**  
 
-```
+```powershell
 Get-SSMInstancePatchState -InstanceId "i-08ee91c0b17045407"
 ```
 **Example 2: This example gets the patch summary states for two instances.**  
 
-```
+```powershell
 Get-SSMInstancePatchState -InstanceId "i-08ee91c0b17045407","i-09a618aec652973a9"
 ```
 +  For API details, see [DescribeInstancePatchStates](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

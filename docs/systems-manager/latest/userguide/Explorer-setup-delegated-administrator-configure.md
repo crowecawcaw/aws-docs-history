@@ -1,7 +1,6 @@
 
 
 # Configure an Explorer delegated administrator
-<a name="Explorer-setup-delegated-administrator-configure"></a>
 
 Use the following procedure to register an Explorer delegated administrator.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring session logging to disk
-<a name="session-manager-logging-disk"></a>
 
 After you enable Session Manager logging to CloudWatch or Amazon S3, all commands executed during a session (and the resulting output from those commands) are logged to a temporary file on the disk of the target instance. The temporary file is named `ipcTempFile.log`. 
 

@@ -1,7 +1,6 @@
 
 
 # Configuring an existing CloudWatch alarm to create OpsItems (programmatically)
-<a name="OpsCenter-configuring-an-existing-alarm-programmatically"></a>
 
 You can configure Amazon CloudWatch alarms to create OpsItems programmatically by using the AWS Command Line Interface (AWS CLI), AWS CloudFormation templates, or Java code snippets.
 
@@ -256,7 +255,7 @@ import com.amazonaws.services.cloudwatch.AmazonCloudWatch;
 
 **Update all alarms** – Use the following Java code snippet to update all CloudWatch alarms in your AWS account to create OpsItems when an alarm enters the `ALARM` state. 
 
-```
+```java
 import com.amazonaws.services.cloudwatch.AmazonCloudWatch;
     import com.amazonaws.services.cloudwatch.AmazonCloudWatchClientBuilder;
     import com.amazonaws.services.cloudwatch.model.DescribeAlarmsRequest;

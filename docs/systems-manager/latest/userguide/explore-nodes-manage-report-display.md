@@ -1,7 +1,6 @@
 
 
 # Managing node report content and appearance
-<a name="explore-nodes-manage-report-display"></a>
 
 You can use the Systems Manager **Explore nodes** feature to view filtered or unfiltered lists of managed nodes for your AWS organization or account in the Systems Manager console. You can choose from over a dozen fields to include in your lists of nodes, such as **Node ID**, **Operating system name**, **Region**, and more. You can also reorder the columns for your lists and reports and change how the list is displayed in the console.
 

@@ -1,32 +1,31 @@
 
 
-# Learning to craft effective prompts to ask Amazon Q about your fleet
-<a name="view-aggregated-node-details-Q-prompts"></a>
+# Learning to craft effective prompts to ask AWS assistant about your fleet
 
-The better quality of the question, or the prompt, that you give to Amazon Q, the better the result it provides you with.
+The better quality of the question, or the prompt, that you give to the AWS assistant, the better the result it provides you with.
 
 **Tips for query prompts**  
-Keep in mind the following tips when querying Amazon Q about your fleet:
+Keep in mind the following tips when querying the AWS assistant about your fleet:
 
 1. To help improve the accuracy of your results, use the terms "managed nodes" and "managed instances" in your prompts instead of just "nodes" and "instances".
 
 1. To query for results across multiple accounts that are part of an *organization*, as configured in AWS Organizations, you must be logged into the delegated administrator account in the designated home Region.
 
-1. In the delegated administrator account, use terms to help Amazon Q understand that you are asking about nodes and instances across the organization by specifically using terms such as "in my organization" or "in my account 123456789012".
+1. In the delegated administrator account, use terms to help the AWS assistant understand that you are asking about nodes and instances across the organization by specifically using terms such as "in my organization" or "in my account 123456789012".
 
 **Topics**
-+ [Sample questions for Amazon Q](#sample-questions-Q)
++ [Sample questions for AWS assistant](#sample-questions-Q)
 + [Supported operating system names and versions for prompts](#supported-os-names-Q)
 
-## Sample questions for Amazon Q
+## Sample questions for AWS assistant
 <a name="sample-questions-Q"></a>
 
-In the following table, we provide sample questions demonstrate some ways you can create queries of Amazon Q that lead to better results.
+In the following table, we provide sample questions demonstrate some ways you can create queries of the AWS assistant that lead to better results.
 
-We also provide examples of the filters Amazon Q will apply when running the [ListNodes](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListNodes.html) command, which are generated from the content of your prompt.
+We also provide examples of the filters the AWS assistant will apply when running the [ListNodes](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListNodes.html) command, which are generated from the content of your prompt.
 
 
-| Sample natural language question | Amazon Q applied filters | 
+| Sample natural language question | AWS assistant applied filters | 
 | --- | --- | 
 | Show me my Windows managed nodes. | <pre>PlatformType = Windows</pre> | 
 | List my managed instances in account 123456789012. | <pre>AccountId = 123456789012</pre> | 
@@ -48,7 +47,7 @@ We also provide examples of the filters Amazon Q will apply when running the [Li
 ## Supported operating system names and versions for prompts
 <a name="supported-os-names-Q"></a>
 
-When you are asking Amazon Q about the managed nodes in your account, it's helpful to provide the name of an operating system as its labeled in Systems Manager. You can also provide version numbers to further narrow down your results. For example, as represented in the following tables, you could ask for results specifically about **macOS 14.5**, **Microsoft Windows Server 2019 Datacenter**, and **AlmaLinux 9.2 through 9.4**, to name just a few examples.
+When you are asking the AWS assistant about the managed nodes in your account, it's helpful to provide the name of an operating system as its labeled in Systems Manager. You can also provide version numbers to further narrow down your results. For example, as represented in the following tables, you could ask for results specifically about **macOS 14.5**, **Microsoft Windows Server 2019 Datacenter**, and **AlmaLinux 9.2 through 9.4**, to name just a few examples.
 
 These lists might not be exhaustive and are offered as examples only.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager State Manager
-<a name="systems-manager-state"></a>
 
 State Manager is a secure and scalable configuration management service that automates the process of keeping your managed nodes and other AWS resources in a state that you define. To get started with State Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/state-manager). In the navigation pane, choose **State Manager**.
 

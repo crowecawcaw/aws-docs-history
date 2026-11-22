@@ -1,7 +1,6 @@
 
 
 # (Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts
-<a name="OpsCenter-getting-started-multiple-accounts"></a>
 
 This section describes how to manually configure OpsCenter for cross-account OpsItem management. While this process is still supported, it has been replaced by a newer process that uses Systems Manager Quick Setup. For more information, see [(Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup](OpsCenter-quick-setup-cross-account.md). 
 

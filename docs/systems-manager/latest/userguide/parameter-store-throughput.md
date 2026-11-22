@@ -1,7 +1,6 @@
 
 
 # Managing Parameter Store throughput
-<a name="parameter-store-throughput"></a>
 
 Parameter Store throughput defines the number of API transactions per second (TPS) that Systems Manager can process. The throughput setting applies to the Parameter Store as a whole rather than an individual API. By default, Parameter Store is configured with a standard throughput quota that is often suitable for low- to moderate-volume workloads. For higher-volume workloads, you can enable higher throughput, which increases the maximum number of supported transactions per second for your account and Region. You can enable and disable higher throughput as needed.
 
@@ -13,9 +12,14 @@ The following table lists the transaction limits for different API categories us
 
 | API actions | Default throughput | Higher throughput | 
 | --- | --- | --- | 
-|  [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html), and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)  | 40 TPS shared across all three API actions combined |  [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html): 10,000 TPS; [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html): 1,000 TPS; [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html): 100 TPS  | 
-|  [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html) and [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)  | 3 TPS | 5 TPS | 
-|  [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html), [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html), [LabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_LabelParameterVersion.html), [UnlabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UnlabelParameterVersion.html), and [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)  | 3 TPS | 10 TPS | 
+|  [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html), and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html)  | 40 TPS shared across all three API actions combined | [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html): 10,000 TPS<br />[GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html): 1,000 TPS<br />[GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html): 500 TPS | 
+|  [DeleteParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameter.html)  | 3 TPS | 50 TPS | 
+|  [DeleteParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteParameters.html)  | 3 TPS | 5 TPS | 
+|  [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html)  | 10 TPS | 100 TPS | 
+|  [GetParameterHistory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameterHistory.html)  | 3 TPS | 100 TPS | 
+|  [LabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_LabelParameterVersion.html)  | 3 TPS | 10 TPS | 
+|  [UnlabelParameterVersion](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UnlabelParameterVersion.html)  | 3 TPS | 10 TPS | 
+|  [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)  | 3 TPS | 50 TPS | 
 
 In this context, a transaction is one API action for an account in a single Region. For example, the following command creates a single transaction.
 
@@ -31,9 +35,9 @@ The API actions can be distributed among applications. For example, each of the 
 A throughput limit applies to all APIs within a category. For example, the following combination of simultaneous parameter calls for an application meets the default limit of 40 TPS for parameter retrieval APIs:
 + `GetParameter` makes 25 calls per second.
 + `GetParameters` makes 10 calls per second.
-+ `GetParameterByPath` makes 5 calls per second.
++ `GetParametersByPath` makes 5 calls per second.
 
-The `DescribeParameters` calls have a separate throughput limit. An application can make the preceding calls while also making 3 `DescribeParameters` calls per second without exceeding the overall limit for standard throughput.
+The `DescribeParameters` calls have a separate throughput limit. You can make the preceding calls while also making 10 `DescribeParameters` calls per second without exceeding the overall limit for standard throughput.
 
  If your production requests exceed a throughput limit during standard operation or planned periods of high traffic, use the following optimization techniques. 
 
@@ -74,7 +78,7 @@ You can address Parameter Store throttling in the following complementary ways:
    For example, instead of making separate [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) calls for the parameters `/myapp/prod/database/host`, `/myapp/prod/log-level`, and `/myapp/prod/vendor/merchant-id`, you can retrieve a list of these parameters in a single `GetParameters` request. 
 +  Avoid reading more parameters than your application needs. 
 
-  If your application needs only a few known parameters, use `GetParameter` or `GetParameters` instead of repeatedly reading an entire path such as `/myapp/prod/`. Use [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) when your application needs a group of parameters under a path. When you use higher throughput, the `GetParameter` quota is 100x the quota for `GetParametersByPath`. 
+  If your application needs only a few known parameters, use `GetParameter` or `GetParameters` instead of repeatedly reading an entire path such as `/myapp/prod/`. Use [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) when your application needs a group of parameters under a path. When you use higher throughput, the `GetParameter` quota is 20x the quota for `GetParametersByPath`. 
 +  Spread out parameter reads when many resources start at the same time. 
 
    For example, if many Amazon EC2 instances or Amazon ECS tasks start during an update, avoid having every resource read parameters at exactly the same time. The quotas are per-second. Where possible, read parameters once and cache their values to the application, or add a small delay so that requests do not all occur in the same second. 
@@ -146,7 +150,7 @@ If you haven't created a parameter yet, you can use the AWS Command Line Interfa
 
 1. Open the AWS CLI and run the `aws ssm update-service-setting` command to increase or decrease the transactions per second that Parameter Store can process in the current AWS account and AWS Region. The following example increases the throughput to the high level.
 
-   ```
+   ```bash
    aws ssm update-service-setting \
    --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/parameter-store/high-throughput-enabled \
    --setting-value true
@@ -156,7 +160,7 @@ If you haven't created a parameter yet, you can use the AWS Command Line Interfa
 
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and AWS Region.
 
-   ```
+   ```bash
    aws ssm get-service-setting \
    --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/parameter-store/high-throughput-enabled
    ```
@@ -183,7 +187,7 @@ If you haven't created a parameter yet, you can use the AWS Command Line Interfa
 
 1. Increase or decrease Parameter Store throughput in the current AWS account and AWS Region using the AWS Tools for PowerShell (Tools for PowerShell). The following example set throughput to the high level.
 
-   ```
+   ```powershell
    Update-SSMServiceSetting -SettingId "arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region {{region}}
    ```
 
@@ -191,7 +195,7 @@ If you haven't created a parameter yet, you can use the AWS Command Line Interfa
 
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and AWS Region.
 
-   ```
+   ```powershell
    Get-SSMServiceSetting -SettingId "arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region {{region}}
    ```
 

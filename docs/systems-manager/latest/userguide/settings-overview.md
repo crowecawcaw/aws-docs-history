@@ -1,7 +1,6 @@
 
 
 # Adjusting Systems Manager settings
-<a name="settings-overview"></a>
 
 The options on the **Settings** pages enable and configure features in the Systems Manager unified console. The options displayed depend on the account you are logged into and whether you have already set up Systems Manager. 
 
@@ -75,7 +74,7 @@ Inventory collection provides the following benefits:
 + **Compliance monitoring** – Track installed software and configurations for compliance reporting.
 + **Security analysis** – Identify outdated software and potential security vulnerabilities.
 + **Asset management** – Maintain an up-to-date inventory of your infrastructure.
-+ **Query capabilities** – Use collected data with Amazon Q Developer for natural language queries.
++ **Query capabilities** – Use collected data with the AWS assistant for natural language queries.
 
 #### Types of inventory data collected
 <a name="inventory-collection-types"></a>

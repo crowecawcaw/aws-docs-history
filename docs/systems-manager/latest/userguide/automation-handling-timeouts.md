@@ -1,7 +1,6 @@
 
 
 # Handling timeouts in runbooks
-<a name="automation-handling-timeouts"></a>
 
 The `timeoutSeconds` property is shared by all automation actions. You can use this property to specify the execution timeout value for an action. Further, you can change how an action timing out affects the automation and overall execution status. You can accomplish this by also defining the `onFailure` and `isCritical` shared properties for an action.
 
@@ -12,7 +11,7 @@ The following example shows how to define the shared properties for an action de
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: verifyImageAvailability
   action: 'aws:waitForAwsResourceProperty'
   timeoutSeconds: 600
@@ -32,7 +31,7 @@ The following example shows how to define the shared properties for an action de
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "verifyImageAvailability",
     "action": "aws:waitForAwsResourceProperty",

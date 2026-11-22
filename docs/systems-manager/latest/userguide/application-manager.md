@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Application Manager
-<a name="application-manager"></a>
 
 **Note**  
 AWS Systems Manager Application Manager is no longer open to new customers. For capabilities similar to AWS Systems Manager Application Manager, explore alternatives [AWS Systems Manager Application Manager availability change](application-manager-availability-change.md).

@@ -1,7 +1,6 @@
 
 
 # Monitoring your automations
-<a name="monitoring-automation-metrics"></a>
 
 *Metrics* are the fundamental concept in Amazon CloudWatch. A metric represents a time-ordered set of data points that are published to CloudWatch. Think of a metric as a variable to monitor and the data points as representing the values of that variable over time.
 
@@ -22,7 +21,7 @@ Automation is a tool in AWS Systems Manager. Systems Manager publishes metrics a
 **To view Automation metrics using the AWS CLI**  
 Open a command prompt, and use the following command.
 
-```
+```sh
 aws cloudwatch list-metrics \
     --namespace "AWS/Usage"
 ```

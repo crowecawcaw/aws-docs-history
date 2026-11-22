@@ -1,7 +1,6 @@
 
 
 # Configure patching for instances in an organization using a Quick Setup patch policy
-<a name="quick-setup-patch-manager"></a>
 
 With Quick Setup, you can create patch policies powered by Patch Manager. A patch policy defines the schedule and baseline to use when automatically patching your Amazon Elastic Compute Cloud (Amazon EC2) instances and other managed nodes. Using a single patch policy configuration, you can define patching for all accounts in multiple AWS Regions in your organization, for only the accounts and Regions you choose, or for a single account-Region pair. For more information about patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md).
 
@@ -96,7 +95,7 @@ You can provide wildcard access to all `aws-quicksetup-patchpolicy` buckets or o
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -120,7 +119,7 @@ You can provide wildcard access to all `aws-quicksetup-patchpolicy` buckets or o
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

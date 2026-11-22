@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a Systems Manager Cloud Connector
-<a name="cloud-connector-gcp-create-ssm-connector"></a>
 
 After the AWS Config connector is set up, create the Systems Manager Cloud Connector. The Systems Manager Cloud Connector stores your GCP workload identity federation settings and project or organization targets, and links them to the AWS Config connector if you created one.
 

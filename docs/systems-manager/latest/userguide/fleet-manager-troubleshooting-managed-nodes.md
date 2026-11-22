@@ -1,7 +1,6 @@
 
 
 # Troubleshooting managed node availability
-<a name="fleet-manager-troubleshooting-managed-nodes"></a>
 
 For several AWS Systems Manager tools like Run Command, Distributor, and Session Manager, you can choose to manually select the managed nodes on which you want to run an operation. In cases like these, after you specify that you want to choose nodes manually, the system displays a list of managed nodes where you can run the operation.
 
@@ -20,7 +19,7 @@ After you verify that a managed node is running, you can use the following comma
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm describe-instance-associations-status \
     --instance-id {{instance-id}}
 ```
@@ -28,7 +27,7 @@ aws ssm describe-instance-associations-status \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm describe-instance-associations-status ^
     --instance-id {{instance-id}}
 ```
@@ -36,7 +35,7 @@ aws ssm describe-instance-associations-status ^
 ------
 #### [ PowerShell ]
 
-```
+```powershell
 Get-SSMInstanceAssociationsStatus `
     -InstanceId {{instance-id}}
 ```
@@ -155,14 +154,14 @@ To verify whether the required certificate is installed on your instance run the
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 curl -L https://ssm.{{region}}.amazonaws.com
 ```
 
 ------
 #### [ Windows ]
 
-```
+```ps
 Invoke-WebRequest -Uri https://ssm.{{region}}.amazonaws.com
 ```
 

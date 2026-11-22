@@ -1,7 +1,6 @@
 
 
 # Creating a change calendar
-<a name="change-calendar-create"></a>
 
 When you create an entry in Change Calendar, you're creating a Systems Manager document (SSM document) that uses the `text` format.
 

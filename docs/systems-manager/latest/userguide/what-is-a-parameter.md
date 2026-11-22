@@ -1,7 +1,6 @@
 
 
 # Parameter Store reference
-<a name="what-is-a-parameter"></a>
 
 A *parameter* is any piece of data stored in Parameter Store, such as a block of text, a list of names, an AMI ID, a merchant ID, or another configuration value. You can centrally reference this data in your scripts, commands, and SSM documents.
 
@@ -50,7 +49,7 @@ Only the *value* of a `SecureString` parameter is encrypted. Parameter names, de
 
 You can use `SecureString` parameters with other AWS services. The following Lambda function retrieves an encrypted merchant ID from the `/myapp/dev/vendor/merchant-id` parameter. The function uses the value without writing it to the function logs or returning it in the response.
 
-```
+```python
 import json
 import boto3
 
@@ -86,7 +85,7 @@ For more information about AWS managed keys and customer managed keys, see [AWS 
 **Note**  
 To view the default AWS managed key for Parameter Store, run the following command.  
 
-```
+```bash
 aws kms describe-key \
     --region us-east-1 \
     --key-id alias/aws/ssm

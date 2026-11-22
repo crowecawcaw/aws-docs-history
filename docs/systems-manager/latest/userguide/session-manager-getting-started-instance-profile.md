@@ -1,7 +1,6 @@
 
 
 # Step 2: Verify or add instance permissions for Session Manager
-<a name="session-manager-getting-started-instance-profile"></a>
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances. You can provide instance permissions at the account level using an AWS Identity and Access Management (IAM) role, or at the instance level using an instance profile. If your use case allows, we recommend granting access at the account level using the Default Host Management Configuration. If you've already set up the Default Host Management Configuration for your account using the `AmazonSSMManagedEC2InstanceDefaultPolicy` policy, you can proceed to the next step. For more information about the Default Host Management Configuration, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md).
 

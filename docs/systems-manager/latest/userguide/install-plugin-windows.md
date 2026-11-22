@@ -1,7 +1,6 @@
 
 
 # Install the Session Manager plugin on Windows
-<a name="install-plugin-windows"></a>
 
 You can install the Session Manager plugin on 64-bit Windows 10 or later, or Windows Server 2016 or later, using the standalone installer.
 
@@ -16,13 +15,13 @@ For best results, we recommend that you start sessions on Windows clients using 
 
 1. Download the installer using the following URL.
 
-   ```
+   ```http
    https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPluginSetup.exe
    ```
 
    Alternatively, you can download a zipped version of the installer using the following URL.
 
-   ```
+   ```http
    https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPlugin.zip
    ```
 

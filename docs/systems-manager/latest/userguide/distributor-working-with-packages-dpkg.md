@@ -1,7 +1,6 @@
 
 
 # Delete a Distributor package
-<a name="distributor-working-with-packages-dpkg"></a>
 
 This section describes how to a delete a package. You can't delete a version of a package, only the entire package.
 
@@ -51,21 +50,21 @@ You can use your preferred command line tool to delete a package from Distributo
 
 1. Run the following command to list documents for specific packages. In the results of this command, look for the package that you want to delete.
 
-   ```
+   ```sh
    aws ssm list-documents \
        --filters Key=Name,Values={{package-name}}
    ```
 
 1. Run the following command to delete a package. Replace {{package-name}} with the package name.
 
-   ```
+   ```sh
    aws ssm delete-document \
        --name "{{package-name}}"
    ```
 
 1. Run the **list-documents** command again to verify that the package was deleted. The package you deleted shouldn't be included in the list.
 
-   ```
+   ```sh
    aws ssm list-documents \
        --filters Key=Name,Values={{package-name}}
    ```
@@ -77,21 +76,21 @@ You can use your preferred command line tool to delete a package from Distributo
 
 1. Run the following command to list documents for specific packages. In the results of this command, look for the package that you want to delete.
 
-   ```
+   ```sh
    aws ssm list-documents ^
        --filters Key=Name,Values={{package-name}}
    ```
 
 1. Run the following command to delete a package. Replace {{package-name}} with the package name.
 
-   ```
+   ```sh
    aws ssm delete-document ^
        --name "{{package-name}}"
    ```
 
 1. Run the **list-documents** command again to verify that the package was deleted. The package you deleted shouldn't be included in the list.
 
-   ```
+   ```sh
    aws ssm list-documents ^
        --filters Key=Name,Values={{package-name}}
    ```
@@ -103,7 +102,7 @@ You can use your preferred command line tool to delete a package from Distributo
 
 1. Run the following command to list documents for specific packages. In the results of this command, look for the package that you want to delete.
 
-   ```
+   ```ps
    $filter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
    $filter.Key = "Name"
    $filter.Values = "{{package-name}}"
@@ -114,14 +113,14 @@ You can use your preferred command line tool to delete a package from Distributo
 
 1. Run the following command to delete a package. Replace {{package-name}} with the package name.
 
-   ```
+   ```ps
    Remove-SSMDocument `
        -Name "{{package-name}}"
    ```
 
 1. Run the **Get-SSMDocumentList** command again to verify that the package was deleted. The package you deleted shouldn't be included in the list.
 
-   ```
+   ```ps
    $filter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
    $filter.Key = "Name"
    $filter.Values = "{{package-name}}"
@@ -144,14 +143,14 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the following command to list the versions of your package. In the results of this command, look for the package version that you want to delete.
 
-   ```
+   ```sh
    aws ssm list-document-versions \
        --name "{{package-name}}"
    ```
 
 1. Run the following command to delete a package version. Replace {{package-name}} with the package name and {{version}} with the version number.
 
-   ```
+   ```sh
    aws ssm delete-document \
        --name "{{package-name}}" \
        --document-version {{version}}
@@ -159,7 +158,7 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the **list-document-versions** command to verify that the version of the package was deleted. The package version that you deleted shouldn't be found.
 
-   ```
+   ```sh
    aws ssm list-document-versions \
        --name "{{package-name}}"
    ```
@@ -171,14 +170,14 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the following command to list the versions of your package. In the results of this command, look for the package version that you want to delete.
 
-   ```
+   ```sh
    aws ssm list-document-versions ^
        --name "{{package-name}}"
    ```
 
 1. Run the following command to delete a package version. Replace {{package-name}} with the package name and {{version}} with the version number.
 
-   ```
+   ```sh
    aws ssm delete-document ^
        --name "{{package-name}}" ^
        --document-version {{version}}
@@ -186,7 +185,7 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the **list-document-versions** command to verify that the version of the package was deleted. The package version that you deleted shouldn't be found.
 
-   ```
+   ```sh
    aws ssm list-document-versions ^
        --name "{{package-name}}"
    ```
@@ -198,14 +197,14 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the following command to list the versions of your package. In the results of this command, look for the package version that you want to delete.
 
-   ```
+   ```ps
    Get-SSMDocumentVersionList `
        -Name "{{package-name}}"
    ```
 
 1. Run the following command to delete a package version. Replace {{package-name}} with the package name and {{version}} with the version number.
 
-   ```
+   ```ps
    Remove-SSMDocument `
        -Name "{{package-name}}" `
        -DocumentVersion {{version}}
@@ -213,7 +212,7 @@ You can use your preferred command line tool to delete a package version from Di
 
 1. Run the **Get-SSMDocumentVersionList** command to verify that the version of the package was deleted. The package version that you deleted shouldn't be found.
 
-   ```
+   ```ps
    Get-SSMDocumentVersionList `
        -Name "{{package-name}}"
    ```

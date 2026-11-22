@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Quick Setup results
-<a name="quick-setup-results-troubleshooting"></a>
 
 Use the following information to help you troubleshoot problems with Quick Setup, a tool in AWS Systems Manager. This topic includes specific tasks to resolve issues based on the type of Quick Setup issue.
 

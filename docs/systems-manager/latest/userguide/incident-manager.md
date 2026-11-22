@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Incident Manager
-<a name="incident-manager"></a>
 
 **Incident Manager availability change**  
 AWS Systems Manager Incident Manager will no longer be open to new customers starting November 7, 2025. If you want to use Incident Manager, sign up before that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html). 

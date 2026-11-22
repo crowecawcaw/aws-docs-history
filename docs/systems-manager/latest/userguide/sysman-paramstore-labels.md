@@ -1,7 +1,6 @@
 
 
 # Working with parameter labels in Parameter Store
-<a name="sysman-paramstore-labels"></a>
 
 A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a parameter, AWS Systems Manager automatically saves a new version and increments the version number by one. A label can help you remember the purpose of a parameter version when there are multiple versions.
 
@@ -158,7 +157,7 @@ The following procedure describes how to attach a label to a specific version of
 **Note**  
 Parameters are only available in the AWS Region where they were created. If you don't see a parameter for which you want to attach a label, then verify your Region.
 
-   ```
+   ```bash
    aws ssm describe-parameters
    ```
 
@@ -166,7 +165,7 @@ Parameters are only available in the AWS Region where they were created. If you 
 
 1. Run the following command to view all versions of the parameter.
 
-   ```
+   ```bash
    aws ssm get-parameter-history --name "{{parameter-name}}"
    ```
 
@@ -174,13 +173,13 @@ Parameters are only available in the AWS Region where they were created. If you 
 
 1. Run the following command to retrieve information about a parameter by version number.
 
-   ```
+   ```bash
    aws ssm get-parameters --names "{{parameter-name}}:{{version-number}}" 
    ```
 
    The following example shows the command.
 
-   ```
+   ```bash
    aws ssm get-parameters --names "/Production/ApprovedAMI:3" 
    ```
 
@@ -188,23 +187,23 @@ Parameters are only available in the AWS Region where they were created. If you 
 
    **Attach a label to the latest version of a parameter**
 
-   ```
+   ```bash
    aws ssm label-parameter-version --name {{parameter-name}}  --labels {{label-name}}
    ```
 
    **Attach a label to a specific version of a parameter**
 
-   ```
+   ```bash
    aws ssm label-parameter-version --name {{parameter-name}} --parameter-version {{version-number}} --labels {{label-name}}
    ```
 
    The following examples show the commands.
 
-   ```
+   ```bash
    aws ssm label-parameter-version --name /config/approved-ami --labels production east-region finance
    ```
 
-   ```
+   ```bash
    aws ssm label-parameter-version --name /config/approved-ami --parameter-version 3 --labels image-test
    ```
 **Note**  
@@ -212,7 +211,7 @@ If the output shows the label you created in the `InvalidLabels` list, then the 
 
 1. You can view the details of the parameter by using either a version number or a label name. Run the following command and specify the label you created in the previous step.
 
-   ```
+   ```bash
    aws ssm get-parameter --name {{parameter-name}}:{{label-name}} --with-decryption
    ```
 
@@ -243,7 +242,7 @@ You can use the [GetParameterHistory](https://docs.aws.amazon.com/systems-manage
 **Note**  
 Parameters are only available in the Region where they were created. If you don't see a parameter for which you want to move a label, then verify your Region.
 
-   ```
+   ```bash
    aws ssm describe-parameters
    ```
 
@@ -251,7 +250,7 @@ Parameters are only available in the Region where they were created. If you don'
 
 1. Run the following command to view all versions of the parameter.
 
-   ```
+   ```bash
    aws ssm get-parameter-history --name {{parameter-name}} --with-decryption
    ```
 
@@ -293,7 +292,7 @@ You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manage
 
 Run the following command to view a list of parameters in a path that are assigned a specific label. Replace each {{example resource placeholder}} with your own information.
 
-```
+```bash
 aws ssm get-parameters-by-path \
     --path {{parameter-path}} \
     --parameter-filters Key=Label,Values={{label-name}},Option=Equals \
@@ -337,7 +336,7 @@ The following procedure describes how to move a parameter label to a different v
 
 1. Run the following command to view all versions of the parameter. Replace {{parameter name}} with your own information.
 
-   ```
+   ```bash
    aws ssm get-parameter-history \
        --name "{{parameter name}}"
    ```
@@ -346,7 +345,7 @@ The following procedure describes how to move a parameter label to a different v
 
 1. Run the following command to assign an existing label to a different version of a parameter. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```bash
    aws ssm label-parameter-version \
        --name {{parameter name}} \
        --parameter-version {{version number}} \
@@ -364,7 +363,7 @@ The following procedure describes how to delete parameter labels by using the AW
 
 1. Run the following command to view all versions of the parameter. Replace {{parameter name}} with your own information.
 
-   ```
+   ```bash
    aws ssm get-parameter-history \
        --name "{{parameter name}}"
    ```
@@ -411,7 +410,7 @@ The following procedure describes how to delete parameter labels by using the AW
 
 1. Run the following command to delete the labels you choose from that parameter. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```bash
    aws ssm unlabel-parameter-version \
        --name {{parameter name}} \
        --parameter-version {{version}} \

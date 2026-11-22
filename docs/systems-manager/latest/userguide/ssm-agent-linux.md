@@ -1,7 +1,6 @@
 
 
 # Working with SSM Agent on EC2 instances for Linux
-<a name="ssm-agent-linux"></a>
 
 AWS Systems Manager Agent (SSM Agent) processes Systems Manager requests and configures your machine as specified in the request. Use the procedures in following topics to install, configure, or uninstall SSM Agent on Linux operating systems.
 

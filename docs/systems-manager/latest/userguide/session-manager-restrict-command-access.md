@@ -1,7 +1,6 @@
 
 
 # Step 5: (Optional) Restrict access to commands in a session
-<a name="session-manager-restrict-command-access"></a>
 
 You can restrict the commands that a user can run in an AWS Systems Manager Session Manager session by using a custom `Session` type AWS Systems Manager (SSM) document. In the document, you define the command that is run when the user starts a session and the parameters that the user can provide to the command. The `Session` document `schemaVersion` must be 1.0, and the `sessionType` of the document must be `InteractiveCommands`. You can then create AWS Identity and Access Management (IAM) policies that allow users to access only the `Session` documents that you define. For more information about using IAM policies to restrict access to commands in a session, see [IAM policy examples for interactive commands](#interactive-command-policy-examples).
 
@@ -29,7 +28,7 @@ Use following procedure to create a custom `Session` type SSM document that defi
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    ---
    schemaVersion: '1.0'
    description: Document to view a log file on a Linux instance
@@ -49,7 +48,7 @@ Use following procedure to create a custom `Session` type SSM document that defi
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
        "schemaVersion": "1.0",
        "description": "Document to view a log file on a Linux instance",
@@ -88,7 +87,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    ---
    schemaVersion: '1.0'
    description: Document to view a log file on a Linux instance
@@ -108,7 +107,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
        "schemaVersion": "1.0",
        "description": "Document to view a log file on a Linux instance",
@@ -137,7 +136,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm create-document \
        --content file://{{path}}/{{to}}/{{file}}/{{documentContent}}.json \
        --name "{{exampleAllowedSessionDocument}}" \
@@ -147,7 +146,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [  Windows  ]
 
-   ```
+   ```sh
    aws ssm create-document ^
        --content file://C:\{{path}}\{{to}}\{{file}}\{{documentContent}}.json ^
        --name "{{exampleAllowedSessionDocument}}" ^
@@ -157,7 +156,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [   PowerShell   ]
 
-   ```
+   ```ps
    $json = Get-Content -Path "C:\{{path}}\{{to}}\{{file}}\{{documentContent}}.json" | Out-String
    New-SSMDocument `
        -Content $json `
@@ -177,7 +176,7 @@ Parameters stored in Parameter Store can be referenced in the AWS CLI for your c
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{MyInteractiveCommandDocument}} \ 
@@ -187,7 +186,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{MyInteractiveCommandDocument}} ^
@@ -201,7 +200,7 @@ The following example shows how you can use a shorthand syntax with the AWS CLI 
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{MyInteractiveCommandDocument}} \ 
@@ -211,7 +210,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{MyInteractiveCommandDocument}} ^
@@ -225,7 +224,7 @@ You can also provide parameters in JSON as shown in the following example.
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{MyInteractiveCommandDocument}} \ 
@@ -235,7 +234,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{MyInteractiveCommandDocument}} ^
@@ -246,7 +245,7 @@ aws ssm start-session ^
 
 Parameters can also be stored in a JSON file and provided to the AWS CLI as shown in the following example. For more information about using AWS CLI parameters from a file, see [Loading AWS CLI parameters from a file](https://docs.aws.amazon.com/cli/latest/userguide/;cli-usage-parameters-file.html) in the *AWS Command Line Interface User Guide*.
 
-```
+```json
 {
     "command": [
         "{{my command}}"
@@ -257,7 +256,7 @@ Parameters can also be stored in a JSON file and provided to the AWS CLI as show
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{MyInteractiveCommandDocument}} \ 
@@ -267,7 +266,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{MyInteractiveCommandDocument}} ^
@@ -278,7 +277,7 @@ aws ssm start-session ^
 
 You can also generate an AWS CLI skeleton from a JSON input file as shown in the following example. For more information about generating AWS CLI skeletons from JSON input files, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](https://docs.aws.amazon.com/cli/latest/userguide/;cli-usage-skeleton.html) in the *AWS Command Line Interface User Guide*.
 
-```
+```json
 {
     "Target": "{{instance-id}}",
     "DocumentName": "{{MyInteractiveCommandDocument}}",
@@ -293,7 +292,7 @@ You can also generate an AWS CLI skeleton from a JSON input file as shown in the
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --cli-input-json file://{{complete/path/to/file/parameters}}.json
 ```
@@ -301,7 +300,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --cli-input-json file://{{complete/path/to/file/parameters}}.json
 ```
@@ -313,7 +312,7 @@ To escape characters inside quotation marks, you must add additional backslashes
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{MyInteractiveCommandDocument}} \ 
@@ -323,7 +322,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{MyInteractiveCommandDocument}} ^
@@ -342,7 +341,7 @@ You can create IAM policies that allow users to access only the `Session` docume
  **Allow a user to run an interactive command on a single managed node**     
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -371,7 +370,7 @@ You can create IAM policies that allow users to access only the `Session` docume
  **Allow a user to run an interactive command on all managed nodes**     
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -400,7 +399,7 @@ You can create IAM policies that allow users to access only the `Session` docume
  **Allow a user to run multiple interactive commands on all managed nodes**     
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

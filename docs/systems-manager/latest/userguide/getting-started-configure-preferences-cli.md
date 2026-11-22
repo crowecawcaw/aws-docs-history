@@ -1,7 +1,6 @@
 
 
 # Update Session Manager preferences (command line)
-<a name="getting-started-configure-preferences-cli"></a>
 
 The following procedure describes how to use your preferred command line tool to make changes to the AWS Systems Manager Session Manager preferences for your AWS account in the selected AWS Region. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service (Amazon S3) bucket or Amazon CloudWatch Logs log group. You can also use Session Manager preferences to encrypt your session data.
 
@@ -9,7 +8,7 @@ The following procedure describes how to use your preferred command line tool to
 
 1. Create a JSON file on your local machine with a name such as `SessionManagerRunShell.json`, and then paste the following content into it.
 
-   ```
+   ```json
    {
        "schemaVersion": "1.0",
        "description": "Document to hold regional settings for Session Manager",
@@ -36,7 +35,7 @@ The following procedure describes how to use your preferred command line tool to
 
 1. Specify where you want to send session data. You can specify an S3 bucket name (with an optional prefix) or a CloudWatch Logs log group name. If you want to further encrypt data between local client and managed nodes, provide the AWS KMS key to use for encryption. The following is an example.
 
-   ```
+   ```json
    {
      "schemaVersion": "1.0",
      "description": "Document to hold regional settings for Session Manager",
@@ -74,7 +73,7 @@ Add AWS KMS permissions for managed nodes in your account: [Step 2: Verify or ad
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm update-document \
        --name "SSM-SessionManagerRunShell" \
        --content "file://SessionManagerRunShell.json" \
@@ -84,7 +83,7 @@ Add AWS KMS permissions for managed nodes in your account: [Step 2: Verify or ad
 ------
 #### [  Windows  ]
 
-   ```
+   ```sh
    aws ssm update-document ^
        --name "SSM-SessionManagerRunShell" ^
        --content "file://SessionManagerRunShell.json" ^
@@ -94,7 +93,7 @@ Add AWS KMS permissions for managed nodes in your account: [Step 2: Verify or ad
 ------
 #### [   PowerShell   ]
 
-   ```
+   ```powershell
    Update-SSMDocument `
        -Name "SSM-SessionManagerRunShell" `
        -Content (Get-Content -Raw SessionManagerRunShell.json) `

@@ -1,7 +1,6 @@
 
 
 # Restricting access to specific parameters and paths
-<a name="ps-restrict-parameter-access"></a>
 
 Use the following approach to restrict access to a parameter or a set of parameters. This approach reflects the authorization behavior described in [How Parameter Store authorizes parameter retrieval](ps-retrieval-authorization.md).
 

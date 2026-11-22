@@ -1,7 +1,6 @@
 
 
 # Creating OS directories using Fleet Manager
-<a name="fleet-manager-creating-directories"></a>
 
 You can use Fleet Manager to create directories on a managed node in your account.
 

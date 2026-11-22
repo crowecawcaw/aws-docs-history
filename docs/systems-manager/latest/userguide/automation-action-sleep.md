@@ -1,7 +1,6 @@
 
 
 # `aws:sleep` – Delay an automation
-<a name="automation-action-sleep"></a>
 
 Delays an automation for a specified amount of time. This action uses the International Organization for Standardization (ISO) 8601 date and time format. For more information about this date and time format, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
@@ -11,7 +10,7 @@ You can delay an automation for a specified duration.
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: sleep
 action: aws:sleep
 inputs:
@@ -21,7 +20,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "name":"sleep",
    "action":"aws:sleep",
@@ -38,7 +37,7 @@ You can also delay an automation until a specified date and time. If the specifi
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: sleep
 action: aws:sleep
 inputs:
@@ -48,7 +47,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "sleep",
     "action": "aws:sleep",

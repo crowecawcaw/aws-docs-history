@@ -1,7 +1,6 @@
 
 
 # Install SSM Agent on Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
-<a name="agent-install-ubuntu-64-snap"></a>
 
 **Before you begin**  
 Before you install SSM Agent on an Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04, note the following: 
@@ -23,15 +22,15 @@ On Ubuntu Server 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04, we 
 `Maximum timeout exceeded` error message  
 Because of a known issue with Snap, you might see a `Maximum timeout exceeded` error with `snap` commands. If you get this error, run the following commands one at a time to start the agent, stop it, and check its status:   
 
-```
+```sh
 sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
 ```
 
-```
+```sh
 sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
 ```
 
-```
+```sh
 sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
 ```
 
@@ -41,24 +40,24 @@ sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
 
    You can use the following script if you need to install SSM Agent on an on-premises server or if you need to reinstall the agent. You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft.io](https://snapcraft.io).
 
-   ```
+   ```sh
    sudo snap install amazon-ssm-agent --classic
    ```
 
 1. Run the following command to determine if SSM Agent is running. 
 
-   ```
+   ```sh
    sudo snap list amazon-ssm-agent
    ```
 
 1. Run the following command to start the service if the previous command returned `amazon-ssm-agent is stopped`, `inactive`, or `disabled`.
 
-   ```
+   ```sh
    sudo snap start amazon-ssm-agent
    ```
 
 1. Check the status of the agent.
 
-   ```
+   ```sh
    sudo snap services amazon-ssm-agent
    ```

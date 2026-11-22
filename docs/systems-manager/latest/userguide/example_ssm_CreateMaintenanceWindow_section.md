@@ -1,7 +1,6 @@
 
 
 # Use `CreateMaintenanceWindow` with an AWS SDK or CLI
-<a name="example_ssm_CreateMaintenanceWindow_section"></a>
 
 The following code examples show how to use `CreateMaintenanceWindow`.
 
@@ -60,7 +59,7 @@ For more information, see [AWS Systems Manager Maintenance Windows](https://docs
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
     /**
      * Creates an SSM maintenance window asynchronously.
      *
@@ -139,7 +138,7 @@ For more information, see [AWS Systems Manager Maintenance Windows](https://docs
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import { CreateMaintenanceWindowCommand, SSMClient } from "@aws-sdk/client-ssm";
 import { parseArgs } from "node:util";
 
@@ -187,7 +186,7 @@ export const main = async ({
 **Tools for PowerShell V4**  
 **Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**  
 
-```
+```powershell
 New-SSMMaintenanceWindow -Name "MyMaintenanceWindow" -Duration 4 -Cutoff 1 -AllowUnassociatedTarget $true -Schedule "cron(0 16 ? * TUE *)"
 ```
 **Output:**  
@@ -200,7 +199,7 @@ mw-03eb53e1ea7383998
 **Tools for PowerShell V5**  
 **Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.**  
 
-```
+```powershell
 New-SSMMaintenanceWindow -Name "MyMaintenanceWindow" -Duration 4 -Cutoff 1 -AllowUnassociatedTarget $true -Schedule "cron(0 16 ? * TUE *)"
 ```
 **Output:**  
@@ -216,7 +215,7 @@ mw-03eb53e1ea7383998
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
-```
+```python
 class MaintenanceWindowWrapper:
     """Encapsulates AWS Systems Manager maintenance window actions."""
 
@@ -280,7 +279,7 @@ class MaintenanceWindowWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ssm->createmaintenancewindow(
             iv_name = iv_name

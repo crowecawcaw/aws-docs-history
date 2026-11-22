@@ -1,7 +1,6 @@
 
 
 # Learn details about Compliance
-<a name="compliance-about"></a>
 
 Compliance collects and reports data about the status of patching in Patch Manager patching and associations in State Manager. (Patch Manager and State Manager are also both tools in AWS Systems Manager.) Compliance also reports on custom compliance types you have specified for your managed nodes. This section includes details about each of these compliance types and how to view Systems Manager compliance data. This section also includes information about how to view compliance history and change tracking.
 

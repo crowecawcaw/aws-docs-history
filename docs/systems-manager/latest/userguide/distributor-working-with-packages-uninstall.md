@@ -1,7 +1,6 @@
 
 
 # Uninstall a Distributor package
-<a name="distributor-working-with-packages-uninstall"></a>
 
 You can use the AWS Management Console or the AWS Command Line Interface (AWS CLI) to uninstall Distributor packages from your AWS Systems Manager managed nodes by using Run Command. Distributor and Run Command are tools in AWS Systems Manager. In this release, you can uninstall one version of one package per command. You can uninstall a specific version or the default version.
 
@@ -51,7 +50,7 @@ You can use the AWS CLI to uninstall a Distributor package from managed nodes by
 **To uninstall a package using the AWS CLI**
 + Run the following command in the AWS CLI.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "{{instance-IDs}}" \
@@ -60,7 +59,7 @@ You can use the AWS CLI to uninstall a Distributor package from managed nodes by
 
   The following is an example.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "i-02573cafcfEXAMPLE" \

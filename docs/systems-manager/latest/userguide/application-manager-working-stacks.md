@@ -1,7 +1,6 @@
 
 
 # Working with CloudFormation templates and stacks in Application Manager
-<a name="application-manager-working-stacks"></a>
 
 Application Manager helps you provision and manage resources for your applications by integrating with AWS CloudFormation. You can create, edit, and delete CloudFormation templates and stacks in Application Manager. A *stack* is a collection of AWS resources that you can manage as a single unit. This means you can create, update, or delete a collection of AWS resources by using CloudFormation stacks. A *template* is a formatted text file in JSON or YAML that specifies the resources you want to provision in your stacks. 
 

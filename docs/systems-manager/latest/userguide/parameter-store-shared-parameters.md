@@ -1,7 +1,6 @@
 
 
 # Working with shared parameters in Parameter Store
-<a name="parameter-store-shared-parameters"></a>
 
 Sharing advanced parameters simplifies configuration data management in a multi-account environment. You can centrally store and manage your parameters and share them with other AWS accounts that need to reference them.
 
@@ -66,7 +65,7 @@ Use the [associate-resource-share](https://docs.aws.amazon.com/cli/latest/refere
 
 The following example creates a new resource share to share parameters with consumers in an organization and in an individual account.
 
-```
+```bash
 aws ram create-resource-share \
     --name "MyParameter" \
     --resource-arns "arn:aws:ssm:us-east-2:123456789012:parameter/MyParameter" \
@@ -98,7 +97,7 @@ When you use the `--shared` option with `describe-parameters`, the command retur
 
 The following is an example:
 
-```
+```sh
 aws ssm describe-parameters --shared
 ```
 
@@ -112,7 +111,7 @@ To access shared parameter details using the AWS CLI, you can use the [get-param
 
 The following is an example.
 
-```
+```sh
 aws ssm get-parameter \
     --name arn:aws:ssm:us-east-2:123456789012:parameter/MySharedParameter
 ```

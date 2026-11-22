@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Systems Manager
-<a name="security-iam-awsmanpol"></a>
 
 
 

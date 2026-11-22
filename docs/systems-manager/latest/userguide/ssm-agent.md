@@ -1,7 +1,6 @@
 
 
 # Working with SSM Agent
-<a name="ssm-agent"></a>
 
 AWS Systems Manager Agent (SSM Agent) is Amazon software that runs on Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, on-premises servers, and virtual machines (VMs). SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources. The agent processes requests from the Systems Manager service in the AWS Cloud, and then runs them as specified in the request. SSM Agent then sends status and execution information back to the Systems Manager service by using the [Amazon Message Gateway Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmessagegatewayservice.html) (`ssmmessages`). (In AWS Regions launched before 2024, status and execution information might also be sent back by the [Amazon Message Delivery Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmessagedeliveryservice.html) (service prefix: `ec2messages`).)
 

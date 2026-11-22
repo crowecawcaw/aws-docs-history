@@ -1,7 +1,6 @@
 
 
 # Configuring Amazon CloudWatch Logs for Run Command
-<a name="sysman-rc-setting-up-cwlogs"></a>
 
 When you send a command by using Run Command, you can specify where you want to send the command output. By default, Systems Manager returns only the first 24,000 characters of the command output. If you want to view the full details of the command output, you can specify an Amazon Simple Storage Service (Amazon S3) bucket. Or you can specify Amazon CloudWatch Logs. If you specify CloudWatch Logs, Run Command periodically sends all command output and error logs to CloudWatch Logs. You can monitor output logs in near real-time, search for specific phrases, values, or patterns, and create alarms based on the search. 
 
@@ -11,7 +10,7 @@ For information about adding policies to an instance profile for EC2 instances, 
 
 If you're using a custom policy on your nodes, update the policy on each node to allow Systems Manager to send output and logs to CloudWatch Logs. Add the following policy objects to your custom policy. For more information about updating an IAM policy, see [Editing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*.
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "logs:DescribeLogGroups",
@@ -39,7 +38,7 @@ If you run commands by using the AWS CLI, specify the `cloud-watch-output-config
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm send-command \
     --instance-ids "{{instance ID}}" \
     --document-name "AWS-RunShellScript" \
@@ -50,7 +49,7 @@ aws ssm send-command \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm send-command ^
     --document-name "AWS-RunPowerShellScript" ^
     --parameters commands=["echo helloWorld"] ^

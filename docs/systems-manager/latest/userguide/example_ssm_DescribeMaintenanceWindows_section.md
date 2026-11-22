@@ -1,7 +1,6 @@
 
 
 # Use `DescribeMaintenanceWindows` with a CLI
-<a name="example_ssm_DescribeMaintenanceWindows_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindows`.
 
@@ -114,7 +113,7 @@ For more information, see [View Information About Maintenance Windows (AWS CLI)]
 **Tools for PowerShell V4**  
 **Example 1: This example lists all maintenance windows on your account.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowList
 ```
 **Output:**  
@@ -131,7 +130,7 @@ WindowId : mw-06d59c1a07c022145
 **Tools for PowerShell V5**  
 **Example 1: This example lists all maintenance windows on your account.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowList
 ```
 **Output:**  

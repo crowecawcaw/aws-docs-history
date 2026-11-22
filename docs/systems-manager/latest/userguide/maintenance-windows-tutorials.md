@@ -1,7 +1,6 @@
 
 
 # Tutorials
-<a name="maintenance-windows-tutorials"></a>
 
 The tutorials in this section show you how to perform common tasks when working with maintenance windows.
 

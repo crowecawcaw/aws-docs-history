@@ -1,7 +1,6 @@
 
 
 # Automation dispatch role
-<a name="cloud-connector-gcp-automation-dispatch-role"></a>
 
 The automation dispatch role is the role State Manager uses when it starts an Automation execution against a Cloud Connector. State Manager passes the automation assume role to Automation through this role. The dispatch role also assumes the GCP federation role directly so State Manager can resolve which GCP virtual machines match a Cloud Connector's targets when an association runs.
 
@@ -9,7 +8,7 @@ The automation dispatch role is the role State Manager uses when it starts an Au
 
 The trust policy lets the Systems Manager service principal assume the role, scoped to your AWS account. Replace `123456789012` with your AWS account ID.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -42,7 +41,7 @@ This policy includes the following permissions:
 + `ssm:StartAutomationExecution` – Allows State Manager to start an Automation execution of the `AWS-InstallSSMAgentOnGCP` runbook against the connector's targets.
 + `sts:AssumeRole` – Allows State Manager to assume the GCP federation role so it can authenticate to GCP when resolving the connector's targets.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

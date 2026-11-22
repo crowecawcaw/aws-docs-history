@@ -1,7 +1,6 @@
 
 
 # Set up a Cloud Connector for Google Cloud Platform in Systems Manager
-<a name="systems-manager-cloud-connector-gcp"></a>
 
 A Systems Manager *Cloud Connector* is a resource that establishes a connection between Systems Manager and virtual machines (VMs) in an external cloud provider such as Google Cloud Platform (GCP). After you create a Cloud Connector and [enable VM onboarding](cloud-connector-gcp-enable-vm-onboarding.md), Systems Manager tools such as Automation and State Manager can target and manage your GCP Compute Engine VMs as Systems Manager managed nodes.
 

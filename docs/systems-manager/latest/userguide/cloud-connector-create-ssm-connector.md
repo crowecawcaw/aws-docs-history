@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a Systems Manager Cloud Connector
-<a name="cloud-connector-create-ssm-connector"></a>
 
 Create the Systems Manager Cloud Connector. The Systems Manager Cloud Connector stores the Azure tenant and subscription configuration. If you created an AWS Config connector in Step 1, the Systems Manager Cloud Connector also links the configuration to it.
 

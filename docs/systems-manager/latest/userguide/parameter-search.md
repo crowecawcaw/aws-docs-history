@@ -1,7 +1,6 @@
 
 
 # Searching for Parameter Store parameters in Systems Manager
-<a name="parameter-search"></a>
 
 When you have a lot of parameters in your account, it can be difficult to find information about a single or several parameters at a time. In this case, you can use filter tools to search for the ones you need information about, according to search criteria you specify. You can use the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), the AWS Tools for PowerShell, or the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) API to search for parameters.
 
@@ -47,7 +46,7 @@ The following examples demonstrate various options you can use to view informati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=Name,Values={{MyParameterName}}"
    ```
@@ -55,7 +54,7 @@ The following examples demonstrate various options you can use to view informati
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm describe-parameters ^
        --parameter-filters "Key=Name,Values={{MyParameterName}}"
    ```
@@ -64,32 +63,32 @@ The following examples demonstrate various options you can use to view informati
 **Note**  
 For `describe-parameters`, the default search type for `Name` is `Equals`. In your parameter filters, specifying `"Key=Name,Values={{MyParameterName}}"` is the same as specifying `"Key=Name,Option=Equals,Values={{MyParameterName}}"`.
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=Name,Option=Contains,Values={{Product}}"
    ```
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=Type,Values=String"
    ```
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=Path,Values={{/Production/West}}"
    ```
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=Tier,Values=Standard"
    ```
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=tag:{{tag-key}},Values={{tag-value}}"
    ```
 
-   ```
+   ```bash
    aws ssm describe-parameters \
        --parameter-filters "Key=KeyId,Values={{key-id}}"
    ```
@@ -98,7 +97,7 @@ In the last example, {{key-id}} represents the ID of an AWS Key Management Servi
 
    If successful, the command returns output similar to the following.
 
-   ```
+   ```json
    {
        "Parameters": [
            {

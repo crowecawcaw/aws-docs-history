@@ -1,7 +1,6 @@
 
 
 # Delete OpsItems
-<a name="OpsCenter-delete-OpsItems"></a>
 
 You can delete an individual OpsItem by calling the [DeleteOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteOpsItem.html) API operation using the AWS Command Line Interface or the AWS SDK. You can't delete an OpsItem in the AWS Management Console. To delete an OpsItem, your AWS Identity and Access Management (IAM) user, group, or role must have administrator permission or permission to call the `DeleteOpsItem` API operation. 
 

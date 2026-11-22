@@ -1,7 +1,6 @@
 
 
 # Use `UpdateAssociation` with a CLI
-<a name="example_ssm_UpdateAssociation_section"></a>
 
 The following code examples show how to use `UpdateAssociation`.
 
@@ -92,7 +91,7 @@ For more information, see [Editing and creating a new version of an association]
 **Tools for PowerShell V4**  
 **Example 1: This example updates an association with a new document version.**  
 
-```
+```powershell
 Update-SSMAssociation -AssociationId "93285663-92df-44cb-9f26-2292d4ecc439" -DocumentVersion "1"
 ```
 **Output:**  
@@ -111,7 +110,7 @@ Status.AdditionalInfo :
 **Tools for PowerShell V5**  
 **Example 1: This example updates an association with a new document version.**  
 
-```
+```powershell
 Update-SSMAssociation -AssociationId "93285663-92df-44cb-9f26-2292d4ecc439" -DocumentVersion "1"
 ```
 **Output:**  

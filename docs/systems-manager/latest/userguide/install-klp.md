@@ -1,7 +1,6 @@
 
 
 # Applying kernel live patches using Run Command
-<a name="install-klp"></a>
 
 To apply kernel live patches, you can either run `yum` commands on your managed nodes or use Run Command and the SSM document `AWS-RunPatchBaseline`. 
 
@@ -32,7 +31,7 @@ For information about applying kernel live patches by running `yum` commands dir
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm send-command \
        --document-name "AWS-RunPatchBaseline" \
        --targets "Key=InstanceIds,Values={{instance-id}}" \
@@ -42,7 +41,7 @@ For information about applying kernel live patches by running `yum` commands dir
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm send-command ^
        --document-name "AWS-RunPatchBaseline" ^
        --targets "Key=InstanceIds,Values={{instance-id}}" ^
@@ -58,7 +57,7 @@ For information about applying kernel live patches by running `yum` commands dir
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm send-command \
        --document-name "AWS-RunPatchBaseline" \
        --targets "Key=InstanceIds,Values={{instance-id}}" \
@@ -68,7 +67,7 @@ For information about applying kernel live patches by running `yum` commands dir
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm send-command ^
        --document-name "AWS-RunPatchBaseline" ^
        --targets "Key=InstanceIds,Values={{instance-id}}" ^

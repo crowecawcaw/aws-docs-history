@@ -1,7 +1,6 @@
 
 
 # Set up the Default Host Management Configuration for an organization using Quick Setup
-<a name="quick-setup-default-host-management-configuration"></a>
 
 With Quick Setup, you can activate Default Host Management Configuration for all accounts and Regions that have been added to your organization in AWS Organizations. This ensures that SSM Agent is kept up to date on all Amazon Elastic Compute Cloud (EC2) instances in the organization, and that they can connect to Systems Manager.
 

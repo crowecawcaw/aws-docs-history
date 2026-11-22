@@ -1,7 +1,6 @@
 
 
 # Registering maintenance window tasks without targets
-<a name="maintenance-windows-targetless-tasks"></a>
 
 For each maintenance window you create, you can specify one or more tasks to perform when the maintenance window runs. In most cases, you must specify the resources, or targets, that the task is to run on. In some cases, however, you don't need to specify targets explicitly in the task.
 
@@ -24,7 +23,7 @@ The following example demonstrates omitting the `--targets`, `--max-errors`, and
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window \
     --window-id "mw-ab12cd34eEXAMPLE" \
     --service-role-arn "arn:aws:iam::123456789012:role/MaintenanceWindowAndAutomationRole" \
@@ -38,7 +37,7 @@ aws ssm register-task-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window ^
     --window-id "mw-ab12cd34eEXAMPLE" ^
     --service-role-arn "arn:aws:iam::123456789012:role/MaintenanceWindowAndAutomationRole" ^

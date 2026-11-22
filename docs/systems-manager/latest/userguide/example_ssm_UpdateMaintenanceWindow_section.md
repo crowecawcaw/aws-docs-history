@@ -1,7 +1,6 @@
 
 
 # Use `UpdateMaintenanceWindow` with an AWS SDK or CLI
-<a name="example_ssm_UpdateMaintenanceWindow_section"></a>
 
 The following code examples show how to use `UpdateMaintenanceWindow`.
 
@@ -81,7 +80,7 @@ For more information, see [Update a Maintenance Window (AWS CLI)](https://docs.a
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
     /**
      * Updates an SSM maintenance window asynchronously.
      *
@@ -125,7 +124,7 @@ For more information, see [Update a Maintenance Window (AWS CLI)](https://docs.a
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import { UpdateMaintenanceWindowCommand, SSMClient } from "@aws-sdk/client-ssm";
 import { parseArgs } from "node:util";
 
@@ -172,7 +171,7 @@ export const main = async ({
 **Tools for PowerShell V4**  
 **Example 1: This example updates the name of a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
 ```
 **Output:**  
@@ -188,7 +187,7 @@ WindowId                 : mw-03eb9db42890fb82d
 ```
 **Example 2: This example enables a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
 ```
 **Output:**  
@@ -204,7 +203,7 @@ WindowId                 : mw-03eb9db42890fb82d
 ```
 **Example 3: This example disables a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
 ```
 **Output:**  
@@ -223,7 +222,7 @@ WindowId                 : mw-03eb9db42890fb82d
 **Tools for PowerShell V5**  
 **Example 1: This example updates the name of a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Name "My-Renamed-MW"
 ```
 **Output:**  
@@ -239,7 +238,7 @@ WindowId                 : mw-03eb9db42890fb82d
 ```
 **Example 2: This example enables a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $true
 ```
 **Output:**  
@@ -255,7 +254,7 @@ WindowId                 : mw-03eb9db42890fb82d
 ```
 **Example 3: This example disables a maintenance window.**  
 
-```
+```powershell
 Update-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d" -Enabled $false
 ```
 **Output:**  
@@ -277,7 +276,7 @@ WindowId                 : mw-03eb9db42890fb82d
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
-```
+```python
 class MaintenanceWindowWrapper:
     """Encapsulates AWS Systems Manager maintenance window actions."""
 
@@ -345,7 +344,7 @@ class MaintenanceWindowWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ssm->updatemaintenancewindow(
             iv_windowid = iv_window_id

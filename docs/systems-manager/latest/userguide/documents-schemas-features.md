@@ -1,7 +1,6 @@
 
 
 # Schemas, features, and examples
-<a name="documents-schemas-features"></a>
 
 AWS Systems Manager (SSM) documents use the following schema versions.
 + Documents of type `Command` can use schema version 1.2, 2.0, and 2.2. If you use schema 1.2 documents, we recommend that you create documents that use schema version 2.2.
@@ -57,7 +56,7 @@ The following example shows the top-level elements of an SSM document using sche
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: "2.2"
 description: {{A description of the document}}.
@@ -80,7 +79,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "{{A description of the document.}}",
@@ -116,7 +115,7 @@ The following example uses the `aws:runPowerShellScript` plugin to run a PowerSh
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: "2.2"
 description: "Example document"
@@ -139,7 +138,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "Example document",
@@ -174,7 +173,7 @@ Schema version 2.2 provides cross-platform support. This means that within a sin
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: cross-platform sample
@@ -202,7 +201,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "cross-platform sample",
@@ -246,7 +245,7 @@ mainSteps:
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 parameters:
@@ -284,7 +283,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "parameters": {
@@ -343,7 +342,7 @@ mainSteps:
 **Schema version 2.2 interpolation example with SSM Agent versions before 3.3.2746.0**  
 On SSM Agent versions prior to 3.3.2746.0, the agent ignores the `interpolationType` parameter and instead performs a raw string substitution. If you are referencing `SSM_{{parameter-name}}` explicitly, you must set this explicitly. In the following example for Linux, the `SSM_Message` environment variable is referenced explicitly.
 
-```
+```json
 {
     "schemaVersion": "2.2",
     "description": "An example document",
@@ -382,7 +381,7 @@ You can use the following SSM document with State Manager to download and instal
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: State Manager Bootstrap Example
@@ -399,7 +398,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "State Manager Bootstrap Example",
@@ -427,7 +426,7 @@ You can use the following SSM document with State Manager to collect inventory m
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: Software Inventory Policy Document.
@@ -490,7 +489,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "Software Inventory Policy Document.",
@@ -578,7 +577,7 @@ On Linux operating systems, only the `AmazonCloudWatchAgent` and `AWSSupport-EC2
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: 'Install or uninstall the latest version or specified version of an AWS
@@ -610,7 +609,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion": "2.2",
    "description": "Install or uninstall the latest version or specified version of an AWS package. Available packages include the following: AWSPVDriver, AwsEnaNetworkDriver, AwsVssComponents, and AmazonCloudWatchAgent, and AWSSupport-EC2Rescue.",
@@ -654,7 +653,7 @@ mainSteps:
 
 The following example shows the top-level elements of a schema version 1.2 document.
 
-```
+```json
 {
    "schemaVersion":"1.2",
    "description":"{{A description of the SSM document.}}",
@@ -684,7 +683,7 @@ The following example shows the top-level elements of a schema version 1.2 docum
 **Schema version 1.2 `aws:runShellScript` example**  
 The following example shows the `AWS-RunShellScript` SSM document. The **runtimeConfig** section includes the `aws:runShellScript` plugin.
 
-```
+```json
 {
     "schemaVersion":"1.2",
     "description":"Run a shell script or specify the commands to run.",
@@ -729,7 +728,7 @@ The following example shows the `AWS-RunShellScript` SSM document. The **runtime
 **Top-level elements**  
 The following example shows the top-level elements of a schema version 0.3 Automation runbook in JSON format.
 
-```
+```json
 {
     "description": "{{document-description}}",
     "schemaVersion": "0.3",
@@ -789,7 +788,7 @@ The following example shows the top-level elements of a schema version 0.3 Autom
 **YAML Automation runbook example**  
 The following sample shows the contents of an Automation runbook, in YAML format. This working example of version 0.3 of the document schema also demonstrates the use of Markdown to format document descriptions.
 
-```
+```yaml
 description: >-
   ##Title: LaunchInstanceAndCheckState
 
@@ -923,7 +922,7 @@ This example shows how to securely handle a command parameter:
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 
 schemaVersion: '2.2'
@@ -950,7 +949,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "schemaVersion": "2.2",
     "description": "An example document.",
@@ -988,7 +987,7 @@ This example demonstrates secure parameter handling in Python:
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: 'Secure Python script execution'
@@ -1029,7 +1028,7 @@ This example shows how to handle parameters securely while maintaining backwards
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: 'Backwards compatible secure parameter handling'

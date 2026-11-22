@@ -1,7 +1,6 @@
 
 
 # Use `GetPatchBaselineForPatchGroup` with a CLI
-<a name="example_ssm_GetPatchBaselineForPatchGroup_section"></a>
 
 The following code examples show how to use `GetPatchBaselineForPatchGroup`.
 
@@ -34,7 +33,7 @@ For more information, see Create a Patch Group <https://docs.aws.amazon.com/syst
 **Tools for PowerShell V4**  
 **Example 1: This example displays the patch baseline for a patch group.**  
 
-```
+```powershell
 Get-SSMPatchBaselineForPatchGroup -PatchGroup "Production"
 ```
 **Output:**  
@@ -49,7 +48,7 @@ pb-045f10b4f382baeda Production
 **Tools for PowerShell V5**  
 **Example 1: This example displays the patch baseline for a patch group.**  
 
-```
+```powershell
 Get-SSMPatchBaselineForPatchGroup -PatchGroup "Production"
 ```
 **Output:**  

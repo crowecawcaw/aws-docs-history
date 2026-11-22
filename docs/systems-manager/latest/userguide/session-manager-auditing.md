@@ -1,7 +1,6 @@
 
 
 # Logging session activity
-<a name="session-manager-auditing"></a>
 
 In addition to providing information about current and completed sessions in the Systems Manager console, Session Manager provides you with the ability to log session activity in your AWS account using AWS CloudTrail.
 

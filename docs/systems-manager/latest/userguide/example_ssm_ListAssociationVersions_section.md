@@ -1,7 +1,6 @@
 
 
 # Use `ListAssociationVersions` with a CLI
-<a name="example_ssm_ListAssociationVersions_section"></a>
 
 The following code examples show how to use `ListAssociationVersions`.
 
@@ -57,7 +56,7 @@ For more information, see [Working with associations in Systems Manager](https:/
 **Tools for PowerShell V4**  
 **Example 1: This example retrieves all versions of the association provided.**  
 
-```
+```powershell
 Get-SSMAssociationVersionList -AssociationId 123a45a0-c678-9012-3456-78901234db5e
 ```
 **Output:**  
@@ -96,7 +95,7 @@ Targets            : {InstanceIds}
 **Tools for PowerShell V5**  
 **Example 1: This example retrieves all versions of the association provided.**  
 
-```
+```powershell
 Get-SSMAssociationVersionList -AssociationId 123a45a0-c678-9012-3456-78901234db5e
 ```
 **Output:**  

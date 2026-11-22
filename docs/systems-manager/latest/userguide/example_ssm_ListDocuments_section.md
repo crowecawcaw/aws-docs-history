@@ -1,7 +1,6 @@
 
 
 # Use `ListDocuments` with a CLI
-<a name="example_ssm_ListDocuments_section"></a>
 
 The following code examples show how to use `ListDocuments`.
 
@@ -80,7 +79,7 @@ For more information, see [AWS Systems Manager Documents](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: Lists all the configuration documents in your account.**  
 
-```
+```powershell
 Get-SSMDocumentList
 ```
 **Output:**  
@@ -110,7 +109,7 @@ SchemaVersion   : 1.2
 ```
 **Example 2: This example retrieves all automation documents with name matchingi 'Platform'**  
 
-```
+```powershell
 Get-SSMDocumentList -DocumentFilterList @{Key="DocumentType";Value="Automation"} | Where-Object Name -Match "Platform"
 ```
 **Output:**  
@@ -132,7 +131,7 @@ VersionName     :
 **Tools for PowerShell V5**  
 **Example 1: Lists all the configuration documents in your account.**  
 
-```
+```powershell
 Get-SSMDocumentList
 ```
 **Output:**  
@@ -162,7 +161,7 @@ SchemaVersion   : 1.2
 ```
 **Example 2: This example retrieves all automation documents with name matchingi 'Platform'**  
 
-```
+```powershell
 Get-SSMDocumentList -DocumentFilterList @{Key="DocumentType";Value="Automation"} | Where-Object Name -Match "Platform"
 ```
 **Output:**  

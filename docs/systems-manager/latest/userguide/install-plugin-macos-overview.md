@@ -1,7 +1,6 @@
 
 
 # Install the Session Manager plugin on macOS
-<a name="install-plugin-macos-overview"></a>
 
 Choose one of the following topics to install the Session Manager plugin on macOS. 
 

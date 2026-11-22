@@ -1,7 +1,6 @@
 
 
 # Manually installing SSM Agent on Red Hat Enterprise Linux instances
-<a name="agent-install-rhel"></a>
 
 The Amazon Machine Images (AMIs) for Red Hat Enterprise Linux (RHEL) that are provided by AWS do not come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md).
 

@@ -1,7 +1,6 @@
 
 
 # Systems Manager Automation actions reference
-<a name="automation-actions"></a>
 
 This reference describes the Automation actions that you can specify in an Automation runbook. Automation is a tool in AWS Systems Manager. These actions can't be used in other types of Systems Manager (SSM) documents. For information about plugins for other types of SSM documents, see [Command document plugin reference](documents-command-ssm-plugin-reference.md).
 
@@ -117,7 +116,7 @@ Required: Yes
 ### Example
 <a name="automation-demo"></a>
 
-```
+```yaml
 ---
 description: "Custom Automation Example"
 schemaVersion: '0.3'

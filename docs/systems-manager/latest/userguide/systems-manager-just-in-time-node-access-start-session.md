@@ -1,7 +1,6 @@
 
 
 # Start a just-in-time node access session
-<a name="systems-manager-just-in-time-node-access-start-session"></a>
 
 After enabling and setting up just-in-time node access, and configuring session and notification preferences, users are ready to start just-in-time node access sessions. You can start sessions using just-in-time node access from the Systems Manager console or from the AWS Command Line Interface using the Session Manager plugin. Just-in-time node access sessions can be started on nodes in the same account and Region. The following procedures describe how to start sessions with just-in-time node access.
 
@@ -24,7 +23,7 @@ If your organization's approval policies don't allow you to automatically connec
 
 1. Run the following command to start the access request workflow, making sure to replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws ssm start-access-request \
        --targets  Key=InstanceIds,Values={{i-02573cafcfEXAMPLE}}
        --reason "{{Troubleshooting networking performance issue}}"
@@ -36,7 +35,7 @@ If your organization's approval policies don't allow you to automatically connec
 
 1. After all required approvals have been provided, run the following command to get an access token containing temporary credentials. Replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws ssm get-access-token \
        --access-request-id {{oi-12345abcdef}}
    ```
@@ -45,13 +44,13 @@ If your organization's approval policies don't allow you to automatically connec
 
 1. Run the following command to use the temporary credential in the AWS CLI, making sure to replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    export AWS_SESSION_TOKEN={{AQoDYXdzEJr...<remainder of session token>}}
    ```
 
 1. Run the following command to start a session to the node, making sure to replace the {{placeholder values}} with your own information.
 
-   ```
+   ```sh
    aws ssm start-session \
        --target i-02573cafcfEXAMPLE
    ```

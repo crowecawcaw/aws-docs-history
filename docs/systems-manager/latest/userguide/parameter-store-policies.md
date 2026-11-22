@@ -1,7 +1,6 @@
 
 
 # Assigning parameter policies in Parameter Store
-<a name="parameter-store-policies"></a>
 
 Parameter policies help you manage a growing set of parameters by allowing you to assign specific criteria to a parameter such as an expiration date or *time to live*. Parameter policies are especially helpful in forcing you to update or delete configuration data stored in Parameter Store, a tool in AWS Systems Manager. Parameter Store offers the following types of policies: `Expiration`, `ExpirationNotification`, and `NoChangeNotification`.
 
@@ -25,7 +24,7 @@ You can assign multiple policies to a parameter. For example, you can assign `Ex
 
 The following example shows the request syntax for a [PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html) API request that assigns four policies to a new `SecureString` parameter named `/myapp/prod/vendor/merchant-id`.
 
-```
+```json
 {
     "Name": "/myapp/prod/vendor/merchant-id",
     "Description": "Parameter with policies",
@@ -118,7 +117,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter   
        --name "{{parameter name}}" \
        --value '{{parameter value}}' \
@@ -130,7 +129,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter   
        --name "{{parameter name}}" ^
        --value '{{parameter value}}' ^
@@ -146,7 +145,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/myapp/prod/vendor/merchant-id" \
        --value "merchant-739482" \
@@ -158,7 +157,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/myapp/prod/vendor/merchant-id" ^
        --value "merchant-739482" ^
@@ -174,7 +173,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm describe-parameters  \
        --parameter-filters "Key=Name,Values={{parameter name}}"
    ```
@@ -182,7 +181,7 @@ Use the following procedure to add policies to an existing parameter by using th
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm describe-parameters  ^
        --parameter-filters "Key=Name,Values={{parameter name}}"
    ```
@@ -193,7 +192,7 @@ Use the following procedure to add policies to an existing parameter by using th
 Parameter Store retains policies for a parameter until you either overwrite the policies with new policies or remove the policies. 
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces. Replace each {{example resource placeholder}} with your own information. For example:  
 
-  ```
+  ```bash
   aws ssm put-parameter \
       --name {{parameter name}} \
       --type {{parameter type}}  \
@@ -201,7 +200,7 @@ To remove all policies from an existing parameter, edit the parameter and apply 
       --policies "[{}]"
   ```
 
-  ```
+  ```bash
   aws ssm put-parameter ^
       --name {{parameter name}} ^
       --type {{parameter type}}  ^
@@ -219,7 +218,7 @@ Use the following procedure to add policies to an existing parameter by using To
 
 1. Open Tools for Windows PowerShell and run the following command to specify your credentials. You must either have administrator permissions in Amazon Elastic Compute Cloud (Amazon EC2), or you must have been granted the appropriate permission in AWS Identity and Access Management (IAM). 
 
-   ```
+   ```powershell
    Set-AWSCredentials `
        –AccessKey {{access-key-name}} `
        –SecretKey {{secret-key-name}}
@@ -227,14 +226,14 @@ Use the following procedure to add policies to an existing parameter by using To
 
 1. Run the following command to set the Region for your PowerShell session. The example uses the US East (Ohio) Region (us-east-2).
 
-   ```
+   ```powershell
    Set-DefaultAWSRegion `
        -Region us-east-2
    ```
 
 1. Run the following command to add policies to an existing parameter. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```powershell
    Write-SSMParameter `
        -Name "{{parameter name}}" `
        -Value "{{parameter value}}" `
@@ -245,7 +244,7 @@ Use the following procedure to add policies to an existing parameter by using To
 
    The following example includes an expiration policy that deletes the parameter at midnight (GMT) on May 13, 2020. The example also includes a notification policy that generates an EventBridge event five (5) days before the parameter is deleted. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days. The example uses a parameter named `/myapp/prod/vendor/merchant-id` with a merchant ID as the encrypted value and an AWS managed key.
 
-   ```
+   ```powershell
    Write-SSMParameter `
        -Name "/myapp/prod/vendor/merchant-id" `
        -Value "merchant-739482" `
@@ -256,7 +255,7 @@ Use the following procedure to add policies to an existing parameter by using To
 
 1. Run the following command to verify the details of the parameter. Replace {{parameter name}} with your own information.
 
-   ```
+   ```powershell
    (Get-SSMParameterValue -Name "{{parameter name}}").Parameters
    ```
 
@@ -264,7 +263,7 @@ Use the following procedure to add policies to an existing parameter by using To
 Parameter Store preserves policies on a parameter until you either overwrite the policies with new policies or remove the policies. 
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces. For example:  
 
-  ```
+  ```powershell
   Write-SSMParameter `
       -Name "{{parameter name}}" `
       -Value "{{parameter value}}" `

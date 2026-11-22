@@ -1,7 +1,6 @@
 
 
 # Choosing parameter tiers in Parameter Store
-<a name="parameter-store-advanced-parameters"></a>
 
 To control parameter storage attributes, Parameter Store includes *standard parameters* and *advanced parameters*. You configure each parameter individually for an account and Region. The parameter tier determines the maximum size of a parameter value, the number of parameters in a specific tier that you can create, whether you can use parameter policies, and whether charges apply.
 
@@ -54,7 +53,7 @@ You can view the default tier setting for your AWS account and Region, and the t
 
 To view the default parameter tier for your AWS account and Region, use the `` action. The following example retrieves the default parameter tier.
 
-```
+```bash
 aws ssm get-service-setting \
     --region us-east-1 \
     --setting-id arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/default-parameter-tier
@@ -62,7 +61,7 @@ aws ssm get-service-setting \
 
 The following example shows sample output.
 
-```
+```json
 {
     "ServiceSetting": {
         "SettingId": "/ssm/parameter-store/default-parameter-tier",
@@ -77,7 +76,7 @@ The following example shows sample output.
 
 To view the tier for a specific parameter, use the `` action. The following example returns the tier of parameter `/myapp/dev/log-level`.
 
-```
+```bash
 aws ssm describe-parameters \
     --region us-east-1 \
     --parameter-filters "Key=Name,Option=Equals,Values=/myapp/dev/log-level" \

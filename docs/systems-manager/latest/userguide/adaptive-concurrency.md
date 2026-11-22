@@ -1,7 +1,6 @@
 
 
 # Allowing Automation to adapt to your concurrency needs
-<a name="adaptive-concurrency"></a>
 
 By default, Automation lets you run up to 100 concurrent automations at a time. Automation also provides an optional setting that you can use to adjust your concurrency automation quota automatically. With this setting, your concurrency automation quota can accommodate up to 500 concurrent automations, depending on available resources. 
 
@@ -26,7 +25,7 @@ If your automation calls API operations, adaptively scaling to your targets can 
 ------
 #### [ Linux & macOS ]
 
-  ```
+  ```sh
   aws ssm update-service-setting \
       --setting-id /ssm/automation/enable-adaptive-concurrency \
       --setting-value True
@@ -35,7 +34,7 @@ If your automation calls API operations, adaptively scaling to your targets can 
 ------
 #### [ Windows ]
 
-  ```
+  ```sh
   aws ssm update-service-setting ^
       --setting-id /ssm/automation/enable-adaptive-concurrency ^
       --setting-value True
@@ -44,7 +43,7 @@ If your automation calls API operations, adaptively scaling to your targets can 
 ------
 #### [ PowerShell ]
 
-  ```
+  ```powershell
   Update-SSMServiceSetting `
       -SettingId "/ssm/automation/enable-adaptive-concurrency" `
       -SettingValue "True"

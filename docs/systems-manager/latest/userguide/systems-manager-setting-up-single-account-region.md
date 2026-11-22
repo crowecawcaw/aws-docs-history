@@ -1,7 +1,6 @@
 
 
 # Setting up Systems Manager unified console for a single account and Region
-<a name="systems-manager-setting-up-single-account-region"></a>
 
 To set up the Systems Manager unified console experience for a single AWS account and AWS Region you don't need to use Organizations or register a delegated administrator account. The setup process for the Systems Manager console experience completes many prerequisite tasks for you. Depending on the features you choose to configure, this includes enabling Default Host Management Configuration to provide the required IAM permissions to your nodes and more. The following is a detailed list of the resources created by Systems Manager for the unified console.
 

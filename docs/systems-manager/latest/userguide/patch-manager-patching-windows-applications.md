@@ -1,7 +1,6 @@
 
 
 # Patching applications released by Microsoft on Windows Server
-<a name="patch-manager-patching-windows-applications"></a>
 
 Use the information in this topic to help you prepare to patch applications on Windows Server using Patch Manager.
 
@@ -34,7 +33,7 @@ For a fleet of managed nodes running Windows Server 2012 or 2012 R2 , you can tu
 
 1. Use Run Command to run the script on your managed nodes using the Systems Manager document (SSM document) `AWS-RunPowerShellScript` with a command similar to the following.
 
-   ```
+   ```ps
    Invoke-WebRequest `
        -Uri "https://s3.{{aws-api-domain}}/amzn-s3-demo-bucket/script.vbs" `
        -Outfile "C:\script.vbs" cscript c:\script.vbs

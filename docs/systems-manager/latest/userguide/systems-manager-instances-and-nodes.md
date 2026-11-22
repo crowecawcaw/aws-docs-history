@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Node tools
-<a name="systems-manager-instances-and-nodes"></a>
 
 AWS Systems Manager provides the following tools for accessing, managing, and configuring your *managed nodes*. A managed node is any machine configured for use with Systems Manager in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment.
 

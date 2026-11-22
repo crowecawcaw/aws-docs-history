@@ -1,7 +1,6 @@
 
 
 # (Optional) Set up Amazon SNS to receive notifications about OpsItems
-<a name="OpsCenter-getting-started-sns"></a>
 
 You can configure OpsCenter to send notifications to an Amazon Simple Notification Service (Amazon SNS) topic when the system creates an OpsItem or updates an existing OpsItem. 
 

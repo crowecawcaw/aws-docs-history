@@ -1,7 +1,6 @@
 
 
 # Just-in-time node access using Systems Manager
-<a name="systems-manager-just-in-time-node-access"></a>
 
 Systems Manager helps you to improve the security of your nodes by supporting *just-in-time* access. Just-in-time node access allows users to request temporary, time-bound access to nodes that you can approve only when access is truly needed. This removes the need to provide long standing access to nodes managed by IAM policies. Additionally, Systems Manager provides session recording for RDP sessions to Windows Server nodes to help you meet compliance requirements, perform root cause analysis, and more. To use just-in-time node access, you must set up the unified Systems Manager console.
 

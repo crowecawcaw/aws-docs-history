@@ -1,7 +1,6 @@
 
 
 # Using roles to enable just-in-time node access
-<a name="using-service-linked-roles-service-action-8"></a>
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSystemsManagerJustInTimeAccess`**. AWS Systems Manager uses this IAM service role to enable just-in-time node access.
 

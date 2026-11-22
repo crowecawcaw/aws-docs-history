@@ -1,7 +1,6 @@
 
 
 # Downloading or exporting a managed node report
-<a name="explore-nodes-download-report"></a>
 
 You can use the Systems Manager **Explore nodes** feature to view filtered or unfiltered lists of managed nodes for your AWS organization or account in the Systems Manager console. For cases where you want to view the data offline or process it in another application, you can save the report as a `CSV` or `JSON` file.
 

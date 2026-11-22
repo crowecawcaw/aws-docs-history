@@ -1,7 +1,6 @@
 
 
 # Configuring roles and permissions for Systems Manager Explorer
-<a name="Explorer-setup-permissions"></a>
 
 Integrated Setup automatically creates and configures AWS Identity and Access Management (IAM) roles for AWS Systems Manager Explorer and AWS Systems Manager OpsCenter. If you completed Integrated Setup, then you don't need to perform any additional tasks to configure roles and permissions for Explorer. However, you must configure permission for OpsCenter, as described later in this topic.
 
@@ -18,7 +17,7 @@ If you configure Explorer to display data from multiple accounts and Regions by 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -70,7 +69,7 @@ If you prefer, you can specify read-only permission by adding the following inli
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -100,7 +99,7 @@ Create a permission using the following and add it to your users, groups, or rol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -148,7 +147,7 @@ You can also restrict access to OpsItems by using an inline IAM policy that spec
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -174,7 +173,7 @@ Here is an example that specifies API operations for viewing and updating OpsIte
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

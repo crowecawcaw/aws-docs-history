@@ -1,7 +1,6 @@
 
 
 # AWS KMS encryption for AWS Systems Manager Parameter Store SecureString parameters
-<a name="secure-string-parameter-kms-encryption"></a>
 
 With AWS Systems Manager Parameter Store, you can create [SecureString parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html#what-is-a-parameter), which are parameters that have a plaintext parameter name and an encrypted parameter value. Parameter Store uses AWS KMS to encrypt and decrypt the parameter values of `SecureString` parameters.
 
@@ -229,7 +228,7 @@ The following example shows an IAM policy designed for standard `SecureString` p
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -260,7 +259,7 @@ The next example shows an IAM policy that is designed for advanced `SecureString
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -291,7 +290,7 @@ The final example also shows an IAM policy that can be used for standard or adva
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -359,7 +358,7 @@ Before using a policy statement like this one, replace the {{example ARNs}} with
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -398,6 +397,6 @@ To perform any operation on a `SecureString` parameter, Parameter Store must be 
 + The KMS key is not found. 
 
   This typically happens when you use an incorrect identifier for the KMS key. [Find the correct identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/find-cmk-id-arn.html) for the KMS key and try the command again. 
-+ The KMS key is not enabled. When this occurs, Parameter Store returns an InvalidKeyId exception with a detailed error message from AWS KMS. If the KMS key state is `Disabled`, [enable it](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html). If it is `Pending Import`, complete the [import procedure](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html). If the key state is `Pending Deletion`, [cancel the key deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-scheduling-key-deletion.html) or use a different KMS key.
++ The KMS key is not enabled. When this occurs, Parameter Store returns an `InvalidKeyId` exception with a detailed error message from AWS KMS. If the KMS key state is `Disabled`, [enable it](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html). If it is `Pending Import`, complete the [import procedure](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html). If the key state is `Pending Deletion`, [cancel the key deletion](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-scheduling-key-deletion.html) or use a different KMS key.
 
   To find the [key state](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) of a KMS key, use the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation. 

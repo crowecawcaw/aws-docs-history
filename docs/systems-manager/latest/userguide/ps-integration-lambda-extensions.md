@@ -1,7 +1,6 @@
 
 
 # Using Parameter Store parameters in AWS Lambda functions
-<a name="ps-integration-lambda-extensions"></a>
 
 Parameter Store enables you to securely store, organize, and retrieve configuration data at scale. It supports a wide range of use cases, from managing plain-text configuration values – such as database connection strings and application settings – to handling sensitive data like secrets for low-risk environments. Parameter Store is designed to simplify configuration management across environments, allowing teams to standardize how applications access critical data without hardcoding values or relying on fragmented storage solutions.
 
@@ -50,7 +49,7 @@ Localhost port
 Use `localhost` in your GET requests. The extension makes requests to localhost port 2773. You do not need to specify an external or internal endpoint to use the extension. You can configure the port by setting the [environment variable](#ps-integration-lambda-extensions-config) `PARAMETERS_SECRETS_EXTENSION_HTTP_PORT`.   
 For example, in Python, your GET URL might look something like the following example.  
 
-```
+```python
 parameter_url = ('http://localhost:' + port + '/systemsmanager/parameters/get/?name=' + ssm_parameter_path)
 ```
 
@@ -63,7 +62,7 @@ To retrieve parameters from the extension cache, the header of your GET request 
 Example  
 The following example in Python demonstrates a basic request to retrieve the value of a cached parameter. Resolve the session token inside the handler function, not at initialization time, so the token stays fresh after a SnapStart restore.  
 
-```
+```py
 import urllib.request
 import urllib.error
 import json

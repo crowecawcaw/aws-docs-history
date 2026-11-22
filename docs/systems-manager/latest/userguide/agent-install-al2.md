@@ -1,7 +1,6 @@
 
 
 # Manually installing SSM Agent on Amazon Linux 2 and Amazon Linux 2023 instances
-<a name="agent-install-al2"></a>
 
 In most cases, the Amazon Machine Images (AMIs) for Amazon Linux 2 and Amazon Linux 2023 that are provided by AWS come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md).
 
@@ -30,18 +29,18 @@ Use the following steps to manually install SSM Agent on a single instance. This
 Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Amazon Linux 2 and Amazon Linux 2023.   
  **x86\_64**   
 
-   ```
+   ```sh
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
    ```  
  **ARM64**   
 
-   ```
+   ```sh
    sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
    ```
 
 1. (Recommended) Run the following command to verify that the agent is running.
 
-   ```
+   ```sh
    sudo systemctl status amazon-ssm-agent
    ```
 
@@ -65,7 +64,7 @@ Even though URLs in the following commands include an `ec2-downloads-windows` di
 
    To activate the agent in these cases, run the following command.
 
-   ```
+   ```sh
    sudo systemctl start amazon-ssm-agent
    ```
 
@@ -83,22 +82,22 @@ In the following command, replace {{region}} with your own information. For a li
 
 **x86\_64**  
 
-```
+```sh
 sudo yum install -y https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 See the following example.  
 
-```
+```sh
 sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 
 **ARM64**  
 
-```
+```sh
 sudo yum install -y https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/linux_arm64/amazon-ssm-agent.rpm
 ```
 See the following example.  
 
-```
+```sh
 sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/linux_arm64/amazon-ssm-agent.rpm
 ```

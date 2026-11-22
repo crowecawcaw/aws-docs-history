@@ -1,9 +1,8 @@
 
 
 # Set up a Cloud Connector for Microsoft Azure in Systems Manager
-<a name="systems-manager-cloud-connector"></a>
 
-A Systems Manager *Cloud Connector* is a resource that establishes a connection between Systems Manager and virtual machines (VMs) in an external cloud provider such as Microsoft Azure. After you create a Cloud Connector, Systems Manager services such as Automation and State Manager can target and manage Azure VMs as if they were native managed nodes.
+A Systems Manager *Cloud Connector* is a resource that establishes a connection between Systems Manager and virtual machines (VMs) in an external cloud provider such as Microsoft Azure. After you create a Cloud Connector, Systems Manager services such as Automation and State Manager can target and manage Azure VMs as if they were native managed nodes. For information about running Automation runbooks on the resources that a Cloud Connector reaches, see [Run automations on multicloud resources](running-automations-cloud-connector.md).
 
 This section includes the following topics.
 + [Create a Cloud Connector (AWS Management Console)](cloud-connector-create-console.md)
@@ -29,6 +28,7 @@ The first step is optional. If you don't want AWS Config to record the connector
 You can create a Cloud Connector in one of two ways. We recommend that you use the AWS Management Console (the wizard generates a setup script that configures the Azure side for you). You can also use the AWS CLI, where you run the Azure setup commands and the create commands yourself.
 
 **Note**  
+Cloud Connectors support Microsoft Azure and Google Cloud. This topic describes how to set up a Cloud Connector for Azure. For Google Cloud, see [Set up a Cloud Connector for Google Cloud Platform in Systems Manager](systems-manager-cloud-connector-gcp.md).
 Systems Manager supports up to 10 Cloud Connectors per AWS account. Each Cloud Connector supports up to 75 Azure subscription targets. All Cloud Connectors in a single AWS account must target the same Azure tenant.
 
 For details about the IAM roles that Systems Manager creates on your behalf during the connector setup wizard, including their trust policies and permissions policies, see [IAM roles created by the Systems Manager console](cloud-connector-console-iam-roles.md).

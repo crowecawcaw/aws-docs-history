@@ -1,7 +1,6 @@
 
 
 # Creating SSM document content
-<a name="documents-creating-content"></a>
 
 If the AWS Systems Manager public documents don't perform all the actions you want to perform on your AWS resources, you can create your own SSM documents. You can also clone SSM documents using the console. Cloning copies content from an existing document to a new document that you can modify. The content of the document must not exceed 64KB, including content specified for input parameters at runtime. For new `Command` or `Policy` documents, we recommend schema version 2.2 or later. This version supports document editing, automatic versioning, sequencing, and more.
 
@@ -26,7 +25,7 @@ AWS pre-defined SSM documents might perform some of the actions you require. You
 When creating SSM document content, you might change the content and update your SSM document several times while testing. The following commands update the SSM document with your latest content, and update the document's default version to the latest version of the document.  
 The Linux and Windows commands use the `jq` command line tool to filter the JSON response data.
 
-```
+```sh
 latestDocVersion=$(aws ssm update-document \
     --content file://{{path}}/{{to}}/{{file}}/{{documentContent}}.json \
     --name "{{ExampleDocument}}" \
@@ -39,7 +38,7 @@ aws ssm update-document-default-version \
     --document-version $latestDocVersion
 ```
 
-```
+```sh
 latestDocVersion=$(aws ssm update-document ^
     --content file://C:\{{path}}\{{to}}\{{file}}\{{documentContent}}.json ^
     --name "{{ExampleDocument}}" ^
@@ -52,7 +51,7 @@ aws ssm update-document-default-version ^
     --document-version $latestDocVersion
 ```
 
-```
+```ps
 $content = Get-Content -Path "C:\{{path}}\{{to}}\{{file}}\{{documentContent}}.json" | Out-String
 $latestDocVersion = Update-SSMDocument `
     -Content $content `
@@ -72,7 +71,7 @@ Update-SSMDocumentDefaultVersion `
 When creating SSM documents, follow these security best practices to help prevent command injection and ensure secure parameter handling:
 + Use environment variable interpolation for string parameters that will be used in commands or scripts. Add the `interpolationType` property with value `ENV_VAR` to your string parameters:
 
-  ```
+  ```json
   {
       "command": {
           "type": "String",
@@ -84,7 +83,7 @@ When creating SSM documents, follow these security best practices to help preven
 
   You can further improve the security of your SSM documents by specifying that double-quote marks aren’t accepted in values delivered by interpolation:
 
-  ```
+  ```json
   {
       "command": {
           "type": "String",
@@ -96,21 +95,21 @@ When creating SSM documents, follow these security best practices to help preven
   ```
 + When using interpreted languages like Python, Ruby, or Node.js, reference parameters using the appropriate environment variable syntax:
 
-  ```
+  ```python
   # Python example
   import os
   command = os.environ['SSM_Message']
   ```
 + For backwards compatibility with older SSM Agent versions (prior to version 3.3.2746.0), include fallback logic for environment variables:
 
-  ```
+  ```bash
   if [ -z "${SSM_command+x}" ]; then
       export SSM_command="{{command}}"
   fi
   ```
 + Combine environment variable interpolation with `allowedPattern` for additional input validation. In the following example, the `allowedPattern` value `^[^"]*$` specifically prevent double-quotes in the string value:
 
-  ```
+  ```json
   {
       "command": {
           "type": "String",
@@ -185,7 +184,7 @@ To create a composite document, add the [`aws:runDocument`](documents-command-ss
 
 1. Runs the `aws:runDocument` plugin to run the `AWS-ConfigureDocker pre-defined` SSM document. The specified parameters install Docker on the instance.
 
-```
+```json
 {
   "schemaVersion": "2.2",
   "description": "My composite document for bootstrapping software and installing Docker.",

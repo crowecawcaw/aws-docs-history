@@ -1,7 +1,6 @@
 
 
 # Use `DeleteActivation` with a CLI
-<a name="example_ssm_DeleteActivation_section"></a>
 
 The following code examples show how to use `DeleteActivation`.
 
@@ -26,7 +25,7 @@ For more information, see [Setting Up AWS Systems Manager for Hybrid Environment
 **Tools for PowerShell V4**  
 **Example 1: This example deletes an activation. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMActivation -ActivationId "08e51e79-1e36-446c-8e63-9458569c1363"
 ```
 +  For API details, see [DeleteActivation](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Remove-SSMActivation -ActivationId "08e51e79-1e36-446c-8e63-9458569c1363"
 **Tools for PowerShell V5**  
 **Example 1: This example deletes an activation. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMActivation -ActivationId "08e51e79-1e36-446c-8e63-9458569c1363"
 ```
 +  For API details, see [DeleteActivation](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # How to specify an alternative patch source repository (Linux)
-<a name="patch-manager-alternative-source-repository"></a>
 
 When you use the default repositories configured on a managed node for patching operations, Patch Manager scans for or installs security-related patches. This is the default behavior for Patch Manager. For complete information about how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-selecting-patches.md).
 

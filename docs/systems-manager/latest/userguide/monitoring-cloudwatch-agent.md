@@ -1,7 +1,6 @@
 
 
 # Sending node logs to unified CloudWatch Logs (CloudWatch agent)
-<a name="monitoring-cloudwatch-agent"></a>
 
 You can configure and use the Amazon CloudWatch agent to collect metrics and logs from your nodes instead of using AWS Systems Manager Agent (SSM Agent) for these tasks. The CloudWatch agent allows you to gather more metrics on EC2 instances than are available using SSM Agent. In addition, you can gather metrics from on-premises servers using the CloudWatch agent. 
 
@@ -15,7 +14,7 @@ SSM Agent writes information about executions, scheduled actions, errors, and he
 
 **Important**  
 The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs. The SSM Agent aws:cloudWatch plugin is not supported. We recommend using only the unified CloudWatch agent for your log collection processes. For more information, see the following topics:  
-[Sending node logs to unified CloudWatch Logs (CloudWatch agent)](#monitoring-cloudwatch-agent)
+[Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md)
 [Migrate Windows Server node log collection to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate)
 [Collecting metrics, logs, and traces with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*.
 

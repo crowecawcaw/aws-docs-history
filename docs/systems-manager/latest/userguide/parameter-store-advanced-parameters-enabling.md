@@ -1,7 +1,6 @@
 
 
 # Changing a standard parameter to an advanced parameter
-<a name="parameter-store-advanced-parameters-enabling"></a>
 
 Use the following procedure to change an existing standard parameter to an advanced parameter. For information about how to create a new advanced parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md).
 
@@ -29,7 +28,7 @@ Use the following procedure to change an existing standard parameter to an advan
 
 You can override the default setting by specifying the parameter tier using the `[PutParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html)` operation. For example, you might want to share the default AMI value across AWS accounts. The following AWS CLI example explicitly sets the parameter tier to `Advanced` for the `default-ami` parameter in Linux & macOS.
 
-```
+```bash
 aws ssm put-parameter \
     --region us-east-1 \
     --name "default-ami" \

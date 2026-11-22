@@ -1,7 +1,6 @@
 
 
 # Working with public parameters in Parameter Store
-<a name="parameter-store-public-parameters"></a>
 
 Some AWS services publish information about common artifacts as AWS Systems Manager *public* parameters. For example, the Amazon Elastic Compute Cloud (Amazon EC2) service publishes information about Amazon Machine Images (AMIs) as public parameters.
 

@@ -1,7 +1,6 @@
 
 
 # Creating associations
-<a name="state-manager-associations-creating"></a>
 
 State Manager helps you keep your AWS resources in a state that you define and reduce configuration drift. To do this, State Manager uses associations. An *association* is a configuration that you assign to your AWS resources. The configuration defines the state that you want to maintain on your resources. For example, an association can specify that antivirus software must be installed and running on a managed node, or that certain ports must be closed.
 
@@ -120,7 +119,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -262,7 +261,7 @@ For associations that are created with Automation runbooks to be applied when ne
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
        -Name {{document_name}} `
        -DocumentVersion {{version_of_document_applied}} `
@@ -320,7 +319,7 @@ For associations that are created with Automation runbooks to be applied when ne
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
      -AssociationName Update_SSM_Agent_Linux `
      -Name AWS-UpdateSSMAgent `
@@ -377,7 +376,7 @@ For associations that are created with Automation runbooks to be applied when ne
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
      -AssociationName Update_SSM_Agent_All `
      -Name AWS-UpdateSSMAgent `
@@ -434,7 +433,7 @@ For associations that are created with Automation runbooks to be applied when ne
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
      -AssociationName Update_SSM_Agent_Linux `
      -Name AWS-UpdateSSMAgent `
@@ -485,7 +484,7 @@ If you add new nodes to the tags or resource groups that an association acts on 
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
      -AssociationName CalendarAssociation `
      -Target @{
@@ -533,7 +532,7 @@ If you add new nodes to the tags or resource groups that an association acts on 
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    New-SSMAssociation `
      -AssociationName MultiCalendarAssociation `
      -Name AWS-UpdateSSMAgent `

@@ -1,7 +1,6 @@
 
 
 # Learn technical details about the SSM Agent
-<a name="ssm-agent-technical-details"></a>
 
 Use the information in this topic to help you implement AWS Systems Manager Agent (SSM Agent) and understand how the agent works.
 
@@ -160,13 +159,13 @@ To determine the version of SSM Agent available to you, you can run a `curl` com
 
 To view the version of the agent available in the global download bucket, run the following command.
 
-```
+```sh
 curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/VERSION
 ```
 
 To view the version of the agent available in a specific Region, run the following command, substituting {{region}} with the Region you're working in, such as `us-east-2` for the US East (Ohio) Region.
 
-```
+```sh
 curl https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/VERSION
 ```
 
@@ -229,7 +228,7 @@ We recommend that you avoid using wildcard characters (\*) in place of specific 
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -276,13 +275,13 @@ The similarity threshold can be set after an instance is registered using a comm
 
 On Linux machines:
 
-```
+```sh
 sudo amazon-ssm-agent -fingerprint -similarityThreshold 1
 ```
 
 On Windows Server machines using PowerShell:
 
-```
+```ps
 cd "C:\Program Files\Amazon\SSM\" `
     .\amazon-ssm-agent.exe -fingerprint -similarityThreshold 1
 ```
@@ -324,13 +323,13 @@ The primary configuration option to help prevent hibernation caused by hardware 
 
 On Linux machines:
 
-```
+```sh
 sudo amazon-ssm-agent -fingerprint -similarityThreshold 1
 ```
 
 On Windows Server machines using PowerShell:
 
-```
+```ps
 cd "C:\Program Files\Amazon\SSM\" `
 .\amazon-ssm-agent.exe -fingerprint -similarityThreshold 1
 ```

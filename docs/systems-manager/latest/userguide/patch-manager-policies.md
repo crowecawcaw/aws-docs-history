@@ -1,7 +1,6 @@
 
 
 # Patch policy configurations in Quick Setup
-<a name="patch-manager-policies"></a>
 
 AWS recommends the use of *patch policies* to configure patching for your organization and AWS accounts. Patch policies were introduced in Patch Manager in December, 2022. 
 

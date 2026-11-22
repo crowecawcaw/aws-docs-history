@@ -1,7 +1,6 @@
 
 
 # `aws:runCommand` – Run a command on a managed instance
-<a name="automation-action-runcommand"></a>
 
 Runs the specified commands.
 
@@ -14,7 +13,7 @@ This action supports most send command parameters. For more information, see [Se
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: checkMembership
   action: 'aws:runCommand'
   inputs:
@@ -29,7 +28,7 @@ This action supports most send command parameters. For more information, see [Se
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "checkMembership",
     "action": "aws:runCommand",
@@ -67,7 +66,7 @@ Type: MapList (The schema of the map in the list must match the object.) For inf
 Required: No (If you don't specify `Targets`, then you must specify InstanceIds or use the `{{RESOURCE_ID}}` pseudo parameter.)  
 Following is an example.  
 
-```
+```yaml
 - name: checkMembership
   action: aws:runCommand
   inputs:
@@ -85,7 +84,7 @@ Following is an example.
         - (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
 ```
 
-```
+```json
 {
     "name": "checkMembership",
     "action": "aws:runCommand",
@@ -125,7 +124,7 @@ Type: StringMap (The schema of the map must match the object. For more informati
 Required: No  
 Following is an example.  
 
-```
+```yaml
 - name: checkMembership
   action: aws:runCommand
   inputs:
@@ -140,7 +139,7 @@ Following is an example.
       CloudWatchOutputEnabled: true
 ```
 
-```
+```json
 {
     "name": "checkMembership",
     "action": "aws:runCommand",

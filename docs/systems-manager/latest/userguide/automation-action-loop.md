@@ -1,7 +1,6 @@
 
 
 # `aws:loop` – Iterate over steps in an automation
-<a name="automation-action-loop"></a>
 
 This action iterates over a subset of steps in an automation runbook. You can choose a `do while` or `for each` style loop. To construct a `do while` loop, use the `LoopCondition` input parameter. To construct a `for each` loop, use the `Iterators` and `IteratorDataType` input parameters. When using an `aws:loop` action, only specify either the `Iterators` or `LoopCondition` input parameter. The maximum number of iterations is 100.
 
@@ -13,7 +12,7 @@ The following are examples of how to construct the different types of loop actio
 ------
 #### [ do while ]
 
-```
+```yaml
 name: RepeatMyLambdaFunctionUntilOutputIsReturned
 action: aws:loop
 inputs:
@@ -35,7 +34,7 @@ inputs:
 ------
 #### [ for each ]
 
-```
+```yaml
 name: stopAllInstancesWithWaitTime
 action: aws:loop
 inputs:

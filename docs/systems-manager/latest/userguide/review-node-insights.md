@@ -1,7 +1,6 @@
 
 
 # Reviewing node insights
-<a name="review-node-insights"></a>
 
 You can gain insights into the overall status of managed nodes and unmanaged EC2 instances in your organization or account by using the unified Systems Manager console.
 

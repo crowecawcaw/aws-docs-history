@@ -1,7 +1,6 @@
 
 
 # Sending SSM Agent logs to CloudWatch Logs
-<a name="monitoring-ssm-agent"></a>
 
 AWS Systems Manager Agent (SSM Agent) is Amazon software that runs on your EC2 instances, edge devices, on-premises servers, and virtual machines (VMs) that are configured for Systems Manager. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md).
 
@@ -29,15 +28,15 @@ On most Linux node types: `/etc/amazon/ssm/seelog.xml.template`.
 **Note**  
 On Ubuntu Server 20.04 and 18.04 LTS, the file `seelog.xml` must be created in the directory `/etc/amazon/ssm/`. You can create this directory and file by running the following commands.  
 
-   ```
+   ```sh
    sudo mkdir -p /etc/amazon/ssm
    ```
 
-   ```
+   ```sh
    sudo cp -pr /snap/amazon-ssm-agent/current/* /etc/amazon/ssm
    ```
 
-   ```
+   ```sh
    sudo cp -p /etc/amazon/ssm/seelog.xml.template /etc/amazon/ssm/seelog.xml
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Use `ListAssociations` with a CLI
-<a name="example_ssm_ListAssociations_section"></a>
 
 The following code examples show how to use `ListAssociations`.
 
@@ -117,7 +116,7 @@ For more information, see [Working with associations in Systems Manager](https:/
 **Tools for PowerShell V4**  
 **Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
 Get-SSMAssociationList -AssociationFilterList $filter1
 ```
@@ -135,7 +134,7 @@ Targets            : {InstanceIds}
 ```
 **Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
 Get-SSMAssociationList -AssociationFilterList $filter2
 ```
@@ -153,7 +152,7 @@ Targets            : {InstanceIds}
 ```
 **Example 3: With PowerShell version 2, you must use New-Object to create each filter.**  
 
-```
+```powershell
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
 $filter1.Key = "InstanceId"
 $filter1.Value = "i-0000293ffd8c57862"
@@ -177,7 +176,7 @@ Targets            : {InstanceIds}
 **Tools for PowerShell V5**  
 **Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $filter1 = @{Key="InstanceId";Value=@("i-0000293ffd8c57862")}
 Get-SSMAssociationList -AssociationFilterList $filter1
 ```
@@ -195,7 +194,7 @@ Targets            : {InstanceIds}
 ```
 **Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $filter2 = @{Key="Name";Value=@("AWS-UpdateSSMAgent")}
 Get-SSMAssociationList -AssociationFilterList $filter2
 ```
@@ -213,7 +212,7 @@ Targets            : {InstanceIds}
 ```
 **Example 3: With PowerShell version 2, you must use New-Object to create each filter.**  
 
-```
+```powershell
 $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.AssociationFilter
 $filter1.Key = "InstanceId"
 $filter1.Value = "i-0000293ffd8c57862"

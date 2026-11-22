@@ -1,7 +1,6 @@
 
 
 # Identity and access management for AWS Systems Manager
-<a name="security-iam"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Systems Manager resources. IAM is an AWS service that you can use with no additional charge.
 
@@ -95,7 +94,7 @@ Systems Manager supports several of its own condition keys. For more information
 
 If your policy must depend on a service principal name owned by the Systems Manager service, we recommend you check for its existence or non-existence using the `aws:PrincipalServiceNamesList` [multivalued condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-single-vs-multi-valued-context-keys.html#reference_policies_condition-multi-valued-context-keys), rather than the `aws:PrincipalServiceName` condition key. The `aws:PrincipalServiceName` condition key contains only one entry from the list of service principal names and it may not always be the service principal name you expect. The following `Condition` block demonstrates checking for the existence of `ssm.amazonaws.com`. 
 
-```
+```json
 {
     "Condition": {
         "ForAnyValue:StringEquals": {

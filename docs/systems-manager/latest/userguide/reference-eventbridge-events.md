@@ -1,7 +1,6 @@
 
 
 # Reference: Amazon EventBridge event patterns and types for Systems Manager
-<a name="reference-eventbridge-events"></a>
 
 
 |  | 

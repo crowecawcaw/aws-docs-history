@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server
-<a name="state-manager-update-pv-drivers"></a>
 
 Amazon Windows Server Amazon Machine Images (AMIs) contain a set of drivers to permit access to virtualized hardware. These drivers are used by Amazon Elastic Compute Cloud (Amazon EC2) to map instance store and Amazon Elastic Block Store (Amazon EBS) volumes to their devices. We recommend that you install the latest drivers to improve stability and performance of your EC2 instances for Windows Server. For more information about PV drivers, see [AWS PV Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/xen-drivers-overview.html#xen-driver-awspv).
 

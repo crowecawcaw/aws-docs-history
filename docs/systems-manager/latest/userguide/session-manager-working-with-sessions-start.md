@@ -1,7 +1,6 @@
 
 
 # Start a session
-<a name="session-manager-working-with-sessions-start"></a>
 
 You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud (Amazon EC2) console, the AWS Command Line Interface (AWS CLI), or SSH to start a session.
 
@@ -90,7 +89,7 @@ To use the AWS CLI to run session commands, the Session Manager plugin must also
 
 To start a session using the AWS CLI, run the following command replacing {{instance-id}} with your own information.
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}}
 ```
@@ -141,7 +140,7 @@ To start a port forwarding session, run the following command from the CLI. Repl
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name AWS-StartPortForwardingSession \
@@ -151,7 +150,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name AWS-StartPortForwardingSession ^
@@ -183,7 +182,7 @@ To start a port forwarding session, run the following command from the AWS CLI. 
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name AWS-StartPortForwardingSessionToRemoteHost \
@@ -193,7 +192,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name AWS-StartPortForwardingSessionToRemoteHost ^
@@ -222,7 +221,7 @@ You must also update the task role in IAM to include the following permissions:
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -250,7 +249,7 @@ Remove the < and > symbols from the `target` parameter. These symbols are provid
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target ecs:<{{ECS_cluster_name}}>_<{{ECS_container_ID}}>_<{{container_runtime_ID}}> \
     --document-name AWS-StartPortForwardingSessionToRemoteHost \
@@ -260,7 +259,7 @@ aws ssm start-session \
 ------
 #### [  Windows  ]
 
-```
+```sh
 aws ssm start-session ^
     --target ecs:<{{ECS_cluster_name}}>_<{{ECS_container_ID}}>_<{{container_runtime_ID}}> ^
     --document-name AWS-StartPortForwardingSessionToRemoteHost ^
@@ -281,7 +280,7 @@ To start an interactive command session, run the following command. Replace each
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm start-session \
     --target {{instance-id}} \
     --document-name {{CustomCommandSessionDocument}} \
@@ -291,7 +290,7 @@ aws ssm start-session \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm start-session ^
     --target {{instance-id}} ^
     --document-name {{CustomCommandSessionDocument}} ^

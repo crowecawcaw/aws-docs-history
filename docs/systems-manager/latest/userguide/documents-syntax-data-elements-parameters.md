@@ -1,7 +1,6 @@
 
 
 # Data elements and parameters
-<a name="documents-syntax-data-elements-parameters"></a>
 
 This topic describes the data elements used in SSM documents. The schema version used to create a document defines the syntax and data elements that the document accepts. We recommend that you use schema version 2.2 or later for Command documents. Automation runbooks use schema version 0.3. Additionally, Automation runbooks support the use of Markdown, a markup language, which lets you add wiki-style descriptions to documents and individual steps within the document. For more information about using Markdown, see [Using Markdown in the Console](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html) in the *AWS Management Console Getting Started Guide*.
 
@@ -25,7 +24,7 @@ A structure that defines the parameters the document accepts.
 For enhanced security when handling string parameters, you can use environment variable interpolation by specifying the `interpolationType` property. When set to `ENV_VAR`, the system creates an environment variable named `SSM_{{parameter-name}}` containing the parameter value.  
 The following includes an example of a parameter using environment variable `interpolationType`:  
 
-```
+```json
 {
     "schemaVersion": "2.2",
     "description": "An example document.",
@@ -61,7 +60,7 @@ For parameters that you use often, we recommend that you store those parameters 
 ```
 You can use a parameter that references a Parameter Store parameter the same way as any other document parameters. In the following example, the default value for the `commands` parameter is the Parameter Store parameter `myShellCommands`. By specifying the `commands` parameter as a `runCommand` string, the document runs the commands stored in the `myShellCommands` parameter.  
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: runShellScript with command strings stored as Parameter Store parameter
@@ -80,7 +79,7 @@ mainSteps:
     runCommand:"{{ commands }}"
 ```
 
-```
+```json
 {
     "schemaVersion": "2.2",
     "description": "runShellScript with command strings stored as Parameter Store parameter",
@@ -119,7 +118,7 @@ Command type documents only support the `String` and `StringList` parameter type
 ------
 #### [ YAML ]
 
-  ```
+  ```yaml
   DirectoryType:
     type: String
     description: "(Required) The directory type to launch."
@@ -133,7 +132,7 @@ Command type documents only support the `String` and `StringList` parameter type
 ------
 #### [ JSON ]
 
-  ```
+  ```json
   "DirectoryType": {
     "type": "String",
     "description": "(Required) The directory type to launch.",
@@ -154,7 +153,7 @@ Systems Manager performs two validations for `allowedPattern`. The first validat
 ------
 #### [ YAML ]
 
-  ```
+  ```yaml
   InstanceId:
     type: String
     description: "(Required) The instance ID to target."
@@ -165,7 +164,7 @@ Systems Manager performs two validations for `allowedPattern`. The first validat
 ------
 #### [ JSON ]
 
-  ```
+  ```json
   "InstanceId": {
     "type": "String",
     "description": "(Required) The instance ID to target.",
@@ -192,14 +191,14 @@ Required: No
 Type: Boolean \| Integer \| MapList \| String \| StringList \| StringMap  
 Required: No  
 
-```
+```yaml
 variables:
     payload:
         type: StringMap
         default: "{}"
 ```
 
-```
+```json
 {
     "variables": [
         "payload": {
@@ -230,7 +229,7 @@ Required: No
 To learn about the runtimes supported by Automation runbooks, see [`aws:executeScript` – Run a script](automation-action-executeScript.md). For more information about including scripts in Automation runbooks, see [Using scripts in runbooks](automation-document-script-considerations.md) and [Visual design experience for Automation runbooks](automation-visual-designer.md).  
 When creating an Automation runbook with attachments, you must also specify attachment files using the `--attachments` option (for AWS CLI) or `Attachments` (for API and SDK). You can specify the file location for SSM documents and files stored in Amazon Simple Storage Service (Amazon S3) buckets. For more information, see [Attachments](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-Attachments) in the AWS Systems Manager API Reference.  
 
-```
+```yaml
 ---
 files:
   launch.py:
@@ -238,7 +237,7 @@ files:
       sha256: 18871b1311b295c43d0f...[truncated]...772da97b67e99d84d342ef4aEXAMPLE
 ```
 
-```
+```json
 "files": {
     "launch.py": {
         "checksums": {
@@ -263,7 +262,7 @@ String
 A sequence of zero or more Unicode characters wrapped in quotation marks. For example, "i-1234567890abcdef0". Use backslashes to escape.  
 String parameters can include an optional `interpolationType` field with the value `ENV_VAR` to enable environment variable interpolation for improved security.  
 
-```
+```yaml
 ---
 InstanceId:
   type: String
@@ -271,7 +270,7 @@ InstanceId:
   interpolationType: ENV_VAR
 ```
 
-```
+```json
 "InstanceId":{
   "type":"String",
   "description":"(Optional) The target EC2 instance ID.",
@@ -282,7 +281,7 @@ InstanceId:
 StringList  
 A list of String items separated by commas. For example, ["cd \~", "pwd"].  
 
-```
+```yaml
 ---
 commands:
   type: StringList
@@ -292,7 +291,7 @@ commands:
   displayType: textarea
 ```
 
-```
+```json
 "commands":{
   "type":"StringList",
   "description":"(Required) Specify a shell script or a command to run.",
@@ -304,7 +303,7 @@ commands:
 Boolean  
 Accepts only `true` or `false`. Doesn't accept "true" or 0.  
 
-```
+```yaml
 ---
 canRun:
   type: Boolean
@@ -312,7 +311,7 @@ canRun:
   default: true
 ```
 
-```
+```json
 "canRun": {
   "type": "Boolean",
   "description": "",
@@ -323,7 +322,7 @@ canRun:
 Integer  
 Integral numbers. Doesn't accept decimal numbers, for example 3.14159, or numbers wrapped in quotation marks, for example "3".  
 
-```
+```yaml
 ---
 timeout:
   type: Integer
@@ -331,7 +330,7 @@ timeout:
   default: 100
 ```
 
-```
+```json
 "timeout": {
   "type": "Integer",
   "description": "The type of action to perform.",
@@ -342,7 +341,7 @@ timeout:
 StringMap  
 A mapping of keys to values. Keys and values must be strings. For example, {"Env": "Prod"}.  
 
-```
+```yaml
 ---
 notificationConfig:
   type: StringMap
@@ -355,7 +354,7 @@ notificationConfig:
   maxChars: 150
 ```
 
-```
+```json
 "notificationConfig" : {
   "type" : "StringMap",
   "description" : "The configuration for events to be notified about",
@@ -371,7 +370,7 @@ notificationConfig:
 MapList  
 A list of StringMap objects.  
 
-```
+```yaml
 blockDeviceMappings:
   type: MapList
   description: The mappings for the create image inputs
@@ -385,7 +384,7 @@ blockDeviceMappings:
   maxItems: 2
 ```
 
-```
+```json
 "blockDeviceMappings":{
   "type":"MapList",
   "description":"The mappings for the create image inputs",

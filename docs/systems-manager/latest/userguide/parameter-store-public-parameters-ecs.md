@@ -1,7 +1,6 @@
 
 
 # Calling the ECS optimized AMI public parameter in Parameter Store
-<a name="parameter-store-public-parameters-ecs"></a>
 
 The Amazon Elastic Container Service (Amazon ECS) service publishes the name of the latest Amazon ECS optimized Amazon Machine Images (AMIs) as public parameters. Users are encouraged to use this AMI when creating a new Amazon Elastic Compute Cloud (Amazon EC2) cluster for Amazon ECS because the optimized AMIs include bug fixes and feature updates.
 
@@ -10,7 +9,7 @@ Use the following command to view the name of the latest Amazon ECS optimized AM
 ------
 #### [ Linux & macOS ]
 
-```
+```bash
 aws ssm get-parameters \
     --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended
 ```
@@ -18,7 +17,7 @@ aws ssm get-parameters \
 ------
 #### [ Windows ]
 
-```
+```bash
 aws ssm get-parameters ^
     --names /aws/service/ecs/optimized-ami/amazon-linux-2/recommended
 ```

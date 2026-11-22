@@ -1,7 +1,6 @@
 
 
 # AWS Secrets and Configuration Provider code examples
-<a name="ascp-examples"></a>
 
 ## ASCP authentication and access control examples
 <a name="ascp-auth-access-examples"></a>
@@ -14,7 +13,7 @@
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -42,7 +41,7 @@ You use YAML to describe which parameters to mount in Amazon EKS using the ASCP.
 ### SecretProviderClass YAML structure
 <a name="ascp-examples-secretproviderclass-1"></a>
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -128,7 +127,7 @@ The name or full ARN of the failover parameter. If you use an ARN, the Region in
 
 SecretProviderClass to use a parameter in the same Amazon EKS cluster:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -145,7 +144,7 @@ spec:
 ------
 #### [ IRSA ]
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -173,7 +172,7 @@ This example shows how to mount three different types of parameters:
 + A parameter specified by name
 + A parameter version of a secret
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -195,7 +194,7 @@ spec:
 
 This example shows how to mount specific key-value pairs from a JSON-formatted parameter:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -222,7 +221,7 @@ These examples show how to configure failover for parameters.
 
 This example shows how to configure automatic failover for a parameter replicated across multiple Regions:
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -241,7 +240,7 @@ spec:
 
 This example shows how to configure failover to a different parameter (not a replica):
 
-```
+```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:

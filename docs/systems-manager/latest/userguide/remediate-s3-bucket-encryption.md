@@ -1,7 +1,6 @@
 
 
 # Changing to an AWS KMS customer managed key to encrypt S3 resources
-<a name="remediate-s3-bucket-encryption"></a>
 
 During the onboarding process for the unified Systems Manager console, Quick Setup creates an Amazon Simple Storage Service (Amazon S3) bucket in the delegated administrator account. This bucket is used to store the diagnosis output data generated during remediation runbook executions. By default, the bucket uses server-side encryption with Amazon S3 managed keys (SSE-S3).
 
@@ -61,7 +60,7 @@ Use the following procedure to update the [KMS key policy](https://docs.aws.amaz
 
    To locate the correct bucket name in the Amazon S3 console, in the delegated administrator account, locate the bucket in the format `do-not-delete-ssm-{{operational-account-id}}-{{home-region}}-{{disambiguator}}`.
 
-   ```
+   ```json
    {
         "Sid": "EncryptionForSystemsManagerS3Bucket",
         "Effect": "Allow",

@@ -1,7 +1,6 @@
 
 
 # Use `DeleteParameter` with a CLI
-<a name="example_ssm_DeleteParameter_section"></a>
 
 The following code examples show how to use `DeleteParameter`.
 
@@ -26,7 +25,7 @@ For more information, see [Working with Parameter Store](https://docs.aws.amazon
 **Tools for PowerShell V4**  
 **Example 1: This example deletes a parameter. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMParameter -Name "helloWorld"
 ```
 +  For API details, see [DeleteParameter](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Remove-SSMParameter -Name "helloWorld"
 **Tools for PowerShell V5**  
 **Example 1: This example deletes a parameter. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMParameter -Name "helloWorld"
 ```
 +  For API details, see [DeleteParameter](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

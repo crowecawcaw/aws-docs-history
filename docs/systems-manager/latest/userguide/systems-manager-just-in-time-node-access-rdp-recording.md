@@ -1,7 +1,6 @@
 
 
 # Recording RDP connections
-<a name="systems-manager-just-in-time-node-access-rdp-recording"></a>
 
 Just-in-time node access includes the ability to record RDP connections made to your Windows Server nodes. Recording RDP connections require an S3 bucket and an AWS Key Management Service (AWS KMS) customer managed key. The AWS KMS key is used to temporarily encrypt the recording data while it's generated and stored on Systems Manager resources. The customer managed key must be a symmetric key with a key usage of encrypt and decrypt. You can either use a multi-Region key for your organization, or you must create a customer managed key in each Region where you've enabled just-in-time node access.
 
@@ -27,7 +26,7 @@ Replace each {{example resource placeholder}} with your own information:
 **Note**  
 You can use `aws:SourceOrgID` in the policy instead of `aws:SourceAccount` if the account belongs to an organization in AWS Organizations.
 
-```
+```json
 {
     "Sid": "Allow the GUI Connect service principal to access S3",
     "Effect": "Allow",
@@ -78,7 +77,7 @@ To store your connection recordings, you must first create an S3 bucket and add 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Tutorials: Create and manage maintenance windows using the AWS CLI
-<a name="maintenance-window-tutorial-cli"></a>
 
 This section includes tutorials that help you learn how to use the AWS Command Line Interface (AWS CLI) to do the following:
 + Create and configure a maintenance window

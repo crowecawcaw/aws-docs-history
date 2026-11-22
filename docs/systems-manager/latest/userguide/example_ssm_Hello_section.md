@@ -1,7 +1,6 @@
 
 
 # Hello Systems Manager
-<a name="example_ssm_Hello_section"></a>
 
 The following code examples show how to get started using Systems Manager.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Systems Manager.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ssm.SsmClient;
 import software.amazon.awssdk.services.ssm.model.DocumentFilter;
@@ -80,7 +79,7 @@ public class HelloSSM {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import { paginateListDocuments, SSMClient } from "@aws-sdk/client-ssm";
 
 // Call ListDocuments and display the result.
@@ -120,7 +119,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 

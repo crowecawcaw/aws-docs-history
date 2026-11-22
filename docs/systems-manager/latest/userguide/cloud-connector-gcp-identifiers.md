@@ -1,7 +1,6 @@
 
 
 # How Systems Manager handles cloud resources
-<a name="cloud-connector-gcp-identifiers"></a>
 
 By enabling Multicloud Integrations for AWS Systems Manager, virtual machine identifiers from other cloud providers are stored in Systems Manager and other AWS services as needed. This metadata relates to the management of corresponding resources collected from other cloud providers. Such identifiers do not constitute Your Content. We recommend you do not include sensitive, confidential, or personally identifiable information in them.
 

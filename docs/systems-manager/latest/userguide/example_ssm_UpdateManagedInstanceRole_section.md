@@ -1,7 +1,6 @@
 
 
 # Use `UpdateManagedInstanceRole` with a CLI
-<a name="example_ssm_UpdateManagedInstanceRole_section"></a>
 
 The following code examples show how to use `UpdateManagedInstanceRole`.
 
@@ -27,7 +26,7 @@ For more information, see [Step 4: Create an IAM Instance Profile for Systems Ma
 **Tools for PowerShell V4**  
 **Example 1: This example updates the role of a managed instance. There is no output if the command succeeds.**  
 
-```
+```powershell
 Update-SSMManagedInstanceRole -InstanceId "mi-08ab247cdf1046573" -IamRole "AutomationRole"
 ```
 +  For API details, see [UpdateManagedInstanceRole](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -35,7 +34,7 @@ Update-SSMManagedInstanceRole -InstanceId "mi-08ab247cdf1046573" -IamRole "Autom
 **Tools for PowerShell V5**  
 **Example 1: This example updates the role of a managed instance. There is no output if the command succeeds.**  
 
-```
+```powershell
 Update-SSMManagedInstanceRole -InstanceId "mi-08ab247cdf1046573" -IamRole "AutomationRole"
 ```
 +  For API details, see [UpdateManagedInstanceRole](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

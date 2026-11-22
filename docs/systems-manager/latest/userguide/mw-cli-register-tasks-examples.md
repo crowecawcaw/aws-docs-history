@@ -1,7 +1,6 @@
 
 
 # Examples: Register tasks with a maintenance window
-<a name="mw-cli-register-tasks-examples"></a>
 
 You can register a task in Run Command, with a maintenance window using the AWS Command Line Interface (AWS CLI), as demonstrated in [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md). You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated later in this topic.
 
@@ -34,7 +33,7 @@ To use the sample JSON file content we provide in the following examples, do the
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window ^
        --cli-input-json file://{{MyFile.json}}
    ```
@@ -62,7 +61,7 @@ The following examples demonstrate how to register Systems Manager Run Command t
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window \
     --window-id mw-0c50858d01EXAMPLE \
     --task-arn "AWS-RunShellScript" \
@@ -75,7 +74,7 @@ aws ssm register-task-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window ^
     --window-id mw-0c50858d01EXAMPLE ^
     --task-arn "AWS-RunShellScript" ^
@@ -89,7 +88,7 @@ aws ssm register-task-with-maintenance-window ^
 
 **JSON content to use with `--cli-input-json` file option:**
 
-```
+```json
 {
     "TaskType": "RUN_COMMAND",
     "WindowId": "mw-0c50858d01EXAMPLE",
@@ -135,7 +134,7 @@ The following examples demonstrate how to register Systems Manager Automation ta
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window \
     --window-id "mw-0c50858d01EXAMPLE" \
     --task-arn "AWS-RestartEC2Instance" \
@@ -149,7 +148,7 @@ aws ssm register-task-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window ^
     --window-id "mw-0c50858d01EXAMPLE" ^
     --task-arn "AWS-RestartEC2Instance" ^
@@ -164,7 +163,7 @@ aws ssm register-task-with-maintenance-window ^
 
 **JSON content to use with `--cli-input-json` file option:**
 
-```
+```json
 {
     "WindowId": "mw-0c50858d01EXAMPLE",
         "TaskArn": "AWS-PatchInstanceWithRollback",
@@ -202,7 +201,7 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 **Important**  
 If you are using version 2 of the AWS CLI, you must include the option `--cli-binary-format raw-in-base64-out` in the following command if your Lambda payload is not base64 encoded. The `cli_binary_format` option is available only in version 2. For information about this and other AWS CLI `config` file settings, see [Supported `config` file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-settings) in the *AWS Command Line Interface User Guide*.
 
-```
+```sh
 aws ssm register-task-with-maintenance-window \
     --window-id "mw-0c50858d01EXAMPLE" \
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
@@ -218,7 +217,7 @@ aws ssm register-task-with-maintenance-window \
 **Important**  
 If you are using version 2 of the AWS CLI, you must include the option `--cli-binary-format raw-in-base64-out` in the following command if your Lambda payload is not base64 encoded. The `cli_binary_format` option is available only in version 2. For information about this and other AWS CLI `config` file settings, see [Supported `config` file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-settings) in the *AWS Command Line Interface User Guide*.
 
-```
+```ps
 aws ssm register-task-with-maintenance-window `
     --window-id "mw-0c50858d01EXAMPLE" `
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" `
@@ -232,7 +231,7 @@ aws ssm register-task-with-maintenance-window `
 
 **JSON content to use with `--cli-input-json` file option:**
 
-```
+```json
 {
     "WindowId": "mw-0c50858d01EXAMPLE",
     "Targets": [
@@ -281,7 +280,7 @@ The AWS Identity and Access Management (IAM) policy for Maintenance Windows requ
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window \
     --window-id "mw-0c50858d01EXAMPLE" \
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
@@ -295,7 +294,7 @@ aws ssm register-task-with-maintenance-window \
 ------
 #### [ PowerShell ]
 
-```
+```sh
 aws ssm register-task-with-maintenance-window `
     --window-id "mw-0c50858d01EXAMPLE" `
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" `
@@ -310,7 +309,7 @@ aws ssm register-task-with-maintenance-window `
 
 **JSON content to use with `--cli-input-json` file option:**
 
-```
+```json
 {
     "WindowId": "mw-0c50858d01EXAMPLE",
     "Targets": [

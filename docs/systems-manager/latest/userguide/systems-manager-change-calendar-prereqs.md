@@ -1,7 +1,6 @@
 
 
 # Setting up Change Calendar
-<a name="systems-manager-change-calendar-prereqs"></a>
 
 Complete the following before using Change Calendar.
 

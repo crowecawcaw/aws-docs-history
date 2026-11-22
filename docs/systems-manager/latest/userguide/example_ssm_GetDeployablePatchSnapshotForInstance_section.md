@@ -1,7 +1,6 @@
 
 
 # Use `GetDeployablePatchSnapshotForInstance` with a CLI
-<a name="example_ssm_GetDeployablePatchSnapshotForInstance_section"></a>
 
 The following code examples show how to use `GetDeployablePatchSnapshotForInstance`.
 
@@ -37,7 +36,7 @@ For more information, see [Parameter name: Snapshot ID](https://docs.aws.amazon.
 **Tools for PowerShell V4**  
 **Example 1: This example displays the current snapshot for the patch baseline used by an Instance. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example passes an `Amazon.Runtime.InstanceProfileAWSCredentials` object to the Credentials parameter.**  
 
-```
+```powershell
 $credentials = [Amazon.Runtime.InstanceProfileAWSCredentials]::new()
 Get-SSMDeployablePatchSnapshotForInstance -SnapshotId "4681775b-098f-4435-a956-0ef33373ac11" -InstanceId "i-0cb2b964d3e14fd9f" -Credentials $credentials
 ```
@@ -50,7 +49,7 @@ i-0cb2b964d3e14fd9f https://patch-baseline-snapshot-us-west-2.s3-us-west-2.amazo
 ```
 **Example 2: This example shows how to get the full SnapshotDownloadUrl. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example configures the PowerShell session to use an `Amazon.Runtime.InstanceProfileAWSCredentials` object.**  
 
-```
+```powershell
 Set-AWSCredential -Credential ([Amazon.Runtime.InstanceProfileAWSCredentials]::new())
 (Get-SSMDeployablePatchSnapshotForInstance -SnapshotId "4681775b-098f-4435-a956-0ef33373ac11" -InstanceId "i-0cb2b964d3e14fd9f").SnapshotDownloadUrl
 ```
@@ -64,7 +63,7 @@ https://patch-baseline-snapshot-us-west-2.s3-us-west-2.amazonaws.com/853d0d3db0f
 **Tools for PowerShell V5**  
 **Example 1: This example displays the current snapshot for the patch baseline used by an Instance. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example passes an `Amazon.Runtime.InstanceProfileAWSCredentials` object to the Credentials parameter.**  
 
-```
+```powershell
 $credentials = [Amazon.Runtime.InstanceProfileAWSCredentials]::new()
 Get-SSMDeployablePatchSnapshotForInstance -SnapshotId "4681775b-098f-4435-a956-0ef33373ac11" -InstanceId "i-0cb2b964d3e14fd9f" -Credentials $credentials
 ```
@@ -77,7 +76,7 @@ i-0cb2b964d3e14fd9f https://patch-baseline-snapshot-us-west-2.s3-us-west-2.amazo
 ```
 **Example 2: This example shows how to get the full SnapshotDownloadUrl. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example configures the PowerShell session to use an `Amazon.Runtime.InstanceProfileAWSCredentials` object.**  
 
-```
+```powershell
 Set-AWSCredential -Credential ([Amazon.Runtime.InstanceProfileAWSCredentials]::new())
 (Get-SSMDeployablePatchSnapshotForInstance -SnapshotId "4681775b-098f-4435-a956-0ef33373ac11" -InstanceId "i-0cb2b964d3e14fd9f").SnapshotDownloadUrl
 ```

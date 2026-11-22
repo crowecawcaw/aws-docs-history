@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Maintenance Windows
-<a name="maintenance-windows"></a>
 
 Maintenance Windows helps you define a schedule for when to perform potentially disruptive actions on your nodes such as patching an operating system, updating drivers, or installing software or patches.
 

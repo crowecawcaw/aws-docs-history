@@ -1,7 +1,6 @@
 
 
 # View packages in Distributor
-<a name="distributor-view-packages"></a>
 
 To view packages that are available for installation, you can use the AWS Systems Manager console or your preferred AWS command line tool. Distributor is a tool in AWS Systems Manager. To access Distributor, open the AWS Systems Manager console and choose **Distributor** in the left navigation pane. You see all of the packages available to you.
 
@@ -18,19 +17,19 @@ This section contains information about how you can use your preferred command l
 **To view packages using the AWS CLI on Linux**
 + To view all packages, excluding shared packages, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents \
       --filters Key=DocumentType,Values=Package
   ```
 + To view all packages owned by Amazon, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents \
       --filters Key=DocumentType,Values=Package Key=Owner,Values=Amazon
   ```
 + To view all packages owned by third parties, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents \
       --filters Key=DocumentType,Values=Package Key=Owner,Values=ThirdParty
   ```
@@ -41,19 +40,19 @@ This section contains information about how you can use your preferred command l
 **To view packages using the AWS CLI on Windows**
 + To view all packages, excluding shared packages, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents ^
       --filters Key=DocumentType,Values=Package
   ```
 + To view all packages owned by Amazon, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents ^
       --filters Key=DocumentType,Values=Package Key=Owner,Values=Amazon
   ```
 + To view all packages owned by third parties, run the following command.
 
-  ```
+  ```sh
   aws ssm list-documents ^
       --filters Key=DocumentType,Values=Package Key=Owner,Values=ThirdParty
   ```
@@ -64,7 +63,7 @@ This section contains information about how you can use your preferred command l
 **To view packages using the Tools for PowerShell**
 + To view all packages, excluding shared packages, run the following command.
 
-  ```
+  ```ps
   $filter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
   $filter.Key = "DocumentType"
   $filter.Values = "Package"
@@ -74,7 +73,7 @@ This section contains information about how you can use your preferred command l
   ```
 + To view all packages owned by Amazon, run the following command.
 
-  ```
+  ```ps
   $typeFilter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
   $typeFilter.Key = "DocumentType"
   $typeFilter.Values = "Package"
@@ -88,7 +87,7 @@ This section contains information about how you can use your preferred command l
   ```
 + To view all packages owned by third parties, run the following command.
 
-  ```
+  ```ps
   $typeFilter = New-Object Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter
   $typeFilter.Key = "DocumentType"
   $typeFilter.Values = "Package"

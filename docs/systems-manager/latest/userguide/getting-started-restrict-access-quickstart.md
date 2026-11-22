@@ -1,7 +1,6 @@
 
 
 # Sample IAM policies for Session Manager
-<a name="getting-started-restrict-access-quickstart"></a>
 
 Use the samples in this section to help you create AWS Identity and Access Management (IAM) policies that provide the most commonly needed permissions for Session Manager access. 
 
@@ -38,7 +37,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
 `SSM-SessionManagerRunShell` is the default name of the SSM document that Session Manager creates to store your session configuration preferences. You can create a custom Session document and specify it in this policy instead. You can also specify the AWS-provided document `AWS-StartSSHSession` for users who are starting sessions using SSH. For information about configuration steps needed to support sessions using SSH, see [(Optional) Allow and control permissions for SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md).  
 The `kms:GenerateDataKey` permission enables the creation of a data encryption key that will be used to encrypt session data. If you use AWS Key Management Service (AWS KMS) encryption for your session data, replace {{key-name}} with the Amazon Resource Name (ARN) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`. If you won't use KMS key encryption for your session data, remove the following content from the policy.  
 
-```
+```json
 {
             "Effect": "Allow",
             "Action": [
@@ -235,7 +234,7 @@ Use this sample policy to give administrators the ability to perform session-rel
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -305,7 +304,7 @@ Use this sample policy to give administrators the ability to perform session-rel
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -373,7 +372,7 @@ Use this sample policy to give administrators the ability to perform session-rel
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

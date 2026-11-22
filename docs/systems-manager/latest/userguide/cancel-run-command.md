@@ -1,7 +1,6 @@
 
 
 # Canceling a command
-<a name="cancel-run-command"></a>
 
 You can attempt to cancel a command as long as the service shows that it's in either a Pending or Executing state. However, even if a command is still in one of these states, we can't guarantee that the command will be canceled and the underlying process stopped. 
 
@@ -21,7 +20,7 @@ Run the following command. Replace each {{example resource placeholder}} with yo
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm cancel-command \
     --command-id "{{command-ID}}" \
     --instance-ids "{{instance-ID}}"
@@ -30,7 +29,7 @@ aws ssm cancel-command \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm cancel-command ^
     --command-id "{{command-ID}}" ^
     --instance-ids "{{instance-ID}}"

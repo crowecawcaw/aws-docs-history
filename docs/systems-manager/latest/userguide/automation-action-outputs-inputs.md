@@ -1,7 +1,6 @@
 
 
 # Using action outputs as inputs
-<a name="automation-action-outputs-inputs"></a>
 
 Several automation actions return pre-defined outputs. You can pass these outputs as inputs to later steps in your runbook using the format `{{{{stepName}}.{{outputName}}}}`. You can also define custom outputs for automation actions in your runbooks. This lets you run scripts, or invoke API operations for other AWS services once so you can reuse the values as inputs in later actions. Parameter types in runbooks are static. This means the parameter type can't be changed after it's defined. To define a step output provide the following fields:
 + Name: (Required) The output name which is used to reference the output value in later steps.
@@ -22,7 +21,7 @@ Here is an example runbook that demonstrates how to define action outputs, and r
 + Uses the` aws:waitForAwsResourceProperty` action to poll the Amazon EC2 DescribeInstanceStatus API operation to wait for the instance to reach the `running` state. The action times out in 60 seconds. The step times out if the instance state failed to reach `running` after 60 seconds of polling.
 + Uses the `aws:assertAwsResourceProperty` action to call the Amazon EC2 `DescribeInstanceStatus` API operation to assert that the instance is in the `running` state. The step fails if the instance state isn't `running`.
 
-```
+```yaml
 ---
 description: Sample runbook using AWS API operations
 schemaVersion: '0.3'
@@ -102,7 +101,7 @@ Each Automation action requires that you specify either an output `Selector` (fo
 
 Here is an example to help illustrate this concept for the `aws:executeAwsAPi` action.
 
-```
+```yaml
 ---
 mainSteps:
 - name: getImageId
@@ -125,7 +124,7 @@ In the `aws:executeAwsApi` step `getImageId`, the automation invokes the `Descri
 
 Here is an example to help illustrate this concept for the `aws:waitForAwsResourceProperty` action.
 
-```
+```yaml
 ---
 - name: waitUntilInstanceStateRunning
   action: aws:waitForAwsResourceProperty

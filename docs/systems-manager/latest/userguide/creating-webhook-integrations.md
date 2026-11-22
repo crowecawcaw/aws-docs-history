@@ -1,7 +1,6 @@
 
 
 # Creating webhook integrations for Automation
-<a name="creating-webhook-integrations"></a>
 
 To send messages using webhooks during an automation, create an integration. Integrations can be invoked during an automation by using the `aws:invokeWebhook` action in your runbook. If you haven't already created a webhook, see [Creating webhooks for integrations](#creating-webhooks). To learn more about the `aws:invokeWebhook` action, see [`aws:invokeWebhook` – Invoke an Automation webhook integration](invoke-webhook.md).
 
@@ -44,7 +43,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ Linux & macOS ]
 
-  ```
+  ```sh
   aws ssm put-parameter \
       --name "/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/{{myWebhookIntegration}}" \
       --type "SecureString" \
@@ -55,7 +54,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ Windows ]
 
-  ```
+  ```sh
   aws ssm put-parameter ^
       --name "/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/{{myWebhookIntegration}}" ^
       --type "SecureString" ^
@@ -66,7 +65,7 @@ If you haven't already, install and configure the AWS Command Line Interface (AW
 ------
 #### [ PowerShell ]
 
-  ```
+  ```ps
   Write-SSMParameter `
       -Name "/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/{{myWebhookIntegration}}" `
       -Type "SecureString"

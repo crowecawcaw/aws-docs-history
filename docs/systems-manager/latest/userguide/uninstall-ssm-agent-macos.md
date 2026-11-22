@@ -1,7 +1,6 @@
 
 
 # Uninstall SSM Agent from macOS instances
-<a name="uninstall-ssm-agent-macos"></a>
 
 macOS doesn't natively support uninstallation of `PKG` files. To uninstall SSM Agent from an Amazon EC2 instance for macOS, use the AWS managed script from the following location.
 

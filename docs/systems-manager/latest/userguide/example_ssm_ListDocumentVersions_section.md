@@ -1,7 +1,6 @@
 
 
 # Use `ListDocumentVersions` with a CLI
-<a name="example_ssm_ListDocumentVersions_section"></a>
 
 The following code examples show how to use `ListDocumentVersions`.
 
@@ -41,7 +40,7 @@ For more information, see [Sending Commands that Use the Document Version Parame
 **Tools for PowerShell V4**  
 **Example 1: This example lists all the versions for a document.**  
 
-```
+```powershell
 Get-SSMDocumentVersionList -Name "AWS-UpdateSSMAgent"
 ```
 **Output:**  
@@ -59,7 +58,7 @@ Status            : Active
 **Tools for PowerShell V5**  
 **Example 1: This example lists all the versions for a document.**  
 
-```
+```powershell
 Get-SSMDocumentVersionList -Name "AWS-UpdateSSMAgent"
 ```
 **Output:**  

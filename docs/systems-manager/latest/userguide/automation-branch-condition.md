@@ -1,7 +1,6 @@
 
 
 # Using conditional statements in runbooks
-<a name="automation-branch-condition"></a>
 
 By default, the steps that you define in the `mainSteps` section of a runbook run in sequential order. After one action is completed, the next action specified in the `mainSteps` section begins. Furthermore, if an action fails to run, the entire automation fails (by default). You can use the `aws:branch` automation action and the runbook options described in this section to create automations that perform *conditional branching*. This means that you can create automations that jump to a different step after evaluating different choices or that dynamically respond to changes when a step is complete. Here is a list of options that you can use to create dynamic automations:
 + **`aws:branch`**: This automation action lets you create a dynamic automation that evaluates multiple choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation.
@@ -19,7 +18,7 @@ The `aws:branch` action offers the most dynamic conditional branching options fo
 
 Here is a YAML example of an `aws:branch` step.
 
-```
+```yaml
 - name: ChooseOSforCommands
   action: aws:branch
   inputs:
@@ -42,7 +41,7 @@ If none of the `Choices` are `true`, the automation checks to see if the step co
 
 Here is an `aws:branch` step in YAML named **chooseOSfromParameter**. The step includes two `Choices`: (`NextStep: runWindowsCommand`) and (`NextStep: runLinuxCommand`). The automation evaluates these `Choices` to determine which command to run for the appropriate operating system. The `Variable` for each choice uses `{{OSName}}`, which is a parameter that the runbook author defined in the `Parameters` section of the runbook.
 
-```
+```yaml
 mainSteps:
 - name: chooseOSfromParameter
   action: aws:branch
@@ -58,7 +57,7 @@ mainSteps:
 
 Here is an `aws:branch` step in YAML named **chooseOSfromOutput**. The step includes two `Choices`: (`NextStep: runPowerShellCommand`) and (`NextStep: runShellCommand`). The automation evaluates these `Choices` to determine which command to run for the appropriate operating system. The `Variable` for each choice uses `{{GetInstance.platform}}`, which is the output from an earlier step in the runbook. This example also includes an option called `Default`. If the automation evaluates both `Choices`, and neither choice is `true`, then the automation jumps to a step called `PostProcessing`.
 
-```
+```yaml
 mainSteps:
 - name: chooseOSfromOutput
   action: aws:branch
@@ -124,7 +123,7 @@ Use the following templates to help you construct the `aws:branch` step in your 
 ------
 #### [ YAML ]
 
-```
+```yaml
 mainSteps:
 - name: {{step name}}
   action: aws:branch
@@ -143,7 +142,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "mainSteps":[
       {
@@ -180,7 +179,7 @@ To create an `aws:branch` choice that references the output from a previous step
 
 For example, the first step in the following example is named `GetInstance`. And then, under `outputs`, there is a field called `platform`. In the second step (`ChooseOSforCommands`), the author wants to reference the output from the platform field as a variable. To create the variable, simply combine the step name (GetInstance) and the output field name (platform) to create `Variable: "{{{{GetInstance.platform}}}}"`.
 
-```
+```yaml
 mainSteps:
 - {{Name: GetInstance}}
   action: aws:executeAwsApi
@@ -213,7 +212,7 @@ mainSteps:
 
 Here is an example that shows how {{"Variable": "{{ describeInstance.Platform }}"}} is created from the previous step and the output.
 
-```
+```yaml
 - name: describeInstance
   action: aws:executeAwsApi
   onFailure: Abort
@@ -248,7 +247,7 @@ In the first step of this example (`GetInstance`), the runbook author uses the `
 
 In the second step (`ChooseOSforCommands`), the author uses the `aws:branch` action with two `Choices` (`NextStep: runPowerShellCommand`) and (`NextStep: runShellCommand`). The automation evaluates the operating system of the instance by using the output from the previous step (`Variable: "{{GetInstance.platform}}"`). The automation jumps to a step for the designated operating system.
 
-```
+```yaml
 ---
 schemaVersion: '0.3'
 assumeRole: "{{AutomationAssumeRole}}"
@@ -311,7 +310,7 @@ mainSteps:
 
 The runbook author defines several parameter options at the beginning of the runbook in the `parameters` section. One parameter is named `OperatingSystemName`. In the first step (`ChooseOS`), the author uses the `aws:branch` action with two `Choices` (`NextStep: runWindowsCommand`) and (`NextStep: runLinuxCommand`). The variable for these `Choices` references the parameter option specified in the parameters section (`Variable: "{{OperatingSystemName}}"`). When the user runs this runbook, they specify a value at runtime for `OperatingSystemName`. The automation uses the runtime parameter during the `Choices` evaluation. The automation jumps to a step for the designated operating system based on the runtime parameter specified for `OperatingSystemName`.
 
-```
+```yaml
 ---
 schemaVersion: '0.3'
 assumeRole: "{{AutomationAssumeRole}}"
@@ -372,7 +371,7 @@ You can create complex branching automations by using the `And`, `Or`, and `Not`
 **The 'And' operator**  
 Use the `And` operator when you want multiple variables to be `true` for a choice. In the following example, the first choice evaluates if an instance is `running` and uses the `Windows` operating system. If the evaluation of *both* of these variables is true, then the automation jumps to the `runPowerShellCommand` step. If one or more of the variables is `false`, then the automation evaluates the variables for the second choice.
 
-```
+```yaml
 mainSteps:
 - name: switch2
   action: aws:branch
@@ -398,7 +397,7 @@ mainSteps:
 **The 'Or' operator**  
 Use the `Or` operator when you want *any* of multiple variables to be true for a choice. In the following example, the first choice evaluates if a parameter string is `Windows` and if the output from an AWS Lambda step is true. If the evaluation determines that *either* of these variables is true, then the automation jumps to the `RunPowerShellCommand` step. If both variables are false, then the automation evaluates the variables for the second choice.
 
-```
+```yaml
 - Or:
   - Variable: "{{parameter1}}"
     StringEquals: Windows
@@ -416,7 +415,7 @@ Use the `Or` operator when you want *any* of multiple variables to be true for a
 **The 'Not' operator**  
 Use the `Not` operator when you want to jump to a step defined when a variable is *not* true. In the following example, the first choice evaluates if a parameter string is `Not Linux`. If the evaluation determines that the variable isn't Linux, then the automation jumps to the `sleep2` step. If the evaluation of the first choice determines that it *is* Linux, then the automation evaluates the next choice.
 
-```
+```yaml
 mainSteps:
 - name: switch
   action: aws:branch
@@ -440,7 +439,7 @@ This section includes different examples of how to use dynamic options in a runb
 
 **Example 1: Runbook with two linear actions**
 
-```
+```yaml
 ---
 schemaVersion: '0.3'
 description: Install MSI package and run validation.
@@ -485,7 +484,7 @@ Using the `isEnd` option in the last step of the `mainSteps` section is optional
 
 **Example 2: A dynamic automation that jumps to different steps**
 
-```
+```yaml
 mainSteps
 - name: InstallMsiPackage
   action: aws:runCommand
@@ -525,7 +524,7 @@ You can specify that a step is critical for the overall success of the automatio
 
 **Example 3: Defining critical steps for the automation **
 
-```
+```yaml
 ---
 name: InstallMsiPackage
 action: aws:runCommand

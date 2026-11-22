@@ -1,7 +1,6 @@
 
 
 # Creating change templates using command line tools
-<a name="change-templates-tools"></a>
 
 **Change Manager availability change**  
 AWS Systems Manager Change Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html). 
@@ -25,7 +24,7 @@ This example demonstrates two levels of approvals. You can specify up to five le
 In the first level, the specific user "John-Doe" must approve each change request. After that, any three members of the IAM role `Admin` must approve the change request.  
 For more information about approvals for change templates, see [About approvals in your change templates](cm-approvals-templates.md).
 
-   ```
+   ```json
    {
       "description": "This change template demonstrates the feature set available for creating
      change templates for Change Manager. This template starts a Runbook workflow
@@ -131,7 +130,7 @@ For more information about approvals for change templates, see [About approvals 
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $json = Get-Content -Path "C:\path\to\file\MyChangeTemplate.json" | Out-String
    New-SSMDocument `
        -Content $json `

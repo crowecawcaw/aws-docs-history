@@ -1,7 +1,6 @@
 
 
 # Find AMIs with the SSM Agent preinstalled
-<a name="ami-preinstalled-agent"></a>
 
 AWS Systems Manager Agent (SSM Agent) is preinstalled on some Amazon Machine Images (AMIs) provided by AWS and trusted third-parties.
 

@@ -1,7 +1,6 @@
 
 
 # Using a delegated administrator for Quick Setup
-<a name="quick-setup-delegated-administrator"></a>
 
 After you register a delegated administrator account for Quick Setup, users with the appropriate permissions in that account can create, update, view, and delete configuration managers that target organizational units within your AWS Organizations structure. This delegated administrator account can also manage configuration managers previously created by your organization's management account.
 

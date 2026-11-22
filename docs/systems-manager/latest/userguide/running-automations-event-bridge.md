@@ -1,7 +1,6 @@
 
 
 # Run automations based on EventBridge events
-<a name="running-automations-event-bridge"></a>
 
 You can start an automation by specifying a runbook as the target of an Amazon EventBridge event. You can start automations according to a schedule, or when a specific AWS system event occurs. For example, let's say you create a runbook named *BootStrapInstances* that installs software on an instance when an instance starts. To specify the *BootStrapInstances* runbook (and corresponding automation) as a target of an EventBridge event, you first create a new EventBridge rule. (Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State-change Notification, **Specific state(s)**: running, **Any instance**.) Then you use the following procedures to specify the *BootStrapInstances* runbook as the target of the event using the EventBridge console and AWS Command Line Interface (AWS CLI). When a new instance starts, the system runs the automation and installs software.
 
@@ -61,7 +60,7 @@ To create a target, you must specify a value for each required parameter. If you
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -108,7 +107,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-rule \
    --name "{{rule name}}" \
    --schedule-expression "{{cron or rate expression}}"
@@ -117,7 +116,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-rule ^
    --name "{{rule name}}" ^
    --schedule-expression "{{cron or rate expression}}"
@@ -126,7 +125,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Write-CWERule `
    -Name "{{rule name}}" `
    -ScheduleExpression "{{cron or rate expression}}"
@@ -139,7 +138,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-rule \
    --name "DailyAutomationRule" \
    --schedule-expression "cron(0 9 * * ? *)"
@@ -148,7 +147,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-rule ^
    --name "DailyAutomationRule" ^
    --schedule-expression "cron(0 9 * * ? *)"
@@ -157,7 +156,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Write-CWERule `
    -Name "DailyAutomationRule" `
    -ScheduleExpression "cron(0 9 * * ? *)"
@@ -170,7 +169,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-rule \
    --name "{{rule name}}" \
    --event-pattern "{\"source\":[\"aws.{{service}}\"],\"detail-type\":[\"{{service event detail type}}\"]}"
@@ -179,7 +178,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-rule ^
    --name "{{rule name}}" ^
    --event-pattern "{\"source\":[\"aws.{{service}}\"],\"detail-type\":[\"{{service event detail type}}\"]}"
@@ -188,7 +187,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Write-CWERule `
    -Name "{{rule name}}" `
    -EventPattern '{"source":["aws.{{service}}"],"detail-type":["{{service event detail type}}"]}'
@@ -201,7 +200,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-rule \
    --name "EC2InstanceStateChanges" \
    --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
@@ -210,7 +209,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-rule ^
    --name "EC2InstanceStateChanges" ^
    --event-pattern "{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}"
@@ -219,7 +218,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Write-CWERule `
    -Name "{{EC2InstanceStateChanges}}" `
    -EventPattern '{"source":["aws.ec2"],"detail-type":["EC2 Instance State-change Notification"]}'
@@ -261,7 +260,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-targets \
    --rule {{rule name}} \
    --targets '{"Arn": " arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"{{key name}}\\\",\\\"Values\\\":[\\\"{{value}}\\\"]}\"]}","Id": "{{target ID}}","RoleArn": "arn:aws:iam::{{123456789012}}:role/service-role/{{EventBridge service role}}"}'
@@ -270,7 +269,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-targets ^
    --rule {{rule name}} ^
    --targets '{"Arn": "arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}","Input":"{\"Message\":[\"{\\\"Key\\\":\\\"{{key name}}\\\",\\\"Values\\\":[\\\"{{value}}\\\"]}\"]}","Id": "{{target ID}}","RoleArn": "arn:aws:iam::{{123456789012}}:role/service-role/{{EventBridge service role}}"}'
@@ -279,7 +278,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Target = New-Object Amazon.CloudWatchEvents.Model.Target
    $Target.Id = "{{target ID}}"
    $Target.Arn = "arn:aws:ssm:{{region}}:{{account ID}}:automation-definition/{{runbook name}}"
@@ -298,7 +297,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws events put-targets \
    --rule DailyAutomationRule \
    --targets '{"Arn": "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
@@ -307,7 +306,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws events put-targets ^
    --rule DailyAutomationRule ^
    --targets '{"Arn": "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
@@ -316,7 +315,7 @@ The following procedure describes how to use the AWS CLI (on Linux or Windows) o
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Target = New-Object Amazon.CloudWatchEvents.Model.Target
    $Target.Id = "Target1"
    $Target.Arn = "arn:aws:ssm:{{region}}:*:automation-definition/AWS-StartEC2Instance"

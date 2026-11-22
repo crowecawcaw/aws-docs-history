@@ -1,7 +1,6 @@
 
 
 # Working with SSM Agent on EC2 instances for Windows Server
-<a name="ssm-agent-windows"></a>
 
 AWS Systems Manager Agent (SSM Agent) is preinstalled, by default, on the Amazon Machine Images (AMIs) for Windows Server that are provided by AWS. Support is provided for the following operating system (OS) versions.
 + Windows Server 2012 R2 AMIs published in November 2016 or later

@@ -1,7 +1,6 @@
 
 
 # Understanding multiple account and Region resource data syncs
-<a name="Explorer-resource-data-sync-multiple-accounts-and-regions"></a>
 
 This section describes important details about multiple account and multiple Region resource data syncs that use AWS Organizations. Specifically, the information in this section applies if you choose one of the following options in the **Create resource data sync** page:
 + Include all accounts from my AWS Organizations configuration

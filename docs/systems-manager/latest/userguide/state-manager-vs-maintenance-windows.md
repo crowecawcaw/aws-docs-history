@@ -1,7 +1,6 @@
 
 
 # Choosing between State Manager and Maintenance Windows
-<a name="state-manager-vs-maintenance-windows"></a>
 
 State Manager and Maintenance Windows, both tools in AWS Systems Manager, can perform some similar types of updates on your managed nodes. Which one you choose depends on whether you need to automate system compliance or perform high-priority, time-sensitive tasks during periods you specify.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up Systems Manager unified console for an organization
-<a name="systems-manager-setting-up-organizations"></a>
 
 The setup process for the Systems Manager unified console experience is completed from the AWS Management Console with just a few clicks. To set up Systems Manager for an AWS Organizations organization, you must have access to the management account for your organization and another account in your organization to use as a delegated administrator. Access to the management account is only required to enable or disable Systems Manager. To manage your nodes, you'll use the delegated administrator account.
 

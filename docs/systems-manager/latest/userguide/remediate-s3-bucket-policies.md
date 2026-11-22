@@ -1,7 +1,6 @@
 
 
 # S3 bucket policies for the unified Systems Manager console
-<a name="remediate-s3-bucket-policies"></a>
 
 This topic includes the Amazon S3 bucket policies created by Systems Manager when you onboard an organization or single account to the unified Systems Manager console.
 
@@ -18,7 +17,7 @@ The diagnosis bucket is created with the following default bucket policy when on
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -147,7 +146,7 @@ The diagnosis bucket is created with the following default bucket policy when on
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

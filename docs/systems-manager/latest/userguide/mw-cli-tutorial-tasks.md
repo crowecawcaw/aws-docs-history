@@ -1,7 +1,6 @@
 
 
 # Step 3: Register a task with the maintenance window using the AWS CLI
-<a name="mw-cli-tutorial-tasks"></a>
 
 In this step of the tutorial, you register an AWS Systems Manager Run Command task that runs the `df` command on your Amazon Elastic Compute Cloud (Amazon EC2) instance for Linux. The results of this standard Linux command show how much space is free and how much is used on the disk file system of your instance.
 
@@ -18,7 +17,7 @@ When you're ready to register other task types, or use more of the available Sys
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window \
        --window-id {{mw-0c50858d01EXAMPLE}} \
        --task-arn "AWS-RunShellScript" \
@@ -32,7 +31,7 @@ When you're ready to register other task types, or use more of the available Sys
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window ^
        --window-id {{mw-0c50858d01EXAMPLE}} ^
        --task-arn "AWS-RunShellScript" ^
@@ -66,7 +65,7 @@ When you're ready to register other task types, or use more of the available Sys
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-tasks ^
        --window-id {{mw-0c50858d01EXAMPLE}}
    ```
@@ -114,7 +113,7 @@ When you're ready to register other task types, or use more of the available Sys
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-executions ^
        --window-id {{mw-0c50858d01EXAMPLE}}
    ```
@@ -146,7 +145,7 @@ aws ssm update-maintenance-window \
     --schedule "rate(7 days)"
 ```
 
-```
+```sh
 aws ssm update-maintenance-window ^
     --window-id {{mw-0c50858d01EXAMPLE}} ^
     --schedule "rate(7 days)"

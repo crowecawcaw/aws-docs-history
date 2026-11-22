@@ -1,7 +1,6 @@
 
 
 # Logging AWS Systems Manager API calls with AWS CloudTrail
-<a name="monitoring-cloudtrail-logs"></a>
 
 AWS Systems Manager is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Systems Manager as events. The calls captured include calls from the Systems Manager console and code calls to the Systems Manager API operations. You can use CloudTrail information to determine the request that was made to Systems Manager, the source IP address, and when it was made.
 
@@ -64,7 +63,7 @@ An event represents a single request from any source and includes information ab
 **Example 1: `DeleteDocument`**  
 The following example shows a CloudTrail event that demonstrates the `DeleteDocument` operation on a document named `example-Document` in the US East (Ohio) Region (us-east-2).
 
-```
+```json
 {
     "eventVersion": "1.04",
     "userIdentity": {
@@ -114,7 +113,7 @@ The following example shows a CloudTrail event that demonstrates the `DeleteDocu
 **Example 2: `StartConnection`**  
 The following example shows a CloudTrail event for a user who starts an RDP connection using Fleet Manager in the US East (Ohio) Region (us-east-2). The underlying API action is `StartConnection`.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -172,7 +171,7 @@ The following example shows a CloudTrail event for a user who starts an RDP conn
 **Example 1: `CreateControlChannel`**  
 The following example shows a CloudTrail event that demonstrates the `CreateControlChannel` operation.
 
-```
+```JSON
 {
   "eventVersion":"1.08",
   "userIdentity":{
@@ -232,7 +231,7 @@ The following example shows a CloudTrail event that demonstrates the `CreateCont
 **Example 2: `RequestManagedInstanceRoleToken`**  
 The following example shows a CloudTrail event that demonstrates the `RequestManagedInstanceRoleToken` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.08",
     "userIdentity": {

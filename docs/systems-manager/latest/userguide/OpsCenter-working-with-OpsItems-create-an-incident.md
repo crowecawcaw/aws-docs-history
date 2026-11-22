@@ -1,7 +1,6 @@
 
 
 # Creating an incident for an OpsItem
-<a name="OpsCenter-working-with-OpsItems-create-an-incident"></a>
 
 Use the following procedure to manually create an incident for an OpsItem to track and manage it in AWS Systems Manager Incident Manager, which is a tool in AWS Systems Manager. An *incident* is any unplanned interruption or reduction in quality of services. For more information about Incident Manager, see [Integrate OpsCenter with other AWS services](OpsCenter-applications-that-integrate.md).
 

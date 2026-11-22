@@ -1,7 +1,6 @@
 
 
 # `aws:invokeLambdaFunction` – Invoke an AWS Lambda function
-<a name="automation-action-lamb"></a>
 
 Invokes the specified AWS Lambda function.
 
@@ -17,7 +16,7 @@ This action supports most invoked parameters for the Lambda service. For more in
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: invokeMyLambdaFunction
 action: aws:invokeLambdaFunction
 maxAttempts: 3
@@ -30,7 +29,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "invokeMyLambdaFunction",
     "action": "aws:invokeLambdaFunction",
@@ -98,7 +97,7 @@ The following is a portion from the `AWS-PatchInstanceWithRollback` runbook demo
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: IdentifyRootVolume
   action: aws:invokeLambdaFunction
   inputs:
@@ -116,7 +115,7 @@ The following is a portion from the `AWS-PatchInstanceWithRollback` runbook demo
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "IdentifyRootVolume",
     "action": "aws:invokeLambdaFunction",

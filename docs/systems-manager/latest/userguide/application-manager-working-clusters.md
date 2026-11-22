@@ -1,7 +1,6 @@
 
 
 # Working with clusters in Application Manager
-<a name="application-manager-working-clusters"></a>
 
 This section includes topics to help you work with Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS) container clusters in Application Manager, a component of AWS Systems Manager.
 

@@ -1,7 +1,6 @@
 
 
 # `aws:deleteImage` – Delete an Amazon Machine Image
-<a name="automation-action-delete"></a>
 
 Deletes the specified Amazon Machine Image (AMI) and all related snapshots.
 
@@ -14,7 +13,7 @@ This action supports only one parameter. For more information, see the documenta
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: deleteMyImage
 action: aws:deleteImage
 maxAttempts: 3
@@ -27,7 +26,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "deleteMyImage",
     "action": "aws:deleteImage",

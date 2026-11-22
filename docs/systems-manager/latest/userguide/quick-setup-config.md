@@ -1,7 +1,6 @@
 
 
 # Create an AWS Config configuration recorder using Quick Setup
-<a name="quick-setup-config"></a>
 
 With Quick Setup, you can quickly create a configuration recorder powered by AWS Config. Use the configuration recorder to detect changes in your resource configurations and capture the changes as configuration items. If you're unfamiliar with AWS Config, we recommend learning more about the service by reviewing the content in the *AWS Config Developer Guide* before creating a configuration with Quick Setup. For more information about AWS Config, see [What is AWS Config?](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the *AWS Config Developer Guide*.
 

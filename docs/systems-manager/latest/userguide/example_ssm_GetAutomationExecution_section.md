@@ -1,7 +1,6 @@
 
 
 # Use `GetAutomationExecution` with a CLI
-<a name="example_ssm_GetAutomationExecution_section"></a>
 
 The following code examples show how to use `GetAutomationExecution`.
 
@@ -76,7 +75,7 @@ For more information, see [Walkthrough: Patch a Linux AMI (AWS CLI)](https://doc
 **Tools for PowerShell V4**  
 **Example 1: This example displays the details of an Automation Execution.**  
 
-```
+```powershell
 Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
 ```
 **Output:**  
@@ -103,7 +102,7 @@ StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, cre
 ```
 **Example 2: This example lists step details for the given automation execution id**  
 
-```
+```powershell
 Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
 ```
 **Output:**  
@@ -131,7 +130,7 @@ TerminateInstance         aws:changeInstanceState Pending    {}
 **Tools for PowerShell V5**  
 **Example 1: This example displays the details of an Automation Execution.**  
 
-```
+```powershell
 Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
 ```
 **Output:**  
@@ -158,7 +157,7 @@ StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, cre
 ```
 **Example 2: This example lists step details for the given automation execution id**  
 
-```
+```powershell
 Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
 ```
 **Output:**  

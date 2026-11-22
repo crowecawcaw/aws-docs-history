@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager OpsCenter
-<a name="OpsCenter"></a>
 
 OpsCenter provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items (OpsItems) related to AWS resources. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources. OpsCenter aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources. OpsCenter also provides Systems Manager Automation runbooks that you can use to quickly resolve issues. You can specify searchable, custom data for each OpsItem. You can also view automatically-generated summary reports about OpsItems by status and source. To get started with OpsCenter, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/opsitems). In the navigation pane, choose **OpsCenter**.
 

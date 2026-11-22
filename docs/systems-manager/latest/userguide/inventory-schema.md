@@ -1,11 +1,10 @@
 
 
 # Metadata collected by Inventory
-<a name="inventory-schema"></a>
 
 The following sample shows the complete list of metadata collected by each AWS Systems Manager Inventory plugin.
 
-```
+```json
 {
     "typeName": "AWS:InstanceInformation",
     "version": "1.0",

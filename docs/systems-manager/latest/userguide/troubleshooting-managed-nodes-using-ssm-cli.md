@@ -1,7 +1,6 @@
 
 
 # Troubleshooting managed node availability using `ssm-cli`
-<a name="troubleshooting-managed-nodes-using-ssm-cli"></a>
 
 The `ssm-cli` is a standalone command line tool included in the SSM Agent installation. When you install SSM Agent 3.1.501.0 or later on a machine, you can run `ssm-cli` commands on that machine. The output of those commands helps you determine whether the machine meets the minimum requirements for an Amazon EC2 instance or non-EC2 machine to be managed by AWS Systems Manager, and therefore added to lists of managed nodes in Systems Manager. (SSM Agent version 3.1.501.0 was released in November, 2021.)
 
@@ -21,7 +20,7 @@ On the machine, run the following command to use `ssm-cli` to help you troublesh
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 ssm-cli get-diagnostics --output table
 ```
 
@@ -30,7 +29,7 @@ ssm-cli get-diagnostics --output table
 
 On Windows Server machines, you must navigate to the `C:\Program Files\Amazon\SSM` directory before running the command.
 
-```
+```sh
 ssm-cli.exe get-diagnostics --output table
 ```
 
@@ -39,7 +38,7 @@ ssm-cli.exe get-diagnostics --output table
 
 On Windows Server machines, you must navigate to the `C:\Program Files\Amazon\SSM` directory before running the command.
 
-```
+```ps
 .\ssm-cli.exe get-diagnostics --output table
 ```
 

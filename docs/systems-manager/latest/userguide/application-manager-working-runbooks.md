@@ -1,7 +1,6 @@
 
 
 # Use Automation runbooks to remediate application issues
-<a name="application-manager-working-runbooks"></a>
 
 You can remediate issues with AWS resources from Application Manager by using Automation runbooks. An Automation runbook defines the actions that Systems Manager performs on your managed instances and other AWS resources when an automation runs. Automation is a tool in AWS Systems Manager. A runbook contains one or more steps that run in sequential order. Each step is built around a single action. Output from one step can be used as input in a later step. 
 

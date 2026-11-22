@@ -1,7 +1,6 @@
 
 
 # Configuration for Assume Role for Systems Manager
-<a name="quick-setup-assume-role"></a>
 
 ## To create an assume role for Systems Manager Quick Setup:
 <a name="create-assume-role"></a>
@@ -43,7 +42,7 @@ After creating the role, you can select it when configuring Quick Setup. The rol
 **`SsmOnboardingInlinePolicy`**  
 The following policy defines the permissions for Systems Manager Quick Setup:
 
-```
+```json
 {
     "Version": "2012-10-17" 		 	 	 ,
     "Statement": [
@@ -90,7 +89,7 @@ The following policy defines the permissions for Systems Manager Quick Setup:
 **Trust Relationship**  
 *This is added automatically through the preceding steps*
 
-```
+```json
 {
     "Version": "2012-10-17" 		 	 	 ,
     "Statement": [

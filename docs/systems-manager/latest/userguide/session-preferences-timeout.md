@@ -1,9 +1,10 @@
 
 
 # Specify an idle session timeout value
-<a name="session-preferences-timeout"></a>
 
 With Session Manager, you can specify the amount of time to allow a user to be inactive before the system ends a session. By default, sessions time out after 20 minutes of inactivity. You can modify this setting to specify that a session times out between 1 and 60 minutes of inactivity. Some professional computing security agencies recommend setting idle session timeouts to a maximum of 15 minutes. 
+
+**Understanding idle timeout behavior**
 
 The idle session timeout timer resets when Session Manager receives client-side inputs. These inputs include, but are not limited to:
 + Keyboard input in the terminal
@@ -11,6 +12,8 @@ The idle session timeout timer resets when Session Manager receives client-side 
 + Session reconnection (ResumeSession), which can occur due to network interruptions, browser tab management, or WebSocket disconnections
 
 Because these events reset the idle timer, a session might remain active longer than the configured timeout period even without direct terminal commands.
+
+**Enforcing strict session limits**
 
 If your security requirements mandate strict session duration limits regardless of activity, use the *Maximum session duration* setting in addition to idle timeout. For more information, see [Specify maximum session duration](session-preferences-max-timeout.md).
 

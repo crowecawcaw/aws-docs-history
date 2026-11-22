@@ -1,7 +1,6 @@
 
 
 # Discovering public parameters in Parameter Store
-<a name="parameter-store-finding-public-parameters"></a>
 
 You can search for public parameters using the Parameter Store console or the AWS Command Line Interface. 
 
@@ -60,7 +59,7 @@ Use `get-parameters-by-path` to get the actual path for a service listed under `
 
 To retrieve a list of public parameters owned by different services in Parameter Store, run the following command.
 
-```
+```bash
 aws ssm get-parameters-by-path --path /aws/service/list
 ```
 
@@ -118,7 +117,7 @@ The `/aws/service/global-infrastructure` path is not supported for queries in al
 
 If no results are returned for the service you specify, add the `--recursive` flag and run the command again.
 
-```
+```bash
 aws ssm get-parameters-by-path --path /aws/service/global-infrastructure
 ```
 
@@ -151,7 +150,7 @@ aws ssm get-parameters-by-path --path /aws/service/global-infrastructure
 
 You can also view parameters owned by a specific service by using the `Option:BeginsWith` filter.
 
-```
+```bash
 aws ssm describe-parameters --parameter-filters "Key=Name, Option=BeginsWith, Values=/aws/service/ami-amazon-linux-latest"
 ```
 

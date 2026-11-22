@@ -1,7 +1,6 @@
 
 
 # Use `DescribeAutomationStepExecutions` with a CLI
-<a name="example_ssm_DescribeAutomationStepExecutions_section"></a>
 
 The following code examples show how to use `DescribeAutomationStepExecutions`.
 
@@ -85,7 +84,7 @@ For more information, see [Running an Automation Workflow Step by Step (Command 
 **Tools for PowerShell V4**  
 **Example 1: This exmaple displays information about all active and terminated step executions in an Automation workflow.**  
 
-```
+```powershell
 Get-SSMAutomationStepExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object StepName, Action, StepStatus
 ```
 **Output:**  
@@ -113,7 +112,7 @@ TerminateInstance         aws:changeInstanceState Pending
 **Tools for PowerShell V5**  
 **Example 1: This exmaple displays information about all active and terminated step executions in an Automation workflow.**  
 
-```
+```powershell
 Get-SSMAutomationStepExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object StepName, Action, StepStatus
 ```
 **Output:**  

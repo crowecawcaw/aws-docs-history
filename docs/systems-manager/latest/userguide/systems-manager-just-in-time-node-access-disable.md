@@ -1,7 +1,6 @@
 
 
 # Disabling just-in-time access with Systems Manager
-<a name="systems-manager-just-in-time-node-access-disable"></a>
 
 **Important**  
 After you disable just-in-time node access, users might be unable to connect to your nodes unless you have other connection methods already set up.

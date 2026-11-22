@@ -1,7 +1,6 @@
 
 
 # Deregistering managed nodes in a hybrid and multicloud environment
-<a name="fleet-manager-deregister-hybrid-nodes"></a>
 
 If you no longer want to manage an on-premises server, edge device, or virtual machine (VM) by using AWS Systems Manager, then you can deregister it. Deregistering a hybrid-activated node removes it from the list of managed nodes in Systems Manager. AWS Systems Manager Agent (SSM Agent) running on the hybrid-activated node won't be able to refresh its authorization token because it's no longer registered. SSM Agent hibernates and reduce its ping frequency to Systems Manager in the cloud to once per hour. Systems Manager stores the command history for a deregistered managed node for 30 days.
 

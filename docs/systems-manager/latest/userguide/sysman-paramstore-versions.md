@@ -1,7 +1,6 @@
 
 
 # Working with parameter versions in Parameter Store
-<a name="sysman-paramstore-versions"></a>
 
 Each time you edit the value of a parameter, Parameter Store, a tool in AWS Systems Manager creates a new *version* of the parameter and retains the previous versions. When you initially create a parameter, Parameter Store assigns version `1` to that parameter. When you change the value of the parameter, Parameter Store automatically increments the version number by one. You can view the details, including the values, of all versions in a parameter's history. 
 
@@ -81,7 +80,7 @@ Here is an example for specifying version 2 of a parameter named `MyRunCommandPa
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '2.2'
 description: Run a shell script or specify the commands to run.
@@ -102,7 +101,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "schemaVersion": "2.2",
     "description": "Run a shell script or specify the commands to run.",

@@ -1,7 +1,6 @@
 
 
 # Using Document Builder to create runbooks
-<a name="automation-document-builder"></a>
 
 If the AWS Systems Manager public runbooks don't support all the actions you want to perform on your AWS resources, you can create your own runbooks. To create a custom runbook, you can manually create a local YAML or JSON format file with the appropriate automation actions. Alternatively, you can use Document Builder in the Systems Manager Automation console to build a custom runbook.
 
@@ -217,7 +216,7 @@ This is not required for PowerShell.
 ------
 #### [ Python ]
 
-      ```
+      ```py
       def launch_instance(events, context):
             import boto3
             ec2 = boto3.client('ec2')
@@ -240,7 +239,7 @@ This is not required for PowerShell.
 ------
 #### [ PowerShell ]
 
-      ```
+      ```ps
       Install-Module AWS.Tools.EC2 -Force
           Import-Module AWS.Tools.EC2
           
@@ -275,7 +274,7 @@ This is not required for PowerShell.
 
    1. For **Input name**, choose **InputPayload**. For **Input value**, enter the following YAML data. 
 
-      ```
+      ```yaml
       image_id: "{{ imageId }}"
           tag_value: "{{ tagValue }}"
           instance_type: "{{ instanceType }}"
@@ -313,7 +312,7 @@ This is not required for PowerShell.
 ------
 #### [ Python ]
 
-      ```
+      ```py
       def poll_instance(events, context):
             import boto3
             import time
@@ -349,7 +348,7 @@ This is not required for PowerShell.
 ------
 #### [ PowerShell ]
 
-      ```
+      ```ps
           Install-Module AWS.Tools.EC2 -Force
           
           $inputPayload = $env:InputPayload | ConvertFrom-Json

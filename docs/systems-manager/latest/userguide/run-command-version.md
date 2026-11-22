@@ -1,7 +1,6 @@
 
 
 # Running commands using a specific document version
-<a name="run-command-version"></a>
 
 You can use the document version parameter to specify which version of an AWS Systems Manager document to use when the command runs. You can specify one of the following options for this parameter:
 + $DEFAULT
@@ -23,20 +22,20 @@ Run the following procedure to run a command using the document version paramete
 
    This command lists all of the documents available for your account based on AWS Identity and Access Management (IAM) permissions.
 
-   ```
+   ```sh
    aws ssm list-documents
    ```
 
 1. Run the following command to view the different versions of a document. Replace {{document name}} with your own information.
 
-   ```
+   ```sh
    aws ssm list-document-versions \
        --name "{{document name}}"
    ```
 
 1. Run the following command to run a command that uses an SSM document version. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```sh
    aws ssm send-command \
        --document-name "AWS-RunShellScript" \
        --parameters commands="echo Hello" \
@@ -57,20 +56,20 @@ Run the following procedure to run a command using the document version paramete
 
    This command lists all of the documents available for your account based on AWS Identity and Access Management (IAM) permissions.
 
-   ```
+   ```sh
    aws ssm list-documents
    ```
 
 1. Run the following command to view the different versions of a document. Replace {{document name}} with your own information.
 
-   ```
+   ```sh
    aws ssm list-document-versions ^
        --name "{{document name}}"
    ```
 
 1. Run the following command to run a command that uses an SSM document version. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```sh
    aws ssm send-command ^
        --document-name "AWS-RunShellScript" ^
        --parameters commands="echo Hello" ^
@@ -91,20 +90,20 @@ Run the following procedure to run a command using the document version paramete
 
    This command lists all of the documents available for your account based on AWS Identity and Access Management (IAM) permissions.
 
-   ```
+   ```ps
    Get-SSMDocumentList
    ```
 
 1. Run the following command to view the different versions of a document. Replace {{document name}} with your own information.
 
-   ```
+   ```ps
    Get-SSMDocumentVersionList `
        -Name "{{document name}}"
    ```
 
 1. Run the following command to run a command that uses an SSM document version. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```ps
    Send-SSMCommand `
        -DocumentName "AWS-RunShellScript" `
        -Parameter @{commands = "echo helloWorld"} `

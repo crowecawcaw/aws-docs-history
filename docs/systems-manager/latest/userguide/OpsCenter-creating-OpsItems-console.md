@@ -1,7 +1,6 @@
 
 
 # Creating OpsItems manually (console)
-<a name="OpsCenter-creating-OpsItems-console"></a>
 
  You can manually create OpsItems using the AWS Systems Manager console. When you create an OpsItem, it's displayed in your OpsCenter account. If you set up OpsCenter for cross-account administration, OpsCenter provides the delegated administrator or management account with the option to create OpsItems for selected member accounts. For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md).
 

@@ -1,7 +1,6 @@
 
 
 # Configure notifications for just-in-time access requests
-<a name="systems-manager-just-in-time-node-access-notifications"></a>
 
 You can configure Systems Manager to send notifications when a user creates a just-in-time node access request to the email addresses, or chat client, for approvers and the requester. The notification contains the reason for the access request provided by the requester, the AWS account, AWS Region, status of the request, and ID of the target node. Currently, Systems Manager supports Slack and Microsoft Teams clients through integration with Amazon Q Developer in chat applications. When using notifications through chat clients, access request approvers can interact directly with access requests. This eliminates the need to log in to the console to take action on access requests.
 
@@ -34,7 +33,7 @@ The following procedures describe how to configure notifications for just-in-tim
 **Note**  
 To allow approving/rejecting access requests directly from a Slack channel, make sure the IAM role that is configured with the Slack channel has `ssm:SendAutomationSignal` permissions and has a trust policy that includes chatbot:  
 
-```
+```json
 {
             "Effect": "Allow",
             "Principal": {

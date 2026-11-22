@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Session Manager
-<a name="session-manager"></a>
 
 **The Session Manager legacy page will be deprecated on December 31, 2026.**  
 Session Manager capabilities are now part of the Systems Manager unified console experience. You will still be able to start sessions, view history, and manage preferences. [Learn more](systems-manager-unified-console.md)

@@ -1,7 +1,6 @@
 
 
 # Using roles to collect AWS account information for OpsCenter and Explorer
-<a name="using-service-linked-roles-service-action-2"></a>
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForAmazonSSM_AccountDiscovery`**. AWS Systems Manager uses this IAM service role to call other AWS services to discover AWS account information.
 

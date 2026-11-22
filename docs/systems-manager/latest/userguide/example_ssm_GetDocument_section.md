@@ -1,7 +1,6 @@
 
 
 # Use `GetDocument` with a CLI
-<a name="example_ssm_GetDocument_section"></a>
 
 The following code examples show how to use `GetDocument`.
 
@@ -37,7 +36,7 @@ For more information, see [AWS Systems Manager Documents](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example returns the content of a document.**  
 
-```
+```powershell
 Get-SSMDocument -Name "RunShellScript"
 ```
 **Output:**  
@@ -49,7 +48,7 @@ Content
 ```
 **Example 2: This example displays the complete contents of a document.**  
 
-```
+```powershell
 (Get-SSMDocument -Name "RunShellScript").Content
 {
    "schemaVersion":"2.0",
@@ -85,7 +84,7 @@ Content
 **Tools for PowerShell V5**  
 **Example 1: This example returns the content of a document.**  
 
-```
+```powershell
 Get-SSMDocument -Name "RunShellScript"
 ```
 **Output:**  
@@ -97,7 +96,7 @@ Content
 ```
 **Example 2: This example displays the complete contents of a document.**  
 
-```
+```powershell
 (Get-SSMDocument -Name "RunShellScript").Content
 {
    "schemaVersion":"2.0",

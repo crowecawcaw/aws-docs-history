@@ -1,7 +1,6 @@
 
 
 # Statement structure and built-in operators for auto-approval and deny-access policies
-<a name="auto-approval-deny-access-policy-statement-structure"></a>
 
 The following table shows the structure of auto-approval and deny-access policies.
 

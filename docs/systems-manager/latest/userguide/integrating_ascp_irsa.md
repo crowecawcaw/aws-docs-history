@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)
-<a name="integrating_ascp_irsa"></a>
 
 ## Prerequisites
 <a name="prerequisites"></a>

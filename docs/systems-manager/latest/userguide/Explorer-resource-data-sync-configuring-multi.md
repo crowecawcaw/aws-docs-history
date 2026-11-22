@@ -1,7 +1,6 @@
 
 
 # Creating a resource data sync
-<a name="Explorer-resource-data-sync-configuring-multi"></a>
 
 Before you configure a resource data sync for Explorer, note the following details.
 + Explorer supports a maximum of five resource data syncs.

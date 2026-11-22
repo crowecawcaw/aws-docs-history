@@ -1,7 +1,6 @@
 
 
 # Importing events from third-party calendar providers
-<a name="change-calendar-import"></a>
 
 Use the following procedure to import an iCalendar (`.ics`) file from a supported third-party calendar application. The events contained in the file are incorporated into the rules for your open or closed calendar. You can import the file into a new calendar or into an existing calendar.
 

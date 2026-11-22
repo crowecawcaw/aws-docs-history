@@ -1,7 +1,6 @@
 
 
 # Patch compliance state values
-<a name="patch-manager-compliance-states"></a>
 
 The information about patches for a managed node include a report of the state, or status, of each individual patch.
 

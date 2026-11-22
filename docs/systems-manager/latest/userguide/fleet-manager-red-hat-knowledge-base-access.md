@@ -1,7 +1,6 @@
 
 
 # Accessing the Red Hat Knowledge base portal
-<a name="fleet-manager-red-hat-knowledge-base-access"></a>
 
 You can use Fleet Manager to access the Knowledge base portal if you are a Red Hat customer. You are considered a Red Hat customer if you run Red Hat Enterprise Linux (RHEL) instances or use RHEL services on AWS. The Knowledge base portal includes binaries, and knowledge-share and discussion forums for community support that are available only to Red Hat licensed customers.
 

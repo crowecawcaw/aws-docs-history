@@ -1,7 +1,6 @@
 
 
 # Run Python scripts from GitHub
-<a name="integration-github-python"></a>
 
 This section includes procedures to help you run Python scripts from GitHub by using either the AWS Systems Manager console or the AWS Command Line Interface (AWS CLI). 
 
@@ -22,7 +21,7 @@ This section includes procedures to help you run Python scripts from GitHub by u
    + In **Source Type**, select **GitHub**. 
    + In the **Source Info** box, enter the required information to access the source in the following format:
 
-     ```
+     ```json
      {
          "owner": "{{owner_name}}",
          "repository": "{{repository_name}}",
@@ -34,7 +33,7 @@ This section includes procedures to help you run Python scripts from GitHub by u
 
      The following example downloads a directory of scripts named *complex-script*.
 
-     ```
+     ```json
      {
          "owner": "TestUser1",
          "repository": "SSMTestDocsRepo",
@@ -90,13 +89,13 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Run the following command to download and run a script from GitHub.
 
-   ```
+   ```sh
    aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "{{instance-IDs}}" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"{{owner_name}}\", \"repository\":\"{{repository_name}}\", \"path\": \"{{path_to_script_or_directory}}"}"],"commandLine":["{{commands_to_run}}"]}'
    ```
 
    Here is an example.
 
-   ```
+   ```sh
    aws ssm send-command --document-name "AWS-RunRemoteScript" --instance-ids "i-02573cafcfEXAMPLE" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\"owner\":\"TestUser1\", \"repository\":\"GitHubTestPublic\", \"path\": \"scripts/python/complex-script\"}"],"commandLine":["mainFile.py argument-1 argument-2 "]}'
    ```
 

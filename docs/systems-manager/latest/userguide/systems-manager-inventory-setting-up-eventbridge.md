@@ -1,7 +1,6 @@
 
 
 # Using EventBridge to monitor Inventory events
-<a name="systems-manager-inventory-setting-up-eventbridge"></a>
 
 You can configure a rule in Amazon EventBridge to create an event in response to AWS Systems Manager Inventory resource state changes. EventBridge supports events for the following Inventory state changes. All events are sent on a best effort basis.
 

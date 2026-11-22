@@ -1,7 +1,6 @@
 
 
 # Use `CreateDocument` with an AWS SDK or CLI
-<a name="example_ssm_CreateDocument_section"></a>
 
 The following code examples show how to use `CreateDocument`.
 
@@ -95,7 +94,7 @@ For more information, see [Creating Systems Manager Documents](https://docs.aws.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
     /**
      * Creates an AWS SSM document asynchronously.
      *
@@ -153,7 +152,7 @@ For more information, see [Creating Systems Manager Documents](https://docs.aws.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import { CreateDocumentCommand, SSMClient } from "@aws-sdk/client-ssm";
 import { parseArgs } from "node:util";
 
@@ -190,7 +189,7 @@ export const main = async ({ content, name, documentType }) => {
 **Tools for PowerShell V4**  
 **Example 1: This example creates a document in your account. The document must be in JSON format. For more information about writing a configuration document, see Configuration Document in the SSM API Reference.**  
 
-```
+```powershell
 New-SSMDocument -Content (Get-Content -Raw "c:\temp\RunShellScript.json") -Name "RunShellScript" -DocumentType "Command"
 ```
 **Output:**  
@@ -217,7 +216,7 @@ Status          : Creating
 **Tools for PowerShell V5**  
 **Example 1: This example creates a document in your account. The document must be in JSON format. For more information about writing a configuration document, see Configuration Document in the SSM API Reference.**  
 
-```
+```powershell
 New-SSMDocument -Content (Get-Content -Raw "c:\temp\RunShellScript.json") -Name "RunShellScript" -DocumentType "Command"
 ```
 **Output:**  
@@ -247,7 +246,7 @@ Status          : Creating
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
-```
+```python
 class DocumentWrapper:
     """Encapsulates AWS Systems Manager Document actions."""
 
@@ -296,7 +295,7 @@ class DocumentWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ssm->createdocument(
             iv_name = iv_name

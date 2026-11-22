@@ -1,7 +1,6 @@
 
 
 # Creating Parameter Store parameters in Systems Manager
-<a name="sysman-paramstore-su-create"></a>
 
 A *parameter* is any piece of data stored in Parameter Store, such as a block of text, a list of names, an AMI ID, a license key, and so on. You can centrally and securely reference this data in your scripts, commands, and SSM documents.
 

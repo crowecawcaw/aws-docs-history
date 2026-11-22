@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS Systems Manager Distributor
-<a name="distributor-troubleshooting"></a>
 
 The following information can help you troubleshoot problems that might occur when you use Distributor.
 

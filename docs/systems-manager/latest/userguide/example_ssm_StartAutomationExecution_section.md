@@ -1,7 +1,6 @@
 
 
 # Use `StartAutomationExecution` with a CLI
-<a name="example_ssm_StartAutomationExecution_section"></a>
 
 The following code examples show how to use `StartAutomationExecution`.
 
@@ -48,7 +47,7 @@ For more information, see [Using shared SSM documents](https://docs.aws.amazon.c
 **Tools for PowerShell V4**  
 **Example 1: This example runs a document specifying an Automation role, an AMI source ID, and an Amazon EC2 instance role.**  
 
-```
+```powershell
 Start-SSMAutomationExecution -DocumentName AWS-UpdateLinuxAmi -Parameter @{'AutomationAssumeRole'='arn:aws:iam::123456789012:role/SSMAutomationRole';'SourceAmiId'='ami-f173cc91';'InstanceIamRole'='EC2InstanceRole'}
 ```
 **Output:**  
@@ -61,7 +60,7 @@ Start-SSMAutomationExecution -DocumentName AWS-UpdateLinuxAmi -Parameter @{'Auto
 **Tools for PowerShell V5**  
 **Example 1: This example runs a document specifying an Automation role, an AMI source ID, and an Amazon EC2 instance role.**  
 
-```
+```powershell
 Start-SSMAutomationExecution -DocumentName AWS-UpdateLinuxAmi -Parameter @{'AutomationAssumeRole'='arn:aws:iam::123456789012:role/SSMAutomationRole';'SourceAmiId'='ami-f173cc91';'InstanceIamRole'='EC2InstanceRole'}
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Deploy AWS Config conformance pack using Quick Setup
-<a name="quick-setup-cpack"></a>
 
 A conformance pack is a collection of AWS Config rules and remediation actions. With Quick Setup, you can deploy a conformance pack as a single entity in an account and an AWS Region or across an organization in AWS Organizations. This helps you manage configuration compliance of your AWS resources at scale, from policy definition to auditing and aggregated reporting, by using a common framework and packaging model. 
 

@@ -1,7 +1,6 @@
 
 
 # Setting up Session Manager
-<a name="session-manager-getting-started"></a>
 
 Before you use AWS Systems Manager Session Manager to connect to the managed nodes in your account, complete the steps in the following topics.
 

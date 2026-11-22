@@ -1,7 +1,6 @@
 
 
 # Creating OpsItems manually (AWS CLI)
-<a name="OpsCenter-creating-OpsItems-CLI"></a>
 
 The following procedure describes how to create an OpsItem by using the AWS Command Line Interface (AWS CLI).
 
@@ -13,7 +12,7 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
 
 1. Open the AWS CLI and run the following command to create an OpsItem. Replace each {{example resource placeholder}} with your own information.
 
-   ```
+   ```sh
    aws ssm create-ops-item \
        --title "{{Descriptive_title}}" \
        --description "{{Information_about_the_issue}}" \
@@ -28,7 +27,7 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
 
    When you create an OpsItem, you can specify operational data from a file. The file must be a JSON file, and the contents of the file must use the following format.
 
-   ```
+   ```json
    {
      "{{key_name}}": {
        "Type": "SearchableString",
@@ -39,7 +38,7 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
 
    Here is an example.
 
-   ```
+   ```sh
    aws ssm create-ops-item ^
        --title "EC2 instance disk full" ^
        --description "Log clean up may have failed which caused the disk to be full" ^
@@ -120,7 +119,7 @@ The following code examples show you how to create an OpsItem by using the Linux
 
 The following command creates an OpsItem when an Amazon Elastic Compute Cloud (Amazon EC2) instance disk is full. 
 
-```
+```sh
 aws ssm create-ops-item \
     --title "EC2 instance disk full" \
     --description "Log clean up may have failed which caused the disk to be full" \
@@ -133,7 +132,7 @@ aws ssm create-ops-item \
 
 The following command uses the `/aws/resources` key in `OperationalData` to create an OpsItem with an Amazon DynamoDB related resource.
 
-```
+```sh
 aws ssm create-ops-item \
     --title "EC2 instance disk full" \
     --description "Log clean up may have failed which caused the disk to be full" \
@@ -145,7 +144,7 @@ aws ssm create-ops-item \
 
 The following command uses the `/aws/automations` key in `OperationalData` to create an OpsItem that specifies the `AWS-ASGEnterStandby` document as an associated Automation runbook.
 
-```
+```sh
 aws ssm create-ops-item \
     --title "EC2 instance disk full" \
     --description "Log clean up may have failed which caused the disk to be full" \
@@ -159,7 +158,7 @@ aws ssm create-ops-item \
 
 The following command creates an OpsItem when an Amazon Relational Database Service (Amazon RDS) instance is not responding. 
 
-```
+```sh
 aws ssm create-ops-item ^
     --title "RDS instance not responding" ^
     --description "RDS instance not responding to ping" ^
@@ -172,7 +171,7 @@ aws ssm create-ops-item ^
 
 The following command uses the `/aws/resources` key in `OperationalData` to create an OpsItem with an Amazon EC2 instance related resource.
 
-```
+```sh
 aws ssm create-ops-item ^
     --title "EC2 instance disk full" ^
     --description "Log clean up may have failed which caused the disk to be full" ^
@@ -183,7 +182,7 @@ aws ssm create-ops-item ^
 
 The following command uses the `/aws/automations` key in `OperationalData` to create an OpsItem that specifies the `AWS-RestartEC2Instance` runbook as an associated Automation runbook.
 
-```
+```sh
 aws ssm create-ops-item ^
     --title "EC2 instance disk full" ^
     --description "Log clean up may have failed which caused the disk to be full" ^

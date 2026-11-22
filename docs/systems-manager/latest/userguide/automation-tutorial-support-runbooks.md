@@ -1,7 +1,6 @@
 
 
 # Using AWS Support self-service runbooks
-<a name="automation-tutorial-support-runbooks"></a>
 
 This section describes how to use some of the self-service automations created by the AWS Support team. These automations help you manage your AWS resources.
 

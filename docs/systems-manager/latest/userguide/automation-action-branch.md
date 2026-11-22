@@ -1,7 +1,6 @@
 
 
 # `aws:branch` – Run conditional automation steps
-<a name="automation-action-branch"></a>
 
 The `aws:branch` action lets you create a dynamic automation that evaluates different choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation. 
 
@@ -14,7 +13,7 @@ The `aws:branch` action supports complex choice evaluations by using a combinati
 **Input**  
 Specify one or more `Choices` in a step. The `Choices` can be based on either a value that you specified in the `Parameters` section of the runbook, or a dynamic value generated as the output from the previous step. Here is a YAML sample that evaluates a parameter.
 
-```
+```yaml
 mainSteps:
 - name: chooseOS
   action: aws:branch
@@ -32,7 +31,7 @@ mainSteps:
 
 Here is a YAML sample that evaluates output from a previous step.
 
-```
+```yaml
 mainSteps:
 - name: chooseOS
   action: aws:branch

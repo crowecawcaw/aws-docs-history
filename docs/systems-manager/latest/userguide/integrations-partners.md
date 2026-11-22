@@ -1,7 +1,6 @@
 
 
 # Integration with other products and services
-<a name="integrations-partners"></a>
 
 AWS Systems Manager has built-in integration for the products and services shown in the following table.
 

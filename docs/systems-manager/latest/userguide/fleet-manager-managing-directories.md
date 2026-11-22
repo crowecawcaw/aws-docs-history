@@ -1,7 +1,6 @@
 
 
 # Cutting, copying, and pasting OS directories using Fleet Manager
-<a name="fleet-manager-managing-directories"></a>
 
 You can use Fleet Manager to cut, copy, and paste directories on a managed node in your account.
 

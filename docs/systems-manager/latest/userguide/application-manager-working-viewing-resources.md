@@ -1,7 +1,6 @@
 
 
 # Viewing resources associated with your application
-<a name="application-manager-working-viewing-resources"></a>
 
 In Application Manager, a component of AWS Systems Manager, the **Resources** tab displays the AWS resources in your application. If you choose a top-level component, this page displays all resources for that component and any subcomponents. If you choose a subcomponent, this page shows only the resources assigned to that subcomponent. 
 

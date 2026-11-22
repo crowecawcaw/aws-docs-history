@@ -1,7 +1,6 @@
 
 
 # Set up Amazon EC2 host management using Quick Setup
-<a name="quick-setup-host-management"></a>
 
 Use Quick Setup to quickly configure required security roles and commonly used Systems Manager tools on your Amazon Elastic Compute Cloud (Amazon EC2) instances. You can use Quick Setup in an individual account or across multiple accounts and AWS Regions by integrating with AWS Organizations. These tools help you manage and monitor the health of your instances while providing the minimum required permissions to get started. 
 

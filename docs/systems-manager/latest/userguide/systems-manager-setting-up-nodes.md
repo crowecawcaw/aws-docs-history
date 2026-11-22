@@ -1,7 +1,6 @@
 
 
 # Setting up managed nodes for AWS Systems Manager
-<a name="systems-manager-setting-up-nodes"></a>
 
 Complete the tasks in this section to set up and configure roles, user accounts, permissions, and initial resources for using AWS Systems Manager tools. The tasks described in this section are typically performed by AWS account and systems administrators. After these steps are complete, users in your organization can use Systems Manager to configure, manage, and access your *managed nodes*. A managed node is any machine configured for use with Systems Manager in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a custom patch baseline for Linux
-<a name="patch-manager-create-a-patch-baseline-for-linux"></a>
 
 Use the following procedure to create a custom patch baseline for Linux managed nodes in Patch Manager. 
 

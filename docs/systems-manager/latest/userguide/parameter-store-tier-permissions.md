@@ -1,7 +1,6 @@
 
 
 # Configuring permissions to specify a Parameter Store default tier
-<a name="parameter-store-tier-permissions"></a>
 
 Verify that you have permission in AWS Identity and Access Management (IAM) to change the default parameter tier in Parameter Store by doing one of the following:
 + Make sure that you attach the `AdministratorAccess` policy to your IAM entity (such as user, group, or role).
@@ -17,7 +16,7 @@ Grant the following permissions to the IAM entity to allow a user to view and ch
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -48,7 +47,7 @@ Administrators can specify read-only permission by assigning the following permi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

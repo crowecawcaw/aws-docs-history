@@ -1,7 +1,6 @@
 
 
 # Supported Quick Setup configuration types
-<a name="quick-setup-config-types"></a>
 
 **Supported configuration types**  
 Quick Setup walks you through configuring operational best practices for several Systems Manager and other AWS services, and automatically deploying those configurations. The Quick Setup dashboard displays a real-time view of your configuration deployment status. 

@@ -1,7 +1,6 @@
 
 
 # Patching managed nodes on demand
-<a name="patch-manager-patch-now-on-demand"></a>
 
 Using the **Patch now** option in Patch Manager, you can run on-demand patching operations from the Systems Manager console. This means you don’t have to create a schedule to update the compliance status of your managed nodes or to install patches on noncompliant nodes. You also don’t need to switch the Systems Manager console between Patch Manager and Maintenance Windows, in order to set up or modify a scheduled patching window.
 

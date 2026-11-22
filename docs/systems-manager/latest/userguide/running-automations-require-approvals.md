@@ -1,7 +1,6 @@
 
 
 # Run an automation that requires approvals
-<a name="running-automations-require-approvals"></a>
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface (AWS CLI) to run an automation with approvals using simple execution. The automation uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action. The automation runs in the context of the current user. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook. If you have administrator permissions in IAM, then you already have permission to use this runbook.
 
@@ -84,7 +83,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name "{{AWS-StartEC2InstanceWithApproval}}" \
        --parameters "InstanceId={{i-02573cafcfEXAMPLE}},Approvers=arn:aws:iam::{{123456789012:role/Administrator}},SNSTopicArn=arn:aws:sns:{{region:123456789012:AutomationApproval}}"
@@ -93,7 +92,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name "{{AWS-StartEC2InstanceWithApproval}}" ^
        --parameters "InstanceId={{i-02573cafcfEXAMPLE}},Approvers=arn:aws:iam::{{123456789012:role/Administrator}},SNSTopicArn=arn:aws:sns:{{region:123456789012:AutomationApproval}}"
@@ -102,7 +101,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Start-SSMAutomationExecution `
        -DocumentName AWS-StartEC2InstanceWithApproval `
        -Parameters @{
@@ -149,7 +148,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Linux & macOS ]
 
-  ```
+  ```sh
   aws ssm send-automation-signal \
       --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" \
       --signal-type "Approve" \
@@ -159,7 +158,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Windows ]
 
-  ```
+  ```sh
   aws ssm send-automation-signal ^
       --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" ^
       --signal-type "Approve" ^
@@ -169,7 +168,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ PowerShell ]
 
-  ```
+  ```powershell
   Send-SSMAutomationSignal `
       -AutomationExecutionId {{df325c6d-b1b1-4aa0-8003-6cb7338213c6}} `
       -SignalType Approve `
@@ -186,7 +185,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Linux & macOS ]
 
-  ```
+  ```sh
   aws ssm send-automation-signal \
       --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" \
       --signal-type "Deny" \
@@ -196,7 +195,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ Windows ]
 
-  ```
+  ```sh
   aws ssm send-automation-signal ^
       --automation-execution-id "{{df325c6d-b1b1-4aa0-8003-6cb7338213c6}}" ^
       --signal-type "Deny" ^
@@ -206,7 +205,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
 ------
 #### [ PowerShell ]
 
-  ```
+  ```powershell
   Send-SSMAutomationSignal `
       -AutomationExecutionId {{df325c6d-b1b1-4aa0-8003-6cb7338213c6}} `
       -SignalType Deny `

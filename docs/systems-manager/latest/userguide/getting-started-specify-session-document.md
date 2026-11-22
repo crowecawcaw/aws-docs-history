@@ -1,7 +1,6 @@
 
 
 # Start a session with a document by specifying the session documents in IAM policies
-<a name="getting-started-specify-session-document"></a>
 
 If you use the [start-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) AWS CLI command using the default session document, you can omit the document name. The system automatically calls the `SSM-SessionManagerRunShell` session document.
 

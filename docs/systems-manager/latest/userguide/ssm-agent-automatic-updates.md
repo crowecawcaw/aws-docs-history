@@ -1,7 +1,6 @@
 
 
 # Automating updates to SSM Agent
-<a name="ssm-agent-automatic-updates"></a>
 
 AWS releases a new version of AWS Systems Manager Agent (SSM Agent) when we add or update Systems Manager tools. If your managed nodes use an older version of the agent, then you can't use the new tools or benefit from the updated tools. For these reasons, we recommend that you automate the process of updating SSM Agent on your managed nodes using any of the following methods.
 

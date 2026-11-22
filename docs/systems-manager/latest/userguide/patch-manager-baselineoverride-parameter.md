@@ -1,7 +1,6 @@
 
 
 # Using the BaselineOverride parameter
-<a name="patch-manager-baselineoverride-parameter"></a>
 
 You can define patching preferences at runtime using the baseline override feature in Patch Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket containing a JSON object with a list of patch baselines. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline.
 
@@ -34,7 +33,7 @@ You can't use these two parameters at the same time. The patching document fails
 
 The following code example for Python shows how to generate the patch baseline override.
 
-```
+```py
 import boto3
 import json
 
@@ -56,7 +55,7 @@ s3.Object(bucket_name=s3_bucket_name, key=s3_file_name).put(Body=json_content)
 
 This produces a patch baseline override like the following.
 
-```
+```json
 [
     {
         "ApprovalRules": {

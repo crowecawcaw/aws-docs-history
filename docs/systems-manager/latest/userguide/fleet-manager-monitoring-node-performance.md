@@ -1,7 +1,6 @@
 
 
 # Monitoring managed node performance
-<a name="fleet-manager-monitoring-node-performance"></a>
 
 You can use Fleet Manager to view performance data about your managed nodes in real time. The performance data is retrieved from performance counters.
 

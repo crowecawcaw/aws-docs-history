@@ -1,7 +1,6 @@
 
 
 # (Optional) Turn on Session Manager plugin logging
-<a name="install-plugin-configure-logs"></a>
 
 The Session Manager plugin includes an option to allow logging for sessions that you run. By default, logging is turned off.
 

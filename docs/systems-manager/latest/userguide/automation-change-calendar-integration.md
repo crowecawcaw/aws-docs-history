@@ -1,7 +1,6 @@
 
 
 # Implement change controls for Automation
-<a name="automation-change-calendar-integration"></a>
 
 By default, Automation lets you use runbooks without date and time constraints. By integrating Automation with Change Calendar, you can implement change controls to all automations in your AWS account. With this setting, AWS Identity and Access Management (IAM) principals in your account can only run automations during allowed time periods. To learn more about working with Change Calendar, see [Working with Change Calendar](systems-manager-change-calendar-working.md).
 

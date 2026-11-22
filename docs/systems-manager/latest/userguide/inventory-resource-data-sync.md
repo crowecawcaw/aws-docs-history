@@ -1,11 +1,10 @@
 
 
 # Walkthrough: Using resource data sync to aggregate inventory data
-<a name="inventory-resource-data-sync"></a>
 
 The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface (AWS CLI). A resource data sync automatically ports inventory data from all of your managed nodes to a central Amazon Simple Storage Service (Amazon S3) bucket. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered. 
 
-This walkthrough also describes how to use Amazon Athena and AWS Quick to query and analyze the aggregated data. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Walkthrough: Using resource data sync to aggregate inventory data](#inventory-resource-data-sync). For information about querying inventory from multiple AWS Regions and accounts by using Systems Manager in the AWS Management Console, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md).
+This walkthrough also describes how to use Amazon Athena and AWS Quick to query and analyze the aggregated data. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Walkthrough: Using resource data sync to aggregate inventory data](inventory-resource-data-sync.md). For information about querying inventory from multiple AWS Regions and accounts by using Systems Manager in the AWS Management Console, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md).
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service (AWS KMS). Inventory doesn't collect any user-specific, proprietary, or sensitive data so encryption is optional. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
@@ -21,7 +20,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "ssm-access-policy",
@@ -66,7 +65,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -108,14 +107,14 @@ Review or complete the following tasks before you begin the walkthrough in this 
 
 1. (Optional) If you want to encrypt the sync, then you must add the following conditions to the policy listed in the previous step. Add these in the `StringEquals` section.
 
-   ```
+   ```json
    "s3:x-amz-server-side-encryption":"aws:kms",
    "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:{{region}}:{{account_ID}}:key/{{KMS_key_ID}}"
    ```
 
    Here is an example:
 
-   ```
+   ```json
    "StringEquals": {
              "s3:x-amz-acl": "bucket-owner-full-control",
              "aws:SourceAccount": "{{account-id}}",
@@ -133,7 +132,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws s3 cp ./{{A_file_in_the_bucket}} s3://amzn-s3-demo-bucket/{{prefix}}/ \
    --sse aws:kms \
    --sse-kms-key-id "arn:aws:kms:{{region}}:{{account_ID}}:key/{{KMS_key_id}}" \
@@ -143,7 +142,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws s3 cp ./{{A_file_in_the_bucket}} s3://amzn-s3-demo-bucket/{{prefix}}/ ^ 
        --sse aws:kms ^
        --sse-kms-key-id "arn:aws:kms:{{region}}:{{account_ID}}:key/{{KMS_key_id}}" ^
@@ -159,7 +158,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync \
    --sync-name {{a_name}} \
    --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{prefix_name, if_specified}},SyncFormat=JsonSerDe,Region={{bucket_region}}"
@@ -168,7 +167,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync ^
    --sync-name {{a_name}} ^
    --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{prefix_name, if_specified}},SyncFormat=JsonSerDe,Region={{bucket_region}}"
@@ -181,7 +180,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync \
        --sync-name {{InventoryDataWest}} \
        --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{HybridEnv}},SyncFormat=JsonSerDe,Region={{us-west-2}}" 
@@ -191,7 +190,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync ^ 
    --sync-name {{InventoryDataWest}} ^
    --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{HybridEnv}},SyncFormat=JsonSerDe,Region={{us-west-2}}" ^ --region {{us-west-1}}
@@ -204,7 +203,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync \
    --sync-name {{sync_name}} \
    --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{prefix_name, if_specified}},SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:{{region}}:{{account_ID}}:key/{{KMS_key_ID}},Region={{bucket_region}}" \
@@ -214,7 +213,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-resource-data-sync ^
    --sync-name {{sync_name}} ^
    --s3-destination "BucketName=amzn-s3-demo-bucket,Prefix={{prefix_name, if_specified}},SyncFormat=JsonSerDe,AWSKMSKeyARN=arn:aws:kms:{{region}}:{{account_ID}}:key/{{KMS_key_ID}},Region={{bucket_region}}" ^
@@ -247,7 +246,7 @@ The following section describes how to view and query the data in Amazon Athena.
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**.
 
-   ```
+   ```sql
    CREATE DATABASE ssminventory
    ```
 
@@ -255,7 +254,7 @@ The following section describes how to view and query the data in Amazon Athena.
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**. Replace amzn-s3-demo-bucket and {{bucket\_prefix}} with the name and prefix of the Amazon S3 target.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
    Name string,
    ResourceId string,
@@ -277,7 +276,7 @@ The following section describes how to view and query the data in Amazon Athena.
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**.
 
-   ```
+   ```sql
    MSCK REPAIR TABLE ssminventory.AWS_Application
    ```
 
@@ -290,7 +289,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**.
 
-   ```
+   ```sql
    SELECT a.name, a.version, count( a.version) frequency 
    from aws_application a where
    a.name = 'aws-cfn-bootstrap'
@@ -302,7 +301,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
 
 1. Individually copy and paste the following statements into the query editor, replace amzn-s3-demo-bucket and {{bucket-prefix}} with information for Amazon S3, and then choose **Run Query**. These statements set up additional inventory tables in Athena.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_AWSComponent (
     `ResourceId` string,
      `Name` string,
@@ -324,7 +323,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
    MSCK REPAIR TABLE ssminventory.AWS_AWSComponent
    ```
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_WindowsUpdate (
      `ResourceId` string,
      `HotFixId` string,
@@ -343,7 +342,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
    MSCK REPAIR TABLE ssminventory.AWS_WindowsUpdate
    ```
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_InstanceInformation (
      `AgentType` string,
      `AgentVersion` string,
@@ -366,7 +365,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
    MSCK REPAIR TABLE ssminventory.AWS_InstanceInformation
    ```
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Network (
      `ResourceId` string,
      `Name` string,
@@ -389,7 +388,7 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
    MSCK REPAIR TABLE ssminventory.AWS_Network
    ```
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_PatchSummary (
      `ResourceId` string,
      `PatchGroup` string,

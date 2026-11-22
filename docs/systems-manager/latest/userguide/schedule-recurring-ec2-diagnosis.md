@@ -1,7 +1,6 @@
 
 
 # Scheduling a recurring scan for unmanaged EC2 instances
-<a name="schedule-recurring-ec2-diagnosis"></a>
 
 You can run an on-demand scan for Amazon EC2 instances in your account or organization that Systems Manager can't manage due to configuration issues. You can also schedule this scan to occur automatically on a regular schedule.
 

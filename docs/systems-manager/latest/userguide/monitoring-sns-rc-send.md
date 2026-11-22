@@ -1,7 +1,6 @@
 
 
 # Use Run Command to send a command that returns status notifications
-<a name="monitoring-sns-rc-send"></a>
 
 The following procedures show how to use the AWS Command Line Interface (AWS CLI) or AWS Systems Manager console to send a command through Run Command, that is configured to return status notifications.
 

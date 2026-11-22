@@ -1,7 +1,6 @@
 
 
 # Use `CancelCommand` with a CLI
-<a name="example_ssm_CancelCommand_section"></a>
 
 The following code examples show how to use `CancelCommand`.
 
@@ -35,7 +34,7 @@ For more information, see [Canceling a command](https://docs.aws.amazon.com/syst
 **Tools for PowerShell V4**  
 **Example 1: This example attempts to cancel a command. There is no output if the operation succeeds.**  
 
-```
+```powershell
 Stop-SSMCommand -CommandId "9ded293e-e792-4440-8e3e-7b8ec5feaa38"
 ```
 +  For API details, see [CancelCommand](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -43,7 +42,7 @@ Stop-SSMCommand -CommandId "9ded293e-e792-4440-8e3e-7b8ec5feaa38"
 **Tools for PowerShell V5**  
 **Example 1: This example attempts to cancel a command. There is no output if the operation succeeds.**  
 
-```
+```powershell
 Stop-SSMCommand -CommandId "9ded293e-e792-4440-8e3e-7b8ec5feaa38"
 ```
 +  For API details, see [CancelCommand](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

@@ -1,7 +1,6 @@
 
 
 # AWS Config recording for Cloud Connectors
-<a name="cloud-connector-config-recording"></a>
 
 When you create a Cloud Connector, you choose whether AWS Config records the connector's resources in your cloud provider. Recording is on by default. You can't turn it on or off after you create the connector.
 

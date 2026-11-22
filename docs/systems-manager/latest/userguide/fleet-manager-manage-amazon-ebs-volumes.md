@@ -1,7 +1,6 @@
 
 
 # Managing Amazon EBS volumes on managed instances
-<a name="fleet-manager-manage-amazon-ebs-volumes"></a>
 
 [Amazon Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) (Amazon EBS) provides block level storage volumes for use with Amazon Elastic Compute Cloud (EC2) instances. EBS volumes behave like raw, unformatted block devices. You can mount these volumes as devices on your instances.
 

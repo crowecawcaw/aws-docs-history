@@ -1,7 +1,6 @@
 
 
 # Document conventions
-<a name="docconventions"></a>
 
 The following are common typographical conventions for the *AWS Systems Manager User Guide*. 
 

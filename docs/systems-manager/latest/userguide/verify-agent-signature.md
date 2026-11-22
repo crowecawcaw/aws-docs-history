@@ -1,7 +1,6 @@
 
 
 # Verifying the signature of SSM Agent
-<a name="verify-agent-signature"></a>
 
 The AWS Systems Manager Agent (SSM Agent) deb and rpm installer packages for Linux instances are cryptographically signed. You can use a public key to verify that the agent package is original and unmodified. If the files are damaged or have been altered, the verification fails. You can verify the signature of the installer package using either RPM or GPG. The following information is for SSM Agent versions 3.1.1141.0 or later.
 
@@ -33,7 +32,7 @@ If you use agent version 3.3.1802.0 through 3.3.4793.0, follow the instructions 
 **Important**  
 The following public key expires on November 25, 2027. We will publish a new public key in this topic before the old one expires. To get a notification when the new key is available, subscribe to the RSS feed for this topic.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -79,13 +78,13 @@ The following public key expires on November 25, 2027. We will publish a new pub
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    gpg --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. Be sure to replace {{key-value}} with the value from the preceding step. Use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    gpg --fingerprint {{key-value}}
    ```
 
@@ -107,13 +106,13 @@ The following public key expires on November 25, 2027. We will publish a new pub
 
 1. Verify the installer package signature. Be sure to replace the {{signature-filename}} and {{agent-download-filename}} with the values you specified when downloading the signature file and agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    gpg --verify {{signature-filename}} {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    gpg --verify amazon-ssm-agent.rpm.sig amazon-ssm-agent.rpm
    ```
 
@@ -142,7 +141,7 @@ The following public key expires on November 25, 2027. We will publish a new pub
 **Important**  
 The following public key expires on November 25, 2027. We will publish a new public key in this topic before the old one expires. To get a notification when the new key is available, subscribe to the RSS feed for this topic.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -188,13 +187,13 @@ The following public key expires on November 25, 2027. We will publish a new pub
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    rpm --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. Use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    rpm -qa gpg-pubkey --qf '%{Description}' | gpg --with-fingerprint | grep -A 1 "ssm-agent-signer@amazon.com"
    ```
 
@@ -213,13 +212,13 @@ The following public key expires on November 25, 2027. We will publish a new pub
 
 1. Verify the installer package signature. Be sure to replace the {{agent-download-filename}} with the values you specified when downloading the agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    rpm --checksig {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    rpm --checksig amazon-ssm-agent.rpm
    ```
 
@@ -248,7 +247,7 @@ The procedures for **GPG** and **RPM** in this section apply to SSM Agent versio
 **Important**  
 The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager will publish a new public key in this topic before the old one expires. We encourage you to subscribe to the RSS feed for this topic to get a notification when the new key is available.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -294,13 +293,13 @@ The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager 
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    gpg --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. Be sure to replace {{key-value}} with the value from the preceding step. We recommend that you use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    gpg --fingerprint {{key-value}}
    ```
 
@@ -322,13 +321,13 @@ The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager 
 
 1. Verify the installer package signature. Be sure to replace the {{signature-filename}} and {{agent-download-filename}} with the values you specified when downloading the signature file and agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    gpg --verify {{signature-filename}} {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    gpg --verify amazon-ssm-agent.rpm.sig amazon-ssm-agent.rpm
    ```
 
@@ -353,7 +352,7 @@ The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager 
 **Important**  
 The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager will publish a new public key in this topic before the old one expires. We encourage you to subscribe to the RSS feed for this topic to get a notification when the new key is available.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -399,13 +398,13 @@ The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager 
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    rpm --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. We recommend that you use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    rpm -qa gpg-pubkey --qf '%{Description}' | gpg --with-fingerprint | grep -A 1 "ssm-agent-signer@amazon.com"
    ```
 
@@ -424,13 +423,13 @@ The following public key expires on 2026-07-15 (July 15, 2026). Systems Manager 
 
 1. Verify the installer package signature. Be sure to replace the {{agent-download-filename}} with the values you specified when downloading the agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    rpm --checksig {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    rpm --checksig amazon-ssm-agent.rpm
    ```
 
@@ -459,7 +458,7 @@ The procedures for **GPG** and **RPM** in this section apply to SSM Agent versio
 **Important**  
 The public key shown below expired on 2025-02-17 (February 17, 2025) and works for Version 3.3.1611.0 and earlier versions up to 3.2.1542.0, and only if it was used previously to verify the agent's signature. Systems Manager will publish a new public key in this topic before the old one expires. We encourage you to subscribe to the RSS feed for this topic to get a notification when the new key is available.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -494,13 +493,13 @@ The public key shown below expired on 2025-02-17 (February 17, 2025) and works f
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    gpg --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. Be sure to replace {{key-value}} with the value from the preceding step. We recommend that you use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    gpg --fingerprint {{key-value}}
    ```
 
@@ -522,13 +521,13 @@ The public key shown below expired on 2025-02-17 (February 17, 2025) and works f
 
 1. Verify the installer package signature. Be sure to replace the {{signature-filename}} and {{agent-download-filename}} with the values you specified when downloading the signature file and agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    gpg --verify {{signature-filename}} {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    gpg --verify amazon-ssm-agent.rpm.sig amazon-ssm-agent.rpm
    ```
 
@@ -552,7 +551,7 @@ The public key shown below expired on 2025-02-17 (February 17, 2025) and works f
 **Important**  
 The public key shown below expired on 2025-02-17 (February 17, 2025) and works for Version 3.3.1611.0 and earlier versions up to 3.2.1542.0, and only if it was used previously to verify the agent's signature. Systems Manager will publish a new public key in this topic before the old one expires. We encourage you to subscribe to the RSS feed for this topic to get a notification when the new key is available.
 
-   ```
+   ```sh
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v2.0.22 (GNU/Linux)
    
@@ -587,13 +586,13 @@ The public key shown below expired on 2025-02-17 (February 17, 2025) and works f
 
 1. Import the public key into your keyring, and note the returned key value.
 
-   ```
+   ```sh
    rpm --import amazon-ssm-agent.gpg
    ```
 
 1. Verify the fingerprint. We recommend that you use GPG to verify the fingerprint even if you use RPM to verify the installer package.
 
-   ```
+   ```sh
    rpm -qa gpg-pubkey --qf '%{Description}' | gpg --with-fingerprint | grep -A 1 "ssm-agent-signer@amazon.com"
    ```
 
@@ -612,13 +611,13 @@ The public key shown below expired on 2025-02-17 (February 17, 2025) and works f
 
 1. Verify the installer package signature. Be sure to replace the {{agent-download-filename}} with the values you specified when downloading the agent, as listed in the table earlier in this topic.
 
-   ```
+   ```sh
    rpm --checksig {{agent-download-filename}}
    ```
 
    For example, for the x86\_64 architecture on Amazon Linux 2:
 
-   ```
+   ```sh
    rpm --checksig amazon-ssm-agent.rpm
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Use `DescribeMaintenanceWindowExecutionTasks` with a CLI
-<a name="example_ssm_DescribeMaintenanceWindowExecutionTasks_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowExecutionTasks`.
 
@@ -42,7 +41,7 @@ For more information, see [View Information About Tasks and Task Executions (AWS
 **Tools for PowerShell V4**  
 **Example 1: This example lists the tasks associated with a maintenance window execution.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowExecutionTaskList -WindowExecutionId "518d5565-5969-4cca-8f0e-da3b2a638355"
 ```
 **Output:**  
@@ -61,7 +60,7 @@ WindowExecutionId : 518d5565-5969-4cca-8f0e-da3b2a638355
 **Tools for PowerShell V5**  
 **Example 1: This example lists the tasks associated with a maintenance window execution.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowExecutionTaskList -WindowExecutionId "518d5565-5969-4cca-8f0e-da3b2a638355"
 ```
 **Output:**  

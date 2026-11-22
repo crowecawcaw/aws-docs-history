@@ -1,7 +1,6 @@
 
 
 # `aws:deleteStack` – Delete an CloudFormation stack
-<a name="automation-action-deletestack"></a>
 
 Deletes an AWS CloudFormation stack.
 
@@ -13,7 +12,7 @@ The `aws:deleteStack` action supports automatic throttling retry. For more infor
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: deleteStack
 action: aws:deleteStack
 maxAttempts: 1
@@ -25,7 +24,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "name":"deleteStack",
    "action":"aws:deleteStack",
@@ -74,7 +73,7 @@ Before you can use the `aws:deleteStack` action, you must assign the following p
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

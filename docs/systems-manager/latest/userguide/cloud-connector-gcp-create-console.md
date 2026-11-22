@@ -1,7 +1,6 @@
 
 
 # Create a Cloud Connector (AWS Management Console)
-<a name="cloud-connector-gcp-create-console"></a>
 
 We recommend that you use the AWS Management Console to create a Cloud Connector. The console wizard collects your GCP host project and target project details, and then generates a setup script that configures the GCP side for you. The generated script does the following:
 + Creates or reuses a Workload Identity Pool, an OpenID Connect (OIDC) provider, and a connector service account in your host project.
@@ -27,7 +26,9 @@ Enter a name for the Cloud Connector.
 **Description**  
 (Optional) Enter a description for the Cloud Connector.  
 **IAM role**  
-Choose **Create a GCP federation role with recommended permissions**, or choose **Use an existing GCP federation role**. For more information about the roles the console creates, see [IAM roles created by the Systems Manager console](cloud-connector-gcp-console-iam-roles.md).
+Choose **Create a GCP federation role with recommended permissions**, or choose **Use an existing GCP federation role**. For more information about the roles the console creates, see [IAM roles created by the Systems Manager console](cloud-connector-gcp-console-iam-roles.md).  
+**Additional trusted roles**  
+(Optional) Appears when you choose **Create a GCP federation role with recommended permissions**. Choose up to five IAM roles that the federation role also trusts, such as roles that run your Automation runbooks. Long role paths can lower this number. Anyone who can assume one of these roles can get credentials for the connector's GCP projects, so the list shows only roles that only Systems Manager can assume. For the trust policy, and how to change these roles later, see [GCP federation role](cloud-connector-gcp-federation-role.md). For the permissions that Automation needs from each role, see [Use another role](automation-cloud-connector-permissions.md#automation-cloud-connector-permissions-other-role).
 
 1. Under **GCP details**, provide the following:  
 **Host project ID**  

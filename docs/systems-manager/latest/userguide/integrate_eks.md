@@ -1,7 +1,6 @@
 
 
 # Use Parameter Store parameters in Amazon Elastic Kubernetes Service
-<a name="integrate_eks"></a>
 
 To show parameters from Parameter Store, a tool of AWS Systems Manager, as files mounted in Amazon EKS Pods, you can use the AWS Secrets and Configuration Provider for the Kubernetes Secrets Store CSI Driver. The ASCP works with Amazon Elastic Kubernetes Service 1.17\+ running an Amazon EC2 node group. AWS Fargate node groups are not supported. 
 

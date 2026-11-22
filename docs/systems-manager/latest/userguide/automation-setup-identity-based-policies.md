@@ -1,7 +1,6 @@
 
 
 # Setting up identity based policies examples
-<a name="automation-setup-identity-based-policies"></a>
 
 The following sections provide example IAM identity-based policies for AWS Systems Manager Automation service. For more information about how to create an IAM identity-based policy using these example JSON Policy documents, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*.
 
@@ -31,7 +30,7 @@ The following example IAM policy allows a user to do the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -82,7 +81,7 @@ The following example IAM policy allows a user to run a specific version of an a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -146,7 +145,7 @@ The following example IAM policy allows a user to run any automation document th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -213,7 +212,7 @@ The following example IAM policy grants permissions to a user to run automation 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

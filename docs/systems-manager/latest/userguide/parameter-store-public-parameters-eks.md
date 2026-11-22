@@ -1,7 +1,6 @@
 
 
 # Calling the EKS optimized AMI public parameter in Parameter Store
-<a name="parameter-store-public-parameters-eks"></a>
 
 The Amazon Elastic Kubernetes Service (Amazon EKS) service publishes the name of the latest Amazon EKS optimized Amazon Machine Image (AMI) as a public parameter. We encourage you to use this AMI when adding nodes to an Amazon EKS cluster, as new releases include Kubernetes patches and security updates. Previously, to guarantee you were using the latest AMI meant checking the Amazon EKS documentation and manually updating any deployment templates or resources with the new AMI ID.
 
@@ -10,7 +9,7 @@ Use the following command to view the name of the latest Amazon EKS optimized AM
 ------
 #### [ Linux & macOS ]
 
-```
+```bash
 aws ssm get-parameters \
     --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
 ```
@@ -18,7 +17,7 @@ aws ssm get-parameters \
 ------
 #### [ Windows ]
 
-```
+```bash
 aws ssm get-parameters ^
     --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
 ```

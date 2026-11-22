@@ -1,7 +1,6 @@
 
 
 # Setting up Parameter Store
-<a name="parameter-store-setting-up"></a>
 
 Before setting up parameters in Parameter Store, configure AWS Identity and Access Management (IAM) policies that provide principals in your account with permission to perform the actions you specify. 
 
@@ -42,7 +41,7 @@ When using IAM policies to grant access to Systems Manager parameters, we recomm
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -80,7 +79,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ All four retrieval action names begin with `GetParameter`, so the single entry `
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -153,7 +152,7 @@ The following example shows how to deny some commands while allowing the user to
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -200,7 +199,7 @@ All users within the customer account have access to the default AWS managed key
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -227,7 +226,7 @@ When using a customer managed key, the IAM policy that grants a principal access
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -274,7 +273,7 @@ For more information, see the following topics:
 
 To control which Parameter Store parameters a managed node can retrieve, you can attach an IAM policy to the instance role. If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value. You can view the AWS managed key by running the following command from the AWS CLI.
 
-```
+```bash
 aws kms describe-key --key-id alias/aws/ssm
 ```
 
@@ -288,7 +287,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

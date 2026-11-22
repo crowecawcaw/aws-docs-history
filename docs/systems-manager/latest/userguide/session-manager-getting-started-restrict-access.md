@@ -1,7 +1,6 @@
 
 
 # Step 3: Control session access to managed nodes
-<a name="session-manager-getting-started-restrict-access"></a>
 
 You grant or revoke Session Manager access to managed nodes by using AWS Identity and Access Management (IAM) policies. You can create a policy and attach it to an IAM user or group that specifies which managed nodes the user or group can connect to. You can also specify the Session Manager API operations the user or groups can perform on those managed nodes. 
 

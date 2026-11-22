@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with OpsCenter
-<a name="OpsCenter-troubleshooting"></a>
 
 This topic includes information to help you troubleshoot common errors and issues with OpsCenter.
 

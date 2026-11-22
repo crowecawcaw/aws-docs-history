@@ -1,7 +1,6 @@
 
 
 # Create OpsItems
-<a name="OpsCenter-create-OpsItems"></a>
 
 After you set up OpsCenter, and integrate it with your AWS services, your AWS services automatically create OpsItems based on default rules, events, or alarms. 
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to a Windows Server managed instance using Remote Desktop
-<a name="fleet-manager-remote-desktop-connections"></a>
 
 You can use Fleet Manager to connect to your Windows Server Amazon Elastic Compute Cloud (Amazon EC2) instances using the Remote Desktop Protocol (RDP). Fleet Manager Remote Desktop, which is powered by [Amazon DCV](https://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html), gives you secure connectivity to your Windows Server instances directly from the Systems Manager console. You can have up to four simultaneous connections in a single browser window.
 
@@ -83,7 +82,7 @@ The following are example IAM policies that you can attach to a user or role to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -182,7 +181,7 @@ The `AccessTaggedInstances` section, which is located lower in the example polic
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -278,7 +277,7 @@ The `AccessTaggedInstances` section, which is located lower in the example polic
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

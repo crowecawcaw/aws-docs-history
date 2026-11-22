@@ -1,7 +1,6 @@
 
 
 # Patching operation differences between Linux and Windows Server
-<a name="patch-manager-windows-and-linux-differences"></a>
 
 This topic describes important differences between Linux and Windows Server patching in Patch Manager.
 

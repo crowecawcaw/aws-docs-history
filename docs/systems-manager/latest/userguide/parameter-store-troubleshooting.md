@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Parameter Store
-<a name="parameter-store-troubleshooting"></a>
 
 Use the following information to help you troubleshoot problems with Parameter Store.
 
@@ -30,7 +29,7 @@ An error occurred (ThrottlingException) when calling the GetParameters operation
 <a name="ps-throttling-1"></a>
 
 **Problem**: Your application receives a `ThrottlingException` error on `DescribeParameters` calls, even though your `GetParameter`, `GetParameters`, and `GetParametersByPath` calls don't exceed the quota.
-+ **Solution**: `DescribeParameters` has a separate throughput limit from the other parameter retrieval actions: 3 TPS by default, or 10 TPS with higher throughput enabled. Making fewer `GetParameter`, `GetParameters`, or `GetParametersByPath` calls doesn't affect this limit.
++ **Solution**: `DescribeParameters` has a separate throughput limit from the other parameter retrieval actions: 10 TPS by default, or 100 TPS with higher throughput enabled. Making fewer `GetParameter`, `GetParameters`, or `GetParametersByPath` calls doesn't affect this limit.
 
   A common cause is calling `DescribeParameters` with a filter on an account that has a large number of parameters. The API paginates over all parameters in the account before applying the filter. Accounts with many parameters can exceed the `DescribeParameters` quota even when the filtered result set is small.
 
@@ -71,7 +70,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
   + In the Parameter Store section of the Systems Manager console, refresh the list of parameters periodically to search for the new or updated parameter details.
   + Use the **GetParameter** command to check for the new or updated parameter. For example, using the AWS Command Line Interface (AWS CLI):
 
-    ```
+    ```bash
     aws ssm get-parameter name {{MyParameter}}
     ```
 

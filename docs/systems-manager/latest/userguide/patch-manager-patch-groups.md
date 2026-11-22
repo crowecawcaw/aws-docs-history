@@ -1,7 +1,6 @@
 
 
 # Patch groups
-<a name="patch-manager-patch-groups"></a>
 
 **Note**  
 Patch groups are not used in patching operations that are based on *patch policies*. For information about working with patch policies, see [Patch policy configurations in Quick Setup](patch-manager-policies.md).  

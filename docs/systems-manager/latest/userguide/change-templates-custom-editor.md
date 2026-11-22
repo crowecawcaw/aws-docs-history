@@ -1,7 +1,6 @@
 
 
 # Creating change templates using Editor
-<a name="change-templates-custom-editor"></a>
 
 **Change Manager availability change**  
 AWS Systems Manager Change Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html). 
@@ -30,7 +29,7 @@ For more information about approvals for change templates, see [About approvals 
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    description: >-
      This change template demonstrates the feature set available for creating
      change templates for Change Manager. This template starts a Runbook workflow
@@ -107,7 +106,7 @@ For more information about approvals for change templates, see [About approvals 
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "description": "This change template demonstrates the feature set available for creating
      change templates for Change Manager. This template starts a Runbook workflow

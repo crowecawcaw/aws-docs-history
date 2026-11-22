@@ -1,7 +1,6 @@
 
 
 # Use `DeregisterManagedInstance` with a CLI
-<a name="example_ssm_DeregisterManagedInstance_section"></a>
 
 The following code examples show how to use `DeregisterManagedInstance`.
 
@@ -26,7 +25,7 @@ For more information, see [Deregistering managed nodes in a hybrid and multiclou
 **Tools for PowerShell V4**  
 **Example 1: This example deregisters a managed instance. There is no output if the command succeeds.**  
 
-```
+```powershell
 Unregister-SSMManagedInstance -InstanceId "mi-08ab247cdf1046573"
 ```
 +  For API details, see [DeregisterManagedInstance](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -34,7 +33,7 @@ Unregister-SSMManagedInstance -InstanceId "mi-08ab247cdf1046573"
 **Tools for PowerShell V5**  
 **Example 1: This example deregisters a managed instance. There is no output if the command succeeds.**  
 
-```
+```powershell
 Unregister-SSMManagedInstance -InstanceId "mi-08ab247cdf1046573"
 ```
 +  For API details, see [DeregisterManagedInstance](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

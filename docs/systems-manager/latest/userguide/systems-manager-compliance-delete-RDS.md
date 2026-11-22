@@ -1,7 +1,6 @@
 
 
 # Deleting a resource data sync for Compliance
-<a name="systems-manager-compliance-delete-RDS"></a>
 
 If you no longer want to use AWS Systems Manager Compliance to view compliance data, we recommend deleting resource data syncs used for Compliance data collection.
 

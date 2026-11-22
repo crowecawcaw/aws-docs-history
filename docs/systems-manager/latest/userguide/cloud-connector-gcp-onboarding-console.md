@@ -1,7 +1,6 @@
 
 
 # Enable VM onboarding (AWS Management Console)
-<a name="cloud-connector-gcp-onboarding-console"></a>
 
 To enable VM onboarding in the AWS Management Console:
 

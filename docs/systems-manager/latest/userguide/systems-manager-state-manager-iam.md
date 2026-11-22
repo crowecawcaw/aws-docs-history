@@ -1,7 +1,6 @@
 
 
 # Working with associations using IAM
-<a name="systems-manager-state-manager-iam"></a>
 
 State Manager uses [targets](systems-manager-state-manager-targets-and-rate-controls.md#systems-manager-state-manager-targets-and-rate-controls-about-targets) to choose which instances you configure your associations with. Originally, associations were created by specifying a document name (`Name`) and instance ID (`InstanceId`). This created an association between a document and an instance or managed node. Associations used to be identified by these parameters. These parameters are now deprecated, but they're still supported. The resources `instance` and `managed-instance` were added as resources to actions with `Name` and `InstanceId`.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring SSM Agent to use a proxy on Linux nodes
-<a name="configure-proxy-ssm-agent"></a>
 
 You can configure AWS Systems Manager Agent (SSM Agent) to communicate through an HTTP proxy by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent. This section includes procedures for creating an override file in both *upstart* and *systemd* environments. If you intend to use Session Manager, note that HTTPS proxy servers aren't supported.
 
@@ -44,7 +43,7 @@ For IPv6, specify `no_proxy=[fd00:ec2::254]`. The IPv6 address of the instance m
 
 1. Stop and restart SSM Agent using the following commands.
 
-   ```
+   ```sh
    sudo service stop amazon-ssm-agent
    sudo service start amazon-ssm-agent
    ```
@@ -65,13 +64,13 @@ Some of the steps in this procedure contain explicit instructions for Ubuntu Ser
 1. Run one of the follow commands, depending on the operating system type.
    + On Ubuntu Server instances where SSM Agent is installed by using a snap:
 
-     ```
+     ```sh
      sudo systemctl edit snap.amazon-ssm-agent.amazon-ssm-agent
      ```
 
      On other operating systems:
 
-     ```
+     ```sh
      sudo systemctl edit amazon-ssm-agent
      ```
 
@@ -114,12 +113,12 @@ For IPv6, specify `no_proxy=[fd00:ec2::254]`. The IPv6 address of the instance m
 1. Restart SSM Agent by using one of the following commands, depending on the operating system type.
    + On Ubuntu Server instances installed by using a snap:
 
-     ```
+     ```sh
      sudo systemctl daemon-reload && sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
      ```
    + On other operating systems:
 
-     ```
+     ```sh
      sudo systemctl daemon-reload && sudo systemctl restart amazon-ssm-agent
      ```
 

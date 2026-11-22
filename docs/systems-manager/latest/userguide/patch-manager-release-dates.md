@@ -1,7 +1,6 @@
 
 
 # How package release dates and update dates are calculated
-<a name="patch-manager-release-dates"></a>
 
 **Important**  
 The information on this page applies to the Amazon Linux 2 and Amazon Linux 2023 operating systems (OSs) for Amazon Elastic Compute Cloud (Amazon EC2) instances. The packages for these OS types are created and maintained by Amazon Web Services. How the manufacturers of other operating systems manage their packages and repositories affect how their release dates and update dates are calculated. For OSs besides Amazon Linux 2 and Amazon Linux 2023, such as Red Hat Enterprise Linux, refer to the manufacturer's documentation for information about how their packages are updated and maintained.

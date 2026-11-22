@@ -1,7 +1,6 @@
 
 
 # Install the Session Manager plugin on Amazon Linux 2, Amazon Linux 2023, and Red Hat Enterprise Linux distributions
-<a name="install-plugin-linux"></a>
 
 Use the following procedure to install the Session Manager plugin on Amazon Linux 2, Amazon Linux 2023 (AL2023), and RHEL distributions.
 

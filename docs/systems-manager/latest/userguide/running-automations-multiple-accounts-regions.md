@@ -1,9 +1,11 @@
 
 
 # Running automations in multiple AWS Regions and accounts
-<a name="running-automations-multiple-accounts-regions"></a>
 
 You can run AWS Systems Manager automations across multiple AWS Regions and AWS accounts or AWS Organizations organizational units (OUs) from a central account. Automation is a tool in AWS Systems Manager. Running automations in multiple Regions and accounts or OUs reduces the time required to administer your AWS resources while enhancing the security of your computing environment.
+
+**Note**  
+Multi-account and Region automations support AWS targets only. You can't use a Cloud Connector target in this execution mode, and the Systems Manager console doesn't offer the **Multi-account and Region** mode for runbooks that don't target AWS. To run automations on Microsoft Azure or Google Cloud resources, see [Run automations on multicloud resources](running-automations-cloud-connector.md).
 
 For example, you can do the following by using automation runbooks:
 + Implement patching and security updates centrally.
@@ -18,7 +20,7 @@ The following diagram shows an example of a user who is running the `AWS-Restart
 **Choose a central account for Automation**  
 If you want to run automations across OUs, the central account must have permissions to list all of the accounts in the OUs. This is only possible from a delegated administrator account, or the management account of the organization. We recommend that you follow AWS Organizations best practices and use a delegated administrator account. For more information about AWS Organizations best practices, see [Best practices for the management account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_best-practices_mgmt-acct.html) in the *AWS Organizations User Guide*. To create a delegated administrator account for Systems Manager, you can use the `register-delegated-administrator` command with the AWS CLI as shown in the following example.
 
-```
+```sh
 aws organizations register-delegated-administrator \
     --account-id {{delegated admin account ID}} \
     --service-principal ssm.amazonaws.com
@@ -167,19 +169,21 @@ You can view information about a runbook by choosing the runbook name.
       + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the automation to other resources.
       + Choose **percent** to enter a percentage of errors allowed before Automation stops sending the automation to other resources.
 
-1. In the **Targets** section, choose how you want to target the AWS resources where you want to run the Automation. These options are required.
-
-   1. Use the **Parameter** list to choose a parameter. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure. By choosing a parameter you define the type of resource on which the Automation workflow runs. 
+1. In the **Targets** section, choose how you want to target the resources where you want to run the Automation. These options are required.
 
    1. Use the **Targets** list to choose how you want to target resources.
 
-      1. If you chose to target resources by using parameter values, then enter the parameter value for the parameter you chose in the **Input parameters** section.
+      1. If you chose to target resources by using parameter values, then enter the parameter values for the parameter that you choose in the next step in the **Input parameters** section.
 
       1. If you chose to target resources by using AWS Resource Groups, then choose the name of the group from the **Resource Group** list.
 
       1. If you chose to target resources by using tags, then enter the tag key and (optionally) the tag value in the fields provided. Choose **Add**.
 
       1. If you want to run an Automation runbook on all instances in the current AWS account and AWS Region, then choose **All instances**.
+
+      1. If you want to run the runbook on Microsoft Azure or Google Cloud resources, choose **Cloud Connector**, and then choose a connector and any filters. This option is available only in **Rate control**. For more information, see [Run an automation on Azure or Google Cloud resources (console)](running-automations-cloud-connector-console.md).
+
+   1. Use the **Parameter** list to choose a parameter. The items in the **Parameter** list are determined by the parameters in the Automation runbook that you selected at the start of this procedure. By choosing a parameter you define the type of resource on which the Automation workflow runs. 
 
 1. In the **Input parameters** section, specify the required inputs. Choose the `AWS-SystemsManager-AutomationAdministrationRole` IAM service role from the **AutomationAssumeRole** list.
 **Note**  
@@ -223,7 +227,7 @@ Before you complete the following procedure, note the following information:
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name {{runbook name}} \
            --parameters AutomationAssumeRole=arn:aws:iam::{{management account ID}}:role/AWS-SystemsManager-AutomationAdministrationRole \
@@ -235,7 +239,7 @@ Before you complete the following procedure, note the following information:
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
            --document-name {{runbook name}} ^
            --parameters AutomationAssumeRole=arn:aws:iam::{{management account ID}}:role/AWS-SystemsManager-AutomationAdministrationRole ^
@@ -247,7 +251,7 @@ Before you complete the following procedure, note the following information:
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
        $Targets.Key = "{{tag key}}"
        $Targets.Values = "{{value}}"
@@ -274,7 +278,7 @@ The following are examples demonstrating how to use the AWS CLI and PowerShell t
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name "AWS-RestartEC2Instance" \
            --target-parameter-name InstanceId \
@@ -289,7 +293,7 @@ The following are examples demonstrating how to use the AWS CLI and PowerShell t
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name "AWS-RestartEC2Instance" ^
            --target-parameter-name InstanceId ^
@@ -304,7 +308,7 @@ The following are examples demonstrating how to use the AWS CLI and PowerShell t
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Start-SSMAutomationExecution `
            -DocumentName "AWS-RestartEC2Instance" `
            -TargetParameterName "InstanceId" `
@@ -324,7 +328,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name "AWS-RestartEC2Instance" \
            --target-parameter-name InstanceId \
@@ -350,7 +354,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
            --document-name "AWS-RestartEC2Instance" ^
            --target-parameter-name InstanceId ^
@@ -376,7 +380,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Start-SSMAutomationExecution `
            -DocumentName "AWS-RestartEC2Instance" `
            -TargetParameterName "InstanceId" `
@@ -409,7 +413,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
        --document-name "MyCustomAutomationRunbook" \
        --target-locations-url "https://amzn-s3-demo-bucket.s3.amazonaws.com/target-locations.json"
@@ -418,7 +422,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
        --document-name "MyCustomAutomationRunbook" ^
        --target-locations-url "https://amzn-s3-demo-bucket.s3.amazonaws.com/target-locations.json"
@@ -427,7 +431,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Start-SSMAutomationExecution `
        -DocumentName "MyCustomAutomationRunbook" `
        -TargetLocationsUrl "https://amzn-s3-demo-bucket.s3.amazonaws.com/target-locations.json"
@@ -437,7 +441,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 
    Sample content for the JSON file:
 
-   ```
+   ```json
    [
    { 
             "Accounts": [ "123456789012", "987654321098", "456789123012" ],
@@ -459,7 +463,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name AWS-RestartEC2Instance \
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
@@ -471,7 +475,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
            --document-name AWS-RestartEC2Instance ^
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
@@ -483,7 +487,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
        $Targets.Key = "tag:Env"
        $Targets.Values = "PROD"
@@ -507,7 +511,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name AWS-RestartEC2Instance \
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
@@ -519,7 +523,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
            --document-name AWS-RestartEC2Instance ^
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
@@ -531,7 +535,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
        $Targets.Key = "ResourceGroup"
        $Targets.Values = "prod-instances"
@@ -555,7 +559,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution \
            --document-name AWS-RestartEC2Instance \
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
@@ -567,7 +571,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm start-automation-execution ^
            --document-name AWS-RestartEC2Instance ^
            --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
@@ -579,7 +583,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
        $Targets.Key = "ResourceGroup"
        $Targets.Values = "WebServices"
@@ -632,7 +636,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-automation-executions \
            --filters Key=ExecutionId,Values={{automation execution ID}}
    ```
@@ -640,7 +644,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-automation-executions ^
            --filters Key=ExecutionId,Values={{automation execution ID}}
    ```
@@ -648,7 +652,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAutomationExecutionList | `
            Where {$_.AutomationExecutionId -eq "{{automation execution ID}}"}
    ```
@@ -660,7 +664,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm get-automation-execution \
            --automation-execution-id {{4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE}}
    ```
@@ -668,7 +672,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm get-automation-execution ^
            --automation-execution-id {{4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE}}
    ```
@@ -676,7 +680,7 @@ The `TargetLocationMaxConcurrency` option is available using the AWS CLI and AWS
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAutomationExecution `
            -AutomationExecutionId {{a4a3c0e9-7efd-462a-8594-01234EXAMPLE}}
    ```

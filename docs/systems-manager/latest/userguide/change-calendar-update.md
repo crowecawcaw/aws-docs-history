@@ -1,7 +1,6 @@
 
 
 # Updating a change calendar
-<a name="change-calendar-update"></a>
 
 You can update the description of a change calendar, but not its name. Although you can change the default state of a calendar, be aware that this reverses the behavior of change actions during events that are associated with the calendar. For example, if you change the state of a calendar from **Open by default** to **Closed by default**, unwanted changes might be made during event periods when the users who created the associated events aren't expecting changes.
 

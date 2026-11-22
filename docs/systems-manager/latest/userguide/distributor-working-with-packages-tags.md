@@ -1,7 +1,6 @@
 
 
 # Edit Distributor package tags in the console
-<a name="distributor-working-with-packages-tags"></a>
 
 After you have added a package to Distributor, you can edit the package's tags in the Systems Manager console. These tags are applied to the package, and aren't connected to tags on the managed node on which you want to deploy the package. Tags are case sensitive key and value pairs that can help you group and filter your packages by criteria that are relevant to your organization. If you don't want to add tags, you're ready to install your package or add a new version.
 

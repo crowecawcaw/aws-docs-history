@@ -1,7 +1,6 @@
 
 
 # Error handling with the visual design experience
-<a name="visual-designer-error-handling"></a>
 
 By default, when an action reports an error, Automation stops the runbook's workflow entirely. This is because the default value for the `onFailure` property on all actions is `Abort`. You can configure how Automation handles errors in your runbook's workflow. Even if you have configured error handling, some errors might still cause an automation to fail. For more information, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md). In the visual design experience, you configure error handling in the **Configuration** panel.
 

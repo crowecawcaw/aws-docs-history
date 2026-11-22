@@ -1,7 +1,6 @@
 
 
 # Step 1: Create the maintenance window using the AWS CLI
-<a name="mw-cli-tutorial-create-mw"></a>
 
 In this step, you create a maintenance window and specify its basic options, such as name, schedule, and duration. In later steps, you choose the instance it updates and the task it runs.
 
@@ -22,7 +21,7 @@ For more information about working with the `--schedule` option, see [Reference:
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window \
        --name "My-First-Maintenance-Window" \
        --schedule "rate(5 minutes)" \
@@ -35,7 +34,7 @@ For more information about working with the `--schedule` option, see [Reference:
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window ^
        --name "My-First-Maintenance-Window" ^
        --schedule "rate(5 minutes)" ^
@@ -57,7 +56,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. Now run the following command to view details about this and any other maintenance windows already in your account.
 
-   ```
+   ```sh
    aws ssm describe-maintenance-windows
    ```
 

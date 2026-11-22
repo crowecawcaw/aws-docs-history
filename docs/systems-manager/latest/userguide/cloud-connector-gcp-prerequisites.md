@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="cloud-connector-gcp-prerequisites"></a>
 
 Before you create a Cloud Connector, complete the following prerequisites on both the AWS side and the GCP side. These steps establish OIDC-based workload identity federation between AWS and GCP.
 

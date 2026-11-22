@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Compliance
-<a name="systems-manager-compliance"></a>
 
 You can use Compliance to scan your fleet of managed nodes for patch compliance and configuration inconsistencies. You can collect and aggregate data from multiple AWS accounts and Regions, and then drill down into specific resources that aren’t compliant. By default, Compliance displays current compliance data about patching in Patch Manager and associations in State Manager. (Patch Manager and State Manager are also both tools in AWS Systems Manager.) To get started with Compliance, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/compliance). In the navigation pane, choose **Compliance**.
 

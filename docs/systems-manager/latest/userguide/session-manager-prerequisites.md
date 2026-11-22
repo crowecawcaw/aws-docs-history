@@ -1,7 +1,6 @@
 
 
 # Step 1: Complete Session Manager prerequisites
-<a name="session-manager-prerequisites"></a>
 
 Before using Session Manager, make sure your environment meets the following requirements.
 

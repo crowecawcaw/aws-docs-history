@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="cloud-connector-prerequisites"></a>
 
 Before you create a Cloud Connector, complete the following prerequisites on both the AWS side and the Azure side. These steps establish OIDC-based federated authentication between AWS and Microsoft Azure.
 

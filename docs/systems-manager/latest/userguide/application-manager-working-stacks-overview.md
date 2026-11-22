@@ -1,7 +1,6 @@
 
 
 # Using Application Manager to manage CloudFormation stacks
-<a name="application-manager-working-stacks-overview"></a>
 
 Application Manager helps you provision and manage resources for your applications by integrating with AWS CloudFormation. You can create, edit, and delete CloudFormation templates and stacks in Application Manager. A *stack* is a collection of AWS resources that you can manage as a single unit. This means you can create, update, or delete a collection of AWS resources by using CloudFormation stacks. A *template* is a formatted text file in JSON or YAML that specifies the resources you want to provision in your stacks. This section includes the following information.
 
@@ -66,7 +65,7 @@ Install and configure the AWS CLI or the AWS Tools for PowerShell if you have no
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws cloudformation create-stack \
     --stack-name {{a_name_for_the_stack}} \
     --template-url "ssm-doc://arn:aws:ssm:{{Region}}:{{account_ID}}:document/{{template_name}}" \
@@ -75,7 +74,7 @@ aws cloudformation create-stack \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws cloudformation create-stack ^
      --stack-name {{a_name_for_the_stack}} ^
      --template-url "ssm-doc://arn:aws:ssm:{{Region}}:{{account_ID}}:document/{{template_name}}" ^
@@ -84,7 +83,7 @@ aws cloudformation create-stack ^
 ------
 #### [ PowerShell ]
 
-```
+```ps
 New-CFNStack `
     -StackName "{{a_name_for_the_stack}}" `
     -TemplateURL "ssm-doc://arn:aws:ssm:{{Region}}:{{account_ID}}:document/{{template_name}}" `

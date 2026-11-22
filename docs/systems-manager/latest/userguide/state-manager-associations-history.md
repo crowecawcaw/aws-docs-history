@@ -1,7 +1,6 @@
 
 
 # Viewing association histories
-<a name="state-manager-associations-history"></a>
 
 You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html) API operation. Use this operation to see the status, detailed status, results, last execution time, and more information for a State Manager association. State Manager is a tool in AWS Systems Manager. This API operation also includes filters to help you locate associations according to the criteria you specify. For example, you can specify an exact date and time, and use a GREATER\_THAN filter to view executions processed after the specified date and time.
 
@@ -85,7 +84,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecution `
      -AssociationId {{ID}} `
      -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="GREATER_THAN"}
@@ -223,7 +222,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecution `
      -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
      -Filter @{"Key"="CreatedTime";"Value"="2019-06-01T19:15:38.372Z";"Type"="LESS_THAN"}
@@ -254,7 +253,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecution `
      -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
      -Filter @{
@@ -294,7 +293,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecutionTarget `
      -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
      -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}}
@@ -327,7 +326,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecutionTarget `
      -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
      -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}} `
@@ -364,7 +363,7 @@ This command includes a filter to limit the results to only those executions tha
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociationExecutionTarget `
      -AssociationId {{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}} `
      -ExecutionId {{76a5a04f-caf6-490c-b448-92c02EXAMPLE}} `

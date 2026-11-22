@@ -1,7 +1,6 @@
 
 
 # Examples: Register targets with a maintenance window
-<a name="mw-cli-tutorial-targets-examples"></a>
 
 You can register a single node as a target using its node ID, as demonstrated in [Step 2: Register a target node with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md). You can also register one or more nodes as targets using the command formats on this page.
 
@@ -24,7 +23,7 @@ Run the following command on your local machine format to register multiple node
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window \
     --window-id "{{mw-0c50858d01EXAMPLE}}" \
     --resource-type "INSTANCE" \
@@ -34,7 +33,7 @@ aws ssm register-target-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window ^
     --window-id "{{mw-0c50858d01EXAMPLE}} ^
     --resource-type "INSTANCE" ^
@@ -55,7 +54,7 @@ Run the following command on your local machine to register nodes that are all a
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window \
     --window-id "{{mw-0c50858d01EXAMPLE}}" \
     --resource-type "INSTANCE" \
@@ -65,7 +64,7 @@ aws ssm register-target-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window ^
     --window-id "{{mw-0c50858d01EXAMPLE}}" ^
     --resource-type "INSTANCE" ^
@@ -89,7 +88,7 @@ Run the following command on your local machine to register nodes that all have 
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window \
     --window-id "{{mw-0c50858d01EXAMPLE}}" \
     --resource-type "INSTANCE" \
@@ -99,7 +98,7 @@ aws ssm register-target-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window ^
     --window-id "{{mw-0c50858d01EXAMPLE}}" ^
     --resource-type "INSTANCE" ^
@@ -120,7 +119,7 @@ Run the following command on your local machine to register a specified resource
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window \
     --window-id "{{mw-0c50858d01EXAMPLE}}" \
     --resource-type "RESOURCE_GROUP" \
@@ -130,7 +129,7 @@ aws ssm register-target-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window ^
     --window-id "{{mw-0c50858d01EXAMPLE}}" ^
     --resource-type "RESOURCE_GROUP" ^
@@ -151,7 +150,7 @@ Run the following command on your local machine to register only certain resourc
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window \
     --window-id "{{mw-0c50858d01EXAMPLE}}" \
     --resource-type "RESOURCE_GROUP" \
@@ -162,7 +161,7 @@ aws ssm register-target-with-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm register-target-with-maintenance-window ^
     --window-id "{{mw-0c50858d01EXAMPLE}}" ^
     --resource-type "RESOURCE_GROUP" ^

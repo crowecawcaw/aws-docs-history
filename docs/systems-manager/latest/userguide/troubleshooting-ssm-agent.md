@@ -1,7 +1,6 @@
 
 
 # Troubleshooting SSM Agent
-<a name="troubleshooting-ssm-agent"></a>
 
 If you experience problems running operations on your managed nodes, there might be a problem with AWS Systems Manager Agent (SSM Agent). Use the following information to help you view SSM Agent log files and troubleshoot the agent. If your agent appears to be unresponsive or has reduced communication frequency, see [Understanding SSM Agent hibernation](ssm-agent-technical-details.md#ssm-agent-hibernation). 
 

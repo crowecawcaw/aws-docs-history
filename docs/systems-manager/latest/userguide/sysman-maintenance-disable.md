@@ -1,7 +1,6 @@
 
 
 # Disable or enable a maintenance window using the console
-<a name="sysman-maintenance-disable"></a>
 
 You can disable or enable a maintenance window in Maintenance Windows. You can choose one maintenance window at a time to either disable or enable the maintenance window from running. You can also select multiple or all maintenance windows to enable and disable.
 

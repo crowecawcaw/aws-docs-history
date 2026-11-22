@@ -1,7 +1,6 @@
 
 
 # Reference: Date and time string formats for Systems Manager
-<a name="systems-manager-datetime-strings"></a>
 
 AWS Systems Manager API operations accept filters to limit the number of results returned by a request. Some of these API operations accept filters that require a formatted string to represent a specific date and time. For example, the `DescribeSessions` API operation accepts the `InvokedAfter` and `InvokedBefore` keys as some valid values for a `SessionFilter` object. Another example is the `DescribeAutomationExecutions` API operation, which accepts the `StartTimeBefore` and `StartTimeAfter` keys as some valid values for an `AutomationExecutionFilter` object. The values you provide for these keys when filtering your requests must match the ISO 8601 standard. For information about ISO 8601, see [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
@@ -38,14 +37,14 @@ You can create custom date and time strings from your local machine using your p
 ------
 #### [ coreutils ]
 
-```
+```sh
 date '+%Y-%m-%dT%H:%M:%SZ'
 ```
 
 ------
 #### [ PowerShell ]
 
-```
+```ps
 (Get-Date).ToString("yyyy-MM-ddTH:mm:ssZ")
 ```
 
@@ -57,7 +56,7 @@ When working with Systems Manager API operations, you might need to create histo
 #### [ AWS CLI ]
 + Retrieve the last week of command history for an SSM document.
 
-  ```
+  ```sh
   lastWeekStamp=$(date '+%Y-%m-%dT%H:%M:%SZ' -d '7 days ago')
   
   docFilter='{"key":"DocumentName","value":"AWS-RunPatchBaseline"}'
@@ -70,7 +69,7 @@ When working with Systems Manager API operations, you might need to create histo
   ```
 + Retrieve the last week of automation execution history.
 
-  ```
+  ```sh
   lastWeekStamp=$(date '+%Y-%m-%dT%H:%M:%SZ' -d '7 days ago')
   
   aws ssm describe-automation-executions \
@@ -78,7 +77,7 @@ When working with Systems Manager API operations, you might need to create histo
   ```
 + Retrieve the last month of session history.
 
-  ```
+  ```sh
   lastWeekStamp=$(date '+%Y-%m-%dT%H:%M:%SZ' -d '30 days ago')
   
   aws ssm describe-sessions \
@@ -90,7 +89,7 @@ When working with Systems Manager API operations, you might need to create histo
 #### [ AWS Tools for PowerShell ]
 + Retrieve the last week of command history for an SSM document.
 
-  ```
+  ```ps
   $lastWeekStamp = (Get-Date).AddDays(-7).ToString("yyyy-MM-ddTH:mm:ssZ")
   
   $docFilter = @{
@@ -109,7 +108,7 @@ When working with Systems Manager API operations, you might need to create histo
   ```
 + Retrieve the last week of automation execution history.
 
-  ```
+  ```ps
   $lastWeekStamp = (Get-Date).AddDays(-7).ToString("yyyy-MM-ddTH:mm:ssZ")
   
   Get-SSMAutomationExecutionList `
@@ -117,7 +116,7 @@ When working with Systems Manager API operations, you might need to create histo
   ```
 + Retrieve the last month of session history.
 
-  ```
+  ```ps
   $lastWeekStamp = (Get-Date).AddDays(-30).ToString("yyyy-MM-ddTH:mm:ssZ")
   
   Get-SSMSession `

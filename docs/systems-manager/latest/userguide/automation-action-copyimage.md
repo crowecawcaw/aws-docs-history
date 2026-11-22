@@ -1,7 +1,6 @@
 
 
 # `aws:copyImage` – Copy or encrypt an Amazon Machine Image
-<a name="automation-action-copyimage"></a>
 
 Copies an Amazon Machine Image (AMI) from any AWS Region into the current Region. This action can also encrypt the new AMI.
 
@@ -16,7 +15,7 @@ The following example creates a copy of an AMI in the Seoul region (`SourceImage
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: createEncryptedCopy
 action: aws:copyImage
 maxAttempts: 3
@@ -31,7 +30,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {   
     "name": "createEncryptedCopy",
     "action": "aws:copyImage",

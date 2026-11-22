@@ -1,7 +1,6 @@
 
 
 # What is the unified console?
-<a name="systems-manager-unified-console"></a>
 
 The unified Systems Manager console is a consolidated experience that combines various tools to help you complete common node tasks across multiple AWS accounts and AWS Regions in an AWS Organizations organization, or a single account and Region. Nodes can be EC2 instances, hybrid servers, or servers running in a multicloud environment. In the unified console, you're provided with detailed insights to your nodes. You can generate reports for your nodes, diagnose and remediate common issues that prevent nodes from reporting as managed by Systems Manager, like connectivity issues. 
 

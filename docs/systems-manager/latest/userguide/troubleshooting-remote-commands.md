@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Systems Manager Run Command
-<a name="troubleshooting-remote-commands"></a>
 
 Run Command provides status details with each command execution. For more information about the details of command statuses, see [Understanding command statuses](monitor-commands.md). You can also use the information in this topic to help troubleshoot problems with Run Command.
 

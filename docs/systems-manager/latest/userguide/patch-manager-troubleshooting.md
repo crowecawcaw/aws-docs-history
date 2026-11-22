@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Patch Manager
-<a name="patch-manager-troubleshooting"></a>
 
 Use the following information to help you troubleshoot problems with Patch Manager, a tool in AWS Systems Manager.
 
@@ -310,17 +309,17 @@ NO_PUBKEY 467B942D3A79BD29, E:The repository ' http://repo.mysql.com/apt/ubuntu 
 
 For example, using the error shown previously, we see that the `467B942D3A79BD29` key is missing and must be added. To do so, run either of the following commands:
 
-```
+```sh
 sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 ```
 
-```
+```sh
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 467B942D3A79BD29
 ```
 
 Or, to refresh all keys, run the following command:
 
-```
+```sh
 sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com --refresh-keys
 ```
 
@@ -341,13 +340,13 @@ NoMoreMirrorsRepoError: failure: repodata/repomd.xml from pgdg94: [Errno 256] No
 
 **Solution**: We recommend reporting the issue to the organization that maintains the repository. Until the error is fixed, you can disable the repository at the operating system level. To do so, run the following command, replacing the value for {{repo-name}} with your repository name:
 
-```
+```sh
 yum-config-manager --disable {{repo-name}}
 ```
 
 Following is an example.
 
-```
+```sh
 yum-config-manager --disable pgdg94
 ```
 
@@ -403,27 +402,27 @@ E: dpkg was interrupted, you must manually run
 
 1. Check to see which packages are affected, and what the issues are with each package by running the following commands, one at a time:
 
-   ```
+   ```sh
    sudo apt-get check
    ```
 
-   ```
+   ```sh
    sudo dpkg -C
    ```
 
-   ```
+   ```sh
    dpkg-query -W -f='${db:Status-Abbrev} ${binary:Package}\n' | grep -E ^.[^nci]
    ```
 
 1. Correct the packages with issues by running the following command:
 
-   ```
+   ```sh
    sudo dpkg --configure -a
    ```
 
 1. If the previous command didn't fully resolve the issue, run the following command:
 
-   ```
+   ```sh
    sudo apt --fix-broken install
    ```
 

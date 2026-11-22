@@ -1,7 +1,6 @@
 
 
 # Getting started with Systems Manager Explorer and OpsCenter
-<a name="Explorer-setup"></a>
 
 AWS Systems Manager uses an integrated setup experience to help you get started with Systems Manager Explorer and Systems Manager OpsCenter. In this documentation, Explorer and OpsCenter Setup is called *Integrated Setup*. If you already set up OpsCenter, you still need to complete Integrated Setup to verify settings and options. If you haven't set up OpsCenter, then you can use Integrated Setup to get started with both tools.
 

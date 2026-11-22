@@ -1,15 +1,16 @@
 
 
 # Automation assume role
-<a name="cloud-connector-automation-assume-role"></a>
 
 The automation assume role is the role Automation assumes when it runs the runbook that onboards an Azure virtual machine as a managed node. The role can call the core Systems Manager APIs needed for hybrid activation. It can also pass a service role to Systems Manager and assume the Azure federation role to obtain Azure credentials.
+
+You can also use this role as the `AutomationAssumeRole` when you run your own runbooks on the resources that the connector reaches. For more information, see [Permissions for automations that use a Cloud Connector](automation-cloud-connector-permissions.md).
 
 **Role name pattern:** `SSM-AzureAssumeRole-{{connector-name}}`
 
 The trust policy lets the Systems Manager service principal assume the role, scoped to your AWS account. Replace `123456789012` with your AWS account ID.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -36,10 +37,10 @@ The permissions policy grants the actions Automation needs to execute the onboar
 This policy includes the following permissions.
 + `ssm` – Allows Automation to create, delete, and describe hybrid activations (`CreateActivation`, `DeleteActivation`, `DescribeActivations`); to register Azure virtual machines as managed nodes and read their status (`DescribeInstanceInformation`); to tag activations and managed instances (`AddTagsToResource`); to read the installation runbook (`GetDocument` on `AWS-InstallSSMAgentOnAzure`); and to read the Cloud Connector configuration (`GetCloudConnector`).
 + `iam:PassRole` – Allows Automation to pass the managed instance role to Systems Manager when registering an Azure virtual machine. The `iam:PassedToService` condition restricts the pass to `ssm.amazonaws.com`.
-+ `iam:ListRoleTags` – Allows Automation to read tags on the Azure federation role to confirm it belongs to the same Cloud Connector before assuming it.
++ `iam:ListRoleTags` – Allows Automation to read this role's own tags and add them to the web identity token that it exchanges for Azure credentials.
 + `sts:AssumeRole` – Allows Automation to assume the Azure federation role to obtain Azure credentials.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Automation system variables
-<a name="automation-variables"></a>
 
 AWS Systems Manager Automation runbooks use the following variables. For an example of how these variables are used, view the JSON source of the `AWS-UpdateWindowsAmi` runbook. 
 

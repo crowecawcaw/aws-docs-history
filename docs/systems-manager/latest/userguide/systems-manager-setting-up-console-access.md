@@ -1,7 +1,6 @@
 
 
 # Setting up Systems Manager console access
-<a name="systems-manager-setting-up-console-access"></a>
 
 To use AWS Systems Manager in the AWS Management Console, you must have the correct permissions configured.
 
@@ -29,7 +28,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -298,7 +297,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -456,7 +455,7 @@ This policy includes the following permissions.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

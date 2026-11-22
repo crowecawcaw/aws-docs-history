@@ -1,7 +1,6 @@
 
 
 # Tutorial: View information about tasks and task executions using the AWS CLI
-<a name="mw-cli-tutorial-task-info"></a>
 
 This tutorial demonstrates how to use the AWS Command Line Interface (AWS CLI) to view details about your completed maintenance window tasks. 
 
@@ -16,7 +15,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-executions \
        --window-id "{{mw-0c50858d01EXAMPLE}}"
    ```
@@ -24,7 +23,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-executions ^
        --window-id "{{mw-0c50858d01EXAMPLE}}"
    ```
@@ -67,7 +66,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm get-maintenance-window-execution \
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}"
    ```
@@ -75,7 +74,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm get-maintenance-window-execution ^
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}"
    ```
@@ -101,7 +100,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-execution-tasks \
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}"
    ```
@@ -109,7 +108,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-execution-tasks ^
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}"
    ```
@@ -139,7 +138,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm get-maintenance-window-execution-task \
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}" \
        --task-id "{{c9b05aba-197f-4d8d-be34-e73fbEXAMPLE}}"
@@ -148,7 +147,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm get-maintenance-window-execution-task ^
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}" ^
        --task-id "{{c9b05aba-197f-4d8d-be34-e73fbEXAMPLE}}"
@@ -193,7 +192,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-execution-task-invocations \
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}" \
        --task-id "{{c9b05aba-197f-4d8d-be34-e73fbEXAMPLE}}"
@@ -202,7 +201,7 @@ As you follow the steps in this tutorial, replace the values in italicized {{red
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-execution-task-invocations ^
        --window-execution-id "{{14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE}}" ^
        --task-id "{{c9b05aba-197f-4d8d-be34-e73fbEXAMPLE}}"

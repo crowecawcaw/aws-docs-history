@@ -1,7 +1,6 @@
 
 
 # Manually installing SSM Agent on Debian Server instances
-<a name="agent-install-deb"></a>
 
 The Amazon Machine Images (AMIs) for Debian Server that are provided by AWS do not come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md).
 
@@ -26,13 +25,13 @@ Use the following steps to manually install SSM Agent on a single instance. This
 
 1. Run the following command to create a temporary directory on the instance.
 
-   ```
+   ```sh
    mkdir /tmp/ssm
    ```
 
 1. Run the following command to change to the temporary directory.
 
-   ```
+   ```sh
    cd /tmp/ssm
    ```
 
@@ -42,24 +41,24 @@ Even though URLs in the following commands include an `ec2-downloads-windows` di
 For Debian Server 8, only the x86\_64 architecture is supported.  
 x86\_64 instances  
 
-   ```
+   ```sh
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
    ```  
 ARM64 instances  
 
-   ```
+   ```sh
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
    ```
 
 1. Run the following command.
 
-   ```
+   ```sh
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
 1. (Recommended) Run the following command to verify that the agent is running.
 
-   ```
+   ```sh
    sudo systemctl status amazon-ssm-agent
    ```
 
@@ -88,7 +87,7 @@ ARM64 instances
 
    To activate the agent in these cases, run the following commands.
 
-   ```
+   ```sh
    sudo systemctl enable amazon-ssm-agent
    ```
 
@@ -110,35 +109,35 @@ In the following command, replace {{region}} with your own information. For a li
 
 x86\_64  
 
-```
+```sh
 wget https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/debian_amd64/amazon-ssm-agent.deb
 ```
 
-```
+```sh
 sudo dpkg -i amazon-ssm-agent.deb
 ```
 See the following example.  
 
-```
+```sh
 wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_amd64/amazon-ssm-agent.deb
 ```
 
-```
+```sh
 sudo dpkg -i amazon-ssm-agent.deb
 ```
 
 ARM64  
 
-```
+```sh
 wget https://s3.{{region}}.amazonaws.com/amazon-ssm-{{region}}/latest/debian_arm64/amazon-ssm-agent.deb
 ```
 
-```
+```sh
 sudo dpkg -i amazon-ssm-agent.deb
 ```
 See the following example.  
 
-```
+```sh
 wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_arm64/amazon-ssm-agent.deb
 ```
 

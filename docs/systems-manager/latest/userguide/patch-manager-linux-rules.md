@@ -1,7 +1,6 @@
 
 
 # How patch baseline rules work on Linux-based systems
-<a name="patch-manager-linux-rules"></a>
 
 The rules in a patch baseline for Linux distributions operate differently based on the distribution type. Unlike patch updates on Windows Server managed nodes, rules are evaluated on each node to take the configured repos on the instance into consideration. Patch Manager uses the native package manager to drive the installation of patches approved by the patch baseline.
 

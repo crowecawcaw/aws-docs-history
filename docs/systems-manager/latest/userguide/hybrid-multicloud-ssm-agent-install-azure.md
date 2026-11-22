@@ -1,7 +1,6 @@
 
 
 # Set up Systems Manager for Microsoft Azure virtual machines
-<a name="hybrid-multicloud-ssm-agent-install-azure"></a>
 
 You can register Azure virtual machines (VMs) as Systems Manager managed nodes using the hybrid activation process with native Azure Instance Metadata Service (IMDS) integration. When you specify the `-provider Azure` parameter during registration, SSM Agent reads Azure VM identity data directly from the Azure IMDS endpoint and associates the managed node with the source Azure VM.
 
@@ -26,7 +25,7 @@ Use the following procedure to install and register SSM Agent on an Azure Linux 
 **Note**  
 The following command uses the `linux_amd64` binary. If your Azure VM uses an ARM64 processor (for example, Dpsv5 or Epsv5 series), replace `linux_amd64` with `linux_arm64`.
 
-   ```
+   ```sh
    mkdir /tmp/ssm
    curl https://amazon-ssm-{{region}}.s3.{{region}}.amazonaws.com/latest/linux_amd64/ssm-setup-cli -o /tmp/ssm/ssm-setup-cli
    sudo chmod +x /tmp/ssm/ssm-setup-cli
@@ -39,7 +38,7 @@ The following command uses the `linux_amd64` binary. If your Azure VM uses an AR
 
 1. Verify that SSM Agent is running and that the registration data was written correctly:
 
-   ```
+   ```sh
    sudo systemctl status amazon-ssm-agent
    cat /var/lib/amazon/ssm/registration
    ```
@@ -59,7 +58,7 @@ Use the following procedure to install and register SSM Agent on an Azure Window
 **Note**  
 The following command uses the `windows_amd64` binary. If your Azure VM uses an ARM64 processor, replace `windows_amd64` with `windows_arm64`.
 
-   ```
+   ```powershell
    [System.Net.ServicePointManager]::SecurityProtocol = 'TLS12'
    $code = "{{activation-code}}"
    $id = "{{activation-id}}"
@@ -105,7 +104,7 @@ aws ssm describe-instance-information \
 
 The response includes the managed node ID (prefixed with `mi-`) and the populated metadata fields such as `ComputerName`, `SourceId`, and `SourceType`:
 
-```
+```json
 {
     "InstanceInformationList": [
         {

@@ -1,7 +1,6 @@
 
 
 # Assigning custom inventory metadata to a managed node
-<a name="inventory-custom-metadata"></a>
 
 The following procedure walks you through the process of using the AWS Systems Manager [PutInventory](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutInventory.html) API operation to assign custom inventory metadata to a managed node. This example assigns rack location information to a node. For more information about custom inventory, see [Working with custom inventory](inventory-custom.md).
 

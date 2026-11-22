@@ -1,7 +1,6 @@
 
 
 # Create the service roles for Automation using the console
-<a name="automation-setup-iam"></a>
 
 If you need to create a service role for Automation complete the following tasks. For more information about when a service role is required for Automation, see [Setting up Automation](automation-setup.md).
 
@@ -51,7 +50,7 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -122,7 +121,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -147,7 +146,7 @@ If you run an automation that invokes other AWS services by using an IAM service
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[

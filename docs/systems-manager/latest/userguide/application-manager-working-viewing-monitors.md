@@ -1,7 +1,6 @@
 
 
 # Using CloudWatch Application Insights to monitor an application
-<a name="application-manager-working-viewing-monitors"></a>
 
 In Application Manager, a component of AWS Systems Manager, the **Monitoring** tab displays Amazon CloudWatch Application Insights and alarm details for resources in an application.
 

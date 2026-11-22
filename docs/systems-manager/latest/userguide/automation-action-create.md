@@ -1,7 +1,6 @@
 
 
 # `aws:createImage` – Create an Amazon Machine Image
-<a name="automation-action-create"></a>
 
 Creates an Amazon Machine Image (AMI) from an instance that is either running, stopping, or stopped, and polls for the `ImageState` to be `available`.
 
@@ -14,7 +13,7 @@ This action supports the following `CreateImage` parameters. For more informatio
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: createMyImage
 action: aws:createImage
 maxAttempts: 3
@@ -29,7 +28,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "createMyImage",
     "action": "aws:createImage",

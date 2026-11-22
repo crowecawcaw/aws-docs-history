@@ -1,12 +1,11 @@
 
 
 # Authoring Automation runbooks
-<a name="automation-authoring-runbooks"></a>
 
 Each runbook in Automation defines an automation. Automation runbooks define the actions that are performed during an automation. In the runbook content, you define the input parameters, outputs, and actions that Systems Manager performs on your managed instances and AWS resources. 
 
 This section includes the following topics.
-+ [Creating input parameters that populate AWS resources](populating-input-parameters.md)
++ [Creating input parameters that populate resources](populating-input-parameters.md)
 + [Deploy VPC architecture and Microsoft Active Directory domain controllers](automation-document-architecture-deployment-example.md)
 + [Restore a root volume from the latest snapshot](automation-document-instance-recovery-example.md)
 + [Create an AMI and cross-Region copy](automation-document-backup-maintenance-example.md)

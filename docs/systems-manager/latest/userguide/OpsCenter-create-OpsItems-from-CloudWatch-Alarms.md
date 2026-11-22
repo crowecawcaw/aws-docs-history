@@ -1,7 +1,6 @@
 
 
 # Configure CloudWatch alarms to create OpsItems
-<a name="OpsCenter-create-OpsItems-from-CloudWatch-Alarms"></a>
 
 During the integrated setup of OpsCenter, you enable Amazon CloudWatch to automatically create OpsItems based on common alarms. You can create an alarm or edit an existing alarm to create OpsItems in OpsCenter. 
 

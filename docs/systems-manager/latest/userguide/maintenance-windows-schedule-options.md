@@ -1,7 +1,6 @@
 
 
 # Maintenance window scheduling and active period options
-<a name="maintenance-windows-schedule-options"></a>
 
 When you create a maintenance window, you must specify how often the maintenance window runs by using a [Cron or rate expression](reference-cron-and-rate-expressions.md). Optionally, you can specify a date range during which the maintenance window can run on its regular schedule and a time zone on which to base that regular schedule. 
 
@@ -30,7 +29,7 @@ For example:
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm create-maintenance-window \
     --name "My-LAX-Maintenance-Window" \
     --allow-unassociated-targets \
@@ -44,7 +43,7 @@ aws ssm create-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm create-maintenance-window ^
     --name "My-LAX-Maintenance-Window" ^
     --allow-unassociated-targets ^
@@ -73,7 +72,7 @@ For example:
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm create-maintenance-window \
     --name "My-NRT-Maintenance-Window" \
     --allow-unassociated-targets \
@@ -88,7 +87,7 @@ aws ssm create-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm create-maintenance-window ^
     --name "My-NRT-Maintenance-Window" ^
     --allow-unassociated-targets ^
@@ -115,7 +114,7 @@ For example:
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm create-maintenance-window \
     --name "My-One-Time-Maintenance-Window" \
     --schedule "at(2020-07-07T15:55:00)" \
@@ -127,7 +126,7 @@ aws ssm create-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm create-maintenance-window ^
     --name "My-One-Time-Maintenance-Window" ^
     --schedule "at(2020-07-07T15:55:00)" ^
@@ -154,7 +153,7 @@ For example:
 ------
 #### [ Linux & macOS ]
 
-```
+```sh
 aws ssm create-maintenance-window \
     --name "My-Cron-Offset-Maintenance-Window" \
     --schedule "cron(0 30 23 ? * TUE#3 *)" \
@@ -167,7 +166,7 @@ aws ssm create-maintenance-window \
 ------
 #### [ Windows ]
 
-```
+```sh
 aws ssm create-maintenance-window ^
     --name "My-Cron-Offset-Maintenance-Window" ^
     --schedule "cron(0 30 23 ? * TUE#3 *)" ^

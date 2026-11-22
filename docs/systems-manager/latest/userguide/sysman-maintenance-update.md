@@ -1,7 +1,6 @@
 
 
 # Update or delete maintenance window resources using the console
-<a name="sysman-maintenance-update"></a>
 
 You can update or delete a maintenance window in Maintenance Windows. You can also update or delete the targets or tasks of a maintenance window. If you edit the details of a maintenance window, you can change the schedule, targets, and tasks. You can also specify names and descriptions for windows, targets, and tasks, which helps you better understand their purpose, and makes it easier to manage your queue of windows.
 

@@ -1,7 +1,6 @@
 
 
 # Create the IAM service role required for Systems Manager in hybrid and multicloud environments
-<a name="hybrid-multicloud-service-role"></a>
 
 Non-EC2 (Amazon Elastic Compute Cloud) machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment require an AWS Identity and Access Management (IAM) service role to communicate with the AWS Systems Manager service. The role grants AWS Security Token Service (AWS STS) [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service. You only need to create a service role for a hybrid and multicloud environment once for each AWS account. However, you might choose to create multiple service roles for different hybrid activations if machines in your hybrid and multicloud environment require different permissions.
 
@@ -78,7 +77,7 @@ If either of the following cases are true, you must create a custom IAM permissi
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -109,7 +108,7 @@ If either of the following cases are true, you must create a custom IAM permissi
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam create-role \
        --role-name SSMServiceRole \
        --assume-role-policy-document file://SSMService-Trust.json
@@ -118,7 +117,7 @@ If either of the following cases are true, you must create a custom IAM permissi
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam create-role ^
        --role-name SSMServiceRole ^
        --assume-role-policy-document file://SSMService-Trust.json
@@ -135,7 +134,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -144,7 +143,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name SSMServiceRole ^
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -157,7 +156,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::{{account-id}}:policy/{{amzn-s3-demo-bucket}}
@@ -166,7 +165,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name SSMServiceRole ^
        --policy-arn arn:aws:iam::{{account-id}}:policy/{{amzn-s3-demo-bucket}}
@@ -179,7 +178,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -188,7 +187,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name SSMServiceRole ^
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -198,7 +197,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
    (Optional) Run the following command to allow the CloudWatch agent to run on your managed nodes. This command makes it possible to read information on a node and write it to CloudWatch. Your service profile needs this policy only if you use services such as Amazon EventBridge or Amazon CloudWatch Logs.
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name SSMServiceRole \
        --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
@@ -220,7 +219,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -248,7 +247,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
 1. Open PowerShell in administrative mode, and in the directory where you created the JSON file, run [New-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role. This example creates a role named `SSMServiceRole`. You can choose another name if you prefer.
 
-   ```
+   ```ps
    New-IAMRole `
        -RoleName SSMServiceRole `
        -AssumeRolePolicyDocument (Get-Content -raw SSMService-Trust.json)
@@ -260,7 +259,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
    (Required) Run the following command to allow a managed node to use AWS Systems Manager service core functionality.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName SSMServiceRole `
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -268,7 +267,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
    If you created a custom S3 bucket policy for your service role, run the following command to allow SSM Agent to access the buckets you specified in the policy. Replace {{account-id}} and {{my-bucket-policy-name}} with your AWS account ID and your bucket name. 
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName SSMServiceRole `
        -PolicyArn arn:aws:iam::{{account-id}}:policy/{{my-bucket-policy-name}}
@@ -276,7 +275,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
    (Optional) Run the following command to allow SSM Agent to access Directory Service on your behalf for requests to join the domain by the managed node. Your server role needs this policy only if you join your nodes to a Microsoft AD directory.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName SSMServiceRole `
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -284,7 +283,7 @@ The policies you add for a service profile for managed nodes in a hybrid and mul
 
    (Optional) Run the following command to allow the CloudWatch agent to run on your managed nodes. This command makes it possible to read information on a node and write it to CloudWatch. Your service profile needs this policy only if you use services such as Amazon EventBridge or Amazon CloudWatch Logs.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName SSMServiceRole `
        -PolicyArn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy

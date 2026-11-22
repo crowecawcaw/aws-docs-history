@@ -1,7 +1,6 @@
 
 
 # Update a Linux AMI
-<a name="automation-tutorial-update-patch-linux-ami"></a>
 
 This Systems Manager Automation walkthrough shows you how to use the console or AWS CLI and the `AWS-UpdateLinuxAmi` runbook to update a Linux AMI with the latest patches of packages that you specify. Automation is a tool in AWS Systems Manager. The `AWS-UpdateLinuxAmi` runbook also automates the installation of additional site-specific packages and configurations. You can update a variety of Linux distributions using this walkthrough, including Ubuntu Server, Red Hat Enterprise Linux (RHEL), or Amazon Linux AMIs. For a full list of supported Linux versions, see [Patch Manager prerequisites](patch-manager-prerequisites.md).
 

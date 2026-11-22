@@ -1,7 +1,6 @@
 
 
 # Example 1: Creating parent-child runbooks
-<a name="automation-authoring-runbooks-parent-child-example"></a>
 
 The following example demonstrates how to create two runbooks that patch tagged groups of Amazon Elastic Compute Cloud (Amazon EC2) instances in stages. These runbooks are used in a parent-child relationship with the parent runbook used to initiate a rate control automation of the child runbook. For more information about rate control automations, see [Run automated operations at scale](running-automations-scale.md). For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md).
 
@@ -23,7 +22,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    schemaVersion: '0.3'
    description: 'An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.'
    assumeRole: '{{AutomationAssumeRole}}'
@@ -62,7 +61,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "schemaVersion":"0.3",
       "description":"An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.",
@@ -111,7 +110,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    mainSteps:
      - name: getInstanceState
        action: 'aws:executeAwsApi'
@@ -132,7 +131,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    "mainSteps":[
          {
             "name":"getInstanceState",
@@ -170,7 +169,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    - name: branchOnInstanceState
        action: 'aws:branch'
        onFailure: Abort
@@ -236,7 +235,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
             "name":"branchOnInstanceState",
             "action":"aws:branch",
@@ -339,7 +338,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    - name: branchOnOriginalInstanceState
        action: 'aws:branch'
        onFailure: Abort
@@ -363,7 +362,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
             "name":"branchOnOriginalInstanceState",
             "action":"aws:branch",
@@ -404,7 +403,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    schemaVersion: '0.3'
    description: 'An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.'
    assumeRole: '{{AutomationAssumeRole}}'
@@ -537,7 +536,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "schemaVersion":"0.3",
       "description":"An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.",
@@ -740,7 +739,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    description: 'An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.'
    schemaVersion: '0.3'
    assumeRole: '{{AutomationAssumeRole}}'
@@ -766,7 +765,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "schemaVersion": "0.3",
       "description": "An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.",
@@ -808,7 +807,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    mainSteps:
      - name: patchPrimaryTargets
        action: 'aws:executeAutomation'
@@ -837,7 +836,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    "mainSteps":[
          {
             "name":"patchPrimaryTargets",
@@ -886,7 +885,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ YAML ]
 
-   ```
+   ```yaml
    description: An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.
    schemaVersion: '0.3'
    assumeRole: '{{AutomationAssumeRole}}'
@@ -935,7 +934,7 @@ This example runbook continues the scenario described in the previous section. N
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "description":"An example of an Automation runbook that patches groups of Amazon EC2 instances in stages.",
       "schemaVersion":"0.3",

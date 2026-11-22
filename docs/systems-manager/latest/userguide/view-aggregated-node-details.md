@@ -1,9 +1,8 @@
 
 
 # Exploring nodes
-<a name="view-aggregated-node-details"></a>
 
-You can use the **Explore nodes** page in Systems Manager to review details of managed nodes in your organization or account according to the criteria you specify in filters. You can also use Systems Manager integration with Amazon Q Developer (Amazon Q), an AWS generative AI solution, to search using text prompts.
+You can use the **Explore nodes** page in Systems Manager to review details of managed nodes in your organization or account according to the criteria you specify in filters. You can also use Systems Manager integration with the AWS assistant, an AWS generative AI solution, to search using text prompts.
 
 **Before you begin**  
 To use the **Explore nodes** feature, you must first onboard your organization or account to the unified Systems Manager console. For more information, see [Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md).
@@ -15,7 +14,7 @@ If you've created an aggregator index for Resource Explorer in a Region differen
 
 **Topics**
 + [Exploring nodes using console filters](view-aggregated-node-details-console.md)
-+ [Exploring nodes using text prompts in Amazon Q](view-aggregated-node-details-Q.md)
++ [Exploring nodes using text prompts in AWS assistant](view-aggregated-node-details-Q.md)
 + [Viewing individual node details and taking action on a node](node-detail-actions.md)
 + [Downloading or exporting a managed node report](explore-nodes-download-report.md)
 + [Managing node report content and appearance](explore-nodes-manage-report-display.md)

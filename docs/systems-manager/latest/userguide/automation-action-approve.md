@@ -1,7 +1,6 @@
 
 
 # `aws:approve` – Pause an automation for manual approval
-<a name="automation-action-approve"></a>
 
 Temporarily pauses an automation until designated principals either approve or reject the action. After the required number of approvals is reached, the automation resumes. You can insert the approval step any place in the `mainSteps` section of your runbook. 
 
@@ -13,7 +12,7 @@ In the following example, the `aws:approve` action temporarily pauses the automa
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 description: RunInstancesDemo1
 schemaVersion: '0.3'
@@ -48,7 +47,7 @@ mainSteps:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "description":"RunInstancesDemo1",
    "schemaVersion":"0.3",
@@ -119,7 +118,7 @@ You can approve or deny Automations that are waiting for approval in the console
 ------
 #### [ YAML ]
 
-```
+```yaml
 NotificationArn: arn:aws:sns:us-west-1:12345678901:Automation-ApprovalRequest
 Message: Please approve this step of the Automation.
 MinRequiredApprovals: 3
@@ -133,7 +132,7 @@ Approvers:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "NotificationArn":"arn:aws:sns:us-west-1:12345678901:Automation-ApprovalRequest",
    "Message":"Please approve this step of the Automation.",
@@ -176,7 +175,7 @@ Required: Yes
 EnhancedApprovals  
 This input is only used for Change Manager templates. A list of AWS authenticated principals who can either approve or reject the action, the type of IAM principal, and the minimum number of approvers. The following is an example:  
 
-```
+```yaml
 schemaVersion: "0.3"
 emergencyChange: false
 autoApprovable: false

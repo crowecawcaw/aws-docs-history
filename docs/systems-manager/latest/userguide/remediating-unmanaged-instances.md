@@ -1,7 +1,6 @@
 
 
 # Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager
-<a name="remediating-unmanaged-instances"></a>
 
 To help you manage your Amazon Elastic Compute Cloud (Amazon EC2) instances with Systems Manager, you can use the unified Systems Manager console to do the following:
 

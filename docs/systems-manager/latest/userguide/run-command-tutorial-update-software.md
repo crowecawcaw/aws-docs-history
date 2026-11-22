@@ -1,7 +1,6 @@
 
 
 # Updating software using Run Command
-<a name="run-command-tutorial-update-software"></a>
 
 The following procedures describe how to update software on your managed nodes.
 
@@ -75,7 +74,7 @@ The following procedure describes how to update PowerShell to version 5.1 on you
 ------
 #### [ Windows Server 2012 R2 ]
 
-   ```
+   ```ps
    Set-Location -Path "C:\Windows\Temp"
    
    Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=839516" -OutFile "Win8.1AndW2K12R2-KB3191564-x64.msu"
@@ -86,7 +85,7 @@ The following procedure describes how to update PowerShell to version 5.1 on you
 ------
 #### [ Windows Server 2012 ]
 
-   ```
+   ```ps
    Set-Location -Path "C:\Windows\Temp"
    
    Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=839513" -OutFile "W2K12-KB3191565-x64.msu"

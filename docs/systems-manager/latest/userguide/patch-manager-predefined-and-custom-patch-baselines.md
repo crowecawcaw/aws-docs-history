@@ -1,7 +1,6 @@
 
 
 # Predefined and custom patch baselines
-<a name="patch-manager-predefined-and-custom-patch-baselines"></a>
 
 Patch Manager provides predefined patch baselines for each of the operating systems supported by Patch Manager. You can use these baselines as they are currently configured (you can't customize them) or you can create your own custom patch baselines. Custom patch baselines allows you greater control over which patches are approved or rejected for your environment. Also, the predefined baselines assign a compliance level of `Unspecified` to all patches installed using those baselines. For compliance values to be assigned, you can create a copy of a predefined baseline and specify the compliance values you want to assign to patches. For more information, see [Custom baselines](#patch-manager-baselines-custom) and [Working with custom patch baselines](patch-manager-manage-patch-baselines.md).
 

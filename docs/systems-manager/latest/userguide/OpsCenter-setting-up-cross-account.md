@@ -1,7 +1,6 @@
 
 
 # (Optional) Setting up OpsCenter to centrally manage OpsItems across accounts
-<a name="OpsCenter-setting-up-cross-account"></a>
 
 You can use Systems Manager OpsCenter to centrally manage OpsItems across multiple AWS accounts in a selected AWS Region. This feature is available after you set up your organization in AWS Organizations. AWS Organizations is an account management service that lets you consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations includes account management and consolidated billing capabilities that enable you to better meet the budgetary, security, and compliance needs of your business. For more information, see [What is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide*
 

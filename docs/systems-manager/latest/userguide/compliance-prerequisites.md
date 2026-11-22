@@ -1,7 +1,6 @@
 
 
 # Getting started with Compliance
-<a name="compliance-prerequisites"></a>
 
 To get started with Compliance, complete the following tasks.
 

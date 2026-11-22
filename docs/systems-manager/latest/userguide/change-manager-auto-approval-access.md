@@ -1,7 +1,6 @@
 
 
 # Controlling access to auto-approval runbook workflows
-<a name="change-manager-auto-approval-access"></a>
 
 **Change Manager availability change**  
 AWS Systems Manager Change Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html). 
@@ -17,7 +16,7 @@ You can add the following policy as an inline policy, where the condition is spe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

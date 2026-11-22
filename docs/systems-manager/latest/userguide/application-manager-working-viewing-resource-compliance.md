@@ -1,7 +1,6 @@
 
 
 # Managing your application compliance
-<a name="application-manager-working-viewing-resource-compliance"></a>
 
 In Application Manager, a component of AWS Systems Manager, the **Configurations** page displays [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/) resource and configuration rule compliance information. This page also displays AWS Systems Manager [State Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html) association compliance information. You can choose a resource, a rule, or an association to open the corresponding console for more information. This page displays compliance information from the last 90 days.
 

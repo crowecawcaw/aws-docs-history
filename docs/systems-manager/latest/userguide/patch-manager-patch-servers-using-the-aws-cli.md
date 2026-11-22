@@ -1,7 +1,6 @@
 
 
 # Tutorial: Patch a server environment using the AWS CLI
-<a name="patch-manager-patch-servers-using-the-aws-cli"></a>
 
 The following procedure describes how to patch a server environment by using a custom patch baseline, patch groups, and a maintenance window.
 
@@ -21,7 +20,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm create-patch-baseline \
        --name "Production-Baseline" \
        --operating-system "WINDOWS" \
@@ -33,7 +32,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm create-patch-baseline ^
        --name "Production-Baseline" ^
        --operating-system "WINDOWS" ^
@@ -57,7 +56,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-patch-baseline-for-patch-group \
        --baseline-id pb-0c10e65780EXAMPLE \
        --patch-group "Database Servers"
@@ -66,7 +65,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-patch-baseline-for-patch-group ^
        --baseline-id pb-0c10e65780EXAMPLE ^
        --patch-group "Database Servers"
@@ -86,7 +85,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-patch-baseline-for-patch-group \
        --baseline-id pb-0c10e65780EXAMPLE \
        --patch-group "Front-End Servers"
@@ -95,7 +94,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-patch-baseline-for-patch-group ^
        --baseline-id pb-0c10e65780EXAMPLE ^
        --patch-group "Front-End Servers"
@@ -117,7 +116,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window \
        --name "Production-Tuesdays" \
        --tags "Key=Environment,Value=Production" \
@@ -130,7 +129,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window ^
        --name "Production-Tuesdays" ^
        --tags "Key=Environment,Value=Production" ^
@@ -153,7 +152,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window \
        --name "Production-Saturdays" \
        --tags "Key=Environment,Value=Production" \
@@ -166,7 +165,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm create-maintenance-window ^
        --name "Production-Saturdays" ^
        --tags "Key=Environment,Value=Production" ^
@@ -191,7 +190,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window \
        --window-id mw-0c50858d01EXAMPLE \
        --targets "Key=tag:PatchGroup,Values=Database Servers" \
@@ -202,7 +201,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window ^
        --window-id mw-0c50858d01EXAMPLE ^
        --targets "Key=tag:PatchGroup,Values=Database Servers" ^
@@ -223,7 +222,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window \
    --window-id mw-9a8b7c6d5eEXAMPLE \
    --targets "Key=tag:PatchGroup,Values=Front-End Servers" \
@@ -234,7 +233,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window ^
        --window-id mw-9a8b7c6d5eEXAMPLE ^
        --targets "Key=tag:PatchGroup,Values=Front-End Servers" ^
@@ -257,7 +256,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window \
        --window-id mw-0c50858d01EXAMPLE \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
@@ -273,7 +272,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window ^
        --window-id mw-0c50858d01EXAMPLE ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
@@ -299,7 +298,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window \
        --window-id mw-9a8b7c6d5eEXAMPLE \
        --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" \
@@ -315,7 +314,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm register-task-with-maintenance-window ^
        --window-id mw-9a8b7c6d5eEXAMPLE ^
        --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" ^
@@ -345,7 +344,7 @@ It's expected to see zeroes for the number of managed nodes in the summary until
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-patch-group-state \
        --patch-group "Database Servers"
    ```
@@ -353,7 +352,7 @@ It's expected to see zeroes for the number of managed nodes in the summary until
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm describe-patch-group-state ^
        --patch-group "Database Servers"
    ```
@@ -381,7 +380,7 @@ It's expected to see zeroes for the number of managed nodes in the summary until
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-instance-patch-states-for-patch-group \
        --patch-group "Database Servers"
    ```
@@ -389,7 +388,7 @@ It's expected to see zeroes for the number of managed nodes in the summary until
 ------
 #### [ Windows Server ]
 
-   ```
+   ```sh
    aws ssm describe-instance-patch-states-for-patch-group ^
        --patch-group "Database Servers"
    ```

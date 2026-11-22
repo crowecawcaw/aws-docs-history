@@ -1,7 +1,6 @@
 
 
 # Adjusting how long the Session Manager temporary log file is stored on disk
-<a name="session-manager-logging-disk-retention"></a>
 
 After you enable Session Manager logging to CloudWatch or Amazon S3, all commands executed during a session (and the resulting output from those commands) are logged to a temporary file on the disk of the target instance. The temporary file is named `ipcTempFile.log`. During a session, or after it is completed, Session Manager uploads this temporary log to either CloudWatch or S3. The temporary log is then deleted according to the duration specified for the SSM Agent `SessionLogsRetentionDurationHours` configuration parameter. By default, the temporary log file is saved on the instance for 14 days in the following location:
 + **Linux**: /var/lib/amazon/ssm/{{target ID}}/session/orchestration/{{session ID}}/Standard\_Stream/ipcTempFile.log

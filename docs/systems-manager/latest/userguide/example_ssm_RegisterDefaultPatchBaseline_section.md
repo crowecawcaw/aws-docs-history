@@ -1,7 +1,6 @@
 
 
 # Use `RegisterDefaultPatchBaseline` with a CLI
-<a name="example_ssm_RegisterDefaultPatchBaseline_section"></a>
 
 The following code examples show how to use `RegisterDefaultPatchBaseline`.
 
@@ -45,7 +44,7 @@ For more information, see [About Predefined and Custom Patch Baselines](https://
 **Tools for PowerShell V4**  
 **Example 1: This example registers a patch baseline as the default patch baseline.**  
 
-```
+```powershell
 Register-SSMDefaultPatchBaseline -BaselineId "pb-03da896ca3b68b639"
 ```
 **Output:**  
@@ -58,7 +57,7 @@ pb-03da896ca3b68b639
 **Tools for PowerShell V5**  
 **Example 1: This example registers a patch baseline as the default patch baseline.**  
 
-```
+```powershell
 Register-SSMDefaultPatchBaseline -BaselineId "pb-03da896ca3b68b639"
 ```
 **Output:**  

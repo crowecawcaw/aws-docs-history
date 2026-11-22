@@ -1,7 +1,6 @@
 
 
 # Configure instance permissions required for Systems Manager
-<a name="setup-instance-permissions"></a>
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances. You can provide instance permissions at the account level using an AWS Identity and Access Management (IAM) role, or at the instance level using an instance profile. If your use case allows, we recommend granting access at the account level using the Default Host Management Configuration.
 
@@ -36,7 +35,7 @@ You can turn on the Default Host Management Configuration from the Fleet Manager
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ For information about the AWS managed S3 buckets you provide access to in the fo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

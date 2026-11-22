@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Session Manager
-<a name="session-manager-troubleshooting"></a>
 
 Use the following information to help you troubleshoot problems with AWS Systems Manager Session Manager.
 
@@ -242,7 +241,7 @@ During a port forwarding session, traffic might stop forwarding if you have anti
   Check the following, starting from the VPC and working outward:
   + **VPC endpoints**: If the node reaches Systems Manager through [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html) instead of a NAT gateway or an internet gateway, check the VPC endpoints. Verify that the required interface endpoints exist in the VPC. Confirm that their security groups allow inbound HTTPS (port 443) from the node's private IP. SSM Agent needs `com.amazonaws.{{region}}.ssm` and `com.amazonaws.{{region}}.ssmmessages`. SSM Agent versions earlier than 3.3.40.0 also need `com.amazonaws.{{region}}.ec2messages`. Version 3.3.40.0 and later use `ssmmessages` instead whenever it's available, and some newer AWS Regions don't offer an `ec2messages` endpoint. To list the endpoints in the node's VPC, run the following AWS CLI command:
 
-    ```
+    ```sh
     aws ec2 describe-vpc-endpoints \
         --filters Name=vpc-id,Values={{vpc-id}} \
         --query "VpcEndpoints[].ServiceName"
@@ -251,7 +250,7 @@ During a port forwarding session, traffic might stop forwarding if you have anti
     Replace {{vpc-id}} with the ID of the node's VPC. The output lists the service names of every endpoint in that VPC. Confirm that an endpoint ending in `.ssm` and one ending in `.ssmmessages` are present (plus one ending in `.ec2messages` for agent versions earlier than 3.3.40.0). Create any that are missing. For instructions on setting up the required interface endpoints, see [Step 6: (Optional) Use AWS PrivateLink to set up a VPC endpoint for Session Manager](session-manager-getting-started-privatelink.md).
   + **VPC Block Public Access (BPA)**: If the node reaches Systems Manager through an internet gateway, check whether VPC BPA blocks its traffic. When VPC BPA is enabled in either `block-ingress` or `block-bidirectional` mode, a node that reaches the public Systems Manager endpoints through an internet gateway can no longer connect, and goes offline. To check whether VPC BPA is on in the AWS Region, run the following AWS CLI command:
 
-    ```
+    ```sh
     aws ec2 describe-vpc-block-public-access-options \
         --region {{region}}
     ```
@@ -260,7 +259,7 @@ During a port forwarding session, traffic might stop forwarding if you have anti
     + `block-ingress`: Route the node's traffic through a NAT gateway, or use interface VPC endpoints for Systems Manager (as described in the previous bullet).
     + `block-bidirectional`: VPC BPA also blocks traffic through NAT gateways in this mode. Use interface VPC endpoints for Systems Manager, or create a VPC BPA exclusion for the node's subnet or VPC. To allow outbound traffic only, create the exclusion in `allow-egress` mode:
 
-      ```
+      ```sh
       aws ec2 create-vpc-block-public-access-exclusion \
           --subnet-id {{subnet-id}} \
           --internet-gateway-exclusion-mode allow-egress \

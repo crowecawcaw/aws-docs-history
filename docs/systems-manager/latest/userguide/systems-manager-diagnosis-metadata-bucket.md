@@ -1,7 +1,6 @@
 
 
 # Working with Amazon S3 buckets and bucket policies for Systems Manager
-<a name="systems-manager-diagnosis-metadata-bucket"></a>
 
 During the [onboarding process](systems-manager-setting-up-console.md) for AWS Systems Manager, Quick Setup creates an Amazon Simple Storage Service (Amazon S3) bucket in the delegated administrator account for organization setups. For single-account setups, the bucket is stored in the account being set up. 
 

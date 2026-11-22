@@ -1,7 +1,6 @@
 
 
 # Install or update Distributor packages
-<a name="distributor-working-with-packages-deploy"></a>
 
 You can deploy packages to your AWS Systems Manager managed nodes by using Distributor, a tool in AWS Systems Manager. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface (AWS CLI). You can deploy one version of one package per command. You can install new packages or update existing installations in place. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment. We recommend using State Manager to install packages. Using State Manager helps make sure that your managed nodes are always running the most up-to-date version of your package.
 
@@ -137,7 +136,7 @@ You can run **send-command** in the AWS CLI to install a Distributor package one
 **To install a package one time using the AWS CLI**
 + Run the following command in the AWS CLI.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "{{instance-IDs}}" \
@@ -148,7 +147,7 @@ The default behavior for `installationType` is `Uninstall and reinstall`. You ca
 
   The following is an example.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "i-00000000000000" \
@@ -165,7 +164,7 @@ You can run **send-command** in the AWS CLI to update a Distributor package with
 **To update a package one time using the AWS CLI**
 + Run the following command in the AWS CLI.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "{{instance-IDs}}" \
@@ -176,7 +175,7 @@ When you add new or changed files, you must include `"installationType":["In-pla
 
   The following is an example.
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureAWSPackage" \
       --instance-ids "i-02573cafcfEXAMPLE" \
@@ -190,7 +189,7 @@ For information about other options you can use with the **send-command** comman
 
 You can run **create-association** in the AWS CLI to install a Distributor package on a schedule. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`. The following command uses the key `InstanceIds` to specify target managed nodes. If the package is already installed, the application will be taken offline while the package is uninstalled and the new version installed in its place.
 
-```
+```sh
 aws ssm create-association \
     --name "AWS-ConfigureAWSPackage" \
     --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["{{package-name (in same account) or package-ARN (shared from different account)}}"]}' \
@@ -202,7 +201,7 @@ The default behavior for `installationType` is `Uninstall and reinstall`. You ca
 
 The following is an example.
 
-```
+```sh
 aws ssm create-association \
     --name "AWS-ConfigureAWSPackage" \
     --parameters '{"action":["Install"],"installationType":["Uninstall and reinstall"],"name":["Test-ConfigureAWSPackage"]}' \
@@ -216,7 +215,7 @@ For information about other options you can use with the **create-association** 
 
 You can run **create-association** in the AWS CLI to update a Distributor package on a schedule without taking the associated application offline. Only new or updated files in the package are replaced. The value of `--name`, the document name, is always `AWS-ConfigureAWSPackage`. The following command uses the key `InstanceIds` to specify target instances.
 
-```
+```sh
 aws ssm create-association \
     --name "AWS-ConfigureAWSPackage" \
     --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["{{package-name (in same account) or package-ARN (shared from different account)}}"]}' \
@@ -228,7 +227,7 @@ When you add new or changed files, you must include `"installationType":["In-pla
 
 The following is an example.
 
-```
+```sh
 aws ssm create-association \
     --name "AWS-ConfigureAWSPackage" \
     --parameters '{"action":["Install"],"installationType":["In-place update"],"name":["Test-ConfigureAWSPackage"]}' \

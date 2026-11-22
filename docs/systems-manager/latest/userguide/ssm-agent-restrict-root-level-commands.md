@@ -1,7 +1,6 @@
 
 
 # Restricting access to root-level commands through SSM Agent
-<a name="ssm-agent-restrict-root-level-commands"></a>
 
 AWS Systems Manager Agent (SSM Agent) runs on Amazon Elastic Compute Cloud (Amazon EC2) instances and other machine types in [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environments using root permissions (Linux) or SYSTEM permissions (Windows Server). Because these are the highest level of system access permissions, any trusted entity that has been granted permission to send commands to SSM Agent has root or SYSTEM permissions. (In AWS, a trusted entity that can perform actions and access resources in AWS is called a *principal*. A principal can be an AWS account root user, user, or a role.)
 

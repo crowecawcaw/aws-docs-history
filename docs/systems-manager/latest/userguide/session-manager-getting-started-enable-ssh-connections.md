@@ -1,7 +1,6 @@
 
 
 # Step 8: (Optional) Allow and control permissions for SSH connections through Session Manager
-<a name="session-manager-getting-started-enable-ssh-connections"></a>
 
 You can allow users in your AWS account to use the AWS Command Line Interface (AWS CLI) to establish Secure Shell (SSH) connections to managed nodes using AWS Systems Manager Session Manager. Users who connect using SSH can also copy files between their local machines and managed nodes using Secure Copy Protocol (SCP). You can use this functionality to connect to managed nodes without opening inbound ports or maintaining bastion hosts.
 
@@ -66,7 +65,7 @@ The SSH configuration file is typically located at `C:\Users\{{<username>}}\.ssh
      ```
    + Create or verify that you have a Privacy Enhanced Mail certificate (a PEM file), or at minimum a public key, to use when establishing connections to managed nodes. This must be a key that is already associated with the managed node. The permissions of your private key file must be set so that only you can read it. You can use the following command to set the permissions of your private key file so that only you can read it.
 
-     ```
+     ```sh
      chmod 400 {{<my-key-pair>}}.pem
      ```
 
@@ -90,7 +89,7 @@ After you enable SSH connections through Session Manager on a managed node, you 
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -134,7 +133,7 @@ After you enable SSH connections through Session Manager on a managed node, you 
 
 ****  
 
-    ```
+    ```json
     {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

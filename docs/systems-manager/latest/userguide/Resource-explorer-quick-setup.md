@@ -1,7 +1,6 @@
 
 
 # Configure AWS Resource Explorer using Quick Setup
-<a name="Resource-explorer-quick-setup"></a>
 
 With Quick Setup, you can quickly configure AWS Resource Explorer to search and discover resources in your AWS account or across an entire AWS organization. You can search for your resources using metadata like names, tags, and IDs. AWS Resource Explorer provides fast responses to your search queries by using *indexes*. Resource Explorer creates and maintains indexes using a variety of data sources to gather information about resources in your AWS account. 
 

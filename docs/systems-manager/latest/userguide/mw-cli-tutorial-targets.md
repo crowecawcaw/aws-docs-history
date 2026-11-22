@@ -1,7 +1,6 @@
 
 
 # Step 2: Register a target node with the maintenance window using the AWS CLI
-<a name="mw-cli-tutorial-targets"></a>
 
 In this step, you register a target with your new maintenance window. In this case, you specify which node to update when the maintenance window runs. 
 
@@ -17,7 +16,7 @@ You should already have created an Amazon Elastic Compute Cloud (Amazon EC2) ins
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window \
        --window-id "{{mw-0c50858d01EXAMPLE}}" \
        --resource-type "INSTANCE" \
@@ -27,7 +26,7 @@ You should already have created an Amazon Elastic Compute Cloud (Amazon EC2) ins
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm register-target-with-maintenance-window ^
        --window-id "{{mw-0c50858d01EXAMPLE}}" ^
        --resource-type "INSTANCE" ^
@@ -49,7 +48,7 @@ You should already have created an Amazon Elastic Compute Cloud (Amazon EC2) ins
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-targets \
        --window-id "{{mw-0c50858d01EXAMPLE}}"
    ```
@@ -57,7 +56,7 @@ You should already have created an Amazon Elastic Compute Cloud (Amazon EC2) ins
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm describe-maintenance-window-targets ^
        --window-id "{{mw-0c50858d01EXAMPLE}}"
    ```

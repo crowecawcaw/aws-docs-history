@@ -1,7 +1,6 @@
 
 
 # Using the AWS CLI to configure inventory data collection
-<a name="inventory-collection-cli"></a>
 
 The following procedures walk you through the process of configuring AWS Systems Manager Inventory to collect metadata from your managed nodes. When you configure inventory collection, you start by creating a Systems Manager State Manager association. Systems Manager collects the inventory data when the association is run. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, Systems Manager Run Command, the system returns the following error:
 
@@ -26,7 +25,7 @@ You can quickly configure all managed nodes in your AWS account and in the curre
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --name AWS-GatherSoftwareInventory \
    --targets Key=InstanceIds,Values=* \
@@ -37,7 +36,7 @@ You can quickly configure all managed nodes in your AWS account and in the curre
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --name AWS-GatherSoftwareInventory ^
    --targets Key=InstanceIds,Values=* ^
@@ -66,7 +65,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --name "AWS-GatherSoftwareInventory" \
    --targets "Key=instanceids,Values={{an_instance_ID}}" \
@@ -78,7 +77,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --name "AWS-GatherSoftwareInventory" ^
    --targets "Key=instanceids,Values={{an_instance_ID}}" ^
@@ -139,7 +138,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --name "AWS-GatherSoftwareInventory" \
    --targets "Key=tag:Environment,Values=Production" \
@@ -151,7 +150,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --name "AWS-GatherSoftwareInventory" ^
    --targets "Key=tag:Environment,Values=Production" ^
@@ -167,7 +166,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --name "AWS-GatherSoftwareInventory" \
    --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" \
@@ -179,7 +178,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --name "AWS-GatherSoftwareInventory" ^
    --targets "Key=instanceids,Values=i-0704358e3a3da9eb1" ^

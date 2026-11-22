@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Change Calendar
-<a name="systems-manager-change-calendar"></a>
 
 With Change Calendar, you can set up date and time ranges when actions you specify (for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks) might or might not be performed in your AWS account. In Change Calendar, these ranges are called *events*. When you create a Change Calendar entry, you're creating a [Systems Manager document](documents.md) of the type `ChangeCalendar`. In Change Calendar, the document stores [iCalendar 2.0](https://icalendar.org/) data in plaintext format. Events that you add to the Change Calendar entry become part of the document. To get started with Change Calendar, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/change-calendar). In the navigation pane, choose **Change Calendar**.
 

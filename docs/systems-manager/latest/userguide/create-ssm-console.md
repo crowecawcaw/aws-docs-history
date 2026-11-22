@@ -1,7 +1,6 @@
 
 
 # Create an SSM document
-<a name="create-ssm-console"></a>
 
 After you create the content for your custom SSM document, as described in [Writing SSM document content](documents-creating-content.md#writing-ssm-doc-content), you can use the Systems Manager console to create an SSM document using your content.
 

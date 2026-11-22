@@ -1,7 +1,6 @@
 
 
 # Use `DeleteDocument` with an AWS SDK or CLI
-<a name="example_ssm_DeleteDocument_section"></a>
 
 The following code examples show how to use `DeleteDocument`.
 
@@ -26,7 +25,7 @@ For more information, see [Creating Systems Manager Documents](https://docs.aws.
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ssm#code-examples). 
 
-```
+```java
     /**
      * Deletes an AWS SSM document asynchronously.
      *
@@ -72,7 +71,7 @@ For more information, see [Creating Systems Manager Documents](https://docs.aws.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ssm#code-examples). 
 
-```
+```javascript
 import { DeleteDocumentCommand, SSMClient } from "@aws-sdk/client-ssm";
 import { parseArgs } from "node:util";
 
@@ -103,7 +102,7 @@ export const main = async ({ documentName }) => {
 **Tools for PowerShell V4**  
 **Example 1: This example deletes a document. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMDocument -Name "RunShellScript"
 ```
 +  For API details, see [DeleteDocument](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -111,7 +110,7 @@ Remove-SSMDocument -Name "RunShellScript"
 **Tools for PowerShell V5**  
 **Example 1: This example deletes a document. There is no output if the command succeeds.**  
 
-```
+```powershell
 Remove-SSMDocument -Name "RunShellScript"
 ```
 +  For API details, see [DeleteDocument](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
@@ -122,7 +121,7 @@ Remove-SSMDocument -Name "RunShellScript"
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ssm#code-examples). 
 
-```
+```python
 class DocumentWrapper:
     """Encapsulates AWS Systems Manager Document actions."""
 
@@ -167,7 +166,7 @@ class DocumentWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ssm#code-examples). 
 
-```
+```sap-abap
     TRY.
         lo_ssm->deletedocument( iv_name = iv_name ).
         MESSAGE 'Document deleted.' TYPE 'I'.

@@ -1,7 +1,6 @@
 
 
 # Creating a patch policy
-<a name="patch-manager-create-a-patch-policy"></a>
 
 A patch policy is a configuration you set up using Quick Setup. Patch policies provide more extensive and more centralized control over your patching operations than is available with other methods of configuring patching. A patch policy defines the schedule and baseline to use when automatically patching your nodes and applications.
 

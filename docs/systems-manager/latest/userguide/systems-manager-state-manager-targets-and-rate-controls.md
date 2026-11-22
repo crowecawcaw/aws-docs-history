@@ -1,7 +1,6 @@
 
 
 # Understanding targets and rate controls in State Manager associations
-<a name="systems-manager-state-manager-targets-and-rate-controls"></a>
 
 This topic describes State Manager features that help you deploy an association to dozens or hundreds of nodes while controlling the number of nodes that run the association at the scheduled time. State Manager is a tool in AWS Systems Manager.
 

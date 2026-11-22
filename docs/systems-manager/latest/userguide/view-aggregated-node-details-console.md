@@ -1,7 +1,6 @@
 
 
 # Exploring nodes using console filters
-<a name="view-aggregated-node-details-console"></a>
 
 In the Systems Manager console, you can then group your managed nodes according to the following views:
 

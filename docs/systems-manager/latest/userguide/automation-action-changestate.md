@@ -1,7 +1,6 @@
 
 
 # `aws:changeInstanceState` – Change or assert instance state
-<a name="automation-action-changestate"></a>
 
 Changes or asserts the state of the instance.
 
@@ -18,7 +17,7 @@ The `aws:changeInstanceState` action supports automatic throttling retry. For mo
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: startMyInstance
 action: aws:changeInstanceState
 maxAttempts: 3
@@ -35,7 +34,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name":"startMyInstance",
     "action": "aws:changeInstanceState",

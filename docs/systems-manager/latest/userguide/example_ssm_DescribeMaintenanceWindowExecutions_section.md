@@ -1,7 +1,6 @@
 
 
 # Use `DescribeMaintenanceWindowExecutions` with a CLI
-<a name="example_ssm_DescribeMaintenanceWindowExecutions_section"></a>
 
 The following code examples show how to use `DescribeMaintenanceWindowExecutions`.
 
@@ -101,7 +100,7 @@ For more information, see [View information about tasks and task executions (AWS
 **Tools for PowerShell V4**  
 **Example 1: This example lists all of the executions for a maintenance window.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d"
 ```
 **Output:**  
@@ -116,13 +115,13 @@ WindowId          : mw-03eb9db42890fb82d
 ```
 **Example 2: This example lists all of the executions for a maintenance window before a specified date.**  
 
-```
+```powershell
 $option1 = @{Key="ExecutedBefore";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
 ```
 **Example 3: This example lists all of the executions for a maintenance window after a specified date.**  
 
-```
+```powershell
 $option1 = @{Key="ExecutedAfter";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
 ```
@@ -131,7 +130,7 @@ Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $
 **Tools for PowerShell V5**  
 **Example 1: This example lists all of the executions for a maintenance window.**  
 
-```
+```powershell
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d"
 ```
 **Output:**  
@@ -146,13 +145,13 @@ WindowId          : mw-03eb9db42890fb82d
 ```
 **Example 2: This example lists all of the executions for a maintenance window before a specified date.**  
 
-```
+```powershell
 $option1 = @{Key="ExecutedBefore";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
 ```
 **Example 3: This example lists all of the executions for a maintenance window after a specified date.**  
 
-```
+```powershell
 $option1 = @{Key="ExecutedAfter";Values=@("2016-11-04T05:00:00Z")}
 Get-SSMMaintenanceWindowExecutionList -WindowId "mw-03eb9db42890fb82d" -Filter $option1
 ```

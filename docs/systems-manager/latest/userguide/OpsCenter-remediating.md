@@ -1,7 +1,6 @@
 
 
 # Remediate OpsItem issues
-<a name="OpsCenter-remediating"></a>
 
 Using AWS Systems Manager Automation runbooks, you can remediate issues with AWS resources that are identified in an OpsItem. Automation uses predefined runbooks to remediate common issues with AWS resources.
 

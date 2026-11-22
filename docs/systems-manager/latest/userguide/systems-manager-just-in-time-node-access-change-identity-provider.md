@@ -1,7 +1,6 @@
 
 
 # Changing identity providers
-<a name="systems-manager-just-in-time-node-access-change-identity-provider"></a>
 
 By default, just-in-time node access uses IAM for an identity provider. After enabling just-in-time node access, customers using the unified console with an organization can modify this setting to use IAM Identity Center. Just-in-time node access doesn't support IAM Identity Center as an identity provider when set up for a single account and Region.
 

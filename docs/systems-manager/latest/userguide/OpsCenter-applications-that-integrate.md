@@ -1,7 +1,6 @@
 
 
 # Integrate OpsCenter with other AWS services
-<a name="OpsCenter-applications-that-integrate"></a>
 
 OpsCenter integrates with multiple AWS services to diagnose and remediate issues with AWS resources. You must set up the AWS service before you integrate it with OpsCenter.
 

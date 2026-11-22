@@ -1,7 +1,6 @@
 
 
 # Setting up related services
-<a name="application-manager-getting-started-related-services"></a>
 
 Application Manager displays resources and information from other AWS services and Systems Manager tools. To maximize the amount of operations information displayed in Application Manager, we recommend that you set up and configure these other services or tools *before* you use Application Manager.
 

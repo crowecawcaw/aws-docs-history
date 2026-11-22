@@ -1,7 +1,6 @@
 
 
 # What is AWS Systems Manager?
-<a name="what-is-systems-manager"></a>
 
 AWS Systems Manager helps you centrally view, manage, and operate nodes at scale in AWS, on-premises, and multicloud environments. With the launch of a unified console experience, Systems Manager consolidates various tools to help you complete common node tasks across AWS accounts and AWS Regions.
 
@@ -25,7 +24,7 @@ The unified console experience also includes a dashboard that provides a high-le
 Benefits of Systems Manager include the following:
 + **Enhance visibility across your entire infrastructure**
 
-  Systems Manager provides a centralized view of nodes across your organization's accounts and Regions. Quickly access instance information such as ID, name, OS details, and installed agents. Use Amazon Q Developer to query instance metadata using natural language, helping you identify issues and take action faster.
+  Systems Manager provides a centralized view of nodes across your organization's accounts and Regions. Quickly access instance information such as ID, name, OS details, and installed agents. Use the AWS assistant to query instance metadata using natural language, helping you identify issues and take action faster.
 + **Boost operational efficiency with automation**
 
   Automate common operational tasks and reduce time and effort required to maintain your systems. Systems Manager provides safe and secure remote management of your nodes at scale without logging into your servers. You no longer need to use bastion hosts, SSH, or remote PowerShell. Systems Manager also provides a simple way of automating common administrative tasks across groups of nodes such as registry edits, user management, and software and patch installations. 

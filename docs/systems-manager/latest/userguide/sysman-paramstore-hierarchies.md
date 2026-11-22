@@ -1,7 +1,6 @@
 
 
 # Working with parameter hierarchies in Parameter Store
-<a name="sysman-paramstore-hierarchies"></a>
 
 Managing dozens or hundreds of parameters as a flat list is time consuming and prone to errors. It can also be difficult to identify the correct parameter for a task. This means you might accidentally use the wrong parameter, or you might create multiple parameters that use the same configuration data. 
 
@@ -63,7 +62,7 @@ You aren't required to specify a parameter hierarchy. You can create parameters 
 
 Another benefit of using hierarchies is the ability to query for all parameters *under* a certain level in a hierarchy by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation. For example, if you run the following command from the AWS Command Line Interface (AWS CLI), the system returns all parameters under the `Oncall` level:
 
-```
+```bash
 aws ssm get-parameters-by-path --path /Dev/Web/Oncall
 ```
 
@@ -96,7 +95,7 @@ Sample output:
 
 To view decrypted `SecureString` parameters in a hierarchy, you specify the path and the `--with-decryption` parameter, as shown in the following example.
 
-```
+```bash
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
@@ -116,7 +115,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/MaxConnections" \
        --value 100 --allowed-pattern "\d{1,4}" \
@@ -126,7 +125,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/MaxConnections" ^
        --value 100 --allowed-pattern "\d{1,4}" ^
@@ -142,7 +141,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/MaxConnections" \
        --value 10,000 \
@@ -153,7 +152,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/MaxConnections" ^
        --value 10,000 ^
@@ -174,7 +173,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/{{approved-ami}}" \
        --value "ami-0abcdef1234567890" \
@@ -185,7 +184,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/{{approved-ami}}" ^
        --value "ami-0abcdef1234567890" ^
@@ -200,21 +199,21 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/DBname" \
        --value "SQLDevDb" \
        --type String
    ```
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/user" \
        --value "SA" \
        --type String
    ```
 
-   ```
+   ```bash
    aws ssm put-parameter \
        --name "/MyService/Test/userType" \
        --value "SQLuser" \
@@ -224,21 +223,21 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/DBname" ^
        --value "SQLDevDb" ^
        --type String
    ```
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/user" ^
        --value "SA" ^
        --type String
    ```
 
-   ```
+   ```bash
    aws ssm put-parameter ^
        --name "/MyService/Test/userType" ^
        --value "SQLuser" ^
@@ -252,7 +251,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm get-parameters \
        --names "/MyService/Test/user" "/MyService/Test/userType"
    ```
@@ -260,7 +259,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm get-parameters ^
        --names "/MyService/Test/user" "/MyService/Test/userType"
    ```
@@ -272,7 +271,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm get-parameters-by-path \
        --path "/MyService/Test"
    ```
@@ -280,7 +279,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm get-parameters-by-path ^
        --path "/MyService/Test"
    ```
@@ -292,7 +291,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm delete-parameters \
        --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
    ```
@@ -300,7 +299,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm delete-parameters ^
        --names "/IADRegion/Dev/user" "/IADRegion/Dev/userType"
    ```

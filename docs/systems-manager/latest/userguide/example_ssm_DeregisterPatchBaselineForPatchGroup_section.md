@@ -1,7 +1,6 @@
 
 
 # Use `DeregisterPatchBaselineForPatchGroup` with a CLI
-<a name="example_ssm_DeregisterPatchBaselineForPatchGroup_section"></a>
 
 The following code examples show how to use `DeregisterPatchBaselineForPatchGroup`.
 
@@ -34,7 +33,7 @@ For more information, see [Add a Patch Group to a Patch Baseline](https://docs.a
 **Tools for PowerShell V4**  
 **Example 1: This example deregisters a patch group from a patch baseline.**  
 
-```
+```powershell
 Unregister-SSMPatchBaselineForPatchGroup -BaselineId "pb-045f10b4f382baeda" -PatchGroup "Production"
 ```
 **Output:**  
@@ -49,7 +48,7 @@ pb-045f10b4f382baeda Production
 **Tools for PowerShell V5**  
 **Example 1: This example deregisters a patch group from a patch baseline.**  
 
-```
+```powershell
 Unregister-SSMPatchBaselineForPatchGroup -BaselineId "pb-045f10b4f382baeda" -PatchGroup "Production"
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # AWS prerequisites
-<a name="cloud-connector-gcp-prereqs-aws"></a>
 
 Complete the following steps in your AWS account.
 

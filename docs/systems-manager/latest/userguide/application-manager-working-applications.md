@@ -1,7 +1,6 @@
 
 
 # Working with applications
-<a name="application-manager-working-applications"></a>
 
 Application Manager is a component of AWS Systems Manager. This section includes topics to help you work with Application Manager applications and view operations information about your AWS resources.
 

@@ -1,7 +1,6 @@
 
 
 # Remediating compliance issues using EventBridge
-<a name="compliance-fixing"></a>
 
 You can quickly remediate patch and association compliance issues by using Run Command, a tool in AWS Systems Manager. You can target instance or AWS IoT Greengrass core device IDs or tags and run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssociation` document. If refreshing the association or re-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command operations didn't resolve the problem. 
 

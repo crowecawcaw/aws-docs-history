@@ -1,7 +1,6 @@
 
 
 # Setting up Fleet Manager
-<a name="setting-up-fleet-manager"></a>
 
 Before users in your AWS account can use Fleet Manager to monitor and manage your managed nodes, they must be granted the necessary permissions. In addition, any Amazon Elastic Compute Cloud (Amazon EC2) instances; AWS IoT Greengrass core devices; and on-premises servers, edge devices, and virtual machines (VMs) to be monitored and managed using Fleet Manager must be Systems Manager* managed nodes*. A managed node is any machine configured for use with Systems Manager in [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environments.
 

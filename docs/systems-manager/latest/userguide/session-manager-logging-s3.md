@@ -1,7 +1,6 @@
 
 
 # Logging session data using Amazon S3 (console)
-<a name="session-manager-logging-s3"></a>
 
 You can choose to store session log data in a specified Amazon Simple Storage Service (Amazon S3) bucket for debugging and troubleshooting purposes. The default option is for logs to be sent to an encrypted Amazon S3 bucket. Encryption is performed using the key specified for the bucket, either an AWS KMS key or an Amazon S3 Server-Side Encryption (SSE) key (AES-256). 
 

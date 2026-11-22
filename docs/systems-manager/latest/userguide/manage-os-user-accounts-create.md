@@ -1,7 +1,6 @@
 
 
 # Creating an OS user or group using Fleet Manager
-<a name="manage-os-user-accounts-create"></a>
 
 **Note**  
 Fleet Manager uses Session Manager to set passwords for new users. For Amazon EC2 instances, the instance profile attached to your managed instances must provide permissions for Session Manager to use this feature. For more information about adding Session Manager permissions to an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md).

@@ -1,7 +1,6 @@
 
 
 # Integrating Patch Manager with AWS Security Hub CSPM
-<a name="patch-manager-security-hub-integration"></a>
 
 [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) gives you a comprehensive view of your security state in AWS. Security Hub CSPM collects security data from across AWS accounts, AWS services, and supported third-party partner products. With Security Hub CSPM, you can check your environment against security industry standards and best practices. Security Hub CSPM helps you to analyze your security trends and identify the highest priority security issues.
 
@@ -99,7 +98,7 @@ Patch Manager sends findings to Security Hub CSPM using the [AWS Security Findin
 
 Here is an example of a typical finding from Patch Manager.
 
-```
+```JSON
 {
   "SchemaVersion": "2018-10-08",
   "Id": "arn:aws:patchmanager:us-east-2:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0EXAMPLE",

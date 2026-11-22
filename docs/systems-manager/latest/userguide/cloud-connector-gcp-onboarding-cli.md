@@ -1,7 +1,6 @@
 
 
 # Enable VM onboarding (AWS CLI)
-<a name="cloud-connector-gcp-onboarding-cli"></a>
 
 To enable VM onboarding using the AWS CLI, create a State Manager association that targets the Cloud Connector. The command requires the following roles:
 + `AutomationAssumeRole` – The Automation execution role that the runbook assumes to create activations and authenticate with GCP. See [Automation assume role](cloud-connector-gcp-automation-assume-role.md).

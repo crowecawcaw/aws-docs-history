@@ -1,7 +1,6 @@
 
 
 # Using roles to collect inventory and view OpsData
-<a name="using-service-linked-roles-service-action-1"></a>
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForAmazonSSM`**. AWS Systems Manager uses this IAM service role to manage AWS resources on your behalf.
 

@@ -1,7 +1,6 @@
 
 
 # Data protection in AWS Systems Manager
-<a name="data-protection"></a>
 
 Data protection refers to protecting data while *in transit* (as it travels to and from Systems Manager) and *at rest* (while it's stored in AWS data centers).
 

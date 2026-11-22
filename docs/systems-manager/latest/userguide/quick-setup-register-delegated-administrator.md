@@ -1,7 +1,6 @@
 
 
 # Register a delegated administrator for Quick Setup
-<a name="quick-setup-register-delegated-administrator"></a>
 
 Use the following procedure to register a delegated administrator for Quick Setup.
 

@@ -1,7 +1,6 @@
 
 
 # Create an AMI and cross-Region copy
-<a name="automation-document-backup-maintenance-example"></a>
 
 Creating an Amazon Machine Image (AMI) of an instance is a common process used in backup and recovery. You might also choose to copy an AMI to another AWS Region as part of a disaster recovery architecture. Automating common maintenance tasks can reduce downtime if an issue requires failover. AWS Systems Manager Automation actions can help you accomplish this. Automation is a tool in AWS Systems Manager.
 
@@ -13,7 +12,7 @@ The following example AWS Systems Manager runbook performs these actions:
 ------
 #### [ YAML ]
 
-```
+```yaml
     ---
     description: Custom Automation Backup and Recovery Example
     schemaVersion: '0.3'
@@ -83,7 +82,7 @@ The following example AWS Systems Manager runbook performs these actions:
 ------
 #### [ JSON ]
 
-```
+```json
     {
        "description": "Custom Automation Backup and Recovery Example",
        "schemaVersion": "0.3",

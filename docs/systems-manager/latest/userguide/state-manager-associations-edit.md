@@ -1,7 +1,6 @@
 
 
 # Editing and creating a new version of an association
-<a name="state-manager-associations-edit"></a>
 
 You can edit a State Manager association to specify a new name, schedule, severity level, targets, or other values. For associations based on SSM Command-type documents, you can also choose to write the output of the command to an Amazon Simple Storage Service (Amazon S3) bucket. After you edit an association, State Manager creates a new version. You can view different versions after editing, as described in the following procedures. 
 
@@ -109,7 +108,7 @@ When you call `[update-association](https://docs.aws.amazon.com/cli/latest/refer
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Update-SSMAssociation `
        -Name {{document_name}} `
        -DocumentVersion {{version_of_document_applied}} `
@@ -161,7 +160,7 @@ When you call `[update-association](https://docs.aws.amazon.com/cli/latest/refer
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Update-SSMAssociation `
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
      -AssociationName TestHostnameAssociation2 `
@@ -204,7 +203,7 @@ When you call `[update-association](https://docs.aws.amazon.com/cli/latest/refer
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Update-SSMAssociation `
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
      -AssociationName CalendarAssociation `
@@ -245,7 +244,7 @@ When you call `[update-association](https://docs.aws.amazon.com/cli/latest/refer
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Update-SSMAssociation `
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE `
      -AssociationName MultiCalendarAssociation `
@@ -277,7 +276,7 @@ When you call `[update-association](https://docs.aws.amazon.com/cli/latest/refer
 ------
 #### [ PowerShell ]
 
-   ```
+   ```powershell
    Get-SSMAssociation `
      -AssociationId b85ccafe-9f02-4812-9b81-01234EXAMPLE | Select-Object *
    ```

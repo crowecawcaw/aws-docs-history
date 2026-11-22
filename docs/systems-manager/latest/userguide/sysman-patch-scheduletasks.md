@@ -1,7 +1,6 @@
 
 
 # Patching schedules using maintenance windows
-<a name="sysman-patch-scheduletasks"></a>
 
 After you configure a patch baseline (and optionally a patch group), you can apply patches to your node by using a maintenance window. A maintenance window can reduce the impact on server availability by letting you specify a time to perform the patching process that doesn't interrupt business operations. A maintenance window works like this:
 

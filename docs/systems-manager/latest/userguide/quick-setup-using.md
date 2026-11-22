@@ -1,7 +1,6 @@
 
 
 # Learn Quick Setup terminology and details
-<a name="quick-setup-using"></a>
 
 Quick Setup displays the results of all configuration managers you've created across all AWS Regions in the **Configuration managers** table on the Quick Setup home page. From this page, you can **View details** of each configuration, delete configurations from the **Actions** drop down, or **Create** configurations. The **Configuration managers** table contains the following information:
 + **Name** – The name of the configuration manager if provided when created.

@@ -1,7 +1,6 @@
 
 
 # Step 4: Configure session preferences
-<a name="session-manager-getting-started-configure-preferences"></a>
 
 Users that have been granted administrative permissions in their AWS Identity and Access Management (IAM) policy can configure session preferences, including the following:
 + Turn on Run As support for Linux managed nodes. This makes it possible to start sessions using the credentials of a specified operating system user instead of the credentials of a system-generated `ssm-user` account that AWS Systems Manager Session Manager can create on a managed node.

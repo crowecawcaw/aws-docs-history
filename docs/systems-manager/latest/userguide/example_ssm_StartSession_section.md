@@ -1,7 +1,6 @@
 
 
 # Use `StartSession` with a CLI
-<a name="example_ssm_StartSession_section"></a>
 
 The following code examples show how to use `StartSession`.
 
@@ -41,7 +40,7 @@ For more information, see [Start a Session](https://docs.aws.amazon.com/systems-
 **Tools for PowerShell V4**  
 **Example 1: This example initiates a connection to a target for a Session Manager session, enabling port forwarding.**  
 
-```
+```powershell
 Start-SSMSession -Target 'i-064578e5e7454488f' -DocumentName 'AWS-StartPortForwardingSession' -Parameter @{ localPortNumber = '8080'; portNumber = '80' }
 ```
 **Output:**  
@@ -56,7 +55,7 @@ random-id0    wss://ssmmessages.amazonaws.com/v1/data-channel/random-id
 **Tools for PowerShell V5**  
 **Example 1: This example initiates a connection to a target for a Session Manager session, enabling port forwarding. Note: You need to add Region parameter if not already set using AWSCredentials.**  
 
-```
+```powershell
 Start-SSMSession -Target 'i-064578e5e7454488f' -DocumentName 'AWS-StartPortForwardingSession' -Parameter @{ localPortNumber = '8080'; portNumber = '80' } -Region 'us-west-1'
 ```
 **Output:**  
@@ -68,7 +67,7 @@ Waiting for connections...
 ```
 **Example 2: This example creates an interactive session with a specified instance for a Session Manager session.**  
 
-```
+```powershell
 Start-SSMSession -Target 'i-1234567890abcdef0' -Region 'us-west-1'
 ```
 **Output:**  
@@ -86,7 +85,7 @@ PS C:\Windows\system32>
 ```
 **Example 3: This example creates a session without connecting to it and returns the SessionId, StreamUrl, and TokenValue properties required to connect to the session.**  
 
-```
+```powershell
 Start-SSMSession -Target 'i-1234567890abcdef0' -Region 'us-west-1' -DisablePluginInvocation
 ```
 **Output:**  

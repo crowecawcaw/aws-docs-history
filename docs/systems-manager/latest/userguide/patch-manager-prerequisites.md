@@ -1,7 +1,6 @@
 
 
 # Patch Manager prerequisites
-<a name="patch-manager-prerequisites"></a>
 
 Make sure that you have met the required prerequisites before using Patch Manager, a tool in AWS Systems Manager. 
 
@@ -57,7 +56,7 @@ On macOS, however, for Brew and Brew Cask, Homebrew doesn't support its commands
 **Tip**  
 The following command provides this permission for the specified user:  
 
-```
+```sh
 sudo chown -R {{$USER}}:admin /usr/local
 ```
 

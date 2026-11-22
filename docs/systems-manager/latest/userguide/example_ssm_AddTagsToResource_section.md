@@ -1,7 +1,6 @@
 
 
 # Use `AddTagsToResource` with a CLI
-<a name="example_ssm_AddTagsToResource_section"></a>
 
 The following code examples show how to use `AddTagsToResource`.
 
@@ -20,7 +19,7 @@ aws ssm add-tags-to-resource \
 ```
 This command produces no output.  
 **Example 2: To add tags to a parameter**  
-The following `add-tags-to-resource` example adds two tags to to the specified parameter.  
+The following `add-tags-to-resource` example adds two tags to the specified parameter.  
 
 ```
 aws ssm add-tags-to-resource \
@@ -30,7 +29,7 @@ aws ssm add-tags-to-resource \
 ```
 This command produces no output.  
 **Example 3: To add tags to an SSM document**  
-The following `add-tags-to-resource` example adds a tag to to the specified document.  
+The following `add-tags-to-resource` example adds a tag to the specified document.  
 
 ```
 aws ssm add-tags-to-resource \
@@ -48,13 +47,13 @@ For more information, see [Managing tags with Tag Editor](https://docs.aws.amazo
 **Tools for PowerShell V4**  
 **Example 1: This example updates a maintenance window with new tags. There is no output if the command succeeds. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $option1 = @{Key="Stack";Value=@("Production")}
 Add-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -Tag $option1
 ```
 **Example 2: With PowerShell version 2, you must use New-Object to create each tag. There is no output if the command succeeds.**  
 
-```
+```powershell
 $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
 $tag1.Key = "Stack"
 $tag1.Value = "Production"
@@ -66,13 +65,13 @@ Add-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "Maintenance
 **Tools for PowerShell V5**  
 **Example 1: This example updates a maintenance window with new tags. There is no output if the command succeeds. The syntax used by this example requires PowerShell version 3 or later.**  
 
-```
+```powershell
 $option1 = @{Key="Stack";Value=@("Production")}
 Add-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -Tag $option1
 ```
 **Example 2: With PowerShell version 2, you must use New-Object to create each tag. There is no output if the command succeeds.**  
 
-```
+```powershell
 $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
 $tag1.Key = "Stack"
 $tag1.Value = "Production"

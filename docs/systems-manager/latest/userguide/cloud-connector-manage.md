@@ -1,7 +1,6 @@
 
 
 # Manage Cloud Connectors
-<a name="cloud-connector-manage"></a>
 
 Use the following AWS CLI commands to manage your Cloud Connectors.
 

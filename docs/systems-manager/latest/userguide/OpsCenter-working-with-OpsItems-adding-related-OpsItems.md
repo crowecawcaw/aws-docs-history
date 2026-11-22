@@ -1,7 +1,6 @@
 
 
 # Adding related OpsItems to an OpsItem
-<a name="OpsCenter-working-with-OpsItems-adding-related-OpsItems"></a>
 
 By using **Related OpsItems** of the **OpsItems Details** page, you can investigate operations issues and provide context for an issue. OpsItems can be related in different ways, including a parent-child relationship between OpsItems, a root cause, or a duplicate. You can associate one OpsItem with another to display it in the **Related OpsItem** section.You can specify a maximum of 10 IDs for other OpsItems that are related to the current OpsItem. 
 

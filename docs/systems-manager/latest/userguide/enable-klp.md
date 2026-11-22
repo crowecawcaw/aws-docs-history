@@ -1,7 +1,6 @@
 
 
 # Turning on Kernel Live Patching using Run Command
-<a name="enable-klp"></a>
 
 To turn on Kernel Live Patching, you can either run `yum` commands on your managed nodes or use Run Command and a custom Systems Manager document (SSM document) that you create.
 
@@ -32,7 +31,7 @@ When you turn on Kernel Live Patching, if the kernel already running on the mana
 ------
 #### [ Linux & macOS ]
 
-  ```
+  ```sh
   aws ssm send-command \
       --document-name "AWS-ConfigureKernelLivePatching" \
       --parameters "EnableOrDisable=Enable" \
@@ -42,7 +41,7 @@ When you turn on Kernel Live Patching, if the kernel already running on the mana
 ------
 #### [ Windows Server ]
 
-  ```
+  ```sh
   aws ssm send-command ^
       --document-name "AWS-ConfigureKernelLivePatching" ^
       --parameters "EnableOrDisable=Enable" ^

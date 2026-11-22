@@ -1,7 +1,6 @@
 
 
 # Working with OS file systems using Fleet Manager
-<a name="fleet-manager-file-system-management"></a>
 
 You can use Fleet Manager to work with the file system on your managed nodes. Using Fleet Manager, you can view information about the directory and file data stored on the volumes attached to your managed nodes. For example, you can view the name, size, extension, owner, and permissions for your directories and files. Up to 10,000 lines of file data can be previewed as text from the Fleet Manager console. You can also use this feature to `tail` files. When using `tail` to view file data, the last 10 lines of the file are displayed initially. As new lines of data are written to the file, the view is updated in real time. As a result, you can review log data from the console, which can improve the efficiency of your troubleshooting and systems administration. Additionally, you can create directories and copy, cut, paste, rename, or delete files and directories.
 

@@ -1,7 +1,6 @@
 
 
 # Managing edge devices with Systems Manager
-<a name="systems-manager-setting-up-edge-devices"></a>
 
 This section describes the setup tasks that account and system administrators perform to enable configuration and management of AWS IoT Greengrass core devices. After you complete these tasks, users who have been granted permissions by the AWS account administrator can use AWS Systems Manager to configure and manage their organization's AWS IoT Greengrass core devices. 
 
@@ -55,7 +54,7 @@ Make a note of the name. Specify it when you deploy SSM Agent to your AWS IoT Gr
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -74,7 +73,7 @@ Make a note of the name. Specify it when you deploy SSM Agent to your AWS IoT Gr
 
    **Linux & macOS**
 
-   ```
+   ```sh
    aws iam create-role \
        --role-name {{SSMServiceRole}} \
        --assume-role-policy-document file://{{SSMService-Trust}}.json
@@ -82,7 +81,7 @@ Make a note of the name. Specify it when you deploy SSM Agent to your AWS IoT Gr
 
    **Windows**
 
-   ```
+   ```sh
    aws iam create-role ^
        --role-name {{SSMServiceRole}} ^
        --assume-role-policy-document file://{{SSMService-Trust}}.json
@@ -96,7 +95,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Linux & macOS**
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name {{SSMServiceRole}} \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -104,7 +103,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Windows**
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name {{SSMServiceRole}} ^
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -114,7 +113,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Linux & macOS**
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name {{SSMServiceRole}} \
        --policy-arn arn:aws:iam::{{account_ID}}:policy/{{my_bucket_policy_name}}
@@ -122,7 +121,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Windows**
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name {{SSMServiceRole}} ^
        --policy-arn arn:aws:iam::{{account_id}}:policy/{{my_bucket_policy_name}}
@@ -132,7 +131,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Linux & macOS**
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name {{SSMServiceRole}} \
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -140,7 +139,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    **Windows**
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name {{SSMServiceRole}} ^
        --policy-arn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -148,7 +147,7 @@ The policies you add for a service profile for edge devices are the same policie
 
    (Optional) Run the following command to allow the CloudWatch agent to run on your edge devices. This command makes it possible to read information on a device and write it to CloudWatch. Your service role needs this policy only if you use services such as Amazon EventBridge or Amazon CloudWatch Logs.
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name {{SSMServiceRole}} \
        --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
@@ -172,7 +171,7 @@ Make a note of the name. Specify it when you deploy SSM Agent to your AWS IoT Gr
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -189,7 +188,7 @@ Make a note of the name. Specify it when you deploy SSM Agent to your AWS IoT Gr
 
 1. Open PowerShell in administrative mode, and in the directory where you created the JSON file, run [New-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role.
 
-   ```
+   ```ps
    New-IAMRole `
        -RoleName {{SSMServiceRole}} `
        -AssumeRolePolicyDocument (Get-Content -raw {{SSMService-Trust}}.json)
@@ -201,7 +200,7 @@ The policies you add for a service role for edge devices in an AWS IoT Greengras
 
    (Required) Run the following command to allow an edge device to use AWS Systems Manager service core functionality.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName {{SSMServiceRole}} `
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -209,7 +208,7 @@ The policies you add for a service role for edge devices in an AWS IoT Greengras
 
    If you created a custom S3 bucket policy for your service role, run the following command to allow SSM Agent to access the buckets you specified in the policy. Replace {{account\_ID}} and {{my\_bucket\_policy\_name}} with your AWS account ID and your bucket name. 
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName {{SSMServiceRole}} `
        -PolicyArn arn:aws:iam::{{account_ID}}:policy/{{my_bucket_policy_name}}
@@ -217,7 +216,7 @@ The policies you add for a service role for edge devices in an AWS IoT Greengras
 
    (Optional) Run the following command to allow SSM Agent to access Directory Service on your behalf for requests to join the domain from edge devices. The service role needs this policy only if you join your edge devices to a Microsoft AD directory.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName {{SSMServiceRole}} `
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
@@ -225,7 +224,7 @@ The policies you add for a service role for edge devices in an AWS IoT Greengras
 
    (Optional) Run the following command to allow the CloudWatch agent to run on your edge devices. This command makes it possible to read information on a device and write it to CloudWatch. Your service role needs this policy only if you use services such as Amazon EventBridge or Amazon CloudWatch Logs.
 
-   ```
+   ```ps
    Register-IAMRolePolicy `
        -RoleName {{SSMServiceRole}} `
        -PolicyArn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy

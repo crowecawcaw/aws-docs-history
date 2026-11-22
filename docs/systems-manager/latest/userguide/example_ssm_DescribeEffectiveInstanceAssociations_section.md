@@ -1,7 +1,6 @@
 
 
 # Use `DescribeEffectiveInstanceAssociations` with a CLI
-<a name="example_ssm_DescribeEffectiveInstanceAssociations_section"></a>
 
 The following code examples show how to use `DescribeEffectiveInstanceAssociations`.
 
@@ -39,7 +38,7 @@ For more information, see [Working with associations in Systems Manager](https:/
 **Tools for PowerShell V4**  
 **Example 1: This example describes the effective associations for an instance.**  
 
-```
+```powershell
 Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
 ```
 **Output:**  
@@ -51,7 +50,7 @@ d8617c07-2079-4c18-9847-1655fc2698b0 {...
 ```
 **Example 2: This example displays the contents of the effective associations for an instance.**  
 
-```
+```powershell
 (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
 ```
 **Output:**  
@@ -97,7 +96,7 @@ t will be updated to the latest version.",
 **Tools for PowerShell V5**  
 **Example 1: This example describes the effective associations for an instance.**  
 
-```
+```powershell
 Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
 ```
 **Output:**  
@@ -109,7 +108,7 @@ d8617c07-2079-4c18-9847-1655fc2698b0 {...
 ```
 **Example 2: This example displays the contents of the effective associations for an instance.**  
 
-```
+```powershell
 (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
 ```
 **Output:**  

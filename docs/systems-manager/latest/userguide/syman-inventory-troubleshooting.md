@@ -1,7 +1,6 @@
 
 
 # Troubleshooting problems with Systems Manager Inventory
-<a name="syman-inventory-troubleshooting"></a>
 
 This topic includes information about how to troubleshoot common errors or problems with AWS Systems Manager Inventory. If you're having trouble viewing your nodes in Systems Manager, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md).
 
@@ -39,7 +38,7 @@ There are two reasons why inventory collection never exits the `Pending` status:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Exporting OpsData from Systems Manager Explorer
-<a name="Explorer-exporting-OpsData"></a>
 
 You can export 5,000 OpsData items as a comma separated value (.csv) file to an Amazon Simple Storage Service (Amazon S3) bucket from AWS Systems Manager Explorer. Explorer uses the [AWS-ExportOpsDataToS3](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportopsdatatos3.html) automation runbook to export OpsData. When you export OpsData, the system displays the automation runbook page where you can specify details, such as assumeRole, Amazon S3 bucket name, SNS topic ARN, and fields to be exported. 
 
@@ -50,7 +49,7 @@ When you export Explorer data, Systems Manager creates an AWS Identity and Acces
 
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -131,7 +130,7 @@ The role includes the following trust entity.
 
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

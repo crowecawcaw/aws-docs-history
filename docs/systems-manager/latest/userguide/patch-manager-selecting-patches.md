@@ -1,7 +1,6 @@
 
 
 # How security patches are selected
-<a name="patch-manager-selecting-patches"></a>
 
 The primary focus of Patch Manager is on installing operating systems security-related updates on managed nodes. By default, Patch Manager doesn't install all available patches, but rather a smaller set of patches focused on security.
 

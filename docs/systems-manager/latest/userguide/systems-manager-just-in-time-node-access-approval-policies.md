@@ -1,7 +1,6 @@
 
 
 # Create approval policies for your nodes
-<a name="systems-manager-just-in-time-node-access-approval-policies"></a>
 
 Approval policies define what approvals users need to access a node. Since just-in-time node access removes the need for long standing permissions to nodes through IAM policies, you must create approval policies to allow access to your nodes. If there are no approval policies that apply to a node, users are unable to request access to the node.
 

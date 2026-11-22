@@ -1,7 +1,6 @@
 
 
 # Using roles to create operational insight OpsItems in Systems Manager OpsCenter
-<a name="using-service-linked-roles-service-action-4"></a>
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForAmazonSSM_OpsInsights`**. AWS Systems Manager uses this IAM service role to create and update operational insight OpsItems in Systems Manager OpsCenter.
 
@@ -18,7 +17,7 @@ The role permissions policy allows Systems Manager to complete the following act
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

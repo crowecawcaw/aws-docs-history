@@ -1,7 +1,6 @@
 
 
 # Verify the Session Manager plugin installation
-<a name="install-plugin-verify"></a>
 
 Run the following commands to verify that the Session Manager plugin installed successfully.
 

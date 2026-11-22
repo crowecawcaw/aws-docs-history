@@ -1,7 +1,6 @@
 
 
 # Use `DescribeEffectivePatchesForPatchBaseline` with a CLI
-<a name="example_ssm_DescribeEffectivePatchesForPatchBaseline_section"></a>
 
 The following code examples show how to use `DescribeEffectivePatchesForPatchBaseline`.
 
@@ -116,7 +115,7 @@ For more information, see [How Security Patches Are Selected](https://docs.aws.a
 **Tools for PowerShell V4**  
 **Example 1: This example lists all patch baselines, with a maximum result list of 1.**  
 
-```
+```powershell
 Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1
 ```
 **Output:**  
@@ -128,7 +127,7 @@ Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.
 ```
 **Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**  
 
-```
+```powershell
 (Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1).PatchStatus
 ```
 **Output:**  
@@ -143,7 +142,7 @@ ApprovalDate          DeploymentStatus
 **Tools for PowerShell V5**  
 **Example 1: This example lists all patch baselines, with a maximum result list of 1.**  
 
-```
+```powershell
 Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1
 ```
 **Output:**  
@@ -155,7 +154,7 @@ Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.
 ```
 **Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.**  
 
-```
+```powershell
 (Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1).PatchStatus
 ```
 **Output:**  

@@ -1,7 +1,6 @@
 
 
 # Code examples for Systems Manager using AWS SDKs
-<a name="service_code_examples"></a>
 
 The following code examples show how to use Systems Manager with an AWS software development kit (SDK). 
 

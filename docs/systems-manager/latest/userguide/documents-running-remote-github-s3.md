@@ -1,7 +1,6 @@
 
 
 # Running documents from remote locations
-<a name="documents-running-remote-github-s3"></a>
 
 You can run AWS Systems Manager (SSM) documents from remote locations by using the `AWS-RunDocument` pre-defined SSM document. This document supports running SSM documents stored in the following locations:
 + Public and private GitHub repositories (GitHub Enterprise is not supported)
@@ -42,7 +41,7 @@ Before you run a remote document, you must complete the following tasks.
 1. In **Command parameters**, for **Source Type**, choose an option. 
    + If you choose **GitHub**, specify **Source Info** information in the following format:
 
-     ```
+     ```json
      {
          "owner": "{{owner_name}}",
          "repository": "{{repository_name}}",
@@ -54,7 +53,7 @@ Before you run a remote document, you must complete the following tasks.
 
      For example:
 
-     ```
+     ```json
      {
          "owner":"TestUser",
          "repository":"GitHubTestExamples",
@@ -67,41 +66,41 @@ Before you run a remote document, you must complete the following tasks.
 `getOptions` are extra options to retrieve content from a branch other than master, or from a specific commit in the repository. `getOptions` can be omitted if you are using the latest commit in the master branch. The `branch` parameter is required only if your SSM document is stored in a branch other than `master`.  
 To use the version of your SSM document in a particular *commit* in your repository, use `commitID` with `getOptions` instead of `branch`. For example:  
 
-     ```
+     ```json
      "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
      ```
    + If you choose **S3**, specify **Source Info** information in the following format:
 
-     ```
+     ```json
      {"path":"{{URL_to_document_in_S3}}"}
      ```
 
      For example:
 
-     ```
+     ```json
      {"path":"https://s3.amazonaws.com/amzn-s3-demo-bucket/scripts/ruby/mySSMdoc.json"}
      ```
    + If you choose **SSMDocument**, specify **Source Info** information in the following format:
 
-     ```
+     ```json
      {"name": "document_name"}
      ```
 
      For example:
 
-     ```
+     ```json
      {"name": "mySSMdoc"}
      ```
 
 1. In the **Document Parameters** field, enter parameters for the remote SSM document. For example, if you run the `AWS-RunPowerShell` document, you could specify:
 
-   ```
+   ```json
    {"commands": ["date", "echo \"Hello World\""]}
    ```
 
    If you run the `AWS-ConfigureAWSPack` document, you could specify:
 
-   ```
+   ```json
    {
       "action":"Install",
       "name":"AWSPVDriver"

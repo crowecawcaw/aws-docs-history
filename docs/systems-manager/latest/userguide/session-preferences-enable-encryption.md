@@ -1,7 +1,6 @@
 
 
 # Turn on KMS key encryption of session data (console)
-<a name="session-preferences-enable-encryption"></a>
 
 Use AWS Key Management Service (AWS KMS) to create and manage encryption keys. With AWS KMS, you can control the use of encryption across a wide range of AWS services and in your applications. You can specify that session data transmitted between your managed nodes and the local machines of users in your AWS account is encrypted using KMS key encryption. (This is in addition to the TLS 1.2/1.3 encryption that AWS already provides by default.) To encrypt Session Manager session data, create a *symmetric* KMS key using AWS KMS.
 

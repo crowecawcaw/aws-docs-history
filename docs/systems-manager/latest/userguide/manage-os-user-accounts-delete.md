@@ -1,7 +1,6 @@
 
 
 # Deleting an OS user or group using Fleet Manager
-<a name="manage-os-user-accounts-delete"></a>
 
 You don't need to log on directly to a server to delete a user account or group. You can use the Fleet Manager console to perform these tasks.
 

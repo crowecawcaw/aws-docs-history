@@ -1,7 +1,6 @@
 
 
 # Set up DevOps Guru using Quick Setup
-<a name="quick-setup-devops"></a>
 
 **Important**  
 End of support notice: Amazon DevOps Guru will stop accepting new customers on October 29, 2026. Current customers will not be impacted and can continue using Amazon DevOps Guru until September 30, 2027. After September 30, 2027 you will no longer be able to access Amazon DevOps Guru. For more information, see [Amazon DevOps Guru end of support](https://docs.aws.amazon.com/devops-guru/latest/userguide/devops-guru-end-of-support.html).

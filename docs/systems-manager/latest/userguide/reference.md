@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager reference
-<a name="reference"></a>
 
 The following information and topics can help you better implement AWS Systems Manager solutions.
 

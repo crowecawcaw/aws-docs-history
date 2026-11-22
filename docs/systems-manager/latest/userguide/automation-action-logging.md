@@ -1,7 +1,6 @@
 
 
 # Logging Automation action output with CloudWatch Logs
-<a name="automation-action-logging"></a>
 
 Automation integrates with Amazon CloudWatch Logs. You can send the output from `aws:executeScript` actions in your runbooks to the log group you specify. Systems Manager doesn't create a log group or any log streams for documents that don't use `aws:executeScript` actions. If the document does use `aws:executeScript`, the output sent to CloudWatch Logs only pertains to those actions. You can use the `aws:executeScript` action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes. If you choose a log group that is encrypted, the `aws:executeScript` action output is also encrypted. Logging output from `aws:executeScript` actions is an account-level setting.
 
@@ -40,7 +39,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm update-service-setting \
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination \
        --setting-value CloudWatch
@@ -49,7 +48,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm update-service-setting ^
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination ^
        --setting-value CloudWatch
@@ -58,7 +57,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ PowerShell ]
 
-   ```
+   ```ps
    Update-SSMServiceSetting `
        -SettingId "arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination" `
        -SettingValue "CloudWatch"
@@ -73,7 +72,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm update-service-setting \
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-group-name \
        --setting-value {{my-log-group}}
@@ -82,7 +81,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm update-service-setting ^
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-group-name ^
        --setting-value {{my-log-group}}
@@ -91,7 +90,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ PowerShell ]
 
-   ```
+   ```ps
    Update-SSMServiceSetting `
        -SettingId "arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-group-name" `
        -SettingValue "{{my-log-group}}"
@@ -106,7 +105,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws ssm get-service-setting \
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination
    ```
@@ -114,7 +113,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws ssm get-service-setting ^
        --setting-id arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination
    ```
@@ -122,7 +121,7 @@ For runbooks that you own, the same permissions must be added to the IAM service
 ------
 #### [ PowerShell ]
 
-   ```
+   ```ps
    Get-SSMServiceSetting `
        -SettingId "arn:aws:ssm:{{region}}:{{account-id}}:servicesetting/ssm/automation/customer-script-log-destination"
    ```

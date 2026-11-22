@@ -1,7 +1,6 @@
 
 
 # Manually installing SSM Agent on Ubuntu Server instances
-<a name="agent-install-ubuntu"></a>
 
 In most cases, the Amazon Machine Images (AMIs) for Ubuntu Server that are provided by AWS come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md).
 

@@ -1,7 +1,6 @@
 
 
 # Create a Cloud Connector (AWS Management Console)
-<a name="cloud-connector-create-console"></a>
 
 We recommend that you use the AWS Management Console to create a Cloud Connector. The console wizard collects your Azure tenant and subscription details, and then generates a setup script that configures the Azure side for you. The generated script creates or reuses Microsoft Entra ID application registrations and service principals. It also configures the OIDC federated credentials and assigns the least-privilege Azure roles. If you record with AWS Config, the script also creates the Event Hub resources and diagnostic settings for activity-log streaming.
 
@@ -24,6 +23,8 @@ Enter a name for the Cloud Connector.
 (Optional) Enter a description for the Cloud Connector.  
 **Azure federation role**  
 Choose the recommended auto-created service role, or choose an existing role that you provide. For details about the roles the console creates, see [IAM roles created by the Systems Manager console](cloud-connector-console-iam-roles.md).  
+**Additional trusted roles**  
+(Optional) Appears when you choose **Create an Azure federation role with recommended permissions**. Choose up to five IAM roles that the federation role also trusts, such as roles that run your Automation runbooks. Long role paths can lower this number. Anyone who can assume one of these roles can get credentials for the connector's Azure subscriptions, so the list shows only roles that only Systems Manager can assume. For the trust policy, and how to change these roles later, see [Azure federation role](cloud-connector-azure-federation-role.md). For the permissions that Automation needs from each role, see [Use another role](automation-cloud-connector-permissions.md#automation-cloud-connector-permissions-other-role).  
 **Tenant ID**  
 Enter your Microsoft Entra ID tenant UUID.  
 **Tenant name**  

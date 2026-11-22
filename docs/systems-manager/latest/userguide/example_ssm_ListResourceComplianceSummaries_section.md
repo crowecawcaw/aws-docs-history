@@ -1,7 +1,6 @@
 
 
 # Use `ListResourceComplianceSummaries` with a CLI
-<a name="example_ssm_ListResourceComplianceSummaries_section"></a>
 
 The following code examples show how to use `ListResourceComplianceSummaries`.
 
@@ -149,7 +148,7 @@ For more information, see [Learn details about Compliance](https://docs.aws.amaz
 **Tools for PowerShell V4**  
 **Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**  
 
-```
+```powershell
 $FilterValues = @{
 		"Key"="Product"
         "Type"="EQUAL"
@@ -162,7 +161,7 @@ $FilterValues = @{
 **Tools for PowerShell V5**  
 **Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.**  
 
-```
+```powershell
 $FilterValues = @{
 		"Key"="Product"
         "Type"="EQUAL"

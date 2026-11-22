@@ -1,7 +1,6 @@
 
 
 # End a session
-<a name="session-manager-working-with-sessions-end"></a>
 
 You can end a session that you started in your account using the AWS Systems Manager console or the AWS Command Line Interface (AWS CLI). When you choose the **Terminate session** button for a session in the console or call the [TerminateSession](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_TerminateSession.html) API action by using the AWS CLI, Session Manager permanently ends the session and closes the data connection between the Session Manager client and SSM Agent on the managed node. You can't resume a terminated session.
 
@@ -33,7 +32,7 @@ You can use the AWS Systems Manager console to end a session in your account.
 
 To end a session using the AWS CLI, run the following command. Replace {{session-id}} with your own information.
 
-```
+```sh
 aws ssm terminate-session \
     --session-id {{session-id}}
 ```

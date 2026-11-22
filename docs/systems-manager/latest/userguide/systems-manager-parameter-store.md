@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager Parameter Store
-<a name="systems-manager-parameter-store"></a>
 
 Parameter Store is a centralized configuration data store for named values called parameters. A *parameter* is any piece of data stored in Parameter Store, such as a block of text, a list of names, an AMI ID, a license key, and so on. With Parameter Store, you can securely store, organize, and retrieve configuration data at scale.
 

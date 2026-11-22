@@ -1,7 +1,6 @@
 
 
 # Disabling Session Manager logging in CloudWatch Logs and Amazon S3
-<a name="session-manager-enable-and-disable-logging"></a>
 
 You can use the Systems Manager console or AWS CLI to disable session logging in your account.
 

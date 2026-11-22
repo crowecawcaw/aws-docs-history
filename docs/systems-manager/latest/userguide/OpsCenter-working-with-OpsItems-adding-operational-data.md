@@ -1,7 +1,6 @@
 
 
 # Adding operational data to an OpsItem
-<a name="OpsCenter-working-with-OpsItems-adding-operational-data"></a>
 
 Operational data is custom data that provides useful reference details about an OpsItem. You can enter multiple key-value pairs of operational data. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. The maximum length of the key can be 128 characters, and the maximum size of the value can be 20 KB. 
 

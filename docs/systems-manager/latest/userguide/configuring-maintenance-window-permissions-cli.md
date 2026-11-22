@@ -1,7 +1,6 @@
 
 
 # Control access to maintenance windows using the AWS CLI
-<a name="configuring-maintenance-window-permissions-cli"></a>
 
 The following procedures describe how to use the AWS Command Line Interface (AWS CLI) to create the required permissions and roles for Maintenance Windows.
 
@@ -27,7 +26,7 @@ In this task, you specify the permissions needed for your custom maintenance win
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -51,7 +50,7 @@ In this task, you specify the permissions needed for your custom maintenance win
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -159,7 +158,7 @@ In this task, you run CLI commands to create your maintenance windows service ro
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam create-role \
        --role-name "my-maintenance-window-role" \
        --assume-role-policy-document file://mw-role-trust-policy.json
@@ -168,7 +167,7 @@ In this task, you run CLI commands to create your maintenance windows service ro
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam create-role ^
        --role-name "my-maintenance-window-role" ^
        --assume-role-policy-document file://mw-role-trust-policy.json
@@ -209,7 +208,7 @@ Make a note of the `RoleName` and the `Arn` values. You include them in the next
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam attach-role-policy \
        --role-name "my-maintenance-window-role" \
        --policy-arn "arn:aws:iam::{{account-id}}:policy/mw-role-custom-policy.json"
@@ -218,7 +217,7 @@ Make a note of the `RoleName` and the `Arn` values. You include them in the next
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam attach-role-policy ^
        --role-name "my-maintenance-window-role" ^
        --policy-arn "arn:aws:iam::{{account-id}}:policy/mw-role-custom-policy.json"
@@ -228,7 +227,7 @@ Make a note of the `RoleName` and the `Arn` values. You include them in the next
 
 1. Run the following command to verify that your role has been created, and that the trust policy has been attached.
 
-   ```
+   ```sh
    aws iam get-role --role-name my-maintenance-window-role
    ```
 
@@ -265,7 +264,7 @@ Make a note of the `RoleName` and the `Arn` values. You include them in the next
 
 1. Run the following command to verify that the customer managed policy has been attached to the role.
 
-   ```
+   ```sh
    aws iam list-attached-role-policies --role-name my-maintenance-window-role
    ```
 
@@ -298,7 +297,7 @@ When you register a task with a maintenance window, you specify a service role t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -335,7 +334,7 @@ When you register a task with a maintenance window, you specify a service role t
 ------
 #### [ Linux & macOS ]
 
-     ```
+     ```sh
      aws iam put-user-policy \
          --user-name "{{user-name}}" \
          --policy-name "{{policy-name}}" \
@@ -345,7 +344,7 @@ When you register a task with a maintenance window, you specify a service role t
 ------
 #### [ Windows ]
 
-     ```
+     ```sh
      aws iam put-user-policy ^
          --user-name "{{user-name}}" ^
          --policy-name "{{policy-name}}" ^
@@ -358,13 +357,13 @@ When you register a task with a maintenance window, you specify a service role t
 **Note**  
 To grant access for a user to register tasks for maintenance windows using the Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your user (or an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks). Run the following command to assign the `AmazonSSMFullAccess` policy to your user.  
 
-     ```
+     ```sh
      aws iam attach-user-policy \
          --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" \
          --user-name "{{user-name}}"
      ```
 
-     ```
+     ```sh
      aws iam attach-user-policy ^
          --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" ^
          --user-name "{{user-name}}"
@@ -374,7 +373,7 @@ To grant access for a user to register tasks for maintenance windows using the S
 ------
 #### [ Linux & macOS ]
 
-     ```
+     ```sh
      aws iam put-group-policy \
          --group-name "{{group-name}}" \
          --policy-name "{{policy-name}}" \
@@ -384,7 +383,7 @@ To grant access for a user to register tasks for maintenance windows using the S
 ------
 #### [ Windows ]
 
-     ```
+     ```sh
      aws iam put-group-policy ^
          --group-name "{{group-name}}" ^
          --policy-name "{{policy-name}}" ^
@@ -397,13 +396,13 @@ To grant access for a user to register tasks for maintenance windows using the S
 **Note**  
 To grant access for members of a group to register tasks for maintenance windows using the Systems Manager console, you must also assign the `AmazonSSMFullAccess` policy to your group. Run the following command to assign this policy to your group.  
 
-     ```
+     ```sh
      aws iam attach-group-policy \
          --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" \
          --group-name "{{group-name}}"
      ```
 
-     ```
+     ```sh
      aws iam attach-group-policy ^
          --policy-arn "arn:aws:iam::aws:policy/AmazonSSMFullAccess" ^
          --group-name "{{group-name}}"
@@ -414,7 +413,7 @@ To grant access for members of a group to register tasks for maintenance windows
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam list-group-policies \
        --group-name "{{group-name}}"
    ```
@@ -422,7 +421,7 @@ To grant access for members of a group to register tasks for maintenance windows
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam list-group-policies ^
        --group-name "{{group-name}}"
    ```
@@ -445,7 +444,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -468,7 +467,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Linux & macOS ]
 
-     ```
+     ```sh
      aws iam put-user-policy \
          --user-name "{{user-name}}" \
          --policy-name "{{policy-name}}" \
@@ -478,7 +477,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Windows ]
 
-     ```
+     ```sh
      aws iam put-user-policy ^
          --user-name "{{user-name}}" ^
          --policy-name "{{policy-name}}" ^
@@ -493,7 +492,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Linux & macOS ]
 
-     ```
+     ```sh
      aws iam put-group-policy \
          --group-name "{{group-name}}" \
          --policy-name "{{policy-name}}" \
@@ -503,7 +502,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Windows ]
 
-     ```
+     ```sh
      aws iam put-group-policy ^
          --group-name "{{group-name}}" ^
          --policy-name "{{policy-name}}" ^
@@ -519,7 +518,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```sh
    aws iam list-group-policies \
        --group-name "{{group-name}}"
    ```
@@ -527,7 +526,7 @@ Depending on whether you're denying the `ssm:RegisterTaskWithMaintenanceWindow` 
 ------
 #### [ Windows ]
 
-   ```
+   ```sh
    aws iam list-group-policies ^
        --group-name "{{group-name}}"
    ```

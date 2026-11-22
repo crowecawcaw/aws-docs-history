@@ -1,7 +1,6 @@
 
 
 # Learn about statuses returned by Systems Manager Automation
-<a name="automation-statuses"></a>
 
 AWS Systems Manager Automation reports detailed status information about the various statuses an automation action or step goes through when you run an automation and for the overall automation. Automation is a tool in AWS Systems Manager. You can monitor automation statuses using the following methods:
 + Monitor the **Execution status** in the Systems Manager Automation console.

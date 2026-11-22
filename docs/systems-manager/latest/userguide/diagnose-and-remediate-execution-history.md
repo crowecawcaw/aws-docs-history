@@ -1,7 +1,6 @@
 
 
 # Viewing execution progress and history for remediations in Systems Manager
-<a name="diagnose-and-remediate-execution-history"></a>
 
 You can view a list of all in-progress and completed remediation operations made using the **Diagnose and remediate** feature in Systems Manager.
 

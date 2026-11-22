@@ -1,7 +1,6 @@
 
 
 # Use `DeregisterTargetFromMaintenanceWindow` with a CLI
-<a name="example_ssm_DeregisterTargetFromMaintenanceWindow_section"></a>
 
 The following code examples show how to use `DeregisterTargetFromMaintenanceWindow`.
 
@@ -34,7 +33,7 @@ For more information, see [Update a Maintenance Window (AWS CLI)](https://docs.a
 **Tools for PowerShell V4**  
 **Example 1: This example removes a target from a maintenance window.**  
 
-```
+```powershell
 Unregister-SSMTargetFromMaintenanceWindow -WindowTargetId "6ab5c208-9fc4-4697-84b7-b02a6cc25f7d" -WindowId "mw-06cf17cbefcb4bf4f"
 ```
 **Output:**  
@@ -49,7 +48,7 @@ mw-06cf17cbefcb4bf4f 6ab5c208-9fc4-4697-84b7-b02a6cc25f7d
 **Tools for PowerShell V5**  
 **Example 1: This example removes a target from a maintenance window.**  
 
-```
+```powershell
 Unregister-SSMTargetFromMaintenanceWindow -WindowTargetId "6ab5c208-9fc4-4697-84b7-b02a6cc25f7d" -WindowId "mw-06cf17cbefcb4bf4f"
 ```
 **Output:**  

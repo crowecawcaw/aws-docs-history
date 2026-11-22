@@ -1,7 +1,6 @@
 
 
 # Reference: Cron and rate expressions for Systems Manager
-<a name="reference-cron-and-rate-expressions"></a>
 
 When you create a State Manager association or a maintenance window in AWS Systems Manager, you specify a schedule for when the window or the association should run. You can specify a schedule as either a time-based entry, called a *cron expression*, or a frequency-based entry, called a *rate expression*. 
 
@@ -28,7 +27,7 @@ aws ssm create-maintenance-window \
 ```
 In the following command, the cron expression schedules an association to run the second Thursday of each month. However, because the schedule offset is `3`, the assocation won't run until the next Sunday, three days later.  
 
-```
+```sh
 aws ssm create-association \
     --name "AWS-UpdateSSMAgent" \
     --targets "Key=instanceids,Values=i-0cb2b964d3e14fd9f" \

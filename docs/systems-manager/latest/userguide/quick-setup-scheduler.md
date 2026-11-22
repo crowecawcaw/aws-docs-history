@@ -1,7 +1,6 @@
 
 
 # Stop and start EC2 instances automatically on a schedule using Quick Setup
-<a name="quick-setup-scheduler"></a>
 
 With Quick Setup, you can configure Resource Scheduler to automate the starting and stopping of Amazon Elastic Compute Cloud (Amazon EC2) instances.
 

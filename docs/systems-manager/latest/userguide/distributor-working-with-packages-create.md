@@ -1,7 +1,6 @@
 
 
 # Create a package in Distributor
-<a name="distributor-working-with-packages-create"></a>
 
 To create a package, prepare your installable software or assets, one file per operating system platform. At least one file is required to create a package.
 
@@ -109,7 +108,7 @@ For examples of .zip files, including sample **install** and **uninstall** scrip
 
 After you prepare and zip your installable files, create a JSON manifest. The following is a template. The parts of the manifest template are described in the procedure in this section. You can use a JSON editor to create this manifest in a separate file. Alternatively, you can author the manifest in the AWS Systems Manager console when you create a package.
 
-```
+```json
 {
   "schemaVersion": "2.0",
   "version": "{{your-version}}",
@@ -342,7 +341,7 @@ After you prepare and zip your installable files, create a JSON manifest. The fo
 
 The following is an example of a completed manifest. In this example, you have a .zip file, `NewPackage_LINUX.zip`, that supports more than one platform, but is referenced in the `"files"` section only once.
 
-```
+```json
 {
     "schemaVersion": "2.0",
     "version": "1.7.1",
@@ -454,7 +453,7 @@ You can use the AWS CLI to create a package. Have the URL ready from the bucket 
 
    If you didn't add your manifest file to the Amazon S3 bucket, the `--content` parameter value is the file path to the JSON manifest file.
 
-   ```
+   ```sh
    aws ssm create-document \
        --name "{{package-name}}" \
        --content file://{{path-to-manifest-file}} \
@@ -465,7 +464,7 @@ You can use the AWS CLI to create a package. Have the URL ready from the bucket 
 
    The following is an example.
 
-   ```
+   ```sh
    aws ssm create-document \
        --name "ExamplePackage" \
        --content file://{{path-to-manifest-file}} \
@@ -476,7 +475,7 @@ You can use the AWS CLI to create a package. Have the URL ready from the bucket 
 
 1. Verify that your package was added and show the package manifest by running the following command, replacing {{package-name}} with the name of your package. To get a specific version of the document (not the same as the version of a package), you can add the `--document-version` parameter.
 
-   ```
+   ```sh
    aws ssm get-document \
        --name "{{package-name}}"
    ```

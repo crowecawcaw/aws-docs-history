@@ -1,7 +1,6 @@
 
 
 # Using scripts in runbooks
-<a name="automation-document-script-considerations"></a>
 
 Automation runbooks support running scripts as part of the automation. Automation is a tool in AWS Systems Manager. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations. You can send the output from `aws:executeScript` actions in your runbooks to Amazon CloudWatch Logs. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md).
 

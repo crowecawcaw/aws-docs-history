@@ -1,7 +1,6 @@
 
 
 # Mapping targets for an automation
-<a name="running-automations-map-targets"></a>
 
 Use the `Targets` parameter to quickly define which resources are targeted by an automation. For example, if you want to run an automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon Elastic Compute Cloud (Amazon EC2) tags with the `Targets` parameter.
 
@@ -11,6 +10,8 @@ When you run an automation that uses a target, AWS Systems Manager creates a chi
 Any `input parameters` that you specify at runtime (either in the **Input parameters** section of the console or by using the `parameters` option from the command line) are automatically processed by all child automations.
 
 You can target resources for an automation by using tags, Resource Groups,and parameter values. Additionally, you can use the `TargetMaps` option to target multiple parameter values from the command line or a file. The following section describes each of these targeting options in more detail.
+
+To target Microsoft Azure or Google Cloud resources, use a Cloud Connector target. For more information, see [Run automations on multicloud resources](running-automations-cloud-connector.md).
 
 ## Targeting a tag
 <a name="target-tags"></a>
@@ -29,7 +30,7 @@ The `AWS-DetachEBSVolume` runbook also includes a special property called **Targ
 **Important**  
 Target parameter names are case sensitive. If you run automations by using either the AWS Command Line Interface (AWS CLI) or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it's defined in the runbook. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API operation to see information about the available target parameters in a specific runbook. Following is an example AWS CLI command that provides information about the `AWS-DeleteSnapshot` document.  
 
-```
+```sh
 aws ssm describe-document \
     --name AWS-DeleteSnapshot
 ```
@@ -40,7 +41,7 @@ Here are some example AWS CLI commands that target resources by using a tag.
 
 This example restarts all Amazon EC2 instances that are tagged with a key of *Department* and a value of *HumanResources*. The target parameter uses the *InstanceId* parameter from the runbook. The example uses an additional parameter to run the automation by using an Automation service role (also called an *assume role*).
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name AWS-RestartEC2Instance \
     --targets Key=tag:Department,Values=HumanResources \
@@ -52,7 +53,7 @@ aws ssm start-automation-execution \
 
 The following example uses the `AWS-DeleteSnapshot` runbook to delete all snapshots with a key of *Name* and a value of *January2018Backups*. The target parameter uses the *VolumeId* parameter.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name AWS-DeleteSnapshot \
     --targets Key=tag:Name,Values=January2018Backups \
@@ -68,7 +69,7 @@ For example, say that one of your Resource Groups is named PatchedAMIs. This Res
 
 The following AWS CLI command applies to the PatchAMIs Resource Group example. The command takes the *AmiId* parameter for the `--target-parameter-name` option. The command doesn't include an additional parameter defining which type of instance to create from each AMI. The `AWS-CreateManagedWindowsInstance` runbook defaults to the t2.medium instance type, so this command would create 25 t2.medium Amazon EC2 instances for Windows Server.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name AWS-CreateManagedWindowsInstance \
     --targets Key=ResourceGroup,Values=PatchedAMIs  \
@@ -89,7 +90,7 @@ For example, say that your runbook includes an **InstanceID** parameter. If you 
 
 The following example uses the `AWS-CreateImage` runbook. The target parameter name specified is *InstanceId*. The key uses *ParameterValues*. The values are two Amazon EC2 instance IDs. This command creates an automation for each instance, which produces an AMI from each instance. 
 
-```
+```sh
 aws ssm start-automation-execution 
     --document-name AWS-CreateImage \
     --target-parameter-name InstanceId \
@@ -109,7 +110,7 @@ The `TargetMaps` option isn't supported in the console.
 
 Use the following format to specify multiple parameter values by using the `TargetMaps` option in a command. Replace each {{example resource placeholder}} with your own information.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name {{runbook name}} \
     --target-maps "{{parameter}}={{value}}, {{parameter 2}}={{value}}, {{parameter 3}}={{value}}"  "{{parameter 4}}={{value}}, {{parameter 5}}={{value}}, {{parameter 6}}={{value}}"
@@ -117,7 +118,7 @@ aws ssm start-automation-execution \
 
 If you want to enter more than 50 parameter values for the `TargetMaps` option, then specify the values in a file by using the following JSON format. Using a JSON file also improves readability when providing multiple parameter values.
 
-```
+```json
 [
 
     {"parameter": "value", "parameter 2": "value", "parameter 3": "value"},
@@ -129,7 +130,7 @@ If you want to enter more than 50 parameter values for the `TargetMaps` option, 
 
 Save the file with a .json file extension. You can call the file by using the following command. Replace each {{example resource placeholder}} with your own information.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name {{runbook name}} \
     –-parameters {{input parameters}} \
@@ -138,7 +139,7 @@ aws ssm start-automation-execution \
 
 You can also download the file from an Amazon Simple Storage Service (Amazon S3) bucket, as long as you have permission to read data from the bucket. Use the following command format. Replace each {{example resource placeholder}} with your own information.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name {{runbook name}} \
     --target-maps http://amzn-s3-demo-bucket.s3.amazonaws.com/{{file_name}}.json
@@ -146,7 +147,7 @@ aws ssm start-automation-execution \
 
 Here is an example scenario to help you understand the `TargetMaps` option. In this scenario, a user wants to create Amazon EC2 instances of different types from different AMIs. To perform this task, the user creates a runbook named AMI\_Testing. This runbook defines two input parameters: `instanceType` and `imageId`. 
 
-```
+```json
 {
   "description": "AMI Testing",
   "schemaVersion": "0.3",
@@ -188,7 +189,7 @@ Here is an example scenario to help you understand the `TargetMaps` option. In t
 
 The user then specifies the following target parameter values in a file named `AMI_instance_types.json`.
 
-```
+```json
 [
   {
     "instanceType" : ["t2.micro"],     
@@ -215,7 +216,7 @@ The user then specifies the following target parameter values in a file named `A
 
 The user can run the automation and create the five EC2 instances defined in `AMI_instance_types.json` by running the following command.
 
-```
+```sh
 aws ssm start-automation-execution \
     --document-name AMI_Testing \
     --target-parameter-name imageId \

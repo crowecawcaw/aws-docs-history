@@ -1,7 +1,6 @@
 
 
 # Session document schema
-<a name="session-manager-schema"></a>
 
 The following information describes the schema elements of a Session document. AWS Systems Manager Session Manager uses Session documents to determine which type of session to start, such as a standard session, a port forwarding session, or a session to run an interactive command.
 
@@ -106,7 +105,7 @@ Required: No
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '1.0'
 description: Document to hold regional settings for Session Manager
@@ -131,7 +130,7 @@ inputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "schemaVersion": "1.0",
     "description": "Document to hold regional settings for Session Manager",
@@ -163,7 +162,7 @@ inputs:
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '1.0'
 description: Document to view a log file on a Linux instance
@@ -183,7 +182,7 @@ properties:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "schemaVersion": "1.0",
     "description": "Document to view a log file on a Linux instance",
@@ -212,7 +211,7 @@ properties:
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '1.0'
 description: Document to open given port connection over Session Manager
@@ -228,7 +227,7 @@ properties:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "schemaVersion": "1.0",
     "description": "Document to open given port connection over Session Manager",
@@ -252,7 +251,7 @@ Session document example with special characters
 ------
 #### [ YAML ]
 
-```
+```yaml
 ---
 schemaVersion: '1.0'
 description: Example document with quotation marks
@@ -274,7 +273,7 @@ properties:
 ------
 #### [ JSON ]
 
-```
+```json
 {
    "schemaVersion":"1.0",
    "description":"Test document with quotation marks",

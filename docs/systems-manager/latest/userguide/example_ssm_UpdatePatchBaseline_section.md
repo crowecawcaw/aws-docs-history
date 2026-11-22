@@ -1,7 +1,6 @@
 
 
 # Use `UpdatePatchBaseline` with a CLI
-<a name="example_ssm_UpdatePatchBaseline_section"></a>
 
 The following code examples show how to use `UpdatePatchBaseline`.
 
@@ -142,7 +141,7 @@ For more information, see [Updating or deleting a custom patch baseline](https:/
 **Tools for PowerShell V4**  
 **Example 1: This example adds two patches as rejected and one patch as approved to an existing patch baseline.**  
 
-```
+```powershell
 Update-SSMPatchBaseline -BaselineId "pb-03da896ca3b68b639" -RejectedPatch "KB2032276","MS10-048" -ApprovedPatch "KB2124261"
 ```
 **Output:**  
@@ -163,7 +162,7 @@ RejectedPatches : {KB2032276, MS10-048}
 **Tools for PowerShell V5**  
 **Example 1: This example adds two patches as rejected and one patch as approved to an existing patch baseline.**  
 
-```
+```powershell
 Update-SSMPatchBaseline -BaselineId "pb-03da896ca3b68b639" -RejectedPatch "KB2032276","MS10-048" -ApprovedPatch "KB2124261"
 ```
 **Output:**  

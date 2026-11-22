@@ -1,7 +1,6 @@
 
 
 # Managing your application EC2 instances
-<a name="application-manager-working-instances"></a>
 
 Application Manager integrates with Amazon Elastic Compute Cloud (Amazon EC2) to display information about your instances in the context of an application. Application Manager displays instance state, status, and Amazon EC2 Auto Scaling health for a selected application in a graphical format. The **Instances** tab also includes a table with the following information for each instance in your application:
 + Instance state (Pending, Stopping, Running, Stopped)

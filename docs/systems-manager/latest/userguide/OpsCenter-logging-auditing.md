@@ -1,7 +1,6 @@
 
 
 # Viewing OpsCenter logs and reports
-<a name="OpsCenter-logging-auditing"></a>
 
 AWS CloudTrail logs AWS Systems Manager OpsCenter API calls to the console, the AWS Command Line Interface (AWS CLI), and the SDK. You can view the information in the CloudTrail console or in an Amazon Simple Storage Service (Amazon S3) bucket. Amazon S3 uses one bucket to store all CloudTrail logs for your account.
 

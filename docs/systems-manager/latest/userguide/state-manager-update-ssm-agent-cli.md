@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Automatically update SSM Agent with the AWS CLI
-<a name="state-manager-update-ssm-agent-cli"></a>
 
 The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface. The association automatically updates the SSM Agent according to a schedule that you specify. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md). To customize the update schedule for SSM Agent using the console, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console).
 
@@ -25,7 +24,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --targets Key=tag:{{tag_key}},Values={{tag_value}} \
    --name AWS-UpdateSSMAgent \
@@ -35,7 +34,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --targets Key=tag:{{tag_key}},Values={{tag_value}} ^
    --name AWS-UpdateSSMAgent ^
@@ -49,7 +48,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --targets Key=instanceids,Values={{instance_ID,instance_ID,instance_ID}} \
    --name AWS-UpdateSSMAgent \
@@ -59,7 +58,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --targets Key=instanceids,Values={{instance_ID,instance_ID,instance_ID}} ^
    --name AWS-UpdateSSMAgent ^
@@ -73,7 +72,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Linux & macOS ]
 
-   ```
+   ```bash
    aws ssm create-association \
    --targets Key=instanceids,Values={{instance_ID,instance_ID,instance_ID}} \
    --name AWS-UpdateSSMAgent \
@@ -84,7 +83,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 ------
 #### [ Windows ]
 
-   ```
+   ```bash
    aws ssm create-association ^
    --targets Key=instanceids,Values={{instance_ID,instance_ID,instance_ID}} ^
    --name AWS-UpdateSSMAgent ^

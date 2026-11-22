@@ -1,7 +1,6 @@
 
 
 # Use cases and best practices
-<a name="systems-manager-best-practices"></a>
 
 This topic lists common use cases and best practices for AWS Systems Manager tools. If available, this topic also includes links to relevant blog posts and technical documentation.
 
