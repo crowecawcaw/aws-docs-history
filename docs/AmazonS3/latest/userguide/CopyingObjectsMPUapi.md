@@ -1,7 +1,6 @@
 
 
 # Copying an object using multipart upload
-<a name="CopyingObjectsMPUapi"></a>
 
 Multipart upload allows you to copy objects as a set of parts. The examples in this section show you how to copy objects greater than 5 GB using the multipart upload API. For information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md).
 
@@ -47,7 +46,7 @@ The following C\# example shows how to use the SDK for .NET to copy an Amazon S3
 
 This example shows how to copy an Amazon S3 object that is larger than 5 GB from one S3 bucket to another using the SDK for .NET multipart upload API.
 
-```
+```csharp
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

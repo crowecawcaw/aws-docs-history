@@ -1,7 +1,6 @@
 
 
 # Expiring journal table records
-<a name="metadata-tables-expire-journal-table-records"></a>
 
 By default, the records in your journal table don't expire. To help minimize the storage costs for your journal table, you can enable journal table record expiration. 
 
@@ -64,7 +63,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
    To set the `Days` value, specify any whole number between `7` and `2147483647`. For example, to retain your journal table records for one year, set this value to `365`.
 
-   ```
+   ```json
    {
      "RecordExpiration": {
        "Expiration": "ENABLED",
@@ -75,7 +74,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
    To disable journal table record expiration, create the following sample configuration instead. If `Expiration` is set to `DISABLED`, you must not specify a `Days` value in the configuration.
 
-   ```
+   ```json
    {
      "RecordExpiration": {
        "Expiration": "DISABLED"
@@ -85,7 +84,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
 1. Use the following command to expire records from the journal table in your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`):
 
-   ```
+   ```bash
    aws s3api update-bucket-metadata-journal-table-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --journal-table-configuration file://./{{journal-config}}.json \

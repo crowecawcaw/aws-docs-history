@@ -1,7 +1,6 @@
 
 
 # Virtual hosting of general purpose buckets
-<a name="VirtualHosting"></a>
 
 Virtual hosting is the practice of serving multiple websites from a single web server. One way to differentiate sites in your Amazon S3 REST API requests is by using the apparent hostname of the Request-URI instead of just the path name part of the URI. An ordinary Amazon S3 REST request specifies a bucket by using the first slash-delimited component of the Request-URI path. Instead, you can use Amazon S3 virtual hosting to address a general purpose bucket in a REST API call by using the HTTP `Host` header. In practice, Amazon S3 interprets `Host` as meaning that most buckets are automatically accessible for limited types of requests at `https://{{bucket-name}}.s3.{{region-code}}.amazonaws.com`. For a complete list of Amazon S3 Regions and endpoints, see [Amazon S3 endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html) in the *Amazon Web Services General Reference*.
 
@@ -84,13 +83,13 @@ The URL is as follows:
 ```
 The request is as follows:  
 
-```
+```http
 1. GET /example.com/homepage.html HTTP/1.1
 2. Host: s3.us-east-1.amazonaws.com
 ```
 The request with HTTP 1.0 and omitting the `Host` header is as follows:  
 
-```
+```http
 1. GET /example.com/homepage.html HTTP/1.0
 ```
 
@@ -108,7 +107,7 @@ The URL is as follows:
 ```
 The request is as follows:  
 
-```
+```http
 1. GET /homepage.html HTTP/1.1
 2. Host: amzn-s3-demo-bucket1.s3.eu-west-1.amazonaws.com
 ```
@@ -125,7 +124,7 @@ The URL is as follows:
 ```
 The example is as follows:  
 
-```
+```http
 1. GET /homepage.html HTTP/1.1
 2. Host: www.example.com
 ```
@@ -147,7 +146,7 @@ Amazon S3 uses the hostname to determine the bucket name. So the CNAME and the b
 
 **Example**  
 
-```
+```http
 1. GET / HTTP/1.1
 2. Host: www.example.com
 3. Date: {{date}}
@@ -229,7 +228,7 @@ https://amzn-s3-demo-bucket1.s3-us-west-2.amazonaws.com
 
 For some Regions, you can use the legacy global endpoint to construct requests that do not specify a Region-specific endpoint. The legacy global endpoint point is as follows:
 
-```
+```xml
 {{bucket-name}}.s3.amazonaws.com
 ```
 

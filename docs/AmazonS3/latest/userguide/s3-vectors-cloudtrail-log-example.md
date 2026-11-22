@@ -1,14 +1,13 @@
 
 
 # CloudTrail log file example for S3 Vectors
-<a name="s3-vectors-cloudtrail-log-example"></a>
 
 The following examples show CloudTrail log entries for S3 Vectors data events. Data events are logged when you perform operations on vector data within your vector indexes.
 
 ## Example: CloudTrail log file for `GetVectors` data event
 <a name="s3-vectors-cloudtrail-getvectors-example"></a>
 
-```
+```json
 {
     "eventVersion": "1.11",
     "userIdentity": {

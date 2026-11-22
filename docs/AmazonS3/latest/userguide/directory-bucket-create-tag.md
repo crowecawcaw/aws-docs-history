@@ -1,7 +1,6 @@
 
 
 # Creating directory buckets with tags
-<a name="directory-bucket-create-tag"></a>
 
 You can tag Amazon S3 directory buckets when you create them. There is no additional charge for using tags on directory buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging directory buckets, see [Using tags with S3 directory buckets](directory-buckets-tagging.md).
 
@@ -59,7 +58,7 @@ To create a directory bucket with tags using the Amazon S3 console:
 
 This example shows you how to create a directory bucket with tags by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.BucketInfo;
@@ -118,7 +117,7 @@ When you create a directory bucket you must provide configuration details and us
 
 **Request:**
 
-```
+```bash
 aws s3api create-bucket \
 --bucket {{{{bucket-base-name}}--{{zone-id}}--x-s3}} \
 --create-bucket-configuration "Location={Type=AvailabilityZone,Name={{zone-id}}},Bucket={DataRedundancy=SingleAvailabilityZone,Type=Directory},Tags=[{Key={{mykey1}},Value={{myvalue1}}}, {Key={{mykey2}},Value={{myvalue2}}}]"
@@ -126,7 +125,7 @@ aws s3api create-bucket \
 
 **Response:**
 
-```
+```json
 {
   "Location": "http://bucket--{{use1-az4}}--x-s3.s3express-{{use1-az4}}.{{us-east-1}}.amazonaws.com/"
 }

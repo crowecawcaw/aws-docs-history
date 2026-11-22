@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with S3 Tables
-<a name="s3-tables-getting-started"></a>
 
 In this tutorial, you create a table bucket and integrate table buckets in your Region with AWS analytics services. Next, you will use the AWS CLI or console to create your first namespace and table in your table bucket. Then, you can begin querying your table with Athena.
 
@@ -53,7 +52,7 @@ For this step, you create a namespace in your table bucket, and then create a ne
 
 **Important**  
 When creating tables, make sure that you use all lowercase letters in your table names and table definitions. For example, make sure that your column names are all lowercase. If your table name or table definition contains capital letters, the table isn't supported by AWS Lake Formation or the AWS Glue Data Catalog. In this case, your table won't be visible to AWS analytics services such as Amazon Athena, even if your table buckets are integrated with AWS analytics services.   
-If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: "GENERIC\_INTERNAL\_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."
+If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: `"GENERIC_INTERNAL_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."`
 
 ### Using the S3 console and Amazon Athena
 <a name="s3-tables-tutorial-create-table-console"></a>
@@ -93,7 +92,7 @@ To use the following AWS CLI example commands to create a namespace in your tabl
 
 1. Create a new namespace in your table bucket by running the following command:
 
-   ```
+   ```bash
    aws s3tables create-namespace \
    --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}} \
    --namespace {{my_namespace}}
@@ -101,20 +100,20 @@ To use the following AWS CLI example commands to create a namespace in your tabl
 
    1. Confirm that your namespace was created successfully by running the following command: 
 
-     ```
+     ```bash
      aws s3tables list-namespaces \
      --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}
      ```
 
 1. Create a new table with a table schema by running the following command:
 
-   ```
+   ```bash
    aws s3tables create-table --cli-input-json file://{{mytabledefinition.json}}
    ```
 
    For the `mytabledefinition.json` file, use the following example table definition:
 
-   ```
+   ```json
    {
        "tableBucketARN": "arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}",
        "namespace": "{{my_namespace}}",

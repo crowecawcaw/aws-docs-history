@@ -1,7 +1,6 @@
 
 
 # Creating a vector index in a vector bucket
-<a name="s3-vectors-create-index"></a>
 
 **Note**  
 Choose your vector index configuration parameters carefully. After you create a vector index, you can't update the vector index name, dimension, distance metric, or non-filterable metadata keys. To change any of these values, you must create a new vector index.
@@ -51,7 +50,7 @@ Choose based on your embedding model's output dimensions.
 
    1. Repeat to add additional keys (maximum 10 keys).
 **Note**  
-You can attach filterable metadata as key-value pairs to each vector when you insert vector data after you create a vector index. By default, all metadata keys that are attached to vectors are filterable and can be used as filters in a similarity query. Only metadata keys that are specified as non-filterable during vector index creation are excluded from filtering. For more information about metadata size limits per vector, including both total and filterable metadata constraints, see [Limitations and restrictions](s3-vectors-limitations.md).
+You can attach filterable metadata as key-value pairs to each vector when you insert vector data after you create a vector index. By default, all metadata keys that are attached to vectors are filterable and can be used as filters in a similarity query. Only metadata keys that are specified as non-filterable during vector index creation are excluded from filtering. For more information about metadata size limits per vector, including both total and filterable metadata constraints, see [Limitations and restrictions](s3-vectors-limitations.md). To learn how to configure full-text search on an index, see [Configuring full-text search](s3-vectors-configuring-full-text-search.md).
 
 1. Review your configuration carefully.
 **Note**  
@@ -70,7 +69,7 @@ To create a vector index in a vector bucket, use the following example commands 
 
 **Example 1: Creating a vector index with non-filterable metadata keys**
 
-```
+```bash
 aws s3vectors create-index \
   --vector-bucket-name "{{amzn-s3-demo-vector-bucket}}" \
   --index-name "{{idx}}" \
@@ -82,7 +81,7 @@ aws s3vectors create-index \
 
 **Example 2: Creating a vector index without non-filterable metadata keys**
 
-```
+```bash
 aws s3vectors create-index \
   --vector-bucket-name "{{amzn-s3-demo-vector-bucket}}" \
   --index-name "{{idx2}}" \
@@ -153,7 +152,7 @@ The response will include all metadata associated with the vector, regardless of
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 # Create a S3 Vectors client in the AWS Region of your choice. 

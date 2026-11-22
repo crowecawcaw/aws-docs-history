@@ -1,7 +1,6 @@
 
 
 # Configure access control lists (ACLs) through an access point for a general purpose bucket
-<a name="put-acl-permissions-ap"></a>
 
 This section explains how to configure ACLs through an access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API. For more information about ACLs, see [Access control list (ACL) overview](acl-overview.md). 
 
@@ -33,7 +32,7 @@ The following `put-object-acl` example command shows how you can use the AWS CLI
 
 The following command applies an ACL to an existing object `puppy.jpg` through an access point owned by AWS account {{111122223333}}.
 
-```
+```bash
 aws s3api put-object-acl --bucket arn:aws:s3:{{AWS Region}}:111122223333:accesspoint/{{my-access-point}} --key puppy.jpg --acl private      
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Deleting object versions from a versioning-enabled bucket
-<a name="DeletingObjectVersions"></a>
 
 You can delete object versions from Amazon S3 buckets whenever you want. You can also define lifecycle configuration rules for objects that have a well-defined lifecycle to request Amazon S3 to expire current object versions or permanently remove noncurrent object versions. When your bucket has versioning enabled or the versioning is suspended, the lifecycle configuration actions work as follows:
 + The `Expiration` action applies to the current object version. Instead of deleting the current object version, Amazon S3 retains the current version as a noncurrent version by adding a *delete marker*, which then becomes the current version.
@@ -71,7 +70,7 @@ For information about using other AWS SDKs, see the [AWS Developer Center](https
 
 The following Python code example permanently deletes a versioned object by deleting all of its versions.
 
-```
+```python
 def permanently_delete_object(bucket, object_key):
     """
     Permanently deletes a versioned object by deleting all of its versions.
@@ -100,7 +99,7 @@ def permanently_delete_object(bucket, object_key):
 **Example — Deleting a specific version**  
 The following example deletes version `UIORUnfnd89493jJFJ` of `photo.gif`.  
 
-```
+```http
 1. DELETE /photo.gif?versionId=UIORUnfnd89493jJFJ HTTP/1.1 
 2. Host: bucket.s3.amazonaws.com
 3. Date: Wed, 12 Oct 2009 17:50:00 GMT

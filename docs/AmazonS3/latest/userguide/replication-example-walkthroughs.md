@@ -1,7 +1,6 @@
 
 
 # Examples for configuring live replication
-<a name="replication-example-walkthroughs"></a>
 
 The following examples provide step-by-step walkthroughs that show how to configure live replication for common use cases. 
 
@@ -35,7 +34,7 @@ When you configure replication on a bucket, Amazon S3 replicates annotations aut
 
 The following example shows the source bucket statement in the IAM role permissions policy with the annotation replication permission included:
 
-```
+```json
 {
    "Effect": "Allow",
    "Action": [

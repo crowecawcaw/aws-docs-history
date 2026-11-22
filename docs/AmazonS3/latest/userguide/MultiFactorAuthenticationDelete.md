@@ -1,7 +1,6 @@
 
 
 # Configuring MFA delete
-<a name="MultiFactorAuthenticationDelete"></a>
 
 When working with S3 Versioning in Amazon S3 buckets, you can optionally add another layer of security by configuring a bucket to enable *MFA (multi-factor authentication) delete*. When you do this, the bucket owner must include two forms of authentication in any request to delete a version or change the versioning state of the bucket.
 
@@ -26,7 +25,7 @@ You cannot use MFA delete with lifecycle configurations. For more information ab
 
 To enable or disable MFA delete, you use the same API that you use to configure versioning on a bucket. Amazon S3 stores the MFA delete configuration in the same *versioning* subresource that stores the bucket's versioning status.
 
-```
+```xml
 <VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"> 
   <Status>{{VersioningState}}</Status>
   <MfaDelete>{{MfaDeleteState}}</MfaDelete>  

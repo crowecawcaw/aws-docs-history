@@ -1,7 +1,6 @@
 
 
 # Deleting a tag from a bucket
-<a name="bucket-tag-delete"></a>
 
 You can remove tags from S3 buckets. An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 buckets. For more information about tags, see [Using tags with S3 general purpose buckets](buckets-tagging.md).
 
@@ -54,7 +53,7 @@ To delete tags from a bucket using the Amazon S3 console:
 
 This example shows you how to delete tags from a general purpose bucket by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3control.S3ControlClient;
 import software.amazon.awssdk.services.s3control.model.UntagResourceRequest;
@@ -94,7 +93,7 @@ The following CLI example shows you how to delete tags from a general purpose bu
 
 **Request:**
 
-```
+```bash
 aws s3control untag-resource \
 --resource-arn arn:aws::s3:::{{amzn-s3-demo-bucket}} --region {{us-east-2}} --account-id {{111122223333}} \
 --tag-keys "{{tagkey1}}" "{{tagkey2}}"

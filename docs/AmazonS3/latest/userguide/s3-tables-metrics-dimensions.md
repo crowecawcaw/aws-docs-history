@@ -1,7 +1,6 @@
 
 
 # Metrics and dimensions
-<a name="s3-tables-metrics-dimensions"></a>
 
 The storage metrics and dimensions that S3 Tables sends to Amazon CloudWatch are listed in the following tables.
 

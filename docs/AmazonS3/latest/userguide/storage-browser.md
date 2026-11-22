@@ -1,7 +1,6 @@
 
 
 # Working with Storage Browser for Amazon S3
-<a name="storage-browser"></a>
 
 [Storage Browser for S3](https://aws.amazon.com/s3/features/storage-browser/) is an open source component that you can add to your web application to provide your end users with a simple graphical interface for data stored in Amazon S3. With Storage Browser for S3, you can provide authorized end users access to browse, download, upload, copy, and delete data in S3 directly from your own applications.
 

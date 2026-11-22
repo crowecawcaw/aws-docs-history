@@ -1,7 +1,6 @@
 
 
 # Controlling access from VPC endpoints with bucket policies
-<a name="example-bucket-policies-vpc-endpoint"></a>
 
 You can use Amazon S3 bucket policies to control access to buckets from specific virtual private cloud (VPC) endpoints or specific VPCs. This section contains example bucket policies that you can use to control Amazon S3 bucket access from VPC endpoints. To learn how to set up VPC endpoints, see [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *VPC User Guide*. 
 
@@ -35,7 +34,7 @@ This policy disables console access to the specified bucket because console requ
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Policy1415115909152",
@@ -73,7 +72,7 @@ This policy disables console access to the specified bucket because console requ
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id": "Policy1415115909153",
@@ -102,7 +101,7 @@ This policy disables console access to the specified bucket because console requ
 
 The following example policy denies all Amazon S3 (`s3:`) actions on the {{amzn-s3-demo-bucket}} bucket and its objects, unless the request originates from the specified VPC endpoint (`vpce-0a1b2c3d4e5f6g`) and the source IP address matches the provided IPv6 CIDR block.
 
-```
+```json
 {
    "Version": "2012-10-17", 		 	 	 
    "Id": "Policy1415115909154",

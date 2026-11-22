@@ -1,7 +1,6 @@
 
 
 # Troubleshooting S3 Batch Operations
-<a name="troubleshooting-batch-operations"></a>
 
 Amazon S3 Batch Operations allows you to perform large-scale operations on Amazon S3 objects. This guide helps you troubleshoot common issues you might encounter.
 
@@ -67,19 +66,19 @@ Jobs in terminal states are automatically deleted after 90 days. To avoid losing
 
 1. Use the following command to verify the job exists in your account and region.
 
-   ```
+   ```bash,sh,zsh
    aws s3control list-jobs --account-id {{111122223333}} --region {{us-east-1}}
    ```
 
 1. Use the following command to search across all job statuses. Possible job statuses include `Active`, `Cancelled`, `Cancelling`, `Complete`, `Completing`, `Failed`, `Failing`, `New`, `Paused`, `Pausing`, `Preparing`, `Ready`, and `Suspended`.
 
-   ```
+   ```bash,sh,zsh
    aws s3control list-jobs --account-id {{111122223333}} --job-statuses {{your-job-status}}
    ```
 
 1. Use the following command to check if the job exists in other regions where you commonly create jobs.
 
-   ```
+   ```bash,sh,zsh
    aws s3control list-jobs --account-id {{111122223333}} --region {{job-region-1}} aws s3control list-jobs --account-id {{111122223333}} --region {{job-region-2}}                    
    ```
 
@@ -87,7 +86,7 @@ Jobs in terminal states are automatically deleted after 90 days. To avoid losing
 
 1. Use the following command to check CloudTrail logs for job creation events.
 
-   ```
+   ```bash,sh,zsh
        aws logs filter-log-events --log-group-name CloudTrail/S3BatchOperations \ --filter-pattern "{ $.eventName = CreateJob }" \ --start-time {{timestamp}}                    
    ```
 
@@ -154,19 +153,19 @@ Follow these steps systematically to identify and resolve permission issues.
 
 1. Use the following command to determine if you can list jobs.
 
-   ```
+   ```bash,sh,zsh
     aws s3control list-jobs --account-id {{111122223333}}
    ```
 
 1. Use the following command to check IAM permissions for the requesting identity. The account running the job needs the following permissions: `s3:CreateJob`, `s3:DescribeJob`, `s3:ListJobs`, `s3:UpdateJobPriority`, `s3:UpdateJobStatus`, and `iam:PassRole`.
 
-   ```
+   ```bash,sh,zsh
    aws sts get-caller-identity {{111122223333}}
    ```
 
 1. Use the following command to check if the role exists and is assumable.
 
-   ```
+   ```bash,sh,zsh
    aws iam get-role --role-name {{role-name}}
    ```
 
@@ -182,13 +181,13 @@ Follow these steps systematically to identify and resolve permission issues.
 
    1. Permission to write completion reports.
 
-   ```
+   ```bash,sh,zsh
    aws iam get-role --role-name {{role-name}} --query 'Role.AssumeRolePolicyDocument'
    ```
 
 1. Use the following command to test access to the manifest and source buckets.
 
-   ```
+   ```bash,sh,zsh
    aws s3 ls s3://{{amzn-s3-demo-bucket}}                        
    ```
 
@@ -204,7 +203,7 @@ Follow these steps systematically to identify and resolve permission issues.
 
 1. Use the following command to use CloudTrail to identify permission failures.
 
-   ```
+   ```bash,sh,zsh
    aws logs filter-log-events --log-group-name CloudTrail/S3BatchOperations \
        --filter-pattern "{ $.errorCode = AccessDenied }" \
        --start-time {{timestamp}}
@@ -270,7 +269,7 @@ For more information about retry patterns and best practices, see [Retry with ba
 1. In your code, implement exponential backoff immediately.  
 **Example of exponential backoff in bash**  
 
-   ```
+   ```bash,sh,zsh
    for attempt in {1..5}; do
        if aws s3control describe-job --account-id {{111122223333}} --job-id {{job-id}}; then 
            break
@@ -282,7 +281,7 @@ For more information about retry patterns and best practices, see [Retry with ba
 
 1. Use CloudTrail to identify the source of high request volume.
 
-   ```
+   ```bash,sh,zsh
    aws logs filter-log-events \
        --log-group-name CloudTrail/S3BatchOperations \
        --filter-pattern "{ $.eventName = CreateJob || $.eventName = DescribeJob }" \
@@ -310,7 +309,7 @@ For more information about retry patterns and best practices, see [Retry with ba
 
 1. Use CloudWatch metrics for API calls to monitor your request patterns.
 
-   ```
+   ```bash,sh,zsh
       aws logs put-metric-filter \
           --log-group-name CloudTrail/S3BatchOperations \
           --filter-name S3BatchOpsAPICallCount \      
@@ -412,7 +411,7 @@ For detailed manifest format specifications and examples, see the following:
 
    Use the following command to download the manifest file.
 
-   ```
+   ```bash,sh,zsh
    aws s3 cp s3://{{amzn-s3-demo-bucket1}}/{{manifest-key}} {{./manifest.csv}} 
    ```
 
@@ -446,12 +445,12 @@ For detailed manifest format specifications and examples, see the following:
 
 1. Use the following command to check if a sample of objects from the manifest exist.
 
-   ```
+   ```bash,sh,zsh
    aws s3 ls s3://{{amzn-s3-demo-bucket1}}/{{object-key}}
    ```
 
 1. Check job failure details and review the failure reason and any specific error details in the job description.
 
-   ```
+   ```bash,sh,zsh
    aws s3control describe-job --account-id {{111122223333}} --job-id {{job-id}}                        
    ```

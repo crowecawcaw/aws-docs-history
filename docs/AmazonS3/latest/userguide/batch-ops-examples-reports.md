@@ -1,7 +1,6 @@
 
 
 # Examples: S3 Batch Operations completion reports
-<a name="batch-ops-examples-reports"></a>
 
 When you create an S3 Batch Operations job, you can request a completion report for all tasks or just for failed tasks. As long as at least one task has been invoked successfully, S3 Batch Operations generates a report for jobs that have completed, failed, or been canceled.
 
@@ -13,7 +12,7 @@ Completion reports are always encrypted with Amazon S3 managed keys (SSE-S3).
 **Example — Top-level manifest result file**  
 The top-level `manifest.json` file contains the locations of each succeeded report and (if the job had any failures) the location of failed reports, as shown in the following example.  
 
-```
+```json
 {
     "Format": "Report_CSV_20180820",
     "ReportCreationDate": "2019-04-05T17:48:39.725Z",

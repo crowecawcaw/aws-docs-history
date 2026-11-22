@@ -1,7 +1,6 @@
 
 
 # List your S3 Access Grants instances
-<a name="access-grants-instance-list"></a>
 
 You can list your S3 Access Grants instances, including the instances that have been shared with you through AWS Resource Access Manager (AWS RAM).
 
@@ -64,7 +63,7 @@ To use the following examples, replace the `{{user input placeholders}}` with yo
 **Example – List all S3 Access Grants instances for an account**  
 This action lists the S3 Access Grants instances for an account. You can only have one S3 Access Grants instance per Region. This action can also list other cross-account S3 Access Grants instances that your account has access to.   
 
-```
+```java
 public void listAccessGrantsInstances() {
 ListAccessGrantsInstancesRequest listRequest = ListAccessGrantsInstancesRequest.builder()
 .accountId("{{111122223333}}")
@@ -75,7 +74,7 @@ LOGGER.info("ListAccessGrantsInstancesResponse: " + listResponse);
 ```
 Response:  
 
-```
+```java
 ListAccessGrantsInstancesResponse(
 AccessGrantsInstancesList=[
 ListAccessGrantsInstanceEntry(

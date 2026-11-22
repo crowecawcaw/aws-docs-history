@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Multi-Region Access Point failover controls
-<a name="UsingFailover"></a>
 
 This section explains how to manage and use your Amazon S3 Multi-Region Access Points failover controls by using the AWS Management Console. 
 
@@ -70,7 +69,7 @@ You can run Multi-Region Access Point AWS CLI routing commands against any of th
 
 The following example command updates your current Multi-Region Access Point route configuration. To update the active or passive status of a bucket, set the `TrafficDialPercentage` value to `100` for active and to `0` for passive. In this example, `{{amzn-s3-demo-bucket1}}` is set to active, and {{amzn-s3-demo-bucket2}} is set to passive. To use this example command, replace the `{{user input placeholders}}` with your own information. 
 
-```
+```bash
 aws s3control submit-multi-region-access-point-routes
 --region {{ap-southeast-2}} 
 --account-id {{123456789012 }}
@@ -82,7 +81,7 @@ aws s3control submit-multi-region-access-point-routes
 
 The following example command gets your updated Multi-Region Access Point routing configuration. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control get-multi-region-access-point-routes
 --region {{eu-west-1}}
 --account-id {{123456789012}}
@@ -148,7 +147,7 @@ To initiate failover, at least one AWS Region must be designated as **Active** a
 
 The following example AWS CLI command gets your current Multi-Region Access Point route configuration for the specified Region. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control get-multi-region-access-point-routes
 --region {{eu-west-1}}
 --account-id {{123456789012 }}

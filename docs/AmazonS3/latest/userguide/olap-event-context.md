@@ -1,14 +1,13 @@
 
 
 # Event context format and usage
-<a name="olap-event-context"></a>
 
 **Note**  
 As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
 
 Amazon S3 Object Lambda provides context about the request that's being made in the event that's passed to your AWS Lambda function. The following shows an example request. Descriptions of the fields are included after the example.
 
-```
+```json
 {
     "xAmzRequestId": "{{requestId}}",
     "getObjectContext": {

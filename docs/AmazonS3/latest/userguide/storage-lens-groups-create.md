@@ -1,7 +1,6 @@
 
 
 # Creating a Storage Lens group
-<a name="storage-lens-groups-create"></a>
 
 The following examples demonstrate how to create an Amazon S3 Storage Lens group by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -36,14 +35,14 @@ The following examples demonstrate how to create an Amazon S3 Storage Lens group
 
 The following example AWS CLI command creates a Storage Lens group. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control create-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --storage-lens-group=file://./{{marketing-department}}.json
 ```
 
 The following example AWS CLI command creates a Storage Lens group with two AWS resource tags. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control create-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --storage-lens-group=file://./{{marketing-department}}.json \
 --tags Key={{k1}},Value={{v1}} Key={{k2}},Value={{v2}}
@@ -59,7 +58,7 @@ The following AWS SDK for Java example creates a Storage Lens group. To use this
 **Example – Create a Storage Lens group with a single filter**  
 The following example creates a Storage Lens group named `{{Marketing-Department}}`. This group has an object age filter that specifies the age range as `{{30}}` to `{{90}}` days. To use this example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```java
 package aws.example.s3control;
  
 import com.amazonaws.AmazonServiceException;
@@ -115,7 +114,7 @@ public class CreateStorageLensGroupWithObjectAge {
 **Example – Create a Storage Lens group with an `AND` operator that includes multiple filters**  
 The following example creates a Storage Lens group named `{{Marketing-Department}}`. This group uses the `AND` operator to indicate that objects must match **all** of the filter conditions. To use this example, replace the `{{user input placeholders}}` with your own information.   
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
@@ -194,7 +193,7 @@ public class CreateStorageLensGroupWithAndFilter {
 **Example – Create a Storage Lens group with an `OR` operator that includes multiple filters**  
 The following example creates a Storage Lens group named `{{Marketing-Department}}`. This group uses an `OR` operator to apply a prefix filter (`{{prefix-1}}`, `{{prefix-2}}`, `{{prefix3/sub-prefix-1}}`) or an object size filter with a size range between `{{1000}}` bytes and `{{6000}}` bytes. To use this example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
@@ -256,7 +255,7 @@ public class CreateStorageLensGroupWithOrFilter {
 **Example – Create a Storage Lens group with a single filter and two AWS resource tags**  
 The following example creates a Storage Lens group named `{{Marketing-Department}}` that has a suffix filter. This example also adds two AWS resource tags to the Storage Lens group. To use this example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

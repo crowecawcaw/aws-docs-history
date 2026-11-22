@@ -1,7 +1,6 @@
 
 
 # Rules for naming Amazon S3 Multi-Region Access Points
-<a name="multi-region-access-point-naming"></a>
 
 When you create a Multi-Region Access Point, you give it a name, which is a string that you choose. You can't change the name of the Multi-Region Access Point after it is created. The name must be unique in your AWS account, and it must conform to the naming requirements listed in [Multi-Region Access Point restrictions and limitations](MultiRegionAccessPointRestrictions.md). To help you identify the Multi-Region Access Point, use a name that is meaningful to you, to your organization, or that reflects the scenario. 
 

@@ -1,7 +1,6 @@
 
 
 # Referencing access points for directory buckets
-<a name="access-points-directory-buckets-naming"></a>
 
 After you create an access point, you can use it as an endpoint to preform object operations. For access points for directory buckets, the access point alias is the same as the access point name. You can use the access point name instead of a bucket name for all data operations. For a list of these supported operations, see [Object operations for access points for directory buckets](access-points-directory-buckets-service-api-support.md).
 

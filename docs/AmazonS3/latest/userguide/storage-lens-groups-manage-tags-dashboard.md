@@ -1,7 +1,6 @@
 
 
 # Managing AWS resource tags with S3 Storage Lens
-<a name="storage-lens-groups-manage-tags-dashboard"></a>
 
 Each Amazon S3 Storage Lens dashboard is counted as an AWS resource with its own Amazon Resource Name (ARN). Therefore, when you configure your Storage Lens dashboard, you can optionally add AWS resource tags to the dashboard. You can add up to 50 tags for each Storage Lens dashboard. To create a Storage Lens dashboard with tags, you must have the following [S3 Storage Lens permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html):
 + `s3:ListStorageLensConfigurations`

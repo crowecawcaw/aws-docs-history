@@ -1,7 +1,6 @@
 
 
 # Controlling access to a bucket with user policies
-<a name="walkthrough1"></a>
 
 This walkthrough explains how user permissions work with Amazon S3. In this example, you create a bucket with folders. You then create AWS Identity and Access Management IAM users in your AWS account and grant those users incremental permissions on your Amazon S3 bucket and the folders in it. 
 
@@ -171,7 +170,7 @@ Because you are granting user permissions, sign in using your AWS account creden
 
 ****  
 
-      ```
+      ```json
       {
         "Version":"2012-10-17",		 	 	 
         "Statement": [
@@ -223,7 +222,7 @@ When you choose a bucket name, the console sends the [GET Bucket (List Objects)]
 
 The following is an example request.
 
-```
+```http
 GET ?prefix=&delimiter=/ HTTP/1.1 
 Host: companybucket.s3.amazonaws.com
 Date: Wed, 01 Aug  2012 12:00:00 GMT
@@ -232,7 +231,7 @@ Authorization: AWS AKIAIOSFODNN7EXAMPLE:xQE0diMbLRepdf3YB+FIEXAMPLE=
 
 Amazon S3 returns a response that includes the following `<ListBucketResult/>` element.
 
-```
+```xml
 <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Name>companybucket</Name>
   <Prefix></Prefix>
@@ -264,7 +263,7 @@ If Bob or Alice opens the **Development** folder, the console sends the [GET Buc
 
 In response, Amazon S3 returns the object keys that start with the specified prefix. 
 
-```
+```xml
 <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Name>companybucket</Name>
   <Prefix>Development</Prefix>
@@ -285,7 +284,7 @@ The console shows the object keys.
 
 Now, return to granting users permission to list the root-level bucket items. To list bucket content, users need permission to call the `s3:ListBucket` action, as shown in the following policy statement. To ensure that they see only the root-level content, you add a condition that users must specify an empty `prefix` in the request—that is, they are not allowed to open any of the root-level folders. Finally, you add a condition to require folder-style access by requiring user requests to include the `delimiter` parameter with the value "`/`". 
 
-```
+```json
 {
   "Sid": "AllowRootLevelListingOfCompanyBucket",
   "Action": ["s3:ListBucket"],
@@ -301,7 +300,7 @@ Now, return to granting users permission to list the root-level bucket items. To
 
 When you choose a bucket on the Amazon S3 console, the console first sends the [GET Bucket location](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETlocation.html) request to find the AWS Region where the bucket is deployed. Then the console uses the Region-specific endpoint for the bucket to send the [GET Bucket (List Objects)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html) request. As a result, if users are going to use the console, you must grant permission for the `s3:GetBucketLocation` action as shown in the following policy statement.
 
-```
+```json
 {
    "Sid": "RequiredByS3Console",
    "Action": ["s3:GetBucketLocation"],
@@ -325,7 +324,7 @@ When you choose a bucket on the Amazon S3 console, the console first sends the [
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	                  
      "Statement": [
@@ -406,7 +405,7 @@ For Alice to list the `Development` folder content, you must apply a policy to t
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	   
           "Statement": [
@@ -441,7 +440,7 @@ For Alice to list the `Development` folder content, you must apply a policy to t
 
 For Alice to get and put objects in the `Development` folder, she needs permission to call the `s3:GetObject` and `s3:PutObject` actions. The following policy statements grant these permissions, provided that the request includes the `prefix` parameter with a value of `Development/`.
 
-```
+```json
 {
     "Sid":"AllowUserToReadWriteObjectData",
     "Action":["s3:GetObject", "s3:PutObject"],
@@ -473,7 +472,7 @@ For Alice to get and put objects in the `Development` folder, she needs permissi
 
 ****  
 
-      ```
+      ```json
       {
            "Version":"2012-10-17",		 	 	 
            "Statement":[
@@ -516,7 +515,7 @@ You can add the following statement to the user Alice policy that requires all r
 
 
 
-```
+```json
 {
    "Sid": "ExplicitlyDenyAnyRequestsForAllOtherFoldersExceptDevelopment",
    "Action": ["s3:ListBucket"],
@@ -545,7 +544,7 @@ Copy the following policy and paste it into the policy text field, replacing the
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -593,7 +592,7 @@ In this example, you have only two users. You granted all the minimum required p
 To ensure that the `Private` folder remains private, you can add the following two deny statements to the group policy:
 + Add the following statement to explicitly deny any action on resources in the `Private` folder (`companybucket/Private/*`).
 
-  ```
+  ```json
   {
     "Sid": "ExplictDenyAccessToPrivateFolderToEveryoneInTheGroup",
     "Action": ["s3:*"],
@@ -603,7 +602,7 @@ To ensure that the `Private` folder remains private, you can add the following t
   ```
 + You also deny permission for the list objects action when the request specifies the `Private/` prefix. On the console, if Bob or Alice opens the `Private` folder, this policy causes Amazon S3 to return an error response.
 
-  ```
+  ```json
   {
     "Sid": "DenyListBucketOnPrivateFolder",
     "Action": ["s3:ListBucket"],
@@ -630,7 +629,7 @@ Replace the `Consultants` group policy with an updated policy that includes the 
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

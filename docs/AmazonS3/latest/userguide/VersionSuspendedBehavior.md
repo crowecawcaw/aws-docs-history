@@ -1,7 +1,6 @@
 
 
 # Working with objects in a versioning-suspended bucket
-<a name="VersionSuspendedBehavior"></a>
 
 In Amazon S3, you can suspend versioning to stop accruing new versions of the same object in a bucket. You might do this because you only want a single version of an object in a bucket. Or, you might not want to accrue charges for multiple versions. 
 

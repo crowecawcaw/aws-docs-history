@@ -1,7 +1,6 @@
 
 
 # Getting replication status information
-<a name="replication-status"></a>
 
 Replication status can help you determine the current state of an object being replicated. The replication status of a source object will return either `PENDING`, `COMPLETED`, or `FAILED`. The replication status of a replica will return `REPLICA`.
 
@@ -80,13 +79,13 @@ In the Amazon S3 console, you can view the replication status for an object on t
 
 Use the AWS Command Line Interface (AWS CLI) `head-object` command to retrieve object metadata, as shown in the following example. Replace the `{{amzn-s3-demo-source-bucket1}}` with the name of your replication source bucket, and replace the other `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3api head-object --bucket {{amzn-s3-demo-source-bucket1}} --key {{object-key}} --version-id {{object-version-id}}           
 ```
 
 The command returns object metadata, including the `ReplicationStatus` as shown in the following example response.
 
-```
+```json
 {
    "AcceptRanges":"bytes",
    "ContentType":"image/jpeg",
@@ -109,7 +108,7 @@ The following code fragments get your replication status by using the AWS SDK fo
 ------
 #### [ Java ]
 
-```
+```java
 GetObjectMetadataRequest metadataRequest = new GetObjectMetadataRequest(bucketName, key);
 ObjectMetadata metadata = s3Client.getObjectMetadata(metadataRequest);
 
@@ -119,7 +118,7 @@ System.out.println("Replication Status : " + metadata.getRawMetadataValue(Header
 ------
 #### [ .NET ]
 
-```
+```csharp
 GetObjectMetadataRequest getmetadataRequest = new GetObjectMetadataRequest
     {
          BucketName = sourceBucket,

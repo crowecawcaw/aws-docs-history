@@ -1,7 +1,6 @@
 
 
 # Helper files for using Amazon S3 Storage Lens
-<a name="S3LensHelperFilesCLI"></a>
 
 Use the following JSON files and its key inputs for your examples.
 
@@ -12,7 +11,7 @@ Use the following JSON files and its key inputs for your examples.
 The `config.json` file contains the details of a S3 Storage Lens Organizations-level *advanced metrics and recommendations* configuration. To use the following example, replace the `{{user input placeholders}}` with your own information.  
 Additional charges apply for advanced metrics and recommendations. For more information, see [advanced metrics and recommendations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_basics_metrics_recommendations.html#storage_lens_basics_metrics_selection).
 
-```
+```json
 {
   "Id": "{{SampleS3StorageLensConfiguration}}", //Use this property to identify your S3 Storage Lens configuration.
   "AwsOrg": { //Use this property when enabling S3 Storage Lens for AWS Organizations.
@@ -56,6 +55,19 @@ Additional charges apply for advanced metrics and recommendations. For more info
       }
     }
   },
+  "IntAccessTiers": {
+    "IsEnabled": {{true}}
+  },
+  "PrefixDelimiter": "/", //Required for AWS Billing and Cost Management publishing; the delimiter must be "/".
+  "CostAndUsageReportsPublish": { //Enables AWS Billing and Cost Management publishing of prefix-level metrics for split cost allocation data.
+    "PrefixLevel": {
+      "IsEnabled":{{true}},
+      "SelectionCriteria": { //Omit SelectionCriteria to use the default range (MinDepth 1, MaxDepth 3).
+        "MinDepth":{{1}},
+        "MaxDepth":{{3}}
+      }
+    }
+  },
   "Exclude": { //Replace with "Include" if you prefer to include Regions.
     "Regions": [
       "{{eu-west-1}}"
@@ -93,7 +105,7 @@ The `config.json` file contains the details that you want to apply to your Stora
 
 To attach all Storage Lens groups to your dashboard, update your Storage Lens configuration with the following syntax:
 
-```
+```json
 {
   "Id": "ExampleS3StorageLensConfiguration",
   "AccountLevel": {
@@ -104,20 +116,25 @@ To attach all Storage Lens groups to your dashboard, update your Storage Lens co
       "IsEnabled":{{true}}
     },
     "AdvancedDataProtectionMetrics": {
-      "IsEnabled":true
+      "IsEnabled":{{true}}
     },
     "BucketLevel": {
       "ActivityMetrics": {
-      "IsEnabled":{{true}}
-      },
-    "StorageLensGroupLevel": {},
+        "IsEnabled":{{true}}
+      }
+    },
+    "StorageLensGroupLevel": {}
+  },
+  "IntAccessTiers": {
+    "IsEnabled": {{true}}
+  },
   "IsEnabled": {{true}}
 }
 ```
 
 To include only two Storage Lens groups in your Storage Lens dashboard configuration ({{slg-1}} and {{slg-2}}), use the following syntax:
 
-```
+```json
 {
   "Id": "{{ExampleS3StorageLensConfiguration}}",
   "AccountLevel": {
@@ -132,22 +149,28 @@ To include only two Storage Lens groups in your Storage Lens dashboard configura
     },
     "BucketLevel": {
       "ActivityMetrics": {
-      "IsEnabled":{{true}}
-      },
-   "StorageLensGroupLevel": {
-        "SelectionCriteria": {
-            "Include": [
-                "arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{slg-1}}",
-                "arn:aws:s3:{{us-east-1}}:{{444455556666}}:storage-lens-group/{{slg-2}}"
-            ]
+        "IsEnabled":{{true}}
+      }
     },
+    "StorageLensGroupLevel": {
+      "SelectionCriteria": {
+        "Include": [
+          "arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{slg-1}}",
+          "arn:aws:s3:{{us-east-1}}:{{444455556666}}:storage-lens-group/{{slg-2}}"
+        ]
+      }
+    }
+  },
+  "IntAccessTiers": {
+    "IsEnabled": {{true}}
+  },
   "IsEnabled": {{true}}
 }
 ```
 
 To exclude only certain Storage Lens groups from being attached to your dashboard configuration, use the following syntax:
 
-```
+```json
 {
   "Id": "{{ExampleS3StorageLensConfiguration}}",
   "AccountLevel": {
@@ -162,15 +185,21 @@ To exclude only certain Storage Lens groups from being attached to your dashboar
     },
     "BucketLevel": {
       "ActivityMetrics": {
-      "IsEnabled":{{true}}
-      },
-   "StorageLensGroupLevel": {
-        "SelectionCriteria": {
-            "Exclude": [
-                "arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{slg-1}}",
-                "arn:aws:s3:{{us-east-1}}:{{444455556666}}:storage-lens-group/{{slg-2}}"
-            ]
+        "IsEnabled":{{true}}
+      }
     },
+    "StorageLensGroupLevel": {
+      "SelectionCriteria": {
+        "Exclude": [
+          "arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{slg-1}}",
+          "arn:aws:s3:{{us-east-1}}:{{444455556666}}:storage-lens-group/{{slg-2}}"
+        ]
+      }
+    }
+  },
+  "IntAccessTiers": {
+    "IsEnabled": {{true}}
+  },
   "IsEnabled": {{true}}
 }
 ```
@@ -181,7 +210,7 @@ To exclude only certain Storage Lens groups from being attached to your dashboar
 **Example `tags.json`**  
 The `tags.json` file contains the tags that you want to apply to your S3 Storage Lens configuration. To use this example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```json
 [
     {
         "Key": "{{key1}}",
@@ -201,7 +230,7 @@ The `tags.json` file contains the tags that you want to apply to your S3 Storage
 This example policy shows an S3 Storage Lens IAM `permissions.json` file with a specific dashboard name specified. Replace {{`value1`}}, `{{us-east-1}}`, `{{your-dashboard-name}}`, and `{{example-account-id}}` with your own values.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -227,7 +256,7 @@ This example policy shows an S3 Storage Lens IAM `permissions.json` file with a 
 This example policy shows an S3 Storage Lens IAM `permissions.json` file without a specific dashboard name specified. Replace {{`value1`}}, `{{us-east-1}}`, and `{{example-account-id}}` with your own values.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

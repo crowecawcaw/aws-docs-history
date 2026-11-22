@@ -1,7 +1,6 @@
 
 
 # How S3 Files works with IAM
-<a name="s3-files-security-iam"></a>
 
 This page describes how AWS Identity and Access Management (IAM) works with S3 Files and how you can use IAM policies to control access to your file systems.
 

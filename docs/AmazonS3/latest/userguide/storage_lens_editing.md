@@ -1,7 +1,6 @@
 
 
 # Update an Amazon S3 Storage Lens dashboard
-<a name="storage_lens_editing"></a>
 
  The Amazon S3 Storage Lens default dashboard is `default-account-dashboard`. This dashboard is preconfigured by Amazon S3 to help you visualize summarized insights and trends for your entire account's aggregated free and advanced metrics on the console. You can't modify the default dashboard's configuration scope, but you can upgrade the metrics selection from the free metrics to the paid advanced metrics and recommendations, configure the optional metrics export, or even disable the default dashboard. The default dashboard can't be deleted, and can only be disabled. For more information, see [Using the S3 console](storage_lens_console_deleting.md).
 
@@ -67,6 +66,7 @@ If you're updating your Storage Lens tier from the **Advanced tier** to the **Fr
    + **Cost optimization metrics**
    + **Data protection metrics**
    + **Performance metrics**
+   + **Intelligent-Tiering access tier metrics**
 
    To preview which metrics are included in each category, use the drop-down arrow button below the metrics category checkbox list. For more information about metrics categories, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types). For a complete list of metrics, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md).
 
@@ -95,6 +95,10 @@ If you're updating your Storage Lens tier from the **Advanced tier** to the **Fr
 1. Under **Metrics publishing**, choose **CloudWatch publishing** if you want to access your Storage Lens metrics in your CloudWatch dashboard.
 **Note**  
 Prefix-level metrics aren't available in CloudWatch.
+
+1. Under **Metrics publishing**, select **Billing and Cost Management publishing** if you want to publish prefix-level storage and request metrics to AWS Billing and Cost Management for split cost allocation data. This option is available only for advanced tier dashboards that use the default **Prefix delimiter**, `/`. For more information, see [Estimating Amazon S3 costs by prefix with S3 Storage Lens and AWS Cost and Usage Reports](storage-lens-cost-and-usage-reports.md).
+
+1. If you selected **Billing and Cost Management publishing**, in the **Publish to AWS Cost and Usage Reports (CUR)** panel, enter the **Minimum prefix level** and **Maximum prefix level**. 
 
 1. Under **Metrics export**, choose which Storage Lens dashboard data you want exported daily:
    + **Default metrics report**
@@ -146,7 +150,7 @@ aws s3control put-storage-lens-configuration --account-id={{111122223333}} --con
 **Example – Update a Amazon S3 Storage Lens configuration with advanced metrics and recommendations**  
 The following examples shows you how to update the default S3 Storage Lens configuration with advanced metrics and recommendations in SDK for Java:  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

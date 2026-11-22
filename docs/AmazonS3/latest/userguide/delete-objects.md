@@ -1,7 +1,6 @@
 
 
 # Deleting a single object
-<a name="delete-objects"></a>
 
 You can use the Amazon S3 console or the DELETE API to delete a single existing object from an S3 bucket. For more information about deleting objects in Amazon S3, see [Deleting Amazon S3 objects](DeletingObjects.md).
 
@@ -104,7 +103,7 @@ The following examples show how to delete an object from both versioned and non-
 The following C\# example deletes an object from a non-versioned bucket. The example assumes that the objects don't have version IDs, so you don't specify version IDs. You specify only the object key.   
 For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -169,7 +168,7 @@ You can also get the version ID of an object by sending a `ListVersions` request
    ```
 For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
-```
+```csharp
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -243,7 +242,7 @@ For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - V
 
 The following PHP example deletes an object from a bucket. Because this example shows how to delete objects from non-versioned buckets, it provides only the bucket name and object key (not a version ID) in the delete request. 
 
-```
+```PHP
 <?php
 
 require 'vendor/autoload.php';
@@ -300,7 +299,7 @@ catch (S3Exception $e) {
 ------
 #### [ Javascript ]
 
-```
+```javascript
 import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { s3Client } from "./libs/s3Client.js" // Helper function that creates Amazon S3 service client module.
 

@@ -1,7 +1,6 @@
 
 
 # Working with object metadata
-<a name="UsingMetadata"></a>
 
 Amazon S3 provides several ways to attach metadata to your objects. *Annotations* let you attach rich data payloads of up to 1 MB to objects using dedicated API operations. *Object tags* are key-value pairs for categorizing and controlling access to objects. You can also set *user-defined metadata* at upload time, and Amazon S3 maintains *system-defined metadata* automatically. For more information, see [Custom object metadata](#custom-metadata), [Annotating your objects](annotations-overview.md), [Tagging your objects](object-tagging.md), [User-defined metadata](#UserMetadata), and [System-defined object metadata](#SysMetadata).
 
@@ -41,7 +40,7 @@ When using non-US-ASCII characters in your metadata values, the provided Unicode
 
 The following is an example.
 
-```
+```http
 PUT /Key HTTP/1.1
 Host: {{amzn-s3-demo-bucket}}.s3.amazonaws.com
 x-amz-meta-nonascii: ÄMÄZÕÑ S3

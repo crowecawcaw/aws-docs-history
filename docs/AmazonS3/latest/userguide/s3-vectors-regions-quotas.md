@@ -1,7 +1,6 @@
 
 
 # AWS Regions, endpoints, and quotas for S3 Vectors
-<a name="s3-vectors-regions-quotas"></a>
 
 The following sections include the supported AWS Regions and service quotas for Amazon S3 Vectors.
 

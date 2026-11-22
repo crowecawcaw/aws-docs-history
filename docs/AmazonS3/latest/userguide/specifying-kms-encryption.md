@@ -1,7 +1,6 @@
 
 
 # Specifying server-side encryption with AWS KMS (SSE-KMS)
-<a name="specifying-kms-encryption"></a>
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded to an S3 bucket are automatically encrypted at rest. Server-side encryption with Amazon S3 managed keys (SSE-S3) is the default encryption configuration for every bucket in Amazon S3. To use a different type of encryption, you can either specify the type of server-side encryption to use in your S3 `PUT` requests, or you can update the default encryption configuration in the destination bucket. 
 
@@ -106,7 +105,7 @@ The response headers of the following REST API operations return the `x-amz-serv
 
 **Important**  
 All `GET` and `PUT` requests for an object protected by AWS KMS fail if you don't make these requests by using Secure Sockets Layer (SSL), Transport Layer Security (TLS), or Signature Version 4.
-If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests, or you’ll get an HTTP 400 BadRequest error.
+If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests, or you’ll get an `HTTP 400 BadRequest` error.
 
 ### Encryption context (`x-amz-server-side-encryption-context`)
 <a name="s3-kms-encryption-context"></a>
@@ -141,19 +140,19 @@ To use the following example AWS CLI commands, replace the `{{user input placeho
 
 When you upload a new object or copy an existing object, you can specify the use of server-side encryption with AWS KMS keys to encrypt your data. To do this, add the `--server-side-encryption aws:kms` header to the request. Use the `--ssekms-key-id {{example-key-id}}` to add your [customer managed AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) that you created. If you specify `--server-side-encryption aws:kms`, but don't provide an AWS KMS key ID, Amazon S3 will use an AWS managed key.
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --server-side-encryption aws:kms --ssekms-key-id {{example-key-id}} --body {{filepath}}
 ```
 
 You can additionally enable or disable Amazon S3 Bucket Keys on your PUT or COPY operations by adding `--bucket-key-enabled` or `--no-bucket-key-enabled`. Amazon S3 Bucket Keys can reduce your AWS KMS request costs by decreasing the request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html).
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --server-side-encryption aws:kms --bucket-key-enabled --body {{filepath}}
 ```
 
 You can encrypt an unencrypted object to use SSE-KMS by copying the object back in place.
 
-```
+```bash
 aws s3api copy-object --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --body {{filepath}} --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --sse aws:kms --sse-kms-key-id {{example-key-id}} --body {{filepath}}
 ```
 

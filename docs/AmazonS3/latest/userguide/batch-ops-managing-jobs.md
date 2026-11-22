@@ -1,7 +1,6 @@
 
 
 # Managing S3 Batch Operations jobs
-<a name="batch-ops-managing-jobs"></a>
 
 Amazon S3 provides a robust set of tools to help you manage your S3 Batch Operations jobs after you create them. This section describes the operations that you can use to manage and track your jobs by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST API.
 

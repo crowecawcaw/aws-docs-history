@@ -1,14 +1,13 @@
 
 
 # Retrieving the requestPayment configuration using the REST API
-<a name="BucketPayerValues"></a>
 
 You can determine the `Payer` value that is set on a bucket by requesting the resource `requestPayment`.
 
 **To return the requestPayment resource**
 + Use a GET request to obtain the `requestPayment` resource, as shown in the following request.
 
-  ```
+  ```http
   1. GET ?requestPayment HTTP/1.1
   2. Host: {{[BucketName]}}.s3.amazonaws.com
   3. Date: Wed, 01 Mar 2009 12:00:00 GMT
@@ -17,7 +16,7 @@ You can determine the `Payer` value that is set on a bucket by requesting the re
 
 If the request succeeds, Amazon S3 returns a response similar to the following.
 
-```
+```http
  1. HTTP/1.1 200 OK
  2. x-amz-id-2: [id]
  3. x-amz-request-id: [request_id]

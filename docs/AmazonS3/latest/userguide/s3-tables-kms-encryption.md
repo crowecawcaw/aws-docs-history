@@ -1,7 +1,6 @@
 
 
 # Using server-side encryption with AWS KMS keys (SSE-KMS) in table buckets
-<a name="s3-tables-kms-encryption"></a>
 
 **Topics**
 + [How SSE-KMS works for tables and table buckets](#kms-tables-how)

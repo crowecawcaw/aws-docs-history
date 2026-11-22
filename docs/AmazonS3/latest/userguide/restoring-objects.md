@@ -1,7 +1,6 @@
 
 
 # Restoring an archived object
-<a name="restoring-objects"></a>
 
 Amazon S3 objects in the following storage classes or tiers are archived and are not accessible in real time: 
 + The S3 Glacier Flexible Retrieval storage class
@@ -61,7 +60,7 @@ Objects from the S3 Intelligent-Tiering Archive Access and Deep Archive Access t
 **Restore objects from S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive**  
 The following example uses the `restore-object` command to restore the object {{`dir1/example.obj`}} in the bucket `{{amzn-s3-demo-bucket}}` for 25 days.
 
-```
+```bash
 aws s3api restore-object --bucket {{amzn-s3-demo-bucket}} --key {{dir1/example.obj}} --restore-request '{"Days":25,"GlacierJobParameters":{"Tier":"Standard"}}'
 ```
 
@@ -74,7 +73,7 @@ If the JSON syntax used in the example results in an error on a Windows client, 
 **Restore objects from S3 Intelligent-Tiering Archive Access and Deep Archive Access**  
 The following example uses the `restore-object` command to restore the object {{`dir1/example.obj`}} in the bucket `{{amzn-s3-demo-bucket}}` to the Frequent Access tier.
 
-```
+```bash
 aws s3api restore-object --bucket {{amzn-s3-demo-bucket}} --key {{dir1/example.obj}} --restore-request '{}'
 ```
 
@@ -84,7 +83,7 @@ Unlike in the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage 
 **Monitor restore status**  
 To monitor the status of your `restore-object` request, use the following `head-object` command:
 
-```
+```bash
 aws s3api head-object --bucket {{amzn-s3-demo-bucket}} --key {{dir1/example.obj}}
 ```
 
@@ -188,13 +187,13 @@ You can be notified of object restoration completion by using the `s3:ObjectRest
 **Check an object's restore status and expiration date with the AWS CLI**  
 The following example uses the `head-object` command to view metadata for the object {{`dir1/example.obj`}} in the bucket `{{amzn-s3-demo-bucket}}`. When you run this command on an object being restored Amazon S3 returns if the restore is ongoing and (if applicable) the expiration date.
 
-```
+```bash
 aws s3api head-object --bucket {{amzn-s3-demo-bucket}} --key {{dir1/example.obj}}
 ```
 
 Expected output (restore ongoing):
 
-```
+```json
 {
     "Restore": "ongoing-request=\"true\"",
     "LastModified": "2020-06-16T21:55:22+00:00",
@@ -210,7 +209,7 @@ Expected output (restore ongoing):
 
 Expected output (restore finished):
 
-```
+```json
 {
     "Restore": "ongoing-request=\"false\", expiry-date=\"Wed, 12 Aug 2020 00:00:00 GMT\"",
     "LastModified": "2020-06-16T21:55:22+00:00",

@@ -1,7 +1,6 @@
 
 
 # Organizing objects using prefixes
-<a name="using-prefixes"></a>
 
 You can use prefixes to organize the data that you store in Amazon S3 buckets. A prefix is a string of characters at the beginning of the object key name. A prefix can be any length, subject to the maximum length of the object key name (1,024 bytes). You can think of prefixes as a way to organize your data in a similar way to directories. However, prefixes are not directories.
 
@@ -38,7 +37,7 @@ The sample bucket has only the `sample.jpg` object at the root level. To list on
 
 **Example**  
 
-```
+```xml
  1. <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
  2.   <Name>{{amzn-s3-demo-bucket}}</Name>
  3.   <Prefix></Prefix>

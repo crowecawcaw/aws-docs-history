@@ -1,7 +1,6 @@
 
 
 # S3 Files best practices
-<a name="s3-files-best-practices"></a>
 
 This page describes the recommended best practices for working with S3 file systems.
 

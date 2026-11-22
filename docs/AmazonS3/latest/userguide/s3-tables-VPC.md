@@ -1,7 +1,6 @@
 
 
 # VPC connectivity for S3 Tables
-<a name="s3-tables-VPC"></a>
 
 All tables in S3 Tables are in the Apache Iceberg format and are made up of two types of S3 objects. These two types of objects are data files which store the data and metadata files which track information about the data files at different points in time. All table bucket, namespace, and table operations (for example, `CreateNamespace`, `CreateTable`, and so on) are routed through an S3 Tables endpoint (`s3tables.region.amazonaws.com`) and all object-level operations that read or write the data and metadata files continue to be routed through an S3 service endpoint (`s3.region.amazonaws.com`). 
 
@@ -52,13 +51,13 @@ In the following examples, replace the {{user input placeholders}} with your own
 
 **Example 1: Use an endpoint URL to list table buckets in your account**
 
-```
+```bash
 aws s3tables list-table-buckets --endpoint https://{{vpce-0123456afghjipljb-aac}}.s3tables.{{us-east-1}}.vpce.amazonaws.com —region {{us-east-1}}
 ```
 
 **Example 2: Use an endpoint URL to list tables in your bucket**
 
-```
+```bash
 aws s3tables list-tables --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{123456789301}}:bucket/{{amzn-s3-demo-bucket}} --endpoint https://{{vpce-0123456afghjipljb-aac}}.s3tables.{{us-east-1}}.vpce.amazonaws.com --region {{us-east-1}}
 ```
 
@@ -94,7 +93,7 @@ The following are some things you should know before trying to access S3 tables 
 
 To create a new VPC endpoint that uses the dual-stack endpoint for S3 Tables use example CLI command:
 
-```
+```bash
 aws ec2 create-vpc-endpoint \
   --vpc-id vpc-id \
   --service-name com.amazonaws.{{aws-region}}.s3tables \
@@ -110,7 +109,7 @@ For more information on creating VPC endpoints see [*Create an interface endpoin
 
 If your network supports IPv6 and you want to update your VPC to enable IPv6 you can use the following CLI command:
 
-```
+```bash
 aws ec2 modify-vpc-endpoint \
   --vpc-endpoint-id vpce-id \
   --ip-address-type dualstack \
@@ -132,7 +131,7 @@ The following example table bucket policy denies all S3 Tables actions unless th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -168,7 +167,7 @@ Similar to resource-based policies, you can attach an endpoint policy to your VP
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "Policy141511512309",

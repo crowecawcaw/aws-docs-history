@@ -1,7 +1,6 @@
 
 
 # Granting permissions to publish event notification messages to a destination
-<a name="grant-destinations-permissions-to-s3"></a>
 
 You must grant the Amazon S3 principal the necessary permissions to call the relevant API to publish messages to an SNS topic, an SQS queue, or a Lambda function. This is so that Amazon S3 can publish event notification messages to a destination.
 
@@ -39,7 +38,7 @@ The following is an example of an AWS Identity and Access Management (IAM) polic
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "example-ID",
@@ -81,7 +80,7 @@ To use this policy, you must update the Amazon SQS queue ARN, bucket name, and b
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "example-ID",
@@ -133,7 +132,7 @@ If the SQS queue or SNS topics are encrypted with an AWS Key Management Service 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "example-ID",

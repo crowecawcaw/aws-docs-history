@@ -1,7 +1,6 @@
 
 
 # Deleting multiple objects
-<a name="delete-multiple-objects"></a>
 
 Because all objects in your S3 bucket incur storage costs, you should delete objects that you no longer need. For example, if you are collecting log files, it's a good idea to delete them when they're no longer needed. You can set up a lifecycle rule to automatically delete objects such as log files. For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md).
 

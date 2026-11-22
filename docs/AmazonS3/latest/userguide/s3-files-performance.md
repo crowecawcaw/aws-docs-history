@@ -1,7 +1,6 @@
 
 
 # Performance specifications
-<a name="s3-files-performance"></a>
 
 S3 Files automatically scales throughput and IOPS to match your workload without requiring you to provision or manage capacity. This page describes the performance characteristics of S3 Files.
 

@@ -1,7 +1,6 @@
 
 
 # Querying access logs in S3 Tables
-<a name="sal-cw-querying-s3tables"></a>
 
 When you enable the Amazon S3 Tables integration, Amazon CloudWatch Logs delivers your server access logs in Apache Iceberg format to the `aws-cloudwatch` managed table bucket. Because the data is in Iceberg format, you can query it with any tool that supports Apache Iceberg, including:
 + **Amazon Athena** – Run SQL queries directly from the Athena console using the S3 Tables catalog.
@@ -44,7 +43,7 @@ The table name for server access logs is `amazon_s3__server_access`. The fully q
 
 **Example Request volume over time**  
 
-```
+```sql
 SELECT date_trunc('minute', request_time) AS interval,
   COUNT(*) AS requests
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
@@ -54,7 +53,7 @@ ORDER BY interval ASC;
 
 **Example Request mix by operation type**  
 
-```
+```sql
 SELECT operation, COUNT(*) AS cnt
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 GROUP BY operation
@@ -63,7 +62,7 @@ ORDER BY cnt DESC;
 
 **Example Traffic by bucket**  
 
-```
+```sql
 SELECT bucket_arn, COUNT(*) AS requests, SUM(bytes_sent_size) AS bytes_out
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 GROUP BY bucket_arn
@@ -75,7 +74,7 @@ ORDER BY requests DESC;
 
 **Example Error rate breakdown**  
 
-```
+```sql
 SELECT http_status, error_code, operation, COUNT(*) AS error_count
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE http_status >= 400
@@ -85,7 +84,7 @@ ORDER BY error_count DESC;
 
 **Example 403 Access Denied requests**  
 
-```
+```sql
 SELECT key_name, remote_ip, requester, COUNT(*) AS denied_count
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE http_status = 403
@@ -95,7 +94,7 @@ ORDER BY denied_count DESC;
 
 **Example 404 Not Found requests**  
 
-```
+```sql
 SELECT key_name, error_code, remote_ip, COUNT(*) AS miss_count
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE http_status = 404
@@ -105,7 +104,7 @@ ORDER BY miss_count DESC;
 
 **Example 503 SlowDown (throttling) events**  
 
-```
+```sql
 SELECT key_name, remote_ip, COUNT(*) AS throttle_count
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE http_status = 503
@@ -118,7 +117,7 @@ ORDER BY throttle_count DESC;
 
 **Example Traffic by source IP**  
 
-```
+```sql
 SELECT remote_ip,
   COUNT(*) AS total_requests,
   SUM(CASE WHEN http_status >= 400 THEN 1 ELSE 0 END) AS errors,
@@ -130,7 +129,7 @@ ORDER BY total_requests DESC;
 
 **Example Operations by requester**  
 
-```
+```sql
 SELECT requester, operation, COUNT(*) AS requests
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 GROUP BY requester, operation
@@ -139,7 +138,7 @@ ORDER BY requests DESC;
 
 **Example Most accessed keys**  
 
-```
+```sql
 SELECT key_name, COUNT(*) AS access_count, SUM(bytes_sent_size) AS bytes_out
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE operation IN ('REST.GET.OBJECT', 'REST.PUT.OBJECT')
@@ -153,7 +152,7 @@ LIMIT 10;
 
 **Example Latency by operation type**  
 
-```
+```sql
 SELECT operation,
   AVG(total_duration) AS avg_ms,
   APPROX_PERCENTILE(total_duration, 0.5) AS p50_ms,
@@ -167,7 +166,7 @@ GROUP BY operation;
 
 **Example Slowest keys by p95 latency**  
 
-```
+```sql
 SELECT key_name,
   AVG(total_duration) AS avg_ms,
   APPROX_PERCENTILE(total_duration, 0.95) AS p95_ms,
@@ -181,7 +180,7 @@ LIMIT 10;
 
 **Example Latency over time**  
 
-```
+```sql
 SELECT date_trunc('minute', request_time) AS interval,
   AVG(total_duration) AS avg_ms,
   APPROX_PERCENTILE(total_duration, 0.95) AS p95_ms
@@ -196,7 +195,7 @@ ORDER BY interval ASC;
 
 **Example Data transfer by operation**  
 
-```
+```sql
 SELECT operation,
   SUM(bytes_sent_size) AS total_bytes_out,
   SUM(object_size) AS total_object_bytes,
@@ -209,7 +208,7 @@ ORDER BY total_bytes_out DESC;
 
 **Example Largest objects being served**  
 
-```
+```sql
 SELECT key_name, MAX(object_size) AS max_size, AVG(object_size) AS avg_size, COUNT(*) AS reads
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE operation = 'REST.GET.OBJECT' AND bytes_sent_size > 0
@@ -223,7 +222,7 @@ LIMIT 10;
 
 **Example IPs with high error rates**  
 
-```
+```sql
 SELECT remote_ip,
   COUNT(*) AS total,
   SUM(CASE WHEN http_status >= 400 THEN 1 ELSE 0 END) AS errors
@@ -235,7 +234,7 @@ ORDER BY errors DESC;
 
 **Example Failed access attempts by key**  
 
-```
+```sql
 SELECT remote_ip, key_name, operation, http_status, COUNT(*) AS attempts
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 WHERE http_status >= 400
@@ -246,7 +245,7 @@ LIMIT 20;
 
 **Example TLS version distribution**  
 
-```
+```sql
 SELECT tls_version, COUNT(*) AS cnt
 FROM "s3tablescatalog/aws-cloudwatch"."logs"."amazon_s3__server_access"
 GROUP BY tls_version

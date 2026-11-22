@@ -1,7 +1,6 @@
 
 
 # Naming Amazon S3 objects
-<a name="object-keys"></a>
 
 The *object key* (or key name) uniquely identifies the object in an Amazon S3 bucket. When you create an object, you specify the key name. For example, on the [Amazon S3 console](https://console.aws.amazon.com/s3/home), when you select a bucket, a list of objects in your bucket appears. These names are the *object keys*.
 
@@ -140,7 +139,7 @@ The following is a list of such special characters and their equivalent XML enti
 **Example**  
 The following example illustrates the use of an XML entity code as a substitution for a carriage return. This `DeleteObjects` request deletes an object with the `key` parameter `/some/prefix/objectwith\rcarriagereturn` (where the `\r` is the carriage return).  
 
-```
+```xml
 <Delete xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Object>
     <Key>/some/prefix/objectwith&#13;carriagereturn</Key>

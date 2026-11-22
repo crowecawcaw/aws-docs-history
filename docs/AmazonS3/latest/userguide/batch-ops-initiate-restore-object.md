@@ -1,7 +1,6 @@
 
 
 # Restore objects with Batch Operations
-<a name="batch-ops-initiate-restore-object"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. The **Restore** operation initiates restore requests for the archived Amazon S3 objects that are listed in your manifest. The following archived objects must be restored before they can be accessed in real time:
 + Objects archived in the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes

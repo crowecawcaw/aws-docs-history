@@ -1,7 +1,6 @@
 
 
 # Object Lock considerations
-<a name="object-lock-managing"></a>
 
 Amazon S3 Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
 
@@ -133,7 +132,7 @@ The following example shows a bucket policy that uses the `s3:object-lock-remain
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{SetRetentionLimits}}",
@@ -167,7 +166,7 @@ For variable retention, you can control event holds and durations with the follo
 
 The following example denies any `PutObjectRetention` request that sets an event hold duration of less than 90 days:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -189,7 +188,7 @@ The following example denies any `PutObjectRetention` request that sets an event
 
 The following example denies any request that sets an event hold on this bucket:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

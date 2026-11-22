@@ -1,7 +1,6 @@
 
 
 # Resource-based policies for S3 Tables
-<a name="s3-tables-resource-based-policies"></a>
 
 S3 Tables provides resource-based policies for managing access to table buckets and tables: table bucket policies and table policies. You can use a table bucket policy to grant API access permissions at the table bucket, namespace, or table-level. The permissions attached to the table bucket can apply to all tables in the bucket or to specific tables in the bucket, depending on the policy definition. You can use a table policy to grant permissions at the table-level. 
 
@@ -29,7 +28,7 @@ The following example table bucket policy allows the IAM `data steward` to delet
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -59,7 +58,7 @@ The following an example table bucket policy allows Jane, a user from AWS accoun
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,7 +94,7 @@ The following example table policy that allows the IAM role `data steward` to de
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "DeleteTable",

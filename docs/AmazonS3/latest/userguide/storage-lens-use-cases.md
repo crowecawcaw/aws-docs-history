@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Storage Lens metrics use cases
-<a name="storage-lens-use-cases"></a>
 
 You can use your Amazon S3 Storage Lens dashboard to visualize insights and trends, flag outliers, and receive recommendations. S3 Storage Lens metrics are organized into categories that align with key use cases. You can use these metrics to do the following: 
 + Identify cost-optimization opportunities

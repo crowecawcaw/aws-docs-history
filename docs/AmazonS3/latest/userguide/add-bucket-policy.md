@@ -1,7 +1,6 @@
 
 
 # Adding a bucket policy by using the Amazon S3 console
-<a name="add-bucket-policy"></a>
 
 You can use the [AWS Policy Generator](https://aws.amazon.com/blogs/aws/aws-policy-generator/) and the Amazon S3 console to add a new bucket policy or edit an existing bucket policy. A bucket policy is a resource-based AWS Identity and Access Management (IAM) policy. You add a bucket policy to a bucket to grant other AWS accounts or IAM users access permissions for the bucket and the objects in it. Object permissions apply only to the objects that the bucket owner creates. For more information about bucket policies, see [Identity and Access Management for Amazon S3](security-iam.md).
 

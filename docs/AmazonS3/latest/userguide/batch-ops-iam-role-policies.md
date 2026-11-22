@@ -1,7 +1,6 @@
 
 
 # Granting permissions for Batch Operations
-<a name="batch-ops-iam-role-policies"></a>
 
 Before creating and running S3 Batch Operations jobs, you must grant required permissions. To create an Amazon S3 Batch Operations job, the `s3:CreateJob` user permission is required. The same entity that creates the job must also have the `iam:PassRole` permission to pass the AWS Identity and Access Management (IAM) role that's specified for the job to Batch Operations.
 
@@ -26,7 +25,7 @@ For more information about the permissions to S3 API operations by S3 resource t
 
 The following video includes how to set up IAM permissions for Batch Operations jobs using the Amazon S3 console.
 
-[![AWS Videos](https://img.youtube.com/vi/qpwHUrwAiUI//0.jpg)](https://www.youtube.com/watch?v=qpwHUrwAiUI/)
+[![AWS Videos](https://img.youtube.com/vi/qpwHUrwAiUI/0.jpg)](https://www.youtube.com/watch?v=qpwHUrwAiUI)
 
 
 ### Trust policy
@@ -39,7 +38,7 @@ To allow the S3 Batch Operations service principal to assume the IAM role, attac
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -77,7 +76,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -136,7 +135,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -181,7 +180,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -228,7 +227,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -273,7 +272,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement":[
@@ -317,7 +316,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -371,7 +370,7 @@ Before you configure permissions, note the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -424,7 +423,7 @@ Use this policy if you're using and storing an S3 generated manifest. For more i
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -483,7 +482,7 @@ Use this policy if you're using a user supplied manifest. For more information a
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -526,7 +525,7 @@ Use this policy if you're using a user supplied manifest. For more information a
 
 Use this policy if you're trying to use the **Compute checksum** operation with S3 Batch Operations. Permissions for `GetObject`, `GetObjectVersion`, and `RestoreObject` are required to obtain and read the bytes of stored data. Replace the user input placeholders with your own information. For more information about **Compute checksum**, see [Checking object integrity for data at rest in Amazon S3](checking-object-integrity-at-rest.md).
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -569,7 +568,7 @@ Use this policy if you're trying to use the **Compute checksum** operation with 
 
 You must attach the following permissions policy to allow Batch Operations to read a manifest, update the encryption type of your objects, and write a completion report. To use this permissions policy, replace the {{`user input placeholders`}} with your own information. For more information about using this operation and the permissions that you must attach to the role used by your IAM principal, see [Update object encryption](batch-ops-update-encryption.md).
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{

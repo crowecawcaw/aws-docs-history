@@ -1,7 +1,6 @@
 
 
 # Creating access points for an S3 file system
-<a name="s3-files-access-points-creating"></a>
 
 Access points are application-specific entry points to a file system that simplify managing data access at scale for shared datasets. You can use access points to enforce user identities and permissions for all file system requests that are made through the access point. Additionally, access points can restrict clients to only access data within a specified root directory and its subdirectories. When you create a file system using the AWS Management Console, S3 Files automatically creates one access point for the file system.
 
@@ -49,13 +48,13 @@ If you don't specify any root directory ownership and permissions, and the root 
 
 The following `create-access-point` example command shows how you can use the AWS CLI to create an access point for an S3 file system.
 
-```
+```bash
 aws s3files create-access-point --file-system-id {{file-system-id}} --root-directory {{root-directory}} --posix-user {{posix-user}}
 ```
 
 For example:
 
-```
+```bash
 aws s3files create-access-point --file-system-id fs-abcdef0123456789a --client-token 010102020-3 \
   --root-directory "Path=/s3files/mobileapp/east,CreationInfo={OwnerUid=0,OwnerGid=11,Permissions=775}" \
   --posix-user "Uid=22,Gid=4" \

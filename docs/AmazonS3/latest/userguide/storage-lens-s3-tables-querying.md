@@ -1,7 +1,6 @@
 
 
 # Querying S3 Storage Lens data with analytics tools
-<a name="storage-lens-s3-tables-querying"></a>
 
 Before you can query S3 Storage Lens data exported to S3 Tables using AWS analytics services like Amazon Athena or Amazon EMR, you must enable analytics integration on the AWS-managed `aws-s3` table bucket and configure AWS Lake Formation permissions.
 
@@ -161,7 +160,7 @@ Amazon EMR provides a managed Hadoop framework that makes it easy to process vas
 
 Use the following Python code to read S3 Storage Lens data with Spark:
 
-```
+```python
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder \

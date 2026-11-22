@@ -1,7 +1,6 @@
 
 
 # Performance design patterns for Amazon S3
-<a name="optimizing-performance-design-patterns"></a>
 
 When designing applications to upload and retrieve objects from Amazon S3, use our best practices design patterns for achieving the best performance for your application. We also offer [Performance guidelines for Amazon S3 ](optimizing-performance-guidelines.md) for you to consider when planning your application architecture.
 
@@ -65,15 +64,15 @@ You can set up Transfer Acceleration on new or existing buckets. You can use a s
 ## Optimizing for high-request rate workloads
 <a name="optimizing-performance-high-request-rate"></a>
 
-Applications that generate high request rates to Amazon S3 require specific design patterns to achieve optimal performance. When your application consistently generates more than 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD requests per second per prefix, you should implement strategies to distribute requests and handle scaling behavior.
+Applications that generate high request rates to Amazon S3 require specific design patterns to achieve optimal performance. When your application consistently generates more than 3,500 PUT/COPY/POST/DELETE or 11,000 GET/HEAD requests per second per partitioned prefix, you should implement strategies to distribute requests and handle scaling behavior.
 
 Amazon S3 automatically scales to accommodate higher request rates, but this scaling happens gradually. During the scaling process, you might receive HTTP 503 (Slow Down) responses. These responses are temporary and indicate that Amazon S3 is optimizing its internal systems for your new request pattern. Once scaling is complete, your requests will be served without throttling.
 
 To optimize performance for high-request rate workloads, consider the following strategies:
-+ **Distribute requests across multiple prefixes** – Use a randomized or sequential prefix pattern to spread requests across multiple partitions. For example, instead of using sequential object names like `log-2024-01-01.txt`, use randomized prefixes like `a1b2/log-2024-01-01.txt`. This helps Amazon S3 distribute the load more effectively.
-+ **Implement exponential backoff for 503 errors** – When you receive HTTP 503 responses, implement retry logic with exponential backoff. Start with a short delay and gradually increase the wait time between retries. The AWS SDKs include built-in retry logic that handles this automatically.
++ **Distribute requests across multiple prefixes** – A prefix is the set of leading characters in an object key name; the forward slash (`/`) has no special meaning, so grouping keys into folder-like paths does not distribute load on its own. To spread requests, add entropy to the start of your key names. Instead of sequential names like `log-2024-01-01.txt`, `log-2024-01-02.txt`, add a character from a hash of the key name to the beginning, such as `d-log-2024-01-01.txt` and `3-log-2024-01-02.txt`. For example, a hex-based hash produces the characters 0 through 9 and a through f. This spreads keys evenly across 16 prefixes and keeps traffic on the same set of prefixes over time, so Amazon S3 does not need to re-scale as your key names change. You can also use base-2 hash as outlined in [How Amazon Ads uses Iceberg optimizations to accelerate their Spark workload on Amazon S3](https://aws.amazon.com/blogs/storage/how-amazon-ads-uses-iceberg-optimizations-to-accelerate-their-spark-workload-on-amazon-s3/).
++ **Implement exponential backoff for 503 errors** – When you receive HTTP 503 responses, implement retry logic with exponential backoff. Start with a short delay and gradually increase the wait time between retries. The AWS SDKs include built-in retry logic that handles this automatically with a default of 3 attempts per request (which you can configure in your SDK settings).
 + **Monitor request patterns** – Use Amazon CloudWatch metrics to monitor your request rates and error rates. Pay particular attention to 5xx error metrics, which can indicate when your application is approaching or exceeding current scaling limits.
-+ **Gradually ramp up request rates** – When launching new applications or significantly increasing request rates, gradually increase your traffic over time rather than immediately jumping to peak rates. This allows Amazon S3 to scale proactively and reduces the likelihood of throttling.
++ **Gradually ramp up request rates** – When launching new applications or significantly increasing request rates, gradually increase your traffic over time rather than immediately jumping to peak rates. This allows Amazon S3 to scale and reduces the likelihood of throttling.
 + **Use multiple connections** – Distribute your requests across multiple HTTP connections to maximize throughput and reduce the impact of any single connection issues.
 
 For applications that require consistent high performance, consider using Amazon S3 Express One Zone, which is designed for applications that require single-digit millisecond latencies and can support hundreds of thousands of requests per second. For more information, see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone).

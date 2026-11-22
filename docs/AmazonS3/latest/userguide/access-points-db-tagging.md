@@ -1,7 +1,6 @@
 
 
 # Using tags with S3 Access Points for directory buckets
-<a name="access-points-db-tagging"></a>
 
 An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 Access Points for directory buckets. You can tag access points when you create them or manage tags on existing access points. For general information about tags, see [Tagging for cost allocation or attribute-based access control (ABAC)](tagging.md).
 
@@ -38,7 +37,7 @@ See the following example ABAC policies for access points for directory buckets.
 
 In this IAM policy, users or roles with this policy can only create access points if they tag the access points with the tag key `project` and tag value `Trinity` in the access point creation request. They can also add or modify tags on existing access points for directory buckets as long as the `TagResource` request includes the tag key-value pair `project:Trinity`. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -67,7 +66,7 @@ In this IAM policy, users or roles with this policy can only create access point
 
 In this Access Point policy, IAM principals (users and roles) can perform operations using the `CreateSession` action on the access point only if the value of the access point's `project` tag matches the value of the principal's `project` tag.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -94,7 +93,7 @@ In this Access Point policy, IAM principals (users and roles) can perform operat
 
 In this IAM policy, IAM principals (users or roles) can modify tags on an access point only if the value of the access point's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these access points. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your access points.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -128,7 +127,7 @@ In this IAM policy, IAM principals (users or roles) can modify tags on an access
 
 In this IAM policy, the condition statement allows access to the bucket's data only if the access point used to access the bucket has the tag key `Environment` and tag value `Production`. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

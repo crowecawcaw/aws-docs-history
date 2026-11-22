@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon S3 using the AWS CLI
-<a name="GettingStartedS3CLI"></a>
 
 You can get started with Amazon S3 by using the AWS Command Line Interface (AWS CLI) to work with general purpose buckets and objects. A bucket is a container for objects. An object is a file and any metadata that describes that file.
 
@@ -22,7 +21,7 @@ Before you begin using the AWS CLI with Amazon S3, make sure that you have:
 
 To verify that the AWS CLI is properly configured, run the following command:
 
-```
+```bash
 aws sts get-caller-identity
 ```
 
@@ -42,13 +41,13 @@ You are not charged for creating a bucket. You are charged only for storing obje
 
 1. Create a bucket using the `s3api create-bucket` command. Replace `{{amzn-s3-demo-bucket}}` with a unique bucket name and `us-east-1` with your desired Region:
 
-   ```
+   ```bash
    aws s3api create-bucket --bucket {{amzn-s3-demo-bucket}} --region {{us-east-1}}
    ```
 
    For Regions other than us-east-1, you need to specify the location constraint:
 
-   ```
+   ```bash
    aws s3api create-bucket --bucket {{amzn-s3-demo-bucket}} --region {{us-west-2}} --create-bucket-configuration LocationConstraint={{us-west-2}}
    ```
 **Note**  
@@ -64,7 +63,7 @@ Don't include sensitive information in the bucket name. The bucket name is visib
 
 1. Verify that your bucket was created by listing all buckets:
 
-   ```
+   ```bash
    aws s3 ls
    ```
 
@@ -74,7 +73,7 @@ Don't include sensitive information in the bucket name. The bucket name is visib
 
    To set **Bucket owner enforced** (default) – ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the general purpose bucket:
 
-   ```
+   ```bash
    aws s3api put-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}} --ownership-controls="Rules=[{ObjectOwnership=BucketOwnerEnforced}]"
    ```
 **Note**  
@@ -83,14 +82,14 @@ By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no lo
    **ACLs enabled**
    + To set **Bucket owner preferred** – The bucket owner owns and has full control over new objects that other accounts write to the bucket with the `bucket-owner-full-control` canned ACL:
 
-     ```
+     ```bash
      aws s3api put-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}} --ownership-controls="Rules=[{ObjectOwnership=BucketOwnerPreferred}]"
      ```
 
      If you apply the **Bucket owner preferred** setting and want to require all Amazon S3 uploads to include the `bucket-owner-full-control` canned ACL, you can [Requiring the bucket-owner-full-control canned ACL for Amazon S3 `PUT` operations (bucket owner preferred)](ensure-object-ownership.md#ensure-object-ownership-bucket-policy) that allows only object uploads that use this ACL.
    + To set **Object writer** – The AWS account that uploads an object owns the object, has full control over it, and can grant other users access to it through ACLs:
 
-     ```
+     ```bash
      aws s3api put-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}} --ownership-controls="Rules=[{ObjectOwnership=ObjectWriter}]"
      ```
 **Note**  
@@ -98,13 +97,13 @@ The default setting is **Bucket owner enforced**. To apply the default setting a
 
    To check the current Object Ownership setting for your bucket:
 
-   ```
+   ```bash
    aws s3api get-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}}
    ```
 
 1. To verify that **Block Public Access** is enabled (it's enabled by default for new buckets):
 
-   ```
+   ```bash
    aws s3api get-public-access-block --bucket {{amzn-s3-demo-bucket}}
    ```
 
@@ -112,7 +111,7 @@ The default setting is **Bucket owner enforced**. To apply the default setting a
 
    If you need to enable **Block Public Access**, use the following command:
 
-   ```
+   ```bash
    aws s3api put-public-access-block --bucket {{amzn-s3-demo-bucket}} --public-access-block-configuration "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true"
    ```
 **Note**  
@@ -120,7 +119,7 @@ To enable all Block Public Access settings, only the `s3:CreateBucket` permissio
 
 1. To enable versioning for your bucket:
 
-   ```
+   ```bash
    aws s3api put-bucket-versioning --bucket {{amzn-s3-demo-bucket}} --versioning-configuration Status=Enabled
    ```
 
@@ -130,19 +129,19 @@ To enable all Block Public Access settings, only the `s3:CreateBucket` permissio
 
    For a new bucket:
 
-   ```
+   ```bash
    aws s3api create-bucket --bucket {{amzn-s3-demo-bucket}} --region {{us-east-1}} --object-lock-enabled-for-bucket
    ```
 
    For an existing bucket:
 
-   ```
+   ```bash
    aws s3api put-object-lock-configuration --bucket {{amzn-s3-demo-bucket}} --object-lock-configuration '{"ObjectLockEnabled": "Enabled"}'
    ```
 
    If you want to set a default [Locking objects with Object Lock](object-lock.md) along with enabling Object Lock, you can use:
 
-   ```
+   ```bash
    aws s3api put-object-lock-configuration --bucket {{amzn-s3-demo-bucket}} --object-lock-configuration '{"ObjectLockEnabled":"Enabled","Rule":{"DefaultRetention":{"Mode":"COMPLIANCE","Days":30}}}'
    ```
 
@@ -154,13 +153,13 @@ To create an Object Lock enabled bucket, you must have the following permissions
 
    To add tags to your bucket:
 
-   ```
+   ```bash
    aws s3api put-bucket-tagging --bucket {{amzn-s3-demo-bucket}} --tagging 'TagSet=[{Key=Purpose,Value=Testing},{Key=Environment,Value=Development}]'
    ```
 
 1. Buckets and new objects are encrypted by using server-side encryption with Amazon S3 managed keys (`SSE-S3`) as the base level of encryption configuration. To verify the default encryption of your bucket, use the following command:
 
-   ```
+   ```bash
    aws s3api get-bucket-encryption --bucket {{amzn-s3-demo-bucket}}
    ```
 
@@ -172,13 +171,13 @@ The AWS KMS key must be in the same AWS Region as your Amazon S3 bucket. Cross-r
 
    To configure `SSE-KMS` and enable Amazon S3 Bucket Keys:
 
-   ```
+   ```bash
    aws s3api put-bucket-encryption --bucket {{amzn-s3-demo-bucket}} --server-side-encryption-configuration "{\"Rules\":[{\"ApplyServerSideEncryptionByDefault\":{\"SSEAlgorithm\":\"aws:kms\",\"KMSMasterKeyID\":\"YOUR-KMS-KEY-ARN\"},\"BucketKeyEnabled\":true}]}"
    ```
 
    To check whether Amazon S3 Bucket Keys are enabled for a bucket:
 
-   ```
+   ```bash
    aws s3api get-bucket-encryption --bucket {{amzn-s3-demo-bucket}}
    ```
 
@@ -186,7 +185,7 @@ The AWS KMS key must be in the same AWS Region as your Amazon S3 bucket. Cross-r
 
    To configure `DSSE-KMS`, use the following command:
 
-   ```
+   ```bash
    aws s3api put-bucket-encryption --bucket {{amzn-s3-demo-bucket}} --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms:dsse","KMSMasterKeyID":"{{YOUR-KMS-KEY-ARN}}"}}]}'
    ```
 
@@ -211,7 +210,7 @@ After creating a bucket in Amazon S3, you're ready to upload an object to the bu
 
 1. Upload the file to your bucket using the s3 cp command:
 
-   ```
+   ```bash
    aws s3 cp example.txt s3://{{amzn-s3-demo-bucket}}/
    ```
 
@@ -223,7 +222,7 @@ After creating a bucket in Amazon S3, you're ready to upload an object to the bu
 
 1. Verify that the object was uploaded by listing the contents of your bucket:
 
-   ```
+   ```bash
    aws s3 ls s3://{{amzn-s3-demo-bucket}}/
    ```
 
@@ -238,7 +237,7 @@ After you upload an object to a bucket, you can view information about your obje
 
 1. To get information about your object:
 
-   ```
+   ```bash
    aws s3api head-object --bucket {{amzn-s3-demo-bucket}} --key example.txt
    ```
 
@@ -246,7 +245,7 @@ After you upload an object to a bucket, you can view information about your obje
 
 1. Download the object to your local computer:
 
-   ```
+   ```bash
    aws s3 cp s3://{{amzn-s3-demo-bucket}}/example.txt downloaded-example.txt
    ```
 
@@ -270,7 +269,7 @@ Example of downloading multiple objects:
 
 To download multiple objects from an Amazon S3 bucket with specific file extensions, use the recursive copy command with `exclude` and `include` filters as shown in the example.
 
-```
+```bash
 aws s3 cp s3://{{amzn-s3-demo-bucket}}/ . --recursive --exclude "*" --include "*.txt"
 ```
 
@@ -285,7 +284,7 @@ You've already added an object to a bucket and downloaded the object. Now, you c
 
 1. In Amazon S3, folders are represented by prefixes in object keys. Create a "folder" by copying an object with a prefix:
 
-   ```
+   ```bash
    aws s3 cp s3://{{amzn-s3-demo-source-bucket}}/example.txt s3://{{amzn-s3-demo-destination-bucket}}/favorite-files/example.txt
    ```
 
@@ -297,7 +296,7 @@ You've already added an object to a bucket and downloaded the object. Now, you c
 
 1. Verify that the object was copied by listing the contents of the folder:
 
-   ```
+   ```bash
    aws s3 ls s3://{{amzn-s3-demo-destination-bucket}}/favorite-files/
    ```
 
@@ -319,7 +318,7 @@ If you want to choose which objects you delete without emptying all the objects 
 
 Delete a specific object:
 
-```
+```bash
 aws s3 rm s3://{{amzn-s3-demo-bucket}}/example.txt
 ```
 
@@ -340,7 +339,7 @@ Emptying the bucket cannot be undone. Objects added to the bucket while the empt
 
 1. **Option 1:** For smaller buckets, use the `rm` command with the `--recursive` flag to delete all objects in the bucket:
 
-   ```
+   ```bash
    aws s3 rm s3://{{amzn-s3-demo-bucket}} --recursive
    ```
 
@@ -354,7 +353,7 @@ If your bucket contains many objects or large objects, this command might time o
 
 1. Verify that the bucket is empty:
 
-   ```
+   ```bash
    aws s3 ls s3://{{amzn-s3-demo-bucket}}
    ```
 
@@ -362,19 +361,19 @@ If your bucket contains many objects or large objects, this command might time o
 
    Remove versioned objects:
 
-   ```
+   ```bash
    aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete "$(aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}} --output json --query='{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
    ```
 
    Remove delete markers:
 
-   ```
+   ```bash
    aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete "$(aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}} --output json --query='{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}')"
    ```
 
 1. Verify that the bucket is empty of all object versions and delete markers:
 
-   ```
+   ```bash
    aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}}
    ```
 
@@ -392,13 +391,13 @@ Deleting a bucket can't be undone. Bucket names are unique. If you delete your b
 
 1. Delete your bucket:
 
-   ```
+   ```bash
    aws s3api delete-bucket --bucket {{amzn-s3-demo-bucket}}
    ```
 
 1. Verify that the bucket was deleted by listing all your buckets:
 
-   ```
+   ```bash
    aws s3 ls
    ```
 

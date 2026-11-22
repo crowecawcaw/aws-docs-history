@@ -1,7 +1,6 @@
 
 
 # Managing storage costs with Amazon S3 Intelligent-Tiering
-<a name="intelligent-tiering"></a>
 
 The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective access tier when access patterns change, without operational overhead or impact on performance. For a small monthly object monitoring and automation charge, S3 Intelligent-Tiering monitors access patterns and automatically moves objects that have not been accessed to lower-cost access tiers.
 

@@ -1,7 +1,6 @@
 
 
 # Managing delete markers
-<a name="ManagingDelMarkers"></a>
 
 ## Configuring lifecycle to clean up expired delete markers automatically
 <a name="LifecycleDelMarker"></a>
@@ -64,7 +63,7 @@ You can't use the Amazon S3 console to undelete folders. You must use the AWS CL
 **Example — Removing a delete marker**  
 The following example removes the delete marker for `photo.gif` version 4857693.  
 
-```
+```http
 1. DELETE /photo.gif?versionId=4857693 HTTP/1.1
 2. Host: bucket.s3.amazonaws.com
 3. Date: Wed, 28 Oct 2009 22:32:00 GMT
@@ -89,7 +88,7 @@ For information about using other AWS SDKs, see the [AWSDeveloper Center](https:
 
 The following Python code example demonstrates how to remove a delete marker from an object and thus makes the most recent non-current version, the current version of the object.
 
-```
+```Python
 def revive_object(bucket, object_key):
     """
     Revives a versioned object that was deleted by removing the object's active

@@ -1,7 +1,6 @@
 
 
 # Delete a registered location
-<a name="access-grants-location-delete"></a>
 
 You can delete a location registration from an Amazon S3 Access Grants instance. Deleting the location deregisters it from the S3 Access Grants instance. 
 
@@ -65,7 +64,7 @@ To use the following example, replace the `{{user input placeholders}}` with you
 
 **Example – Delete a location registration**  
 
-```
+```java
 public void deleteAccessGrantsLocation() {
 DeleteAccessGrantsLocationRequest deleteRequest = DeleteAccessGrantsLocationRequest.builder()
 .accountId("{{111122223333}}")
@@ -77,7 +76,7 @@ LOGGER.info("DeleteAccessGrantsLocationResponse: " + deleteResponse);
 ```
 Response:  
 
-```
+```java
 DeleteAccessGrantsLocationResponse()
 ```
 

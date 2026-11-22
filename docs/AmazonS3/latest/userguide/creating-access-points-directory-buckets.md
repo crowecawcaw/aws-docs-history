@@ -1,7 +1,6 @@
 
 
 # Creating access points for directory buckets
-<a name="creating-access-points-directory-buckets"></a>
 
 Like Directory buckets, access points can be created in Availability Zones or in Dedicated Local Zones. The access point must be created in the same zone as the directory bucket associated with it.
 
@@ -68,19 +67,19 @@ An access point scope has a character limit of 512 total characters for all pref
 
 The following example command creates an access point named {{example-ap}} for the bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}} in the account {{111122223333}}. 
 
-```
+```bash,sh,zsh
 aws s3control create-access-point --name {{example-ap}}--{{zoneID}}--xa-s3 --account-id {{111122223333}} --bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}}
 ```
 
 To restrict access to the access point through a VPC, include the `--vpc` parameter and the VPC ID.
 
-```
+```bash,sh,zsh
 aws s3control create-access-point --name {{example-ap}}--{{zoneID}}--xa-s3 --account-id {{111122223333}} --bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}} --vpc {{vpc-id}}
 ```
 
 When you create an access point for a cross-account bucket, include the `--bucket-account-id` parameter. The following example command creates an access point in the AWS account {{111122223333}}, for the bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}}, owned by the AWS account {{444455556666}}.
 
-```
+```bash,sh,zsh
 aws s3control create-access-point --name {{example-ap}}--{{zoneID}}--xa-s3 --account-id {{111122223333}} --bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}} --bucket-account-id {{444455556666}}
 ```
 
@@ -91,7 +90,7 @@ For more information and examples, see [create-access-point](https://awscli.amaz
 
 The following example command creates an access point named {{example-ap}} for the bucket {{{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3}} in the account {{111122223333}} and access restricted through the VPC {{vpc-id}} (optional). 
 
-```
+```bash,sh,zsh
 PUT /v20180820/accesspoint/{{example-ap}}--{{zoneID}}--xa-s3 HTTP/1.1
 Host: s3express-control.{{region}}.amazonaws.com
 x-amz-account-id: {{111122223333}}
@@ -107,7 +106,7 @@ x-amz-account-id: {{111122223333}}
 
 Response:
 
-```
+```json
 HTTP/1.1 200
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateAccessPointResult>

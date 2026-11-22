@@ -1,7 +1,6 @@
 
 
 # Viewing replication metrics in S3 Storage Lens dashboards
-<a name="viewing-replication-metrics-storage-lens"></a>
 
 In addition to [S3 Replication metrics](repl-metrics.md), you can use the replication-related Data Protection metrics provided by S3 Storage Lens. S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide visibility into object-storage usage and activity. For more information, see [Using S3 Storage Lens to protect your data](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-data-protection.html#storage-lens-data-protection-replication-rule). 
 

@@ -1,7 +1,6 @@
 
 
 # Update object encryption
-<a name="batch-ops-update-encryption"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. The Batch Operations [`UpdateObjectEncryption`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateObjectEncryptionOperation.html) operation updates the server-side encryption type of more than one Amazon S3 object with a single request. A single `UpdateObjectEncryption` operation job can support a manifest with up to 20 billion objects.
 
@@ -29,7 +28,7 @@ For more information about `UpdateObjectEncryption`, see [Updating server-side e
 
 To perform the `UpdateObjectEncryption` operation, add the following AWS Identity and Access Management (IAM) policy to your IAM principal (user, role, or group). To use this policy, replace {{`{{amzn-s3-demo-bucket}}`}} with the name of the bucket that contains the objects that you want to update encryption for. Replace `{{amzn-s3-demo-manifest-bucket}}` with the name of the bucket that contains your manifest, and replace `{{amzn-s3-demo-completion-report-bucket}}` with the name of the bucket where you want to store your completion report.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

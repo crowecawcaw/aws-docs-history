@@ -1,7 +1,6 @@
 
 
 # Reference
-<a name="Reference"></a>
 
 In addition to the Amazon S3 console, you can work with Amazon S3 programmatically using the Amazon S3 REST APIs, AWS SDKs, or AWS Command Line Interface (AWS CLI).
 + [Amazon Simple Storage Service API Reference](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)

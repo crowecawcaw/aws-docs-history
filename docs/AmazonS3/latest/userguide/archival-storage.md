@@ -1,7 +1,6 @@
 
 
 # Understanding archival storage in S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive
-<a name="archival-storage"></a>
 
 S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive are archival storage classes. This means that when you store an object in these storage classes that object is archived, and cannot be accessed directly. To access an archived object, you submit a restore request for it, and then wait for the service to restore the object. The restore request restores a temporary copy of the object, and that copy is deleted when the duration you specified in the request expires. For more information, see [Working with archived objects](archived-objects.md).
 

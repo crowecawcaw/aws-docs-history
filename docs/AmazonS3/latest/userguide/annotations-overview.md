@@ -1,7 +1,6 @@
 
 
 # Annotating your objects
-<a name="annotations-overview"></a>
 
 Use annotations to attach named data payloads to your Amazon S3 objects. Each annotation is a custom metadata payload between 1 byte and 1 MiB in size that you can create, retrieve, list, and delete without modifying the object itself.
 

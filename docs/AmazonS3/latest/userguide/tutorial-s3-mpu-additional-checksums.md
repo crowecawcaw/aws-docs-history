@@ -1,7 +1,6 @@
 
 
 # Tutorial: Upload an object through multipart upload and verify its data integrity
-<a name="tutorial-s3-mpu-additional-checksums"></a>
 
  Multipart upload allows you to upload a single object as a set of parts. Each part is a contiguous portion of the object's data. You can upload these object parts independently and in any order. If transmission of any part fails, you can retransmit that part without affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object. In general, when your object size reaches 100 MB, you should consider using multipart uploads instead of uploading the object in a single operation. For more information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md). For limits related to multipart uploads, see [Amazon S3 multipart upload limits](qfacts.md).
 
@@ -116,13 +115,13 @@ In this step and subsequent steps, this tutorial uses the SHA-256 additional alg
 
 In your terminal, use the following `create-multipart-upload` command to start a multipart upload for your bucket. Replace `{{{{amzn-s3-demo-bucket1}}}}` with your actual bucket name. Also, replace the `census_data_file` with your chosen file name. This file name becomes the object key when the upload completes.
 
-```
+```bash
 aws s3api create-multipart-upload --bucket {{amzn-s3-demo-bucket1}} --key '{{census_data_file}}' --checksum-algorithm sha256
 ```
 
 If your request succeeds, you'll see JSON output like the following:
 
-```
+```JSON
 {
     "ServerSideEncryption": "AES256",
     "ChecksumAlgorithm": "SHA256",
@@ -147,13 +146,13 @@ In this step, you will upload the parts of your multipart upload to your S3 buck
 
 1. Use the `upload-part` command to upload each part of your multipart upload. The `--upload-id` is the same as it was in the output created by the `create-multipart-upload` command in [Step 3](#create-multipart-upload-step3). To upload the first part of your data, use the following command:
 
-   ```
+   ```bash
    aws s3api upload-part --bucket {{amzn-s3-demo-bucket1}} --key '{{census_data_file}}' --part-number {{1}} --body {{census-part00}} --upload-id "{{cNV6KCSNANFZapz1LUGPC5XwUVi1n6yUoIeSP138sNOKPeMhpKQRrbT9k0ePmgoOTCj9K83T4e2Gb5hQvNoNpCKqyb8m3.oyYgQNZD6FNJLBZluOIUyRE.qM5yhDTdhz}}" --checksum-algorithm {{SHA256}}
    ```
 
    Upon completion of each `upload-part` command, you should see output like the following example:
 
-   ```
+   ```JSON
    {
        "ServerSideEncryption": "AES256",
        "ETag": "\"e611693805e812ef37f96c9937605e69\"",
@@ -163,13 +162,13 @@ In this step, you will upload the parts of your multipart upload to your S3 buck
 
 1. For subsequent parts, increment the part number accordingly:
 
-   ```
+   ```bash
    aws s3api upload-part --bucket {{amzn-s3-demo-bucket1}} --key '{{census_data_file}}' --part-number {{<part-number>}} --body <file-path> --upload-id "<your-upload-id>" --checksum-algorithm SHA256
    ```
 
    For example, use the following command to upload the second part:
 
-   ```
+   ```bash
    aws s3api upload-part --bucket {{amzn-s3-demo-bucket1}} --key 'census_data_file' --part-number 2 --body census-part01 --upload-id "cNV6KCSNANFZapz1LUGPC5XwUVi1n6yUoIeSP138sNOKPeMhpKQRrbT9k0ePmgoOTCj9K83T4e2Gb5hQvNoNpCKqyb8m3.oyYgQNZD6FNJLBZluOIUyRE.qM5yhDTdhz" --checksum-algorithm SHA256
    ```
 
@@ -186,7 +185,7 @@ To complete the multipart upload, you will need a list of all the parts that hav
 
 1. To generate a JSON file with the details of all the uploaded parts, use the following `list-parts` command. Replace **{{amzn-s3-demo-bucket1}}** with your actual bucket name and **<your-upload-id>** with the upload ID that you received in [Step 3](#create-multipart-upload-step3). For more information on the `list-parts` command, see [list-parts](https://docs.aws.amazon.com/cli/latest/reference/s3api/list-parts.html) in the *AWS Command Line Interface User Guide*.
 
-   ```
+   ```bash
    aws s3api list-parts --bucket {{amzn-s3-demo-bucket1}} --key '{{census_data_file}}' --upload-id {{<your-upload-id>}} --query '{Parts: Parts[*].{PartNumber: PartNumber, ETag: ETag, ChecksumSHA256: ChecksumSHA256}}' --output json > parts.json
    ```
 
@@ -194,7 +193,7 @@ To complete the multipart upload, you will need a list of all the parts that hav
 
 1. Open `parts.json` by using any text editor or through the terminal. Here’s the example output:
 
-   ```
+   ```JSON
    {
        "Parts": [
            {
@@ -228,13 +227,13 @@ You can calculate the object checksum before calling `complete-multipart-upload`
 
 To finalize the multipart upload, use the `complete-multipart-upload` command. This command requires the `parts.json` file created in [Step 5](#list-parts-step5), your bucket name, and the upload ID. Replace **<{{amzn-s3-demo-bucket1}}>** with your bucket name and **<your-upload-id>** with the upload ID of `parts.json`.
 
-```
+```bash
 aws s3api complete-multipart-upload --multipart-upload file://parts.json --bucket {{amzn-s3-demo-bucket1}} --key 'census_data_file' --upload-id <your-upload-id>
 ```
 
 Here’s the example output:
 
-```
+```JSON
 {
     "ServerSideEncryption": "AES256",
     "Location": "https://{{amzn-s3-demo-bucket1}}.s3.us-east-2.amazonaws.com/census_data_file",
@@ -257,7 +256,7 @@ After completing the multipart upload, you can verify that the object has been s
 
 To list the objects in your, use the `list-objects-v2` command bucket. Replace **{{amzn-s3-demo-bucket1}}** with your actual bucket name: 
 
-```
+```bash
 aws s3api list-objects-v2 --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -274,13 +273,13 @@ When you upload an object, you can specify a checksum algorithm for Amazon S3 to
 
 1. To retrieve the ETag of the uploaded object, perform a `head-object` request:
 
-   ```
+   ```bash
    aws s3api head-object --bucket {{amzn-s3-demo-bucket1}} --key {{census_data_file}}
    ```
 
    Here’s the example output:
 
-   ```
+   ```JSON
    {
        "AcceptRanges": "bytes",
        "LastModified": "2024-07-26T19:04:13+00:00",
@@ -335,13 +334,13 @@ In this step, this tutorial uses SHA-256 as an additional checksum to validate o
 
 1. Run the following command in your terminal, including the `--checksum-mode enabled` argument, to display the `ChecksumSHA256` value of your object:
 
-   ```
+   ```bash
    aws s3api head-object --bucket {{amzn-s3-demo-bucket1}} --key census_data_file --checksum-mode enabled
    ```
 
    Here’s the example output:
 
-   ```
+   ```JSON
    {
        "AcceptRanges": "bytes",
        "LastModified": "2024-07-26T19:04:13+00:00",

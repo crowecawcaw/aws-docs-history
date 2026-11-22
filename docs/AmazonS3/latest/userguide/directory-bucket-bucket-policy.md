@@ -1,7 +1,6 @@
 
 
 # Managing directory bucket policies
-<a name="directory-bucket-bucket-policy"></a>
 
 You can add, delete, update, and view bucket policies for Amazon S3 directory buckets by using the Amazon S3 console, the AWS SDKs and the AWS CLI. For more information, see the following topics. For more information about supported AWS Identity and Access Management (IAM) actions, see [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md). For example bucket policies for directory buckets, see [Example bucket policies for directory buckets](s3-express-security-iam-example-bucket-policies.md).
 
@@ -61,7 +60,7 @@ Bucket policies are limited to 20 KB in size.
 **Example**  
 `PutBucketPolicy` AWS SDK for Java 2.x   
 
-```
+```JavaV2
 public static void setBucketPolicy(S3Client s3Client, String bucketName, String policyText) {
      
        //sample policy text
@@ -110,7 +109,7 @@ public static void setBucketPolicy(S3Client s3Client, String bucketName, String 
 
 This example shows how to add a bucket policy to a directory bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3api put-bucket-policy --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --policy file://bucket_policy.json
 ```
 
@@ -121,7 +120,7 @@ bucket\_policy.json:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ To view a bucket policy for a directory bucket, use the following examples.
 
 This example shows how to view the bucket policy attached to a directory bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3api get-bucket-policy --bucket {{bucket-base-name}}--{{zone-id}}--x-s3
 ```
 
@@ -172,7 +171,7 @@ To delete a bucket policy for a directory bucket, use the following examples.
 **Example**  
 `DeleteBucketPolicy` AWS SDK for Java 2.x   
 
-```
+```JavaV2
 public static void deleteBucketPolicy(S3Client s3Client, String bucketName) {
       try {
           DeleteBucketPolicyRequest deleteBucketPolicyRequest = DeleteBucketPolicyRequest
@@ -196,7 +195,7 @@ public static void deleteBucketPolicy(S3Client s3Client, String bucketName) {
 
 This example shows how to delete a bucket policy for a directory bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3api delete-bucket-policy --bucket {{bucket-base-name}}--{{zone-id}}--x-s3
 ```
 

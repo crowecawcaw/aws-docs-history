@@ -1,7 +1,6 @@
 
 
 # Replication configuration file elements
-<a name="replication-add-config"></a>
 
 Amazon S3 stores a replication configuration as XML. If you're configuring replication programmatically through the Amazon S3 REST API, you specify the various elements of your replication configuration in this XML file. If you're configuring replication through the AWS Command Line Interface (AWS CLI), you specify your replication configuration using JSON format. For JSON examples, see the walkthroughs in [Examples for configuring live replication](replication-example-walkthroughs.md).
 
@@ -12,7 +11,7 @@ For backward compatibility, Amazon S3 continues to support the XML V1 replicatio
 
 In the replication configuration XML file, you must specify an AWS Identity and Access Management (IAM) role and one or more rules, as shown in the following example:
 
-```
+```xml
 <ReplicationConfiguration>
     <Role>{{IAM-role-ARN}}</Role>
     <Rule>
@@ -84,12 +83,12 @@ You can also specify other configuration options. For example, you might choose 
 ## Optional: Specifying a filter
 <a name="replication-config-optional-filter"></a>
 
-To choose a subset of objects that the rule applies to, add an optional filter. You can filter by object key prefix, object tags, or a combination of both. If you filter on both a key prefix and object tags, Amazon S3 combines the filters by using a logical `AND` operator. In other words, the rule applies to a subset of objects with both a specific key prefix and specific tags. 
+To choose a subset of objects that the rule applies to, add an optional filter. You can filter by object key prefix, object tags, or a combination of both. If you filter on both a key prefix and object tags, Amazon S3 combines the filters by using a logical `AND` operator. In other words, the rule applies to a subset of objects with both a specific key prefix and specific tags. You can also exclude objects from a rule by prefix or tag. For more information, see [Excluding objects from a rule](#replication-config-exclude).
 
 **Filter based on object key prefix**  
 To specify a rule with a filter based on an object key prefix, use the following XML. You can specify only one prefix per rule.
 
-```
+```xml
 <Rule>
     ...
     <Filter>
@@ -103,7 +102,7 @@ To specify a rule with a filter based on an object key prefix, use the following
 **Filter based on object tags**  
 To specify a rule with a filter based on object tags, use the following XML. You can specify one or more object tags.
 
-```
+```xml
 <Rule>
     ...
     <Filter>
@@ -127,7 +126,7 @@ To specify a rule with a filter based on object tags, use the following XML. You
 **Filter with a key prefix and object tags**  
 To specify a rule filter with a combination of a key prefix and object tags, use the following XML. You wrap these filters in an `<And>` parent element. Amazon S3 performs a logical `AND` operation to combine these filters. In other words, the rule applies to a subset of objects with both a specific key prefix and specific tags. 
 
-```
+```xml
 <Rule>
     ...
     <Filter>
@@ -152,6 +151,60 @@ To specify a rule filter with a combination of a key prefix and object tags, use
 If you specify a rule with an empty `<Filter>` element, your rule applies to all objects in your bucket.
 When you're using tag-based replication rules with live replication, new objects must be tagged with the matching replication rule tag in the `PutObject` operation. Otherwise, the objects won't be replicated. If objects are tagged after the `PutObject` operation, those objects also won't be replicated.   
 To replicate objects that have been tagged after the `PutObject` operation, you must use S3 Batch Replication. For more information about Batch Replication, see [Replicating existing objects](s3-batch-replication-batch.md).
+
+### Excluding objects from a rule
+<a name="replication-config-exclude"></a>
+
+With exclusions, a rule can replicate a bucket or prefix except the prefixes or tagged objects that you name, such as `logs/` or objects tagged `environment=test`. To exclude objects, add a `<Not>` element to the rule filter. The rule doesn't replicate an object whose key starts with a prefix in `<Not>`, or that has a tag in `<Not>`.
+
+To exclude one prefix or tag, place it directly inside `<Not>`. To exclude more than one, wrap them in an `<Or>` element. Amazon S3 excludes an object that matches any entry.
+
+The following filter replicates objects under `data/`, except objects under `data/logs/` or `data/tmp/` and objects with the tag `environment=test`.
+
+```xml
+<Filter>
+    <And>
+        <Prefix>{{data/}}</Prefix>
+        <Not>
+            <Or>
+                <Prefix>{{data/logs/}}</Prefix>
+                <Prefix>{{data/tmp/}}</Prefix>
+                <Tag>
+                    <Key>{{environment}}</Key>
+                    <Value>{{test}}</Value>
+                </Tag>
+            </Or>
+        </Not>
+    </And>
+</Filter>
+```
+
+Exclusions follow these rules:
++ To combine exclusions with an include prefix or tags, `<Not>` goes inside `<And>` with them, as in the previous example.
++ `<Not>` contains exactly one `<Prefix>`, `<Tag>`, or `<Or>` element.
++ `<Or>` is allowed only inside `<Not>`.
++ For a rule with only exclusions, `<Not>` goes directly inside `<Filter>`. The rule applies to all objects in the bucket except the excluded ones.
+
+The following filter replicates all objects in the bucket except objects under `logs/`.
+
+```xml
+<Filter>
+    <Not>
+        <Prefix>{{logs/}}</Prefix>
+    </Not>
+</Filter>
+```
+
+Prefix exclusions match the start of the object key, the same as the include prefix. For example, `data/log` excludes both `data/logs/` and `data/login/`. To exclude a folder, end the prefix with a slash. Tag exclusions match the exact tag key and value when the object is written.
+
+**Exclusions and rule priority**  
+An excluded object doesn't match the rule that excludes it. Another rule for the same destination that matches the object still replicates it, even if that rule has a lower priority. To keep a prefix or tag out of a destination, add the exclusion to every rule for that destination.
+
+**Other behavior**  
+Exclusions also affect replication in the following ways:
++ An object that no rule replicates has the replication status `NONE` and doesn't generate replication events. For more information, see [Getting replication status information](replication-status.md).
++ Amazon S3 doesn't replicate delete markers under an excluded prefix. A rule that excludes by tag is a tag-based rule, so it doesn't support delete marker replication. For more information, see [Replicating delete markers between buckets](delete-marker-replication.md).
++ An exclusion applies to objects that you write after you update the rule. Adding an exclusion doesn't remove replicas that are already in the destination.
 
 ## Additional destination configurations
 <a name="replication-config-optional-dest-config"></a>
@@ -342,6 +395,20 @@ Your source bucket might contain objects that were created with server-side encr
 ...
 ```
 
+For objects encrypted with AWS KMS multi-Region keys, you can add the `<UseSourceMultiRegionKey>` element. Amazon S3 encrypts each replica with the related multi-Region key in the destination Region. With this element, `<ReplicaKmsKeyID>` is optional and applies to objects encrypted with single-Region keys. The rule still requires the `<SourceSelectionCriteria>` element shown in the previous example.
+
+```
+<Destination>
+  <Bucket>arn:aws:s3:::{{amzn-s3-demo-destination-bucket}}</Bucket>
+  <EncryptionConfiguration>
+    <UseSourceMultiRegionKey>
+      <Status>Enabled</Status>
+    </UseSourceMultiRegionKey>
+    <ReplicaKmsKeyID>{{Optional: AWS KMS key ID for objects encrypted with single-Region keys}}</ReplicaKmsKeyID>
+  </EncryptionConfiguration>
+</Destination>
+```
+
 For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md).
 
 ## Example replication configurations
@@ -355,7 +422,7 @@ To add a replication configuration to a bucket, you must have the `iam:PassRole`
 **Example 1: Replication configuration with one rule**  
 The following basic replication configuration specifies one rule. The rule specifies an IAM role that Amazon S3 can assume and a single destination bucket for object replicas. The `<Status>` element value of `Enabled` indicates that the rule is in effect.  
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -370,7 +437,7 @@ The following basic replication configuration specifies one rule. The rule speci
 ```
 To choose a subset of objects to replicate, you can add a filter. In the following configuration, the filter specifies an object key prefix. This rule applies to objects that have the prefix `{{Tax/}}` in their key names.   
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -395,7 +462,7 @@ To choose a subset of objects to replicate, you can add a filter. In the followi
 If you specify the `<Filter>` element, you must also include the `<Priority>` and `<DeleteMarkerReplication>` elements. In this example, the value that you set for the `<Priority>` element is irrelevant because there is only one rule.  
 In the following configuration, the filter specifies 1 prefix and 2 tags. The rule applies to the subset of objects that have the specified key prefix and tags. Specifically, it applies to objects that have the `{{Tax/}}` prefix in their key names and the 2 specified object tags. In this example, the value that you set for the `<Priority>` element is irrelevant because there is only one rule.  
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -434,7 +501,7 @@ In the following configuration, the filter specifies 1 prefix and 2 tags. The ru
 ```
 You can specify a storage class for the object replicas as follows:  
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -459,7 +526,7 @@ In the following replication configuration, the rules specify the following:
 + The second rule specifies the S3 Standard-IA storage class for object replicas. Amazon S3 uses the specified storage class for those object replicas.
    
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -503,7 +570,7 @@ In the following replication configuration, the rules specify the following:
 **Example 3: Replication configuration with 2 rules with overlapping prefixes**  <a name="overlap-rule-example"></a>
 In this configuration, the 2 rules specify filters with overlapping key prefixes, {{`star`}} and {{`starship`}}. Both rules apply to objects with the key name {{`starship-x`}}. In this case, Amazon S3 uses the rule priority to determine which rule to apply. The higher the number, the higher the priority.  
 
-```
+```xml
 <ReplicationConfiguration>
 
   <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -552,7 +619,7 @@ To see your replication configuration version, you can use the `GetBucketReplica
 For backward compatibility, Amazon S3 continues to support the XML V1 replication configuration format. If you've used the XML V1 replication configuration format, consider the following issues that affect backward compatibility:
 + The replication configuration XML V2 format includes the `<Filter>` element for rules. With the `<Filter>` element, you can specify object filters based on the object key prefix, tags, or both to scope the objects that the rule applies to. The replication configuration XML V1 format supports filtering based only on the key prefix. In that case, you add the `<Prefix>` element directly as a child element of the `<Rule>` element, as in the following example:
 
-  ```
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>

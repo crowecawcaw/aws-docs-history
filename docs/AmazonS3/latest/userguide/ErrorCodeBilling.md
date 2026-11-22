@@ -1,7 +1,6 @@
 
 
 # Billing for Amazon S3 error responses
-<a name="ErrorCodeBilling"></a>
 
  In general, S3 bucket owners are billed for requests with HTTP `200 OK` successful responses and HTTP `4XX` client error responses. Bucket owners aren't billed for HTTP `5XX` server error responses, such as HTTP `503 Slow Down` errors. For more information about billing charges if your bucket is configured as a Requester Pays bucket, see [How Requester Pays charges work](RequesterPaysBuckets.md#ChargeDetails). 
 

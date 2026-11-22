@@ -1,7 +1,6 @@
 
 
 # Viewing the properties for an S3 general purpose bucket
-<a name="view-bucket-properties"></a>
 
 You can view properties for any Amazon S3 bucket you own. These settings include the following:
 + **Bucket Versioning** – Keep multiple versions of an object in one general purpose bucket by using versioning. By default, versioning is disabled for a new bucket. For information about enabling versioning, see [Enabling versioning on buckets](manage-versioning-examples.md).
@@ -38,7 +37,7 @@ The following commands show how you can use the AWS CLI to list different genera
 
 The following returns the tag set associated with the bucket {{amzn-s3-demo-bucket1}}. For more information about bucket tags see, [Using cost allocation S3 bucket tags](CostAllocTagging.md).
 
-```
+```bash
 aws s3api get-bucket-tagging --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -46,7 +45,7 @@ For more information and examples, see [get-bucket-tagging](https://awscli.amazo
 
 The following returns the versioning state of the bucket {{amzn-s3-demo-bucket1}}. For information about the bucket versioning, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md).
 
-```
+```bash
 aws s3api get-bucket-versioning --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -54,7 +53,7 @@ For more information and examples, see [get-bucket-versioning](https://awscli.am
 
 The following returns the default encryption configuration for the bucket {{amzn-s3-demo-bucket1}}. By default, all buckets have a default encryption configuration that uses server-side encryption with Amazon S3 managed keys (SSE-S3). For information about the bucket default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md).
 
-```
+```bash
 aws s3api get-bucket-encryption --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -62,7 +61,7 @@ For more information and examples, see [get-bucket-encryption](https://awscli.am
 
 The following returns the notification configuration of the bucket {{amzn-s3-demo-bucket1}}. For information about the bucket event notifications, see [Amazon S3 Event Notifications](EventNotifications.md).
 
-```
+```bash
 aws s3api get-bucket-notification-configuration --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -70,7 +69,7 @@ For more information and examples, see [get-bucket-notification-configuration](h
 
 The following returns the logging status for the bucket {{amzn-s3-demo-bucket1}}. For information about the bucket logging, see [Logging requests with server access logging](ServerLogs.md).
 
-```
+```bash
 aws s3api get-bucket-logging --bucket {{amzn-s3-demo-bucket1}}
 ```
 

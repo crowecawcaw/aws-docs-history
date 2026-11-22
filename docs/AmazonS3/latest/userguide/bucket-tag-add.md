@@ -1,7 +1,6 @@
 
 
 # Adding a tag to a bucket
-<a name="bucket-tag-add"></a>
 
 
 
@@ -56,7 +55,7 @@ To add tags to a bucket using the Amazon S3 console:
 
 This example shows you how to add tags to a general purpose bucket by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3control.S3ControlClient;
 import software.amazon.awssdk.services.s3control.model.Tag;
@@ -97,6 +96,6 @@ The following CLI example shows you how to add tags to a general purpose bucket 
 
 **Request:**
 
-```
+```bash
 aws s3control tag-resource --resource-arn arn:aws:s3:::amzn-s3-demo-bucket --region us-east-2 --account-id 444455556666 --tags '[{"Key":"mykey","Value":"myvalue"}]'
 ```

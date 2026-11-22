@@ -1,9 +1,8 @@
 
 
 # S3 Storage Lens metrics and dimensions
-<a name="storage-lens-cloudwatch-metrics-dimensions"></a>
 
-To send S3 Storage Lens metrics to CloudWatch, you must enable the CloudWatch publishing option within S3 Storage Lens advanced metrics. After advanced metrics are enabled, you can use [CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) to monitor S3 Storage Lens metrics alongside other application metrics and create a unified view of your operational health. You can use dimensions to filter your S3 Storage Lens metrics in CloudWatch by organization, account, bucket, storage class, Region, and metrics configuration ID.
+To send S3 Storage Lens metrics to CloudWatch, you must enable the CloudWatch publishing option within S3 Storage Lens advanced metrics. After advanced metrics are enabled, you can use [CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) to monitor S3 Storage Lens metrics alongside other application metrics and create a unified view of your operational health. You can use dimensions to filter your S3 Storage Lens metrics in CloudWatch by organization, account, bucket, storage class, Region, metrics configuration ID, and S3 Intelligent-Tiering access tier.
 
 S3 Storage Lens metrics are published to CloudWatch in the account that owns the S3 Storage Lens configuration. After you enable the CloudWatch publishing option within advanced metrics, you can access account-level and bucket-level metrics by configuration ID, account, bucket (for bucket-level metrics only), Region, and storage class in CloudWatch. Prefix-level metrics are not available in CloudWatch.
 
@@ -51,6 +50,8 @@ For example, all S3 Storage Lens metrics in CloudWatch have the `configuration_i
 
 Different dimensions are available for S3 Storage Lens metrics depending on the granularity of the metrics. For example, you can use the `organization_id` dimension to filter organization-level metrics by the AWS Organizations ID. However, you can't use this dimension for bucket and account-level metrics. For more information, see [Filtering metrics using dimensions](storage-lens-cloudwatch-monitoring-cloudwatch.md#storage-lens-cloudwatch-monitoring-cloudwatch-dimensions).
 
+When the `IntAccessTiers` feature is enabled, per-tier metrics carry an additional `int_access_tier` dimension.
+
 To see which dimensions are available for your S3 Storage Lens configuration, see the following table.
 
 
@@ -63,4 +64,5 @@ To see which dimensions are available for your S3 Storage Lens configuration, se
 | aws\_region | The AWS Region for the metrics | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | 
 | bucket\_name | The name of the S3 bucket that's reported in the metrics | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-no.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-no.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-no.png)  | 
 | storage\_class | The storage class for the bucket that's reported in the metrics | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | 
+| int\_access\_tier | The S3 Intelligent-Tiering access tier for a per-tier metric. Present only when the `IntAccessTiers` feature is enabled. | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png)  | 
 | record\_type | The granularity of the metrics: ORGANIZATION, ACCOUNT, BUCKET | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png) BUCKET | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png) ACCOUNT | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png) BUCKET | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png) ACCOUNT | ![](https://docs.aws.amazon.com/AmazonS3/latest/userguide/images/icon-yes.png) ORGANIZATION | 

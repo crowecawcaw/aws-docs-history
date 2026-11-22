@@ -1,7 +1,6 @@
 
 
 # Mounting S3 file systems on AWS Lambda functions
-<a name="s3-files-mounting-lambda"></a>
 
 While AWS Lambda functions provide an ephemeral local storage available during execution, many serverless workloads, such as machine learning inference, data processing, and content management, require access to large reference datasets, shared files, or persistent storage. By attaching an S3 file system to your Lambda function, you can easily share data across function invocations, read large reference data files, and write function output to a persistent and shared store, all through a local mount path.
 

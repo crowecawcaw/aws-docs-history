@@ -1,7 +1,6 @@
 
 
 # Enabling trusted access for S3 Storage Lens
-<a name="storage_lens_with_organizations_enabling_trusted_access"></a>
 
 By enabling trusted access, you allow Amazon S3 Storage Lens to access your AWS Organizations hierarchy, membership, and structure through AWS Organizations API operations. S3 Storage Lens then becomes a trusted service for your entire organization's structure.
 

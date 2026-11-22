@@ -1,7 +1,6 @@
 
 
 # Cost optimization
-<a name="cost-optimization"></a>
 
 Amazon S3 offers a range of features and storage classes to help you optimize costs throughout your data lifecycle. Storage classes offer the flexibility to manage your costs, by providing different data-access levels at corresponding costs, with no upfront fees or commitment to how much content you store. Like other AWS services, you pay as you go and pay only for what you use. 
 

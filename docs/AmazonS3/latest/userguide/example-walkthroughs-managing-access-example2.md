@@ -1,7 +1,6 @@
 
 
 # Example 2: Bucket owner granting cross-account bucket permissions
-<a name="example-walkthroughs-managing-access-example2"></a>
 
 **Important**  
 Granting permissions to IAM roles is a better practice than granting permissions to individual users. To learn how to do this, see [Understanding cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview).
@@ -120,7 +119,7 @@ The bucket policy grants the `s3:GetLifecycleConfiguration` and `s3:ListBucket` 
 ------
 #### [ JSON ]
 
-   ```
+   ```json
    {
       "Version": "2012-10-17",
       "Statement": [
@@ -147,7 +146,7 @@ The bucket policy grants the `s3:GetLifecycleConfiguration` and `s3:ListBucket` 
 1. Verify that Account B (and thus its administrator user) can perform the operations.
    + Verify using the AWS CLI
 
-     ```
+     ```bash
      aws s3 ls s3://{{amzn-s3-demo-bucket}} --profile AccountBadmin
      aws s3api get-bucket-lifecycle-configuration --bucket {{amzn-s3-demo-bucket}} --profile AccountBadmin
      ```
@@ -187,7 +186,7 @@ It's assumed that you're signed in to the console using **AccountBadmin** user c
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -227,13 +226,13 @@ Now Dave in Account B can list the contents of `{{amzn-s3-demo-bucket}}` owned b
 
 1. At the command prompt, enter the following AWS CLI command to verify Dave can now get an object list from the `{{amzn-s3-demo-bucket}}` owned by Account A. Note the command specifies the `UserDave` profile.
 
-   ```
+   ```bash
    aws s3 ls s3://{{amzn-s3-demo-bucket}} --profile UserDave
    ```
 
    Dave doesn't have any other permissions. So, if he tries any other operation—for example, the following `get-bucket-lifecycle` configuration—Amazon S3 returns permission denied. 
 
-   ```
+   ```bash
    aws s3api get-bucket-lifecycle-configuration --bucket {{amzn-s3-demo-bucket}} --profile UserDave
    ```
 
@@ -267,7 +266,7 @@ You can have permissions granted by using an access control list (ACL), a bucket
 1. Now if you try to get a bucket list using `AccountBadmin` credentials, access is denied.
    + Using the AWS CLI, run the following command:
 
-     ```
+     ```bash
      aws s3 ls s3://{{amzn-s3-demo-bucket}} --profile AccountBadmin
      ```
    + Using the AWS Tools for Windows PowerShell, run the following command:

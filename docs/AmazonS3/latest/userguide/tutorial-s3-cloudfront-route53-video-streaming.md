@@ -1,7 +1,6 @@
 
 
 # Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53
-<a name="tutorial-s3-cloudfront-route53-video-streaming"></a>
 
 You can use Amazon S3 with Amazon CloudFront to host videos for on-demand viewing in a secure and scalable way. Video on demand (VOD) streaming means that your video content is stored on a server and viewers can watch it at any time.
 
@@ -195,7 +194,7 @@ To use CloudFront to serve and distribute the video in your S3 bucket, you must 
 
 1. In the **Bucket policy** section, confirm that you see a statement similar to the following in the bucket policy text: 
 
-   ```
+   ```json
    {
        "Version": "2008-10-17",		 	 	 
        "Id": "PolicyForCloudFrontPrivateContent",

@@ -1,7 +1,6 @@
 
 
 # Creating a metrics configuration that filters by prefix, object tag, or access point
-<a name="metrics-configurations-filter"></a>
 
 There are three types of Amazon CloudWatch metrics for Amazon S3: storage metrics, request metrics, and replication metrics. Storage metrics are reported once per day and are provided to all customers at no additional cost. Request metrics are available at one-minute intervals after some latency for processing. Request metrics are billed at the standard CloudWatch rate. You must opt in to request metrics by configuring them in the console or using the Amazon S3 API. [S3 Replication metrics](https://docs.aws.amazon.com/AmazonS3/latest/userguide/viewing-replication-metrics.html) provide detailed metrics for the replication rules in your replication configuration. With replication metrics, you can monitor minute-by-minute progress by tracking bytes pending, operations pending, operations that failed replication, and replication latency.
 
@@ -71,22 +70,22 @@ You cannot enter an access point alias. You must enter the ARN for the access po
 1. To add a metrics configuration, run one of the following commands:  
 **Example : To filter by prefix**  
 
-   ```
+   ```bash
    aws s3api put-bucket-metrics-configuration --bucket {{{{amzn-s3-demo-bucket}}}} --id {{metrics-config-id}} --metrics-configuration '{"Id":"{{metrics-config-id}}", "Filter":{"Prefix":"{{prefix1}}"}} '
    ```  
 **Example : To filter by tags**  
 
-   ```
+   ```bash
    aws s3api put-bucket-metrics-configuration --bucket {{{{amzn-s3-demo-bucket}}}} --id {{metrics-config-id}} --metrics-configuration '{"Id":"{{metrics-config-id}}", "Filter":{"Tag": {"Key": "{{string}}", "Value": "{{string}}"}} '
    ```  
 **Example : To filter by access point**  
 
-   ```
+   ```bash
    aws s3api put-bucket-metrics-configuration --bucket {{{{amzn-s3-demo-bucket}}}} --id {{metrics-config-id}} --metrics-configuration '{"Id":"{{metrics-config-id}}", "Filter":{"AccessPointArn":"arn:aws:s3:{{Region}}:{{account-id}}:accesspoint/{{access-point-name}}"}} '
    ```  
 **Example : To filter by prefix, tags, and access point**  
 
-   ```
+   ```bash
    aws s3api put-bucket-metrics-configuration --endpoint https://s3.{{Region}}.amazonaws.com --bucket {{{{amzn-s3-demo-bucket}}}} --id {{metrics-config-id}} --metrics-configuration '
    {
        "Id": "{{metrics-config-id}}",

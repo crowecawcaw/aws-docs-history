@@ -1,7 +1,6 @@
 
 
 # Delete all object tags
-<a name="batch-ops-delete-object-tagging"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. The **Delete all object tags** operation removes all Amazon S3 object tag sets currently associated with the objects that are listed in the manifest. S3 Batch Operations doesn't support deleting tags from objects while keeping other tags in place. 
 

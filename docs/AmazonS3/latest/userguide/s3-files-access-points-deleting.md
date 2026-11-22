@@ -1,7 +1,6 @@
 
 
 # Deleting access points for an S3 file system
-<a name="s3-files-access-points-deleting"></a>
 
 When deleting an access point, make sure no applications are actively using the access point before deletion to avoid service disruption. Once deleted, the access point and its configuration are permanently removed.
 
@@ -31,6 +30,6 @@ This section explains how to use the Amazon S3 console to delete an access point
 
 The following `delete-access-point` example command shows how you can use the AWS CLI to delete an access point for S3 Files.
 
-```
+```bash
 aws s3files delete-access-point --access-point-id {{access-point-id}}
 ```

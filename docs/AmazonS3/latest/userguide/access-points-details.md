@@ -1,7 +1,6 @@
 
 
 # View details for your access point for general purpose buckets
-<a name="access-points-details"></a>
 
 This section explains how to view details for your access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API.
 
@@ -33,13 +32,13 @@ The following `get-access-point` example command shows how you can use the AWS C
 
 The following command lists details for the access point {{my-access-point}} for AWS account {{111122223333}} attached to S3 bucket {{amzn-s3-demo-bucket}}.
 
-```
+```bash
 aws s3control get-access-point --name {{my-access-point}} --account-id {{111122223333}}         
 ```
 
 Example output:
 
-```
+```json
 {
     "Name": "{{my-access-point}}",
     "Bucket": "{{amzn-s3-demo-bucket}}",
@@ -65,13 +64,13 @@ Example output:
 
 The following command lists details for the access point {{example-fsx-ap}} for AWS account {{444455556666}}. This access point is attached to an Amazon FSx file system.
 
-```
+```bash
 aws s3control get-access-point --name {{example-fsx-ap}} --account-id {{444455556666}}         
 ```
 
 Example output:
 
-```
+```json
 {
     "Name": "{{example-fsx-ap}}",
     "Bucket": "",

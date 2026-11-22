@@ -1,7 +1,6 @@
 
 
 # Creating mount targets
-<a name="s3-files-mount-targets-creating"></a>
 
 You need a mount target to access your file system from compute resources and you can create a maximum of one mount target per Availability Zone. We recommend creating one mount target per Availability Zone you operate in. When you create a file system using the S3 console, S3 Files automatically creates one mount target in every Availability Zone in your default VPC.
 
@@ -39,7 +38,7 @@ The IP address type must match the IP type of the subnet. Additionally, the IP a
 
 The following `create-mount-target` example command shows how you can use the AWS CLI to create a mount target for S3 Files.
 
-```
+```bash
 aws s3files create-mount-target --region {{aws-region}} --file-system-id {{file-system-id}} --subnet-id {{subnet-id}}
 ```
 

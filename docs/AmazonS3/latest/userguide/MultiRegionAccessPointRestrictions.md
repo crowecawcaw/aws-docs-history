@@ -1,7 +1,6 @@
 
 
 # Multi-Region Access Point restrictions and limitations
-<a name="MultiRegionAccessPointRestrictions"></a>
 
 Multi-Region Access Points in Amazon S3 have the following restrictions and limitations. 
 

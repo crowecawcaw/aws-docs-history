@@ -1,7 +1,6 @@
 
 
 # Understanding the Amazon S3 Storage Lens export schemas
-<a name="storage_lens_understanding_metrics_export_schema"></a>
 
 S3 Storage Lens export schemas vary depending on your export destination. Choose the appropriate schema based on whether you're exporting to S3 general purpose buckets or S3 tables.
 
@@ -28,6 +27,7 @@ The following table contains the schema of your S3 Storage Lens metrics export w
 |  BucketName  |  String  |  bucket\_name  | The name of the bucket that is being reported. | 
 |  MetricName  |  String  |  metric\_name  | The name of the metric that is being reported. | 
 |  MetricValue  |  Long  |  metric\_value  | The value of the metric that is being reported. | 
+|  IntAccessTier  |  String  |  int\_access\_tier  | The S3 Intelligent-Tiering access tier that the core storage metric value applies to. | 
 
 ### Example of an S3 Storage Lens metrics export
 <a name="storage_lens_sample_metrics_export"></a>
@@ -50,6 +50,9 @@ The following is an example of an S3 Storage Lens metrics export with Storage Le
 
 When exporting S3 Storage Lens metrics to S3 tables, the data is organized into three separate table schemas: storage metrics, bucket property metrics, and activity metrics.
 
+**Note**  
+With the launch of the Intelligent-Tiering access tier metrics (`IntAccessTiers`) feature, the storage metrics table schema `version_number` changes from `V_1` to `V_1.1`, adding an `int_access_tier` column after `storage_class`.
+
 **Topics**
 + [Storage metrics table schema](#storage_lens_s3_tables_storage_metrics)
 + [Bucket property metrics table schema](#storage_lens_s3_tables_bucket_property_metrics)
@@ -67,6 +70,7 @@ When exporting S3 Storage Lens metrics to S3 tables, the data is organized into 
 |  aws\_account\_id  | string | Account id the entry refers to | 
 |  aws\_region  | string | Region | 
 |  storage\_class  | string | Storage Class | 
+|  int\_access\_tier  | string | The S3 Intelligent-Tiering access tier that the storage metric value applies to. | 
 |  record\_type  | string | Type of record, related to what is the level of aggregation of data. Values: ACCOUNT, BUCKET, PREFIX, LENS GROUP.  | 
 |  record\_value  | string | Disambiguator for record types that have more than one record under them. It is used to reference the prefix | 
 |  bucket\_name  | string | Bucket name | 

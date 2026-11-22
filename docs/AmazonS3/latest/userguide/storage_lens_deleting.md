@@ -1,7 +1,6 @@
 
 
 # Delete an Amazon S3 Storage Lens dashboard
-<a name="storage_lens_deleting"></a>
 
 You can't delete the default dashboard. However, you can disable it. Before deleting a dashboard that you've created, consider the following:
 + As an alternative to deleting a dashboard, you can *disable* the dashboard so that it is available to be re-enabled in the future. For more information, see [Using the S3 console](storage_lens_console_disabling.md).
@@ -14,7 +13,7 @@ You can't delete the default dashboard. However, you can disable it. Before dele
 **Example – Delete an Amazon S3 Storage Lens dashboard configuration**  
 The following example shows you how to delete an S3 Storage Lens configuration using SDK for Java:  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

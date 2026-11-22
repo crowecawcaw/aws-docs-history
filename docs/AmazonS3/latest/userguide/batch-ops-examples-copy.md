@@ -1,7 +1,6 @@
 
 
 # Copying objects using S3 Batch Operations
-<a name="batch-ops-examples-copy"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. You can use S3 Batch Operations to create a **Copy** (`CopyObject`) job to copy objects within the same account or to a different destination account. 
 

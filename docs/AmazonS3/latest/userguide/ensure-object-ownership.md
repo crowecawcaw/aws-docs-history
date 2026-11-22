@@ -1,7 +1,6 @@
 
 
 # Disabling ACLs for all new buckets and enforcing Object Ownership
-<a name="ensure-object-ownership"></a>
 
 We recommend that you disable ACLs on your Amazon S3 buckets. You can do this by applying the Bucket owner enforced setting for S3 Object Ownership. When you apply this setting, ACLs are disabled and you automatically own and have full control over all objects in your bucket. To require that all new buckets are created with ACLs disabled, use AWS Identity and Access Management (IAM) policies or AWS Organizations service control policies (SCPs), as described in the next section.
 
@@ -21,7 +20,7 @@ The following example IAM policy denies the `s3:CreateBucket` permission for a s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -57,7 +56,7 @@ The following bucket policy specifies that account {{`111122223333`}} can upload
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -87,13 +86,13 @@ The following bucket policy specifies that account {{`111122223333`}} can upload
 
 The following is an example copy operation that includes the `bucket-owner-full-control` canned ACL by using the AWS Command Line Interface (AWS CLI).
 
-```
+```bash
 aws s3 cp {{file.txt}} s3://{{amzn-s3-demo-bucket}} --acl bucket-owner-full-control
 ```
 
 After the bucket policy is put into effect, if the client does not include the `bucket-owner-full-control` canned ACL, the operation fails, and the uploader receives the following error: 
 
-An error occurred (AccessDenied) when calling the PutObject operation: Access Denied.
+`An error occurred (AccessDenied) when calling the PutObject operation: Access Denied`.
 
 **Note**  
 If clients need access to objects after uploading, you must grant additional permissions to the uploading account. For information about granting accounts access to your resources, see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md).

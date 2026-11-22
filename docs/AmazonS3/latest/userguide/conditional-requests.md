@@ -1,7 +1,6 @@
 
 
 # Add preconditions to S3 operations with conditional requests
-<a name="conditional-requests"></a>
 
 You can use conditional requests to add preconditions to your S3 operations. To use conditional requests, you add an additional header to your Amazon S3 API operation. This header specifies a condition that, if not met, will result in the S3 operation failing.
 

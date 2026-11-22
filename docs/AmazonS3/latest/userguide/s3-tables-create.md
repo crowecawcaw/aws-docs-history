@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon S3 table
-<a name="s3-tables-create"></a>
 
 An Amazon S3 table is a subresource of a table bucket. Tables are stored in the Apache Iceberg format so that you can work with them by using query engines and other applications that support Apache Iceberg. Amazon S3 continuously optimizes your tables to help reduce storage costs and improve analytics query performance.
 
@@ -37,7 +36,7 @@ For information about valid table names, see [Naming rules for tables and namesp
 
 **Important**  
 When creating tables, make sure that you use all lowercase letters in your table names and table definitions. For example, make sure that your column names are all lowercase. If your table name or table definition contains capital letters, the table isn't supported by AWS Lake Formation or the AWS Glue Data Catalog. In this case, your table won't be visible to AWS analytics services such as Amazon Athena, even if your table buckets are integrated with AWS analytics services.   
-If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: "GENERIC\_INTERNAL\_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."
+If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: `"GENERIC_INTERNAL_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."`
 
 ## Using the S3 console and Amazon Athena
 <a name="create-table-console"></a>
@@ -72,9 +71,9 @@ If you don't see these values in the **Catalog** and **Database** fields, make s
 
 1. When you're finished modifying the query, choose **Run** to create your table. 
 **Note**  
-If you receive the error "Insufficient permissions to execute the query. Principal does not have any privilege on specified resource" when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
-If you receive the error "Iceberg cannot access the requested resource" when you try to run a query in Athena, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
-If you receive the following error message when running a `SELECT` query in Athena, this message is caused by having capital letters in your table name or your column names in your table definition: "GENERIC\_INTERNAL\_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names." Make sure that your table and column names are all lowercase. 
+If you receive the error `"Insufficient permissions to execute the query. Principal does not have any privilege on specified resource"` when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
+If you receive the error `"Iceberg cannot access the requested resource"` when you try to run a query in Athena, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
+If you receive the following error message when running a `SELECT` query in Athena, this message is caused by having capital letters in your table name or your column names in your table definition: `"GENERIC_INTERNAL_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."` Make sure that your table and column names are all lowercase. 
 
 If your table creation was successful, the name of your new table appears in the list of tables in Athena. When you navigate back to the Amazon S3 console, your new table appears in the **Tables** list on the bucket details page for your table bucket after you refresh the list. 
 
@@ -83,13 +82,13 @@ If your table creation was successful, the name of your new table appears in the
 
 This example shows how to create a table with a schema by using the AWS CLI and specifying table metadata with JSON. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3tables create-table --cli-input-json file://{{mytabledefinition.json}}
 ```
 
 For the `mytabledefinition.json` file, use the following example table definition. To create a partitioned table, include a `partitionSpec` in the table metadata. Each partition field references a column in your schema by its `sourceId` and applies a transform (such as `identity`, `bucket`, `truncate`, `year`, `month`, `day`, or `hour`) to produce the partition value. Because partition fields reference schema columns by ID, you must assign an explicit `id` to each field in your schema. The following example assigns IDs to the schema fields and partitions the table by the `registration_date` column using the `day` transform. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
     "tableBucketARN": "arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}",
     "namespace": "{{your_namespace}}",

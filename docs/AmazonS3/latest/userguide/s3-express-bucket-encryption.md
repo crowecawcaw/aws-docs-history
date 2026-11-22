@@ -1,7 +1,6 @@
 
 
 # Setting and monitoring default encryption for directory buckets
-<a name="s3-express-bucket-encryption"></a>
 
 Amazon S3 buckets have bucket encryption enabled by default, and new objects are automatically encrypted by using server-side encryption with Amazon S3 managed keys (SSE-S3). This encryption applies to all new objects in your Amazon S3 buckets, and comes at no cost to you.
 
@@ -47,7 +46,7 @@ For more information about default encryption, see [Setting default server-side 
 **Example – Default encryption with SSE-S3**  
 This example configures default bucket encryption with Amazon S3 managed keys. To use the command, replace the {{user input placeholders}} with your own information.  
 
-```
+```JSON
 aws s3api put-bucket-encryption --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --server-side-encryption-configuration '{
     "Rules": [
         {
@@ -62,7 +61,7 @@ aws s3api put-bucket-encryption --bucket {{bucket-base-name}}--{{zone-id}}--x-s3
 **Example – Default encryption with SSE-KMS using an S3 Bucket Key**  
 This example configures default bucket encryption with SSE-KMS using an S3 Bucket Key. To use the command, replace the {{user input placeholders}} with your own information.  
 
-```
+```JSON
 aws s3api put-bucket-encryption --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --server-side-encryption-configuration '{
     "Rules": [
             {
@@ -96,7 +95,7 @@ When you use an AWS KMS key for server-side encryption in Amazon S3, you must ch
 
 With the AWS SDK for Java 2.x, you can request Amazon S3 to use an AWS KMS key by using the `applyServerSideEncryptionByDefault` method to specify the default encryption configuration of your directory bucket for data encryption with SSE-KMS. You create a symmetric encryption KMS key and specify that in the request.
 
-```
+```java
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutBucketEncryptionRequest;
 import software.amazon.awssdk.services.s3.model.ServerSideEncryption;

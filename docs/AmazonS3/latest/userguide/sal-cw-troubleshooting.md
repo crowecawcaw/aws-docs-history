@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CloudWatch Logs delivery
-<a name="sal-cw-troubleshooting"></a>
 
 ## Logs not appearing in CloudWatch Logs log group
 <a name="sal-cw-ts-no-logs"></a>

@@ -1,7 +1,6 @@
 
 
 # Data protection and encryption in S3 Vectors
-<a name="s3-vectors-data-encryption"></a>
 
 Amazon S3 Vectors provides 99.999999999% (11 9s) of durability for your vector data, which ensures exceptional reliability for your vector storage needs. This durability is backed by the proven infrastructure of Amazon S3, which is designed to maintain data integrity and availability even in the face of hardware failures or other disruptions.
 
@@ -50,7 +49,7 @@ When using SSE-KMS with customer managed keys, you have complete control over wh
 
 To use a customer managed KMS key with S3 Vectors, you must update your key policy to include permissions for the S3 Vectors service principal. Here's a comprehensive key policy example.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

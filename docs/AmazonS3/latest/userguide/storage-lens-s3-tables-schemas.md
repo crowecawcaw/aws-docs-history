@@ -1,9 +1,11 @@
 
 
 # Understanding S3 Storage Lens table schemas
-<a name="storage-lens-s3-tables-schemas"></a>
 
 When exporting S3 Storage Lens metrics to S3 tables, the data is organized into three separate table schemas: storage metrics, bucket property metrics, and activity metrics.
+
+**Note**  
+With the launch of the Intelligent-Tiering access tier metrics (`IntAccessTiers`) feature, the storage metrics table schema `version_number` changes from `V_1` to `V_1.1`, adding an `int_access_tier` column after `storage_class`.
 
 ## Storage metrics table schema
 <a name="storage-lens-s3-tables-schemas-storage"></a>
@@ -17,6 +19,7 @@ When exporting S3 Storage Lens metrics to S3 tables, the data is organized into 
 |  aws\_account\_id  | string | Account id the entry refers to | 
 |  aws\_region  | string | Region | 
 |  storage\_class  | string | Storage Class | 
+|  int\_access\_tier  | string | The S3 Intelligent-Tiering access tier that the storage metric value applies to. | 
 |  record\_type  | string | Type of record, related to what is the level of aggregation of data. Values: ACCOUNT, BUCKET, PREFIX, STORAGE\_LENS\_GROUP\_BUCKET, STORAGE\_LENS\_GROUP\_ACCOUNT.  | 
 |  record\_value  | string | Disambiguator for record types that have more than one record under them. It is used to reference the prefix | 
 |  bucket\_name  | string | Bucket name | 

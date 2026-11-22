@@ -1,7 +1,6 @@
 
 
 # Working with delete markers
-<a name="DeleteMarker"></a>
 
 A *delete marker* in Amazon S3 is a placeholder (or marker) for a versioned object that was specified in a simple `DELETE` request. A simple `DELETE` request is a request that doesn't specify a version ID. Because the object is in a versioning-enabled bucket, the object is not deleted. But the delete marker makes Amazon S3 behave as if the object is deleted. You can use an Amazon S3 API `DELETE` call on a delete marker. To do this, you must make the `DELETE` request by using an AWS Identity and Access Management (IAM) user or role with the appropriate permissions.
 

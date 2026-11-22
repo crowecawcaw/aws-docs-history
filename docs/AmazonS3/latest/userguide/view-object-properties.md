@@ -1,7 +1,6 @@
 
 
 # Viewing object properties in the Amazon S3 console
-<a name="view-object-properties"></a>
 
 You can use the Amazon S3 console to view the properties of an object, including storage class, encryption settings, tags, and metadata.
 

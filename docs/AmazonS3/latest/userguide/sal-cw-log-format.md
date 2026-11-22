@@ -1,7 +1,6 @@
 
 
 # Log format in CloudWatch Logs
-<a name="sal-cw-log-format"></a>
 
 When Amazon S3 server access logs are delivered to Amazon CloudWatch Logs, each log record is a structured JSON object. This is different from the space-delimited text format used for delivery to an Amazon S3 general purpose bucket. The structured format makes fields directly queryable in CloudWatch Logs Insights without regex parsing.
 
@@ -53,7 +52,7 @@ The following table describes the fields in each server access log record delive
 
 The following is an example of a server access log record as it appears in CloudWatch Logs.
 
-```
+```json
 {
   "schema_version_id": "V_1_0",
   "bucket_arn": "arn:aws:s3:::my-data-bucket",

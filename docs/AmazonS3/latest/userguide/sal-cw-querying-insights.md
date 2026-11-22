@@ -1,7 +1,6 @@
 
 
 # Querying logs with CloudWatch Logs Insights
-<a name="sal-cw-querying-insights"></a>
 
 CloudWatch Logs Insights lets you interactively search and analyze your server access log data. Queries run against the log group where your logs are delivered and return results in seconds.
 

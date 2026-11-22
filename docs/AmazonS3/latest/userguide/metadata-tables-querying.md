@@ -1,7 +1,6 @@
 
 
 # Querying metadata tables
-<a name="metadata-tables-querying"></a>
 
 Your Amazon S3 Metadata tables are stored in an AWS managed S3 table bucket, which provides storage that's optimized for tabular data. To query your metadata, you can integrate your table bucket with Amazon SageMaker Lakehouse. This integration, which uses the AWS Glue Data Catalog and AWS Lake Formation, allows AWS analytics services to automatically discover and access your table data. 
 

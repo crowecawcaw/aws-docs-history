@@ -1,7 +1,6 @@
 
 
 # Expiring objects
-<a name="lifecycle-expire-general-considerations"></a>
 
 You can add expiration actions to an S3 Lifecycle configuration to tell Amazon S3 to delete objects at the end of their lifetime. When an object reaches the end of its lifetime based on its lifecycle configuration, Amazon S3 takes an `Expiration` action based on which [S3 Versioning](Versioning.md) state the bucket is in:
 + **Nonversioned bucket** – Amazon S3 queues the object for removal and removes it asynchronously, permanently removing the object. 

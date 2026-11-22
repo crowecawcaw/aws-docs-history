@@ -1,7 +1,6 @@
 
 
 # Creating and managing a Lifecycle configuration for your directory bucket
-<a name="directory-bucket-create-lc"></a>
 
 You can create a lifecycle configuration for directory buckets by using the AWS Command Line Interface (AWS CLI), AWS SDKs and REST APIs.
 
@@ -23,7 +22,7 @@ Save the lifecycle configuration policy to a JSON file. In this example, the fil
 
 **Example**  
 
-```
+```json
 {
     "Rules": [
         {
@@ -45,13 +44,13 @@ Save the lifecycle configuration policy to a JSON file. In this example, the fil
 ```
 Submit the JSON file as part of the `put-bucket-lifecycle-configuration` CLI command. To use this command, replace each {{user input placeholder}} with your own information.  
 
-```
+```bash
 aws s3api put-bucket-lifecycle-configuration --region {{us-west-2}} --profile default --bucket {{amzn-s3-demo-bucket--usw2-az1--x-s3}} --lifecycle-configuration file:{{//lc-policy.json}} --checksum-algorithm {{crc32c}} 
 ```
 
 **Example**  
 
-```
+```XML
 <LifecycleConfiguration>
     <Rule>
         <ID>Lifecycle expiration rule</ID>
@@ -78,7 +77,7 @@ aws s3api put-bucket-lifecycle-configuration --region {{us-west-2}} --profile de
 
 **Example**  
 
-```
+```Java
 import software.amazon.awssdk.services.s3.model.PutBucketLifecycleConfigurationRequest;
 import software.amazon.awssdk.services.s3.model.PutBucketLifecycleConfigurationResponse;
 import software.amazon.awssdk.services.s3.model.ChecksumAlgorithm;
@@ -129,7 +128,7 @@ DeleteBucketLifecycleResponse delResp = client.deleteBucketLifecycle(DeleteBucke
 
 **Example**  
 
-```
+```GO
 package main
 
 import (
@@ -217,7 +216,7 @@ func main() {
 
 **Example**  
 
-```
+```.NET
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -356,7 +355,7 @@ namespace Amazon.DocSamples.S3
 
 **Example**  
 
-```
+```Python
 import boto3
 
 client = boto3.client("s3", region_name="us-west-2")

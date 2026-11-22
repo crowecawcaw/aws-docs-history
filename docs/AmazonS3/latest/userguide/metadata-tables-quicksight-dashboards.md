@@ -1,7 +1,6 @@
 
 
 # Visualizing metadata table data with AWS Quick
-<a name="metadata-tables-quicksight-dashboards"></a>
 
 With AWS Quick, you can create interactive dashboards to analyze and visualize SQL query results about your S3 managed metadata tables. Quick dashboards can help you monitor statistics, track changes, and get operational insights about your metadata tables.
 

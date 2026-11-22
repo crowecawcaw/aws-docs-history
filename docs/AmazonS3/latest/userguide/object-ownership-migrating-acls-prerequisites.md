@@ -1,7 +1,6 @@
 
 
 # Prerequisites for disabling ACLs
-<a name="object-ownership-migrating-acls-prerequisites"></a>
 
 A bucket access control list (ACL) in Amazon S3 is a mechanism that allows you to define granular permissions for individual objects within an S3 bucket, specifying which AWS accounts or groups can access and modify those objects. A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you use AWS Identity and Access Management (IAM) and bucket policies to manage access, and to keep ACLs disabled, except in circumstances where you need to control access for each object individually.
 
@@ -25,9 +24,9 @@ Before you disable ACLs:
 + Next, reset your bucket ACL to the default private ACL. 
 + We also recommend that you review your object-level ACL permissions and migrate them to your bucket policy. 
 
-If your bucket ACLs grant read or write permissions to others outside of your account, before you can disable ACLs, you must migrate these permissions to your bucket policy. After you migrate these permissions, you can set **Object Ownership** to the *Bucket owner enforced* setting. If you don't migrate bucket ACLs that grant read or write access outside of your account, your request to apply the Bucket owner enforced setting fails and returns the [InvalidBucketAclWithObjectOwnership](object-ownership-error-responses.md#object-ownership-error-responses-invalid-acl) error code. 
+If your bucket ACLs grant read or write permissions to others outside of your account, before you can disable ACLs, you must migrate these permissions to your bucket policy. After you migrate these permissions, you can set **Object Ownership** to the *Bucket owner enforced* setting. If you don't migrate bucket ACLs that grant read or write access outside of your account, your request to apply the Bucket owner enforced setting fails and returns the [`InvalidBucketAclWithObjectOwnership`](object-ownership-error-responses.md#object-ownership-error-responses-invalid-acl) error code. 
 
-If your bucket ACL grants access outside of your AWS account, before you disable ACLs, you must migrate your bucket ACL permissions to your bucket policy and reset your bucket ACL to the default private ACL. If you don't migrate and reset, your request to apply the Bucket owner enforced setting to disable ACLs fails and returns the [InvalidBucketAclWithObjectOwnership](object-ownership-error-responses.md#object-ownership-error-responses-invalid-acl) error code. We also recommend that you review your object ACL permissions and migrate them to your bucket policy. 
+If your bucket ACL grants access outside of your AWS account, before you disable ACLs, you must migrate your bucket ACL permissions to your bucket policy and reset your bucket ACL to the default private ACL. If you don't migrate and reset, your request to apply the Bucket owner enforced setting to disable ACLs fails and returns the [`InvalidBucketAclWithObjectOwnership`](object-ownership-error-responses.md#object-ownership-error-responses-invalid-acl) error code. We also recommend that you review your object ACL permissions and migrate them to your bucket policy. 
 
 To review and migrate ACL permissions to bucket policies, see the following topics.
 
@@ -45,7 +44,7 @@ These example bucket policies show you how to migrate `READ` and `WRITE` bucket 
 If your bucket had a `READ` ACL that grants AWS account `{{111122223333}}` permission to list the contents of your bucket, you can write a bucket policy that grants `s3:ListBucket`, `s3:ListBucketVersions`, `s3:ListBucketMultipartUploads` permissions for your bucket.     
 ****  
 
-```
+```json
 {
 		"Version":"2012-10-17",		 	 	 
 		"Statement": [
@@ -73,7 +72,7 @@ If your bucket had a `READ` ACL that grants AWS account `{{111122223333}}` permi
 If every object in your bucket has a `READ` ACL that grants access to AWS account `{{111122223333}}`, you can write a bucket policy that grants `s3:GetObject` and `s3:GetObjectVersion` permissions to this account for every object in your bucket.    
 ****  
 
-```
+```json
 {
 		"Version":"2012-10-17",		 	 	 
 		"Statement": [
@@ -104,7 +103,7 @@ This example resource element grants access to a specific object.
 If your bucket has a `WRITE` ACL that grants AWS account `{{111122223333}}` permission to write objects to your bucket, you can write a bucket policy that grants `s3:PutObject` permission for your bucket.    
 ****  
 
-```
+```json
 {
 		"Version":"2012-10-17",		 	 	 
 		"Statement": [
@@ -173,13 +172,13 @@ If your bucket has a `WRITE` ACL that grants AWS account `{{111122223333}}` perm
 
 1. To return the bucket ACL for your bucket, use the [get-bucket-acl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html) AWS CLI command:
 
-   ```
+   ```bash
    aws s3api get-bucket-acl --bucket {{amzn-s3-demo-bucket}}
    ```
 
    For example, this bucket ACL grants `WRITE` and `READ` access to a third-party account. In this ACL, the third-party account is identified by the [canonical user ID](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html#FindCanonicalId). To apply the Bucket owner enforced setting and disable ACLs, you must migrate these permissions for the third-party account to a bucket policy. 
 
-   ```
+   ```JSON
    {
    		"Owner": {
    			"ID": "{{852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID}}"
@@ -216,7 +215,7 @@ If your bucket has a `WRITE` ACL that grants AWS account `{{111122223333}}` perm
 
    This example bucket policy grants `s3:PutObject` and `s3:ListBucket` permissions for a third-party account. In the bucket policy, the third-party account is identified by the AWS account ID (`{{111122223333}}`).
 
-   ```
+   ```bash
    aws s3api put-bucket-policy --bucket {{{{amzn-s3-demo-bucket}}}} --policy {{file://policy.json}}
    
    	policy.json:
@@ -247,7 +246,7 @@ If your bucket has a `WRITE` ACL that grants AWS account `{{111122223333}}` perm
 
 1. To return the ACL for a specific object, use the [get-object-acl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-acl.html) AWS CLI command.
 
-   ```
+   ```bash
    aws s3api get-object-acl --bucket {{amzn-s3-demo-bucket}} --key {{EXAMPLE-OBJECT-KEY}}
    ```
 
@@ -261,7 +260,7 @@ If your bucket has a `WRITE` ACL that grants AWS account `{{111122223333}}` perm
 
 1. Reset the ACL for your bucket to the default ACL.
 
-   ```
+   ```bash
    aws s3api put-bucket-acl --bucket {{amzn-s3-demo-bucket}} --acl private
    ```
 
@@ -293,7 +292,7 @@ If your bucket policy uses an ACL-related condition key to require the `bucket-o
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -328,7 +327,7 @@ However, if your bucket policy uses an ACL-related condition key that requires a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -372,7 +371,7 @@ If you want to apply the Bucket owner enforced setting to disable ACLs for a ser
 
 This bucket ACL grants `WRITE` and `READ_ACP` access to the S3 log delivery group:
 
-```
+```json
 {
     "Owner": {
         "ID": "{{852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID}}"
@@ -407,7 +406,7 @@ This bucket ACL grants `WRITE` and `READ_ACP` access to the S3 log delivery grou
 
 1. Add the following bucket policy to your destination bucket, replacing the example values.
 
-   ```
+   ```bash
    aws s3api put-bucket-policy --bucket {{amzn-s3-demo-bucket}} --policy {{file://policy.json}}
    
    policy.json:						{
@@ -439,7 +438,7 @@ This bucket ACL grants `WRITE` and `READ_ACP` access to the S3 log delivery grou
 
 1. Reset the ACL for your destination bucket to the default ACL.
 
-   ```
+   ```bash
    aws s3api put-bucket-acl --bucket {{amzn-s3-demo-bucket}} --acl private
    ```
 
@@ -452,7 +451,7 @@ If your object ACLs grant public read access to all of the objects in your bucke
 
 This object ACL grants public read access to an object in a bucket:
 
-```
+```json
 {
     "Owner": {
         "ID": "{{852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID}}"
@@ -480,7 +479,7 @@ This object ACL grants public read access to an object in a bucket:
 
 1. To grant public read access to all of the objects in your bucket, add the following bucket policy, replacing the example values.
 
-   ```
+   ```bash
    aws s3api put-bucket-policy --bucket {{amzn-s3-demo-bucket}} --policy file://{{policy.json}}
    
    policy.json:
@@ -523,7 +522,7 @@ You can [export your ElastiCache (Redis OSS) backup](https://docs.aws.amazon.com
 
 The following example shows the bucket ACL permissions that grant permissions to ElastiCache. 
 
-```
+```json
 {
     "Owner": {
         "ID": "{{852b113e7a2f25102679df27bb0ae12b3f85be6BucketOwnerCanonicalUserID}}"
@@ -565,7 +564,7 @@ The following example shows the bucket ACL permissions that grant permissions to
 
 1. Add the following bucket policy to your bucket, replacing the example values.
 
-   ```
+   ```bash
    aws s3api put-bucket-policy --bucket {{amzn-s3-demo-bucket}} --policy file://{{policy.json}}
    
    policy.json:
@@ -597,7 +596,7 @@ The following example shows the bucket ACL permissions that grant permissions to
 
 1. Reset the ACL for your bucket to the default ACL:
 
-   ```
+   ```bash
    aws s3api put-bucket-acl --bucket {{amzn-s3-demo-bucket}} --acl private
    ```
 

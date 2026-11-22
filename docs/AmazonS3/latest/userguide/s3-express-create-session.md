@@ -1,7 +1,6 @@
 
 
 # Authorizing Zonal endpoint API operations with `CreateSession`
-<a name="s3-express-create-session"></a>
 
 To use Zonal endpoint API operations (object-level, or data plane operations), except for `CopyObject` and `HeadBucket`, you use the `CreateSession` API operation to create and manage sessions that are optimized for low-latency authorization of data requests. To retrieve and use a session token, you must allow the `s3express:CreateSession` action for your directory bucket in an identity-based policy or a bucket policy. For more information, see [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md). If you're accessing S3 Express One Zone in the Amazon S3 console, through the AWS Command Line Interface (AWS CLI), or by using the AWS SDKs, S3 Express One Zone creates a session on your behalf. However, you can't modify the `SessionMode` parameter when using the AWS CLI or AWS SDKs. 
 

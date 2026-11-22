@@ -1,7 +1,6 @@
 
 
 # Tagging S3 Files resources
-<a name="s3-files-tagging"></a>
 
 To help you manage your S3 Files resources, you can assign your own metadata to each resource in the form of tags. With tags, you can categorize your AWS resources in different ways, for example, by purpose, owner, or environment. This categorization is useful when you have many resources of the same type as you can quickly identify a specific resource based on the tags that you've assigned to it. You can tag S3 file system and access point resources that already exist in your account. This topic describes tags and shows you how to create them.
 

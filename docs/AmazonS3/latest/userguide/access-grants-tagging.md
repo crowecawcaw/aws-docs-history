@@ -1,7 +1,6 @@
 
 
 # Managing tags for S3 Access Grants
-<a name="access-grants-tagging"></a>
 
 Tags in Amazon S3 Access Grants have similar characteristics to [object tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in Amazon S3. Each tag is a key-value pair. The resources in S3 Access Grants that you can tag are S3 Access Grants [instances](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-instance.html), [locations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html), and [grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-grant.html). 
 

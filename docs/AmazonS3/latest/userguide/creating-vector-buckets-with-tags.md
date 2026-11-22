@@ -1,7 +1,6 @@
 
 
 # Creating vector buckets with tags
-<a name="creating-vector-buckets-with-tags"></a>
 
 You can tag Amazon S3 vector buckets when you create them. There is no additional charge for using tags on vector buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging vector buckets, see [Using tags with S3 vector buckets](s3-vectors-tags.md).
 
@@ -63,7 +62,7 @@ The following CLI example shows you how to create a vector bucket with tags by u
 
 When you create a vector bucket you must provide configuration details and use the following naming convention: `example-vector-bucket`
 
-```
+```bash
 aws s3vector create-vector-bucket --vector-bucket-name {{acc-bucket}} \
   --tags {{Department}}={{Accounting}},{{Stage}}={{Prod}}
 ```

@@ -1,7 +1,6 @@
 
 
 # Security best practices for Amazon S3
-<a name="security-best-practices"></a>
 
 **Important**  
 Amazon Simple Storage Service now applies a new default bucket security setting that automatically disables server-side encryption with customer-provided keys (SSE-C) for all new general purpose buckets. In April 2026, Amazon S3 deployed an update so all new general purpose buckets have SSE-C encryption disabled for all new write requests. For existing buckets in AWS accounts with no SSE-C encrypted objects, Amazon S3 also disabled SSE-C for all new write requests. With this change, applications that need SSE-C encryption must deliberately enable SSE-C by using the [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) API operation after creating a new bucket. For more information about this change, see [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md).

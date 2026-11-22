@@ -1,7 +1,6 @@
 
 
 # Using tags with S3 vector indexes
-<a name="vector-index-tagging"></a>
 
 An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 vector indexes. You can tag S3 vector indexes when you create them or manage tags on existing vector indexes. For general information about tags, see [Tagging for cost allocation or attribute-based access control (ABAC)](tagging.md).
 
@@ -44,7 +43,7 @@ See the following example ABAC policies for Amazon S3 vector indexes.
 
 In this IAM policy, users or roles with this policy can only create S3 vector indexes if they tag the vector index with the tag key `project` and tag value `Trinity` in the vector index creation request. They can also add or modify tags on existing S3 vector indexes as long as the `TagResource` request includes the tag key-value pair `project:Trinity`. This policy does not grant read, write, or delete permissions on the vector indexes or its objects.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -73,7 +72,7 @@ In this IAM policy, users or roles with this policy can only create S3 vector in
 
 In this IAM policy, IAM principals (users or roles) can modify tags on a vector index only if the value of the vector index's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these vector indexes. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your vector indexes.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

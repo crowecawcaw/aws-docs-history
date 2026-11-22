@@ -1,7 +1,6 @@
 
 
 # Access points naming rules, restrictions, and limitations
-<a name="access-points-restrictions-limitations-naming-rules"></a>
 
 Access points are named network endpoints attached to a bucket, a volume on an Amazon FSx file system, or an Amazon S3 recovery point in AWS Backup that simplify managing data. When you create an access point you choose a name and the AWS Region to create it in. The following topics provide information about access point naming rules, restrictions and limitations.
 

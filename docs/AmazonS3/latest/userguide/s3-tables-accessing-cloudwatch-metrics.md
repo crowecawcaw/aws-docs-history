@@ -1,7 +1,6 @@
 
 
 # Accessing CloudWatch metrics
-<a name="s3-tables-accessing-cloudwatch-metrics"></a>
 
 You can monitor S3 Tables metrics using the CloudWatch Console, the AWS CLI, or the CloudWatch API. This section explains how to access your metrics using these different methods.
 

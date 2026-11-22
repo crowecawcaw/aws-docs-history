@@ -1,7 +1,6 @@
 
 
 # Using Storage Browser for S3
-<a name="using-storagebrowser"></a>
 
 In Storage Browser for S3, a *location* is an S3 general purpose bucket or prefix, that you grant end users access to using [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants.html), IAM policies, or your own managed authorization service. After you've authorized your end users to access a specific location, they can work with any data within that location.
 

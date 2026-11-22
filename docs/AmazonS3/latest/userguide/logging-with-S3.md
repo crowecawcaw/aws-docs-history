@@ -1,7 +1,6 @@
 
 
 # Logging options for Amazon S3
-<a name="logging-with-S3"></a>
 
 You can record the actions that are taken by users, roles, or AWS services on Amazon S3 resources and maintain log records for auditing and compliance purposes. To do this, you can use server-access logging, AWS CloudTrail logging, or a combination of both. We recommend that you use CloudTrail for logging bucket-level and object-level actions for your Amazon S3 resources. For more information about each option, see the following sections:
 + [Logging requests with server access logging](ServerLogs.md)

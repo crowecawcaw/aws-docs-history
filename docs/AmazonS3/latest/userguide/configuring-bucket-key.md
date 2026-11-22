@@ -1,7 +1,6 @@
 
 
 # Configuring your bucket to use an S3 Bucket Key with SSE-KMS for new objects
-<a name="configuring-bucket-key"></a>
 
 When you configure server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), you can configure your bucket to use an S3 Bucket Key for SSE-KMS on new objects. S3 Bucket Keys decrease the request traffic from Amazon S3 to AWS KMS and reduce the cost of SSE-KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md).
 
@@ -101,7 +100,7 @@ The following example enables default bucket encryption with SSE-KMS and an S3 B
 ------
 #### [ Java ]
 
-```
+```Java
 AmazonS3 s3client = AmazonS3ClientBuilder.standard()
     .withRegion(Regions.DEFAULT_REGION)
     .build();
@@ -128,7 +127,7 @@ s3client.setBucketEncryption(setBucketEncryptionRequest);
 
 The following example enables default bucket encryption with SSE-KMS and an S3 Bucket Key by using the AWS CLI. Replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3api put-bucket-encryption --bucket {{amzn-s3-demo-bucket}} --server-side-encryption-configuration '{
         "Rules": [
             {

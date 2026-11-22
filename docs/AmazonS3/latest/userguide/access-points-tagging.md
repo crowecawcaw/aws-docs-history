@@ -1,7 +1,6 @@
 
 
 # Using tags with S3 Access Points for general purpose buckets
-<a name="access-points-tagging"></a>
 
 An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 Access Points. You can tag access points when you create them or manage tags on existing access points. For general information about tags, see [Tagging for cost allocation or attribute-based access control (ABAC)](tagging.md).
 
@@ -40,7 +39,7 @@ See the following example ABAC policies for Amazon S3 Access Points.
 
 In this IAM policy, users or roles with this policy can only create access points if they tag the access points with the tag key `project` and tag value `Trinity` in the access points creation request. They can also add or modify tags on existing access points as long as the `TagResource` request includes the tag key-value pair `project:Trinity`. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -69,7 +68,7 @@ In this IAM policy, users or roles with this policy can only create access point
 
 In this IAM policy, IAM principals (users or roles) can modify tags on an access point only if the value of the access point's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these access points. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your access points.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -103,7 +102,7 @@ In this IAM policy, IAM principals (users or roles) can modify tags on an access
 
 In this IAM policy, the condition statement allows access to the bucket's data if the access point has the tag key `Environment` and tag value `Production`. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -129,7 +128,7 @@ In Amazon S3, you can delegate access to or control of your S3 bucket policy to 
 
 If you use a delegate bucket policy, you can use an IAM policy like the following. The condition statement allows access to the bucket\\'s data if the access point has the tag key `Environment` and tag value `Production`. 
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

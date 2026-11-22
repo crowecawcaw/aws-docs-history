@@ -1,7 +1,6 @@
 
 
 # Querying Amazon S3 Inventory with Amazon Athena
-<a name="storage-inventory-athena-query"></a>
 
 You can query Amazon S3 Inventory files with standard SQL queries by using Amazon Athena in all Regions where Athena is available. To check for AWS Region availability, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/). 
 
@@ -24,7 +23,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
        `s3://{{amzn-s3-demo-bucket}}/{{config-ID}}/hive/`
      + Replace the `{{2022-01-01-00-00}}` date under `projection.dt.range` with the first day of the time range within which you partition the data in Athena. For more information, see [Partitioning data in Athena](https://docs.aws.amazon.com/athena/latest/ug/partitions.html).
 
-     ```
+     ```sql
      CREATE EXTERNAL TABLE {{your_table_name}} (
               bucket string,
               key string,
@@ -68,7 +67,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
      ```
    + When you're using Athena to query a Parquet-formatted inventory report, use the sample query for an ORC-formatted report. However, use the following Parquet SerDe in place of the ORC SerDe in the `ROW FORMAT SERDE` statement.
 
-     ```
+     ```sql
      ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
      ```
    + When you're using Athena to query a CSV-formatted inventory report, use the following sample query as a template.
@@ -83,7 +82,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
        `s3://{{amzn-s3-demo-bucket}}/{{config-ID}}/hive/`
      + Replace the `{{2022-01-01-00-00}}` date under `projection.dt.range` with the first day of the time range within which you partition the data in Athena. For more information, see [Partitioning data in Athena](https://docs.aws.amazon.com/athena/latest/ug/partitions.html).
 
-     ```
+     ```sql
      CREATE EXTERNAL TABLE {{your_table_name}} (
               bucket string,
               key string,
@@ -128,7 +127,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
 
 1. You can now run various queries on your inventory, as shown in the following examples. Replace each `{{user input placeholder}}` with your own information.
 
-   ```
+   ```sql
    # Get a list of the latest inventory report dates available.
    SELECT DISTINCT dt FROM {{your_table_name}} ORDER BY 1 DESC limit 10;
              
@@ -142,7 +141,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
 
    When you configure S3 Inventory to add the Object Access Control List (Object ACL) field to an inventory report, the report displays the value for the Object ACL field as a base64-encoded string. To get the decoded value in JSON for the Object ACL field, you can query this field by using Athena. See the following query examples. For more information about the Object ACL field, see [Working with the Object ACL field](objectacl.md).
 
-   ```
+   ```sql
    # Get the S3 keys that have Object ACL grants with public access.
    WITH grants AS (
        SELECT key,
@@ -158,7 +157,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
    WHERE element_at(grant, 'uri') = 'http://acs.amazonaws.com/groups/global/AllUsers'
    ```
 
-   ```
+   ```sql
    # Get the S3 keys that have Object ACL grantees in addition to the object owner.
    WITH grants AS 
        (SELECT key,
@@ -174,7 +173,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
    WHERE cardinality(grants_array) > 1 AND element_at(grant, 'canonicalId') != object_owner;
    ```
 
-   ```
+   ```sql
    # Get the S3 keys with READ permission that is granted in the Object ACL. 
    WITH grants AS (
        SELECT key,
@@ -190,7 +189,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
    WHERE element_at(grant, 'permission') = 'READ';
    ```
 
-   ```
+   ```sql
    # Get the S3 keys that have Object ACL grants to a specific canonical user ID.
    WITH grants AS (
        SELECT key,
@@ -206,7 +205,7 @@ Athena can query Amazon S3 Inventory files in [Apache optimized row columnar (OR
    WHERE element_at(grant, 'canonicalId') = 'user-canonical-id';
    ```
 
-   ```
+   ```sql
    # Get the number of grantees on the Object ACL.
    SELECT key,
           object_access_control_list,

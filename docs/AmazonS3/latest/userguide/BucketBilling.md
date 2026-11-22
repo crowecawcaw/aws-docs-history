@@ -1,7 +1,6 @@
 
 
 # Billing and usage reporting for Amazon S3
-<a name="BucketBilling"></a>
 
 When using Amazon S3, you don't have to pay any upfront fees or commit to how much content you'll store. Like other AWS services, you pay as you go and pay only for what you use.
 

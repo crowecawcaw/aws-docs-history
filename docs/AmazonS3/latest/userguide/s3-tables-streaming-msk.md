@@ -1,7 +1,6 @@
 
 
 # Streaming tables with Amazon MSK
-<a name="s3-tables-streaming-msk"></a>
 
 Streaming tables are Apache Iceberg tables in your table buckets that Amazon Managed Streaming for Apache Kafka (Amazon MSK) writes to continuously. Unlike tables that you create and write to directly, a streaming table is created and populated by Amazon MSK. Amazon MSK Express brokers deliver records from a Kafka topic as Apache Parquet data files and commit them to the table, making the data available to query within minutes of being produced. A single streaming table scales to Amazon MSK delivery throughput of up to 10 GBps without manual scaling.
 
@@ -30,7 +29,7 @@ With a streaming table, you can't do the following:
 
 Read access to a streaming table works the same as for any other Amazon S3 table. You grant it with IAM policies, table bucket policies, and AWS Lake Formation. The following example policy allows you to query a streaming table. If the table is encrypted with an AWS AWS KMS key, the second statement grants the `kms:Decrypt` permission on that key.
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

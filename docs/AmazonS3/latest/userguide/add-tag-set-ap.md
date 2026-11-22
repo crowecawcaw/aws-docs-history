@@ -1,7 +1,6 @@
 
 
 # Add a tag-set through an access point for a general purpose bucket
-<a name="add-tag-set-ap"></a>
 
 This section explains how to add a tag-set through an access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API. For more information, see [Tagging your objects](object-tagging.md).
 
@@ -39,7 +38,7 @@ The following `put-object-tagging` example command shows how you can use the AWS
 
 The following command adds a tag-set for existing object `puppy.jpg` using access point {{my-access-point}}.
 
-```
+```bash
 aws s3api put-object-tagging --bucket arn:aws:s3:{{AWS Region}}:111122223333:accesspoint/{{my-access-point}} --key {{puppy.jpg}} --tagging TagSet=[{Key="{{animal}}",Value="{{true}}"}]     
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Uploading an object using multipart upload
-<a name="mpu-upload-object"></a>
 
 You can use the multipart upload to programmatically upload a single object to Amazon S3. Each object is uploaded as a set of parts. Each part is a contiguous portion of the object's data. You can upload these object parts independently and in any order. If transmission of any part fails, you can retransmit that part without affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles these parts and creates the object. Anonymous users cannot initiate multipart uploads.
 
@@ -66,7 +65,7 @@ When you're using a stream for the source of data, the `TransferUtility` class d
 
 The following C\# example uploads a file to an Amazon S3 bucket in multiple parts. It shows how to use various `TransferUtility.Upload` overloads to upload a file. Each successive call to upload replaces the previous upload. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```csharp
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Transfer;
@@ -151,7 +150,7 @@ namespace Amazon.DocSamples.S3
 **Example**  
 Upload a large file.  
 
-```
+```javascript
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 
@@ -207,7 +206,7 @@ export const main = async ({ bucketName, key }) => {
 **Example**  
 Download a large file.  
 
-```
+```javascript
 import { fileURLToPath } from "node:url";
 import { GetObjectCommand, NoSuchKey, S3Client } from "@aws-sdk/client-s3";
 import { createWriteStream, rmSync } from "node:fs";
@@ -295,7 +294,7 @@ For more information about the Go code example for multipart upload, see [Upload
 **Example**  
 Upload a large object by using an upload manager to break the data into parts and upload them concurrently.  
 
-```
+```go
 import (
 	"bytes"
 	"context"
@@ -322,7 +321,7 @@ type BucketBasics struct {
 }
 ```
 
-```
+```go
 // UploadLargeObject uses an upload manager to upload data to an object in a bucket.
 // The upload manager breaks large data into parts and uploads the parts concurrently.
 func (basics BucketBasics) UploadLargeObject(ctx context.Context, bucketName string, objectKey string, largeObject []byte) error {
@@ -360,7 +359,7 @@ func (basics BucketBasics) UploadLargeObject(ctx context.Context, bucketName str
 **Example**  
 Download a large object by using a download manager to get the data in parts and download them concurrently.  
 
-```
+```go
 // DownloadLargeObject uses a download manager to download an object from a bucket.
 // The download manager gets the data in parts and writes them to a buffer until all of
 // the data has been downloaded.
@@ -389,7 +388,7 @@ This topic explains how to use the high-level `Aws\S3\Model\MultipartUpload\Uplo
 
 The following PHP example uploads a file to an Amazon S3 bucket. The example demonstrates how to set parameters for the `MultipartUploader` object. 
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\Exception\MultipartUploadException;
@@ -424,7 +423,7 @@ try {
 
 The following example loads an object using the high-level multipart upload Python API (the `TransferManager` class). 
 
-```
+```python
 import sys
 import threading
 
@@ -647,7 +646,7 @@ The following example shows how to use the low-level Java classes to upload a fi
 **Example**  
 For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -740,7 +739,7 @@ When you use the SDK for .NET API to upload large objects, a timeout might occur
 
 The following C\# example uploads a file to an S3 bucket using the low-level multipart upload API. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```xml
 using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
@@ -859,7 +858,7 @@ This topic shows how to use the low-level `uploadPart` method from version 3 of 
 
 The following PHP example uploads a file to an Amazon S3 bucket using the low-level PHP API multipart upload.
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\S3\Exception\S3Exception;

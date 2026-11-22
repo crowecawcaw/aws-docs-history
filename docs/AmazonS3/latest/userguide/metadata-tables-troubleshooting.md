@@ -1,7 +1,6 @@
 
 
 # Troubleshooting S3 Metadata
-<a name="metadata-tables-troubleshooting"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with Amazon S3 Metadata.
 
@@ -53,8 +52,8 @@ If you're unable to query your metadata tables, check the following:
 + When using Apache Spark on Amazon EMR or other third-party engines to query your metadata tables, we recommend that you use the Amazon S3 Tables Iceberg REST endpoint. Your query might not run successfully if you don't use this endpoint. For more information, see [Accessing tables using the Amazon S3 Tables Iceberg REST endpoint](s3-tables-integrating-open-source.md).
 + Make sure that you have the appropriate AWS Identity and Access Management (IAM) permissions to query metadata tables. For more information, see [Permissions for querying metadata tables](metadata-tables-bucket-query-permissions.md).
 + If you're using Amazon Athena and receive errors when you try to run your queries, do the following:
-  + If you receive the error "Insufficient permissions to execute the query. Principal does not have any privilege on specified resource" when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table).
-  + If you receive the error "Iceberg cannot access the requested resource" when you try to run the query, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
+  + If you receive the error `"Insufficient permissions to execute the query. Principal does not have any privilege on specified resource"` when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table).
+  + If you receive the error `"Iceberg cannot access the requested resource"` when you try to run the query, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
 
 ## I'm receiving 405 errors when I try to use certain S3 Metadata AWS CLI commands and API operations
 <a name="metadata-tables-troubleshooting-405-errors"></a>

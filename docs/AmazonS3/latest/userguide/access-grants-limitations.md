@@ -1,7 +1,6 @@
 
 
 # S3 Access Grants limitations
-<a name="access-grants-limitations"></a>
 
 [S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants.html) has the following limitations: 
 

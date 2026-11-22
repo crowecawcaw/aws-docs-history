@@ -1,7 +1,6 @@
 
 
 # Attaching or removing S3 Storage Lens groups to or from your dashboard
-<a name="storage-lens-groups-dashboard-console"></a>
 
 After you've upgraded to the advanced tier in Amazon S3 Storage Lens, you can attach a [Storage Lens group](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-overview.html) to your dashboard. If you have several Storage Lens groups, you can include or exclude the groups that you want. 
 
@@ -64,7 +63,7 @@ It will take up to 48 hours for your dashboard to reflect the configuration upda
 **Example – Attach all Storage Lens groups to a dashboard**  
 The following SDK for Java example attaches all Storage Lens groups in the account {{111122223333}} to the {{DashBoardConfigurationId}} dashboard:  
 
-```
+```Java
 package aws.example.s3control;
 
 
@@ -124,7 +123,7 @@ public class CreateDashboardWithStorageLensGroups {
 **Example – Attach two Storage Lens groups to a dashboard**  
 The following AWS SDK for Java example attaches two Storage Lens groups ({{StorageLensGroupName1}} and {{StorageLensGroupName2}}) to the {{ExampleDashboardConfigurationId}} dashboard.  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
@@ -193,7 +192,7 @@ public class CreateDashboardWith2StorageLensGroups {
 **Example – Attach all Storage Lens groups with exclusions**  
 The following SDK for Java example attaches all Storage Lens groups to the {{ExampleDashboardConfigurationId}} dashboard, excluding the two specified ({{StorageLensGroupName1}} and {{StorageLensGroupName2}}):  
 
-```
+```Java
 package aws.example.s3control;
 
 

@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 server access logs to identify requests
-<a name="using-s3-access-logs-to-identify-requests"></a>
 
 You can identify Amazon S3 requests by using Amazon S3 server access logs.
 
@@ -29,7 +28,7 @@ To specify an Amazon S3 location in an Athena query, you must provide an S3 URI 
 
 1. In the Query Editor, run a command similar to the following. Replace `{{s3_access_logs_db}}` with the name that you want to give to your database. 
 
-   ```
+   ```sql
    CREATE DATABASE {{s3_access_logs_db}}
    ```
 **Note**  
@@ -40,7 +39,7 @@ It's a best practice to create the database in the same AWS Region as your S3 bu
 ------
 #### [ Date-based partitioning ]
 
-   ```
+   ```SQL
    CREATE EXTERNAL TABLE {{s3_access_logs_db.mybucket_logs}}( 
     `bucketowner` STRING, 
     `bucket_name` STRING, 
@@ -94,7 +93,7 @@ It's a best practice to create the database in the same AWS Region as your S3 bu
 ------
 #### [ Non-date-based partitioning ]
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE `{{s3_access_logs_db.mybucket_logs}}`(
      `bucketowner` STRING, 
      `bucket_name` STRING, 
@@ -145,7 +144,7 @@ It's a best practice to create the database in the same AWS Region as your S3 bu
 
 **Example — Show who deleted an object and when (timestamp, IP address, and IAM user)**  
 
-```
+```sql
 SELECT requestdatetime, remoteip, requester, key 
 FROM {{s3_access_logs_db.mybucket_logs}} 
 WHERE key = '{{images/picture.jpg}}' AND operation like '%DELETE%';
@@ -153,7 +152,7 @@ WHERE key = '{{images/picture.jpg}}' AND operation like '%DELETE%';
 
 **Example — Show all operations that were performed by an IAM user**  
 
-```
+```sql
 SELECT * 
 FROM {{s3_access_logs_db.mybucket_logs}} 
 WHERE requester='arn:aws:iam::{{123456789123}}:user/{{user_name}}';
@@ -161,7 +160,7 @@ WHERE requester='arn:aws:iam::{{123456789123}}:user/{{user_name}}';
 
 **Example — Show all operations that were performed on an object in a specific time period**  
 
-```
+```sql
 SELECT *
 FROM {{s3_access_logs_db.mybucket_logs}}
 WHERE Key='{{prefix/images/picture.jpg}}' 
@@ -172,7 +171,7 @@ AND parse_datetime('{{2017-02-18:08:00:00}}','yyyy-MM-dd:HH:mm:ss');
 
 **Example — Show how much data was transferred to a specific IP address in a specific time period**  
 
-```
+```sql
 SELECT coalesce(SUM(bytessent), 0) AS bytessenttotal
 FROM {{s3_access_logs_db.mybucket_logs}}
 WHERE remoteip='192.0.2.1'
@@ -183,7 +182,7 @@ AND parse_datetime('{{2022-07-01}}','yyyy-MM-dd');
 
 **Example — Find request IDs for HTTP 5xx errors in a specific time period**  
 
-```
+```sql
 SELECT requestdatetime, key, httpstatus, errorcode, requestid, hostid 
 FROM {{s3_access_logs_db.mybucket_logs}}
 WHERE httpstatus like '5%' AND timestamp

@@ -1,7 +1,6 @@
 
 
 # Creating general purpose buckets with tags
-<a name="bucket-create-tag"></a>
 
 You can tag Amazon S3 general purpose buckets when you create them. There is no additional charge for using tags on buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging buckets, see [Using tags with S3 general purpose buckets](buckets-tagging.md).
 
@@ -60,7 +59,7 @@ To create a bucket with tags using the Amazon S3 console:
 
 This example shows you how to create a general purpose bucket with tags by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.BucketLocationConstraint;
@@ -109,7 +108,7 @@ When you create a bucket, you must provide configuration details and use the fol
 
 **Request:**
 
-```
+```bash
 aws s3api create-bucket \
 --bucket {{mybucket}} \
 --create-bucket-configuration 'LocationConstraint=us-west-2,Tags=[{Key={{MyTagKey}},Value={{MyTagValue}}}]' --region us-west-2"
@@ -117,7 +116,7 @@ aws s3api create-bucket \
 
 **Response:**
 
-```
+```json
 {
   "Location": "http://{{mybucket}}s3.amazonaws.com/"
 }

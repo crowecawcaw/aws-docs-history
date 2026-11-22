@@ -1,7 +1,6 @@
 
 
 # Using Batch Operations to enable S3 Bucket Keys for SSE-KMS
-<a name="batch-ops-copy-example-bucket-key"></a>
 
 S3 Bucket Keys reduce the cost of server-side encryption with AWS Key Management Service (AWS KMS) (SSE-KMS) by decreasing request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md) and [Configuring your bucket to use an S3 Bucket Key with SSE-KMS for new objects](configuring-bucket-key.md). When you perform a `CopyObject` operation by using the REST API, AWS SDKs, or AWS CLI, you can enable or disable an S3 Bucket Key at the object level by adding the `x-amz-server-side-encryption-bucket-key-enabled` request header with a `true` or `false` value. 
 
@@ -77,7 +76,7 @@ Although the following steps show how to filter by using [Amazon S3 Select](http
 
    The following JSON is an example `manifest.json` file for a CSV-formatted inventory on a bucket with versioning enabled. Depending on how you configured your inventory report, your manifest might look different.
 
-   ```
+   ```csv
      {
        "sourceBucket": "batchoperationsdemo",
        "destinationBucket": "arn:aws:s3:::{{amzn-s3-demo-destination-bucket}}",
@@ -115,7 +114,7 @@ Although the following steps show how to filter by using [Amazon S3 Select](http
 
    The following are example results.
 
-   ```
+   ```json
          batchoperationsdemo,0100059%7Ethumb.jpg,lsrtIxksLu0R0ZkYPL.LhgD5caTYn6vu
          batchoperationsdemo,0100074%7Ethumb.jpg,sd2M60g6Fdazoi6D5kNARIE7KzUibmHR
          batchoperationsdemo,0100075%7Ethumb.jpg,TLYESLnl1mXD5c4BwiOIinqFrktddkoL
@@ -166,7 +165,7 @@ As part of copying the objects, specify that Amazon S3 should encrypt the object
 
    1. Replace `{{amzn-s3-demo-completion-report-bucket}}` with the name of the bucket where you want to save your completion reports.
 
-   ```
+   ```json
      {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -243,7 +242,7 @@ As part of copying the objects, specify that Amazon S3 should encrypt the object
 
    Replace `{{account-id}}` with your AWS account ID and `{{IAM-role-name}}` with the name that you plan to apply to the IAM role that you will create in the Batch Operations job creation step later. For more information, see [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md).
 
-   ```
+   ```json
                {
                "Sid": "AddIamPermissions",
                "Effect": "Allow",

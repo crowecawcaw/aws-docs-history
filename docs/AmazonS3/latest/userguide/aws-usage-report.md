@@ -1,7 +1,6 @@
 
 
 # AWS usage reports for Amazon S3
-<a name="aws-usage-report"></a>
 
 When you download a usage report, you can choose to aggregate usage data by hour, day, or month. The Amazon S3 usage report lists operations by usage type and AWS Region. For more detailed reports about your Amazon S3 storage usage, download dynamically generated AWS usage reports. You can choose which usage type, operation, and time period to include. You can also choose how the data is aggregated. For more information about usage reports, see [AWS Usage Report](https://docs.aws.amazon.com/cur/latest/userguide/usage-report.html)in the *AWS Data Exports User Guide*.
 

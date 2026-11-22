@@ -1,7 +1,6 @@
 
 
 # Policy examples for ACLs
-<a name="example-bucket-policies-condition-keys"></a>
 
 You can use condition keys in bucket policies to control access to Amazon S3.
 
@@ -26,7 +25,7 @@ You can require the `x-amz-full-control` header in the request with full control
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -61,7 +60,7 @@ The preceding bucket policy grants conditional permission to user Dave in Accoun
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -102,7 +101,7 @@ The preceding bucket policy grants conditional permission to user Dave in Accoun
 **Test the policy with the AWS CLI**  
 If you have two AWS accounts, you can test the policy using the AWS Command Line Interface (AWS CLI). You attach the policy and use Dave's credentials to test the permission using the following AWS CLI `put-object` command. You provide Dave's credentials by adding the `--profile` parameter. You grant full control permission to the bucket owner by adding the `--grant-full-control` parameter. For more information about setting up and using the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](https://docs.aws.amazon.com/AmazonS3/latest/API/setup-aws-cli.html) in the *Amazon S3 API Reference*. 
 
-```
+```bash
 aws s3api put-object --bucket {{examplebucket}} --key HappyFace.jpg --body c:\HappyFace.jpg --grant-full-control id="{{AccountA-CanonicalUserID}}" --profile AccountBUserProfile
 ```
 
@@ -121,7 +120,7 @@ You can require the `x-amz-acl` header with a canned ACL granting full control p
 
 To test the permission using the AWS CLI, you specify the `--acl` parameter. The AWS CLI then adds the `x-amz-acl` header when it sends the request.
 
-```
+```bash
 aws s3api put-object --bucket {{examplebucket}} --key HappyFace.jpg --body c:\HappyFace.jpg --acl "bucket-owner-full-control" --profile AccountBadmin
 ```
 
@@ -135,7 +134,7 @@ The following bucket policy grants the `s3:PutObject` permission for two AWS acc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

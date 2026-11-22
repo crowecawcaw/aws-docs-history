@@ -1,7 +1,6 @@
 
 
 # Understanding and managing Amazon S3 storage classes
-<a name="storage-class-intro"></a>
 
 Each object in Amazon S3 has a storage class associated with it. By default, objects in S3 are stored in the S3 Standard storage class, however Amazon S3 offers a range of other storage classes for the objects that you store. You choose a class depending on your use case scenario and performance access requirements. Choosing a storage class designed for your use case lets you optimize storage costs, performance, and availability for your objects. All of these storage classes offer high durability.
 

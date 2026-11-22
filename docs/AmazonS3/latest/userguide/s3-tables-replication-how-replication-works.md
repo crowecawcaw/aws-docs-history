@@ -1,7 +1,6 @@
 
 
 # How S3 Tables replication works
-<a name="s3-tables-replication-how-replication-works"></a>
 
 S3 Tables replication creates read-only replicas of your Apache Iceberg tables across Regions and AWS accounts. Replica tables are maintained automatically by the S3 Tables service and contain the complete data, metadata, and snapshot history from your source table, making them queryable using any Iceberg-compatible engine for analytics and time-travel operations.
 
@@ -98,3 +97,4 @@ The following considerations apply to replicated tables:
 + Tables with tags or branches are not supported.
 + Replication is not supported for Amazon S3 Metadata tables or other AWS-generated system tables.
 + All table snapshots, including compacted snapshots, are replicated from the source table. As a result, compaction is not supported on replica tables.
++ Replica tables are read-only. To write to a replica table, you can disassociate it from replication. For more information, see [Disassociating a replica table from replication](s3-tables-replication-disassociate.md).

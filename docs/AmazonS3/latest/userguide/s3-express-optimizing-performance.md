@@ -1,7 +1,6 @@
 
 
 # Optimizing directory bucket performance
-<a name="s3-express-optimizing-performance"></a>
 
 To obtain the best performance when using directory buckets, we recommend the following guidelines.
 

@@ -1,7 +1,6 @@
 
 
 # Deleting mount targets
-<a name="s3-files-mount-targets-deleting"></a>
 
 When you delete a mount target, it breaks any mounts of the file system. This might disrupt compute resources and applications using those mounts. To avoid disruption, stop applications and unmount the file system before you delete the mount target.
 
@@ -33,6 +32,6 @@ Use the Amazon S3 console to delete a mount target for S3 Files.
 
 The following `delete-mount-target` command deletes a mount target for S3 Files using the AWS CLI.
 
-```
+```bash
 aws s3files delete-mount-target --region {{aws-region}} --mount-target-id {{mount-target-id}}
 ```

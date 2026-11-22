@@ -1,7 +1,6 @@
 
 
 # Creating file systems
-<a name="s3-files-file-systems-creating"></a>
 
 You can create file systems by using the AWS Console, the AWS Command Line Interface (AWS CLI), or the Amazon S3 API for any existing or new S3 general purpose bucket. For information on creating a new bucket, see [Creating a general purpose bucket](create-bucket-overview.md).
 
@@ -57,7 +56,7 @@ When you're using the AWS CLI, you create these resources in order. First, you c
 
 The following `create-file-system` example command shows how you can use the AWS CLI to create a file system for S3 Files.
 
-```
+```bash
 aws s3files create-file-system --region {{aws-region}} --bucket {{s3-bucket-arn}} --client-token {{idempotency-token}} --role-arn {{iam-role}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Setting up permissions for configuring metadata tables
-<a name="metadata-tables-permissions"></a>
 
 To create a metadata table configuration, you must have the necessary AWS Identity and Access Management (IAM) permissions to both create and manage your metadata table configuration and to create and manage your metadata tables and the table bucket where your metadata tables are stored. 
 
@@ -16,7 +15,7 @@ To create and manage your metadata table configuration, you must have these perm
 The `s3:CreateBucketMetadataTableConfiguration`, `s3:GetBucketMetadataTableConfiguration`, and `s3:DeleteBucketMetadataTableConfiguration` permissions are used for both V1 and V2 S3 Metadata configurations. For V2, the names of the corresponding API operations are `CreateBucketMetadataConfiguration`, `GetBucketMetadataConfiguration`, and `DeleteBucketMetadataConfiguration`.
 + `iam:PassRole` – To create an Amazon S3 Metadata configuration that includes an annotation table, you need this permission to pass the annotation table IAM role. Add the following statement to your caller's IAM policy:
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": "iam:PassRole",
@@ -64,7 +63,7 @@ To create and work with metadata tables and table buckets, you can use the follo
 
 When you create your metadata table configuration, your metadata tables are stored in an AWS managed table bucket. All metadata table configurations in your account and in the same Region are stored in a single AWS managed table bucket named `aws-s3`. 
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [
@@ -94,7 +93,7 @@ When you create your metadata table configuration, your metadata tables are stor
 
 To query metadata tables, you can use the following example policy. If your metadata tables have been encrypted with SSE-KMS, you will need the `kms:Decrypt` permission as shown. To use this policy, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
     "Version":"2012-10-17",
     "Statement": [

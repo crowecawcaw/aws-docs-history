@@ -1,7 +1,6 @@
 
 
 # Visualizing table data with Quick
-<a name="s3-tables-integrating-quicksight"></a>
 
 Quick is a fast business analytics service to build visualizations, perform ad hoc analysis, and quickly get business insights from your data. Quick seamlessly discovers AWS data sources, enables organizations to scale to hundreds of thousands of users, and delivers fast and responsive query performance by using the Quick Super-fast, Parallel, In-Memory, Calculation Engine (SPICE). For more information, see [What is Quick?](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) in the *Quick user guide*.
 
@@ -29,7 +28,7 @@ When set up Quick for the first time in your account, AWS creates a service role
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -51,7 +50,7 @@ When set up Quick for the first time in your account, AWS creates a service role
 
 1. Run the following AWS CLI command to find the ARN of your Quick admin user.
 
-   ```
+   ```bash
    aws quicksight list-users --aws-account-id {{111122223333}} --namespace {{default}} --region {{region}}
    ```
 

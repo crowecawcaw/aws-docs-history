@@ -1,7 +1,6 @@
 
 
 # Networking for directory buckets
-<a name="s3-express-networking"></a>
 
 To access directory buckets and objects inside, you use Regional and Zonal API endpoints that are different from the standard Amazon S3 endpoints. Depending on the S3 API operation that you use, either a Zonal or Regional endpoint is required. For a complete list of API operations by endpoint type, see [Differences for directory buckets](s3-express-differences.md). 
 

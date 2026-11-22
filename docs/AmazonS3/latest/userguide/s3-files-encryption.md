@@ -1,7 +1,6 @@
 
 
 # Encryption
-<a name="s3-files-encryption"></a>
 
 S3 Files provides comprehensive encryption capabilities to protect your data both at rest and in transit.
 
@@ -87,7 +86,7 @@ The following describes how TLS encryption in transit works:
 
 Encryption of data in transit changes your NFS client setup. When you inspect your actively mounted file systems, you see one mounted to 127.0.0.1, or localhost, as in the following example.
 
-```
+```bash
 $ mount | column -t
 127.0.0.1:/  on  /home/ec2-user/s3files        type  nfs4         (rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,port=20127,timeo=600,retrans=2,sec=sys,clientaddr=127.0.0.1,local_lock=none,addr=127.0.0.1)
 ```

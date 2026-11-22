@@ -1,7 +1,6 @@
 
 
 # Running a table migration
-<a name="s3-tables-migrate-running"></a>
 
 **To migrate a table by using the Amazon S3 console**
 
@@ -29,7 +28,7 @@ To sync or complete the migration, choose the destination table, and then choose
 
 1. Start the migration. Specify the migration role, the destination table, the source AWS Glue table, and where to write the reports. The migration job creates the destination table in the namespace that you specify.
 
-   ```
+   ```bash
    aws s3tables start-table-migration \
        --role-arn arn:aws:iam::{{111122223333}}:role/{{S3TablesMigrationRole}} \
        --destination-table '{"tableBucketARN":"arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}","namespace":"{{example_namespace}}","name":"{{example_table}}"}' \
@@ -45,7 +44,7 @@ To sync or complete the migration, choose the destination table, and then choose
 
 1. (Optional) If you started the migration with `--review-migration-plan`, review the compatibility reports, and then approve the migration. To approve it, set the requested state to `queued`.
 
-   ```
+   ```bash
    aws s3tables update-table-migration \
        --migration-id {{example-migration-id}} \
        --requested-state queued
@@ -55,7 +54,7 @@ To sync or complete the migration, choose the destination table, and then choose
 
 1. Monitor the migration until it reaches the `succeeded` state.
 
-   ```
+   ```bash
    aws s3tables get-table-migration \
        --migration-id {{example-migration-id}}
    ```
@@ -64,7 +63,7 @@ To sync or complete the migration, choose the destination table, and then choose
 
 1. (Optional) Sync the table to copy source data that changed since the previous start or sync. Specify the migration role, the destination table ARN, and where to write the reports.
 
-   ```
+   ```bash
    aws s3tables sync-table-migration \
        --role-arn arn:aws:iam::{{111122223333}}:role/{{S3TablesMigrationRole}} \
        --table-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{example-table-id}} \
@@ -77,7 +76,7 @@ To sync or complete the migration, choose the destination table, and then choose
 
 1. Complete the migration.
 
-   ```
+   ```bash
    aws s3tables complete-table-migration \
        --table-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{example-table-id}}
    ```

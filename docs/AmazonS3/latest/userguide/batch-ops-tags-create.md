@@ -1,7 +1,6 @@
 
 
 # Creating a Batch Operations job with job tags used for labeling
-<a name="batch-ops-tags-create"></a>
 
 You can label and control access to your Amazon S3 Batch Operations jobs by adding *tags*. Tags can be used to identify who is responsible for a Batch Operations job. You can create jobs with tags attached to them, and you can add tags to jobs after they are created. For more information, see [Controlling access and labeling jobs using tags](batch-ops-job-tags.md).
 

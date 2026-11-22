@@ -1,7 +1,6 @@
 
 
 # Accessing S3 data using credentials vended by S3 Access Grants
-<a name="access-grants-get-data"></a>
 
 After a grantee [obtains temporary credentials](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-credentials.html) through their access grant, they can use these temporary credentials to call Amazon S3 API operations to access your data. 
 
@@ -47,7 +46,7 @@ This section provides examples of how grantees can access your S3 data by using 
 
 The following Java code example gets an object from an S3 bucket. For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the *AWS SDK for Java Developer Guide*.
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

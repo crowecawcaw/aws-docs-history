@@ -1,7 +1,6 @@
 
 
 # Exporting S3 Storage Lens metrics to S3 Tables
-<a name="storage-lens-s3-tables-export"></a>
 
 You can configure Amazon S3 Storage Lens to export your storage analytics and insights to S3 Tables. When you enable S3 Tables export, your metrics are automatically stored in read-only Apache Iceberg tables in the AWS-managed `aws-s3` table bucket, making them queryable using SQL with AWS analytics services like Amazon Athena, Amazon Redshift, and Amazon EMR.
 
@@ -44,7 +43,7 @@ Before running the following commands, make sure that you have an up to date CLI
 
 The following example enables S3 Tables export for an S3 Storage Lens configuration "Default metrics report" using the AWS CLI. To use this example, replace the {{user input placeholders}} with your own information.
 
-```
+```JSON
 aws s3control put-storage-lens-configuration --account-id={{555555555555}} --config-id={{your-configuration-id}} --storage-lens-configuration '{
    "Id":"{{your-configuration-id}}",
    "AccountLevel":{
@@ -78,7 +77,7 @@ aws s3control put-storage-lens-configuration --account-id={{555555555555}} --con
 
 The following example enables S3 Tables export for an S3 Storage Lens configuration "Default metrics report" using the AWS SDK for Python (Boto3). To use this example, replace the {{user input placeholders}} with your own information.
 
-```
+```python
 import boto3
 
 s3control = boto3.client('s3control')

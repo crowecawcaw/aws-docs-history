@@ -1,7 +1,6 @@
 
 
 # Installing Mountpoint
-<a name="mountpoint-installation"></a>
 
 You can download and install prebuilt packages of Mountpoint for Amazon S3 by using the command line. The instructions for downloading and installing Mountpoint vary, depending on which Linux operating system that you're using. 
 

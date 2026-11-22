@@ -1,7 +1,6 @@
 
 
 # Data type mappings for table migration
-<a name="s3-tables-migrate-data-type-mappings"></a>
 
 ## What migration transforms
 <a name="s3-tables-migrate-transforms"></a>

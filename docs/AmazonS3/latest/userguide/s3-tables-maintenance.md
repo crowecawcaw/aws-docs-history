@@ -1,7 +1,6 @@
 
 
 # Maintenance for tables
-<a name="s3-tables-maintenance"></a>
 
 S3 Tables offers maintenance operations to enhance the management and performance of your individual tables. The following options are enabled by default for all tables in table buckets. You can edit or disable these by specifying maintenance configuration files for your S3 table.
 
@@ -53,7 +52,7 @@ The following examples show configurations for table compaction.
 The minimum target compaction file size is 64MB; the maximum is 512MB.  
 The following example will change the target file size to 256MB using the `PutTableMaintenanceConfiguration` API.  
 
-```
+```bash
 aws s3tables put-table-maintenance-configuration \
    --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-bucket1}} \
    --type icebergCompaction \
@@ -69,7 +68,7 @@ To set the compaction strategy to `sort` or `z-order` you need the following pre
 + A sort order defined in your Iceberg table properties.
 + The `s3tables:GetTableData` permission.
 
-```
+```bash
 aws s3tables put-table-maintenance-configuration \
    --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
    --type icebergCompaction \
@@ -82,7 +81,7 @@ For more information, see [put-table-maintenance-configuration](https://awscli.a
 **To disable compaction by using the AWS CLI**  
 The following example will disable compaction using the `PutTableMaintenanceConfiguration` API.  
 
-```
+```bash
 aws s3tables put-table-maintenance-configuration \
    --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
    --type icebergCompaction \
@@ -111,13 +110,13 @@ Snapshot management does not support retention values that you configure as Apac
 **User-defined tags or branches** – If any user-defined tag or branch exists on the table, snapshot management will fail for the entire table. This applies even if the tag or branch has a short retention period. To restore automated snapshot expiration, remove all user-defined tags and branches from the table.
 **Iceberg snapshot retention table properties** – If the `history.expire.max-snapshot-age-ms` or `history.expire.min-snapshots-to-keep` property is set as an Apache Iceberg table property, snapshot management will fail for the entire table regardless of the configured value. To restore automated snapshot expiration, remove these properties:  
 
-  ```
+  ```sql
   ALTER TABLE {{mydb}}.{{mytable}} UNSET TBLPROPERTIES ('history.expire.max-snapshot-age-ms');
   ALTER TABLE {{mydb}}.{{mytable}} UNSET TBLPROPERTIES ('history.expire.min-snapshots-to-keep');
   ```
 To diagnose snapshot management failures, use the `GetTableMaintenanceJobStatus` API or run the following AWS CLI command. If snapshot management has failed, the response includes a `FAILED` status with a message that describes the cause of the failure.  
 
-```
+```bash
 aws s3tables get-table-maintenance-job-status \
     --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}} \
     --namespace {{my_namespace}} \
@@ -134,7 +133,7 @@ The following examples show configurations for table snapshot management.
 **To configure the snapshot management by using the AWS CLI**  
 The following example will set the `MinimumSnapshots` to 10 and the `MaximumSnapshotAge` to 2500 hours using the `PutTableMaintenanceConfiguration` API.  
 
-```
+```bash
 aws s3tables put-table-maintenance-configuration \
 --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
 --namespace {{my_namespace}} \
@@ -146,7 +145,7 @@ aws s3tables put-table-maintenance-configuration \
 **To disable snapshot management by using the AWS CLI**  
 The following example will disable snapshot management using the `PutTableMaintenanceConfiguration` API.  
 
-```
+```bash
 aws s3tables put-table-maintenance-configuration \
 --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
 --namespace {{my_namespace}} \

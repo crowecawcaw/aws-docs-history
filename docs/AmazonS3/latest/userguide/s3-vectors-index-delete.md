@@ -1,7 +1,6 @@
 
 
 # Deleting a vector index
-<a name="s3-vectors-index-delete"></a>
 
 You can delete a vector index when you no longer need it. This operation permanently removes the index and all vectors that are stored within it.
 
@@ -22,7 +21,7 @@ Before you delete a vector index, verify the vector index. For more information 
 
 To delete a vector index, use the following example commands. Replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3vectors delete-index --vector-bucket-name "{{amzn-s3-demo-vector-bucket}}" \
           --index-name "{{idx2}}"
 ```
@@ -35,7 +34,7 @@ For more information about how to verify whether the index is deleted, see [List
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```python
 import boto3
 
 # Create a S3 Vectors client in the AWS Region of your choice. 

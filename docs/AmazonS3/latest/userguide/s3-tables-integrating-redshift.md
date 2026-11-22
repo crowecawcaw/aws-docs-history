@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon S3 tables with Amazon Redshift
-<a name="s3-tables-integrating-redshift"></a>
 
 Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools. Redshift Serverless lets you access and analyze data without all of the configurations of a provisioned data warehouse. For more information, see [Get started with serverless data warehouses](https://docs.aws.amazon.com/redshift/latest/gsg/new-user-serverless.html) in the *Amazon Redshift Getting Started Guide*.
 

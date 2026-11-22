@@ -1,7 +1,6 @@
 
 
 # Event message structure
-<a name="notification-content-structure"></a>
 
 The notification message that Amazon S3 sends to publish an event is in the JSON format.
 
@@ -13,7 +12,7 @@ Starting with version 2.4, Amazon S3 uses a single unified version for all event
 
 The maximum size of an event notification message is 64 KB. When using Amazon SQS as a destination, we recommend that you set your queue's `MaximumMessageSize` attribute to at least 64 KB. If an event notification exceeds the queue's configured `MaximumMessageSize`, Amazon SQS rejects the notification and doesn't deliver the event. For more information, see [Event notification types and destinations](notification-how-to-event-types-and-destinations.md).
 
-```
+```json
 {  
    "Records":[  
       {  
@@ -106,7 +105,7 @@ The following are examples of Amazon S3 event notification messages.
 **Amazon S3 test message**  
 After you configure an event notification on a bucket, Amazon S3 sends the following test message.
 
-```
+```json
 1. {  
 2.    "Service":"Amazon S3",
 3.    "Event":"s3:TestEvent",
@@ -123,7 +122,7 @@ The `s3:TestEvent` message uses a different format than regular S3 event notific
 **Example message when an object is created using a `PUT` request**  
 The following is an example of a message that Amazon S3 sends to publish an `s3:ObjectCreated:Put` event.
 
-```
+```json
  1. {  
  2.    "Records":[  
  3.       {  

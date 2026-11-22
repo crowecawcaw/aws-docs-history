@@ -1,7 +1,6 @@
 
 
 # S3 Express One Zone Availability Zones and Regions
-<a name="s3-express-Endpoints"></a>
 
 An Availability Zone is one or more discrete data centers with redundant power, networking, and connectivity in an AWS Region. To optimize low-latency retrievals, objects in the Amazon S3 Express One Zone storage class are redundantly stored in S3 directory buckets in a single Availability Zone that's local to your compute workload. When you create a directory bucket, you choose the Availability Zone and AWS Region where your bucket will be located. 
 

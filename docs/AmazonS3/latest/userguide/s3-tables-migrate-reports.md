@@ -1,7 +1,6 @@
 
 
 # Migration reports and statistics
-<a name="s3-tables-migrate-reports"></a>
 
 ## Migration statistics
 <a name="s3-tables-migrate-statistics"></a>
@@ -43,7 +42,7 @@ If a migration fails, `failureReason` in the `GetTableMigration` response tells 
 
 In start and sync operations, you specify the output location of the migration reports using the `migrationOutput` parameter. Specify one general purpose bucket. You can optionally specify a prefix for each report. If a prefix is not specified for a report, all reports are written to the root of the bucket. Under each prefix, migration writes the reports for each start and sync in a folder named for its migration ID, as in the following example:
 
-```
+```text
 {{amzn-s3-demo-bucket}}/
     {{your-optional-prefix}}/
         {{migration-id}}/

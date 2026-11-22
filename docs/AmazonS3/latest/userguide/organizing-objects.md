@@ -1,7 +1,6 @@
 
 
 # Organizing, listing, and working with your objects
-<a name="organizing-objects"></a>
 
 In Amazon S3, you can use prefixes to organize your storage. A prefix is a logical grouping of the objects in a bucket. The prefix value is similar to a directory name that enables you to store similar data under the same directory in a bucket. When you programmatically upload objects, you can use prefixes to organize your data.
 

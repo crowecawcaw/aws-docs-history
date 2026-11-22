@@ -1,7 +1,6 @@
 
 
 # Vector bucket naming rules
-<a name="s3-vectors-buckets-naming"></a>
 
 Vector bucket names must follow specific naming conventions to ensure uniqueness within an AWS Region. Amazon S3 enforces the following bucket naming requirements, and you can't create a vector bucket if these rules aren't followed. Additionally, there are best practices that, while not enforced, help prevent conflicts when working with vector buckets programmatically or through the console.
 

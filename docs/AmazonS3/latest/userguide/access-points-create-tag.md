@@ -1,7 +1,6 @@
 
 
 # Creating access points with tags
-<a name="access-points-create-tag"></a>
 
 You can tag access points when you create them. There is no additional charge for using tags on access points beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging access points, see [Using tags with S3 Access Points for general purpose buckets](access-points-tagging.md).
 
@@ -80,7 +79,7 @@ The following CLI example shows you how to create an access point with tags by u
 
 **Request:**
 
-```
+```bash
 aws s3control create-access-point --name {{{{my-access-point}}}} \
 --bucket {{{{amzn-s3-demo-bucket}}}} \
 --account-id {{111122223333}} \ --profile personal \

@@ -1,7 +1,6 @@
 
 
 # Understanding archive retrieval options
-<a name="restoring-objects-retrieval-options"></a>
 
 Amazon S3 has three archival storage classes - S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. While objects stored in the S3 Glacier Instant Retrieval storage class are immediately available using `GET`, to access data stored in the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes you first need to retrieve data using the [RestoreObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html) REST API. Restoring datasets made up of tens of millions of objects or hundreds of terabytes of data could take longer than typical restore times and need special considerations. For more information, see [Restoring large datasets](#restoring-objects-large-datasets).
 

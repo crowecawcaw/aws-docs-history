@@ -1,7 +1,6 @@
 
 
 # Monitoring and auditing S3 Files
-<a name="s3-files-monitoring-logging"></a>
 
 S3 Files integrates with the following AWS services to help you monitor your file systems:
 

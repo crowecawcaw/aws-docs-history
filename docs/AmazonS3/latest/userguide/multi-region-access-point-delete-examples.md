@@ -1,7 +1,6 @@
 
 
 # Deleting a Multi-Region Access Point
-<a name="multi-region-access-point-delete-examples"></a>
 
 The following procedure explains how to delete a Multi-Region Access Point by using the Amazon S3 console. Be aware that deleting a Multi-Region Access Point doesn't delete the buckets associated with the Multi-Region Access Point. Instead, it only deletes the Multi-Region Access Point itself.
 
@@ -32,6 +31,6 @@ Make sure to enter a valid bucket name. Otherwise, the **Delete** button will be
 
 You can use the AWS CLI to delete a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point, only the Multi-Region Access Point itself. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control delete-multi-region-access-point --account-id {{123456789012}} --details Name={{example-multi-region-access-point-name}}
 ```

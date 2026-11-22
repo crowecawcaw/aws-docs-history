@@ -1,7 +1,6 @@
 
 
 # Troubleshoot server access logging
-<a name="troubleshooting-server-access-logging"></a>
 
 The following topics can help you troubleshoot issues that you might encounter when setting up logging with Amazon S3.
 
@@ -14,22 +13,22 @@ The following topics can help you troubleshoot issues that you might encounter w
 
 The following common error messages can appear when you're enabling logging through the AWS Command Line Interface (AWS CLI) and AWS SDKs: 
 
-Error: Cross S3 location logging not allowed
+Error: `Cross S3 location logging not allowed`
 
-If the destination bucket (also known as a *target bucket*) is in a different Region than the source bucket, a Cross S3 location logging not allowed error occurs. To resolve this error, make sure that the destination bucket configured to receive the access logs is in the same AWS Region and AWS account as the source bucket.
+If the destination bucket (also known as a *target bucket*) is in a different Region than the source bucket, a `Cross S3 location logging not allowed` error occurs. To resolve this error, make sure that the destination bucket configured to receive the access logs is in the same AWS Region and AWS account as the source bucket.
 
-Error: The owner for the bucket to be logged and the target bucket must be the same
+Error: `The owner for the bucket to be logged and the target bucket must be the same`
 
 When you're enabling server access logging, this error occurs if the specified destination bucket belongs to a different account. To resolve this error, make sure that the destination bucket is in the same AWS account as the source bucket.
 
 **Note**  
 We recommend that you choose a destination bucket that's different from the source bucket. When the source bucket and destination bucket are the same, additional logs are created for the logs that are written to the bucket, which can increase your storage bill. These extra logs about logs can also make it difficult to find the particular logs that you're looking for. For simpler log management, we recommend saving access logs in a different bucket.
 
-Error: The target bucket for logging does not exist
+Error: `The target bucket for logging does not exist`
 
 The destination bucket must exist prior to setting the configuration. This error indicates that the destination bucket doesn't exist or can't be found. Make sure that the bucket name is spelled correctly, and then try again.
 
-Error: Target grants not allowed for bucket owner enforced buckets
+Error: `Target grants not allowed for bucket owner enforced buckets`
 
 This error indicates that the destination bucket uses the Bucket owner enforced setting for S3 Object Ownership. The Bucket owner enforced setting doesn't support destination (target) grants. For more information, see [Permissions for log delivery](enable-server-access-logging.md#grant-log-delivery-permissions-general).
 

@@ -1,7 +1,6 @@
 
 
 # Step 4: Manually upload objects to your S3 Express One Zone directory bucket
-<a name="s3-express-tutorial-Upload"></a>
 
 You can also manually upload objects to your directory bucket.
 

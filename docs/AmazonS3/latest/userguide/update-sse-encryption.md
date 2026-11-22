@@ -1,7 +1,6 @@
 
 
 # Updating server-side encryption for existing data
-<a name="update-sse-encryption"></a>
 
 All Amazon S3 buckets have encryption configured by default, and objects are automatically encrypted by using server-side encryption with Amazon S3 managed keys (SSE-S3). This default encryption setting applies to all new objects in your Amazon S3 buckets.
 
@@ -49,7 +48,7 @@ If you're using AWS Organizations, to use this operation with customer-managed K
 
 To perform the `UpdateObjectEncryption` operation, add the following AWS Identity and Access Management (IAM) policy to your IAM role. To use this policy, replace `{{amzn-s3-demo-bucket}}` with the name of your general purpose bucket, and replace the other `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -101,7 +100,7 @@ To use the following example command, replace the `{{user input placeholders}}` 
 
 1. Use the following command to update encryption for a single object (`{{index.html}}`) in your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`) to use SSE-KMS with an S3 Bucket Key:
 
-   ```
+   ```bash
    aws s3api update-object-encryption \
    --bucket {{amzn-s3-demo-bucket}} \
    --key {{index.html}} \
@@ -112,7 +111,7 @@ You must specify the full AWS KMS key Amazon Resource Name (ARN). The KMS key ID
 
 1. Run the `head-object` command to view the updated encryption type of your object:
 
-   ```
+   ```bash
    aws s3api head-object --bucket {{{{amzn-s3-demo-bucket}}}} --key {{index.html}}
    ```
 

@@ -1,7 +1,6 @@
 
 
 # Renaming objects in directory buckets
-<a name="directory-buckets-objects-rename"></a>
 
 Using the `RenameObject` operation, you can atomically rename an existing object in a directory bucket that uses the S3 Express One Zone storage class, without any data movement. You can rename an object by specifying the existing object’s name as the source and the new name of the object as the destination within the same directory bucket. The `RenameObject` API operation will not succeed on objects that end with the slash (`/`) delimiter character. For more information, see [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html).
 
@@ -49,7 +48,7 @@ The `rename-object` examples show how you can use the AWS CLI to rename an objec
 
 The following example shows how to rename an object with a conditional check on the source object's ETag. 
 
-```
+```bash
 aws s3api rename-object \                                    
     --bucket {{amzn-s3-demo-bucket--usw2-az1--x-s3}} \
     --key {{new-file.txt}} \
@@ -65,7 +64,7 @@ If the ETag doesn't match, the operation will fail with a `412 Precondition Fail
 
 The following example shows how to rename an object with a conditional check on the new specified object name.
 
-```
+```bash
 aws s3api rename-object \
     --bucket {{amzn-s3-demo-bucket--usw2-az1--x-s3}} \
     --key {{new-file.txt}} \
@@ -89,7 +88,7 @@ You can use the AWS SDK for Java to rename your objects. To use these examples, 
 
 The following example demonstrates how to create a `RenameObjectRequest` using the AWS SDK for Java
 
-```
+```java
 String key = "{{key}}";
 String newKey = "{{new-key}}";
 String expectedETag = "{{e5f3g7h8i9j0}}";
@@ -108,7 +107,7 @@ This code does the following:
 
 The following example shows how to create a `RenameObjectRequest` with a none-match condition using the AWS SDK for Java.
 
-```
+```java
 String key = "{{key}}";
 String newKey = "{{new-key}}";
 String noneMatchETag = "{{e5f3g7h8i9j0}}";
@@ -133,7 +132,7 @@ You can use the AWS SDK for Python (Boto3) to rename your objects. To use these 
 
 The following example demonstrates how to rename an object using the AWS SDK for Python (Boto3).
 
-```
+```Python
 def basic_rename(bucket, source_key, destination_key):
     try:
         s3.rename_object(
@@ -152,7 +151,7 @@ This code does the following:
 
 The following example demonstrate how to rename an object with the `SourceIfMatch` and `DestinationIfNoneMatch` conditions using the AWS SDK for Python (Boto3).
 
-```
+```Python
 def rename_with_conditions(bucket, source_key, destination_key, source_etag, dest_etag):
     try:
         s3.rename_object(
@@ -179,7 +178,7 @@ You can use the SDK for Rust to rename your objects. To use these examples, repl
 
 The following example demonstrates how to rename an object in the {{amzn-s3-demo-bucket--usw2-az1--x-s3}} directory bucket using the SDK for Rust.
 
-```
+```Rust
 async fn basic_rename_example(client: &Client) -> Result<(), Box<dyn Error>> {
     let response = client
         .rename_object()

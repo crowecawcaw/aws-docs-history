@@ -1,7 +1,6 @@
 
 
 # Managing CloudWatch metrics
-<a name="s3-tables-managing-cloudwatch-metrics"></a>
 
 Storage metrics are enabled by default for all Amazon S3 tables and table buckets. You can enable or disable additional Request metrics through the console, AWS Command Line Interface (AWS CLI), or AWS SDKs.
 

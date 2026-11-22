@@ -1,7 +1,6 @@
 
 
 # Adding job tags to an existing Batch Operations job
-<a name="put-job-tags"></a>
 
 You can use the [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html) API operation to add job tags to your existing Amazon S3 Batch Operations jobs. For more information, see the following examples.
 
@@ -33,7 +32,7 @@ Instead, to delete existing tags for your Batch Operations job, we recommend usi
 
 1. Run the following `put-job-tagging` command with the required parameters:
 
-   ```
+   ```bash
    aws \
        s3control put-job-tagging \
        --account-id {{123456789012}} \

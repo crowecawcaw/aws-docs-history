@@ -1,7 +1,6 @@
 
 
 # Compute checksums
-<a name="batch-ops-compute-checksums"></a>
 
 You can use S3 Batch Operations with the **Compute checksum** operation to perform checksum calculations for objects stored in Amazon S3 at rest. The **Compute checksum** operation calculates object checksums which you can use to validate data integrity without downloading or restoring objects for stored data. You can use the **Compute checksum** operation to calculate checksums for both composite and full object checksum types, for all supported checksum algorithms.
 

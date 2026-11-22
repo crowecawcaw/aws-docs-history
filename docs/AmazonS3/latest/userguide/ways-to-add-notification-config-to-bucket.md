@@ -1,7 +1,6 @@
 
 
 # Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)
-<a name="ways-to-add-notification-config-to-bucket"></a>
 
 You can receive Amazon S3 notifications using Amazon Simple Notification Service (Amazon SNS) or Amazon Simple Queue Service (Amazon SQS). In this walkthrough, you add a notification configuration to your bucket using an Amazon SNS topic and an Amazon SQS queue.
 
@@ -62,7 +61,7 @@ Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amaz
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Id": "example-ID",
@@ -103,7 +102,7 @@ Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amaz
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Id": "example-ID",
@@ -151,7 +150,7 @@ Follow the steps to create and subscribe to an Amazon SNS topic.
 
 1. Replace the access policy attached to the topic with the following policy. In it, provide your SNS topic ARN, bucket name, and bucket owner's account ID.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Id": "example-ID",
@@ -211,7 +210,7 @@ For instructions, see [Enabling and configuring event notifications using the Am
 
 The following C\# code example provides a complete code listing that adds a notification configuration to a bucket. You must update the code and provide your bucket name and SNS topic ARN. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

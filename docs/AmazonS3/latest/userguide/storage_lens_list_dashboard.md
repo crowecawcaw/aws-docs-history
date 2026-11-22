@@ -1,7 +1,6 @@
 
 
 # List Amazon S3 Storage Lens dashboards
-<a name="storage_lens_list_dashboard"></a>
 
  
 
@@ -28,7 +27,7 @@ aws s3control list-storage-lens-configurations --account-id={{222222222222}} --r
 **Example – List S3 Storage Lens dashboard configurations**  
 The following examples shows you how to list S3 Storage Lens configurations in SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information." to each example description.  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

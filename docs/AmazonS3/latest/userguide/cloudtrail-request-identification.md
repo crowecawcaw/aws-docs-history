@@ -1,7 +1,6 @@
 
 
 # Identifying Amazon S3 requests using CloudTrail
-<a name="cloudtrail-request-identification"></a>
 
 In Amazon S3, you can identify requests using an AWS CloudTrail event log. AWS CloudTrail is the preferred way of identifying Amazon S3 requests, but if you are using Amazon S3 server access logs, see [Using Amazon S3 server access logs to identify requests](using-s3-access-logs-to-identify-requests.md).
 
@@ -45,7 +44,7 @@ AWS CloudTrail is the preferred method for identifying Signature Version 2 reque
 **Example — Select all Signature Version 2 events, and print only `EventTime`, `S3_Action`, `Request_Parameters`, `Region`, `SourceIP`, and `UserAgent`**  
 In the following Athena query, replace {{`s3_cloudtrail_events_db.cloudtrail_table`}} with your Athena details, and increase or remove the limit as needed.   
 
-```
+```sql
 SELECT EventTime, EventName as S3_Action, requestParameters as Request_Parameters, awsregion as AWS_Region, sourceipaddress as Source_IP, useragent as User_Agent
 FROM {{s3_cloudtrail_events_db.cloudtrail_table}}
 WHERE eventsource='s3.amazonaws.com'
@@ -56,7 +55,7 @@ LIMIT 10;
 **Example — Select all requesters that are sending Signature Version 2 traffic**  
    
 
-```
+```sql
 SELECT useridentity.arn, Count(requestid) as RequestCount
 FROM {{s3_cloudtrail_events_db.cloudtrail_table}}
 WHERE eventsource='s3.amazonaws.com'
@@ -71,7 +70,7 @@ If you have a large amount of data to query, you can reduce the costs and runnin
 
 To do this, create a new table with partitions as follows.
 
-```
+```sql
    CREATE EXTERNAL TABLE {{s3_cloudtrail_events_db.cloudtrail_table}}_partitioned(
         eventversion STRING,
         userIdentity STRUCT<
@@ -125,7 +124,7 @@ To do this, create a new table with partitions as follows.
 
 Then, create the partitions individually. You can't get results from dates that you haven't created. 
 
-```
+```sql
 ALTER TABLE {{s3_cloudtrail_events_db.cloudtrail_table}}_partitioned ADD
     PARTITION (region= 'us-east-1', year= '2019', month= '02', day= '19') LOCATION 's3://{{amzn-s3-demo-bucket1}}/AWSLogs/{{111122223333}}/CloudTrail/us-east-1/2019/02/19/'
     PARTITION (region= 'us-west-1', year= '2019', month= '02', day= '19') LOCATION 's3://{{amzn-s3-demo-bucket1}}/AWSLogs/{{111122223333}}/CloudTrail/us-west-1/2019/02/19/'
@@ -139,7 +138,7 @@ ALTER TABLE {{s3_cloudtrail_events_db.cloudtrail_table}}_partitioned ADD
 
 You can then make the request based on these partitions, and you don't need to load the full bucket. 
 
-```
+```sql
 SELECT useridentity.arn,
 Count(requestid) AS RequestCount
 FROM {{s3_cloudtrail_events_db.cloudtrail_table}}_partitioned
@@ -172,7 +171,7 @@ In the following Athena query examples, replace {{`s3_cloudtrail_events_db.cloud
 
 **Example — Select all events that have `PUT` object access requests, and print only `EventTime`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `object`, and `UserARN`**  
 
-```
+```sql
 SELECT
   eventTime, 
   eventName, 
@@ -191,7 +190,7 @@ WHERE
 
 **Example — Select all events that have `GET` object access requests, and print only `EventTime`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `object`, and `UserARN`**  
 
-```
+```sql
 SELECT
   eventTime, 
   eventName, 
@@ -210,7 +209,7 @@ WHERE
 
 **Example — Select all anonymous requester events to a bucket in a certain period and print only `EventTime`, `EventName`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `UserARN`, and `AccountID`**  
 
-```
+```sql
 SELECT
   eventTime, 
   eventName, 
@@ -230,7 +229,7 @@ WHERE
 **Example — Identify all requests that required an ACL for authorization**  
  The following Amazon Athena query example shows how to identify all requests to your S3 buckets that required an access control list (ACL) for authorization. If the request required an ACL for authorization, the `aclRequired` value in `additionalEventData` is `Yes`. If no ACLs were required, `aclRequired` is not present. You can use this information to migrate those ACL permissions to the appropriate bucket policies. After you've created these bucket policies, you can disable ACLs for these buckets. For more information about disabling ACLs, see [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md).  
 
-```
+```sql
 SELECT
   eventTime, 
   eventName, 

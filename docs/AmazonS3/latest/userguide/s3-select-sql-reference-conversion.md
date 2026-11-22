@@ -1,7 +1,6 @@
 
 
 # Conversion functions
-<a name="s3-select-sql-reference-conversion"></a>
 
 **Important**  
 Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
@@ -19,7 +18,7 @@ The `CAST` function converts an entity, such as an expression that evaluates to 
 ### Syntax
 <a name="s3-select-sql-reference-cast-syntax"></a>
 
-```
+```sql
 CAST ( {{expression}} AS {{data_type}} )
 ```
 
@@ -35,7 +34,7 @@ The target data type, such as `INT`, to cast the expression to. For a list of su
 ### Examples
 <a name="s3-select-sql-reference-cast-examples"></a>
 
-```
+```sql
 CAST('2007-04-05T14:30Z' AS TIMESTAMP)
 CAST(0.456 AS FLOAT)
 ```

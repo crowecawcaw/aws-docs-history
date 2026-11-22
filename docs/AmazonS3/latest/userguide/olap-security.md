@@ -1,7 +1,6 @@
 
 
 # Security considerations for S3 Object Lambda Access Points
-<a name="olap-security"></a>
 
 **Note**  
 As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).

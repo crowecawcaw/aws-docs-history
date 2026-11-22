@@ -1,7 +1,6 @@
 
 
 # Creating access points for directory buckets with tags
-<a name="access-points-db-create-tag"></a>
 
 You can tag Amazon S3 Access Points for directory buckets when you create them. For additional information, see [Using tags with S3 Access Points for directory buckets](access-points-db-tagging.md).
 
@@ -82,7 +81,7 @@ When you create an access point for directory buckets you must provide configura
 
 **Request:**
 
-```
+```bash
 aws s3control create-access-point \
 --account-id {{111122223333}} \ 
 --name {{{{my-access-point}}}} \

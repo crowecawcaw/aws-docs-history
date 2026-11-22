@@ -1,7 +1,6 @@
 
 
 # Create one-way replication rules for your Multi-Region Access Point
-<a name="mrap-create-one-way-replication-rules"></a>
 
 Replication rules enable automatic and asynchronous copying of objects across buckets. A one-way replication rule helps ensure that data is fully replicated from a source bucket in one AWS Region to a destination bucket in another Region. When one-way replication is set up, a replication rule from the source bucket ({{amzn-s3-demo-bucket}}) to the destination bucket ({{amzn-s3-demo-bucket}}) is created. Like all replication rules, you can apply the one-way replication rule to the entire Amazon S3 bucket or to a subset of objects that are filtered by a prefix or object tags.
 

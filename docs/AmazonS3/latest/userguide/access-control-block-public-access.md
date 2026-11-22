@@ -1,7 +1,6 @@
 
 
 # Blocking public access to your Amazon S3 storage
-<a name="access-control-block-public-access"></a>
 
 The Amazon S3 Block Public Access feature provides settings for access points, buckets, accounts, and AWS Organizations to help you manage public access to Amazon S3 resources. By default, new buckets, access points, and objects don't allow public access. However, users can modify bucket policies, access point policies, or object permissions to allow public access. S3 Block Public Access settings override these policies and permissions so that you can limit public access to these resources. 
 
@@ -112,7 +111,7 @@ When using [multivalued context keys](https://docs.aws.amazon.com/IAM/latest/Use
 **Example : Public bucket policies**  
 Under these rules, the following example policies are considered public.  
 
-```
+```json
 {
 		"Principal": "*", 
 		"Resource": "*", 
@@ -121,7 +120,7 @@ Under these rules, the following example policies are considered public.
 	}
 ```
 
-```
+```json
 {
 		"Principal": "*", 
 		"Resource": "*", 
@@ -132,7 +131,7 @@ Under these rules, the following example policies are considered public.
 ```
 You can make these policies non-public by including any of the condition keys listed previously, using a fixed value. For example, you can make the last policy preceding non-public by setting `aws:SourceVpc` to a fixed value, like the following.  
 
-```
+```json
 {
 		"Principal": "*", 
 		"Resource": "*", 

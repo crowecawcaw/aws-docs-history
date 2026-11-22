@@ -1,7 +1,6 @@
 
 
 # Retrieving the metadata of an object version
-<a name="RetMetaOfObjVersion"></a>
 
 If you only want to retrieve the metadata of an object (and not its content), you use the `HEAD` operation. By default, you get the metadata of the most recent version. To retrieve the metadata of a specific object version, you specify its version ID.
 
@@ -14,7 +13,7 @@ If you only want to retrieve the metadata of an object (and not its content), yo
 **Example — Retrieving the metadata of a versioned object**  
 The following request retrieves the metadata of version `3HL4kqCxf3vjVBH40Nrjfkd` of `my-image.jpg`.  
 
-```
+```http
 1. HEAD /my-image.jpg?versionId=3HL4kqCxf3vjVBH40Nrjfkd HTTP/1.1
 2. Host: bucket.s3.amazonaws.com
 3. Date: Wed, 28 Oct 2009 22:32:00 GMT
@@ -23,7 +22,7 @@ The following request retrieves the metadata of version `3HL4kqCxf3vjVBH40Nrjfkd
 
 The following shows a sample response.
 
-```
+```http
  1. HTTP/1.1 200 OK
  2. x-amz-id-2: ef8yU9AS1ed4OpIszj7UDNEHGran
  3. x-amz-request-id: 318BC8BC143432E5

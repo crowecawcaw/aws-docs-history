@@ -1,7 +1,6 @@
 
 
 # Working with directory buckets
-<a name="directory-buckets-overview"></a>
 
 Directory buckets organize data hierarchically into directories as opposed to the flat storage structure of general purpose buckets. There aren't prefix limits for directory buckets, and individual directories can scale horizontally.
 

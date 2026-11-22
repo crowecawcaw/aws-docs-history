@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon S3 Tables with AWS analytics services
-<a name="s3-tables-integrating-aws"></a>
 
 This topic covers the prerequisites and procedures needed to integrate your Amazon S3 table buckets with AWS analytics services. For an overview of how the integration works, see [S3 Tables integration overview](s3-tables-integration-overview.md).
 
@@ -21,7 +20,7 @@ The following prerequisites are required to integrate table buckets with AWS ana
 
 **Important**  
 When creating tables, make sure that you use all lowercase letters in your table names and table definitions. For example, make sure that your column names are all lowercase. If your table name or table definition contains capital letters, the table isn't supported by AWS Lake Formation or the AWS Glue Data Catalog. In this case, your table won't be visible to AWS analytics services such as Amazon Athena, even if your table buckets are integrated with AWS analytics services.   
-If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: "GENERIC\_INTERNAL\_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."
+If your table definition contains capital letters, you receive the following error message when running a `SELECT` query in Athena: `"GENERIC_INTERNAL_ERROR: Get table request failed: com.amazonaws.services.glue.model.ValidationException: Unsupported Federation Resource - Invalid table or column names."`
 
 ## Integrating table buckets with AWS analytics services
 <a name="table-integration-procedures"></a>
@@ -56,7 +55,7 @@ The following steps show how to use the AWS CLI to integrate table buckets. To u
 
 1. Create a table bucket.
 
-   ```
+   ```bash
    aws s3tables create-table-bucket \
    --region {{us-east-1}} \
    --name {{amzn-s3-demo-table-bucket}}
@@ -64,7 +63,7 @@ The following steps show how to use the AWS CLI to integrate table buckets. To u
 
 1. Create a file called `catalog.json` that contains the following catalog:
 
-   ```
+   ```json
    {
       "Name": "s3tablescatalog",
       "CatalogInput": {
@@ -95,7 +94,7 @@ The following steps show how to use the AWS CLI to integrate table buckets. To u
 
    Create the `s3tablescatalog` catalog by using the following command. Creating this catalog populates the AWS Glue Data Catalog with objects corresponding to table buckets, namespaces, and tables.
 
-   ```
+   ```bash
    aws glue create-catalog \
    --region {{us-east-1}} \
    --cli-input-json file://{{catalog.json}}
@@ -103,7 +102,7 @@ The following steps show how to use the AWS CLI to integrate table buckets. To u
 
 1. Verify that the `s3tablescatalog` catalog was added in AWS Glue by using the following command:
 
-   ```
+   ```bash
    aws glue get-catalog --catalog-id s3tablescatalog
    ```
 

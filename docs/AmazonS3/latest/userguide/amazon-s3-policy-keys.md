@@ -1,7 +1,6 @@
 
 
 # Bucket policy examples using condition keys
-<a name="amazon-s3-policy-keys"></a>
 
 You can use access policy language to specify conditions when you grant permissions. You can use the optional `Condition` element, or `Condition` block, to specify conditions for when a policy is in effect. 
 
@@ -45,7 +44,7 @@ Suppose that Account A owns a bucket. The account administrator wants to grant J
 
 When testing this permission by using the AWS CLI, you must add the required encryption by using the `--server-side-encryption` parameter, as shown in the following example. To use this example command, replace the `{{user input placeholders}}` with your own information. 
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{HappyFace.jpg}} --body {{c:\HappyFace.jpg}} --server-side-encryption "{{AES256}}" --profile {{AccountAadmin}}
 ```
 
@@ -64,7 +63,7 @@ The following bucket policy grants a user (`{{Dave}}`) the `s3:PutObject` permis
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -100,7 +99,7 @@ The following bucket policy grants a user (`{{Dave}}`) the `s3:PutObject` permis
 **Test the policy with the AWS CLI**  
 You can test the permission using the AWS CLI `copy-object` command. You specify the source by adding the `--copy-source` parameter; the key name prefix must match the prefix allowed in the policy. You need to provide the user Dave credentials using the `--profile` parameter. For more information about setting up the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](https://docs.aws.amazon.com/AmazonS3/latest/API/setup-aws-cli.html) in the *Amazon S3 API Reference*.
 
-```
+```bash
 aws s3api copy-object --bucket {{{{amzn-s3-demo-source-bucket}}}} --key {{HappyFace.jpg}} 
 --copy-source {{{{amzn-s3-demo-source-bucket}}}}{{/public/PublicHappyFace1.jpg}} --profile {{AccountADave}}
 ```
@@ -128,7 +127,7 @@ For more information, see [GetObject](https://docs.aws.amazon.com/AmazonS3/lates
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ For more information, see [GetObject](https://docs.aws.amazon.com/AmazonS3/lates
 **Test the policy with the AWS CLI**  
 You can test the permissions in this policy by using the AWS CLI `get-object` command with the `--version-id` parameter to identify the specific object version to retrieve. The command retrieves the specified version of the object and saves it to the `{{OutputFile.jpg}}` file.
 
-```
+```bash
 aws s3api get-object --bucket {{{{amzn-s3-demo-bucket}}}} --key {{HappyFace.jpg}} {{OutputFile.jpg}} --version-id {{AaaHbAQitwiL_h47_44lRO2DDfLlBO5e}} --profile {{AccountADave}}
 ```
 
@@ -193,7 +192,7 @@ You can use the `s3:TlsVersion` condition key to write IAM, virtual private clou
 **Note**  
 When AWS services make calls to other AWS services on your behalf (service-to-service calls), certain network-specific authorization context is redacted, including `s3:TlsVersion`, `aws:SecureTransport`, `aws:SourceIp`, and `aws:VpcSourceIp`. If your policy uses these condition keys with `Deny` statements, AWS service principals might be unintentionally blocked. To allow AWS services to work properly while maintaining your security requirements, exclude service principals from your `Deny` statements by adding the `aws:PrincipalIsAWSService` condition key with a value of `false`. For example:  
 
-```
+```json
 {
   "Effect": "Deny",
   "Action": "s3:*",
@@ -212,7 +211,7 @@ This policy denies access to S3 operations when HTTPS is not used (`aws:SecureTr
 The following example bucket policy *denies* `PutObject` requests by clients that have a TLS version earlier than 1.2, for example, 1.1 or 1.0. To use this example policy, replace the `{{user input placeholders}}` with your own information.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -238,7 +237,7 @@ The following example bucket policy *denies* `PutObject` requests by clients tha
 The following example bucket policy *allows* `PutObject` requests by clients that have a TLS version later than 1.1, for example, 1.2, 1.3, or later:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -270,7 +269,7 @@ The following bucket policy denies `s3:GetObject` access to the `{{amzn-s3-demo-
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -313,7 +312,7 @@ The following bucket policy grants the `s3user` user permission to list only the
 **Note**  
 You can't use `s3:annotation-prefix` with `PutObjectAnnotation`, `GetObjectAnnotation`, or `DeleteObjectAnnotation`. If a policy statement combines this condition key with those actions, IAM rejects the policy with the error `Conditions do not apply to combination of actions and resources in statement`.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -342,7 +341,7 @@ You can't use `s3:annotation-prefix` with `PutObjectAnnotation`, `GetObjectAnnot
 
 The following bucket policy denies `PutObjectAnnotation` and `DeleteObjectAnnotation` requests unless the caller includes the `x-amz-object-if-match` conditional header. This enforces optimistic concurrency control for all annotation writes on the bucket.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -370,7 +369,7 @@ The following bucket policy denies `PutObjectAnnotation` and `DeleteObjectAnnota
 
 The following bucket policy limits the `max-annotation-results` parameter to 100 or fewer for all `ListObjectAnnotations` requests. This prevents callers from requesting excessively large result sets.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -413,7 +412,7 @@ The `IPAddress` and `NotIpAddress` key values specified in the `Condition` block
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "S3PolicyId1",
@@ -465,7 +464,7 @@ The following user policy grants the `s3:ListBucket` permission (see [ListObject
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -507,7 +506,7 @@ If you add the `Principal` element to the above user policy, identifying the use
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -548,7 +547,7 @@ If you add the `Principal` element to the above user policy, identifying the use
 **Test the policy with the AWS CLI**  
 You can test the policy using the following `list-object` AWS CLI command. In the command, you provide user credentials using the `--profile` parameter. For more information about setting up and using the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](https://docs.aws.amazon.com/AmazonS3/latest/API/setup-aws-cli.html) in the *Amazon S3 API Reference*.
 
-```
+```bash
 aws s3api list-objects --bucket {{{{amzn-s3-demo-bucket}}}} --prefix {{projects}} --profile {{AccountA}}
 ```
 

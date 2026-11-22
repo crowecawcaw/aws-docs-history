@@ -1,7 +1,6 @@
 
 
 # Monitoring metrics with Amazon CloudWatch
-<a name="cloudwatch-monitoring"></a>
 
 Amazon CloudWatch metrics for Amazon S3 can help you understand and improve the performance of applications that use Amazon S3. There are several ways that you can use CloudWatch with Amazon S3.
 

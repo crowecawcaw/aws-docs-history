@@ -1,7 +1,6 @@
 
 
 # Querying metadata tables with AWS analytics services
-<a name="metadata-tables-bucket-integration"></a>
 
 You can query your S3 managed metadata tables with AWS analytics services such as Amazon Athena, Amazon Redshift, and Amazon EMR.
 
@@ -43,9 +42,9 @@ If you don't see these values in the **Catalog** and **Database** fields, make s
 
 1. To run the query, choose **Run**.
 **Note**  
-If you receive the error "Insufficient permissions to execute the query. Principal does not have any privilege on specified resource" when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table).  
+If you receive the error `"Insufficient permissions to execute the query. Principal does not have any privilege on specified resource"` when you try to run a query in Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table).  
 Also make sure that you have the appropriate AWS Identity and Access Management (IAM) permissions to query metadata tables. For more information, see [Permissions for querying metadata tables](metadata-tables-bucket-query-permissions.md).
-If you receive the error "Iceberg cannot access the requested resource" when you try to run the query, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
+If you receive the error `"Iceberg cannot access the requested resource"` when you try to run the query, go to the AWS Lake Formation console and make sure that you've granted yourself permissions on the table bucket catalog and database (namespace) that you created. Don't specify a table when granting these permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table). 
 
 ## Querying metadata tables with Amazon Redshift
 <a name="metadata-tables-bucket-integration-redshift"></a>

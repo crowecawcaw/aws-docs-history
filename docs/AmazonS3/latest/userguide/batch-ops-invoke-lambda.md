@@ -1,7 +1,6 @@
 
 
 # Invoke AWS Lambda function
-<a name="batch-ops-invoke-lambda"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. The **Invoke AWS Lambda function** Batch Operations operation initiates AWS Lambda functions to perform custom actions on objects that are listed in a manifest. This section describes how to create a Lambda function to use with S3 Batch Operations and how to create a job to invoke the function. The S3 Batch Operations job uses the `LambdaInvoke` operation to run a Lambda function on every object listed in a manifest.
 
@@ -67,7 +66,7 @@ The following are examples of the IAM permissions that are necessary to use a La
 The following is an example of the trust policy that you can use for the Batch Operations IAM role. This IAM role is specified when you create the job and gives Batch Operations permission to assume the IAM role.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ The following is an example of the trust policy that you can use for the Batch O
 The following is an example of an IAM policy that gives S3 Batch Operations permission to invoke the Lambda function and read the input manifest.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ This section provides request and response examples for the Lambda function.
 **Example Request**  
 The following is a JSON example of a request for the Lambda function.  
 
-```
+```json
 {
     "invocationSchemaVersion": "1.0",
     "invocationId": "YXNkbGZqYWRmaiBhc2RmdW9hZHNmZGpmaGFzbGtkaGZza2RmaAo",
@@ -134,7 +133,7 @@ The following is a JSON example of a request for the Lambda function.
 **Example Response**  
 The following is a JSON example of a response for the Lambda function.  
 
-```
+```json
 {
   "invocationSchemaVersion": "1.0",
   "treatMissingKeysAs" : "PermanentFailure",
@@ -156,7 +155,7 @@ The following example Python Lambda removes a delete marker from a versioned obj
 
 As the example shows, keys from S3 Batch Operations are URL encoded. To use Amazon S3 with other AWS services, it's important that you URL decode the key that is passed from S3 Batch Operations.
 
-```
+```python
 import logging
 from urllib import parse
 import boto3
@@ -279,7 +278,7 @@ For more information about creating an S3 Batch Operations job, see [Creating an
 
 The following example creates an S3 Batch Operations job that invokes a Lambda function by using the AWS CLI. To use this example, replace the {{`user input placeholders`}} with your own information.
 
-```
+```bash
 aws s3control create-job
     --account-id {{account-id}}
     --operation  '{"LambdaInvoke": { "FunctionArn": "arn:aws:lambda:{{region}}:{{account-id}}:function:{{LambdaFunctionName}}" } }'
@@ -304,7 +303,7 @@ The maximum number of characters for the `key` field in the manifest is 1,024.
 **Example — Manifest substituting the "Amazon S3 keys" with JSON strings**  
 The URL-encoded version must be provided to S3 Batch Operations.  
 
-```
+```python
 {{amzn-s3-demo-bucket}},{"origKey": "{{object1key}}", "newKey": "{{newObject1Key}}"}
 {{amzn-s3-demo-bucket}},{"origKey": "{{object2key}}", "newKey": "{{newObject2Key}}"}
 {{amzn-s3-demo-bucket}},{"origKey": "{{object3key}}", "newKey": "{{newObject3Key}}"}
@@ -313,7 +312,7 @@ The URL-encoded version must be provided to S3 Batch Operations.
 **Example — Manifest URL-encoded**  
 This URL-encoded version must be provided to S3 Batch Operations. The non-URL-encoded version does not work.  
 
-```
+```python
 {{amzn-s3-demo-bucket}},%7B%22origKey%22%3A%20%22{{object1key}}%22%2C%20%22newKey%22%3A%20%22{{newObject1Key}}%22%7D
 {{amzn-s3-demo-bucket}},%7B%22origKey%22%3A%20%22{{object2key}}%22%2C%20%22newKey%22%3A%20%22{{newObject2Key}}%22%7D
 {{amzn-s3-demo-bucket}},%7B%22origKey%22%3A%20%22{{object3key}}%22%2C%20%22newKey%22%3A%20%22{{newObject3Key}}%22%7D
@@ -322,7 +321,7 @@ This URL-encoded version must be provided to S3 Batch Operations. The non-URL-en
 **Example — Lambda function with manifest format writing results to the job report**  
 This URL-encoded manifest example contains pipe-delimited object keys for the following Lambda function to parse.  
 
-```
+```python
 {{amzn-s3-demo-bucket}},{{object1key}}%7Clower
 {{amzn-s3-demo-bucket}},{{object2key}}%7Cupper
 {{amzn-s3-demo-bucket}},{{object3key}}%7Creverse
@@ -330,7 +329,7 @@ This URL-encoded manifest example contains pipe-delimited object keys for the fo
 ```
 This Lambda function shows how to parse a pipe-delimited task that's encoded into the S3 Batch Operations manifest. The task indicates which revision operation is applied to the specified object.  
 
-```
+```python
 import logging
 from urllib import parse
 import boto3

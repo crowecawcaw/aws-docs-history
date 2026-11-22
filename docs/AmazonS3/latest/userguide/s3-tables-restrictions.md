@@ -1,7 +1,6 @@
 
 
 # Security considerations and limitations for S3 Tables
-<a name="s3-tables-restrictions"></a>
 
 The following list describes which security and access control features and functionality are unsupported or limited for S3 Tables.
 + Public access policies are not supported. Users can't modify bucket or table policies to allow public access.

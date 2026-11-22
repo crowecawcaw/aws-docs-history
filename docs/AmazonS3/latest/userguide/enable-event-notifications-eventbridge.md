@@ -1,7 +1,6 @@
 
 
 # Enabling Amazon EventBridge
-<a name="enable-event-notifications-eventbridge"></a>
 
 You can enable Amazon EventBridge by using the S3 console, AWS Command Line Interface (AWS CLI), or Amazon S3 REST API. 
 
@@ -41,7 +40,7 @@ You can programmatically enable Amazon EventBridge on a bucket by calling the Am
 
 The following example shows the XML used to create a bucket notification configuration with Amazon EventBridge enabled.
 
-```
+```xml
 <NotificationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
   <EventBridgeConfiguration>
   </EventBridgeConfiguration>

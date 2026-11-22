@@ -1,7 +1,6 @@
 
 
 # Create an Amazon S3 Multi-Region Access Point
-<a name="multi-region-access-point-create-examples"></a>
 
 The following example demonstrates how to create a Multi-Region Access Point by using the Amazon S3 console.
 
@@ -51,7 +50,7 @@ You can use the AWS CLI to create a Multi-Region Access Point. When you create t
 **Note**  
 To create a Multi-Region Access Point using buckets in an opt-in Region, make sure to [enable all opt-in Regions](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) first. Otherwise, you’ll get a `403 InvalidRegion` error when you try to create a Multi-Region Access Point using buckets for an opt-in Region that you haven’t actually opted in to.
 
-```
+```bash
 aws s3control create-multi-region-access-point --account-id {{111122223333}} --details '{
         "Name": "{{simple-multiregionaccesspoint-with-two-regions}}",
         "PublicAccessBlock": {

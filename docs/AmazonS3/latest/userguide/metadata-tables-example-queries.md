@@ -1,7 +1,6 @@
 
 
 # Example metadata table queries
-<a name="metadata-tables-example-queries"></a>
 
 The following examples show how you can get different types information from your S3 Metadata tables by using standard SQL queries.
 
@@ -45,7 +44,7 @@ You can use the following example queries to query your journal tables.
 
 The following query returns objects with a specific file extension (`.jpg` in this case):
 
-```
+```sql
 SELECT key FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE key LIKE '%.jpg'
 AND record_type = 'CREATE'
@@ -56,7 +55,7 @@ AND record_type = 'CREATE'
 
 The following query returns object deletion events, including the AWS account ID or AWS service principal that made the request:
 
-```
+```sql
 SELECT DISTINCT bucket, key, sequence_number, record_type, record_timestamp, requester, source_ip_address, version_id
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE record_type = 'DELETE';
@@ -67,7 +66,7 @@ WHERE record_type = 'DELETE';
 
 The following query returns the ARNs of the AWS Key Management Service (AWS KMS) keys encrypting your objects:
 
-```
+```sql
 SELECT DISTINCT kms_key_arn
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal";
 ```
@@ -77,7 +76,7 @@ FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal";
 
 The following query returns objects that aren't encrypted with AWS KMS keys:
 
-```
+```sql
 SELECT DISTINCT kms_key_arn
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE encryption_status NOT IN ('SSE-KMS', 'DSSE-KMS')
@@ -89,7 +88,7 @@ AND record_type = 'CREATE';
 
 The following query returns the ARNs of the AWS Key Management Service (AWS KMS) keys encrypting your objects:
 
-```
+```sql
 SELECT DISTINCT kms_key_arn 
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE record_timestamp > (current_date - interval '7' day)
@@ -101,7 +100,7 @@ AND kms_key_arn is NOT NULL;
 
 The following query returns lists the objects expired in the last day by S3 Lifecycle:
 
-```
+```sql
 SELECT bucket, key, version_id, last_modified_date, record_timestamp, requester
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE requester = 's3.amazonaws.com'
@@ -114,7 +113,7 @@ AND record_timestamp > (current_date - interval '1' day)
 
 Some AWS services (such as [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)), upload objects to Amazon S3. You can query the object metadata provided by these services. For example, the following query includes the `user_metadata` column to determine if there are objects uploaded by Amazon Bedrock to a general purpose bucket:
 
-```
+```sql
 SELECT DISTINCT bucket, key, sequence_number, record_type, record_timestamp, user_metadata
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
 WHERE record_type = 'CREATE'
@@ -123,7 +122,7 @@ AND user_metadata['content-source'] = 'AmazonBedrock';
 
 If Amazon Bedrock uploaded an object to your bucket, the `user_metadata` column will display the following metadata associated with the object in the query result:
 
-```
+```sql
 user_metadata
 {content-additional-params -> requestid="CVK8FWYRW0M9JW65", signedContentSHA384="38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b", content-model-id -> bedrock-model-arn, content-source -> AmazonBedrock}
 ```
@@ -133,7 +132,7 @@ user_metadata
 
 The following query can help you determine the current state of your objects. The query identifies the most recent version of each object, filters out deleted objects, and marks the latest version of each object based on sequence numbers. Results are ordered by the `bucket`, `key`, and `sequence_number` columns.
 
-```
+```sql
 WITH records_of_interest as (
    -- Start with a query that can narrow down the records of interest.
     SELECT * from "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."journal"
@@ -189,7 +188,7 @@ You can use the following example queries to query your inventory tables.
 
 The following query returns the dataset that uses the specified tags:
 
-```
+```sql
 SELECT * 
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."inventory"
 WHERE object_tags['key1'] = 'value1'
@@ -201,7 +200,7 @@ AND object_tags['key2'] = 'value2';
 
 The following query returns objects that aren't encrypted with SSE-KMS:
 
-```
+```sql
 SELECT key, encryption_status 
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."inventory"
 WHERE encryption_status != 'SSE-KMS';
@@ -212,7 +211,7 @@ WHERE encryption_status != 'SSE-KMS';
 
 The following query returns objects that aren't encrypted:
 
-```
+```sql
 SELECT bucket, key, version_id  
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."inventory"
 WHERE encryption_status IS NULL;
@@ -223,7 +222,7 @@ WHERE encryption_status IS NULL;
 
 The following query lists objects that were generated by Amazon Bedrock:
 
-```
+```sql
 SELECT DISTINCT bucket, key, sequence_number, user_metadata
 FROM "s3tablescatalog/aws-s3"."b_{{general-purpose-bucket-name}}"."inventory"
 WHERE user_metadata['content-source'] = 'AmazonBedrock';
@@ -245,7 +244,7 @@ This example query applies the following simplifications to the list results (co
 
 To run this query in Amazon Athena, make sure to select the `s3tablescatalog/aws-s3` catalog and the `b_{{general-purpose-bucket-name}}` database for the general purpose bucket metadata configuration that contains your journal and inventory tables.
 
-```
+```sql
 WITH inventory_time_cte AS (
     SELECT COALESCE(inventory_time_from_property, inventory_time_default) AS inventory_time FROM
     (
@@ -339,7 +338,7 @@ To use this query, replace `{{amzn-s3-demo-table-bucket}}` with the name of the 
 
 To run this query in Amazon Athena, make sure to select the `s3tablescatalog/aws-s3` catalog and the `b_{{general-purpose-bucket-name}}` database for the general purpose bucket metadata configuration that contains your inventory table. 
 
-```
+```sql
 -- If you don't want to output the results to a new table, remove the following two lines 
 -- (everything before the WITH clause). 
 CREATE TABLE "s3tablescatalog/{{amzn-s3-demo-table-bucket}}"."{{existing_namespace}}"."{{new_table}}" 
@@ -398,7 +397,7 @@ If you have enabled an annotation table in your S3 Metadata configuration, you c
 
 The following query returns all annotations for a specific object:
 
-```
+```sql
 SELECT name, size, last_modified_date, replication_status
 FROM "s3tablescatalog/aws-s3"."b_{{amzn-s3-demo-bucket}}"."annotation"
 WHERE object_key = '{{documents/report.pdf}}'
@@ -410,7 +409,7 @@ ORDER BY name
 
 The following query returns all objects that have a specific annotation:
 
-```
+```sql
 SELECT object_key, object_version_id, size, last_modified_date
 FROM "s3tablescatalog/aws-s3"."b_{{amzn-s3-demo-bucket}}"."annotation"
 WHERE name = '{{classification}}'
@@ -422,7 +421,7 @@ ORDER BY last_modified_date DESC
 
 The following query joins the annotation table with the inventory table to combine annotation data with inventory metadata:
 
-```
+```sql
 SELECT i.key, i.storage_class, a.name, a.size, a.text_value
 FROM "s3tablescatalog/aws-s3"."b_{{amzn-s3-demo-bucket}}"."inventory" i
 JOIN "s3tablescatalog/aws-s3"."b_{{amzn-s3-demo-bucket}}"."annotation" a

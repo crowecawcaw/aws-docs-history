@@ -1,7 +1,6 @@
 
 
 # Working with Apache Iceberg V3
-<a name="working-with-apache-iceberg-v3"></a>
 
 Apache Iceberg Version 3 (V3) is the latest version of the Apache Iceberg table format specification, introducing advanced capabilities for building petabyte-scale data lakes with improved performance and reduced operational overhead. V3 addresses common performance bottlenecks encountered with Version 2 (V2), particularly around batch updates and compliance deletes.
 
@@ -78,7 +77,7 @@ To create a new Iceberg V3 table, set the format-version table property to 3.
 
 **Using Spark SQL:**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS myns.orders_v3 (  
     order_id bigint,  
     customer_id string,  
@@ -100,7 +99,7 @@ You can upgrade existing V2 tables to V3 atomically without rewriting data.
 
 **Using Spark SQL:**
 
-```
+```sql
 ALTER TABLE myns.existing_table  
 SET TBLPROPERTIES ('format-version' = '3')
 ```
@@ -123,7 +122,7 @@ To take advantage of Deletion Vectors for updates, deletes, and merges, configur
 
 **Using Spark SQL:**
 
-```
+```sql
 ALTER TABLE myns.orders_v3  
 SET TBLPROPERTIES ('format-version' = '3',  
                    'write.delete.mode' = 'merge-on-read',  
@@ -141,7 +140,7 @@ V3 automatically adds row-lineage metadata fields to track changes.
 
 **Using Spark SQL:**
 
-```
+```sql
 # Query with parameter value provided  
 last_processed_sequence = 47  
   
@@ -170,7 +169,7 @@ With the variant data type, you can write semi-structured data like JSON directl
 
 **Creating a table with a variant column using Spark SQL:**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS myns.events (
     event_id bigint,
     event_timestamp timestamp,
@@ -185,7 +184,7 @@ TBLPROPERTIES (
 
 **Inserting semi-structured data into the variant column:**
 
-```
+```sql
 INSERT INTO myns.events VALUES (
     1,
     current_timestamp(),
@@ -208,7 +207,7 @@ With S3 Tables, table maintenance for variant columns, including compaction, run
 
 **Creating a table with geospatial columns using Spark SQL:**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS myns.vehicle_telemetry (
     vehicle_id     string,
     event_time     timestamp,
@@ -222,7 +221,7 @@ TBLPROPERTIES ('format-version' = '3')
 
 **Inserting geospatial values:**
 
-```
+```sql
 INSERT INTO myns.vehicle_telemetry VALUES (
     'v-1024',
     TIMESTAMP '2026-09-18 14:22:31.123456',
@@ -234,7 +233,7 @@ INSERT INTO myns.vehicle_telemetry VALUES (
 
 **Filtering on location:**
 
-```
+```sql
 SELECT vehicle_id, event_time
 FROM myns.vehicle_telemetry
 WHERE ST_Intersects(
@@ -254,7 +253,7 @@ Geodesic spatial predicates over `geography` are engine-dependent. Spatial predi
 
 **Creating a table with a nanosecond timestamp column using Spark SQL:**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS myns.trades (
     trade_id     bigint,
     executed_at  timestamptz(9),
@@ -275,7 +274,7 @@ Reading or writing a nanosecond column with an engine that supports only microse
 
 **Adding a column with a default value using Spark SQL:**
 
-```
+```sql
 ALTER TABLE myns.orders
 ADD COLUMN currency string DEFAULT 'USD'
 ```
@@ -290,7 +289,7 @@ Columns of `unknown`, `variant`, `geometry`, and `geography` type must default t
 
 **Creating a table with an unknown column using Spark SQL:**
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS myns.staging_events (
     event_id   bigint,
     payload    string,
@@ -320,7 +319,7 @@ Consider upgrading to or starting with V3 when:
 <a name="optimizing-write-performance"></a>
 + Enable Deletion Vectors for update-heavy workloads:
 
-  ```
+  ```sql
   SET TBLPROPERTIES (  
   'write.delete.mode' = 'merge-on-read',  
   'write.update.mode' = 'merge-on-read',  
@@ -329,7 +328,7 @@ Consider upgrading to or starting with V3 when:
   ```
 + Configure appropriate file sizes:
 
-  ```
+  ```sql
   SET TBLPROPERTIES (  
   'write.target-file-size-bytes' = '536870912'  — 512 MB  
   )
@@ -407,7 +406,7 @@ Performance degradation after upgrade
 + Verify there are no compaction failures. See [Logging and monitoring for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-monitoring-overview.html) for more details.
 + Check if Deletion Vectors are enabled. Ensure the following properties are set:
 
-  ```
+  ```sql
   SET TBLPROPERTIES (  
   'write.delete.mode' = 'merge-on-read',  
   'write.update.mode' = 'merge-on-read',  
@@ -416,12 +415,12 @@ Performance degradation after upgrade
   ```
 + You can verify table properties with the following code:
 
-  ```
+  ```sql
   DESCRIBE FORMATTED myns.orders_v3
   ```
 + Review partition strategy. Over partitioning can lead to small files. Run the below query to get the average file size for your table:
 
-  ```
+  ```sql
   SELECT avg(file_size_in_bytes) as avg_file_size_bytes   
   FROM myns.orders_v3.files
   ```

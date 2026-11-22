@@ -1,7 +1,6 @@
 
 
 # Updating Storage Lens dashboard tags
-<a name="storage-lens-update-tags"></a>
 
 The following examples demonstrate how to update Storage Lens dashboard tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -45,7 +44,7 @@ The following AWS SDK for Java example updates the AWS resource tags on an exist
 
 **Example – Update tags on an existing Storage Lens dashboard configuration**  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

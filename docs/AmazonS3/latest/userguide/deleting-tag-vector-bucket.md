@@ -1,7 +1,6 @@
 
 
 # Deleting a tag from a vector bucket
-<a name="deleting-tag-vector-bucket"></a>
 
 You can remove tags from S3 vector buckets. An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 vector buckets. For more information about tagging vector buckets, see [Using tags with S3 vector buckets](s3-vectors-tags.md).
 
@@ -60,7 +59,7 @@ To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com
 
 The following CLI example shows you how to delete tags from a vector bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3vectors untag-resource \
 --resource-arn arn:aws:s3vectors:us-east-1:{{012345678900}}:bucket/{{acc-bucket}} \
 --tag-keys {{CostCenter}} {{Department}}

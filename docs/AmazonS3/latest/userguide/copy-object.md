@@ -1,7 +1,6 @@
 
 
 # Copying, moving, and renaming objects
-<a name="copy-object"></a>
 
 The `CopyObject` operation creates a copy of an object that's already stored in Amazon S3.
 
@@ -22,7 +21,7 @@ Copying or moving objects across AWS Regions incurs bandwidth charges. For more 
 
   When copying an object, you might decide to update some of the metadata values. For example, if your source object is configured to use S3 Standard storage, you might choose to use S3 Intelligent-Tiering for the object copy. You might also decide to alter some of the user-defined metadata values present on the source object. If you choose to update any of the object's user-configurable metadata (system or user-defined) during the copy, then you must explicitly specify all of the user-configurable metadata present on the source object in your request, even if you are changing only one of the metadata values.
 **Note**  
-When copying an object by using the Amazon S3 console, you might receive the error message "Copied metadata can't be verified." The console uses headers to retrieve and set metadata for your object. If your network or browser configuration modifies your network requests, this behavior might cause unintended metadata (such as modified `Cache-Control` headers) to be written to your copied object. Amazon S3 can't verify this unintended metadata.  
+When copying an object by using the Amazon S3 console, you might receive the error message `"Copied metadata can't be verified."` The console uses headers to retrieve and set metadata for your object. If your network or browser configuration modifies your network requests, this behavior might cause unintended metadata (such as modified `Cache-Control` headers) to be written to your copied object. Amazon S3 can't verify this unintended metadata.  
 To address this issue, check your network and browser configuration to make sure it doesn't modify headers, such as `Cache-Control`. For more information, see [The Shared Responsibility Model](https://docs.aws.amazon.com/whitepapers/latest/applying-security-practices-to-network-workload-for-csps/the-shared-responsibility-model.html).
 
   For more information about object metadata, see [Working with object metadata](UsingMetadata.md).
@@ -115,7 +114,7 @@ The following C\# example uses the high-level SDK for .NET to copy objects that 
 
 This example makes a copy of an object that is a maximum of 5 GB. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```csharp
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -184,7 +183,7 @@ The following PHP example illustrates the use of the `copyObject()` method to co
 | 1 | Create an instance of an Amazon S3 client by using the `Aws\S3\S3Client` class constructor. | 
 | 2 | To make multiple copies of an object, you run a batch of calls to the Amazon S3 client [getCommand()](https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.AwsClientInterface.html#_getCommand) method, which is inherited from the [Aws\\CommandInterface](https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.CommandInterface.html) class. You provide the `CopyObject` command as the first argument and an array containing the source bucket, source key name, target bucket, and target key name as the second argument.  | 
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\CommandPool;
@@ -235,7 +234,7 @@ try {
 ------
 #### [ Python ]
 
-```
+```python
 class ObjectWrapper:
     """Encapsulates S3 object actions."""
 
@@ -248,7 +247,7 @@ class ObjectWrapper:
         self.key = self.object.key
 ```
 
-```
+```python
     def copy(self, dest_object):
         """
         Copies the object to another bucket.
@@ -294,7 +293,7 @@ The following tasks guide you through using the Ruby classes to copy an object i
 
 The following Ruby code example demonstrates the preceding tasks by using the `#copy_object` method to copy an object from one bucket to another.
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 object actions.
@@ -348,7 +347,7 @@ This example describes how to copy an object by using the Amazon S3 REST API. Fo
 
 This example copies the `flotsam` object from the `{{amzn-s3-demo-bucket1}}` bucket to the `jetsam` object of the `{{amzn-s3-demo-bucket2}}` bucket, preserving its metadata.
 
-```
+```http
 1. PUT /jetsam HTTP/1.1
 2. Host: {{amzn-s3-demo-bucket2}}.s3.amazonaws.com
 3. x-amz-copy-source: /{{amzn-s3-demo-bucket1}}/flotsam
@@ -370,7 +369,7 @@ The signature was generated from the following information.
 
 Amazon S3 returns the following response that specifies the ETag of the object and when it was last modified.
 
-```
+```http
  1. HTTP/1.1 200 OK
  2. x-amz-id-2: Vyaxt7qEbzv34BnSu5hctyyNSlHTYZFMWK4FtzO+iX8JQNyaLdTshL0KxatbaOZt
  3. x-amz-request-id: 6B13C3C5B34AF333

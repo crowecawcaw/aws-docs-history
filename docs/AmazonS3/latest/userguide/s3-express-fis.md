@@ -1,7 +1,6 @@
 
 
 # Resilience testing in S3 Express One Zone
-<a name="s3-express-fis"></a>
 
 Amazon S3 Express One Zone storage class supports resilience testing with AWS Fault Injection Service (AWS FIS), a fully managed service for performing fault injection experiments on your AWS workloads. With AWS FIS, you can simulate connectivity disruptions to your directory buckets, causing Zonal (object level, or data plane) endpoint API operations to timeout as would occur during an Availability Zone disruption.
 

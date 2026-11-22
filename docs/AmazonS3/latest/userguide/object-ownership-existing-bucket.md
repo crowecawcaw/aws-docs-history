@@ -1,7 +1,6 @@
 
 
 # Setting Object Ownership on an existing bucket
-<a name="object-ownership-existing-bucket"></a>
 
 You can configure S3 Object Ownership on an existing S3 bucket. To apply Object Ownership when you create a bucket, see [Setting Object Ownership when you create a bucket](object-ownership-new-bucket.md).
 
@@ -55,7 +54,7 @@ To apply an Object Ownership setting for an existing bucket, use the `put-bucket
 
 This example applies the Bucket owner enforced setting for an existing bucket by using the AWS CLI:
 
-```
+```bash
 aws s3api put-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}} --ownership-controls="Rules=[{ObjectOwnership=BucketOwnerEnforced}]"
 ```
 
@@ -66,7 +65,7 @@ For information about `put-bucket-ownership-controls`, see [put-bucket-ownership
 
 This example applies the `BucketOwnerEnforced` setting for Object Ownership on an existing bucket by using the AWS SDK for Java:
 
-```
+```java
          // Build the ObjectOwnership for BucketOwnerEnforced
          OwnershipControlsRule rule = OwnershipControlsRule.builder()
                 .objectOwnership(ObjectOwnership.BucketOwnerEnforced)

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with S3 Files
-<a name="s3-files-getting-started"></a>
 
 In this tutorial, you create an S3 file system and mount it on an EC2 instance. You then test basic file operations. You can use either the S3 console or the AWS CLI to get started with S3 Files.
 
@@ -68,7 +67,7 @@ Before getting started, make sure you have the following:
 
 [Connect to your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect.html). Run the `create-file-system` command to create a file system.
 
-```
+```bash
 aws s3files create-file-system --region {{aws-region}} --bucket {{bucket-arn}} --role-arn {{iam-role}}
 ```
 
@@ -86,7 +85,7 @@ A mount target provides network access to your file system in your VPC within a 
 
 Run the following `create-mount-target` command to create a mount target for your file system. You must make sure the {{subnet-id}} is in the same VPC as your EC2 instance. You must create your mount target in the same Availability Zone as your EC2 instance.
 
-```
+```bash
 aws s3files create-mount-target --region {{aws-region}} --file-system-id {{file-system-id}} --subnet-id {{subnet-id}}
 ```
 
@@ -100,18 +99,18 @@ Before mounting your file system, make sure you have configured the right [Secur
 Run the following commands to mount your file system:
 + Create a directory `/mnt/s3files` that you will use as the file system mount point using the following command:
 
-  ```
+  ```bash
   sudo mkdir /mnt/s3files
   ```
 + Mount the file system:
 
-  ```
+  ```bash
   sudo mount -t s3files {{file-system-id}}:/ /mnt/s3files
   ```
 
 If you don't have your file system ID, you can find it by running the following:
 
-```
+```bash
 aws s3files get-file-system --region {{aws-region}} --file-system-id {{file-system-id}}
 ```
 
@@ -121,33 +120,33 @@ aws s3files get-file-system --region {{aws-region}} --file-system-id {{file-syst
 Test basic file operations on your mounted file system as follows:
 + Change to the directory you mounted:
 
-  ```
+  ```bash
   cd /mnt/s3files
   ```
 + You can list the contents of your directory to check that the contents of your source bucket or prefix got imported. Synchronization typically occurs within seconds, but may take longer, especially for the first file. If your bucket is empty, the command below will also return an empty result.
 
-  ```
+  ```bash
   ls
   ```
 + You can also test other file operations:
   + Create a file:
 
-    ```
+    ```bash
     echo "Hello, S3 Files!" > test.txt
     ```
   + Read the file:
 
-    ```
+    ```bash
     cat test.txt
     ```
   + Create a directory:
 
-    ```
+    ```bash
     mkdir test-directory
     ```
   + Copy the file to the directory:
 
-    ```
+    ```bash
     cp /mnt/s3files/test.txt /mnt/s3files/test-directory/
     ```
 

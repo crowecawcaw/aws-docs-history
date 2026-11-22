@@ -1,7 +1,6 @@
 
 
 # Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)
-<a name="replication-config-for-kms-objects"></a>
 
 **Important**  
 Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3. Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance. The automatic encryption status for S3 bucket default encryption configuration and for new object uploads is available in CloudTrail logs, S3 Inventory, S3 Storage Lens, the Amazon S3 console, and as an additional Amazon S3 API response header in the AWS CLI and AWS SDKs. For more information, see [Default encryption FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
@@ -19,7 +18,7 @@ This topic explains the permissions that you need to direct Amazon S3 to replica
 For an example with step-by-step instructions, see [Enabling replication for encrypted objects](#replication-walkthrough-4). For information about creating a replication configuration, see [Replicating objects within and across Regions](replication.md). 
 
 **Note**  
-You can use multi-Region AWS KMS keys in Amazon S3. However, Amazon S3 currently treats multi-Region keys as though they were single-Region keys, and does not use the multi-Region features of the key. For more information, see [ Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide*.
+You can use multi-Region AWS KMS keys with S3 Replication. With Multi-Region key resolution, Amazon S3 encrypts each replica with the related multi-Region key in the destination Region. For more information, see [Using Multi-Region key resolution](#replication-kms-multi-region-keys) and [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide*.
 
 **Topics**
 + [How default bucket encryption affects replication](#replication-default-encryption)
@@ -61,7 +60,7 @@ In the replication configuration, you do the following:
 
  
 
-```
+```xml
 <ReplicationConfiguration>
    <Rule>
       ...
@@ -88,7 +87,7 @@ The KMS key *must* be valid. The `PutBucketReplication` API operation doesn't ch
 
 The following example shows a replication configuration that includes optional configuration elements. This replication configuration has one rule. The rule applies to objects with the `{{Tax}}` key prefix. Amazon S3 uses the specified AWS KMS key ID to encrypt these object replicas.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ReplicationConfiguration>
    <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -117,6 +116,52 @@ The following example shows a replication configuration that includes optional c
 </ReplicationConfiguration>
 ```
 
+### Using Multi-Region key resolution
+<a name="replication-kms-multi-region-keys"></a>
+
+With Multi-Region key resolution, Amazon S3 encrypts the replica of an object that's encrypted with a multi-Region KMS key by using the related multi-Region key in the destination Region. You don't specify a destination key for these objects. As a result, one rule can replicate objects encrypted with many multi-Region keys. For example, a bucket might store data for many tenants, each encrypted with its own multi-Region key. One rule can replicate all of them, including tenants that you add later. For more information, see [Multi-Region keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide*.
+
+To turn on Multi-Region key resolution, first set `SseKmsEncryptedObjects` to `Enabled` in `SourceSelectionCriteria`. Then add `UseSourceMultiRegionKey` with `Status` set to `Enabled` to the `EncryptionConfiguration` element. To replicate objects encrypted with single-Region keys through the same rule, also add `ReplicaKmsKeyID`.
+
+The following example rule replicates objects with the `{{tenants/}}` prefix. It uses the related multi-Region key for objects encrypted with multi-Region keys, and the specified key for objects encrypted with single-Region keys.
+
+```xml
+<Rule>
+   <ID>{{Rule-1}}</ID>
+   <Priority>1</Priority>
+   <Status>Enabled</Status>
+   <DeleteMarkerReplication>
+      <Status>Disabled</Status>
+   </DeleteMarkerReplication>
+   <Filter>
+      <Prefix>{{tenants/}}</Prefix>
+   </Filter>
+   <SourceSelectionCriteria>
+      <SseKmsEncryptedObjects>
+         <Status>Enabled</Status>
+      </SseKmsEncryptedObjects>
+   </SourceSelectionCriteria>
+   <Destination>
+      <Bucket>arn:aws:s3:::{{{{amzn-s3-demo-destination-bucket}}}}</Bucket>
+      <EncryptionConfiguration>
+         <UseSourceMultiRegionKey>
+            <Status>Enabled</Status>
+         </UseSourceMultiRegionKey>
+         <ReplicaKmsKeyID>{{Optional: AWS KMS key ARN for objects encrypted with single-Region keys}}</ReplicaKmsKeyID>
+      </EncryptionConfiguration>
+   </Destination>
+</Rule>
+```
+
+The following table shows how Amazon S3 encrypts each replica when Multi-Region key resolution is turned on.
+
+
+| Source object | Replica | 
+| --- | --- | 
+| Encrypted with a multi-Region key | Encrypted with the related multi-Region key in the destination Region. If that key doesn't exist, is disabled, or is pending deletion, replication fails with DstKmsKeyNotFound or DstKmsKeyInvalidState. | 
+| Encrypted with a single-Region key | Encrypted with the key in ReplicaKmsKeyID. If the rule doesn't specify ReplicaKmsKeyID, replication fails with DstKmsKeyNotSpecified. | 
+| Encrypted with SSE-S3, or unencrypted | No change. For more information, see [How default bucket encryption affects replication](#replication-default-encryption). | 
+
 ### Granting additional permissions for the IAM role
 <a name="replication-kms-permissions"></a>
 
@@ -128,6 +173,8 @@ We recommend that you use the `s3:GetObjectVersionForReplication` action instead
   + You must grant `kms:Decrypt` permissions for the AWS KMS key that protects the source object.
   + You must grant `kms:Encrypt` permissions for the AWS KMS key that will protect the object replica.
 + **`kms:GenerateDataKey` action for replicating plaintext objects** – If you're replicating plaintext objects to a bucket with SSE-KMS or DSSE-KMS encryption enabled by default, you must include the `kms:GenerateDataKey` permission for the destination encryption context and the KMS key in the IAM policy.
+
+With Multi-Region key resolution, grant `kms:Decrypt` on the source multi-Region key in the source Region. Grant `kms:Encrypt` and `kms:GenerateDataKey` on the related multi-Region key in each destination Region. For cross-account replication, the destination account grants these permissions in the key policy.
 
 **Important**  
 If you use S3 Batch Replication to replicate datasets cross region and your objects previously had their server-side encryption type updated from SSE-S3 to SSE-KMS, you may need additional permissions. On the source region bucket, you must have `kms:decrypt` permissions. Then, you will need the `kms:decrypt` and `kms:encrypt` permissions for the bucket in the destination region. 
@@ -141,7 +188,7 @@ To use replication with an S3 Bucket Key, the AWS KMS key policy for the KMS key
 
 When an S3 Bucket Key is enabled for the source or destination bucket, the encryption context will be the bucket's Amazon Resource Name (ARN), not the object's ARN (for example, `arn:aws:s3:::{{bucket_ARN}}`). You must update your IAM policies to use the bucket ARN for the encryption context:
 
-```
+```JSON
 "kms:EncryptionContext:aws:s3:arn": [
 "arn:aws:s3:::{{bucket_ARN}}"
 ]
@@ -161,7 +208,7 @@ The following example policy shows statements for using SSE-KMS with separate de
 The following is a complete IAM policy that grants the necessary permissions to replicate unencrypted objects, objects created with SSE-S3, and objects created with SSE-KMS.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -235,7 +282,7 @@ The following is a complete IAM policy that grants the necessary permissions to 
 The following is a complete IAM policy that grants the necessary permissions to replicate objects with S3 Bucket Keys.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -311,7 +358,7 @@ The following is a complete IAM policy that grants the necessary permissions to 
 In a cross-account scenario, where the source and destination buckets are owned by different AWS accounts, you can use a KMS key to encrypt object replicas. However, the KMS key owner must grant the source bucket owner permission to use the KMS key. 
 
 **Note**  
-If you need to replicate SSE-KMS data cross-account, then your replication rule must specify a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) from AWS KMS for the destination account. [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) don't allow cross-account use, and therefore can't be used to perform cross-account replication.<a name="cross-acct-kms-key-permission"></a>
+If you need to replicate SSE-KMS data cross-account, then your replication rule must use a [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) from AWS KMS for the destination account. [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) don't allow cross-account use, and therefore can't be used to perform cross-account replication.<a name="cross-acct-kms-key-permission"></a>
 
 **To grant the source bucket owner permission to use the KMS key (AWS KMS console)**
 
@@ -354,7 +401,7 @@ By default, Amazon S3 doesn't replicate objects that are encrypted by using serv
 When an S3 Bucket Key is enabled for the source or destination bucket, the encryption context will be the bucket's Amazon Resource Name (ARN), not the object's ARN. You must update your IAM policies to use the bucket ARN for the encryption context. For more information, see [S3 Bucket Keys and replication](#bk-replication).
 
 **Note**  
-You can use multi-Region AWS KMS keys in Amazon S3. However, Amazon S3 currently treats multi-Region keys as though they were single-Region keys, and does not use the multi-Region features of the key. For more information, see [ Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *AWS Key Management Service Developer Guide*.
+To replicate objects encrypted with multi-Region AWS KMS keys without specifying a destination key for each key, see [Using Multi-Region key resolution](#replication-kms-multi-region-keys).
 
 ### Using the S3 console
 <a name="replication-ex4-console"></a>
@@ -431,7 +478,7 @@ To set up a replication configuration when both `{{amzn-s3-demo-source-bucket}}`
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -468,7 +515,7 @@ In the permissions policy, you specify the AWS KMS key IDs that will be used for
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -561,7 +608,7 @@ In the permissions policy, you specify the AWS KMS key IDs that will be used for
 **Important**  
 In the replication configuration, you specify the IAM role that Amazon S3 can assume. You can do this only if you have the `iam:PassRole` permission. The profile that you specify in the CLI command must have this permission. For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
 
-   ```
+   ```xml
     <ReplicationConfiguration>
      <Role>{{IAM-Role-ARN}}</Role>
      <Rule>
@@ -592,7 +639,7 @@ In the replication configuration, you specify the IAM role that Amazon S3 can as
 
    1. The AWS CLI requires you to specify the replication configuration as JSON. Save the following JSON in a file (`{{replication}}.json`) in the current directory on your local computer. 
 
-      ```
+      ```json
       {
          "Role":"{{IAM-Role-ARN}}",
          "Rules":[

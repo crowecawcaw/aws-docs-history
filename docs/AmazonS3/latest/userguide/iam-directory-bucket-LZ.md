@@ -1,7 +1,6 @@
 
 
 # Authenticating and authorizing for directory buckets in Local Zones
-<a name="iam-directory-bucket-LZ"></a>
 
 Directory buckets in Local Zones support both AWS Identity and Access Management (IAM) authorization and session-based authorization. For more information about authentication and authorization for directory buckets, see [Authenticating and authorizing requests](s3-express-authenticating-authorizing.md).
 
@@ -45,7 +44,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
 
 **Example – SCP policy**  
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -71,7 +70,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
 **Example – IAM identity-based policy (attached to IAM role)**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {
@@ -92,7 +91,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
 **Example – VPC endpoint policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -117,7 +116,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
 **Example – bucket policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Maintenance for table buckets
-<a name="s3-table-buckets-maintenance"></a>
 
 Amazon S3 offers maintenance operations to enhance the management and performance of your table buckets. The following option is enabled by default for all table buckets. You can edit or disable this option by specifying a maintenance configuration file for your table bucket.
 
@@ -32,7 +31,7 @@ You can only configure unreferenced file removal at the table bucket level. This
 **To configure unreferenced file removal by using the AWS CLI**  
 The following example will set the `unreferencedDays` to 4 days and the `nonCurrentDays` to 10 days using the `PutTableBucketMaintenanceConfiguration` API.  
 
-```
+```bash
 aws s3tables put-table-bucket-maintenance-configuration \
    --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
    --type icebergUnreferencedFileRemoval \

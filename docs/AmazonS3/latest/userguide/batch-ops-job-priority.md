@@ -1,7 +1,6 @@
 
 
 # Assigning job priority
-<a name="batch-ops-job-priority"></a>
 
 You can assign each Amazon S3 Batch Operations job a numeric priority, which can be any positive integer. S3 Batch Operations prioritizes jobs according to the assigned priority. Jobs with a higher priority (or a higher numeric value for the priority parameter) are evaluated first. Priority is determined in descending order. For example, a job queue with a priority value of 10 is given scheduling preference over a job queue with a priority value of 1. 
 
@@ -43,6 +42,6 @@ aws s3control update-job-priority \
 
 To update the priority of an S3 Batch Operations job using the AWS SDK for Java, you can use the S3Control client to modify the job's execution priority, which determines the order in which jobs are processed relative to other jobs in the queue.
 
-For more information about job priority, see [Assigning job priority](#batch-ops-job-priority).
+For more information about job priority, see [Assigning job priority](batch-ops-job-priority.md).
 
 For examples of how to update job priority with the AWS SDK for Java, see [Update the priority of a batch job](https://docs.aws.amazon.com/AmazonS3/latest/API/s3-control_example_s3-control_UpdateJobPriority_section.html) in the *Amazon S3 API Reference*.

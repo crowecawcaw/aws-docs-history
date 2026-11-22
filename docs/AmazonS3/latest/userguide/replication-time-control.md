@@ -1,7 +1,6 @@
 
 
 # Meeting compliance requirements with S3 Replication Time Control
-<a name="replication-time-control"></a>
 
 S3 Replication Time Control (S3 RTC) helps you meet compliance or business requirements for data replication and provides visibility into Amazon S3 replication times. S3 RTC replicates most objects that you upload to Amazon S3 in seconds, and 99.9 percent of those objects within 15 minutes. 
 
@@ -31,9 +30,9 @@ When replicating data in Amazon S3 with S3 Replication Time Control (S3 RTC) ena
 ### Amazon S3 Replication and request rate performance guidelines
 <a name="rtc-request-rate-performance"></a>
 
-When uploading and retrieving storage from Amazon S3, your applications can achieve thousands of transactions per second in request performance. For example, an application can achieve at least 3,500 `PUT`/`COPY`/`POST`/`DELETE` or 5,500 `GET`/`HEAD` requests per second per prefix in an S3 bucket, including the requests that S3 Replication makes on your behalf. There are no limits to the number of prefixes in a bucket. You can increase your read or write performance by parallelizing reads. For example, if you create 10 prefixes in an S3 bucket to parallelize reads, you can scale your read performance to 55,000 read requests per second. 
+When uploading and retrieving storage from Amazon S3, your applications can achieve thousands of transactions per second in request performance. Amazon S3 supports at least 3,500 `PUT`/`COPY`/`POST`/`DELETE` or 11,000 `GET`/`HEAD` requests per second per partitioned prefix and automatically scales to higher request rates as your traffic grows. The requests that S3 Replication makes on your behalf count toward this request rate, along with requests from other applications that read or write the same objects. 
 
-Amazon S3 automatically scales in response to sustained request rates above these guidelines, or sustained request rates concurrent with `LIST` requests. While Amazon S3 is internally optimizing for the new request rate, you might receive HTTP 503 request responses temporarily until the optimization is complete. This behavior might occur with increases in request per second rates, or when you first enable S3 RTC. During these periods, your replication latency might increase. The S3 RTC service level agreement (SLA) doesn't apply to time periods when Amazon S3 performance guidelines on requests per second are exceeded. 
+Amazon S3 automatically scales in response to sustained request rates above these guidelines, or sustained request rates concurrent with `LIST` requests. While Amazon S3 is internally optimizing for the new request rate, you might receive HTTP 503 request responses temporarily until the optimization is complete. This behavior might occur with increases in request per second rates, or when you first enable S3 RTC. During these periods, your replication latency might increase. The S3 RTC service level agreement (SLA) doesn't apply to time periods when Amazon S3 performance guidelines on requests per second are exceeded. To distribute requests across many prefixes and get the highest request rates, see [Best practices design patterns: optimizing Amazon S3 performance](optimizing-performance.md). 
 
 The S3 RTC SLA also doesn't apply during time periods where your replication data transfer rate exceeds the default 1 gigabit per second (Gbps) quota. If you expect your replication transfer rate to exceed 1 Gbps, you can contact [AWS Support Center](https://console.aws.amazon.com/support/home#/) or use [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to request an increase in your replication transfer rate quota. 
 
@@ -84,7 +83,7 @@ For step-by-step instructions for setting up your replication configuration by u
 
 The following example replication configuration enables and sets the `ReplicationTime` and `EventThreshold` values for a replication rule. Enabling and setting these values enables S3 RTC on the rule.
 
-```
+```json
 {
     "Rules": [
         {
@@ -125,7 +124,7 @@ The following example replication configuration enables and sets the `Replicatio
 
  The following Java example adds replication configuration with S3 Replication Time Control (S3 RTC) enabled.
 
-```
+```java
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.model.DeleteMarkerReplication;

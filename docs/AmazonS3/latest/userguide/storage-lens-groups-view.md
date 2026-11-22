@@ -1,7 +1,6 @@
 
 
 # Viewing Storage Lens group details
-<a name="storage-lens-groups-view"></a>
 
 The following examples demonstrate how to view Amazon S3 Storage Lens group configuration details. You can view these details by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -25,7 +24,7 @@ The following examples demonstrate how to view Amazon S3 Storage Lens group conf
 
 The following AWS CLI example returns the configuration details for a Storage Lens group. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control get-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --name {{marketing-department}}
 ```
@@ -35,7 +34,7 @@ aws s3control get-storage-lens-group --account-id {{111122223333}} \
 
 The following AWS SDK for Java example returns the configuration details for the Storage Lens group named `{{Marketing-Department}}` in account `{{111122223333}}`. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

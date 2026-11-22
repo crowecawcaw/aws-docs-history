@@ -1,7 +1,6 @@
 
 
 # Viewing the settings for an S3 Bucket Key
-<a name="viewing-bucket-key-settings"></a>
 
 You can view the settings for an S3 Bucket Key at the bucket or object level by using the Amazon S3 console, REST API, AWS Command Line Interface (AWS CLI), or AWS SDKs.
 
@@ -48,7 +47,7 @@ Objects and folders in the same bucket can have different S3 Bucket Key settings
 **To return bucket-level S3 Bucket Key settings**  
 To use this example, replace each `{{user input placeholder}}` with your own information.
 
-```
+```bash
 aws s3api get-bucket-encryption --bucket {{amzn-s3-demo-bucket1}}
 ```
 
@@ -57,7 +56,7 @@ For more information, see [get-bucket-encryption](https://awscli.amazonaws.com/v
 **To return object-level S3 Bucket Key settings**  
 To use this example, replace each `{{user input placeholder}}` with your own information.
 
-```
+```bash
 aws s3api head-object --bucket {{amzn-s3-demo-bucket1}} --key {{my_images.tar.bz2}}
 ```
 

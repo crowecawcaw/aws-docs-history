@@ -1,7 +1,6 @@
 
 
 # Bucket policies for Amazon S3
-<a name="bucket-policies"></a>
 
 A bucket policy is a resource-based policy that you can use to grant access permissions to your Amazon S3 bucket and the objects in it. Only the bucket owner can associate a policy with a bucket. The permissions attached to the bucket apply to all of the objects in the bucket that are owned by the bucket owner. These permissions don't apply to objects that are owned by other AWS accounts.
 

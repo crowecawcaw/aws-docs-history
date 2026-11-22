@@ -1,7 +1,6 @@
 
 
 # Transitioning objects using Amazon S3 Lifecycle
-<a name="lifecycle-transition-general-considerations"></a>
 
 You can add transition actions to an S3 Lifecycle configuration to tell Amazon S3 to move objects to another Amazon S3 storage class. For more information about storage classes, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md). Some examples of when you might use S3 Lifecycle configurations in this way include the following:
 + When you know that objects are infrequently accessed, you might transition them to the S3 Standard-IA storage class.

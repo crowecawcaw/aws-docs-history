@@ -1,7 +1,6 @@
 
 
 # Specifying dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)
-<a name="specifying-dsse-encryption"></a>
 
 You can apply encryption when you are either uploading a new object or copying an existing object. 
 
@@ -98,7 +97,7 @@ The response headers of the following REST API operations return the `x-amz-serv
 
 **Important**  
 All `GET` and `PUT` requests for an object that's protected by AWS KMS fail if you don't make them by using Secure Sockets Layer (SSL), Transport Layer Security (TLS), or Signature Version 4.
-If your object uses DSSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests, or you'll get an HTTP 400 (Bad Request) error.
+If your object uses DSSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests, or you'll get an `HTTP 400 (Bad Request)` error.
 
 ### Encryption context (`x-amz-server-side-encryption-context`)
 <a name="s3-dsse-encryption-context"></a>
@@ -124,12 +123,12 @@ When you use an AWS KMS key for server-side encryption in Amazon S3, you must ch
 
 When you upload a new object or copy an existing object, you can specify the use of DSSE-KMS to encrypt your data. To do this, add the `--server-side-encryption aws:kms:dsse` parameter to the request. Use the `--ssekms-key-id {{example-key-id}}` parameter to add your [customer managed AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) that you created. If you specify `--server-side-encryption aws:kms:dsse`, but do not provide an AWS KMS key ID, then Amazon S3 will use the AWS managed key (`aws/s3`).
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --server-side-encryption aws:kms:dsse --ssekms-key-id {{example-key-id}} --body {{filepath}}
 ```
 
 You can encrypt an unencrypted object to use DSSE-KMS by copying the object back in place.
 
-```
+```bash
 aws s3api copy-object --bucket {{amzn-s3-demo-bucket}} --key {{example-object-key}} --copy-source {{amzn-s3-demo-bucket}}/{{example-object-key}} --server-side-encryption aws:kms:dsse --ssekms-key-id {{example-key-id}}
 ```

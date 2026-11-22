@@ -1,7 +1,6 @@
 
 
 # Retrieve AWS resource tags for a Storage Lens dashboard
-<a name="storage-lens-get-tags"></a>
 
 The following examples demonstrate how to retrieve AWS resource tags for a S3 Storage Lens dashboard. You can get resource tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -21,7 +20,7 @@ aws s3control get-storage-lens-configuration-tagging --account-id={{222222222222
 **Example – Get tags for an S3 Storage Lens dashboard configuration**  
 The following example shows you how to retrieve tags for an S3 Storage Lens dashboard configuration in SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```Java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

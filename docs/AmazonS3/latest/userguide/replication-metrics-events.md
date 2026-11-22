@@ -1,7 +1,6 @@
 
 
 # Receiving replication failure events with Amazon S3 Event Notifications
-<a name="replication-metrics-events"></a>
 
 If you've enabled S3 Replication metrics on your replication configuration, you can set up Amazon S3 Event Notifications to notify you when objects don't replicate to their destination AWS Region. If you've enabled S3 Replication Time Control (S3 RTC) on your replication configuration, you can also be notified when objects don't replicate within the 15-minute S3 RTC threshold for replication. 
 
@@ -24,7 +23,7 @@ For instructions on how to configure Amazon S3 Event Notifications, see [Enablin
 
 The following is an example of a message that Amazon S3 sends to publish an `s3:Replication:OperationFailedReplication` event. For more information, see [Event message structure](notification-content-structure.md).
 
-```
+```json
 {
   "Records": [
     {
@@ -89,8 +88,9 @@ You can also view these failure reasons in an S3 Batch Replication completion re
 | `DstBucketObjectLockConfigMissing` | To replicate objects from a source bucket with Object Lock enabled, the destination bucket must also have Object Lock enabled. This error indicates that Object Lock might not be enabled in the destination bucket. For more information, see [Object Lock considerations](object-lock-managing.md). | 
 | `DstBucketUnversioned` | Versioning is not enabled for the S3 destination bucket. To replicate objects with S3 Replication, enable versioning for the destination bucket. | 
 | `DstDelObjNotPermitted` | Amazon S3 is unable to replicate delete markers to the destination bucket. The `s3:ReplicateDelete` permission might be missing for the destination bucket. | 
-| `DstKmsKeyInvalidState` | The AWS Key Management Service (AWS KMS) key for the destination bucket isn't in a valid state. Review and enable the required AWS KMS key. For more information about managing AWS KMS keys, see [Key states of AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide*. | 
-| `DstKmsKeyNotFound` | The AWS KMS key that's configured for the destination bucket in the replication configuration doesn't exist. | 
+| `DstKmsKeyInvalidState` | The AWS Key Management Service (AWS KMS) key for the destination bucket isn't in a valid state. Review and enable the required AWS KMS key. For Multi-Region key resolution, see [Using Multi-Region key resolution](replication-config-for-kms-objects.md#replication-kms-multi-region-keys). For more information about managing AWS KMS keys, see [Key states of AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide*. | 
+| `DstKmsKeyNotFound` | The AWS KMS key that's configured for the destination bucket in the replication configuration doesn't exist. For Multi-Region key resolution, see [Using Multi-Region key resolution](replication-config-for-kms-objects.md#replication-kms-multi-region-keys). | 
+| `DstKmsKeyNotSpecified` | The replication rule uses Multi-Region key resolution, and the object is encrypted with a single-Region AWS KMS key. The rule doesn't specify a destination key for these objects. To replicate them, add `ReplicaKmsKeyID` to the rule. For more information, see [Using Multi-Region key resolution](replication-config-for-kms-objects.md#replication-kms-multi-region-keys). | 
 | `DstMultipartCompleteNotPermitted` | Amazon S3 is unable to complete multipart uploads of objects in the destination bucket. The `s3:ReplicateObject` permission might be missing for the destination bucket. | 
 | `DstMultipartInitNotPermitted` | Amazon S3 is unable to initiate multipart uploads of objects to the destination bucket. The `s3:ReplicateObject` permission might be missing for the destination bucket.  | 
 | `DstMultipartUploadNotPermitted` | Amazon S3 is unable to upload multipart upload objects to the destination bucket. The `s3:ReplicateObject` permission might be missing for the destination bucket.  | 
@@ -113,7 +113,7 @@ You can also view these failure reasons in an S3 Batch Replication completion re
 | `SrcHeadObjectNotPermitted` | Amazon S3 is unable to retrieve object metadata from the source bucket. The `s3:GetObjectVersionForReplication` permission might be missing for the source bucket.  | 
 | `SrcKeyNotFound` | Amazon S3 is unable to find the source object key to replicate. Source object may have been deleted before replication was complete. | 
 | `SrcKmsKeyInvalidState` | The AWS KMS key for the source bucket isn't in a valid state. Review and enable the required AWS KMS key. For more information about managing AWS KMS keys, see [Key states of AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *AWS Key Management Service Developer Guide*. | 
-| `SrcObjectNotEligible` | Some objects aren't eligible for replication. This may be due to the object's storage class or the object tags don't match the replication configuration. | 
+| `SrcObjectNotEligible` | Some objects aren't eligible for replication. This may be due to the object's storage class, or because the object doesn't match a rule in the replication configuration, including objects that a rule excludes. | 
 | `SrcObjectNotFound` | Source object does not exist. | 
 | `SrcReplicationNotPending` | Amazon S3 has already replicated this object. This object is no longer pending replication. | 
 | `SrcVersionNotFound` | Amazon S3 is unable to find the source object version to replicate. Source object version may have been deleted before replication was complete. | 

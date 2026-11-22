@@ -1,7 +1,6 @@
 
 
 # Creating an S3 Batch Operations job
-<a name="batch-ops-create-job"></a>
 
 With Amazon S3 Batch Operations, you can perform large-scale batch operations on a list of specific Amazon S3 objects. This section describes the information that you need to create an S3 Batch Operations job and the results of a `CreateJob` request. It also provides instructions for creating a Batch Operations job by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -9,7 +8,7 @@ When you create an S3 Batch Operations job, you can request a completion report 
 
 The following video provides a brief demonstration of how to create a Batch Operations job by using the Amazon S3 console.
 
-[![AWS Videos](https://img.youtube.com/vi/qpwHUrwAiUI//0.jpg)](https://www.youtube.com/watch?v=qpwHUrwAiUI/)
+[![AWS Videos](https://img.youtube.com/vi/qpwHUrwAiUI/0.jpg)](https://www.youtube.com/watch?v=qpwHUrwAiUI)
 
 
 **Topics**
@@ -390,7 +389,7 @@ Batch Operations jobs that perform actions on directory buckets require specific
       + Replace `{{amzn-s3-demo-manifest-bucket}}` with the name of the bucket where you want to save the manifest.
       + Replace `{{amzn-s3-demo-completion-report-bucket}}` with the name of the bucket where you want the completion report to be delivered to. 
 
-      ```
+      ```bash
       aws iam put-role-policy \
         --role-name {{S3BatchJobRole}} \
         --policy-name {{DeleteObjectTaggingBatchJobPolicy}} \
@@ -450,7 +449,7 @@ Batch Operations jobs that perform actions on directory buckets require specific
 
    To use this example command, replace the `{{user input placeholders}}` with your own information. Replace {{`IAM-role`}} with the ARN of the IAM role that you created earlier. 
 
-   ```
+   ```bash
    aws s3control create-job \
        --account-id {{012345678901}} \
        --operation '{

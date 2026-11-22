@@ -1,7 +1,6 @@
 
 
 # Mounting S3 file systems on Amazon EC2
-<a name="s3-files-mounting"></a>
 
 To mount S3 file systems on an EC2 instance, you must use the S3 Files mount helper. The mount helper helps you mount your S3 file systems on EC2 instances running the supported distributions. When mounting a file system, the mount helper defines a new network file system type, called `s3files`, which is fully compatible with the standard `mount` command in Linux. The mount helper also supports mounting an S3 file system at instance boot time automatically by using entries in the `/etc/fstab` configuration file on EC2 Linux instances. The mount helper is part of the open-source collection of tools that is installed when you install the S3 Files client (amazon-efs-utils).
 
@@ -57,18 +56,18 @@ In addition, the mount helper automatically uses `tls` and `iam` mount options w
 + Connect to your EC2 instance through Secure Shell (SSH) or EC2 Instance Connect on EC2 Console. For more information, see [Connect to your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect.html).
 + Create a directory `/mnt/s3files` that you will use as the file system mount point using the following command:
 
-  ```
+  ```bash
   sudo mkdir /mnt/s3files
   ```
 + Mount your S3 file system:
 
-  ```
+  ```bash
   FS="{{{YOUR_FILE_SYSTEM_ID}}}"
   sudo mount -t s3files $FS:/ /mnt/s3files
   ```
 + Confirm the file system is mounted.
 
-  ```
+  ```bash
   df -h /mnt/s3files
   ```
 
@@ -81,7 +80,7 @@ In addition, the mount helper automatically uses `tls` and `iam` mount options w
 
   You can also verify file system mount and inspect mount options by listing the contents of the local mount point. If the mount is successful, this command shows the mount details, including your mount options, for the specific directory.
 
-  ```
+  ```bash
   findmnt -T /mnt/s3files
   ```
 
@@ -89,7 +88,7 @@ For detailed information on mount commands, visit the [GitHub documentation](htt
 
 You can now read and write S3 objects as files on your local mount path using standard file system operations. If you have objects in your S3 bucket then you can view them as files using the following commands.
 
-```
+```bash
 ls /mnt/s3files
 ```
 
@@ -100,7 +99,7 @@ You can monitor your file system storage, performance, client connections, and s
 
 When you mount a file system using an access point, the mount command includes the `access-point-id` mount option.
 
-```
+```bash
 sudo mount -t s3files -o accesspoint={{access-point-id}} {{file-system-id}} /mnt/s3files
 ```
 
@@ -127,7 +126,7 @@ Perform the following steps to update the `/etc/fstab` on an EC2 Linux instance 
 + [Connect to your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect.html).
 + Open the `/etc/fstab` file in an editor and add the following line to the file:
 
-  ```
+  ```xml
   {{file-system-id}}:/ {{mount-directory}} s3files _netdev 0 0
   ```
 
@@ -138,12 +137,12 @@ Perform the following steps to update the `/etc/fstab` on an EC2 Linux instance 
 + Save the file and close the editor.
 + Test the fstab entry by mounting all file systems in fstab:
 
-  ```
+  ```bash
   sudo mount -a
   ```
 + Verify the file system is mounted:
 
-  ```
+  ```bash
   findmnt -T {{mount-directory}}
   ```
 
@@ -151,7 +150,7 @@ Perform the following steps to update the `/etc/fstab` on an EC2 Linux instance 
 
 We recommend adding the `nofail` option to your fstab entry in production environments. This option allows the instance to boot even if the file system fails to mount:
 
-```
+```xml
 {{file-system-id}}:/ {{mount-directory}} s3files _netdev,nofail 0 0
 ```
 
@@ -159,7 +158,7 @@ We recommend adding the `nofail` option to your fstab entry in production enviro
 
 To automatically mount using an S3 Files access point, include the `accesspoint` option:
 
-```
+```xml
 {{file-system-id}}:/ {{mount-directory}} s3files _netdev,accesspoint={{access-point-id}} 0 0
 ```
 
@@ -167,7 +166,7 @@ To automatically mount using an S3 Files access point, include the `accesspoint`
 
 To automatically mount a specific subdirectory of your file system, specify the path:
 
-```
+```xml
 {{file-system-id}}:/path/to/directory {{mount-directory}} s3files _netdev 0 0
 ```
 
@@ -197,7 +196,7 @@ A transit gateway is a network transit hub that you can use to interconnect your
 
 When mounting a file system from a different VPC, you need to resolve the mount target manually. You should use the IP address of the mount targets in the corresponding Availability Zone as follows and replace the {{mount-target-ip-address}}, {{file-system-id}}, and {{mount-directory}} with your values.
 
-```
+```bash
 sudo mount -t s3files -o mounttargetip={{mount-target-ip-address}} {{file-system-id}} {{mount-directory}}
 ```
 
@@ -220,7 +219,7 @@ Uncomment the line, and replace the value for the ID of the region in which the 
 
 Then, you need to specify the mount target IP in the mount command after changing the region in the config:
 
-```
+```bash
 sudo mount -t s3files -o mounttargetip={{mount-target-ip-address}} {{file-system-id}} {{mount-directory}}
 ```
 
@@ -229,7 +228,7 @@ sudo mount -t s3files -o mounttargetip={{mount-target-ip-address}} {{file-system
 
 To unmount an S3 file system connected to an EC2 instance running Linux, use the `umount` command as follows:
 
-```
+```bash
 umount {{mount-directory}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Enable accounts for Local Zones
-<a name="opt-in-directory-bucket-lz"></a>
 
 The following topics describe how accounts are enabled for AWS Local Zones:
 

@@ -1,7 +1,6 @@
 
 
 # Using S3 Storage Lens metrics to improve performance
-<a name="storage-lens-detailed-status-code"></a>
 
 If you have [S3 Storage Lens advanced metrics](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection) enabled, you can use detailed status-code metrics to get counts for successful or failed requests. You can use this information to troubleshoot access or performance issues. Detailed status-code metrics show counts for HTTP status codes, such as 403 Forbidden and 503 Service Unavailable. You can examine overall trends for detailed status-code metrics across S3 buckets, accounts, and organizations. Then, you can drill down into bucket-level metrics to identify workloads that are currently accessing these buckets and causing errors. 
 

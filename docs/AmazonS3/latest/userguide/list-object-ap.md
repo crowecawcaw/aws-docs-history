@@ -1,7 +1,6 @@
 
 
 # List objects through an access point for a general purpose bucket
-<a name="list-object-ap"></a>
 
 This section explains how to list your objects through an access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API.
 
@@ -32,7 +31,7 @@ The following `list-objects-v2` example command shows how you can use the AWS CL
 
 The following command lists objects for AWS account {{111122223333}} using access point {{my-access-point}}.
 
-```
+```bash
 aws s3api list-objects-v2 --bucket arn:aws:s3:{{AWS Region}}:111122223333:accesspoint/{{my-access-point}}      
 ```
 

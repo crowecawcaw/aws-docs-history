@@ -1,7 +1,6 @@
 
 
 # Listing object keys programmatically
-<a name="ListingKeysUsingAPIs"></a>
 
 In Amazon S3, keys can be listed by prefix. You can choose a common prefix for the names of related keys and mark these keys with a special character that delimits hierarchy. You can then use the list operation to select and browse keys hierarchically. This is similar to how files are stored in directories within a file system. 
 
@@ -44,7 +43,7 @@ For more information about objects, see [Working with objects in Amazon S3](uplo
 The following example lists all objects and prefixes in a bucket by using the `ls` command.  
 To use this example command, replace {{{{amzn-s3-demo-bucket}}}} with the name of your bucket.  
 
-```
+```bash
 $ aws s3 ls s3://{{{{amzn-s3-demo-bucket}}}}
 ```
 +  For more information about the high-level command `ls`, see [List buckets and objects](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html#using-s3-commands-listing-buckets) in *AWS Command Line Interface User Guide*. 
@@ -55,17 +54,17 @@ $ aws s3 ls s3://{{{{amzn-s3-demo-bucket}}}}
 **Tools for PowerShell V4**  
 **Example 1: This command retrieves the information about all of the items in the bucket "test-files".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket
 ```
 **Example 2: This command retrieves the information about the item "sample.txt" from bucket "test-files".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
 ```
 **Example 3: This command retrieves the information about all items with the prefix "sample" from bucket "test-files".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix sample
 ```
 +  For API details, see [ListObjects](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
@@ -73,17 +72,17 @@ Get-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix sample
 **Tools for PowerShell V5**  
 **Example 1: This command retrieves the information about all of the items in the bucket "amzn-s3-demo-bucket".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket
 ```
 **Example 2: This command retrieves the information about the item "sample.txt" from bucket "amzn-s3-demo-bucket".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
 ```
 **Example 3: This command retrieves the information about all items with the prefix "sample" from bucket "amzn-s3-demo-bucket".**  
 
-```
+```powershell
 Get-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix sample
 ```
 +  For API details, see [ListObjects](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 

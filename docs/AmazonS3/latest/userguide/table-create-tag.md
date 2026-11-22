@@ -1,7 +1,6 @@
 
 
 # Creating tables with tags
-<a name="table-create-tag"></a>
 
 You can tag Amazon S3 tables when you create them. There is no additional charge for using tags on tables beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging tables, see [Using tags with S3 tables](table-tagging.md).
 
@@ -41,7 +40,7 @@ When you create a table you must provide configuration details. For more informa
 
 **Request:**
 
-```
+```bash
 aws --region {{us-west-2}} \
 s3tables create-table \
 --endpoint {{https://ufwae60e2k.execute-api.us-west-2.amazonaws.com/personal/}} \

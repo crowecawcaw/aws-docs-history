@@ -1,7 +1,6 @@
 
 
 # What is an S3 Storage Lens export manifest?
-<a name="storage_lens_whatis_metrics_export_manifest"></a>
 
 S3 Storage Lens daily metrics exports in general-purpose buckets may be split into multiple files due to the large amount of data aggregated. The manifest file `manifest.json` describes where the metrics export files for that day are located. Whenever a new export is delivered, it's accompanied by a new manifest. Each manifest contained in the `manifest.json` file provides metadata and other basic information about the export. 
 
@@ -17,13 +16,13 @@ The manifest information includes the following properties:
 
 Manifest destination path example:
 
-```
+```xml
 {{user-defined-prefix}}/StorageLens/{{111122223333}}/{{example-dashboard-configuration-id}}/V_1/manifests/dt=2025-03-18/manifest.json
 ```
 
 The following example shows a `manifest.json` file for a CSV-formatted Storage Lens default metrics report:
 
-```
+```json
 {  
    "sourceAccountId": "111122223333",  
    "configId": "example-dashboard-configuration-id",  
@@ -31,7 +30,7 @@ The following example shows a `manifest.json` file for a CSV-formatted Storage L
    "reportVersion": "V_1",  
    "reportDate": "2025-07-15",  
    "reportFormat": "CSV",  
-   "reportSchema": "version_number,configuration_id,report_date,aws_account_number,aws_region,storage_class,record_type,record_value,bucket_name,metric_name,metric_value",  
+   "reportSchema": "version_number,configuration_id,report_date,aws_account_number,aws_region,storage_class,record_type,record_value,bucket_name,metric_name,metric_value,int_access_tier",  
    "reportFiles": [  
         {  
             "key": "DestinationPrefix/StorageLens/111122223333/example-dashboard-configuration-id/V_1/reports/dt=2025-07-15/12345678-1234-1234-1234-123456789012.csv",  
@@ -44,7 +43,7 @@ The following example shows a `manifest.json` file for a CSV-formatted Storage L
 
 The following example shows a `manifest.json` file for a CSV-formatted Storage Lens expanded prefixes metrics report:
 
-```
+```json
 {  
    "sourceAccountId": "111122223333",  
    "configId": "example-dashboard-configuration-id",  
@@ -52,7 +51,7 @@ The following example shows a `manifest.json` file for a CSV-formatted Storage L
    "reportVersion": "V_1",  
    "reportDate": "2025-11-03",  
    "reportFormat": "CSV",  
-   "reportSchema": "version_number,configuration_id,report_date,aws_account_number,aws_region,storage_class,record_type,record_value,bucket_name,metric_name,metric_value",  
+   "reportSchema": "version_number,configuration_id,report_date,aws_account_number,aws_region,storage_class,record_type,record_value,bucket_name,metric_name,metric_value,int_access_tier",  
    "reportFiles": [  
         {  
             "key": "DestinationPrefix/StorageLensExpandedPrefixes/111122223333/example-dashboard-configuration-id/V_1/reports/dt=2025-11-03/EXAMPLE1234-56ab-78cd-90ef-EXAMPLE11111.csv",  
@@ -65,7 +64,7 @@ The following example shows a `manifest.json` file for a CSV-formatted Storage L
 
 The following example shows a `manifest.json` file for a Parquet-formatted Storage Lens default metrics report:
 
-```
+```json
 {  
    "sourceAccountId": "111122223333",  
    "configId": "example-dashboard-configuration-id",  
@@ -73,7 +72,7 @@ The following example shows a `manifest.json` file for a Parquet-formatted Stora
    "reportVersion": "V_1",  
    "reportDate": "2025-11-03",  
    "reportFormat": "Parquet",  
-   "reportSchema": "message s3.storage.lens { required string version_number; required string configuration_id; required string report_date; required string aws_account_number; required string aws_region; required string storage_class; required string record_type; required string record_value; required string bucket_name; required string metric_name; required long metric_value; }",  
+   "reportSchema": "message s3.storage.lens { required string version_number; required string configuration_id; required string report_date; required string aws_account_number; required string aws_region; required string storage_class; required string record_type; required string record_value; required string bucket_name; required string metric_name; required long metric_value; optional string int_access_tier; }",  
    "reportFiles": [  
       {  
          "key": "DestinationPrefix/StorageLens/111122223333/example-dashboard-configuration-id/V_1/reports/dt=2025-11-03/bd23de7c-b46a-4cf4-bcc5-b21aac5be0f5.par",  
@@ -86,7 +85,7 @@ The following example shows a `manifest.json` file for a Parquet-formatted Stora
 
 The following example shows a `manifest.json` file for a Parquet-formatted Storage Lens expanded prefixes metrics report:
 
-```
+```json
 {  
    "sourceAccountId": "111122223333",  
    "configId": "example-dashboard-configuration-id",  
@@ -94,7 +93,7 @@ The following example shows a `manifest.json` file for a Parquet-formatted Stora
    "reportVersion": "V_1",  
    "reportDate": "2025-11-03",  
    "reportFormat": "Parquet",  
-   "reportSchema": "message s3.storage.lens { required string version_number; required string configuration_id; required string report_date; required string aws_account_number; required string aws_region; required string storage_class; required string record_type; required string record_value; required string bucket_name; required string metric_name; required long metric_value; }",  
+   "reportSchema": "message s3.storage.lens { required string version_number; required string configuration_id; required string report_date; required string aws_account_number; required string aws_region; required string storage_class; required string record_type; required string record_value; required string bucket_name; required string metric_name; required long metric_value; optional string int_access_tier; }",  
    "reportFiles": [  
       {  
          "key": "DestinationPrefix/StorageLensExpandedPrefixes/111122223333/example-dashboard-configuration-id/V_1/reports/dt=2025-11-03/bd23de7c-b46a-4cf4-bcc5-b21aac5be0f5.par",  

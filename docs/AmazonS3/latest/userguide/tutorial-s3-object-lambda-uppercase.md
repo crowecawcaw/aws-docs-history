@@ -1,7 +1,6 @@
 
 
 # Tutorial: Transforming data for your application with S3 Object Lambda
-<a name="tutorial-s3-object-lambda-uppercase"></a>
 
 **Note**  
 As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
@@ -63,7 +62,7 @@ Use the following procedure to install Python 3.8 or later on your local machine
 
 1. Open your local terminal or shell and run the following command to determine whether Python is already installed, and if so, which version is installed. 
 
-   ```
+   ```xml
    python --version
    ```
 
@@ -79,19 +78,19 @@ Use the following procedure to install Python 3.8 or later on your local machine
 
    For **macOS users**, run this command: 
 
-   ```
+   ```xml
    python3 --version
    ```
 
    For **Windows users**, run this command: 
 
-   ```
+   ```xml
    python --version
    ```
 
 1. Run the following command to verify that the pip3 package manager is installed. If you see a pip version number and python 3.8 or later in the command response, that means the pip3 package manager is installed successfully.
 
-   ```
+   ```xml
    pip --version
    ```
 
@@ -216,7 +215,7 @@ To transform original data, create a Lambda function for use with your S3 Object
 
 1. In the `object-lambda` folder, create a file with a Lambda function that changes all text in the original object to uppercase. For example, you can use the following function written in Python. Save this function in a file named `transform.py`. 
 
-   ```
+   ```python
    import boto3
    import requests
    from botocore.config import Config
@@ -267,13 +266,13 @@ The preceding example Lambda function loads the entire requested object into mem
 
 1. In your local terminal, enter the following command to install the `virtualenv` package:
 
-   ```
+   ```xml
    python -m pip install virtualenv
    ```
 
 1. In your local terminal, open the `object-lambda` folder that you created earlier, and then enter the following command to create and initialize a virtual environment called `venv`.
 
-   ```
+   ```xml
    python -m virtualenv venv
    ```
 
@@ -281,13 +280,13 @@ The preceding example Lambda function loads the entire requested object into mem
 
    For **macOS users**, run this command:
 
-   ```
+   ```xml
    source venv/bin/activate
    ```
 
    For **Windows users**, run this command:
 
-   ```
+   ```xml
    .\venv\Scripts\activate
    ```
 
@@ -297,17 +296,17 @@ The preceding example Lambda function loads the entire requested object into mem
 
    These commands install updated versions of the dependencies of your `lambda_handler` Lambda function. These dependencies are the AWS SDK for Python (Boto3) and the requests module.
 
-   ```
+   ```xml
    pip3 install boto3
    ```
 
-   ```
+   ```xml
    pip3 install requests
    ```
 
 1. To deactivate the virtual environment, run the following command:
 
-   ```
+   ```xml
    deactivate
    ```
 
@@ -317,21 +316,21 @@ The following commands might need to be adjusted to work in your particular envi
 
    For **macOS users**, run these commands:
 
-   ```
+   ```xml
    cd venv/lib/python3.8/site-packages 
    ```
 
-   ```
+   ```xml
    zip -r ../../../../lambda.zip .
    ```
 
    For **Windows users**, run these commands:
 
-   ```
+   ```xml
    cd .\venv\Lib\site-packages\ 
    ```
 
-   ```
+   ```xml
    powershell Compress-Archive * ../../../lambda.zip
    ```
 
@@ -341,21 +340,21 @@ The following commands might need to be adjusted to work in your particular envi
 
    For **macOS users**, run these commands:
 
-   ```
+   ```xml
    cd ../../../../ 
    ```
 
-   ```
+   ```xml
    zip -g lambda.zip transform.py
    ```
 
    For **Windows users**, run these commands: 
 
-   ```
+   ```xml
    cd ..\..\..\
    ```
 
-   ```
+   ```xml
    powershell Compress-Archive -update transform.py lambda.zip
    ```
 
@@ -539,7 +538,7 @@ The following example Python script prints both the original data from the S3 bu
 
 1. Write a Python script on your local machine to print both the original data (for example, `tutorial.txt`) from your S3 Bucket and the transformed data (for example, `tutorial.txt`) from your S3 Object Lambda Access Point). You can use the following example script. 
 
-   ```
+   ```python
    import boto3
    from botocore.config import Config
    
@@ -571,7 +570,7 @@ The following example Python script prints both the original data from the S3 bu
 
 1. In your local terminal, run the following command from the root of the directory (for example, `object-lambda`) that you created in [Step 4](#ol-upper-step4).
 
-   ```
+   ```xml
    python3 tutorial_print.py
    ```
 

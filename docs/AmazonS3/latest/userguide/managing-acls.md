@@ -1,7 +1,6 @@
 
 
 # Configuring ACLs
-<a name="managing-acls"></a>
 
 This section explains how to manage access permissions for S3 buckets and objects using access control lists (ACLs). You can add grants to your resource ACL using the AWS Management Console, AWS Command Line Interface (CLI), REST API, or AWS SDKs.
 
@@ -194,7 +193,7 @@ The following examples show how to set access control list (ACL) grants on bucke
 **Example Create a bucket and specify a canned ACL that grants permission to the S3 log delivery group**  
 This example creates a bucket. In the request, the example specifies a canned ACL that grants the Log Delivery group permission to write logs to the bucket.   
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.regions.Regions;
@@ -266,7 +265,7 @@ This example updates the ACL on an object. The example performs the following ta
 + Adds two permissions: full access to the owner, and WRITE\_ACP (see [What permissions can I grant?](acl-overview.md#permissions)) to a user identified by an email address
 + Saves the ACL to the object
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -327,7 +326,7 @@ public class ModifyACLExistingObject {
 This C\# example creates a bucket. In the request, the code also specifies a canned ACL that grants the Log Delivery group permissions to write the logs to the bucket.  
  For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -390,7 +389,7 @@ This C\# example updates the ACL on an existing object. The example performs the
 + Saves the ACL by sending a `PutAcl` request.
 For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

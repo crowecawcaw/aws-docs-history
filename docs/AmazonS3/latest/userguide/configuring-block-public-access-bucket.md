@@ -1,7 +1,6 @@
 
 
 # Configuring block public access settings for your S3 buckets
-<a name="configuring-block-public-access-bucket"></a>
 
 Amazon S3 Block Public Access provides settings for access points, buckets, organizations, and accounts to help you manage public access to Amazon S3 resources. By default, new buckets, access points, and objects do not allow public access. For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md).
 
@@ -34,7 +33,7 @@ These bucket-level operations are not restricted by organization-level policies.
 ------
 #### [ Java ]
 
-```
+```java
 AmazonS3 client = AmazonS3ClientBuilder.standard()
 	  .withCredentials({{<credentials>}})
 	  .build();

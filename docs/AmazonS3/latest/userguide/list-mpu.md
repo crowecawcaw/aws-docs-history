@@ -1,7 +1,6 @@
 
 
 # Listing multipart uploads
-<a name="list-mpu"></a>
 
 You can use the AWS CLI, REST API, or AWS SDKs, to retrieve a list of in-progress multipart uploads in Amazon S3. You can use the multipart upload to programmatically upload a single object to Amazon S3. Multipart uploads move objects into Amazon S3 by moving a portion of an object's data at a time. For more general information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md). 
 
@@ -43,7 +42,7 @@ An in-progress multipart upload is a multipart upload that has been initiated us
 
 The following C\# example shows how to use the SDK for .NET to list all in-progress multipart uploads on a bucket. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```csharp
 ListMultipartUploadsRequest request = new ListMultipartUploadsRequest
 {
 	 BucketName = bucketName // Bucket receiving the uploads.
@@ -59,7 +58,7 @@ This topic shows how to use the low-level API classes from version 3 of the AWS 
 
 The following PHP example demonstrates listing all in-progress multipart uploads on a bucket.
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\S3\S3Client;

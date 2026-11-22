@@ -1,7 +1,6 @@
 
 
 # Protecting S3 table data with encryption
-<a name="s3-tables-encryption"></a>
 
 Data protection refers to protecting data while it's in transit (as it travels to and from Amazon S3) and at rest (while it's stored on disks in Amazon S3 data centers). S3 Tables always protects data in transit using Transport Layer Security (1.2 and above) through HTTPS. For protecting data at rest in S3 table buckets, you have the following options:
 

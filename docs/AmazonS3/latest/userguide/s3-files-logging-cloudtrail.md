@@ -1,7 +1,6 @@
 
 
 # Logging with CloudTrail for S3 Files
-<a name="s3-files-logging-cloudtrail"></a>
 
 Amazon S3 Files is integrated with CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in S3 Files. CloudTrail captures all API calls for S3 Files as events, including calls from the S3 Files console and code calls to the S3 Files API operations.
 
@@ -41,7 +40,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `CreateFileSystem` action:
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -116,7 +115,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Create
 
 The following example shows a CloudTrail log entry for the `CreateMountTarget` action:
 
-```
+```JSON
 {
     "eventVersion": "1.11",
     "userIdentity": {

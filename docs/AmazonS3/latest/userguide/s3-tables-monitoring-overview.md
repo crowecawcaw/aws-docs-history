@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring for S3 Tables
-<a name="s3-tables-monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon S3 Tables. We recommend collecting monitoring data from your tables in table buckets so that you can more easily debug a multipoint failure if one occurs.
 

@@ -1,7 +1,6 @@
 
 
 # Upload an object through an access point for a general purpose bucket
-<a name="put-object-ap"></a>
 
 This section explains how to upload an object through an access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API.
 
@@ -89,7 +88,7 @@ The following `put-object` example command shows how you can use the AWS CLI to 
 
 The following command uploads the object `puppy.jpg` for AWS account {{111122223333}} using access point {{my-access-point}}.
 
-```
+```bash
 aws s3api put-object --bucket arn:aws:s3:{{AWS Region}}:111122223333:accesspoint/{{my-access-point}} --key {{puppy.jpg}} --body {{puppy.jpg}}      
 ```
 
@@ -113,7 +112,7 @@ You can use the AWS SDK for Python to upload an object through an access point.
 
 In the following example, the file named `{{hello.txt}}` is uploaded for AWS account {{111122223333}} using the access point named {{my-access-point}}.
 
-```
+```python
 import boto3
 s3 = boto3.client('s3')
 s3.upload_file('{{/tmp/hello.txt}}', 'arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{my-access-point}}', '{{hello.txt}}')

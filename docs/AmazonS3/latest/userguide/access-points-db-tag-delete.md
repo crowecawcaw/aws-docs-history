@@ -1,7 +1,6 @@
 
 
 # Deleting a tag from an access point for directory buckets
-<a name="access-points-db-tag-delete"></a>
 
 You can remove tags from Access Points for directory buckets. For additional information, see [Using tags with S3 Access Points for directory buckets](access-points-db-tagging.md).
 
@@ -54,7 +53,7 @@ To delete tags from an access point for directory buckets using the Amazon S3 co
 
 This example shows you how to delete tags from a directory bucket by using the AWS SDK for Java 2.x. To use the command replace the {{user input placeholders}} with your own information. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3control.S3ControlClient;
 import software.amazon.awssdk.services.s3control.model.ListTagsForResourceRequest;
@@ -94,7 +93,7 @@ The following CLI example shows you how to delete tags from an access point by u
 
 **Request:**
 
-```
+```bash
 aws s3control untag-resource \
 --account-id {{111122223333}} \
 --resource-arn arn:aws::s3:{{region}}:{{111122223333}}:accesspoint/{{{{my-access-point}}}}/* \
@@ -103,7 +102,7 @@ aws s3control untag-resource \
 
 **Response:**
 
-```
+```json
 {
   "ResponseMetadata": {
     "RequestId": "EXAMPLE123456789",

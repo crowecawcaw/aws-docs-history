@@ -1,7 +1,6 @@
 
 
 # Configuring an S3 Bucket Key at the object level
-<a name="configuring-bucket-key-object"></a>
 
 When you perform a PUT or COPY operation using the REST API, AWS SDKs, or AWS CLI, you can enable or disable an S3 Bucket Key at the object level by adding the `x-amz-server-side-encryption-bucket-key-enabled` request header with a `true` or `false` value. S3 Bucket Keys reduce the cost of server-side encryption using AWS Key Management Service (AWS KMS) (SSE-KMS) by decreasing request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md). 
 
@@ -42,7 +41,7 @@ You can use the following example to configure an S3 Bucket Key at the object le
 ------
 #### [ Java ]
 
-```
+```Java
 AmazonS3 s3client = AmazonS3ClientBuilder.standard()
     .withRegion(Regions.DEFAULT_REGION)
     .build();
@@ -64,6 +63,6 @@ s3client.putObject(putObjectRequest);
 
 You can use the following AWS CLI example to configure an S3 Bucket Key at the object level as part of a `PutObject` request.
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{object key name}} --server-side-encryption aws:kms --bucket-key-enabled --body {{filepath}}
 ```

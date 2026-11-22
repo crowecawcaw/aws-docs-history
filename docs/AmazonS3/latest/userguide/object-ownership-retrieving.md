@@ -1,7 +1,6 @@
 
 
 # Viewing the Object Ownership setting for an S3 bucket
-<a name="object-ownership-retrieving"></a>
 
 S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable [access control lists (ACLs)](acl-overview.md) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. By default, S3 Object Ownership is set to the Bucket owner enforced setting, and ACLs are disabled for new buckets. With ACLs disabled, the bucket owner owns every object in the bucket and manages access to data exclusively by using access-management policies. We recommend that you keep ACLs disabled, except in unusual circumstances where you must control access for each object individually. 
 
@@ -36,7 +35,7 @@ For more information about the permissions to S3 API operations by S3 resource t
 
 To retrieve the S3 Object Ownership setting for an S3 bucket, use the [get-bucket-ownership-controls](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-ownership-controls.html) AWS CLI command.
 
-```
+```bash
 aws s3api get-bucket-ownership-controls --bucket {{amzn-s3-demo-bucket}}
 ```
 

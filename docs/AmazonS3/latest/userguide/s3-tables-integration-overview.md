@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Tables integration with AWS analytics services overview
-<a name="s3-tables-integration-overview"></a>
 
 To make tables in your account accessible by AWS analytics services, you integrate your Amazon S3 table buckets with AWS Glue Data Catalog. This integration allows AWS analytics services to automatically discover and access your table data. You can use this integration to work with your tables in these services:
 + [Amazon Athena](s3-tables-integrating-athena.md) 

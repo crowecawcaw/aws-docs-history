@@ -1,7 +1,6 @@
 
 
 # Examples of S3 Lifecycle configurations
-<a name="lifecycle-configuration-examples"></a>
 
 This section provides examples of S3 Lifecycle configuration. Each example shows how you can specify the XML in each of the example scenarios.
 
@@ -26,7 +25,7 @@ Each S3 Lifecycle rule includes a filter that you can use to identify a subset o
   + Transition objects to the S3 Glacier Flexible Retrieval storage class 365 days (one year) after creation.
   + Delete objects (the `Expiration` action) 3,650 days (10 years) after creation.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
     <Rule>
       <ID>Transition and Expiration Rule</ID>
@@ -48,7 +47,7 @@ Each S3 Lifecycle rule includes a filter that you can use to identify a subset o
   Instead of specifying the object age in terms of days after creation, you can specify a date for each action. However, you can't use both `Date` and `Days` in the same rule. 
 + If you want the S3 Lifecycle rule to apply to all objects in the bucket, specify an empty prefix. In the following configuration, the rule specifies a `Transition` action that directs Amazon S3 to transition objects to the S3 Glacier Flexible Retrieval storage class 0 days after creation. This rule means that the objects are eligible for archival to S3 Glacier Flexible Retrieval at midnight UTC following creation. For more information about lifecycle constraints, see [Constraints and considerations for transitions](lifecycle-transition-general-considerations.md#lifecycle-configuration-constraints).
 
-  ```
+  ```xml
   <LifecycleConfiguration>
     <Rule>
       <ID>Archive all object same-day upon creation</ID>
@@ -123,7 +122,7 @@ You can temporarily disable an S3 Lifecycle rule using the `status` element. Thi
 
 In the configuration, Rule 1 is enabled and Rule 2 is disabled. Amazon S3 ignores the disabled rule.
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Rule1</ID>
@@ -161,7 +160,7 @@ The following S3 Lifecycle configuration specifies a rule that applies to object
   + Transition objects to the S3 Glacier Flexible Retrieval storage class 90 days after creation.
 + One expiration action that directs Amazon S3 to delete objects a year after creation.
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>example-id</ID>
@@ -203,7 +202,7 @@ You can specify multiple rules if you want different S3 Lifecycle actions of dif
 + Rule 1 applies to objects with the key name prefix `classA/`. It directs Amazon S3 to transition objects to the S3 Glacier Flexible Retrieval storage class one year after creation and expire these objects 10 years after creation.
 + Rule 2 applies to objects with key name prefix `classB/`. It directs Amazon S3 to transition objects to the S3 Standard-IA storage class 90 days after creation and delete them one year after creation.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         <ID>ClassADocRule</ID>
@@ -252,7 +251,7 @@ In the following example, you want to maintain one year's worth of history, and 
 
 To save storage costs, you want to move noncurrent versions to S3 Glacier Flexible Retrieval 30 days after they become noncurrent (assuming that these noncurrent objects are cold data for which you don't need real-time access). In addition, you expect the frequency of access of the current versions to diminish 90 days after creation, so you might choose to move these objects to the S3 Standard-IA storage class.
 
-```
+```xml
  1. <LifecycleConfiguration>
  2.     <Rule>
  3.         <ID>sample-rule</ID>
@@ -290,7 +289,7 @@ This example shows a scenario that can create expired object delete markers in y
 
 Suppose that you write an S3 Lifecycle configuration that uses the `NoncurrentVersionExpiration` action to remove noncurrent versions 30 days after they become noncurrent and to retain 10 noncurrent versions, as shown in the following example. Be aware that more than 10 newer noncurrent versions must exist before Amazon S3 can expire a given version. Amazon S3 will permanently delete any additional noncurrent versions beyond the specified number to retain. For the deletion to occur, both the `NoncurrentDays` and the `NewerNoncurrentVersions` values must be exceeded.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         ...
@@ -309,7 +308,7 @@ For current object versions, you have the following options to manage their life
 
   In this case, you can use an S3 Lifecycle configuration with the `Expiration` action to direct Amazon S3 to remove the current versions, as shown in the following example.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           ...
@@ -339,7 +338,7 @@ You can't specify both a `Days` and an `ExpiredObjectDeleteMarker` tag on the sa
 
   
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
          <ID>Rule 1</ID>
@@ -375,7 +374,7 @@ When you use the `AbortIncompleteMultipartUpload` S3 Lifecycle action, the rule 
 
 The following is an example S3 Lifecycle configuration that specifies a rule with the `AbortIncompleteMultipartUpload` action. This action directs Amazon S3 to stop incomplete multipart uploads seven days after initiation.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         <ID>sample-rule</ID>
@@ -395,7 +394,7 @@ The following is an example S3 Lifecycle configuration that specifies a rule wit
 
 You can create rules that transition objects based only on their size. You can specify a minimum size (`ObjectSizeGreaterThan`) or a maximum size (`ObjectSizeLessThan`), or you can specify a range of object sizes in bytes. When using more than one filter, such as a prefix and size rule, you must wrap the filters in an `<And>` element.
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Transition with a prefix and based on size</ID>
@@ -416,7 +415,7 @@ You can create rules that transition objects based only on their size. You can s
 
 If you're specifying a range by using both the `ObjectSizeGreaterThan` and `ObjectSizeLessThan` elements, the maximum object size must be larger than the minimum object size. When using more than one filter, you must wrap the filters in an `<And>` element. The following example shows how to specify objects in a range between 500 bytes and 64,000 bytes. When you're specifying a range, the `ObjectSizeGreaterThan` and `ObjectSizeLessThan` filters exclude the specified values. For more information, see [Filter element](intro-lifecycle-rules.md#intro-lifecycle-rules-filter).
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
         ...
@@ -432,7 +431,7 @@ You can also create rules to specifically expire noncurrent objects that have no
 
 Be aware that more than 10 newer noncurrent versions must exist before Amazon S3 can expire a given version. Amazon S3 will permanently delete any additional noncurrent versions beyond the specified number to retain. For the deletion to occur, both the `NoncurrentDays` and the `NewerNoncurrentVersions` values must be exceeded. 
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Expire noncurrent with size less than 1 byte</ID>
@@ -453,7 +452,7 @@ Be aware that more than 10 newer noncurrent versions must exist before Amazon S3
 
 Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`ObjectSizeGreaterThan`) or a maximum size (`ObjectSizeLessThan`) filter that specifies a smaller size to the configuration. The following example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Allow small object transitions</ID>
@@ -477,7 +476,7 @@ Configurations created before September 2024 retain the previous transition beha
 
 The following example shows how to use the `x-amz-transition-object-size-minimum-default` header in a [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html) request to apply the `varies_by_storage_class` default transition behavior to an S3 Lifecycle configuration. This behavior allows object smaller than 128 KB to transition to the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. You can still use custom filters to change the minimum transition size for any storage class. Custom filters always take precedence over the default transition behavior:
 
-```
+```http
 HTTP/1.1 200
 x-amz-transition-object-size-minimum-default: varies_by_storage_class
 <?xml version="1.0" encoding="UTF-8"?>

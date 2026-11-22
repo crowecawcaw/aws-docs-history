@@ -1,9 +1,10 @@
 
 
 # Download and upload objects with presigned URLs
-<a name="using-presigned-url"></a>
 
 You can use presigned URLs to grant time-limited access to objects in Amazon S3 without updating your bucket policy. A presigned URL can be entered in a browser or used by a program to download an object. The credentials used by the presigned URL are those of the AWS Identity and Access Management (IAM) principal who generated the URL.
+
+You can audit requests made with a presigned URL and identify the AWS principal or role session that signed it. For more information, see [Auditing presigned URLs](#auditing-presigned-url).
 
 You can also use presigned URLs to allow someone to upload a specific object to your Amazon S3 bucket. This allows an upload without requiring another party to have AWS security credentials or permissions. If an object with the same key already exists in the bucket as specified in the presigned URL, Amazon S3 replaces the existing object with the uploaded object.
 
@@ -23,6 +24,7 @@ When using presigned URLs to upload objects, you can verify object integrity usi
 + [Who can create a presigned URL](#who-presigned-url)
 + [Expiration time for presigned URLs](#PresignedUrl-Expiration)
 + [Limiting presigned URL capabilities](#PresignedUrlUploadObject-LimitCapabilities)
++ [Auditing presigned URLs](#auditing-presigned-url)
 + [Frequently asked questions for presigned URLs](#PresignedUrlFAQ)
 + [Sharing objects with presigned URLs](ShareObjectPreSignedURL.md)
 + [Uploading objects with presigned URLs](PresignedUrlUploadObject.md)
@@ -66,7 +68,7 @@ To enforce specific behavior when presigned URL requests are authenticated by us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +103,7 @@ The IAM global condition key that you use depends on the type of endpoint. If yo
 
 The following IAM policy statement requires the principal to access AWS only from the specified network range. With this policy statement, all access must originate from that range. This includes the case of someone who's using a presigned URL for Amazon S3. To use this example, replace the {{`user input placeholders`}} with your own information.
 
-```
+```json
 {
     "Sid": "NetworkRestrictionForIAMPrincipal",
     "Effect": "Deny",
@@ -113,6 +115,120 @@ The following IAM policy statement requires the principal to access AWS only fro
     }
 }
 ```
+
+## Auditing presigned URLs
+<a name="auditing-presigned-url"></a>
+
+CloudTrail Amazon S3 data events and Amazon S3 server access logs record requests made with a presigned URL. To associate URL issuance with an application user, sign with a unique AWS STS role session and record the issuance in your application. The logs identify the signer, not who later uses the URL.
+
+**Note**  
+By default, Amazon S3 doesn't enable data events, and CloudTrail doesn't show them in **Event history**. Configure a trail or event data store to log them. Additional charges apply. For more information, see [Amazon S3 data events in CloudTrail](cloudtrail-logging-s3-info.md#cloudtrail-data-events).
+
+**Identifying presigned requests in CloudTrail**  
+For a SigV4 presigned URL, `additionalEventData.AuthenticationMethod` is `QueryString` and `requestParameters.X-Amz-Expires` is present. Check both fields because `QueryString` can identify other query-authenticated requests. A request signed with an `Authorization` header instead has an `AuthenticationMethod` value of `AuthHeader`. For more information about identifying presigned requests, see [Identifying presigned requests](https://docs.aws.amazon.com/prescriptive-guidance/latest/presigned-url-best-practices/identifying-requests.html) in *AWS Prescriptive Guidance*.
+
+The following CloudTrail event excerpt shows the fields used for identification and correlation:
+
+```json
+{
+    "eventTime": "2026-11-12T20:41:21Z",
+    "eventName": "GetObject",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "arn": "arn:aws:sts::111122223333:assumed-role/PresignedUrlSigningRole/user-johnstiles-a1b2c3d4",
+        "sessionContext": {
+            "sessionIssuer": {
+                "arn": "arn:aws:iam::111122223333:role/PresignedUrlSigningRole"
+            }
+        }
+    },
+    "requestParameters": {
+        "bucketName": "amzn-s3-demo-bucket",
+        "key": "example-object",
+        "X-Amz-Expires": "300"
+    },
+    "additionalEventData": {
+        "AuthenticationMethod": "QueryString"
+    },
+    "requestID": "EXAMPLE123456789"
+}
+```
+
+`userIdentity.arn` identifies the signing session, and `userIdentity.sessionContext.sessionIssuer.arn` identifies the underlying IAM role. The request ID identifies this use of the URL.
+
+**Recording issuance for correlation**  
+Creating a presigned URL happens locally, so Amazon S3 doesn't generate an issuance event. An `AssumeRole` event proves only that a session was created. Before returning a URL, record the authenticated application user, signing-session ARN, bucket, key, operation, and expiration. Use an opaque, non-sensitive application user identifier and create one role session for each issuance.
+
+The following Python example uses the default AWS credential provider chain to assume the signing role and signs in the bucket's AWS Region. Before you call it, authorize the authenticated application user to access the object. You must have permission to assume the role, and the role must have `s3:GetObject` permission for the object. Pass an opaque user ID from the authenticated context. The example records issuance before returning the URL and doesn't record the URL or temporary credentials:
+
+```python
+from datetime import datetime, timedelta, timezone
+from re import fullmatch
+from uuid import uuid4
+from boto3.session import Session
+from botocore.config import Config
+
+SESSION_DURATION_SECONDS = 900
+URL_EXPIRY_SECONDS = 300
+OPAQUE_USER_ID_PATTERN = r'[A-Za-z0-9_-]{1,20}'
+sts = Session().client('sts')
+
+
+def issue_presigned_url(authenticated_user_id, role_arn, bucket, key, bucket_region, record_issuance):
+    """
+    Create and record one presigned URL issuance.
+    """
+    if fullmatch(OPAQUE_USER_ID_PATTERN, authenticated_user_id) is None:
+        raise ValueError('Use an opaque user ID of 1 to 20 valid characters.')
+
+    issuance_id = uuid4().hex
+    role_session_name = f'user-{authenticated_user_id}-{issuance_id}'
+    assumed = sts.assume_role(
+        RoleArn=role_arn,
+        RoleSessionName=role_session_name,
+        DurationSeconds=SESSION_DURATION_SECONDS,
+    )
+    credentials = assumed['Credentials']
+    signing_session = Session(
+        aws_access_key_id=credentials['AccessKeyId'],
+        aws_secret_access_key=credentials['SecretAccessKey'],
+        aws_session_token=credentials['SessionToken'],
+    )
+    issued_at = datetime.now(timezone.utc)
+    url = signing_session.client(
+        's3',
+        region_name=bucket_region,
+        config=Config(signature_version='s3v4'),
+    ).generate_presigned_url(
+        'get_object',
+        Params={'Bucket': bucket, 'Key': key},
+        ExpiresIn=URL_EXPIRY_SECONDS,
+    )
+    record = {
+        'issuance_id': issuance_id,
+        'application_user_id': authenticated_user_id,
+        'signer_arn': assumed['AssumedRoleUser']['Arn'],
+        'session_issuer_arn': role_arn,
+        'bucket': bucket,
+        'key': key,
+        'operation': 'GetObject',
+        'issued_at': issued_at.isoformat(),
+        'url_expires_at': (issued_at + timedelta(seconds=URL_EXPIRY_SECONDS)).isoformat(),
+        'credential_expires_at': credentials['Expiration'].isoformat(),
+    }
+    record_issuance(record)
+    return url
+```
+
+Join issuance to use by comparing the bucket, key, operation, signing-session ARN, and validity period. Reusing one session to issue equivalent URLs makes this join ambiguous because CloudTrail provides no unique presigned URL identifier. Source IP addresses and user agents are supporting signals, not identity evidence.
+
+**Correlating server access logs**  
+For a SigV4 presigned URL, the authentication type is `QueryString` and the Request-URI contains `X-Amz-Expires`. The request ID connects the server access log record to its CloudTrail event. For more information, see [Using Amazon S3 server access logs to identify requests](using-s3-access-logs-to-identify-requests.md).
+
+For example, a successful request can show the signing-session ARN in the `Requester` field, `REST.GET.OBJECT` as the operation, `200` as the HTTP status, `SigV4` as the signature version, `QueryString` as the authentication type, and `X-Amz-Expires=300` in the Request-URI. It also records a request ID and user agent.
+
+**Warning**  
+The Request-URI can contain credential information and an AWS STS security token. Restrict and encrypt the log destination, and redact query values before sharing log records. Amazon S3 delivers server access logs on a best-effort basis and can delay them, so a missing record doesn't prove that a request didn't occur. For more information, see [Logging interactions and mitigations](https://docs.aws.amazon.com/prescriptive-guidance/latest/presigned-url-best-practices/logging-interactions.html) in *AWS Prescriptive Guidance*.
 
 ## Frequently asked questions for presigned URLs
 <a name="PresignedUrlFAQ"></a>

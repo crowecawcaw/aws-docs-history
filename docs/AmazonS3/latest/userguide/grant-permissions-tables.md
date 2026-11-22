@@ -1,7 +1,6 @@
 
 
 # Managing access to a table or database with Lake Formation
-<a name="grant-permissions-tables"></a>
 
 If your table buckets are integrated with the AWS analytics service using Lake Formation, then Lake Formation manages access to your tables and requires that each IAM principal (user or role) be authorized to perform actions them. Lake Formation uses its own permissions model (Lake Formation permissions) that enables fine-grained access control for Data Catalog resources. 
 
@@ -66,7 +65,7 @@ If you're creating a new table in the Athena query editor, don't select a table.
 
 1. Run the following command to grant Lake Formation permissions on table in S3 table bucket to an IAM principal to access the table. To use this example, replace the {{`user input placeholders`}} with your own information. 
 
-   ```
+   ```bash
    aws lakeformation grant-permissions \
    --region {{us-east-1}} \
    --cli-input-json \

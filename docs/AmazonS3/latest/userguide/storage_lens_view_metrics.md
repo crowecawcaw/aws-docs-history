@@ -1,7 +1,6 @@
 
 
 # Viewing metrics with Amazon S3 Storage Lens
-<a name="storage_lens_view_metrics"></a>
 
 S3 Storage Lens aggregates your metrics and displays the information in the **Account snapshot** section on the Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard that you can use to visualize insights and trends, flag outliers, and receive recommendations for optimizing storage costs and applying data protection best practices. Your dashboard has drill-down options to generate and visualize insights at the organization, account, AWS Region, storage class, bucket, prefix, or Storage Lens group level. You can also send a daily metrics report in CSV or Parquet format to a general purpose S3 bucket or export the metrics directly to an AWS-managed S3 table bucket.
 
@@ -14,6 +13,7 @@ Advanced metrics and recommendations include the following additional features t
 + Storage Lens group aggregation
 + Storage Lens group aggregation
 + Amazon CloudWatch publishing
++ AWS Billing and Cost Management publishing
 
 Advanced metrics data is available for queries for 15 months. There are additional charges for using S3 Storage Lens with advanced metrics. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing). For more information about free and advanced metrics, see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection).
 
@@ -21,4 +21,5 @@ Advanced metrics data is available for queries for 15 months. There are addition
 + [Viewing S3 Storage Lens metrics on the dashboards](storage_lens_view_metrics_dashboard.md)
 + [Viewing Amazon S3 Storage Lens metrics using a data export](storage_lens_view_metrics_export.md)
 + [Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md)
++ [Estimating Amazon S3 costs by prefix with S3 Storage Lens and AWS Cost and Usage Reports](storage-lens-cost-and-usage-reports.md)
 + [Amazon S3 Storage Lens metrics use cases](storage-lens-use-cases.md)

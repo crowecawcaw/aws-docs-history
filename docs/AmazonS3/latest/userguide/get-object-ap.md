@@ -1,7 +1,6 @@
 
 
 # Download an object through an access point for a general purpose bucket
-<a name="get-object-ap"></a>
 
 This section explains how to download an object through an access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API.
 
@@ -31,7 +30,7 @@ The following `get-object` example command shows how you can use the AWS CLI to 
 
 The following command downloads the object `puppy.jpg` for AWS account {{111122223333}} using access point {{my-access-point}}. You must include an `outfile`, which is a file name for the downloaded object, such as `{{my_downloaded_image.jpg}}`.
 
-```
+```bash
 aws s3api get-object --bucket arn:aws:s3:{{AWS Region}}:111122223333:accesspoint/{{my-access-point}} --key puppy.jpg {{my_downloaded_image.jpg}}      
 ```
 
@@ -55,7 +54,7 @@ You can use the AWS SDK for Python to download an object through an access point
 
 In the following example, the file named `{{hello.txt}}` is downloaded for AWS account {{111122223333}} using the access point named {{my-access-point}}.
 
-```
+```python
 import boto3
 s3 = boto3.client('s3')
 s3.download_file('arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{my-access-point}}', '{{hello.txt}}', '{{/tmp/hello.txt}}')

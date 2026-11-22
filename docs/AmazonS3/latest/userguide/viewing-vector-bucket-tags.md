@@ -1,7 +1,6 @@
 
 
 # Viewing vector bucket tags
-<a name="viewing-vector-bucket-tags"></a>
 
 You can view or list tags applied to Amazon S3 vector buckets. For more information about tagging vector buckets, see [Using tags with S3 vector buckets](s3-vectors-tags.md).
 
@@ -53,7 +52,7 @@ To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com
 
 The following CLI example shows you how to view tags applied to a vector bucket. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3vectors list-tags-for-resource \ 
 --resource-arn arn:aws:s3vectors:us-east-1:012345678900:bucket/acc-bucket
 ```

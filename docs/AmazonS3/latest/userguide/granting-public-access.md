@@ -1,7 +1,6 @@
 
 
 # Granting public access to your Amazon S3 data
-<a name="granting-public-access"></a>
 
 Amazon S3 provides multiple ways to grant public access to your data. You can grant public access through a bucket policy, through object tags combined with a bucket policy, or through object access control lists (ACLs). The mechanism you use depends on your goal. For example, to make an entire bucket publicly accessible, you can use a bucket policy. To make only specific objects accessible, you can add a tag to those objects and make them public with a bucket policy.
 
@@ -27,7 +26,7 @@ To make the objects in a bucket publicly readable, turn off Block Public Access 
 **Example**  
 The following bucket policy grants public read access to every object in the bucket.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -57,7 +56,7 @@ Object tags incur additional charges, both to apply them and to store them. For 
 **Example**  
 The following bucket policy grants public read access to every object that has the `public=true` tag.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

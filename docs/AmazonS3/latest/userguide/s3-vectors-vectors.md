@@ -1,11 +1,12 @@
 
 
 # Vectors
-<a name="s3-vectors-vectors"></a>
 
 Each vector consists of a key, which uniquely identifies each vector in a vector index. Additionally, you can attach metadata (for example, year, author, genre, location) as key value pairs to each vector. 
 
 Vector data operations include inserting, listing, querying, and deleting vectors. To generate new vector embeddings of your unstructured data, you can use the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) API operation from Amazon Bedrock to specify the model ID of the embedding model that you want to use. Additionally, the open-source Amazon S3 Vectors Embed CLI tool provides a simplified way to generate embeddings and perform semantic searches from the command line. For more information about this open source tool that automates both vector embedding generation with Amazon Bedrock foundation models and semantic search operations within your S3 vector indexes, see [Creating vector embeddings and performing semantic searches with `s3vectors-embed-cli`](s3-vectors-cli.md).
+
+To learn how to perform vector, full-text, and hybrid queries, see [Querying with full-text and vector search](s3-vectors-querying-full-text-and-vector-search.md) and [Hybrid search with Amazon S3 Vectors](s3-vectors-hybrid-search.md).
 
 ## Vector concepts
 <a name="s3-vectors-concepts"></a>

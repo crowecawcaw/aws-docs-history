@@ -1,7 +1,6 @@
 
 
 # Deleting Amazon S3 objects
-<a name="DeletingObjects"></a>
 
 You can delete one or more objects directly from Amazon S3 using the Amazon S3 console, AWS SDKs, AWS Command Line Interface (AWS CLI), or REST API. For example, if you're collecting log files, it's a good idea to delete them when they're no longer needed. You can [set up an S3 Lifecycle rule](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html) to automatically delete objects such as log files.
 

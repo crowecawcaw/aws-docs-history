@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for Amazon S3
-<a name="privatelink-interface-endpoints"></a>
 
 With AWS PrivateLink for Amazon S3, you can provision *interface VPC endpoints* (interface endpoints) in your virtual private cloud (VPC). These endpoints are directly accessible from applications that are on premises over VPN and Direct Connect, or in a different AWS Region over VPC peering.
 
@@ -166,7 +165,7 @@ When you enable private DNS names on an existing or new VPC interface endpoint f
 
 If you don't specify a value for `PrivateDnsOnlyForInboundResolverEndpoint`, it will default to `true`. However, before your VPC applies your settings, it performs a check to make sure that you have a gateway endpoint present in the VPC. If a gateway endpoint is present in the VPC, the call succeeds. If not, you will see the following error message: 
 
-To set PrivateDnsOnlyForInboundResolverEndpoint to true, the VPC {{vpce\_id}} must have a gateway endpoint for the service.
+`To set PrivateDnsOnlyForInboundResolverEndpoint to true, the VPC {{vpce_id}} must have a gateway endpoint for the service.`
 
 **For a new VPC Interface endpoint**
 
@@ -297,7 +296,7 @@ To access S3 buckets, S3 access points, or Amazon S3 Control API operations thro
 **Example: Use an endpoint URL to access an S3 bucket**  
 In the following example, replace the Region `{{us-east-1}}` and VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` with your own information. 
 
-```
+```python
 s3_client = session.client(
 service_name='s3',
 region_name='{{us-east-1}}',
@@ -308,7 +307,7 @@ endpoint_url='https://bucket.{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.co
 **Example: Use an endpoint URL to access an S3 access point**  
 In the following example, replace the Region `{{us-east-1}}` and VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` with your own information. 
 
-```
+```python
 ap_client = session.client(
 service_name='s3',
 region_name='{{us-east-1}}',
@@ -319,7 +318,7 @@ endpoint_url='https://accesspoint.{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazona
 **Example: Use an endpoint URL to access the Amazon S3 Control API**  
 In the following example, replace the Region `{{us-east-1}}` and VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` with your own information. 
 
-```
+```python
 control_client = session.client(
 service_name='s3control',
 region_name='{{us-east-1}}',
@@ -333,7 +332,7 @@ endpoint_url='https://control.{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.c
 **Example: Use an endpoint URL to access an S3 bucket**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` with your own information. 
 
-```
+```java
 // bucket client
 final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withEndpointConfiguration(
         new AwsClientBuilder.EndpointConfiguration(
@@ -347,7 +346,7 @@ List<Bucket> buckets = s3.listBuckets();
 **Example: Use an endpoint URL to access an S3 access point**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` and ARN `{{us-east-1:123456789012:accesspoint/prod}}` with your own information. 
 
-```
+```java
 // accesspoint client
 final AmazonS3 s3accesspoint = AmazonS3ClientBuilder.standard().withEndpointConfiguration(
         new AwsClientBuilder.EndpointConfiguration(
@@ -361,7 +360,7 @@ ObjectListing objects = s3accesspoint.listObjects("arn:aws:s3:{{us-east-1:123456
 **Example: Use an endpoint URL to access an Amazon S3 Control API operation**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` with your own information. 
 
-```
+```java
 // control client
 final AWSS3Control s3control = AWSS3ControlClient.builder().withEndpointConfiguration(
         new AwsClientBuilder.EndpointConfiguration(
@@ -378,7 +377,7 @@ final ListJobsResult jobs = s3control.listJobs(new ListJobsRequest());
 **Example: Use an endpoint URL to access an S3 bucket**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` and the Region `{{Region.US_EAST_1}}` with your own information.
 
-```
+```java
 // bucket client
 Region region = {{Region.US_EAST_1}};
 s3Client = S3Client.builder().region(region)
@@ -389,7 +388,7 @@ s3Client = S3Client.builder().region(region)
 **Example: Use an endpoint URL to access an S3 access point**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` and the Region `{{Region.US_EAST_1}}` with your own information.
 
-```
+```java
 // accesspoint client
 Region region = {{Region.US_EAST_1}};
 s3Client = S3Client.builder().region(region)
@@ -400,7 +399,7 @@ s3Client = S3Client.builder().region(region)
 **Example: Use an endpoint URL to access the Amazon S3 Control API**  
 In the following example, replace the VPC endpoint ID `{{vpce-1a2b3c4d-5e6f.s3.us-east-1.vpce.amazonaws.com}}` and the Region `{{Region.US_EAST_1}}` with your own information.
 
-```
+```java
 // control client
 Region region = {{Region.US_EAST_1}};
 s3ControlClient = S3ControlClient.builder().region(region)
@@ -468,7 +467,7 @@ You can create an endpoint policy that restricts access to only specific Amazon 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "Policy1415115909151",
@@ -494,7 +493,7 @@ You can create an endpoint policy that restricts access to only specific Amazon 
 
 You can create an endpoint policy that restricts access to only the S3 buckets in a specific AWS account. To prevent clients within your VPC from accessing buckets that you don't own, use the following statement in your endpoint policy. The following example statement creates a policy that restricts access to resources owned by a single AWS account ID, {{`111122223333`}}.
 
-```
+```json
 {
   "Statement": [
     {
@@ -534,7 +533,7 @@ This policy disables *console* access to the specified bucket, because console r
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "Policy1415115909152",

@@ -1,7 +1,6 @@
 
 
 # Regional and Zonal endpoints for directory buckets
-<a name="s3-express-Regions-and-Zones"></a>
 
  To access the Regional and Zonal endpoints for directory buckets from your virtual private cloud (VPC), you can use gateway VPC endpoints. After you create a gateway endpoint, you can add it as a target in your route table for traffic destined from your VPC to your bucket. There is no additional charge for using gateway endpoints. For more information about how to configure gateway VPC endpoints, see [Networking for directory buckets](s3-express-networking.md).
 

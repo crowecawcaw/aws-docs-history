@@ -1,7 +1,6 @@
 
 
 # Setting up table migration
-<a name="s3-tables-migrate-setting-up"></a>
 
 Before you migrate a table, make sure that you have the required resources and permissions. You can also choose how migration writes your destination table.
 
@@ -26,7 +25,7 @@ The migration role must be able to read your source and write your destination t
 
 The role's trust policy must allow the S3 Tables migration service principal, `migration.s3tables.amazonaws.com`, to assume the role. The following example permissions policy grants the required permissions. The policy includes AWS KMS statements for SSE-KMS source objects, an SSE-KMS destination table, and an SSE-KMS report bucket. To use these examples, remove the statements for keys that you don't use and replace the placeholders with your own information.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -121,7 +120,7 @@ The role's trust policy must allow the S3 Tables migration service principal, `m
 
 The following example trust policy allows the migration service principal to assume the role only for migrations into the specified table bucket.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # S3 Tables AWS Regions, endpoints, and service quotas
-<a name="s3-tables-regions-quotas"></a>
 
 The following sections include the supported AWS Regions and service quotas for S3 Tables.
 

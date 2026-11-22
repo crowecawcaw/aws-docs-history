@@ -1,7 +1,6 @@
 
 
 # Object operations for access points for directory buckets
-<a name="access-points-directory-buckets-service-api-support"></a>
 
 You can use access points to access an object using the following S3 data operations.
 + [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)

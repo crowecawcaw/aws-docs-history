@@ -1,7 +1,6 @@
 
 
 # Creating metadata table configurations
-<a name="metadata-tables-create-configuration"></a>
 
 To generate and store Amazon S3 Metadata in fully managed Apache Iceberg metadata tables, you create a metadata table configuration for your general purpose bucket. Amazon S3 is designed to continuously update the metadata tables to reflect the latest changes to your data as long as the configuration is active on the bucket. Additionally, Amazon S3 continuously optimizes your metadata tables to help reduce storage costs and improve analytics query performance.
 
@@ -176,7 +175,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
    To encrypt your metadata tables with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set `SseAlgorithm` to `aws:kms`. You must also set `KmsKeyArn` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 
-   ```
+   ```json
    {
      "JournalTableConfiguration": {
         "RecordExpiration": {
@@ -206,7 +205,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
 1. Use the following command to apply the metadata table configuration to your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`):
 
-   ```
+   ```bash
    aws s3api create-bucket-metadata-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --metadata-configuration file://./{{metadata-config}}.json \
@@ -215,7 +214,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
 1. To verify that the configuration was created, use the following command:
 
-   ```
+   ```bash
    aws s3api get-bucket-metadata-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --region {{us-east-2}}
@@ -242,7 +241,7 @@ To migrate from an old metadata configuration to a new configuration, do the fol
 
 1. Delete your existing metadata table configuration. For step-by-step instructions, see [Deleting metadata table configurations](metadata-tables-delete-configuration.md). 
 
-1. Create a new metadata table configuration. For step-by-step instructions, see [Creating metadata table configurations](#metadata-tables-create-configuration).
+1. Create a new metadata table configuration. For step-by-step instructions, see [Creating metadata table configurations](metadata-tables-create-configuration.md).
 
 If you need assistance with migrating your configuration, contact AWS Support. 
 

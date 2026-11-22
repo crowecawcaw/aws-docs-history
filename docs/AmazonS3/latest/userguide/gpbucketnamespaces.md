@@ -1,7 +1,6 @@
 
 
 # Namespaces for general purpose buckets
-<a name="gpbucketnamespaces"></a>
 
 By default, general purpose buckets exist in a global namespace. This means that each bucket name must be unique across all AWS accounts in all the AWS Regions within a partition. A partition is a grouping of Regions. AWS currently has four partitions: `aws` (Standard Regions), `aws-cn` (China Regions), `aws-us-gov` (AWS GovCloud (US)), and `aws-eusc` (European Sovereign Cloud). When you create a general purpose bucket, you can choose to create a bucket in the shared global namespace. You can also choose to create a bucket in your account regional namespace. Your account regional namespace is a subdivision of the global namespace that only your account can create buckets in.
 
@@ -39,13 +38,13 @@ Creating buckets in your account regional namespace is a security best practice.
 
 General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create and a suffix that contains your 12-digit AWS Account ID, the AWS Region code, and ends with `-an`.
 
-```
+```xml
 {{bucket-name-prefix}}-accountId-region-an
 ```
 
 For example, the following general purpose bucket exists in the account regional namespace for AWS Account 111122223333 in the us-west-2 Region:
 
-```
+```xml
 {{amzn-s3-demo-bucket}}-111122223333-us-west-2-an
 ```
 
@@ -107,7 +106,7 @@ You can enforce that your IAM principals only create buckets in your account reg
 
 The following IAM policy denies the s3:CreateBucket permission to the IAM principal if the request does not include the x-amz-bucket-namespace header set to account-regional.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -131,7 +130,7 @@ The following IAM policy denies the s3:CreateBucket permission to the IAM princi
 
 The following Resource Control Policy denies the s3:CreateBucket permission to everyone if the request does not include the x-amz-bucket-namespace header set to account-regional.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -156,7 +155,7 @@ The following Resource Control Policy denies the s3:CreateBucket permission to e
 
 The following Service Control Policy denies the s3:CreateBucket permission to everyone if the request does not include the x-amz-bucket-namespace header set to account-regional.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -185,7 +184,7 @@ The following examples show you how to create a general purpose bucket in your a
 
 The following AWS CLI example creates a general purpose bucket in the account regional namespace for AWS Account 012345678910 in the US West (N. California) Region (us-west-1). To use this example command, replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3api create-bucket \
     --bucket {{amzn-s3-demo-bucket-012345678910-us-west-1-an}} \
     --bucket-namespace account-regional

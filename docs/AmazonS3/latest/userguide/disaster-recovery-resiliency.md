@@ -1,7 +1,6 @@
 
 
 # Resilience in Amazon S3
-<a name="disaster-recovery-resiliency"></a>
 
 The AWS global infrastructure is built around Regions and Availability Zones. AWS Regions provide multiple, physically separated and isolated Availability Zones that are connected with low latency, high throughput, and highly redundant networking. These Availability Zones offer you an effective way to design and operate applications and databases. They are more highly available, fault tolerant, and scalable than traditional single data center infrastructures or multi-data center infrastructures. If you specifically need to replicate your data over greater geographic distances, you can use [Replicating objects within and across Regions](replication.md), which enables automatic, asynchronous copying of objects across buckets in different AWS Regions.
 

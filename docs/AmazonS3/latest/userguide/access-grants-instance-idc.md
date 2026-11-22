@@ -1,7 +1,6 @@
 
 
 # Associate or disassociate your IAM Identity Center instance
-<a name="access-grants-instance-idc"></a>
 
 In Amazon S3 Access Grants, you can associate the AWS IAM Identity Center instance of your corporate identity directory with an S3 Access Grants instance. After you do so, you can create access grants for your corporate directory users and groups, in addition to AWS Identity and Access Management (IAM) users and roles. 
 

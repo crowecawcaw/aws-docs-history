@@ -1,7 +1,6 @@
 
 
 # How Amazon S3 handles conflicts in lifecycle configurations
-<a name="lifecycle-conflicts"></a>
 
 Generally, Amazon S3 Lifecycle optimizes for cost. For example, if two expiration policies overlap, the shorter expiration policy is honored so that data is not stored for longer than expected. Likewise, if two transition policies overlap, S3 Lifecycle transitions your objects to the lower-cost storage class.
 
@@ -23,7 +22,7 @@ The following example configuration has two rules that specify overlapping prefi
 + The second rule specifies a key name prefix (`logs/`), indicating only a subset of objects.
 Rule 1 requests Amazon S3 to delete all objects one year after creation. Rule 2 requests Amazon S3 to transition a subset of objects to the S3 Standard-IA storage class 30 days after creation.  
 
-```
+```xml
  1. <LifecycleConfiguration>
  2.   <Rule>
  3.     <ID>Rule 1</ID>
@@ -55,7 +54,7 @@ In this example configuration, there are two rules that direct Amazon S3 to perf
 + Both rules specify the same 365 days after object creation when the rules apply.
 + One rule directs Amazon S3 to transition objects to the S3 Standard-IA storage class and another rule wants Amazon S3 to expire the objects at the same time.
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Rule 1</ID>
@@ -88,7 +87,7 @@ In this example, the configuration has two rules, which specify overlapping pref
 + Rule 2 specifies a key name prefix (`logs/`) that identifies a subset of all objects.
 For the subset of objects with the `logs/` key name prefix, S3 Lifecycle actions in both rules apply. One rule directs Amazon S3 to transition objects 10 days after creation, and another rule directs Amazon S3 to transition objects 365 days after creation.   
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Rule 1</ID>
@@ -122,7 +121,7 @@ Suppose that you have the following S3 Lifecycle configuration that has two rule
 + Rule 2 specifies a tag-based filter (`tag2/value2`). This rule directs Amazon S3 to expire objects 14 days after creation.
 The S3 Lifecycle configuration is shown in following example.  
 
-```
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID>Rule 1</ID>

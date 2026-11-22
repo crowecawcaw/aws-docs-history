@@ -1,7 +1,6 @@
 
 
 # Creating and managing S3 Files resources
-<a name="s3-files-resources"></a>
 
 This page describes how to create, configure, and manage S3 Files resources. To manage your resources using the AWS CLI, see [S3 Files API reference](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Operations_Amazon_S3_Files.html).
 

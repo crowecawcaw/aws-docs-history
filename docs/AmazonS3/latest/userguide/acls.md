@@ -1,7 +1,6 @@
 
 
 # Managing access with ACLs
-<a name="acls"></a>
 
  Access control lists (ACLs) are one of the resource-based options that you can use to manage access to your buckets and objects. You can use ACLs to grant basic read/write permissions to other AWS accounts. There are limits to managing permissions using ACLs.
 

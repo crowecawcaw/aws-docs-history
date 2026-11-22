@@ -1,7 +1,6 @@
 
 
 # Creating a general purpose bucket
-<a name="create-bucket-overview"></a>
 
 To upload your data to Amazon S3, you must first create an Amazon S3 general purpose bucket in one of the AWS Regions. The AWS account that creates the bucket owns it. When you create a bucket, you must choose a bucket name and Region. During the creation process, you can optionally choose other storage management options for the bucket.
 
@@ -168,7 +167,7 @@ For information about how to create and test a working sample, see the [AWS SDK 
 
 **Example**  
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -238,7 +237,7 @@ For information about how to create and test a working sample, see the [AWS SDK 
 
 **Example**  
 
-```
+```ruby
 require 'aws-sdk-s3'
 
 # Wraps Amazon S3 bucket actions.

@@ -1,7 +1,6 @@
 
 
 # General purpose bucket naming rules
-<a name="bucketnamingrules"></a>
 
 When you create a general purpose bucket, make sure that you consider the length, valid characters, formatting, and uniqueness of bucket names. The following sections provide information about general purpose bucket naming, including naming rules, best practices, and an example for how you can create buckets in your account regional namespace. an example for creating a general purpose bucket with a name that includes a globally unique identifier (GUID). 
 
@@ -54,13 +53,13 @@ Although Amazon S3 general purpose buckets exist in a shared global namespace, y
 
 General purpose buckets in your account regional namespace must follow a specific naming convention. These buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit AWS account ID, the AWS Region code, and ends with `-an`.
 
-```
+```xml
 {{bucket-name-prefix}}-accountId-region-an
 ```
 
 For example, the following general purpose bucket exists in the account regional namespace for AWS account 111122223333 in the us-west-2 Region:
 
-```
+```xml
 {{amzn-s3-demo-bucket}}-111122223333-us-west-2-an
 ```
 
@@ -138,7 +137,7 @@ aws s3api create-bucket \
 
 The following example shows you how to create a with a GUID at the end of the bucket name in US East (N. Virginia) Region (`us-east-1`) by using the AWS SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information. For information about other AWS SDKs, see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/).
 
-```
+```Java
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -169,7 +168,7 @@ The following examples show you how to create a general purpose bucket in your a
 
 The following AWS CLI example creates a general purpose bucket in the account regional namespace for AWS account 012345678910 in the US West (N. California) Region (`us-west-1`) Region. To use this example command, replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3api create-bucket \
     --bucket {{amzn-s3-demo-bucket-012345678910-us-west-1-an}} \
     --bucket-namespace account-regional

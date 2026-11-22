@@ -1,7 +1,6 @@
 
 
 # Creating Object Lambda Access Points
-<a name="olap-create"></a>
 
 **Note**  
 As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
@@ -76,7 +75,7 @@ To use the following commands, replace the `{{user input placeholders}}` with yo
 
 1. Run the following `put-object` command to upload the package to an Amazon S3 bucket.
 
-   ```
+   ```bash
    aws s3api put-object --bucket {{Amazon S3 bucket name}} --key s3objectlambda_deployment_package.zip --body release/s3objectlambda_deployment_package.zip
    ```
 
@@ -84,7 +83,7 @@ To use the following commands, replace the `{{user input placeholders}}` with yo
 
 1. Run the following `deploy` command to deploy the template to your AWS account.
 
-   ```
+   ```bash
    aws cloudformation deploy --template-file s3objectlambda_defaultconfig.yaml \
     --stack-name {{CloudFormation stack name}} \ 
     --parameter-overrides ObjectLambdaAccessPointName={{Object Lambda Access Point name}} \
@@ -117,7 +116,7 @@ This example uses the AWS prebuilt function `decompress`. For more information a
 
    
 
-   ```
+   ```json
    {
        "SupportingAccessPoint" : "arn:aws:s3:{{us-east-1}}:{{111122223333}}:accesspoint/{{example-ap}}",
        "TransformationConfigurations": [{
@@ -145,7 +144,7 @@ This example uses the AWS prebuilt function `decompress`. For more information a
 
    
 
-   ```
+   ```json
    {
        "Version": "2008-10-17",		 	 	 
        "Statement": [
@@ -174,7 +173,7 @@ This example uses the AWS prebuilt function `decompress`. For more information a
 
    The following Object Lambda Access Point configuration shows a payload with two parameters.
 
-   ```
+   ```json
    {
    	"SupportingAccessPoint": "{{AccessPointArn}}",
    	"CloudWatchMetricsEnabled": {{false}},
@@ -192,7 +191,7 @@ This example uses the AWS prebuilt function `decompress`. For more information a
 
    The following Object Lambda Access Point configuration shows a payload with one parameter, and with `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, and `HeadObject-PartNumber` enabled.
 
-   ```
+   ```json
    {
        "SupportingAccessPoint":"{{AccessPointArn}}",
        "CloudWatchMetricsEnabled": {{false}},

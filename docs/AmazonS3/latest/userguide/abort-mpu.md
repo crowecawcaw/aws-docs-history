@@ -1,7 +1,6 @@
 
 
 # Aborting a multipart upload
-<a name="abort-mpu"></a>
 
 After you initiate a multipart upload, you begin uploading parts. Amazon S3 stores these parts, and only creates the object after you upload all parts and send a request to complete the multipart upload. Upon receiving the complete multipart upload request, Amazon S3 assembles the parts and creates an object. If you don't send the complete multipart upload request successfully, S3 does not assemble the parts and does not create any object. If you wish to not complete a multipart upload after uploading parts you should abort the multipart upload.
 
@@ -47,7 +46,7 @@ For examples of how to abort multipart uploads with the AWS SDK for Java, see [C
 
 The following C\# example stops all in-progress multipart uploads that were initiated on a specific bucket over a week ago. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```csharp
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Transfer;
@@ -119,7 +118,7 @@ For examples of how to abort a specific multipart upload with the AWS SDK for Ja
 
 The following C\# example shows how to stop a multipart upload. For a complete C\# sample that includes the following code, see [Using the AWS SDKs (low-level API)](mpu-upload-object.md#mpu-upload-low-level).
 
-```
+```csharp
 AbortMultipartUploadRequest abortMPURequest = new AbortMultipartUploadRequest
 {
     BucketName = existingBucketName,
@@ -138,7 +137,7 @@ This example shows how to use a class from version 3 of the AWS SDK for PHP to a
 
 For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
-```
+```PHP
  require 'vendor/autoload.php';
 
 use Aws\S3\S3Client;

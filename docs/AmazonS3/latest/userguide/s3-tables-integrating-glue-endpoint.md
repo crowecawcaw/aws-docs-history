@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon S3 tables using the AWS Glue Iceberg REST endpoint
-<a name="s3-tables-integrating-glue-endpoint"></a>
 
 Once your S3 table buckets are integrated with the AWS Glue Data Catalog you can use the AWS Glue Iceberg REST endpoint to connect to your S3 tables from Apache Iceberg-compatible clients, such as PyIceberg or Spark. The AWS Glue Iceberg REST endpoint implements the [Iceberg REST Catalog Open API specification](https://github.com/apache/iceberg/blob/main/open-api/rest-catalog-open-api.yaml) which provides a standardized interface for interacting with Iceberg tables. To access S3 tables using the endpoint you need to configure permissions through a combination of IAM policies and AWS Lake Formation grants. The following sections explain how to set up access, including creating the necessary IAM role, defining the required policies, and establishing Lake Formation permissions for both database and table-level access. 
 
@@ -37,7 +36,7 @@ To access tables through AWS Glue endpoints, you need to create an IAM role with
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -83,7 +82,7 @@ To access tables through AWS Glue endpoints, you need to create an IAM role with
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -129,7 +128,7 @@ Next, grant Lake Formation permissions to the IAM role you created for your Iceb
 
 After you have setup the IAM role with the permissions required for table access you can use it to run Iceberg clients from your local machine by configuring the AWS CLI with your role, using the following command:
 
-```
+```bash
 aws sts assume-role --role-arn "arn:aws:iam::{{<accountid>}}:role/{{<glue-irc-role>}}" --role-session-name {{<glue-irc-role>}}
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Deregistering a delegated administrator for S3 Storage Lens
-<a name="storage_lens_with_organizations_deregistering_delegated_admins"></a>
 
 After enabling trusted access, you can also deregister delegate administrator access to accounts in your organization. Delegated administrator accounts allow other accounts besides your [management account](https://docs.aws.amazon.com/managedservices/latest/userguide/management-account.html) to create organization-level dashboards. Only the management account of an organization can deregister accounts as delegated administrators for the organization.
 

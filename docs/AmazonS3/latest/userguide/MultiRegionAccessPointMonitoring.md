@@ -1,7 +1,6 @@
 
 
 # Monitoring and logging requests made through a Multi-Region Access Point to underlying resources
-<a name="MultiRegionAccessPointMonitoring"></a>
 
 Amazon S3 logs requests made through Multi-Region Access Points and requests made to the API operations that manage them, such as `CreateMultiRegionAccessPoint` and `GetMultiRegionAccessPointPolicy`. Requests made to Amazon S3 through a Multi-Region Access Point appear in your Amazon S3 server access logs and AWS CloudTrail logs with the Multi-Region Access Point hostname. An access point's hostname takes the form `{{MRAP_alias}}.accesspoint.s3-global.amazonaws.com`. For example, suppose that you have the following bucket and Multi-Region Access Point configuration: 
 + A bucket named `my-bucket-usw2` in the Region `us-west-2` that contains the object `my-image.jpg`. 

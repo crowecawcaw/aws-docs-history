@@ -1,7 +1,6 @@
 
 
 # SELECT command
-<a name="s3-select-sql-reference-select"></a>
 
 **Important**  
 Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
@@ -22,7 +21,7 @@ Amazon S3 Select queries currently do not support subqueries or joins.
 
 The `SELECT` list names the columns, functions, and expressions that you want the query to return. The list represents the output of the query. 
 
-```
+```sql
 SELECT *
 SELECT {{projection1}} AS {{column_alias_1}}, {{projection2}} AS {{column_alias_2}}
 ```
@@ -34,7 +33,7 @@ The first form of `SELECT` with the `*` (asterisk) returns every row that passed
 
 Amazon S3 Select supports the following forms of the `FROM` clause:
 
-```
+```sql
 FROM {{table_name}}
 FROM {{table_name alias}}
 FROM {{table_name}} AS {{alias}}
@@ -70,16 +69,16 @@ Amazon S3 Select always treats a JSON document as an array of root-level values.
 *Example \#1*  
 This example shows results when using the following dataset and query:  
 
-```
+```json
 { "Rules": [ {"id": "1"}, {"expr": "y > x"}, {"id": "2", "expr": "z = DEBUG"} ]}
 { "created": "June 27", "modified": "July 6" }
 ```
 
-```
+```sql
 SELECT id FROM S3Object[*].Rules[*].id
 ```
 
-```
+```json
 {"id":"1"}
 {}
 {"id":"2"}
@@ -92,36 +91,36 @@ Amazon S3 Select produces each result for the following reasons:
 + `{}` – `S3Object[1]` did not match on `Rules`, so Amazon S3 Select emitted `MISSING`, which was then changed to an empty record during output serialization and returned.
 If you don't want Amazon S3 Select to return empty records when it doesn't find a match, you can test for the value `MISSING`. The following query returns the same results as the previous query, but with the empty values omitted:  
 
-```
+```sql
 SELECT id FROM S3Object[*].Rules[*].id WHERE id IS NOT MISSING
 ```
 
-```
+```json
 {"id":"1"}
 {"id":"2"}
 ```
 *Example \#2*  
 This example shows results when using the following dataset and queries:  
 
-```
+```json
 { "created": "936864000", "dir_name": "important_docs", "files": [ { "name": "." }, { "name": ".." }, { "name": ".aws" }, { "name": "downloads" } ], "owner": "Amazon S3" }
 { "created": "936864000", "dir_name": "other_docs", "files": [ { "name": "." }, { "name": ".." }, { "name": "my stuff" }, { "name": "backup" } ], "owner": "User" }
 ```
 
-```
+```sql
 SELECT d.dir_name, d.files FROM S3Object[*] d
 ```
 
-```
+```json
 {"dir_name":"important_docs","files":[{"name":"."},{"name":".."},{"name":".aws"},{"name":"downloads"}]}
 {"dir_name":"other_docs","files":[{"name":"."},{"name":".."},{"name":"my stuff"},{"name":"backup"}]}
 ```
 
-```
+```sql
 SELECT _1.dir_name, _1.owner FROM S3Object[*]
 ```
 
-```
+```json
 {"dir_name":"important_docs","owner":"Amazon S3"}
 {"dir_name":"other_docs","owner":"User"}
 ```
@@ -131,7 +130,7 @@ SELECT _1.dir_name, _1.owner FROM S3Object[*]
 
 The `WHERE` clause follows this syntax: 
 
-```
+```sql
 WHERE {{condition}}
 ```
 
@@ -142,7 +141,7 @@ The `WHERE` clause filters rows based on the `{{condition}}`. A condition is an 
 
 The `LIMIT` clause follows this syntax: 
 
-```
+```sql
 LIMIT {{number}}
 ```
 
@@ -166,7 +165,7 @@ The `SELECT` and `WHERE` clauses can refer to record data by using one of the me
 + **List** – You can access elements in a JSON list by using zero-based indexes with the `[]` operator. For example, you can access the second element of a list as `{{alias}}[1]`. You can combine accessing list elements with fields, for example, `{{alias}}.{{name1}}.{{name2}}[1].{{name3}}`.
 + **Examples:** Consider this JSON object as a sample dataset:
 
-  ```
+  ```sql
   {"name": "Susan Smith",
   "org": "engineering",
   "projects":
@@ -181,11 +180,11 @@ The `SELECT` and `WHERE` clauses can refer to record data by using one of the me
 
   The following query returns these results:
 
-  ```
+  ```sql
   Select s.name from S3Object s
   ```
 
-  ```
+  ```sql
   {"name":"Susan Smith"}
   ```
 
@@ -193,11 +192,11 @@ The `SELECT` and `WHERE` clauses can refer to record data by using one of the me
 
   The following query returns these results:
 
-  ```
+  ```sql
   Select s.projects[0].project_name from S3Object s
   ```
 
-  ```
+  ```sql
   {"project_name":"project1"}
   ```
 
@@ -211,24 +210,24 @@ The following examples are either 1) Amazon S3 objects in CSV format with the sp
 *Example \#1:* The object being queried has the header or attribute `NAME`.
 + The following expression successfully returns values from the object. Because there are no quotation marks, the query is case insensitive.
 
-  ```
+  ```sql
   SELECT s.name from S3Object s
   ```
 + The following expression results in a 400 error `MissingHeaderName`. Because there are quotation marks, the query is case sensitive. 
 
-  ```
+  ```sql
   SELECT s."name" from S3Object s
   ```
 
 *Example \#2:* The Amazon S3 object being queried has one header or attribute with `NAME` and another header or attribute with `name`.
 + The following expression results in a 400 error `AmbiguousFieldName`. Because there are no quotation marks, the query is case insensitive, but there are two matches, so the error is thrown.
 
-  ```
+  ```sql
   SELECT s.name from S3Object s
   ```
 + The following expression successfully returns values from the object. Because there are quotation marks, the query is case sensitive, so there is no ambiguity.
 
-  ```
+  ```sql
   SELECT s."NAME" from S3Object s
   ```
 
@@ -244,12 +243,12 @@ The following example is either 1) an Amazon S3 object in CSV format with the sp
 *Example:* The object being queried has a header or attribute named `CAST`, which is a reserved keyword.
 + The following expression successfully returns values from the object. Because quotation marks are used in the query, S3 Select uses the user-defined header or attribute.
 
-  ```
+  ```sql
   SELECT s."CAST" from S3Object s
   ```
 + The following expression results in a 400 parse error. Because no quotation marks are used in the query, `CAST` clashes with a reserved keyword.
 
-  ```
+  ```sql
   SELECT s.CAST from S3Object s
   ```
 

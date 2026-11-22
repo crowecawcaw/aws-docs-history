@@ -1,7 +1,6 @@
 
 
 # Create grants
-<a name="access-grants-grant-create"></a>
 
 An individual access *grant* in an S3 Access Grants instance allows a specific identity—an AWS Identity and Access Management (IAM) principal, or a user or group in a corporate directory—to get access within a location that is registered in your S3 Access Grants instance. A location maps buckets or prefixes to an IAM role. S3 Access Grants assumes this IAM role to vend temporary credentials to grantees. 
 
@@ -158,7 +157,7 @@ If you are creating an access grant that grants access to only one object, inclu
 
 **Example Create an access grant request**  
 
-```
+```java
 public void createAccessGrant() {
 CreateAccessGrantRequest createRequest = CreateAccessGrantRequest.builder()
 .accountId("{{111122223333}}")
@@ -174,7 +173,7 @@ LOGGER.info("CreateAccessGrantResponse: " + createResponse);
 
 **Example Create an access grant response**  
 
-```
+```java
 CreateAccessGrantResponse(
 CreatedAt=2023-06-07T05:20:26.330Z,
 AccessGrantId=a1b2c3d4-5678-90ab-cdef-EXAMPLE33333,

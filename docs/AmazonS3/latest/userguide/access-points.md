@@ -1,7 +1,6 @@
 
 
 # Managing access to shared datasets with access points
-<a name="access-points"></a>
 
 Amazon S3 access points simplify data access for any AWS service or customer application that stores data in S3. Access points are named network endpoints that are attached to a data source such as a bucket, Amazon FSx for NetApp ONTAP volume, Amazon FSx for OpenZFS volume, or an Amazon S3 recovery point in AWS Backup. For information about working with buckets, see [General purpose buckets overview](UsingBucket.md). For information about working with FSx for NetApp ONTAP, see [What is Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) in the *FSx for ONTAP User Guide*. For information about working with FSx for OpenZFS, see [What is Amazon FSx for OpenZFS](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) in the *FSx for OpenZFS User Guide*. An Amazon S3 recovery point (or backup) represents the content of an S3 bucket at a specified point in time, created by AWS Backup. For information about working with Amazon S3 backups, see [Amazon S3 backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/s3-backups.html) in the *AWS Backup Developer Guide*.
 

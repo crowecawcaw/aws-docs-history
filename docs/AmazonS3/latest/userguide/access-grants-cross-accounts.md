@@ -1,7 +1,6 @@
 
 
 # S3 Access Grants cross-account access
-<a name="access-grants-cross-accounts"></a>
 
 With S3 Access Grants, you can grant Amazon S3 data access to the following: 
 + AWS Identity and Access Management (IAM) identities within your account
@@ -81,7 +80,7 @@ If you want to grant cross-account access for the S3 Access Grants instance is i
 
 In the S3 Access Grants instance resource policy, specify the ARN of your S3 Access Grants instance as the `Resource`, and the second account `444455556666` as the `Principal`. To use the following example, replace the {{user input placeholders}} with your own information.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
 "Statement": [
@@ -173,7 +172,7 @@ If you want to grant cross-account access for the S3 Access Grants instance is i
 
 In the S3 Access Grants instance resource policy, specify the ARN of your S3 Access Grants instance as the `Resource`, and the second account `444455556666` as the `Principal`. To use the following example, replace the {{user input placeholders}} with your own information.
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
 "Statement": [
@@ -218,7 +217,7 @@ If you want to grant cross-account access for the S3 Access Grants instance is i
 + `s3:GetAccessGrantsInstanceForPrefix`
 In the S3 Access Grants instance resource policy, specify the ARN of your S3 Access Grants instance as the `Resource`, and the second account `444455556666` as the `Principal`. To use the following example, replace the {{user input placeholders}} with your own information.  
 
-```
+```json
 {
 "Version": "2012-10-17",		 	 	 
 "Statement": [
@@ -239,7 +238,7 @@ In the S3 Access Grants instance resource policy, specify the ARN of your S3 Acc
 ```
 To add or update an S3 Access Grants instance resource policy, use the following code example:  
 
-```
+```java
 public void putAccessGrantsInstanceResourcePolicy() {
 	PutAccessGrantsInstanceResourcePolicyRequest putRequest = PutAccessGrantsInstanceResourcePolicyRequest.builder()
 	.accountId({{111122223333}})
@@ -251,7 +250,7 @@ public void putAccessGrantsInstanceResourcePolicy() {
 ```
 Response:  
 
-```
+```java
 PutAccessGrantsInstanceResourcePolicyResponse(
 	Policy={
 	"Version": "2012-10-17",		 	 	 
@@ -276,7 +275,7 @@ PutAccessGrantsInstanceResourcePolicyResponse(
 **Example Get an S3 Access Grants resource policy**  
 To get an S3 Access Grants resource policy, use the following code example. To use the following example command, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```java
 public void getAccessGrantsInstanceResourcePolicy() {
 	GetAccessGrantsInstanceResourcePolicyRequest getRequest = GetAccessGrantsInstanceResourcePolicyRequest.builder()
 	.accountId({{111122223333}})
@@ -287,7 +286,7 @@ public void getAccessGrantsInstanceResourcePolicy() {
 ```
 Response:  
 
-```
+```java
 GetAccessGrantsInstanceResourcePolicyResponse(
 	Policy={"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::{{444455556666}}:root"},"Action":["s3:ListAccessGrants","s3:ListAccessGrantsLocations","s3:GetDataAccess","s3:GetAccessGrantsInstanceForPrefix","s3:ListCallerAccessGrants"],"Resource":"arn:aws:s3:{{us-east-2}}:{{111122223333}}:access-grants/default"}]},
 	CreatedAt=2023-06-15T22:54:44.319Z
@@ -297,7 +296,7 @@ GetAccessGrantsInstanceResourcePolicyResponse(
 **Example Delete an S3 Access Grants resource policy**  
 To delete an S3 Access Grants resource policy, use the following code example. To use the following example command, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```java
 public void deleteAccessGrantsInstanceResourcePolicy() {
 	DeleteAccessGrantsInstanceResourcePolicyRequest deleteRequest = DeleteAccessGrantsInstanceResourcePolicyRequest.builder()
 	.accountId({{111122223333}})
@@ -308,7 +307,7 @@ public void deleteAccessGrantsInstanceResourcePolicy() {
 ```
 Response:  
 
-```
+```java
 DeleteAccessGrantsInstanceResourcePolicyResponse()
 ```
 
@@ -328,7 +327,7 @@ Following the [AWS cross-account access pattern](https://docs.aws.amazon.com/IAM
 
 To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
 	"Version": "2012-10-17",		 	 	 
 	"Statement": [
@@ -354,7 +353,7 @@ In the grant, specify the AWS ARN of the IAM identity from the second account, a
 
 The following is an example CLI command for creating an access grant for an identity in the second account. See [Create grants](access-grants-grant-create.md) for more information. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control create-access-grant \
 --account-id {{111122223333}} \
 --access-grants-location-id default \

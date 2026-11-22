@@ -1,7 +1,6 @@
 
 
 # Getting the tags of a S3 Batch Operations job
-<a name="get-job-tags"></a>
 
 To retrieve the tags of an Amazon S3 Batch Operations job, you can use the `GetJobTagging` API operation. For more information, see the following examples.
 

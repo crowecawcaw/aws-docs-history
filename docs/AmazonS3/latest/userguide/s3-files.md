@@ -1,7 +1,6 @@
 
 
 # Working with Amazon S3 Files
-<a name="s3-files"></a>
 
 **Topics**
 + [What is S3 Files?](#s3-files-what-is)

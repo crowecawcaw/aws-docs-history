@@ -1,7 +1,6 @@
 
 
 # Migrating tables to S3 Tables
-<a name="s3-tables-migrate"></a>
 
 S3 Tables can migrate AWS Glue-registered Apache Hive tables stored as Apache Parquet in Amazon S3 general purpose buckets to managed Apache Iceberg tables in S3 Tables. S3 Tables automatically copy your data to a new table and convert Hive data types to Iceberg types. Small files are combined into larger ones and data is compressed, so your tables are optimized for storage cost and query performance. You don't need to provision or manage any compute, and your source table remains unchanged and fully available for both reads and writes during a migration job. Migration doesn't move your source objects stored in S3 Intelligent-Tiering to the Frequent Access tier or reset their days since last access. You can migrate tables by using the Amazon S3 console, the AWS CLI, the S3 Tables API, or the S3 Tables migration skill.
 

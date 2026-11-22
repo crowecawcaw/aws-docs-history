@@ -1,7 +1,6 @@
 
 
 # Configuring storage class analysis
-<a name="configure-analytics-storage-class"></a>
 
 By using the Amazon S3 analytics storage class analysis tool, you can analyze storage access patterns to help you decide when to transition the right data to the right storage class. Storage class analysis observes data access patterns to help you determine when to transition less frequently accessed STANDARD storage to the STANDARD\_IA (IA, for infrequent access) storage class. For more information about STANDARD\_IA, see the [Amazon S3 FAQ](https://aws.amazon.com/s3/faqs/#sia) and [Understanding and managing Amazon S3 storage classes](storage-class-intro.md).
 

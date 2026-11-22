@@ -1,7 +1,6 @@
 
 
 # Managing S3 Tables replication
-<a name="s3-tables-replication-managing"></a>
 
 After you configure S3 Tables replication, you can monitor replica status to verify what's replicated. You can check replication status in the Amazon S3 console on the source table's **Management** tab, or by using the AWS CLI. For more information, see [Setting up S3 Tables replication](s3-tables-replication-setting-up.md).This topic explains how to monitor replication and understand the different status values that indicate whether replication is completed, in progress, or has failed.
 
@@ -15,14 +14,14 @@ Replication jobs run continuously for your replicated tables. You can query the 
 
 The following example gets the replication status using the GetTableReplicationStatus API.
 
-```
+```bash
 aws s3tables get-table-replication-status \
     --table-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{sales-data}}
 ```
 
 Expected output:
 
-```
+```json
 {
   "sourceTableARN": "arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{sales-data}}",
   "destinations": [
@@ -52,7 +51,7 @@ For more information, see [get-table-replication-status](https://docs.aws.amazon
 
 The following example shows a destination with a FAILED status, which includes a `failureMessage` field:
 
-```
+```json
 {
   "replicationStatus": "FAILED",
   "destinationBucketARN": "arn:aws:s3tables:{{eu-west-1}}:{{444455556666}}:bucket/{{amzn-s3-demo-table-bucket-partner}}",
@@ -87,3 +86,5 @@ Replication can have three possible statuses for each destination:
 + **FAILED** – The last replication job for this table failed. No new updates are being replicated.
 
 If a destination shows a FAILED status, check the `failureMessage` field for details. Common causes include insufficient permissions, destination bucket not found, or KMS key issues. After you fix the root cause, the service automatically retries replication. You can monitor recovery as the status transitions from FAILED to PENDING to COMPLETED.
+
+If the failure message is `The destination table has been detached from replication and is no longer accepting replicated data`, the replica table was disassociated from replication and is now a standalone table. For more information, see [Disassociating a replica table from replication](s3-tables-replication-disassociate.md).

@@ -1,7 +1,6 @@
 
 
 # Update a registered location
-<a name="access-grants-location-edit"></a>
 
 You can update the AWS Identity and Access Management (IAM) role of a location that's registered in your Amazon S3 Access Grants instance. For each new IAM role that you use to register a location in S3 Access Grants, be sure to give the S3 Access Grants service principal (`access-grants.s3.amazonaws.com`) access to this role. To do this, add an entry for the new IAM role in the same trust policy JSON file that you used when you first [registered the location](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html). 
 
@@ -72,7 +71,7 @@ To use the following example, replace the `{{user input placeholders}}` with you
 
 **Example – Update the IAM role of a registered location**  
 
-```
+```java
 public void updateAccessGrantsLocation() {
 UpdateAccessGrantsLocationRequest updateRequest = UpdateAccessGrantsLocationRequest.builder()
 .accountId("{{111122223333}}")
@@ -85,7 +84,7 @@ LOGGER.info("UpdateAccessGrantsLocationResponse: " + updateResponse);
 ```
 Response:  
 
-```
+```java
 UpdateAccessGrantsLocationResponse(
 CreatedAt={{2023-06-07T04:35:10.027Z}},
 AccessGrantsLocationId={{635f1139-1af2-4e43-8131-a4de006eb999}},

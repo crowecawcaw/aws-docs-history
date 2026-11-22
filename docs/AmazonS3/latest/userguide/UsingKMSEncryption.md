@@ -1,7 +1,6 @@
 
 
 # Using server-side encryption with AWS KMS keys (SSE-KMS)
-<a name="UsingKMSEncryption"></a>
 
 **Important**  
 Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3. Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance. The automatic encryption status for S3 bucket default encryption configuration and for new object uploads is available in CloudTrail logs, S3 Inventory, S3 Storage Lens, the Amazon S3 console, and as an additional Amazon S3 API response header in the AWS CLI and AWS SDKs. For more information, see [Default encryption FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
@@ -120,7 +119,7 @@ To require server-side encryption of all objects in a particular Amazon S3 bucke
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id":"PutObjectPolicy",
@@ -195,7 +194,7 @@ All `GET` and `PUT` requests for AWS KMS encrypted objects must be made using Se
 AWS Signature Version 4 is the process of adding authentication information to AWS requests sent by HTTP. For security, most requests to AWS must be signed with an access key, which consists of an access key ID and secret access key. These two keys are commonly referred to as your security credentials. For more information, see [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) and [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
 **Important**  
-If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests. Otherwise, you’ll get an HTTP 400 Bad Request error.
+If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests. Otherwise, you’ll get an `HTTP 400 Bad Request` error.
 
 **Topics**
 + [AWS KMS keys](#aws-managed-customer-managed-keys)

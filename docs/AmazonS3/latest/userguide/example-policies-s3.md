@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon S3
-<a name="example-policies-s3"></a>
 
 This section shows several example AWS Identity and Access Management (IAM) identity-based policies for controlling access to Amazon S3. For example *bucket policies* (resource-based policies), see [Bucket policies for Amazon S3](bucket-policies.md). For information about IAM policy language, see [Policies and permissions in Amazon S3](access-policy-language-overview.md).
 
@@ -33,7 +32,7 @@ In addition to granting the `s3:PutObject`, `s3:GetObject`, and `s3:DeleteObject
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -82,7 +81,7 @@ To grant each user access only to their folder, you can write a policy for each 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -112,7 +111,7 @@ Instead of attaching policies to individual users, you can write a single policy
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -143,7 +142,7 @@ When using policy variables, you must explicitly specify version `2012-10-17` in
 
 ****  
 
-```
+```json
 {
  "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -206,7 +205,7 @@ Instead of using usernames, you could create folders based on IAM user IDs. Each
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -246,7 +245,7 @@ Attaching the following policy to the group grants everybody in the group access
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -277,7 +276,7 @@ In this example, you create a group named `{{AllUsers}}`, which contains all the
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -311,7 +310,7 @@ You want to prevent the `{{AnyCompany}}` group from doing anything else with the
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -341,7 +340,7 @@ If you want to ensure that your Amazon S3 principals are accessing only the reso
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -381,7 +380,7 @@ If you have an [organizational unit (OU)](https://docs.aws.amazon.com/organizati
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -423,7 +422,7 @@ In the following example policy, access is denied to Amazon S3 actions unless th
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -461,7 +460,7 @@ The following example identity-based policy grants the `s3:GetAccountPublicAcces
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -496,7 +495,7 @@ For a list of Amazon S3 Regions, see [Regions and Endpoints](https://docs.aws.am
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -527,7 +526,7 @@ The `Deny` statement uses the `StringNotLike` condition. That is, a create bucke
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -562,12 +561,12 @@ The `Deny` statement uses the `StringNotLike` condition. That is, a create bucke
 **Test the policy with the AWS CLI**  
 You can test the policy using the following `create-bucket` AWS CLI command. This example uses the `bucketconfig.txt` file to specify the location constraint. Note the Windows file path. You need to update the bucket name and path as appropriate. You must provide user credentials using the `--profile` parameter. For more information about setting up and using the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](https://docs.aws.amazon.com/AmazonS3/latest/API/setup-aws-cli.html) in the *Amazon S3 API Reference*.
 
-```
+```bash
 aws s3api create-bucket --bucket {{examplebucket}} --profile AccountADave --create-bucket-configuration file://c:/Users/someUser/bucketconfig.txt
 ```
 
 The `bucketconfig.txt` file specifies the configuration as follows.
 
-```
+```json
 {"LocationConstraint": "sa-east-1"}
 ```

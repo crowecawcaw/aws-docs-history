@@ -1,7 +1,6 @@
 
 
 # Setting up permissions for live replication
-<a name="setting-repl-config-perm-overview"></a>
 
 When setting up live replication in Amazon S3, you must acquire the necessary permissions as follows:
 + You must grant the AWS Identity and Access Management (IAM) principal (user or role) who will be creating replication rules a certain set of permissions.
@@ -41,7 +40,7 @@ Following is a sample IAM policy that includes these actions.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -138,7 +137,7 @@ The *trust policy* identifies which principal identities can assume the IAM role
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement":[
@@ -161,7 +160,7 @@ The *trust policy* identifies which principal identities can assume the IAM role
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement":[ 
@@ -189,7 +188,7 @@ The *trust policy* identifies which principal identities can assume the IAM role
 
 ****  
 
-  ```
+  ```json
   {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -266,7 +265,7 @@ The ARN format of the role might appear different. If the role was created by us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "PolicyForDestinationBucket",

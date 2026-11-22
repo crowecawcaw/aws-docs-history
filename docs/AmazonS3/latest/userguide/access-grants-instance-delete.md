@@ -1,7 +1,6 @@
 
 
 # Delete an S3 Access Grants instance
-<a name="access-grants-instance-delete"></a>
 
 You can delete an Amazon S3 Access Grants instance from an AWS Region in your account. However, before you can delete an S3 Access Grants instance, you must first do the following:
 + Delete all resources within the S3 Access Grants instance, including all grants and locations. For more information, see [Delete a grant](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-grant-delete.html) and [Delete a location](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-grant-location.html).
@@ -71,7 +70,7 @@ Before you can delete an S3 Access Grants instance, you must first delete all gr
 
 **Example – Delete an S3 Access Grants instance**  
 
-```
+```java
 public void deleteAccessGrantsInstance() {
 DeleteAccessGrantsInstanceRequest deleteRequest = DeleteAccessGrantsInstanceRequest.builder()
 .accountId("{{111122223333}}")

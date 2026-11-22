@@ -1,14 +1,13 @@
 
 
 # S3 Tables maintenance job status
-<a name="s3-tables-maintenance-status"></a>
 
 S3 Tables maintenance jobs run periodically for your S3 tables or table buckets. You can query the status of these jobs with the `GetTableMaintenanceJobStatus` API.
 
 **To get the status of your maintenance jobs by using the AWS CLI**  
 The following example will get the statuses of maintenance jobs using the `GetTableMaintenanceJobStatus` API.  
 
-```
+```bash
 aws s3tables get-table-maintenance-job-status \
    --table-bucket-arn="arn:aws:s3tables:arn:aws::111122223333:bucket/{{amzn-s3-demo-bucket1}}" \
    --namespace="{{mynamespace}}" \

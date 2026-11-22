@@ -1,7 +1,6 @@
 
 
 # Creating vector indexes with tags
-<a name="creating-vector-indexes-with-tags"></a>
 
 You can tag Amazon S3 vector indexes when you create them. There is no additional charge for using tags on vector indexes beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging vector indexes, see [Using tags with S3 vector indexes](vector-index-tagging.md).
 
@@ -63,7 +62,7 @@ The following CLI example shows you how to create a vector index with tags by us
 
 When you create a vector index you must provide configuration details and use the following naming convention: `example-vector-index`
 
-```
+```bash
 aws s3vectors create-index --vector-bucket-name {{acc-bucket}} --data-type "float32" \
  --index-name {{accounts-index}} --dimension 1024 --distance-metric euclidean \
  --tags {{Department}}={{Accounting}},{{Stage}}={{Prod}}

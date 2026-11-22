@@ -1,7 +1,6 @@
 
 
 # IAM identity-based policies for S3 Tables
-<a name="s3-tables-identity-based-policies"></a>
 
 By default, users and roles don't have permission to create or modify tables and table buckets. They also can't perform tasks by using the s3 console, AWS Command Line Interface (AWS CLI), or Amazon S3 REST APIs. To create and access table buckets and tables, an AWS Identity and Access Management (IAM) administrator must grant the necessary permissions to the IAM role or users. To learn how to create an IAM identity-based policy by using these example JSON policy documents, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*. 
 
@@ -21,7 +20,7 @@ The following topic includes examples of IAM identity-based policies. To use the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -51,7 +50,7 @@ The following topic includes examples of IAM identity-based policies. To use the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

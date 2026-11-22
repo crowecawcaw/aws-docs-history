@@ -1,7 +1,6 @@
 
 
 # Enforce conditional writes on Amazon S3 buckets
-<a name="conditional-writes-enforce"></a>
 
 By using Amazon S3 bucket policies, you can enforce conditional writes for object uploads in your general purpose buckets.
 
@@ -32,7 +31,7 @@ This policy also sets the `s3:ObjectCreationOperation` condition key which allow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -78,7 +77,7 @@ This policy allows account 111122223333, user Alice to write to {{amzn-s3-demo-b
 **Note**  
 This policy also sets the `s3:ObjectCreationOperation` condition key which allows for multipart uploads using the `CreateMultipartUpload`, `UploadPart`, and `UploadPartCopy` APIs.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -134,7 +133,7 @@ This policy also sets the `s3:ObjectCreationOperation` condition key which allow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

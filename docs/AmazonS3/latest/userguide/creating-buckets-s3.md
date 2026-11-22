@@ -1,7 +1,6 @@
 
 
 # Creating, configuring, and working with Amazon S3 general purpose buckets
-<a name="creating-buckets-s3"></a>
 
 To store your data in Amazon S3, you work with resources known as buckets and objects. A *bucket* is a container for objects. An *object* is a file and any metadata that describes that file.
 

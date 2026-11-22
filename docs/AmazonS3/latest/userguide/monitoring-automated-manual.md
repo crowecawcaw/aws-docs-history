@@ -1,7 +1,6 @@
 
 
 # Monitoring tools
-<a name="monitoring-automated-manual"></a>
 
 AWS provides various tools that you can use to monitor Amazon S3. You can configure some of these tools to do the monitoring for you, while some of the tools require manual intervention. We recommend that you automate monitoring tasks as much as possible.
 

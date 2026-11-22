@@ -1,7 +1,6 @@
 
 
 # Using tags with S3 vector buckets
-<a name="s3-vectors-tags"></a>
 
 An AWS tag is a key-value pair that holds metadata about resources, in this case Amazon S3 vector buckets. You can tag S3 vector buckets when you create them or manage tags on existing vector buckets. For general information about tags, see [Tagging for cost allocation or attribute-based access control (ABAC)](tagging.md).
 
@@ -43,7 +42,7 @@ See the following example ABAC policies for Amazon S3 vector buckets.
 
 In this IAM policy, users or roles with this policy can only create S3 vector buckets if they tag the vector bucket with the tag key `project` and tag value `Trinity` in the vector bucket creation request. They can also add or modify tags on existing S3 vector buckets as long as the `TagResource` request includes the tag key-value pair `project:Trinity`. This policy does not grant read, write, or delete permissions on the vector buckets or its objects.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -72,7 +71,7 @@ In this IAM policy, users or roles with this policy can only create S3 vector bu
 
 In this vector bucket policy, IAM principals (users and roles) can perform operations using the `PutVectorBucketPolicy` action on the vector bucket only if the value of the vector bucket's `project` tag matches the value of the principal's `project` tag.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -99,7 +98,7 @@ In this vector bucket policy, IAM principals (users and roles) can perform opera
 
 In this IAM policy, IAM principals (users or roles) can modify tags on a vector bucket only if the value of the vector bucket's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these vector buckets. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your vector buckets.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -133,7 +132,7 @@ In this IAM policy, IAM principals (users or roles) can modify tags on a vector 
 
 In this IAM policy, the condition statement allows access to the vector bucket's and vector index's operations only if the vector bucket has the tag key `Environment` and tag value `Production`.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

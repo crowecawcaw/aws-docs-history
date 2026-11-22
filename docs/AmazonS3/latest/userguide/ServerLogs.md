@@ -1,7 +1,6 @@
 
 
 # Logging requests with server access logging
-<a name="ServerLogs"></a>
 
 Server access logging provides detailed records for the requests that are made to a bucket. Server access logs can be used for operational analysis, to understand your security posture, and to charge back users.
 

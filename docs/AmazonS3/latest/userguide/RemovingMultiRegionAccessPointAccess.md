@@ -1,7 +1,6 @@
 
 
 # Removing access to a Multi-Region Access Point from a VPC endpoint
-<a name="RemovingMultiRegionAccessPointAccess"></a>
 
 If you own a Multi-Region Access Point and want to remove access to it from an interface endpoint, you must supply a new access policy for the Multi-Region Access Point that prevents access for requests coming through VPC endpoints. However, if the buckets in your Multi-Region Access Point support requests through VPC endpoints, they will continue to support these requests. If you want to prevent that support, you must also update the policies for the buckets. Supplying a new access policy to the Multi-Region Access Point prevents access only to the Multi-Region Access Point, not to the underlying buckets. 
 

@@ -1,7 +1,6 @@
 
 
 # S3 Access Grants concepts
-<a name="access-grants-concepts"></a>
 
 **S3 Access Grants workflow**  
 The S3 Access Grants workflow is: 

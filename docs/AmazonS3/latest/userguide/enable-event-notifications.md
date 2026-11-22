@@ -1,7 +1,6 @@
 
 
 # Enabling and configuring event notifications using the Amazon S3 console
-<a name="enable-event-notifications"></a>
 
 You can enable certain Amazon S3 general purpose bucket events to send a notification message to a destination whenever those events occur. This section explains how to use the Amazon S3 console to enable event notifications. For information about how to use event notifications with the AWS SDKs and the Amazon S3 REST APIs, see [Configuring event notifications programmatically](how-to-enable-disable-notification-intro.md#event-notification-configuration). 
 

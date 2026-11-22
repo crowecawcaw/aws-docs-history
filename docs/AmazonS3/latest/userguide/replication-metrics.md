@@ -1,7 +1,6 @@
 
 
 # Monitoring replication with metrics, event notifications, and statuses
-<a name="replication-metrics"></a>
 
 You can monitor your live replication configurations and your S3 Batch Replication jobs through the following mechanisms: 
 + **S3 Replication metrics** – When you enable S3 Replication metrics, Amazon CloudWatch emits metrics that you can use to track bytes pending, operations pending, and replication latency at the replication rule level. You can view S3 Replication metrics through the Amazon S3 console and the Amazon CloudWatch console. In the Amazon S3 console, you can view these metrics in the source bucket's **Metrics** tab. For more information about S3 Replication metrics, see [Using S3 Replication metrics](repl-metrics.md). 

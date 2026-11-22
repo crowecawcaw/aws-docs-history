@@ -1,7 +1,6 @@
 
 
 # Date functions
-<a name="s3-select-sql-reference-date"></a>
 
 **Important**  
 Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
@@ -24,7 +23,7 @@ Given a date part, a quantity, and a timestamp, `DATE_ADD` returns an updated ti
 ### Syntax
 <a name="s3-select-sql-reference-date-add-syntax"></a>
 
-```
+```sql
 DATE_ADD( {{date_part}}, {{quantity}}, {{timestamp}} )
 ```
 
@@ -49,7 +48,7 @@ The target timestamp that the function operates on.
 ### Examples
 <a name="s3-select-sql-reference-date-add-examples"></a>
 
-```
+```sql
 DATE_ADD(year, 5, `2010-01-01T`)                -- 2015-01-01 (equivalent to 2015-01-01T)
 DATE_ADD(month, 1, `2010T`)                     -- 2010-02T (result will add precision as necessary)
 DATE_ADD(month, 13, `2010T`)                    -- 2011-02T
@@ -68,7 +67,7 @@ Given a date part and two valid timestamps, `DATE_DIFF` returns the difference i
 ### Syntax
 <a name="s3-select-sql-reference-date-diff-syntax"></a>
 
-```
+```sql
 DATE_DIFF( {{date_part}}, {{timestamp1}}, {{timestamp2}} )
 ```
 
@@ -87,7 +86,7 @@ The second timestamp to compare.
 ### Examples
 <a name="s3-select-sql-reference-date-diff-examples"></a>
 
-```
+```sql
 DATE_DIFF(year, `2010-01-01T`, `2011-01-01T`)            -- 1
 DATE_DIFF(year, `2010T`, `2010-05T`)                     -- 4 (2010T is equivalent to 2010-01-01T00:00:00.000Z)
 DATE_DIFF(month, `2010T`, `2011T`)                       -- 12
@@ -103,7 +102,7 @@ Given a date part and a timestamp, `EXTRACT` returns the timestamp's date part v
 ### Syntax
 <a name="s3-select-sql-reference-extract-syntax"></a>
 
-```
+```sql
 EXTRACT( {{date_part}} FROM {{timestamp}} )
 ```
 
@@ -127,7 +126,7 @@ The target timestamp that the function operates on.
 ### Examples
 <a name="s3-select-sql-reference-extract-examples"></a>
 
-```
+```sql
 EXTRACT(YEAR FROM `2010-01-01T`)                           -- 2010
 EXTRACT(MONTH FROM `2010T`)                                -- 1 (equivalent to 2010-01-01T00:00:00.000Z)
 EXTRACT(MONTH FROM `2010-10T`)                             -- 10
@@ -145,7 +144,7 @@ Given a timestamp and a format pattern, `TO_STRING` returns a string representat
 ### Syntax
 <a name="s3-select-sql-reference-size-syntax"></a>
 
-```
+```sql
 TO_STRING ( {{timestamp}} {{time_format_pattern}} )
 ```
 
@@ -202,7 +201,7 @@ A string that has the following special character interpretations:
 ### Examples
 <a name="s3-select-sql-reference-size-examples"></a>
 
-```
+```sql
 TO_STRING(`1969-07-20T20:18Z`,  'MMMM d, y')                    -- "July 20, 1969"
 TO_STRING(`1969-07-20T20:18Z`, 'MMM d, yyyy')                   -- "Jul 20, 1969"
 TO_STRING(`1969-07-20T20:18Z`, 'M-d-yy')                        -- "7-20-69"
@@ -222,7 +221,7 @@ Given a string, `TO_TIMESTAMP` converts it to a timestamp. `TO_TIMESTAMP` is the
 ### Syntax
 <a name="s3-select-sql-reference-to-timestamp-syntax"></a>
 
-```
+```sql
 TO_TIMESTAMP ( {{string}} )
 ```
 
@@ -235,7 +234,7 @@ The target string that the function operates on.
 ### Examples
 <a name="s3-select-sql-reference-to-timestamp-examples"></a>
 
-```
+```sql
 TO_TIMESTAMP('2007T')                         -- `2007T`
 TO_TIMESTAMP('2007-02-23T12:14:33.079-08:00') -- `2007-02-23T12:14:33.079-08:00`
 ```
@@ -248,7 +247,7 @@ TO_TIMESTAMP('2007-02-23T12:14:33.079-08:00') -- `2007-02-23T12:14:33.079-08:00`
 ### Syntax
 <a name="s3-select-sql-reference-utcnow-syntax"></a>
 
-```
+```sql
 UTCNOW()
 ```
 
@@ -260,6 +259,6 @@ UTCNOW()
 ### Examples
 <a name="s3-select-sql-reference-utcnow-examples"></a>
 
-```
+```sql
 UTCNOW() -- 2017-10-13T16:02:11.123Z
 ```

@@ -1,7 +1,6 @@
 
 
 # Deleting a tag from an access point
-<a name="access-points-tag-delete"></a>
 
 You can remove tags from Amazon S3 Access Points. An AWS tag is a key-value pair that holds metadata about resources, in this case Access Points. For more information about tags, see [Using tags with S3 Access Points for general purpose buckets](access-points-tagging.md).
 
@@ -79,7 +78,7 @@ The following CLI example shows you how to delete tags from an access point by u
 
 **Request:**
 
-```
+```bash
 aws s3control untag-resource \
 --account-id {{111122223333}} \
 --resource-arn arn:aws::s3:{{region}}:{{444455556666}}:access-point/{{{{my-access-point}}}} \
@@ -94,7 +93,7 @@ aws s3control untag-resource \
 
 **Response:**
 
-```
+```json
 {
   "ResponseMetadata": {
     "RequestId": "EXAMPLE123456789",

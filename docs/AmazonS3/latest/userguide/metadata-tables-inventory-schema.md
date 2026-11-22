@@ -1,7 +1,6 @@
 
 
 # S3 Metadata live inventory tables schema
-<a name="metadata-tables-inventory-schema"></a>
 
 The live inventory table provides a simple, queryable inventory of all the objects and their versions in your bucket so that you can determine the latest state of your data. Updates to your objects are typically reflected in the inventory table within one hour.
 

@@ -1,7 +1,6 @@
 
 
 # Managing log retention
-<a name="sal-cw-retention"></a>
 
 When you deliver server access logs to CloudWatch Logs, log retention is controlled by the retention setting on the log group. You set retention when you create the log group, or update it at any time using the CloudWatch Logs console, AWS CLI, or API.
 
@@ -21,7 +20,7 @@ If you have enabled the S3 Tables mirror for your log group, the mirrored data i
 
 To set retention using the AWS CLI:
 
-```
+```bash
 aws logs put-retention-policy \
   --log-group-name "/aws/vendedlogs/s3/DOC-EXAMPLE-BUCKET/S3_SERVER_ACCESS_LOGS" \
   --retention-in-days 90

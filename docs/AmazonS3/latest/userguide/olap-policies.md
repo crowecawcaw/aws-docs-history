@@ -1,7 +1,6 @@
 
 
 # Configuring IAM policies for Object Lambda Access Points
-<a name="olap-policies"></a>
 
 **Note**  
 As of November 7th, 2025, S3 Object Lambda is available only to existing customers that are currently using the service as well as to select AWS Partner Network (APN) partners. For capabilities similar to S3 Object Lambda, learn more here - [Amazon S3 Object Lambda availability change](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazons3-ol-change.html).
@@ -41,7 +40,7 @@ Lambda doesn't support adding IAM policies to the version `$LATEST`. For more in
 The following S3 bucket policy example delegates access control for a bucket to the bucket's standard access points. This policy allows full access to all access points that are owned by the bucket owner's account. Thus, all access to this bucket is controlled by the policies that are attached to its access points. Users can read from the bucket only through an access point, which means that operations can be invoked only through access points. For more information, see [Delegating access control to access points](access-points-policies.md#access-points-delegating-control).     
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -64,7 +63,7 @@ The following S3 bucket policy example delegates access control for a bucket to 
 The following IAM policy grants a user permissions to the Lambda function, the standard access point, and the Object Lambda Access Point.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Visualizing your Storage Lens groups data
-<a name="storage-lens-groups-visualize"></a>
 
 You can visualize your Storage Lens groups data by [attaching the group to your Amazon S3 Storage Lens dashboard](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups-dashboard-console.html#storage-lens-groups-attach-dashboard-console). After you've included the Storage Lens group in the Storage Lens group aggregation in your dashboard configuration, it can take up to 48 hours for the Storage Lens group data to display in your dashboard.
 

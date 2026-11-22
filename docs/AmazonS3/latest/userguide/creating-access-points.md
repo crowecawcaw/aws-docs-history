@@ -1,7 +1,6 @@
 
 
 # Creating an access point
-<a name="creating-access-points"></a>
 
 You can create S3 access points by using the AWS Management Console, AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST API. Access points are named network endpoints that are attached to a data source such as a bucket, Amazon FSx for ONTAP volume, or Amazon FSx for OpenZFS volume.
 

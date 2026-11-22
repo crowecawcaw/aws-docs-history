@@ -1,7 +1,6 @@
 
 
 # POSIX permissions in S3 Files
-<a name="s3-files-posix-permissions"></a>
 
 POSIX file systems require ownership and permissions on every file. Amazon S3 stores data as objects with access controlled by IAM policies and bucket policies and does not natively store file ownership or permission attributes. S3 Files bridges this difference by storing POSIX metadata, including the owner, group, and file permissions, as user-defined metadata on each S3 object. When you create or modify a file through S3 Files, the service writes all permission metadata automatically. When an object is written to your S3 bucket outside the file system, for example through the Amazon S3 console, AWS CLI, or AWS SDK, no POSIX metadata exists on that object. S3 Files assigns those objects a default value of `root:root` ownership and `644` permissions, which allow non-root users to read the file but not write to it. If these defaults meet your access requirements, no action is required. If your application requires it, you can override the default permissions on those objects. This tutorial walks through applying custom permissions.
 
@@ -52,7 +51,7 @@ The `aws s3api copy-object` command copies the object in place with updated meta
 
 The `--metadata-directive REPLACE` option replaces all user-defined metadata on the object. Include `--content-type` to preserve the object's content type, because `REPLACE` resets it to the default (`binary/octet-stream`). If you use other metadata fields, include them in the `--metadata` parameter.
 
-```
+```bash
 aws s3api copy-object \
     --bucket BUCKET_NAME \
     --key OBJECT_KEY \
@@ -67,13 +66,13 @@ aws s3api copy-object \
 
 Run the following command to confirm the metadata:
 
-```
+```bash
 aws s3api head-object --bucket BUCKET_NAME --key OBJECT_KEY
 ```
 
 The response includes your POSIX metadata:
 
-```
+```json
 {
     "AcceptRanges": "bytes",
     "LastModified": "Mon, 18 May 2026 14:43:00 GMT",
@@ -109,7 +108,7 @@ For directories, set the `file-permissions` value with directory bits, for examp
 
 To update the directory's metadata in place, copy the directory marker object onto itself with new metadata. This keeps any content stored in the object.
 
-```
+```bash
 aws s3api copy-object \
     --bucket BUCKET_NAME \
     --key data/ \
@@ -120,7 +119,7 @@ aws s3api copy-object \
 
 If the command returns a 404 error, the directory marker object doesn't exist. The directory is implied only by its child keys, so it uses the `root:root` default. Create the marker object with the metadata.
 
-```
+```bash
 aws s3api put-object \
     --bucket BUCKET_NAME \
     --key data/ \
@@ -137,7 +136,7 @@ You can include POSIX metadata when you upload objects to your bucket.
 ### Using aws s3 cp
 <a name="s3-files-posix-permissions-new-uploads-cp"></a>
 
-```
+```bash
 aws s3 cp localfile.txt s3://BUCKET_NAME/localfile.txt \
     --metadata '{"file-owner":"1000", "file-group":"1000", "file-permissions":"0100644"}'
 ```
@@ -145,7 +144,7 @@ aws s3 cp localfile.txt s3://BUCKET_NAME/localfile.txt \
 ### Using aws s3api put-object
 <a name="s3-files-posix-permissions-new-uploads-put"></a>
 
-```
+```bash
 aws s3api put-object \
     --bucket BUCKET_NAME \
     --key localfile.txt \
@@ -156,7 +155,7 @@ aws s3api put-object \
 ### Verify metadata on the uploaded object
 <a name="s3-files-posix-permissions-new-uploads-verify"></a>
 
-```
+```bash
 aws s3api head-object --bucket BUCKET_NAME --key localfile.txt
 ```
 

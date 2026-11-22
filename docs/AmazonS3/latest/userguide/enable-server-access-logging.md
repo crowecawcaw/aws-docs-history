@@ -1,7 +1,6 @@
 
 
 # Enabling Amazon S3 server access logging
-<a name="enable-server-access-logging"></a>
 
 Server access logging provides detailed records for the requests that are made to an Amazon S3 bucket. Server access logs are useful for many applications. For example, access log information can be useful in security and access audits. This information can also help you learn about your customer base and understand your Amazon S3 bill.
 
@@ -56,7 +55,7 @@ If there are `Deny` statements in your bucket policy, make sure that they don't 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -95,13 +94,13 @@ Although we do not recommend this approach, you can grant permissions to the log
 
 In the bucket ACL, the log delivery group is represented by the following URL:
 
-```
+```http
 1. http://acs.amazonaws.com/groups/s3/LogDelivery
 ```
 
 To grant `WRITE` and `READ_ACP` (ACL read) permissions, add the following grants to the destination bucket ACL:
 
-```
+```xml
  1. <Grant>
  2.     <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:type="Group">
  3.         <URI>http://acs.amazonaws.com/groups/s3/LogDelivery</URI> 
@@ -173,7 +172,7 @@ To enable logging, you submit a [PutBucketLogging](https://docs.aws.amazon.com/A
 
 The following example identifies `{{amzn-s3-demo-destination-bucket}}` as the destination bucket and {{`logs/`}} as the prefix. 
 
-```
+```XML
 1. <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
 2.   <LoggingEnabled>
 3.     <TargetBucket>{{amzn-s3-demo-destination-bucket}}</TargetBucket>
@@ -184,7 +183,7 @@ The following example identifies `{{amzn-s3-demo-destination-bucket}}` as the de
 
 The following example identifies `{{amzn-s3-demo-destination-bucket}}` as the destination bucket, {{`logs/`}} as the prefix, and `EventTime` as the log object key format. 
 
-```
+```XML
  1. <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
  2.   <LoggingEnabled>
  3.     <TargetBucket>{{amzn-s3-demo-destination-bucket}}</TargetBucket>
@@ -207,7 +206,7 @@ To retrieve the logging configuration on a bucket, use the [GetBucketLogging](ht
 
 To delete the logging configuration, you send a `PutBucketLogging` request with an empty `BucketLoggingStatus`: 
 
-```
+```xml
 1. <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
 2. </BucketLoggingStatus>
 ```
@@ -229,7 +228,7 @@ If the destination (target) bucket uses the Bucket owner enforced setting for Ob
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
-```
+```csharp
     using System;
     using System.IO;
     using System.Threading.Tasks;
@@ -386,7 +385,7 @@ If the destination (target) bucket uses the Bucket owner enforced setting for Ob
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.BucketLoggingStatus;
@@ -516,7 +515,7 @@ The final step of the following procedure provides example bash scripts that you
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -563,7 +562,7 @@ Instead of using this `put-bucket-logging` command to apply the logging configur
 
    The following example `logging.json` file doesn't contain destination (target) grants. Therefore, you can apply this configuration to a destination (target) bucket that uses the Bucket owner enforced setting for Object Ownership.
 
-   ```
+   ```json
      {
          "LoggingEnabled": {
              "TargetBucket": "{{amzn-s3-demo-destination-bucket}}{{-logs}}",
@@ -577,7 +576,7 @@ Instead of using this `put-bucket-logging` command to apply the logging configur
 
    If the destination bucket uses the Bucket owner enforced setting for Object Ownership, you can't include destination (target) grants in your [PutBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html) configuration. For more information, see [Permissions for log delivery](#grant-log-delivery-permissions-general).
 
-   ```
+   ```json
      {
          "LoggingEnabled": {
              "TargetBucket": "{{amzn-s3-demo-destination-bucket}}{{-logs}}",
@@ -599,7 +598,7 @@ Instead of using this `put-bucket-logging` command to apply the logging configur
 You can specify the person (grantee) to whom you're assigning access rights (by using request elements) in the following ways:
    + By the person's ID:
 
-     ```
+     ```json
      {
        "Grantee": {
          "Type": "CanonicalUser",
@@ -609,7 +608,7 @@ You can specify the person (grantee) to whom you're assigning access rights (by 
      ```
    + By URI:
 
-     ```
+     ```json
      {
        "Grantee": {
          "Type": "Group",
@@ -621,7 +620,7 @@ You can specify the person (grantee) to whom you're assigning access rights (by 
 
    The following `logging.json` file changes the log object key format to S3 event time. 
 
-   ```
+   ```json
      { 
        "LoggingEnabled": {
            "TargetBucket": "{{amzn-s3-demo-destination-bucket}}{{-logs}}",
@@ -640,7 +639,7 @@ You can specify the person (grantee) to whom you're assigning access rights (by 
 This script works only if all of your buckets are in the same Region. If you have buckets in multiple Regions, you must adjust the script.   
 **Example – Grant access with bucket policies and add logging for the buckets in your account**  
 
-   ```
+   ```json
      loggingBucket='{{amzn-s3-demo-destination-bucket}}{{-logs}}'
      region='{{us-west-2}}'
      
@@ -676,7 +675,7 @@ This script works only if all of your buckets are in the same Region. If you hav
    ```  
 **Example – Grant access with bucket ACLs and add logging for the buckets in your account**  
 
-   ```
+   ```json
      loggingBucket='{{amzn-s3-demo-destination-bucket}}{{-logs}}'
      region='{{us-west-2}}'
      

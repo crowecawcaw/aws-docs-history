@@ -1,7 +1,6 @@
 
 
 # Enforcing and scoping SSE-KMS use for tables and table buckets
-<a name="tables-require-kms"></a>
 
 You can use S3 Tables resource-based policies, KMS key policies, IAM identity-based policies, or any combination of these, to enforce the use of SSE-KMS for S3 tables and table buckets. For more information on identity and resource polices for tables, see [Access management for S3 Tables](s3-tables-setting-up.md). For information on writing key policies, see [Key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*. The following examples show how you can use policies to enforce SSE-KMS.
 
@@ -13,7 +12,7 @@ This is an example of table bucket policy that prevents users from creating tabl
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -60,7 +59,7 @@ This is an example of table bucket policy that prevents users from creating tabl
 
 This IAM identity policy requires users to use a specific AWS KMS key for encryption when creating or configuring S3 Tables resources. To use this policy, replace the {{user input placeholders}} with your own information:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -108,7 +107,7 @@ This example KMS key policy allows the key to be used by a specific user only fo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Id": "Id",

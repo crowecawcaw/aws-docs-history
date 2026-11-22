@@ -1,7 +1,6 @@
 
 
 # Configuring IAM policies for using access points
-<a name="access-points-policies"></a>
 
 Amazon S3 access points support AWS Identity and Access Management (IAM) resource policies that allow you to control the use of the access point by resource, user, or other conditions. For an application or user to be able to access objects through an access point, both the access point and the underlying bucket or Amazon FSx file system must permit the request.
 
@@ -26,7 +25,7 @@ Add the same permissions contained in the access point policy to the underlying 
 The following access point policy grants IAM user `{{Jane}}` in account `{{123456789012}}` permissions to `GET` and `PUT` objects with the prefix `{{Jane/}}` through the access point {{`my-access-point`}} in account {{`123456789012`}}.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -46,7 +45,7 @@ For the access point policy to effectively grant access to {{`Jane`}}, the under
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -65,7 +64,7 @@ For the access point policy to effectively grant access to {{`Jane`}}, the under
 The following access point policy grants IAM user {{`Mateo`}} in account {{`123456789012`}} permissions to `GET` objects through the access point {{`my-access-point`}} in the account {{`123456789012`}} that have the tag key {{`data`}} set with a value of {{`finance`}}.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ The following access point policy grants IAM user {{`Mateo`}} in account {{`1234
 The following access point policy allows IAM user `Arnav` in the account {{`123456789012`}} permission to view the objects contained in the bucket underlying the access point {{`my-access-point`}} in the account {{`123456789012`}}.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ The following access point policy allows IAM user `Arnav` in the account {{`1234
 The following service control policy requires all new access points to be created with a virtual private cloud (VPC) network origin. With this policy in place, users in your organization can't create new access points that are accessible from the internet.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -130,7 +129,7 @@ The following bucket policy limits access to all S3 object operations for the bu
 Before using a statement like the one shown in this example, make sure that you don't need to use features that aren't supported by access points, such as Cross-Region Replication.  
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -223,7 +222,7 @@ You can delegate access control for a bucket to the bucket's access points. The 
 **Example 6 – Bucket policy that delegates access control to access points**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [
@@ -249,7 +248,7 @@ Replace {{Bucket ARN}} with the ARN of the bucket.
 **Example 7 – Bucket policy delegating permissions to another AWS account**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement" : [

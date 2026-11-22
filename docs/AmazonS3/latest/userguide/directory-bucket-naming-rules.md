@@ -1,13 +1,12 @@
 
 
 # Directory bucket naming rules
-<a name="directory-bucket-naming-rules"></a>
 
 When you create a directory bucket in Amazon S3, the following bucket naming rules apply. For general purpose bucket naming rules, see [General purpose bucket naming rules](bucketnamingrules.md).
 
 A directory bucket name consists of a base name that you provide, and a suffix that contains the ID of the AWS Zone (an Availability Zone or a Local Zone) that your bucket is located in and `--x-s3`. The {{zone-id}} can be the ID of an Availability Zone or a Local Zone.
 
-```
+```xml
 {{base-name}}--{{zoneid}}--x-s3
 ```
 

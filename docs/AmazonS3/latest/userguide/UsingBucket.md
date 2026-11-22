@@ -1,7 +1,6 @@
 
 
 # General purpose buckets overview
-<a name="UsingBucket"></a>
 
 To upload your data (photos, videos, documents, etc.) to Amazon S3, you must first create an S3 bucket in one of the AWS Regions. 
 
@@ -73,7 +72,7 @@ For more information, see [Getting started with a secure static website](https:/
 **Note**  
 If you see an `Error` when you list your general purpose buckets and their public access settings, you might not have the required permissions. Make sure that you have the following permissions added to your user or role policy:  
 
-```
+```xml
 s3:GetAccountPublicAccessBlock
 s3:GetBucketPublicAccessBlock
 s3:GetBucketPolicyStatus

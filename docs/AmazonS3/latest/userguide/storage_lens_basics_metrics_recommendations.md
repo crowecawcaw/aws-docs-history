@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon S3 Storage Lens
-<a name="storage_lens_basics_metrics_recommendations"></a>
 
 **Important**  
 Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3. Starting January 5, 2023, all new object uploads to Amazon S3 are automatically encrypted at no additional cost and with no impact on performance. The automatic encryption status for S3 bucket default encryption configuration and for new object uploads is available in CloudTrail logs, S3 Inventory, S3 Storage Lens, the Amazon S3 console, and as an additional Amazon S3 API response header in the AWS CLI and AWS SDKs. For more information, see [Default encryption FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
@@ -35,7 +34,7 @@ This section contains the terminology and concepts that are essential for succes
 
 S3 Storage Lens requires a dashboard configuration that contains the properties required to aggregate metrics on your behalf for a single dashboard or export. When you create a configuration, you choose the dashboard name and the home Region, which you can't change after you create the dashboard. You can optionally add tags and configure a metrics export in CSV or Parquet format. 
 
-In the dashboard configuration, you also define the dashboard scope and the metrics selection. The scope can include all the storage for your organization account or sections that are filtered by Region, bucket, and account. When you configure the metrics selection, you choose between free tier metrics and advanced tier metrics, which you can upgrade to for an additional charge. With the advanced tier, you can access additional metrics and features. These features include advanced metric categories, prefix-level aggregation, contextual recommendations, and Amazon CloudWatch publishing. For information about S3 Storage Lens pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing).
+In the dashboard configuration, you also define the dashboard scope and the metrics selection. The scope can include all the storage for your organization account or sections that are filtered by Region, bucket, and account. When you configure the metrics selection, you choose between free tier metrics and advanced tier metrics, which you can upgrade to for an additional charge. With the advanced tier, you can access additional metrics and features. These features include advanced metric categories, prefix-level aggregation, contextual recommendations, Amazon CloudWatch publishing, and AWS Billing and Cost Management publishing. For information about S3 Storage Lens pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing).
 
 ### Default dashboard
 <a name="storage_lens_basics_default_dashboard"></a>
@@ -48,7 +47,7 @@ If you disable your default dashboard, it's no longer updated. You'll no longer 
 ### Dashboards
 <a name="storage_lens_basics_dashboards"></a>
 
-You can create additional S3 Storage Lens dashboards and scope them by AWS Regions, S3 buckets, or accounts (for AWS Organizations). When you create or edit a S3 Storage Lens dashboard, you define your dashboard scope and metrics selection. S3 Storage Lens offers free tier metrics and advanced tier metrics, which you can upgrade to for an additional charge. With advanced metrics, you can access additional metrics and features for gaining insight into your storage. These include advanced metric categories, prefix-level aggregation, contextual recommendations, and Amazon CloudWatch publishing. For information about S3 Storage Lens pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing).
+You can create additional S3 Storage Lens dashboards and scope them by AWS Regions, S3 buckets, or accounts (for AWS Organizations). When you create or edit a S3 Storage Lens dashboard, you define your dashboard scope and metrics selection. S3 Storage Lens offers free tier metrics and advanced tier metrics, which you can upgrade to for an additional charge. With advanced metrics, you can access additional metrics and features for gaining insight into your storage. These include advanced metric categories, prefix-level aggregation, contextual recommendations, Amazon CloudWatch publishing, and AWS Billing and Cost Management publishing. For information about S3 Storage Lens pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing).
 
 You can also disable or delete dashboards. If you disable a dashboard, it's no longer updated, and you will no longer receive any new daily metrics. You can still see historic data until the 14-day expiration period. If you enabled advanced metrics for that dashboard, this period is 15 months. To access historic data, you can re-enable the dashboard within the expiration period. 
 
@@ -179,6 +178,9 @@ This visibility enables you to ensure proper data redundancy, validate encryptio
 
 **Advanced performance metrics**  
 Advanced performance metrics reveal how your applications interact with data in S3 and can help identify opportunities to optimize application performance such as inefficient I/O patterns, cross-region access, and unique object access count. Storage Lens advanced performance metrics eliminates the need for expensive custom monitoring tools and enables customers to implement S3 best practices more effectively, particularly benefiting performance sensitive applications such as machine learning training, data analytics, and other high-performance compute workloads.
+
+**Intelligent-Tiering access tier metrics**  
+Intelligent-Tiering access tier metrics break down eligible core storage metrics by S3 Intelligent-Tiering access tier (Frequent Access, Infrequent Access, Archive Instant Access, Archive Access, and Deep Archive Access). You can use this per-access-tier breakdown to understand how objects in the S3 Intelligent-Tiering storage class are distributed across access tiers and to inform your storage cost optimization decisions.
 
 ### Recommendations
 <a name="storage_lens_basics_recommendations"></a>

@@ -1,7 +1,6 @@
 
 
 # Example 1: Bucket owner granting its users bucket permissions
-<a name="example-walkthroughs-managing-access-example1"></a>
 
 **Important**  
 Granting permissions to IAM roles is a better practice than granting permissions to individual users.For more information about how to grant permissions to IAM roles, see [Understanding cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview).
@@ -103,7 +102,7 @@ Using the credentials of user `AccountAadmin` in Account A, and the special IAM 
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -147,7 +146,7 @@ Using the credentials of user `AccountAadmin` in Account A, and the special IAM 
 
 ****  
 
-      ```
+      ```json
       {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -189,13 +188,13 @@ Using Dave's credentials, verify that the permissions work. You can use either o
 
    The `--body` parameter in the command identifies the source file to upload. For example, if the file is in the root of the C: drive on a Windows machine, you specify `c:\HappyFace.jpg`. The `--key` parameter provides the key name for the object.
 
-   ```
+   ```bash
    aws s3api put-object --bucket {{awsexamplebucket1}} --key {{HappyFace.jpg}} --body {{HappyFace.jpg}} --profile UserDaveAccountA
    ```
 
    Run the following AWS CLI command to get the object. 
 
-   ```
+   ```bash
    aws s3api get-object --bucket awsexamplebucket1 --key {{HappyFace.jpg}} {{OutputFile.jpg}} --profile UserDaveAccountA
    ```
 

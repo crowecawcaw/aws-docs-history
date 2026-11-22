@@ -1,7 +1,6 @@
 
 
 # Using Amazon S3 Storage Lens to optimize your storage costs
-<a name="storage-lens-optimize-storage"></a>
 
 You can use S3 Storage Lens cost-optimization metrics to reduce the overall cost of your S3 storage. Cost-optimization metrics can help you confirm that you've configured Amazon S3 cost effectively and according to best practices. For example, you can identify the following cost-optimization opportunities: 
 + Buckets with incomplete multipart uploads older than 7 days
@@ -97,7 +96,7 @@ To see activity metrics in your S3 Storage Lens dashboard, you must enable S3 St
 
 From here, you can identify the owners of cold buckets in your account or organization and find out if that storage is still needed. You can then optimize costs by configuring [lifecycle expiration configurations](object-lifecycle-mgmt.md) for these buckets or archiving the data in one of the [Amazon Glacier storage classes](https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html). 
 
-To avoid the problem of cold buckets going forward, you can [automatically transition your data by using S3 Lifecycle configurations](lifecycle-configuration-examples.md) for your buckets, or you can enable [auto-archiving with S3 Intelligent-Tiering](archived-objects.md).
+To avoid the problem of cold buckets going forward, you can [automatically transition your data by using S3 Lifecycle configurations](lifecycle-configuration-examples.md) for your buckets, or you can enable [auto-archiving with S3 Intelligent-Tiering](archived-objects.md). To see core storage metrics broken down by access tier, enable **Intelligent-Tiering access tier metrics**. For more information, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md).
 
 You can also use step 1 to identify hot buckets. Then, you can ensure that these buckets use the correct [S3 storage class](storage-class-intro.md) to ensure that they serve their requests most effectively in terms of performance and cost.
 

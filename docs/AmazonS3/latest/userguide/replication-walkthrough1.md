@@ -1,7 +1,6 @@
 
 
 # Configuring replication for buckets in the same account
-<a name="replication-walkthrough1"></a>
 
 Live replication is the automatic, asynchronous copying of objects across general purpose buckets in the same or different AWS Regions. Live replication copies newly created objects and object updates from a source bucket to a destination bucket or buckets. For more information, see [Replicating objects within and across Regions](replication.md).
 
@@ -47,10 +46,11 @@ If the destination bucket is in a different account from the source bucket, you 
 
 1. Under **Source bucket**, you have the following options for setting the replication source:
    + To replicate the whole bucket, choose **Apply to all objects in the bucket**. 
-   + To replicate all objects that have the same prefix, choose **Limit the scope of this rule using one or more filters**. This limits replication to all objects that have names that begin with the prefix that you specify (for example `pictures`). Enter a prefix in the **Prefix** box. 
+   + To replicate all objects that have the same prefix, choose **Limit the scope of this rule using one or more filters**. This limits replication to all objects that have names that begin with the prefix that you specify (for example `pictures`). Enter a prefix in the **Include prefix** box. To exclude objects from the whole bucket instead, leave **Include prefix** blank and add exclusions.
 **Note**  
 If you enter a prefix that is the name of a folder, you must use **/** (forward slash) as the last character (for example, `pictures/`).
-   + To replicate all objects with one or more object tags, choose **Add tag** and enter the key-value pair in the boxes. Repeat the procedure to add another tag. You can combine a prefix and tags. For more information about object tags, see [Tagging your objects](object-tagging.md).
+   + To replicate all objects with one or more object tags, choose **Add include tag** and enter the key-value pair in the boxes. Repeat the procedure to add another tag. You can combine a prefix and tags. For more information about object tags, see [Tagging your objects](object-tagging.md).
+   + To skip objects within the rule's scope, choose **Add exclude prefix** or **Add exclude tag**, and enter the prefix or the key-value pair. You can add more than one of each. For more information, see [Excluding objects from a rule](replication-add-config.md#replication-config-exclude).
 
    The new replication configuration XML schema supports prefix and tag filtering and the prioritization of rules. For more information about the new schema, see [Backward compatibility considerations](replication-add-config.md#replication-backward-compat-considerations). For more information about the XML used with the Amazon S3 API that works behind the user interface, see [Replication configuration file elements](replication-add-config.md). The new schema is described as *replication configuration XML V2*.
 
@@ -74,9 +74,7 @@ If versioning is not enabled on the destination bucket, you get a warning that c
 **Important**  
 When you add a replication rule to a bucket, you must have the `iam:PassRole` permission to be able to pass the IAM role that grants Amazon S3 replication permissions. For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
 
-1. To replicate objects in the source bucket that are encrypted with server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), under **Encryption**, select **Replicate objects encrypted with AWS KMS**. Under **AWS KMS keys for encrypting destination objects** are the source keys that you allow replication to use. All source KMS keys are included by default. To narrow the KMS key selection, you can choose an alias or key ID. 
-
-   Objects encrypted by AWS KMS keys that you do not select are not replicated. A KMS key or a group of KMS keys is chosen for you, but you can choose the KMS keys if you want. For information about using AWS KMS with replication, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md).
+1. To replicate objects encrypted with AWS KMS keys (SSE-KMS), under **Encryption**, choose **Replicate**. For information about using AWS KMS with replication, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md).
 **Important**  
 When you replicate objects that are encrypted with AWS KMS, the AWS KMS request rate doubles in the source Region and increases in the destination Region by the same amount. These increased call rates to AWS KMS are due to the way that data is re-encrypted by using the KMS key that you define for the replication destination Region. AWS KMS has a request rate quota that is per calling account per Region. For information about the quota defaults, see [AWS KMS Quotas - Requests per Second: Varies](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) in the *AWS Key Management Service Developer Guide*.   
 If your current Amazon S3 `PUT` object request rate during replication is more than half the default AWS KMS rate limit for your account, we recommend that you request an increase to your AWS KMS request rate quota. To request an increase, create a case in the Support Center at [Contact Us](https://aws.amazon.com/contact-us/). For example, suppose that your current `PUT` object request rate is 1,000 requests per second and you use AWS KMS to encrypt your objects. In this case, we recommend that you ask Support to increase your AWS KMS rate limit to 2,500 requests per second, in both your source and destination Regions (if different), to ensure that there is no throttling by AWS KMS.   
@@ -84,19 +82,25 @@ To see your `PUT` object request rate in the source bucket, view `PutRequests` i
 
    If you chose to replicate objects encrypted with AWS KMS, do the following: 
 
-   1. Under **AWS KMS key for encrypting destination objects **, specify your KMS key in one of the following ways:
-     + To choose from a list of available KMS keys, choose **Choose from your AWS KMS keys**, and choose your **KMS key** from the list of available keys.
+   1. Under **Encryption key type**, do one or both of the following:
+      + If your objects are encrypted with multi-Region keys, select **Use source Multi-Region key**.
+      + If your objects are encrypted with single-Region keys, select **Specify destination key**, and then choose the key in the next step.
 
-       Both the AWS managed key (`aws/s3`) and your customer managed keys appear in this list. For more information about customer managed keys, see [Customer keys and AWS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt) in the *AWS Key Management Service Developer Guide*.
-     + To enter the KMS key Amazon Resource Name (ARN), choose **Enter AWS KMS key ARN**, and enter your KMS key ARN in the field that appears. This encrypts the replicas in the destination bucket. You can find the ARN for your KMS key in the [IAM Console](https://console.aws.amazon.com/iam/), under **Encryption keys**. 
-     + To create a new customer managed key in the AWS KMS console, choose **Create a KMS key**.
+      If you have both, select both. For more information, see [Using Multi-Region key resolution](replication-config-for-kms-objects.md#replication-kms-multi-region-keys).
 
-       For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
+   1. To specify a destination key, under **AWS KMS key for encrypting destination objects **, specify your KMS key in one of the following ways:
+      + To choose from a list of available KMS keys, choose **Choose from your AWS KMS keys**, and choose your **KMS key** from the list of available keys.
+
+        Both the AWS managed key (`aws/s3`) and your customer managed keys appear in this list. For more information about customer managed keys, see [Customer keys and AWS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt) in the *AWS Key Management Service Developer Guide*.
+      + To enter the KMS key Amazon Resource Name (ARN), choose **Enter AWS KMS key ARN**, and enter your KMS key ARN in the field that appears. This encrypts the replicas in the destination bucket. You can find the ARN for your KMS key in the [IAM Console](https://console.aws.amazon.com/iam/), under **Encryption keys**. 
+      + To create a new customer managed key in the AWS KMS console, choose **Create a KMS key**.
+
+        For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
 **Important**  
 You can only use KMS keys that are enabled in the same AWS Region as the bucket. When you choose **Choose from your KMS keys**, the S3 console lists only 100 KMS keys per Region. If you have more than 100 KMS keys in the same Region, you can see only the first 100 KMS keys in the S3 console. To use a KMS key that is not listed in the console, choose **Enter AWS KMS key ARN**, and enter your KMS key ARN.  
 When you use an AWS KMS key for server-side encryption in Amazon S3, you must choose a symmetric encryption KMS key. Amazon S3 supports only symmetric encryption KMS keys and not asymmetric KMS keys. For more information, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*.
 
-     For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*. For more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md).
+      For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*. For more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md).
 
 1. Under **Destination storage class**, if you want to replicate your data into a specific storage class in the destination, choose **Change the storage class for the replicated objects**. Then choose the storage class that you want to use for the replicated objects in the destination. If you don't choose this option, the storage class for replicated objects is the same class as the original objects.
 
@@ -190,7 +194,7 @@ To test a replication configuration when the buckets are owned by different AWS 
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -225,7 +229,7 @@ To test a replication configuration when the buckets are owned by different AWS 
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -283,7 +287,7 @@ To replicate object annotations, you must also grant `s3:GetObjectVersionAnnotat
 
    1. Although the Amazon S3 API requires that you specify the replication configuration as XML, the AWS CLI requires that you specify the replication configuration as JSON. Save the following JSON in a file called `replication.json` to the local directory on your computer.
 
-      ```
+      ```json
       {
         "Role": "{{IAM-role-ARN}}",
         "Rules": [
@@ -291,7 +295,12 @@ To replicate object annotations, you must also grant `s3:GetObjectVersionAnnotat
             "Status": "Enabled",
             "Priority": 1,
             "DeleteMarkerReplication": { "Status": "Disabled" },
-            "Filter" : { "Prefix": "{{Tax}}"},
+            "Filter": {
+              "And": {
+                "Prefix": "{{Tax}}",
+                "Not": { "Prefix": "{{Tax/drafts/}}" }
+              }
+            },
             "Destination": {
               "Bucket": "arn:aws:s3:::{{amzn-s3-demo-destination-bucket}}"
             }
@@ -299,6 +308,8 @@ To replicate object annotations, you must also grant `s3:GetObjectVersionAnnotat
         ]
       }
       ```
+
+      This rule replicates objects with the `Tax` prefix, except objects under `Tax/drafts/`.
 
    1. Update the JSON by replacing the values for the `{{amzn-s3-demo-destination-bucket}}` and `{{IAM-role-ARN}}` with your own information. Save the changes.
 
@@ -359,7 +370,7 @@ For examples of how to configure replication with the AWS SDK for Java, see [Set
 
 The following AWS SDK for .NET code example adds a replication configuration to a bucket and then retrieves it. To use this code, provide the names for your buckets and the Amazon Resource Name (ARN) for your IAM role. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

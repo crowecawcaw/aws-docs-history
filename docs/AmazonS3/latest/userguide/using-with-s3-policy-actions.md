@@ -1,7 +1,6 @@
 
 
 # Required permissions for Amazon S3 API operations
-<a name="using-with-s3-policy-actions"></a>
 
 **Note**  
 This page is about Amazon S3 policy actions for general purpose buckets. To learn more about Amazon S3 policy actions for directory buckets, see [Actions for directory buckets](s3-express-security-iam.md#s3-express-security-iam-actions).

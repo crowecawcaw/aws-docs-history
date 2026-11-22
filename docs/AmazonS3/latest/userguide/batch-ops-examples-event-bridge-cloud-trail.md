@@ -1,7 +1,6 @@
 
 
 # Examples: Tracking an S3 Batch Operations job in Amazon EventBridge through AWS CloudTrail
-<a name="batch-ops-examples-event-bridge-cloud-trail"></a>
 
 Amazon S3 Batch Operations job activity is recorded as events in AWS CloudTrail. You can create a custom rule in Amazon EventBridge and send these events to the target notification resource of your choice, such as Amazon Simple Notification Service (Amazon SNS). 
 
@@ -24,7 +23,7 @@ Only S3 Batch Operations job `status-change` events are recorded in CloudTrail.
 
 **Example — S3 Batch Operations job completion event recorded by CloudTrail**  
 
-```
+```JSON
 {
     "eventVersion": "1.05",
     "userIdentity": {
@@ -63,7 +62,7 @@ To do this, you create a rule by following all the steps in [Creating EventBridg
 
 **S3 Batch Operations custom event pattern policy**
 
-```
+```JSON
 {
     "source": [
         "aws.s3"
@@ -87,7 +86,7 @@ To do this, you create a rule by following all the steps in [Creating EventBridg
 
 **Example — JobCreated sample event**  
 
-```
+```JSON
 {
     "version": "0",
     "id": "51dc8145-541c-5518-2349-56d7dffdf2d8",
@@ -126,7 +125,7 @@ To do this, you create a rule by following all the steps in [Creating EventBridg
 
 **Example — JobStatusChanged job completion event**  
 
-```
+```JSON
 {
   "version": "0",
   "id": "c8791abf-2af8-c754-0435-fd869ce25233",

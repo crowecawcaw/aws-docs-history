@@ -1,7 +1,6 @@
 
 
 # Changing the replica owner
-<a name="replication-change-owner"></a>
 
 In replication, the owner of the source object also owns the replica by default. However, when the source and destination buckets are owned by different AWS accounts, you might want to change the replica ownership. For example, you might want to change the ownership to restrict access to object replicas. In your replication configuration, you can add optional configuration settings to change replica ownership to the AWS account that owns the destination buckets. 
 
@@ -41,7 +40,7 @@ To specify the owner override option, add the following to each `Destination` el
 + The `AccessControlTranslation` element, which tells Amazon S3 to change replica ownership
 + The `Account` element, which specifies the AWS account of the destination bucket owner 
 
-```
+```xml
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     ...
     <Destination>
@@ -57,7 +56,7 @@ To specify the owner override option, add the following to each `Destination` el
 
 The following example replication configuration tells Amazon S3 to replicate objects that have the {{`Tax`}} key prefix to the `{{amzn-s3-demo-destination-bucket}}` destination bucket and change ownership of the replicas. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ReplicationConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
    <Role>arn:aws:iam::{{account-id}}:role/{{role-name}}</Role>
@@ -187,7 +186,7 @@ The profiles that you use for this procedure must have the necessary permissions
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -233,7 +232,7 @@ The profiles that you use for this procedure must have the necessary permissions
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -270,7 +269,7 @@ The profiles that you use for this procedure must have the necessary permissions
 
 ****  
 
-         ```
+         ```json
          {
             "Version":"2012-10-17",		 	 	 
             "Statement":[
@@ -325,7 +324,7 @@ The profiles that you use for this procedure must have the necessary permissions
 
    1. The AWS CLI requires specifying the replication configuration as JSON. Save the following JSON in a file named `{{replication}}.json` in the current directory on your local computer. In the configuration, the `AccessControlTranslation` specifies the change in replica ownership from the source bucket owner to the destination bucket owner. 
 
-      ```
+      ```json
       {
          "Role":"{{IAM-role-ARN}}",
          "Rules":[
@@ -370,4 +369,4 @@ The profiles that you use for this procedure must have the necessary permissions
 ### Using the AWS SDKs
 <a name="replication-ex3-sdk"></a>
 
- For a code example to add a replication configuration, see [Using the AWS SDKs](replication-walkthrough1.md#replication-ex1-sdk). You must modify the replication configuration appropriately. For conceptual information, see [Changing the replica owner](#replication-change-owner). 
+ For a code example to add a replication configuration, see [Using the AWS SDKs](replication-walkthrough1.md#replication-ex1-sdk). You must modify the replication configuration appropriately. For conceptual information, see [Changing the replica owner](replication-change-owner.md). 

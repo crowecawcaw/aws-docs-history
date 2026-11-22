@@ -1,7 +1,6 @@
 
 
 # Control client access to an S3 Files file system
-<a name="s3-files-access-point-policy-examples"></a>
 
 This topic describes how to use file system policies, IAM identity policies, and network controls to control which clients can access your S3 Files file system and through which access points.
 
@@ -36,7 +35,7 @@ This pattern applies when a role shares an account with an S3 Files file system 
 
 **2. Explicit deny in the file system policy.** A deny statement in the file system policy rejects the mount even if the role is granted broader IAM permissions later. A file system resource policy provides a deny that persists even if someone with `iam:PutRolePolicy` modifies the role's identity policies. Only principals with `s3files:PutFileSystemPolicy` can change this layer.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

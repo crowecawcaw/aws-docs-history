@@ -1,7 +1,6 @@
 
 
 # Configuring an index document
-<a name="IndexDocumentSupport"></a>
 
 When you enable website hosting, you must also configure and upload an index document. An *index document* is a webpage that Amazon S3 returns when a request is made to the root of a website or any subfolder. For example, if a user enters `http://www.example.com` in the browser, the user is not requesting any specific page. In that case, Amazon S3 serves up the index document, which is sometimes referred to as the *default page*.
 

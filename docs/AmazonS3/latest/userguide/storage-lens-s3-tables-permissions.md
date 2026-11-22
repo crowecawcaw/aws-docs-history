@@ -1,7 +1,6 @@
 
 
 # Permissions for S3 Storage Lens tables
-<a name="storage-lens-s3-tables-permissions"></a>
 
 To work with S3 Storage Lens data exported to S3 Tables, you need appropriate AWS Identity and Access Management (IAM) permissions. This topic covers the permissions required for exporting metrics and managing encryption.
 
@@ -28,7 +27,7 @@ All data in S3 tables including S3 Storage Lens metrics are encrypted with SSE-S
 
 1. On the key policy for the AWS KMS key, you need the following permissions. You can grant these permissions by using the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms). To use this policy, replace the ` {{user input placeholders}} ` with your own information.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Appending data to objects in directory buckets
-<a name="directory-buckets-objects-append"></a>
 
 You can add data to the end of existing objects stored in the S3 Express One Zone storage class in directory buckets. We recommend that you use the ability to append data to an object if the data is written continuously over a period of time or if you need to read the object while you are writing to the object. Appending data to objects is common for use-cases such as adding new log entries to log files or adding new video segments to video files as they are transcoded then streamed. By appending data to objects, you can simplify applications that previously combined data in local storage before copying the final object to Amazon S3.
 
@@ -35,7 +34,7 @@ You can append data to your objects by using the AWS Command Line Interface (AWS
 
 The following `put-object` example command shows how you can use the AWS CLI to append data to an object. To run this command, replace the {{user input placeholders}} with your own information
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}}--{{azid}}--x-s3 --key {{sampleinput/file001.bin}} --body bucket-seed/file001.bin --write-offset-bytes size-of-sampleinput/file001.bin
 ```
 
@@ -47,7 +46,7 @@ aws s3api put-object --bucket {{amzn-s3-demo-bucket}}--{{azid}}--x-s3 --key {{sa
 
 You can use the AWS SDK for Java to append data to your objects. 
 
-```
+```java
 var putObjectRequestBuilder = PutObjectRequest.builder()
                                               .key(key)
                                               .bucket(bucketName)
@@ -58,7 +57,7 @@ var response = s3Client.putObject(putObjectRequestBuilder.build());
 ------
 #### [ SDK for Python (Boto) ]
 
-```
+```Python
 s3.put_object(Bucket='{{amzn-s3-demo-bucket}}--{{use2-az2}}--x-s3', Key='2024-11-05-sdk-test', Body=b'123456789', WriteOffsetBytes=9)
 ```
 

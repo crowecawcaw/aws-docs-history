@@ -1,7 +1,6 @@
 
 
 # Understanding your AWS billing and usage reports for Amazon S3
-<a name="aws-usage-report-understand"></a>
 
 When you use Amazon S3, we include related codes in your AWS billing and usage reports. Reviewing these codes helps you understand your Amazon S3 costs and usage patterns. Tracking and managing your expenses is essential for optimizing your costs. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
 

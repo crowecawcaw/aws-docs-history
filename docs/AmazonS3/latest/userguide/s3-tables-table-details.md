@@ -1,7 +1,6 @@
 
 
 # Viewing details about an Amazon S3 table
-<a name="s3-tables-table-details"></a>
 
 You can view the general details of a table in a table bucket, such creation details, format and type, in the console or programmatically. You can view table encryption settings, and maintenance settings programmatically by using the S3 Tables REST API, AWS CLI or AWS SDKs.
 
@@ -13,7 +12,7 @@ You can view the general details of a table in a table bucket, such creation det
 
 This example shows how to get details about a table by using the AWS CLI. To use this example, replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables get-table --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket --namespace {{my-namespace}} --name {{my-table}}
 ```
 
@@ -59,7 +58,7 @@ For more information about table bucket encryption, see [Using server-side encry
 
 This example shows how to get details about encryption settings for a table by using the AWS CLI. To use this example, replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables get-table-encryption --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket --namespace {{my-namespace}} --name {{my-table}}
 ```
 
@@ -73,6 +72,6 @@ For information about maintenance settings, see [Maintenance for table buckets](
 
 This example shows how to get details about maintenance configuration settings for a table by using the AWS CLI. To use this example, replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables get-table-maintenance-configuration --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket --namespace {{my-namespace}} --name {{my-table}}
 ```

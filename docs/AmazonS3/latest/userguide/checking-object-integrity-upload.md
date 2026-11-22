@@ -1,7 +1,6 @@
 
 
 # Checking object integrity for data uploads in Amazon S3
-<a name="checking-object-integrity-upload"></a>
 
 Amazon S3 uses checksum values to verify data integrity during upload and download operations. When you upload data, AWS SDK and the AWS Management Console use your chosen checksum algorithm to compute a checksum value before data transmission. S3 then independently calculates a checksum of your data and validates it against the provided checksum value. Objects are accepted only after confirming data integrity was maintained during transit. S3 stores both the checksum value as object metadata and the object itself.
 
@@ -136,7 +135,7 @@ The following example shows how you can use the AWS SDKs to upload a large file 
 **Example: Uploading, downloading, and verifying a large file with SHA-256**  
 For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
-```
+```java
     import software.amazon.awssdk.auth.credentials.AwsCredentials;
     import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
     import software.amazon.awssdk.core.ResponseInputStream;
@@ -479,14 +478,14 @@ Object body chunks begin with the hexadecimal encoding of the number of bytes in
 
 For example:
 
-```
+```xml
 {{hex-encoding-of-object-bytes-in-chunk}}\r\n
 {{chunk-object-bytes}}\r\n
 ```
 
 However, when the chunk is signed, the object body chunk follows a different format, where the signature is appended to the chunk size with a semicolon delimiter. For example:
 
-```
+```xml
 {{hex-encoding-of-object-bytes-in-chunk}};{{chunk-signature}}\r\n
  {{chunk-object-bytes}}\r\n
 ```
@@ -524,7 +523,7 @@ x-amz-checksum-{{lowercase-checksum-algorithm-name}}:{{base64-checksum-value}}\n
 
 For requests with [SigV4 signed payloads](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-streaming-trailers.html), the trailer chunk includes a trailer signature after the trailer chunk. 
 
-```
+```xml
 {{trailer-checksum}}\n\r\n
 {{trailer-signature}}\r\n
 ```
@@ -544,7 +543,7 @@ Amazon S3 supports chunked uploads that use `aws-chunked` content encoding for `
 
  The following is an example of a chunked `PutObject` request with a trailing CRC-32 checksum. In this example, the client uploads a 17 KB object in three unsigned chunks and appends a trailing CRC-32 checksum chunk by using the `x-amz-checksum-crc32` header.
 
-```
+```http
 PUT /Key+ HTTP/1.1
 Host: {{amzn-s3-demo-bucket}}
 Content-Encoding: aws-chunked
@@ -565,7 +564,7 @@ x-amz-checksum-crc32:{{YABb/g==}}\n\r\n\r\n    // Trailer chunk (note optional \
 
 Here's an example response:
 
-```
+```http
 HTTP/1.1 200
 ETag: ETag
 x-amz-checksum-crc32: YABb/g==
@@ -578,7 +577,7 @@ x-amz-checksum-crc32: YABb/g==
 
 The following is an example of a chunked `PutObject` request with a trailing CRC-32 checksum. This request uses SigV4 payload signing. In this example, the client uploads a 17 KB object in three signed chunks. In addition to the `object body` chunks, the `completion chunk` and `trailer chunk` are also signed. 
 
-```
+```http
 PUT /Key+ HTTP/1.1
 Host: {{amzn-s3-demo-bucket}}.s3.amazonaws.com
 Content-Encoding: aws-chunked
@@ -602,7 +601,7 @@ x-amz-checksum-crc32:{{YABb/g==}}\n\r\n            // Trailer chunk (note option
 
 Here's an example response:
 
-```
+```http
 HTTP/1.1 200
 ETag: ETag
 x-amz-checksum-crc32: YABb/g==

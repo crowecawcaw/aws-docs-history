@@ -1,7 +1,6 @@
 
 
 # S3 Access Grants and corporate directory identities
-<a name="access-grants-directory-ids"></a>
 
 You can use Amazon S3 Access Grants to grant access to AWS Identity and Access Management (IAM) principals (users or roles), both in the same AWS account and in others. However, in many cases, the entity accessing the data is an end user from your corporate directory. Instead of granting access to IAM principals, you can use S3 Access Grants to grant access directly to your corporate users and groups. With S3 Access Grants, you no longer need to map your corporate identities to intermediate IAM principals in order to access your S3 data through your corporate applications.
 
@@ -96,7 +95,7 @@ aws sso-admin create-trusted-token-issuer \
 
 Response
 
-```
+```java
 {
   "TrustedTokenIssuerArn": "arn:aws:sso::{{123456789012}}:trustedTokenIssuer/ssoins-{{1234567890abcdef}}/tti-{{43b4a822-1234-1234-1234-a1b2c3d41234}}"
 }
@@ -188,7 +187,7 @@ aws sso-admin put-application-authentication-method \
 
 This completes the configuration settings for using S3 Access Grants with directory users through a web application. You can test this setup directly in the application or you can call the `CreateTokenWithIAM` API operation by using the following command from an allowed IAM role in the IAM Identity Center application policy:
 
-```
+```json
 aws sso-oidc create-token-with-iam \
    --client-id "arn:aws:sso::{{123456789012}}:application/ssoins-ssoins-{{1234567890abcdef}}/apl-{{abcd1234a1b2c3d}}"  \
    --grant-type urn:ietf:params:oauth:grant-type:jwt-bearer \
@@ -197,7 +196,7 @@ aws sso-oidc create-token-with-iam \
 
 The response will be similar to this:
 
-```
+```json
 {
     "accessToken": "<suppressed long string to reduce space>",
     "tokenType": "Bearer",
@@ -216,7 +215,7 @@ The response will be similar to this:
 
 If you decode the `IdToken` value that is encoded with base64, you can see the key-value pairs in JSON format. The key `sts:identity_context` contains the value that your application needs to send in the `sts:AssumeRole` request to include the identity information of the directory user. Here is an example of the `IdToken` decoded:
 
-```
+```json
 {
     "aws:identity_store_id": "d-996773e796",
     "sts:identity_context": "AQoJb3JpZ2luX2VjEOTtl;<SUPRESSED>",

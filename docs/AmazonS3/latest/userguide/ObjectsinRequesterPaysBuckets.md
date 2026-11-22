@@ -1,7 +1,6 @@
 
 
 # Downloading objects from Requester Pays buckets
-<a name="ObjectsinRequesterPaysBuckets"></a>
 
 Because requesters are charged for downloading data from Requester Pays buckets, the requests must contain a special parameter, `x-amz-request-payer`, which confirms that the requester knows that they will be charged for the download. To access objects in Requester Pays buckets, requests must include one of the following.
 + For DELETE, GET, HEAD, POST, and PUT requests, include `x-amz-request-payer : requester` in the header
@@ -19,7 +18,7 @@ Ensure that you have included `x-amz-request-payer` and its value in your signat
 **To download objects from a Requester Pays bucket**
 +  Use a `GET` request to download an object from a Requester Pays bucket, as shown in the following request.
 
-  ```
+  ```http
   1. GET / {{[destinationObject]}} HTTP/1.1
   2. Host: {{[BucketName]}}.s3.amazonaws.com
   3. x-amz-request-payer : requester

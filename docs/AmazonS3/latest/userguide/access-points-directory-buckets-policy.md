@@ -1,7 +1,6 @@
 
 
 # Viewing, editing or deleting access point policies
-<a name="access-points-directory-buckets-policy"></a>
 
 You can use an AWS Identity and Access Management (IAM) access point policy to control the principal and resource that can access the access point. The access point scope manages the prefixes and API permissions for the access point. You can create, edit, and delete an access point policy using the AWS Command Line Interface, REST API, or AWS SDKs. For more information about access point scope, see [Manage the scope of your access points for directory buckets](access-points-directory-buckets-manage-scope.md).
 

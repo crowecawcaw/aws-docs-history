@@ -1,7 +1,6 @@
 
 
 # Creating a Batch Operations job to update object encryption
-<a name="batch-ops-update"></a>
 
 To update the server-side encryption type of more than one Amazon S3 object with a single request, you can use S3 Batch Operations. You can use S3 Batch Operations through the Amazon S3 console, AWS Command Line Interface (AWS CLI) AWS SDKs, or the Amazon S3 REST API.
 
@@ -29,7 +28,7 @@ For best performance, we recommend using the `KmsKeyArn` filter in conjunction w
 **Example 2 – Create a Batch Operations job that updates SSE-S3 encrypted objects to SSE-KMS**  
 The following example shows how to create an S3 Batch Operations job that updates the encryption settings for multiple objects in your general purpose bucket. This command creates a job that changes objects encrypted by using server-side encryption with Amazon S3 managed keys (SSE-S3) to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) instead. This job also generates and saves a manifest of the affected objects and creates a report of the results. To use this command, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```bash
 aws s3control create-job --account-id {{account-id}} \
 --no-confirmation-required \
 --operation '{"S3UpdateObjectEncryption": {  "ObjectEncryption": { "SSEKMS": { "KMSKeyArn": "{{KMS-key-ARN-to-apply}}", "BucketKeyEnabled": false  }  }  } }' \

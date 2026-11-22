@@ -1,7 +1,6 @@
 
 
 # Viewing directory bucket tags
-<a name="directory-bucket-tag-view"></a>
 
 You can view or list tags applied to S3 directory buckets. For more information about tags, see [Using tags with S3 directory buckets](directory-buckets-tagging.md).
 
@@ -49,7 +48,7 @@ This section provides an example of how to view tags applied to a directory buck
 
 This example shows you how to view tags applied to a directory bucket by using the AWS SDK for Java 2.x. 
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3control.S3ControlClient;
 import software.amazon.awssdk.services.s3control.model.ListTagsForResourceRequest;
@@ -88,7 +87,7 @@ The following CLI example shows you how to view tags applied to a directory buck
 
 **Request:**
 
-```
+```bash
 aws s3control list-tags-for-resource \
 --account-id {{111122223333}} \
 --resource-arn arn:aws::s3express:{{us-east-1}}:{{444455556666}}:bucket/prefix--{{use1-az4}}--x-s3 \
@@ -96,7 +95,7 @@ aws s3control list-tags-for-resource \
 
 **Response - tags present:**
 
-```
+```json
 {
   "Tags": [
       {
@@ -117,7 +116,7 @@ aws s3control list-tags-for-resource \
 
 **Response - no tags present:**
 
-```
+```json
 {
   "Tags": []
 }

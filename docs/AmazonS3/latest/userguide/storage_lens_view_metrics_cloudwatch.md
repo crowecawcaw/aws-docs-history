@@ -1,7 +1,6 @@
 
 
 # Monitor S3 Storage Lens metrics in CloudWatch
-<a name="storage_lens_view_metrics_cloudwatch"></a>
 
 You can publish S3 Storage Lens metrics to Amazon CloudWatch to create a unified view of your operational health in [CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). You can also use CloudWatch features, such as alarms and triggered actions, metric math, and anomaly detection, to monitor and take action on S3 Storage Lens metrics. In addition, CloudWatch API operations enable applications, including third-party providers, to access your S3 Storage Lens metrics. For more information about CloudWatch features, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
 

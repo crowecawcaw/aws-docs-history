@@ -1,7 +1,6 @@
 
 
 # Creating a table bucket
-<a name="s3-tables-buckets-create"></a>
 
 Amazon S3 table buckets are an S3 bucket type that you can use to create and store tables as S3 resources. To start using S3 Tables, you create a table bucket where you store and manage tables. When you create a table bucket, you choose a bucket name and AWS Region. The table bucket name must be unique for your account in the chosen Region. After you create a table bucket, you can't change the bucket name or Region. For information about naming table buckets, see [Amazon S3 table bucket, table, and namespace naming rules](s3-tables-buckets-naming.md).
 
@@ -63,7 +62,7 @@ When you create your first table bucket by using the console with the **Enable i
 
 This example shows how to create a table bucket by using the AWS CLI. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3tables create-table-bucket \
     --region {{us-east-2}} \
     --name {{{{amzn-s3-demo-bucket1}}}}
@@ -71,7 +70,7 @@ aws s3tables create-table-bucket \
 
 By default S3 table buckets use SSE-S3 as their default encryption setting, however, you can use the optional `--encryption-configuration` parameter to specify a different encryption type. The following examples shows how to create a bucket that uses SSE-KMS encryption. For more information on encryption settings for table buckets, see [Protecting S3 table data with encryption](s3-tables-encryption.md).
 
-```
+```bash
 aws s3tables create-table-bucket \
     --region {{us-east-2}} \
     --name {{{{amzn-s3-demo-bucket1}}}}

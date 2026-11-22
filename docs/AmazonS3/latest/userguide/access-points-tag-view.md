@@ -1,7 +1,6 @@
 
 
 # Viewing access point tags
-<a name="access-points-tag-view"></a>
 
 You can view or list tags applied to access points. For more information about tags, see [Using tags with S3 Access Points for general purpose buckets](access-points-tagging.md).
 
@@ -73,7 +72,7 @@ The following CLI example shows you how to view tags applied to an access point.
 
 **Request:**
 
-```
+```bash
 aws s3control list-tags-for-resource \
 --account-id {{111122223333}} \
 --resource-arn arn:aws::s3:{{region}}:{{444455556666}}:bucket/prefix--{{use1-az4}}--x-s3 \
@@ -81,7 +80,7 @@ aws s3control list-tags-for-resource \
 
 **Response - tags present:**
 
-```
+```json
 {
   "Tags": [
       {
@@ -102,7 +101,7 @@ aws s3control list-tags-for-resource \
 
 **Response - no tags present:**
 
-```
+```json
 {
   "Tags": []
 }

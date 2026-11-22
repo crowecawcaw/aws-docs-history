@@ -1,7 +1,6 @@
 
 
 # Working with S3 Access Grants instances
-<a name="access-grants-instance"></a>
 
 To get started with using AmazonS3 Access Grants, you first create an S3 Access Grants instance. You can create only one S3 Access Grants instance per AWS Region per account. The S3 Access Grants instance serves as the container for your S3 Access Grants resources, which include registered locations and grants. 
 

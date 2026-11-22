@@ -1,7 +1,6 @@
 
 
 # Listing jobs
-<a name="batch-ops-list-jobs"></a>
 
 You can retrieve a list of your S3 Batch Operations jobs. The list provides information about jobs that haven't yet finished, and jobs that finished within the last 90 days. For each job, the list includes details such as job ID, description, priority, current status, and the number of tasks that have succeeded and failed.
 

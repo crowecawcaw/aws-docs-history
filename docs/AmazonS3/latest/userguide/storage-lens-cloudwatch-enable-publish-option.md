@@ -1,7 +1,6 @@
 
 
 # Enabling CloudWatch publishing for S3 Storage Lens
-<a name="storage-lens-cloudwatch-enable-publish-option"></a>
 
 You can publish S3 Storage Lens metrics to Amazon CloudWatch to create a unified view of your operational health in [CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). You can also use CloudWatch features, such as alarms and triggered actions, metric math, and anomaly detection, to monitor and take action on S3 Storage Lens metrics. In addition, CloudWatch API operations enable applications, including third-party providers, to access your S3 Storage Lens metrics. For more information about CloudWatch features, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
 
@@ -105,7 +104,7 @@ For more information about advanced metrics and recommendations features, see [M
 
 The following AWS CLI example enables the CloudWatch publishing option by using a S3 Storage Lens organization-level advanced metrics and recommendations configuration. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```JSON
 aws s3control put-storage-lens-configuration --account-id={{555555555555}} --config-id={{your-configuration-id}} --region={{us-east-1}} --storage-lens-configuration=file://./config.json
 
 config.json
@@ -149,6 +148,9 @@ config.json
       }
     }
   },
+  "IntAccessTiers": {
+    "IsEnabled": {{true}}
+  },
   "Exclude": {
     "Regions": [
       "{{eu-west-1}}"
@@ -179,7 +181,7 @@ config.json
 ## Using the AWS SDK for Java
 <a name="storage-lens-cloudwatch-enable-publish-sdk"></a>
 
-```
+```JAVA
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
@@ -193,6 +195,7 @@ import com.amazonaws.services.s3control.model.BucketLevel;
 import com.amazonaws.services.s3control.model.CloudWatchMetrics;
 import com.amazonaws.services.s3control.model.Format;
 import com.amazonaws.services.s3control.model.Include;
+import com.amazonaws.services.s3control.model.IntAccessTiers;
 import com.amazonaws.services.s3control.model.OutputSchemaVersion;
 import com.amazonaws.services.s3control.model.PrefixLevel;
 import com.amazonaws.services.s3control.model.PrefixLevelStorageMetrics;
@@ -264,12 +267,16 @@ public class CreateAndUpdateDashboard {
             StorageLensAwsOrg awsOrg = new StorageLensAwsOrg()
                     .withArn({{awsOrgARN}});
 
+            IntAccessTiers intAccessTiers = new IntAccessTiers()
+                    .withIsEnabled({{true}});
+
             StorageLensConfiguration configuration = new StorageLensConfiguration()
                     .withId(configurationId)
                     .withAccountLevel(accountLevel)
                     .withInclude(include)
                     .withDataExport(dataExport)
                     .withAwsOrg(awsOrg)
+                    .withIntAccessTiers(intAccessTiers)
                     .withIsEnabled({{true}});
 
             List<StorageLensTag> tags = Arrays.asList(

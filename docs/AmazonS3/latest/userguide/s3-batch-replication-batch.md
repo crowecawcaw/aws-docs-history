@@ -1,7 +1,6 @@
 
 
 # Replicating existing objects with Batch Replication
-<a name="s3-batch-replication-batch"></a>
 
 S3 Batch Replication differs from live replication, which continuously and automatically replicates new objects across Amazon S3 buckets. Instead, S3 Batch Replication occurs on demand on existing objects. You can use S3 Batch Replication to replicate the following types of objects: 
 + Objects that existed before a replication configuration was in place
@@ -49,7 +48,9 @@ A manifest is an Amazon S3 object that contains the object keys that you want Am
 
 If you supply a user-generated manifest, it must be in the form of an Amazon S3 Inventory report or a CSV file. If the objects in your manifest are in a versioned bucket, you must specify the version IDs for the objects. Only the object with the version ID that's specified in the manifest will be replicated. To learn more about specifying a manifest, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest).
 
-If you choose to have Amazon S3 generate a manifest file on your behalf, the objects listed use the same source bucket, prefix, and tags as your replication configurations on the source bucket. With a generated manifest, Amazon S3 replicates all eligible versions of your objects.
+If a user-generated manifest lists an object that doesn't match any rule in the replication configuration, Batch Replication doesn't replicate the object. The task fails in the completion report with `SrcObjectNotEligible`, and the object's replication status doesn't change.
+
+If you choose to have Amazon S3 generate a manifest file on your behalf, the objects listed use the same source bucket, prefix, and tags as your replication configurations on the source bucket. The generated manifest doesn't list objects that your rules exclude. With a generated manifest, Amazon S3 replicates all eligible versions of your objects.
 
 **Note**  
 If you choose to have Amazon S3 generate the manifest, the manifest must be stored in the same AWS Region as the source bucket.

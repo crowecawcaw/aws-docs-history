@@ -1,7 +1,6 @@
 
 
 # Viewing directory bucket properties
-<a name="directory-bucket-view"></a>
 
 You can view and configure the properties for an Amazon S3 directory bucket by using the Amazon S3 console. For more information, see [Working with directory buckets](directory-buckets-overview.md).
 

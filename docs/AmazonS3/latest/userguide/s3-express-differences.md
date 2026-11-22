@@ -1,7 +1,6 @@
 
 
 # Differences for directory buckets
-<a name="s3-express-differences"></a>
 
 When using Amazon S3, you can choose the bucket type that best fits your application and performance requirements. A directory bucket is a type of bucket that is best used for low latency or data residency use cases. To learn more about directory buckets, see [Working with directory buckets](directory-buckets-overview.md). 
 

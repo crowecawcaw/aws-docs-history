@@ -1,7 +1,6 @@
 
 
 # Use cases for directory buckets
-<a name="directory-bucket-use-cases"></a>
 
 Directory buckets support bucket creation in the following bucket location types: Availability Zone or Local Zone. 
 

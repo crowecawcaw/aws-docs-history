@@ -1,7 +1,6 @@
 
 
 # Using server-side encryption with AWS KMS keys (SSE-KMS) in directory buckets
-<a name="s3-express-UsingKMSEncryption"></a>
 
  The security controls in AWS KMS can help you meet encryption-related compliance requirements. You can choose to configure directory buckets to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) and use these KMS keys to protect your data in Amazon S3 directory buckets. For more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md).
 
@@ -60,7 +59,7 @@ To require SSE-KMS of all objects in a particular directory bucket, you can use 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Id":"UploadObjectPolicy",
@@ -122,7 +121,7 @@ Also, for object encryption with SSE-KMS in a directory bucket, your AWS KMS Clo
 
 Directory buckets can only be accessed through HTTPS (TLS). Also, directory buckets sign requests by using AWS Signature Version 4 (SigV4). For more information about sending requests for AWS KMS encrypted objects, see [Sending requests for AWS KMS encrypted objects](UsingKMSEncryption.md#aws-signature-version-4-sse-kms).
 
-If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests. Otherwise, you’ll get an HTTP 400 Bad Request error.
+If your object uses SSE-KMS, don't send encryption request headers for `GET` requests and `HEAD` requests. Otherwise, you’ll get an `HTTP 400 Bad Request` error.
 
 ## Auditing SSE-KMS encryption in directory buckets
 <a name="s3-express-bucket-encryption-sse-auditing"></a>

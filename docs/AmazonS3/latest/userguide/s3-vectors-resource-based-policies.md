@@ -1,7 +1,6 @@
 
 
 # S3 Vectors resource-based policy examples
-<a name="s3-vectors-resource-based-policies"></a>
 
 Resource-based policies are attached to a resource. You can create resource-based policies for vector buckets. Resource-based policies for S3 Vectors use the standard AWS policy format in JSON that you attach directly to vector buckets to control access to the bucket and its contents. 
 
@@ -14,7 +13,7 @@ Resource-based policies are evaluated in combination with identity-based policie
 
 This policy demonstrates how to grant specific permissions to users from different AWS accounts:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -45,7 +44,7 @@ This policy demonstrates how to grant specific permissions to users from differe
 
 This policy demonstrates how to deny specific vector index level actions to an IAM role:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -76,7 +75,7 @@ This policy demonstrates how to deny specific vector index level actions to an I
 
 This policy demonstrates how to deny modification requests for both vector index and bucket-level actions by specifying multiple resources:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

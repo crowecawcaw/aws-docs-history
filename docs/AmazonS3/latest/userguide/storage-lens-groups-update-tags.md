@@ -1,7 +1,6 @@
 
 
 # Updating Storage Lens group tag values
-<a name="storage-lens-groups-update-tags"></a>
 
 The following examples demonstrate how to update Storage Lens group tag values by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -33,7 +32,7 @@ Adding a new tag with the same key as an existing tag overwrites the previous ta
 
 The following example AWS CLI command updates two tag values for the Storage Lens group named `{{marketing-department}}`. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control tag-resource --account-id {{111122223333}} \
 --resource-arn arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{marketing-department}} \
 --region {{us-east-1}} --tags Key={{k1}},Value={{v3}} Key={{k2}},Value={{v4}}
@@ -44,7 +43,7 @@ aws s3control tag-resource --account-id {{111122223333}} \
 
 The following AWS SDK for Java example updates two Storage Lens group tag values. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

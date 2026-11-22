@@ -1,7 +1,6 @@
 
 
 # View details for your access points for directory buckets
-<a name="access-points-directory-buckets-details"></a>
 
 This section explains how to view details for your access point for directory buckets using the AWS Management Console, AWS CLI, AWS SDKs, or REST API.
 
@@ -47,13 +46,13 @@ The following `get-access-point` example command shows how you can use the AWS C
 
 The following command lists details for the access point {{{{my-access-point}}--{{zoneID}}--xa-s3}} for AWS account {{111122223333}}.
 
-```
+```bash,sh,zsh
 aws s3control get-access-point --name {{{{my-access-point}}}}--{{zoneID}}--xa-s3 --account-id {{111122223333}}
 ```
 
 **Example of output of `get-access-point` command**  
 
-```
+```json
 {
     "Name": "example-access-point--zoneID--xa-s3",
     "Bucket": "{{amzn-s3-demo-bucket}}--{{zone-id}}--x-s3",

@@ -1,12 +1,11 @@
 
 
 # Replicating delete markers between buckets
-<a name="delete-marker-replication"></a>
 
 By default, when S3 Replication is enabled and an object is deleted in the source bucket, Amazon S3 adds a delete marker in the source bucket only. This action helps protect data in the destination buckets from accidental or malicious deletions. If you have *delete marker replication* enabled, these markers are copied to the destination buckets, and Amazon S3 behaves as if the object was deleted in both the source and destination buckets. For more information about how delete markers work, see [Working with delete markers](DeleteMarker.md).
 
 **Note**  
-Delete marker replication isn't supported for tag-based replication rules. Delete marker replication also doesn't adhere to the 15-minute service-level agreement (SLA) that's granted when you're using S3 Replication Time Control (S3 RTC).
+Delete marker replication isn't supported for tag-based replication rules, including rules that exclude objects by tag. Delete marker replication also doesn't adhere to the 15-minute service-level agreement (SLA) that's granted when you're using S3 Replication Time Control (S3 RTC).
 If you're not using the latest replication configuration XML version, delete operations affect replication differently. For more information, see [How delete operations affect replication](replication-what-is-isnot-replicated.md#replication-delete-op).
 If you enable delete marker replication and your source bucket has an S3 Lifecycle expiration rule, the delete markers added by the S3 Lifecycle expiration rule won't be replicated to the destination bucket.
 
@@ -21,7 +20,7 @@ To enable delete marker replication by using the AWS Command Line Interface (AWS
 
 In the following example replication configuration, delete markers are replicated to the destination bucket `{{amzn-s3-demo-destination-bucket}}` for objects under the prefix `{{Tax}}`.
 
-```
+```json
 {
     "Rules": [
         {

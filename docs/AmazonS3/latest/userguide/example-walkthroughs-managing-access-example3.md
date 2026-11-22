@@ -1,7 +1,6 @@
 
 
 # Example 3: Bucket owner granting permissions to objects it does not own
-<a name="example-walkthroughs-managing-access-example3"></a>
 
 **Important**  
 Granting permissions to IAM roles is a better practice than granting permissions to individual users. To learn how to do this, see [Understanding cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview).
@@ -100,7 +99,7 @@ Using the IAM user sign-in URL for Account A, sign in to the AWS Management Cons
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -149,13 +148,13 @@ Now that Account B has permissions to perform operations on Account A's bucket, 
 
 1. Using the `put-object` AWS CLI command, upload an object. The `--body` parameter in the command identifies the source file to upload. For example, if the file is on the `C:` drive of a Windows machine, specify `c:\HappyFace.jpg`. The `--key` parameter provides the key name for the object. 
 
-   ```
+   ```bash
    aws s3api put-object --bucket {{amzn-s3-demo-bucket1}} --key HappyFace.jpg --body HappyFace.jpg --profile AccountBadmin
    ```
 
 1. Add a grant to the object ACL to allow the bucket owner full control of the object. For information about how to find a canonical user ID, see [Find the canonical user ID for your AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html#FindCanonicalId) in the *AWS Account Management Reference Guide*.
 
-   ```
+   ```bash
    aws s3api put-object-acl --bucket {{amzn-s3-demo-bucket1}} --key HappyFace.jpg --grant-full-control id="AccountA-CanonicalUserID" --profile AccountBadmin
    ```
 
@@ -191,7 +190,7 @@ Now verify that user Dave in Account A can access the object owned by Account B.
 
 1. Run the `get-object` CLI command to download `HappyFace.jpg` and save it locally. You provide user Dave credentials by adding the `--profile` parameter.
 
-   ```
+   ```bash
    aws s3api get-object --bucket {{amzn-s3-demo-bucket1}} --key HappyFace.jpg {{Outputfile.jpg}} --profile UserDaveAccountA
    ```
 

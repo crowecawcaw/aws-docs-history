@@ -1,7 +1,6 @@
 
 
 # Working with S3 Storage Lens groups to filter and aggregate metrics
-<a name="storage-lens-groups-overview"></a>
 
 An Amazon S3 Storage Lens group aggregates metrics using custom filters based on object metadata. Storage Lens groups help you drill down into characteristics of your data, such as distribution of objects by age, your most common file types, and more. For example, you can filter metrics by object tag to identify your fastest-growing datasets, or visualize your storage based on object size and age to inform your storage archive strategy. As a result, Amazon S3 Storage Lens groups helps you to better understand and optimize your S3 storage.
 

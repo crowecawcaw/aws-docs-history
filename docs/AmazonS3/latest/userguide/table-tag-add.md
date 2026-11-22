@@ -1,7 +1,6 @@
 
 
 # Adding a tag to a table
-<a name="table-tag-add"></a>
 
 
 
@@ -66,7 +65,7 @@ The following CLI example shows you how to add tags to a table by using the AWS 
 
 **Request:**
 
-```
+```bash
 aws --region {{us-west-2}} \ 
 s3tables tag-resource \
 --resource-arn arn:aws::s3tables:{{us-west-2}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{my_example_table}} \

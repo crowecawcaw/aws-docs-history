@@ -1,7 +1,6 @@
 
 
 # Deleting an object from an MFA delete-enabled bucket
-<a name="UsingMFADelete"></a>
 
 When you configure MFA delete, only the root user can permanently delete object versions or change the versioning configuration on your S3 bucket. You must use an MFA device to authenticate the root user to perform the delete action.
 
@@ -23,7 +22,7 @@ Deleting an object in a versioning-enabled bucket that is MFA delete enabled is 
 
 To delete an object in a versioning-enabled bucket that is MFA delete enabled, use the following command. When you use the following example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash,sh,zsh
  aws s3api delete-object --bucket {{{{amzn-s3-demo-bucket}}}} --key {{OBJECT-KEY}} --version-id {{"VERSION ID"}} --mfa "{{MFA_DEVICE_SERIAL_NUMBER}} {{MFA_DEVICE_CODE}}"						
 ```
 
@@ -34,7 +33,7 @@ The following example deletes `my-image.jpg` (with the specified version), which
 
 For more information, see [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html) in the Amazon Simple Storage Service API Reference
 
-```
+```http
 1. DELETE /my-image.jpg?versionId=3HL4kqCxf3vjVBH40Nrjfkd HTTPS/1.1
 2. Host: bucketName.s3.amazonaws.com
 3. x-amz-mfa: 20899872 301749

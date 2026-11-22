@@ -1,7 +1,6 @@
 
 
 # List the caller's access grants
-<a name="access-grants-list-grants"></a>
 
 S3 data owners can use S3 Access Grants to create access grants for AWS Identity and Access Management (IAM) identities or for AWS IAM Identity Center corporate directory identities. IAM identies and IAM Identity Center directory identities can in turn use the `ListCallerAccessGrants` API to list all of the Amazon S3 buckets, prefixes, and objects they can access, as defined by their S3 Access Grants. Use this API to discover all of the S3 data an IAM or directory identity can access through S3 Access Grants. 
 
@@ -136,7 +135,7 @@ The following code example returns the API caller's access grants to the S3 data
 **Example List a caller's access grants**  
 Request:  
 
-```
+```java
 Public void ListCallerAccessGrants() {
 	ListCallerAccessGrantsRequest listRequest = ListCallerAccessGrantsRequest.builder()
 				.withMaxResults(1000)
@@ -148,7 +147,7 @@ Public void ListCallerAccessGrants() {
 ```
 Response:  
 
-```
+```java
 ListCallerAccessGrantsResponse(
 CallerAccessGrantsList=[
 	ListCallerAccessGrantsEntry(

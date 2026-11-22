@@ -1,7 +1,6 @@
 
 
 # Managing or pausing live replication
-<a name="disable-replication"></a>
 
 Live replication is the automatic, asynchronous copying of objects across buckets in the same or different AWS Regions. After you set up your replication configuration, Amazon S3 replicates newly created objects and object updates from a source bucket to one or more specified destination buckets. 
 

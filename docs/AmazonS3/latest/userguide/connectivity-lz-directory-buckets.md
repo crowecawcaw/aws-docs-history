@@ -1,7 +1,6 @@
 
 
 # Private connectivity from your VPC
-<a name="connectivity-lz-directory-buckets"></a>
 
 To reduce network latency, configure your virtual private cloud (VPC) with a gateway endpoint to access directory buckets in Availability Zones. This keeps traffic within the AWS network at no additional cost.
 

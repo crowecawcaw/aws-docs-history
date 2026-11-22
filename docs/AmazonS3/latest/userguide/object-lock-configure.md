@@ -1,7 +1,6 @@
 
 
 # Configuring S3 Object Lock
-<a name="object-lock-configure"></a>
 
 With Amazon S3 Object Lock, you can store objects in Amazon S3 general purpose buckets by using a *write-once-read-many* (WORM) model. You can use S3 Object Lock to prevent an object from being deleted or overwritten for a fixed or variable amount of time, or indefinitely. For general information about Object Lock capabilities, see [Locking objects with Object Lock](object-lock.md).
 
@@ -66,7 +65,7 @@ After you create a bucket, you can't change its name. For more information about
 
 The following `create-bucket` example creates a new S3 bucket named `{{amzn-s3-demo-bucket1}}` with Object Lock enabled:
 
-```
+```bash
 aws s3api create-bucket --bucket {{{{amzn-s3-demo-bucket1}}}} --object-lock-enabled-for-bucket
 ```
 
@@ -125,7 +124,7 @@ Object Lock works only with versioned buckets.
 
 The following `put-object-lock-configuration` example command sets a 50-day Object Lock retention period on a bucket named `{{amzn-s3-demo-bucket1}}`:
 
-```
+```bash
 aws s3api put-object-lock-configuration --bucket {{{{amzn-s3-demo-bucket1}}}} --object-lock-configuration={{'{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 50 }}}'}}
 ```
 
@@ -183,13 +182,13 @@ For more information, see [Legal holds](object-lock.md#object-lock-legal-holds).
 
 The following `put-object-legal-hold` example sets a legal hold on the object {{`my-image.fs`}} in the bucket named `{{amzn-s3-demo-bucket1}}`:
 
-```
+```bash
 aws s3api put-object-legal-hold --bucket {{{{amzn-s3-demo-bucket1}}}} --key {{my-image.fs}} --legal-hold="Status=ON"
 ```
 
 The following `put-object-legal-hold` example removes a legal hold on the object {{`my-image.fs`}} in the bucket named `{{amzn-s3-demo-bucket1}}`:
 
-```
+```bash
 aws s3api put-object-legal-hold --bucket {{{{amzn-s3-demo-bucket1}}}} --key {{my-image.fs}} --legal-hold="Status=OFF"
 ```
 
@@ -252,7 +251,7 @@ For more information, see [Retention periods](object-lock.md#object-lock-retenti
 
 The following `put-object-retention` example sets a retention period on the object {{`my-image.fs`}} in the bucket named `{{amzn-s3-demo-bucket1}}` until January 1, 2025:
 
-```
+```bash
 aws s3api put-object-retention --bucket {{{{amzn-s3-demo-bucket1}}}} --key {{my-image.fs}} --retention='{ "Mode": "GOVERNANCE", "RetainUntilDate": "2025-01-01T00:00:00" }'
 ```
 
@@ -315,13 +314,13 @@ For more information, see [Retention periods](object-lock.md#object-lock-retenti
 
 The following `put-object-lock-configuration` example command sets a 50-day Object Lock retention period on the bucket named `{{amzn-s3-demo-bucket1}}` by using compliance mode:
 
-```
+```bash
 aws s3api put-object-lock-configuration --bucket {{{{amzn-s3-demo-bucket1}}}} --object-lock-configuration={{'{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 50 }}}'}}
 ```
 
 The following `put-object-lock-configuration` example removes the default retention configuration on a bucket:
 
-```
+```bash
 aws s3api put-object-lock-configuration --bucket {{{{amzn-s3-demo-bucket1}}}} --object-lock-configuration={{'{ "ObjectLockEnabled": "Enabled"}'}}
 ```
 
@@ -377,7 +376,7 @@ You specify the event hold duration in either days or years, but not both. You c
 
 The following `put-object-retention` example sets variable retention with Compliance mode and a 30-day duration on the object `my-document.pdf` in the bucket named `{{amzn-s3-demo-bucket1}}`:
 
-```
+```bash
 aws s3api put-object-retention \
   --bucket {{amzn-s3-demo-bucket1}} \
   --key my-document.pdf \
@@ -386,7 +385,7 @@ aws s3api put-object-retention \
 
 The following `put-object-retention` example sets variable retention with a minimum retain-until-date:
 
-```
+```bash
 aws s3api put-object-retention \
   --bucket {{amzn-s3-demo-bucket1}} \
   --key my-document.pdf \
@@ -395,7 +394,7 @@ aws s3api put-object-retention \
 
 The following `put-object` example sets variable retention at upload time:
 
-```
+```bash
 aws s3api put-object \
   --bucket {{amzn-s3-demo-bucket1}} \
   --key my-document.pdf \
@@ -449,7 +448,7 @@ Alternatively, if you want to release the event hold and set a later retain-unti
 
 The following `put-object-retention` example releases the event hold on the object `my-document.pdf`:
 
-```
+```bash
 aws s3api put-object-retention \
   --bucket {{amzn-s3-demo-bucket1}} \
   --key my-document.pdf \
@@ -506,7 +505,7 @@ You can set or modify a default variable retention period on an S3 bucket by usi
 
 The following `put-object-lock-configuration` example configures a bucket default with Compliance mode, a default event hold duration of 90 days, and a default retention period of 365 days:
 
-```
+```bash
 aws s3api put-object-lock-configuration \
   --bucket {{amzn-s3-demo-bucket1}} \
   --object-lock-configuration '{

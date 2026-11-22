@@ -1,11 +1,10 @@
 
 
 # Lifecycle configuration elements
-<a name="intro-lifecycle-rules"></a>
 
 A S3 Lifecycle configuration consist of Lifecycle rules that include various elements that describe the actions Amazon S3 takes during an object's lifetime. Each S3 bucket can have one lifecycle configuration assigned to it, which can contain up to 1,000 rules. You specify an Amazon S3 Lifecycle configuration as XML, consisting of one or more Lifecycle rules, where each rule consists of one or more elements.
 
-```
+```xml
 <LifecycleConfiguration>
     <Rule>
          <Element>
@@ -49,7 +48,7 @@ A S3 Lifecycle rule can apply to all or a subset of objects in a bucket based on
 You can filter objects by key prefix, object tags, or a combination of both (in which case Amazon S3 uses a logical `AND` to combine the filters). For examples and more information about filters see, [Adding filters to Lifecycle rules](intro-lifecycle-filters.md).
 + **Specifying a filter by using key prefixes** – This example shows an S3 Lifecycle rule that applies to a subset of objects based on the key name prefix (`logs/`). For example, the Lifecycle rule applies to the objects `logs/mylog.txt`, `logs/temp1.txt`, and `logs/test.txt`. The rule does not apply to the object `example.jpg`.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -64,7 +63,7 @@ You can filter objects by key prefix, object tags, or a combination of both (in 
 
   If you want to apply a lifecycle action to a subset of objects based on different key name prefixes, specify separate rules. In each rule, specify a prefix-based filter. For example, to describe a lifecycle action for objects with the key prefixes `projectA/` and `projectB/`, you specify two rules as follows: 
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -87,7 +86,7 @@ You can filter objects by key prefix, object tags, or a combination of both (in 
   For more information about object keys, see [Naming Amazon S3 objects](object-keys.md). 
 + **Specifying a filter based on object tags** – In the following example, the Lifecycle rule specifies a filter based on a tag (`{{key}}`) and value (`{{value}}`). The rule then applies only to a subset of objects with the specific tag.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -104,7 +103,7 @@ You can filter objects by key prefix, object tags, or a combination of both (in 
 
   You can specify a filter based on multiple tags. You must wrap the tags in the `<And>` element, as shown in the following example. The rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag key and value).
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
         <Filter>
@@ -132,7 +131,7 @@ You can filter objects by key prefix, object tags, or a combination of both (in 
 When you specify multiple tags in a filter, each tag key must be unique.
 + **Specifying a filter based on both the prefix and one or more tags** – In a Lifecycle rule, you can specify a filter based on both the key prefix and one or more tags. Again, you must wrap all of these filter elements in the `<And>` element, as follows:
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -158,7 +157,7 @@ When you specify multiple tags in a filter, each tag key must be unique.
   Amazon S3 combines these filters by using a logical `AND`. That is, the rule applies to the subset of objects with the specified key prefix and the specified tags. A filter can have only one prefix, and zero or more tags.
 + You can specify an **empty filter**, in which case the rule applies to all objects in the bucket.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -172,7 +171,7 @@ When you specify multiple tags in a filter, each tag key must be unique.
 
   Object size values are in bytes. By default, objects smaller than 128 KB will not be transitioned to any storage class, unless you specify a smaller minimum size (`ObjectSizeGreaterThan`) or a maximum size (`ObjectSizeLessThan`). For more information, see [Example: Allowing objects smaller than 128 KB to be transitioned](lifecycle-configuration-examples.md#lc-small-objects).
 
-  ```
+  ```xml
                       <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -188,7 +187,7 @@ The `ObjectSizeGreaterThan` and `ObjectSizeLessThan` filters exclude the specifi
 
   If you're specifying an object size range, the `ObjectSizeGreaterThan` integer must be less than the `ObjectSizeLessThan` value. When using more than one filter, you must wrap the filters in an `<And>` element. The following example shows how to specify objects in a range between 500 bytes and 64,000 bytes. 
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>

@@ -1,7 +1,6 @@
 
 
 # Controlling ownership of objects and disabling ACLs for your bucket
-<a name="about-object-ownership"></a>
 
 S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to control ownership of objects uploaded to your bucket and to disable or enable [access control lists (ACLs)](acl-overview.md). By default, Object Ownership is set to the Bucket owner enforced setting and all ACLs are disabled. When ACLs are disabled, the bucket owner owns all the objects in the bucket and manages access to data exclusively using access management policies.
 
@@ -56,13 +55,13 @@ New objects can be uploaded to your bucket only if they use bucket owner full co
 
 Because the following example `PutObject` operation using the AWS Command Line Interface (AWS CLI) includes the `bucket-owner-full-control` canned ACL, the object can be uploaded to a bucket with disabled ACLs.
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{key-name}} --body {{path-to-file}} --acl bucket-owner-full-control
 ```
 
 Because the following `PutObject` operation doesn't specify an ACL, it also succeeds for a bucket with disabled ACLs.
 
-```
+```bash
 aws s3api put-object --bucket {{amzn-s3-demo-bucket}} --key {{key-name}} --body {{path-to-file}}
 ```
 

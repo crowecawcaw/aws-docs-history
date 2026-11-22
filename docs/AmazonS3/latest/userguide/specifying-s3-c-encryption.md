@@ -1,7 +1,6 @@
 
 
 # Specifying server-side encryption with customer-provided keys (SSE-C)
-<a name="specifying-s3-c-encryption"></a>
 
 Server-side encryption with customer-provided keys (SSE-C) is disabled by default for new general purpose buckets. Before you can upload objects using SSE-C, you must enable it by setting `BlockedEncryptionTypes` to `NONE` in your bucket's default encryption configuration. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md).
 
@@ -68,7 +67,7 @@ You must provide the following three API headers to copy source objects encrypte
 
 To require SSE-C for all objects written to an Amazon S3 bucket, you can use a bucket policy. For example, the following bucket policy denies upload object (`s3:PutObject`) permissions for all requests that don't include the `x-amz-server-side-encryption-customer-algorithm` header requesting SSE-C. 
 
-```
+```json
 {  
 "Version":"2012-10-17",		 	 	                      
     "Id": "PutObjectPolicy",  
@@ -153,7 +152,7 @@ For instructions on creating and testing a working sample, see [Getting Started]
 
 **Example**  
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -273,7 +272,7 @@ For information about setting up and running the code examples, see [Getting Sta
 
 **Example**  
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -430,7 +429,7 @@ The following example uses `TransferManager` to create objects and shows how to 
 
 **Example**  
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -536,7 +535,7 @@ To upload large objects, you can use multipart upload API (see [Uploading and co
   + Upload the objects in 5 MB parts.  
 **Example**  
 
-  ```
+  ```cs
   using Amazon;
   using Amazon.S3;
   using Amazon.S3.Model;

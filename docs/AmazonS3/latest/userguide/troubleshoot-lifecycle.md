@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon S3 Lifecycle issues
-<a name="troubleshoot-lifecycle"></a>
 
 The following information can help you troubleshoot common issues with Amazon S3 Lifecycle rules.
 

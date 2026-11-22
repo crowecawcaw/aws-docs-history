@@ -1,7 +1,6 @@
 
 
 # Deleting metadata table configurations
-<a name="metadata-tables-delete-configuration"></a>
 
 If you want to stop updating the metadata table configuration for an Amazon S3 general purpose bucket, you can delete the metadata table configuration that's attached to your bucket. Deleting a metadata table configuration deletes only the configuration. The AWS managed table bucket and your metadata tables still exist, even if you delete the metadata table configuration. However, the metadata tables will no longer be updated.
 
@@ -45,7 +44,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
 1. Use the following command to delete the metadata table configuration from your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`):
 
-   ```
+   ```bash
    aws s3api delete-bucket-metadata-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --region {{us-east-2}}
@@ -53,7 +52,7 @@ To use the following example commands, replace the `{{user input placeholders}}`
 
 1. To verify that the configuration was deleted, use the following command:
 
-   ```
+   ```bash
    aws s3api get-bucket-metadata-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --region {{us-east-2}}

@@ -1,7 +1,6 @@
 
 
 # Adding filters to Lifecycle rules
-<a name="intro-lifecycle-filters"></a>
 
 Filters are an optional Lifecyle rule element that you can use to specify which objects that the rule applies to.
 
@@ -25,7 +24,7 @@ You can combine different filter elements in which case Amazon S3 uses a logical
 The following examples show how you can use different filter elements:
 + **Specifying a filter by using key prefixes** – This example shows an S3 Lifecycle rule that applies to a subset of objects based on the key name prefix (`logs/`). For example, the Lifecycle rule applies to the objects `logs/mylog.txt`, `logs/temp1.txt`, and `logs/test.txt`. The rule does not apply to the object `example.jpg`.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -49,7 +48,7 @@ To include all three prefixes in your rule, specify `sales` as the prefix in you
 
   If you want to apply a lifecycle action to a subset of objects based on different key name prefixes, specify separate rules. In each rule, specify a prefix-based filter. For example, to describe a lifecycle action for objects with the key prefixes `projectA/` and `projectB/`, you specify two rules as follows: 
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -72,7 +71,7 @@ To include all three prefixes in your rule, specify `sales` as the prefix in you
   For more information about object keys, see [Naming Amazon S3 objects](object-keys.md). 
 + **Specifying a filter based on object tags** – In the following example, the Lifecycle rule specifies a filter based on a tag (`{{key}}`) and value (`{{value}}`). The rule then applies only to a subset of objects with the specific tag.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -89,7 +88,7 @@ To include all three prefixes in your rule, specify `sales` as the prefix in you
 
   You can specify a filter based on multiple tags. You must wrap the tags in the `<And>` element, as shown in the following example. The rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag key and value).
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
         <Filter>
@@ -117,7 +116,7 @@ To include all three prefixes in your rule, specify `sales` as the prefix in you
 When you specify multiple tags in a filter, each tag key must be unique.
 + **Specifying a filter based on both the prefix and one or more tags** – In a Lifecycle rule, you can specify a filter based on both the key prefix and one or more tags. Again, you must wrap all of these filter elements in the `<And>` element, as follows:
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -143,7 +142,7 @@ When you specify multiple tags in a filter, each tag key must be unique.
   Amazon S3 combines these filters by using a logical `AND`. That is, the rule applies to the subset of objects with the specified key prefix and the specified tags. A filter can have only one prefix, and zero or more tags.
 + **Specifying an empty filter** – You can specify an empty filter, in which case the rule applies to all objects in the bucket.
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -157,7 +156,7 @@ When you specify multiple tags in a filter, each tag key must be unique.
 
   Object size values are in bytes. Maximum filter size is 50 TB. Some storage classes have minimum object size limitations. For more information, see [Comparing the Amazon S3 storage classes](storage-class-intro.md#sc-compare).
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>
@@ -173,7 +172,7 @@ The `ObjectSizeGreaterThan` and `ObjectSizeLessThan` filters exclude the specifi
 
   If you're specifying an object size range, the `ObjectSizeGreaterThan` integer must be less than the `ObjectSizeLessThan` value. When using more than one filter, you must wrap the filters in an `<And>` element. The following example shows how to specify objects in a range between 500 bytes and 64,000 bytes. 
 
-  ```
+  ```xml
   <LifecycleConfiguration>
       <Rule>
           <Filter>

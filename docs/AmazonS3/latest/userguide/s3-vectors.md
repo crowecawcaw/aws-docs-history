@@ -1,17 +1,16 @@
 
 
 # Working with S3 Vectors and vector buckets
-<a name="s3-vectors"></a>
 
 ## What is Amazon S3 Vectors?
 <a name="s3-vectors-what-is"></a>
 
-Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for AI agents, inference, RAG, and semantic search. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3 and delivers subsecond latency for infrequent queries and as low as 100 milliseconds for more frequent queries. You get a dedicated set of API operations to store, access, and query vector data without provisioning any infrastructure. S3 Vectors consists of several key components that work together: 
+Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for AI agents, inference, RAG, and semantic search. Beyond vector similarity search, S3 Vectors also supports full-text search and hybrid search, so you can combine exact keyword matching with semantic similarity in a single query. S3 Vectors is designed to provide the same elasticity, durability, and availability as Amazon S3 and delivers sub-second latency for infrequent queries and as low as 100 milliseconds for more frequent queries. You get a dedicated set of API operations to store, access, and query vector data without provisioning any infrastructure. S3 Vectors consists of several key components that work together: 
 + **Vector buckets** – A new bucket type that's purpose-built to store and query vectors. 
-+ **Vector indexes** – Within a vector bucket, you can organize your vector data within vector indexes. You perform similarity queries on your vector data within vector indexes.
-+ **Vectors **– You store vectors in your vector index. For similarity search and AI applications, vectors are created as vector embeddings which are numerical representations that preserve semantic relationships between content (such as text, images, or audio) so similar items are positioned closer together. S3 Vectors can perform similarity searches based on semantic meaning rather than exact matching through comparing how close vectors are to each other mathematically. When adding vector data to a vector index, you can also attach metadata for future filtering queries based on a set of conditions (for example, timestamps, categories, and user preferences).
++ **Vector indexes** – Within a vector bucket, you can organize your vector data within vector indexes. You can run similarity, full-text, and hybrid queries on the data in a vector index.
++ **Vectors **– You store vectors in your vector index. For similarity search and AI applications, vectors are created as vector embeddings which are numerical representations that preserve semantic relationships between content (such as text, images, or audio) so similar items are positioned closer together. S3 Vectors can perform similarity searches based on semantic meaning through comparing how close vectors are to each other mathematically. When adding vector data to a vector index, you can also attach metadata for future filtering queries based on a set of conditions (for example, timestamps, categories, and user preferences). Additionally, S3 Vectors lets you perform full-text search alongside semantic search, which could help improve ranked search results where there is a strong lexical signal.
 
-Writes to S3 Vectors are strongly consistent, which means that you can immediately access the most recently added data. As you write, update, and delete vectors over time, S3 Vectors automatically optimizes the vector data to achieve the best possible price performance for vector storage, even as the data sets scale and evolve. You can control access to your vector data with the existing access control mechanisms of Amazon S3, including bucket and IAM policies. For more information about vector index limits per bucket and vector limits per index, see [Limitations and restrictions](s3-vectors-limitations.md).
+Writes to S3 Vectors are strongly consistent, which means that you can immediately access the most recently added data. As you write, update, and delete vectors over time, S3 Vectors automatically optimizes the vector data to achieve the best possible price performance for vector storage, even as the datasets scale and evolve. You can control access to your vector data with the existing access control mechanisms of Amazon S3, including bucket and IAM policies. For more information about vector index limits per bucket and vector limits per index, see [Limitations and restrictions](s3-vectors-limitations.md).
 
 ## Use cases: Similarity searches across large datasets
 <a name="s3-vectors-use-cases"></a>
@@ -40,7 +39,7 @@ S3 Vectors is the first purpose-built object storage in the cloud to store and q
 
 Vector embeddings are transforming how customers use and retrieve their unstructured data, from detecting similarities across medical images, finding anomalies in thousands of hours of video footage, navigating through large code bases, and identifying the most relevant case law for a given legal matter. These emerging applications combine with embedding models to encode the semantic meaning of data (for example, text, images, video, code) as numerical vector embeddings.
 
-Within a vector bucket, you organize your vector data within vector indexes, without provisioning infrastructure. As you write, update, and delete vectors over time, S3 Vectors automatically optimize the vector data to achieve the best possible price performance for vector storage, even as the data sets scale and evolve. For more information about vector index limits per bucket and vector limits per index, see [Limitations and restrictions](s3-vectors-limitations.md).
+Within a vector bucket, you organize your vector data within vector indexes, without provisioning infrastructure. As you write, update, and delete vectors over time, S3 Vectors automatically optimizes the vector data to achieve the best possible price performance for vector storage, even as the datasets scale and evolve. For more information about vector index limits per bucket and vector limits per index, see [Limitations and restrictions](s3-vectors-limitations.md).
 
 ### Perform similarity queries
 <a name="s3-vectors-similarity-queries"></a>
@@ -51,6 +50,11 @@ With S3 Vectors, you can perform queries to find the most similar vectors to a q
 <a name="s3-vectors-filtering-metadata"></a>
 
 You can attach metadata (for example, year, author, genre, and location) as key-value pairs to your vectors. By default, all metadata is filterable unless you explicitly specify it as non-filterable. You can use filterable metadata to filter your query results based on specific attributes, enhancing the relevance of your queries. Vector indexes support string, number, boolean, and list types of metadata. For more information about metadata size limits per vector and filterable metadata size limits per vector, see [Limitations and restrictions](s3-vectors-limitations.md).
+
+### Full-text and hybrid search
+<a name="s3-vectors-full-text-hybrid-search"></a>
+
+With S3 Vectors, you can run full-text and hybrid queries on the same vector index. You enable full-text search on string or string-list metadata fields that you store alongside your vectors, typically larger fields such as titles, descriptions, or source text that you configure as non-filterable metadata. Full-text search matches the exact terms in a query against the text in those fields, using BM25 (Best Matching 25) scoring. Hybrid search combines full-text search with vector similarity search in one query and returns a single ranked list, so you get matches on both the meaning of a query and the exact terms it contains. For more information, see [Hybrid search with Amazon S3 Vectors](s3-vectors-hybrid-search.md).
 
 ### Access management and security
 <a name="s3-vectors-access-management-and-security"></a>

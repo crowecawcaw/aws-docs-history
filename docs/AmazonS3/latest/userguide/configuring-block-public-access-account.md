@@ -1,7 +1,6 @@
 
 
 # Configuring block public access settings for your account
-<a name="configuring-block-public-access-account"></a>
 
 **Important**  
 If your account is managed by an organization-level Block Public Access policy, you cannot modify these account-level settings. Organization-level policies override account-level configurations. For more information on centralized management options, see [S3 policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_s3.html) in the *AWS Organizations user guide*.
@@ -63,7 +62,7 @@ The following examples show you how to use Amazon S3 Block Public Access with th
 **Note**  
 `PutPublicAccessBlock` and `DeletePublicAccessBlock` operations will fail with an "Access Denied" error if the account is managed by organization-level policies.
 
-```
+```java
 AWSS3ControlClientBuilder controlClientBuilder = AWSS3ControlClientBuilder.standard();
 controlClientBuilder.setRegion({{<region>}});
 controlClientBuilder.setCredentials({{<credentials>}});

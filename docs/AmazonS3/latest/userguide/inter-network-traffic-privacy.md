@@ -1,7 +1,6 @@
 
 
 # Internetwork traffic privacy
-<a name="inter-network-traffic-privacy"></a>
 
 This topic describes how Amazon S3 secures connections from the service to other locations.
 

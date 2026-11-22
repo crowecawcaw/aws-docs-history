@@ -1,7 +1,6 @@
 
 
 # Tagging and access control policies
-<a name="tagging-and-policies"></a>
 
 You can also use permissions policies (bucket and user policies) to manage permissions related to object tagging. For policy actions see the following topics: 
 +  [Object operations](security_iam_service-with-iam.md#using-with-s3-actions-related-to-objects) 
@@ -20,7 +19,7 @@ For a complete list of Amazon S3 service-specific condition keys, see [Bucket po
 The following permissions policy limits a user to only reading objects that have the `environment: production` tag key and value. This policy uses the `s3:ExistingObjectTag` condition key to specify the tag key and value.    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -47,7 +46,7 @@ The following permissions policy grants a user permissions to perform the `s3:Pu
 The policy ensures that every tag key specified in the request is an authorized tag key. The `ForAnyValue` qualifier in the condition ensures that at least one of the specified keys must be present in the request.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -77,7 +76,7 @@ The policy ensures that every tag key specified in the request is an authorized 
 The following example policy grants a user permission to perform the `s3:PutObjectTagging` action, which allows a user to add tags to an existing object. The condition requires the user to include a specific tag key (such as `{{Project}}`) with the value set to `{{X}}`.    
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
   "Statement": [

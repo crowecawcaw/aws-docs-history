@@ -1,7 +1,6 @@
 
 
 # Customizing synchronization for S3 Files
-<a name="s3-files-synchronization-customizing"></a>
 
 S3 Files lets you control how data flows between your file system and linked S3 bucket through a synchronization configuration. The default settings balance latency and cost for most workloads, but you can tune them to match your access patterns. Importing more data up front reduces read latency at the cost of higher storage and write charges. Importing less data keeps storage costs low but means more reads are served from S3 with higher latency. Each configuration has two components: import data rules, which control what data is copied onto the file system and when, and expiration data rules, which control how long unused data stays on the file system. You can update these rules using the AWS Management Console or the PutSynchronizationConfiguration API.
 

@@ -1,7 +1,6 @@
 
 
 # How to perform conditional deletes
-<a name="conditional-deletes"></a>
 
 You can use conditional deletes to evaluate if your object exists or is unchanged before deleting it. You can perform conditional deletes using the `DeleteObject` or `DeleteObjects` API operations in S3 general purpose and directory buckets. To get started, when making a conditional delete request, you can use the `HTTP If-Match` header with the precondition value `*` to check if object exists or the `If-Match` header with your provided `ETag` to check if the object has been modified.
 
@@ -36,7 +35,7 @@ You can use the `If-Match` header with the `ETag` value for the following APIs:
 
 The following `delete-object` example command attempts to perform a conditional delete with the provided ETag value `6805f2cfc46c0f04559748bb039d69al`.
 
-```
+```bash
 aws s3api delete-object --bucket {{amzn-s3-demo-bucket}} --key dir-1/{{my_images.tar.bz2}} --if-match "{{6805f2cfc46c0f04559748bb039d69al}}"       
 ```
 
@@ -44,7 +43,7 @@ For more information, see [delete-object](https://awscli.amazonaws.com/v2/docume
 
 The following `delete-objects` example command attempts to perform a conditional delete with the provided ETag value `6805f2cfc46c0f04559748bb039d69al`.
 
-```
+```bash
 aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete '{"Objects":[{"Key":"my_images.tar.bz2", "ETag": "6805f2cfc46c0f04559748bb039d69al"}]}' 
 ```
 
@@ -73,7 +72,7 @@ You can use the `If-Match` header with the `*` value for the following APIs:
 
 The following `delete-object` example command attempts to perform a conditional delete for an object with the key name `{{my_images.tar.bz2}}` that has a value of `*` which represents any ETag. 
 
-```
+```bash
 aws s3api delete-object --bucket {{amzn-s3-demo-bucket}} --key dir-1/{{my_images.tar.bz2}} --if-match "{{*}}"
 ```
 
@@ -81,7 +80,7 @@ For more information, see [delete-object](https://awscli.amazonaws.com/v2/docume
 
 The following `delete-objects` example command attempts to perform a conditional delete for an object with the key name `{{my_images.tar.bz2}}` that has a value of `*` which represents any ETag. 
 
-```
+```bash
 aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete '{"Objects":[{"Key":"{{my_images.tar.bz2}}", "ETag": "{{*}}"}]}' 
 ```
 

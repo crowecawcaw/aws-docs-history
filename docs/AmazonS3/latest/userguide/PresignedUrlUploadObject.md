@@ -1,7 +1,6 @@
 
 
 # Uploading objects with presigned URLs
-<a name="PresignedUrlUploadObject"></a>
 
 
 
@@ -58,7 +57,7 @@ If you use the AWS CLI or AWS SDKs, the expiration time for presigned URLs can b
 
 1. Copy the contents of the script and save it as “{{put-only-url.py}}” file. To use the following examples, replace the {{user input placeholders}} with your own information (such as your file name). 
 
-   ```
+   ```python
    import argparse
    import boto3
    from botocore.exceptions import ClientError

@@ -1,7 +1,6 @@
 
 
 # Adding an AWS resource tag to a Storage Lens group
-<a name="storage-lens-groups-add-tags"></a>
 
 The following examples demonstrate how to add AWS resource tags to an Amazon S3 Storage Lens group. You can add resource tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -33,7 +32,7 @@ Adding a new tag with the same key as an existing tag overwrites the previous ta
 
 The following example AWS CLI command adds two resource tags to an existing Storage Lens group named `{{marketing-department}}`. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control tag-resource --account-id {{111122223333}} \
 --resource-arn arn:aws:s3:{{us-east-1}}:{{111122223333}}:storage-lens-group/{{marketing-department}} \
 --region {{us-east-1}} --tags Key={{k1}},Value={{v1}} Key={{k2}},Value={{v2}}
@@ -44,7 +43,7 @@ aws s3control tag-resource --account-id {{111122223333}} \
 
 The following AWS SDK for Java example adds two AWS resource tags to an existing Storage Lens group. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

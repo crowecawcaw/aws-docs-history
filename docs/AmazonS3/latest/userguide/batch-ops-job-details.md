@@ -1,7 +1,6 @@
 
 
 # Viewing job details
-<a name="batch-ops-job-details"></a>
 
 If you want more information about an Amazon S3 Batch Operations job than you can retrieve by listing jobs, you can view all the details for a single job. You can view details for jobs that haven't yet finished, or jobs that finished within the last 90 days. In addition to the information returned in a job list, a single job's details include information such as: 
 + The operation parameters.

@@ -1,7 +1,6 @@
 
 
 # Step 1: Configure a gateway VPC endpoint to reach S3 Express One Zone directory buckets
-<a name="s3-express-tutorial-endpoints"></a>
 
  You can access both Zonal and Regional API operations through gateway virtual private cloud (VPC) endpoints. Gateway endpoints can allow traffic to reach S3 Express One Zone without traversing a NAT Gateway. We strongly recommend using gateway endpoints as they provide the most optimal networking path when working with S3 Express One Zone. You can access S3 Express One Zone directory buckets from your VPC without an internet gateway or NAT device for your VPC, and at no additional cost. Use the following procedure to configure a gateway endpoint that connects to S3 Express One Zone storage class objects and directory buckets.
 

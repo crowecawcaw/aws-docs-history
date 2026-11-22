@@ -1,7 +1,6 @@
 
 
 # Hosting a static website using Amazon S3
-<a name="WebsiteHosting"></a>
 
 You can use Amazon S3 to host a static website. On a *static* website, individual webpages include static content. They might also contain client-side scripts.
 

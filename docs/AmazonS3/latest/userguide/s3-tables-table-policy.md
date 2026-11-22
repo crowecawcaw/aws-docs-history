@@ -1,7 +1,6 @@
 
 
 # Managing table policies
-<a name="s3-tables-table-policy"></a>
 
 You can add, delete, update, and view table policies for tables by using the Amazon S3 console, Amazon S3 REST API, AWS SDK and the AWS CLI. For more information, see the following topics. For more information about supported AWS Identity and Access Management (IAM) actions and condition keys for Amazon S3 Tables, see [Access management for S3 Tables](s3-tables-setting-up.md). For example table policies, see [Resource-based policies for S3 Tables](s3-tables-resource-based-policies.md).
 
@@ -15,7 +14,7 @@ To add a table policy to a table, you can use the Amazon S3 REST API, AWS SDK an
 
 This example shows how to view the policy attached to a table by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables get-table-policy \
     --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-bucket1}}/table/{{tableID}} \
     --namespace {{my-namespace}} \
@@ -51,7 +50,7 @@ To view the bucket policy attached to a table, you can use the Amazon S3 REST AP
 
 This example shows how to view the policy attached to a table by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables get-table-policy \
     --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket  \
     --namespace {{my-namespace}} \
@@ -79,7 +78,7 @@ To delete a policy attached to a table, you can use the Amazon S3 REST API, AWS 
 
 This example shows how to delete a table policy by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3tables delete-table-policy \
     --table-ARN arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/amzn-s3-demo-table-bucket \
     --namespace {{your-namespace}} \

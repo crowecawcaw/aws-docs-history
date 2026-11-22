@@ -1,7 +1,6 @@
 
 
 # Conditional functions
-<a name="s3-select-sql-reference-conditional"></a>
 
 **Important**  
 Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/) 
@@ -30,13 +29,13 @@ Currently, Amazon S3 Select doesn't support `ORDER BY` or queries that contain n
 
 The following is a simple `CASE` statement that's used to match conditions:
 
-```
+```sql
 CASE {{expression}} WHEN {{value}} THEN {{result}} [WHEN...] [ELSE {{result}}] END					
 ```
 
 The following is a searched `CASE` statement that's used to evaluate each condition:
 
-```
+```sql
 CASE WHEN {{boolean condition}} THEN {{result}} [WHEN ...] [ELSE {{result}}] END					
 ```
 
@@ -91,7 +90,7 @@ pricepaid |  case
 ### Syntax
 <a name="s3-select-sql-reference-coalesce-syntax"></a>
 
-```
+```sql
 COALESCE ( {{expression}}, {{expression}}, ... )
 ```
 
@@ -104,7 +103,7 @@ The target expression that the function operates on.
 ### Examples
 <a name="s3-select-sql-reference-coalesce-examples"></a>
 
-```
+```sql
 COALESCE(1)                -- 1
 COALESCE(null)             -- null
 COALESCE(null, null)       -- null
@@ -124,7 +123,7 @@ Given two expressions, `NULLIF` returns `NULL` if the two expressions evaluate t
 ### Syntax
 <a name="s3-select-sql-reference-nullif-syntax"></a>
 
-```
+```sql
 NULLIF ( {{expression1}}, {{expression2}} )
 ```
 
@@ -137,7 +136,7 @@ The target expressions that the function operates on.
 ### Examples
 <a name="s3-select-sql-reference-nullif-examples"></a>
 
-```
+```sql
 NULLIF(1, 1)             -- null
 NULLIF(1, 2)             -- 1
 NULLIF(1.0, 1)           -- null

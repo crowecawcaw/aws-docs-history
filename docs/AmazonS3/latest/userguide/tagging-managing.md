@@ -1,7 +1,6 @@
 
 
 # Managing object tags
-<a name="tagging-managing"></a>
 
 This section explains how you can manage object tags using the AWS SDKs for Java and .NET or the Amazon S3 console.
 
@@ -56,7 +55,7 @@ The following example shows how to use the AWS SDK for .NET to set the tags for 
 
 For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

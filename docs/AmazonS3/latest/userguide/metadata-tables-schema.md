@@ -1,7 +1,6 @@
 
 
 # S3 Metadata journal tables schema
-<a name="metadata-tables-schema"></a>
 
 The journal table records changes made to your data in near real time, helping you to identify new data uploaded to your bucket, track recently deleted objects, monitor lifecycle transitions, and more. The journal table records new objects and updates to your objects and their metadata (those updates that require either a `PUT` or a `DELETE` operation). Because this table is queryable, you can audit the changes to your bucket through simple SQL queries. 
 

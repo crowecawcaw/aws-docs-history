@@ -1,7 +1,6 @@
 
 
 # Using AI assistants with S3 Storage Lens tables
-<a name="storage-lens-s3-tables-ai-tools"></a>
 
 You can use AI assistants and conversational AI tools to interact with your S3 Storage Lens data exported to S3 Tables using natural language. By leveraging the Model Context Protocol (MCP) and the MCP Server for Amazon S3 Tables, you can query, analyze, and gain insights from your storage data without writing SQL queries.
 
@@ -76,7 +75,7 @@ For more information about installing the MCP Server, see the [AWS S3 Tables MCP
 
 Create or update your Kiro MCP configuration file at `~/.kiro/settings/mcp.json` with the following content:
 
-```
+```json
 {
   "mcpServers": {
     "awslabs.s3-tables-mcp-server": {

@@ -1,7 +1,6 @@
 
 
 # Verifying bucket ownership with bucket owner condition
-<a name="bucket-owner-condition"></a>
 
 Amazon S3 bucket owner condition ensures that the buckets you use in your S3 operations belong to the AWS accounts that you expect.
 
@@ -65,7 +64,7 @@ aws s3api put-object \
                  --expected-bucket-owner {{111122223333}}
 ```
 
-```
+```java
 public void putObjectExample() {
     S3Client s3Client = S3Client.create();;
     PutObjectRequest request = PutObjectRequest.builder()
@@ -95,7 +94,7 @@ aws s3api copy-object --copy-source {{{{amzn-s3-demo-bucket1}}/object1}} \
                             --expected-source-bucket-owner {{111122223333}} --expected-bucket-owner {{444455556666}}
 ```
 
-```
+```java
 public void copyObjectExample() {
         S3Client s3Client = S3Client.create();
         CopyObjectRequest request = CopyObjectRequest.builder()
@@ -117,7 +116,7 @@ The following example retrieves the access policy for S3 bucket `{{amzn-s3-demo-
 aws s3api get-bucket-policy --bucket {{{{amzn-s3-demo-bucket1}}}} --expected-bucket-owner {{111122223333}}
 ```
 
-```
+```java
 public void getBucketPolicyExample() {
     S3Client s3Client = S3Client.create();
     GetBucketPolicyRequest request = GetBucketPolicyRequest.builder()

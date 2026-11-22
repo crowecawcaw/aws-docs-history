@@ -1,7 +1,6 @@
 
 
 # Replicating metadata changes with replica modification sync
-<a name="replication-for-metadata-changes"></a>
 
 Amazon S3 replica modification sync can help you keep object metadata such as tags, access control lists (ACLs), annotations, and Object Lock settings replicated between replicas and source objects. By default, Amazon S3 replicates metadata from the source objects to the replicas only. When replica modification sync is enabled, Amazon S3 replicates metadata changes made to the replica copies back to the source object, making the replication bidirectional (two-way replication).
 
@@ -19,7 +18,7 @@ You must enable replica modification sync on both the source and destination buc
 
 In the following example configuration, Amazon S3 replicates metadata changes under the prefix `{{Tax}}` to the bucket `{{amzn-s3-demo-source-bucket}}`, which contains the source objects.
 
-```
+```json
 {
     "Rules": [
         {

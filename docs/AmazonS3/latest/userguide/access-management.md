@@ -1,7 +1,6 @@
 
 
 # Access control in Amazon S3
-<a name="access-management"></a>
 
 In AWS, a resource is an entity that you can work with. In Amazon Simple Storage Service (S3), *buckets* and *objects* are the original Amazon S3 resources. Every S3 customer likely has buckets with objects in them. As new features were added to S3, additional resources were also added, but not every customer uses these feature-specific resources. For more information about Amazon S3 resources, see [S3 resources](#access-management-resources).
 
@@ -131,7 +130,7 @@ The following is an example bucket policy. You express the bucket policy by usin
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -164,7 +163,7 @@ The following is an example of an identity-based policy. The example policy allo
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -215,7 +214,7 @@ The majority of modern use cases in Amazon S3 do not require the use of ACLs.
 
 The following is an example bucket ACL. The grant in the ACL shows a bucket owner that has full control permission. 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 	<AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 		<Owner>

@@ -1,7 +1,6 @@
 
 
 # Multi-Region Access Point request routing
-<a name="MultiRegionAccessPointRequestRouting"></a>
 
  When you make a request through a Multi-Region Access Point, Amazon S3 determines which of the buckets that are associated with the Multi-Region Access Point is closest to you. Amazon S3 then directs the request to that bucket, regardless of the AWS Region it is located in. 
 

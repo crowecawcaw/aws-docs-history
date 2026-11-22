@@ -1,7 +1,6 @@
 
 
 # Troubleshooting CORS
-<a name="cors-troubleshooting"></a>
 
 The following topics can help you troubleshoot some common CORS issues related to S3.
 
@@ -16,7 +15,7 @@ The following topics can help you troubleshoot some common CORS issues related t
 
 The following `403 Forbidden` error occurs when a cross-origin request is sent to Amazon S3 but CORS is not configured on your S3 bucket. 
 
- Error: HTTP/1.1 403 Forbidden CORS Response: CORS is not enabled for this bucket. 
+ Error: `HTTP/1.1 403 Forbidden CORS Response: CORS is not enabled for this bucket. `
 
 The CORS configuration is a document or policy with rules that identify the origins that you will allow to access your bucket, the operations (HTTP methods) that you will support for each origin, and other operation-specific information. See how to [configure CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enabling-cors-examples.html) on S3 by using the Amazon S3 console, AWS SDKs, and REST API. For more information on CORS and examples of a CORS configuration, see [ Elements of CORS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManageCorsUsing.html#cors-example-1).
 
@@ -25,7 +24,7 @@ The CORS configuration is a document or policy with rules that identify the orig
 
 The following `403 Forbidden` error is received when a CORS rule in your CORS configuration doesn't match the data in your request.
 
-Error:  HTTP/1.1 403 Forbidden CORS Response: This CORS request is not allowed.
+Error: ` HTTP/1.1 403 Forbidden CORS Response: This CORS request is not allowed.`
 
 As a result, this `403 Forbidden` error can occur for multiple reasons:
 + Origin is not allowed.

@@ -1,7 +1,6 @@
 
 
 # Managing S3 Intelligent-Tiering
-<a name="intelligent-tiering-managing"></a>
 
 The S3 Intelligent-Tiering storage class delivers automatic storage cost savings in three low-latency and high-throughput access tiers. It also offers optional archive capabilities to help you get the lowest storage costs in the cloud for data that can be accessed in minutes to hours. 
 
@@ -9,6 +8,8 @@ The S3 Intelligent-Tiering storage class delivers automatic storage cost savings
 <a name="identify-intelligent-tiering-access-tier"></a>
 
 To get a list of your objects and their corresponding metadata, including their S3 Intelligent-Tiering access tier, you can use [Amazon S3 Inventory](storage-inventory.md). S3 Inventory provides CSV, ORC, or Parquet output files that list your objects and their corresponding metadata. You can receive these inventory reports on either a daily or weekly basis for an Amazon S3 bucket or a shared prefix. (*Shared prefix* refers to objects that have names that begin with a common string.) 
+
+With S3 Storage Lens, you can also view core storage metrics broken down by S3 Intelligent-Tiering access tier. For more information, see [Monitoring your storage activity and usage with Amazon S3 Storage Lens](storage_lens.md) and [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md).
 
 ## Viewing the archive status of an object within S3 Intelligent-Tiering
 <a name="identify-archive-status"></a>
@@ -19,7 +20,7 @@ Amazon S3 can publish event notifications to an Amazon Simple Notification Servi
 
 The following is an example of a message that Amazon S3 sends to publish an `s3:IntelligentTiering` event. For more information, see [Event message structure](notification-content-structure.md).
 
-```
+```json
  1. {  
  2.    "Records":[  
  3.       {  
@@ -68,7 +69,7 @@ The following `HEAD` object request returns the metadata of an object (in this c
 
 **Example**  
 
-```
+```http
 HEAD /{{my-image.jpg}} HTTP/1.1
 Host: bucket.s3.{{region}}.amazonaws.com
 Date: Wed, 28 Oct 2009 22:32:00 GMT
@@ -81,7 +82,7 @@ The following sample `HEAD` object response shows an object archived by using S3
 
 **Example**  
 
-```
+```http
 HTTP/1.1 200 OK
 x-amz-id-2: FSVaTMjrmBp3Izs1NnwBZeu7M19iI8UbxMbi0A8AirHANJBo+hEftBuiESACOMJp
 x-amz-request-id: E5CEFCB143EB505A

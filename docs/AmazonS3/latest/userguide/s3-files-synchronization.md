@@ -1,7 +1,6 @@
 
 
 # Understanding how synchronization works
-<a name="s3-files-synchronization"></a>
 
 S3 Files keeps your file system and the linked S3 bucket synchronized automatically. The data you actively use is copied to the file system, so you can read and write files using standard Linux file operations at low latency. S3 Files requires S3 Versioning to be enabled on the linked S3 bucket. When you edit files on the file system, S3 Files copies your changes back to the S3 bucket as new versions of the corresponding objects, making sure the old versions are preserved. When other applications add, modify, or delete objects in your S3 bucket, S3 Files automatically reflects those changes in your file system. When a conflict occurs due to concurrent changes to the same data in both the file system and the S3 bucket, S3 Files treats the [S3 bucket as the source of truth in case of conflicts](#s3-files-sync-source-of-truth).
 

@@ -1,7 +1,6 @@
 
 
 # Setting up S3 Tables replication
-<a name="s3-tables-replication-setting-up"></a>
 
 You can set up replication to automatically create table replicas from a source table to up to five destination table buckets. Replication can be configured at the bucket level (applying to all tables in the bucket) or at the table level (for specific tables). This topic explains how to configure replication using the Amazon S3 console or the AWS Command Line Interface (AWS CLI).
 
@@ -208,7 +207,7 @@ First, create an IAM role that Amazon S3 can assume to replicate your tables.
 
 1. Create a trust policy document that allows S3 Tables to assume the role. Save this as `trust-policy.json`:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Statement": [
@@ -225,7 +224,7 @@ First, create an IAM role that Amazon S3 can assume to replicate your tables.
 
 1. Create the IAM role:
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name {{S3TablesReplicationRole}} \
        --assume-role-policy-document file://trust-policy.json \
@@ -234,7 +233,7 @@ First, create an IAM role that Amazon S3 can assume to replicate your tables.
 
 1. Create a permissions policy that grants replication permissions. Save this as `replication-permissions.json`:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -279,7 +278,7 @@ First, create an IAM role that Amazon S3 can assume to replicate your tables.
 
 1. Attach the permissions policy to the role:
 
-   ```
+   ```bash
    aws iam put-role-policy \
        --role-name {{S3TablesReplicationRole}} \
        --policy-name {{S3TablesReplicationPermissions}} \
@@ -290,7 +289,7 @@ The permissions policy uses two resource scopes because the actions operate at d
 
 1. (Optional) If using KMS encryption, add KMS permissions to your policy:
 
-   ```
+   ```json
    {
      "Effect": "Allow",		 	 	 
      "Action": [
@@ -333,7 +332,7 @@ If you are replicating to a different AWS account, the destination account must 
 
 1. In the destination account, create a bucket policy for the destination table bucket. Save this as `destination-bucket-policy.json`:
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Statement": [
@@ -367,7 +366,7 @@ If you are replicating to a different AWS account, the destination account must 
 
 1. Apply the policy using the S3 Tables API:
 
-   ```
+   ```bash
    aws s3tables put-table-bucket-policy \
        --table-bucket-arn arn:aws:s3tables:{{us-west-2}}:{{444455556666}}:bucket/{{{{amzn-s3-demo-table-bucket-cross-account-destination}}}} \
        --resource-policy file://{{destination-bucket-policy.json}} \
@@ -376,7 +375,7 @@ If you are replicating to a different AWS account, the destination account must 
 
 1. Modify your source KMS key to allow S3 Tables replication and maintenance:
 
-   ```
+   ```json
    {
      "Version": "2012-10-17",		 	 	 
      "Id": "key-consolepolicy-3",
@@ -411,7 +410,7 @@ If you are replicating to a different AWS account, the destination account must 
 
 1. Similarly, add permissions in your destination KMS key policy
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",		 	 	 
        "Id": "key-policy-3",
@@ -458,7 +457,7 @@ Use this approach to replicate all tables in a bucket.
 1. Create a replication configuration file. Save this as `bucket-replication-config.json`:  
 **Example : Single destination in same account**  
 
-   ```
+   ```json
    {
      "role": "arn:aws:iam::{{111122223333}}:role/{{S3TablesReplicationRole}}",
      "rules": [
@@ -474,7 +473,7 @@ Use this approach to replicate all tables in a bucket.
    ```  
 **Example : Multiple destinations across regions**  
 
-   ```
+   ```json
    {
      "role": "arn:aws:iam::{{111122223333}}:role/{{S3TablesReplicationRole}}",
      "rules": [
@@ -496,7 +495,7 @@ Use this approach to replicate all tables in a bucket.
    ```  
 **Example : Cross-account replication**  
 
-   ```
+   ```json
    {
      "role": "arn:aws:iam::{{111122223333}}:role/{{S3TablesReplicationRole}}",
      "rules": [
@@ -513,7 +512,7 @@ Use this approach to replicate all tables in a bucket.
 
 1. Apply the bucket-level replication configuration:
 
-   ```
+   ```bash
    aws s3tables put-table-bucket-replication \
        --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}} \
        --configuration file://bucket-replication-config.json
@@ -521,7 +520,7 @@ Use this approach to replicate all tables in a bucket.
 
    Expected output:
 
-   ```
+   ```json
    {
      "versionToken": "{{3HL4kqtJl40Nr8X8gdRQBpUMLUo}}",
      "status": "Success"
@@ -536,7 +535,7 @@ Use this approach to replicate specific tables or to override bucket-level repli
 1. Create a replication configuration file. Save this as `table-replication-config.json`:  
 **Example : Single table replication**  
 
-   ```
+   ```json
    {
      "role": "arn:aws:iam::{{111122223333}}:role/{{S3TablesReplicationRole}}",
      "rules": [
@@ -552,7 +551,7 @@ Use this approach to replicate specific tables or to override bucket-level repli
    ```  
 **Example : Table with multiple destinations**  
 
-   ```
+   ```json
    {
      "role": "arn:aws:iam::{{111122223333}}:role/{{S3TablesReplicationRole}}",
      "rules": [
@@ -572,7 +571,7 @@ Use this approach to replicate specific tables or to override bucket-level repli
 
 1. Apply the table-level replication configuration:
 
-   ```
+   ```bash
    aws s3tables put-table-replication \
        --table-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{{{amzn-s3-demo-table-bucket-}}sales-data}} \
        --configuration file://{{table-replication-config.json}}
@@ -580,7 +579,7 @@ Use this approach to replicate specific tables or to override bucket-level repli
 
    Expected output:
 
-   ```
+   ```json
    {
      "versionToken": "{{xT2LZkFZ0UuTC2h8XqtGLx2Ak6M}}",
      "status": "Success"

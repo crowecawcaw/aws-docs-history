@@ -1,7 +1,6 @@
 
 
 # View the details of a registered location
-<a name="access-grants-location-view"></a>
 
 You can get the details of a location that's registered in your S3 Access Grants instance by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and the AWS SDKs. 
 
@@ -96,7 +95,7 @@ To use the following examples, replace the `{{user input placeholders}}` with yo
 
 **Example – Get the details of a registered location**  
 
-```
+```java
 public void getAccessGrantsLocation() {
 GetAccessGrantsLocationRequest getAccessGrantsLocationRequest = GetAccessGrantsLocationRequest.builder()
 .accountId("{{111122223333}}")
@@ -108,7 +107,7 @@ LOGGER.info("GetAccessGrantsLocationResponse: " + getAccessGrantsLocationRespons
 ```
 Response:  
 
-```
+```java
 GetAccessGrantsLocationResponse(
 CreatedAt={{2023-06-07T04:35:10.027Z}},
 AccessGrantsLocationId=default,
@@ -121,7 +120,7 @@ IAMRoleArn=arn:aws:iam::{{111122223333}}:role/{{accessGrantsTestRole}}
 **Example – List all registered locations in an S3 Access Grants instance**  
 To restrict the results to an S3 prefix or bucket, you can optionally pass an S3 URI, such as `s3://{{bucket-and-or-prefix}}`, in the `LocationScope` parameter.   
 
-```
+```java
 public void listAccessGrantsLocations() {
 
 ListAccessGrantsLocationsRequest listRequest =   ListAccessGrantsLocationsRequest.builder()
@@ -134,7 +133,7 @@ LOGGER.info("ListAccessGrantsLocationsResponse: " + listResponse);
 ```
 Response:  
 
-```
+```java
 ListAccessGrantsLocationsResponse(
 AccessGrantsLocationsList=[
 ListAccessGrantsLocationsEntry(

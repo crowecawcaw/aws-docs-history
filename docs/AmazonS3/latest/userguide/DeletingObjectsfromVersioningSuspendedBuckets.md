@@ -1,7 +1,6 @@
 
 
 # Deleting objects from versioning-suspended buckets
-<a name="DeletingObjectsfromVersioningSuspendedBuckets"></a>
 
 You can delete objects from versioning-suspended buckets to remove an object with a null version ID.
 

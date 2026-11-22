@@ -1,7 +1,6 @@
 
 
 # Website endpoints
-<a name="WebsiteEndpoints"></a>
 
 When you configure your bucket as a static website, the website is available at the AWS Region-specific website endpoint of the bucket. Website endpoints are different from the endpoints where you send REST API requests. For more information about the differences between the endpoints, see [Key differences between a website endpoint and a REST API endpoint](#WebsiteRestEndpointDiff).
 
@@ -21,7 +20,7 @@ Amazon S3 website endpoints do not support HTTPS or access points. If you want t
 (Recommended) Use [AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) to host static website content stored on S3. Amplify Hosting is a fully managed service that makes it easy to deploy your websites on a globally available content delivery network (CDN) powered by Amazon CloudFront, allowing secure static website hosting.   
 With AWS Amplify Hosting, you can select the location of your objects within your general purpose bucket, deploy your content to a managed CDN, and generate a public HTTPS URL for your website to be accessible anywhere. For more information about Amplify Hosting, see [Deploying a static website to AWS Amplify Hosting from an S3 general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-amplify) and [Deploying a static website from S3 using the Amplify console](https://docs.aws.amazon.com/amplify/latest/userguide/deploy--from-amplify-console.html) in the *AWS Amplify Console User Guide*.
 Use Amazon CloudFront to serve a static website hosted on Amazon S3. For more information, see [How do I use CloudFront to serve HTTPS requests for my Amazon S3 bucket?](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-https-requests-s3) To use HTTPS with a custom domain, see [Configuring a static website using a custom domain registered with Route 53](https://docs.aws.amazon.com/AmazonS3/latest/userguide/website-hosting-custom-domain-walkthrough.html).
-Requester Pays buckets do not allow access through a website endpoint. Any request to such a bucket receives a 403 Access Denied response. For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md).
+Requester Pays buckets do not allow access through a website endpoint. Any request to such a bucket receives a `403 Access Denied` response. For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md).
 
 **Topics**
 + [Website endpoint examples](#website-endpoint-examples)

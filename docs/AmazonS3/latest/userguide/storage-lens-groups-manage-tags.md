@@ -1,7 +1,6 @@
 
 
 # Managing AWS resource tags with Storage Lens groups
-<a name="storage-lens-groups-manage-tags"></a>
 
 Each Amazon S3 Storage Lens group is counted as an AWS resource with its own Amazon Resource Name (ARN). Therefore, when you configure your Storage Lens group, you can optionally add AWS resource tags to the group. You can add up to 50 tags for each Storage Lens group. To create a Storage Lens group with tags, you must have the `s3:CreateStorageLensGroup` and `s3:TagResource` permissions.
 

@@ -1,7 +1,6 @@
 
 
 # Logging requests for S3 Tables using server access logging
-<a name="s3-tables-server-logs"></a>
 
 Server access logging for S3 Tables provides detailed records for the requests that are made to a table bucket. When you enable server access logging on a table bucket, Amazon S3 generates a log record for every request that is made to that table bucket, and delivers the log files to a general purpose bucket that you specify. These logs can help you with security and access auditing, access analysis, and cost attribution.
 
@@ -68,7 +67,7 @@ If you use the Amazon S3 console to enable server access logging, the console au
 
 The following example bucket policy grants the `s3:PutObject` permission to the logging service principal. To use this bucket policy, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -101,7 +100,7 @@ If there are `Deny` statements in your bucket policy, make sure that they don't 
 
 To configure server access logging, the user or role that makes the request must have permission to call the `s3tables:PutTableBucketLogging` and `s3tables:GetTableBucketLogging` actions on the table bucket. The following example AWS Identity and Access Management policy grants these permissions. To use this policy, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -236,7 +235,7 @@ aws s3tables put-table-bucket-logging \
 
 The following example uses the AWS SDK for Python (Boto3) to enable server access logging on a table bucket, view the configuration, and then disable logging. Replace the `{{user input placeholders}}` with your own information.
 
-```
+```python
 import boto3
 
 client = boto3.client('s3tables')
@@ -435,13 +434,13 @@ You can analyze S3 Tables server access logs by using Amazon Athena. The followi
 
 1. In the query editor, run the following command to create a database. Replace `{{s3_tables_access_logs_db}}` with the name that you want to give to your database.
 
-   ```
+   ```sql
    CREATE DATABASE {{s3_tables_access_logs_db}}
    ```
 
 1. Run the following command to create a table schema in the database. For `LOCATION`, enter the destination general purpose bucket, prefix, account ID, Region, and source table bucket name. Amazon S3 appends the prefix without inserting a slash, so there is no slash between `{{targetPrefix}}` and the account ID.
 
-   ```
+   ```sql
    CREATE EXTERNAL TABLE {{s3_tables_access_logs_db.s3_tables_logs}}(
      `table_bucket_arn` STRING,
      `request_time` STRING,

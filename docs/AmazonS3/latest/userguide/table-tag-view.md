@@ -1,7 +1,6 @@
 
 
 # Viewing table tags
-<a name="table-tag-view"></a>
 
 You can view or list tags applied to Amazon S3 tables. For more information about tags, see [Using tags with S3 tables](table-tagging.md).
 
@@ -56,7 +55,7 @@ The following CLI example shows you how to view tags applied to a table. To use 
 
 **Request:**
 
-```
+```bash
 aws --region {{us-west-2}} \ 
 s3tables list-tags-for-resource \
 --resource-arn arn:aws::s3tables:{{us-west-2}}:{{111122223333}}:bucket/{{amzn-s3-demo-table-bucket}}/table/{{my_example_table}}

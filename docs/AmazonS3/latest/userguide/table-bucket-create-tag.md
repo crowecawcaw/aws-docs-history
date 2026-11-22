@@ -1,7 +1,6 @@
 
 
 # Creating table buckets with tags
-<a name="table-bucket-create-tag"></a>
 
 You can tag Amazon S3 table buckets when you create them. There is no additional charge for using tags on table buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging table buckets, see [Using tags with S3 table buckets](table-bucket-tagging.md).
 
@@ -64,7 +63,7 @@ When you create a table bucket you must provide configuration details. For more 
 
 **Request:**
 
-```
+```bash
 aws --region {{us-west-2}} \
 s3tables create-table-bucket \
 --tags '{"{{Department}}":"{{Engineering}}"}' \

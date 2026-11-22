@@ -1,12 +1,11 @@
 
 
 # Vector indexes
-<a name="s3-vectors-indexes"></a>
 
 **Note**  
 Choose your vector index configuration parameters carefully. After you create a vector index, you can't update the vector index name, dimension, distance metric, or non-filterable metadata keys. To change any of these values, you must create a new vector index.
 
-Vector indexes are resources within vector buckets that store and organize vector data for efficient similarity search operations. When you create a vector index, you specify the distance metric (`Cosine` or `Euclidean`), the number of dimensions that a vector should have, and optionally a list of metadata fields that you want to exclude from filtering during similarity queries.
+Vector indexes are resources within vector buckets that store and organize vector data for efficient similarity search operations. When you create a vector index, you specify the distance metric (`Cosine` or `Euclidean`), the number of dimensions that a vector should have, and optionally a list of metadata keys that you want to exclude from filtering, or enable for full-text search.
 
 For more information about vector index limits per bucket, vector limits per index, and dimension limits per vector, see [Limitations and restrictions](s3-vectors-limitations.md).
 
@@ -50,9 +49,22 @@ Requirements for non-filterable metadata keys are as follows.
 + Non-filterable metadata keys must be unique within the vector index.
 + Non-filterable metadata keys must be 1 to 63 characters long.
 + Non-filterable metadata keys can't be modified after the vector index is created.
-+ S3 Vectors support up to 10 non-filterable metadata keys per index.
++ S3 Vectors supports up to 10 non-filterable metadata keys per index.
 
 For more information about non-filterable metadata keys, see [Non-filterable metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable).
+
+## Full-text search metadata keys
+<a name="s3-vectors-indexes-full-text-search"></a>
+
+You can enable full-text search on a metadata key. S3 Vectors builds a full-text search index over that key's values for BM25 (Best Matching 25) scoring, so you can run full-text and hybrid queries on the index. You configure full-text search keys in the index's metadata configuration, either when you create the index or on an existing index.
+
+Requirements for full-text search metadata keys are as follows.
++ Full-text search is supported only on `ENHANCED` indexes. To use it on a `CLASSIC` index, upgrade the index first.
++ By default, S3 Vectors uses a standard analyzer. You can optionally choose a language-specific analyzer. S3 Vectors supports 10 languages.
++ You can't change an existing full-text search configuration, such as its analyzer, after you set it. To change it, remove the key and add it back.
++ For the size and number limits of searchable fields, see [Limitations and restrictions](s3-vectors-limitations.md).
+
+For more information, see [Configuring full-text search](s3-vectors-configuring-full-text-search.md) and [Hybrid search with Amazon S3 Vectors](s3-vectors-hybrid-search.md).
 
 ## Index mode
 <a name="s3-vectors-indexes-mode"></a>
@@ -68,6 +80,7 @@ You can read an index's mode with [GetIndex](https://docs.aws.amazon.com/AmazonS
 + [Dimension requirements](#s3-vectors-indexes-dimensions)
 + [Distance metric options](#s3-vectors-indexes-distance-metrics)
 + [Non-filterable metadata keys](#s3-vectors-indexes-metadata)
++ [Full-text search metadata keys](#s3-vectors-indexes-full-text-search)
 + [Index mode](#s3-vectors-indexes-mode)
 + [Creating a vector index in a vector bucket](s3-vectors-create-index.md)
 + [Changing a vector index's mode](s3-vectors-index-mode.md)

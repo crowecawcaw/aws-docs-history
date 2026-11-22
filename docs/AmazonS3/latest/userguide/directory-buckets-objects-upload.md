@@ -1,7 +1,6 @@
 
 
 # Uploading objects to a directory bucket
-<a name="directory-buckets-objects-upload"></a>
 
 After you create an Amazon S3 directory bucket, you can upload objects to it. The following examples show how to upload an object to a directory bucket by using the S3 console and the AWS SDKs. For information about bulk object upload operations with S3 Express One Zone, see [Object management](directory-bucket-high-performance.md#s3-express-features-object-management). 
 
@@ -40,7 +39,7 @@ After you create an Amazon S3 directory bucket, you can upload objects to it. Th
 
 **Example**  
 
-```
+```JavaV2
 public static void putObject(S3Client s3Client, String bucketName, String objectKey, Path filePath) {
        //Using File Path to avoid loading the whole file into memory
        try {
@@ -66,7 +65,7 @@ public static void putObject(S3Client s3Client, String bucketName, String object
 
 **Example**  
 
-```
+```Python
 import boto3
 import botocore
 from botocore.exceptions import ClientError
@@ -107,7 +106,7 @@ if __name__ == "__main__":
 
 The following `put-object` example command shows how you can use the AWS CLI to upload an object from Amazon S3. To run this command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3api put-object --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --key {{sampleinut/file001.bin}} --body {{bucket-seed/file001.bin}}
 ```
 

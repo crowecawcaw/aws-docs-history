@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon S3
-<a name="GetStartedWithS3"></a>
 
 You can get started with Amazon S3 by working with buckets and objects. A *bucket* is a container for objects. An *object* is a file and any metadata that describes that file.
 
@@ -15,7 +14,7 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 **Video: Getting started with Amazon S3**  
 The following video shows you how to get started with Amazon S3.
 
-[![AWS Videos](https://img.youtube.com/vi/FZCZbPEMlXk//0.jpg)](https://www.youtube.com/watch?v=FZCZbPEMlXk/)
+[![AWS Videos](https://img.youtube.com/vi/FZCZbPEMlXk/0.jpg)](https://www.youtube.com/watch?v=FZCZbPEMlXk)
 
 
 **Prerequisites**  

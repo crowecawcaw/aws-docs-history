@@ -1,7 +1,6 @@
 
 
 # Deleting objects from a directory bucket
-<a name="directory-bucket-delete-object"></a>
 
 You can delete objects from an Amazon S3 directory bucket by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), or AWS SDKs. For more information, see [Working with directory buckets](directory-buckets-overview.md) and [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone).
 
@@ -44,7 +43,7 @@ Object keys in `DeleteObjects` requests cannot contain Unicode control character
 **Example**  
 The following example deletes objects in a directory bucket by using the AWS SDK for Java 2.x.   
 
-```
+```JavaV2
 static void deleteObject(S3Client s3Client, String bucketName, String objectKey) {
 
 
@@ -75,7 +74,7 @@ static void deleteObject(S3Client s3Client, String bucketName, String objectKey)
 **Example**  
 The following example deletes objects in a directory bucket by using the AWS SDK for Python (Boto3).   
 
-```
+```Python
 import logging
 import boto3
 from botocore.exceptions import ClientError
@@ -140,7 +139,7 @@ if __name__ == '__main__':
 
 The following `delete-object` example command shows how you can use the AWS CLI to delete an object from a directory bucket. To run this command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3api delete-object --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --key {{KEY_NAME}} 
 ```
 
@@ -150,7 +149,7 @@ The following `delete-objects` example command shows how you can use the AWS CLI
 
 The `delete.json` file is as follows: 
 
-```
+```json
 {
     "Objects": [
         {
@@ -171,7 +170,7 @@ The `delete.json` file is as follows:
 
 The `delete-objects` example command is as follows:
 
-```
+```bash
 aws s3api delete-objects --bucket {{bucket-base-name}}--{{zone-id}}--x-s3 --delete file://{{delete.json}} 
 ```
 

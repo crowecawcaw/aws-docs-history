@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with S3 Express One Zone
-<a name="s3-express-getting-started"></a>
 
 Amazon S3 Express One Zone is the first S3 storage class where you can select a single Availability Zone with the option to co-locate your object storage with your compute resources which provides the highest possible access speed. Data in S3 Express One Zone is stored in directory buckets located in Availability Zones. For more information on directory buckets, see [Directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html). 
 
@@ -74,7 +73,7 @@ To use Regional endpoint API operations (bucket-level or control plane operation
 
 ****  
 
-   ```
+   ```json
    {
         "Version":"2012-10-17",		 	 	 
         "Statement": [ 

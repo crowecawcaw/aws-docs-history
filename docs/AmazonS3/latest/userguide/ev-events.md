@@ -1,7 +1,6 @@
 
 
 # EventBridge event message structure
-<a name="ev-events"></a>
 
 The notification message that Amazon S3 sends to publish an event is in the JSON format. When Amazon S3 sends an event to Amazon EventBridge, the following fields are present.
 + `version` – Currently 0 (zero) for all events. This is an Amazon EventBridge envelope field and is not used for schema versioning. For event schema versioning, see the *event-version* field in the *detail* field.
@@ -22,7 +21,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object created
 <a name="ev-events-object-created"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "17793124-05d4-b198-2fde-7ededc63b103",
@@ -63,7 +62,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object deleted (using DeleteObject)
 <a name="ev-events-object-deleted"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "2ee9cc15-d022-99ea-1fb8-1b1bac4850f9",
@@ -99,7 +98,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object deleted (using lifecycle expiration)
 <a name="ev-events-object-deleted-lifecycle"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "ad1de317-e409-eba2-9552-30113f8d88e3",
@@ -134,7 +133,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object restore completed
 <a name="ev-events-object-restore-complete"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "6924de0d-13e2-6bbf-c0c1-b903b753565e",
@@ -169,7 +168,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object annotation created
 <a name="ev-events-object-annotation-created"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "8c2bfa57-4a67-b2ea-c4e0-6d420ea3b3a6",
@@ -209,7 +208,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object annotation removed
 <a name="ev-events-object-annotation-removed"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "a3d1bc94-5f82-c7e1-d290-7e531fb4c5b8",
@@ -247,7 +246,7 @@ The following are examples of some of the Amazon S3 event notification messages 
 ### Object retention updated
 <a name="ev-events-object-retention-updated"></a>
 
-```
+```json
 {
   "version": "0",
   "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",

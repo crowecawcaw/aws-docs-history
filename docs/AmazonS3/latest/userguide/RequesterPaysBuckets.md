@@ -1,7 +1,6 @@
 
 
 # Using Requester Pays general purpose buckets for storage transfers and usage
-<a name="RequesterPaysBuckets"></a>
 
 In general, bucket owners pay for all Amazon S3 storage and data transfer costs that are associated with their bucket. However, you can configure a general purpose bucket to be a *Requester Pays* bucket. With Requester Pays buckets, the requester instead of the bucket owner pays the cost of the request and the data download from the bucket. The bucket owner always pays the cost of storing data. 
 
@@ -19,7 +18,7 @@ After you configure a bucket to be a Requester Pays bucket, requesters must show
 **Example – Using Requester Pays when deleting an object**  
 To use the following [DeleteObjectVersion](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html) API example, replace the `{{user input placeholders}}` with your own information.  
 
-```
+```http
 DELETE /Key+?versionId=VersionId HTTP/1.1
 Host: Bucket.s3.amazonaws.com
 x-amz-mfa: {{MFA}}

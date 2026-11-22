@@ -1,7 +1,6 @@
 
 
 # Enabling or disabling annotation tables
-<a name="metadata-tables-enable-disable-annotation-tables"></a>
 
 By default, your metadata table configuration contains a *journal table*, which records the events that occur for the objects in your bucket. The journal table is required for each metadata table configuration. 
 
@@ -34,7 +33,7 @@ The annotation table requires an IAM role that grants Amazon S3 Metadata permiss
 **Trust policy**  
 The following trust policy identifies Amazon S3 Metadata as the service principal that can assume the role.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -60,7 +59,7 @@ The following trust policy identifies Amazon S3 Metadata as the service principa
 **Permissions policy**  
 The following permissions policy grants the IAM role the minimum permissions required to read annotations.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -152,7 +151,7 @@ Before enabling an annotation configuration, make sure that you've reviewed and 
 
    To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set `SseAlgorithm` to `aws:kms`. You must also set `KmsKeyArn` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 
-   ```
+   ```json
    {
      "ConfigurationState": "ENABLED",
      "Role": "arn:aws:iam::{{account-id}}:role/{{annotation-table-role}}",
@@ -167,14 +166,14 @@ Before enabling an annotation configuration, make sure that you've reviewed and 
 
    If you want to disable an existing annotation table, use the following configuration: 
 
-   ```
+   ```json
    {
      "ConfigurationState": "DISABLED"  }
    ```
 
 1. Use the following command to update the annotation table configuration for your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`):
 
-   ```
+   ```bash
    aws s3api update-bucket-metadata-annotation-table-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --annotation-table-configuration file://./{{annotation-config}}.json \

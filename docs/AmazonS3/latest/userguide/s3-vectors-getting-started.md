@@ -1,7 +1,6 @@
 
 
 # Tutorial: Getting started with S3 Vectors
-<a name="s3-vectors-getting-started"></a>
 
 In this tutorial, you create an S3 vector bucket and a vector index in an AWS Region in the Amazon S3 console. Next, you use an Amazon Bedrock embedding model to generate vector embeddings of your data and store them in your vector index to perform semantic searches. 
 
@@ -81,6 +80,8 @@ In this step, you create a vector index in your vector bucket. The vector index 
 
    You can't update non-filterable metadata keys after index creation. Plan your metadata structure carefully.
 
+1. Under **Additional settings (optional)**, you can specify full-text search metadata keys. S3 Vectors builds a full-text search index over each key's values for BM25 (Best Matching 25) scoring, so you can run full-text and hybrid queries on the index. For more information, see [Configuring full-text search](s3-vectors-configuring-full-text-search.md) and [Hybrid search with Amazon S3 Vectors](s3-vectors-hybrid-search.md).
+
 1. Under **Encryption**, choose **Specify encryption type**. You have the option to use the bucket level encryption settings or override the encryption settings for the vector index. If you override the bucket-level settings, you have the option to specify encryption type for the vector index as **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or the **Server-side encryption with Amazon S3 managed keys (SSE-S3)**. In this tutorial, we choose to **Use bucket settings for encryption**. For more information about setting encryption configuration for vector buckets and indexes, see [Data protection and encryption in S3 Vectors](s3-vectors-data-encryption.md).
 
 1. Under **Tags (Optional)**, you can add tags as key-value pairs to help track and organize vector index costs using AWS Billing and Cost Management. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector index. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md).
@@ -100,7 +101,7 @@ This step is to insert vector embeddings to your vector index with the [PutVecto
 
 The following example code generates 1024-dimensional vector embeddings with the Titan Text Embeddings V2 model from Amazon Bedrock by using the AWS SDK for Python (Boto3), and stores them in your vector index by using the `PutVectors` API. Along with each vector, we attach key-value pairs as filterable metadata. Additionally, we use a non-filterable metadata key that's named {{source\_text}} to preserve the original text from which each vector is derived. To maximize request throughput and optimize for speed and efficiency, we recommend that you insert and delete vectors in batches. For more information, see [S3 Vectors best practices](s3-vectors-best-practices.md). 
 
-```
+```Python
 # Populate a vector index with embeddings from Amazon Titan Text Embeddings V2.
 import boto3
 import json
@@ -161,7 +162,7 @@ You must first generate your query vector embeddings by using the same embedding
 
 You can perform a similarity search to return the closest matching vectors. In a similarity search, you can optionally filter by using metadata keys to narrow results based on specific criteria while maintaining semantic relevance.
 
-```
+```Python
 # Query a vector index with an embedding from Amazon Titan Text Embeddings V2.
 import boto3 
 import json 

@@ -1,7 +1,6 @@
 
 
 # Setting up Storage Browser for S3
-<a name="setup-storagebrowser"></a>
 
 To connect end users with Amazon S3 *locations*, you must first set up an authentication and authorization method. There are three methods to set up an authentication and authorization method with Storage Browser:
 + [Method 1: Managing data access for your customers and third party partners](#setup-storagebrowser-method1)
@@ -17,7 +16,7 @@ You provide IAM credentials to your end users and third party partners using AWS
 
 To initialize the component with the Amplify authentication and storage methods, add the following code snippet to your web application:
 
-```
+```javascript
 import {
   createAmplifyAuthAdapter,
   createStorageBrowser,
@@ -38,7 +37,7 @@ export const { StorageBrowser } = createStorageBrowser({
 
 If you want to manage access for your IAM principals or your AWS account directly, you can create an IAM role that has permissions to invoke the [GetDataAccess](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetDataAccess.html) S3 API operation. To set this up, you must create an S3 Access Grants instance to map out permissions for S3 general purpose buckets and prefixes to the specified IAM identities. The Storage Browser component (which must be called on the client side after obtaining the IAM credentials) will then invoke the [ListCallerAccessGrants](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListCallerAccessGrants.html) S3 API operation to fetch the available grants to the identity requester and populate the locations in the component. After you obtain the `s3:GetDataAccess` permission, those credentials are then used by the Storage Browser component to request data access to S3.
 
-```
+```javascript
 import {
   createManagedAuthAdapter,
   createStorageBrowser,
@@ -173,7 +172,7 @@ To ensure that the `bootstrap` application and `identity bearer` users can prope
 
 Create an IAM role, such as `bootstrap-role`, with permissions such as the following. The following example IAM policy gives permissions to the `bootstrap-role` to perform the token exchange:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -196,7 +195,7 @@ Create an IAM role, such as `bootstrap-role`, with permissions such as the follo
 
 Then, create a second IAM role (such as `identity-bearer-role`), which the identity broker uses to generate the IAM credentials. The IAM credentials returned from the identity broker to the web application are used by the Storage Browser for S3 component to allow access to S3 data:
 
-```
+```json
 {
     "Action": [
         "s3:GetDataAccess",
@@ -209,7 +208,7 @@ Then, create a second IAM role (such as `identity-bearer-role`), which the ident
 
 This IAM role (`identity-bearer-role`) must use a trust policy with the following statement:
 
-```
+```json
 {
    "Effect": "Allow",
    "Principal": {
@@ -338,7 +337,7 @@ For examples of how to set up the identity provider with IAM Identity Center for
 
 After you’ve set up your IAM Identity Center instance and created grants in S3 Access Grants, open your React application. In the React application, use `createManagedAuthAdapter` to set up the authorization rules. You must provide a credentials provider to return the credentials you acquired from IAM Identity Center. You can then call `createStorageBrowser` to initialize the Storage Browser for S3 component:
 
-```
+```javascript
 import {
     createManagedAuthAdapter,
     createStorageBrowser,

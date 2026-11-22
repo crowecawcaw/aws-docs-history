@@ -1,9 +1,8 @@
 
 
 # Changing a vector index's mode
-<a name="s3-vectors-index-mode"></a>
 
-A vector index whose index mode is `ENHANCED` applies your metadata filter before the vector search, ensuring high recall even when filters match a small fraction of vectors, and it supports the `$startsWith` filter operator. Indexes in vector buckets created before September 30, 2026 use `CLASSIC` by default, including indexes you create in those buckets later. We recommend moving these indexes to `ENHANCED`.
+A vector index whose index mode is `ENHANCED` applies your metadata filter before the vector search, ensuring high recall even when filters match a small fraction of vectors, supports the `$startsWith` filter operator, and allows up to 40 KB of filterable metadata per vector. Indexes in vector buckets created before September 30, 2026 use `CLASSIC` by default, including indexes you create in those buckets later. We recommend moving these indexes to `ENHANCED`.
 
 Changing an index to `ENHANCED` takes effect in place, with no re-ingestion, no changes to your queries or your application, and no additional charge. To change an index's mode, call [UpdateIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateIndexMode.html). To see an index's current mode, call [GetIndex](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetIndex.html) or view the index's detail page in the Amazon S3 console.
 
@@ -19,7 +18,7 @@ Changing an index to `ENHANCED` takes effect in place, with no re-ingestion, no 
 
 1. Review the information in the confirmation dialog, select the acknowledgement, and then choose **Enable**.
 
-```
+```bash
 aws s3vectors update-index-mode --vector-bucket-name "amzn-s3-demo-vector-bucket" --index-name "idx" --index-mode "ENHANCED"
 ```
 
@@ -50,16 +49,16 @@ To move a vector bucket and its indexes to `ENHANCED`, complete the following st
 
 1. Call [UpdateIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateIndexMode.html) with `indexMode` set to `ENHANCED` on each of those indexes.
 
-```
+```bash
 aws s3vectors put-vector-bucket-default-index-mode --vector-bucket-name "amzn-s3-demo-vector-bucket" --default-index-mode "ENHANCED"
 ```
 
 ## Turn off the enhanced index mode
 <a name="s3-vectors-index-mode-turn-off"></a>
 
-Changing an index to `ENHANCED` is reversible if your vector bucket was created before September 30, 2026. You can change the index back to `CLASSIC` with the AWS CLI, the AWS SDKs, or the Amazon S3 REST API. You cannot do this from the Amazon S3 console.
+Changing an index to `ENHANCED` is reversible if your vector bucket was created before September 30, 2026 and the index has not accepted filterable metadata larger than 2 KB per vector. You can change the index back to `CLASSIC` with the AWS CLI, the AWS SDKs, or the Amazon S3 REST API. You cannot do this from the Amazon S3 console.
 
-```
+```bash
 aws s3vectors update-index-mode --vector-bucket-name "amzn-s3-demo-vector-bucket" --index-name "idx" --index-mode "CLASSIC"
 ```
 

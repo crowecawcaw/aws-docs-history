@@ -1,7 +1,6 @@
 
 
 # Making requests to S3 Tables over IPv6
-<a name="s3-tables-ipv6"></a>
 
 Amazon S3 supports the ability to access S3 buckets using the Internet Protocol version 6 (IPv6), in addition to the IPv4 protocol, using dual-stack endpoints. Dual-stack endpoints resolve to either an IPv6 endpoint or IPv4 endpoint depending on what your network supports.
 
@@ -26,7 +25,7 @@ When using the AWS CLI, AWS SDKs, and Iceberg clients, you can use a parameter o
 
 You can enable dual-stack endpoint resolution in SDKs or clients by setting the dual-stack flag using the following command:
 
-```
+```java
 S3TablesClient client = S3TablesClient.builder()
     .region(Region.US_EAST_1)
     .dualstackEnabled(true)

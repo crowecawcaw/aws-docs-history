@@ -1,7 +1,6 @@
 
 
 # Tagging your objects
-<a name="object-tagging"></a>
 
 Use object tagging to categorize storage. Each tag is a key-value pair.
 

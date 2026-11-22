@@ -1,12 +1,11 @@
 
 
 # Configuring a custom error document
-<a name="CustomErrorDocSupport"></a>
 
 After you configure your bucket as a static website, when an error occurs, Amazon S3 returns an HTML error document. You can optionally configure your bucket with a custom error document so that Amazon S3 returns that document when an error occurs. 
 
 **Note**  
-Some browsers display their own error message when an error occurs, ignoring the error document that Amazon S3 returns. For example, when an HTTP 404 Not Found error occurs, Google Chrome might ignore the error document that Amazon S3 returns and display its own error.
+Some browsers display their own error message when an error occurs, ignoring the error document that Amazon S3 returns. For example, when an `HTTP 404 Not Found` error occurs, Google Chrome might ignore the error document that Amazon S3 returns and display its own error.
 
 **Topics**
 + [Amazon S3 HTTP response codes](#s3-http-error-codes)
@@ -60,7 +59,7 @@ When you enable static website hosting for your bucket, you enter the name of th
 
 1. In the buckets list, choose the name of the bucket that you want to use to host a static website.
 
-1. Enable static website hosting for your bucket, and enter the exact name of your error document (for example, `404.html`). For more information, see [Enabling website hosting](EnableWebsiteHosting.md) and [Configuring a custom error document](#CustomErrorDocSupport).
+1. Enable static website hosting for your bucket, and enter the exact name of your error document (for example, `404.html`). For more information, see [Enabling website hosting](EnableWebsiteHosting.md) and [Configuring a custom error document](CustomErrorDocSupport.md).
 
    After enabling static website hosting, proceed to step 6. 
 

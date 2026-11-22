@@ -1,7 +1,6 @@
 
 
 # Cataloging and analyzing your data with S3 Inventory
-<a name="storage-inventory"></a>
 
 You can use Amazon S3 Inventory to help manage your storage. For example, you can use it to audit and report on the replication and encryption status of your objects for business, compliance, and regulatory needs. You can also simplify and speed up business workflows and big data jobs by using Amazon S3 Inventory, which provides a scheduled alternative to the Amazon S3 synchronous `List` API operations. Amazon S3 Inventory does not use the `List` API operations to audit your objects and does not affect the request rate of your bucket.
 
@@ -94,7 +93,7 @@ When you include the S3 Object Lock event hold duration field, the report also i
 The Object ACL field is defined in JSON format. An inventory report displays the value for the Object ACL field as a base64-encoded string.  
 For example, suppose that you have the following Object ACL field in JSON format:  
 
-  ```
+  ```json
   {
           "version": "2022-11-10",
           "status": "AVAILABLE",

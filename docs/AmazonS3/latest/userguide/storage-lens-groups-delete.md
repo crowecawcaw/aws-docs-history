@@ -1,7 +1,6 @@
 
 
 # Deleting a Storage Lens group
-<a name="storage-lens-groups-delete"></a>
 
 The following examples demonstrate how to delete an Amazon S3 Storage Lens group by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -27,7 +26,7 @@ After you delete a Storage Lens group, it can't be restored.
 
 The following AWS CLI example deletes the Storage Lens group named `{{marketing-department}}`. To use this example command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3control delete-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --name {{marketing-department}}
 ```
@@ -37,7 +36,7 @@ aws s3control delete-storage-lens-group --account-id {{111122223333}} \
 
 The following AWS SDK for Java example deletes the Storage Lens group named `{{Marketing-Department}}` in account `{{111122223333}}`. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;

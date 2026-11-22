@@ -1,7 +1,6 @@
 
 
 # Viewing metadata table configurations
-<a name="metadata-tables-view-configuration"></a>
 
 If you've created a metadata table configuration for a general purpose bucket, you can view information about the configuration, such as whether an inventory table or annotation table has been enabled, or whether journal table record expiration has been enabled. You can also view the status of your journal, inventory, and annotation tables. 
 
@@ -38,7 +37,7 @@ To use the following example command, replace the `{{user input placeholders}}` 
 
 1. Use the following command to view the metadata table configuration for your general purpose bucket (for example, `{{amzn-s3-demo-bucket}}`):
 
-   ```
+   ```bash
    aws s3api get-bucket-metadata-configuration \
    --bucket {{amzn-s3-demo-bucket}} \
    --region {{us-east-2}}
@@ -46,7 +45,7 @@ To use the following example command, replace the `{{user input placeholders}}` 
 
 1. View the output of this command to see the status of your metadata table configuration. For example:
 
-   ```
+   ```xml
    {
        "GetBucketMetadataConfigurationResult": {
            "MetadataConfigurationResult": {

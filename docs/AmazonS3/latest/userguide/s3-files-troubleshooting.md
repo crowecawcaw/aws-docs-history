@@ -1,7 +1,6 @@
 
 
 # Troubleshooting S3 Files
-<a name="s3-files-troubleshooting"></a>
 
 This page helps you diagnose and resolve common issues with S3 Files.
 + [Mount command fails](#s3-files-troubleshooting-mount-fails)
@@ -79,7 +78,7 @@ You wrote a file through the file system and expected it to appear as an object 
 
 Check the file's export status using extended attributes:
 
-```
+```bash
 getfattr -n "user.s3files.status;$(date -u +%s)" missing-file.txt --only-values
 ```
 
@@ -127,7 +126,7 @@ When S3 Files moves a file to the lost and found directory, it prepends the file
 
 Get the file's original path and the corresponding S3 object key:
 
-```
+```bash
 getfattr -n "user.s3files.status;$(date -u +%s)" .s3files-lost+found-{{fs-12345678}}/{{abcdef1234_report.csv}} --only-values
 ```
 
@@ -184,14 +183,14 @@ If you are troubleshooting mount, connectivity, or read bypass issues, you can e
 
 Edit `/etc/amazon/efs/s3files-utils.conf` and change the logging level from INFO to DEBUG:
 
-```
+```json
 [DEFAULT]
 logging_level = DEBUG
 ```
 
 Unmount and remount the file system for the change to take effect:
 
-```
+```bash
 sudo umount /mnt/s3files
 sudo mount -t s3files {{file-system-id}}:/ /mnt/s3files
 ```
@@ -202,7 +201,7 @@ Logs are written to `/var/log/amazon/efs/`. The mount helper log is `mount.log`.
 
 The proxy handles NFS traffic and S3 read bypass. To enable debug logging for the proxy, edit `/etc/amazon/efs/s3files-utils.conf`:
 
-```
+```json
 [proxy]
 proxy_logging_level = DEBUG
 ```
@@ -213,7 +212,7 @@ Unmount and remount for the change to take effect. Proxy logs are written to `/v
 
 TLS tunnel logs are disabled by default. To enable them, edit `/etc/amazon/efs/s3files-utils.conf` and set the following:
 
-```
+```json
 [mount]
 stunnel_debug_enabled = true
 ```
@@ -228,7 +227,7 @@ stunnel_logs_file = /var/log/amazon/efs/{fs_id}.stunnel.log
 
 Log files are rotated automatically. You can configure the maximum size and number of rotated files in `s3files-utils.conf`:
 
-```
+```json
 [DEFAULT]
 logging_max_bytes = 1048576
 logging_file_count = 10
@@ -240,7 +239,7 @@ The default is 1 MB per log file with 10 rotated files, for a maximum of 10 MB p
 
 When contacting AWS Support, collect the client logs and configuration into a single archive:
 
-```
+```bash
 sudo tar -czf /tmp/s3files-support-logs.tar.gz \
   /var/log/amazon/efs/ \
   /etc/amazon/efs/s3files-utils.conf

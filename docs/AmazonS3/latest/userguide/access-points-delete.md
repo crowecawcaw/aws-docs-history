@@ -1,7 +1,6 @@
 
 
 # Delete your access point for a general purpose bucket
-<a name="access-points-delete"></a>
 
 This section explains how to delete your access point for a general purpose bucket using the AWS Management Console, AWS Command Line Interface, or REST API.
 
@@ -31,7 +30,7 @@ The following `delete-access-point` example command shows how you can use the AW
 
 The following command deletes the access point {{my-access-point}} for AWS account {{111122223333}}.
 
-```
+```bash
 aws s3control delete-access-point --name {{my-access-point}} --account-id {{111122223333}}      
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Testing CORS
-<a name="testing-cors"></a>
 
 To test your CORS configuration, a CORS preflight request can be sent with the `OPTIONS` method so that the server can respond if it is acceptable to send the request. When Amazon S3 receives a preflight request, S3 evaluates the CORS configuration for the bucket and uses the first `CORSRule` rule that matches the incoming request to enable a cross-origin request. For a rule to match, the following conditions must be met: 
 + The `Origin` header in a CORS request to your bucket must match the origins in the `AllowedOrigins` element in your CORS configuration.
@@ -15,7 +14,7 @@ For guidance on configuring and troubleshooting CORS rules, see [How do I config
 ------
 #### [ JSON ]
 
-```
+```JSON
 [
     {
         "AllowedHeaders": [

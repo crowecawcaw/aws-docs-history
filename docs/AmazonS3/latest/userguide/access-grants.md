@@ -1,7 +1,6 @@
 
 
 # Managing access with S3 Access Grants
-<a name="access-grants"></a>
 
 To adhere to the principle of least privilege, you define granular access to your Amazon S3 data based on applications, personas, groups, or organizational units. You can use various approaches to achieve granular access to your data in Amazon S3, depending on the scale and complexity of the access patterns. 
 

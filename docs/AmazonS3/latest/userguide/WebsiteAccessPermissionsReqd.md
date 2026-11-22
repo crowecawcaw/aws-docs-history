@@ -1,7 +1,6 @@
 
 
 # Setting permissions for website access
-<a name="WebsiteAccessPermissionsReqd"></a>
 
 When you configure a bucket as a static website, if you want your website to be public, you can grant public read access. To make your bucket publicly readable, you must disable block public access settings for the bucket and write a bucket policy that grants public read access. If your bucket contains objects that are not owned by the bucket owner, you might also need to add an object access control list (ACL) that grants everyone read access.
 
@@ -103,7 +102,7 @@ If your general purpose bucket uses the Bucket owner enforced setting for S3 Obj
 
 To make an object publicly readable using an ACL, grant READ permission to the `AllUsers` group, as shown in the following grant element. Add this grant element to the object ACL. For information about managing ACLs, see [Access control list (ACL) overview](acl-overview.md).
 
-```
+```xml
 1. <Grant>
 2.   <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 3.           xsi:type="Group">

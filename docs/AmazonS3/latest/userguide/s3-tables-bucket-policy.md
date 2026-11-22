@@ -1,7 +1,6 @@
 
 
 # Managing table bucket policies
-<a name="s3-tables-bucket-policy"></a>
 
 You can add, delete, update, and view bucket policies for Amazon S3 table buckets by using the Amazon S3 REST API, AWS SDKs, and the AWS Command Line Interface (AWS CLI). For more information, see the following topics. 
 
@@ -20,7 +19,7 @@ To add a bucket policy to a table bucket, use the following AWS CLI example.
 
 This example shows how to create a table bucket policy by using the AWS CLI. To use the command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3tables put-table-bucket-policy \
     --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-bucket1}}  \
     --resource-policy {{your-policy-JSON}}
@@ -55,7 +54,7 @@ To view the bucket policy that's attached to a table bucket, use the following A
 
 This example shows how to view the policy that's attached to a table bucket by using the AWS CLI. To use the command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3tables get-table-bucket-policy --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-bucket1}}
 ```
 
@@ -80,7 +79,7 @@ To delete a bucket policy that's attached to a table bucket, use the following A
 
 This example shows how to delete a table bucket policy by using the AWS CLI. To use the command, replace the `{{user input placeholders}}` with your own information.
 
-```
+```bash
 aws s3tables delete-table-bucket-policy --table-bucket-arn arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/{{amzn-s3-demo-bucket1}}
 ```
 

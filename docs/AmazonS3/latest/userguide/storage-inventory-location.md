@@ -1,11 +1,10 @@
 
 
 # Locating your inventory list
-<a name="storage-inventory-location"></a>
 
 When an inventory list is published, the manifest files are published to the following location in the destination bucket.
 
-```
+```xml
 {{destination-prefix}}/{{{{amzn-s3-demo-source-bucket}}}}/{{config-ID}}/{{YYYY-MM-DDTHH-MMZ}}/manifest.json
  {{destination-prefix}}/{{{{amzn-s3-demo-source-bucket}}}}/{{config-ID}}/{{YYYY-MM-DDTHH-MMZ}}/manifest.checksum
  {{destination-prefix}}/{{{{amzn-s3-demo-source-bucket}}}}/{{config-ID}}/hive/dt={{YYYY-MM-DD-HH-MM}}/symlink.txt
@@ -20,7 +19,7 @@ When an inventory list is published, the manifest files are published to the fol
 
 The inventory lists are published daily or weekly to the following location in the destination bucket.
 
-```
+```xml
 {{destination-prefix}}/{{{{amzn-s3-demo-source-bucket}}}}/{{config-ID}}/data/{{example-file-name.csv.gz}}
 ...
 {{destination-prefix}}/{{{{amzn-s3-demo-source-bucket}}}}/{{config-ID}}/data/{{example-file-name-1.csv.gz}}
@@ -48,7 +47,7 @@ Whenever a `manifest.json` file is written, it is accompanied by a `manifest.che
 The following examples show an inventory manifest in a `manifest.json` file for CSV, ORC, and Parquet-formatted inventories.  
 The following is an example of a manifest in a `manifest.json` file for a CSV-formatted inventory.  
 
-```
+```json
 {
     "sourceBucket": "{{amzn-s3-demo-source-bucket}}",
     "destinationBucket": "arn:aws:s3:::example-inventory-destination-bucket",
@@ -67,7 +66,7 @@ The following is an example of a manifest in a `manifest.json` file for a CSV-fo
 ```
 The following is an example of a manifest in a `manifest.json` file for an ORC-formatted inventory.  
 
-```
+```json
 {
     "sourceBucket": "{{amzn-s3-demo-source-bucket}}",
     "destinationBucket": "arn:aws:s3:::example-destination-bucket",
@@ -86,7 +85,7 @@ The following is an example of a manifest in a `manifest.json` file for an ORC-f
 ```
 The following is an example of a manifest in a `manifest.json` file for a Parquet-formatted inventory.  
 
-```
+```json
 {
     "sourceBucket": "{{amzn-s3-demo-source-bucket}}",
     "destinationBucket": "arn:aws:s3:::example-destination-bucket",

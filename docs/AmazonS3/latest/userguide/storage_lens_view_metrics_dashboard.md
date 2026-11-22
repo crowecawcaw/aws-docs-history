@@ -1,7 +1,6 @@
 
 
 # Viewing S3 Storage Lens metrics on the dashboards
-<a name="storage_lens_view_metrics_dashboard"></a>
 
 In the Amazon S3 console, S3 Storage Lens provides an interactive default dashboard that you can use to visualize insights and trends in your data. You can also use this dashboard to flag outliers and receive recommendations for optimizing storage costs and applying data-protection best practices. Your dashboard has drill-down options to generate insights at the account, bucket, AWS Region, prefix, or Storage Lens group level. If you've enabled S3 Storage Lens to work with AWS Organizations, you can also generate insights at the organization level (such as data for all accounts that are part of your AWS Organizations hierarchy). The dashboard always loads for the latest date that has metrics available.
 
@@ -132,3 +131,11 @@ The dimension-level tabs provide a detailed view of all values within a particul
 + A histogram chart that shows a vertical bar chart for the selected date and metric. If you have a large number of items to display in this chart, you might need to scroll horizontally.
 + A bubble analysis chart that plots all items within the dimension. This chart represents the first metric on the x axis and the second metric on the y axis. The third metric is represented by the size of the bubble. 
 + A metric grid view that contains each item in the dimension listed in rows. The columns represent each available metric, arranged in metrics category tabs for easier navigation. 
+
+### Intelligent-Tiering access tier metrics in the Storage classes tab
+<a name="storage-lens-int-access-tier-breakdown-dashboard"></a>
+
+When you enable the Intelligent-Tiering access tier metrics (`IntAccessTiers`) feature for your S3 Storage Lens configuration, the **Storage classes** tab shows core storage metrics broken down by S3 Intelligent-Tiering access tier:
++ In the trend view, in addition to the **All storage classes** trend, you can view a trend for **Intelligent-Tiering access tiers** to compare storage across access tiers over time.
++ In the distribution view, in addition to viewing a metric **by storage class**, you can view it **by Intelligent-Tiering access tier**.
++ The existing **Storage Classes** table adds per-tier sub-rows under the `INTELLIGENT_TIERING` row.

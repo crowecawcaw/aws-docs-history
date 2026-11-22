@@ -1,13 +1,12 @@
 
 
 # Configuring Storage Browser for S3
-<a name="s3config-storagebrowser"></a>
 
 To allow Storage Browser for S3 access to S3 buckets, the Storage Browser component makes the REST API calls to Amazon S3. By default, [cross-origin resource sharing (CORS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) isn’t enabled on S3 buckets. As a result, you must enable CORS for each S3 bucket that Storage Browser is accessing data from.
 
 For example, to enable CORS on your S3 bucket, you can update your CORS policy like this:
 
-```
+```json
 [
     {
         "ID": "S3CORSRuleId1",

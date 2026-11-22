@@ -1,7 +1,6 @@
 
 
 # Data residency workloads
-<a name="directory-bucket-data-residency"></a>
 
 S3 directory buckets are available in AWS Dedicated Local Zones and in select AWS Local Zones. AWS Dedicated Local Zones (Dedicated Local Zones) are a type of AWS infrastructure that is fully managed by AWS, built for exclusive use by you or your community, and placed in a location or data center specified by you to help comply with regulatory requirements. Dedicated Local Zones are a type of AWS Local Zones (Local Zones) offering. For more information, see [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones/).
 

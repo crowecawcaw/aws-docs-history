@@ -1,7 +1,6 @@
 
 
 # Mounting your S3 buckets on compute resources
-<a name="s3-files-attach-compute"></a>
 
 You can mount an S3 file system on compute resources to access your S3 data as files. Your compute resource must run in the same Amazon Virtual Private Cloud (Amazon VPC) as the S3 file system. All compute resources communicate with the file system through mount targets on NFS port 2049.
 

@@ -1,7 +1,6 @@
 
 
 # Creating a vector bucket
-<a name="s3-vectors-buckets-create"></a>
 
 You can create a vector bucket using the S3 console or the AWS CLI. All data stored in vector buckets are always encrypted at rest. By default, vector buckets use SSE-S3 to encrypt vector data. You can choose to configure buckets to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) instead. The bucket encryption settings can’t be changed after a vector bucket is created, so it's important to choose the appropriate encryption method based on your security requirements and compliance needs. For more information about security in vector buckets, see [Data protection and encryption in S3 Vectors](s3-vectors-data-encryption.md). 
 
@@ -75,7 +74,7 @@ aws s3vectors create-vector-bucket \
 ------
 #### [ SDK for Python (Boto3) ]
 
-```
+```Python
 import boto3
 
 # Create a S3 Vectors client in the AWS Region of your choice. 

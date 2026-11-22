@@ -1,7 +1,6 @@
 
 
 # Reviewing bucket access using IAM Access Analyzer for S3
-<a name="access-analyzer"></a>
 
 IAM Access Analyzer for S3 provides external access findings for your S3 general purpose buckets that are configured to allow access to anyone on the internet (public) or other AWS accounts, including AWS accounts outside of your organization. For each bucket that's shared publicly or with other AWS accounts, you receive findings into the source and level of shared access. For example, IAM Access Analyzer for S3 might show that a bucket has read or write access provided through a bucket access control list (ACL), a bucket policy, a Multi-Region Access Point policy, or an access point policy. With these findings, you can take immediate and precise corrective action to restore your bucket access to what you intended. 
 
@@ -60,7 +59,7 @@ The **External access summary** only includes findings for external access analy
 
 1. Expand the **External access summary**. The console displays active public and cross-account access findings.
 **Note**  
-If S3 experiences an issue loading bucket details, refresh the general purpose buckets list or view findings in IAM Access Analyzer for S3. For more information, see [Reviewing bucket access using IAM Access Analyzer for S3](#access-analyzer).
+If S3 experiences an issue loading bucket details, refresh the general purpose buckets list or view findings in IAM Access Analyzer for S3. For more information, see [Reviewing bucket access using IAM Access Analyzer for S3](access-analyzer.md).
 
 1. To view a list of findings or errors for an AWS Region, choose the link to the Region. The IAM Access Analyzer for S3 page displays names of buckets that can be accessed publicly or by other AWS accounts. For more information, see [Information provided by IAM Access Analyzer for S3](#access-analyzer-information-s3).
 
@@ -73,7 +72,7 @@ If S3 experiences an issue loading bucket details, refresh the general purpose b
 
 1. Expand the **External access summary**. The console displays active findings for buckets that can be accessed publicly or by other AWS accounts.
 **Note**  
-If S3 experiences an issue loading bucket details, refresh the general purpose buckets list or view findings in IAM Access Analyzer for S3. For more information, see [Reviewing bucket access using IAM Access Analyzer for S3](#access-analyzer).
+If S3 experiences an issue loading bucket details, refresh the general purpose buckets list or view findings in IAM Access Analyzer for S3. For more information, see [Reviewing bucket access using IAM Access Analyzer for S3](access-analyzer.md).
 
 1. To view a list of findings or errors for an AWS Region, choose the link to the Region. The IAM Access Analyzer for S3 displays active findings for buckets that can be accessed publicly or by other AWS accounts.
 **Note**  

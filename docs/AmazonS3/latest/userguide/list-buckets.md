@@ -1,7 +1,6 @@
 
 
 # Listing Amazon S3 general purpose buckets
-<a name="list-buckets"></a>
 
 To return a list of general purpose buckets that you own, you can use [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.htm). You can list your buckets by using the Amazon S3 console, the AWS Command Line Interface, or the AWS SDKs. For `ListBuckets` requests using the AWS CLI, AWS SDKs, and Amazon S3 REST API, AWS accounts that use the default service quota for buckets (10,000 buckets), support both paginated and unpaginated requests. Regardless of how many buckets you have in your account, you can create page sizes between 1 and 10,000 buckets to list all of your buckets. For paginated requests, `ListBuckets` requests return both the bucket names and the corresponding AWS Regions for each bucket. The following AWS Command Line Interface and AWS SDK examples show you how to use pagination in your `ListBuckets` request. Note that some AWS SDKs assist with pagination. 
 
@@ -30,7 +29,7 @@ To use the AWS CLI to generate a listing of general purpose buckets, you can use
 **Example – List all the buckets in your account by using `ls` (unpaginated)**  
 The following example command lists all the general purpose buckets in your account in a single non-paginated call. This call returns a list of all buckets in your account (up to 10,000 results):  
 
-```
+```bash
 $ aws s3 ls
 ```
 For more information and examples, see [List bucket and objects](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html#using-s3-commands-listing-buckets).  
@@ -39,7 +38,7 @@ For more information and examples, see [List bucket and objects](https://docs.aw
 **Example – List all the buckets in your account by using `ls` (paginated)**  
 The following example command makes one or more paginated calls to list all the general purpose buckets in your account, returning 100 buckets per page:  
 
-```
+```bash
 $ aws s3 ls --page-size {{100}}
 ```
 For more information and examples, see [List bucket and objects](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html#using-s3-commands-listing-buckets).  
@@ -66,7 +65,7 @@ $ aws s3api list-buckets /
 **Example – List all the buckets in an AWS Region (paginated)**  
 The following example command uses the `--bucket-region` parameter to list up to 100 buckets in an account that are in the `us-east-2` Region. Requests made to a Regional endpoint that is different from the value specified in the `--bucket-region` parameter are not supported. For example, if you want to limit the response to your buckets in `us-east-2`, you must make your request to an endpoint in `us-east-2`.  
 
-```
+```bash
 $ aws s3api list-buckets /
     --region {{us-east-2}} /
     --max-items {{100}} / 
@@ -78,7 +77,7 @@ $ aws s3api list-buckets /
 **Example – List all the buckets that begin with a specific bucket name prefix (paginated)**  
 The following example command lists up to 100 buckets that have a name starting with the {{amzn-s3-demo-bucket}} prefix.   
 
-```
+```bash
 $ aws s3api list-buckets /
     --max-items {{100}} /
     --page-size {{100}} /
@@ -95,7 +94,7 @@ The following examples show you how to list your general purpose buckets by usin
 
 **Example – ListBuckets request (paginated)**  
 
-```
+```python
 import boto3
 
 s3 = boto3.client('s3')
@@ -104,7 +103,7 @@ response = s3.list_buckets(MaxBuckets={{100}})
 
 **Example – ListBuckets response (paginated)**  
 
-```
+```python
 import boto3
 
 s3 = boto3.client('s3')
@@ -119,7 +118,7 @@ For examples of how to list buckets with the AWS SDK for Java, see [List buckets
 ------
 #### [ SDK for Go ]
 
-```
+```go
 package main
 import (
  "context"

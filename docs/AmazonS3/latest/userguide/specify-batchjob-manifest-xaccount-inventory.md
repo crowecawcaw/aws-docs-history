@@ -1,7 +1,6 @@
 
 
 # Using an inventory report to copy objects across AWS accounts
-<a name="specify-batchjob-manifest-xaccount-inventory"></a>
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects. You can use S3 Batch Operations to create a **Copy** (`CopyObject`) job to copy objects within the same account or to a different destination account.
 
@@ -35,7 +34,7 @@ The following console procedure contains the high-level steps for setting up per
 
    After the inventory configuration is saved, the console displays a message similar to the following: 
 
-   Amazon S3 could not create a bucket policy on the destination bucket. Ask the destination bucket owner to add the following bucket policy to allow Amazon S3 to place data in that bucket.
+   `Amazon S3 could not create a bucket policy on the destination bucket. Ask the destination bucket owner to add the following bucket policy to allow Amazon S3 to place data in that bucket.`
 
    The console then displays a bucket policy that you can use for the destination bucket.
 
@@ -51,7 +50,7 @@ The following console procedure contains the high-level steps for setting up per
 
    Then choose **Create policy** to attach the following policy to the role. To use this policy, replace the {{`user input placeholders`}} with your own information. 
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -89,7 +88,7 @@ The following console procedure contains the high-level steps for setting up per
 
    The following is an example of the bucket policy for the source account. To use this policy, replace the {{`user input placeholders`}} with your own information.
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

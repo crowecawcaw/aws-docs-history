@@ -1,7 +1,6 @@
 
 
 # Troubleshooting S3 Lifecycle issues for directory buckets
-<a name="directory-buckets-lifecycle-troubleshooting"></a>
 
 **Topics**
 + [I set up my lifecycle configuration but objects in my directory bucket are not expiring](#troubleshoot-directory-bucket-lifecycle-1)

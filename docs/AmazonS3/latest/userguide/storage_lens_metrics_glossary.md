@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Storage Lens metrics glossary
-<a name="storage_lens_metrics_glossary"></a>
 
 The Amazon S3 Storage Lens metrics glossary provides a complete list of free and advanced metrics for S3 Storage Lens.
 
@@ -28,137 +27,144 @@ When an object reaches the end of its lifetime based on its lifecycle configurat
 Amazon S3 stores metadata (object key, timestamps, etc.) for every object, which requires minimum storage even for 0KB data files. This is why 0KB objects appear in the (0KB-128KB] size range in S3 Storage Lens.
 S3 Storage Lens provides best-effort tracking of cross-region data transfers, primarily focusing on requests from customer-managed resources like EC2 instances. Requests made through AWS PrivateLink or certain in-Region requests are unclassified.
 
+**Intelligent-Tiering access tier metrics**  
+When you enable the Intelligent-Tiering access tier metrics (`IntAccessTiers`) feature, S3 Storage Lens breaks down eligible core storage metrics by S3 Intelligent-Tiering access tier.
+
+When the feature is enabled, S3 Storage Lens presents the per-access-tier breakdown as follows:
++ In the Amazon S3 console and in CloudWatch metrics, S3 Storage Lens shows the per-access-tier breakdown together with the aggregated `INTELLIGENT_TIERING` storage class value.
++ In metrics exports, S3 Storage Lens publishes the per-access-tier values only and identifies the tier in the `int_access_tier` field. The aggregated values aren't published in exports. Metrics that aren't in scope are unchanged and have a null `int_access_tier` value.
+
  The following table shows the S3 Storage Lens metrics glossary. 
 
 
-| Metric name | CloudWatch and export | Description | Tier1 | Category2 | Derived | Derived metric formula | Storage Lens groups | 
-| --- | --- | --- | --- | --- | --- | --- | --- | 
-| Total storage | StorageBytes | Total storage, inclusive of incomplete multipart uploads, object metadata, and delete markers | Free | Summary | N | - | Y | 
-| Object count | ObjectCount | Total number of objects inclusive of current version, noncurrent versions, incomplete multipart uploads, and delete markers | Free | Summary | N | - | Y | 
-| Average object size | - | Average object size | Free | Summary | Y | sum(StorageBytes)/sum(ObjectCount) | Y | 
-| Active buckets | - | Number of buckets with storage > 0 bytes | Free | Summary | Y | - | Y | 
-| Buckets | - | Number of buckets | Free | Summary | Y | - | Y | 
-| Accounts | - | Number of accounts whose storage is in scope | Free | Summary | Y | - | Y | 
-| Current version bytes | CurrentVersionStorageBytes | Number of bytes that are a current version of an object | Free | Cost optimization | N | - | Y | 
-| % current version bytes | - | Percentage of bytes in scope that are current versions of objects | Free | Cost optimization | Y | sum(CurrentVersionStorageBytes)/sum(StorageBytes) | Y | 
-| Current version object count | CurrentVersionObjectCount | Count of current version objects, inclusive of current delete markers | Free | Data protection | N | - | Y | 
-| % current version objects | - | Percentage of objects in scope that are a current version | Free | Cost optimization | Y | sum(CurrentVersionObjectCount)/sum(ObjectCount) | Y | 
-| Noncurrent version bytes | NonCurrentVersionStorageBytes | Number of noncurrent version bytes | Free | Cost optimization | N | - | Y | 
-| % noncurrent version bytes | - | Percentage of bytes in scope that are noncurrent versions | Free | Cost optimization | Y | sum(NonCurrentVersionStorageBytes)/sum(StorageBytes) | Y | 
-| Noncurrent version object count | NonCurrentVersionObjectCount | Count of the noncurrent object versions, inclusive of noncurrent delete markers | Free | Cost optimization | N | - | Y | 
-| % noncurrent version objects | - | Percentage of objects in scope that are a noncurrent version | Free | Cost optimization | Y | sum(NonCurrentVersionObjectCount)/sum(ObjectCount) | Y | 
-| Delete marker bytes | DeleteMarkerStorageBytes | Number of bytes in scope that are delete markers | Free | Cost optimization | N | - | Y | 
-| % delete marker bytes | - | Percentage of bytes in scope that are delete markers | Free | Cost optimization | Y | sum(DeleteMarkerStorageBytes)/sum(StorageBytes) | Y | 
-| Delete marker object count | DeleteMarkerObjectCount | Count of objects with a delete marker, both current and noncurrent | Free | Cost optimization | N | - | Y | 
-| % delete marker objects | - | Percentage of objects in scope with a delete marker | Free | Cost optimization | Y | sum(DeleteMarkerObjectCount)/sum(ObjectCount) | Y | 
-| Incomplete multipart upload bytes | IncompleteMultipartUploadStorageBytes | Total bytes in scope for incomplete multipart uploads | Free | Cost optimization | N | - | Y | 
-| % incomplete multipart upload bytes | - | Percentage of bytes in scope that are the result of incomplete multipart uploads | Free | Cost optimization | Y | sum(IncompleteMultipartUploadStorageBytes)/sum(StorageBytes) | Y | 
-| Incomplete multipart upload object count | IncompleteMultipartUploadObjectCount | Number of objects in scope that are incomplete multipart uploads | Free | Cost optimization | N | - | Y | 
-| % incomplete multipart upload objects | - | Percentage of objects in scope that are incomplete multipart uploads | Free | Cost optimization | Y | sum(IncompleteMultipartUploadObjectCount)/sum(ObjectCount) | Y | 
-| Incomplete multipart upload storage bytes greater than 7 days old | IncompleteMPUStorageBytesOlderThan7Days | Total bytes in scope for incomplete multipart uploads that are more than 7 days old | Free | Cost optimization | N | - | Y | 
-| % incomplete multipart upload storage bytes greater than 7 days old | - | Percentage of bytes for incomplete multipart uploads that are more than 7 days old | Free | Cost optimization | Y | sum(IncompleteMPUStorageBytesOlderThan7Days)/sum(StorageBytes) | Y | 
-| Incomplete multipart upload object count greater than 7 days old | IncompleteMPUObjectCountOlderThan7Days | Number of objects that are incomplete multipart uploads more than 7 days old | Free | Cost optimization | N | - | Y | 
-| % incomplete multipart upload object count greater than 7 days old | - | Percentage of objects that are incomplete multipart uploads more than 7 days old | Free | Cost optimization | Y | sum(IncompleteMPUObjectCountOlderThan7Days)/sum(ObjectCount) | Y | 
-| Transition lifecycle rule count | TransitionLifecycleRuleCount | Number of lifecycle rules to transition objects to another storage class | Advanced | Cost optimization | N | - | N | 
-| Average transition lifecycle rules per bucket | - | Average number of lifecycle rules to transition objects to another storage class | Advanced | Cost optimization | Y | sum(TransitionLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Expiration lifecycle rule count | ExpirationLifecycleRuleCount | Number of lifecycle rules to expire objects | Advanced | Cost optimization | N | - | N | 
-| Average expiration lifecycle rules per bucket | - | Average number of lifecycle rules to expire objects | Advanced | Cost optimization | Y | sum(ExpirationLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Noncurrent version transition lifecycle rule count | NoncurrentVersionTransitionLifecycleRuleCount | Number of lifecycle rules to transition noncurrent object versions to another storage class | Advanced | Cost optimization | N | - | N | 
-| Average noncurrent version transition lifecycle rules per bucket | - | Average number of lifecycle rules to transition noncurrent object versions to another storage class | Advanced | Cost optimization | Y | sum(NoncurrentVersionTransitionLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | 
-| Noncurrent version expiration lifecycle rule count | NoncurrentVersionExpirationLifecycleRuleCount | Number of lifecycle rules to expire noncurrent object versions | Advanced | Cost optimization | N | - | N | 
-| Average noncurrent version expiration lifecycle rules per bucket | - | Average number of lifecycle rules to expire noncurrent object versions | Advanced | Cost optimization | Y | sum(NoncurrentVersionExpirationLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | 
-| Abort incomplete multipart upload lifecycle rule count | AbortIncompleteMPULifecycleRuleCount | Number of lifecycle rules to delete incomplete multipart uploads | Advanced | Cost optimization | N | - | N | 
-| Average abort incomplete multipart upload lifecycle rules per bucket | - | Average number of lifecycle rules to delete incomplete multipart uploads | Advanced | Cost optimization | Y | sum(AbortIncompleteMPULifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Expired object delete marker lifecycle rule count | ExpiredObjectDeleteMarkerLifecycleRuleCount | Number of lifecycle rules to remove expired object delete markers | Advanced | Cost optimization | N | - | N | 
-| Average expired object delete marker lifecycle rules per bucket | - | Average number of lifecycle rules to remove expired object delete markers | Advanced | Cost optimization | Y | sum(ExpiredObjectDeleteMarkerLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | 
-| Total lifecycle rule count | TotalLifecycleRuleCount | Number of lifecycle rules | Advanced | Cost optimization | N | - | N | 
-| Average lifecycle rule count per bucket | - | Average number of lifecycle rules | Advanced | Cost optimization | Y | sum(TotalLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Encrypted bytes | EncryptedStorageBytes | Number of encrypted bytes | Free | Data protection | N | - | Y | 
-| % encrypted bytes | - | Percentage of total bytes that are encrypted | Free | Data protection | Y | sum(EncryptedStorageBytes)/(sum(StorageBytes) - sum(DeleteMarkerStorageBytes)) | Y | 
-| Encrypted object count | EncryptedObjectCount | Number of objects that are encrypted | Free | Data protection | N | - | Y | 
-| % encrypted objects | - | Percentage of objects that are encrypted | Free | Data protection | Y | sum(EncryptedObjectCount)/(sum(ObjectCount) - sum(DeleteMarkerObjectCount)) | Y | 
-| Unencrypted bytes | - | Number of bytes that are unencrypted | Free | Data protection | Y | sum(StorageBytes) - sum(DeleteMarkerStorageBytes) - sum(EncryptedStorageBytes) | Y | 
-| % unencrypted bytes | - | Percentage of bytes that are unencrypted | Free | Data protection | Y | sum(UnencryptedStorageBytes)/(sum(StorageBytes) - sum(DeleteMarkerStorageBytes)) | Y | 
-| Unencrypted object count | - | Number of objects that are unencrypted | Free | Data protection | Y | sum(ObjectCount) - sum(DeleteMarkerObjectCount) - sum(EncryptedObjectCount) | Y | 
-| % unencrypted objects | - | Percentage of unencrypted objects | Free | Data protection | Y | sum(UnencryptedObjectCount)/(sum(ObjectCount) - sum(DeleteMarkerObjectCount)) | Y | 
-| Replicated storage bytes source | ReplicatedStorageBytesSource | Number of bytes that are replicated from the source bucket | Free | Data protection | N | - | Y | 
-| % replicated bytes source | - | Percentage of total bytes that are replicated from the source bucket | Free | Data protection | Y | sum(ReplicatedStorageBytesSource)/sum(StorageBytes) | Y | 
-| Replicated object count source | ReplicatedObjectCountSource | Number of replicated objects from the source bucket | Free | Data protection | N | - | Y | 
-| % replicated objects source | - | Percentage of total objects that are replicated from the source bucket | Free | Data protection | Y | sum(ReplicatedObjectCountSource)/sum(ObjectCount) | Y | 
-| Replicated storage bytes destination | ReplicatedStorageBytes | Number of bytes that are replicated to the destination bucket | Free | Data protection | N | - | N | 
-| % replicated bytes destination | - | Percentage of total bytes that are replicated to the destination bucket | Free | Data protection | Y | sum(ReplicatedStorageBytes)/sum(StorageBytes) | Y | 
-| Replicated object count destination | ReplicatedObjectCount | Number of objects that are replicated to the destination bucket | Free | Data protection | N | - | Y | 
-| % replicated objects destination | - | Percentage of total objects that are replicated to the destination bucket | Free | Data protection | Y | sum(ReplicatedObjectCount)/sum(ObjectCount) | Y | 
-| Object Lock bytes | ObjectLockEnabledStorageBytes | Number of Object Lock enabled storage bytes | Free | Data protection | N | - | Y | 
-| % Object Lock bytes | - | Percentage of Object Lock enabled storage bytes | Free | Data protection | Y | sum(ObjectLockEnabledStorageBytes)/sum(StorageBytes) | Y | 
-| Object Lock object count | ObjectLockEnabledObjectCount | Number of Object Lock objects | Free | Data protection | N | - | Y | 
-| % Object Lock objects | - | Percentage of total objects that have Object Lock enabled | Free | Data protection | Y | sum(ObjectLockEnabledObjectCount)/sum(ObjectCount) | Y | 
-| Versioning-enabled bucket count | VersioningEnabledBucketCount | Number of buckets that have S3 Versioning enabled | Free | Data protection | N | - | N | 
-| % versioning-enabled buckets | - | Percentage of buckets that have S3 Versioning enabled | Free | Data protection | Y | sum(VersioningEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| MFA delete-enabled bucket count | MFADeleteEnabledBucketCount | Number of buckets that have MFA (multi-factor authentication) delete enabled | Free | Data protection | N | - | N | 
-| % MFA delete-enabled buckets | - | Percentage of buckets that have MFA (multi-factor authentication) delete enabled | Free | Data protection | Y | sum(MFADeleteEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| SSE-KMS enabled bucket count | SSEKMSEnabledBucketCount | Number of buckets that use server-side encryption with AWS Key Management Service keys (SSE-KMS) for default bucket encryption | Free | Data protection | N | - | N | 
-| % SSE-KMS enabled buckets | - | Percentage of buckets that SSE-KMS for default bucket encryption | Free | Data protection | Y | sum(SSEKMSEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| All unsupported signature requests | AllUnsupportedSignatureRequests | Total number of requests that use unsupported AWS signature versions | Advanced | Data protection | N | - | N | 
-| % all unsupported signature requests | - | Percentage of requests that use unsupported AWS signature versions | Advanced | Data protection | Y | sum(AllUnsupportedSignatureRequests)/sum(AllRequests) | N | 
-| All unsupported TLS requests | AllUnsupportedTLSRequests | Total number of requests that use unsupported Transport Layer Security (TLS) versions | Advanced | Data protection | N | - | N | 
-| % all unsupported TLS requests | - | Percentage of requests that use unsupported TLS versions | Advanced | Data protection | Y | sum(AllUnsupportedTLSRequests)/sum(AllRequests) | N | 
-| All SSE-KMS requests | AllSSEKMSRequests | Total number of requests that specify SSE-KMS | Advanced | Data protection | N | - | N | 
-| % all SSE-KMS requests | - | Percentage of requests that specify SSE-KMS | Advanced | Data protection | Y | sum(AllSSEKMSRequests)/sum(AllRequests) | N | 
-| Same-Region Replication rule count | SameRegionReplicationRuleCount | Number of replication rules for Same-Region Replication (SRR) | Advanced | Data protection | N | - | N | 
-| Average Same-Region Replication rules per bucket | - | Average number of replication rules for SRR | Advanced | Data protection | Y | sum(SameRegionReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Cross-Region Replication rule count | CrossRegionReplicationRuleCount | Number of replication rules for Cross-Region Replication (CRR) | Advanced | Data protection | N | - | N | 
-| Average Cross-Region Replication rules per bucket | - | Average number of replication rules for CRR | Advanced | Data protection | Y | sum(CrossRegionReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Same-account replication rule count | SameAccountReplicationRuleCount | Number of replication rules for replication within the same account | Advanced | Data protection | N | - | N | 
-| Average same-account replication rules per bucket | - | Average number of replication rules for replication within the same account | Advanced | Data protection | Y | sum(SameAccountReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Cross-account replication rule count | CrossAccountReplicationRuleCount | Number of replication rules for cross-account replication | Advanced | Data protection | N | - | N | 
-| Average cross-account replication rules per bucket | - | Average number of replication rules for cross-account replication | Advanced | Data protection | Y | sum(CrossAccountReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Invalid destination replication rule count | InvalidDestinationReplicationRuleCount | Number of replication rules with a replication destination that's not valid | Advanced | Data protection | N | - | N | 
-| Average invalid destination replication rules per bucket | - | Average number of replication rules with a replication destination that's not valid | Advanced | Data protection | Y | sum(InvalidDestinationReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | 
-| Total replication rule count | - | Total replication rule count | Advanced | Data protection | Y | sum(InvalidDestinationReplicationRuleCount) \+ sum(CrossAccountReplicationRuleCount) \+ sum(SameAccountReplicationRuleCount) | N | 
-| Average replication rule count per bucket | - | Average total replication rule count | Advanced | Data protection | Y | (sum(InvalidDestinationReplicationRuleCount) \+ sum(CrossAccountReplicationRuleCount) \+ sum(SameAccountReplicationRuleCount))/sum(DistinctNumberOfBuckets) | N | 
-| Object Ownership bucket owner enforced bucket count | ObjectOwnershipBucketOwnerEnforcedBucketCount | Number of buckets that have access control lists (ACLs) disabled by using the bucket owner enforced setting for Object Ownership | Free | Access management | N | - | N | 
-| % Object Ownership bucket owner enforced buckets | - | Percentage of buckets that have ACLs disabled by using the bucket owner enforced setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipBucketOwnerEnforcedBucketCount)/sum(DistinctNumberOfBuckets)  | N | 
-| Object Ownership bucket owner preferred bucket count | ObjectOwnershipBucketOwnerPreferredBucketCount | Number of buckets that use the bucket owner preferred setting for Object Ownership | Free | Access management | N | - | N | 
-| % Object Ownership bucket owner preferred buckets | - | Percentage of buckets that use the bucket owner preferred setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipBucketOwnerPreferredBucketCount)/sum(DistinctNumberOfBuckets)  | N | 
-| Object Ownership object writer bucket count | ObjectOwnershipObjectWriterBucketCount | Number of buckets that use the object writer setting for Object Ownership | Free | Access management | N | - | N | 
-| % Object Ownership object writer buckets | - | Percentage of buckets that use the object writer setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipObjectWriterBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| Transfer Acceleration enabled bucket count | TransferAccelerationEnabledBucketCount | Number of buckets that have Transfer Acceleration enabled | Free | Performance | N | - | N | 
-| % Transfer Acceleration enabled buckets | - | Percentage of buckets that have Transfer Acceleration enabled | Free | Performance | Y | sum(TransferAccelerationEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| Event Notification enabled bucket count | EventNotificationEnabledBucketCount | Number of buckets that have Event Notifications enabled | Free | Events | N | - | N | 
-| % Event Notification enabled buckets | - | Percentage of buckets that have Event Notifications enabled | Free | Events | Y | sum(EventNotificationEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | 
-| All requests | AllRequests | Total number of requests made  | Advanced | Activity | N | - | N | 
-| Get requests | GetRequests | Total number of `GET` requests made | Advanced | Activity | N | - | N | 
-| Put requests | PutRequests | Total number of `PUT` requests made | Advanced | Activity | N | - | N | 
-| Head requests | HeadRequests | Number of HEAD requests made | Advanced | Activity | N | - | N | 
-| Delete requests | DeleteRequests | Number of DELETE requests made | Advanced | Activity | N | - | N | 
-| List requests | ListRequests | Number of LIST requests made | Advanced | Activity | N | - | N | 
-| Post requests | PostRequests | Number of POST requests made | Advanced | Activity | N | - | N | 
-| Select requests | SelectRequests | Number of S3 Select requests | Advanced | Activity | N | - | N | 
-| Select scanned bytes | SelectScannedBytes | Number of S3 Select bytes scanned | Advanced | Activity | N | - | N | 
-| Select returned bytes | SelectReturnedBytes | Number of S3 Select bytes returned | Advanced | Activity | N | - | N | 
-| Bytes downloaded | BytesDownloaded | Number of bytes downloaded | Advanced | Activity | N | - | N | 
-| % retrieval rate | - | Percentage of bytes downloaded | Advanced | Activity | Y | sum(BytesDownloaded)/sum(StorageBytes) | N | 
-| Bytes uploaded | BytesUploaded | Number of bytes uploaded | Advanced | Activity | N | - | N | 
-| % ingest ratio | - | Percentage of bytes uploaded | Advanced | Activity | Y | sum(BytesUploaded)/sum(StorageBytes) | N | 
-| 4xx errors | 4xxErrors | Number of HTTP 4xx status codes | Advanced | Activity | N | - | N | 
-| 5xx errors | 5xxErrors | Number of HTTP 5xx status codes | Advanced | Activity | N | - | N | 
-| Total errors | - | The sum of all 4xx and 5xx errors | Advanced | Activity | Y | sum(4xxErrors) \+ sum(5xxErrors) | N | 
-| % error rate | - | Total number of 4xx and 5xx errors as a percentage of total requests | Advanced | Activity | Y | sum(TotalErrors)/sum(AllRequests) | N | 
-| 200 OK status count | 200OKStatusCount | Number of 200 OK status codes | Advanced | Detailed status code | N | - | N | 
-| % 200 OK status | - | Total number of 200 OK status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(200OKStatusCount)/sum(AllRequests) | N | 
-| 206 Partial Content status count | 206PartialContentStatusCount | Number of 206 Partial Content status codes | Advanced | Detailed status code | N | - | N | 
-| % 206 Partial Content status | - | Number of 206 Partial Content status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(206PartialContentStatusCount)/sum(AllRequests) | N | 
-| 400 Bad Request error count | 400BadRequestErrorCount | Number of 400 Bad Request status codes | Advanced | Detailed status code | N | - | N | 
-| % 400 Bad Request errors | - | Number of 400 Bad Request status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(400BadRequestErrorCount)/sum(AllRequests) | N | 
-| 403 Forbidden error count | 403ForbiddenErrorCount | Number of 403 Forbidden status codes | Advanced | Detailed status code | N | - | N | 
-| % 403 Forbidden errors | - | Number of 403 Forbidden status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(403ForbiddenErrorCount)/sum(AllRequests) | N | 
-| 404 Not Found error count | 404NotFoundErrorCount | Number of 404 Not Found status codes | Advanced | Detailed status code | N | - | N | 
-| % 404 Not Found errors | - | Number of 404 Not Found status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(404NotFoundErrorCount)/sum(AllRequests) | N | 
-| 500 Internal Server Error count | 500InternalServerErrorCount | Number of 500 Internal Server Error status codes | Advanced | Detailed status code | N | - | N | 
-| % 500 Internal Server Errors | - | Number of 500 Internal Server Error status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(500InternalServerErrorCount)/sum(AllRequests) | N | 
-| 503 Service Unavailable error count | 503ServiceUnavailableErrorCount | Number of 503 Service Unavailable status codes | Advanced | Detailed status code | N | - | N | 
-| % 503 Service Unavailable errors | - | Number of 503 Service Unavailable status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(503ServiceUnavailableErrorCount)/sum(AllRequests) | N | 
+| Metric name | CloudWatch and export | Description | Tier1 | Category2 | Derived | Derived metric formula | Storage Lens groups | Intelligent-Tiering access tier | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Total storage | StorageBytes | Total storage, inclusive of incomplete multipart uploads, object metadata, and delete markers | Free | Summary | N | - | Y | Y | 
+| Object count | ObjectCount | Total number of objects inclusive of current version, noncurrent versions, incomplete multipart uploads, and delete markers | Free | Summary | N | - | Y | Y | 
+| Average object size | - | Average object size | Free | Summary | Y | sum(StorageBytes)/sum(ObjectCount) | Y | Y | 
+| Active buckets | - | Number of buckets with storage > 0 bytes | Free | Summary | Y | - | Y | N | 
+| Buckets | - | Number of buckets | Free | Summary | Y | - | Y | N | 
+| Accounts | - | Number of accounts whose storage is in scope | Free | Summary | Y | - | Y | N | 
+| Current version bytes | CurrentVersionStorageBytes | Number of bytes that are a current version of an object | Free | Cost optimization | N | - | Y | Y | 
+| % current version bytes | - | Percentage of bytes in scope that are current versions of objects | Free | Cost optimization | Y | sum(CurrentVersionStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Current version object count | CurrentVersionObjectCount | Count of current version objects, inclusive of current delete markers | Free | Data protection | N | - | Y | Y | 
+| % current version objects | - | Percentage of objects in scope that are a current version | Free | Cost optimization | Y | sum(CurrentVersionObjectCount)/sum(ObjectCount) | Y | Y | 
+| Noncurrent version bytes | NonCurrentVersionStorageBytes | Number of noncurrent version bytes | Free | Cost optimization | N | - | Y | Y | 
+| % noncurrent version bytes | - | Percentage of bytes in scope that are noncurrent versions | Free | Cost optimization | Y | sum(NonCurrentVersionStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Noncurrent version object count | NonCurrentVersionObjectCount | Count of the noncurrent object versions, inclusive of noncurrent delete markers | Free | Cost optimization | N | - | Y | Y | 
+| % noncurrent version objects | - | Percentage of objects in scope that are a noncurrent version | Free | Cost optimization | Y | sum(NonCurrentVersionObjectCount)/sum(ObjectCount) | Y | Y | 
+| Delete marker bytes | DeleteMarkerStorageBytes | Number of bytes in scope that are delete markers | Free | Cost optimization | N | - | Y | Y | 
+| % delete marker bytes | - | Percentage of bytes in scope that are delete markers | Free | Cost optimization | Y | sum(DeleteMarkerStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Delete marker object count | DeleteMarkerObjectCount | Count of objects with a delete marker, both current and noncurrent | Free | Cost optimization | N | - | Y | Y | 
+| % delete marker objects | - | Percentage of objects in scope with a delete marker | Free | Cost optimization | Y | sum(DeleteMarkerObjectCount)/sum(ObjectCount) | Y | Y | 
+| Incomplete multipart upload bytes | IncompleteMultipartUploadStorageBytes | Total bytes in scope for incomplete multipart uploads | Free | Cost optimization | N | - | Y | Y | 
+| % incomplete multipart upload bytes | - | Percentage of bytes in scope that are the result of incomplete multipart uploads | Free | Cost optimization | Y | sum(IncompleteMultipartUploadStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Incomplete multipart upload object count | IncompleteMultipartUploadObjectCount | Number of objects in scope that are incomplete multipart uploads | Free | Cost optimization | N | - | Y | Y | 
+| % incomplete multipart upload objects | - | Percentage of objects in scope that are incomplete multipart uploads | Free | Cost optimization | Y | sum(IncompleteMultipartUploadObjectCount)/sum(ObjectCount) | Y | Y | 
+| Incomplete multipart upload storage bytes greater than 7 days old | IncompleteMPUStorageBytesOlderThan7Days | Total bytes in scope for incomplete multipart uploads that are more than 7 days old | Free | Cost optimization | N | - | Y | N | 
+| % incomplete multipart upload storage bytes greater than 7 days old | - | Percentage of bytes for incomplete multipart uploads that are more than 7 days old | Free | Cost optimization | Y | sum(IncompleteMPUStorageBytesOlderThan7Days)/sum(StorageBytes) | Y | N | 
+| Incomplete multipart upload object count greater than 7 days old | IncompleteMPUObjectCountOlderThan7Days | Number of objects that are incomplete multipart uploads more than 7 days old | Free | Cost optimization | N | - | Y | N | 
+| % incomplete multipart upload object count greater than 7 days old | - | Percentage of objects that are incomplete multipart uploads more than 7 days old | Free | Cost optimization | Y | sum(IncompleteMPUObjectCountOlderThan7Days)/sum(ObjectCount) | Y | N | 
+| Transition lifecycle rule count | TransitionLifecycleRuleCount | Number of lifecycle rules to transition objects to another storage class | Advanced | Cost optimization | N | - | N | N | 
+| Average transition lifecycle rules per bucket | - | Average number of lifecycle rules to transition objects to another storage class | Advanced | Cost optimization | Y | sum(TransitionLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Expiration lifecycle rule count | ExpirationLifecycleRuleCount | Number of lifecycle rules to expire objects | Advanced | Cost optimization | N | - | N | N | 
+| Average expiration lifecycle rules per bucket | - | Average number of lifecycle rules to expire objects | Advanced | Cost optimization | Y | sum(ExpirationLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Noncurrent version transition lifecycle rule count | NoncurrentVersionTransitionLifecycleRuleCount | Number of lifecycle rules to transition noncurrent object versions to another storage class | Advanced | Cost optimization | N | - | N | N | 
+| Average noncurrent version transition lifecycle rules per bucket | - | Average number of lifecycle rules to transition noncurrent object versions to another storage class | Advanced | Cost optimization | Y | sum(NoncurrentVersionTransitionLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | N | 
+| Noncurrent version expiration lifecycle rule count | NoncurrentVersionExpirationLifecycleRuleCount | Number of lifecycle rules to expire noncurrent object versions | Advanced | Cost optimization | N | - | N | N | 
+| Average noncurrent version expiration lifecycle rules per bucket | - | Average number of lifecycle rules to expire noncurrent object versions | Advanced | Cost optimization | Y | sum(NoncurrentVersionExpirationLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | N | 
+| Abort incomplete multipart upload lifecycle rule count | AbortIncompleteMPULifecycleRuleCount | Number of lifecycle rules to delete incomplete multipart uploads | Advanced | Cost optimization | N | - | N | N | 
+| Average abort incomplete multipart upload lifecycle rules per bucket | - | Average number of lifecycle rules to delete incomplete multipart uploads | Advanced | Cost optimization | Y | sum(AbortIncompleteMPULifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Expired object delete marker lifecycle rule count | ExpiredObjectDeleteMarkerLifecycleRuleCount | Number of lifecycle rules to remove expired object delete markers | Advanced | Cost optimization | N | - | N | N | 
+| Average expired object delete marker lifecycle rules per bucket | - | Average number of lifecycle rules to remove expired object delete markers | Advanced | Cost optimization | Y | sum(ExpiredObjectDeleteMarkerLifecycleRuleCount)/sum(DistinctNumberOfBuckets)  | N | N | 
+| Total lifecycle rule count | TotalLifecycleRuleCount | Number of lifecycle rules | Advanced | Cost optimization | N | - | N | N | 
+| Average lifecycle rule count per bucket | - | Average number of lifecycle rules | Advanced | Cost optimization | Y | sum(TotalLifecycleRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Encrypted bytes | EncryptedStorageBytes | Number of encrypted bytes | Free | Data protection | N | - | Y | Y | 
+| % encrypted bytes | - | Percentage of total bytes that are encrypted | Free | Data protection | Y | sum(EncryptedStorageBytes)/(sum(StorageBytes) - sum(DeleteMarkerStorageBytes)) | Y | Y | 
+| Encrypted object count | EncryptedObjectCount | Number of objects that are encrypted | Free | Data protection | N | - | Y | Y | 
+| % encrypted objects | - | Percentage of objects that are encrypted | Free | Data protection | Y | sum(EncryptedObjectCount)/(sum(ObjectCount) - sum(DeleteMarkerObjectCount)) | Y | Y | 
+| Unencrypted bytes | - | Number of bytes that are unencrypted | Free | Data protection | Y | sum(StorageBytes) - sum(DeleteMarkerStorageBytes) - sum(EncryptedStorageBytes) | Y | Y | 
+| % unencrypted bytes | - | Percentage of bytes that are unencrypted | Free | Data protection | Y | sum(UnencryptedStorageBytes)/(sum(StorageBytes) - sum(DeleteMarkerStorageBytes)) | Y | Y | 
+| Unencrypted object count | - | Number of objects that are unencrypted | Free | Data protection | Y | sum(ObjectCount) - sum(DeleteMarkerObjectCount) - sum(EncryptedObjectCount) | Y | Y | 
+| % unencrypted objects | - | Percentage of unencrypted objects | Free | Data protection | Y | sum(UnencryptedObjectCount)/(sum(ObjectCount) - sum(DeleteMarkerObjectCount)) | Y | Y | 
+| Replicated storage bytes source | ReplicatedStorageBytesSource | Number of bytes that are replicated from the source bucket | Free | Data protection | N | - | Y | N | 
+| % replicated bytes source | - | Percentage of total bytes that are replicated from the source bucket | Free | Data protection | Y | sum(ReplicatedStorageBytesSource)/sum(StorageBytes) | Y | N | 
+| Replicated object count source | ReplicatedObjectCountSource | Number of replicated objects from the source bucket | Free | Data protection | N | - | Y | N | 
+| % replicated objects source | - | Percentage of total objects that are replicated from the source bucket | Free | Data protection | Y | sum(ReplicatedObjectCountSource)/sum(ObjectCount) | Y | N | 
+| Replicated storage bytes destination | ReplicatedStorageBytes | Number of bytes that are replicated to the destination bucket | Free | Data protection | N | - | N | Y | 
+| % replicated bytes destination | - | Percentage of total bytes that are replicated to the destination bucket | Free | Data protection | Y | sum(ReplicatedStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Replicated object count destination | ReplicatedObjectCount | Number of objects that are replicated to the destination bucket | Free | Data protection | N | - | Y | Y | 
+| % replicated objects destination | - | Percentage of total objects that are replicated to the destination bucket | Free | Data protection | Y | sum(ReplicatedObjectCount)/sum(ObjectCount) | Y | Y | 
+| Object Lock bytes | ObjectLockEnabledStorageBytes | Number of Object Lock enabled storage bytes | Free | Data protection | N | - | Y | Y | 
+| % Object Lock bytes | - | Percentage of Object Lock enabled storage bytes | Free | Data protection | Y | sum(ObjectLockEnabledStorageBytes)/sum(StorageBytes) | Y | Y | 
+| Object Lock object count | ObjectLockEnabledObjectCount | Number of Object Lock objects | Free | Data protection | N | - | Y | Y | 
+| % Object Lock objects | - | Percentage of total objects that have Object Lock enabled | Free | Data protection | Y | sum(ObjectLockEnabledObjectCount)/sum(ObjectCount) | Y | Y | 
+| Versioning-enabled bucket count | VersioningEnabledBucketCount | Number of buckets that have S3 Versioning enabled | Free | Data protection | N | - | N | N | 
+| % versioning-enabled buckets | - | Percentage of buckets that have S3 Versioning enabled | Free | Data protection | Y | sum(VersioningEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| MFA delete-enabled bucket count | MFADeleteEnabledBucketCount | Number of buckets that have MFA (multi-factor authentication) delete enabled | Free | Data protection | N | - | N | N | 
+| % MFA delete-enabled buckets | - | Percentage of buckets that have MFA (multi-factor authentication) delete enabled | Free | Data protection | Y | sum(MFADeleteEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| SSE-KMS enabled bucket count | SSEKMSEnabledBucketCount | Number of buckets that use server-side encryption with AWS Key Management Service keys (SSE-KMS) for default bucket encryption | Free | Data protection | N | - | N | N | 
+| % SSE-KMS enabled buckets | - | Percentage of buckets that SSE-KMS for default bucket encryption | Free | Data protection | Y | sum(SSEKMSEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| All unsupported signature requests | AllUnsupportedSignatureRequests | Total number of requests that use unsupported AWS signature versions | Advanced | Data protection | N | - | N | N | 
+| % all unsupported signature requests | - | Percentage of requests that use unsupported AWS signature versions | Advanced | Data protection | Y | sum(AllUnsupportedSignatureRequests)/sum(AllRequests) | N | N | 
+| All unsupported TLS requests | AllUnsupportedTLSRequests | Total number of requests that use unsupported Transport Layer Security (TLS) versions | Advanced | Data protection | N | - | N | N | 
+| % all unsupported TLS requests | - | Percentage of requests that use unsupported TLS versions | Advanced | Data protection | Y | sum(AllUnsupportedTLSRequests)/sum(AllRequests) | N | N | 
+| All SSE-KMS requests | AllSSEKMSRequests | Total number of requests that specify SSE-KMS | Advanced | Data protection | N | - | N | N | 
+| % all SSE-KMS requests | - | Percentage of requests that specify SSE-KMS | Advanced | Data protection | Y | sum(AllSSEKMSRequests)/sum(AllRequests) | N | N | 
+| Same-Region Replication rule count | SameRegionReplicationRuleCount | Number of replication rules for Same-Region Replication (SRR) | Advanced | Data protection | N | - | N | N | 
+| Average Same-Region Replication rules per bucket | - | Average number of replication rules for SRR | Advanced | Data protection | Y | sum(SameRegionReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Cross-Region Replication rule count | CrossRegionReplicationRuleCount | Number of replication rules for Cross-Region Replication (CRR) | Advanced | Data protection | N | - | N | N | 
+| Average Cross-Region Replication rules per bucket | - | Average number of replication rules for CRR | Advanced | Data protection | Y | sum(CrossRegionReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Same-account replication rule count | SameAccountReplicationRuleCount | Number of replication rules for replication within the same account | Advanced | Data protection | N | - | N | N | 
+| Average same-account replication rules per bucket | - | Average number of replication rules for replication within the same account | Advanced | Data protection | Y | sum(SameAccountReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Cross-account replication rule count | CrossAccountReplicationRuleCount | Number of replication rules for cross-account replication | Advanced | Data protection | N | - | N | N | 
+| Average cross-account replication rules per bucket | - | Average number of replication rules for cross-account replication | Advanced | Data protection | Y | sum(CrossAccountReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Invalid destination replication rule count | InvalidDestinationReplicationRuleCount | Number of replication rules with a replication destination that's not valid | Advanced | Data protection | N | - | N | N | 
+| Average invalid destination replication rules per bucket | - | Average number of replication rules with a replication destination that's not valid | Advanced | Data protection | Y | sum(InvalidDestinationReplicationRuleCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Total replication rule count | - | Total replication rule count | Advanced | Data protection | Y | sum(InvalidDestinationReplicationRuleCount) \+ sum(CrossAccountReplicationRuleCount) \+ sum(SameAccountReplicationRuleCount) | N | N | 
+| Average replication rule count per bucket | - | Average total replication rule count | Advanced | Data protection | Y | (sum(InvalidDestinationReplicationRuleCount) \+ sum(CrossAccountReplicationRuleCount) \+ sum(SameAccountReplicationRuleCount))/sum(DistinctNumberOfBuckets) | N | N | 
+| Object Ownership bucket owner enforced bucket count | ObjectOwnershipBucketOwnerEnforcedBucketCount | Number of buckets that have access control lists (ACLs) disabled by using the bucket owner enforced setting for Object Ownership | Free | Access management | N | - | N | N | 
+| % Object Ownership bucket owner enforced buckets | - | Percentage of buckets that have ACLs disabled by using the bucket owner enforced setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipBucketOwnerEnforcedBucketCount)/sum(DistinctNumberOfBuckets)  | N | N | 
+| Object Ownership bucket owner preferred bucket count | ObjectOwnershipBucketOwnerPreferredBucketCount | Number of buckets that use the bucket owner preferred setting for Object Ownership | Free | Access management | N | - | N | N | 
+| % Object Ownership bucket owner preferred buckets | - | Percentage of buckets that use the bucket owner preferred setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipBucketOwnerPreferredBucketCount)/sum(DistinctNumberOfBuckets)  | N | N | 
+| Object Ownership object writer bucket count | ObjectOwnershipObjectWriterBucketCount | Number of buckets that use the object writer setting for Object Ownership | Free | Access management | N | - | N | N | 
+| % Object Ownership object writer buckets | - | Percentage of buckets that use the object writer setting for Object Ownership | Free | Access management | Y | sum(ObjectOwnershipObjectWriterBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Transfer Acceleration enabled bucket count | TransferAccelerationEnabledBucketCount | Number of buckets that have Transfer Acceleration enabled | Free | Performance | N | - | N | N | 
+| % Transfer Acceleration enabled buckets | - | Percentage of buckets that have Transfer Acceleration enabled | Free | Performance | Y | sum(TransferAccelerationEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| Event Notification enabled bucket count | EventNotificationEnabledBucketCount | Number of buckets that have Event Notifications enabled | Free | Events | N | - | N | N | 
+| % Event Notification enabled buckets | - | Percentage of buckets that have Event Notifications enabled | Free | Events | Y | sum(EventNotificationEnabledBucketCount)/sum(DistinctNumberOfBuckets) | N | N | 
+| All requests | AllRequests | Total number of requests made  | Advanced | Activity | N | - | N | N | 
+| Get requests | GetRequests | Total number of `GET` requests made | Advanced | Activity | N | - | N | N | 
+| Put requests | PutRequests | Total number of `PUT` requests made | Advanced | Activity | N | - | N | N | 
+| Head requests | HeadRequests | Number of HEAD requests made | Advanced | Activity | N | - | N | N | 
+| Delete requests | DeleteRequests | Number of DELETE requests made | Advanced | Activity | N | - | N | N | 
+| List requests | ListRequests | Number of LIST requests made | Advanced | Activity | N | - | N | N | 
+| Post requests | PostRequests | Number of POST requests made | Advanced | Activity | N | - | N | N | 
+| Select requests | SelectRequests | Number of S3 Select requests | Advanced | Activity | N | - | N | N | 
+| Select scanned bytes | SelectScannedBytes | Number of S3 Select bytes scanned | Advanced | Activity | N | - | N | N | 
+| Select returned bytes | SelectReturnedBytes | Number of S3 Select bytes returned | Advanced | Activity | N | - | N | N | 
+| Bytes downloaded | BytesDownloaded | Number of bytes downloaded | Advanced | Activity | N | - | N | N | 
+| % retrieval rate | - | Percentage of bytes downloaded | Advanced | Activity | Y | sum(BytesDownloaded)/sum(StorageBytes) | N | N | 
+| Bytes uploaded | BytesUploaded | Number of bytes uploaded | Advanced | Activity | N | - | N | N | 
+| % ingest ratio | - | Percentage of bytes uploaded | Advanced | Activity | Y | sum(BytesUploaded)/sum(StorageBytes) | N | N | 
+| 4xx errors | 4xxErrors | Number of HTTP 4xx status codes | Advanced | Activity | N | - | N | N | 
+| 5xx errors | 5xxErrors | Number of HTTP 5xx status codes | Advanced | Activity | N | - | N | N | 
+| Total errors | - | The sum of all 4xx and 5xx errors | Advanced | Activity | Y | sum(4xxErrors) \+ sum(5xxErrors) | N | N | 
+| % error rate | - | Total number of 4xx and 5xx errors as a percentage of total requests | Advanced | Activity | Y | sum(TotalErrors)/sum(AllRequests) | N | N | 
+| 200 OK status count | 200OKStatusCount | Number of 200 OK status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 200 OK status | - | Total number of 200 OK status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(200OKStatusCount)/sum(AllRequests) | N | N | 
+| 206 Partial Content status count | 206PartialContentStatusCount | Number of 206 Partial Content status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 206 Partial Content status | - | Number of 206 Partial Content status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(206PartialContentStatusCount)/sum(AllRequests) | N | N | 
+| 400 Bad Request error count | 400BadRequestErrorCount | Number of 400 Bad Request status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 400 Bad Request errors | - | Number of 400 Bad Request status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(400BadRequestErrorCount)/sum(AllRequests) | N | N | 
+| 403 Forbidden error count | 403ForbiddenErrorCount | Number of 403 Forbidden status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 403 Forbidden errors | - | Number of 403 Forbidden status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(403ForbiddenErrorCount)/sum(AllRequests) | N | N | 
+| 404 Not Found error count | 404NotFoundErrorCount | Number of 404 Not Found status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 404 Not Found errors | - | Number of 404 Not Found status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(404NotFoundErrorCount)/sum(AllRequests) | N | N | 
+| 500 Internal Server Error count | 500InternalServerErrorCount | Number of 500 Internal Server Error status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 500 Internal Server Errors | - | Number of 500 Internal Server Error status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(500InternalServerErrorCount)/sum(AllRequests) | N | N | 
+| 503 Service Unavailable error count | 503ServiceUnavailableErrorCount | Number of 503 Service Unavailable status codes | Advanced | Detailed status code | N | - | N | N | 
+| % 503 Service Unavailable errors | - | Number of 503 Service Unavailable status codes as a percentage of total requests | Advanced | Detailed status code | Y | sum(503ServiceUnavailableErrorCount)/sum(AllRequests) | N | N | 
 
 1 All free tier storage metrics are available at the Storage Lens group level. Advanced tier metrics are not available at the Storage Lens group level.
 

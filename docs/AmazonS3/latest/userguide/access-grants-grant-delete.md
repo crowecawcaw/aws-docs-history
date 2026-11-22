@@ -1,7 +1,6 @@
 
 
 # Delete a grant
-<a name="access-grants-grant-delete"></a>
 
 You can delete access grants from your Amazon S3 Access Grants instance. You can't undo an access grant deletion. After you delete an access grant, the grantee will no longer have access to your Amazon S3 data.
 
@@ -58,7 +57,7 @@ This section provides examples of how to delete an access grant by using the AWS
 
 **Example – Delete an access grant**  
 
-```
+```java
 public void deleteAccessGrant() {
 DeleteAccessGrantRequest deleteRequest = DeleteAccessGrantRequest.builder()
 .accountId("{{111122223333}}")
@@ -70,7 +69,7 @@ LOGGER.info("DeleteAccessGrantResponse: " + deleteResponse);
 ```
 Response:  
 
-```
+```java
 DeleteAccessGrantResponse()
 ```
 

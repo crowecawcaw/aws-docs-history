@@ -1,7 +1,6 @@
 
 
 # Rules for choosing buckets for Amazon S3 Multi-Region Access Points
-<a name="multi-region-access-point-buckets"></a>
 
 Each Multi-Region Access Point is associated with the Regions where you want to fulfill requests. The Multi-Region Access Point must be associated with exactly one bucket in each of those Regions. You specify the name of each bucket in the request to create the Multi-Region Access Point. Buckets that support the Multi-Region Access Point can either be in the same AWS account that owns the Multi-Region Access Point, or they can be in other AWS accounts.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring S3 Lifecycle event notifications
-<a name="lifecycle-configure-notification"></a>
 
 To receive notice when Amazon S3 deletes an object or transitions it to another Amazon S3 storage class as the result of following an S3 Lifecycle rule, you can set up an Amazon S3 event notification.
 
@@ -19,7 +18,7 @@ For instructions on how to configure Amazon S3 Event Notifications, see [Enablin
 
 The following is an example of a message that Amazon S3 sends to publish an `s3:LifecycleExpiration:Delete` event. For more information, see [Event message structure](notification-content-structure.md).
 
-```
+```json
  1. {  
  2.    "Records":[  
  3.       {  

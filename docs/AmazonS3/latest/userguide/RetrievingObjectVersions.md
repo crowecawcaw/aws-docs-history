@@ -1,7 +1,6 @@
 
 
 # Retrieving object versions from a versioning-enabled bucket
-<a name="RetrievingObjectVersions"></a>
 
 Versioning in Amazon S3 is a way of keeping multiple variants of an object in the same bucket. A simple `GET` request retrieves the current version of an object. The following figure shows how `GET` returns the current version of the object, `photo.gif`.
 
@@ -88,7 +87,7 @@ For examples of listing the version of objects using AWS SDKs for .NET and Rust,
 **Example — Retrieving a versioned object**  
 The following request retrieves version `L4kqtJlcpXroDTDmpUMLUo` of `my-image.jpg`.  
 
-```
+```http
 1. GET /my-image.jpg?versionId=L4kqtJlcpXroDTDmpUMLUo HTTP/1.1
 2. Host: bucket.s3.amazonaws.com
 3. Date: Wed, 28 Oct 2009 22:32:00 GMT

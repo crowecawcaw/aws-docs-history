@@ -1,7 +1,6 @@
 
 
 # Setting encryption in S3 Vectors
-<a name="s3-vectors-sectting-encryption"></a>
 
 This topic explains how to set the encryption configuration for your S3 vector buckets and indexes.
 

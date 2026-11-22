@@ -1,7 +1,6 @@
 
 
 # Security best practices for directory buckets
-<a name="s3-express-security-best-practices"></a>
 
 There are a number of security features to consider when working with directory buckets. The following best practices are general guidelines and don't represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful recommendations rather than prescriptions.
 

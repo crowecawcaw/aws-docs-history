@@ -1,7 +1,6 @@
 
 
 # How Amazon S3 works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon S3, learn what IAM features are available to use with Amazon S3.
 
@@ -138,7 +137,7 @@ The following example blocks access if a secure transport protocol isn’t used:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -244,7 +243,7 @@ The following bucket policy grants the user `{{Akua}}` with account `{{123456789
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -279,7 +278,7 @@ The following access point policy grants the user `{{Akua}}` with account `{{123
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -317,7 +316,7 @@ The following access point policy grants the user `{{Akua}}` with account `{{123
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -364,7 +363,7 @@ The following bucket policy grants the user `{{Akua}}` with account `{{123456789
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -403,7 +402,7 @@ The following access point policy grants the user `{{Akua}}` with account `{{123
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -440,7 +439,7 @@ When you use access points for directory buckets to control access to object ope
 
 The following access point policy grants the user `{{Akua}}` with account `{{12345678901}}` the `s3:GetObject` permission. This permission allows `{{Akua}}` to perform the [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) API operation through the access point named `{{example-access-point--usw2-az1--xa-s3}}` on all objects in the bucket that's associated with the access point. 
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -476,7 +475,7 @@ The following IAM identity-based policy grants the `s3:GetAccessPointPolicy` per
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -512,7 +511,7 @@ The following IAM identity-based policy grants the `s3express:GetAccessPointPoli
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -532,7 +531,7 @@ The following IAM identity-based policy grants the `s3express:GetAccessPointPoli
 
 The following IAM identity-based policy grants the `s3express:CreateAccessPoint` permission to create an access points for directory buckets.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -552,7 +551,7 @@ The following IAM identity-based policy grants the `s3express:CreateAccessPoint`
 
 The following IAM identity-based policy grants the `s3express:PutAccessPointScope` permission to create access point scope for access points for directory buckets.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -603,7 +602,7 @@ The following IAM identity-based policy grants the `s3:DescribeJob` permission t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -638,7 +637,7 @@ The following IAM identity-based policy grants the `s3:GetAccountPublicAccessBlo
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -678,7 +677,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 Some Amazon S3 API actions support multiple resources. For example, `s3:GetObject` accesses `{{example-resource-1}}` and `{{example-resource-2}}`, so a principal must have permissions to access both resources. To specify multiple resources in a single statement, separate the ARNs with commas, as shown in the following example. 
 
-```
+```JSON
 "Resource": [
       "{{example-resource-1}}",
       "{{example-resource-2}}"
@@ -753,7 +752,7 @@ Suppose that Account A, represented by account ID `{{123456789012}}`, owns a buc
 
 ****  
 
-```
+```json
 {
                  "Version":"2012-10-17",		 	 	 
                  "Statement": [

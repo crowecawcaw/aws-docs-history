@@ -1,7 +1,6 @@
 
 
 # Configuring cross-origin resource sharing (CORS)
-<a name="enabling-cors-examples"></a>
 
 Cross-origin resource sharing (CORS) defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. With CORS support, you can build rich client-side web applications with Amazon S3 and selectively allow cross-origin access to your Amazon S3 resources. 
 
@@ -58,7 +57,7 @@ You can use the AWS SDK to manage cross-origin resource sharing (CORS) for a buc
 **Example**  
  For instructions on how to create and test a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
-```
+```java
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -175,7 +174,7 @@ public class CORS {
 **Example**  
 For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*.   
 
-```
+```cs
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;

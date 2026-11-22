@@ -1,7 +1,6 @@
 
 
 # Permissions for querying metadata tables
-<a name="metadata-tables-bucket-query-permissions"></a>
 
 Before you can query your S3 Metadata journal and live inventory tables, you must have certain S3 Tables permissions. If your metadata tables have been encrypted with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), you must also have the `kms:Decrypt` permission to decrypt the table data. 
 
@@ -9,7 +8,7 @@ When you create your metadata table configuration, your metadata tables are stor
 
 To query metadata tables, you can use the following example policy. To use this policy, replace the `{{user input placeholders}}` with your own information.
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[

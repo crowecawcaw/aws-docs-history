@@ -1,7 +1,6 @@
 
 
 # Adding a tag to a vector bucket
-<a name="adding-tag-vector-bucket"></a>
 
 You can add tags to Amazon S3 vector buckets and modify these tags. There is no additional charge for using tags on vector buckets beyond the standard S3 API request rates. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/). For more information about tagging vector buckets, see [Using tags with S3 vector buckets](s3-vectors-tags.md).
 
@@ -60,7 +59,7 @@ To install the AWS CLI, see [Installing the AWS CLI](https://docs.aws.amazon.com
 
 The following CLI example shows you how to add tags to a vector bucket by using the AWS CLI. To use the command replace the {{user input placeholders}} with your own information.
 
-```
+```bash
 aws s3vectors tag-resource \
 --resource-arn arn:aws:s3vectors:us-east-1:{{012345678900}}:bucket/{{acc-bucket}} \
 --tags {{Stage}}={{Prod}},{{CostCenter}}={{Marketing}}

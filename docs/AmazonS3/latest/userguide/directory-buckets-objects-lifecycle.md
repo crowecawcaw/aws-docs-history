@@ -1,7 +1,6 @@
 
 
 # Working with S3 Lifecycle for directory buckets
-<a name="directory-buckets-objects-lifecycle"></a>
 
  S3 Lifecycle helps you store objects in S3 Express One Zone in directory buckets cost effectively by deleting expired objects on your behalf. To manage the lifecycle of your objects, create an S3 Lifecycle configuration for your directory bucket. An S3 Lifecycle configuration is a set of rules that define actions that Amazon S3 applies to a group of objects. You can set an Amazon S3 Lifecycle configuration on a directory bucket by using the AWS Command Line Interface (AWS CLI), the AWS SDKs, the Amazon S3 REST API and AWS CloudFormation. 
 
@@ -26,7 +25,7 @@ The following bucket policy grants the S3 Lifecycle service principal permission
 
 **Example Bucket policy to allow `CreateSession` with an explicit `ReadWrite` session mode for lifecycle operations**  
 
-```
+```JSON
  { 
    "Version":"2008-10-17",		 	 	  
    "Statement":[

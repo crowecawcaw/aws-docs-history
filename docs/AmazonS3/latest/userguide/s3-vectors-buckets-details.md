@@ -1,7 +1,6 @@
 
 
 # Viewing vector bucket attributes
-<a name="s3-vectors-buckets-details"></a>
 
 You can view detailed information about a vector bucket, including its properties, encryption settings and creation details using the Amazon S3 REST API, AWS SDKs, S3 Console, or the AWS Command Line Interface (AWS CLI). For more information about `GetVectorBucket`, see [GetVectorBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetVectorBucket.html) in the *Amazon S3 API Reference*.
 
@@ -17,6 +16,6 @@ You can view detailed information about a vector bucket, including its propertie
 ## Using the AWS CLI
 <a name="cli-procedure"></a>
 
-```
+```bash
 aws s3vectors get-vector-bucket --vector-bucket-name {{"amzn-s3-demo-vector-bucket"}}
 ```

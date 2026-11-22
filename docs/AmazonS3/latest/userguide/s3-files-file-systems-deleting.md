@@ -1,7 +1,6 @@
 
 
 # Deleting file systems
-<a name="s3-files-file-systems-deleting"></a>
 
 When you delete a file system, the file system, its data, and its configuration are permanently removed. Make sure no applications are actively using the file system before deletion to avoid service disruption. Before deletion, you must delete all mount targets and access points associated with the file system first. For more information, see [Deleting mount targets](s3-files-mount-targets-deleting.md) and [Deleting access points for an S3 file system](s3-files-access-points-deleting.md).
 
@@ -24,6 +23,6 @@ This section explains how to use the Amazon S3 console to delete a file system f
 
 The following `delete-file-system` example command shows how you can use the AWS CLI to delete a file system for S3 Files.
 
-```
+```bash
 aws s3files delete-file-system --file-system-id {{file-system-id}}
 ```

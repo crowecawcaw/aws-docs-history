@@ -1,7 +1,6 @@
 
 
 # Getting started querying S3 Tables with Amazon SageMaker Unified Studio
-<a name="s3-tables-integrating-sagemaker"></a>
 
 Amazon SageMaker Unified Studio is a comprehensive analytics service that enables you to query and derive insights from your data using SQL, natural language, and interactive notebooks. It supports team collaboration and analysis workflows across AWS data repositories and third-party sources within a unified interface. SageMaker Unified Studio integrates directly with S3 Tables, providing a seamless transition from data storage to analysis within the Amazon S3 console.
 

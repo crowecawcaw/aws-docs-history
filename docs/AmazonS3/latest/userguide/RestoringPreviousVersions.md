@@ -1,7 +1,6 @@
 
 
 # Restoring previous versions
-<a name="RestoringPreviousVersions"></a>
 
 You can use versioning to retrieve previous versions of an object. There are two approaches to doing so:
 + Copy a previous version of the object into the same bucket.
@@ -87,7 +86,7 @@ You can undelete an object only if it was deleted as the latest (current) versio
 
 To restore a previous version by copying it in place, use the `copy-object` command. For the `--copy-source` parameter, specify the version ID of the previous version that you want to restore:
 
-```
+```bash
 aws s3api copy-object \
     --bucket {{amzn-s3-demo-bucket}} \
     --key {{my-object.jpg}} \
@@ -106,7 +105,7 @@ For information about using other AWS SDKs, see the [AWS Developer Center](https
 
 The following Python code example restores a versioned object's previous version by deleting all versions that occurred after the specified rollback version.
 
-```
+```python
 def rollback_object(bucket, object_key, version_id):
     """
     Rolls back an object to an earlier version by deleting all versions that

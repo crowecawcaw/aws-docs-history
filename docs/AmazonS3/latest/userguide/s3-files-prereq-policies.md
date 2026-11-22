@@ -1,7 +1,6 @@
 
 
 # Prerequisites for S3 Files
-<a name="s3-files-prereq-policies"></a>
 
 Before you begin using S3 Files, make sure that you have completed the following prerequisites.
 
@@ -22,12 +21,12 @@ To use S3 Files with Amazon EC2, you must install the client `amazon-efs-utils`,
 + Access the terminal for your Amazon EC2 instance through Secure Shell (SSH), and log in with the appropriate user name. For more information, see [Connect to your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html) in the *Amazon Elastic Compute Cloud User Guide*.
 + For those using Amazon Linux, do the following to install efs-utils from Amazon's repositories:
 
-  ```
+  ```bash
   sudo yum -y install amazon-efs-utils
   ```
 + If you use other supported Linux distributions, you can do the following:
 
-  ```
+  ```bash
   curl https://amazon-efs-utils.aws.com/efs-utils-installer.sh | sudo sh -s -- --install
   ```
 + For other Linux distributions, see [On other Linux distributions](https://github.com/aws/efs-utils/?tab=readme-ov-file#on-other-linux-distributions) in the amazon-efs-utils README on GitHub.
@@ -80,7 +79,7 @@ When you create a file system using the AWS Management Console, S3 Files automat
 This IAM role requires the following:
 + An inline policy as follows:
 
-  ```
+  ```JSON
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -189,7 +188,7 @@ This IAM role requires the following:
 
 + A trust policy that allows S3 Files to assume the IAM role. Add the following trust policy to the IAM role to allow the S3 Files service to assume it. Replace {{accountId}} and {{region}} with your values.
 
-  ```
+  ```JSON
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -226,7 +225,7 @@ Add the following two policies to the IAM role attached to your compute resource
 
   Add the following inline policy to the IAM role. This policy lets the compute resource read objects directly from the linked S3 bucket in the same account. This improves read performance for large I/O operations. Replace {{bucket}} with your S3 bucket name, or with your bucket name and a prefix to scope access only to the objects that the compute resource needs.
 
-  ```
+  ```JSON
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [

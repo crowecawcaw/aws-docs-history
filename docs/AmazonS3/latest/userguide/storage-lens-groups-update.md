@@ -1,7 +1,6 @@
 
 
 # Updating a Storage Lens group
-<a name="storage-lens-groups-update"></a>
 
 The following examples demonstrate how to update an Amazon S3 Storage Lens group. You can update a Storage Lens group by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
 
@@ -44,14 +43,14 @@ The following AWS CLI example command returns the configuration details for a St
 
 
 
-```
+```bash
 aws s3control get-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --name {{marketing-department}}
 ```
 
 The following AWS CLI example updates a Storage Lens group. To use this example command, replace the `{{user input placeholders}}` with your own information. 
 
-```
+```bash
 aws s3control update-storage-lens-group --account-id {{111122223333}} \ 
 --region {{us-east-1}} --storage-lens-group=file://./{{marketing-department}}.json
 ```
@@ -63,7 +62,7 @@ For example JSON configurations, see [Storage Lens groups configuration](storage
 
 The following AWS SDK for Java example returns the configuration details for the `{{Marketing-Department}}` Storage Lens group in account `{{111122223333}}`. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
@@ -104,7 +103,7 @@ public class GetStorageLensGroup {
 
 The following example updates the Storage Lens group named `{{Marketing-Department}}` in account `{{111122223333}}`. This example updates the dashboard scope to include objects that match any of the following suffixes: `{{.png}}`, `{{.gif}}`, `{{.jpg}}`, or `{{.jpeg}}`. To use this example, replace the `{{user input placeholders}}` with your own information.
 
-```
+```java
 package aws.example.s3control;
 
 import com.amazonaws.AmazonServiceException;
