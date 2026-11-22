@@ -1,7 +1,6 @@
 
 
 # Use AWS Secrets Manager to track database passwords or third-party API keys
-<a name="parameter-store-encryption"></a>
 
 We recommend that you use AWS Secrets Manager to rotate, manage, and retrieve database credentials, API keys, and other **secrets** throughout their lifecycle. Secrets Manager enables you to replace hardcoded credentials in your code (including passwords) with an API call to Secrets Manager to retrieve the secret programmatically. For more information, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # Create an EventBridge rule for an Amazon ECR source (CLI)
-<a name="create-cwe-ecr-source-cli"></a>
 
 Call the **put-rule** command, specifying:
 + A name that uniquely identifies the rule you are creating. This name must be unique across all of the pipelines you create with CodePipeline associated with your AWS account.
@@ -18,7 +17,7 @@ Call the **put-rule** command, specifying:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -48,7 +47,7 @@ Call the **put-rule** command, specifying:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

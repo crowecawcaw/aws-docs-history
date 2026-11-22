@@ -1,7 +1,6 @@
 
 
 # Configure conditions for a stage
-<a name="stage-conditions"></a>
 
 You can specify a condition for a stage, such as checking for a specific variable in the pipeline run, and then engage a result for the condition, such as skipping the stage or failing the stage. A pipeline can be set up to check for stage conditions during the run, where you specify checks for a stage and then specify how the stage should continue when certain conditions are met. Conditions contain one or more rules that are available in a list of rules in CodePipeline. If all rules in a condition succeed, then the condition is met. You can configure conditions so that when the criteria are not met, the specified result engages.
 
@@ -16,7 +15,7 @@ Conditions are supported by a set of *rules* for each type of condition.
 
 For each type of condition, there are specific actions that are set up by the condition. The action is the result of the succeeded or failed condition check. For example, the condition for entry (entry condition) encounters an alarm (rule), then the check is successful and the result (action) is that the stage entry is blocked.
 
-You can also use the AWS CodePipeline console or the AWS CLI to manually roll back or retry a stage or actions in a stage. See [Configure conditions for a stage](#stage-conditions).
+You can also use the AWS CodePipeline console or the AWS CLI to manually roll back or retry a stage or actions in a stage. See [Configure conditions for a stage](stage-conditions.md).
 
 **Topics**
 + [Use cases for stage conditions](#stage-conditions-cases)

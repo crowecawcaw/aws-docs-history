@@ -1,7 +1,6 @@
 
 
 # How pipeline executions work
-<a name="concepts-how-it-works"></a>
 
 This section provides an overview of the way CodePipeline processes a set of changes. CodePipeline tracks each pipeline execution that starts when a pipeline is started manually or a change is made to the source code. CodePipeline uses the following execution modes to handle the way each execution progresses through the pipeline. For more information, see [Set or change the pipeline execution mode](execution-modes.md).
 + SUPERSEDED mode: A more recent execution can overtake an older one. This is the default.
@@ -109,6 +108,8 @@ Because each stage can process only one execution at a time, the stage is locked
 
 ![Image showing the stages locked while in progress](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Promotion.png)
 
+**Before: **Stage 1 is locked as Execution 1 enters. **After:** Stage 2 is locked as Execution 1 enters.
+
 
 **Rule 2: Subsequent executions wait for the stage to be unlocked**
 
@@ -119,12 +120,16 @@ Before you stop an execution, we recommend that you disable the transition in fr
 
 ![Image showing how the waiting execution waits between stages when Stage 2 is locked](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Waiting.png)
 
+**Before:** Stage 2 is locked as Execution 1 enters. **After:** Execution 2 exits Stage 1 and waits between stages.
+
 
 **Rule 3: Waiting executions are superseded by more recent executions**
 
 Executions are only superseded in between stages. A locked stage holds one execution at the front of the stage awaiting the stage to complete. A more recent execution overtakes a waiting execution and continues to the next stage as soon as the stage is unlocked. The superseded execution does not continue. In this example, Execution 2 has been superseded by Execution 3 while awaiting the locked stage. Execution 3 enters the stage next.
 
 ![Image showing how the waiting execution is superseded by execution 3](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Batching.png)
+
+**Before:** execution 2 waits between stages while execution 3 enters stage 1. **after:** execution 3 exits stage 1. execution 2 is superseded by execution 3.
 
 
 For more information about considerations for viewing and switching between execution modes, see [Set or change the pipeline execution mode](execution-modes.md). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md).
@@ -176,6 +181,8 @@ When deciding how a code change should flow through your pipeline, it is best to
 As an example, a test action after a deployment action in the same stage is guaranteed to test the same change that was deployed. In this example, a change is deployed to a Test environment and then tested, and then the latest change from the test environment is deployed to a Production environment. In the recommended example, the Test environment and the Prod environment are separate stages. 
 
 ![Image showing two types of grouping for actions in stages, with the recommended option being on the left](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/structure-example-recommended-notrecommended.png)
+
+**Left:** related test, deploy, and approval actions grouped together (recommended). **Right:** related actions in separate stages (not recommended).
 
 
 ### How Inbound Executions Work

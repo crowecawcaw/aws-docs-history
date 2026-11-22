@@ -1,7 +1,6 @@
 
 
 # View executions in CodePipeline
-<a name="executions-view"></a>
 
 You can use the AWS CodePipeline console or the AWS CLI to view execution status, view execution history, and retry failed stages or actions.
 

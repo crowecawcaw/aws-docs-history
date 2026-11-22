@@ -1,7 +1,6 @@
 
 
 # Permissions required to use the console
-<a name="security-iam-permissions-console"></a>
 
 To use in the console, you must have a minimum set of permissions from the following services:
 + AWS Identity and Access Management

@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk deploy action reference
-<a name="action-reference-Beanstalk"></a>
 
 Elastic Beanstalk is a platform within AWS that is used for deploying and scaling web applications. You use an Elastic Beanstalk action to deploy application code to your deployment environment.
 
@@ -76,7 +75,7 @@ You should replace wildcards in the resource policy with the resources for the a
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 Actions:
   - Name: Deploy
@@ -99,7 +98,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "Actions": [

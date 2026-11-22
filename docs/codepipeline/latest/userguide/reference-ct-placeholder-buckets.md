@@ -1,7 +1,6 @@
 
 
 # Events placeholder bucket reference
-<a name="reference-ct-placeholder-buckets"></a>
 
 This section is a reference only. For information about creating a pipeline with event detection resources, see [Source actions and change detection methods](change-detection-methods.md).
 

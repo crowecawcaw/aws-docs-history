@@ -1,7 +1,6 @@
 
 
 # AWS Step Functions invoke action reference
-<a name="action-reference-StepFunctions"></a>
 
 An AWS CodePipeline action that does the following:
 + Starts an AWS Step Functions state machine execution from your pipeline.
@@ -114,7 +113,7 @@ For the `StepFunctions` action, the following are the minimum permissions needed
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: ActionName
 ActionTypeId:
   Category: Invoke
@@ -131,7 +130,7 @@ Configuration:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "ActionName",
     "ActionTypeId": {
@@ -160,7 +159,7 @@ Configuration:
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: ActionName
 ActionTypeId:
   Category: Invoke
@@ -178,7 +177,7 @@ Configuration:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "ActionName",
     "ActionTypeId": {
@@ -208,7 +207,7 @@ Configuration:
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: ActionName
 InputArtifacts:
   - Name: myInputArtifact
@@ -229,7 +228,7 @@ Configuration:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "ActionName",
     "InputArtifacts": [

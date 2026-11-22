@@ -1,7 +1,6 @@
 
 
 # Commands action reference
-<a name="action-reference-Commands"></a>
 
 The Commands action allows you to run shell commands in a virtual compute instance. When you run the action, commands specified in the action configuration are run in a separate container. All artifacts that are specified as input artifacts to a CodeBuild action are available inside of the container running the commands. This action allows you to specify commands without first creating a CodeBuild project. For more information, see [ActionDeclaration](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ActionDeclaration.html) and [OutputArtifact](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_OutputArtifact.html) in the *AWS CodePipeline API Reference*.
 
@@ -223,7 +222,7 @@ For Commands support, add the following to your policy statement:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -251,7 +250,7 @@ For Commands support, add the following to your policy statement:
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: Commands_action
 actionTypeId:
   category: Compute
@@ -279,7 +278,7 @@ namespace: compute
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "Commands_action",
     "actionTypeId": {

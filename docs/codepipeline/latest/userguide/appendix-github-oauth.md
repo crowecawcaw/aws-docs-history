@@ -1,7 +1,6 @@
 
 
 # Appendix A: GitHub (via OAuth app) source actions
-<a name="appendix-github-oauth"></a>
 
 This appendix provides information about the GitHub (via OAuth app) action in CodePipeline.
 
@@ -146,7 +145,7 @@ The date when the commit was committed, in timestamp format.
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Source
 Actions:
   - InputArtifacts: []
@@ -170,7 +169,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Source",
     "Actions": [

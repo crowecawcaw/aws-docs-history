@@ -1,7 +1,6 @@
 
 
 # View action details in a pipeline (console)
-<a name="pipelines-view-details-console"></a>
 
 You can view details for a pipeline, including details for actions in each stage.
 

@@ -1,7 +1,6 @@
 
 
 # AWS Lambda invoke action reference
-<a name="action-reference-Lambda"></a>
 
 Allows you to execute a Lambda function as an action in your pipeline. Using the event object that is an input to this function, the function has access to the action configuration, input artifact locations, output artifact locations, and other information required to access the artifacts. For an example event passed to a Lambda invoke function, see [Example JSON event](#action-reference-Lambda-event). As part of the implementation of the Lambda function, there must be a call to either the `[PutJobSuccessResult API](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html)` or `[PutJobFailureResult API](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobFailureResult.html)`. Otherwise, the execution of this action hangs until the action times out. If you specify output artifacts for the action, they must be uploaded to the S3 bucket as part of the function implementation.
 
@@ -49,7 +48,7 @@ For more information about variables in CodePipeline, see [Variables reference](
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Lambda
 Actions:
   - Name: Lambda
@@ -70,7 +69,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Lambda",
     "Actions": [

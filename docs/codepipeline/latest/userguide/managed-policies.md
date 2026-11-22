@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS CodePipeline
-<a name="managed-policies"></a>
 
 
 
@@ -254,6 +253,6 @@ View details about updates to AWS managed policies for CodePipeline since this s
 | [AWSCodePipeline\_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess) – Updates to existing policy | CodePipeline added a permission to this policy to support ListStacks in CloudFormation. | March 15, 2024 | 
 | [AWSCodePipeline\_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess) – Updates to existing policy | This policy was updated to add permissions for Amazon Q Developer in chat applications. For more information, see [CodePipeline managed policies and notifications](#notifications-permissions). | June 21, 2023 | 
 | [AWSCodePipeline\_FullAccess](#security-iam-awsmanpol-AWSCodePipeline_FullAccess) and [AWSCodePipeline\_ReadOnlyAccess](#security-iam-awsmanpol-AWSCodePipeline_ReadOnlyAccess) managed policies – Updates to existing policy | CodePipeline added a permission to these policies to support an additional notification type using Amazon Q Developer in chat applications, `chatbot:ListMicrosoftTeamsChannelConfigurations`.  | May 16, 2023 | 
-| **AWSCodePipelineFullAccess** – Deprecated | This policy has been replaced by `AWSCodePipeline_FullAccess`.<br />After November 17, 2022, this policy can not be attached to any new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](#managed-policies). | November 17, 2022 | 
-| **AWSCodePipelineReadOnlyAccess** – Deprecated | This policy has been replaced by `AWSCodePipeline_ReadOnlyAccess`.<br />After November 17, 2022, this policy can not be attached to any new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](#managed-policies). | November 17, 2022 | 
+| **AWSCodePipelineFullAccess** – Deprecated | This policy has been replaced by `AWSCodePipeline_FullAccess`.<br />After November 17, 2022, this policy can not be attached to any new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](managed-policies.md). | November 17, 2022 | 
+| **AWSCodePipelineReadOnlyAccess** – Deprecated | This policy has been replaced by `AWSCodePipeline_ReadOnlyAccess`.<br />After November 17, 2022, this policy can not be attached to any new users, groups, or roles. For more information, see [AWS managed policies for AWS CodePipeline](managed-policies.md). | November 17, 2022 | 
 | CodePipeline started tracking changes | CodePipeline started tracking changes for its AWS managed policies. | March 12, 2021 | 

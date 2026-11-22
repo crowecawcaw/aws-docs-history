@@ -1,7 +1,6 @@
 
 
 # Tutorial: Deploy to Amazon EKS with CodePipeline
-<a name="tutorials-eks-deploy"></a>
 
 This tutorial helps you to create a deploy action in CodePipeline that deploys your code to a cluster you have configured in Amazon EKS.
 
@@ -147,7 +146,7 @@ Update your CodePipeline service role with the following steps.
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
      
@@ -185,7 +184,7 @@ Update your CodePipeline service role with the following steps.
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
      

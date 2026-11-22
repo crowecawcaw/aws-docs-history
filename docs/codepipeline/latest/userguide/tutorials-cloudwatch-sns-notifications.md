@@ -1,7 +1,6 @@
 
 
 # Tutorial: Set up a CloudWatch Events rule to receive email notifications for pipeline state changes
-<a name="tutorials-cloudwatch-sns-notifications"></a>
 
 After you set up a pipeline in AWS CodePipeline, you can set up a CloudWatch Events rule to send notifications whenever there are changes to the execution state of your pipelines, or in the stages or actions in your pipelines. For more information on using CloudWatch Events to set up notifications for pipeline state changes, see [Monitoring CodePipeline events](detect-state-changes-cloudwatch-events.md).
 

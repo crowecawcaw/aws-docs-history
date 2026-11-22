@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use full clone with a GitHub pipeline source
-<a name="tutorials-github-gitclone"></a>
 
 You can choose the full clone option for your GitHub source action in CodePipeline. Use this option to run CodeBuild commands for Git metadata in your pipeline build action.
 

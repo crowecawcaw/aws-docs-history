@@ -1,7 +1,6 @@
 
 
 # View pipelines and details in CodePipeline
-<a name="pipelines-view"></a>
 
 You can use the AWS CodePipeline console or the AWS CLI to view details about pipelines associated with your AWS account. 
 

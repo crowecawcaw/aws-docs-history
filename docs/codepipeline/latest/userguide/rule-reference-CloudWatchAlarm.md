@@ -1,7 +1,6 @@
 
 
 # CloudWatchAlarm
-<a name="rule-reference-CloudWatchAlarm"></a>
 
 When you create a condition, you can add the `CloudWatchAlarm` rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -41,7 +40,7 @@ The wait time in minutes to allow for a state change before running the rule res
 ------
 #### [ YAML ]
 
-```
+```yaml
 rules:
     - name: MyMonitorRule
       ruleTypeId:
@@ -59,7 +58,7 @@ rules:
 ------
 #### [ JSON ]
 
-```
+```json
                             "rules": [
                                 {
                                     "name": "MyMonitorRule",

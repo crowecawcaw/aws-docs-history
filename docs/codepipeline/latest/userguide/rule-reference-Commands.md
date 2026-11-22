@@ -1,7 +1,6 @@
 
 
 # Commands
-<a name="rule-reference-Commands"></a>
 
 When you create a condition, you can add the `Commands` rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -94,7 +93,7 @@ The following details provide the default compute that is used for the Commands 
 ------
 #### [ YAML ]
 
-```
+```yaml
 result: FAIL
 rules:
 - name: CommandsRule
@@ -115,7 +114,7 @@ rules:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "result": "FAIL",
     "rules": [

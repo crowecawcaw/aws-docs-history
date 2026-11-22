@@ -1,7 +1,6 @@
 
 
 # LambdaInvoke
-<a name="rule-reference-LambdaInvoke"></a>
 
 When you create a condition, you can add the `LambdaInvoke` rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -37,7 +36,7 @@ These are parameters that are provided as input for the function in key-value pa
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: MyLambdaRule
   ruleTypeId:
     category: Rule
@@ -54,7 +53,7 @@ These are parameters that are provided as input for the function in key-value pa
 ------
 #### [ JSON ]
 
-```
+```json
 [
     {
         "name": "MyLambdaRule",

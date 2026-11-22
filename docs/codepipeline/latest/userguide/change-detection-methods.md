@@ -1,7 +1,6 @@
 
 
 # Source actions and change detection methods
-<a name="change-detection-methods"></a>
 
 When you add a source action to your pipeline, the actions work with additional resources described in the table.
 

@@ -1,7 +1,6 @@
 
 
 # Valid input and output artifacts for each action type
-<a name="reference-action-artifacts"></a>
 
 Depending on the action type and provider, you can have the following number of input and output artifacts.
 

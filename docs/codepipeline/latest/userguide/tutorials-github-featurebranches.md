@@ -1,7 +1,6 @@
 
 
 # Tutorial: Filter on branch names for pull requests to start your pipeline (V2 type)
-<a name="tutorials-github-featurebranches"></a>
 
 In this tutorial, you will create a pipeline that connects to your GitHub.com repository where the source action is configured to start your pipeline with a trigger configuration that filters on pull requests. When a specified pull request event occurs for a specified branch, your pipeline starts. This example shows you how to create a pipeline that allows filtering for branch names. For more information about working with triggers, see [Add filters for push and pull request event types (CLI)](pipelines-filter.md#pipelines-filter-cli). For more information about filtering with regex patterns in glob format, see [Working with glob patterns in syntax](syntax-glob.md).
 

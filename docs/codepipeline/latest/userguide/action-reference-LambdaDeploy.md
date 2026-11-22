@@ -1,7 +1,6 @@
 
 
 # AWS Lambda deploy action reference
-<a name="action-reference-LambdaDeploy"></a>
 
 You use an AWS Lambda deploy action to manage deploying your application code for your serverless deployment. You can deploy a function and use deployment strategies for traffic deployment as follows:
 + Canary and linear deployments for traffic shifting
@@ -104,7 +103,7 @@ When CodePipeline runs the action, CodePipeline service role requires the follow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -168,7 +167,7 @@ When CodePipeline runs the action, CodePipeline service role requires the follow
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: Deploy
 actionTypeId:
   category: Deploy
@@ -190,7 +189,7 @@ namespace: DeployVariables
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "Deploy",
     "actionTypeId": {

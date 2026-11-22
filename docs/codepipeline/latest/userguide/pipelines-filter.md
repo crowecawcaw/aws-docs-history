@@ -1,7 +1,6 @@
 
 
 # Add trigger with code push or pull request event types
-<a name="pipelines-filter"></a>
 
 You can configure filters for pipeline triggers to have pipeline executions started for different Git events, such as tag or branch push, changes in specific file paths, a pull request opened into a specific branch, and so on. You can use the AWS CodePipeline console or the **create-pipeline** and **update-pipeline** commands in the AWS CLI to configure trigger filters.
 

@@ -1,7 +1,6 @@
 
 
 # Add trigger on code push with no filter
-<a name="pipelines-trigger-add"></a>
 
 Triggers allow you to configure your pipeline to start on a particular event type, such as a code push or pull request. Triggers are configurable for source actions with connections that use the CodeStarSourceConnection action in CodePipeline, such as GitHub, Bitbucket, and GitLab.
 

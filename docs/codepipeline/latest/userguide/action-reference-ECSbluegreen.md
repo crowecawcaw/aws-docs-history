@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Container Service and CodeDeploy blue-green deploy action reference
-<a name="action-reference-ECSbluegreen"></a>
 
 You can configure a pipeline in AWS CodePipeline that deploys container applications using a blue/green deployment. In a blue/green deployment, you can launch a new version of your application alongside the old version, and you can test the new version before you reroute traffic to it. You can also monitor the deployment process and rapidly roll back if there is an issue.
 
@@ -99,7 +98,7 @@ For the `CodeDeployToECS` action (blue/green deployments), the following are the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -181,7 +180,7 @@ You can also add `ecs-tasks.amazonaws.com` to the list of services under the `ia
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 Actions:
   - Name: Deploy
@@ -211,7 +210,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "Actions": [

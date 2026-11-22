@@ -1,7 +1,6 @@
 
 
 # AWS CodePipeline identity-based policy examples
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, IAM users and roles don't have permission to create or modify CodePipeline resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the IAM users or groups that require those permissions.
 
@@ -47,7 +46,7 @@ The following example grants permissions to get the state of the pipeline named 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ The following example grants permissions to disable and enable transitions betwe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ The following example grants permissions to get a list of all available action t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -135,7 +134,7 @@ The following example grants permissions to approve or reject manual approval ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -165,7 +164,7 @@ The job worker for a custom action might be configured under a different AWS acc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -194,7 +193,7 @@ If you configure a pipeline to use Jenkins for build or test, create a separate 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
@@ -228,7 +227,7 @@ The following example shows a policy in the 80398EXAMPLE account that allows use
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
 
@@ -271,7 +270,7 @@ The following example shows a policy created in the {{111111111111}} AWS account
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

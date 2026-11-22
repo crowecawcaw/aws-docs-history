@@ -1,7 +1,6 @@
 
 
 # CloudFormation StackSets deploy action reference
-<a name="action-reference-StackSets"></a>
 
 CodePipeline offers the ability to perform CloudFormation StackSets operations as part of your CI/CD process. You use a stack set to create stacks in AWS accounts across AWS Regions by using a single CloudFormation template. All the resources included in each stack are defined by the stack set’s CloudFormation template. When you create the stack set, you specify the template to use, as well as any parameters and capabilities that the template requires.
 
@@ -383,7 +382,7 @@ The following example shows a **CloudFormationStackSet** action where the deploy
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: CreateStackSet
 ActionTypeId:
   Category: Deploy
@@ -409,7 +408,7 @@ Namespace: DeployVariables
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "CreateStackSet",
     "ActionTypeId": {
@@ -449,7 +448,7 @@ The following example shows a **CloudFormationStackSet** action for the service-
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 ActionTypeId:
   Category: Deploy
@@ -473,7 +472,7 @@ Namespace: DeployVariables
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "ActionTypeId": {
@@ -714,7 +713,7 @@ The following example shows a **CloudFormationStackInstances** action where the 
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: my-instances
 ActionTypeId:
   Category: Deploy
@@ -735,7 +734,7 @@ Region: us-west-2
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "my-instances",
     "ActionTypeId": {
@@ -770,7 +769,7 @@ The following example shows a **CloudFormationStackInstances** action for the se
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Instances
 ActionTypeId:
   Category: Deploy
@@ -791,7 +790,7 @@ Region: eu-central-1
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Instances",
     "ActionTypeId": {

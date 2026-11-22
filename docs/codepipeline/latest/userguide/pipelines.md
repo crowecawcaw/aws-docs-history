@@ -1,7 +1,6 @@
 
 
 # Define CI/CD pipelines with stages and actions
-<a name="pipelines"></a>
 
 To define an automated release process in AWS CodePipeline, you create a pipeline, which is a workflow construct that describes how software changes go through a release process. A pipeline is composed of stages and actions that you configure. 
 

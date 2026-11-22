@@ -1,7 +1,6 @@
 
 
 # Security best practices
-<a name="security-best-practices"></a>
 
 
 

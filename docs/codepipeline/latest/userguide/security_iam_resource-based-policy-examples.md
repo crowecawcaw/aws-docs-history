@@ -1,7 +1,6 @@
 
 
 # AWS CodePipeline resource-based policy examples
-<a name="security_iam_resource-based-policy-examples"></a>
 
 **Topics**
 
@@ -11,7 +10,7 @@ Other services, such as Amazon S3, also support resource-based permissions polic
 You can use any versioned S3 bucket as the artifact store for CodePipeline. If you use the **Create Pipeline** wizard to create your first pipeline, this S3 bucket is created for you to ensure that all objects uploaded to the artifact store are encrypted and connections to the bucket are secure. If you create your own S3 bucket, as a best practice, consider adding the following policy or its elements to the bucket. In this policy, the ARN for the S3 bucket is `codepipeline-us-east-2-1234567890`. Replace this ARN with the ARN for your S3 bucket:    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "SSEAndSSLPolicy",

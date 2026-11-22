@@ -1,7 +1,6 @@
 
 
 # Use CodePipeline with Amazon Virtual Private Cloud
-<a name="vpc-support"></a>
 
 AWS CodePipeline now supports [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc/) endpoints powered by [AWS PrivateLink](https://aws.amazon.com/about-aws/whats-new/2017/11/introducing-aws-privatelink-for-aws-services/). This means you can connect directly to CodePipeline through a private endpoint in your VPC, keeping all traffic inside your VPC and the AWS network.
 

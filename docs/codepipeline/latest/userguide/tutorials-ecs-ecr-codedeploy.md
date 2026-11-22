@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment
-<a name="tutorials-ecs-ecr-codedeploy"></a>
 
 In this tutorial, you configure a pipeline in AWS CodePipeline that deploys container applications using a blue/green deployment that supports Docker images. In a blue/green deployment, you can launch the new version of your application alongside the old version and test the new version before you reroute traffic. You can also monitor the deployment process and rapidly roll back if there is an issue.
 

@@ -1,7 +1,6 @@
 
 
 # AWS AppConfig deploy action reference
-<a name="action-reference-AppConfig"></a>
 
 AWS AppConfig is a capability of AWS Systems Manager. AppConfig supports controlled deployments to applications of any size and includes built-in validation checks and monitoring. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT devices.
 
@@ -57,7 +56,7 @@ When CodePipeline runs the action, the CodePipeline service role policy requires
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ When CodePipeline runs the action, the CodePipeline service role policy requires
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: Deploy
 actions:
   - name: Deploy
@@ -112,7 +111,7 @@ actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "Deploy",
     "actions": [

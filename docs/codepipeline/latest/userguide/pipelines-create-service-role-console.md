@@ -1,7 +1,6 @@
 
 
 # Create the CodePipeline service role (console)
-<a name="pipelines-create-service-role-console"></a>
 
 When you use the console to create a pipeline, you create the CodePipeline service role with the pipeline creation wizard.
 

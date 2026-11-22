@@ -1,14 +1,13 @@
 
 
 # CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions
-<a name="action-reference-CodestarConnectionSource"></a>
 
 Source actions for connections are supported by AWS CodeConnections. AWS CodeConnections allows you to create and manage connections between AWS resources and third-party repositories such as GitHub. Starts a pipeline when a new commit is made on a third-party source code repository. The source action retrieves code changes when a pipeline is manually run or when a webhook event is sent from the source provider. 
 
 You can configure actions in your pipeline to use a Git configuration that allows you to start your pipeline with triggers. To configure the pipeline trigger configuration to filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
 
 **Note**  
-This feature is not available in the Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain), Middle East (UAE), Europe (Spain), Europe (Zurich), Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available actions, see [Product and service integrations with CodePipeline](integrations.md). For considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](#action-reference-CodestarConnectionSource).
+This feature is not available in the Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Osaka), Africa (Cape Town), Middle East (Bahrain), Middle East (UAE), Europe (Spain), Europe (Zurich), Israel (Tel Aviv), or AWS GovCloud (US-West) Regions. To reference other available actions, see [Product and service integrations with CodePipeline](integrations.md). For considerations with this action in the Europe (Milan) Region, see the note in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md).
 
 Connections can associate your AWS resources with the following third-party repositories:
 + Bitbucket Cloud (through the **Bitbucket** provider option in the CodePipeline console or the `Bitbucket` provider in the CLI)
@@ -166,7 +165,7 @@ In the following example, the output artifact is set to the default ZIP format o
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Source
 Actions:
   - InputArtifacts: []
@@ -189,7 +188,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Source",
     "Actions": [

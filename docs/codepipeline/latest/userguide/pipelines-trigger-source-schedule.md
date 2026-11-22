@@ -1,7 +1,6 @@
 
 
 # Start a pipeline on a schedule
-<a name="pipelines-trigger-source-schedule"></a>
 
 You can set up a rule in EventBridge to start a pipeline on a schedule. 
 
@@ -74,7 +73,7 @@ To use the AWS CLI to create a rule, call the **put-rule** command, specifying:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -104,7 +103,7 @@ To use the AWS CLI to create a rule, call the **put-rule** command, specifying:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

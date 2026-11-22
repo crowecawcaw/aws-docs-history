@@ -1,7 +1,6 @@
 
 
 # Tag a pipeline in CodePipeline
-<a name="pipelines-tag"></a>
 
 Tags are key-value pairs associated with AWS resources. You can apply tags to your pipelines in CodePipeline. For information about CodePipeline resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging resources](tag-resources.md).
 

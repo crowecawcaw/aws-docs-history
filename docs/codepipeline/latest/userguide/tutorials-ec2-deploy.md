@@ -1,7 +1,6 @@
 
 
 # Tutorial: Deploy to Amazon EC2 instances with CodePipeline
-<a name="tutorials-ec2-deploy"></a>
 
 This tutorial helps you to create a deploy action in CodePipeline that deploys your code to instances you have configured in Amazon EC2.
 

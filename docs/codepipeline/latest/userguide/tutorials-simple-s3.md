@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a simple pipeline (S3 bucket)
-<a name="tutorials-simple-s3"></a>
 
 The easiest way to create a pipeline is to use the **Create pipeline** wizard in the AWS CodePipeline console. 
 
@@ -452,7 +451,7 @@ You can pipe the JSON directly into a file with the **get-pipeline** command as 
 
    For example, remove the following lines from the structure:
 
-   ```
+   ```json
    "metadata": {  
      "pipelineArn": "arn:aws:codepipeline:{{region}}:{{account-ID}}:{{pipeline-name}}",
      "created": "{{date}}",

@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in CodePipeline
-<a name="incident-response"></a>
 
 You can use logging features in AWS to determine the actions users have taken in your account and the resources that were used. The log files show:
 + The time and date of actions.

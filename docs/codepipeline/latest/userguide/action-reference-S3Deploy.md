@@ -1,7 +1,6 @@
 
 
 # Amazon S3 deploy action reference
-<a name="action-reference-S3Deploy"></a>
 
 You use an Amazon S3 deploy action to deploy files to an Amazon S3 bucket for static website hosting or archive. You can specify whether to extract deployment files before upload to your bucket.
 
@@ -77,7 +76,7 @@ For S3 deploy action support, add the following to your policy statement:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -128,7 +127,7 @@ The following example shows the default action configuration when the action is 
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 Actions:
   - Name: Deploy
@@ -152,7 +151,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "Actions": [
@@ -193,7 +192,7 @@ The following example shows the default action configuration when the action is 
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 Actions:
   - Name: Deploy
@@ -216,7 +215,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "Actions": [

@@ -1,7 +1,6 @@
 
 
 # Identity-based policies (IAM) examples
-<a name="security-iam-id-policies-examples"></a>
 
 You can attach policies to IAM identities. For example, you can do the following: 
 + **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to view pipelines in the console, you can attach a permissions policy to a user or group that the user belongs to.
@@ -22,7 +21,7 @@ The following shows an example of a permissions policy that grants permissions t
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement" : [
@@ -49,7 +48,7 @@ The following example shows a policy in the 111222333444 account that allows use
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -129,7 +128,7 @@ After you create this policy, create the IAM role in the 111222333444 account an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -153,7 +152,7 @@ The following example shows a policy created in the {{111111111111}} AWS account
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

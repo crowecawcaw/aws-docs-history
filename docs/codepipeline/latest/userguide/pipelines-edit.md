@@ -1,7 +1,6 @@
 
 
 # Edit a pipeline in CodePipeline
-<a name="pipelines-edit"></a>
 
 A pipeline describes the release process that you want AWS CodePipeline to follow, including stages and actions that must be completed. You can edit a pipeline to add or remove these elements. However, when you edit a pipeline, values such as the pipeline name or pipeline metadata cannot be changed.
 

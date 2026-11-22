@@ -1,7 +1,6 @@
 
 
 # Tutorial: Lambda function deployments with CodePipeline
-<a name="tutorials-lambda-deploy"></a>
 
 This tutorial helps you to create a deploy action in CodePipeline that deploys your code to your function you have configured in Lambda. You will create a sample Lambda function where you will create an alias and version, add the zipped Lambda function to your source location, and run the Lambda action in your pipeline.
 

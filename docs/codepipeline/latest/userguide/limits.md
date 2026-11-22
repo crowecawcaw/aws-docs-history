@@ -1,7 +1,6 @@
 
 
 # Quotas in AWS CodePipeline
-<a name="limits"></a>
 
 CodePipeline has quotas for the number of pipelines, stages, actions, and webhooks that an AWS account can have in each AWS Region. 
 

@@ -1,7 +1,6 @@
 
 
 # Connect to first-party source providers using source actions
-<a name="pipelines-sources"></a>
 
 You can use the AWS CodePipeline console or the AWS CLI to connect to source action providers, such as CodeCommit or S3.
 

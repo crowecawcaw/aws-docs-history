@@ -1,7 +1,6 @@
 
 
 # VariableCheck
-<a name="rule-reference-VariableCheck"></a>
 
 When you create a condition, you can add the `VariableCheck` rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -122,7 +121,7 @@ In the following JSON example, two separate rules are defined, one for an `EQ` (
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: MyVariableCheck
   ruleTypeId:
     category: Rule
@@ -140,7 +139,7 @@ In the following JSON example, two separate rules are defined, one for an `EQ` (
 ------
 #### [ JSON ]
 
-```
+```json
 "rules": [
     {
         "name": "MyVariableCheck",

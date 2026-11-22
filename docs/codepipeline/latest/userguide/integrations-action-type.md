@@ -1,7 +1,6 @@
 
 
 # Integrations with CodePipeline action types
-<a name="integrations-action-type"></a>
 
 The integrations information in this topic is organized by CodePipeline action type.
 

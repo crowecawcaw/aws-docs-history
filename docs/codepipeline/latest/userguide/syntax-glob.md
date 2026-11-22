@@ -1,7 +1,6 @@
 
 
 # Working with glob patterns in syntax
-<a name="syntax-glob"></a>
 
 When you specify the files or paths that are used in pipeline artifacts or source locations, you can specify the artifact depending on the action type. For example, for the S3 action, you specify the S3 object key. 
 

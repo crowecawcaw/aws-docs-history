@@ -1,7 +1,6 @@
 
 
 # Azure DevOps connections
-<a name="connections-azure"></a>
 
 Connections allow you to authorize and establish configurations that associate your third-party provider with your AWS resources. To associate your third-party repository as a source for your pipeline, you use a connection. 
 

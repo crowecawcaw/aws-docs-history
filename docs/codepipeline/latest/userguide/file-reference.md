@@ -1,7 +1,6 @@
 
 
 # Image definitions file reference
-<a name="file-reference"></a>
 
 This section is a reference only. For information about creating a pipeline with source or deploy actions for containers, see [Create a pipeline, stages, and actions](pipelines-create.md).
 

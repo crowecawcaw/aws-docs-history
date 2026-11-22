@@ -1,7 +1,6 @@
 
 
 # Amazon S3 source action reference
-<a name="action-reference-S3"></a>
 
 A source action triggers the pipeline when a new object is uploaded to the configured bucket and object key.
 
@@ -106,7 +105,7 @@ For S3 source action support, add the following to your policy statement:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -143,7 +142,7 @@ For S3 source action support, add the following to your policy statement:
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Source
 Actions:
   - RunOrder: 1
@@ -166,7 +165,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Source",
     "Actions": [

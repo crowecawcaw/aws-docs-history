@@ -1,7 +1,6 @@
 
 
 # View pipelines (console)
-<a name="pipelines-view-console"></a>
 
 You can view status, transitions, and artifact updates for a pipeline.
 

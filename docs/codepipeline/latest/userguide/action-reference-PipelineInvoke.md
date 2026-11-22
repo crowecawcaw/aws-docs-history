@@ -1,7 +1,6 @@
 
 
 # AWS CodePipeline invoke action reference
-<a name="action-reference-PipelineInvoke"></a>
 
 You use a CodePipeline invoke action to simplify triggering downstream pipeline executions and passing pipeline variables and source revisions between pipelines.
 
@@ -94,7 +93,7 @@ When CodePipeline runs the action, the CodePipeline service role policy requires
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: Invoke-pipeline
 actionTypeId:
   category: Invoke
@@ -112,7 +111,7 @@ Value":"zq8mjNEXAMPLE"}]'
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "Invoke-pipeline",
     "actionTypeId": {

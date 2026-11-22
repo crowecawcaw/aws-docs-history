@@ -1,7 +1,6 @@
 
 
 # Amazon Elastic Kubernetes Service `EKS` deploy action reference
-<a name="action-reference-EKS"></a>
 
 You can use the `EKSDeploy` action to deploy an Amazon EKS service. The deployment requires a Kubernetes manifest file that CodePipeline uses to deploy the image.
 
@@ -136,7 +135,7 @@ In the service role policy statement, scope down the permissions to the resource
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -195,7 +194,7 @@ You can also use an action role that has the updated permissions. For more infor
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: DeployEKS
 ActionTypeId:
   Category: Deploy
@@ -214,7 +213,7 @@ InputArtifacts:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "DeployECS",
     "ActionTypeId": {

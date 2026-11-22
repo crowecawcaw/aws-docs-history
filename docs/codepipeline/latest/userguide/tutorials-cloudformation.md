@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline with AWS CloudFormation
-<a name="tutorials-cloudformation"></a>
 
 The examples provide sample templates that allow you to use AWS CloudFormation to create a pipeline that deploys your application to your instances each time the source code changes. The sample template creates a pipeline that you can view in AWS CodePipeline. The pipeline detects the arrival of a saved change through Amazon CloudWatch Events.
 

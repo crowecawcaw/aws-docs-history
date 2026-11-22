@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use Git tags to start your pipeline
-<a name="tutorials-github-tags"></a>
 
 In this tutorial, you will create a pipeline that connects to your GitHub repository where the source action is configured for the Git tags trigger type. When a Git tag is created on a commit, your pipeline starts. This example shows you how to create a pipeline that allows filtering for tags based on the syntax of the tag name. For more information about filtering with glob patterns, see [Working with glob patterns in syntax](syntax-glob.md).
 

@@ -1,7 +1,6 @@
 
 
 # How do I get started with CodePipeline?
-<a name="welcome-get-started"></a>
 
 To get started with CodePipeline:
 

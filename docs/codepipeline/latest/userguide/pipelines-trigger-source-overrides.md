@@ -1,7 +1,6 @@
 
 
 # Start a pipeline with a source revision override
-<a name="pipelines-trigger-source-overrides"></a>
 
 You can use overrides to start a pipeline with a specific source revision ID that you provide for the pipeline execution. For example, if you want to start a pipeline that will process a specific commit ID from your CodeCommit source, you can add the commit ID as an override when you start your pipeline.
 

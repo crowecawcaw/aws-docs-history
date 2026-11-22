@@ -1,7 +1,6 @@
 
 
 # GitHub connections
-<a name="connections-github"></a>
 
 You use connections to authorize and establish configurations that associate your third-party provider with your AWS resources.
 

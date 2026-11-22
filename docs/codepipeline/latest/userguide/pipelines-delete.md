@@ -1,7 +1,6 @@
 
 
 # Delete a pipeline in CodePipeline
-<a name="pipelines-delete"></a>
 
 You can always edit a pipeline to change its functionality, but you might decide you want to delete it instead. You can use the AWS CodePipeline console or the **delete-pipeline** command in the AWS CLI to delete a pipeline.
 

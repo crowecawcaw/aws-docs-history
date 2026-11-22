@@ -1,7 +1,6 @@
 
 
 # CodePipeline use cases
-<a name="best-practices"></a>
 
 The following sections describe use cases for CodePipeline.
 

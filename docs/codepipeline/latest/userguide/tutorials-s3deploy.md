@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline that uses Amazon S3 as a deployment provider
-<a name="tutorials-s3deploy"></a>
 
 In this tutorial, you configure a pipeline that continuously delivers files using Amazon S3 as the deployment action provider in your deployment stage. The completed pipeline detects changes when you make a change to the source files in your source repository. The pipeline then uses Amazon S3 to deploy the files to your bucket. Each time you modify or add your website files in your source location, the deployment creates the website with your latest files. 
 

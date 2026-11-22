@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline with AWS CloudFormation StackSets deployment actions
-<a name="tutorials-stackset-deployment"></a>
 
 In this tutorial, you use the AWS CodePipeline console to create a pipeline with deployment actions for creating a stack set and creating stack instances. When the pipeline runs, the template creates a stack set and also creates and updates the instances where the stack set is deployed.
 

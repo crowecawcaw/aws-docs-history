@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline that publishes your serverless application to the AWS Serverless Application Repository
-<a name="tutorials-serverlessrepo-auto-publish"></a>
 
 You can use AWS CodePipeline to continuously deliver your AWS SAM serverless application to the AWS Serverless Application Repository.
 

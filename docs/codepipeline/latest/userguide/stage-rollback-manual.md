@@ -1,7 +1,6 @@
 
 
 # Roll back a stage manually
-<a name="stage-rollback-manual"></a>
 
 You can manually roll back a stage using the console or CLI. The pipeline can only roll back to a previous execution if the previous execution was started in the current pipeline structure version.
 
@@ -38,7 +37,7 @@ The following diagram shows an example of the rolled back stage with the new exe
 
 To use the AWS CLI to manually roll back a stage, use the `rollback-stage` command. 
 
-You can also roll back a stage manually as detailed in [Roll back a stage manually](#stage-rollback-manual). 
+You can also roll back a stage manually as detailed in [Roll back a stage manually](stage-rollback-manual.md). 
 
 **Note**  
 The list of target pipeline executions available will be all executions in the current pipeline version beginning on February 1, 2024.

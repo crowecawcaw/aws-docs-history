@@ -1,7 +1,6 @@
 
 
 # Update a GitHub (via OAuth app) source action to a GitHub (via GitHub App) source action
-<a name="update-github-action-connections"></a>
 
 In AWS CodePipeline, there are two supported versions of the GitHub source action:
 + **Recommended:** The GitHub (via GitHub App) action uses GitHub app-based auth backed by a [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md) resource. It installs an AWS CodeStar Connections application into your GitHub organization so that you can manage access in GitHub.

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a simple pipeline (CodeCommit repository)
-<a name="tutorials-simple-codecommit"></a>
 
 In this tutorial, you use CodePipeline to deploy code maintained in a CodeCommit repository to a single Amazon EC2 instance. Your pipeline is triggered when you push a change to the CodeCommit repository. The pipeline deploys your changes to an Amazon EC2 instance using CodeDeploy as the deployment service.
 

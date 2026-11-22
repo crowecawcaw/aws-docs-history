@@ -1,7 +1,6 @@
 
 
 # Grant approval permissions to an IAM user in CodePipeline
-<a name="approvals-iam-permissions"></a>
 
 Before IAM users in your organization can approve or reject approval actions, they must be granted permissions to access pipelines and to update the status of approval actions. You can grant permission to access all pipelines and approval actions in your account by attaching the `AWSCodePipelineApproverAccess` managed policy to an IAM user, role, or group; or you can to grant limited permissions by specifying the individual resources that can be accessed by an IAM user, role, or group.
 

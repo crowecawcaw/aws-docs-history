@@ -1,7 +1,6 @@
 
 
 # What can I do with CodePipeline?
-<a name="welcome-what-can-I-do"></a>
 
 You can use CodePipeline to help you automatically build, test, and deploy your applications in the cloud. Specifically, you can: 
 + **Automate your release processes**: CodePipeline fully automates your release process from end to end, starting from your source repository through build, test, and deployment. You can prevent changes from moving through a pipeline by including a manual approval action in any stage except a Source stage. You can release when you want, in the way you want, on the systems of your choice, across one instance or multiple instances.

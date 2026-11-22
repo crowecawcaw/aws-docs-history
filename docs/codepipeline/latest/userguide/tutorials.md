@@ -1,7 +1,6 @@
 
 
 # CodePipeline tutorials
-<a name="tutorials"></a>
 
 After you complete the steps in [Getting started with CodePipeline](getting-started-codepipeline.md), you can try one of the AWS CodePipeline tutorials in this user guide.
 

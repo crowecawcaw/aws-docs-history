@@ -1,7 +1,6 @@
 
 
 # CodeBuild rule
-<a name="rule-reference-CodeBuild"></a>
 
 When you create a condition, you can add the CodeBuild rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -81,7 +80,7 @@ For more information, see [ EnvironmentVariable](https://docs.aws.amazon.com/cod
 ------
 #### [ YAML ]
 
-```
+```yaml
 name: codebuild-rule
 ruleTypeId:
   category: Rule
@@ -99,7 +98,7 @@ region: us-east-1
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "name": "codebuild-rule",
     "ruleTypeId": {

@@ -1,7 +1,6 @@
 
 
 # Stage declaration
-<a name="stage-requirements"></a>
 
 The stage level of a pipeline has a basic structure that includes the following parameters and syntax. For more information, see the [StageDeclaration](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StageDeclaration.html) object in the * CodePipeline API Guide*.
 
@@ -10,7 +9,7 @@ The following example shows the stage level of the pipeline structure in both JS
 ------
 #### [ YAML ]
 
-```
+```YAML
 pipeline:
   name: MyPipeline
   roleArn: >-
@@ -49,7 +48,7 @@ metadata:
 ------
 #### [ JSON ]
 
-```
+```JSON
 {
     "pipeline": {
         "name": "MyPipeline",

@@ -1,7 +1,6 @@
 
 
 # Create and add a custom action in CodePipeline
-<a name="actions-create-custom-action"></a>
 
 AWS CodePipeline includes a number of actions that help you configure build, test, and deploy resources for your automated release process. If your release process includes activities that are not included in the default actions, such as an internally developed build process or a test suite, you can create a custom action for that purpose and include it in your pipeline. You can use the AWS CLI to create custom actions in pipelines associated with your AWS account.
 
@@ -199,7 +198,7 @@ The following is an example policy you might create for use with your custom job
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -300,7 +299,7 @@ If you want your action to run in parallel with another action in that stage, ma
 
    For example, to modify the structure of a pipeline to add a stage named Build and to add a build custom action to that stage, you might modify the JSON to add the Build stage before a deployment stage as follows:
 
-   ```
+   ```json
    {{,
        {
          "name": "MyBuildStage",

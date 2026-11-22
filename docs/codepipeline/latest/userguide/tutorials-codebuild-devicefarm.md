@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline that builds and tests your Android app with AWS Device Farm
-<a name="tutorials-codebuild-devicefarm"></a>
 
 You can use AWS CodePipeline to configure a continuous integration flow in which your app is built and tested each time a commit is pushed. This tutorial shows how to create and configure a pipeline to build and test your Android app with source code in a GitHub repository. The pipeline detects the arrival of a new GitHub commit and then uses [CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) to build the app and [Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html) to test it.
 

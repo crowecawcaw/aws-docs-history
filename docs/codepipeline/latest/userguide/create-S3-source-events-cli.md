@@ -1,7 +1,6 @@
 
 
 # Create pipelines with an S3 source enabled for events (CLI)
-<a name="create-S3-source-events-cli"></a>
 
 Follow these steps to create a pipeline with an S3 source that uses an event in EventBridge for change detection. For the full steps to create a pipeline with the CLI, see [Create a pipeline, stages, and actions](pipelines-create.md).
 
@@ -20,7 +19,7 @@ To build an event-driven pipeline with Amazon S3, you edit the `PollForSourceCha
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -52,7 +51,7 @@ To build an event-driven pipeline with Amazon S3, you edit the `PollForSourceCha
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -109,7 +108,7 @@ When you create a pipeline with this method, the `PollForSourceChanges` paramete
 
    **Why am I making this change?** Setting this parameter to `false` turns off periodic checks so you can use event-based change detection only.
 
-   ```
+   ```json
    "configuration": {
        "S3Bucket": "amzn-s3-demo-source-bucket",
        {{"PollForSourceChanges": "false",}}

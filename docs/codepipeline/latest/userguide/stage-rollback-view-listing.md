@@ -1,7 +1,6 @@
 
 
 # View rollback status in execution listing
-<a name="stage-rollback-view-listing"></a>
 
 You can view the status and target execution ID for a rollback execution.
 

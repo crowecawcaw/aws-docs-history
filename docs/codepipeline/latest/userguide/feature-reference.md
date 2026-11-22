@@ -1,7 +1,6 @@
 
 
 # CodePipeline feature reference
-<a name="feature-reference"></a>
 
 This section is a high-level reference for features in CodePipeline documentation. For a conceptual overview of the pipeline structure, see [CodePipeline pipeline structure reference](reference-pipeline-structure.md).
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline that deploys to Service Catalog
-<a name="tutorials-S3-servicecatalog"></a>
 
 Service Catalog enables you to create and provision products based on AWS CloudFormation templates. 
 

@@ -1,7 +1,6 @@
 
 
 # Use a connection shared with another account
-<a name="connections-shared"></a>
 
 You can create and manage a shared connection using AWS RAM. This allows connections to be shared between AWS accounts for access to third-party repositories. This allows a single connection to be used in CodePipeline pipelines across accounts while reducing the need for users to manage and administer separate connections in each account.
 

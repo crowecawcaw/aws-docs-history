@@ -1,7 +1,6 @@
 
 
 # Integration examples: Blog posts
-<a name="integrations-community-blogposts"></a>
 + [Tracking the AWS CodePipeline build status from the third-party Git repository](https://aws.amazon.com/blogs/devops/aws-codepipeline-build-status-in-a-third-party-git-repository/)
 
   Learn how to set up resources that will display your pipeline and build action status in your third-party repository, making it easy for the developer to track status without switching context.

@@ -1,7 +1,6 @@
 
 
 # Create an EventBridge rule for a CodeCommit source (console)
-<a name="pipelines-trigger-source-repo-changes-console"></a>
 
 **Important**  
 If you use the console to create or edit your pipeline, your EventBridge rule is created for you.

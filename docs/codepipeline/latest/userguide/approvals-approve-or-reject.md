@@ -1,7 +1,6 @@
 
 
 # Approve or reject an approval action in CodePipeline
-<a name="approvals-approve-or-reject"></a>
 
 When a pipeline includes an approval action, the pipeline execution stops at the point where the action has been added. The pipeline won't resume unless someone manually approves the action. If an approver rejects the action, or if no approval response is received within seven days of the pipeline stopping for the approval action, the pipeline status becomes "Failed."
 

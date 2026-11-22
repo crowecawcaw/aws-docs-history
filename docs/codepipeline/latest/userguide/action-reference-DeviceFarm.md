@@ -1,7 +1,6 @@
 
 
 # AWS Device Farm test action reference
-<a name="action-reference-DeviceFarm"></a>
 
 In your pipeline, you can configure a test action that uses AWS Device Farm to run and test your application on devices. Device Farm uses test pools of devices and testing frameworks to test applications on specific devices. For information about the types of testing frameworks supported by the Device Farm action, see [Working with Test Types in AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types.html).
 
@@ -178,7 +177,7 @@ When CodePipeline runs the action, the CodePipeline service role policy requires
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Test
 Actions:
   - Name: TestDeviceFarm
@@ -205,7 +204,7 @@ Region: us-west-2
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Test",
     "Actions": [

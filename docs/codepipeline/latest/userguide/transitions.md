@@ -1,7 +1,6 @@
 
 
 # Working with stage transitions in CodePipeline
-<a name="transitions"></a>
 
 Transitions are links between pipeline stages that can be disabled or enabled. They are enabled by default. When you re-enable a disabled transition, the latest revision runs through the remaining stages of the pipeline unless more than 30 days have passed. Pipeline execution won't resume for a transition that has been disabled more than 30 days unless a new change is detected or you manually rerun the pipeline.
 

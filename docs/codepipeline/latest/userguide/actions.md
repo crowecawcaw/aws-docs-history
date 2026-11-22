@@ -1,7 +1,6 @@
 
 
 # Use action types, custom actions, and approval actions
-<a name="actions"></a>
 
 In AWS CodePipeline, an action is part of the sequence in a stage of a pipeline. It is a task performed on the artifact in that stage. Pipeline actions occur in a specified order, in sequence or in parallel, as determined in the configuration of the stage.
 

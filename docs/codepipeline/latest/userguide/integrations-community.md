@@ -1,7 +1,6 @@
 
 
 # Examples from the community
-<a name="integrations-community"></a>
 
 The following sections provide links to blog posts, articles, and community-provided examples.
 

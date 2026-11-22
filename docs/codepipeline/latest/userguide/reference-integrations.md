@@ -1,7 +1,6 @@
 
 
 # Integration model reference
-<a name="reference-integrations"></a>
 
 There are several pre-built integrations for third-party services to help build existing customer tools into the pipeline release process. Partners, or third-party service providers, use an integration model to implement action types for use in CodePipeline.
 
@@ -46,7 +45,7 @@ This section uses the following terms for third-party action types:
 **Action type**  
 A repeatable process that can be re-used in pipelines that performs the same continuous delivery workloads. Action types are identified by an `Owner`, `Category`, `Provider`, and `Version`. For example:  
 
-```
+```json
             {
 
                 "Category": "Deploy",
@@ -365,7 +364,7 @@ The following is an example policy you might create for use with your third-part
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

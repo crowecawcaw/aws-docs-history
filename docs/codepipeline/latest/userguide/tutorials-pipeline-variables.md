@@ -1,7 +1,6 @@
 
 
 # Tutorial: Use pipeline-level variables
-<a name="tutorials-pipeline-variables"></a>
 
 In this tutorial, you will create a pipeline where you add a variable at the pipeline level and run a CodeBuild build action that outputs your variable value.
 

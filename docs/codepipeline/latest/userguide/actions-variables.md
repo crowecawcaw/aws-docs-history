@@ -1,7 +1,6 @@
 
 
 # Working with variables
-<a name="actions-variables"></a>
 
 Some actions in CodePipeline generate variables. To use variables:
 + You assign a namespace to an action to make the variables it produces available to a downstream action configuration.

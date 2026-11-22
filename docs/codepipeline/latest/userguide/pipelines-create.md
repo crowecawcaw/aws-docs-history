@@ -1,7 +1,6 @@
 
 
 # Create a pipeline, stages, and actions
-<a name="pipelines-create"></a>
 
 You can use the AWS CodePipeline console or the AWS CLI to create a pipeline. Pipelines must have at least two stages. The first stage of a pipeline must be a source stage. The pipeline must have at least one other stage that is a build or deployment stage.
 

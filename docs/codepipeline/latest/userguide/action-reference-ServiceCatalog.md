@@ -1,7 +1,6 @@
 
 
 # AWS Service Catalog deploy action reference
-<a name="action-reference-ServiceCatalog"></a>
 
 You use an AWS Service Catalog action to deploy templates using your pipeline. These are resource templates that you have created in Service Catalog.
 
@@ -101,7 +100,7 @@ The following example shows a valid configuration for a deploy action that uses 
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: ActionName
 ActionTypeId:
   Category: Deploy
@@ -121,7 +120,7 @@ Configuration:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "ActionName",
     "ActionTypeId": {

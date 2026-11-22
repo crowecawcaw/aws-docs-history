@@ -1,7 +1,6 @@
 
 
 # AWS OpsWorks deploy action reference
-<a name="action-reference-OpsWorks"></a>
 
 You use an AWS OpsWorks action to deploy with OpsWorks using your pipeline.
 
@@ -65,7 +64,7 @@ For AWS OpsWorks support, add the following to your policy statement:
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: ActionName
 ActionTypeId:
   Category: Deploy
@@ -82,7 +81,7 @@ Configuration:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "ActionName",
     "ActionTypeId": {

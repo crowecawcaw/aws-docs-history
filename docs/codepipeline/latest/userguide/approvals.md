@@ -1,7 +1,6 @@
 
 
 # Add a manual approval action to a stage
-<a name="approvals"></a>
 
 In AWS CodePipeline, you can add an approval action to a stage in a pipeline at the point where you want the pipeline execution to stop so that someone with the required AWS Identity and Access Management permissions can approve or reject the action. 
 

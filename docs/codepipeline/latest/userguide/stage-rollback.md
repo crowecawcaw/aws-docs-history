@@ -1,7 +1,6 @@
 
 
 # Configuring stage rollback
-<a name="stage-rollback"></a>
 
 You can roll back a stage to an execution that was successful in that stage. You can preconfigure a stage for rollback on failure, or you can manually roll back a stage. The rolled back operation will result in a new execution. The target pipeline execution chosen for rollback is used to retrieve source revisions and variables. 
 

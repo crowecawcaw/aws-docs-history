@@ -1,7 +1,6 @@
 
 
 # DeploymentWindow
-<a name="rule-reference-DeploymentWindow"></a>
 
 When you create a condition, you can add the `DeploymentWindow` rule. This section provides a reference for the rule parameters. For more information about rules and conditions, see [How do stage conditions work?](concepts-how-it-works-conditions.md).
 
@@ -68,7 +67,7 @@ The time zone for the deployment window. The regular expression matches patterns
 ------
 #### [ YAML ]
 
-```
+```yaml
 - name: MyDeploymentRule
   ruleTypeId:
     category: Rule
@@ -85,7 +84,7 @@ The time zone for the deployment window. The regular expression matches patterns
 ------
 #### [ JSON ]
 
-```
+```json
 [
                     {
                         "name": "MyDeploymentRule",

@@ -1,7 +1,6 @@
 
 
 # Create a pipeline in CodePipeline that uses resources from another AWS account
-<a name="pipelines-create-cross-account"></a>
 
 You might want to create a pipeline that uses resources created or managed by another AWS account. For example, you might want to use one account for your pipeline and another for your CodeDeploy resources. 
 
@@ -114,7 +113,7 @@ If a policy is already attached to your Amazon S3 bucket, choose **Edit bucket p
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": {
@@ -161,7 +160,7 @@ These policies are specific to setting up CodeDeploy resources to be used in a p
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -200,7 +199,7 @@ These policies are specific to setting up CodeDeploy resources to be used in a p
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -258,7 +257,7 @@ This is not the policy you will use. You must choose a policy to complete the wi
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -292,7 +291,7 @@ This is not the policy you will use. You must choose a policy to complete the wi
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

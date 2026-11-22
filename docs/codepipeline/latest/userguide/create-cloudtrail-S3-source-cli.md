@@ -1,7 +1,7 @@
 
 
 # Create an EventBridge rule for an Amazon S3 source (CLI)
-<a name="create-cloudtrail-S3-source-cli"></a><a name="proc-cli-event-s3-createtrail"></a>
+<a name="proc-cli-event-s3-createtrail"></a>
 
 **To create an AWS CloudTrail trail and enable logging**
 
@@ -56,7 +56,7 @@ For more information, see [Creating a trail with the AWS command line interface]
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -88,7 +88,7 @@ For more information, see [Creating a trail with the AWS command line interface]
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -175,7 +175,7 @@ When you create a pipeline with this method, the `PollForSourceChanges` paramete
 
    **Why am I making this change?** Setting this parameter to `false` turns off periodic checks so you can use event-based change detection only.
 
-   ```
+   ```json
    "configuration": {
        "S3Bucket": "amzn-s3-demo-source-bucket",
        {{"PollForSourceChanges": "false",}}

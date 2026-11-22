@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a pipeline that deploys an Amazon Alexa skill
-<a name="tutorials-alexa-skills-kit"></a>
 
 In this tutorial, you configure a pipeline that continuously delivers your Alexa skill using the Alexa Skills Kit as the deployment provider in your deployment stage. The completed pipeline detects changes to your skill when you make a change to the source files in your source repository. The pipeline then uses the Alexa Skills Kit to deploy to the Alexa skill development stage.
 

@@ -1,7 +1,6 @@
 
 
 # Input and output artifacts
-<a name="welcome-introducing-artifacts"></a>
 
 CodePipeline integrates with development tools to check for code changes and then build and deploy through all of the stages of the continuous delivery process. Artifacts are the files that are worked on by actions in the pipeline, such as files or folders with application code, index page files, scripts, and so on. For example, the Amazon S3 source action artifact is a file name (or file path) where the application source code files are provided for the pipeline source action. The files are provided as a ZIP file, such as the following example artifact name: `SampleApp_Windows.zip`. The output artifact for the source action, the application source code files, is the output artifact from that action and is the input artifact for the next action, such as a build action. As another example, a build action might run build commands that compile application source code for an input artifact, which is the application source code files. See the action configuration reference page for a specific action for details about artifact parameters, such as [AWS CodeBuild build and test action reference](action-reference-CodeBuild.md) for the CodeBuild action. 
 

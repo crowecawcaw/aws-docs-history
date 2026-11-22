@@ -1,7 +1,6 @@
 
 
 # AWS CodeBuild build and test action reference
-<a name="action-reference-CodeBuild"></a>
 
 Allows you to run builds and tests as part of your pipeline. When you run a CodeBuild build or test action, commands specified in the buildspec are run inside of a CodeBuild container. All artifacts that are specified as input artifacts to a CodeBuild action are available inside of the container running the commands. CodeBuild can provide either a build or test action. For more information, see the [AWS CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/).
 
@@ -109,7 +108,7 @@ For CodeBuild support, add the following to your policy statement:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -133,7 +132,7 @@ For CodeBuild support, add the following to your policy statement:
 
 If you use the `ServiceRoleArnOverride` parameter, add the following `iam:PassRole` permission to allow CodePipeline to pass the role to CodeBuild:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "iam:PassRole",
@@ -152,7 +151,7 @@ If you use the `ServiceRoleArnOverride` parameter, add the following `iam:PassRo
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Build
 Actions:
   - Name: PackageExport
@@ -179,7 +178,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Build",
     "Actions": [

@@ -1,7 +1,6 @@
 
 
 # Pipeline declaration
-<a name="pipeline-requirements"></a>
 
 The pipeline and metadata level of a pipeline has a basic structure that includes the following parameters and syntax. The pipeline parameter represents the structure of actions and stages to be performed in the pipeline. 
 
@@ -12,7 +11,7 @@ The following example shows the pipeline and metadata level of the pipeline stru
 ------
 #### [ YAML ]
 
-```
+```YAML
 pipeline:
   name: MyPipeline
   roleArn: >-
@@ -54,7 +53,7 @@ metadata:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "pipeline": {
         "name": "MyPipeline",

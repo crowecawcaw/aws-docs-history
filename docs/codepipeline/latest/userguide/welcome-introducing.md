@@ -1,7 +1,6 @@
 
 
 # A quick look at CodePipeline
-<a name="welcome-introducing"></a>
 
 
 

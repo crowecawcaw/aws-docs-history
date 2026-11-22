@@ -1,7 +1,6 @@
 
 
 # Valid configuration parameters for each provider type
-<a name="structure-configuration-examples"></a>
 
 This section lists valid `configuration` parameters for each action provider.
 

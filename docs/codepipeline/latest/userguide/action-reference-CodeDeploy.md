@@ -1,7 +1,6 @@
 
 
 # AWS CodeDeploy deploy action reference
-<a name="action-reference-CodeDeploy"></a>
 
 You use an AWS CodeDeploy action to deploy application code to your deployment fleet. Your deployment fleet can consist of Amazon EC2 instances, on-premises instances, or both.
 
@@ -61,7 +60,7 @@ For AWS CodeDeploy support, add the following to your policy statement:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -111,7 +110,7 @@ For AWS CodeDeploy support, add the following to your policy statement:
 ------
 #### [ YAML ]
 
-```
+```yaml
 Name: Deploy
 Actions:
   - Name: Deploy
@@ -134,7 +133,7 @@ Actions:
 ------
 #### [ JSON ]
 
-```
+```json
 {
     "Name": "Deploy",
     "Actions": [

@@ -1,7 +1,6 @@
 
 
 # Working with action types
-<a name="action-types"></a>
 
 Action types are preconfigured actions that you as a provider create for customers by using one of the supported integration models in AWS CodePipeline. 
 

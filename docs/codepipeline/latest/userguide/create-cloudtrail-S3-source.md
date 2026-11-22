@@ -1,7 +1,6 @@
 
 
 # Connecting to Amazon S3 source actions that use EventBridge and AWS CloudTrail
-<a name="create-cloudtrail-S3-source"></a>
 
 The instructions in this section provide the steps for creating the S3 source action that uses AWS CloudTrail resources that you must create and manage. To use the S3 source action with EventBridge that does not require additional AWS CloudTrail resources, use the CLI instructions at [Migrate polling pipelines with an S3 source enabled for events](update-change-detection.md#update-change-detection-S3-event).
 
