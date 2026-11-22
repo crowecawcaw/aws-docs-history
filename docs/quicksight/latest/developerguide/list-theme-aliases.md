@@ -1,7 +1,6 @@
 
 
 # ListThemeAliases
-<a name="list-theme-aliases"></a>
 
 Use the `ListThemeAliases` operation to list all the aliases of a theme. To use this operation, you need the ID of the theme that is using the aliases that you want described. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

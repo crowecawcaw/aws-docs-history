@@ -1,7 +1,6 @@
 
 
 # DescribeTemplateAlias
-<a name="describe-template-alias"></a>
 
 Use the `DescribeTemplateAlias` operation to describe the template alias for a template. To use this operation, you need the ID of the template that is using the alias that you want to describe. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

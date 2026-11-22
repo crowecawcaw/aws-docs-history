@@ -1,7 +1,6 @@
 
 
 # UpdateDashboardPermissions
-<a name="update-dashboard-permissions"></a>
 
 Use the `UpdateDashboardPermissions` API operation to update read and write permissions for a dashboard. You can grant or revoke permissions in the same command. To use this operation, you need the ID of the dashboard whose permissions you want to update. The dashboard ID is part of the dashboard URL in Quick Sight. You can also use the `ListDashboards` API operation to get the ID.
 

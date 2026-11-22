@@ -1,7 +1,6 @@
 
 
 # ListFolders
-<a name="list-folders"></a>
 
 Use the `ListFolders` operation to list all folders in an Quick Sight account. 
 

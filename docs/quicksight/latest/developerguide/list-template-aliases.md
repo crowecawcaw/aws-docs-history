@@ -1,7 +1,6 @@
 
 
 # ListTemplateAliases
-<a name="list-template-aliases"></a>
 
 Use the `ListTemplateAliases` operation to list all the aliases of a template. To use this operation, you need the ID of the template that is using the aliases that you want to list. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

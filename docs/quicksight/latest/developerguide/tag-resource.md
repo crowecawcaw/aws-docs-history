@@ -1,7 +1,6 @@
 
 
 # TagResource
-<a name="tag-resource"></a>
 
 Use the `TagResource` API operation to assign one or more tags (key-value pairs) to the specified AWS Quick Sight resource. 
 

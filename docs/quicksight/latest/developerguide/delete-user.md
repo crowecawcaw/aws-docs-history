@@ -1,7 +1,6 @@
 
 
 # DeleteUser
-<a name="delete-user"></a>
 
 Use the `DeleteUser` operation to delete the Quick Sight user that is associated with the identity of the IAM user or role that's making the call. The IAM user isn't deleted as a result of this call. To use this operation, you need the ID of the user that you want to delete. You can also use the `ListUsers` operation to list all users and their corresponding user IDs.
 

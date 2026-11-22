@@ -1,7 +1,6 @@
 
 
 # UpdateAccountCustomization
-<a name="update-account-customization"></a>
 
 Use the `UpdateAccountCustomization` API operation to update AWS Quick Sight customizations in the current AWS Region. Currently, the only customization that you can use is a theme.
 

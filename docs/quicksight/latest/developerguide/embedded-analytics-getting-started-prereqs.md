@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="embedded-analytics-getting-started-prereqs"></a>
 
 Before you get started, familiarize yourself with the list of technologies Quick Sight uses to create an embedding experience. Check that the technologies listed below are compatible with your application:
 + Embedding utilizes [Iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) to display your content and [MessageChannels](https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel) to communicate.

@@ -1,7 +1,6 @@
 
 
 # DescribeAccountSettings
-<a name="describe-account-settings"></a>
 
 Use the `DescribeAccountSettings` API operation to describe the settings that were used when your AWS Quick Sight subscription was first created in this AWS account. Following is an example AWS CLI command for this operation.
 

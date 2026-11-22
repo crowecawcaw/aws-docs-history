@@ -1,7 +1,6 @@
 
 
 # RegisterUser
-<a name="register-user"></a>
 
 Use the `RegisterUser` operation to create an Quick Sight user whose identity is associated with the IAM identity or role specified in the request. When you register a new user from the AWS Quick Sight API, AWS Quick Sight generates a registration URL. The user accesses this registration URL to create their account. AWS Quick Sight does not send a registration email to users who are registered from the AWS Quick Sight API.
 

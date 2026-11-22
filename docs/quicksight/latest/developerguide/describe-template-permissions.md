@@ -1,7 +1,6 @@
 
 
 # DescribeTemplatePermissions
-<a name="describe-template-permissions"></a>
 
 Use the `DescribeTemplatePermission`s operation to describe read and write permissions for a template. To use this operation, you need the ID of the template that you want to describe the permissions of. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

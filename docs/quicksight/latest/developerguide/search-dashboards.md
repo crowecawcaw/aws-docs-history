@@ -1,7 +1,6 @@
 
 
 # SearchDashboards
-<a name="search-dashboards"></a>
 
 Use the `SearchDashboards` API operation to search for dashboards in an AWS account. Following is an example AWS CLI command for this operation.
 

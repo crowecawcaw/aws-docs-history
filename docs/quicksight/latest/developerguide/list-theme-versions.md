@@ -1,7 +1,6 @@
 
 
 # ListThemeVersions
-<a name="list-theme-versions"></a>
 
 Use the `ListThemeVersions` operation to list all the versions of the themes in the current AWS account. To use this operation to list the versions of a theme, you need that theme's ID. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

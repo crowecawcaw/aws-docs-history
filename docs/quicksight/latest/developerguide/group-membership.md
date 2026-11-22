@@ -1,7 +1,6 @@
 
 
 # Group membership operations
-<a name="group-membership"></a>
 
 With group membership API operations, you can view and update permissions for members in a group. For more information, see the following API operations.
 

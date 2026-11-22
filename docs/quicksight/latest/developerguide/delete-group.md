@@ -1,7 +1,6 @@
 
 
 # DeleteGroup
-<a name="delete-group"></a>
 
 Use the `DeleteGroup` API operation to remove a user group from AWS Quick Sight. You can find a group name by calling the `ListGroups` API operation.
 

@@ -1,7 +1,6 @@
 
 
 # UpdateDashboard
-<a name="update-dashboard"></a>
 
 Use the `UpdateDashboard` API operation to update a dashboard in an AWS account. To use this operation, you need the ID of the dashboard that you want to update. The dashboard ID is part of the dashboard URL in Quick Sight. You can also use the `ListDashboards` API operation to get the ID.
 

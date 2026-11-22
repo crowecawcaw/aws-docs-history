@@ -1,7 +1,6 @@
 
 
 # ListNamespaces
-<a name="list-namespaces"></a>
 
 Use the `ListNamespaces` API operation to list namespaces for a specified AWS account. Following is an example AWS CLI command for this operation.
 

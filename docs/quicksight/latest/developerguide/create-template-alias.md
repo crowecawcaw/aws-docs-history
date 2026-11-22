@@ -1,7 +1,6 @@
 
 
 # CreateTemplateAlias
-<a name="create-template-alias"></a>
 
 Use the `CreateTemplateAlias` operation to create a template alias for a template. To use this operation, you need the ID of the template that you want to create an alias for. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

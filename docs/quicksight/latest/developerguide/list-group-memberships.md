@@ -1,7 +1,6 @@
 
 
 # ListGroupMemberships
-<a name="list-group-memberships"></a>
 
 Use the `ListGroupMemberships` API operation to list member users in a group. To view a list of user groups in AWS Quick Sight, call the `ListGroups` API operation.
 

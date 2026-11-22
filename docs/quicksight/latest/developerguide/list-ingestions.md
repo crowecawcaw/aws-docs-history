@@ -1,7 +1,6 @@
 
 
 # ListIngestions
-<a name="list-ingestions"></a>
 
 Use the `ListIngestions` operation to list the history of SPICE ingestioned for a dataset.
 

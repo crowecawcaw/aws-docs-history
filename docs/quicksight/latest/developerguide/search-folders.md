@@ -1,7 +1,6 @@
 
 
 # SearchFolders
-<a name="search-folders"></a>
 
 Use the `SearchFolders` operation to search the subfolders of a folder. 
 

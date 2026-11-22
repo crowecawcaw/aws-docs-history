@@ -1,7 +1,6 @@
 
 
 # CreateDataSource
-<a name="create-data-source"></a>
 
 Use the `CreateDataSource` API operation to create a data source. Following is an example AWS CLI command for this operation.
 

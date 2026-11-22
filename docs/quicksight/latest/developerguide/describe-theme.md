@@ -1,7 +1,6 @@
 
 
 # DescribeTheme
-<a name="describe-theme"></a>
 
 Use the `DescribeTheme` operation to describe a theme. To use this operation, you need the ID of the theme that you want to describe. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

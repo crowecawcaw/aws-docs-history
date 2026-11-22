@@ -1,7 +1,6 @@
 
 
 # CreateDashboard
-<a name="create-dashboard"></a>
 
 Use the `CreateDashboard` API operation to create a dashboard. Following is an example AWS CLI command for this operation.
 

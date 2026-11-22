@@ -1,7 +1,6 @@
 
 
 # DescribeUser
-<a name="describe-user"></a>
 
 Use the `DescribeUser` operation to return information about a user, given the user name. Following is an example AWS CLI command for this operation. To use this operation, you need the ID of the user that you want to describe. You can also use the `ListUsers` operation to list all users and their corresponding user IDs.
 

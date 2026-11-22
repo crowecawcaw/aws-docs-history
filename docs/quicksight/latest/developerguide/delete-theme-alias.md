@@ -1,7 +1,6 @@
 
 
 # DeleteThemeAlias
-<a name="delete-theme-alias"></a>
 
 Use the `DeleteThemeAlias` operation to delete the version of the theme that the specified theme alias points to. If you provide a specific alias, you delete the version of the theme that the alias points to. To use this operation, you need the ID of the theme that is using the alias that you want to delete. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

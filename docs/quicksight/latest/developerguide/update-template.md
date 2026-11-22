@@ -1,7 +1,6 @@
 
 
 # UpdateTemplate
-<a name="update-template"></a>
 
 Use the `UpdateTemplate` operation to update a template from an existing Quick Sight analysis or another template.
 

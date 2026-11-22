@@ -1,7 +1,6 @@
 
 
 # DeleteFolderMembership
-<a name="delete-folder-membership"></a>
 
 Use the `DeleteFolderMembership` to delete an asset, such as a dashboard, analysis, or dataset, from a folder. To use this operation, you need the member ID of the asset that you want to add to a folder. The member ID is either the dashboard, analysis, or dataset ID of the analysis, dashboard, or dataset that you want to add to a folder. The member ID is part of the analysis, dashboard, or dataset URL in Quick Sight. You can also use the `ListAnalyses`, `ListDashboards`, or `ListDataSets` operations to get the ID.
 

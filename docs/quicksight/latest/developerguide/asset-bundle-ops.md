@@ -1,7 +1,6 @@
 
 
 # Asset bundle operations
-<a name="asset-bundle-ops"></a>
 
 Use Quick Sight asset bundle API operations to export Quick Sight assets from one account to another. Asset bundle operations can be used to back up or restore deleted work, promote new work into a production account, or to duplicate assets within an account or across multiple accounts.
 

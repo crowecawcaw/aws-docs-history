@@ -1,7 +1,6 @@
 
 
 # DeleteDashboard
-<a name="delete-dashboard"></a>
 
 Use the `DeleteDashboard` API operation to delete a dashboard. To use this operation, you need the ID of the dashboard that you want to delete. The dashboard ID is part of the dashboard URL in Quick Sight. You can also use the `ListDashboards` API operation to get the ID.
 

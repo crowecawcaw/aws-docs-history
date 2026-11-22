@@ -1,7 +1,6 @@
 
 
 # ListAnalyses
-<a name="list-analyses"></a>
 
 Use the `ListAnalyses` API operation to list AWS Quick Sight analyses that exist in the specified AWS account. Following is an example AWS CLI command for this operation.
 

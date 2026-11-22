@@ -1,7 +1,6 @@
 
 
 # CreateIngestion
-<a name="create-ingestion"></a>
 
 Use the `CreateIngestion` to create and start a new SPICE ingestion on a dataset.
 

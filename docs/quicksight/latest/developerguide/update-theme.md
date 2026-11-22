@@ -1,7 +1,6 @@
 
 
 # UpdateTheme
-<a name="update-theme"></a>
 
 Use the `UpdateTheme` operation to update a theme.
 

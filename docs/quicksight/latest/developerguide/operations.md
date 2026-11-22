@@ -1,7 +1,6 @@
 
 
 # Operations
-<a name="operations"></a>
 
 To find Quick Sight API operations by category, use the following list.
 

@@ -1,7 +1,6 @@
 
 
 # Tag operations
-<a name="tag-operations"></a>
 
 Tags can help you categorize and allocate costs incurred by your Quick Sight resources. For more information about tags, see [User-defined cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/custom-tags.html). You can visualize costs of tagged resources that have consumption-based pricing in AWS cost and usage reports. For more information on cost and usage reports, see [What are AWS Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html).
 

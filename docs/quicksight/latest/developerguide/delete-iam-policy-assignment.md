@@ -1,7 +1,6 @@
 
 
 # DeleteIAMPolicyAssignment
-<a name="delete-iam-policy-assignment"></a>
 
 Use the `DeleteIAMPolicyAssignment` API operation to delete an existing IAM policy assignment.
 

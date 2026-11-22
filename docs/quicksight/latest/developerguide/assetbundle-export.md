@@ -1,7 +1,6 @@
 
 
 # Asset bundle export operations
-<a name="assetbundle-export"></a>
 
 Quick Sight developers can use asset bundle export operations to export existing Quick Sight assets and download their definitions to be saved in your own storage. Quick Sight doesn't export data contained within the asset. These exported assets can be imported back into Quick Sight whenever you want. To export Quick Sight assets, start a named asynchronous export job. Then, poll for the job's completion, and then download the asset bundle with the download URL that's provided by the Quick Sight API.
 

@@ -1,7 +1,6 @@
 
 
 # Theme alias operations
-<a name="theme-alias-operations"></a>
 
 A *theme alias* is a reference to a version of a theme. For example, suppose that you create the theme alias `{{exampleAlias}}` for version 1 of the theme `exampleTheme`. You can use the theme alias {{`exampleAlias`}} to reference version 1 of theme exampleTheme in a `DescribeTheme` API operation, as in the following example.
 

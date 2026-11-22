@@ -1,7 +1,6 @@
 
 
 # UpdateDataSet
-<a name="update-data-set"></a>
 
 Use the `UpdateDataSet` API operation to update a dataset. To use this operation, you need the ID of the dataset that you want to update. The dataset ID is part of the dataset URL in Quick Sight. You can also use the `ListDataSets` API operation to get the ID.
 

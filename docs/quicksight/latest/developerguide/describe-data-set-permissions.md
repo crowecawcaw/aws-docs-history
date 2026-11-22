@@ -1,7 +1,6 @@
 
 
 # DescribeDataSetPermissions
-<a name="describe-data-set-permissions"></a>
 
 Use the `DescribeDataSetPermissions` API operation to describe the permissions on a dataset. To use this operation, you need the ID of the dataset whose permissions that you want to view. The dataset ID is part of the dataset URL in Quick Sight. You can also use the `ListDataSets` API operation to get the ID.
 

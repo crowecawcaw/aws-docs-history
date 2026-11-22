@@ -1,7 +1,6 @@
 
 
 # UpdateThemeAlias
-<a name="update-theme-alias"></a>
 
 Use the `UpdateThemeAlias` operation to update an alias of a theme. To use this operation, you need the ID of the theme that is using the alias that you want to update. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

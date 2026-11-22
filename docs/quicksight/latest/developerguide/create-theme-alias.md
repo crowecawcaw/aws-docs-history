@@ -1,7 +1,6 @@
 
 
 # CreateThemeAlias
-<a name="create-theme-alias"></a>
 
 The `CreateThemeAlias` operation creates a theme alias for a theme. To use this operation, you need the ID of the theme that you want to create an alias for. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

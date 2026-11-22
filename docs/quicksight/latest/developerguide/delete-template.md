@@ -1,7 +1,6 @@
 
 
 # DeleteTemplate
-<a name="delete-template"></a>
 
 Use the `DeleteTemplate` operation to delete a template. To use this operation, you need the ID of the template that you want to delete. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

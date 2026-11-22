@@ -1,7 +1,6 @@
 
 
 # CreateAccountCustomization
-<a name="create-account-customization"></a>
 
 Use the `CreateAccountCustomization` API operation to create AWS Quick Sight customizations in the current AWS Region. Following is an example AWS CLI command for this operation.
 

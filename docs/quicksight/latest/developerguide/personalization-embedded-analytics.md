@@ -1,7 +1,6 @@
 
 
 # Personalization
-<a name="personalization-embedded-analytics"></a>
 
 AWS Quick Sight enhances user experience with state persistence to provide a seamless transition across sessions with the maintenance of the current dashboard state. This feature allows for uninterrupted workflows and a consistent analytics experience. Furthermore, users can optimize their productivity with bookmarks to save and revisit specific views of their dashboard.
 

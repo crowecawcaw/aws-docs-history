@@ -1,7 +1,6 @@
 
 
 # Get Started with Quick Sight embedded analytics
-<a name="embedded-analytics-getting-started"></a>
 
 AWS Quick Sight is a scalable, embeddable, ML-powered BI Service built for the cloud. Embedded Analytics allows you to easily extend your visuals, dashboards, and Natural Language Queries (Q) to your apps, websites, and portals.
 

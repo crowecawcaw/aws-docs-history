@@ -1,7 +1,6 @@
 
 
 # Key management operations
-<a name="cmk-operations"></a>
 
 Use Quick Sight key management APIs to list and update customer managed keys (CMKs) that are registered to a Quick Sight account. For more information about key management in Quick Sight, see [Key management](https://docs.aws.amazon.com/quicksight/latest/user/key-management.html) in the Quick Sight User Guide.
 

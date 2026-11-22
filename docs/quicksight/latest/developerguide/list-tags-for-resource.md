@@ -1,7 +1,6 @@
 
 
 # ListTagsForResource
-<a name="list-tags-for-resource"></a>
 
 Use the `ListTagsForResource` API operation to list tags assigned to a resource. 
 

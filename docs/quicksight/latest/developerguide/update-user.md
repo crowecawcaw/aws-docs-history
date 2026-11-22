@@ -1,7 +1,6 @@
 
 
 # UpdateUser
-<a name="update-user"></a>
 
 Use the `UpdateUser` operation to update an Quick Sight user. To use this operation, you need the ID of the user that you want to delete. You can use the `ListUsers` operation to list all users and their corresponding user IDs.
 

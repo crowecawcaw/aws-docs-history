@@ -1,7 +1,6 @@
 
 
 # IAM policy assignment operations
-<a name="iam-policy-assignment-operations"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator to securely control access to AWS resources. Administrators control who can be authenticated (signed in) and authorized (have permissions) to use AWS Quick Sight resources. For more information about using Quick Sight with IAM, see [Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/quicksight/latest/user/security-iam.html) in the *AWS Quick Sight User Guide*.
 

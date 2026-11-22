@@ -1,7 +1,6 @@
 
 
 # Permissions
-<a name="assetbundle-permissions"></a>
 
 Before you begin, verify that you have an AWS Identity and Access Management role that grants the CLI user access to call the Quick Sight asset bundle API operations.
 
@@ -14,7 +13,7 @@ The following example shows an IAM policy that you can add to an existing IAM ro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -55,7 +54,7 @@ The following example shows an IAM policy that you can add to an existing IAM ro
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

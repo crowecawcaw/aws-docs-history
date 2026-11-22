@@ -1,7 +1,6 @@
 
 
 # Add interactivity to your embedded content
-<a name="embedded-analytics-add-interactivity"></a>
 
 AWS Quick Sight embedded content offers options for developers to interact with their embedded experiences to create a cohesive experience between their application and Quick Sight with the embedding SDK. Quick Sight allows application developers to control the experience given to users and to react to user actions taken within their embedded analytics.
 

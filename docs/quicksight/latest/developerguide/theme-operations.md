@@ -1,7 +1,6 @@
 
 
 # Theme operations
-<a name="theme-operations"></a>
 
 A *theme* is a collection of settings that you can apply to analyses and dashboards in AWS Quick Sight. You can apply themes to modify the appearance of dashboards and analyses.
 

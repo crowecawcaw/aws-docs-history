@@ -1,7 +1,6 @@
 
 
 # ListDashboards
-<a name="list-dashboards"></a>
 
 Use the `ListDashboards` API operation to list dashboards in an AWS account. Following is an example AWS CLI command for this operation.
 

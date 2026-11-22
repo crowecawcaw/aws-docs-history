@@ -1,7 +1,6 @@
 
 
 # UpdateDashboardPublishedVersion
-<a name="update-dashboard-published-version"></a>
 
 Use the `UpdateDashboardPublishedVersion` API operation to update the published version of a dashboard. To use this operation, you need the ID of the published dashboard that you want to update. The dashboard ID is part of the dashboard URL in Quick Sight. You can also use the `ListDashboards` API operation to get the ID.
 

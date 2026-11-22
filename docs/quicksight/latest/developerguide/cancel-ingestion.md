@@ -1,7 +1,6 @@
 
 
 # CancelIngestion
-<a name="cancel-ingestion"></a>
 
 Use the `CancelIngestion` operation to cancel an ongoing ingestion of data into SPICE. 
 

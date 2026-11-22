@@ -1,7 +1,6 @@
 
 
 # UpdateTemplateAlias
-<a name="update-template-alias"></a>
 
 Use the `UpdateTemplateAlias` operation to update the template alias of a template. To use this operation, you need the ID of the template that is using the alias that you want to update. You can use the `ListTemplates` operation to list all templates and their corresponding template IDs.
 

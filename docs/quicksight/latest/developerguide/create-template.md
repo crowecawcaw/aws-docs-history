@@ -1,7 +1,6 @@
 
 
 # CreateTemplate
-<a name="create-template"></a>
 
 Use the `CreateTemplate` operation to create a template from an existing Quick Sight analysis or template. You can use the resulting template to create a dashboard.
 

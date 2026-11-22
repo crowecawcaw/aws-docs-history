@@ -1,14 +1,13 @@
 
 
 # CreateAnalysis
-<a name="create-analysis"></a>
 
 Use the `CreateAnalysis` API operation to create an analysis in AWS Quick Sight for a specified user. Following is an example AWS CLI command for this operation.
 
 ------
 #### [ AWS CLI ]
 
-```
+```bash
 aws quicksight create-analysis
     --aws-account-id {{AWSACCOUNTID}}
     --analysis-id {{ANALYSISID}}

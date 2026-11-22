@@ -1,7 +1,6 @@
 
 
 # ListTemplates
-<a name="list-templates"></a>
 
 Use the `ListTemplates` operation to list all the templates in the current Quick Sight account.
 

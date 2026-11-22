@@ -1,7 +1,6 @@
 
 
 # ListIAMPolicyAssignments
-<a name="list-iam-policy-assignments"></a>
 
 Use the `ListIAMPolicyAssignments` API operation to list IAM policy assignments in the current AWS Quick Sight account. Following is an example AWS CLI command for this operation.
 

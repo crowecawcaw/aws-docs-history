@@ -1,7 +1,6 @@
 
 
 # DescribeIngestion
-<a name="describe-ingestion"></a>
 
 Use the `DescribeIngestion` operation to describe a SPICE ingestion.
 

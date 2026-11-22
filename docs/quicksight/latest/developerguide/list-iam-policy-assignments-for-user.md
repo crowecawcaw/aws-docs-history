@@ -1,7 +1,6 @@
 
 
 # ListIAMPolicyAssignmentsForUser
-<a name="list-iam-policy-assignments-for-user"></a>
 
 Use the `ListIAMPolicyAssignmentsForUser` API operation to list all the IAM policy assignments, including the Amazon Resource Names (ARNs), for the IAM policies assigned to the specified user and the groups that the user belongs to.
 

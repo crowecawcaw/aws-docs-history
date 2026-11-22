@@ -1,7 +1,6 @@
 
 
 # DescribeThemeAlias
-<a name="describe-theme-alias"></a>
 
 Use the `DescribeThemeAlias` operation to describe the alias for a theme. To use this operation, you need the ID of the theme that is using the alias that you want to describe. You can use the `ListThemes` operation to list all themes and their corresponding theme IDs.
 

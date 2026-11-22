@@ -1,7 +1,6 @@
 
 
 # Dashboard permissions
-<a name="dashboard-permissions"></a>
 
 With dashboard permissions API operations, you can view and update permissions for dashboards. For more information, see the following API operations.
 

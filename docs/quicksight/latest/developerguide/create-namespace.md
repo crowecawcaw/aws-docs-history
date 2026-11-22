@@ -1,7 +1,6 @@
 
 
 # CreateNamespace
-<a name="create-namespace"></a>
 
 Use the `CreateNamespace` API operation to create a new namespace for you to use with AWS Quick Sight.
 

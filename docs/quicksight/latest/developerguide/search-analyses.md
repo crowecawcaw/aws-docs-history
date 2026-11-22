@@ -1,7 +1,6 @@
 
 
 # SearchAnalyses
-<a name="search-analyses"></a>
 
 Use the `SearchAnalyses` API operation to search for analyses that belong to the specified user. Following is an example AWS CLI command for this operation.
 

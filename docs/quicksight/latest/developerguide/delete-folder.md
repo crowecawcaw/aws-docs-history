@@ -1,7 +1,6 @@
 
 
 # DeleteFolder
-<a name="delete-folder"></a>
 
 Use the `DeleteFolder` operation to delete an empty folder. To use this operation, you need the ID of the folder whose permissions you want to view. The folder ID is part of the folder URL in Quick Sight. You can also use the `ListFolders` operation to get the ID.
 

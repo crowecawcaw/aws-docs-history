@@ -1,7 +1,6 @@
 
 
 # ListUsers
-<a name="list-users"></a>
 
 Use the `ListUsers` operation to return a list of all of the Quick Sight users belonging to this account.
 

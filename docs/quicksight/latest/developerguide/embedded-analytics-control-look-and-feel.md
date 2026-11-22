@@ -1,7 +1,6 @@
 
 
 # Control the look and feel of embedded assets
-<a name="embedded-analytics-control-look-and-feel"></a>
 
 AWS Quick Sight embedded experiences offer solutions to developers who want to make embedded content integrate seamlessly with their application. With the embedding SDK, developers can have control over the dimensions, locale, and theming of their embedded dashboards, visuals, and Q Search Bars. These customizations reduce friction for users and make Quick Sight feel like a part of your app.
 

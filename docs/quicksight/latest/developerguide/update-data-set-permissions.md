@@ -1,7 +1,6 @@
 
 
 # UpdateDataSetPermissions
-<a name="update-data-set-permissions"></a>
 
 Use the `UpdateDataSetPermissions` API operation to update the permissions on a dataset. You can grant or revoke permissions in the same command. To use this operation, you need the ID of the dataset whose permissions that you want to update. The dataset ID is part of the dataset URL in Quick Sight. You can also use the `ListDataSets` API operation to get the ID.
 

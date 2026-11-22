@@ -1,7 +1,6 @@
 
 
 # DescribeDashboardPermissions
-<a name="describe-dashboard-permissions"></a>
 
 Use the `DescribeDashboardPermissions` API operation to view the read and write permissions for a dashboard. To use this operation, you need the ID of the dashboard whose permissions you want to view. The dashboard ID is part of the dashboard URL in Quick Sight. You can also use the `ListDashboards` API operation to get the ID.
 

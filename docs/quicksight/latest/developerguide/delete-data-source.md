@@ -1,7 +1,6 @@
 
 
 # DeleteDataSource
-<a name="delete-data-source"></a>
 
 Use the `DeleteDataSource` API operation to permanently delete a data source from AWS Quick Sight. To use this operation, you need the ID of the data source that you want to delete. The data source ID is part of the data source URL in Quick Sight. You can also use the `ListDataSources` API operation to get the ID.
 

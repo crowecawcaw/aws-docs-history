@@ -1,7 +1,6 @@
 
 
 # ListThemes
-<a name="list-themes"></a>
 
 Use the `ListThemes` operation to list all the themes in the current AWS account.
 

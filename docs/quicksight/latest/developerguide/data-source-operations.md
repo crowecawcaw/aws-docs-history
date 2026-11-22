@@ -1,7 +1,6 @@
 
 
 # Data source operations
-<a name="data-source-operations"></a>
 
 With data source operations, you can perform actions on data sources. For more information, see the following API operations.
 

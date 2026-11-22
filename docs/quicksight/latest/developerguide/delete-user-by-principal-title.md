@@ -1,7 +1,6 @@
 
 
 # DeleteUserByPrincipalTitle
-<a name="delete-user-by-principal-title"></a>
 
 The `DeleteUserByPrincipalTitle` operation deletes a user identified by a principal ID. Following is an example AWS CLI command for this operation. To use this operation, you need the ID of the user that you want to delete. You can also use the `ListUsers` operation to list all users and their corresponding user IDs.
 

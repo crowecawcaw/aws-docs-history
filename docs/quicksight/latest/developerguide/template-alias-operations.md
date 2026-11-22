@@ -1,7 +1,6 @@
 
 
 # Template alias operations
-<a name="template-alias-operations"></a>
 
 A *template alias* is a reference to a version of a template. For example, suppose that you create the template alias `exampleAlias` for version 1 of the template `exampleTemp`. You can use the template alias `exampleAlias` to reference version 1 of template `exampleTemp` in a `DescribeTemplate` API operation, as in the following example.
 

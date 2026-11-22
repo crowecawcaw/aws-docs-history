@@ -1,7 +1,6 @@
 
 
 # DeleteGroupMembership
-<a name="delete-group-membership"></a>
 
 Use the `DeleteGroupMembership` API operation to remove a user from a group so that the user is no longer a member of the group. You can find users in a certain group by calling the `ListGroups` API operation, and then the `ListGroupMemberships` operation on the group that you choose.
 

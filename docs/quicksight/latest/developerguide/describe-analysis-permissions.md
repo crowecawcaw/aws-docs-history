@@ -1,7 +1,6 @@
 
 
 # DescribeAnalysisPermissions
-<a name="describe-analysis-permissions"></a>
 
 Use the `DescribeAnalysisPermissions` API operation to view the read and write permissions for an analysis. To use this operation, you need the ID of the analysis whose permissions you want to view. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
 

@@ -1,7 +1,6 @@
 
 
 # Use CLI skeleton files
-<a name="cli-skeletons"></a>
 
 To run AWS CLI commands that require long and complicated strings, you can generate CLI skeleton files . A *CLI skeleton* is a JSON file that provides you with an outline, or skeleton, of the command that you want to run. You can use a CLI skeleton file for every Quick Sight command, but skeleton files are most useful when using `Create` or `Update` commands.
 
@@ -16,7 +15,7 @@ aws quicksight {{OPERATION}} --generate-cli-skeleton
 
 A JSON file that contains a skeleton of the command that you want to run then appears in your terminal. Enter the required input values and save the file. The following example shows a cli example that is generated for the `UpdateDashboardPermissions` API.
 
-```
+```json
 $ aws quicksight update-dashboard-permissions --generate-cli-skeleton
 {
 	"AwsAccountId": "",

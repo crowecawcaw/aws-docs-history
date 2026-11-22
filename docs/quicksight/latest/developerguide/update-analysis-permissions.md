@@ -1,7 +1,6 @@
 
 
 # UpdateAnalysisPermissions
-<a name="update-analysis-permissions"></a>
 
 Use the `UpdateAnalysisPermissions` API operation to update the read and write permissions for an analysis. You can grant or revoke permissions in the same command. To use this operation, you need the ID of the analysis whose permissions you want to update. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
 

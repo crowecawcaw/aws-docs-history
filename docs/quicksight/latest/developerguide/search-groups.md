@@ -1,7 +1,6 @@
 
 
 # SearchGroups
-<a name="search-groups"></a>
 
 Use the `SearchGroups` operation to search groups in a specified Quick Sight namespace using the supplied filters.
 

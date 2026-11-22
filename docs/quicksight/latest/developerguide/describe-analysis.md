@@ -1,7 +1,6 @@
 
 
 # DescribeAnalysis
-<a name="describe-analysis"></a>
 
 Use the `DescribeAnalysis` API operation to view a summary of the metadata for an analysis for a specified user. To use this operation, you need the ID of the analysis that you want to describe. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
 

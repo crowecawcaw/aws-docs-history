@@ -1,7 +1,6 @@
 
 
 # Terminology and concepts
-<a name="terminology-and-concepts"></a>
 
 Following, you can find a list of terms and concepts used to describe AWS Quick Sight development in the *AWS Quick Sight Developer Guide*.
 

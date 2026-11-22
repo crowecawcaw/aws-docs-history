@@ -1,7 +1,6 @@
 
 
 # UpdateIAMPolicyAssignment
-<a name="update-iam-policy-assignment"></a>
 
 Use the `UpdateIAMPolicyAssignment` API operation to update an existing IAM policy assignment. This operation updates only the optional parameters that are specified in the request. It overwrites all of the users included in `Identities`.
 
