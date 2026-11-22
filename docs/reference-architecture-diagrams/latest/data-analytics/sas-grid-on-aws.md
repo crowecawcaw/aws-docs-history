@@ -1,7 +1,6 @@
 
 
 # Running SAS Grid on AWS
-<a name="sas-grid-on-aws"></a>
 
 Publication date: **July 25, 2022 ([Diagram history](diagram-history.md))**
 

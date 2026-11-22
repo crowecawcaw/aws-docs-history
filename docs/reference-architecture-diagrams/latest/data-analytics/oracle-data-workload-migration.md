@@ -1,7 +1,6 @@
 
 
 # Oracle data workload migration to AWS Cloud
-<a name="oracle-data-workload-migration"></a>
 
 Publication date: **January 1, 2020 ([Diagram history](diagram-history.md))**
 

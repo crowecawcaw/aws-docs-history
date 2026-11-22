@@ -1,7 +1,6 @@
 
 
 # Transportation and logistics data lake
-<a name="transportation-logistics-data-lake"></a>
 
 Publication date: **March 15, 2020 ([Diagram history](diagram-history.md))**
 

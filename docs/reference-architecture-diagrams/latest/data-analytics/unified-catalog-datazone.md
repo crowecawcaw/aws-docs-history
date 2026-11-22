@@ -1,7 +1,6 @@
 
 
 # Building a unified catalog with Amazon DataZone
-<a name="unified-catalog-datazone"></a>
 
 Publication date: **November 20, 2024 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # Multi-Region GraphQL API with CloudFront
-<a name="multi-region-graphql-cloudfront"></a>
 
 Publication date: **April 25, 2022 ([Diagram history](diagram-history.md))**
 

@@ -1,7 +1,6 @@
 
 
 # Database DevOps on AWS
-<a name="database-devops"></a>
 
 Publication date: **March 31, 2023 ([Diagram history](diagram-history.md))**
 

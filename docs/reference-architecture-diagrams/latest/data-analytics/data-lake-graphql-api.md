@@ -1,7 +1,6 @@
 
 
 # Expose your data lake as a GraphQL API
-<a name="data-lake-graphql-api"></a>
 
 Publication date: **April 25, 2022 ([Diagram history](diagram-history.md))**
 

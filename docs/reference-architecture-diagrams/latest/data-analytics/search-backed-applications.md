@@ -1,7 +1,6 @@
 
 
 # Search-backed applications
-<a name="search-backed-applications"></a>
 
 Publication date: **November 17, 2022 ([Diagram history](diagram-history.md))**
 

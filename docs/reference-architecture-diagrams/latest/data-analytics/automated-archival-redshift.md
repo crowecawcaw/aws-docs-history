@@ -1,7 +1,6 @@
 
 
 # Automated archival for Amazon Redshift
-<a name="automated-archival-redshift"></a>
 
 Publication date: **July 12, 2021 ([Diagram history](diagram-history.md))**
 

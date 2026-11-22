@@ -1,7 +1,6 @@
 
 
 # Data mesh with Amazon DataZone
-<a name="data-mesh-datazone"></a>
 
 Publication date: **November 20, 2024 ([Diagram history](diagram-history.md))**
 

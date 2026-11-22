@@ -1,7 +1,6 @@
 
 
 # Operational analytics pipeline on AWS
-<a name="operational-analytics-pipeline"></a>
 
 Publication date: **January 1, 2021 ([Diagram history](diagram-history.md))**
 

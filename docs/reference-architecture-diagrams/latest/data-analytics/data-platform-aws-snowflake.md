@@ -1,7 +1,6 @@
 
 
 # Modern data platform using AWS and Snowflake
-<a name="data-platform-aws-snowflake"></a>
 
 Publication date: **March 11, 2022 ([Diagram history](diagram-history.md))**
 

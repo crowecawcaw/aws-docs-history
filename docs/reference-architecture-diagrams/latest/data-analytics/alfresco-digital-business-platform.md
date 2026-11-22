@@ -1,7 +1,6 @@
 
 
 # Alfresco Digital Business Platform on AWS
-<a name="alfresco-digital-business-platform"></a>
 
 Publication date: **March 1, 2023 ([Diagram history](diagram-history.md))**
 

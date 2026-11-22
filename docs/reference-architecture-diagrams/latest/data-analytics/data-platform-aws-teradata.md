@@ -1,7 +1,6 @@
 
 
 # Modern data platform using AWS and Teradata
-<a name="data-platform-aws-teradata"></a>
 
 Publication date: **November 18, 2022 ([Diagram history](diagram-history.md))**
 

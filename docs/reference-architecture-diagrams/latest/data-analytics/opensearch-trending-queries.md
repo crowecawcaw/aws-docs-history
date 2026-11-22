@@ -1,7 +1,6 @@
 
 
 # Amazon OpenSearch Service trending queries with AWS Glue and Amazon Bedrock
-<a name="opensearch-trending-queries"></a>
 
 Publication date: **December 18, 2024 ([Diagram history](diagram-history.md))**
 

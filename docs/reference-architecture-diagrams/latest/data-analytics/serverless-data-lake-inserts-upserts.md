@@ -1,7 +1,6 @@
 
 
 # Managing inserts and upserts in a serverless data lake
-<a name="serverless-data-lake-inserts-upserts"></a>
 
 Publication date: **June 15, 2021 ([Diagram history](diagram-history.md))**
 

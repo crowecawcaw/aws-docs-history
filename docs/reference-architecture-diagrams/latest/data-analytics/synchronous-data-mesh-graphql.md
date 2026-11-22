@@ -1,7 +1,6 @@
 
 
 # Synchronous data mesh for GraphQL queries
-<a name="synchronous-data-mesh-graphql"></a>
 
 Publication date: **April 25, 2022 ([Diagram history](diagram-history.md))**
 

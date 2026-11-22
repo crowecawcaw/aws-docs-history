@@ -1,7 +1,6 @@
 
 
 # DynamoDB global replication with data localization
-<a name="dynamodb-global-replication"></a>
 
 Publication date: **March 10, 2023 ([Diagram history](diagram-history.md))**
 
