@@ -1,7 +1,6 @@
 
 
 # Deleting an AWS Cloud Map namespace
-<a name="deleting-namespaces"></a>
 
 After you're done using a namespace, you can delete it. When you delete a namespace, you can no longer use it to register or discover service instances.
 
@@ -38,7 +37,7 @@ After you've deregistered instances and deleted services that were created in a 
 
 1. Import `Boto3` and use `servicediscovery` as your service.
 
-   ```
+   ```python
    import boto3
    client = boto3.client('servicediscovery')
    ```
@@ -55,7 +54,7 @@ After you've deregistered instances and deleted services that were created in a 
 
    Example response output
 
-   ```
+   ```json
    {
        'OperationId': 'gv4g5meo7ndmeh4fqskygvk23d2fijwa-k98y6drk',
        'ResponseMetadata': {

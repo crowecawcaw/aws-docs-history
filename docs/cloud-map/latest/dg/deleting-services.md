@@ -1,7 +1,6 @@
 
 
 # Deleting an AWS Cloud Map service
-<a name="deleting-services"></a>
 
 Before you can delete a service, you must deregister all service instances that were registered using the service. For more information, see [Deregistering an AWS Cloud Map service instance](deregistering-instances.md).
 
@@ -37,7 +36,7 @@ After deregistering all instances registered using the service, perform the foll
 
 1. Import `Boto3` and use `servicediscovery` as your service.
 
-   ```
+   ```python
    import boto3
    client = boto3.client('servicediscovery')
    ```
@@ -54,7 +53,7 @@ After deregistering all instances registered using the service, perform the foll
 
    Example response output
 
-   ```
+   ```json
    {
        'ResponseMetadata': {
            '...': '...',

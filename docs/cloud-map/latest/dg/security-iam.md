@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management for AWS Cloud Map
-<a name="security-iam"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # Learn how to use AWS Cloud Map service discovery with DNS queries and API calls
-<a name="tutorial-private-namespace"></a>
 
 The following tutorial simulates a microservice architecture with two backend services. The first service will be discoverable using a DNS query. The second service will be discoverable using the AWS Cloud Map API only.
 

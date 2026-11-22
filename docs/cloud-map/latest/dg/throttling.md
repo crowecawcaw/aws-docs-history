@@ -1,7 +1,6 @@
 
 
 # Handle AWS Cloud Map DiscoverInstances API request throttling
-<a name="throttling"></a>
 
 AWS Cloud Map throttles [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) API requests for each AWS account on a per-Region basis. Throttling helps improve the performance of the service and helps provide fair usage for all AWS Cloud Map customers. Throttling ensures that calls to the AWS Cloud Map [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) API doesn't exceed the maximum allowed [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) API request quotas. [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) API calls originating from any of the following sources are subject to the request quotas:
 + A third-party application

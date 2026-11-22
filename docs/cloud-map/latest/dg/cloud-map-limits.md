@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map service quotas
-<a name="cloud-map-limits"></a>
 
 AWS Cloud Map resources are subject to the following account-level service quotas. Each quota listed applies to each AWS Region where you create AWS Cloud Map resources.
 

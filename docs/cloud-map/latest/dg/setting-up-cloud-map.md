@@ -1,7 +1,6 @@
 
 
 # Set up to use AWS Cloud Map
-<a name="setting-up-cloud-map"></a>
 
 The overview and procedures in the following sections are meant to help you get started with AWS and prepare you to start using AWS Cloud Map.
 

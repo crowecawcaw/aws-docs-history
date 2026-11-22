@@ -1,7 +1,6 @@
 
 
 # Shared AWS Cloud Map namespaces
-<a name="sharing-namespaces"></a>
 
 AWS Cloud Map allows namespace owners to share their namespaces with other AWS accounts or within an organization in AWS Organizations for simplified cross-account service discovery and service registry. This allows for easier use of namespaces managed by other AWS accounts or teams within an AWS Organization.
 

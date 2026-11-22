@@ -1,7 +1,6 @@
 
 
 # Listing AWS Cloud Map services in a namespace
-<a name="listing-services"></a>
 
 To view a list of the services that you created in a namespace, perform the following procedure.
 
@@ -31,7 +30,7 @@ If the namespace is a shared namespace, the AWS account ID under **Resource owne
 
 1. Import `Boto3` and use `servicediscovery` as your service.
 
-   ```
+   ```python
    import boto3
    client = boto3.client('servicediscovery')
    ```
@@ -46,7 +45,7 @@ If the namespace is a shared namespace, the AWS account ID under **Resource owne
 
    Example response output
 
-   ```
+   ```json
    {
        'Services': [
            {

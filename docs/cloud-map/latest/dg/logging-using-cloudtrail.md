@@ -1,7 +1,6 @@
 
 
 # Log AWS Cloud Map API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 AWS Cloud Map is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for AWS Cloud Map as events. The calls captured include calls from the AWS Cloud Map console and code calls to the AWS Cloud Map API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS Cloud Map, the IP address from which the request was made, when it was made, and additional details.
 
@@ -71,7 +70,7 @@ An event represents a single request from any source and includes information ab
 
 The following example shows a CloudTrail management event that demonstrates the `CreateHTTPNamespace` operation.
 
-```
+```JSON
 {
     "eventVersion": "1.09",
     "userIdentity": {

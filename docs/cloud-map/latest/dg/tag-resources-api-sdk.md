@@ -1,7 +1,6 @@
 
 
 # Updating tags for AWS Cloud Map resources
-<a name="tag-resources-api-sdk"></a>
 
 Use the following AWS CLI commands or AWS Cloud Map API operations to add, update, list, and delete the tags for your resources.
 

@@ -1,7 +1,6 @@
 
 
 # How AWS Cloud Map works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Cloud Map, learn what IAM features are available to use with AWS Cloud Map.
 

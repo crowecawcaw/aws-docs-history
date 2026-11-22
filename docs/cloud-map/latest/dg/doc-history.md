@@ -1,12 +1,12 @@
 
 
 # Document history for AWS Cloud Map
-<a name="doc-history"></a>
 
 The following table describes the major updates and new features for the *AWS Cloud Map Developer Guide*. We also update the documentation frequently to address the feedback that you send us. 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added FAQ page for supported protocols](doc-history.md) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/cloud-map/latest/dg/cbor-faq.html). | November 10, 2026 | 
 | [AWS Cloud Map cross-account namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) | You can now share namespaces with other AWS accounts or within an organization in AWS Organizations using AWS Resource Access Manager (AWS RAM) for simplified cross-account service discovery and registry. | August 14, 2025 | 
 | [AWS Cloud Map service attributes](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) | You can now specify attributes at the service level to avoid duplicating attributes across instances that are registered to a service. You can use these attributes for complex traffic routing, setting timeout and retry values, and for coordination between services and external integrations. | December 13, 2024 | 
 | [Tutorials added](https://docs.aws.amazon.com/cloud-map/latest/dg/tutorials.html) | Two tutorials showing common use cases for using AWS Cloud Map added. | March 27, 2024 | 

@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map namespaces
-<a name="working-with-namespaces"></a>
 
 A namespace is a logical entity in AWS Cloud Map that is used to group an application's services under a common name and level of discoverability. When you create a namespace, you specify the following:
 + A name that you want your application to use to discover instances.

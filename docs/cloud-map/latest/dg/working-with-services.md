@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map services
-<a name="working-with-services"></a>
 
 An AWS Cloud Map service is a template for registering service instances that consists of the service name and DNS configuration, if applicable, for the service. You can also set up a health check to determine the health status of instances in the service and filter out unhealthy resources. A service can represent a component of your application. For example, you can create a service for resources that handle payments on your application and another for resources that manage users.
 

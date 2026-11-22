@@ -1,7 +1,6 @@
 
 
 # Deregistering an AWS Cloud Map service instance
-<a name="deregistering-instances"></a>
 
 Before you can delete a service, you must deregister all service instances that were registered using the service.
 

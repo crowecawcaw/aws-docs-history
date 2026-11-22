@@ -1,7 +1,6 @@
 
 
 # What Is AWS Cloud Map?
-<a name="what-is-cloud-map"></a>
 
 AWS Cloud Map is a fully managed solution that you can use to map logical names to the backend services and resources that your applications depend on. It also helps your applications discover resources using one of the AWS SDKs, RESTful API calls, or DNS queries. AWS Cloud Map serves only healthy resources, which can be Amazon DynamoDB (DynamoDB) tables, Amazon Simple Queue Service (Amazon SQS) queues, any higher-level application services that are built using Amazon Elastic Compute Cloud (Amazon EC2) instances or Amazon Elastic Container Service (Amazon ECS) tasks, and more.
 

@@ -1,7 +1,6 @@
 
 
 # Learn how to use AWS Cloud Map service discovery with DNS queries and API calls using the AWS CLI
-<a name="tutorial-private-namespace-cli"></a>
 
 This tutorial demonstrates how to use AWS Cloud Map service discovery using the AWS Command Line Interface (CLI). You'll create a microservice architecture with two backend services – one discoverable using DNS queries and another discoverable using the AWS Cloud Map API only.
 
@@ -26,7 +25,7 @@ First, you'll create a public AWS Cloud Map namespace. AWS Cloud Map will create
 
 1. Create the public DNS namespace:
 
-   ```
+   ```bash
    aws servicediscovery create-public-dns-namespace \
        --name cloudmap-tutorial.com \
        --creator-request-id cloudmap-tutorial-request-1 \
@@ -35,7 +34,7 @@ First, you'll create a public AWS Cloud Map namespace. AWS Cloud Map will create
 
    The command returns an operation ID that you can use to check the status of the namespace creation:
 
-   ```
+   ```json
    {
        "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9xmplyzd"
    }
@@ -43,7 +42,7 @@ First, you'll create a public AWS Cloud Map namespace. AWS Cloud Map will create
 
 1. Check the operation status to confirm the namespace was created successfully:
 
-   ```
+   ```bash
    aws servicediscovery get-operation \
        --operation-id gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9xmplyzd \
        --region us-east-2
@@ -51,7 +50,7 @@ First, you'll create a public AWS Cloud Map namespace. AWS Cloud Map will create
 
 1. Once the operation is successful, get the namespace ID:
 
-   ```
+   ```bash
    aws servicediscovery list-namespaces \
        --region us-east-2 \
        --query "Namespaces[?Name=='cloudmap-tutorial.com'].Id" \
@@ -71,7 +70,7 @@ Now, create two services within your namespace. The first service will be discov
 
 1. Create the first service with DNS discovery enabled:
 
-   ```
+   ```bash
    aws servicediscovery create-service \
        --name public-service \
        --namespace-id ns-abcd1234xmplefgh \
@@ -81,7 +80,7 @@ Now, create two services within your namespace. The first service will be discov
 
    The command returns details about the created service:
 
-   ```
+   ```json
    {
        "Service": {
            "Id": "srv-abcd1234xmplefgh",
@@ -106,7 +105,7 @@ Now, create two services within your namespace. The first service will be discov
 
 1. Create the second service with API-only discovery:
 
-   ```
+   ```bash
    aws servicediscovery create-service \
        --name backend-service \
        --namespace-id ns-abcd1234xmplefgh \
@@ -116,7 +115,7 @@ Now, create two services within your namespace. The first service will be discov
 
    The command returns details about the created service:
 
-   ```
+   ```json
    {
        "Service": {
            "Id": "srv-ijkl5678xmplmnop",
@@ -137,7 +136,7 @@ Next, register service instances for each of your services. These instances repr
 
 1. Register the first instance with an IPv4 address for DNS discovery:
 
-   ```
+   ```bash
    aws servicediscovery register-instance \
        --service-id srv-abcd1234xmplefgh \
        --instance-id first \
@@ -147,7 +146,7 @@ Next, register service instances for each of your services. These instances repr
 
    The command returns an operation ID:
 
-   ```
+   ```json
    {
        "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k9xmplyzd"
    }
@@ -155,7 +154,7 @@ Next, register service instances for each of your services. These instances repr
 
 1. Check the operation status to confirm the instance was registered successfully:
 
-   ```
+   ```bash
    aws servicediscovery get-operation \
        --operation-id 4yejorelbukcjzpnr6tlmrghsjwpngf4-k9xmplyzd \
        --region us-east-2
@@ -163,7 +162,7 @@ Next, register service instances for each of your services. These instances repr
 
 1. Register the second instance with custom attributes for API discovery:
 
-   ```
+   ```bash
    aws servicediscovery register-instance \
        --service-id srv-ijkl5678xmplmnop \
        --instance-id second \
@@ -173,7 +172,7 @@ Next, register service instances for each of your services. These instances repr
 
    The command returns an operation ID:
 
-   ```
+   ```json
    {
        "OperationId": "7zxcvbnmasdfghjklqwertyuiop1234-k9xmplyzd"
    }
@@ -181,7 +180,7 @@ Next, register service instances for each of your services. These instances repr
 
 1. Check the operation status to confirm the instance was registered successfully:
 
-   ```
+   ```bash
    aws servicediscovery get-operation \
        --operation-id 7zxcvbnmasdfghjklqwertyuiop1234-k9xmplyzd \
        --region us-east-2
@@ -194,7 +193,7 @@ Now that you've created and registered your service instances, you can verify ev
 
 1. First, get the Route 53 hosted zone ID:
 
-   ```
+   ```bash
    aws route53 list-hosted-zones-by-name \
        --dns-name cloudmap-tutorial.com \
        --query "HostedZones[0].Id" \
@@ -209,7 +208,7 @@ Now that you've created and registered your service instances, you can verify ev
 
 1. Get the name servers for your hosted zone:
 
-   ```
+   ```bash
    aws route53 get-hosted-zone \
        --id Z1234ABCDXMPLEFGH \
        --query "DelegationSet.NameServers[0]" \
@@ -224,7 +223,7 @@ Now that you've created and registered your service instances, you can verify ev
 
 1. Use the `dig` command to query the DNS records for your public service:
 
-   ```
+   ```bash
    dig @ns-1234.awsdns-12.org public-service.cloudmap-tutorial.com
    ```
 
@@ -237,7 +236,7 @@ Now that you've created and registered your service instances, you can verify ev
 
 1. Use the AWS CLI to discover the backend service instance:
 
-   ```
+   ```bash
    aws servicediscovery discover-instances \
        --namespace-name cloudmap-tutorial.com \
        --service-name backend-service \
@@ -246,7 +245,7 @@ Now that you've created and registered your service instances, you can verify ev
 
    The output displays the attributes you associated with the service:
 
-   ```
+   ```json
    {
        "Instances": [
            {
@@ -270,7 +269,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Deregister the first service instance:
 
-   ```
+   ```bash
    aws servicediscovery deregister-instance \
        --service-id srv-abcd1234xmplefgh \
        --instance-id first \
@@ -279,7 +278,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Deregister the second service instance:
 
-   ```
+   ```bash
    aws servicediscovery deregister-instance \
        --service-id srv-ijkl5678xmplmnop \
        --instance-id second \
@@ -288,7 +287,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Delete the public service:
 
-   ```
+   ```bash
    aws servicediscovery delete-service \
        --id srv-abcd1234xmplefgh \
        --region us-east-2
@@ -296,7 +295,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Delete the backend service:
 
-   ```
+   ```bash
    aws servicediscovery delete-service \
        --id srv-ijkl5678xmplmnop \
        --region us-east-2
@@ -304,7 +303,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Delete the namespace:
 
-   ```
+   ```bash
    aws servicediscovery delete-namespace \
        --id ns-abcd1234xmplefgh \
        --region us-east-2
@@ -312,7 +311,7 @@ Once you've completed the tutorial, clean up the resources to avoid incurring ch
 
 1. Verify that the Route 53 hosted zone is deleted:
 
-   ```
+   ```bash
    aws route53 list-hosted-zones-by-name \
        --dns-name cloudmap-tutorial.com
    ```

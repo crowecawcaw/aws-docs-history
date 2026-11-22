@@ -1,7 +1,6 @@
 
 
 # Registering a resource as an AWS Cloud Map service instance
-<a name="registering-instances"></a>
 
 You can register your application's resources as instances in a AWS Cloud Map service. For example, assume you've created a service called `users` for all application resources that manage user data. You can then register a DynamoDB table that's used to store user data as an instance in this service.
 

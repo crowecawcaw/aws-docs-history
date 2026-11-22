@@ -1,7 +1,6 @@
 
 
 # Learn how to use AWS Cloud Map service discovery with custom attributes using the AWS CLI
-<a name="tutorial-microservices-cli"></a>
 
 This tutorial demonstrates how you can use AWS Cloud Map service discovery with custom attributes. You'll create a microservices application that uses AWS Cloud Map to discover resources dynamically using custom attributes. The application consists of two Lambda functions that write data to and read from a DynamoDB table, with all resources registered in AWS Cloud Map.
 
@@ -19,7 +18,7 @@ A namespace is a construct used to group services for an application. In this st
 
 1. Run the following command to create an HTTP namespace:
 
-   ```
+   ```bash
    aws servicediscovery create-http-namespace \
      --name cloudmap-tutorial \
      --creator-request-id cloudmap-tutorial-request
@@ -27,14 +26,14 @@ A namespace is a construct used to group services for an application. In this st
 
    The command returns an operation ID. You can check the status of the operation with the following command:
 
-   ```
+   ```bash
    aws servicediscovery get-operation \
      --operation-id operation-id
    ```
 
 1. Once the namespace is created, you can retrieve its ID for use in subsequent commands:
 
-   ```
+   ```bash
    aws servicediscovery list-namespaces \
      --query "Namespaces[?Name=='cloudmap-tutorial'].Id" \
      --output text
@@ -42,7 +41,7 @@ A namespace is a construct used to group services for an application. In this st
 
 1. Store the namespace ID in a variable for later use:
 
-   ```
+   ```bash
    NAMESPACE_ID=$(aws servicediscovery list-namespaces \
      --query "Namespaces[?Name=='cloudmap-tutorial'].Id" \
      --output text)
@@ -55,7 +54,7 @@ Next, create a DynamoDB table that will store data for your application:
 
 1. Run the following command to create the table:
 
-   ```
+   ```bash
    aws dynamodb create-table \
      --table-name cloudmap \
      --attribute-definitions AttributeName=id,AttributeType=S \
@@ -65,7 +64,7 @@ Next, create a DynamoDB table that will store data for your application:
 
 1. Wait for the table to become active before proceeding:
 
-   ```
+   ```bash
    aws dynamodb wait table-exists --table-name cloudmap
    ```
 
@@ -78,7 +77,7 @@ Now, create a service in your namespace to represent data storage resources:
 
 1. Run the following command to create a AWS Cloud Map service for data storage resources:
 
-   ```
+   ```bash
    aws servicediscovery create-service \
      --name data-service \
      --namespace-id $NAMESPACE_ID \
@@ -87,7 +86,7 @@ Now, create a service in your namespace to represent data storage resources:
 
 1. Get the service ID for the data service:
 
-   ```
+   ```bash
    DATA_SERVICE_ID=$(aws servicediscovery list-services \
      --query "Services[?Name=='data-service'].Id" \
      --output text)
@@ -95,7 +94,7 @@ Now, create a service in your namespace to represent data storage resources:
 
 1. Register the DynamoDB table as a service instance with a custom attribute that specifies the table name:
 
-   ```
+   ```bash
    aws servicediscovery register-instance \
      --service-id $DATA_SERVICE_ID \
      --instance-id data-instance \
@@ -116,7 +115,7 @@ Create an IAM role that the Lambda functions will use to access AWS resources:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 		 	 	 
      "Statement": [
@@ -135,7 +134,7 @@ Create an IAM role that the Lambda functions will use to access AWS resources:
 
 1. Run the following command to create the IAM role using the trust policy:
 
-   ```
+   ```bash
    aws iam create-role \
      --role-name cloudmap-tutorial-role \
      --assume-role-policy-document file://lambda-trust-policy.json
@@ -148,7 +147,7 @@ Create an IAM role that the Lambda functions will use to access AWS resources:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 		 	 	 
      "Statement": [
@@ -184,7 +183,7 @@ Create an IAM role that the Lambda functions will use to access AWS resources:
 
 1. Create and attach the policy to the IAM role:
 
-   ```
+   ```bash
    aws iam create-policy \
      --policy-name CloudMapTutorialPolicy \
      --policy-document file://cloudmap-policy.json
@@ -209,7 +208,7 @@ To create a Lambda function that writes data to the DynamoDB table, follow these
 
 1. Create the Python file for the write function:
 
-   ```
+   ```bash
    cat > writefunction.py << EOF
    import json
    import boto3
@@ -266,7 +265,7 @@ To create a Lambda function that writes data to the DynamoDB table, follow these
 
 1. Package and deploy the Lambda function:
 
-   ```
+   ```bash
    zip writefunction.zip writefunction.py
    
    ROLE_ARN=$(aws iam get-role --role-name cloudmap-tutorial-role \
@@ -283,7 +282,7 @@ To create a Lambda function that writes data to the DynamoDB table, follow these
 
 1. Update the function timeout to avoid timeout errors:
 
-   ```
+   ```bash
    aws lambda update-function-configuration \
      --function-name writefunction \
      --timeout 5
@@ -296,7 +295,7 @@ To create another service in your namespace to represent application functions, 
 
 1. Create a service for application functions:
 
-   ```
+   ```bash
    aws servicediscovery create-service \
      --name app-service \
      --namespace-id $NAMESPACE_ID \
@@ -305,7 +304,7 @@ To create another service in your namespace to represent application functions, 
 
 1. Get the service ID for the app service:
 
-   ```
+   ```bash
    APP_SERVICE_ID=$(aws servicediscovery list-services \
      --query "Services[?Name=='app-service'].Id" \
      --output text)
@@ -313,7 +312,7 @@ To create another service in your namespace to represent application functions, 
 
 1. Register the Lambda write function as a service instance with custom attributes:
 
-   ```
+   ```bash
    aws servicediscovery register-instance \
      --service-id $APP_SERVICE_ID \
      --instance-id write-instance \
@@ -329,7 +328,7 @@ To create a Lambda function that reads data from the DynamoDB table, follow thes
 
 1. Create the Python file for the read function:
 
-   ```
+   ```bash
    cat > readfunction.py << EOF
    import json
    import boto3
@@ -391,7 +390,7 @@ To create a Lambda function that reads data from the DynamoDB table, follow thes
 
 1. Package and deploy the Lambda function:
 
-   ```
+   ```bash
    zip readfunction.zip readfunction.py
    
    aws lambda create-function \
@@ -405,7 +404,7 @@ To create a Lambda function that reads data from the DynamoDB table, follow thes
 
 1. Update the function timeout:
 
-   ```
+   ```bash
    aws lambda update-function-configuration \
      --function-name readfunction \
      --timeout 5
@@ -416,7 +415,7 @@ To create a Lambda function that reads data from the DynamoDB table, follow thes
 
 To register the Lambda read function as another service instance in the app service, follow this step:
 
-```
+```bash
 aws servicediscovery register-instance \
   --service-id $APP_SERVICE_ID \
   --instance-id read-instance \
@@ -432,7 +431,7 @@ To create a Python client application that uses AWS Cloud Map to discover and in
 
 1. Create a Python file for the write client application:
 
-   ```
+   ```bash
    cat > writeclient.py << EOF
    import boto3
    import json
@@ -478,7 +477,7 @@ To create a Python client application that uses AWS Cloud Map to discover and in
 
 1. Create a Python file for the read client application:
 
-   ```
+   ```bash
    cat > readclient.py << EOF
    import boto3
    import json
@@ -522,7 +521,7 @@ To create a Python client application that uses AWS Cloud Map to discover and in
 
 1. Run the write client to add data to the DynamoDB table:
 
-   ```
+   ```bash
    python3 writeclient.py
    ```
 
@@ -530,7 +529,7 @@ To create a Python client application that uses AWS Cloud Map to discover and in
 
 1. Run the read client to retrieve data from the DynamoDB table:
 
-   ```
+   ```bash
    python3 readclient.py
    ```
 
@@ -543,7 +542,7 @@ When you're finished with the tutorial, clean up the resources to avoid incurrin
 
 1. First, run the following command to deregister the service instances:
 
-   ```
+   ```bash
    aws servicediscovery deregister-instance \
      --service-id $APP_SERVICE_ID \
      --instance-id read-instance
@@ -559,7 +558,7 @@ When you're finished with the tutorial, clean up the resources to avoid incurrin
 
 1. Run the following command to delete the services:
 
-   ```
+   ```bash
    aws servicediscovery delete-service \
      --id $APP_SERVICE_ID
    
@@ -569,21 +568,21 @@ When you're finished with the tutorial, clean up the resources to avoid incurrin
 
 1. Run the following command to delete the namespace:
 
-   ```
+   ```bash
    aws servicediscovery delete-namespace \
      --id $NAMESPACE_ID
    ```
 
 1. Run the following command to delete the Lambda functions:
 
-   ```
+   ```bash
    aws lambda delete-function --function-name writefunction
    aws lambda delete-function --function-name readfunction
    ```
 
 1. Run the following command to delete the IAM role and policy:
 
-   ```
+   ```bash
    aws iam detach-role-policy \
      --role-name cloudmap-tutorial-role \
      --policy-arn $POLICY_ARN
@@ -600,12 +599,12 @@ When you're finished with the tutorial, clean up the resources to avoid incurrin
 
 1. Run the following command to delete the DynamoDB table:
 
-   ```
+   ```bash
    aws dynamodb delete-table --table-name cloudmap
    ```
 
 1. Run the following command to clean up temporary files:
 
-   ```
+   ```bash
    rm -f lambda-trust-policy.json cloudmap-policy.json writefunction.py readfunction.py writefunction.zip readfunction.zip writeclient.py readclient.py
    ```

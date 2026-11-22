@@ -1,7 +1,6 @@
 
 
 # Updating an AWS Cloud Map service
-<a name="editing-services"></a>
 
 Depending on a service's configuration, you can update its tags, Route 53 health check failure threshold, and time to live (TTL) for DNS resolvers. To update a service, perform the following procedure.
 
@@ -56,7 +55,7 @@ You can't use the **Edit** button workflow to edit values for services that allo
 
 1. Import `Boto3` and use `servicediscovery` as your service.
 
-   ```
+   ```python
    import boto3
    client = boto3.client('servicediscovery')
    ```
@@ -82,7 +81,7 @@ You can't use the **Edit** button workflow to edit values for services that allo
 
    Example response output
 
-   ```
+   ```json
    {
        "OperationId": "l3pfx7f4ynndrbj3cfq5fm2qy2z37bms-5m6iaoty"
    }

@@ -1,7 +1,6 @@
 
 
 # Listing AWS Cloud Map service instances
-<a name="listing-instances"></a>
 
 To view a list of the service instances that you registered using a service, perform the following procedure.
 
@@ -33,7 +32,7 @@ If the namespace in which the instance is registered is a shared namespace, the 
 
 1. Import `Boto3` and use `servicediscovery` as your service.
 
-   ```
+   ```python
    import boto3
    client = boto3.client('servicediscovery')
    ```
@@ -50,7 +49,7 @@ If the namespace in which the instance is registered is a shared namespace, the 
 
    Example response output
 
-   ```
+   ```json
    {
        'Instances': [
            {

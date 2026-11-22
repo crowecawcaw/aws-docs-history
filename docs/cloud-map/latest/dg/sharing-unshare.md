@@ -1,7 +1,6 @@
 
 
 # Stop sharing a AWS Cloud Map namespace
-<a name="sharing-unshare"></a>
 
 When a namespace is no longer shared, the namespace and any services and instances associated with it can no longer be accessed by consumer AWS accounts. This includes resources created in the namespace by consumers when they had access to the namespace.
 

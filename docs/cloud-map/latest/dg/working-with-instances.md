@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map service instances
-<a name="working-with-instances"></a>
 
 A service instance contains information about how to locate a resource, such as a web server, for an application. After you register instances, you locate them by using DNS queries or the AWS Cloud Map [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html) API action. The resources you can register include, but aren't limited to, the following:
 + Amazon EC2 instances

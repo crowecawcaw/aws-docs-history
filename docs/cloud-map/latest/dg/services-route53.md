@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map service DNS configuration
-<a name="services-route53"></a>
 
 When you create a service in a namespace that supports instance discovery by DNS queries, AWS Cloud Map creates Route 53 DNS records. You must specify a Route 53 routing policy and DNS record type that will apply to all Route 53 DNS records that AWS Cloud Map creates.
 

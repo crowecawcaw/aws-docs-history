@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map API permissions reference
-<a name="cloud-map-api-permissions-ref"></a>
 
 When you set up access control and write a permissions policy that you can attach to an IAM identity (identity-based policies), you can use the following list as a reference. The list includes each AWS Cloud Map API action and the actions that you must grant permissions access to. You specify the actions in the `Action` field for the policy. For details about the resource value you must specify in the `Resource` field or the IAM policy, see [Actions, resources, and condition keys for AWS Cloud Map](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudmap.html) in the *Service Authorization Reference*. 
 

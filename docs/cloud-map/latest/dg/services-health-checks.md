@@ -1,7 +1,6 @@
 
 
 # AWS Cloud Map service health check configuration
-<a name="services-health-checks"></a>
 
 Health checks help determine whether service instances are healthy or not. If you don't configure a health check during service creation, traffic will be routed to service instances regardless of the instances' health status. When you configure a health check, AWS Cloud Map returns healthy resources by default. You can use the `[HealthStatus](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html#cloudmap-DiscoverInstances-request-HealthStatus)` parameter of the `DiscoverInstances` API to filter resources by health status and get a list of unhealthy resources. You can also use the `[GetInstancesHealthStatus](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetInstancesHealthStatus.html)` API to retrieve the health status of a particular service instance.
 
