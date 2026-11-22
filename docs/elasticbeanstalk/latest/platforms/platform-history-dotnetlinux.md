@@ -1,16 +1,28 @@
 
 
 # .NET Core on Linux platform history
-<a name="platform-history-dotnetlinux"></a>
 
 This page lists the current and previous versions of AWS Elastic Beanstalk's .NET Core on Linux platform branches and the dates that each version was current. Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 13, 2026 – present
+## November 19, 2026 – present
+<a name="platform-history-2026-11-19"></a>
+
+The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since November 19, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  Framework  |  Proxy Server  |  AMI  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | 
+|  ** .NET 10 on AL2023 version 3.12.4** <br /> * 64bit Amazon Linux 2023 v3.12.4 running .NET 10 *  | .NET 10.0.15, supports 10.0.15 | nginx 1.30.7 | 2023.12.20261119 | 3.7.2 | 
+|  ** .NET 9 on AL2023 version 3.12.4** <br /> * 64bit Amazon Linux 2023 v3.12.4 running .NET 9 *  | .NET 9.0.23, supports 9.0.23 | nginx 1.30.7 | 2023.12.20261119 | 3.7.2 | 
+|  ** .NET 8 on AL2023 version 3.12.4** <br /> * 64bit Amazon Linux 2023 v3.12.4 running .NET 8 *  | .NET 8.0.34, supports 8.0.34 | nginx 1.30.7 | 2023.12.20261119 | 3.7.2 | 
+
+## November 13, 2026 – November 18, 2026
 <a name="platform-history-2026-11-13"></a>
 
-The following Elastic Beanstalk platform versions for .NET Core on Linux have been current since November 13, 2026:
+The following Elastic Beanstalk platform versions for .NET Core on Linux were current between November 13, 2026 and November 18, 2026:
 
 
 

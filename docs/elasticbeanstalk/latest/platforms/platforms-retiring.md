@@ -1,7 +1,6 @@
 
 
 # Elastic Beanstalk platform versions scheduled for retirement
-<a name="platforms-retiring"></a>
 
 AWS Elastic Beanstalk provides managed platforms that support running web applications developed for specific programming languages, frameworks, and web containers. Elastic Beanstalk offers one or more platform versions for each platform. For details about currently supported platform versions, see [Elastic Beanstalk supported platforms](platforms-supported.md).
 
@@ -30,8 +29,8 @@ Elastic Beanstalk has scheduled the following .NET Core on Linux platform versio
 
 |  Platform Version and *Solution Stack Name*   |  Framework  |  Proxy Server  |  AMI  |  AWS X-Ray  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | 
-|  ** .NET 9 on AL2023 version 3.12.3** <br /> * 64bit Amazon Linux 2023 v3.12.3 running .NET 9 *  | .NET 9.0.23, supports 9.0.23 | nginx 1.30.6 | 2023.12.20261112 | 3.7.1 | 2027-03-31 | 
-|  ** .NET 8 on AL2023 version 3.12.3** <br /> * 64bit Amazon Linux 2023 v3.12.3 running .NET 8 *  | .NET 8.0.34, supports 8.0.34 | nginx 1.30.6 | 2023.12.20261112 | 3.7.1 | 2027-03-31 | 
+|  ** .NET 9 on AL2023 version 3.12.4** <br /> * 64bit Amazon Linux 2023 v3.12.4 running .NET 9 *  | .NET 9.0.23, supports 9.0.23 | nginx 1.30.7 | 2023.12.20261119 | 3.7.2 | 2027-03-31 | 
+|  ** .NET 8 on AL2023 version 3.12.4** <br /> * 64bit Amazon Linux 2023 v3.12.4 running .NET 8 *  | .NET 8.0.34, supports 8.0.34 | nginx 1.30.7 | 2023.12.20261119 | 3.7.2 | 2027-03-31 | 
 
 For information about current platform versions, see [.NET Core on Linux](platforms-supported.md#platforms-supported.dotnetlinux).
 
@@ -44,7 +43,7 @@ Elastic Beanstalk has scheduled the following Node.js platform versions for reti
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | --- | 
-|  ** Node.js 22 AL2023 version 6.12.3** <br /> * 64bit Amazon Linux 2023 v6.12.3 running Node.js 22 *  | 2023.12.20261112 | 22.23.5 (10.9.9)<br /> Default version: v22.23.5 | nginx 1.30.6 (default), Apache 2.4.71 | 2.50.1 | 3.7.1 | 2027-07-31 | 
+|  ** Node.js 22 AL2023 version 6.12.4** <br /> * 64bit Amazon Linux 2023 v6.12.4 running Node.js 22 *  | 2023.12.20261119 | 22.23.5 (10.9.9)<br /> Default version: v22.23.5 | nginx 1.30.7 (default), Apache 2.4.71 | 2.50.1 | 3.7.2 | 2027-07-31 | 
 
 For information about current platform versions, see [Node.js](platforms-supported.md#platforms-supported.nodejs).
 
@@ -57,7 +56,7 @@ Elastic Beanstalk has scheduled the following PHP platform versions for retireme
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Proxy Server  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | 
-|  ** PHP 8.2 AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running PHP 8.2 *  | 2023.12.20261112 | PHP 8.2.35 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.71 | 2027-03-31 | 
+|  ** PHP 8.2 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running PHP 8.2 *  | 2023.12.20261119 | PHP 8.2.36 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.7 (default), Apache 2.4.71 | 2027-03-31 | 
 
 For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP).
 
@@ -70,6 +69,6 @@ Elastic Beanstalk has scheduled the following Ruby platform versions for retirem
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Application Server  |  AWS X-Ray  |  Proxy Server  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
-|  ** Ruby 3.3 AL2023 version 4.15.3** <br /> * 64bit Amazon Linux 2023 v4.15.3 running Ruby 3.3 *  | 2023.12.20261112 | Ruby 3.3.13-p207 | RubyGems 3.5.22 | Puma 8.0.2 | 3.7.1 | nginx 1.30.6 | 2027-07-31 | 
+|  ** Ruby 3.3 AL2023 version 4.15.4** <br /> * 64bit Amazon Linux 2023 v4.15.4 running Ruby 3.3 *  | 2023.12.20261119 | Ruby 3.3.14-p208 | RubyGems 3.5.22 | Puma 8.1.2 | 3.7.2 | nginx 1.30.7 | 2027-07-31 | 
 
 For information about current platform versions, see [Ruby](platforms-supported.md#platforms-supported.ruby).

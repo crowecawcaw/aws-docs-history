@@ -1,7 +1,6 @@
 
 
 # Preconfigured Docker platform history
-<a name="platform-history-preconfigureddocker"></a>
 
 **Note**  
 On [July 18, 2022](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2022-07-18-linux-al1-retire.html) Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**. For more information, see [AL1 platform retirement FAQ](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.migration-al.FAQ.html) in the *AWS Elastic Beanstalk Developer Guide*. 

@@ -1,7 +1,6 @@
 
 
 # Platform history
-<a name="platform-history"></a>
 
 **Topics**
 + [Docker platform history](platform-history-docker.md)

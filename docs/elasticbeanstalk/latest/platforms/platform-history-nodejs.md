@@ -1,16 +1,28 @@
 
 
 # Node.js platform history
-<a name="platform-history-nodejs"></a>
 
 This page lists the current and previous versions of AWS Elastic Beanstalk's Node.js platform branches and the dates that each version was current. Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 13, 2026 – present
+## November 19, 2026 – present
+<a name="platform-history-2026-11-19"></a>
+
+The following Elastic Beanstalk platform versions for Node.js have been current since November 19, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Node.js 26 AL2023 version 6.12.4** <br /> * 64bit Amazon Linux 2023 v6.12.4 running Node.js 26 *  | 2023.12.20261119 | 26.13.1 (11.20.0)<br /> Default version: v26.13.1 | nginx 1.30.7 (default), Apache 2.4.71 | 2.50.1 | 3.7.2 | 
+|  ** Node.js 24 AL2023 version 6.12.4** <br /> * 64bit Amazon Linux 2023 v6.12.4 running Node.js 24 *  | 2023.12.20261119 | 24.22.3 (11.19.1)<br /> Default version: v24.22.3 | nginx 1.30.7 (default), Apache 2.4.71 | 2.50.1 | 3.7.2 | 
+|  ** Node.js 22 AL2023 version 6.12.4** <br /> * 64bit Amazon Linux 2023 v6.12.4 running Node.js 22 *  | 2023.12.20261119 | 22.23.5 (10.9.9)<br /> Default version: v22.23.5 | nginx 1.30.7 (default), Apache 2.4.71 | 2.50.1 | 3.7.2 | 
+
+## November 13, 2026 – November 18, 2026
 <a name="platform-history-2026-11-13"></a>
 
-The following Elastic Beanstalk platform versions for Node.js have been current since November 13, 2026:
+The following Elastic Beanstalk platform versions for Node.js were current between November 13, 2026 and November 18, 2026:
 
 
 

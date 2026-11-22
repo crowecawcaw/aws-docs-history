@@ -1,7 +1,6 @@
 
 
 # About Elastic Beanstalk platforms
-<a name="welcome"></a>
 
 AWS Elastic Beanstalk provides managed platforms that support running web applications developed for specific programming languages, frameworks, and web containers. A platform is a combination of an operating system (OS), runtime, web server, application server, and Elastic Beanstalk components. Elastic Beanstalk offers multiple platform versions for each platform branch. When you create an environment and choose a platform version, Elastic Beanstalk provisions the resources that your application needs, including one or more Amazon Elastic Compute Cloud (Amazon EC2) instances. The software stack running on the Amazon EC2 instances depends on the platform version you chose.
 

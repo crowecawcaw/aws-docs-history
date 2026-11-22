@@ -1,16 +1,33 @@
 
 
 # Tomcat platform history
-<a name="platform-history-java"></a>
 
 This page lists the current and previous versions of AWS Elastic Beanstalk's Tomcat platform branches and the dates that each version was current. Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 13, 2026 – present
+## November 19, 2026 – present
+<a name="platform-history-2026-11-19"></a>
+
+The following Elastic Beanstalk platform versions for Tomcat have been current since November 19, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  AWS X-Ray  |  Application Server  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Corretto 25 with Tomcat 11 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 11 Corretto 25 *  | 2023.12.20261119 | Corretto 25.0.5.1.2 | 3.7.2 | Tomcat 11.0.29 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 21 with Tomcat 11 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 11 Corretto 21 *  | 2023.12.20261119 | Corretto 21.0.13.1.2 | 3.7.2 | Tomcat 11.0.29 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 17 with Tomcat 11 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 11 Corretto 17 *  | 2023.12.20261119 | Corretto 17.0.21.1.2 | 3.7.2 | Tomcat 11.0.29 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 21 with Tomcat 10 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 10 Corretto 21 *  | 2023.12.20261119 | Corretto 21.0.13.1.2 | 3.7.2 | Tomcat 10.1.62 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 17 with Tomcat 10 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 10 Corretto 17 *  | 2023.12.20261119 | Corretto 17.0.21.1.2 | 3.7.2 | Tomcat 10.1.62 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 17 with Tomcat 9 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 9 Corretto 17 *  | 2023.12.20261119 | Corretto 17.0.21.1.2 | 3.7.2 | Tomcat 9.0.123 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 11 with Tomcat 9 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 9 Corretto 11 *  | 2023.12.20261119 | Corretto 11.0.33.1.1 | 3.7.2 | Tomcat 9.0.123 | nginx 1.30.7 (default), Apache 2.4.71 | 
+|  ** Corretto 8 with Tomcat 9 AL2023 version 5.15.4** <br /> * 64bit Amazon Linux 2023 v5.15.4 running Tomcat 9 Corretto 8 *  | 2023.12.20261119 | Corretto 8.514.01.1 | 3.7.2 | Tomcat 9.0.124 | nginx 1.30.7 (default), Apache 2.4.71 | 
+
+## November 13, 2026 – November 18, 2026
 <a name="platform-history-2026-11-13"></a>
 
-The following Elastic Beanstalk platform versions for Tomcat have been current since November 13, 2026:
+The following Elastic Beanstalk platform versions for Tomcat were current between November 13, 2026 and November 18, 2026:
 
 
 

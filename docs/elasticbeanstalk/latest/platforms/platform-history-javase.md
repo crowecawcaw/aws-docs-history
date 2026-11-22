@@ -1,16 +1,30 @@
 
 
 # Java SE platform history
-<a name="platform-history-javase"></a>
 
 This page lists the current and previous versions of AWS Elastic Beanstalk's Java platform branches and the dates that each version was current. Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 13, 2026 – present
+## November 19, 2026 – present
+<a name="platform-history-2026-11-19"></a>
+
+The following Elastic Beanstalk platform versions for Java SE have been current since November 19, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Tools  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Corretto 25 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running Corretto 25 *  | 2023.12.20261119 | Corretto 25.0.5.1.2 | Ant 1.10.18, Gradle 9.9.1, Maven 3.10.1 | 3.7.2 | nginx 1.30.7 | 
+|  ** Corretto 21 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running Corretto 21 *  | 2023.12.20261119 | Corretto 21.0.13.1.2 | Ant 1.10.18, Gradle 9.9.1, Maven 3.10.1 | 3.7.2 | nginx 1.30.7 | 
+|  ** Corretto 17 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running Corretto 17 *  | 2023.12.20261119 | Corretto 17.0.21.1.2 | Ant 1.10.18, Gradle 9.9.1, Maven 3.10.1 | 3.7.2 | nginx 1.30.7 | 
+|  ** Corretto 11 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running Corretto 11 *  | 2023.12.20261119 | Corretto 11.0.33.1.1 | Ant 1.10.18, Gradle 8.14.7, Maven 3.10.1 | 3.7.2 | nginx 1.30.7 | 
+|  ** Corretto 8 AL2023 version 4.14.4** <br /> * 64bit Amazon Linux 2023 v4.14.4 running Corretto 8 *  | 2023.12.20261119 | Corretto 8.514.01.1 | Ant 1.10.18, Gradle 8.14.7, Maven 3.10.1 | 3.7.2 | nginx 1.30.7 | 
+
+## November 13, 2026 – November 18, 2026
 <a name="platform-history-2026-11-13"></a>
 
-The following Elastic Beanstalk platform versions for Java SE have been current since November 13, 2026:
+The following Elastic Beanstalk platform versions for Java SE were current between November 13, 2026 and November 18, 2026:
 
 
 

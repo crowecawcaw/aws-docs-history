@@ -1,7 +1,6 @@
 
 
 # Legacy platforms
-<a name="platform-history-legacy"></a>
 
 **Topics**
 + [Multicontainer Docker platform history](platform-history-docker-multi.md)

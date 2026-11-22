@@ -1,7 +1,6 @@
 
 
 # Docker platform earlier history
-<a name="platform-history-docker-legacy"></a>
 
 This page lists earlier versions of AWS Elastic Beanstalk's Single Container Docker and Multicontainer Docker platform configurations, before September 25, 2017, and the dates that each version was current. Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 
