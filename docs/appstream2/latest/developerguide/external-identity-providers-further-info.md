@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Integration with SAML 2.0
-<a name="external-identity-providers-further-info"></a>
 
 The following links help you configure third-party SAML 2.0 identity provider solutions to work with WorkSpaces Applications.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="client-application-windows-troubleshooting-user"></a>
 
 If issues occur when you use the WorkSpaces Applications client for Windows, your WorkSpaces Applications client ID and version number can help your administrator with troubleshooting. The following sections describe how to find the client ID and client version number. 
 

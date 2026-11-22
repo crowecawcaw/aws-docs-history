@@ -1,7 +1,6 @@
 
 
 # Prerequisites for File System Redirection
-<a name="file-system-redirection-prerequisites"></a>
 
 To enable WorkSpaces Applications file redirection:
 + You must use an image that uses a version of the WorkSpaces Applications agent released on or after August 8, 2019. For more information, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md).

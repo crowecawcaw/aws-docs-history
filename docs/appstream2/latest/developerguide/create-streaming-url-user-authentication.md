@@ -1,7 +1,6 @@
 
 
 # Step 2: Create a Streaming URL for User Authentication
-<a name="create-streaming-url-user-authentication"></a>
 
 You must create a streaming URL to authenticate users for embedded WorkSpaces Applications streaming sessions. SAML 2.0 and user pools are currently not supported for embedded streaming sessions. To create a streaming URL, use one of the following methods:
 + WorkSpaces Applications console

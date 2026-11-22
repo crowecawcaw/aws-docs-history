@@ -1,7 +1,6 @@
 
 
 # Access the MCP server
-<a name="agent-access-mcp-server"></a>
 
 The WorkSpaces Applications MCP server is a fully managed service that provides AI agents with Model Context Protocol (MCP) tools to operate desktop applications during streaming sessions. Agents can click buttons, enter text, scroll, and take screenshots of the desktop.
 

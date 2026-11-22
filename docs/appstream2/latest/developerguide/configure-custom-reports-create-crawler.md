@@ -1,7 +1,6 @@
 
 
 # Create an AWS Glue Crawler
-<a name="configure-custom-reports-create-crawler"></a>
 
 AWS Glue is a fully managed extract, transform, and load (ETL) service that lets you create a database from your Amazon S3 data and query that database by using Athena. This database is also referred to as an AWS Glue Data Catalog. An AWS Glue crawler can automatically detect the schema of your Amazon S3 data and create the corresponding database and tables. WorkSpaces Applications provides an CloudFormation template that you can use to create the necessary AWS Glue resources. 
 
@@ -35,7 +34,7 @@ Completing the steps in the following procedure creates an AWS Glue crawler. How
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Test Dynamic App Providers (Optional)
-<a name="test-dynamic-app-providers"></a>
 
 After you enable your dynamic app provider on an image builder, you can test the provider to verify that it functions as expected. To do so, perform the following steps before you finish creating the image.
 

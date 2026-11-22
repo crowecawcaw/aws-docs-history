@@ -1,7 +1,6 @@
 
 
 # Multi-session image optimization
-<a name="multi-session-image-optimization"></a>
 
 This section describes Windows image optimizations that reduce CPU and memory usage on WorkSpaces Applications multi-session fleets. These optimizations let you support more concurrent sessions per instance at the same performance level.
 

@@ -1,7 +1,6 @@
 
 
 # Update the App Block, VHD, and Setup Script
-<a name="update-app-block"></a>
 
 App block resources are immutable and do not allow you to change them once created. If you need to make backwards compatible updates to the VHD or setup script, it is recommended that you upload a new version of the file to the Amazon S3 bucket, overwriting the current version. New Elastic fleet streaming sessions will download the latest version of the objects, and use them.
 

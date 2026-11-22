@@ -1,7 +1,6 @@
 
 
 # Update the WorkSpaces Applications Agent Software by Using Managed WorkSpaces Applications Agent Versions
-<a name="keep-image-updated-manage-image-versions"></a>
 
 WorkSpaces Applications provides an automated way to update your image builder with newer WorkSpaces Applications agent software. Doing so enables you to create a new image whenever a new version of the agent is released. You can then test the image before updating your production fleets. For more information about how to manage the WorkSpaces Applications agent software, see [Manage WorkSpaces Applications Agent Versions](base-images-agent.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Files and Directories Associated with Compute-Intensive Applications
-<a name="storage-solutions-files-directories-associated-with-compute-intensive-applications"></a>
 
 During WorkSpaces Applications streaming sessions, saving large files and directories associated with compute-intensive applications to persistent storage can take longer than saving files and directories required for basic productivity applications. For example, it might take longer for applications to save a large amount of data or frequently modify the same files than it would to save files created by applications that perform a single write action. It might also take longer to save many small files.
 

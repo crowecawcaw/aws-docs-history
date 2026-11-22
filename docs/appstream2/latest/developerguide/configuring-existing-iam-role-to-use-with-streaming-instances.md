@@ -1,7 +1,6 @@
 
 
 # Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances
-<a name="configuring-existing-iam-role-to-use-with-streaming-instances"></a>
 
 This topic describes how to configure an existing IAM role so that you can use it with image builders and fleet streaming instances.
 
@@ -34,7 +33,7 @@ To perform the following steps, you must sign into the account as an IAM user wh
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

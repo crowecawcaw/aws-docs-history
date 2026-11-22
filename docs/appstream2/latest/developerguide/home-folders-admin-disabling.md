@@ -1,7 +1,6 @@
 
 
 # Disable Home Folders
-<a name="home-folders-admin-disabling"></a>
 
 You can disable home folders for a stack without losing user content already stored in home folders. Disabling home folders for a stack has the following effects:
 + Users who are connected to active streaming sessions for the stack receive an error message. They are informed that they can no longer store content in their home folder. 

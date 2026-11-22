@@ -1,7 +1,6 @@
 
 
 # Unified graphics images
-<a name="unified-graphics-images"></a>
 
 A unified graphics image is a single graphics image that can support multiple graphics instance families, including Graphics G4dn, G5, G6, Gr6, G6f, Gr6f, and G7. Previously, each graphics family used a separate base image. The AWS base image for a unified graphics image uses the name prefix `AppStream-Graphics-NV-` and is available for Windows Server 2025 and 2022, Red Hat Enterprise Linux 8, and Rocky Linux 8.
 

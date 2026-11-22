@@ -1,7 +1,6 @@
 
 
 # Fleets and Stacks in Fleet Type in Amazon WorkSpaces Applications
-<a name="managing-stacks-fleets"></a>
 
 With Amazon WorkSpaces Applications, you create fleet instances and stacks as part of the process of streaming applications. A fleet consists of streaming instances that run the image that you specify. A stack consists of an associated fleet, user access policies, and storage configurations.
 

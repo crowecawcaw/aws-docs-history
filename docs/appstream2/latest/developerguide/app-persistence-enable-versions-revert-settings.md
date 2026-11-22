@@ -1,7 +1,6 @@
 
 
 # Enable Amazon S3 Object Versioning and Revert a User's Application Settings
-<a name="app-persistence-enable-versions-revert-settings"></a>
 
 You can use Amazon S3 object versioning and lifecycle policies to manage your users’ application settings when your users change them. With Amazon S3 object versioning, you can preserve, retrieve, and restore every version of the settings VHD. This enables you to recover from both unintended user actions and application failures. When versioning is enabled, after each streaming session, a new version of the application settings VHD is synced to Amazon S3. The new version does not overwrite the previous version, so if an issue with your users' settings occurs, you can revert to a previous version of the VHD.
 

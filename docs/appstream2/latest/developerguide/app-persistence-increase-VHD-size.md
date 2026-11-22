@@ -1,7 +1,6 @@
 
 
 # Increase the Size of the Application Settings VHD
-<a name="app-persistence-increase-VHD-size"></a>
 
 The default VHD maximum size is 1 GB for Elastic fleets and 5GB for Always-On and On-Demand fleets. If a user requires additional space for application settings, you can download the applicable application settings VHD to a Windows computer to expand it. Then, replace the current VHD in the S3 bucket with the larger one. Do not do this when the user has an active streaming session. 
 

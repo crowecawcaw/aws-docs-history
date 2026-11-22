@@ -1,7 +1,6 @@
 
 
 # Management Network Interface IP Address Range and Ports in Amazon WorkSpaces Applications
-<a name="management_ports"></a>
 
 The management network interface IP address range is 198.19.0.0/16. The following ports must be open on the management network interface of all streaming instances:
 + Inbound TCP on port 8300. This is used for establishment of the streaming connection.

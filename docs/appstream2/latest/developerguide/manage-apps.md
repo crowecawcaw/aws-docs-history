@@ -1,7 +1,6 @@
 
 
 # Manage Applications Associated to an Elastic Fleet in Amazon WorkSpaces Applications
-<a name="manage-apps"></a>
 
 You can associate and disassociate applications from an Elastic fleet at any time. Changes to the applications associated to an Elastic fleet are visible to users currently streaming from the fleet, but may not take effect. For example, if you disassociate an application from a fleet, it will be removed from the application catalog, but the virtual hard disk will remain mounted to existing streaming sessions.
 

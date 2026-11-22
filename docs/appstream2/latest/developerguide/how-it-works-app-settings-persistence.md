@@ -1,7 +1,6 @@
 
 
 # How Application Settings Persistence Works
-<a name="how-it-works-app-settings-persistence"></a>
 
 Persistent application settings are saved to a Virtual Hard Disk (VHD) file. This file is created the first time a user streams an application from a stack on which application settings persistence is enabled. If the fleet associated with the stack is based on an image that contains default application and Windows settings, the default settings are used for the user's first streaming session. For more information about default settings, see *Step 3: Create Default Application and Windows Settings* in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md).
 

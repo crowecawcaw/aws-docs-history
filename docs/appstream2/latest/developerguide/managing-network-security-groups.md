@@ -1,7 +1,6 @@
 
 
 # Security Groups in Amazon WorkSpaces Applications
-<a name="managing-network-security-groups"></a>
 
 You can provide additional access control to your VPC from streaming instances in a fleet or an image builder in Amazon WorkSpaces Applications by associating them with VPC security groups. Security groups that belong to your VPC allow you to control the network traffic between WorkSpaces Applications streaming instances and VPC resources such as license servers, file servers, and database servers. For more information, see [Security Groups for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide*.
 

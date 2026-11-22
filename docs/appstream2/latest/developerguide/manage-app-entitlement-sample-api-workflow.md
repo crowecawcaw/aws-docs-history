@@ -1,7 +1,6 @@
 
 
 # Example API Operations Work Flow for the Dynamic Application Framework
-<a name="manage-app-entitlement-sample-api-workflow"></a>
 
 The following diagram is an example of the API operations flow between WorkSpaces Applications and a third-party application provider.
 

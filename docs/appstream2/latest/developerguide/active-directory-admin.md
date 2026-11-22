@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Active Directory Administration
-<a name="active-directory-admin"></a>
 
 Setting up and using Active Directory with WorkSpaces Applications involves the following administrative tasks.
 

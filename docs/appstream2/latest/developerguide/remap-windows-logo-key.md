@@ -1,7 +1,6 @@
 
 
 # Remap the Windows Logo Key or Command Key
-<a name="remap-windows-logo-key"></a>
 
 You can remap the Mac Option and Command keys on your keyboard.
 

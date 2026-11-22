@@ -1,7 +1,6 @@
 
 
 # Finding the Organizational Unit Distinguished Name
-<a name="active-directory-oudn"></a>
 
 When you register your Active Directory domain with WorkSpaces Applications, you must provide an organizational unit (OU) distinguished name. Create an OU for this purpose. The default Computers container is not an OU and cannot be used by WorkSpaces Applications. The following procedure shows how to obtain this name.
 

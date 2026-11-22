@@ -1,7 +1,6 @@
 
 
 # Unassigning Stacks from Users in Amazon WorkSpaces Applications
-<a name="user-pool-admin-unassigning"></a>
 
 You can unassign a stack from one or more users in the user pool. After a stack is unassigned from users, they can't launch applications from the stack. If users are connected when you unassign the stack, their sessions remain active until the session cookie expires (about one hour).
 

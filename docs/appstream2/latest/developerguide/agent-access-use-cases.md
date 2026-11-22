@@ -1,7 +1,6 @@
 
 
 # Example agent use cases
-<a name="agent-access-use-cases"></a>
 
 With Amazon WorkSpaces Applications agent access, your agent works in a governed desktop session, operating in desktop applications, mainframe terminals, and browser sessions to complete tasks. This gives it access to the software your team already relies on. You bring your own agent, and agent access provides the session it runs in.
 

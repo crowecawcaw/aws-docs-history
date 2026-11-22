@@ -1,7 +1,6 @@
 
 
 # Install AMD Driver on Graphics Design Instances
-<a name="AMD-driver"></a>
 
 If you need to update the AMD driver on your Windows Image Builder that is using a Graphics Design instance, you can either use the latest WorkSpaces Applications Graphics Design base images, or download the AMD driver and install it on your Image Builder. If you need to update the AMD driver for an existing image of the Graphics Design instance family, you can use managed WorkSpaces Applications image updates. For more information, see [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md).
 

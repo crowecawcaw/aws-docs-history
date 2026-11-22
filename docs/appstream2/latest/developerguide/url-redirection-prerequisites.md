@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="url-redirection-prerequisites"></a>
 
 To use host-to-client URL redirection, you must meet the following requirements:
 + One of the following supported WorkSpaces Applications clients:

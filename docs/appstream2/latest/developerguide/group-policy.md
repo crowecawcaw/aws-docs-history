@@ -1,7 +1,6 @@
 
 
 # Using Group Policy preferences
-<a name="group-policy"></a>
 
 You can use Group Policy preferences to grant local administrator rights to Active Directory users or groups and to all computer objects in the specified OU. The Active Directory users or groups to which you want to grant local administrator permissions must already exist. To use Group Policy preferences, you'll need to do the following first:
 + Obtain access to a computer or an EC2 instance that is joined to your domain.

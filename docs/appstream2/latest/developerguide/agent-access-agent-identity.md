@@ -1,7 +1,6 @@
 
 
 # Agent identity
-<a name="agent-access-agent-identity"></a>
 
 When an AI agent works in a streaming session on behalf of a person, you need to know two things: which agent acted, and which user it acted for. With *agent identity*, you use the identity provider (IdP) that you already use for your workforce, such as Microsoft Entra ID or Okta, to answer both questions. Each agent has its own identity in your IdP, unique to that agent and separate from the identity of any user. Your IdP signs the identities of the agent and of the user, so both are cryptographically verified rather than reported by the agent itself. AWS carries both identities through to the Model Context Protocol (MCP) server that controls the streaming session, and to the records in AWS CloudTrail.
 

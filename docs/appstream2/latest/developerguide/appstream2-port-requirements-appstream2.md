@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Applications Connections to Your VPC
-<a name="appstream2-port-requirements-appstream2"></a>
 
 To enable WorkSpaces Applications connectivity to network resources and the internet, configure your streaming instances as follows.
 

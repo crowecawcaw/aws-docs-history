@@ -1,7 +1,6 @@
 
 
 # Optimizing the Launch Performance of Your Applications in Amazon WorkSpaces Applications
-<a name="optimizing-app-launch-performance"></a>
 
 When you create an image, WorkSpaces Applications requires that you optimize the launch performance of your applications for your users' streaming sessions. When your applications are opened during this process, make sure that they use the initial components required by your users. Doing so ensures that these components are captured by the optimization process. In some cases, not all of the files required for the optimizations are detected. Examples of such files would be plug-ins or components that aren't opened in the image builder. To ensure that all of the files needed for your application are captured, you can include them in the optimization manifest. Adding files to the optimization manifest may increase the time it takes for fleet instances to be created and made available for users. Doing so, however, reduces the time it takes for the application to be launched the first time on the fleet instance.
 

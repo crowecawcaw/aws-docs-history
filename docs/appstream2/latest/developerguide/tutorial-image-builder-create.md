@@ -1,7 +1,6 @@
 
 
 # Launch an Image Builder to Install and Configure Streaming Applications
-<a name="tutorial-image-builder-create"></a>
 
  To install and configure applications to stream to your users, you start by launching an image builder instance as described in the following procedure.
 

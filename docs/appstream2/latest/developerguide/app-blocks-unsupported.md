@@ -1,7 +1,6 @@
 
 
 # Unsupported Applications
-<a name="app-blocks-unsupported"></a>
 
 Applications might encounter failures when installing or running in the following scenarios:
 + **Applications requiring reboots after installation**: If an application needs to perform additional changes or configurations after installation that require a reboot, it might fail. Currently, app block builder does not support restart, which can prevent the application from completing its required post-installation steps.

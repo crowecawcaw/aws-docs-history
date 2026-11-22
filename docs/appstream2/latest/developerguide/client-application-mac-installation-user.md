@@ -1,7 +1,6 @@
 
 
 # Setup and installation for macOS
-<a name="client-application-mac-installation-user"></a>
 
 Follow these steps to download and install the client application.
 

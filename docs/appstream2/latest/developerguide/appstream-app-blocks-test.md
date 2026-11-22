@@ -1,7 +1,6 @@
 
 
 # Test an App Block
-<a name="appstream-app-blocks-test"></a>
 
 You can use an app block builder to test your app block and verify your application functionalities. You don’t need to launch an Elastic fleet for this option. You can also create multiple app block builders with different instance types or sizes, and test the performance of your application with different compute options. 
 

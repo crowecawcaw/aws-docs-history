@@ -1,7 +1,6 @@
 
 
 # Enable Internet Access for Your App Block Builder in Amazon WorkSpaces Applications
-<a name="managing-network-enable-internet-access-app-block-builder"></a>
 
 If you plan to enable internet access for your app block builder, you must do so when you create the app block builder.
 

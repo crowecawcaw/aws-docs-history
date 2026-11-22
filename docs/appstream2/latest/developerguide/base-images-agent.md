@@ -1,7 +1,6 @@
 
 
 # Manage WorkSpaces Applications Agent Versions
-<a name="base-images-agent"></a>
 
 The WorkSpaces Applications agent is software that runs on your streaming instances and enables users to stream applications. When you create a new image, the **Always use latest agent version** option is selected by default. When this option is selected, new image builders or fleet instances that are launched from your image always use the latest WorkSpaces Applications agent version. You might want to control agent updates to ensure compatibility with your software or to qualify the updated environment before you deploy it for your end users.
 

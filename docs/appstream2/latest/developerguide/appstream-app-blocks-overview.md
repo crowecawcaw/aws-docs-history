@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="appstream-app-blocks-overview"></a>
 
 To create an app block with WorkSpaces Applications packaging, you need to initiate a streaming session with an app block builder. After the session is launched, you can download your application installers and enable the recording options. From that point onwards, WorkSpaces Applications records the file system and registry changes made on the app block builder using Application Redirection technology.
 

@@ -1,7 +1,6 @@
 
 
 # Roles Required for WorkSpaces Applications, Application Auto Scaling, and AWS Certificate Manager Private CA
-<a name="roles-required-for-appstream"></a>
 
 In AWS, IAM roles are used to grant permissions to an AWS service so it can access AWS resources. The policies that are attached to the role determine which AWS resources the service can access and what it can do with those resources. For WorkSpaces Applications, in addition to having the permissions defined in the **AmazonAppStreamFullAccess** policy, you must also have the following roles in your AWS account.
 

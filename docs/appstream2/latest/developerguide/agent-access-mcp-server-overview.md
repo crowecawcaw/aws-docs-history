@@ -1,7 +1,6 @@
 
 
 # Overview
-<a name="agent-access-mcp-server-overview"></a>
 
 This section explains how to connect to and operate the WorkSpaces Applications Model Context Protocol (MCP) server, the endpoint your agent uses to work in a desktop session. For a conceptual overview of WorkSpaces for AI agents and agent access, see [Why WorkSpaces for AI agents?](agent-access-learn-more.md) and [How it works](agent-access-concepts.md).
 

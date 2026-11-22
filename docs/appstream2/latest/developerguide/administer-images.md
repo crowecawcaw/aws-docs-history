@@ -1,7 +1,6 @@
 
 
 # Administer Your Amazon WorkSpaces Applications Images
-<a name="administer-images"></a>
 
 Available images are listed in the **Image Registry** in the WorkSpaces Applications console, and categorized by visibility as follows: 
 + **Public** — Base images that are owned and made available by AWS. Base images include the latest Windows operating system and the WorkSpaces Applications agent software. You can use these base images to create new images that include your own applications. For information about the base images released by AWS, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md). 

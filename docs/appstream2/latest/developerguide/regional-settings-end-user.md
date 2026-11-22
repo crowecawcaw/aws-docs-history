@@ -1,7 +1,6 @@
 
 
 # Configure Regional Settings
-<a name="regional-settings-end-user"></a>
 
 You can configure regional settings so that your WorkSpaces Applications Windows streaming sessions use settings that are specific to your location or language. Changes that you make during your streaming session are applied to future streaming sessions. 
 

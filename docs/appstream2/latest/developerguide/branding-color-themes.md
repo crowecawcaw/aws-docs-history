@@ -1,7 +1,6 @@
 
 
 # Color Theme Palettes in Amazon WorkSpaces Applications
-<a name="branding-color-themes"></a>
 
 When you choose a color theme, the colors for that theme are applied to the website links, text, and buttons in your streaming application catalog page. A color is also applied as an accent in the background for your streaming application catalog page. For each color in a color theme palette, the hex value is also noted.
 

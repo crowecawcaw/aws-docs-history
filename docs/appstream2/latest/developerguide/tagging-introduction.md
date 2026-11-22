@@ -1,7 +1,6 @@
 
 
 # Tagging Basics for Amazon WorkSpaces Applications
-<a name="tagging-introduction"></a>
 
 Tags consist of a key-value pair, similar to other AWS services tags. To tag a resource, you specify a *key* and a *value* for each tag. A key can be a general category, such as "project", "owner", or "environment", with specific associated values, and you can share the same key and value across multiple resources. You can tag an WorkSpaces Applications resource immediately after you create it or later on. If you delete a resource, the tags are removed from that resource on deletion. However, other WorkSpaces Applications and AWS resources that have the same tag key are not impacted.
 

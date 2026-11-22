@@ -1,7 +1,6 @@
 
 
 # Connect to WorkSpaces Applications
-<a name="web-browser-start-streaming-session-user"></a>
 
 Follow these steps to connect to WorkSpaces Applications and start an application streaming session.
 

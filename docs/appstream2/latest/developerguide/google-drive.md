@@ -1,7 +1,6 @@
 
 
 # Enable and Administer Google Drive for Your WorkSpaces Applications Users
-<a name="google-drive"></a>
 
 **Note**  
 Amazon WorkSpaces Applications's use and transfer to any other app of information received from Google APIs will adhere to [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
@@ -23,4 +22,4 @@ To enable Google Drive for stacks associated with multi-session fleets, the imag
 **Topics**
 + [Enable Google Drive for Your WorkSpaces Applications Users](enable-google-drive.md)
 + [Disable Google Drive for Your WorkSpaces Applications Users](disable-google-drive.md)
-+ [Controlling Google Drive Re-authentication](google-drive-reauthentication.md)
++ [Controlling Google Drive re-authentication](google-drive-reauthentication.md)

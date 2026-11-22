@@ -1,11 +1,10 @@
 
 
 # Example: WorkSpaces Applications Elastic fleets session script Amazon S3 bucket policy cross-service confused deputy prevention
-<a name="example-elastic-fleets"></a>
 
 **Example `aws:SourceAccount` Conditional:**  
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -31,7 +30,7 @@
 **Example `aws:SourceArn` Conditional:**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

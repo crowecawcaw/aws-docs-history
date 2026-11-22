@@ -1,7 +1,6 @@
 
 
 # Document History for Amazon WorkSpaces Applications
-<a name="doc-history"></a>
 + **API version:** 2016-12-01
 
 The following table describes important additions to the WorkSpaces Applications service (including [WorkSpaces Applications base image](base-image-version-history.html), [WorkSpaces Applications agent](agent-software-versions.html), and [WorkSpaces Applications client ](client-release-versions.html) releases) and to the *Amazon WorkSpaces Applications Administration Guide* documentation from June 4, 2018 onward. We also update the documentation frequently to address the feedback that you send us.
@@ -10,6 +9,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Smart card redirection](https://docs.aws.amazon.com/appstream2/latest/developerguide/set-up-stacks-fleets.html) | Added the smart card redirection stack setting. You can turn on smart card redirection so your users can use their smart cards in applications during a streaming session. Existing stacks that use smart card redirection keep this setting turned on. Smart card sign in for Active Directory is now available for multi-session fleets. | November 17, 2026 | 
 | [Control storage connector re-authentication](https://docs.aws.amazon.com/appstream2/latest/developerguide/storage-connectors.html) | Added guidance on controlling OneDrive for Business and Google Drive re-authentication at the stack level. You can configure a stack to force users to re-authenticate with their cloud storage provider at the start of each streaming session. | October 15, 2026 | 
 | [Unified graphics images](https://docs.aws.amazon.com/appstream2/latest/developerguide/base-image-version-history.html) | Adds the unified graphics base image (AppStream-Graphics-NV-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}), a single graphics image that is compatible with the Graphics G4dn, G5, G6, Gr6, G6f, Gr6f, and G7 instance families. Available for Windows, Red Hat Enterprise Linux 8, and Rocky Linux 8. | September 24, 2026 | 
 | [Unified graphics images](https://docs.aws.amazon.com/appstream2/latest/developerguide/instance-types.html) | Added support for unified graphics images. A single graphics image works across the Graphics G4dn, G5, G6, Gr6, G6f, Gr6f, and G7 instance families, and you can change a fleet's instance type across these families. | September 24, 2026 | 
@@ -18,7 +18,7 @@ For notification about these updates, you can subscribe to the Amazon WorkSpaces
 | [Agent Toolkit for AWS guidance](https://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access-setup.html) | Added guidance on using the Agent Toolkit for AWS and the AWS MCP Server to configure agent access and build your first agent. | September 17, 2026 | 
 | [Graphics G7 instance family](https://docs.aws.amazon.com/appstream2/latest/developerguide/instance-types.html) | Added support for the Graphics G7 instance family (stream.graphics.g7.\* instance types), powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs. | August 31, 2026 | 
 | [New agent access tools for launching applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access-mcp-server.html) | Added the launch\_application and toggle\_app\_switcher tools to the WorkSpaces Applications MCP server. These tools let agents launch applications from the fleet catalog and switch between them. | August 21, 2026 | 
-| [Added FAQ page for supported protocols](#doc-history) | Added an FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/appstream2/latest/dg/cbor-faq.html). | July 23, 2026 | 
+| [Added FAQ page for supported protocols](doc-history.md) | Added an FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/appstream2/latest/dg/cbor-faq.html). | July 23, 2026 | 
 | [New agent access guidance](https://docs.aws.amazon.com/appstream2/latest/developerguide/agent-access.html) | WorkSpaces Applications agent access public preview | May 1, 2026 | 
 | [Updated AmazonAppStreamServiceAccess](https://docs.aws.amazon.com/appstream2/latest/developerguide/managed-policies-required-to-access-appstream-resources.html) | Updated the AmazonAppStreamServiceAccess managed policy | November 17, 2025 | 
 | [Updated AmazonAppStreamReadOnlyAccess](https://docs.aws.amazon.com/appstream2/latest/developerguide/managed-policies-required-to-access-appstream-resources.html) | Updated the AmazonAppStreamReadOnlyAccess managed policy | October 22, 2025 | 

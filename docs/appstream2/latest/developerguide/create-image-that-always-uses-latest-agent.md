@@ -1,7 +1,6 @@
 
 
 # Create an Image That Always Uses the Latest Version of the WorkSpaces Applications Agent
-<a name="create-image-that-always-uses-latest-agent"></a>
 
 When your images are configured to always use the latest WorkSpaces Applications agent version, your streaming instances are automatically updated with the latest features, performance improvements, and security updates that are available from AWS when a new agent version is released.
 

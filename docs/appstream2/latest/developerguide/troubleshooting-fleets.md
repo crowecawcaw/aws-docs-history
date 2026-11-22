@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Fleets
-<a name="troubleshooting-fleets"></a>
 
 The following are issues that might occur when users connect to Amazon WorkSpaces Applications streaming sessions launched from fleet instances.
 
@@ -38,7 +37,7 @@ The following JSON output shows that a scaling policy for **TestFleet** with a *
 **Note**  
 WorkSpaces Applications instance type and size quotas are per Amazon Web Services account, per AWS Region. If you have multiple fleets in the same Region that use the same instance type and size, the total number of instances in all fleets in that Region must be less than or equal to the applicable quota.
 
-```
+```json
 {
     "ScalingActivities": [
         {

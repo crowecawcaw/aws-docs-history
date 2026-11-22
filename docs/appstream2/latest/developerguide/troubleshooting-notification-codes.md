@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Notification Codes
-<a name="troubleshooting-notification-codes"></a>
 
 The following are notification codes and resolution steps for notifications that you might see when you set up and use Amazon WorkSpaces Applications. These notifications can be found in the **Notifications** tab in the WorkSpaces Applications console, after selecting an image builder or fleet. You can also get fleet notifications by using the WorkSpaces Applications API operation [DescribeFleets](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeFleets.html) or the [describe-fleets](https://docs.aws.amazon.com/cli/latest/reference/appstream/describe-fleets.html) CLI command.
 

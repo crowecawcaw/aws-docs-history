@@ -1,7 +1,6 @@
 
 
 # Update the WorkSpaces Applications Enterprise Deployment Tool, Client, and USB Driver Manually
-<a name="update-enterprise-deployment-tool-client-usb-driver-manually"></a>
 
 By default, the WorkSpaces Applications client and USB driver update automatically when we release a new client version. If you used the Enterprise Deployment Tool to install the WorkSpaces Applications client and disabled automatic updates, you must update the client and USB driver manually. To do so, run the following PowerShell commands on your users' computers.
 

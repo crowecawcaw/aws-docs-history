@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Image Builders
-<a name="troubleshooting-image-builder"></a>
 
 The following are issues that might occur when you use Amazon WorkSpaces Applications image builders.
 
@@ -150,20 +149,20 @@ To resolve this issue, complete the following steps:
 
 1. Confirm that the SSM Agent version is 3.3.0.0 or above by running the following PowerShell command:
 
-   ```
+   ```powershell
    $currentVersion = (Get-ChildItem 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall' | Get-ItemProperty | Where-Object { $_.DisplayName -like '*SSM*' }).DisplayVersion
    ```
 
 1. Confirm that the SSM Agent proxy is correctly configured by running the following PowerShell commands. The output must include `https_proxy=http://squid-proxy.appstream.local:3128`.
 
-   ```
+   ```powershell
    $registryPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent'
    $existingEnv = (Get-ItemProperty -Path $registryPath -Name 'Environment' -ErrorAction SilentlyContinue).Environment
    ```
 
 1. If the SSM Agent proxy is not correctly configured, run the following PowerShell commands to configure it:
 
-   ```
+   ```powershell
    $registryPath = 'HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent'
    $proxyVars = @(
      'http_proxy=http://squid-proxy.appstream.local:3128',

@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Applications Cross-Service Confused Deputy Prevention
-<a name="confused-deputy"></a>
 
 The confused deputy problem is a security issue where an entity that doesn't have permission to perform an action coerces a more-privileged entity to perform the action. In AWS, cross-service impersonation can leave account resources vulnerable to the confused deputy problem. Cross-service impersonation occurs when one service (the *calling service*) calls another service (the *called service*). The calling service can manipulate the called service to use its permissions to act on a customer's resources in ways that the calling service doesn't have permission to perform for itself. To prevent this, AWS provides tools that helps you protect your data for all services with service principals that have access to resources in your account.
 

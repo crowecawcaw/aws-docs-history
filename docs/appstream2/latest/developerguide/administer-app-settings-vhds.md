@@ -1,7 +1,6 @@
 
 
 # Administer the VHDs for Your Users' Application Settings
-<a name="administer-app-settings-vhds"></a>
 
 Review the following topics to learn how to administer the Virtual Hard Disks (VHD) files for your WorkSpaces Applications users' application settings.
 

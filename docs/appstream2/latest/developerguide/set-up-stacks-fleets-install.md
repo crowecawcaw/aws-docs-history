@@ -1,7 +1,6 @@
 
 
 # Create a Stack in Amazon WorkSpaces Applications
-<a name="set-up-stacks-fleets-install"></a>
 
 Set up and create a stack to control access to your fleet.
 
@@ -54,8 +53,6 @@ After you select **Enable OneDrive**, enter the name of least one organizational
 If you enabled AI agent access in Step 1, Step 3 displays **Edit agent settings** instead of **User Settings**. You configure computer input, computer vision, screenshot storage, screen resolution, screen image type, and application settings persistence for agents. For more information, see [Overview](agent-access-mcp-server-overview.md).
 
    **Clipboard, file transfer, print to local device, and authentication permissions**:
-**Note**  
-**Smart card sign in for Active Directory** is currently not available for multi-session fleets.
    + **Clipboard** — By default, users can copy and paste data between their local device and streaming applications. You can limit Clipboard options so that users can paste data to their remote streaming session only or copy data to their local device only. You can also disable Clipboard options entirely. Users can still copy and paste between applications in their streaming session. You can choose **Copy to local device character limit** or **Paste to remote session character limit** or both to limit the amount of data that users can copy or paste when using the clipboard, either in or out of their WorkSpaces Applications streaming session. The value can be between 1 and 20,971,520 (20 MB), and defaults to the maximum value when unspecified.
    + **File transfer** — By default, users can upload and download files between their local device and streaming session. You can limit file transfer options so that users can upload files to their streaming session only or download files to their local device only. You can also disable file transfer entirely. 
 **Important**  
@@ -67,9 +64,10 @@ If your users require WorkSpaces Applications file system redirection to access 
    + **Smart card sign in for Active Directory** — Users can use a smart card reader and smart card connected to their local computer to sign in to an WorkSpaces Applications streaming instance that is joined to an Active Directory domain.
 
      You can also enable** Password sign in for Active Directory**. At least one authentication method must be enabled.
+   + **Smart card redirection** — Users can use a smart card reader and smart card (such as a Common Access Card (CAC) or Personal Identity Verification (PIV) card) connected to their local computer in applications during their streaming session. Users must connect with the WorkSpaces Applications client for Windows. New stacks have this setting turned off by default. Existing stacks keep their current smart card redirection behavior.
 **Note**  
 **Clipboard, file transfer, and print to local device settings** — These settings control only whether users can use WorkSpaces Applications data transfer features. If your image provides access to a browser, network printer, or other remote resource, your users might be able to transfer data to or from their streaming session in other ways.  
-**Authentication settings** — These settings control only the authentication method that can be used for Windows sign in to an WorkSpaces Applications streaming instance (fleet or image builder). They do not control the authentication method that can be used for in-session authentication, after a user signs in to a streaming instance. For information about configuration requirements for using smart cards for Windows sign in and in-session authentication, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards). These settings are not supported for Linux-based stacks.
+**Authentication settings** — The password and smart card sign in settings control only the authentication method that can be used for Windows sign in to an WorkSpaces Applications streaming instance (fleet or image builder). **Smart card redirection** controls whether users can use their smart cards in applications after they sign in to a streaming instance. For information about configuration requirements for using smart cards for Windows sign in and in-session authentication, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards). These settings are not supported for Linux-based stacks.
 
    **Time zone**:
    + **Set time zone automatically for remote session** — This setting syncs the time zone used for streaming to match the time zone set on the user's device. Users can override this and set their own preferred time zone.

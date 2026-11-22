@@ -1,7 +1,6 @@
 
 
 # How to Get Started with Amazon WorkSpaces Applications
-<a name="what-is-how-to-start"></a>
 
 If you are using WorkSpaces Applications for the first time, follow the [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md) tutorial (available in the WorkSpaces Applications console). The Getting Started tutorial enables you to set up application streaming by using sample applications or your own applications. If you decide to start by using sample applications, you can always add your own applications later. For more information, see [Amazon WorkSpaces Applications FAQs](https://aws.amazon.com/appstream2/faqs/).
 

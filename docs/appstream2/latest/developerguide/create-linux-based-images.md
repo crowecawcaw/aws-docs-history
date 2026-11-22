@@ -1,7 +1,6 @@
 
 
 # Create Your Linux-Based Images
-<a name="create-linux-based-images"></a>
 
 You can create Linux-based Amazon WorkSpaces Applications images by connecting to a Linux image builder, installing the applications you need, creating default application settings and environment variables, and using a command line interface (CLI) tool or Image Assistant (GUI) tool to add these applications to the application catalog. To open the GUI tool, search for **Image Assistant** in the list of applications.
 

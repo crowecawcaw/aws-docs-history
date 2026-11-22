@@ -1,7 +1,6 @@
 
 
 # Function Keys
-<a name="web-browser-using-function-keys-user"></a>
 
 You can use keyboard shortcuts during WorkSpaces Applications streaming sessions to enter special keystrokes or key combinations. To display a row of Windows-specific keys and keyboard shortcuts during your streaming session, choose the Fn icon (or the FN Keys on WorkSpaces Applications web browser access v2). The Fn icon is displayed in the WorkSpaces Applications toolbar in the top right of your session window.
 

@@ -1,7 +1,6 @@
 
 
 # Update a Fleet with a New Image in Amazon WorkSpaces Applications
-<a name="update-fleets"></a>
 
 To apply operating system updates or make new applications available to users, create a new image that has these changes. Then, update the fleet with the new image. 
 

@@ -1,7 +1,6 @@
 
 
 # Required permissions for in-console monitoring
-<a name="monitoring-instance-session-permissions"></a>
 
 To view instance and session performance metrics on the WorkSpaces Applications console, your IAM user or role must have the following CloudWatch permissions:
 + `cloudwatch:GetMetricData` – Retrieves metric data points. This permission is required to display metric graphs (CPU, memory, GPU, frame rate, latency, and so on).
@@ -9,7 +8,7 @@ To view instance and session performance metrics on the WorkSpaces Applications 
 
 **Example IAM Policy Example**  
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	   
     "Statement": [

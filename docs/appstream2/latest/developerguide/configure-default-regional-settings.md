@@ -1,7 +1,6 @@
 
 
 # Configure Default Regional Settings for Your WorkSpaces Applications Users
-<a name="configure-default-regional-settings"></a>
 
 **Note**  
 The instructions on this page only apply to Windows fleets. Default regional settings are not supported for Elastic fleets.

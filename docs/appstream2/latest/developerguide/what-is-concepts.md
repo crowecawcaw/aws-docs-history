@@ -1,7 +1,6 @@
 
 
 # Key Concepts of Amazon WorkSpaces Applications
-<a name="what-is-concepts"></a>
 
 To get the most out of WorkSpaces Applications, be familiar with the following concepts:
 

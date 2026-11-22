@@ -1,7 +1,6 @@
 
 
 # Data Loss Prevention
-<a name="data-loss-prevention"></a>
 
 We'll look at two kinds of data loss prevention.
 

@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Instance Families
-<a name="instance-types"></a>
 
 Amazon WorkSpaces Applications users stream applications from stacks that you create. Each stack is associated with a fleet. When you create a fleet, the instance type that you specify determines the hardware of the host computers used for your fleet. Each instance type offers different compute, memory, and GPU capabilities. Instance types are grouped into *instance families* based on these capabilities. For hardware specifications and pricing information, see [WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/).
 

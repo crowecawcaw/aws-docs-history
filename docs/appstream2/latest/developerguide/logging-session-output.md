@@ -1,7 +1,6 @@
 
 
 # Logging Session Script Output
-<a name="logging-session-output"></a>
 
 When this option is enabled in the configuration file, WorkSpaces Applications automatically captures the output from the session script that is written to the standard out. This output is uploaded to an Amazon S3 bucket in your account. You can review the log files for troubleshooting or debugging purposes. 
 

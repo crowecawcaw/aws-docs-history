@@ -1,7 +1,6 @@
 
 
 # How it works
-<a name="agent-access-concepts"></a>
 
 Amazon WorkSpaces Applications connects an AI agent to a desktop and gives it the tools to operate that desktop the way a person would. The AI agent is one that you bring, running in the framework or managed runtime of your choice. It connects to WorkSpaces for AI agents, the managed MCP server, using either OAuth or AWS IAM (SigV4) credentials. Through the MCP server, the agent then operates a WorkSpaces Applications desktop, which you prepare in advance, over a secure channel.
 

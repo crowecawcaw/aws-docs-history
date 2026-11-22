@@ -1,7 +1,6 @@
 
 
 # How to Switch WorkSpaces Applications Connection Modes
-<a name="client-application-windows-how-to-switch-connection-modes-user"></a>
 
 If your administrator has not disabled native application mode for your streaming sessions, you can switch between native application mode and classic mode.
 

@@ -1,7 +1,6 @@
 
 
 # Agent identity for non-domain-joined fleets
-<a name="agent-access-agent-identity-ndj"></a>
 
 For a non-domain-joined fleet, the agent runs one on-behalf-of (OBO) exchange at your identity provider (IdP), exchanges the resulting token for temporary AWS credentials, and connects to the Model Context Protocol (MCP) server with those credentials. The MCP server creates the streaming session for the user named in the source identity.
 
@@ -43,7 +42,7 @@ In your IdP, you create two applications and configure the claims that identify 
 
 1. Create a claims-mapping policy with the following definition, and assign it to the service principal of the AWS federation application. Because the policy is on the resource application, `application` claims resolve to whichever agent calls it, so one policy covers every agent.
 
-   ```
+   ```json
    {
        "ClaimsMappingPolicy": {
            "Version": 1,
@@ -78,7 +77,7 @@ You can use Okta if it meets the requirements in [Prerequisites](#agent-access-a
 
 If your IdP can add arbitrary claims to access tokens, you can emit all the session tags in one nested claim instead of one claim for each tag. Tag values must be arrays, even when there is only one value.
 
-```
+```json
 {
     "https://aws.amazon.com/tags": {
         "principal_tags": {
@@ -111,7 +110,7 @@ In the AWS account that owns the stack, register your IdP and create the role th
 
 1. Create a role with the following trust policy. The `Null` conditions reject any token that doesn't carry both identities. They're in a separate statement from `sts:SetSourceIdentity`, because session tags aren't part of the request for that action, so the conditions would deny it.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -156,7 +155,7 @@ In the AWS account that owns the stack, register your IdP and create the role th
 
 1. Attach a permissions policy that allows the agent to call the MCP server and to start streaming sessions on the stack.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -180,7 +179,7 @@ In the AWS account that owns the stack, register your IdP and create the role th
 
 1. (Optional) To require that the user tag matches the user of the streaming session, attach the following statement to the role. It denies MCP requests from any session whose `AgentAccessUserId` tag differs from its source identity. We recommend this statement when one role serves more than one user.
 
-   ```
+   ```json
    {
        "Sid": "UserTagMustMatchSourceIdentity",
        "Effect": "Deny",
@@ -200,7 +199,7 @@ In the AWS account that owns the stack, register your IdP and create the role th
 
 The agent runs the OBO exchange, assumes the role, and connects to the MCP server with the resulting credentials. The following Python example uses Microsoft Entra ID. In it, `user_token` is the token that the agent received when the user signed in, and `client_assertion()` returns a client assertion signed with the agent's private key.
 
-```
+```python
 import boto3
 import requests
 from botocore.credentials import Credentials

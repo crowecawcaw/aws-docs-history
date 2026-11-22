@@ -1,7 +1,6 @@
 
 
 # Install or uninstall license included applications
-<a name="install-uninstall-apps"></a>
 
 **Install or uninstall license included applications**
 

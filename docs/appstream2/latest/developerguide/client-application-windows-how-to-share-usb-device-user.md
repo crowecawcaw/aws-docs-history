@@ -1,7 +1,6 @@
 
 
 # How to Share a USB Device with WorkSpaces Applications
-<a name="client-application-windows-how-to-share-usb-device-user"></a>
 
 If you are using a drawing tablet, USB redirection might not be required to use it with WorkSpaces Applications. However, if you are streaming an application such as the Gnu Image Manipulation Program (GIMP), which requires USB redirection to support pressure sensitivity, you must share your drawing tablet with WorkSpaces Applications. For information about drawing tablets, see [Drawing Tablets](client-application-windows-drawing-tablets-user.md).
 

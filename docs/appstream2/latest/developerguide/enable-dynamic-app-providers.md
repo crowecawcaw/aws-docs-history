@@ -1,7 +1,6 @@
 
 
 # Enable Dynamic App Providers
-<a name="enable-dynamic-app-providers"></a>
 
 Dynamic app providers must first be enabled within an WorkSpaces Applications image. After you enable these providers, they can manage applications for users on the streaming instance.
 

@@ -1,7 +1,6 @@
 
 
 # Remap the Mac Option and Command Keys
-<a name="web-browser-remap-mac-keys-user"></a>
 
 When you use a device that runs macOS or Mac OS X to connect to WorkSpaces Applications, you can remap the Mac Option and Command keys on your keyboard. 
 

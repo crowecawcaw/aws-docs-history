@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="client-application-mac-troubleshooting-user"></a>
 
 Use the following steps to enable diagnostic log uploads and determine your client version and client ID.
 

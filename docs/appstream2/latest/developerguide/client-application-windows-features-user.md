@@ -1,7 +1,6 @@
 
 
 # Features
-<a name="client-application-windows-features-user"></a>
 
 The WorkSpaces Applications client for Windows is an application that you install on your Windows PC. This application provides additional capabilities that are not available when you access WorkSpaces Applications by using a web browser. For example, the WorkSpaces Applications client lets you do the following:
 + Use more than two monitors or 4K resolution.

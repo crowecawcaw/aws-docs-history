@@ -1,7 +1,6 @@
 
 
 # Disable OneDrive for Your WorkSpaces Applications Users
-<a name="disable-onedrive"></a>
 
 You can disable OneDrive for a stack without losing user content that is already stored on OneDrive. Disabling OneDrive for a stack has the following effects:
 + Users who are connected to active streaming sessions for the stack receive an error message. They are informed that they do not have permissions to access their OneDrive. 

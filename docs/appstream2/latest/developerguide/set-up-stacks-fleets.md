@@ -1,7 +1,6 @@
 
 
 # Create an Amazon WorkSpaces Applications Fleet and Stack
-<a name="set-up-stacks-fleets"></a>
 
 To stream your applications, Amazon WorkSpaces Applications requires an environment that includes a fleet that is associated with a stack, as well as at least one application image. This tutorial describes the steps to set up a fleet and stack, and how to give users access to the stack. If you haven't already done so, we recommend that you try the procedures in [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md) first.
 

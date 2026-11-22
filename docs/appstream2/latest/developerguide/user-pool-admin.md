@@ -1,7 +1,6 @@
 
 
 # User Pool Administration in Amazon WorkSpaces Applications
-<a name="user-pool-admin"></a>
 
 To create and manage users in the user pool, sign in to the WorkSpaces Applications console for the AWS Region you want and choose **User Pool** in the left navigation pane. The User Pool dashboard supports bulk operations on a list of users for some actions. You can select multiple users on which to perform the same action from the **Actions** list. Users in the user pool are created and managed on a per-Region basis.
 

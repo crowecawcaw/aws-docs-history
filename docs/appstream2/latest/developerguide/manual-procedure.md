@@ -1,7 +1,6 @@
 
 
 # Using the local Administrators group on the image builder
-<a name="manual-procedure"></a>
 
 To grant Active Directory users or groups local administrator rights on your image builder, you can manually add these users or groups to the local Administrators group on the image builder. Image builders that are created from images with these rights maintain the same rights. 
 

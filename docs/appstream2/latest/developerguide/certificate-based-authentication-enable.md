@@ -1,7 +1,6 @@
 
 
 # Enable Certificate-based Authentication
-<a name="certificate-based-authentication-enable"></a>
 
 Complete the following steps to enable certificate-based authentication.
 

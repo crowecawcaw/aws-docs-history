@@ -1,7 +1,6 @@
 
 
 # Store Application Icon, Setup Script, Session Script, and VHD in an S3 Bucket
-<a name="store-s3-bucket"></a>
 
 You must store the application icons, setup scripts, session scripts, and VHDs that you use for your applications and app blocks in an Amazon Simple Storage Service (Amazon S3) bucket in your AWS account. WorkSpaces Applications Elastic fleets download the application icon, setup script, and VHD from the S3 bucket when your user starts their streaming session. The S3 bucket must reside in the AWS Region that you intend to create WorkSpaces Applications Elastic fleets within.
 

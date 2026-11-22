@@ -1,7 +1,6 @@
 
 
 # How to Enable Local Printer Redirection
-<a name="how-to-enable-disable-local-printer-redirection"></a>
 
 By default, local printer redirection is enabled when the WorkSpaces Applications client is installed. However, if local printer redirection is not enabled on the stack that your users access for streaming sessions, you can enable it in the WorkSpaces Applications console by performing the following steps. 
 

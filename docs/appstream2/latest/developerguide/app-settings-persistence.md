@@ -1,7 +1,6 @@
 
 
 # Enable Application Settings Persistence for Your WorkSpaces Applications Users
-<a name="app-settings-persistence"></a>
 
 WorkSpaces Applications supports persistent application settings for Windows-based stacks. This means that your users' application customizations and Windows settings are automatically saved after each streaming session and applied during the next session. Examples of persistent application settings that your users can configure include, but are not limited to, browser favorites, settings, webpage sessions, application connection profiles, plugins, and UI customizations. These settings are saved to an Amazon Simple Storage Service (Amazon S3) bucket in your account, within the AWS Region in which application settings persistence is enabled. They are available in each WorkSpaces Applications streaming session. 
 

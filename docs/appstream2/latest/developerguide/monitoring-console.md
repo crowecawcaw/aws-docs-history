@@ -1,7 +1,6 @@
 
 
 # Viewing Fleet Usage Using the Console
-<a name="monitoring-console"></a>
 
 You can monitor your Amazon WorkSpaces Applications fleet usage using the WorkSpaces Applications or CloudWatch console.
 

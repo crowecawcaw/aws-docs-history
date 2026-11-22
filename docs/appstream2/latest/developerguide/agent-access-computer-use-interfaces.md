@@ -1,7 +1,6 @@
 
 
 # Computer use interfaces
-<a name="agent-access-computer-use-interfaces"></a>
 
 By default, an agent uses the native WorkSpaces Applications tools, such as `left_click` and `type_text`. With a model-specific computer use interface, you present those tools in the model's own schema instead. The Model Context Protocol (MCP) server converts each call into the underlying desktop actions. You select the interface for each request by sending an HTTP header to the MCP server.
 

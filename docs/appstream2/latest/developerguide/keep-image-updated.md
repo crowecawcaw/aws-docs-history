@@ -1,7 +1,6 @@
 
 
 # Keep Your Amazon WorkSpaces Applications Image Up-to-Date
-<a name="keep-image-updated"></a>
 
 You can keep your WorkSpaces Applications image up-to-date by doing either of the following:
 + [Update an Image by Using Managed WorkSpaces Applications Image Updates](keep-image-updated-managed-image-updates.md) – This update method provides the latest operating system updates and driver updates, and the latest WorkSpaces Applications agent software.

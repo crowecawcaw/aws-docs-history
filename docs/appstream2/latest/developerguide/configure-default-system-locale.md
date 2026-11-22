@@ -1,7 +1,6 @@
 
 
 # Specify a Default System Locale
-<a name="configure-default-system-locale"></a>
 
 To specify a default system locale for your users’ streaming sessions, perform the following steps.
 

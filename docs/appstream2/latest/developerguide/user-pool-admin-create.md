@@ -1,7 +1,6 @@
 
 
 # Creating a User in Amazon WorkSpaces Applications
-<a name="user-pool-admin-create"></a>
 
 You must enter a valid and unique email address for each new user within a Region. However, you can reuse an email address for a new user in another Region.
 

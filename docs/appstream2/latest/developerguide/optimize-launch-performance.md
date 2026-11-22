@@ -1,7 +1,6 @@
 
 
 # Optimizing the Launch Performance of Your Linux Applications
-<a name="optimize-launch-performance"></a>
 
 If you are using the Image Assistant GUI tool, the tool optimizes launch performance for your applications automatically.
 

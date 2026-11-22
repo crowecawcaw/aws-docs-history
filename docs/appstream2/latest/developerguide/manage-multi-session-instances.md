@@ -1,7 +1,6 @@
 
 
 # Manage Multi-Session Fleet Instances
-<a name="manage-multi-session-instances"></a>
 
 When running multi-session fleets on Amazon WorkSpaces Applications, multiple user sessions share a fleet instance. Unlike single-session fleets — where each instance serves one user and is automatically recycled after the session is terminated — multi-session instances can remain active for extended periods as long as users continue to occupy sessions on them.
 

@@ -1,7 +1,6 @@
 
 
 # App Block Builder
-<a name="app-block-builder"></a>
 
 An app block builder is a reusable resource that you can use to package your applications (or app block). You can also use it to test your application package before associating your application to an Elastic fleet. A single app block builder can be used to create and test multiple app blocks one by one. Each time a streaming session is created for app block builder for creating or testing an app block, a new instance is created and used. After the app block builder instance is terminated, the state of the instance is not persisted. 
 

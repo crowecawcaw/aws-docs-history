@@ -1,7 +1,6 @@
 
 
 # Accessing Amazon WorkSpaces Applications
-<a name="what-is-accessing"></a>
 
 You can work with WorkSpaces Applications using any of the following interfaces:
 

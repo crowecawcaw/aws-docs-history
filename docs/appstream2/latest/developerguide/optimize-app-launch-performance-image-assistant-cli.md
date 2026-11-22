@@ -1,7 +1,6 @@
 
 
 # Optimizing the Launch Performance of Your Applications with the Image Assistant CLI Operations
-<a name="optimize-app-launch-performance-image-assistant-cli"></a>
 
 WorkSpaces Applications lets you optimize the launch performance of your applications for your users’ streaming sessions. When you do so by using the Image Assistant CLI operations, you can specify the files to optimize for your application launch. Adding files to the application optimization manifest reduces the time that it takes for the application to launch for the first time on a new fleet instance. However, this also increases the time that it takes for the fleet instances to be made available to users. The optimization manifest is a line-delimited text file that is per application. 
 

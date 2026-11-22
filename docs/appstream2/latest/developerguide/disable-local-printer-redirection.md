@@ -1,7 +1,6 @@
 
 
 # How to Disable Local Printer Redirection
-<a name="disable-local-printer-redirection"></a>
 
 To disable local printer redirection follow these steps.
 

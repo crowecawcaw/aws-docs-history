@@ -1,7 +1,6 @@
 
 
 # Firewalls and Routing
-<a name="firewalls-routing"></a>
 
  When creating an WorkSpaces Applications fleet, subnets and a Security Group must be assigned. Subnets have existing assignments of Network Access Control Lists (NACLs) and route table(s). You can associate [up to five security groups](https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-network-security-groups.html) while launching a new image builder or while creating a new fleet Security Groups can have up to [five assignments from the existing Security Groups](https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-network-security-groups.html). For each security group, you add rules that control the outbound and inbound network traffic from and to your instances
 

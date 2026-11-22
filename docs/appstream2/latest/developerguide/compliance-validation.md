@@ -1,7 +1,6 @@
 
 
 # Compliance Validation for Amazon WorkSpaces Applications
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of Amazon WorkSpaces Applications as part of multiple AWS compliance programs. These include the following: [SOC](https://aws.amazon.com/compliance/soc-faqs/), [PCI](https://aws.amazon.com/compliance/pci-dss-level-1-faqs), [ISO](https://aws.amazon.com/compliance/iso-certified/), [FedRAMP](https://aws.amazon.com/compliance/fedramp/), [HIPAA](https://aws.amazon.com/compliance/hipaa-compliance/), [MTCS](https://aws.amazon.com/compliance/aws-multitiered-cloud-security-standard-certification/), [ENS High](https://aws.amazon.com/compliance/esquema-nacional-de-seguridad/), [HITRUST CSF](https://aws.amazon.com/compliance/hitrust/), [VPAT](https://aws.amazon.com/compliance/vpat/), and others.
 

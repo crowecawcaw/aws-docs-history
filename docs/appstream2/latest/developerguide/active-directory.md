@@ -1,7 +1,6 @@
 
 
 # Using Active Directory with WorkSpaces Applications
-<a name="active-directory"></a>
 
 You can join your Amazon WorkSpaces Applications Always-On and On-Demand Windows fleets and image builders to domains in Microsoft Active Directory and use your existing Active Directory domains, either cloud-based or on-premises, to launch domain-joined streaming instances. You can also use AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD, to create an Active Directory domain and use that to support your WorkSpaces Applications resources. For more information about using AWS Managed Microsoft AD, see [Microsoft Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the *AWS Directory Service Administration Guide*.
 

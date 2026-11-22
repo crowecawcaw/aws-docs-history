@@ -1,13 +1,13 @@
 
 
 # WorkSpaces Applications macOS Client Release Notes
-<a name="client-release-versions-mac"></a>
 
 The following table describes the latest updates that are available in released versions of the macOS WorkSpaces Applications client.
 
 
 | Client version | Release date | Changes | 
 | --- | --- | --- | 
+| 1.6.0.1119 | 11-17-2026 |  +  Added support for USB redirection, enabling users to use USB devices that are connected to their local Mac in their streaming sessions. <br />+  Added support for WebAuthn redirection, enabling users to authenticate in their streaming sessions by using a security key or other WebAuthn authenticator on their local Mac. <br />+  Updated the DCV SDK.   | 
 | 1.5.2.1118 | 10-30-2026 |  +  Fixed an issue in application view mode where application windows could not be moved or resized. <br />+  Updated the DCV SDK.   | 
 | 1.5.1.1066 | 08-25-2026 |  +  Fixed an issue where expired authentication tokens could cause connection failures during session reconnection. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.5.0.1035 | 07-09-2026 |  +  Fixed an issue that caused the streaming session to be positioned incorrectly when entering full screen on a non-primary display, when multiple displays are connected. <br />+  Improved the connection reliability during network interruption scenarios and in proxy environments. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 

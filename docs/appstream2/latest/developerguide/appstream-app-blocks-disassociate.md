@@ -1,7 +1,6 @@
 
 
 # Disassociate an App Block in Amazon WorkSpaces Applications
-<a name="appstream-app-blocks-disassociate"></a>
 
 If all your app block builders are associated with other app blocks, and you want to test, create, or activate another app block, then you can either create a new app block builder, or disassociate an existing app block builder from the app block and use it with the new app block.
 

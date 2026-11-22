@@ -1,7 +1,6 @@
 
 
 # Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications
-<a name="customizing-appstream-images"></a>
 
  You can create default application and Windows settings to enable your users to get started with their applications quickly, so that they won't need to create or configure the settings themselves.
 

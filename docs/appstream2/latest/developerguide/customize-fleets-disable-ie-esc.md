@@ -1,7 +1,6 @@
 
 
 # Disable Internet Explorer Enhanced Security Configuration in Amazon WorkSpaces Applications
-<a name="customize-fleets-disable-ie-esc"></a>
 
 Internet Explorer Enhanced Security Configuration (ESC) places servers and Internet Explorer in a configuration that limits exposure to the internet. However, this configuration can impact the WorkSpaces Applications end user experience. Users who are connected to WorkSpaces Applications streaming sessions may find that websites do not display or perform as expected when: 
 + Internet Explorer ESC is enabled on fleet instances from which users' streaming sessions are launched

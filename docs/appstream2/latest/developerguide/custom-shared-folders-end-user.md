@@ -1,7 +1,6 @@
 
 
 # Use Custom Shared Network Folders
-<a name="custom-shared-folders-end-user"></a>
 
 If your WorkSpaces Applications administrator has enabled this file storage option, after you sign in to a streaming session, your administrator will have a custom shared folder configured and named for you. Contact your administrator for the name of the shared folder. Multiple users can access and collaborate within the shared custom folder.
 

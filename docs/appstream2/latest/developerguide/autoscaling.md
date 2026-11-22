@@ -1,7 +1,6 @@
 
 
 # Fleet Auto Scaling for Amazon WorkSpaces Applications
-<a name="autoscaling"></a>
 
 Fleet Auto Scaling lets you change the size of your WorkSpaces Applications Always-On or On-Demand fleet automatically to match the supply of available instances to user demand. The size of your fleet determines the number of users who can stream concurrently. For a multi-session fleet, more than one user can use a single instance. For a non multi-session fleet, one instance is required for each user session. You can specify your fleet capacity in terms of instances (for single-session fleets) and user sessions (for multi-session fleets). Based on your fleet configurations and auto scaling policies, the required number of instances will be made available. You can define scaling policies that adjust the size of your fleet automatically based on a variety of utilization metrics, and optimize the number of available instances to match user demand. You can also choose to turn off automatic scaling and make the fleet run at a fixed size.
 

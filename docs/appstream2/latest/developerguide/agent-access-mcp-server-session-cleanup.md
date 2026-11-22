@@ -1,7 +1,6 @@
 
 
 # Session cleanup
-<a name="agent-access-mcp-server-session-cleanup"></a>
 
 When your agent finishes its work, it ends its session with the Model Context Protocol (MCP) server. Ending the session, and optionally expiring the streaming session, releases the underlying streaming instance so the fleet's autoscaling policy can reclaim idle capacity and avoid unnecessary cost. How the agent ends the session, and what happens to the underlying WorkSpaces Applications streaming session, depends on the MCP protocol version. For the supported versions, see [Supported MCP protocol versions](agent-access-mcp-server-endpoint.md#agent-access-mcp-server-protocol-versions). On an image builder, ending the MCP session doesn't log out the built-in users. Only stopping the image builder ends its streaming session. For more information, see [Image builder sessions](#agent-access-mcp-cleanup-image-builder).
 

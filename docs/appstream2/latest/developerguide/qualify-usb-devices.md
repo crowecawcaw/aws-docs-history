@@ -1,7 +1,6 @@
 
 
 # Qualify USB Devices for Use with Streaming Applications
-<a name="qualify-usb-devices"></a>
 
 There are two methods for specifying which USB devices your users can redirect into their WorkSpaces Applications streaming instances:
 

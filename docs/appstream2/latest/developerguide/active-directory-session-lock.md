@@ -1,7 +1,6 @@
 
 
 # Locking the Streaming Session When the User is Idle
-<a name="active-directory-session-lock"></a>
 
 WorkSpaces Applications relies on a setting that you configure in the GPMC to lock the streaming session after your user is idle for specified amount of time. To use the GPMC, you'll need to do the following first:
 + Obtain access to a computer or an EC2 instance that is joined to your domain.

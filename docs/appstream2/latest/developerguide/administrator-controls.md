@@ -1,7 +1,6 @@
 
 
 # Administrator Controls
-<a name="administrator-controls"></a>
 
 WorkSpaces Applications provides administrative controls that you can use to limit the ways in which users can transfer data between their local computer and an WorkSpaces Applications fleet instance. You can limit or disable the following when you [create or update an WorkSpaces Applications stack](set-up-stacks-fleets-install.md):
 + Clipboard/copy and paste actions

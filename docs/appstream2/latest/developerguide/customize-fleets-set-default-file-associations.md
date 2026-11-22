@@ -1,7 +1,6 @@
 
 
 # Set Default File Associations for Your Users in Amazon WorkSpaces Applications
-<a name="customize-fleets-set-default-file-associations"></a>
 
 The associations for application file extensions are set on a per-user basis and so are not automatically applied to all users who launch WorkSpaces Applications streaming sessions. For example, if you set Adobe Reader as the default application for .pdf files on your image builder, this change is not applied to your users. 
 

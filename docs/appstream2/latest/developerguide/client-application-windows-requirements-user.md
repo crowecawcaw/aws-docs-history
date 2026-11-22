@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="client-application-windows-requirements-user"></a>
 
 The WorkSpaces Applications client for Windows must be installed on a computer that meets the following requirements:
 + Operating system — Windows 10 (32-bit or 64-bit), Windows 11 (64-bit)

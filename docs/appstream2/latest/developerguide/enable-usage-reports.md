@@ -1,7 +1,6 @@
 
 
 # Enable WorkSpaces Applications Usage Reports
-<a name="enable-usage-reports"></a>
 
 To receive usage reports, you subscribe to them by using the WorkSpaces Applications console, the AWS Command Line Interface (AWS CLI), or the `CreateUsageReportSubscription` API operation. You must enable usage reports separately for each AWS Region for which you want to receive usage data.
 

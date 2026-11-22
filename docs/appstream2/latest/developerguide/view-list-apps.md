@@ -1,7 +1,6 @@
 
 
 # View the list of license included applications on your image builder
-<a name="view-list-apps"></a>
 
 **View the list of license included applications on your image builder**
 

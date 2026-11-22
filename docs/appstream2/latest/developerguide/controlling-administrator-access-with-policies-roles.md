@@ -1,7 +1,6 @@
 
 
 # Using AWS Managed Policies and Linked Roles to Manage Administrator Access to WorkSpaces Applications Resources
-<a name="controlling-administrator-access-with-policies-roles"></a>
 
 By default, IAM users don't have the permissions required to create or modify WorkSpaces Applications resources, or perform tasks by using the WorkSpaces Applications API. This means that these users can't perform these actions in the WorkSpaces Applications console or by using WorkSpaces Applications AWS CLI commands. To allow IAM users to create or modify resources and perform tasks, attach an IAM policy to the IAM users or groups that require those permissions. 
 

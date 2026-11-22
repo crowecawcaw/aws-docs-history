@@ -1,7 +1,6 @@
 
 
 # FIPS Endpoints for User Streaming Sessions
-<a name="FIPS-for-user-streaming-sessions"></a>
 
 If you use SAML 2.0 or a streaming URL to authenticate users, you can configure FIPS-compliant connections for your users' streaming sessions.
 

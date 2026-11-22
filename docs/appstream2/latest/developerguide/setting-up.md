@@ -1,7 +1,6 @@
 
 
 # Setting Up for Amazon WorkSpaces Applications
-<a name="setting-up"></a>
 
 Complete the following tasks to get set up for Amazon WorkSpaces Applications.
 

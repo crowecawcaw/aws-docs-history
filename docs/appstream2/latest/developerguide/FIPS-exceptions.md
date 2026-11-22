@@ -1,7 +1,6 @@
 
 
 # Exceptions
-<a name="FIPS-exceptions"></a>
 
 FIPS-compliant connections are not supported in the following scenarios:
 + Administration of WorkSpaces Applications through the WorkSpaces Applications console

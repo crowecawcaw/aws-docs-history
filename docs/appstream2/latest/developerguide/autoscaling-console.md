@@ -1,7 +1,6 @@
 
 
 # Managing Fleet Scaling Using the Amazon WorkSpaces Applications Console
-<a name="autoscaling-console"></a>
 
 You can set up and manage fleet scaling by using the WorkSpaces Applications console in either of the following two ways: During fleet creation, or any time, by using the **Fleets** tab. Two default scaling policies are associated with newly created fleets after launch. You can edit these policies on the **Scaling Policies** tab in the WorkSpaces Applications console. For more information, see [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md).
 

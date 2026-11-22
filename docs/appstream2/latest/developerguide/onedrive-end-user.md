@@ -1,7 +1,6 @@
 
 
 # Use OneDrive for Business
-<a name="onedrive-end-user"></a>
 
 **Note**  
 OneDrive for Business is currently not supported for Linux-based streaming instances.

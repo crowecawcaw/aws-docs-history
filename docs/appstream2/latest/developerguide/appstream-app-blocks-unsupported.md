@@ -1,7 +1,6 @@
 
 
 # Unsupported Applications
-<a name="appstream-app-blocks-unsupported"></a>
 
 Applications might encounter failures when installing or running in the following scenarios:
 + **Applications with location-based checks during installation**: If an application’s installation process verifies the actual location of the installed files, it might result in a failure. Because WorkSpaces Applications redirects the files to the app block VHD, only links to the actual files are maintained at the original location.

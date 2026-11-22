@@ -1,7 +1,6 @@
 
 
 # Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications
-<a name="getting-started"></a>
 
 To stream your applications, Amazon WorkSpaces Applications requires an environment that includes a fleet that is associated with a stack, and at least one application image. This tutorial describes how to configure a sample WorkSpaces Applications environment for application streaming and give users access to that stream.
 
@@ -95,7 +94,7 @@ For multi-session fleets, Google Drive and OneDrive require an image that uses a
 
    **Clipboard, file transfer, print to local device, and authentication permissions options**:
 **Note**  
-**Print to local device** and **Smart card sign in for Active Directory** are currently not available for multi-session fleets.
+**Print to local device** is currently not available for multi-session fleets.
    + **Clipboard** — By default, users can copy and paste data between their local device and streaming applications. You can limit Clipboard options so that users can paste data to their remote streaming session only or copy data to their local device only. You can also disable Clipboard options entirely. Users can still copy and paste between applications in their streaming session. You can choose **Copy to local device character limit** or **Paste to remote session character limit** or both to limit the amount of data that users can copy or paste when using the clipboard, either in or out of their WorkSpaces Applications streaming session. The value can be between 1 and 20,971,520 (20 MB), and defaults to the maximum value when unspecified.
    + **File transfer** — By default, users can upload and download files between their local device and streaming session. You can limit file transfer options so that users can upload files to their streaming session only or download files to their local device only. You can also disable file transfer entirely. 
 **Important**  
@@ -107,9 +106,10 @@ If your users require WorkSpaces Applications file system redirection to access 
    + **Smart card sign in for Active Directory** — Users can use a smart card reader and smart card connected to their local computer to sign in to an WorkSpaces Applications streaming instance that is joined to an Active Directory domain.
 
      You can also enable **Password sign in for Active Directory**. At least one authentication method must be enabled.
+   + **Smart card redirection** — Users can use a smart card reader and smart card (such as a Common Access Card (CAC) or Personal Identity Verification (PIV) card) connected to their local computer in applications during their streaming session. Users must connect with the WorkSpaces Applications client for Windows. New stacks have this setting turned off by default. Existing stacks keep their current smart card redirection behavior.
 **Note**  
 **Clipboard, file transfer, and print to local device settings** — These settings control only whether users can use WorkSpaces Applications data transfer features. If your image provides access to a browser, network printer, or other remote resource, your users might be able to transfer data to or from their streaming session in other ways.  
-**Authentication settings** — These settings control only the authentication method that can be used for Windows sign in to an WorkSpaces Applications streaming instance (fleet or image builder). They do not control the authentication method that can be used for in-session authentication, after a user signs in to a streaming instance. For information about configuration requirements for using smart cards for Windows sign in and in-session authentication, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards).
+**Authentication settings** — The password and smart card sign in settings control only the authentication method that can be used for Windows sign in to an WorkSpaces Applications streaming instance (fleet or image builder). **Smart card redirection** controls whether users can use their smart cards in applications after they sign in to a streaming instance. For information about configuration requirements for using smart cards for Windows sign in and in-session authentication, see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards).
 
    **Application settings persistence options**:
    + **Enable Application Settings Persistence** — Users' application customizations and Windows settings are automatically saved after each streaming session and applied during the next session. These settings are saved to an Amazon Simple Storage Service (Amazon S3) bucket in your account, within the AWS Region in which application settings persistence is enabled.

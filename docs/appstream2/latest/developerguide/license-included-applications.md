@@ -1,7 +1,6 @@
 
 
 # Manage License Included Applications on Your Image in Amazon WorkSpaces Applications
-<a name="license-included-applications"></a>
 
 You can stream the following Microsoft license included applications using WorkSpaces Applications. You can install these applications on your Windows Image, use this custom image to create fleet(s), and then stream these applications. All of the following applications are available in 32-bit and 64-bit architecture:
 + Microsoft Office LTSC Professional Plus 2021/2024

@@ -1,7 +1,6 @@
 
 
 # Enabling Users in Amazon WorkSpaces Applications
-<a name="user-pool-admin-enabling"></a>
 
 You can enable one or more users in the user pool, one at a time. After they are enabled, users can log in to WorkSpaces Applications and launch applications from the stacks to which they are assigned. If the users were disabled, these assignments are retained.
 

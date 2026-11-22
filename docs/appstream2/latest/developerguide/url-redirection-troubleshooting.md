@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="url-redirection-troubleshooting"></a>
 
 **URLs not redirecting when expected**
 + Verify that the URL pattern includes the protocol (`https://`).

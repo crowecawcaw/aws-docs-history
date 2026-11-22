@@ -1,7 +1,6 @@
 
 
 # Create Your Amazon WorkSpaces Applications Image Programmatically by Using the Image Assistant CLI Operations
-<a name="programmatically-create-image"></a>
 
 You can create Amazon WorkSpaces Applications images by connecting to an image builder and using the Image Assistant graphical user interface (GUI) or command line interface (CLI) operations. The Image Assistant CLI operations provide functionality that is similar to the Image Assistant GUI. With these operations, you can programmatically do the following:
 + Manage the applications that are included in an image.

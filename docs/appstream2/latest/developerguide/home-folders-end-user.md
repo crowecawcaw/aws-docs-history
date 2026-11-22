@@ -1,7 +1,6 @@
 
 
 # Use Home Folders
-<a name="home-folders-end-user"></a>
 
 If your WorkSpaces Applications administrator has enabled this file storage option, when you are signed in to an WorkSpaces Applications streaming session, you can use your home folder. You can do the following with your home folder: 
 + Open and edit files and folders that you store in your home folder. Content that is stored in your home folder cannot be accessed by other users.

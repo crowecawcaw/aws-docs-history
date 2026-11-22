@@ -1,7 +1,6 @@
 
 
 # Disable Google Drive for Your WorkSpaces Applications Users
-<a name="disable-google-drive"></a>
 
 You can disable Google Drive for a stack without losing user content that is already stored on Google Drive. Disabling Google Drive for a stack has the following effects:
 + Users who are connected to active streaming sessions for the stack receive an error message. They are informed that they do not have permissions to access their Google Drive. 

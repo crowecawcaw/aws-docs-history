@@ -1,7 +1,6 @@
 
 
 # Create and Run Athena Queries
-<a name="configure-custom-reports-create-run-athena-queries"></a>
 
 To query your usage reports by using Athena, perform the following steps.
 **Note**  

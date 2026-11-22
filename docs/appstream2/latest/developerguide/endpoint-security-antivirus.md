@@ -1,7 +1,6 @@
 
 
 # Endpoint Security and Antivirus
-<a name="endpoint-security-antivirus"></a>
 
 The brief ephemeral nature of WorkSpaces Applications instances and the lack of persistency of data means a different approach is required to ensure user experience and performance is not compromised by activities that would be required on a persistent desktop. Endpoint Security agents are installed in WorkSpaces Applications images when there is an organizational policy or when used with external data ingress e.g. e-mail, files ingress, external web browsing.
 

@@ -1,7 +1,6 @@
 
 
 # Application Access
-<a name="application-access"></a>
 
 By default, WorkSpaces Applications enables the applications that you specify in your image to launch other applications and executable files on the image builder and fleet instance. This ensures that applications with dependencies on other applications (for example, an application that launches the browser to navigate to a product website) function as expected. Make sure that you configure your administrative controls, security groups, and other security software to grant users the minimum permissions required to access resources and transfer data between their local computers and fleet instances.
 

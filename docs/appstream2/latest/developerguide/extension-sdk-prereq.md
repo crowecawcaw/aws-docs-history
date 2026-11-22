@@ -1,7 +1,6 @@
 
 
 # Extension SDK Prerequisites for Amazon WorkSpaces Applications
-<a name="extension-sdk-prereq"></a>
 
 Before you start working with the Amazon DCV Extension SDK, make sure that your WorkSpaces Applications client applications and your WorkSpaces Applications servers meet the following requirements.
 

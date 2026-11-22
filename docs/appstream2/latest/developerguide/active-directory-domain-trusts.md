@@ -1,7 +1,6 @@
 
 
 # Configuring WorkSpaces Applications to Use Domain Trusts
-<a name="active-directory-domain-trusts"></a>
 
 WorkSpaces Applications supports Active Directory domain environments where network resources such as file servers, applications, and computer objects reside in one domain, and the user objects reside in another. The domain service account used for computer object operations does not need to be in the same domain as the WorkSpaces Applications computer objects. 
 

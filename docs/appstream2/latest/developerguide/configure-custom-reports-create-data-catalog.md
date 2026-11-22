@@ -1,7 +1,6 @@
 
 
 # Create a Data Catalog by Using the AWS Glue Crawler
-<a name="configure-custom-reports-create-data-catalog"></a>
 
 The AWS Glue crawler, when run, creates a Data Catalog and schema that are mapped to the structure of your sessions and applications reports. Each time a new report is stored in your Amazon S3 bucket, you must run the crawler to update your AWS Glue Data Catalog with the data from the new report. 
 

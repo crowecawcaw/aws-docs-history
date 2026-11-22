@@ -1,7 +1,6 @@
 
 
 # Get started providing agents with access to WorkSpaces Applications
-<a name="getting-started-agent-access"></a>
 
 To enable AI agents to operate desktop applications through Amazon WorkSpaces Applications, you create a stack with access enabled for agents, generate a streaming URL, and connect your agent to the managed MCP server. You can also enable agent access on an image builder, so that an agent can install and test applications before you create an image.
 
@@ -37,7 +36,7 @@ Connects your agent to the MCP server and helps it operate the desktop, followin
 
 After you set up the AWS MCP Server, your agent can find and load these skills when it needs them. To install the skills for the AI coding agents on your system instead, run the following commands. The `add-skill` command requires AWS CLI version 2.35.0 or later.
 
-```
+```bash
 aws agent-toolkit add-skill \
     --skill-name setting-up-workspaces-applications
 
@@ -91,7 +90,7 @@ You must enable at least one of computer input or computer vision.
 
 Run the following command to create a stack with agent access enabled:
 
-```
+```bash
 aws appstream create-stack \
     --name {{your-stack-name}} \
     --agent-access-config '{
@@ -107,7 +106,7 @@ aws appstream create-stack \
 
 To also enable screenshot storage, add the `S3BucketArn` and `ScreenshotsUploadEnabled` parameters:
 
-```
+```bash
 aws appstream create-stack \
     --name {{your-stack-name}} \
     --agent-access-config '{
@@ -125,7 +124,7 @@ aws appstream create-stack \
 
 After you create the stack, associate it with a fleet. Agents cannot connect to a stack that does not have an associated fleet.
 
-```
+```bash
 aws appstream associate-fleet \
     --stack-name {{your-stack-name}} \
     --fleet-name {{your-fleet-name}}
@@ -140,7 +139,7 @@ You enable agent access when you create the image builder. Domain-joined image b
 
 Run the following command to create an image builder with agent access enabled:
 
-```
+```bash
 aws appstream create-image-builder \
     --name {{your-image-builder-name}} \
     --instance-type {{your-instance-type}} \
@@ -164,7 +163,7 @@ The `Settings`, `ScreenResolution`, and `ScreenImageFormat` members are required
 
 To confirm that agent access is enabled, run the following command. The response includes an `AgentAccessConfig` object with your settings.
 
-```
+```bash
 aws appstream describe-image-builders \
     --names {{your-image-builder-name}}
 ```
@@ -196,7 +195,7 @@ Generate a streaming URL for your stack or image builder. You don't need agent-s
 
 Create a streaming URL using the standard WorkSpaces Applications `CreateStreamingURL` API. Run the following command to generate a streaming URL:
 
-```
+```bash
 aws appstream create-streaming-url \
     --stack-name {{your-stack-name}} \
     --fleet-name {{your-fleet-name}} \
@@ -214,7 +213,7 @@ At any given time, only one agent can connect to a unique session. Named users, 
 
 If you use an image builder, you can generate a streaming URL with the following command. Or you can skip this step and connect with the image builder name. For both options, see [Connecting with image builders](agent-access-mcp-server-endpoint.md#agent-access-mcp-server-connect-image-builder).
 
-```
+```bash
 aws appstream create-image-builder-streaming-url \
     --name {{your-image-builder-name}}
 ```
@@ -232,7 +231,7 @@ The connection uses SigV4 signing with the service name `agentaccess-mcp`. Your 
 
 The following example shows how to establish the connection using mcp-proxy-for-aws:
 
-```
+```python
 aws_iam_streamablehttp_client(
     endpoint="https://agentaccess-mcp.{{region}}.api.aws/mcp",
     aws_service="agentaccess-mcp",
@@ -284,7 +283,7 @@ This step changes the saved agent access settings on a stack or an image builder
 
 1. Run the following command with only the fields that you want to change. This example changes the user control mode.
 
-   ```
+   ```bash
    aws appstream update-stack \
        --name {{your-stack-name}} \
        --agent-access-config '{
@@ -298,7 +297,7 @@ This step changes the saved agent access settings on a stack or an image builder
 
 To disable agent access on a stack, run the following command:
 
-```
+```bash
 aws appstream update-stack \
     --name {{your-stack-name}} \
     --attributes-to-delete AGENT_ACCESS_CONFIG
@@ -310,21 +309,21 @@ You can change agent access settings on an image builder only while it is stoppe
 
 1. Stop the image builder.
 
-   ```
+   ```bash
    aws appstream stop-image-builder \
        --name {{your-image-builder-name}}
    ```
 
 1. Run the following command until the `State` value in the response is `STOPPED`.
 
-   ```
+   ```bash
    aws appstream describe-image-builders \
        --names {{your-image-builder-name}}
    ```
 
 1. Run the following command with only the fields that you want to change. This example enables MCP tool forwarding.
 
-   ```
+   ```bash
    aws appstream update-image-builder \
        --name {{your-image-builder-name}} \
        --agent-access-config '{
@@ -338,14 +337,14 @@ You can change agent access settings on an image builder only while it is stoppe
 
 1. Start the image builder. The changes apply at the next session.
 
-   ```
+   ```bash
    aws appstream start-image-builder \
        --name {{your-image-builder-name}}
    ```
 
 To disable agent access on an image builder, stop the image builder as described in the previous procedure, and then run the following command. After you start the image builder again, you can work on it yourself in a browser.
 
-```
+```bash
 aws appstream update-image-builder \
     --name {{your-image-builder-name}} \
     --attributes-to-delete AGENT_ACCESS_CONFIG
@@ -382,7 +381,7 @@ If you created an image builder, stop it when you are done to avoid ongoing char
 
 Run the following commands to clean up resources:
 
-```
+```bash
 aws appstream stop-fleet \
     --name {{your-fleet-name}}
 
@@ -396,21 +395,21 @@ aws appstream delete-stack \
 
 (Optional) To also delete the fleet after it has stopped:
 
-```
+```bash
 aws appstream delete-fleet \
     --name {{your-fleet-name}}
 ```
 
 If you created an image builder, stop it when you are done. A stopped image builder isn't billed for the instance.
 
-```
+```bash
 aws appstream stop-image-builder \
     --name {{your-image-builder-name}}
 ```
 
 (Optional) To delete the image builder:
 
-```
+```bash
 aws appstream delete-image-builder \
     --name {{your-image-builder-name}}
 ```

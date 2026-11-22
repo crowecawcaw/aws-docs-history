@@ -1,7 +1,6 @@
 
 
 # Enable and Administer Persistent Storage for Your WorkSpaces Applications Users
-<a name="persistent-storage"></a>
 
 Amazon WorkSpaces Applications supports the following persistent storage options for users in your organization: 
 + Home folders

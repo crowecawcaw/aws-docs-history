@@ -1,7 +1,6 @@
 
 
 # Printer Redirection
-<a name="client-application-windows-local-printer-redirection"></a>
 
 WorkSpaces Applications local printer redirection lets you access printers that are connected to your local computer from your WorkSpaces Applications streaming session. That way, you can redirect print jobs from your streaming application to a local printer, or to a network printer that you have mapped. 
 

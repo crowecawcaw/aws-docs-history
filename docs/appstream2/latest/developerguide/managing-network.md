@@ -1,7 +1,6 @@
 
 
 # Networking and Access for Amazon WorkSpaces Applications
-<a name="managing-network"></a>
 
 The following topics provide information about enabling users to connect to WorkSpaces Applications streaming instances (fleet instances) and enabling your WorkSpaces Applications fleets, image builders, and app block builders to access network resources and the internet.
 

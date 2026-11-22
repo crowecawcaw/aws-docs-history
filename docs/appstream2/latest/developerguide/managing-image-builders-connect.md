@@ -1,7 +1,6 @@
 
 
 # Connect to an Image Builder in Amazon WorkSpaces Applications
-<a name="managing-image-builders-connect"></a>
 
 You can connect to an image builder by doing either of the following: 
 + Using the WorkSpaces Applications console (for web connections only)

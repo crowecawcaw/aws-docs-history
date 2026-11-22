@@ -1,7 +1,6 @@
 
 
 # Multi-Session Recommendations
-<a name="multi-session-recs"></a>
 
 When operating a multi-session environment, consider the following two key areas to ensure optimal performance and streaming experience:
 + Determining the maximum number of user sessions per instance

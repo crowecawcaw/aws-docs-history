@@ -1,7 +1,6 @@
 
 
 # Enable Local Printer Redirection for Your WorkSpaces Applications Users
-<a name="enable-local-printer-redirection"></a>
 
 With local printer redirection, your WorkSpaces Applications users can redirect print jobs from their streaming application to a printer that is connected to their local computer, including any network printers that the users have mapped. You don't need a printer driver installed on the WorkSpaces Applications streaming instance to enable users to print documents during their streaming sessions. 
 

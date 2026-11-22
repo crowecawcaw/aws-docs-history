@@ -1,7 +1,6 @@
 
 
 # Securing Persistent Data
-<a name="securing-persistent-data"></a>
 
  Deployments of WorkSpaces Applications can require the user state to persist in some form. It might be to persist data for individual users, or to persist data for collaboration using a shared folder. AppStream 2.0 instance storage is ephemeral and has no encryption option. 
 

@@ -1,7 +1,6 @@
 
 
 # Supported Locales
-<a name="supported-locales"></a>
 
 WorkSpaces Applications supports the following locales:
 

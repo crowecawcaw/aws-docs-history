@@ -1,7 +1,6 @@
 
 
 # Application onboarding guidelines
-<a name="onboarding-applications"></a>
 
 Before you make an application available to end users through WorkSpaces Applications, validate that the application works correctly in the WorkSpaces Applications cloud environment, verify that the application can be streamed without rendering artifacts, and size your fleet appropriately for the application's resource profile. This page provides a structured onboarding checklist that you can follow for each application you plan to stream. If you plan to use multi-session, you need to pay specific attention to the ability to run multiple versions of the application on the same host. If you plan to use [native application mode](https://docs.aws.amazon.com/appstream2/latest/developerguide/feature-support-native-application-mode.html), you need to verify that the application does not present any compatibility problems with this mode.
 
@@ -51,7 +50,7 @@ If you plan to run the application on a multi-session fleet, validate the follow
 + The application's installer, updater, and any background processes do not require interactive administrator access while users are signed in.
 
 **Note**  
-Multi-session fleets currently do not support webcam, [Dynamic Application Framework](https://docs.aws.amazon.com/appstream2/latest/developerguide/dynamic-app-framework.html), and [Smart Card Authentication](https://docs.aws.amazon.com/appstream2/latest/developerguide/active-directory-prerequisites-smart-card-authentication.html). If you need any of these features, we recommend that you use single-session fleets.
+Multi-session fleets currently don't support webcam and [Dynamic Application Framework](dynamic-app-framework.md). If you need either of these features, we recommend that you use single-session fleets.
 
 ### Native application mode compatibility
 <a name="onboarding-native-app-mode"></a>

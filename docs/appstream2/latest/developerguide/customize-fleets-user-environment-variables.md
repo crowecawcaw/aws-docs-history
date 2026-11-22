@@ -1,7 +1,6 @@
 
 
 # Change User Environment Variables
-<a name="customize-fleets-user-environment-variables"></a>
 
 Follow these steps to change user environment variables across your fleet instances. 
 

@@ -1,7 +1,6 @@
 
 
 # Home Folder Content Synchronization
-<a name="home-folders-content-synchronization"></a>
 
 When home folders are enabled, WorkSpaces Applications creates a unique folder for each user in which to store their content. The folder is created as a unique Amazon S3 prefix that uses a hash of the user name within an S3 bucket for your Amazon Web Services account and Region. After WorkSpaces Applications creates the home folder in Amazon S3, it copies the accessed content in that folder from the S3 bucket to the fleet instance. This enables the user to access their home folder content quickly, from the fleet instance, during their streaming session. Changes that you make to a user’s home folder content in an S3 bucket and that the user makes to their home folder content on a fleet instance are synchronized between Amazon S3 and WorkSpaces Applications as follows. 
 

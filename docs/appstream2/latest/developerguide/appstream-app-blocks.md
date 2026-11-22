@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications App Blocks
-<a name="appstream-app-blocks"></a>
 
 Elastic fleet streaming instances utilize applications that are installed on virtual hard disk (VHD) files stored within an Amazon S3 bucket in your account. When it comes to app blocks with custom packaging, you have the flexibility to create your own VHD file and upload it to an Amazon S3 bucket within your account. Alternatively, for app blocks with WorkSpaces Applications packaging, you can take advantage of the app block builder, which handles the packaging of your applications, creates a VHD file, and uploads it to your Amazon S3 bucket.
 

@@ -1,7 +1,6 @@
 
 
 # Images
-<a name="managing-images"></a>
 
 You can create Amazon WorkSpaces Applications images that contain applications you can stream to your users and default system and application settings to enable your users to get started with those applications quickly. However, after you create an image, you can't change it. To add other applications, update existing applications, or change image settings, you must start and reconnect to the image builder that you used to create the image. If you deleted that image builder, launch a new image builder that is based on your image. Then make your changes and create a new image. For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md) and [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md).
 

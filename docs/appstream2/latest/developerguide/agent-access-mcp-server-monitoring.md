@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="agent-access-mcp-server-monitoring"></a>
 
 You can monitor agent activity through three services: AWS CloudTrail for session events, CloudWatch for operational metrics, and Amazon S3 for stored screenshots.
 + **AWS CloudTrail**: logs the following agent session activity:

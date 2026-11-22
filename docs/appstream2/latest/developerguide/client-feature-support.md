@@ -1,7 +1,6 @@
 
 
 # Feature and Device Support
-<a name="client-feature-support"></a>
 
 The WorkSpaces Applications client supports the following features and devices.
 
@@ -10,3 +9,4 @@ The WorkSpaces Applications client supports the following features and devices.
 + [Automatic and On-Demand Diagnostic Log Uploads](feature-support-diagnostic-log-upload.md)
 + [Peripheral Devices](feature-support-peripheral-devices.md)
 + [Host-to-client URL redirection](feature-support-url-redirection.md)
++ [WebAuthn redirection](feature-support-webauthn-redirection.md)

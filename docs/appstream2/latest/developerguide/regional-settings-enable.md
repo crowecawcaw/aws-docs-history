@@ -1,7 +1,6 @@
 
 
 # Enable Regional Settings for Your WorkSpaces Applications Users
-<a name="regional-settings-enable"></a>
 
 To enable users to configure regional settings for a given stack during their WorkSpaces Applications streaming sessions, your stack must be associated with a fleet based on an image that uses a version of the WorkSpaces Applications agent released on or after June 6, 2018. For more information, see [WorkSpaces Applications Agent Release Notes](agent-software-versions.md). Additionally, your image must have Windows PowerShell 5.1 or later installed. Images created from WorkSpaces Applications base images published on or after June 12, 2018 meet both criteria. Images created from WorkSpaces Applications base images published before June 12, 2018 do not have Windows PowerShell 5.1 by default.
 

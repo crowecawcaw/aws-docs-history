@@ -1,7 +1,6 @@
 
 
 # Feature and Device Support
-<a name="feature-support-web-access-admin"></a>
 
 WorkSpaces Applications provides the following feature and peripheral device support for users who access WorkSpaces Applications through a web browser.
 

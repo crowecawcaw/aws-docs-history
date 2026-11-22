@@ -1,7 +1,6 @@
 
 
 # Use the WorkSpaces Applications Dynamic Application Framework to Build a Dynamic App Provider
-<a name="build-dynamic-app-provider"></a>
 
 The WorkSpaces Applications dynamic application framework provides API operations within an WorkSpaces Applications streaming instance that you can use to build a dynamic app provider. Dynamic app providers can use the API operations provided to modify the catalog of applications that your users can access in real time. The applications managed by the dynamic app providers can be within the image, or they can be off-instance, such as from a Windows file share or an application virtualization technology.
 

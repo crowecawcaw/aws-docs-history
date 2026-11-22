@@ -1,7 +1,6 @@
 
 
 # Reset a User's Application Settings
-<a name="app-persistence-s3-reset"></a>
 
 To reset a user's application settings, you must find and delete the VHD and associated metadata file from the S3 bucket in your AWS account. Make sure that you do not do this during a user's active streaming session. After you delete the user's VHD and the metadata file, the next time the user launches a session from a streaming instance that has application settings persistence enabled, WorkSpaces Applications creates a new settings VHD for that user.
 

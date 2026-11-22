@@ -1,7 +1,6 @@
 
 
 # API Actions for Managing App Entitlement for WorkSpaces Applications
-<a name="manage-app-entitlement-api-actions"></a>
 
 You can use the following API operations to manage application entitlement for WorkSpaces Applications.
 

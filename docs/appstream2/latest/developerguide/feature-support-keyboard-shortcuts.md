@@ -1,7 +1,6 @@
 
 
 # Keyboard Shortcuts
-<a name="feature-support-keyboard-shortcuts"></a>
 
 For the Windows client, most operating system keyboard shortcuts are supported. Supported keyboard shortcuts include Alt \+ Tab, Clipboard shortcuts (Ctrl \+ X, Ctrl \+ C, Ctrl\+ V), Esc, and Alt \+ F4.
 

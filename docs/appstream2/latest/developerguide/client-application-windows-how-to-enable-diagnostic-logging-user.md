@@ -1,7 +1,6 @@
 
 
 # Logging
-<a name="client-application-windows-how-to-enable-diagnostic-logging-user"></a>
 
 To help with troubleshooting if an issue with the WorkSpaces Applications client occurs, you can enable diagnostic logging. The log files that are sent to WorkSpaces Applications (AWS) include detailed information about your device and connection to the AWS network. You can enable automatic log uploads so that these files are sent to WorkSpaces Applications (AWS) automatically. You can also upload log files on an as-needed basis, before or during an WorkSpaces Applications streaming session.
 

@@ -1,7 +1,6 @@
 
 
 # Enable Your WorkSpaces Applications Users to Configure Their Regional Settings
-<a name="regional-settings"></a>
 
 **Note**  
 Enabling users to configure regional settings is currently not supported in Linux-based streaming sessions.

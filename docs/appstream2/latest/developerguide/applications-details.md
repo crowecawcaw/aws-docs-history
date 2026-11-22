@@ -1,7 +1,6 @@
 
 
 # Applications Details
-<a name="applications-details"></a>
 
 Applications details contains information about pre-warm manifests and app catalog configurations.
 

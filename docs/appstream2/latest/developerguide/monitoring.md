@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon WorkSpaces Applications Resources
-<a name="monitoring"></a>
 
 WorkSpaces Applications publishes metrics to Amazon CloudWatch to enabled detailed tracking and deep dive analysis. These statistics are recorded for an extended period so you can access historical information and gain a better perspective on how your fleets are performing. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

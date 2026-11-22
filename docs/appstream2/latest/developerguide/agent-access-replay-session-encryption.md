@@ -1,7 +1,6 @@
 
 
 # Encryption at rest for Replay Session
-<a name="agent-access-replay-session-encryption"></a>
 
 Replay Session encrypts your recordings at rest by default. While a session is recorded and processed, Replay Session holds the screen frames, their metadata, and the finished artifacts that are waiting for delivery in storage that AWS owns. By default, this content is encrypted at rest with Amazon S3 managed keys (SSE-S3). You don't need to take any action.
 
@@ -117,7 +116,7 @@ Which policies you need depends on where the key is:
 
 The following example statements give the principal that uses the stack (`ReplaySessionUserRole`) and the principal that configures the stack (`ReplaySessionAdminRole`) the permissions they need. Add these statements to your existing key policy. Don't replace the existing statements.
 
-```
+```json
 {
     "Sid": "AllowAgentAccessDirectKMS",
     "Effect": "Allow",
@@ -158,7 +157,7 @@ Because each statement names a specific role as its principal, you don't need a 
 
 Attach the following statement to the IAM identity that your agent uses to start sessions.
 
-```
+```json
 {
     "Sid": "AllowReplaySessionFrameEncryption",
     "Effect": "Allow",
@@ -179,7 +178,7 @@ Attach the following statement to the IAM identity that your agent uses to start
 
 Attach the following statements to the IAM identity that calls `CreateStack` or `UpdateStack`.
 
-```
+```json
 {
     "Sid": "AllowReplaySessionKeyValidation",
     "Effect": "Allow",
@@ -213,7 +212,7 @@ When `KmsKeyArn` is present, the service calls `DescribeKey` as the principal th
 
 The following example adds a customer managed key to an existing stack:
 
-```
+```bash
 aws appstream update-stack \
     --name {{your-stack-name}} \
     --agent-access-config '{
@@ -238,7 +237,7 @@ An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/en
 
 Every `GenerateDataKey` and `Decrypt` request that Replay Session makes includes the following encryption context pair. The key is `aws:agentaccess-mcp:session_id`, and the value is the ID of the session being recorded.
 
-```
+```json
 "encryptionContext": {
     "aws:agentaccess-mcp:session_id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 }

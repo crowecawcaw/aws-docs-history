@@ -1,7 +1,6 @@
 
 
 # Use Session Scripts on Multi-Session Fleets
-<a name="session-scripts-multi-session-fleets"></a>
 
 When using session scripts on multi-session fleets, there are additional requirements and considerations to ensure optimal performance and security.
 

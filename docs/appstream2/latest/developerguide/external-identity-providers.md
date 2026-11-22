@@ -1,7 +1,6 @@
 
 
 # Amazon WorkSpaces Applications Integration with SAML 2.0
-<a name="external-identity-providers"></a>
 
 Amazon WorkSpaces Applications supports identity federation to WorkSpaces Applications stacks through Security Assertion Markup Language 2.0 (SAML 2.0). You can use an identity provider (IdP) that supports SAML 2.0—such as Active Directory Federation Services (AD FS) in Windows Server, Ping One Federation Server, or Okta—to provide an onboarding flow for your WorkSpaces Applications users. 
 

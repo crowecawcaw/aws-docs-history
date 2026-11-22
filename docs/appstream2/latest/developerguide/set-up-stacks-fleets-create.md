@@ -1,7 +1,6 @@
 
 
 # Create a Fleet in Amazon WorkSpaces Applications
-<a name="set-up-stacks-fleets-create"></a>
 
 Set up and create a fleet from which user applications are launched and streamed.
 

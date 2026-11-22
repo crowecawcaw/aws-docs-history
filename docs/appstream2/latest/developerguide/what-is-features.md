@@ -1,7 +1,6 @@
 
 
 # Features of Amazon WorkSpaces Applications
-<a name="what-is-features"></a>
 
 Using Amazon WorkSpaces Applications provides the following advantages:
 

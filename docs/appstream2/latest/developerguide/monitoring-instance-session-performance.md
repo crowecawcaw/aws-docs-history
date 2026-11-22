@@ -1,7 +1,6 @@
 
 
 # Viewing instance and session metrics using the console
-<a name="monitoring-instance-session-performance"></a>
 
 You can monitor Amazon WorkSpaces Applications fleet instance and session metrics using the WorkSpaces Applications console or the CloudWatch console.
 

@@ -1,7 +1,6 @@
 
 
 # Checking for the AmazonAppStreamServiceAccess Service Role and Policies
-<a name="controlling-access-checking-for-iam-service-access"></a>
 
 Complete the steps in this section to check whether the **AmazonAppStreamServiceAccess** service role is present and has the correct policies attached. If this role is not in your account and must be created, you or an administrator with the required permissions must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services account.
 
@@ -29,7 +28,7 @@ The **AmazonAppStreamServiceAccess** trust relationship policy must include the 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -90,7 +89,7 @@ Before you begin, make sure that the following are true:
 
 1. Verify that the following policy is listed in the output.
 
-   ```
+   ```json
    {
        "AttachedPolicies": [
            {
@@ -125,7 +124,7 @@ If you receive an `AccessDenied` error, verify that your IAM principal has the `
 
 1. Confirm that the output matches the following format.
 
-   ```
+   ```json
    {
        "Version": "2012-10-17",
        "Statement": [
@@ -157,7 +156,7 @@ Before you begin, make sure that the following are true:
 **Creating the trust policy document (AWS CLI)**
 + To grant the WorkSpaces Applications service permission to assume the role, create a file named `trust-policy.json` with the following content.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",
       "Statement": [

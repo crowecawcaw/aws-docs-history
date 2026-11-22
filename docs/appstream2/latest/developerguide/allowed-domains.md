@@ -1,7 +1,6 @@
 
 
 # Allowed Domains
-<a name="allowed-domains"></a>
 
 ## Streaming Instances
 <a name="allowed-domains-streaming-instances"></a>

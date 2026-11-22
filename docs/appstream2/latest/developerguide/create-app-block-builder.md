@@ -1,7 +1,6 @@
 
 
 # Create an App Block Builder
-<a name="create-app-block-builder"></a>
 
 You can use app block builder instance to create your application package for WorkSpaces Applications Elastic fleets.
 

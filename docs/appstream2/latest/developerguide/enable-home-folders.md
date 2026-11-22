@@ -1,7 +1,6 @@
 
 
 # Enable Home Folders for Your WorkSpaces Applications Users
-<a name="enable-home-folders"></a>
 
 Before enabling home folders, you must do the following:
 + Check that you have the correct AWS Identity and Access Management (IAM) permissions for Amazon S3 actions. For more information, see [Using IAM Policies to Manage Administrator Access to the Amazon S3 Bucket for Home Folders and Application Settings Persistence](s3-iam-policy.md).

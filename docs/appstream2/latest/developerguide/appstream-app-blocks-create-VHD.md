@@ -1,7 +1,6 @@
 
 
 # Create an App Block with an Existing App Package
-<a name="appstream-app-blocks-create-VHD"></a>
 
 You can use your existing application package (VHD) with WorkSpaces Applications packaging to create WorkSpaces Applications app blocks. To do this, copy your application package (VHD) file from the source Amazon S3 bucket to another destination Amazon S3 bucket. The destination bucket can be in a different region. 
 

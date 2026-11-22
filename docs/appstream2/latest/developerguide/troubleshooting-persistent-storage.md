@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Persistent Storage Issues
-<a name="troubleshooting-persistent-storage"></a>
 
 Amazon WorkSpaces Applications supports the following options for persistent storage: Home folders, Google Drive for G Suite, and OneDrive for Business. Because content synchronization behaviors are consistent across these persistent storage solutions, we recommend that you review [Home Folder Content Synchronization](home-folders-content-synchronization.md) for information about expected behavior.
 

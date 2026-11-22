@@ -1,7 +1,6 @@
 
 
 # Additional Resources for Learning About Dynamic App Providers and the Dynamic Application Framework
-<a name="additional-resources-dynamic-app-providers"></a>
 
 The following links provide information to help you learn more about dynamic app providers and the dynamic application framework.
 

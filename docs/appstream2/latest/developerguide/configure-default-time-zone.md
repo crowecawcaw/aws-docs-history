@@ -1,12 +1,11 @@
 
 
 # Specify a Default Time Zone
-<a name="configure-default-time-zone"></a>
 
 To specify a default time zone to be used in your users’ streaming sessions, perform the steps in either of the following two procedures.
 
 **Topics**
-+ [Specify a Default Time Zone (Windows Server 2012 R2)](#configure-default-time-zone)
++ [Specify a Default Time Zone (Windows Server 2012 R2)](configure-default-time-zone.md)
 + [Specify a Default Time Zone (Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025)](#configure-default-time-zone-2016-2019)
 
 **Note**  

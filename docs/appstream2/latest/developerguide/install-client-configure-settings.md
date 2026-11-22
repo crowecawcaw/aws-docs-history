@@ -1,7 +1,6 @@
 
 
 # Tutorial: Install the Amazon WorkSpaces Applications Client and Customize the Client Experience for Your Users
-<a name="install-client-configure-settings"></a>
 
 The following sections describe how to install the WorkSpaces Applications client and customize the client experience for your users. If you plan to download and install the client for your users, first download the Enterprise Deployment Tool. You can then run PowerShell scripts to install the WorkSpaces Applications client and configure client settings remotely.
 

@@ -1,7 +1,6 @@
 
 
 # Windows Update and Antivirus Software on Amazon WorkSpaces Applications
-<a name="windows-update-antivirus-software"></a>
 
 WorkSpaces Applications streaming instances are non-persistent. When a user streaming session ends, WorkSpaces Applications terminates the instance used by the session and, depending on your scaling policies, provisions a new instance to replace it in your fleet. All fleet instances are provisioned from the same image. Because images cannot be changed once created, all fleet instances used in user streaming sessions have only the Windows and application updates that were installed on the underlying image when the image was created. In addition, because a fleet instance used for a streaming session terminates at the end of the session, any updates made to Windows or to applications on the instance during the streaming session will not persist to future sessions by the same user or other users.
 

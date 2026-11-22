@@ -1,7 +1,6 @@
 
 
 # Creating Default Application Settings for Your Users
-<a name="create-default-app-settings"></a>
 
 Follow these steps to create default application settings for your users.
 

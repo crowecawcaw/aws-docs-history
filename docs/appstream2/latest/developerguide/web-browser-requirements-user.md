@@ -1,7 +1,6 @@
 
 
 # Requirements
-<a name="web-browser-requirements-user"></a>
 
 You can connect to WorkSpaces Applications from any location by using an HTML5-capable web browser. Supported browsers include the following:
 + Google Chrome

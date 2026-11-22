@@ -1,7 +1,6 @@
 
 
 # Video and Audio Conferencing
-<a name="video-audio-mac"></a>
 
 WorkSpaces Applications real-time audio-video (AV) redirects your local webcam video input to WorkSpaces Applications streaming sessions. That way, you can use your local devices for video and audio conferencing within your WorkSpaces Applications streaming session.
 

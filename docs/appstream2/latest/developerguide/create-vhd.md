@@ -1,7 +1,6 @@
 
 
 # Create the VHD
-<a name="create-vhd"></a>
 
 A VHD is a single file that when mounted to the operating system is treated like a hard disk. The VHD can be mounted as a drive letter, to a folder path, or both. When the VHD is mounted, you can treat it as you would any other hard disk, including installing your application or copying files to it that your user will need.
 

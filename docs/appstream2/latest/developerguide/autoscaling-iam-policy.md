@@ -1,7 +1,6 @@
 
 
 # Using IAM Policies to Manage Administrator Access to Application Auto Scaling
-<a name="autoscaling-iam-policy"></a>
 
 Automatic scaling for fleets is made possible by a combination of the WorkSpaces Applications, Amazon CloudWatch, and Application Auto Scaling APIs. WorkSpaces Applications fleets are created with WorkSpaces Applications, alarms are created with CloudWatch, and scaling policies are created with Application Auto Scaling.
 
@@ -12,7 +11,7 @@ In addition to having the permissions defined in the [AmazonAppStreamFullAccess]
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

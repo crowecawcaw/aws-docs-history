@@ -1,7 +1,6 @@
 
 
 # Additional Resources
-<a name="additional-resources-app-blocks"></a>
 
 The following links provide information and other resources to help you package and deliver your applications with Elastic fleets.
 

@@ -1,13 +1,12 @@
 
 
 # Working with Athena Queries
-<a name="configure-custom-reports-example-sql-queries"></a>
 
 This section provides SQL queries that you can run in Athena to analyze the usage reports data in your Amazon S3 bucket.
 
 To create a consolidated report of all sessions in a given month, run the following query:
 
-```
+```sql
 SELECT *
 FROM "appstream-usage"."sessions"
 WHERE year='{{four-digit-year}}'
@@ -16,7 +15,7 @@ AND month='{{two-digit-month}}'
 
 You can also perform join operations between the **applications **and **sessions** tables in your query. For example, to view the distinct users who launched each application in a given month, run the following query:
 
-```
+```sql
 SELECT DISTINCT apps.application_name, sessions.user_id
 FROM "appstream-usage"."applications" apps
    INNER JOIN "appstream-usage"."sessions" sessions ON (apps.user_session_id = sessions.user_session_id AND sessions.year='{{four-digit-year}}' AND sessions.month='{{two-digit-month}}')
@@ -29,7 +28,7 @@ Athena query results are stored as .csv files in an Amazon S3 bucket in your acc
 
 To enhance performance and reduce costs, Athena uses partitioning to reduce the amount of data scanned in queries. For more information, see [Partitioning Data](https://docs.aws.amazon.com/athena/latest/ug/partitions.html). Usage reports are partitioned in your Amazon S3 buckets by year, month, and day. You can restrict your queries to certain date range partitions using the **year**,** month**, and **day** fields as conditions in your queries. For example, the following query ingests only the sessions reports for the week of May 19, 2019.
 
-```
+```sql
 SELECT SUBSTRING(session_start_time, 1, 10) AS report_date, 
     COUNT(DISTINCT user_session_id) AS num_sessions
 FROM "appstream-usage"."sessions"
@@ -42,7 +41,7 @@ ORDER BY 1
 
 In contrast, the following query produces identical results, but because it isn't restricted to any partitions, it ingests all sessions reports stored in your Amazon S3 bucket.
 
-```
+```sql
 SELECT SUBSTRING(session_start_time, 1, 10) AS report_date, 
     COUNT(DISTINCT user_session_id) AS num_sessions
 FROM "appstream-usage"."sessions"
@@ -55,7 +54,7 @@ If a session spans more than one day, the session and application records appear
 
 For example, to view all sessions that were active for a given fleet during a calendar month, where the fleet had a maximum session duration of 100 hours, run the following query to expand your partition set by five days.
 
-```
+```sql
 SELECT *
 FROM "appstream-usage"."sessions"
 WHERE fleet_name = '{{fleet_name}}'

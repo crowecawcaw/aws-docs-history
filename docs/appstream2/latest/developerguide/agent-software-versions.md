@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Agent Release Notes
-<a name="agent-software-versions"></a>
 
 The Amazon WorkSpaces Applications agent software runs on your streaming instances, enabling end users to connect to and start their streaming applications. Starting December 7, 2017, your streaming instances can be automatically updated with the latest features, performance improvements, and security updates that are available from AWS. Before December 7, 2017, agent updates were included with new base image releases. 
 
@@ -12,7 +11,7 @@ The following table describes the latest updates that are available in released 
 
 | Amazon WorkSpaces Applications agent version | Changes | 
 | --- | --- | 
-| 10-25-2026 |  +  Improves streaming session reliability <br />+  General bug fixes and improvements   | 
+| 10-25-2026 |  +  Adds opt-in support for in-session smart card use on multi-session fleets <br />+  Adds support for WebAuthn redirection <br />+  Improves streaming session reliability <br />+  General bug fixes and improvements   | 
 | 10-20-2026 |  +  Adds support for printer preference redirection   | 
 | 10-07-2026 |  +  General bug fixes and improvements   | 
 | 10-01-2026 |  +  General bug fixes and improvements   | 

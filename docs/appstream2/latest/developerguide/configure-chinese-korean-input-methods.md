@@ -1,7 +1,6 @@
 
 
 # Configuring Chinese and Korean input methods on the image
-<a name="configure-chinese-korean-input-methods"></a>
 
 Although end users can select from 9 supported input methods during their streaming sessions through **Preferences** > **Input method**, certain input methods require you to pre-install the corresponding language components on the image before they can function correctly. These input methods include Chinese (Taiwan), Chinese (Pinyin), Chinese (Traditional, DaYi), and Korean.
 
@@ -23,7 +22,7 @@ Before you begin, make sure that your environment meets the following requiremen
 
    Alternatively, open PowerShell as Administrator and run:
 
-   ```
+   ```powershell
    $langList = Get-WinUserLanguageList
    $langList.Add("zh-Hant-TW")
    Set-WinUserLanguageList $langList -Force
@@ -31,7 +30,7 @@ Before you begin, make sure that your environment meets the following requiremen
 
 1. Verify that the Basic Typing language component is installed:
 
-   ```
+   ```powershell
    Get-WindowsCapability -Online | Where-Object { $_.Name -like "*zh-TW*" -and $_.State -eq "Installed" }
    ```
 
@@ -39,7 +38,7 @@ Before you begin, make sure that your environment meets the following requiremen
 
 1. (Optional) Verify the language is registered with the correct IME:
 
-   ```
+   ```powershell
    Get-WinUserLanguageList
    ```
 
@@ -58,7 +57,7 @@ After this configuration, end users can select **Chinese (Taiwan)** from **Prefe
 
 1. Open PowerShell as Administrator and run:
 
-   ```
+   ```powershell
    $langList = Get-WinUserLanguageList
    $langList.Add("zh-Hans-CN")
    Set-WinUserLanguageList $langList -Force
@@ -66,7 +65,7 @@ After this configuration, end users can select **Chinese (Taiwan)** from **Prefe
 
 1. Verify installation:
 
-   ```
+   ```powershell
    Get-WindowsCapability -Online | Where-Object { $_.Name -like "*zh-CN*" -and $_.State -eq "Installed" }
    ```
 
@@ -81,7 +80,7 @@ After this configuration, end users can select **Chinese (Taiwan)** from **Prefe
 
 1. Open PowerShell as Administrator and run:
 
-   ```
+   ```powershell
    $langList = Get-WinUserLanguageList
    $langList.Add("ko-KR")
    Set-WinUserLanguageList $langList -Force
@@ -89,7 +88,7 @@ After this configuration, end users can select **Chinese (Taiwan)** from **Prefe
 
 1. Verify installation:
 
-   ```
+   ```powershell
    Get-WindowsCapability -Online | Where-Object { $_.Name -like "*ko-KR*" -and $_.State -eq "Installed" }
    ```
 

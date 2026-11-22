@@ -1,7 +1,6 @@
 
 
 # Supported Features
-<a name="client-features"></a>
 
 The following table compares the features that are supported by the different access types.
 
@@ -15,6 +14,7 @@ The following table compares the features that are supported by the different ac
 | Smart card (CAC and PIV readers) | ✗ | ✓ | ✗ | For more information, see [Smart Card Redirection](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards-support). | 
 | Certificates for access control (OS-based) | ✓ | ✓ | ✓ | For WorkSpaces Applications, certificate authentication is supported via SAML 2.0. | 
 | Certificate-Based Authentication | ✓ | ✓ | ✓ | For more information, see [Certificate-Based Authentication](certificate-based-authentication.md). | 
+| WebAuthn redirection (FIDO2 security keys and platform authenticators) | ✗ | ✓ | ✓ | Supported on WorkSpaces Applications clients accessing Windows-based and Linux-based fleets. For more information, see [WebAuthn redirection](feature-support-webauthn-redirection.md). | 
 | Client customization | Available with exceptions | Available with exceptions | Available with exceptions | WorkSpaces Applications supports web-based branding and custom URLs. For more information, see [Add Your Custom Branding to Amazon WorkSpaces Applications](branding.md). | 
 | Desktop view connection mode | ✓ | ✓ | ✓ |  | 
 | Classic application mode | ✓ | ✓ | ✓ |  | 

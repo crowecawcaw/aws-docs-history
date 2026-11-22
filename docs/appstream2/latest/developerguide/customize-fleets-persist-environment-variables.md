@@ -1,7 +1,6 @@
 
 
 # Persist Environment Variables in Amazon WorkSpaces Applications
-<a name="customize-fleets-persist-environment-variables"></a>
 
 Environment variables enable you to dynamically pass settings across applications. For example, many engineering applications rely on environment variables to specify the IP address or host name of a license server to locate and check out a license from that server. 
 

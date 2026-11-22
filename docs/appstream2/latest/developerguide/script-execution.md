@@ -1,7 +1,6 @@
 
 
 # App block setup script execution in Amazon WorkSpaces Applications
-<a name="script-execution"></a>
 
 The following diagrams indicate where in the process the setup script runs. The run order is dependent upon whether Application Settings Persistence is enabled on the stack associated with the elastic fleet.
 

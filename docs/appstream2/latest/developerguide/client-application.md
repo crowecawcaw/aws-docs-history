@@ -1,7 +1,6 @@
 
 
 # Provide Access Through the WorkSpaces Applications Client
-<a name="client-application"></a>
 
 Your users can start WorkSpaces Applications streaming sessions by using the WorkSpaces Applications client application for a supported device or by using a web browser.
 

@@ -1,7 +1,6 @@
 
 
 # System Requirements and Considerations
-<a name="system-requirements-considerations-web-browser-admin"></a>
 
 Users can access WorkSpaces Applications through an HTML5-capable web browser on a desktop computer such as a Windows, Mac, Chromebook, or Linux computer. HTML5-capable web browsers that can be used include the following:
 + Google Chrome

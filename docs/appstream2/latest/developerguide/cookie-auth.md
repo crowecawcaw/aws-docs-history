@@ -1,7 +1,6 @@
 
 
 # Cookie-Based Authentication in Amazon WorkSpaces Applications
-<a name="cookie-auth"></a>
 
 WorkSpaces Applications uses browser cookies to authenticate streaming sessions and allow users to reconnect to an active session without re-entering their sign-in credentials every time. Authentication tokens are stored in browser cookies for every authentication scenario. While cookies are necessary for many online services, they can potentially be vulnerable to cookie theft attacks. We strongly recommend that you take proactive measures to prevent cookie theft, such as implementing robust endpoint protection solutions for your users' devices. Furthermore, to mitigate the potential impact in the event of cookie theft, we advise you to consider the following actions:
 + **Enforce single-session limit**: For your WorkSpaces Applications Windows images, create a registry key under `HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management` with the name **max-concurrent-clients** set to 1 to only allow one connection at a time. This limits the number of concurrent session to one, and blocks mirroring of active sessions. For more information, see [session-management Parameters](https://docs.aws.amazon.com/dcv/latest/adminguide/config-param-ref.html#session_management).

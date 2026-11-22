@@ -1,7 +1,6 @@
 
 
 # Creating Default Application and Windows Settings for Your WorkSpaces Applications Users
-<a name="creating-default-app-Windows-settings"></a>
 
 Application customizations and Windows settings that are saved to the Windows user profile folder or the user registry hive can be set as defaults. When you save the default settings by using the **Template User** in Image Assistant, WorkSpaces Applications replaces the Windows default user profile with the profile that you configure. The Windows default user profile is then used to create the initial settings for users in the fleet instance. If the application or Windows settings that you configure don't work in the fleet, confirm that they are saved in the Windows user profile. For more information, see Step 3: Create Default Application and Windows Settings in [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md).
 

@@ -1,7 +1,6 @@
 
 
 # Internet Access
-<a name="internet-access"></a>
 
 If your fleets, app block builders, and image builders require internet access, you can enable internet access in several ways. When you choose a method for enabling internet access, consider the number of users your deployment must support and your deployment goals. For example:
 + If your deployment must support more than 100 concurrent users, [configure a VPC with private subnets and a NAT gateway](managing-network-internet-NAT-gateway.md).

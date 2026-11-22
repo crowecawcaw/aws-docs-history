@@ -1,7 +1,6 @@
 
 
 # Adding Tags during Resource Creation in the Amazon WorkSpaces Applications Console
-<a name="basic-tagging-resource-creation-console"></a>
 
 When you create a resource in the WorkSpaces Applications console, you can add one or more tags to manage the resource. For more information, see the following topics:
 + Image builders — [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md), step 4

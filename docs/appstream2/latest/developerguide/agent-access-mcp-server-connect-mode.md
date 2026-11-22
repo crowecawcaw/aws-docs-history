@@ -1,7 +1,6 @@
 
 
 # Connection modes
-<a name="agent-access-mcp-server-connect-mode"></a>
 
 You can control how your agent waits for the desktop session to become available by setting the `x-amzn-agentaccess-connect-mode` header on your Model Context Protocol (MCP) requests.
 
@@ -16,7 +15,7 @@ Use POLLING mode when you want your agent to perform other work while waiting fo
 
 The following example shows how to use POLLING mode:
 
-```
+```python
 # Pass the header when creating the MCP connection
 headers = {
     "x-amzn-agentaccess-streaming-session-url": streaming_url,  # non-domain-joined fleets

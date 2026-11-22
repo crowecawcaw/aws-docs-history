@@ -1,7 +1,6 @@
 
 
 # Active Directory Domain Environment
-<a name="active-directory-prerequisites-domain-environment"></a>
 
 Your active directory domain environment must meet the following requirements.
 + You must have a Microsoft Active Directory domain to which to join your streaming instances. If you don't have an Active Directory domain or you want to use your on-premises Active Directory environment, see [Active Directory Domain Services on AWS Partner Solution Deployment Guide](https://aws-solutions-library-samples.github.io/cfn-ps-microsoft-activedirectory/).

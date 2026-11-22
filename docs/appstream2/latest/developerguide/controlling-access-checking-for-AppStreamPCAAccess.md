@@ -1,7 +1,6 @@
 
 
 # Checking for the AmazonAppStreamPCAAccess Service Role and Policies
-<a name="controlling-access-checking-for-AppStreamPCAAccess"></a>
 
 Complete the steps in this section to check whether the **AmazonAppStreamPCAAccess** service role is present and has the correct policies attached. If this role is not in your account and must be created, you or an administrator with the required permissions must perform the steps to get started with WorkSpaces Applications in your Amazon Web Services account.
 
@@ -33,7 +32,7 @@ The **AmazonAppStreamPCAAccess** trust relationship policy must include prod.euc
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

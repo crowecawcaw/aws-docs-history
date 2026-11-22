@@ -1,7 +1,6 @@
 
 
 # Enable host-to-client URL redirection
-<a name="url-redirection-enable"></a>
 
 Complete the following steps to enable host-to-client URL redirection on a new or existing stack.
 

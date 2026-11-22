@@ -1,7 +1,6 @@
 
 
 # Use an Interface Endpoint to Access WorkSpaces Applications API Operations and CLI Commands
-<a name="how-to-access-api-cli-through-interface-vpc-endpoint"></a>
 
 After the status of the interface VPC endpoint that you create changes to **Available**, you can use the endpoint to access WorkSpaces Applications API operations and CLI commands. To do so, specify the `endpoint-url` parameter with the DNS name of the interface endpoint when you use these operations and commands. The DNS name is publicly resolvable, but it only successfully routes traffic in your VPC. 
 

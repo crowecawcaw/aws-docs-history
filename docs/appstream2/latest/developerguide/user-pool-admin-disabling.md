@@ -1,7 +1,6 @@
 
 
 # Disabling Users in Amazon WorkSpaces Applications
-<a name="user-pool-admin-disabling"></a>
 
 You can disable one or more users in the user pool, one at a time. After they are disabled, users can no longer log in to WorkSpaces Applications until they are re-enabled. This action does not delete users. If users are connected when you disable them, their sessions remain active until the session cookie expires (about one hour). Stack assignments for the users are retained. If the users are re-enabled, their stack assignments become active again.
 

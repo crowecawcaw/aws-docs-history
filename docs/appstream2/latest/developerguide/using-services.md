@@ -1,7 +1,6 @@
 
 
 # Using AWS services
-<a name="using-services"></a>
 
 ## AWS Identity and Access Management
 <a name="aws-identity-and-access-management"></a>

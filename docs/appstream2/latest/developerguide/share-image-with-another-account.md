@@ -1,7 +1,6 @@
 
 
 # Share an Image That You Own With Another AWS Account in Amazon WorkSpaces Applications
-<a name="share-image-with-another-account"></a>
 
 WorkSpaces Applications images are a regional resource, so you can share an image that you own with other AWS accounts within the same AWS Region. Doing so can be helpful in several different scenarios. For example, if you separate your development and production resources by using different AWS accounts, you can create an image by using your development account. Then you can share the image with your production account. If your organization is an independent software vendor (ISV), you can share optimized images with your customers. Optimized images that have the required applications already installed and configured let your customers get started with your applications quickly, so that they won't need to install and configure those applications themselves.
 

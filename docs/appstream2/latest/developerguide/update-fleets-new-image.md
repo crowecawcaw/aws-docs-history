@@ -1,7 +1,6 @@
 
 
 # Update an Amazon WorkSpaces Applications Fleet
-<a name="update-fleets-new-image"></a>
 
 You can make updates to an existing WorkSpaces Applications fleet. 
 

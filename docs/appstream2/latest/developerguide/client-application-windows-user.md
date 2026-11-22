@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Client Application for Windows
-<a name="client-application-windows-user"></a>
 
 The following information helps you use the WorkSpaces Applications client for Windows to connect to WorkSpaces Applications and stream applications.
 

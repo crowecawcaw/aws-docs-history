@@ -1,7 +1,6 @@
 
 
 # Administer Your Home Folders
-<a name="home-folders-admin"></a>
 
 Review the following topics to learn how to administer your home folders.
 

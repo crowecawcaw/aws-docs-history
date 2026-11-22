@@ -1,7 +1,6 @@
 
 
 # General Troubleshooting
-<a name="troubleshooting-general"></a>
 
 The following are general issues that might occur when you use Amazon WorkSpaces Applications.
 

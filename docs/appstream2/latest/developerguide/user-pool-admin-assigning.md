@@ -1,7 +1,6 @@
 
 
 # Assigning Stacks to Users in Amazon WorkSpaces Applications
-<a name="user-pool-admin-assigning"></a>
 
 You can assign one or more stacks to one or more users in the user pool. After they are assigned to at least one stack, users can log in to WorkSpaces Applications and launch applications. If users are assigned to more than one stack, they are presented with a list of stacks as catalogs to choose from before launching applications. 
 

@@ -1,7 +1,6 @@
 
 
 # Sessions Report Fields
-<a name="usage-reports-fields-sessions-reports"></a>
 
 The following table describes the fields included in WorkSpaces Applications sessions reports.
 

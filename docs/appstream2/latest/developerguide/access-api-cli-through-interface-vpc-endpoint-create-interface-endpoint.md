@@ -1,7 +1,6 @@
 
 
 # Create an Interface Endpoint to Access WorkSpaces Applications API Operations and CLI Commands
-<a name="access-api-cli-through-interface-vpc-endpoint-create-interface-endpoint"></a>
 
 Perform the following steps to create an interface endpoint.
 

@@ -1,7 +1,6 @@
 
 
 # Create and Specify Session Scripts
-<a name="create-specify-session-scripts"></a>
 
 You can configure and specify session scripts for Always-on, On-demand, and Elastic fleets.
 

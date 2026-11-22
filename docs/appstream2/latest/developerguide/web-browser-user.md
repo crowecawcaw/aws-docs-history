@@ -1,7 +1,6 @@
 
 
 # Web Browser Access
-<a name="web-browser-user"></a>
 
 The following information helps you use a web browser to connect to WorkSpaces Applications and stream applications.
 

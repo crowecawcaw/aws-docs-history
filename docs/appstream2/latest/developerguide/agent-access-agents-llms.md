@@ -1,7 +1,6 @@
 
 
 # Supported agents, frameworks, and LLMs
-<a name="agent-access-agents-llms"></a>
 
 You choose which agent to use with agent access. You can run a coding agent on your local computer, or build your own agent that runs in the cloud. In both cases, the agent connects to the managed Model Context Protocol (MCP) server and uses it to operate the desktop.
 

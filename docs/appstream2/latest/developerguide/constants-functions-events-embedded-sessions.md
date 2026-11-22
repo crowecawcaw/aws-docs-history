@@ -1,7 +1,6 @@
 
 
 # Constants, Functions, and Events for Embedded Amazon WorkSpaces Applications Streaming Sessions
-<a name="constants-functions-events-embedded-sessions"></a>
 
 The following topics provide reference information for constants, functions, and events that you can use to configure embedded WorkSpaces Applications streaming sessions.
 

@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Client Application for macOS
-<a name="client-application-mac-user"></a>
 
 The following information helps you use the WorkSpaces Applications client for macOS to connect to WorkSpaces Applications and stream applications.
 

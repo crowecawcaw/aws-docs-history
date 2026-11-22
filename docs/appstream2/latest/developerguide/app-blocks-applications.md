@@ -1,7 +1,6 @@
 
 
 # Applications Manager
-<a name="app-blocks-applications"></a>
 
 When using an Elastic fleet, you can create app blocks and applications. *App blocks* represent a virtual hard disk (VHD) that is stored within an Amazon S3 bucket within your account that contains the application files and binaries necessary to launch the applications that your users will use. *Applications* contain the details necessary to launch your application after the VHD has been mounted. The following sections describe how to create and manage these resources.
 

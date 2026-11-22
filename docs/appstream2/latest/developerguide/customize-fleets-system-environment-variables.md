@@ -1,7 +1,6 @@
 
 
 # Change System Environment Variables
-<a name="customize-fleets-system-environment-variables"></a>
 
 Follow these steps to change system environment variables across your fleet instances. 
 

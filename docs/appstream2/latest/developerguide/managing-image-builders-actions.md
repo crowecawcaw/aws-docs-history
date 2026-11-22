@@ -1,7 +1,6 @@
 
 
 # Image Builder Actions
-<a name="managing-image-builders-actions"></a>
 
 You can perform the following actions on an image builder, depending on the current state (status) of the image builder instance.
 

@@ -1,7 +1,6 @@
 
 
 # Group Policy Settings
-<a name="active-directory-prerequisites-group-policy-settings"></a>
 
 Verify your configuration for the following Group Policy settings. If required, update the settings as described in this section so that they don't block WorkSpaces Applications from authenticating and logging in your domain users. Otherwise, when your users try to log in to WorkSpaces Applications the login may not succeed. Instead, a message displays, notifying users that "An unknown error occurred."
 + **Computer Configuration > Administrative Templates > Windows Components > Windows Logon Options > Disable or Enable software Secure Attention Sequence** — Set this to **Enabled** for **Services**.

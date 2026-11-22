@@ -1,7 +1,6 @@
 
 
 # Disconnect and End Session
-<a name="disconnect-end-mac"></a>
 
 To disconnect the streaming session, choose one of the following options:
 + On the WorkSpaces Applications toolbar, choose **Disconnect**.

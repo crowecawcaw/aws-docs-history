@@ -1,7 +1,6 @@
 
 
 # Encryption in Transit
-<a name="encryption-transit"></a>
 
 The following table provides information about how data is encrypted in transit. Where applicable, other data protection methods for WorkSpaces Applications are also listed.
 

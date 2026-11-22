@@ -1,7 +1,6 @@
 
 
 # Delete a Private Image in Amazon WorkSpaces Applications
-<a name="delete-private-image"></a>
 
 You can delete your private images when you no longer need them. You can't delete an image that is used by fleets or shared with other AWS accounts. To delete an image that is used by fleets or shared, you must first remove the image from any fleets and remove all image sharing permissions. After you delete an image, you can't recover it.
 

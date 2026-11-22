@@ -1,7 +1,6 @@
 
 
 # User Authentication
-<a name="authentication-authorization"></a>
 
 The following topics provide information about Amazon WorkSpaces Applications user authentication and authorization.
 

@@ -1,7 +1,6 @@
 
 
 # Step 3: Download the Embedded Amazon WorkSpaces Applications Files
-<a name="download-embed-files"></a>
 
 To host embedded WorkSpaces Applications streaming sessions, you must download and configure the provided WorkSpaces Applications API JavaScript file.
 

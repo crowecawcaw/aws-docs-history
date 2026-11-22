@@ -1,7 +1,6 @@
 
 
 # Associate an App Block in Amazon WorkSpaces Applications
-<a name="appstream-app-blocks-associate"></a>
 
 In order to create, test, or activate your app block with WorkSpaces Applications packaging, you need to associate it with an app block builder. One app block builder can only be associated with only one app block, and vice versa.
 

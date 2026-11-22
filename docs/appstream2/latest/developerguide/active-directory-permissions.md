@@ -1,7 +1,6 @@
 
 
 # Granting Permissions to Create and Manage Active Directory Computer Objects
-<a name="active-directory-permissions"></a>
 
 To allow WorkSpaces Applications to perform Active Directory computer object operations, you need an account with sufficient permissions. As a best practice, use an account that has only the minimum privileges necessary. The minimum Active Directory organizational unit (OU) permissions are as follows:
 + Create Computer Object

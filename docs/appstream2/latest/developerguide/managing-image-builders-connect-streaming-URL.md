@@ -1,7 +1,6 @@
 
 
 # Streaming URL (WorkSpaces Applications Client or Web Connection)
-<a name="managing-image-builders-connect-streaming-URL"></a>
 
 You can create a streaming URL to connect to an image builder through a web browser or the WorkSpaces Applications client. Unlike a streaming URL that you create to enable user access to a fleet instance, which is valid for a maximum of seven days, by default, a streaming URL that you create to access an image builder expires after one hour. To set a different expiration time, you must generate the streaming URL by using the [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html) API action.
 

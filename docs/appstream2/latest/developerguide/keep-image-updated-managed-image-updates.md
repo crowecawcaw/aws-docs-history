@@ -1,7 +1,6 @@
 
 
 # Update an Image by Using Managed WorkSpaces Applications Image Updates
-<a name="keep-image-updated-managed-image-updates"></a>
 
 WorkSpaces Applications provides an automated way to update your image with the latest operating system updates, license included application updates, driver updates, and WorkSpaces Applications agent software. With managed WorkSpaces Applications image updates, you select the image that you want to update. WorkSpaces Applications creates an image builder in the same AWS account and Region to install the updates and create the new image. After the new image is created, you can test it on a pre-production fleet before updating your production fleets or sharing the image with other AWS accounts. 
 

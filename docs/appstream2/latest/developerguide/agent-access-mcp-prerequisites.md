@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="agent-access-mcp-prerequisites"></a>
 
 This topic covers what you need in place before an agent can connect: the AWS account and Amazon WorkSpaces Applications fleet that host the desktop session, and the permissions and software your agent uses to reach it. Setting these up first lets your agent authenticate and operate the desktop without interruption.
 
@@ -39,7 +38,7 @@ To use agent access on an image builder, you need the following:
 
   To check an image, run the following command. In the response, `AppstreamAgentVersion` shows the agent version and `PublicBaseImageReleasedDate` shows when the base image was released.
 
-  ```
+  ```bash
   aws appstream describe-images --names {{your-image-name}}
   ```
 
@@ -51,7 +50,7 @@ To use agent access on an image builder, you need the following:
 To build and connect your agent, you need the following:
 + AWS credentials (environment variables, AWS profile, EC2 instance role, or Lambda execution role) with the following IAM permissions. The agent uses these credentials directly to sign requests to the MCP server:
 
-  ```
+  ```json
   {
       "Sid": "MCP",
       "Effect": "Allow",
@@ -111,7 +110,7 @@ We recommend that you restrict the agent to the least-privileged built-in user t
 
 The following example policy allows an agent to use one image builder and to log in only as `TEST_USER`. The second statement lists the tools that the agent can use on that image builder. Add the other actions that your agent needs.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

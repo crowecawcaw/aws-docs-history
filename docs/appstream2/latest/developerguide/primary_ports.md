@@ -1,7 +1,6 @@
 
 
 # Customer Network Interface Ports in Amazon WorkSpaces Applications
-<a name="primary_ports"></a>
 
 Follow the guidance below for customer network interface ports.
 + For internet connectivity, the following ports must be open to all destinations. If you are using a modified or custom security group, you need to add the required rules manually. For more information, see [Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules) in the *Amazon VPC User Guide*. 

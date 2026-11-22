@@ -1,7 +1,6 @@
 
 
 # What Is Amazon WorkSpaces Applications?
-<a name="what-is-appstream"></a>
 
 Amazon WorkSpaces Applications is a fully managed application streaming service that provides users with instant access to their desktop applications from anywhere. WorkSpaces Applications manages the AWS resources required to host and run your applications, scales automatically, and provides access to your users on demand. WorkSpaces Applications provides users access to applications they need on the device of their choice, with a responsive, fluid user experience that is indistinguishable from natively installed applications. 
 

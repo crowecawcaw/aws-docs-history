@@ -1,7 +1,6 @@
 
 
 # Configure a VPC with Private Subnets and a NAT Gateway
-<a name="managing-network-internet-NAT-gateway"></a>
 
 If you plan to provide your streaming instances (fleet instances, app block builders, and image builders) with access to the internet, we recommend that you configure a VPC with two private subnets for your streaming instances and a NAT gateway in a public subnet. You can create and configure a new VPC to use with a NAT gateway, or add a NAT gateway to an existing VPC. For additional VPC configuration recommendations, see [VPC Setup Recommendations](vpc-setup-recommendations.md).
 

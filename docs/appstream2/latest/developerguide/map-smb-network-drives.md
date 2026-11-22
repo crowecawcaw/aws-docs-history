@@ -1,7 +1,6 @@
 
 
 # Map Server Message Block (SMB) Network Drives
-<a name="map-smb-network-drives"></a>
 
 You can use any machine that is under the targeted network of the SMBs. If you prefer to configure the setup through session scripts, you need to first create a script that gets invoked when user is logged on, as session script is configured per image.
 

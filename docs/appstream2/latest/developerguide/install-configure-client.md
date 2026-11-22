@@ -1,7 +1,6 @@
 
 
 # Install and Configure the WorkSpaces Applications Client
-<a name="install-configure-client"></a>
 
 You can have your users install the WorkSpaces Applications client themselves, or you can install the WorkSpaces Applications client for them by running PowerShell scripts remotely.
 

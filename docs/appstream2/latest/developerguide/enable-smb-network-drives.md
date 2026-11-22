@@ -1,7 +1,6 @@
 
 
 # Enable and Administer Custom Shared Folders (Server Message Block (SMB) Network Drives) for Your WorkSpaces Applications Users
-<a name="enable-smb-network-drives"></a>
 
 You can enable one or more options for your organization. When you enable and map the Server Message Block (SMB) network drives, multiple users can access the same data from Windows WorkSpaces Applications sessions. Any changes that users make to SMB network drives during those sessions are automatically backed up and synchronized.
 

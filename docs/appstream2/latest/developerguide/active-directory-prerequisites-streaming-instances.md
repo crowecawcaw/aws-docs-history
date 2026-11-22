@@ -1,7 +1,6 @@
 
 
 # Domain-Joined WorkSpaces Applications Streaming Instances
-<a name="active-directory-prerequisites-streaming-instances"></a>
 
 SAML 2.0-based user federation is required for application streaming from domain-joined Always-On and On-Demand fleets. You cannot launch sessions to domain-joined instances by using [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html) or the WorkSpaces Applications user pool.
 

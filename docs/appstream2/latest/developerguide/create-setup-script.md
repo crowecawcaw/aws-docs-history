@@ -1,7 +1,6 @@
 
 
 # Create the Setup Script for the VHD in Amazon WorkSpaces Applications
-<a name="create-setup-script"></a>
 
 WorkSpaces Applications uses a setup script that you provide to mount the VHD before the application launches. You can also use the setup script to complete other tasks required to make your application work. For example, you can configure registry keys, register DLLs, manage pre-requisites, or modify the user profile from the setup script. WorkSpaces Applications provides script examples that you can use to mount your VHD. You will need to modify these scripts for your VHD and application needs.
 

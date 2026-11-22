@@ -1,7 +1,6 @@
 
 
 # View the list of license included applications installed on your image
-<a name="view-list-image"></a>
 
 **View the list of license included applications installed on your image**
 

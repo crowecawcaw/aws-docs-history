@@ -1,7 +1,6 @@
 
 
 # Additional Resources for Auto Scaling Amazon WorkSpaces Applications
-<a name="autoscaling-additional-resources"></a>
 
 For step-by-step guidance for working with WorkSpaces Applications Fleet Auto Scaling, see [Scaling Your Desktop Application Streams with Amazon AppStream 2.0](https://aws.amazon.com/blogs/compute/scaling-your-desktop-application-streams-with-amazon-appstream-2-0/) in the *AWS Compute Blog*.
 

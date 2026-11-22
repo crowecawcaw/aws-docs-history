@@ -1,7 +1,6 @@
 
 
 # Embed Amazon WorkSpaces Applications Streaming Sessions
-<a name="embed-streaming-sessions"></a>
 
 You can create a dynamic, interactive, and customized experience for your users by embedding an WorkSpaces Applications streaming session within your website. Embedded WorkSpaces Applications streaming sessions let your users interact with 3D models, maps, and datasets directly from your website. For example, users can view training instructions or educational materials alongside their WorkSpaces Applications streaming session. 
 

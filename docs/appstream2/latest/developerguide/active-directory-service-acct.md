@@ -1,7 +1,6 @@
 
 
 # Updating the Service Account Used for Joining the Domain
-<a name="active-directory-service-acct"></a>
 
 To update the service account that WorkSpaces Applications uses for joining the domain, we recommend using two separate service accounts for joining image builders and fleets to your Active Directory domain. Using two separate service accounts ensures that there is no disruption in service when a service account needs to be updated (for example, when a password expires). 
 

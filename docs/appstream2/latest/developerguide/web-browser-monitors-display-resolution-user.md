@@ -1,7 +1,6 @@
 
 
 # Monitors and Display Resolution
-<a name="web-browser-monitors-display-resolution-user"></a>
 
 WorkSpaces Applications supports the use of multiple monitors during streaming sessions, including monitors that have different resolutions. To help ensure an optimal streaming experience, we recommend that you set the display scale for your monitors to 100 percent if you use multiple monitors.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting WorkSpaces Applications User Issues
-<a name="troubleshooting-user-issues"></a>
 
 ## Enable advanced logging
 <a name="troubleshooting-advanced-logging"></a>

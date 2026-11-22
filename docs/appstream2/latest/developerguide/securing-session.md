@@ -1,7 +1,6 @@
 
 
 # Securing an WorkSpaces Applications Session
-<a name="securing-session"></a>
 
 ## Limiting application and operating system controls
 <a name="limiting-application-and-operating-system-controls"></a>

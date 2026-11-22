@@ -1,7 +1,6 @@
 
 
 # Configure a VPC for WorkSpaces Applications
-<a name="appstream-vpc"></a>
 
 When you set up WorkSpaces Applications, you must specify the virtual private cloud (VPC) and the subnets in which to launch your fleet instances and image builders. Fleets require at least two subnets in different Availability Zones; image builders require at least one subnet. A VPC is a virtual network in your own logically isolated area within the Amazon Web Services Cloud. A subnet is a range of IP addresses in your VPC.
 

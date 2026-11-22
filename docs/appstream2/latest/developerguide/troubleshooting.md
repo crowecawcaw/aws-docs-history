@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 If you encounter difficulties when working with Amazon WorkSpaces Applications, consult the following troubleshooting resources.
 

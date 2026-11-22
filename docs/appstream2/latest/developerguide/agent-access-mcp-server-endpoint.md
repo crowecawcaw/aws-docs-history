@@ -1,7 +1,6 @@
 
 
 # Connecting to the MCP server
-<a name="agent-access-mcp-server-endpoint"></a>
 
 This topic explains how to connect an agent to the Amazon WorkSpaces Applications Model Context Protocol (MCP) server. Connecting involves negotiating an MCP protocol version with the server and authorizing each request. This topic covers the endpoint the agent calls, how it authorizes its requests, and how it identifies a streaming session.
 
@@ -43,7 +42,7 @@ You can authorize requests in one of two ways: SigV4 signing or OAuth 2.1 author
 
 To use Signature Version 4 (SigV4), sign each request using IAM credentials with the service name `agentaccess-mcp`. The following Python example shows the general connection pattern using `mcp-proxy-for-aws`:
 
-```
+```python
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 
 async with aws_iam_streamablehttp_client(
@@ -127,7 +126,7 @@ To connect with the stack and user ID, pass the following headers on every reque
 **Note**  
 The `x-amzn-agentaccess-workspaces-applications-user-id` header is optional. If you omit it, the MCP server derives the user identity from the authenticated session. It uses the AWS `SourceIdentity` when one is present, and the caller's IAM principal otherwise. `SourceIdentity` preserves a user's original corporate identity when they assume an IAM role. This holds even when roles are chained through an external identity provider (IdP).
 
-```
+```python
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 
 # Connect to the MCP server with the stack and user ID
@@ -145,7 +144,7 @@ async with aws_iam_streamablehttp_client(
 
 To connect with a streaming URL instead, generate one using the `CreateStreamingURL` API and pass it as the `x-amzn-agentaccess-streaming-session-url` header on every request. No agent-specific parameters are required. The stack's agent access configuration determines the agent behavior.
 
-```
+```python
 import boto3
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 
@@ -182,7 +181,7 @@ Domain join is supported on Windows only.
 
 Because domain-joined streaming instances require access through SAML, your MCP client must provide a signed SAML assertion instead of a streaming URL. Encoded SAML assertions exceed HTTP header size limits. To stay within those limits, use the `metadata` field in `mcp-proxy-for-aws`:
 
-```
+```python
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 
 # saml_response: your signed, base64-encoded SAML assertion
@@ -216,7 +215,7 @@ To connect with the image builder name, pass the following headers on every requ
 + `x-amzn-agentaccess-workspaces-applications-image-builder-name`. The image builder name.
 + `x-amzn-agentaccess-local-user`. The built-in user that the agent logs in as: `ADMINISTRATOR`, `TEMPLATE_USER`, or `TEST_USER`. This header is required. For more information about these users, see [Built-in users on image builders](getting-started-agent-access.md#getting-started-agent-access-built-in-users). To switch users after the agent connects, see [User tools](agent-access-mcp-server-tools.md#agent-access-mcp-tools-user).
 
-```
+```python
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 # Connect to the MCP server with the image builder name and built-in user
 async with aws_iam_streamablehttp_client(
@@ -234,7 +233,7 @@ async with aws_iam_streamablehttp_client(
 
 To connect with a streaming URL instead, generate one using the `CreateImageBuilderStreamingURL` API. Pass it as the `x-amzn-agentaccess-streaming-session-url` header, together with the `x-amzn-agentaccess-local-user` header, on every request.
 
-```
+```python
 import boto3
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
 # Generate streaming URL

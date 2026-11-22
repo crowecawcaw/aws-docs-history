@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Windows Client Release Notes
-<a name="client-release-versions"></a>
 
 The WorkSpaces Applications client is a native application that is designed for users who require additional functionality during their WorkSpaces Applications streaming sessions. The following table describes the latest updates that are available in released versions of the WorkSpaces Applications client.
 
@@ -10,6 +9,7 @@ For more information about the client, see [Provide Access Through the WorkSpace
 
 | Client version | Release date | Changes | 
 | --- | --- | --- | 
+| 1.6.0.282 | 11-19-2026 |  +  Updated the client to run on .NET 10. <br />+  Updated the DCV SDK. <br />+  Added support for the British Columbia, Alberta, and Manitoba Windows time zones in time zone redirection. <br />+  Added support for ftp, sftp, and mailto links in host-to-client URL redirection. <br />+  Added support for WebAuthn using YubiKey and FIDO2 methods. <br />+  Updated the Chromium Embedded Framework (CEF) to version 152.0.100. <br />+  Updated the Amazon WorkSpaces Applications USB driver. The update might require restarting your computer. <br />+  Other bug fixes and enhancements.   | 
 | 1.5.2.1096 | 11-11-2026 |  +  Fixed an issue that could prevent connecting to streaming URLs on custom domains.   | 
 | 1.5.0.1071 | 10-15-2026 |  +  Updated the client to use a Windows Installer (MSI) package, enabling per-device installation for all users. The client is no longer distributed as an EXE installer; if you deploy the client using automation, update your scripts to use the MSI package. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.4.0 | 09-25-2026 |  +  Re-enabled support for honoring printer preferences when printing from a session, which had been temporarily disabled in version 1.3.1992. <br />+  Made improvements to reduce client startup time. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 

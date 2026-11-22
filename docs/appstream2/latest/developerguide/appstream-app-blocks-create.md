@@ -1,7 +1,6 @@
 
 
 # Create an WorkSpaces Applications App Block
-<a name="appstream-app-blocks-create"></a>
 
 Follow these steps to create an app block with the WorkSpaces Applications packaging type.
 

@@ -1,7 +1,6 @@
 
 
 # When to Drain an Instance
-<a name="when-to-drain"></a>
 
 Consider draining a fleet instance when:
 + A new image version has been published and you want to roll it out without a full fleet restart.

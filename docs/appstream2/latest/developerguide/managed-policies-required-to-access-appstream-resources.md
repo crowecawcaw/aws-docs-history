@@ -1,7 +1,6 @@
 
 
 # AWS Managed Policies Required to Access WorkSpaces Applications Resources
-<a name="managed-policies-required-to-access-appstream-resources"></a>
 
 To provide full administrative or read-only access to WorkSpaces Applications, you must attach one of the following AWS managed policies to the IAM users or groups that require those permissions. An *AWS managed policy* is a standalone policy that is created and administered by AWS. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 

@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Fleet Types
-<a name="fleet-type"></a>
 
 The fleet type determines when your instances run and how you pay for them. You can specify a fleet type when you create a fleet. You cannot change the fleet type after you create the fleet.
 

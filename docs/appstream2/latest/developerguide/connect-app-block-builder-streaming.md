@@ -1,7 +1,6 @@
 
 
 # Streaming URL (Amazon WorkSpaces Applications Client or Browser Connection)
-<a name="connect-app-block-builder-streaming"></a>
 
 You can create a streaming URL to connect to an app block builder through a browser or the WorkSpaces Applications client. Unlike a streaming URL that you create to enable user access to a fleet instance, which is valid for a maximum of seven days, by default, a streaming URL that you create to access an image builder expires after one hour. To set a different expiration time, you must generate the streaming URL by using the [CreateAppBlockBuilderStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateAppBlockBuilderStreamingURL.html) API action.
 

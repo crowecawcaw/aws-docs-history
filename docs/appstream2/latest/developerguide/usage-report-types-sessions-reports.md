@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Sessions Reports
-<a name="usage-report-types-sessions-reports"></a>
 
 For each day that users launch at least one streaming session in your Amazon Web Services account, WorkSpaces Applications exports a sessions report to your Amazon S3 bucket. The report, named **daily-session-report-[YYYY]-[MM]-[DD].csv**, is stored in a nested folder structure in your Amazon S3 account, using the following folder path:
 

@@ -1,7 +1,6 @@
 
 
 # System Requirements and Considerations
-<a name="client-system-requirements"></a>
 
 The WorkSpaces Applications client requires the following:
 + Follow the principle of least privilege when launching the WorkSpaces Applications client. The client should only run with the level of privilege required to complete a task. 

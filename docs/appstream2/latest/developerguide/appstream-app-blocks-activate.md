@@ -1,7 +1,6 @@
 
 
 # Activate an App Block
-<a name="appstream-app-blocks-activate"></a>
 
 If an app block with WorkSpaces Applications packaging was created, but the application package (VHD) was not attached to it, then the app block will be in an inactive state, and it can't be used to associate applications with Elastic fleets. To activate an app block, an application package (VHD) must be associated with the app block.
 

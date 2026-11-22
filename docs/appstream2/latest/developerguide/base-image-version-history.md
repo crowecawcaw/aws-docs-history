@@ -1,7 +1,6 @@
 
 
 # WorkSpaces Applications Base Image and Managed Image Update Release Notes
-<a name="base-image-version-history"></a>
 
 Amazon WorkSpaces Applications provides base images to help you create images that include your own applications. Base images are Amazon Machine Images (AMIs) that contain software configurations specific to the operating system. For WorkSpaces Applications, each base image includes the WorkSpaces Applications agent and the latest version of one of the following operating systems:
 

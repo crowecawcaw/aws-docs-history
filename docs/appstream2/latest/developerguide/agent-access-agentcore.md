@@ -1,7 +1,6 @@
 
 
 # Use Amazon Bedrock AgentCore
-<a name="agent-access-agentcore"></a>
 
 You can build and run agents with Amazon Bedrock AgentCore that operate desktop and mainframe applications through WorkSpaces Applications agent access. AgentCore provides a managed environment to create, test, and run your agent, and agent access gives each agent a secure Windows or Linux desktop with built-in monitoring, auditing, and governance. There are no extra components to build: an AgentCore agent connects to the managed MCP server the same way any other agent does.
 

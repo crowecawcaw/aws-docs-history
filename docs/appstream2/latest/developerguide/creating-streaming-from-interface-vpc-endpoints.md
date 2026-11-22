@@ -1,7 +1,6 @@
 
 
 # Tutorial: Creating and Streaming from Interface VPC Endpoints
-<a name="creating-streaming-from-interface-vpc-endpoints"></a>
 
 You can use an interface VPC endpoint in your Amazon Web Services account to restrict all network traffic between your Amazon VPC and WorkSpaces Applications to the Amazon network. After you create this endpoint, you configure your WorkSpaces Applications stack or image builder to use it. 
 

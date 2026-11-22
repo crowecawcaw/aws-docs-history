@@ -1,7 +1,6 @@
 
 
 # Local File Access
-<a name="client-application-windows-file-system-redirection"></a>
 
 WorkSpaces Applications file redirection lets you access files on your local computer from your WorkSpaces Applications streaming session. To use file redirection, open the WorkSpaces Applications client, connect to a streaming session, and choose the drives and folders that you want to share. After you share a local drive or folder, you can access all files in the shared drive or folder from your streaming session. You can stop sharing local drives and folders at any time.
 

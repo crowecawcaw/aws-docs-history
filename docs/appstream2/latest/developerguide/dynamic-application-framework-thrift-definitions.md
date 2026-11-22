@@ -1,7 +1,6 @@
 
 
 # Dynamic Application Framework Thrift Definitions and Named Pipe Name
-<a name="dynamic-application-framework-thrift-definitions"></a>
 
 Thrift enables you to use simple definition files provided by WorkSpaces Applications to compile RPC clients. The RPC clients let you communicate with the WorkSpaces Applications agent software running on a streaming instance. For information about how to compile the RPC client for your language, see the [Apache Thrift documentation](https://thrift.apache.org/docs/). After you compile the Thrift libraries for the language of your choice, build a Thrift client by using the Named Pipe transport. Use D56C0258-2173-48D5-B0E6-1EC85AC67893 as the pipe name.
 

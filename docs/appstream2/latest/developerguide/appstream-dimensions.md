@@ -1,7 +1,6 @@
 
 
 # Fleet Usage Metrics for Single-session Fleets
-<a name="appstream-dimensions"></a>
 
 The following are fleet usage metrics for single-session fleets.
 

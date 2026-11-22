@@ -1,7 +1,6 @@
 
 
 # Configuring Active Directory Sites and Services for WorkSpaces Applications
-<a name="active-directory-sites-services"></a>
 
 As with all multi-site Active Directory deployments, Windows authentication within WorkSpaces Applications is most reliable when Active Directory Sites and Services includes the WorkSpaces Applications fleet subnets. Assign those subnets to a site that includes a domain controller in the same AWS Region as WorkSpaces Applications to prevent logon and replication delays.
 

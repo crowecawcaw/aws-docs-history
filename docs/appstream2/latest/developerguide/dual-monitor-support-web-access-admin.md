@@ -1,7 +1,6 @@
 
 
 # Dual-Monitor Support
-<a name="dual-monitor-support-web-access-admin"></a>
 
 WorkSpaces Applications supports the use of multiple monitors during streaming sessions, including monitors that have different resolutions. To help ensure an optimal streaming experience, we recommend that users who have monitors with different resolutions set the display scale for their monitors to 100 percent. 
 

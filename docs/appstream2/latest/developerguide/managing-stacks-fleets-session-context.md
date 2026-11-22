@@ -1,7 +1,6 @@
 
 
 # Session Context in Amazon WorkSpaces Applications
-<a name="managing-stacks-fleets-session-context"></a>
 
 You can pass parameters to your streaming application by using either of the following methods:
 + Specify session context in the CreateStreamingURL WorkSpaces Applications API operation. For more information, see [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html).

@@ -1,7 +1,6 @@
 
 
 # Monitors
-<a name="client-application-windows-mac-display-resolution-user"></a>
 
 ## Monitors and Display Resolution
 <a name="monitors-display-resolution-mac"></a>

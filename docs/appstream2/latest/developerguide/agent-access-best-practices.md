@@ -1,7 +1,6 @@
 
 
 # Best practices for building and evaluating computer-use agents
-<a name="agent-access-best-practices"></a>
 
 A computer-use agent works in a loop: it looks at the screen, acts, and looks again. The following practices help you build agents that complete tasks reliably, in fewer steps, and at lower cost. They apply across workflows and model families. Results vary with your workflow, model, prompts, and environment, so measure each change on your own tasks.
 

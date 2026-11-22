@@ -1,7 +1,6 @@
 
 
 # Stop Sharing an Image That You Own in Amazon WorkSpaces Applications
-<a name="stop-sharing-image-with-all-accounts"></a>
 
 Follow these steps to stop sharing an image that you own with any other AWS account.
 

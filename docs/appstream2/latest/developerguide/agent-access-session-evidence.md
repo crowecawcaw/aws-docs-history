@@ -1,7 +1,6 @@
 
 
 # Session evidence
-<a name="agent-access-session-evidence"></a>
 
 *Session evidence* is the set of capabilities that you use to track what happened during an agent session. Session evidence gives you an audit-ready record of what the AI agent did, delivered to your own Amazon S3 bucket.
 
@@ -85,7 +84,7 @@ To turn on Replay Session, set the following fields in the `AgentAccessConfig` w
 
 The following example creates a stack with Replay Session turned on:
 
-```
+```bash
 aws appstream create-stack \
     --name {{your-stack-name}} \
     --agent-access-config '{

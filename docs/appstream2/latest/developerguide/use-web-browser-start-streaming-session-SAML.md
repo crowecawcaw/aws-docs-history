@@ -1,7 +1,6 @@
 
 
 # SAML 2.0
-<a name="use-web-browser-start-streaming-session-SAML"></a>
 
  Users enter the URL that you provide for them to access your internal organizational portal. After they enter their organizational credentials, they're redirected to WorkSpaces Applications.
 

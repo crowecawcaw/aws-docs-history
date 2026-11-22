@@ -1,7 +1,6 @@
 
 
 # Run Scripts Before Streaming Sessions Begin
-<a name="run-scripts-before-streaming-sessions-begin"></a>
 
 You can configure your scripts to run for a maximum of 60 seconds before your users' applications launch and their streaming sessions begin. Doing so enables you to customize the WorkSpaces Applications environment before users start streaming their applications. When the session scripts run, a loading spinner displays for your users. When your scripts complete successfully or the maximum waiting time elapses, your users' streaming session will begin. If your scripts don't complete successfully, an error message displays for your users. However, your users are not prevented from using their streaming session.
 

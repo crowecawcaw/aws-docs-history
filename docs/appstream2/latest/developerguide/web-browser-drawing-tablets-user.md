@@ -1,7 +1,6 @@
 
 
 # Drawing Tablets
-<a name="web-browser-drawing-tablets-user"></a>
 
 Drawing tablets, also known as pen tablets, are computer input devices that let you draw with a stylus (pen). With WorkSpaces Applications, you can connect a drawing tablet, such as a Wacom drawing tablet, to your local computer and use the tablet with your streaming applications. 
 

@@ -1,7 +1,6 @@
 
 
 # Native Application Mode
-<a name="feature-support-native-application-mode"></a>
 
 **Note**  
 Native application mode is not available when streaming from Linux instances, streaming in Desktop mode, or when using the WorkSpaces Applications macOS client application.

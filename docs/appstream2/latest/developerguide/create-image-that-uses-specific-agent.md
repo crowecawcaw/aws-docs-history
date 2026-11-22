@@ -1,7 +1,6 @@
 
 
 # Create an Image That Uses a Specific Version of the WorkSpaces Applications Agent
-<a name="create-image-that-uses-specific-agent"></a>
 
 You may want to control WorkSpaces Applications agent updates rather than always using the latest version so that you can test for compatibility first. To ensure that the version of the WorkSpaces Applications agent you use is compatible with your streaming applications, you can create an image that uses a specific version of the agent software. Then perform your qualification tests in a separate fleet before deploying to your production fleet. 
 

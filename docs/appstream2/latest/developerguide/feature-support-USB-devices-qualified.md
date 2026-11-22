@@ -1,7 +1,6 @@
 
 
 # USB Devices
-<a name="feature-support-USB-devices-qualified"></a>
 
 The following sections provide information about WorkSpaces Applications support for USB devices.
 
@@ -14,7 +13,7 @@ The following sections provide information about WorkSpaces Applications support
 
 USB redirection is required for most local USB devices to be used during WorkSpaces Applications streaming sessions. When USB redirection is required, you must [qualify the device](qualify-usb-devices.md) before your users can use it during their WorkSpaces Applications streaming sessions. After you qualify the device, users must [share the device with WorkSpaces Applications](client-application-windows-how-to-share-usb-devices-user.md). With USB redirection, during WorkSpaces Applications streaming sessions, users' devices are not accessible for use with local applications.
 
-In other cases, USB devices are already enabled for use with WorkSpaces Applications and no further configuration is required. For example, smart card redirection is already enabled by default when the WorkSpaces Applications client is installed. Because USB redirection isn't used when this feature is enabled, you don't need to qualify smart card readers, and users don't need to share these devices with WorkSpaces Applications to use them during streaming sessions.
+In other cases, USB devices don't require USB redirection. For example, smart card redirection works when users connect with the WorkSpaces Applications client and **Smart card redirection** is enabled on the stack. Because USB redirection isn't used when this feature is enabled, you don't need to qualify smart card readers, and users don't need to share these devices with WorkSpaces Applications to use them during streaming sessions.
 
 **Note**  
 USB redirection is currently not supported for Linux-based fleet instances, or when using the WorkSpaces Applications macOS client application.
@@ -22,7 +21,7 @@ USB redirection is currently not supported for Linux-based fleet instances, or w
 ## Smart Cards
 <a name="feature-support-USB-devices-qualified-smart-cards"></a>
 
-WorkSpaces Applications supports using a smart card for Windows sign in to Active Directory-joined streaming instances and in-session authentication for streaming applications. Because smart card redirection is enabled by default, users can use smart card readers that are connected to their local computer and their smart cards without USB redirection.
+WorkSpaces Applications supports using a smart card for Windows sign in to Active Directory-joined streaming instances and in-session authentication for streaming applications. When **Smart card redirection** is enabled on the stack, users can use smart card readers that are connected to their local computer and their smart cards without USB redirection.
 
 **Topics**
 + [Windows Sign In and In-Session Authentication](#feature-support-USB-devices-qualified-smart-cards-windows-signin-in-session-auth)
@@ -65,10 +64,10 @@ Alternatively, you can enable smart card sign in for Active Directory by using t
 ### Smart Card Redirection
 <a name="feature-support-USB-devices-qualified-smart-cards-support"></a>
 
-When the WorkSpaces Applications client is installed, smart card redirection is enabled by default. When this feature is enabled, users can use smart card readers that are connected to their local computer and their smart cards during WorkSpaces Applications streaming sessions without USB redirection. During WorkSpaces Applications streaming sessions, users' smart card readers and smart cards remain accessible for use with local applications. The WorkSpaces Applications client redirects the smart card API calls from users’ streaming applications to their local smart card. 
+Smart card redirection works when users connect with the WorkSpaces Applications client and **Smart card redirection** is enabled on the stack. When this feature is enabled, users can use smart card readers that are connected to their local computer and their smart cards during WorkSpaces Applications streaming sessions without USB redirection. During WorkSpaces Applications streaming sessions, users' smart card readers and smart cards remain accessible for use with local applications. The WorkSpaces Applications client redirects the smart card API calls from users' streaming applications to their local smart card. To enable **Smart card redirection** on a stack, see [Create a Stack in Amazon WorkSpaces Applications](set-up-stacks-fleets-install.md).
 
 **Note**  
-Smart card redirection is currently not supported for Linux-based fleet instances or multi-session fleet instances, or when using the WorkSpaces Applications macOS client application. 
+Smart card redirection is currently not supported for Linux-based fleet instances, or when using the WorkSpaces Applications macOS client application. 
 
 **Note**  
 If your smart card requires middleware software to operate, the middleware software must be installed on both the user’s device, and the WorkSpaces Applications streaming instance.
