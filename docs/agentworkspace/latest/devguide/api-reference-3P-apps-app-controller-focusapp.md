@@ -1,19 +1,18 @@
 
 
 # Focus an application in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-focusapp"></a>
 
 Brings the application into focus in the Connect Customer agent workspace for the given application instance ID.
 
  **Signature** 
 
-```
+```typescript
 focusApp(instanceId: string): Promise<AppFocusResult>
 ```
 
  **Usage** 
 
-```
+```typescript
 const applicationFocusResult: AppFocusResult = await appControllerClient.focusApp(appInstanceId);
 ```
 
@@ -38,6 +37,6 @@ The target instance must belong to the AppManager of the calling instance, or to
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

@@ -1,7 +1,6 @@
 
 
 # Using the SDK in a 3P app
-<a name="sdk-without-package-manager-3p-app"></a>
 
 This section explains how to use the prebuilt bundle in a third-party application that runs within the Connect Customer agent workspace.
 
@@ -15,7 +14,7 @@ The following prerequisites are required:
 ## HTML setup
 <a name="sdk-without-package-manager-3p-html"></a>
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,7 +37,7 @@ The following prerequisites are required:
 
 In your `app.js` file:
 
-```
+```javascript
 // Initialize the third-party app - this must be called first
 var initResult = AmazonConnectSDK.AmazonConnectApp.init({
   // Optional lifecycle callbacks

@@ -1,19 +1,18 @@
 
 
 # Set the language of a user in Connect Customer agent workspace
-<a name="3P-apps-user-requests-setlanguage"></a>
 
 Sets the language preference for the user that's currently logged in to the Connect Customer agent workspace. The promise resolves once the language change has been persisted, with the resulting language echoed back in the result.
 
  **Signature** 
 
-```
+```typescript
 setLanguage(language: Locale): Promise<SetLanguageResult>
 ```
 
  **Usage** 
 
-```
+```typescript
 const result: SetLanguageResult = await settingsClient.setLanguage("en_US");
 ```
 
@@ -33,6 +32,6 @@ const result: SetLanguageResult = await settingsClient.setLanguage("en_US");
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

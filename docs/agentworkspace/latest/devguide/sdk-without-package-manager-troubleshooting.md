@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="sdk-without-package-manager-troubleshooting"></a>
 
 This section describes common issues and resolutions when using the SDK without a package manager.
 

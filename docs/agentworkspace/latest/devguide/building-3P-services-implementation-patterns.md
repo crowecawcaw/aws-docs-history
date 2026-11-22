@@ -1,14 +1,13 @@
 
 
 # Service implementation patterns
-<a name="building-3P-services-implementation-patterns"></a>
 
 third-party services can implement various patterns to extend the agent workspace functionality. The following examples demonstrate some of our key Connect Customer SDK capabilities:
 
 ## Launching an application on startup
 <a name="building-3P-services-launching-app-on-startup"></a>
 
-```
+```typescript
 import {
   AmazonConnectService,
   ServiceContext,
@@ -50,7 +49,7 @@ const { provider } = AmazonConnectService.init({
 ## Contact event listening with application launching functionality
 <a name="building-3P-services-contact-event-listening"></a>
 
-```
+```typescript
 import {
   AmazonConnectService,
   ServiceContext,
@@ -131,7 +130,7 @@ const { provider } = AmazonConnectService.init({
 ## Authentication popup functionality
 <a name="building-3P-services-authentication-popup"></a>
 
-```
+```typescript
 import { AmazonConnectService } from "@amazon-connect/app";
 import { AppControllerClient } from "@amazon-connect/app-controller";
 import { AmazonConnectProvider } from "@amazon-connect/core";
@@ -273,7 +272,7 @@ export async function launchApp(targetAppName: string) {
 
 This is the HTML template for the authentication popup:
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>

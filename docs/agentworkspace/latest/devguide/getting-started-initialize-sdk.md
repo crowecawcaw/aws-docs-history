@@ -1,11 +1,10 @@
 
 
 # Initialize the Connect Customer SDK in your application for Connect Customer agent workspace
-<a name="getting-started-initialize-sdk"></a>
 
 Initializing the [Connect Customer SDK](https://github.com/amazon-connect/AmazonConnectSDK) in your app for the Connect Customer agent workspace requires calling `init` on the AmazonConnectApp module. This takes an `onCreate` and `onDestroy` callback, which will be invoked once the app has successfully initialized in the agent workspace and then when the agent workspace is going to destroy the iframe the app is running in. These are two of the lifecycle events that your app can integrate with. See [Application lifecycle events in Connect Customer agent workspace](integrating-with-agent-workspace-lifecycle-events.md) for details on the other app lifecycle events that your app can hook into.
 
-```
+```typescript
 import { AmazonConnectApp } from "@amazon-connect/app";
 
 const { provider } = AmazonConnectApp.init({
@@ -28,7 +27,7 @@ The `onCreate` handler is required. If you omit it, the agent workspace closes y
 
 By default, your application has 5000 milliseconds (5 seconds) after it calls `init` to connect to the agent workspace. To change this period, set `workspace.connectionTimeout` to a value in milliseconds, up to a maximum of 60000 (60 seconds). A larger value is reduced to 60000.
 
-```
+```typescript
 const { provider } = AmazonConnectApp.init({
   onCreate: async (event) => {
     console.log('App initialized: ', event.context.instanceId);

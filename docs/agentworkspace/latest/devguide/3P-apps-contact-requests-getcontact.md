@@ -1,19 +1,18 @@
 
 
 # Get detailed contact information in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-getcontact"></a>
 
 Retrieves detailed information for a specific contact by its ID.
 
  **Signature** 
 
-```
+```typescript
 getContact(contactId: string): Promise<ContactData>
 ```
 
  **Usage** 
 
-```
+```typescript
 const contactData = await contactClient.getContact("contact-123");
 console.log(`Contact type: ${contactData.type}`);
 console.log(`Queue: ${contactData.queue.name}`);
@@ -41,6 +40,6 @@ Requires an instance that is scoped to the contact that you pass in `contactId`,
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

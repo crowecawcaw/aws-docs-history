@@ -1,7 +1,6 @@
 
 
 # Engage the preview contact for the given contactId in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-engagepreviewcontact"></a>
 
 When an agent is previewing a preview contact, this API will actually initiate the outbound dial to the end customer, ending the preview experience.
 
@@ -37,6 +36,6 @@ Requires an instance that is scoped to the contact that you pass in `contactId`,
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

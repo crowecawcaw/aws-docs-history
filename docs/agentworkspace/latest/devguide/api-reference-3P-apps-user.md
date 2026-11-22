@@ -1,7 +1,6 @@
 
 
 # Connect Customer SDK User API
-<a name="api-reference-3P-apps-user"></a>
 
 The `@amazon-connect/user` package of the Connect Customer SDK provides two clients that your app in Connect Customer agent workspace can use to work with the current user:
 + `SettingsClient` reads and changes the user's settings. It provides the `getLanguage`, `setLanguage`, `onLanguageChanged`, `offLanguageChanged`, `setVisualMode`, `onVisualModeChange`, and `offVisualModeChange` operations.
@@ -9,7 +8,7 @@ The `@amazon-connect/user` package of the Connect Customer SDK provides two clie
 
 To create either client, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
-```
+```typescript
 import { AmazonConnectApp } from "@amazon-connect/app";
 import { SettingsClient, UserClient } from "@amazon-connect/user";
 
@@ -25,7 +24,7 @@ const userClient = new UserClient(provider);
 
 The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
 
-```
+```typescript
 type ConnectClientConfig =
   | AmazonConnectProvider
   | { context: ModuleContext; provider?: AmazonConnectProvider }

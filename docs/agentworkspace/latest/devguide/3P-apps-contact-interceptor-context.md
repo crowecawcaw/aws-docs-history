@@ -1,13 +1,12 @@
 
 
 # ContactInterceptorContext in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-context"></a>
 
 Defines the invocation context that the contact interceptor methods receive.
 
 **Signature**
 
-```
+```typescript
 type ContactInterceptorContext = {
   contactId?: string;
 }

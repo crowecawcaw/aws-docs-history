@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from participant resume capability change events in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-offcanresumeparticipantchanged"></a>
 
 Unsubscribes from participant capability change events.
 

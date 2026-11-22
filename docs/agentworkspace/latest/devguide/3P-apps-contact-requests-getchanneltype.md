@@ -1,7 +1,6 @@
 
 
 # Get the type of contact in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-getchanneltype"></a>
 
  Get the type of the contact in Connect Customer agent workspace. This indicates what type of media is carried over the connections of the contact. 
 

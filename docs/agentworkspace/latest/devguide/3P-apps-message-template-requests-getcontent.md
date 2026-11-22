@@ -1,7 +1,6 @@
 
 
 # Get content of a message template in Connect Customer agent workspace
-<a name="3P-apps-message-template-requests-getcontent"></a>
 
 Gets the content of a message template. This includes plaintext or html content of the body of the message template as a string, the subject of the message template, and attachments if they are configured on the message template. Attributes in the message template will be filled if they are system attributes, agent attributes, or custom attributes set up in the contact flow. More information on the attributes can be found here: [ https://docs.aws.amazon.com/connect/latest/adminguide/personalize-templates.html](https://docs.aws.amazon.com/connect/latest/adminguide/personalize-templates.html)
 

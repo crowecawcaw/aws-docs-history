@@ -1,7 +1,6 @@
 
 
 # Application scoping for Connect Customer applications
-<a name="getting-started-application-contact-scope"></a>
 
 Every application built with the Connect Customer SDK runs with a contact scope. The contact scope determines whether the agent receives a separate instance of your application for each contact that they handle, or a single instance that serves all of them. You choose the scope when you design and register your application.
 
@@ -45,7 +44,7 @@ To register an application with a localhost access URL while you develop it, see
 
 The following example is for an application registered with the **Per contact** scope. A per-contact instance learns which contact it belongs to from the scope on its create event, and that value does not change for the life of the instance. Read the scope in `onCreate` rather than assuming a contact is present, because an agent can open your application while they are not handling a contact.
 
-```
+```typescript
 import { AmazonConnectApp, AppCreateEvent } from "@amazon-connect/app";
 import { ContactClient } from "@amazon-connect/contact";
 

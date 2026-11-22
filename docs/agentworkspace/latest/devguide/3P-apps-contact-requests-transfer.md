@@ -1,7 +1,6 @@
 
 
 # Transfer a contact to another agent in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-transfer"></a>
 
 Performs a cold transfer by transferring the given contact to another agent using a quick connect and disconnecting from the contact. The quick connect type has to be either `agent` or `queue`. Supports voice, chat, task, and email channels.
 

@@ -1,7 +1,6 @@
 
 
 # Authentication for applications in Connect Customer agent workspace
-<a name="getting-started-authentication"></a>
 
 Apps in the Connect Customer agent workspace must provide their own authentication to their users. It is recommended that apps use the same identity provider that the Connect Customer instance has been configured to use when it was created. This will make it so users only need to log in once for both the agent workspace and their applications, since they both use the same single sign on provider.
 

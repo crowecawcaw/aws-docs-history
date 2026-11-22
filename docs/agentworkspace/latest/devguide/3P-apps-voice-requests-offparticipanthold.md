@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from participant hold events in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-offparticipanthold"></a>
 
 Unsubscribes from participant hold events.
 

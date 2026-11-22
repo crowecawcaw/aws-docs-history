@@ -1,7 +1,6 @@
 
 
 # Integrating AWS managed applications with Connect Customer Streams
-<a name="integrate-aws-managed-apps-streams"></a>
 
 This guide demonstrates how to integrate AWS managed applications with your existing applications built using Connect Customer Streams. This integration extends your custom agent application with AWS managed applications from the Connect Customer agent workspace. By embedding AWS managed applications into your custom agent application, you can leverage their features without additional development effort, while maintaining control over application access through Security Profiles.
 

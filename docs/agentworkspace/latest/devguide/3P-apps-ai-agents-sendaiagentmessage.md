@@ -1,19 +1,18 @@
 
 
 # Send a message to the AI Agent
-<a name="3P-apps-ai-agents-sendaiagentmessage"></a>
 
 Sends a message to the AI Agent. Returns a handle containing the assigned `inputId` for correlating responses.
 
  **Signature** 
 
-```
+```typescript
 sendAIAgentMessage(params: SendAIAgentMessageParams): Promise<SendAIAgentMessageResult>
 ```
 
  **Usage** 
 
-```
+```typescript
 const handle = await aiAgentsClient.sendAIAgentMessage({
     contactId: "contact-123",
     text: "How do I reset my password?",
@@ -48,6 +47,6 @@ The `text` field has a maximum length of 512 characters. The `metadata` object s
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

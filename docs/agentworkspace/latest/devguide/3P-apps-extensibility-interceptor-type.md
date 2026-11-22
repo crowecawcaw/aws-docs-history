@@ -1,7 +1,6 @@
 
 
 # Interceptor callback type in Connect Customer agent workspace
-<a name="3P-apps-extensibility-interceptor-type"></a>
 
 Defines the callback signature and return value for an interceptor. An interceptor receives a context object and returns a result that indicates whether the action proceeds.
 

@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from accepted email notifications in Connect Customer agent workspace
-<a name="3P-apps-email-requests-acceptedemail-unsubscribing"></a>
 
 Unsubscribes a callback function from the event that is fired when an inbound email contact is accepted.
 
@@ -13,6 +12,6 @@ offAcceptedEmail(handler: SubscriptionHandler<EmailContactId>, contactId?: strin
 
  **Usage** 
 
-```
+```typescript
 emailClient.offAcceptedEmail(handler);
 ```

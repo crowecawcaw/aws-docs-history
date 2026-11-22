@@ -1,7 +1,6 @@
 
 
 # Clears the contact for the given contactId in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-clear"></a>
 
 Clears the contact for the given contactId.
 

@@ -1,7 +1,6 @@
 
 
 # Application lifecycle management
-<a name="integrate-aws-managed-apps-lifecycle"></a>
 
 Application lifecycle management is essential when adding and removing applications throughout a page's life. If you launch an application once at startup and keep it open, lifecycle management is optional. However, if you launch and close apps as part of the user's workflow, then these lifecycle states help you create a better user experience.
 
@@ -49,7 +48,7 @@ When managing multiple applications, based on how you arrange them, some applica
 
 Implement application lifecycle event handlers to manage iframe visibility and cleanup operations. In the following example, `appIframe` is the iframe element that you passed to `setIFrame`.
 
-```
+```typescript
 // Handle destroying event
 appHost.onDestroying((event) => {
     console.log(`Application ${appHost.config.name} is being destroyed`);

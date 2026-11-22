@@ -1,7 +1,6 @@
 
 
 # Get the metadata for an email contact in Connect Customer agent workspace
-<a name="3P-apps-email-requests-getemaildata"></a>
 
 Returns the metadata for an email contact id while handling an active contact. The activeContactId is the id of the email contact the agent is actively viewing while contactId is the id of the email contact whose metadata should be retrieved.
 
@@ -50,7 +49,7 @@ getEmailData({ contactId, activeContactId }: { contactId: string; activeContactI
 
  **Usage** 
 
-```
+```typescript
 const activeContactId: string = "exampleActiveContactId"; // The contact the agent is actively handling
 const contactId: string = "contactIdToDescribe"; // The email contact id whose metadata should be retrieved
 

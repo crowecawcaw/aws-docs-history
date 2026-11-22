@@ -1,7 +1,6 @@
 
 
 # Place a participant on hold in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-holdparticipant"></a>
 
 Places a specific participant on hold.
 

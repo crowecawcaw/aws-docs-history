@@ -1,7 +1,6 @@
 
 
 # Check if the current user can be resumed from hold in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-canresumeself"></a>
 
 Checks whether the current user's participant can be resumed from hold for a specific contact.
 

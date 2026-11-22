@@ -1,7 +1,6 @@
 
 
 # Get a pre-signed S3 URL to download an approved attached file in Connect Customer agent workspace
-<a name="3P-apps-file-requests-getattachedfileurl"></a>
 
 Returns a pre-signed URL to download an approved attached file while handling an active contact. The activeContactId is the id of the contact the agent is actively viewing. This API also returns metadata about the attached file and it will only return a downloadUrl if the status of the attached file is APPROVED.
 
@@ -35,7 +34,7 @@ getAttachedFileUrl({ attachment, activeContactId }: { attachment: Attachment; ac
 
  **Usage** 
 
-```
+```typescript
 const downloadableAttachment = await fileClient.getAttachedFileUrl({
   attachment: {
     associatedResourceArn: sampleAssociatedResourceArn,

@@ -1,7 +1,6 @@
 
 
 # Retrieve message templates that match a search query in Connect Customer agent workspace
-<a name="3P-apps-message-template-requests-searchmessagetemplates"></a>
 
 Returns the SearchMessageTemplatesResponse object, which contains the matching message templates and a token to retrieve the next page of results, if available. The SearchMessageTemplatesParams object is used to configure the search, allowing you to filter by various criteria, as well as specify the channels and pagination options. If no filter text is provided, all active message templates for the agent's routing profile and the channel(s) specified are returned.
 

@@ -1,11 +1,10 @@
 
 
 # Integrate application with Connect Customer agent workspace contact data
-<a name="integrate-with-contact-data"></a>
 
 To integrate your application with contact data from the Connect Customer agent workspace, instantiate the contact client as follows:
 
-```
+```typescript
 import { ContactClient } from "@amazon-connect/contact";
 
 const contactClient = new ContactClient({ provider });
@@ -30,7 +29,7 @@ For more information about ContactClient operations, see the [ContactClient API 
 
   For per-contact applications, the `contactId` of the contact the instance is bound to is provided in the `AppCreateEvent` which is supplied in the `onCreate` callback. 
 
-  ```
+  ```typescript
   const { provider } = AmazonConnectApp.init({
   
       onCreate: async (event: AppCreateEvent) => {
@@ -52,7 +51,7 @@ For more information about ContactClient operations, see the [ContactClient API 
 
   Cross-contact applications can retrieve the `contactId` by subscribing to any of the contact events like `onConnected` or `onIncoming`. These subscriptions deliver events for every contact the agent is handling, so the application is responsible for determining which contact each event belongs to. For guidance on choosing between the two scopes, see [Choose a contact scope](getting-started-application-contact-scope.md#getting-started-application-contact-scope-choosing). 
 
-  ```
+  ```typescript
   const handler: ContactIncomingHandler = async (data: ContactIncoming) => {
       console.log("Contact incoming occurred! " + data);
       let contactId = data.contactId;
@@ -66,7 +65,7 @@ For more information about ContactClient operations, see the [ContactClient API 
 
 The following code sample subscribes a callback to the connected event topic. Whenever a contact is connected to the agent, the agent workspace will invoke your provided callback, passing in the event data payload for your function to operate on. In this example, it logs the event data to the console.
 
-```
+```typescript
 import { 
     ContactClient,
     ContactConnected, 
@@ -88,7 +87,7 @@ contactClient.onConnected(handler, contactId);
 
 The following code sample submits a `getQueue` request and then logs the returned data to the console.
 
-```
+```typescript
 import { ContactClient } from "@amazon-connect/contact";
 
 const queue = await contactClient.getQueue(contactId);

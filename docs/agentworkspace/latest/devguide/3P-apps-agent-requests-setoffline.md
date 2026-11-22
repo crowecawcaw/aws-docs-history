@@ -1,7 +1,6 @@
 
 
 # Sets the agent state to Offline in Connect Customer agent workspace
-<a name="3P-apps-agent-requests-setoffline"></a>
 
  Sets the agent state to Offline. The promise resolves after the agent state is set in the backend.
 

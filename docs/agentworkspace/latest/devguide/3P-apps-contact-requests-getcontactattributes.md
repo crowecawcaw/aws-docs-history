@@ -1,13 +1,12 @@
 
 
 # Get specific attributes of a contact in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-getcontactattributes"></a>
 
 Returns the requested attributes of the contact as a map of attribute key to value. The map contains only the requested attributes that the contact has. The map includes attributes that have no value, with an empty string as the value.
 
  **Signature** 
 
-```
+```typescript
 getContactAttributes(
   contactId: string,
   attributes: ContactAttributeKey[],
@@ -18,7 +17,7 @@ type ContactAttributeKey = string;
 
  **Usage** 
 
-```
+```typescript
 const attributes = await contactClient.getContactAttributes(contactId, [
   "accountId",
   "priority",
@@ -40,6 +39,6 @@ Requires an instance that is scoped to the contact that you pass in `contactId`,
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

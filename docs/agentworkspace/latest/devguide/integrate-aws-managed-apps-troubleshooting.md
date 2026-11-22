@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="integrate-aws-managed-apps-troubleshooting"></a>
 
 This section describes common issues and resolutions when integrating AWS managed applications.
 
@@ -19,7 +18,7 @@ Applications fail to launch, display error messages, or the iframe remains blank
   + Verify that the AppManager plugin is properly configured during CCP initialization.
   + 
 
-    ```
+    ```typescript
     connect.core.initCCP(container, {
         ccpUrl: instanceUrl,
         plugins: [AppManagerPlugin], // Required

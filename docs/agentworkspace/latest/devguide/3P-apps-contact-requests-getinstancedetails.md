@@ -1,19 +1,18 @@
 
 
 # Get the instance details for a contact in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-getinstancedetails"></a>
 
 Returns the AWS Region and the origin (URL scheme, host, and port) of the Connect Customer instance that handles the given contact.
 
  **Signature** 
 
-```
+```typescript
 getInstanceDetails(contactId: string): Promise<InstanceDetails>
 ```
 
  **Usage** 
 
-```
+```typescript
 const { region, origin }: InstanceDetails = await contactClient.getInstanceDetails(contactId);
 ```
 
@@ -38,6 +37,6 @@ Requires an instance that is scoped to the contact that you pass in `contactId`,
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

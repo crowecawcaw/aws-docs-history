@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK Message Template API
-<a name="api-reference-3P-apps-message-template-client"></a>
 
 The Connect Customer SDK provides a `MessageTemplateClient` which serves as an interface that you can use to make requests to search and get content from your Connect Customer Message Template Knowledge Base.
 
 The `MessageTemplateClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
-```
+```typescript
 export type ConnectClientConfig =
     | AmazonConnectProvider
     | { context: ModuleContext; provider?: AmazonConnectProvider }
@@ -16,7 +15,7 @@ export type ConnectClientConfig =
 
 Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
-```
+```typescript
 import { MessageTemplateClient } from "@amazon-connect/message-template";
 
 const messageTemplateClient = new MessageTemplateClient(provider);

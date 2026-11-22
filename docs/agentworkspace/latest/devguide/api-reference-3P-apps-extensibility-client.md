@@ -1,7 +1,6 @@
 
 
 # Connect Customer SDK Extensibility API
-<a name="api-reference-3P-apps-extensibility-client"></a>
 
 With the Connect Customer SDK, your app in the Connect Customer agent workspace can register and manage interceptors for UI actions by using `ExtensibilityService`. `ExtensibilityService` is the generic, low-level interceptor API, and it accepts any interceptor key. Domain-specific interceptor services define typed methods and callback contexts for a specific set of actions. When a domain-specific service covers your use case, prefer it over `ExtensibilityService`.
 

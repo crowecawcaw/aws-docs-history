@@ -1,24 +1,23 @@
 
 
 # Unsubscribe from AI Agent message status changes
-<a name="3P-apps-ai-agents-offaiagentmessagestatuschanged"></a>
 
 Removes a previously registered `onAIAgentMessageStatusChanged` handler subscription.
 
  **Signature** 
 
-```
+```typescript
 offAIAgentMessageStatusChanged(handler: AIAgentMessageStatusHandler, contactId?: string): void
 ```
 
  **Usage** 
 
-```
+```typescript
 aiAgentsClient.offAIAgentMessageStatusChanged(handler, contactId);
 ```
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

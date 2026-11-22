@@ -1,13 +1,12 @@
 
 
 # Intercept the clear contact action in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-add-clear-contact"></a>
 
 Registers an interceptor for the clear contact action, which runs when the user chooses to clear or end a contact. To block clearing the contact until a disposition code is submitted, return `{ continue: false }` (or `false`).
 
 **Signature**
 
-```
+```typescript
 addClearContactInterceptor(
   interceptor: Interceptor<ContactInterceptorContext>,
   options?: RegisterInterceptorOptions
@@ -22,7 +21,7 @@ addClearContactInterceptor(
 
 **Usage**
 
-```
+```typescript
 // Require a disposition code before clearing the contact
 await service.addClearContactInterceptor(async (context) => {
   const done = await collectDisposition(context.contactId);

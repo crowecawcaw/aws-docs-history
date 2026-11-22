@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK File API
-<a name="api-reference-3P-apps-file-client"></a>
 
 The Connect Customer SDK provides a `FileClient` which serves as an interface that you can use to make file requests to upload, retrieve, and delete attached files.
 
 The `FileClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
-```
+```typescript
 export type ConnectClientConfig =
     | AmazonConnectProvider
     | { context: ModuleContext; provider?: AmazonConnectProvider }
@@ -16,7 +15,7 @@ export type ConnectClientConfig =
 
 Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
-```
+```typescript
 import { FileClient } from "@amazon-connect/file";
 
 const fileClient = new FileClient(provider);

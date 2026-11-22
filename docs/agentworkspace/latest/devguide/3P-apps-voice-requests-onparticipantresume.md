@@ -1,7 +1,6 @@
 
 
 # Subscribe to participant resume events in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-onparticipantresume"></a>
 
 Subscribes to events when any participant is taken off hold.
 

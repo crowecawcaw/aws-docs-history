@@ -1,7 +1,6 @@
 
 
 # Implementation guide
-<a name="integrate-aws-managed-apps-implementation"></a>
 
 This section describes the steps to integrate AWS managed applications using Streams and AppManager. The [ Worklist](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) AWS managed application is used for demonstration purposes.
 
@@ -18,12 +17,12 @@ The following prerequisites are required:
 Choose the appropriate package based on your integration needs:
 + **For basic application management** — Install the `@amazon-connect/app-manager` package:
 
-  ```
+  ```userinput
   npm install @amazon-connect/app-manager
   ```
 + **For contact-scoped applications** — If you need to manage applications that are tied to specific customer contacts, install the `@amazon-connect/app-manager-agent` package instead. This package includes all the functionality of `@amazon-connect/app-manager` plus contact-scoped application support. For more information, see [Contact-scoped applications](integrate-aws-managed-apps-contact-scoped.md).
 
-  ```
+  ```userinput
   npm install @amazon-connect/app-manager-agent
   ```
 
@@ -37,7 +36,7 @@ Update the existing CCP initialization code to include the AppManager plugin.
 
  **Before:** 
 
-```
+```typescript
 import "@amzn/amazon-connect-streams";
 
 const containerElement = document.getElementById("ccp-container");
@@ -53,7 +52,7 @@ Use the code example that corresponds to the package you installed in [Step 1: I
 
  **Option A — For basic application management (using `@amazon-connect/app-manager`):** 
 
-```
+```typescript
 import "@amzn/amazon-connect-streams";
 import "@amazon-connect/app-manager";
 import { AppManagerPlugin } from "@amazon-connect/app-manager";
@@ -72,7 +71,7 @@ const provider = connect.core.getSDKClientConfig().provider;
 
  **Option B — For contact-scoped applications (using `@amazon-connect/app-manager-agent`):** 
 
-```
+```typescript
 import "@amzn/amazon-connect-streams";
 import "@amazon-connect/app-manager-agent";
 import { AppManagerPlugin } from "@amazon-connect/app-manager";
@@ -98,7 +97,7 @@ Replace `<connect-instance-alias>` with your Connect Customer instance alias.
 
 Add an iframe element to the desired location for displaying the Worklist AWS managed application:
 
-```
+```html
 <iframe id="aws-app-iframe" height="1080px" width="1920px"/>
 ```
 
@@ -110,7 +109,7 @@ AppManager configures the iframe source, do not manually set the `src` attribute
 
 Launch the Worklist AWS managed application using the AppManager `launchApp` API:
 
-```
+```typescript
 import { IFrameAppHost } from "@amazon-connect/app-manager";
 
 // Launch the Worklist AWS managed application

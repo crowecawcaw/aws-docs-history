@@ -1,13 +1,12 @@
 
 
 # Intercept the outbound dialer action in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-add-outbound-dialer"></a>
 
 Registers an interceptor for the outbound dialer action, which runs when the user chooses the number pad or outbound dialer. To block the built-in outbound dialer and present your own dialer UI, return `{ continue: false }` (or `false`).
 
 **Signature**
 
-```
+```typescript
 addOpenOutboundDialerInterceptor(
   interceptor: Interceptor<ContactInterceptorContext>,
   options?: RegisterInterceptorOptions
@@ -22,7 +21,7 @@ addOpenOutboundDialerInterceptor(
 
 **Usage**
 
-```
+```typescript
 // Block the outbound dialer from opening
 await service.addOpenOutboundDialerInterceptor(async (context) => {
   return { continue: false };

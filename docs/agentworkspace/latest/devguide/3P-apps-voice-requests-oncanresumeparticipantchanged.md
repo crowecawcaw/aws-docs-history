@@ -1,7 +1,6 @@
 
 
 # Subscribe to participant resume capability change events in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-oncanresumeparticipantchanged"></a>
 
 Subscribes to events when a participant's capability to be resumed from hold changes.
 

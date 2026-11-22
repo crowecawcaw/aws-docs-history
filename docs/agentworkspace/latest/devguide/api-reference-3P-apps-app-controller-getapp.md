@@ -1,19 +1,18 @@
 
 
 # Get application information in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-getapp"></a>
 
 Returns the application information for the given application instance ID in the Connect Customer agent workspace.
 
  **Signature** 
 
-```
+```typescript
 getApp(instanceId: string): Promise<AppInfo>
 ```
 
  **Usage** 
 
-```
+```typescript
 const applicationInfo: AppInfo = await appControllerClient.getApp(appInstanceId);
 ```
 
@@ -46,6 +45,6 @@ The target instance must belong to the AppManager of the calling instance, or to
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

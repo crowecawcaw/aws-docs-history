@@ -1,13 +1,12 @@
 
 
 # Unregister a Quick Connect interceptor in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-remove-quick-connect"></a>
 
 Unregisters an interceptor that you registered with `addOpenQuickConnectInterceptor`. Pass the same interceptor reference and the same `contactId` that you used at registration.
 
 **Signature**
 
-```
+```typescript
 removeOpenQuickConnectInterceptor(
   interceptor: Interceptor<ContactInterceptorContext>,
   contactId?: string
@@ -16,7 +15,7 @@ removeOpenQuickConnectInterceptor(
 
 **Usage**
 
-```
+```typescript
 await service.removeOpenQuickConnectInterceptor(myInterceptor);
 
 // If scoped to a contact, pass the same contactId

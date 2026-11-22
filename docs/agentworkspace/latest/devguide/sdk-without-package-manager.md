@@ -1,7 +1,6 @@
 
 
 # Using the Connect Customer SDK without a package manager
-<a name="sdk-without-package-manager"></a>
 
 This guide is intended for developers building Connect Customer integrations who do not use npm, webpack, or other JavaScript package managers and bundlers in their web applications. This includes developers building custom StreamsJS-based contact center interfaces or third-party applications that run within the Connect Customer agent workspace.
 

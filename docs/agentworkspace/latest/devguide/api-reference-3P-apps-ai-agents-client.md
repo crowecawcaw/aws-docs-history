@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK AI Agents API
-<a name="api-reference-3P-apps-ai-agents-client"></a>
 
 The Connect Customer SDK provides an `AIAgentsClient` which serves as an interface that your app can use to interact with AI Agent functionality. This client provides methods for real-time agent assistance use cases like checking AI Agent support, sending messages to AI Agents, retrieving message history, fetching knowledge content, and subscribing to real-time AI Agent message events.
 
 The `AIAgentsClient` constructor requires a `ConnectClientConfig` argument, which is defined as:
 
-```
+```typescript
 export type ConnectClientConfig =
     | AmazonConnectProvider
     | { context: ModuleContext; provider?: AmazonConnectProvider }
@@ -16,7 +15,7 @@ export type ConnectClientConfig =
 
 Pass the `provider` that `AmazonConnectApp.init` returns to the constructor. You must provide this argument.
 
-```
+```typescript
 import { AIAgentsClient } from "@amazon-connect/ai-agents";
 
 const aiAgentsClient = new AIAgentsClient(provider);

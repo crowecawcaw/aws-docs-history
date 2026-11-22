@@ -1,19 +1,18 @@
 
 
 # Get the AWS Region of a contact in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-getcontactregion"></a>
 
 Returns the AWS Region that the given contact is handled in, for example `us-east-1`.
 
  **Signature** 
 
-```
+```typescript
 getContactRegion(contactId: string): Promise<string>
 ```
 
  **Usage** 
 
-```
+```typescript
 const region: string = await contactClient.getContactRegion(contactId);
 ```
 
@@ -30,6 +29,6 @@ Requires an instance that is scoped to the contact that you pass in `contactId`,
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

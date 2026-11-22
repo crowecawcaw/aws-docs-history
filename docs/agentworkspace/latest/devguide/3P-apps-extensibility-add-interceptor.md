@@ -1,7 +1,6 @@
 
 
 # Register an interceptor in Connect Customer agent workspace
-<a name="3P-apps-extensibility-add-interceptor"></a>
 
 Registers an asynchronous interceptor callback for the specified action key. When the UI triggers the action, your interceptor runs before the default behavior. If the same function is already registered for the same key and parameter, the call has no effect.
 

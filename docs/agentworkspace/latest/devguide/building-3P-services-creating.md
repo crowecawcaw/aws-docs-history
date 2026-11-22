@@ -1,14 +1,13 @@
 
 
 # Creating a third-party service
-<a name="building-3P-services-creating"></a>
 
 ## Third-party service setup
 <a name="building-3P-services-setup"></a>
 
 Following the instructions here to properly integrate your service with the agent workspace. First, install the app package:
 
-```
+```userinput
 % npm install --save @amazon-connect/app
 ```
 
@@ -17,7 +16,7 @@ Following the instructions here to properly integrate your service with the agen
 
 Then, add the following initialization code to your app:
 
-```
+```typescript
 import { AmazonConnectService } from "@amazon-connect/app";
 
 const { provider } = AmazonConnectService.init({
@@ -42,7 +41,7 @@ When building a third-party service:
 
 Here is an example of proper initialization with timeout handling:
 
-```
+```typescript
 import { AmazonConnectService } from "@amazon-connect/app";
 
 export function initService() {

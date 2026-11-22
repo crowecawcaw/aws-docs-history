@@ -1,7 +1,6 @@
 
 
 # Create a draft email contact in Connect Customer agent workspace
-<a name="3P-apps-email-requests-createdraftemail"></a>
 
 Creates a draft outbound email contact; can either be an agent initiated outbound draft email, an agent reply draft email, or a forwarded email. Upon successful draft creation, the email contact will be in connected state. Returns an object that includes:
 + `contactId: string`: The contact id of the newly created draft email contact
@@ -26,7 +25,7 @@ createDraftEmail(contactCreation: CreateDraftEmailContact): Promise<EmailContact
 
  **Usage for Agent Initiated Outbound** 
 
-```
+```typescript
 const contact: EmailContactId = await emailClient.createDraftEmail({
    initiationMethod: "OUTBOUND",
 });
@@ -36,7 +35,7 @@ const { contactId } = contact;
 
  **Usage for Agent Reply** 
 
-```
+```typescript
 const acceptedInboundEmailContactId = "exampleContactId";
 
 const contact: EmailContactId = await emailClient.createDraftEmail({
@@ -49,7 +48,7 @@ const { contactId } = contact;
 
  **Usage for Forward Email** 
 
-```
+```typescript
 const emailContactIdToBeForwarded = "exampleContactId";
 
 const contact: EmailContactId = await emailClient.createDraftEmail({

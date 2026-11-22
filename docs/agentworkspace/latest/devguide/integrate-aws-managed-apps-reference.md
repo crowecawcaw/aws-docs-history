@@ -1,7 +1,6 @@
 
 
 # AppManager and AppHost reference
-<a name="integrate-aws-managed-apps-reference"></a>
 
 This section lists AppManager and `AppHost` members that the previous sections do not describe.
 

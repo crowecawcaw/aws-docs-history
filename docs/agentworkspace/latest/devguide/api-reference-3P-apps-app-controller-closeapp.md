@@ -1,19 +1,18 @@
 
 
 # Close an application in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-closeapp"></a>
 
 Closes the application for the given application instance ID in the Connect Customer agent workspace.
 
  **Signature** 
 
-```
+```typescript
 closeApp(instanceId: string): Promise<void>
 ```
 
  **Usage** 
 
-```
+```typescript
 await appControllerClient.closeApp(appInstanceId);
 ```
 
@@ -30,6 +29,6 @@ The target instance must belong to the AppManager of the calling instance, or to
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

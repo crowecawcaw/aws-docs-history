@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK Quick Responses API
-<a name="api-reference-3P-apps-quick-responses-client"></a>
 
 The Connect Customer SDK provides a `QuickResponsesClient` which serves as an interface that you can use to make requests to search your Connect Customer Quick Responses Knowledge Base.
 
 The `QuickResponsesClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
-```
+```typescript
 export type ConnectClientConfig =
     | AmazonConnectProvider
     | { context: ModuleContext; provider?: AmazonConnectProvider }
@@ -16,7 +15,7 @@ export type ConnectClientConfig =
 
 Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
-```
+```typescript
 import { QuickResponsesClient } from "@amazon-connect/quick-responses";
 
 const quickResponsesClient = new QuickResponsesClient(provider);

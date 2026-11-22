@@ -1,13 +1,12 @@
 
 
 # Unregister a clear contact interceptor in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-remove-clear-contact"></a>
 
 Unregisters an interceptor that you registered with `addClearContactInterceptor`. Pass the same interceptor reference and the same `contactId` that you used at registration.
 
 **Signature**
 
-```
+```typescript
 removeClearContactInterceptor(
   interceptor: Interceptor<ContactInterceptorContext>,
   contactId?: string
@@ -16,7 +15,7 @@ removeClearContactInterceptor(
 
 **Usage**
 
-```
+```typescript
 await service.removeClearContactInterceptor(myInterceptor);
 ```
 

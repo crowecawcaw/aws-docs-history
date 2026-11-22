@@ -1,7 +1,6 @@
 
 
 # Apply a theme to your application in Connect Customer agent workspace
-<a name="integrating-with-agent-workspace-theme"></a>
 
 The theme package defines and applies the Connect Customer theme when developing with [Cloudscape](https://cloudscape.design) for the Connect Customer agent workspace.
 
@@ -9,7 +8,7 @@ The theme package defines and applies the Connect Customer theme when developing
 
 Install the theme package and its Cloudscape peer dependencies from NPM by installing **@amazon-connect/theme**, **@cloudscape-design/components**, and **@cloudscape-design/global-styles**.
 
-```
+```userinput
 % npm install -P @amazon-connect/theme
 % npm install -P @cloudscape-design/components
 % npm install -P @cloudscape-design/global-styles
@@ -19,7 +18,7 @@ Install the theme package and its Cloudscape peer dependencies from NPM by insta
 
 The theme package must be imported once at the entry point of the application. 
 
-```
+```typescript
 import { applyConnectTheme } from "@amazon-connect/theme"; 
 
 await applyConnectTheme(provider);
@@ -32,7 +31,7 @@ Pass the provider to `applyConnectTheme`.
 
 From then on Cloudscape components and design tokens can be used directly from Cloudscape.
 
-```
+```typescript
 // src/app.ts
 
 import * as React from "react";

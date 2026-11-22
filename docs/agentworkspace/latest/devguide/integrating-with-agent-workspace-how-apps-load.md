@@ -1,7 +1,6 @@
 
 
 # How applications are loaded in Connect Customer agent workspace
-<a name="integrating-with-agent-workspace-how-apps-load"></a>
 
 The agent workspace allows users to handle multiple contacts concurrently. They will have only one contact selected at a time though, and the agent workspace will update the experience based on the channel (call, chat, or task) of the contact and the applications opened for that contact. When a user switches to another contact, the set of application tabs are updated to what the user was doing last when they were on the previous contact.
 

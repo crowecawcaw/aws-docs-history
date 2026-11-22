@@ -1,19 +1,18 @@
 
 
 # Get the application configuration in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-getappconfig"></a>
 
 Returns the application configuration for the given application ARN or name in the Connect Customer agent workspace.
 
  **Signature** 
 
-```
+```typescript
 getAppConfig(arnOrName: string): Promise<AppConfig>
 ```
 
  **Usage** 
 
-```
+```typescript
 const applicationConfig: AppConfig = await appControllerClient.getAppConfig(arn);
 ```
 
@@ -41,6 +40,6 @@ const applicationConfig: AppConfig = await appControllerClient.getAppConfig(arn)
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

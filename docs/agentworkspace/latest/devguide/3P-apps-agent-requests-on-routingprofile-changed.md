@@ -1,7 +1,6 @@
 
 
 # Subscribe to agent routing profile changes in Connect Customer agent workspace
-<a name="3P-apps-agent-requests-on-routingprofile-changed"></a>
 
 Creates a subscription for RoutingProfileChanged event. This gets triggered when an Agent's routing profile gets updated.
 

@@ -1,7 +1,6 @@
 
 
 # Start uploading a file to Connect Customer agent workspace
-<a name="3P-apps-file-requests-startattachedfileupload"></a>
 
 Provides a pre-signed Amazon S3 URL in response to upload a new attached file.
 
@@ -44,7 +43,7 @@ When beginning the process to upload attached files, agents may encounter issues
 
  **Usage** 
 
-```
+```typescript
 import { 
     isInvalidFileNameError,
     isInvalidFileTypeError,

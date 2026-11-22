@@ -1,7 +1,6 @@
 
 
 # Get a list of email contacts in an email contact's tree in Connect Customer agent workspace
-<a name="3P-apps-email-requests-getemailthread"></a>
 
 Returns an array of EmailThreadContact objects (for the provided contactAssociationId) that represent that contact's email thread. The contactAssociationId is the root contact id which is used as a unique identifier for all subsequent contacts in a contact tree. Returns an object that includes:
 + `contacts: EmailThreadContact[]`: an array of EmailThreadContact objects, each an email contact in the thread
@@ -38,7 +37,7 @@ getEmailThread(getEmailThreadParams: GetEmailThreadParams): Promise<{ contacts: 
 
  **Usage** 
 
-```
+```typescript
 const inboundEmailData = await emailClient.getEmailData({
    contactId: sampleContactId, // The inbound email contact you've accepted (or is still connecting)
    activeContactId: sampleContactId, // The email contact you're actively working; in this example, its the same as the accepted inbound email

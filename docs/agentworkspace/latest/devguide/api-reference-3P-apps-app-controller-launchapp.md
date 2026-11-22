@@ -1,7 +1,6 @@
 
 
 # Launch an application in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-launchapp"></a>
 
 Launch the application in the agent workspace for the given application ARN or name. It supports optional launch options to fine tune the launch behavior.
 
@@ -9,13 +8,13 @@ For details on how the `options.scope` value controls an application's relations
 
  **Signature** 
 
-```
+```typescript
 launchApp(arnOrName: string, options?: AppLaunchOptions): Promise<AppInfo>
 ```
 
  **Usage** 
 
-```
+```typescript
 const applicationsConfig: AppConfig[] = await appControllerClient.getAppCatalog();
 const appInfo: AppInfo = await appControllerClient.launchApp(applicationsConfig[0].arn);
 ```
@@ -54,6 +53,6 @@ When the calling application instance has a scope (contact or idle), the launche
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

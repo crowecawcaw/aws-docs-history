@@ -1,7 +1,6 @@
 
 
 # The start and stop events in Connect Customer agent workspace
-<a name="integrating-with-agent-workspace-lifecycle-events-start-stop"></a>
 
 After the create event completes, the agent workspace moves the application to the running state and sends a start event. When the application is hidden, the agent workspace can move it to the stopped state and send a stop event, and then send another start event when the application is visible again. Use these events to pause and resume work that only matters while the application is visible, such as polling or animations.
 
@@ -10,7 +9,7 @@ Unlike `onCreate` and `onDestroy`, the start and stop handlers are not passed to
 + `onStop(handler)`: Registers a handler for the stop event.
 + `offStart(handler)` and `offStop(handler)`: Remove a handler that you registered.
 
-```
+```typescript
 import { AmazonConnectApp, AppStartEvent, AppStopEvent } from "@amazon-connect/app";
 
 const { provider } = AmazonConnectApp.init({

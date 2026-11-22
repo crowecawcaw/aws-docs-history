@@ -1,7 +1,6 @@
 
 
 # Add another participant to a contact in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-addparticipant"></a>
 
  Add another participant to the contact. Multi-party only works for Voice at this time. For Voice, the existing participants will be put on hold when a new participant is added. 
 

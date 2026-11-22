@@ -1,13 +1,12 @@
 
 
 # Unregister an outbound dialer interceptor in Connect Customer agent workspace
-<a name="3P-apps-contact-interceptor-remove-outbound-dialer"></a>
 
 Unregisters an interceptor that you registered with `addOpenOutboundDialerInterceptor`. Pass the same interceptor reference and the same `contactId` that you used at registration.
 
 **Signature**
 
-```
+```typescript
 removeOpenOutboundDialerInterceptor(
   interceptor: Interceptor<ContactInterceptorContext>,
   contactId?: string
@@ -16,7 +15,7 @@ removeOpenOutboundDialerInterceptor(
 
 **Usage**
 
-```
+```typescript
 await service.removeOpenOutboundDialerInterceptor(myInterceptor);
 ```
 

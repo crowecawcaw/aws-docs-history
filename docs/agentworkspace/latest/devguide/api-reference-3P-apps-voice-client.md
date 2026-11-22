@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK Voice API
-<a name="api-reference-3P-apps-voice-client"></a>
 
 The Connect Customer SDK provides a `VoiceClient` which serves as an interface that your app in the Connect Customer agent workspace can use to make data requests on voice contacts.
 
 To create a `VoiceClient`, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
-```
+```typescript
 import { AmazonConnectApp } from "@amazon-connect/app";
 import { VoiceClient } from "@amazon-connect/voice";
 
@@ -22,7 +21,7 @@ const voiceClient = new VoiceClient(provider);
 
 The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
 
-```
+```typescript
 type ConnectClientConfig =
   | AmazonConnectProvider
   | { context: ModuleContext; provider?: AmazonConnectProvider }

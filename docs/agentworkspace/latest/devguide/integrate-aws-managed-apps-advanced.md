@@ -1,14 +1,13 @@
 
 
 # Advanced configuration
-<a name="integrate-aws-managed-apps-advanced"></a>
 
 ## Prevent duplicate application instances
 <a name="integrate-aws-managed-apps-prevent-duplicates"></a>
 
 When you launch an application multiple times, AppManager creates multiple application instances by default. You can use launch keys when starting applications to prevent multiple instances of the same application.
 
-```
+```typescript
 const launchOptions: AppLaunchOptions = {
     launchKey: 'Worklist-singleton'
 };
@@ -29,7 +28,7 @@ AppManager provides `onAppHostAdded` and `onAppHostRemoved` notifications to ind
 
 If you are managing iframes dynamically and want the storage of any application specific UI state or routing information in the `AppHost`, you can attach a custom JSON metadata at the time of application launch. This metadata is accessible in all event callbacks for application state management.
 
-```
+```typescript
 const launchOptions: AppLaunchOptions = {
     appManagerData: {
         // Custom JSON data
@@ -47,7 +46,7 @@ console.log("AppManagerData attached to AppHost", appHost.appManagerData);
 
 Connect Customer Global Resiliency features provide automatic failover between AWS Regions. When your Connect Customer instance is configured for Global Resiliency, you should implement the following handlers to ensure agent workspace responsiveness to failover events:
 
-```
+```typescript
 // Handle pending failover events
 connect.globalResiliency?.onFailoverPending(() => {
    // Destroy all applications before failover

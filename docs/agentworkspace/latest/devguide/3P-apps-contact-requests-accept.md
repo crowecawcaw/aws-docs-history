@@ -1,7 +1,6 @@
 
 
 # Accept the incoming contact for the given contactId in Connect Customer agent workspace
-<a name="3P-apps-contact-requests-accept"></a>
 
 Accept the incoming contact for the given contactId.
 

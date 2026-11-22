@@ -1,13 +1,12 @@
 
 
 # Connect Customer SDK Email API
-<a name="api-reference-3P-apps-email-client"></a>
 
 The Connect Customer SDK provides an `EmailClient` which serves as an interface that your app can use to subscribe to email contact events and make email contact requests.
 
 The `EmailClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
-```
+```typescript
 export type ConnectClientConfig =
     | AmazonConnectProvider
     | { context: ModuleContext; provider?: AmazonConnectProvider }
@@ -16,7 +15,7 @@ export type ConnectClientConfig =
 
 Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
-```
+```typescript
 import { EmailClient } from "@amazon-connect/email";
 
 const emailClient = new EmailClient(provider);

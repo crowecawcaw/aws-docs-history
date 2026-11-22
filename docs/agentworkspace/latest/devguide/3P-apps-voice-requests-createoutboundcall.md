@@ -1,7 +1,6 @@
 
 
 # Create an outbound call to phone number in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-createoutboundcall"></a>
 
 Creates an outbound call to the given phone number and returns the contactId of the call when it is available. It takes an optional parameter `queueARN` which specifies the outbound queue associated with the call, if omitted the default outbound queue defined in the agent's routing profile will be used.
 

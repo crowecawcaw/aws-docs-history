@@ -1,7 +1,6 @@
 
 
 # Get the list of Quick Connect endpoints associated with a given queue in Connect Customer agent workspace
-<a name="3P-apps-agent-requests-listquickconnects"></a>
 
  Get the list of Quick Connect endpoints associated with the given queue(s). Optionally you can pass in a parameter to override the default max-results value of 500. 
 

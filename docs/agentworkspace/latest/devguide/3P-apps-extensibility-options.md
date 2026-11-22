@@ -1,7 +1,6 @@
 
 
 # RegisterInterceptorOptions in Connect Customer agent workspace
-<a name="3P-apps-extensibility-options"></a>
 
 Contains the configuration options for interceptor registration, including timeout and consecutive-block behavior.
 

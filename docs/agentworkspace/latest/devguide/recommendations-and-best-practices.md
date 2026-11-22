@@ -1,7 +1,6 @@
 
 
 # Recommendations and best practices for Connect Customer agent workspace
-<a name="recommendations-and-best-practices"></a>
 
 Use the following recommendations and best practices to optimize applications in the Connect Customer agent workspace.
 

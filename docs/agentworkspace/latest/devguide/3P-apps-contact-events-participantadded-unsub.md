@@ -1,19 +1,18 @@
 
 
 # Unsubscribe from participant added events in Connect Customer agent workspace
-<a name="3P-apps-contact-events-participantadded-unsub"></a>
 
 Unsubscribes from participant added events.
 
  **Signature** 
 
-```
+```typescript
 offParticipantAdded(handler: ParticipantAddedHandler, contactId?: string): void
 ```
 
  **Usage** 
 
-```
+```typescript
 contactClient.offParticipantAdded(handleParticipantAdded);
 ```
 

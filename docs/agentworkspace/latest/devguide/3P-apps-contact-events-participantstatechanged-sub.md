@@ -1,19 +1,18 @@
 
 
 # Subscribe to participant state change events in Connect Customer agent workspace
-<a name="3P-apps-contact-events-participantstatechanged-sub"></a>
 
 Subscribes to participant state change events. This event fires when a participant's state changes (e.g., from connecting to connected, or to hold).
 
  **Signature** 
 
-```
+```typescript
 onParticipantStateChanged(handler: ParticipantStateChangedHandler, participantId?: string): void
 ```
 
  **Usage** 
 
-```
+```typescript
     const handleStateChanged = (event) => {
     console.log(
     `Participant ${event.participantId} state changed to: ${event.state.value}`
@@ -50,6 +49,6 @@ The handler receives a ParticipantStateChanged event with:
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

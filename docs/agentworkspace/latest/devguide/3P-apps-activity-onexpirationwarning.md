@@ -1,19 +1,18 @@
 
 
 # Subscribe to session expiration warning event in Connect Customer agent workspace
-<a name="3P-apps-activity-onexpirationwarning"></a>
 
 Subscribes a callback function to be invoked whenever the agent's session is about to expire due to inactivity.
 
  **Signature** 
 
-```
+```typescript
 onExpirationWarning(handler: ExpirationWarningHandler);
 ```
 
  **Usage** 
 
-```
+```typescript
 const handler: ExpirationWarningHandler = (data: SessionExpirationInformation) => {
     console.log("Agent's session expiring at:", data);
 }

@@ -1,19 +1,18 @@
 
 
 # Get the application catalog in Connect Customer agent workspace
-<a name="api-reference-3P-apps-app-controller-getappcatalog"></a>
 
 Returns all the applications that are available in the Connect Customer agent workspace for the current logged-in user.
 
  **Signature** 
 
-```
+```typescript
 getAppCatalog(): Promise<AppConfig[]>
 ```
 
  **Usage** 
 
-```
+```typescript
 const applications: AppConfig[] = await appControllerClient.getAppCatalog();
 ```
 
@@ -34,6 +33,6 @@ const applications: AppConfig[] = await appControllerClient.getAppCatalog();
 
  **Permissions required:** 
 
-```
+```typescript
 *
 ```

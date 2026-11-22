@@ -1,7 +1,6 @@
 
 
 # Unsubscribe from participant resume events in Connect Customer agent workspace
-<a name="3P-apps-voice-requests-offparticipantresume"></a>
 
 Unsubscribes from participant resume events.
 

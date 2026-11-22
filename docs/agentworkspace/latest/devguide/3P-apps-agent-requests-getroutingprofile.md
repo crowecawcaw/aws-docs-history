@@ -1,7 +1,6 @@
 
 
 # Get the routing profile of the agent in Connect Customer agent workspace
-<a name="3P-apps-agent-requests-getroutingprofile"></a>
 
 Returns the routing profile of the agent currently logged in to the Connect Customer agent workspace. The routing profile contains the following fields:
 + `channelConcurrencyMap`: See agent.[Get the limit of contacts for the agent in Connect Customer agent workspace](3P-apps-agent-requests-getchannelconcurrency.md) for more info.
@@ -14,12 +13,12 @@ Returns the routing profile of the agent currently logged in to the Connect Cust
 + `routingProfileARN`: The routing profile ARN.
 + `routingProfileId`: Alias for `routingProfileARN`.
 
-```
+```typescript
 async getRoutingProfile(): Promise<AgentRoutingProfile>         
 ```
 
  **Permissions required:** 
 
-```
+```typescript
 User.Configuration.View               
 ```

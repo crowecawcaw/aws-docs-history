@@ -1,7 +1,6 @@
 
 
 # Determine if the Message Template feature is enabled in Connect Customer agent workspace
-<a name="3P-apps-message-template-requests-isenabled"></a>
 
 Returns the MessageTemplateEnabledState object, which indicates if the message template feature is enabled for the Connect instance. The Message Template feature is considered enabled if there is a knowledge base for message templates configured for the instance. The object contains the following fields:
 + `isEnabled`: A boolean indicating if the feature is enabled
