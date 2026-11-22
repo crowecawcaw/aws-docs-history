@@ -1,7 +1,6 @@
 
 
 # Calculate your energy usage
-<a name="energy-calculation"></a>
 
 **Note**  
 The energy data calculated using this method is for informational purposes only. Do not use this information for optimization.

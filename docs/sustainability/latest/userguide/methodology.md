@@ -1,7 +1,6 @@
 
 
 # Calculation methodology
-<a name="methodology"></a>
 
 The AWS Sustainability service quantifies estimated environmental impact (carbon, water) associated with the use of AWS cloud services and covers the full range of said services.
 

@@ -1,7 +1,6 @@
 
 
 # Use the console visualizations
-<a name="console-visualizations"></a>
 
  The AWS Sustainability console offers visualizations to help you understand your environmental impact from using AWS services. This page explains the console pages in detail. To access your data in bulk, visit [Get your data in bulk](bulk-data.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Input data
-<a name="methodology-input-data"></a>
 
 This section outlines the sources of data and transformations that occur upstream of the AWS Sustainability service to define Scope 1, Scope 2, and Scope 3 carbon emissions for each AWS cluster. To understand the full methodology, see the [carbon emissions methodology document](http://sustainability.aboutamazon.com/aws-customer-carbon-footprint-tool-methodology.pdf).
 

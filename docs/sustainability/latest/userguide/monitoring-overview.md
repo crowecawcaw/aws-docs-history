@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Sustainability
-<a name="monitoring-overview"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS Sustainability and your other AWS solutions. AWS provides the following monitoring tools to watch AWS Sustainability, report when something is wrong, and take automatic actions when appropriate:
 + *Amazon CloudWatch* monitors your AWS resources and the applications you run on AWS in real time. You can collect and track metrics, create customized dashboards, and set alarms that notify you or take actions when a specified metric reaches a threshold that you specify.

@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="setting-up"></a>
 
 Before you use the AWS Sustainability service for the first time, complete the following tasks.
 

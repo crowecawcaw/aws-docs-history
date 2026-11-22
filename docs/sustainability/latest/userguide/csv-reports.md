@@ -1,7 +1,6 @@
 
 
 # CSV reports
-<a name="csv-reports"></a>
 
 You can download csv reports in the **Reports** page. There are three preset reports ready to download.
 + **Monthly carbon emissions**: This report offers monthly carbon data, both MBM and LBM, with details by AWS Region, service, emissions scope, and carbon-free energy savings.

@@ -1,7 +1,6 @@
 
 
 # Get your data in bulk
-<a name="bulk-data"></a>
 
 You have three options to access your data in bulk.
 

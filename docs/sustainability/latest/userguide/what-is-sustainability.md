@@ -1,7 +1,6 @@
 
 
 # What is AWS Sustainability?
-<a name="what-is-sustainability"></a>
 
 Welcome to the AWS Sustainability user guide.
 

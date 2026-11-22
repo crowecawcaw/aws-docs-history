@@ -1,7 +1,6 @@
 
 
 # Carbon emissions
-<a name="methodology-carbon"></a>
 
 The AWS Sustainability service quantifies customer-specific greenhouse gas (GHG) emissions associated with the use of AWS cloud services and covers the full range of said services.
 

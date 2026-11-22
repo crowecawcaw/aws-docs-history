@@ -1,7 +1,6 @@
 
 
 # Resources
-<a name="resources"></a>
 
  This page compiles a non-exhaustive list of sustainability resources that may be helpful as you embark on your sustainability journey. 
 

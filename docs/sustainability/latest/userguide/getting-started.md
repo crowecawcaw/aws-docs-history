@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS Sustainability
-<a name="getting-started"></a>
 
 This section provides information that you need to get started with using the AWS Sustainability console. Make sure you've met the [prerequisites](setting-up.md) before you start. You can also customize your AWS Sustainability preferences.
 

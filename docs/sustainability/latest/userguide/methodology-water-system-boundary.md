@@ -1,7 +1,6 @@
 
 
 # System boundary
-<a name="methodology-water-system-boundary"></a>
 
  The system boundary defines what activities and related water withdrawals are accounted for in model calculations. The model allocates total water withdrawals from AWS data center operations to individual customer accounts based on their proportional cloud service usage, to ensure customers receive transparent, attributable water withdrawals data. To identify which activities are accounted for in model calculations, we define attributable and non-attributable water withdrawals. 
 
