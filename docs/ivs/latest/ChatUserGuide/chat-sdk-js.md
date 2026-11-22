@@ -1,7 +1,6 @@
 
 
 # IVS Chat Client Messaging SDK: JavaScript Guide
-<a name="chat-sdk-js"></a>
 
 
 

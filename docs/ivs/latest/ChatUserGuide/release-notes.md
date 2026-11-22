@@ -1,7 +1,6 @@
 
 
 # IVS Chat Release Notes
-<a name="release-notes"></a>
 
 This document contains all Amazon IVS Chat release notes, latest first, organized by date of release. 
 

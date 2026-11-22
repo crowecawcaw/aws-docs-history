@@ -1,7 +1,6 @@
 
 
 # Step 4: Send and Receive Your First Message
-<a name="getting-started-chat-send-and-receive"></a>
 
 Use your chat token to connect to a chat room and send your first message. Sample JavaScript code is provided below. IVS client SDKs also are available: see [Chat SDK: Android Guide](chat-sdk-android.md), [Chat SDK: iOS Guide](chat-sdk-ios.md), and [Chat SDK: JavaScript Guide](chat-sdk-js.md).
 

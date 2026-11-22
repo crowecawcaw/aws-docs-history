@@ -1,7 +1,6 @@
 
 
 # IVS Chat Message Review Handler
-<a name="chat-message-review-handler"></a>
 
 A message review handler allows you to review and/or modify messages before they are delivered to a room. When a message review handler is associated with a room, it is invoked for each SendMessage request to that room. The handler enforces your application’s business logic and determines whether to allow, deny, or modify a message. Amazon IVS Chat supports AWS Lambda functions as handlers.
 

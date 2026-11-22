@@ -1,7 +1,6 @@
 
 
 # Step 5: Check Your Service-Quota Limits (Optional)
-<a name="getting-started-chat-check-service-quota"></a>
 
 Your chat rooms will scale along with your Amazon IVS live stream, to enable all your viewers to engage in chat conversations. However, all Amazon IVS accounts have limits on the number of concurrent chat participants and the rate of message delivery. 
 

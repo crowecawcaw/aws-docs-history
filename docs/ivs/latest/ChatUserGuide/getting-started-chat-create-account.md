@@ -1,7 +1,6 @@
 
 
 # Step 1: Do Initial Setup
-<a name="getting-started-chat-create-account"></a>
 
 Before proceeding, you must:
 
@@ -18,7 +17,7 @@ For specific steps for all the above, see [Getting Started with IVS Low-Latency 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [

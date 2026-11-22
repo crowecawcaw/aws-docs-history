@@ -1,7 +1,6 @@
 
 
 # IVS Chat Client Messaging SDK: Android Tutorial Part 2: Messages and Events
-<a name="chat-sdk-android-tutorial-messages-events"></a>
 
 This second (and last) part of the tutorial is broken up into several sections:
 

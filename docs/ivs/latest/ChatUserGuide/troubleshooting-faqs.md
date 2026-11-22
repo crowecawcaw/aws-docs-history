@@ -1,7 +1,6 @@
 
 
 # Troubleshooting IVS Chat
-<a name="troubleshooting-faqs"></a>
 
 This document describes best practices and troubleshooting tips for Amazon Interactive Video Service (IVS) Chat. Behaviors related to IVS Chat often are distinct from behaviors related to IVS video. For more information, see [Getting Started with Amazon IVS Chat](getting-started-chat.md).
 

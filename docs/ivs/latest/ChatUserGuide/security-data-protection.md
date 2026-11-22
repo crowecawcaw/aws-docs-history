@@ -1,7 +1,6 @@
 
 
 # IVS Chat Data Protection
-<a name="security-data-protection"></a>
 
 For data sent to Amazon Interactive Video Service (IVS) Chat, the following data protections are in place:
 + Amazon IVS Chat traffic uses WSS to keep data secure in transit.

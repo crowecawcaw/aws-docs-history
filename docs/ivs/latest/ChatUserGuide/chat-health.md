@@ -1,7 +1,6 @@
 
 
 # Monitoring Amazon IVS Chat
-<a name="chat-health"></a>
 
 You can monitor Amazon Interactive Video Service (IVS) Chat resources using Amazon CloudWatch. CloudWatch collects and processes raw data from Amazon IVS Chat into readable, near real-time metrics. These statistics are kept for 15 months, so you can gain a historical perspective on how your web application or service performs. You can set alarms for certain thresholds and send notifications or take actions when those thresholds are met. For details, see the [CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html).
 

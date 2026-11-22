@@ -1,7 +1,6 @@
 
 
 # Getting Started with the IVS Chat Client Messaging JavaScript SDK
-<a name="chat-js-getting-started"></a>
 
 Before starting, you should be familiar with [Getting Started with Amazon IVS Chat](getting-started-chat.md).
 

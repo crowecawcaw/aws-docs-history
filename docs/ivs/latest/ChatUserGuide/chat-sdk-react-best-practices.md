@@ -1,7 +1,6 @@
 
 
 # IVS Chat Client Messaging SDK: React & React Native Best Practices
-<a name="chat-sdk-react-best-practices"></a>
 
 This document describes the most important practices of using the Amazon IVS Chat Messaging SDK for React and React Native. This information should enable you to build typical chat functionality inside a React app, and give you the background you need to dive deeper into the more advanced parts of the IVS Chat Messaging SDK.
 

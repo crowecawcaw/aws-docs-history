@@ -1,7 +1,6 @@
 
 
 # Getting Started with the IVS Chat Client Messaging iOS SDK
-<a name="chat-ios-getting-started"></a>
 
 We recommend that you integrate the SDK via [Swift Package Manager](#chat-ios-install-sdk-swiftpm). Alternatively, you can [integrate the framework manually](#chat-ios-install-sdk-manual).
 

@@ -1,7 +1,6 @@
 
 
 # IVS Chat Client Messaging SDK: Android Tutorial Part 1: Chat Rooms
-<a name="chat-sdk-android-tutorial-chat-rooms"></a>
 
 This is the first of a two-part tutorial. You will learn the essentials of working with the Amazon IVS Chat Messaging SDK by building a fully functional Android app using the [Kotlin](https://kotlinlang.org/) programming language. We call the app *Chatterbox*.
 

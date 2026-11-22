@@ -1,7 +1,6 @@
 
 
 # IVS Chat Client Messaging SDK: Android Guide
-<a name="chat-sdk-android"></a>
 
 The Amazon Interactive Video (IVS) Chat Client Messaging Android SDK provides interfaces that allow you to easily incorporate our [IVS Chat Messaging API](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/welcome.html) on platforms using Android.
 

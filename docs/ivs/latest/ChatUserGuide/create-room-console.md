@@ -1,7 +1,6 @@
 
 
 # Console Instructions for Creating an IVS Chat Room
-<a name="create-room-console"></a>
 
 These steps are divided into phases, starting with initial room setup and ending with final room creation.
 

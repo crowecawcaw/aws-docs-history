@@ -1,7 +1,6 @@
 
 
 # Using the IVS Chat Client Messaging iOS SDK
-<a name="chat-ios-using-sdk"></a>
 
 This document takes you through the steps involved in using the Amazon IVS chat client messaging iOS SDK.
 

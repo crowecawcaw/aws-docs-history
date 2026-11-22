@@ -1,7 +1,6 @@
 
 
 # Using the IVS Chat Client Messaging Android SDK
-<a name="chat-android-using-sdk"></a>
 
 This document takes you through the steps involved in using the Amazon IVS chat client messaging Android SDK.
 

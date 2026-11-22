@@ -1,7 +1,6 @@
 
 
 # Step 3: Create a Chat Token
-<a name="getting-started-chat-auth"></a>
 
 For a chat participant to connect to a room and start sending and receiving messages, a chat token must be created. Chat tokens are used to authenticate and authorize chat clients.
 

@@ -1,7 +1,6 @@
 
 
 # IVS Chat Document History
-<a name="doc-history"></a>
 
 The following tables describe the important changes to the documentation for Amazon IVS Chat. We update the documentation frequently, for new releases and to address the feedback that you send us.
 
