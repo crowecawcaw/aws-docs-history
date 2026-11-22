@@ -1,7 +1,6 @@
 
 
 # Access management for AWS DataSync
-<a name="managing-access-overview"></a>
 
 Every AWS resource is owned by an AWS account. Permissions to create or access a resource are governed by permissions policies. An account administrator can attach permissions policies to AWS Identity and Access Management (IAM) identities. Some services (such as AWS Lambda) also support attaching permissions policies to resources.
 
@@ -132,7 +131,7 @@ For more information, see [Control access to VPC endpoints using endpoint polici
 **Example policy**  
 The following is an example of a endpoint policy.
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

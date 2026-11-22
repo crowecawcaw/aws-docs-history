@@ -1,7 +1,6 @@
 
 
 # Tagging your AWS DataSync tasks
-<a name="tagging-tasks"></a>
 
 *Tags* are key-value pairs that help you manage, filter, and search for your AWS DataSync resources. You can add up to 50 tags to each DataSync task and task execution.
 
@@ -52,7 +51,7 @@ You can tag your DataSync task only when creating the task.
 
    You get a response that shows the task that you just created.
 
-   ```
+   ```json
    {
        "TaskArn": "arn:aws:datasync:us-east-2:123456789012:task/task-abcdef01234567890"
    }
@@ -109,7 +108,7 @@ To add, edit, or remove tags from a task execution, you must start the task with
 
    You get a response that shows the task execution that you just started.
 
-   ```
+   ```json
    {
        "TaskExecutionArn": "arn:aws:datasync:us-east-2:123456789012:task/task-abcdef01234567890"
    }

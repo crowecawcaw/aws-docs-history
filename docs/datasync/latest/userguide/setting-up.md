@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS DataSync
-<a name="setting-up"></a>
 
 Before you get started with AWS DataSync, you need to sign up for an AWS account if you don't have one. We also recommend learning where DataSync can be used and how much it might cost to transfer your data.
 

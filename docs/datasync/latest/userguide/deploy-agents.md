@@ -1,7 +1,6 @@
 
 
 # Deploying your AWS DataSync agent
-<a name="deploy-agents"></a>
 
 When creating an AWS DataSync agent, the first step is to deploy the agent in your storage environment. You can deploy an agent as a virtual machine (VM) on VMware ESXi, Linux Kernel-based Virtual Machine (KVM), Nutanix AHV (using the KVM image), Red Hat OpenShift Virtualization (using the KVM image), and Microsoft Hyper-V hypervisors. You also can deploy an agent as an Amazon EC2 instance in a virtual private cloud (VPC) within AWS.
 

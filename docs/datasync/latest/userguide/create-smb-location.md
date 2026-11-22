@@ -1,7 +1,6 @@
 
 
 # Configuring AWS DataSync transfers with an SMB file server
-<a name="create-smb-location"></a>
 
 With AWS DataSync, you can transfer data between your Server Message Block (SMB) file server and the following AWS storage services:
 + [Amazon S3](create-s3-location.md)

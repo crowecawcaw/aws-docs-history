@@ -1,7 +1,6 @@
 
 
 # Securing storage location credentials with Secrets Manager
-<a name="location-credentials"></a>
 
 DataSync uses [locations](https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#sync-locations) to access your storage resources located on premises, in other clouds, or in AWS. Some location types require credentials to authenticate with your storage system. Credential types include an access key and secret key, a user name and password, a Kerberos keytab, or a SAS token. These types of credentials are inherently security-sensitive (must be kept secret), and they are valid until you explicitly revoke then via your authentication management system (e.g. Active Directory, or cloud storage IAM). When you create a DataSync location that requires access credentials for authentication, you can use AWS Secrets Manager (Secrets Manager) to store the secret for your credentials.
 

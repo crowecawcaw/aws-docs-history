@@ -1,7 +1,6 @@
 
 
 # AWS DataSync quotas
-<a name="datasync-limits"></a>
 
 Find out about resource quotas and limits when working with AWS DataSync.
 

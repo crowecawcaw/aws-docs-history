@@ -1,7 +1,6 @@
 
 
 # Transferring to or from other cloud storage with AWS DataSync
-<a name="transferring-other-cloud-storage"></a>
 
 With AWS DataSync, you can transfer data between some other cloud providers and AWS storage services. For more information, see [Where can I transfer my data with DataSync?](working-with-locations.md)
 

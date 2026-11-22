@@ -1,7 +1,6 @@
 
 
 # Configuring AWS DataSync transfers with Microsoft Azure Files SMB shares
-<a name="transferring-azure-files"></a>
 
 You can configure AWS DataSync to transfer data to or from a Microsoft Azure Files Server Message Block (SMB) share.
 

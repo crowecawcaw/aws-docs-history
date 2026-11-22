@@ -1,7 +1,6 @@
 
 
 # Monitoring your data transfers with task reports
-<a name="task-reports"></a>
 
 *Task reports* provide detailed information about what AWS DataSync attempts to transfer, skip, verify, and delete during a task execution. For more information, see [How DataSync transfers files, objects, and directories](how-datasync-transfer-works.md#transferring-files).
 
@@ -119,7 +118,7 @@ Enhanced mode task reports use a somewhat different schema than Basic mode task 
 **Example transferred data reports with success status**  
 The following reports show successful transfers for an object named `object1.txt`.  
 
-```
+```json
 {
     "TaskExecutionId": "exec-abcdefgh12345678",
     "Transferred": [{
@@ -145,7 +144,7 @@ The following reports show successful transfers for an object named `object1.txt
 }
 ```
 
-```
+```json
 {
     "TaskExecutionId": "exec-abcdefgh12345678",
     "Transferred": [{
@@ -172,7 +171,7 @@ The following reports show successful transfers for an object named `object1.txt
 The following reports provide examples of when DataSync can't transfer an object named `object1.txt`.  
 This report shows that DataSync can't access an object named `object1.txt` because of an AWS KMS permissions issue. (If you get an error like this, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption).)  
 
-```
+```json
 {
     "TaskExecutionId": "exec-abcdefgh12345678",
     "Transferred": [{
@@ -200,7 +199,7 @@ This report shows that DataSync can't access an object named `object1.txt` becau
 ```
 This report shows that an object named `object1.txt` didn't transfer because of an S3 bucket permissions issue. (If you get an error like this, see [Providing DataSync access to S3 buckets](create-s3-location.md#create-s3-location-access).)  
 
-```
+```json
 {
     "TaskExecutionId": "exec-abcdefgh12345678",
     "Transferred": [{

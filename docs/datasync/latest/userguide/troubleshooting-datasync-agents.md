@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with DataSync agents
-<a name="troubleshooting-datasync-agents"></a>
 
 Use the following information to help you troubleshoot issues with AWS DataSync agents. Some of these issues can include:
 + Trouble connecting to an Amazon EC2 agent's local console
@@ -23,7 +22,7 @@ ssh -i {{/path/key-pair-name}}.pem {{instance-user-name}}@{{instance-public-ip-a
 + For {{instance-user-name}}, specify `admin`.
 + For {{instance-public-ip-address}}, specify the public IP address of your instance.
 
-## What does the Failed to retrieve agent activation key error mean?
+## What does the `Failed to retrieve agent activation key` error mean?
 <a name="vpc-activation-error"></a>
 
 When activating your DataSync agent, the agent connects to the service endpoint that you specify to request an activation key. This error likely means that your network security settings are blocking the connection.

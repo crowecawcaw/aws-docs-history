@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS DataSync
-<a name="security-iam-awsmanpol"></a>
 
 
 

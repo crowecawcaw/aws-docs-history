@@ -1,7 +1,6 @@
 
 
 # AWS DataSync encryption in transit
-<a name="encryption-in-transit"></a>
 
 Your storage data (including metadata) is encrypted in transit, but how it's encrypted throughout the transfer depends on your source and destination locations.
 

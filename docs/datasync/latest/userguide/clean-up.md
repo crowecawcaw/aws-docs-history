@@ -1,7 +1,6 @@
 
 
 # Cleaning up your AWS DataSync resources
-<a name="clean-up"></a>
 
 If you used AWS DataSync for a test or don't need the AWS resources that you created, delete them so that you aren't charged for resources you don't plan to use.
 

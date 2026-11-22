@@ -1,7 +1,6 @@
 
 
 # Accelerating your migration with data partitioning
-<a name="datasync-large-migration-data-partitioning"></a>
 
 With a large migration, we recommend partitioning your dataset with multiple DataSync tasks. Partitioning your source data across multiple tasks (and possibly agents) lets you parallelize your transfers and reduce the migration timeline.
 

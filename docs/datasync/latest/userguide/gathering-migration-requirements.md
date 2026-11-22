@@ -1,7 +1,6 @@
 
 
 # Gathering requirements for your migration
-<a name="gathering-migration-requirements"></a>
 
 The first step in a large data migration requires collecting a variety of information across your organization.
 

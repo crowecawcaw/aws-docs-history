@@ -1,7 +1,6 @@
 
 
 # How AWS DataSync works
-<a name="how-datasync-transfer-works"></a>
 
 Learn the key concepts and terminology related to AWS DataSync transfers, including how data gets transferred from on-premises and cloud locations.
 

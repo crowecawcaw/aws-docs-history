@@ -1,7 +1,6 @@
 
 
 # Configuring transfers with Amazon FSx for NetApp ONTAP
-<a name="create-ontap-location"></a>
 
 To transfer data to or from your Amazon FSx for NetApp ONTAP file system, you must create an AWS DataSync transfer *location*. DataSync can use this location as a source or destination for transferring data.
 
@@ -216,7 +215,7 @@ Don't specify a path in the SVM's root volume. For more information, see [Managi
 
    You get a response that shows the location that you just created.
 
-   ```
+   ```json
    { 
        "LocationArn": "arn:aws:datasync:us-west-2:123456789012:location/loc-abcdef01234567890" 
    }

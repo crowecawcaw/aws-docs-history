@@ -1,7 +1,6 @@
 
 
 # Links and directories copied by AWS DataSync
-<a name="special-files-copied"></a>
 
 AWS DataSync handles hard links, symbolic links, and directories differently depending on the storage locations involved in your transfer.
 

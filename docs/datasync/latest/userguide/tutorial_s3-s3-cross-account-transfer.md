@@ -1,7 +1,6 @@
 
 
 # Tutorial: Transferring data between Amazon S3 buckets across AWS accounts
-<a name="tutorial_s3-s3-cross-account-transfer"></a>
 
 With AWS DataSync, you can transfer data between Amazon S3 buckets that belong to different AWS accounts.
 
@@ -380,7 +379,7 @@ To complete the following steps by using a command line tool other than CloudShe
 
    If the command returns a DataSync location ARN similar to this, you successfully created the location:
 
-   ```
+   ```json
    {
      "LocationArn": "arn:aws:datasync:us-east-2:123456789012:location/loc-abcdef01234567890"
    }

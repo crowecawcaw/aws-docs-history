@@ -1,7 +1,6 @@
 
 
 # Understanding how DataSync handles file and object metadata
-<a name="metadata-copied"></a>
 
 AWS DataSync can preserve your file or object metadata during a data transfer. How your metadata gets copied depends on your transfer locations and if those locations use similar types of metadata.
 

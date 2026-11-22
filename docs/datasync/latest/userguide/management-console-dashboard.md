@@ -1,7 +1,6 @@
 
 
 # Monitoring with the AWS DataSync console dashboard
-<a name="management-console-dashboard"></a>
 
 You can monitor your data transfers using the AWS DataSync console dashboard. From the dashboard, you can view all active task executions and filter them by properties such as **Start time**, **Status**, and **Task ID**. You can also view a summary of data transferred, files transferred, and task execution statuses.
 

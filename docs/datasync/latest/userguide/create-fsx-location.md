@@ -1,7 +1,6 @@
 
 
 # Configuring transfers with FSx for Windows File Server
-<a name="create-fsx-location"></a>
 
 To transfer data to or from your Amazon FSx for Windows File Server file system, you must create an AWS DataSync transfer *location*. DataSync can use this location as a source or destination for transferring data.
 

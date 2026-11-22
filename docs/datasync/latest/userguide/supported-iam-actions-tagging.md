@@ -1,7 +1,6 @@
 
 
 # Permissions for tagging DataSync resources during creation
-<a name="supported-iam-actions-tagging"></a>
 
 Some resource-creating AWS DataSync API actions enable you to specify tags when you create the resource. You can use resource tags to implement attribute-based access control (ABAC). For more information, see [ What is ABAC for AWS?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
 

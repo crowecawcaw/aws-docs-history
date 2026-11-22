@@ -1,7 +1,6 @@
 
 
 # AWS DataSync tutorials
-<a name="tutorials"></a>
 
 These tutorials walk you through some real-world scenarios with AWS DataSync.
 

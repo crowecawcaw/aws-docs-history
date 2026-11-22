@@ -1,7 +1,6 @@
 
 
 # Transferring specific files or objects by using a manifest
-<a name="transferring-with-manifest"></a>
 
 A *manifest* is a list of files or objects that you want AWS DataSync to transfer. For example, instead of having to transfer everything in an S3 bucket with potentially millions of objects, DataSync transfers only the objects that you list in your manifest.
 

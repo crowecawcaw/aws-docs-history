@@ -1,7 +1,6 @@
 
 
 # Setting bandwidth limits for your AWS DataSync task
-<a name="configure-bandwidth"></a>
 
 You can configure network bandwidth limits for your AWS DataSync task and each of its executions.
 

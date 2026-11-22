@@ -1,7 +1,6 @@
 
 
 # Configuring AWS DataSync transfers with Amazon S3
-<a name="create-s3-location"></a>
 
 To transfer data to or from your Amazon S3 bucket, you create an AWS DataSync transfer *location*. DataSync can use this location as a source or destination for transferring data.
 
@@ -25,7 +24,7 @@ The permissions that your IAM role needs can depend on whether bucket is a DataS
 ------
 #### [ Amazon S3 (source location) ]
 
-```
+```JSON
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ The permissions that your IAM role needs can depend on whether bucket is a DataS
 ------
 #### [ Amazon S3 (destination location) ]
 
-```
+```JSON
 {
  "Version": "2012-10-17",		 	 	 
  "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Planning transfers to or from third-party cloud storage systems
-<a name="third-party-cloud-transfer-considerations"></a>
 
 When planning cross-cloud data transfers, consider the following:
 + **Using an agent:** Most transfers require a DataSync agent. Transfers between storage in other clouds and Amazon S3 using [Enhanced mode tasks](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html) do not require an agent. Use the agent that corresponds to your task mode. If you decide to use an agent, you can deploy it as an [Amazon EC2 instance](https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#ec2-deploy-agent) when transferring from a cloud providers' S3-compatible object storage, or as a Google Compute Engine or Azure Virtual Machine for transfers from those specific storage services, respectively. When transferring from filesystems in Google and Azure, we recommend deploying the agent as a Google or Azure VM so that the agent is as close to the filesystem as possible. Additionally, DataSync compresses the data from the agent to AWS, which can help reduce egress costs. DataSync provides a list of [validated cloud locations](https://docs.aws.amazon.com/datasync/latest/userguide/creating-other-cloud-object-location.html) that provide the required [Amazon S3 API compatibility](https://docs.aws.amazon.com/datasync/latest/userguide/creating-other-cloud-object-location.html#other-cloud-access).

@@ -1,7 +1,6 @@
 
 
 # Monitoring your transfers
-<a name="datasync-large-migration-monitoring"></a>
 
 AWS DataSync provides several monitoring options to help you validate and debug your transfer.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting AWS DataSync issues
-<a name="troubleshooting-datasync"></a>
 
 Use the following information to troubleshoot AWS DataSync issues and errors.
 

@@ -1,7 +1,6 @@
 
 
 # Running your DataSync transfer tasks
-<a name="datasync-large-migration-running-tasks"></a>
 
 During each of your migration waves, your data transfer usually follows the same general process:
 

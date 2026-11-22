@@ -1,7 +1,6 @@
 
 
 # Configuring AWS DataSync transfers with Google Cloud Storage
-<a name="tutorial_transfer-google-cloud-storage"></a>
 
 With AWS DataSync, you can transfer data between Google Cloud Storage and the following AWS storage services:
 + Amazon S3
@@ -263,19 +262,19 @@ In this scenario, the DataSync agent runs in your Google Cloud environment.
 
 1. If you downloaded a Basic mode agent, open a terminal and unzip the image by running the following command:
 
-   ```
+   ```bash
    unzip AWS-DataSync-Agent-VMWare.zip
    ```
 
 1. Extract the contents of the agent's `.ova` file beginning with `aws-datasync` by running the following command:
 
-   ```
+   ```bash
    tar -xvf aws-datasync-2.0.1655755445.1-x86_64.xfs.gpt.ova
    ```
 
 1. Import the agent's `.vmdk` file into Google Cloud by running the following Google Cloud CLI command:
 
-   ```
+   ```bash
    gcloud compute images import aws-datasync-2-test \
       --source-file INCOMPLETE-aws-datasync-2.0.1655755445.1-x86_64.xfs.gpt-disk1.vmdk \
       --os centos-7
@@ -324,13 +323,13 @@ In this scenario, the agent runs as an Amazon EC2 instance in a VPC that's assoc
 
    Basic mode agents
 
-   ```
+   ```bash
    aws ssm get-parameter --name /aws/service/datasync/ami --region {{vpc-region}}
    ```
 
    Enhanced mode agents
 
-   ```
+   ```bash
    aws ssm get-parameter --name /aws/service/datasync/ami/v3 --region {{vpc-region}}
    ```
 

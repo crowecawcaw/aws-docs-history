@@ -1,7 +1,6 @@
 
 
 # Choosing a task mode for your data transfer
-<a name="choosing-task-mode"></a>
 
 Your AWS DataSync task can run in one of the following modes:
 + **Enhanced mode** – Transfer virtually unlimited numbers of files or objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for all transfers except those that use S3 on Outposts. Transfers between NFS, SMB, or HDFS locations and AWS storage require an Enhanced mode agent. Transfers between Azure Blob or object storage and AWS storage also require an Enhanced mode agent, unless you transfer to or from Amazon S3.

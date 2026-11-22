@@ -1,7 +1,6 @@
 
 
 # Monitoring your AWS DataSync transfers
-<a name="monitoring-overview"></a>
 
 Monitoring is important for maintaining the reliability and performance of your AWS DataSync transfer activities. We recommend that you collect monitoring data so that you can more easily debug errors if one occurs. Before you start monitoring DataSync, however, create a monitoring plan that includes answers to the following questions:
 + What are your monitoring goals?

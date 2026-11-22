@@ -1,7 +1,6 @@
 
 
 # Where can I transfer my data with AWS DataSync?
-<a name="working-with-locations"></a>
 
 Where you can transfer your data with AWS DataSync depends on the following factors:
 + Your transfer's source and destination [locations](how-datasync-transfer-works.md#sync-locations)

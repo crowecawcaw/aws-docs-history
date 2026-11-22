@@ -1,7 +1,6 @@
 
 
 # Connecting your network for AWS DataSync transfers
-<a name="networking-datasync"></a>
 
 If [you need an AWS DataSync agent](do-i-need-datasync-agent.md), you must establish several network connections for a data transfer. The following diagram shows the three network connections in a DataSync transfer from a storage system (which could be on premises, in another cloud, or at the edge) to an AWS storage service.
 

@@ -1,18 +1,17 @@
 
 
 # Troubleshooting issues with DataSync tasks
-<a name="troubleshooting-tasks"></a>
 
 Use the following information to help you troubleshoot issues with AWS DataSync tasks and task executions. These issues might include task setup problems, stuck task executions, and data not transferring as expected.
 
-## Error: Invalid SyncOption value. Option: TransferMode,PreserveDeletedFiles, Value: ALL,REMOVE.
+## Error: `Invalid SyncOption value. Option: TransferMode,PreserveDeletedFiles, Value: ALL,REMOVE.`
 <a name="create-task-deleted-files-error"></a>
 
 This error occurs when you're creating or editing your DataSync task and you select the **Transfer all data** option and deselect the **Keep deleted files** option.
 
 When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.
 
-## Task execution fails with an EniNotFound error
+## Task execution fails with an `EniNotFound` error
 <a name="network-interfaces-not-found"></a>
 
 This error occurs if you delete one of your task's network interfaces in your virtual private cloud (VPC). If your task is scheduled or queued, the task will fail if it's missing a [network interface required to transfer your data](required-network-interfaces.md).
@@ -27,10 +26,10 @@ You have the following options to work around this issue:
   + In the Amazon EC2 console, search for your task ID (such as `task-f012345678abcdef0`) to find its network interfaces.
 + Consider not running your tasks automatically. This could include disabling task queueing or scheduling (through DataSync or custom automation).
 
-## Task execution fails with a Cannot allocate memory error
+## Task execution fails with a `Cannot allocate memory` error
 <a name="error-cannot-allocate-memory"></a>
 
-When your DataSync task fails with a Cannot allocate memory error, it can mean a few different things.
+When your DataSync task fails with a `Cannot allocate memory` error, it can mean a few different things.
 
 **Action to take**  
 Try the following until you no longer see the issue:
@@ -137,7 +136,7 @@ Do the following to run your task again:
 
 Because DataSync communicates with Google Cloud Storage by using the Amazon S3 API, there's a limitation that might cause your DataSync transfer to fail if you try to copy object tags. The following message related to the issue appears in your CloudWatch logs:
 
-[WARN] Failed to read metadata for file /{{your-bucket}}/{{your-object}}: S3 Get Object Tagging Failed: proceeding without tagging
+`[WARN] Failed to read metadata for file /{{your-bucket}}/{{your-object}}: S3 Get Object Tagging Failed: proceeding without tagging`
 
 To prevent this, deselect the **Copy object tags** option when configuring your transfer task settings.
 
@@ -210,6 +209,6 @@ You might run into one of the following errors while trying to monitor your Data
 
 | Error message | Workaround | 
 | --- | --- | 
-| File path exceeds the maximum length of 4,096 characters. Cannot write to Task Report | None. DataSync can't transfer a file with a path that exceeds 4,096 bytes.<br />For more information, see [Storage system, file, and object limits](datasync-limits.md#file-system-limits). | 
-| Failed to upload Task Report(s) to S3 due to an invalid bucket or IAM role | Check that the [DataSync IAM role](creating-task-report.md#task-report-access) has the right permissions to upload a task report to your S3 bucket. | 
-| Execution error occurred prior to generating any Task Reports | Check your [CloudWatch logs](monitor-datasync.md) to identify why your task execution failed. | 
+| `File path exceeds the maximum length of 4,096 characters. Cannot write to Task Report` | None. DataSync can't transfer a file with a path that exceeds 4,096 bytes.<br />For more information, see [Storage system, file, and object limits](datasync-limits.md#file-system-limits). | 
+| `Failed to upload Task Report(s) to S3 due to an invalid bucket or IAM role` | Check that the [DataSync IAM role](creating-task-report.md#task-report-access) has the right permissions to upload a task report to your S3 bucket. | 
+| `Execution error occurred prior to generating any Task Reports` | Check your [CloudWatch logs](monitor-datasync.md) to identify why your task execution failed. | 

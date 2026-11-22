@@ -1,7 +1,6 @@
 
 
 # Creating your DataSync task reports
-<a name="creating-task-report"></a>
 
 AWS DataSync task reports can be only a summary of your task execution or a set of detailed reports about what DataSync attempts to transfer, skip, verify, and delete.
 
@@ -164,7 +163,7 @@ For more information, see [Accessing S3 buckets using server-side encryption](cr
 
    You get a response like the following that shows you the ARN of the task that you created. You will need this ARN to run the `start-task-execution` command.
 
-   ```
+   ```json
    {
        "TaskArn": "arn:aws:datasync:us-east-1:123456789012:task/task-12345678abcdefgh"
    }
@@ -296,7 +295,7 @@ For more information, see [Accessing S3 buckets using server-side encryption](cr
 
    You get a response like the following that shows you the ARN of the task that you created. You will need this ARN to run the `start-task-execution` command.
 
-   ```
+   ```json
    {
        "TaskArn": "arn:aws:datasync:us-east-1:123456789012:task/task-12345678abcdefgh"
    }

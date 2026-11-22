@@ -1,7 +1,6 @@
 
 
 # What is AWS DataSync?
-<a name="what-is-datasync"></a>
 
 AWS DataSync is a secure, reliable, high‐speed file transfer service that helps you quickly and easily transfer your file or object data to, from, and between AWS storage services.
 

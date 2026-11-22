@@ -1,7 +1,6 @@
 
 
 # Activating your AWS DataSync agent
-<a name="activate-agent"></a>
 
 To finish creating your AWS DataSync agent, you must activate it. This step associates the agent with your AWS account.
 
@@ -181,7 +180,7 @@ At this point, you might notice that your agent is offline. This happens briefly
 
    You get a response with the ARN of the agent that you just activated. For example:
 
-   ```
+   ```json
    {
        "AgentArn": "arn:aws:datasync:us-east-1:111222333444:agent/agent-0b0addbeef44baca3"
    }

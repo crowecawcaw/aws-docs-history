@@ -1,7 +1,6 @@
 
 
 # Network interfaces for AWS DataSync transfers
-<a name="required-network-interfaces"></a>
 
 For every task you create, AWS DataSync automatically generates and manages [network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) for data transfer traffic. How many network interfaces DataSync creates and where they’re created depends on the following details about your transfer task:
 + Whether your task [requires a DataSync agent](do-i-need-datasync-agent.md).
@@ -58,7 +57,7 @@ The total number of network interfaces depends on the DataSync locations in your
 To see the network interfaces allocated to your DataSync transfer task, do one of the following:
 + Use the [DescribeTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTask.html) operation. The operation returns `SourceNetworkInterfaceArns` and `DestinationNetworkInterfaceArns` with responses that look like this:
 
-  ```
+  ```json
   arn:aws:ec2:{{your-region}}:{{your-account-id}}:network-interface/eni-f012345678abcdef0
   ```
 

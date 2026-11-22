@@ -1,7 +1,6 @@
 
 
 # Configuring DataSync transfers with FSx for Lustre
-<a name="create-lustre-location"></a>
 
 To transfer data to or from your Amazon FSx for Lustre file system, you must create an AWS DataSync transfer *location*. DataSync can use this location as a source or destination for transferring data.
 

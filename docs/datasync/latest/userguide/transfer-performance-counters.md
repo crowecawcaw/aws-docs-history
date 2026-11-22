@@ -1,7 +1,6 @@
 
 
 # Understanding data transfer performance counters
-<a name="transfer-performance-counters"></a>
 
 When you [start a task](run-task.md), AWS DataSync provides counters to help track your data transfer's performance and progress.
 

@@ -1,7 +1,6 @@
 
 
 # Configuring transfers with Microsoft Azure Blob Storage
-<a name="creating-azure-blob-location"></a>
 
 With AWS DataSync, you can transfer data between Microsoft Azure Blob Storage (including Azure Data Lake Storage Gen2 blob storage) and the following AWS storage services:
 + [Amazon S3](create-s3-location.md)
@@ -94,7 +93,7 @@ You can't add the tag permission when generating a SAS token in the Azure portal
 
 Make sure that your SAS doesn't expire before you expect to finish your transfer. For information about configuring a SAS expiration policy, see the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/common/sas-expiration-policy).
 
-If the SAS expires during the transfer, DataSync can no longer access your Azure Blob Storage location. (You might see a Failed to open directory error.) If this happens, [update your location](#azure-blob-update-location) with a new SAS token and restart your DataSync task.
+If the SAS expires during the transfer, DataSync can no longer access your Azure Blob Storage location. (You might see a `Failed to open directory` error.) If this happens, [update your location](#azure-blob-update-location) with a new SAS token and restart your DataSync task.
 
 ### Federated identity (OIDC)
 <a name="azure-blob-federated-identity"></a>
@@ -332,7 +331,7 @@ Download an agent from the DataSync console. Before you can deploy the agent in 
 
    1. Copy the following `Convert-VHD` cmdlet:
 
-      ```
+      ```powershell
       Convert-VHD -Path .\{{local-path-to-vhdx-file}}\aws-datasync-2.0.1686143940.1-x86_64.xfs.gpt.vhdx `
       -DestinationPath .\{{local-path-to-vhdx-file}}\aws-datasync-2016861439401-x86_64.vhd -VHDType Fixed
       ```
@@ -363,7 +362,7 @@ Deploying your DataSync agent in Azure involves:
 
    1. Copy the following Azure CLI command:
 
-      ```
+      ```powershell
       az disk create -n {{your-managed-disk}} `
       -g {{your-resource-group}} `
       -l {{your-azure-region}} `
@@ -388,7 +387,7 @@ Deploying your DataSync agent in Azure involves:
 
    1. Copy the following Azure CLI command:
 
-      ```
+      ```powershell
       az disk grant-access -n {{your-managed-disk}} `
       -g {{your-resource-group}} `
       --access-level Write `
@@ -409,7 +408,7 @@ Deploying your DataSync agent in Azure involves:
 
    1. Copy the following `AzCopy` command:
 
-      ```
+      ```powershell
       .\azcopy copy {{local-path-to-vhd-file}} {{sas-uri}} --blob-type PageBlob
       ```
 
@@ -421,7 +420,7 @@ Deploying your DataSync agent in Azure involves:
 
 1. When the agent upload finishes, revoke access to your managed disk. To do this, copy the following Azure CLI command:
 
-   ```
+   ```powershell
    az disk revoke-access -n {{your-managed-disk}} -g {{your-resource-group}}
    ```
 
@@ -435,7 +434,7 @@ Deploying your DataSync agent in Azure involves:
 
    1. Copy the following Azure CLI command:
 
-      ```
+      ```powershell
       az vm create --resource-group {{your-resource-group}} `
       --location eastus `
       --name {{your-agent-vm}} `
@@ -621,7 +620,7 @@ Make sure that you know [how DataSync accesses Azure Blob Storage](#azure-blob-a
 
    If the command is successful, you get a response that shows you the ARN of the location that you created. For example:
 
-   ```
+   ```json
    { 
        "LocationArn": "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678abcdefgh" 
    }
@@ -659,7 +658,7 @@ You can get details about the existing DataSync transfer location for your Azure
 
    You get a response that shows you details about your location. For example:
 
-   ```
+   ```json
    {
        "LocationArn": "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678abcdefgh",
        "LocationUri": "azure-blob://my-user.blob.core.windows.net/container-1",

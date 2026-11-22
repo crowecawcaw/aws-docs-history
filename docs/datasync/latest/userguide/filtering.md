@@ -1,7 +1,6 @@
 
 
 # Transferring specific files, objects, and folders by using filters
-<a name="filtering"></a>
 
 AWS DataSync lets you apply filters to include or exclude data from your source location in a transfer. For example, if you don't want to transfer temporary files that end with `.tmp`, you can create an exclude filter so that these files don't make their way to your destination location.
 

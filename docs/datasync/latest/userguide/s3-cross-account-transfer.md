@@ -1,7 +1,6 @@
 
 
 # Tutorial: Transferring data from on-premises storage to Amazon S3 across AWS accounts
-<a name="s3-cross-account-transfer"></a>
 
 When using AWS DataSync with on-premises storage, you typically transfer data to an AWS storage service that belongs to the same AWS account as your DataSync agent. There are situations, however, where you might need to transfer data to an Amazon S3 bucket that's associated with a different account.
 
@@ -378,7 +377,7 @@ To complete the following steps by using a command line tool other than CloudShe
 
    If the command returns a DataSync location ARN similar to this, you successfully created the location:
 
-   ```
+   ```json
    {
      "LocationArn": "arn:aws:datasync:us-east-2:123456789012:location/loc-abcdef01234567890"
    }

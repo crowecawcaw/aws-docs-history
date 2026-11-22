@@ -1,7 +1,6 @@
 
 
 # Monitoring data transfers with Amazon CloudWatch Logs
-<a name="configure-logging"></a>
 
 You can monitor your AWS DataSync transfer by using CloudWatch Logs. We recommend that you configure your task to at least log basic information (such as transfer errors).
 
@@ -188,7 +187,7 @@ DataSync provides JSON-structured logs for Enhanced mode tasks. Basic mode tasks
 ------
 #### [ Enhanced mode log example ]
 
-```
+```json
 {
     "Action": "VERIFY",
     "Source": {

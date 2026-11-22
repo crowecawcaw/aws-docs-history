@@ -1,7 +1,6 @@
 
 
 # Requirements for AWS DataSync agents
-<a name="agent-requirements"></a>
 
 Before you [deploy](deploy-agents.md) an AWS DataSync agent in your storage environment, make sure that you understand the agent hypervisor and resource requirements.
 

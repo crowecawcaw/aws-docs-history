@@ -1,7 +1,6 @@
 
 
 # Troubleshooting higher than expected S3 storage costs with DataSync
-<a name="multipart-upload-policy"></a>
 
 If your Amazon S3 storage costs are higher than you thought they would be following an AWS DataSync transfer, it might be due to one or more of the following reasons:
 + When transferring to or from S3 buckets, you incur costs related to S3 API requests made by DataSync.

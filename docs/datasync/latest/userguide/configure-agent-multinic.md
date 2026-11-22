@@ -1,7 +1,6 @@
 
 
 # Configuring your AWS DataSync agent for multiple NICs
-<a name="configure-agent-multinic"></a>
 
 If you configure your AWS DataSync agent to use multiple network adapters (NICs), the agent can be accessed by more than one IP address. You might want to do this in the following situations:
 + ****Maximizing throughput**** – You might want to maximize throughput to an agent when network adapters are a bottleneck.
