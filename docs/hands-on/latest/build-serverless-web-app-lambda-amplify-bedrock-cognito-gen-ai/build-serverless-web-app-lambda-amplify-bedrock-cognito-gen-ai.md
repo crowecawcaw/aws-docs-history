@@ -1,7 +1,6 @@
 
 
 # Build a serverless web application using generative AI
-<a name="build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai"></a>
 
 
 |  |  | 
@@ -65,7 +64,7 @@ In this task, you start by creating a new React application and pushing it to a 
 
    1. In a new terminal or command line window, run the following command to use Vite to create a React application: 
 
-     ```
+     ```bash
      npm create vite@latest ai-recipe-generator -- --template react-ts -y
      cd ai-recipe-generator
      npm install
@@ -102,7 +101,7 @@ If you have never used GitHub on your computer, follow [the steps to connect to 
 **Note**  
 Replace the SSH GitHub URL in the command with your GitHub URL.
 
-     ```
+     ```bash
      git init
      git add .
      git commit -m "first commit"
@@ -118,7 +117,7 @@ Replace the SSH GitHub URL in the command with your GitHub URL.
 
    1. Open a new terminal window, navigate to your app's root folder (`ai-recipe-generator`), and run the following command: 
 
-     ```
+     ```bash
      npm create amplify@latest -y
      ```
 
@@ -177,7 +176,7 @@ The app uses email as the default login mechanism. When users sign up, they rece
 
   1. On your local machine, navigate to the `ai-recipe-generator/amplify/auth/resource.ts` file and update it with the following code. Then, save the file. 
 
-    ```
+    ```javascript
     import { defineAuth } from "@aws-amplify/backend";
     
     export const auth = defineAuth({
@@ -231,7 +230,7 @@ In this task, you configure a serverless function using AWS Amplify and AWS Lamb
 
    1. Then, update the file with the following code: 
 
-     ```
+     ```javascript
      export function request(ctx) {
          const { ingredients = [] } = ctx.args;
        
@@ -285,7 +284,7 @@ In this task, you configure a serverless function using AWS Amplify and AWS Lamb
 
   1. Update the `amplify/backend.ts` file with the following code. Then, save the file. 
 
-     ```
+     ```javascript
      import { defineBackend } from "@aws-amplify/backend";
      import { data } from "./data/resource";
      import { PolicyStatement } from "aws-cdk-lib/aws-iam";
@@ -332,7 +331,7 @@ In this task, you configure a custom query that references the data source and t
 
    1. On your local machine, navigate to the `ai-recipe-generator/amplify/data/resource.ts` file, and update it with the following code. Then, save the file. 
 
-      ```
+      ```javascript
       import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
       
       const schema = a.schema({
@@ -374,7 +373,7 @@ The API key expires in 30 days, as set by `expiresInDays: 30`. If you return to 
 
    1. Open a new terminal window, navigate to your app's project folder (`ai-recipe-generator`), and run the following command to deploy cloud resources into an isolated development space so you can iterate fast. 
 
-     ```
+     ```bash
      npx ampx sandbox
      ```
 
@@ -399,7 +398,7 @@ You need two Amplify libraries for your project. The main `aws-amplify` library 
 
   1. Open a new terminal window, navigate to your project's root folder (`ai-recipe-generator`), and run the following command to install the libraries. 
 
-    ```
+    ```bash
     npm install aws-amplify @aws-amplify/ui-react
     ```
 
@@ -563,7 +562,7 @@ You need two Amplify libraries for your project. The main `aws-amplify` library 
 
    1. On your local machine, navigate to the `ai-recipe-generator/src/main.tsx` file, and update it with the following code. Then, save the file. 
 
-      ```
+      ```javascript
       import React from "react";
       import ReactDOM from "react-dom/client";
       import App from "./App.jsx";
@@ -585,7 +584,7 @@ You need two Amplify libraries for your project. The main `aws-amplify` library 
 
    1. Replace the contents of the `ai-recipe-generator/src/App.tsx` file with the following code, then save the file. 
 
-      ```
+      ```javascript
       import { FormEvent, useState } from "react";
       import { Loader, Placeholder } from "@aws-amplify/ui-react";
       import "./App.css";
@@ -679,7 +678,7 @@ You need two Amplify libraries for your project. The main `aws-amplify` library 
 
    1. Open a new terminal window, navigate to your project's root directory (`ai-recipe-generator`), and run the following command to launch the app: 
 
-     ```
+     ```bash
      npm run dev
      ```
 
@@ -706,7 +705,7 @@ You need two Amplify libraries for your project. The main `aws-amplify` library 
 
    1. In the open terminal window, run the following command to push the changes to GitHub: 
 
-     ```
+     ```bash
      git add .
      git commit -m 'connect to bedrock'
      git push origin main
