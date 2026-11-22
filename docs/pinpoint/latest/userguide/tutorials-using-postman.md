@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Tutorial: Using Postman with the Amazon Pinpoint API
-<a name="tutorials-using-postman"></a>
 
 Postman is a popular tool for testing APIs in an easy-to-use graphical environment. You can use Postman to send API requests to any REST API, and to receive responses to your requests. Using Postman is a convenient way to test and troubleshoot the calls that you make to the Amazon Pinpoint API. This tutorial includes procedures for setting up and using Postman with Amazon Pinpoint.
 

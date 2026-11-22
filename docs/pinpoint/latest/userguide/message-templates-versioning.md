@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing versions of message templates
-<a name="message-templates-versioning"></a>
 
 To help you manage the development and use of individual message templates, Amazon Pinpoint supports versioning for all types of message templates. Versioning provides a way for you to create a history of changes to a template—each version is a snapshot of a template at a certain point in time. Versioning also provides a way for you to control the contents and settings of messages that use a template.
 

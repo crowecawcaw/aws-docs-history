@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Preparing to use a recommender model with Amazon Pinpoint
-<a name="ml-models-rm-prerequisites"></a>
 
 To work with Amazon Pinpoint, a recommender model must be deployed as an Amazon Personalize campaign. In addition, certain AWS Identity and Access Management (IAM) roles and policies must be in place. If you want to enhance the recommendations that Amazon Pinpoint receives from the model, an AWS Lambda function also must be in place to process the recommendations.
 

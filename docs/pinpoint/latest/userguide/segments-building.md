@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Building segments
-<a name="segments-building"></a>
 
 After you integrate your apps with Amazon Pinpoint, you can create dynamic segments that are based on the data your apps provide to Amazon Pinpoint. When you create a dynamic segment, you choose the type of segment you want to create, create a segment group, and then refine that segment group by choosing the segments and the criteria that define those segments. For example, you could create a dynamic segment group, and then choose an audience segment and criteria of all customers who use version 2.0 of your app on an Android device and who have used your app within the past 30 days. Amazon Pinpoint continuously re-evaluates your segments as your app records new customer interactions. As a result, the size and membership of each segment changes over time. For information about integrating your apps with Amazon Pinpoint, see [Integrating Amazon Pinpoint with your application](https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html) in the *Amazon Pinpoint Developer Guide*.
 

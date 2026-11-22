@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Verifying email identities
-<a name="channels-email-manage-verify"></a>
 
 In Amazon Pinpoint, an *identity* is an email address or domain that you use to send email. Before you can send email by using Amazon Pinpoint, you must verify each identity that you plan to use as a *From*, *Source*, *Sender*, or *Return path* address to prove that you own it. If your account is still in the Amazon Pinpoint sandbox, you also must verify the identities that you plan to send email to.
 

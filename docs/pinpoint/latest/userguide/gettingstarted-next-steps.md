@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Next steps
-<a name="gettingstarted-next-steps"></a>
 
 After completing this tutorial, you can explore additional Amazon Pinpoint features. For example:
 + You can improve the delivery of your email campaigns by making sure that your campaigns align with industry best practices. For more information, see [Email best practices](channels-email-best-practices.md).

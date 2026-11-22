@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint end of support
-<a name="migrate"></a>
 
 Support for Amazon Pinpoint ended on October 30, 2026. Amazon Pinpoint stopped accepting new customers on May 20, 2025. Amazon Pinpoint engagement features (endpoints, segments, campaigns, journeys, and analytics) are no longer available.
 
@@ -148,7 +147,7 @@ Amazon Pinpoint Endpoints can be modeled as Connect Customer Customer Profiles. 
 
 In case you want to aggregate endpoints under a single Customer Profile, you can parse the downloaded Amazon Pinpoint segment to collect the email addresses and phone numbers under a single profile. Here is a sample Python script to read the exported file in JSON format and created the Profiles which can be imported to Customer Profiles.
 
-```
+```python
 from collections import defaultdict
 import json
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint campaigns
-<a name="campaigns"></a>
 
 A *campaign* is a messaging initiative that engages a specific audience [segment](segments.md). A campaign sends tailored messages according to a schedule that you define. You can use the console to create a campaign that sends messages through any single channel that is supported by Amazon Pinpoint: mobile push, in-app, email, SMS, or custom channels.
 

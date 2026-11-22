@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Creating an Amazon Pinpoint project with email support
-<a name="channels-email-setup-create"></a>
 
 To send email with Amazon Pinpoint, you start by creating an Amazon Pinpoint project. When you create a project, you can enable the email channel for it, and then choose the email identity that you want to use as the sender address. If you haven't already verified an identity to use with Amazon Pinpoint, you can verify an email address when you create the project.
 

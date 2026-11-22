@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Adding personalized content to message templates
-<a name="message-templates-personalizing"></a>
 
 To deliver dynamic, personalized content in messages that use a template, add *message variables* to the message template. A *message variable* is a placeholder that refers to a specific attribute that you or Amazon Pinpoint created to store information about your users. Each attribute typically corresponds to a characteristic of a user, such as a user's first name or the city where they live. By adding message variables to templates, you can use these attributes to deliver custom content to each recipient of a message that uses a template.
 

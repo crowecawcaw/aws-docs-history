@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Next steps
-<a name="tutorials-two-way-sms-next-steps"></a>
 
 By completing this tutorial, you've done the following:
 + Created an Amazon Pinpoint project, configured the SMS channel, and obtained a dedicated long code.
@@ -33,7 +32,7 @@ After you create segments, you can start sending campaigns to those segments. Wh
 
 For example, if you use the `GetEndpoint` API operation to retrieve information about an endpoint that was created using this solution, you see a section that resembles the following example:
 
-```
+```json
   ...
   "User": {
     "UserAttributes": {

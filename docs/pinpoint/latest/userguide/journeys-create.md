@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create a journey
-<a name="journeys-create"></a>
 
 You can use the Amazon Pinpoint console to create powerful journeys through a graphical editor. The first step in building your journey is to create and configure it. You can configure the journey to begin immediately, or at a certain date and time. You can also configure it to end at a specific date and time.
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Inbox placement tests
-<a name="channels-email-deliverability-dashboard-pipt"></a>
 
 On the **Inbox placement tests** page of the Deliverability dashboard, you can perform tests that can help you predict how specific messages are handled by over 95 major email providers around the world. When you perform an inbox placement test, you provide a sample message that contains the content that you plan to send to your customers. Amazon Pinpoint then sends that message to special email addresses on several major email domains. After about 24 hours, the test is complete, and you can view the results.
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint email channel
-<a name="channels-email"></a>
 
 **Note**  
 Amazon Pinpoint has always used Amazon SES for email delivery, and this update gives you more control over how Amazon Pinpoint uses your Amazon SES resources in your AWS account. For example, an Amazon SES resource can be a [verified identity](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) or [configuration set](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html). As part of this update, email billing will transition from Amazon Pinpoint to Amazon SES after you've updated your AWS account permissions.   

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Set up Postman for use with Amazon Pinpoint
-<a name="tutorials-using-postman-configuration"></a>
 
 Now that you've created a user that's able to access the Amazon Pinpoint API, you can set up Postman. In this section, you create one or more environments in Postman. Next, you import a collection that contains a request template for each of the operations in the Amazon Pinpoint API.
 
@@ -155,8 +154,8 @@ When you submit your request, you might see an error. See the following list for
 
 | Error message | Problem | Resolution | 
 | --- | --- | --- | 
-| Could not get any response<br />There was an error connecting to https://%7B%7Bendpoint%7D%7D/v1/apps. | There is no current value for the `{{endpoint}}` variable, which is set when you choose an environment. | Use the environment selector to choose an environment. | 
-| The security token included in the request is invalid. | Postman wasn't able to find the current value of your access key ID or secret access key. | Choose the gear icon near the environment selector, and then choose the current environment. Verify that the `accessKey` and `secretAccessKey` values appear in both the **INITIAL VALUE** and **CURRENT VALUE** columns, and that you entered the credentials correctly. | 
-| "Message": "User: arn:aws:iam::123456789012:user/PinpointPostmanUser is not authorized to perform: mobiletargeting:GetApps on resource: arn:aws:mobiletargeting:us-west-2:123456789012:\*" | The IAM policy associated with your user doesn't include the appropriate permissions. | Verify that your user has the permissions that are described in [Create an IAM policy](tutorials-using-postman-iam-user.md#tutorials-using-postman-iam-user-create-policy), and that you provided the correct credentials when you created the environment in [Create Postman workspace](#tutorials-using-postman-configuration-create-environments). | 
+| `Could not get any response`<br />`There was an error connecting to https://%7B%7Bendpoint%7D%7D/v1/apps.` | There is no current value for the `{{endpoint}}` variable, which is set when you choose an environment. | Use the environment selector to choose an environment. | 
+| `The security token included in the request is invalid.` | Postman wasn't able to find the current value of your access key ID or secret access key. | Choose the gear icon near the environment selector, and then choose the current environment. Verify that the `accessKey` and `secretAccessKey` values appear in both the **INITIAL VALUE** and **CURRENT VALUE** columns, and that you entered the credentials correctly. | 
+| `"Message": "User: arn:aws:iam::123456789012:user/PinpointPostmanUser is not authorized to perform: mobiletargeting:GetApps on resource: arn:aws:mobiletargeting:us-west-2:123456789012:*"` | The IAM policy associated with your user doesn't include the appropriate permissions. | Verify that your user has the permissions that are described in [Create an IAM policy](tutorials-using-postman-iam-user.md#tutorials-using-postman-iam-user-create-policy), and that you provided the correct credentials when you created the environment in [Create Postman workspace](#tutorials-using-postman-configuration-create-environments). | 
 
 **Next**: [Send additional requests](tutorials-using-postman-sample-requests.md)

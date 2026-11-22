@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Creating email templates
-<a name="message-templates-creating-email"></a>
 
 An *email template* is a type of message template that contains content and settings that you want to create, save, and reuse in email messages that you send for any of your Amazon Pinpoint projects. You can use an email template in any type of email message that you create and send by using Amazon Pinpoint.
 
@@ -61,7 +60,7 @@ To test the template before you use it in an email message that you send to user
 
 Including an unsubscribe link in your email is a best practice, and in some countries it's a legal requirement. In your unsubscribe links, you can include a special attribute, `ses:tags="unsubscribeLinkTag:{{value}}"`, where {{value}} is any value that you define. If a recipient clicks a link that contains this special attribute, Amazon Pinpoint counts it as an opt-out event for analytics purposes (for example, in the Opt-out rate metric on the [Analytics overview page](analytics-overview.md)). The following example shows the syntax for this type of link:
 
-```
+```html
 <a ses:tags="unsubscribeLinkTag:optout" href="https://www.example.com/preferences">Unsubscribe</a>
 ```
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Using dedicated IP addresses with Amazon Pinpoint
-<a name="channels-email-dedicated-ips"></a>
 
 When you create a new Amazon Pinpoint account, your emails are sent from IP addresses that are shared with other Amazon Pinpoint users. For [an additional monthly charge](https://aws.amazon.com/pinpoint/pricing/#Dedicated_IP_Addresses), you can lease dedicated IP addresses that are reserved for your exclusive use. Both of these options offer unique benefits and drawbacks, which are summarized in the following table.
 

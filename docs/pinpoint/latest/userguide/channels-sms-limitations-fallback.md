@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Message fallback
-<a name="channels-sms-limitations-fallback"></a>
 
 When sending a message using the Amazon Pinpoint API, three optional parameters can be passed in the request: `originationNumber`, `registeredKeyword`, and `senderID`. If Amazon Pinpoint encounters an `originationNumber` error – for example, an invalid character – and the error is retriable, Amazon Pinpoint uses a fallback process for choosing a valid number for the request. Fallback checks for a valid number in the following order. At any point during this process Amazon Pinpoint will choose the first valid number it finds as the originating number.
 

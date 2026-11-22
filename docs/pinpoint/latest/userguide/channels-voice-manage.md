@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing the Amazon Pinpoint voice channel
-<a name="channels-voice-manage"></a>
 
 You can use the Amazon Pinpoint console to enable the voice channel for a project and to manage settings that apply to the voice channel for your Amazon Pinpoint account. For example, you can request production access for your account, or request dedicated phone numbers for sending voice messages.
 

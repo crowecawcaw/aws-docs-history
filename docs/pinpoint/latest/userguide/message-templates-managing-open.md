@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Opening a message template
-<a name="message-templates-managing-open"></a>
 
 By using the **Message templates** page, you can quickly find and open a specific message template to view the contents of the template and information about the template. For example, you can view current and previous versions of the template, and determine when the template was last updated. After you open a template, you can also [edit the template](message-templates-managing-edit.md).
 

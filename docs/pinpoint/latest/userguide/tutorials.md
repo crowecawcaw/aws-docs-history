@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Tutorials
-<a name="tutorials"></a>
 
 The tutorials in this section are intended to show new Amazon Pinpoint users how to complete several important tasks. If you're new to Amazon Pinpoint, or just unfamiliar with certain features, these tutorials are a good place to start.
 

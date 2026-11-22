@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing machine learning models in Amazon Pinpoint
-<a name="ml-models-managing"></a>
 
 The **Machine learning models** page on the Amazon Pinpoint console provides a single location for you to view, change, and manage Amazon Pinpoint configuration settings for all the machine learning (ML) models that you've connected to your Amazon Pinpoint account in the current AWS Region. By using this page, you can perform management tasks such as viewing, changing, and deleting configuration settings for connections to ML models. You can also configure Amazon Pinpoint to connect to and use data from additional ML models.
 

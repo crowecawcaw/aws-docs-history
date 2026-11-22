@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create and deploy the web form to use SMS messaging for Amazon Pinpoint
-<a name="tutorials-two-way-sms-part-5"></a>
 
 All of the components that use AWS services for SMS messaging using Amazon Pinpoint are now in place. The last step is to create and deploy the web form that captures customer's data.
 
@@ -18,7 +17,7 @@ In this section, you create a JavaScript function that parses the content of the
 
 1. In the editor, paste the following code.
 
-   ```
+   ```js
    $(document).ready(function() {
    
      // Handle form submission.
@@ -100,7 +99,7 @@ When a user submits this form, it triggers a Lambda function that calls several 
 
 1. In the editor, paste the following code.
 
-   ```
+   ```html
    <!doctype html>
    <html lang="en">
    

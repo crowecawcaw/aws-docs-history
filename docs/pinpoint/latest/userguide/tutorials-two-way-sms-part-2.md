@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create IAM policies and roles for use with SMS in Amazon Pinpoint
-<a name="tutorials-two-way-sms-part-2"></a>
 
 The next step in implementing the SMS registration solution in Amazon Pinpoint is to configure a policy and a role in AWS Identity and Access Management (IAM). For this solution, you need to create a policy that provides access to certain resources that are related to Amazon Pinpoint. You then create a role and attach the policy to it. Later in this tutorial, you create an AWS Lambda function that uses this role to call certain operations in the Amazon Pinpoint API.
 
@@ -33,7 +32,7 @@ In this tutorial, you want to give Lambda the ability to perform these tasks. Ho
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Importing segments
-<a name="segments-importing"></a>
 
 With Amazon Pinpoint, you can define a user segment by importing a file that contains information about the users who belong to the segment. Importing segments is useful if you define user segments outside of Amazon Pinpoint but you want to engage your users with Amazon Pinpoint campaigns.
 
@@ -77,7 +76,7 @@ To include a comma or double quote in a value, enclose the value in double quote
 The CSV file can't contain line breaks or tabs. If your file contains data with line breaks or tabs, the data in the file might not be imported, or the import process might fail.
 You can import endpoints that are defined in a newline-delimited JSON file. In this format, each line is a complete JSON object that contains an individual endpoint definition, as in the following example:  
 
-```
+```json
 {"ChannelType":"SMS","Address":"+16045550182","Location":{"Country":"CA"},"Demographic":{"Platform":"Android","Make":"LG"},"User":{"UserId":"example-user-id-1"}}
 {"ChannelType":"APNS","Address":"1a2b3c4d5e6f7g8h9i0j1a2b3c4d5e6f","Location":{"Country":"US"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
 {"ChannelType":"EMAIL","Address":"john.stiles@example.com","Location":{"Country":"US"},"Demographic":{"Platform":"iOS","Make":"Apple"},"User":{"UserId":"example-user-id-2"}}
@@ -177,7 +176,7 @@ The table in this section lists and describes the attributes that you can specif
 
 For JSON files, a period in the attribute name indicates that the name following the period is an object that's nested in a parent object with a name that's equal to the value preceding the period. For example, a JSON file that contains the `Demographic.Make` and `Demographic.Model` attributes has the following structure:
 
-```
+```json
 {
 ...
 "Demographic": {
@@ -194,7 +193,7 @@ The full JSON structure closely resembles the [example endpoint request](https:/
 
 For a custom field to have multiple values in CSV, you must replicate the header and keep one value per header. For example:
 
-```
+```json
 ...,User.UserId, User.UserAttributes.new_multi_field,User.UserAttributes.new_multi_field
 ...,example-user-id-2,test10,test20
 ```

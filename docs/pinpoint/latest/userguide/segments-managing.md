@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing segments
-<a name="segments-managing"></a>
 
 You can use the Amazon Pinpoint console to create, view, copy, and perform other management tasks for a project's segments. If you open a segment to view its settings, you can also quickly create a campaign that uses the segment. For more information on managing segments, see [Creating segments](https://docs.aws.amazon.com/pinpoint/latest/developerguide/segments.html) in the Amazon Pinpoint Developer Guide.
 

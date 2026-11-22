@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Transactional messaging charts
-<a name="analytics-transactional-messages"></a>
 
 The **Transactional messaging** page provides charts and metrics that show how many transactional messages that you've sent, and helps you measure recipients' responses to those messages. For example, this page shows the number of transactional email messages that were delivered, opened, clicked, bounced, or reported as spam.
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create a campaign
-<a name="campaigns-begin"></a>
 
 The first step in setting up a campaign is to create a new campaign. When you create a new campaign, you give the campaign a name, specify whether the campaign should be a standard campaign or an A/B test campaign, and choose the channel that you want to use to send the campaign.
 

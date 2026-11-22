@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Set up Amazon API Gateway for SMS messaging in Amazon Pinpoint
-<a name="tutorials-two-way-sms-part-4"></a>
 
 In this section, you create a new API by using Amazon API Gateway as part of the SMS registration for Amazon Pinpoint. The registration form that you deploy in this solution calls this API. API Gateway then passes the information that's captured on the registration form to the Lambda function you created in [Create Lambda functions](tutorials-two-way-sms-part-3.md).
 

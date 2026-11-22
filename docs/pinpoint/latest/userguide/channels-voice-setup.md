@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Setting up the Amazon Pinpoint voice channel
-<a name="channels-voice-setup"></a>
 
 To send voice messages by using Amazon Pinpoint, start by creating a new Amazon Pinpoint project. Then, enable the voice channel for the project and request a dedicated phone number, referred to as a *long code*, for sending voice messages. A *long code* is a standard telephone number that contains up to 15 digits, depending on the country or region that it's based in. These phone numbers are *dedicated*—that is, they're reserved for use only by your Amazon Pinpoint account. You can lease local phone numbers that are based in a variety of countries or regions.
 

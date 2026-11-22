@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing email sending quotas
-<a name="channels-email-manage-limits"></a>
 
 To regulate the number of email messages that you can send and the rate at which you can send them, your AWS account has sending quotas. These quotas benefit all Amazon Pinpoint users because they help to maintain the trusted relationship between Amazon Pinpoint and Internet service providers (ISPs). They help you gradually ramp up your sending activity. They decrease the likelihood that ISPs will block your emails because of sudden, unexpected spikes in your email sending volume or rate.
 

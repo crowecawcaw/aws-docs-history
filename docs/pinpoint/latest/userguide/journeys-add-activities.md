@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Add activities to the journey
-<a name="journeys-add-activities"></a>
 
 Activities are the most important parts of any journey. Activities represent the steps that are applied to journey participants. You can use activities to send messages to journey participants across a variety of channels, or to split them into smaller groups, or to wait for a period of time. There are several different types of activities that you can add to a journey. This section provides basic information about adding activities to a journey. For detailed information about setting up each type of activity, see [Setting up journey activities](#journeys-add-activities-procedures).
 

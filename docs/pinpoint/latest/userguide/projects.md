@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint projects
-<a name="projects"></a>
 
 In Amazon Pinpoint, a *project* is a collection of recipient information, segments, campaigns, and journeys. New Amazon Pinpoint users should start by creating a project. If you've used the Amazon Pinpoint API, you might have seen references to *applications*. In Amazon Pinpoint, projects and applications are interchangeable terms.
 

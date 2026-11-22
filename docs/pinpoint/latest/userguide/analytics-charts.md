@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Chart reference for Amazon Pinpoint analytics
-<a name="analytics-charts"></a>
 
 The **Analytics** pages on the Amazon Pinpoint console provide overviews of key metrics. They also provide dashboards that give details about campaigns, demographics, funnels, usage, revenue, and more. You can filter many of these dashboards by date for further analysis. You can also filter some of these dashboards by other attributes, such as event or channel attributes.
 

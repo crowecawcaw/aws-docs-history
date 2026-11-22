@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint channels
-<a name="channels"></a>
 
 A *channel* represents the platform through which you engage your audience segment with messages. For example, to send push notifications to users of your apps, you must have an Amazon Pinpoint project in which the *push notifications* channel is enabled. Amazon Pinpoint supports the following channels:
 + [Push notifications](channels-push.md)

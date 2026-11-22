@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Troubleshooting the SMS channel
-<a name="channels-sms-troubleshooting"></a>
 
 Verify that logging is turned on to assist in identifying the cause of failure. For more information, see [Monitoring and logging](troubleshooting.md#troubleshooting-logging). To turn on logging for AWS End User Messaging SMS and Voice v2 API, see [How do I set up logging for Amazon Pinpoint voice messages for Amazon Pinpoint SMS and Voice v2 API?](https://repost.aws/knowledge-center/pinpoint-voice-message-logging-setup-v2). 
 

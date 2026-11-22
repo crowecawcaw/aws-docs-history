@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Sending a test email message
-<a name="messages-email"></a>
 
 To send a test email message, you must use a project that has the email channel enabled. To learn how to create a new project and enable the email channel for it, see [Setting up the Amazon Pinpoint email channel](channels-email-setup.md). To learn how to enable the email channel for an existing project, see [Managing the Amazon Pinpoint email channel](channels-email-manage.md).
 

@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint in-app messaging channel
-<a name="channels-inapp"></a>
 
 You can use in-app messages to send targeted messages to users of your applications. In-app messages are highly customizable. They can include buttons that open websites or take users to specific parts of your app. You can configure background and text colors, position the text, and add buttons and images to the notification. You can send a single message, or create a carousel that contains up to five unique messages. Unlike other channels such as email or SMS, in-app messages are enabled by default in all Amazon Pinpoint projects. Additionally, in-app messages don't support the use of substitution variables.
 

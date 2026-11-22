@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Set up the journey entry activity
-<a name="journeys-entry-activity"></a>
 
 After you create and configure the journey, you must configure the *Journey entry* activity. This activity determines how participants are added to the journey. There are two ways to add participants to a journey:
 + **When an event occurs** – You can configure the journey so that participants are inserted into a journey dynamically, when specific events occur. For example, you can use this option to add participants to a journey when they complete a sign-up workflow. For more information, see [Add participants when they perform an activity](#journeys-entry-activity-event-triggered).

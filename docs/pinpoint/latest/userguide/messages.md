@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send test messages with Amazon Pinpoint
-<a name="messages"></a>
 
 With Amazon Pinpoint, you can send *test messages*, which are one-time messages that you send directly to a specific set of recipients. Sending a test message is useful if you want to test the deliverability of a message, or see how a message appears to recipients. You can send a test message by using any channel that Amazon Pinpoint supports.
 

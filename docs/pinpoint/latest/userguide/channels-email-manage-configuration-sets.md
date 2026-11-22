@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Managing configuration sets
-<a name="channels-email-manage-configuration-sets"></a>
 
 Configuration sets are groups of rules that you can apply to the emails that you send. When you apply a configuration set to an email, all of the rules in that configuration set are applied to the email. For example, you can configure a configuration set so that emails are only sent using a group of IP addresses (known as an *IP pool*) that you specify.
 

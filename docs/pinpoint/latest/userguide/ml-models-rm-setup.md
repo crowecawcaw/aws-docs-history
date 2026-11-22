@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Setting up a recommender model in Amazon Pinpoint
-<a name="ml-models-rm-setup"></a>
 
 A *recommender model* is a type of machine learning (ML) model that's designed to predict what a particular user will prefer from a given set of products or items. It provides that information as a set of recommendations for the user. In Amazon Pinpoint, you can use these models to send personalized recommendations to message recipients based on each recipient's attributes and behavior.
 

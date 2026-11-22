@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Send requests to the Amazon Pinpoint API
-<a name="tutorials-using-postman-sample-requests"></a>
 
 When you finish configuring and testing Postman, you can start sending additional requests to the Amazon Pinpoint API. This section includes information that you must know before you start sending requests. It also includes two sample requests that describe how to use the Amazon Pinpoint collection.
 
@@ -59,7 +58,7 @@ Before you create segments and campaigns in Amazon Pinpoint, you first have to c
 
 1. Delete the comma after the campaign name, and then delete the entire `tags` object on lines 3 through 5. When you finish, your request should resemble the example that's shown in the following code snippet.
 
-   ```
+   ```json
    {
        "Name": "MySampleProject"
    }
@@ -69,7 +68,7 @@ Before you create segments and campaigns in Amazon Pinpoint, you first have to c
 
 1. Choose **Send**. If the campaign is created successfully, the response pane shows a status of `201 Created`.
 
-   ```
+   ```json
    {
        "Name": "MySampleProject"
        "Id": "12345678901234567890123456789012",
@@ -106,7 +105,7 @@ To complete the procedure in this section, you must verify and email address
 
 1. On the **Body** tab, delete the example request that's shown in the request editor. Paste the following code:
 
-   ```
+   ```json
    {
        "MessageConfiguration":{
            "EmailMessage":{
@@ -138,7 +137,7 @@ If your account is still in the Amazon Pinpoint email sandbox, you can only send
 
 1. Choose **Send**. If the message is sent successfully, the response pane shows a status of `200 OK`.
 
-   ```
+   ```json
    {
        "ApplicationId": "12345678901234567890123456789012",
        "RequestId": "<sampleValue>",

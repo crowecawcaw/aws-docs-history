@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Prerequisites for setting up SMS in Amazon Pinpoint
-<a name="tutorials-two-way-sms-prereqs"></a>
 
 Before you begin this tutorial, you have to complete the following prerequisites:
 + The account that you use to sign in to the AWS Management Console has to be able to perform the following tasks:

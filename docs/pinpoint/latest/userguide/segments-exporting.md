@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Exporting segments in the Amazon Pinpoint console
-<a name="segments-exporting"></a>
 
 From the **Segments** page in the Amazon Pinpoint console, you can export an existing segment to a file on your computer. When you do, Amazon Pinpoint exports all of the information that's associated with the endpoints in the segment to a file.
 

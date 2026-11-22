@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Machine learning models in Amazon Pinpoint
-<a name="ml-models"></a>
 
 A *machine learning (ML) model* is a mathematical representation of a real-world problem. An ML model finds patterns in data and generates predictions based on the patterns that it finds. These predictions typically improve over time, as an ML model receives more data and people retrain or tune the model to refine and optimize the model's analysis of data.
 

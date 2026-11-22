@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create CloudWatch alarms for Amazon Pinpoint metrics
-<a name="monitoring-create-alarms"></a>
 
 In Amazon CloudWatch, you can create an alarm that sends a notification when the value of a certain metric is within or outside a threshold that you define. For example, you can create an alarm that notifies you if more than a certain number of campaign messages weren't sent due to a temporary issue. In this example, the alarm sends a notification if the value of the **CampaignSendMessageTemporaryFailure** metric is greater than the value that you specify. 
 

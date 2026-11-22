@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Requesting and relinquishing dedicated IP addresses
-<a name="channels-email-dedicated-ips-case"></a>
 
 This section describes how to request and relinquish dedicated IP addresses by submitting a request in the [AWS Support Center](https://console.aws.amazon.com/support/home#/). We charge your account an additional monthly fee for each dedicated IP address that you lease for use with Amazon Pinpoint. For more information about the costs associated with dedicated IP addresses, see [Amazon Pinpoint pricing](https://aws.amazon.com/pinpoint/pricing/#Optional_Charges).
 

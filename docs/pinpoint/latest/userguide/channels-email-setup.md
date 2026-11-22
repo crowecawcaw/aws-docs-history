@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Setting up the Amazon Pinpoint email channel
-<a name="channels-email-setup"></a>
 
 To set up the Amazon Pinpoint email channel, you start by verifying the email address or domain that you want to use when you send email from that project. Next, you create a project, enable the email channel in that project, and choose an email address or domain to use.
 

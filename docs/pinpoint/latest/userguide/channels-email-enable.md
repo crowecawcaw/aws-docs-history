@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Enabling and disabling the email channel
-<a name="channels-email-enable"></a>
 
 To send email for campaigns and journeys in the current project, you first have to enable the email channel for the project. If you don't plan to send email for any campaigns or journeys in a project, you can disable the email channel for the project. 
 

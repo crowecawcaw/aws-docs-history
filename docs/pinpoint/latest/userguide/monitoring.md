@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Monitoring Amazon Pinpoint with Amazon CloudWatch
-<a name="monitoring"></a>
 
 You can use Amazon CloudWatch to collect, view, and analyze several important metrics related to your Amazon Pinpoint account and projects. When you configure CloudWatch for Amazon Pinpoint, you gain insight into the delivery of your Amazon Pinpoint campaigns, and the status of your endpoint registrations and import jobs. You can also use CloudWatch to create alarms that notify you when certain metrics exceed values that you define. For example, you can create an alarm that automatically sends you an email if a certain number of campaign messages fail within a specific time period.
 

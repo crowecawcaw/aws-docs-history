@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint message templates
-<a name="messages-templates"></a>
 
 If you frequently design and send a certain type of message, such as a weekly newsletter or an appointment reminder, you can create and save it as a message template. You can then use the template as a starting point each time you need to send that type of message, instead of designing and writing the message again.
 

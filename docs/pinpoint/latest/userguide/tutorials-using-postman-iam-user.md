@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create IAM policies and roles for use with Amazon Pinpoint
-<a name="tutorials-using-postman-iam-user"></a>
 
 When you use Postman to test the Amazon Pinpoint API, the first step is to create a user. In this section, you create a policy that permits users to interact with all the Amazon Pinpoint resources. Then, you create a user and attach the policy directly to the user .
 
@@ -30,7 +29,7 @@ Also, this policy includes permissions that permit you to interact with the `ses
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

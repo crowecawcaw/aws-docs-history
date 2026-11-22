@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Create Lambda functions for use with Amazon Pinpoint SMS messaging
-<a name="tutorials-two-way-sms-part-3"></a>
 
 This section shows you how to create and configure two Lambda functions for use with Amazon Pinpoint SMS messaging. Later, you set up API Gateway and Amazon Pinpoint to invoke these functions when certain events occur. Both of these functions create and update endpoints in the Amazon Pinpoint project that you specify. The first function also uses the phone number validation feature.
 
@@ -32,7 +31,7 @@ The first function takes input from your registration form, which it receives fr
 
 1. For **Code source** delete the sample function in the code editor, and then paste the following code:
 
-   ```
+   ```js
    import { PinpointClient, PhoneNumberValidateCommand, UpdateEndpointCommand, SendMessagesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
    const pinClient = new PinpointClient({region: process.env.region});  
    
@@ -186,7 +185,7 @@ After you create the function, you should test it to make sure that it's configu
    + For **Event name**, enter a name for the test event, such as **MyPhoneNumber**.
    + Erase the example code in the code editor. Paste the following code:
 
-     ```
+     ```json
      {
        "destinationNumber": "{{+12065550142}}",
        "firstName": "{{Carlos}}",
@@ -242,7 +241,7 @@ If the customer doesn't respond, or responds with anything other than the design
 
 1. Delete the sample function in the code editor, and then paste the following code:
 
-   ```
+   ```js
    import { PinpointClient, UpdateEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
    
    // Create a new Pinpoint client instance with the region specified in the environment variables
@@ -334,7 +333,7 @@ After you create the function, you should test it to make sure that it's configu
 
    1. Erase the example code in the code editor. Paste the following code:
 
-      ```
+      ```json
       {
         "Records":[
           {

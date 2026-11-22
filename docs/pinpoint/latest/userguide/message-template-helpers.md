@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Using message template helpers
-<a name="message-template-helpers"></a>
 
 With Amazon Pinpoint templates, customers can create reusable message templates based on the Handlebars.js language. Helpers provide a variety of features like formatting a price to a specific Region's currency or adding a time zone-based location. A helper can use a specific string or integer for the value or a specific Amazon Pinpoint message variable.
 

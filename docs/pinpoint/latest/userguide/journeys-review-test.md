@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Review and test a journey
-<a name="journeys-review-test"></a>
 
 Before you can publish your journey, you must review it to make sure that all of the activities that it contains are configured properly. It's also a good idea to enroll test users in a copy of the journey before you publish it, to confirm that it behaves the way that you expect it to behave. This section contains information and procedures related to reviewing and testing your journey.
 

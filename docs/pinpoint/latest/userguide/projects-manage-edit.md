@@ -3,7 +3,6 @@
 **End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Editing a project's default settings
-<a name="projects-manage-edit"></a>
 
 On the **General settings** page, you can configure default settings and quotas that you want to apply to campaigns and journeys in a project. When you change these settings, Amazon Pinpoint automatically applies them to all new campaigns and journeys that you create for the project. The settings aren't applied to any campaigns or journeys that you previously created. You can also configure these same settings for individual campaigns and journeys. If you configure settings for an individual campaign or journey, those settings override the settings that you choose on the **General settings** page.
 
