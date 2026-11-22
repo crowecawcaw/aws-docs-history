@@ -1,7 +1,6 @@
 
 
 # How to Register a Domain Name with Amazon Route 53
-<a name="get-a-domain"></a>
 
 
 |  |  | 
