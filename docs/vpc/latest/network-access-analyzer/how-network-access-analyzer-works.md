@@ -1,7 +1,6 @@
 
 
 # How Network Access Analyzer works
-<a name="how-network-access-analyzer-works"></a>
 
 Network Access Analyzer uses automated reasoning algorithms to analyze the network paths that a packet can take between resources in an AWS network. It then produces findings for paths that match a customer defined Network Access Scope. Network Access Analyzer performs a static analysis of a network configuration, meaning that no packets are transmitted in the network as part of this analysis. Because Network Access Analyzer only considers the state of the network as described in the network configuration, packet loss that is due to transient network interruptions or service failures is not considered in the analysis.
 
@@ -87,7 +86,7 @@ The following network configurations are not supported by Network Access Analyze
 
 **Transit gateways**
 + Network Access Analyzer does not support paths through AWS Transit Gateway peering connections to other regions or accounts, or AWS Transit Gateway direct connections.
-+ Network Access Analyzer does not yet support analysis of transit gateway policy tables.
++ Network Access Analyzer does not yet support analysis of 1:1 NAT on transit gateway attachments.
 
 ## Limitations
 <a name="analyzer-limitations"></a>

@@ -1,7 +1,6 @@
 
 
 # Network Access Scopes in Network Access Analyzer
-<a name="working-with-network-access-scopes"></a>
 
 With Network Access Analyzer, you can specify your network access requirements by using Network Access Scopes. A Network Access Scope defines outbound and inbound traffic patterns, including sources, destinations, paths, and traffic types. Each Network Access Scope consists of one or more match conditions, and zero or more exclusion conditions.
 

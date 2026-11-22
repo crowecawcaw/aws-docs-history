@@ -1,7 +1,6 @@
 
 
 # Exclusion conditions in Network Access Analyzer
-<a name="exclude-paths"></a>
 
 A Network Access Scope produces findings only for paths that match at least one match condition, but do not match any exclusion conditions.
 

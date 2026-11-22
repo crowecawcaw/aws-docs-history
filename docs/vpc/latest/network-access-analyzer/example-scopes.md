@@ -1,14 +1,13 @@
 
 
 # Example Network Access Scopes in Network Access Analyzer
-<a name="example-scopes"></a>
 
 The following are examples of Network Access Scopes.
 
 **Example: Identify all traffic between two subnets**  
 To identify traffic between two subnets that are intended to be isolated from each other, create an access scope with two match conditions. The first condition identifies paths from network interfaces in the first subnet to network interfaces in the second subnet. The second condition identifies paths from network interfaces in second subnet to network interfaces in the first subnet.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -44,7 +43,7 @@ To identify paths to or from resources with specific resource tags, you can use 
 
 The following example identifies inbound paths to any Amazon EC2 instances in the specified resource group. 
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -62,7 +61,7 @@ The following example identifies inbound paths to any Amazon EC2 instances in th
 
 To identify inbound paths to bastion hosts that use a port other than port 22 (SSH), combine the match condition in the previous example with an exclude condition that specifies destination port 22.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -92,7 +91,7 @@ To identify inbound paths to bastion hosts that use a port other than port 22 (S
 **Example: Identify all inbound traffic from the public internet, except for a trusted CIDR range**  
 The following example identifies traffic from the internet while excluding paths that start from a trusted address range.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -122,7 +121,7 @@ The following example identifies traffic from the internet while excluding paths
 **Example: Exclude traffic that originates at the addresses in a prefix list**  
 The following example identifies traffic to the public internet while excluding traffic that originates at the addresses in the specified prefix list.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -152,7 +151,7 @@ The following example identifies traffic to the public internet while excluding 
 **Example: Identify all outbound traffic to the public internet, excluding a trusted CIDR range**  
 The following example identifies traffic to the public internet while excluding a trusted address range.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -182,7 +181,7 @@ The following example identifies traffic to the public internet while excluding 
 **Example: Identify inbound traffic that bypasses a network firewall**  
 The following example identifies inbound traffic to network interfaces in a subnet that bypasses a network firewall.
 
-```
+```json
 {
     "MatchPaths": [
         {
@@ -221,7 +220,7 @@ The following example identifies inbound traffic to network interfaces in a subn
 **Example: Identify traffic to network interface with a specific security group**  
 The following example identifies traffic to network interfaces with a specific security group.
 
-```
+```json
 {
     "MatchPaths": [
         {

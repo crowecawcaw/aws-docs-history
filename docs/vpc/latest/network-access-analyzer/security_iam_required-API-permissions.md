@@ -1,7 +1,6 @@
 
 
 # Required API permissions for Network Access Analyzer
-<a name="security_iam_required-API-permissions"></a>
 
 Network Access Analyzer relies on data from other AWS services. It uses permissions from the following services:
 + Amazon EC2

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Network Access Analyzer
-<a name="network-access-analyzer-troubleshooting"></a>
 
 The following error messages are returned by Network Access Analyzer:
 

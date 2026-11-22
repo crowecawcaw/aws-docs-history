@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Network Access Analyzer
-<a name="security-iam-awsmanpol"></a>
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. To get started quickly, you can use our AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
@@ -26,7 +25,8 @@ View details about updates to AWS managed policies for Network Access Analyzer s
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – Update to an existing policy | Added `ec2:DescribeAddresses`, `ec2:DescribeTransitGatewayPolicyTables`, `ec2:GetTransitGatewayPolicyTableEntries`, `ec2:GetTransitGatewayPolicyTableAssociations`, and `network-firewall:DescribeFirewallMetadata`. These read-only actions grant permission to retrieve Elastic IP address information and AWS Network Firewall metadata. They also grant permission to retrieve transit gateway policy tables, including entries and associations. Network Access Analyzer does not yet support analysis of transit gateway policy tables. | August 14, 2026 | 
+| [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – Update to an existing policy | Added `ec2:GetTransitGatewayAttachmentNatConfiguration`. This read-only action grants permission to retrieve the NAT configuration for transit gateway attachments. Network Access Analyzer does not yet support analysis of 1:1 NAT on transit gateway attachments. | November 13, 2026 | 
+| [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – Update to an existing policy | Added `ec2:DescribeAddresses`, `ec2:DescribeTransitGatewayPolicyTables`, `ec2:GetTransitGatewayPolicyTableEntries`, `ec2:GetTransitGatewayPolicyTableAssociations`, and `network-firewall:DescribeFirewallMetadata`. These read-only actions grant permission to retrieve Elastic IP address information and AWS Network Firewall metadata. They also grant permission to retrieve transit gateway policy tables, including entries and associations. | August 14, 2026 | 
 | [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – Update to an existing policy | Added the action elasticloadbalancing:DescribeTargetGroupAttributes, which grants permission to describe the attributes of a target group. | May 15, 2024 | 
 | [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – Update to an existing policy | Removed resource ID prefixes from the resource ARNs used to allow tagging Network Access Analyzer resources on create. | November 3, 2023 | 
 | [AmazonVPCNetworkAccessAnalyzerFullAccessPolicy](#AmazonVPCNetworkAccessAnalyzerFullAccessPolicy) – New policy | Added a policy that provides full access to Network Access Analyzer. | June 15, 2023 | 
