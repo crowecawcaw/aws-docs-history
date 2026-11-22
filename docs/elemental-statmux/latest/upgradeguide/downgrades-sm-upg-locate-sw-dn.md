@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Step B: Copy the AWS Elemental Installer
-<a name="downgrades-sm-upg-locate-sw-dn"></a>
 
 Locate and copy the installer for AWS Elemental Statmux.
 

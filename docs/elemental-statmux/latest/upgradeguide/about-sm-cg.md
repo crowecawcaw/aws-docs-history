@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # About this Guide
-<a name="about-sm-cg"></a>
 
 This guide is intended for engineers who upgrade the software running on the nodes of AWS Elemental Statmux.
 

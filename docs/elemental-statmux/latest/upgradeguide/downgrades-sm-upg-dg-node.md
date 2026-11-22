@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Step C: Downgrade the Node
-<a name="downgrades-sm-upg-dg-node"></a>
 
 The downgrade steps that you take depend on the version that you're downgrading to. The following section describes downgrading from 2.20.x to 2.17.x or 2.16.x .
 

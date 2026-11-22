@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Step d: Install the License Files
-<a name="install-sm-ig-licensing-lic-files"></a>
 
 Now that you have a `.tgz` compressed license file for each instance of the software you are running, you must point the software to it.
 

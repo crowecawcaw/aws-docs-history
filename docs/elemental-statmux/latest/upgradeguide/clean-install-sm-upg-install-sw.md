@@ -3,7 +3,6 @@
 This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Step D: Install the AWS Elemental Software
-<a name="clean-install-sm-upg-install-sw"></a>
 
 These steps must be performed on each system where you are installing AWS Elemental software, either directly at the machine or from your workstation via SSH. Make sure that you use the `.run` file that corresponds to the `.iso` file that you used to reinstall the operating system.
 
