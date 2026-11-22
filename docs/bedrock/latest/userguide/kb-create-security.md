@@ -1,13 +1,12 @@
 
 
 # Set up security configurations for your knowledge base
-<a name="kb-create-security"></a>
 
 After you've created a knowledge base, you might have to set up the following security configurations:
 
 **Topics**
 + [Set up data access policies for your knowledge base](#kb-create-security-data)
-+ [Set up network access policies for your Amazon OpenSearch Serverless knowledge base](#kb-create-security-network)
++ [Set up network access policies for your OpenSearch Serverless knowledge base](#kb-create-security-network)
 
 ## Set up data access policies for your knowledge base
 <a name="kb-create-security-data"></a>
@@ -15,15 +14,15 @@ After you've created a knowledge base, you might have to set up the following se
 If you're using a [custom role](kb-permissions.md), set up security configurations for your newly created knowledge base. If you let Amazon Bedrock create a service role for you, you can skip this step. Follow the steps in the tab corresponding to the database that you set up.
 
 ------
-#### [ Amazon OpenSearch Serverless ]
+#### [ OpenSearch Serverless ]
 
-To restrict access to the Amazon OpenSearch Serverless collection to the knowledge base service role, create a data access policy. You can do so in the following ways:
+To restrict access to the OpenSearch Serverless collection to the knowledge base service role, create a data access policy. You can do so in the following ways:
 + Use the Amazon OpenSearch Service console by following the steps at [Creating data access policies (console)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-access-console) in the Amazon OpenSearch Service Developer Guide.
 + Use the AWS API by sending a [CreateAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateAccessPolicy.html) request with an [OpenSearch Serverless endpoint](https://docs.aws.amazon.com/general/latest/gr/opensearch-service.html#opensearch-service-regions). For an AWS CLI example, see [Creating data access policies (AWS CLI)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-access-cli).
 
-Use the following data access policy, specifying the Amazon OpenSearch Serverless collection and your service role:
+Use the following data access policy, specifying the OpenSearch Serverless collection and your service role:
 
-```
+```json
 [
     {
         "Description": "{{${data access policy description}}}",
@@ -57,7 +56,7 @@ To integrate a Pinecone, Redis Enterprise Cloud, MongoDB Atlas vector index, att
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [{
@@ -79,16 +78,16 @@ To integrate a Pinecone, Redis Enterprise Cloud, MongoDB Atlas vector index, att
 
 ------
 
-## Set up network access policies for your Amazon OpenSearch Serverless knowledge base
+## Set up network access policies for your OpenSearch Serverless knowledge base
 <a name="kb-create-security-network"></a>
 
-If you use a private Amazon OpenSearch Serverless collection for your knowledge base, it can only be accessed through an AWS PrivateLink VPC endpoint. You can create a private Amazon OpenSearch Serverless collection when you [set up your Amazon OpenSearch Serverless vector collection](knowledge-base-setup.md) or you can make an existing Amazon OpenSearch Serverless collection (including one that the Amazon Bedrock console created for you) private when you configure its network access policy.
+If you use a private OpenSearch Serverless collection for your knowledge base, it can only be accessed through an AWS PrivateLink VPC endpoint. You can create a private OpenSearch Serverless collection when you [set up your OpenSearch Serverless vector collection](knowledge-base-setup.md) or you can make an existing OpenSearch Serverless collection (including one that the Amazon Bedrock console created for you) private when you configure its network access policy.
 
-The following resources in the Amazon OpenSearch Service Developer Guide will help you understand the setup required for a private Amazon OpenSearch Serverless collections:
-+ For more information about setting up a VPC endpoint for a private Amazon OpenSearch Serverless collection, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
-+ For more information about network access policies in Amazon OpenSearch Serverless, see [Network access for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html).
+The following resources in the Amazon OpenSearch Service Developer Guide will help you understand the setup required for a private OpenSearch Serverless collections:
++ For more information about setting up a VPC endpoint for a private OpenSearch Serverless collection, see [Access OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
++ For more information about network access policies in OpenSearch Serverless, see [Network access for OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html).
 
-To allow an Amazon Bedrock knowledge base to access a private Amazon OpenSearch Serverless collection, you must edit the network access policy for the Amazon OpenSearch Serverless collection to allow Amazon Bedrock as a source service. Choose the tab for your preferred method, and then follow the steps:
+To allow an Amazon Bedrock knowledge base to access a private OpenSearch Serverless collection, you must edit the network access policy for the OpenSearch Serverless collection to allow Amazon Bedrock as a source service. Choose the tab for your preferred method, and then follow the steps:
 
 ------
 #### [ Console ]
@@ -113,7 +112,7 @@ To allow an Amazon Bedrock knowledge base to access a private Amazon OpenSearch 
      1. Unselect **Enable access to OpenSearch Dashboards.**
    + Choose **JSON** and paste the following policy in the **JSON editor**.
 
-     ```
+     ```json
      [
          {                                        
              "AllowFromPublic": false,
@@ -138,7 +137,7 @@ To allow an Amazon Bedrock knowledge base to access a private Amazon OpenSearch 
 ------
 #### [ API ]
 
-To edit the network access policy for your Amazon OpenSearch Serverless collection, do the following:
+To edit the network access policy for your OpenSearch Serverless collection, do the following:
 
 1. Send a [GetSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.html) request with an [OpenSearch Serverless endpoint](https://docs.aws.amazon.com/general/latest/gr/opensearch-service.html#opensearch-service-regions). Specify the `name` of the policy and specify the `type` as `network`. Note the `policyVersion` in the response.
 
@@ -159,7 +158,7 @@ To edit the network access policy for your Amazon OpenSearch Serverless collecti
 </table>
 
 
-   ```
+   ```json
    [
        {                                        
            "AllowFromPublic": false,

@@ -1,7 +1,6 @@
 
 
 # Troubleshoot and refine your Automated Reasoning policy
-<a name="address-failed-automated-reasoning-tests"></a>
 
 When an Automated Reasoning policy test fails — the actual result doesn't match the expected result — the issue is either in the translation (natural language was mapped to the wrong variables or values) or in the rules (the policy logic doesn't match your domain). This page provides a systematic approach to diagnosing and fixing both types of issues.
 
@@ -194,7 +193,7 @@ Annotation types include:
 
 **Example: Add a missing variable and rule using annotations**
 
-```
+```bash
 aws bedrock start-automated-reasoning-policy-build-workflow \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
   --build-workflow-type REFINE_POLICY \
@@ -309,7 +308,7 @@ If your tests return `TRANSLATION_AMBIGUOUS` results or your quality report iden
 ### Resolve ambiguities using the API
 <a name="resolve-ambiguities-api"></a>
 
-```
+```bash
 aws bedrock start-automated-reasoning-policy-build-workflow \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
   --build-workflow-type RESOLVE_POLICY_AMBIGUITIES \

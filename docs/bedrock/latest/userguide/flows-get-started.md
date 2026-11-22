@@ -1,7 +1,6 @@
 
 
 # Create your first flow in Amazon Bedrock
-<a name="flows-get-started"></a>
 
 Whenever you create a flow, the Amazon Bedrock console creates a getting started flow for you. The flow includes with a **Flow input** node, a **Prompt** node and a **Flow output** node. When you run the flow, you enter a topic for the flow which uses the prompt node to summarize the topic. Before you can run the flows, you need to set the model for the prompt. 
 

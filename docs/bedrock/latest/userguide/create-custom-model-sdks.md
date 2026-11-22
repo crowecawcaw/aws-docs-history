@@ -1,7 +1,6 @@
 
 
 # Create a custom model (AWS SDKs)
-<a name="create-custom-model-sdks"></a>
 
 To create a custom model from a SageMaker AI-trained Amazon Nova model stored in Amazon S3, you use the [CreateCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html) API operation. You can use the following code to create a custom model with the AWS SDK for Python (Boto3). The code creates a custom model and then checks its status until the model is `ACTIVE` and ready to use.
 
@@ -13,7 +12,7 @@ To use the code, update the following parameters. The code sample also includes 
 
 After you create the custom model, the model appears in the [ListCustomModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html) response with a `customizationType` of `imported`. To track the status of the new model, you use the [GetCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html) API operation.
 
-```
+```python
 import boto3
 import uuid
 from botocore.exceptions import ClientError

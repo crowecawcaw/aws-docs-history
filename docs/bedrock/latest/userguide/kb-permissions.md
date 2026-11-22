@@ -1,7 +1,6 @@
 
 
 # Create a service role for Amazon Bedrock Knowledge Bases
-<a name="kb-permissions"></a>
 
 To use a custom role for a knowledge base instead of the one Amazon Bedrock automatically creates, create an IAM role and attach the following permissions by following the steps at [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html). Include only the necessary permissions for your own security.
 
@@ -54,7 +53,7 @@ As a best practice for security purposes, replace the {{\*}} with specific knowl
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ Attach the following policy to provide permissions for the role to use Amazon Be
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -144,7 +143,7 @@ If you encrypted the data source with a AWS KMS key, attach permissions to decry
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -201,7 +200,7 @@ Confluence OAuth2.0 **access** token has a default expiry time of 60 minutes. If
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -250,7 +249,7 @@ Attach the following policy to provide permissions for the role to access ShareP
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -298,7 +297,7 @@ Attach the following policy to provide permissions for the role to access Salesf
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -343,7 +342,7 @@ Attach the following policy to provide permissions for the role to access websit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -388,7 +387,7 @@ Attach the following policy to provide permissions for the role to access Micros
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -433,7 +432,7 @@ Attach the following policy to provide permissions for the role to access Google
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -473,7 +472,7 @@ Attach the following policy to provide permissions for the role to access Google
 
 If you encrypted your data sources in Amazon S3 with a AWS KMS key, attach the following policy to your Amazon Bedrock Knowledge Bases service role to allow Amazon Bedrock to decrypt your key. Replace {{${Region}}} and {{${AccountId}}} with the Region and account ID to which the key belongs. Replace {{${KeyId}}} with the ID of your AWS KMS key.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [{
@@ -505,7 +504,7 @@ Attach the following policy to provide permissions for the role to use Amazon Be
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -529,7 +528,7 @@ If you only want to grant a user access to query external sources (and not to `R
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -560,7 +559,7 @@ If you want to both query external sources and use `RetrieveAndGenerate` on a sp
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -594,7 +593,7 @@ When working with multimodal content (images, audio, video), additional permissi
 
 When using Nova Multimodal Embeddings, attach the following policy to provide permissions for asynchronous model invocation:
 
-```
+```json
 {
     "Sid": "BedrockInvokeModelStatement",
     "Effect": "Allow",
@@ -627,7 +626,7 @@ When using Nova Multimodal Embeddings, attach the following policy to provide pe
 
 When using BDA to process multimodal content, attach the following policy:
 
-```
+```json
 {
     "Sid": "BDAInvokeStatement",
     "Effect": "Allow",
@@ -647,7 +646,7 @@ When using BDA to process multimodal content, attach the following policy:
 
 If you use customer-managed AWS KMS keys with BDA, also attach the following policy. Replace {{account-id}}, {{region}}, and {{key-id}} with your specific values:
 
-```
+```json
 {
     "Sid": "KmsPermissionStatementForBDA",
     "Effect": "Allow",
@@ -672,7 +671,7 @@ If you use customer-managed AWS KMS keys with BDA, also attach the following pol
 
 When you configure a multimodal storage destination bucket for your knowledge base, attach the following JSON IAM policy. Replace {{amzn-s3-demo-bucket}} with the name of your multimodal storage bucket and {{account-id}} with your AWS account ID. This policy grants your knowledge base read, write, and delete permissions for parsed multimodal content in Amazon S3:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -716,7 +715,7 @@ If you created an Amazon Kendra GenAI index for your knowledge base, then attach
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -744,7 +743,7 @@ If you created a vector database in OpenSearch Serverless for your knowledge bas
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -773,7 +772,7 @@ If you created a vector database in OpenSearch Managed Cluster for your knowledg
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -817,7 +816,7 @@ If you created a database (DB) cluster in Amazon Aurora for your knowledge base,
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -858,7 +857,7 @@ If you created an Amazon Neptune Analytics graph for your knowledge base, attach
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -893,7 +892,7 @@ In the policy, replace {{${Region}}} and {{${AccountId}}} with the Region and ac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -925,7 +924,7 @@ If your vector database is configured with an AWS Secrets Manager secret, attach
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -956,7 +955,7 @@ To allow the creation of a AWS KMS key for transient data storage in the process
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -990,7 +989,7 @@ The knowledge base role that is provided during knowledge base creation `createK
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -1032,7 +1031,7 @@ The knowledge base role that is provided during knowledge base creation `createK
 
 If the Amazon S3 bucket is encrypted using a AWS KMS key, the following also needs to be added to the knowledge base role. Replace the {{${BucketOwnerAccountId}}} and {{${Region}}} with the appropriate values.
 
-```
+```json
 {
         "Sid": "KmsDecryptStatement",
         "Effect": "Allow",
@@ -1061,7 +1060,7 @@ The bucket in the other account requires the following Amazon S3 bucket policy. 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -1101,7 +1100,7 @@ The bucket in the other account requires the following Amazon S3 bucket policy. 
 
 If the cross-account Amazon S3 bucket is encrypted using a AWS KMS key in that account, the policy of the AWS KMS key requires the following policy. Replace the {{${KbRoleArn}}} and {{${KmsKeyArn}}} with the appropriate values.
 
-```
+```json
 {
     "Sid": "Example policy",
     "Effect": "Allow",

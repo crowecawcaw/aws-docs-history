@@ -1,7 +1,6 @@
 
 
 # Stable Image Search and Replace
-<a name="model-card-stability-ai-stable-image-search-and-replace"></a>
 
 ## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Search and Replace
 <a name="model-card-stability-ai-stable-image-search-and-replace-header"></a>
@@ -125,7 +124,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import base64
 import boto3

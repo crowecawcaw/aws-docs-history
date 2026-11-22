@@ -1,7 +1,6 @@
 
 
 # Custom model hyperparameters
-<a name="custom-models-hp"></a>
 
 The following reference content covers the hyperparameters that are available for training each Amazon Bedrock custom model.
 

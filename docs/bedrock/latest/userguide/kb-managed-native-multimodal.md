@@ -1,7 +1,6 @@
 
 
 # Native multimodal processing
-<a name="kb-managed-native-multimodal"></a>
 
 With *native multimodal processing*, a managed Amazon Bedrock knowledge base sends each file directly to a multimodal embedding model. The model then creates embeddings from the raw image, audio, and video content.
 
@@ -81,7 +80,7 @@ Do not apply lifecycle policies to the entire bucket or to the `aws/` prefix, as
    + {{knowledge-base-id}} – Your knowledge base identifier
    + {{data-source-id}} – Your data source identifier
 
-   ```
+   ```json
    {
        "Rules": [
            {

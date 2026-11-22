@@ -1,7 +1,6 @@
 
 
 # (Optional) Create a customer managed key for your guardrail for additional security
-<a name="guardrails-permissions-kms"></a>
 
 You encrypt your guardrails with customer managed AWS KMS keys. Any user with `CreateKey` permissions can create customer managed keys by using the AWS Key Management Service (AWS KMS) console or [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation. In these situations, make sure to create a symmetric encryption key. 
 
@@ -18,7 +17,7 @@ After you create your key, configure the following permission policies.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Id": "KMS key policy",
@@ -59,7 +58,7 @@ After you create your key, configure the following permission policies.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -87,7 +86,7 @@ After you create your key, configure the following permission policies.
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

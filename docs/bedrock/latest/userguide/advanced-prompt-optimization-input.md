@@ -1,7 +1,6 @@
 
 
 # Prepare your input dataset
-<a name="advanced-prompt-optimization-input"></a>
 
 **Note**  
 Fully working examples and notebooks are available in the [Amazon Bedrock Samples GitHub](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/advanced-prompt-optimization).
@@ -16,7 +15,7 @@ The input file uses JSONL format: one JSON object per line. Each line represents
 
 In this prompt dataset, you will also choose the evaluation method to steer the optimization. For more information about choosing an evaluation method, see [Define evaluation methods](advanced-prompt-optimization-evaluation.md).
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "string",
@@ -144,7 +143,7 @@ For GIF and WebP files, models that support these formats typically use only the
 ### Example 1: Single template, multiple variables, single evaluation sample, steering criteria
 <a name="advanced-prompt-optimization-input-ex1"></a>
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "customer-support-v1",
@@ -160,7 +159,7 @@ For GIF and WebP files, models that support these formats typically use only the
 ### Example 2: Single template, multiple variables, multiple evaluation samples, steering criteria
 <a name="advanced-prompt-optimization-input-ex2"></a>
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "promptTemplate": "You are a customer support agent for an electronics store.\n\nGiven the following product information:\n{{productInfo}}\n\nAnswer the customer's question:\n{{customerQuestion}}\n\nProvide a helpful, accurate, and concise response.",
@@ -179,7 +178,7 @@ For GIF and WebP files, models that support these formats typically use only the
 
 This example shows two lines in the JSONL file (two prompt templates in one job).
 
-```
+```json
 {"version": "bedrock-2026-05-14", "promptTemplate": "You are a helpful assistant. Answer the following: {{question}}", "templateId": "template-qa-1", "steeringCriteria": ["ACCURATE"], "evaluationSamples": [{"inputVariables": [{"question": "What is 2+2?"}], "referenceResponse": "4"}, {"inputVariables": [{"question": "What is the largest planet in our solar system?"}], "referenceResponse": "Jupiter is the largest planet in our solar system."}]}
 {"version": "bedrock-2026-05-14", "promptTemplate": "Translate the following to French: {{text}}", "templateId": "template-translate-1", "steeringCriteria": ["PRECISE"], "evaluationSamples": [{"inputVariables": [{"text": "Hello, how are you?"}], "referenceResponse": "Bonjour, comment allez-vous?"}, {"inputVariables": [{"text": "Thank you very much."}], "referenceResponse": "Merci beaucoup."}]}
 ```
@@ -187,7 +186,7 @@ This example shows two lines in the JSONL file (two prompt templates in one job)
 ### Example 4: Single template, multiple variables, multiple samples, LLM-as-a-judge
 <a name="advanced-prompt-optimization-input-ex4"></a>
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "promptTemplate": "You are a customer support agent for an electronics store.\n\nGiven the following product information:\n{{productInfo}}\n\nAnswer the customer's question:\n{{customerQuestion}}\n\nProvide a helpful, accurate, and concise response.",
@@ -209,7 +208,7 @@ This example shows two lines in the JSONL file (two prompt templates in one job)
 
 Since no evaluation or steering is provided, the prompt optimizer will use a built-in generic LLM-as-a-judge that combines accuracy, completeness, and writing style.
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "promptTemplate": "You are a customer support agent for an electronics store.\n\nGiven the following product information:\n{{productInfo}}\n\nAnswer the customer's question:\n{{customerQuestion}}\n\nProvide a helpful, accurate, and concise response.",
@@ -224,7 +223,7 @@ Since no evaluation or steering is provided, the prompt optimizer will use a bui
 ### Example 6: Single template, single variable, multiple samples, Lambda evaluator
 <a name="advanced-prompt-optimization-input-ex6"></a>
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "promptTemplate": "You are a helpful assistant. Answer the following: {{question}}",
@@ -243,7 +242,7 @@ Since no evaluation or steering is provided, the prompt optimizer will use a bui
 
 This is an acceptable input even with no `{{variables}}` because there is a multimodal input included.
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "multimodal_only_01",
@@ -263,7 +262,7 @@ This is an acceptable input even with no `{{variables}}` because there is a mult
 ### Example 8: Single template, multiple variables, LLM-as-judge, mixed text and multimodal
 <a name="advanced-prompt-optimization-input-ex8"></a>
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "multimodal_with_text_01",
@@ -291,7 +290,7 @@ This is an acceptable input even with no `{{variables}}` because there is a mult
 
 This example uses `<advpo:optimize>` tags to optimize only the complaint-response instructions. The identity statement and policy constraint are preserved.
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "selective-optimize-v1",
@@ -309,7 +308,7 @@ This example uses `<advpo:optimize>` tags to optimize only the complaint-respons
 
 This example uses `<advpo:exclude>` tags to freeze the identity and policy sections. Everything else is optimized.
 
-```
+```json
 {
     "version": "bedrock-2026-05-14",
     "templateId": "selective-exclude-v1",

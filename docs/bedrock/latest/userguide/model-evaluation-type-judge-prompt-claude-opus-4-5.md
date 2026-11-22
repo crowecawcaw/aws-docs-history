@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude Opus 4.5
-<a name="model-evaluation-type-judge-prompt-claude-opus-4-5"></a>
 
 Prompts used with Anthropic Claude Opus 4.5.
 

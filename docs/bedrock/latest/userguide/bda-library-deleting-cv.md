@@ -1,7 +1,6 @@
 
 
 # Deleting Vocabulary List
-<a name="bda-library-deleting-cv"></a>
 
 Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) with "DELETE" operation type to remove specific entities from your library.
 
@@ -18,14 +17,14 @@ Create a simple s3 manifest file with a list of entityIds.
 
 Example: `cv-delete-manifest.json`
 
-```
+```json
 {"entityIds": ["medical-en", "medical-es"]}
 ```
 
 #### Step 2: Upload the manifest to S3
 <a name="bda-library-deleting-cv-option1-step2"></a>
 
-```
+```bash
 aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 ```
 
@@ -36,7 +35,7 @@ Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/be
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation invoke-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \
@@ -47,7 +46,7 @@ aws bedrock-data-automation invoke-data-automation-library-ingestion-job \
 
 **Response:**
 
-```
+```json
 {
   "jobArn": "arn:aws:bedrock:us-east-1:123456789012:data-automation-library-ingestion-job/job-12345"
 }
@@ -58,7 +57,7 @@ aws bedrock-data-automation invoke-data-automation-library-ingestion-job \
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation invoke-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \

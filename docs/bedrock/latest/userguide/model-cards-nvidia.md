@@ -1,7 +1,6 @@
 
 
 # NVIDIA
-<a name="model-cards-nvidia"></a>
 
 The following NVIDIA models are available in Amazon Bedrock:
 

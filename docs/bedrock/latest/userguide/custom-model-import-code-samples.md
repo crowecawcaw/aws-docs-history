@@ -1,7 +1,6 @@
 
 
 # Code samples for custom model import
-<a name="custom-model-import-code-samples"></a>
 
 The following code samples show how to set up permissions, create a custom model import job, view the details of your import jobs and imported models, and delete imported model. These code samples apply to Mistral AI, Llama, Qwen, Flan, GPTBigCode, and Mixtral architectures.
 
@@ -45,7 +44,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -79,7 +78,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -110,7 +109,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -134,7 +133,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -159,7 +158,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
    1. Make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyImportModelRole}} and attach the {{BedrockTrust.json}} trust policy that you created.
 
-      ```
+      ```bash
       aws iam create-role \
           --role-name MyImportModelRole \
           --assume-role-policy-document file://BedrockTrust.json
@@ -167,7 +166,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
    1. Make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create the S3 data access policy with the {{S3BucketPolicy.json}} file you created. The response returns an `Arn` for the policy.
 
-      ```
+      ```bash
       aws iam create-policy \
           --policy-name S3BucketPolicy \
           --policy-document file://S3BucketPolicy.json
@@ -175,7 +174,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
    1. Make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request to attach the S3 data access policy to your role, replacing the `policy-arn` with the ARN in the response from the previous step:
 
-      ```
+      ```bash
       aws iam attach-role-policy \
           --role-name MyImportModelRole \
           --policy-arn {{${policy-arn}}}
@@ -186,7 +185,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
    1. Run the following code to make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyImportModel}} and to make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create an S3 data access policy called {{S3BucketPolicy}}. For the S3 data access policy, replace {{${model-file-bucket}}} with your S3 bucket names.
 
-      ```
+      ```python
       import boto3
       import json
       
@@ -231,7 +230,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
    1. An `Arn` is returned in the response. Run the following code snippet to make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request, replacing {{${policy-arn}}} with the returned `Arn`.
 
-      ```
+      ```python
       iam.attach_role_policy(
           RoleName="MyImportModelRole",
           PolicyArn="{{${policy-arn}}}"
@@ -247,7 +246,7 @@ For GPT-OSS model usage examples with [InvokeModel](https://docs.aws.amazon.com/
 
 To submit a custom model import job, in a terminal run the following command in the command line, replacing {{${my-import-model-role-arn}}} with the model role that you set up and the {{s3-bucket-path}} with the S3 bucket path of your model files.
 
-```
+```bash
 aws bedrock create-model-import-job 
     --job-name {{MyImportedModelJobName}}
     --imported-model-name {{MyImportedModelName}}
@@ -260,7 +259,7 @@ The response returns a {{jobArn}}. The custom import job will take some time to 
 The following fields are optional:
 + To add a VPC configuration, add the following argument to the preceding command to specify the security group and subnets:
 
-  ```
+  ```bash
      -\\-vpc-config '{securityGroupIds": ["sg-xx"], "subnetIds": ["subnet-yy", "subnet-zz"]}'
   ```
 + To encrypt your model with a KMS key, add the following argument to the preceding command, replacing the values to specify the key with which you want to encrypt your model.
@@ -276,7 +275,7 @@ The following fields are optional:
 
 The response returns a {{jobArn}}. The custom import job will take some time to complete. You can use the `jobArn` with the following command to check the status of the import job.
 
-```
+```bash
 aws bedrock get-model-import-job \
     --job-identifier "{{jobArn}}"
 ```
@@ -336,7 +335,7 @@ aws bedrock delete-imported-model
 
 Run the following code snippet to submit an custom model import job. Replace {{my-region}} with the Region where you imported the model, {{${my-import-model-role-arn}}} with the ARN of the {{MyImportModelRole}} that you set up and replace {{${model-file-bucket}}} with your S3 bucket name.
 
-```
+```python
 import boto3
 import json
 
@@ -366,7 +365,7 @@ job_arn = create_job_response.get("jobArn")
 The following fields are optional.
 + To add a VPC configuration, add the following argument to the preceding command to specify the security group and subnets:
 
-  ```
+  ```bash
      vpc-config = {'securityGroupIds: ["sg-xx".], 'subnetIds': [subnet-yy, 'subnet-zz']}'
   ```
 + To encrypt your model with a KMS key, add the following argument to the preceding command, replacing the values to specify the key with which you want to encrypt your model.
@@ -388,7 +387,7 @@ The response returns a jobArn
 
 The custom import job will take some time to complete. You can use the `jobArn` with the following command to check the status of the import job.
 
-```
+```python
 bedrock.get_model_import_job(jobIdentifier={{jobArn}})
 ```
 
@@ -396,7 +395,7 @@ When the `status` is `Completed`, the import job is complete.
 
 To run inference on your newly imported model, you must provide the ARN of the imported model as the `model-id`. Get ARN of the imported model.
 
-```
+```python
 response_pt = bedrock.list_imported_models(
     creationTimeBefore=datetime ({{2015,1,1}},
     creationTimeAfter= datetime ({{2015,1,1}},
@@ -409,7 +408,7 @@ response_pt = bedrock.list_imported_models(
 
 The response returns the `modelArn` along with other details of the imported model. 
 
-```
+```python
 {
     'nextToken': '',
     'modelSummaries': [
@@ -427,7 +426,7 @@ Use the model ARN to invoke the imported model. For more information, see [Submi
 
 To delete your imported model, use the following command using the model name or the model ARN of the imported model you want to delete.
 
-```
+```python
 response = client.delete_imported_model(
     modelIdentifier='{{MyImportedModelName}}'
             )

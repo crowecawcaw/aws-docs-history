@@ -1,7 +1,6 @@
 
 
 # Jamba 1.5 Mini
-<a name="model-card-ai21-labs-jamba-1-5-mini"></a>
 
 ## ![AI21 Labs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/ai21.png) AI21 Labs — Jamba 1.5 Mini
 <a name="model-card-ai21-labs-jamba-1-5-mini-header"></a>
@@ -133,7 +132,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -151,7 +150,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

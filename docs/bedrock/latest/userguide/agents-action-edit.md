@@ -1,7 +1,6 @@
 
 
 # Modify an action group
-<a name="agents-action-edit"></a>
 
 To learn how to modify an action group, choose the tab for your preferred method, and then follow the steps:
 

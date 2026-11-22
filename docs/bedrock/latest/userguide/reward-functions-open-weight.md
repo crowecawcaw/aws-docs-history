@@ -1,7 +1,6 @@
 
 
 # Setting up reward functions for open-weight models
-<a name="reward-functions-open-weight"></a>
 
 Reward functions evaluate response quality and provide feedback signals for model training. You can set up reward functions using custom Lambda functions. Choose the approach that matches your task requirements.
 
@@ -27,7 +26,7 @@ When implementing custom Lambda reward functions, your function must accept and 
 ------
 #### [ Input structure ]
 
-```
+```json
 [{
   "id": "123",
   "messages": [
@@ -53,7 +52,7 @@ When implementing custom Lambda reward functions, your function must accept and 
 ------
 #### [ Output structure ]
 
-```
+```json
 [{
   "id": "123",
   "aggregate_reward_score": 0.85,

@@ -1,7 +1,6 @@
 
 
 # Claude Fable 5
-<a name="model-card-anthropic-claude-fable-5"></a>
 
 ## ![Anthropic logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Fable 5
 <a name="model-card-anthropic-claude-fable-5-header"></a>
@@ -260,6 +259,8 @@ Your AWS account has default quotas to maintain the performance of the service a
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
+**Invoke & Converse**
+
 ```
 pip install boto3
 ```
@@ -272,7 +273,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-```
+```python
 import json
 import boto3
 
@@ -287,6 +288,8 @@ response = client.invoke_model(
 print(json.loads(response['body'].read()))
 ```
 
+**Messages**
+
 ```
 pip install -U anthropic aws-bedrock-token-generator
 ```
@@ -299,7 +302,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-```
+```python
 from anthropic import Anthropic
 from aws_bedrock_token_generator import provide_token
 

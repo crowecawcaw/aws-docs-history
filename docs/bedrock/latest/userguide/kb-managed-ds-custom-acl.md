@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-custom-acl"></a>
 
 **ACL awareness is not authorization**  
 Bedrock Managed Knowledge Base provides ACL-aware filtering, not a security boundary. Bedrock Managed Knowledge Base does not authenticate end users — your application is responsible for authenticating users and passing verified identity context. Because Bedrock Managed Knowledge Base cannot verify the authenticity of the user context you provide, this feature filters results based on the identity you supply but does not constitute true authorization. You must not rely on this feature as a sole access control mechanism without upstream authentication.
@@ -18,7 +17,7 @@ For an ACL-enabled custom data source, Bedrock Managed Knowledge Base applies th
 
 To enable ACL awareness for a custom data source, set `aclEnabled` to `true` in the `connectorParameters` when you create or update the data source. For the data source configuration structure, see [Custom](kb-managed-ds-custom.md).
 
-```
+```json
 "connectorParameters": {
     "type": "CUSTOM",
     "version": "1",
@@ -45,7 +44,7 @@ Each `accessControlList` entry contains:
 
 Supply the `accessControlList` directly in the request body alongside the inline metadata attributes.
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 
@@ -98,7 +97,7 @@ Content-type: application/json
 
 Point the document's metadata at a `.metadata.json` file in Amazon S3. Both the metadata attributes and the `accessControlList` are read from that file.
 
-```
+```json
 "metadata": {
     "type": "S3_LOCATION",
     "s3Location": {
@@ -109,7 +108,7 @@ Point the document's metadata at a `.metadata.json` file in Amazon S3. Both the 
 
 The `.metadata.json` file uses the same format as the [per-document metadata files](kb-managed-ds-s3-acl.md#kb-managed-ds-s3-acl-perdoc) for Amazon S3 data sources. This file uses capitalized ACL field names (`Name`, `Type`, `Access`), which differ from the lowercase field names (`name`, `type`, `access`) used in the inline request.
 
-```
+```json
 {
     "metadataAttributes": {},
     "accessControlList": [

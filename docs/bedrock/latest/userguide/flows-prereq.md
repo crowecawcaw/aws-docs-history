@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Amazon Bedrock Flows
-<a name="flows-prereq"></a>
 
 Before creating a flow, review the following prerequisites and determine which ones you need to fulfill:
 
@@ -25,7 +24,7 @@ Before creating a flow, review the following prerequisites and determine which o
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

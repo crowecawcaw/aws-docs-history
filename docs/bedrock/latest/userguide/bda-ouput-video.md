@@ -1,7 +1,6 @@
 
 
 # Videos
-<a name="bda-ouput-video"></a>
 
 BDA offers a set of standard outputs to process and generate insights for videos. Here's a detailed look at each operation type:
 

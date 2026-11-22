@@ -1,7 +1,6 @@
 
 
 # Cross-region inference for knowledge bases with structured data store
-<a name="kb-structured-cris"></a>
 
 Starting May 10, 2026, Amazon Bedrock Knowledge Bases with structured data store will use cross-region inference to process your API requests. With cross-Region inference, Amazon Bedrock Knowledge Bases will select a AWS Region within your geography to process your inference request. This applies to the [GenerateQuery](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GenerateQuery.html), [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html), and [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API operations when used with a structured data store.
 

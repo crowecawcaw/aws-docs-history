@@ -1,7 +1,6 @@
 
 
 # Deploy your Automated Reasoning policy in your application
-<a name="deploy-automated-reasoning-policy"></a>
 
 After you've tested your Automated Reasoning policy and are satisfied with its performance, you can deploy it for use in your application with Amazon Bedrock Guardrails. This page covers the full deployment workflow: saving an immutable version, attaching it to a guardrail, automating deployment with CloudFormation, and integrating into CI/CD pipelines.
 
@@ -36,7 +35,7 @@ The hash of the policy definition for the new version. Retrieve this hash from t
 #### Example
 <a name="save-policy-version-api-example"></a>
 
-```
+```bash
 # Get the current definition hash
 aws bedrock get-automated-reasoning-policy \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
@@ -50,7 +49,7 @@ aws bedrock create-automated-reasoning-policy-version \
 
 Example response:
 
-```
+```json
 {
   "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
   "version": "1",
@@ -91,7 +90,7 @@ The ARN of the Automated Reasoning policy version to use with your guardrail. Us
 #### Example
 <a name="add-policy-to-guardrail-api-example"></a>
 
-```
+```bash
 aws bedrock create-guardrail \
   --name "{{HR-Policy-Guardrail}}" \
   --description "{{Guardrail for HR policy validation}}" \
@@ -114,7 +113,7 @@ To deploy a policy through CloudFormation or a CI/CD pipeline, you need the poli
 
 The exported definition is the same format accepted by the CloudFormation `AWS::Bedrock::AutomatedReasoningPolicy` resource's `PolicyDefinition` property. This makes it straightforward to move a policy from the interactive console workflow to automated deployment.
 
-```
+```bash
 # Export the policy definition from version 1
 aws bedrock export-automated-reasoning-policy-version \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}:{{1}}" \
@@ -124,7 +123,7 @@ aws bedrock export-automated-reasoning-policy-version \
 
 The exported JSON contains the following structure:
 
-```
+```json
 {
   "version": "1.0",
   "variables": [
@@ -166,7 +165,7 @@ For the complete property reference of the policy resource, see [AWS::Bedrock::A
 
 The following CloudFormation template creates an Automated Reasoning policy with a policy definition and a guardrail that references it. Replace the policy definition with the JSON exported from your tested policy.
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Deploy an Automated Reasoning policy and guardrail
 
@@ -258,7 +257,7 @@ Guardrails that use Automated Reasoning checks require a cross-Region inference 
 
 To encrypt your policy with a customer managed KMS key, add the `KmsKeyId` property. You must also configure the key policy to allow Amazon Bedrock to use the key. For the required key policy permissions, see [KMS permissions for Automated Reasoning policies](create-automated-reasoning-policy.md#automated-reasoning-policy-kms-permissions).
 
-```
+```yaml
   AutomatedReasoningPolicy:
     Type: AWS::Bedrock::AutomatedReasoningPolicy
     Properties:

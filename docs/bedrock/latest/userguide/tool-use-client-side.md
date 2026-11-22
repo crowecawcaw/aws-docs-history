@@ -1,13 +1,12 @@
 
 
 # Client-side tool use
-<a name="tool-use-client-side"></a>
 
 If you use the Responses API, Chat Completions API, Converse API, or InvokeModel API to send the request, then the model uses client-side tool calling. This means that in your code, you call the tool on the model's behalf. In this scenario, assume the tool implementation is an API. The tool could just as easily be a database, Lambda function, or some other software. You decide how you want to implement the tool. You then continue the conversation with the model by supplying a message with the result from the tool. Finally, the model generates a response for the original message that includes the tool results that you sent to the model.
 
 Let us define the tool we will use for tool use. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
 
-```
+```python
 def get_most_popular_song(station_name: str) -> str:
     stations = {
         "Radio Free Mars": "Starman – David Bowie",
@@ -21,7 +20,7 @@ def get_most_popular_song(station_name: str) -> str:
 
 You can use the [Function calling](https://platform.openai.com/docs/guides/function-calling) feature provided by OpenAI to call this tool. Responses API is OpenAI's preferred API. Here is the Python code for Responses API for client-side tooling:
 
-```
+```python
 from openai import OpenAI
 import json
 
@@ -72,7 +71,7 @@ if response.output and response.output[0].content:
 
 You can use the Chat Completions API also. Here is the Python code for using Chat Completions:
 
-```
+```python
     from openai import OpenAI
 import json
 
@@ -122,7 +121,7 @@ For more details on the using Function Calling on Responses API and Chat Complet
 
 You can use the [Converse API](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference.html) to let a model use a tool in a conversation. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """Shows how to use tools with the Converse API and the Cohere Command R model."""

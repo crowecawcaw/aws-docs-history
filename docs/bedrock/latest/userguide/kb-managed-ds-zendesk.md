@@ -1,7 +1,6 @@
 
 
 # Zendesk
-<a name="kb-managed-ds-zendesk"></a>
 
 Zendesk is a cloud-based customer service platform that helps businesses manage support tickets, customer communication, and help center content in one place. You can connect your Zendesk instance as a data source for your managed knowledge base to crawl help center articles, including their attachments, and community posts.
 

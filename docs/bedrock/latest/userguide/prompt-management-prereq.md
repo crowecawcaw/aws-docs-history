@@ -1,7 +1,6 @@
 
 
 # Prerequisites for prompt management
-<a name="prompt-management-prereq"></a>
 
 For a role to use prompt management, you need to allow it to perform a certain set of API actions. Review the following prerequisites and fulfill the ones that apply to your use case:
 
@@ -12,7 +11,7 @@ For a role to use prompt management, you need to allow it to perform a certain s
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -58,7 +57,7 @@ If you plan to use a [flow](flows.md) in Amazon Bedrock Flows to deploy your pro
 
    1. Follow the steps at [Creating a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) and attach the following key policy to a KMS key to allow Amazon Bedrock encrypt and decrypt a prompt with the key, replacing the {{values}} as necessary. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-policy-keys) and [AWS global condition context keys](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-policy-keys)) in the `Condition` field that we recommend you use as a security best practice.
 
-      ```
+      ```json
       {
           "Sid": "EncryptFlowKMS",
           "Effect": "Allow",
@@ -80,7 +79,7 @@ If you plan to use a [flow](flows.md) in Amazon Bedrock Flows to deploy your pro
 
    1. Follow the steps at [Update the permissions policy for a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-permissions.html#id_roles_update-role-permissions-policy) and attach the following policy to the prompt management role, replacing the {{values}} as necessary, to allow it to generate and decrypt the customer managed key for a prompt. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-policy-keys) and [AWS global condition context keys](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-policy-keys)) in the `Condition` field that we recommend you use as a security best practice.
 
-      ```
+      ```json
       {
           "Sid": "KMSPermissions",
           "Effect": "Allow",

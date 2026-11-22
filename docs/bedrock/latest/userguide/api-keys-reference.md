@@ -1,7 +1,6 @@
 
 
 # API keys reference
-<a name="api-keys-reference"></a>
 
 Generate an Amazon Bedrock API key to call the Amazon Bedrock API. The key authenticates your identity when you make requests.
 

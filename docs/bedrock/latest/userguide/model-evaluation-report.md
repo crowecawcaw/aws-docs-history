@@ -1,7 +1,6 @@
 
 
 # Review model evaluation job reports and metrics in Amazon Bedrock
-<a name="model-evaluation-report"></a>
 
 The results of a model evaluation job are presented in a report, and include key metrics that can help you assess the model performance and effectiveness. The results of a model evaluation job are available through the Amazon Bedrock console or by downloading the results from the Amazon S3 bucket you specified when the job was created.
 

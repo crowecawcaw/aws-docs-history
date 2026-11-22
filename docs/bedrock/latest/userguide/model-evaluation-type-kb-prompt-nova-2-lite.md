@@ -1,7 +1,6 @@
 
 
 # Amazon Nova 2 Lite
-<a name="model-evaluation-type-kb-prompt-nova-2-lite"></a>
 
 Prompts used with Amazon Nova 2 Lite.
 

@@ -1,7 +1,6 @@
 
 
 # Step 6: Clean up resources
-<a name="agent-tutorial-step6"></a>
 
 When you're done with your Amazon Bedrock agent, you should clean up the resources to avoid incurring unnecessary charges. In this final procedure, you'll systematically delete all the AWS resources created during this tutorial, including the Bedrock agent, Lambda function, and associated \*IAM roles. This cleanup process is important for cost management, as it prevents ongoing charges for resources you're no longer using. The procedure is organized into three parts: deleting the agent, removing the Lambda function, and cleaning up the IAM roles that were created to support these services.
 

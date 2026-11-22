@@ -1,7 +1,6 @@
 
 
 # Anthropic
-<a name="model-cards-anthropic"></a>
 
 The following Anthropic models are available in Amazon Bedrock:
 

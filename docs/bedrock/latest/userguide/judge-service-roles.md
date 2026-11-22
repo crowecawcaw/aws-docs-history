@@ -1,7 +1,6 @@
 
 
 # Required service role permissions for creating a model evaluation job that uses a judge model
-<a name="judge-service-roles"></a>
 
 To create a model evaluation job that uses a LLM as judge, you must specify a service role. The policy you attach grants Amazon Bedrock access to resources in your account, and allows Amazon Bedrock to invoke the selected model on your behalf.
 
@@ -21,7 +20,7 @@ The service role must include access to at least one supported evaluator model. 
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [
@@ -56,7 +55,7 @@ Your service role policy needs to include access to the Amazon S3 bucket where y
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": [

@@ -1,7 +1,6 @@
 
 
 # MiniMax M2.1
-<a name="model-card-minimax-minimax-m2-1"></a>
 
 ## ![MiniMax logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/minimax2.1.png) MiniMax — MiniMax M2.1
 <a name="model-card-minimax-minimax-m2-1-header"></a>
@@ -160,7 +159,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Chat Completions API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -175,7 +174,7 @@ print(response)
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -193,7 +192,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

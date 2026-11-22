@@ -1,7 +1,6 @@
 
 
 # Define OpenAPI schemas for your agent's action groups in Amazon Bedrock
-<a name="agents-api-schema"></a>
 
 When you create an action group in Amazon Bedrock, you must define the parameters that the agent needs to invoke from the user. You can also define API operations that the agent can invoke using these parameters. To define the API operations, create an OpenAPI schema in JSON or YAML format. You can create OpenAPI schema files and upload them to Amazon Simple Storage Service (Amazon S3). Alternatively, you can use the OpenAPI text editor in the console, which will validate your schema. After you create an agent, you can use the text editor when you add an action group to the agent or edit an existing action group. For more information, see [Modify an agent](agents-edit.md).
 
@@ -18,7 +17,7 @@ For more information about API schemas, see the following resources:
 
 The following is the general format of an OpenAPI schema for an action group.
 
-```
+```json
 {
     "openapi": "3.0.0",
     "paths": {
@@ -56,7 +55,7 @@ To learn more about a structure, select from the following tabs.
 ------
 #### [ responses ]
 
-```
+```json
 "responses": {
     "200": {
         "content": {
@@ -88,7 +87,7 @@ Each key in the `responses` object is a response code, which describes the statu
 ------
 #### [ parameters ]
 
-```
+```json
 "parameters": [
     {
         "name": "{{string}}",
@@ -113,7 +112,7 @@ Your agent uses the following fields to determine the information it must get fr
 
 Following is the general structure of a `requestBody` field:
 
-```
+```json
 "requestBody": {
     "required": boolean,
     "content": {
@@ -150,7 +149,7 @@ To learn how to add the OpenAPI schema you created while creating the action gro
 
 The following example provides a simple OpenAPI schema in YAML format that gets the weather for a given location in Celsius.
 
-```
+```json
 openapi: 3.0.0
 info:
   title: GetWeather API
@@ -183,7 +182,7 @@ The following example API schema defines a group of API operations that help han
 + `identifyMissingDocuments` – Your agent can use the `description` field to determine that it should call this API operation if missing documents must be identified for an insurance claim. The `name`, `description`, and `required` fields tell the agent that it must elicit the unique identifier of the open claim from the customer. The `properties` in the `responses` specify to return the IDs of the open insurance claims. The agent returns this information to the end user or uses some or all of the response as input to subsequent API calls.
 + `sendReminders` – Your agent can use the `description` field to determine that it should call this API operation if there is a need to send reminders to the customer. For example, a reminder about pending documents that they have for open claims. The `properties` in the `requestBody` tell the agent that it must find the claim IDs and the pending documents. The `properties` in the `responses` specify to return an ID of the reminder and its status. The agent returns this information to the end user or uses some or all of the response as input to subsequent API calls.
 
-```
+```json
 {
     "openapi": "3.0.0",
     "info": {

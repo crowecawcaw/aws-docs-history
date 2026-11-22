@@ -1,7 +1,6 @@
 
 
 # Use prompt datasets for model evaluation in Amazon Bedrock
-<a name="model-evaluation-prompt-datasets"></a>
 
 To create an automatic model evaluation job you must specify a prompt dataset. The prompts are then used during inference with the model you select to evaluate. Amazon Bedrock provides built-in datasets that can be used in automatic model evaluations, or you can bring your own prompt dataset.
 
@@ -99,7 +98,7 @@ You must use the following keys value pairs in a custom dataset.
 
 As an example, accuracy requires both the question asked, and a answer to check the model's response against. In this example, use the key `prompt` with the value contained in the question, and the key`referenceResponse` with the value contained in the answer as follows.
 
-```
+```json
 {
   "prompt": "Bobigny is the capital of",
   "referenceResponse": "Seine-Saint-Denis",
@@ -109,7 +108,7 @@ As an example, accuracy requires both the question asked, and a answer to check 
 
 The previous example is a single line of a JSON line input file that will be sent to your model as an inference request. Model will be invoked for every such record in your JSON line dataset. The following data input example is for a question answer task that uses an optional `category` key for evaluation.
 
-```
+```json
 {"prompt":"Aurillac is the capital of", "category":"Capitals", "referenceResponse":"Cantal"}
 {"prompt":"Bamiyan city is the capital of", "category":"Capitals", "referenceResponse":"Bamiyan Province"}
 {"prompt":"Sokhumi is the capital of", "category":"Capitals", "referenceResponse":"Abkhazia"}

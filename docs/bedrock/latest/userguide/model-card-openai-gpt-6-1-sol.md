@@ -1,7 +1,6 @@
 
 
 # GPT-6.1 Sol
-<a name="model-card-openai-gpt-6-1-sol"></a>
 
 ## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-6.1 Sol
 <a name="model-card-openai-gpt-6-1-sol-header"></a>
@@ -105,7 +104,7 @@ Use an object schema. Put all fields in `required`. Set `additionalProperties` t
 **Important**  
 For JSON Schema output with Converse and ConverseStream, you must set `additionalModelRequestFields.text.format.strict` to `true`, in addition to specifying the schema in `outputConfig`. Include the following field in your request.  
 
-```
+```json
 {
   "additionalModelRequestFields": {
     "text": {
@@ -260,7 +259,7 @@ The output-token burndown rate is 10: each output token consumes 10 tokens of qu
 
 **Step 3 - Get the SDK:** You must have Python installed to use this guide. Then install the OpenAI SDK.
 
-```
+```bash
 python3 -m pip install openai
 ```
 
@@ -272,7 +271,7 @@ Set up your environment to use the API key for authentication.
 ------
 #### [ bedrock-mantle ]
 
-```
+```bash
 export OPENAI_API_KEY="<provide your Bedrock API key>"
 export OPENAI_BASE_URL="https://bedrock-mantle.us-east-1.api.aws/openai/v1"
 ```
@@ -280,7 +279,7 @@ export OPENAI_BASE_URL="https://bedrock-mantle.us-east-1.api.aws/openai/v1"
 ------
 #### [ bedrock-runtime ]
 
-```
+```bash
 export OPENAI_API_KEY="<provide your Bedrock API key>"
 export OPENAI_BASE_URL="https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1"
 ```
@@ -303,7 +302,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -319,7 +318,7 @@ print(response.output_text)
 ------
 #### [ Chat ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -341,7 +340,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -361,11 +360,11 @@ print(response.output_text)
 
 Set `OPENAI_API_KEY` to your Amazon Bedrock API key. This example uses the `bedrock-mantle` endpoint in `us-east-1`.
 
-```
+```bash
 export OPENAI_API_KEY="<your Amazon Bedrock API key>"
 ```
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(

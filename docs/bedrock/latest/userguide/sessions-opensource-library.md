@@ -1,7 +1,6 @@
 
 
 # Store and retrieve conversation history and context with the BedrockSessionSaver LangGraph library
-<a name="sessions-opensource-library"></a>
 
 Instead of directly using the Amazon Bedrock session management APIs, you can store and retrieve conversation history and context in LangGraph with the `BedrockSessionSaver` library. This is a custom implementation of the LangGraph CheckpointSaver. It uses the Amazon Bedrock APIs with a LangGraph-based interface. For more information, see [langgraph-checkpoint-aws](https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws) in the [LangChain](https://github.com/langchain-ai) GitHub repository.
 
@@ -16,7 +15,7 @@ The following code sample shows how to use the BedrockSessionSaver LangGraph lib
   + This Region for your runtime client and the BedrockSessionSaver must match. 
   + It must support Claude 3.5 Sonnet v2 (or the model you are using).
 
-```
+```python
 import boto3
 from typing import Dict, TypedDict, Annotated, Sequence, Union
 from langgraph.graph import StateGraph, END

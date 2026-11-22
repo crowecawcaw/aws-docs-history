@@ -1,7 +1,6 @@
 
 
 # Audio
-<a name="audio-processing"></a>
 
 The Amazon Bedrock Data Automation (BDA) feature offers a set of standard output to process and generate insights for audio files. Here's a detailed look at each operation type:
 

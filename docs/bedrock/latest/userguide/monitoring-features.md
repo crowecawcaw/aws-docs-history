@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Bedrock features
-<a name="monitoring-features"></a>
 
 The topics in this section describe observability for Amazon Bedrock features whose monitoring is independent of which inference endpoint you call. These capabilities apply to resources you create or to job state changes, rather than to traffic on the `bedrock-runtime` or `bedrock-mantle` endpoint.
 

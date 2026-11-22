@@ -1,7 +1,6 @@
 
 
 # Transform unstructured data into meaningful insights using Amazon Bedrock Data Automation
-<a name="bda"></a>
 
 ## What is Bedrock Data Automation?
 <a name="bda-what-is"></a>

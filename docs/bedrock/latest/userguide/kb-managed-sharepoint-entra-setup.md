@@ -1,7 +1,6 @@
 
 
 # Set up Microsoft Entra ID App-Only authentication for SharePoint
-<a name="kb-managed-sharepoint-entra-setup"></a>
 
 Microsoft Entra ID App-Only authentication (`ENTRA_ID_APP_ONLY`) is the recommended authentication method for a SharePoint data source. It uses the OAuth 2.0 client-credentials (application-only) flow: a Microsoft Entra application authenticates with a certificate, so no user sign-in is involved at crawl time or at query time. This is the only authentication method that supports document-level access control (ACLs). For a comparison with the alternative `OAUTH2_APP` method, see [Authentication methods](kb-managed-ds-sharepoint.md#kb-managed-sharepoint-auth-methods).
 
@@ -312,7 +311,7 @@ Store the credentials in an AWS Secrets Manager secret. For Entra ID App-Only au
 + `clientId` (required) — the application (client) ID from Step 1.
 + `certificatePassword` (recommended) — the password you set on the `.p12` bundle in Step 3. See the note that follows.
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "certificatePassword": "{{your-certificate-password}}"
@@ -335,7 +334,7 @@ Set `certificatePassword` to the password you used when you created the `.p12` b
 **Note**  
 **Using a PEM certificate instead.** This guide uses a `.p12` bundle, which works for every configuration. If you crawl content only (no document-level access control), you can use a PEM certificate instead. In that case, upload only the *public* certificate to Amazon S3 (not a `.p12` bundle), and store the private key in the secret as `privateKey` (unencrypted base64-encoded PKCS\#8, with no header lines) in place of `certificatePassword`:  
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "privateKey": "{{your-base64-pkcs8-private-key}}"
@@ -347,7 +346,7 @@ Set `certificatePassword` to the password you used when you created the `.p12` b
 
 Your knowledge base service role must be able to read the certificate object from Amazon S3. Add the following statement to the role's permissions policy, replacing the bucket name and key with your values.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -383,7 +382,7 @@ The policy also allows read access to an optional `.metadata.json` file alongsid
 
 The upload command in [Step 6: Upload the certificate to Amazon S3](#kb-managed-sharepoint-entra-step6) uses Amazon S3-managed encryption (`AES256`), which needs no additional permissions. If instead you encrypt the certificate object with Amazon S3 server-side encryption using a customer managed KMS key (SSE-KMS), the service role also needs `kms:Decrypt` permission on that key, and the key's policy must allow the role to use it. Objects encrypted with the AWS managed `aws/s3` key do not require this additional grant.
 
-```
+```json
 {
     "Sid": "KmsDecryptCertificate",
     "Effect": "Allow",

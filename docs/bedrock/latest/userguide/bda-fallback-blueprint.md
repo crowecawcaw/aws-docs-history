@@ -1,7 +1,6 @@
 
 
 # Using a fallback blueprint while using projects
-<a name="bda-fallback-blueprint"></a>
 
 When you use custom output with multiple blueprints, BDA attempts to match each document to the most appropriate blueprint. If no blueprint matches a document, BDA normally returns a `customOutputStatus` of `NO_MATCH` and no custom output is generated for that document. A fallback blueprint lets you specify a blueprint to use when no other blueprint matches, so you still receive custom output for every document.
 
@@ -38,7 +37,7 @@ The following example creates a project with two regular blueprints and one fall
 
 **Python SDK**
 
-```
+```python
 response = client.create_data_automation_project(
     projectName={{project_name}},
     projectDescription="{{Provide a project description}}",
@@ -66,7 +65,7 @@ response = client.create_data_automation_project(
 
 **AWS CLI**
 
-```
+```bash
 aws bedrock-data-automation create-data-automation-project \
     --project-name {{project_name}} \
     --project-stage LIVE \
@@ -108,7 +107,7 @@ The `customOutputStatus` field in the output indicates how the document was proc
 
 The following is an example output snippet from the [InvokeDataAutomationAsync](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.html) API when a fallback blueprint is used:
 
-```
+```json
 {
   "semanticModality": "DOCUMENT",
   "outputSegments": [

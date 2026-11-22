@@ -1,7 +1,6 @@
 
 
 # TwelveLabs Pegasus 1.5
-<a name="model-parameters-pegasus-1-5"></a>
 
 The TwelveLabs Pegasus 1.5 model provides comprehensive video understanding and analysis capabilities. Building on TwelveLabs Pegasus 1.2, it adds video segmentation that transforms raw video into structured, timestamped metadata across an entire video. It can analyze video content and generate textual descriptions, insights, and answers to questions about the video.
 
@@ -77,7 +76,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.5 model
 
 **Using base64 encoded video:**
 
-```
+```json
 {
   "analysis_mode": "general",
   "inputPrompt": "Tell me about this video",
@@ -90,7 +89,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.5 model
 
 **Using S3 stored video:**
 
-```
+```json
 {
     "analysis_mode": "general",
     "inputPrompt": "Summarize this video and list key scenes with timestamps",
@@ -107,7 +106,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.5 model
 
 **Using structured output format:**
 
-```
+```json
 {
     "analysis_mode": "general",
     "inputPrompt": "Analyze this video and provide a structured summary",
@@ -136,7 +135,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.5 model
 
 **Referring to an image from the prompt:**
 
-```
+```json
 {
     "prompt_v2": {
         "input_text": "Does the logo in <@logo> appear anywhere in this video?",
@@ -160,7 +159,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.5 model
 
 **Using time-based metadata (video segmentation):**
 
-```
+```json
 {
     "analysis_mode": "time_based_metadata",
     "mediaSource": {
@@ -190,7 +189,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.5 mod
 
 **Standard response:**
 
-```
+```json
 {
   "message": "This video shows a person walking through a park during sunset. The scene includes trees, a walking path, and golden lighting from the setting sun.",
   "stopReason": "stop"
@@ -199,7 +198,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.5 mod
 
 **Response with structured output:**
 
-```
+```json
 {
   "message": "{\"summary\": \"A peaceful evening walk through a park at sunset\", \"key_scenes\": [\"Person entering the park\", \"Walking along tree-lined path\", \"Sunset lighting through trees\"], \"duration\": \"Approximately 2 minutes\"}",
   "stopReason": "stop"
@@ -210,7 +209,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.5 mod
 
 The following response corresponds to the single `segment_definitions` entry in the preceding request. Each segment carries the fields declared in that definition along with its time range, and no identifier field is present.
 
-```
+```json
 {
   "segments": [
     {
@@ -234,7 +233,7 @@ The following response corresponds to the single `segment_definitions` entry in 
 
 When the request supplies two or more `segment_definitions` entries, each segment additionally carries a `_definition_id` field holding the `id` of the definition that produced it. Use that field to correlate a segment back to its definition. The following response is for a request with the definitions `scenes` and `colors`.
 
-```
+```json
 {
   "segments": [
     {
@@ -273,7 +272,7 @@ The segment identifier is named `_definition_id`, not `id`. The `id` field appea
 
 **Response when max tokens reached:**
 
-```
+```json
 {
   "message": "This video contains multiple scenes showing various activities. The first scene shows...",
   "stopReason": "length"

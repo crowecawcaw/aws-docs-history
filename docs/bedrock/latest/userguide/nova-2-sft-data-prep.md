@@ -1,7 +1,6 @@
 
 
 # Fine-tune Amazon Nova models with supervised fine-tuning
-<a name="nova-2-sft-data-prep"></a>
 
 Amazon Nova 2.0 SFT data uses the same Converse API format as Amazon Nova 1.0, with the addition of optional reasoning content fields. For complete format specifications, see [ReasoningContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.html) and [Converse API schema](https://docs.aws.amazon.com/bedrock/latest/userguide/conversation-inference-call.html).
 
@@ -30,7 +29,7 @@ You cannot mix images and videos within the same dataset or across different tur
 
 This example shows a basic text-only format compatible with Amazon Nova 1.0.
 
-```
+```json
 {
   "schemaVersion": "bedrock-conversation-2024",
   "system": [
@@ -64,7 +63,7 @@ This example shows a basic text-only format compatible with Amazon Nova 1.0.
 
 This example shows text with optional reasoning content for Amazon Nova 2.0.
 
-```
+```json
 {
   "schemaVersion": "bedrock-conversation-2024",
   "system": [
@@ -108,7 +107,7 @@ Currently, only `reasoningText` is supported within `reasoningContent`. Multimod
 
 This example shows how to include image input with text.
 
-```
+```json
 {
   "schemaVersion": "bedrock-conversation-2024",
   "system": [
@@ -160,7 +159,7 @@ This example shows how to include image input with text.
 
 This example shows how to include video input with text.
 
-```
+```json
 {
   "schemaVersion": "bedrock-conversation-2024",
   "system": [

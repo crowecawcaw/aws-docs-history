@@ -1,7 +1,6 @@
 
 
 # Creating blueprints for images
-<a name="bda-idp-images"></a>
 
 Amazon Bedrock Data Automation (BDA) allows you to create custom blueprints for image modalities. You can use blueprints to define the desired output format and extraction logic for your input files. By creating custom blueprints, you can tailor BDA's output to meet your specific requirements. Within one project, you can apply a single image blueprint.
 

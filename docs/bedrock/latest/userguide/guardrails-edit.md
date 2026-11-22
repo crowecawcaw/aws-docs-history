@@ -1,7 +1,6 @@
 
 
 # Modify your guardrail
-<a name="guardrails-edit"></a>
 
 You can edit your guardrails by following these steps for the Amazon Bedrock console or API:
 

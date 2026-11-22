@@ -1,14 +1,13 @@
 
 
 # Prerequisites for using a vector store you created for a knowledge base
-<a name="knowledge-base-setup"></a>
 
 To store the vector embeddings that your documents are converted to, you use a vector store. Amazon Bedrock Knowledge Bases supports a quick-create flow for some of the vector stores, so if you prefer for Amazon Bedrock to automatically create a vector index for you in one of those vector stores, skip this prerequisite and proceed to [Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases](knowledge-base-create.md).
 
 If you want to store binary vector embeddings instead of the standard floating-point (float32) vector embeddings, then you must use a vector store that supports binary vectors.
 
 **Note**  
-Amazon OpenSearch Serverless and Amazon OpenSearch Managed clusters are the only vector stores that support storing binary vectors.
+OpenSearch Serverless and Amazon OpenSearch Managed clusters are the only vector stores that support storing binary vectors.
 
 You can set up your own supported vector store to index the vector embeddings representation of your data. You create fields for the following data:
 + A field for the vectors generated from the text in your data source by the embeddings model that you choose.
@@ -24,13 +23,13 @@ Select the tab corresponding to the vector store service that you will use to cr
 Your choice of embeddings model and vector dimensions can affect the available vector store choices. If you are not able to use your preferred vector store, choose compatible options the embeddings model and vector dimensions.
 
 ------
-#### [ Amazon OpenSearch Serverless ]
+#### [ OpenSearch Serverless ]
 
-1. To configure permissions and create a vector search collection in Amazon OpenSearch Serverless in the AWS Management Console, follow steps 1 and 2 at [Working with vector search collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide. Note the following considerations while setting up your collection:
+1. To configure permissions and create a vector search collection in OpenSearch Serverless in the AWS Management Console, follow steps 1 and 2 at [Working with vector search collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide. Note the following considerations while setting up your collection:
 
    1. Give the collection a name and description of your choice.
 
-   1. To make your collection private, select **Standard create** for the **Security** section. Then, in the **Network access settings** section, select **VPC** as the **Access type** and choose a VPC endpoint. For more information about setting up a VPC endpoint for an Amazon OpenSearch Serverless collection, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html) in the Amazon OpenSearch Service Developer Guide.
+   1. To make your collection private, select **Standard create** for the **Security** section. Then, in the **Network access settings** section, select **VPC** as the **Access type** and choose a VPC endpoint. For more information about setting up a VPC endpoint for an OpenSearch Serverless collection, see [Access OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html) in the Amazon OpenSearch Service Developer Guide.
 
 1. Once the collection is created, take note of the **Collection ARN** for when you create the knowledge base.
 
@@ -89,7 +88,7 @@ After the vector index is created, you can proceed to [create your knowledge bas
 | Metadata management (first mapping field) | Text field | textField | The name of the field in which to store the raw text from your data sources. | 
 | Metadata management (second mapping field) | Bedrock-managed metadata field | metadataField | The name of the field in which to store metadata that Amazon Bedrock manages.  | 
 
-For more detailed documentation on setting up a vector store in Amazon OpenSearch Serverless, see [Working with vector search collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide.
+For more detailed documentation on setting up a vector store in OpenSearch Serverless, see [Working with vector search collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide.
 
 ------
 #### [ Amazon OpenSearch Service Managed Clusters ]
@@ -158,7 +157,7 @@ The Titan V2 Embeddings - Text model supports multiple dimensions. It can also b
 </table>
 
 
-   ```
+   ```json
    PUT /{{<index-name>}}
    {
        "settings": {
@@ -198,7 +197,7 @@ The Titan V2 Embeddings - Text model supports multiple dimensions. It can also b
 **Custom metadata fields for filtering**  
 If you plan to use [metadata filtering](kb-test-config.md) with custom metadata fields, you must define those fields with a `keyword` type or as a `text` type with a `keyword` subfield. For example:  
 
-   ```
+   ```json
    "my_custom_field": {
        "type": "text",
        "fields": {

@@ -1,7 +1,6 @@
 
 
 # MiniMax
-<a name="model-cards-minimax"></a>
 
 The following MiniMax models are available in Amazon Bedrock:
 

@@ -1,7 +1,6 @@
 
 
 # Monitor model invocation using CloudWatch Logs and Amazon S3
-<a name="model-invocation-logging"></a>
 
 You can use model invocation logging to collect invocation logs, model input data, and model output data for all invocations in your AWS account used in Amazon Bedrock in a Region.
 
@@ -48,7 +47,7 @@ A bucket policy is automatically attached to the bucket on your behalf when you 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -81,7 +80,7 @@ A bucket policy is automatically attached to the bucket on your behalf when you 
 
 1. (Optional) If configuring SSE-KMS on the bucket, add the following policy on the KMS key:
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Principal": {
@@ -121,7 +120,7 @@ You can set up a Amazon CloudWatch Logs destination for logging in Amazon Bedroc
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -153,7 +152,7 @@ You can set up a Amazon CloudWatch Logs destination for logging in Amazon Bedroc
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -215,7 +214,7 @@ Model invocation logging can be configured using the following APIs:
 
 Each invocation log entry is a JSON object with the following structure. The format is the same for both CloudWatch Logs and Amazon S3 destinations.
 
-```
+```json
 {
     "schemaType": "ModelInvocationLog",
     "schemaVersion": "1.0",

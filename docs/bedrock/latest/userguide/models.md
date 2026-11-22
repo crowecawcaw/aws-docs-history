@@ -1,7 +1,6 @@
 
 
 # Model availability & compatibility
-<a name="models"></a>
 
 Amazon Bedrock supports a wide catalog of foundation models from leading providers. This chapter explains where each model is available, which APIs and endpoints support it, how to access it, and how to manage models throughout their lifecycle. For an overview of all available models with their capabilities and pricing, see [Models at a glance](model-cards.md).
 

@@ -1,7 +1,6 @@
 
 
 # Using third-party Bedrock models with granted licenses
-<a name="managed-entitlements-using-models"></a>
 
 After you activate a grant in your account, you can invoke the third-party Amazon Bedrock model using the Amazon Bedrock console, AWS CLI, or AWS SDKs. The experience is the same as invoking a model with a direct subscription.
 

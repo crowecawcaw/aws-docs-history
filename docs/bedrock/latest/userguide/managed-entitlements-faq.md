@@ -1,7 +1,6 @@
 
 
 # Frequently asked questions
-<a name="managed-entitlements-faq"></a>
 
 ## Setup and configuration
 <a name="managed-entitlements-faq-setup"></a>
@@ -39,15 +38,15 @@ A: No. When you distribute licenses through managed entitlements, all recipient 
 
 **Q: I accepted a private offer in my management account or delegated administrator account. Why are member accounts still billed at public rates?**
 
-A: A private offer applies only to the account that accepts it. Member accounts that invoke the model without an active grant are billed at public rates. To apply your negotiated pricing, distribute grants from the purchase confirmation page when you accept the offer, or later from AWS License Manager.
+A: A private offer applies only to the account that accepts it. Member accounts that invoke the model without an active grant are billed at public rates. To apply your negotiated pricing, distribute grants from the purchase confirmation page when you accept the offer, or later from the agreement in AWS Marketplace or from AWS License Manager.
 
 **Q: Which subscriptions can I distribute from AWS Marketplace?**
 
-A: Distribution from AWS Marketplace is available for private offers for third-party models in Amazon Bedrock, except private offers that you accept as part of an offer set. For all other subscriptions, including public offers, offer sets, and other AWS Marketplace products such as AMIs, create and activate grants in AWS License Manager, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
+A: Distribution from AWS Marketplace is available for private offers for third-party models in Amazon Bedrock, including private offers that you accept as part of an offer set. For all other subscriptions, including public offers and other AWS Marketplace products such as AMIs, create and activate grants in AWS License Manager, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
 
 **Q: Can I distribute a private offer that I accepted as part of an offer set from AWS Marketplace?**
 
-A: No. Private offers that you accept as part of an offer set are not supported for distribution from AWS Marketplace. To distribute these private offers, create grants in AWS License Manager, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
+A: Yes, but not on the purchase confirmation page. After you accept an offer set, each private offer in the set has its own agreement. Distribute each one later from the **Manage subscriptions** page, as described in [Distributing a private offer that you already accepted](managed-entitlements-marketplace.md#managed-entitlements-distribute-marketplace-later).
 
 ## License distribution
 <a name="managed-entitlements-faq-distribution"></a>
@@ -86,7 +85,11 @@ A: No. Distribution from AWS Marketplace targets your entire organization. To di
 
 **Q: I accepted a private offer for a third-party model in Amazon Bedrock but did not distribute it to my organization at that time. How do I distribute it now?**
 
-A: Distribute it through AWS License Manager. Create grants as described in [Distributing licenses](managed-entitlements-distributing.md), and then activate them as described in [Accepting and activating grants](managed-entitlements-accepting.md). You can distribute from AWS Marketplace only on the purchase confirmation page, right after you accept a private offer. Until you distribute it, member accounts are billed at public rates.
+A: Distribute it from the agreement in AWS Marketplace. On the **Manage subscriptions** page, filter by **Distribution status** = **Not distributed**, choose **View distribution** for the agreement, and then choose **Distribute**. For the full steps, see [Distributing a private offer that you already accepted](managed-entitlements-marketplace.md#managed-entitlements-distribute-marketplace-later). To distribute to specific accounts or OUs instead, create grants in AWS License Manager. Until you distribute it, member accounts are billed at public rates.
+
+**Q: What does the Distribution status column on the Manage subscriptions page mean?**
+
+A: It shows whether you distributed an agreement to your organization. The column applies to agreements for private offers for third-party models in Amazon Bedrock. The values are **Distributed**, **Not distributed**, and **Unknown**. To find agreements that you still need to distribute, filter by **Not distributed**. For a description of each value, see [Understanding distribution status](managed-entitlements-marketplace.md#managed-entitlements-distribute-marketplace-status).
 
 **Q: What happens if distribution fails for some accounts?**
 
@@ -113,7 +116,7 @@ A: No. Deleting a grant is permanent and cannot be undone. However, you can crea
 
 **Q: What happens to granted licenses in linked accounts when the parent subscription expires in the management account?**
 
-A: The linked accounts will lose access to the model when the parent subscription expires in the management account.
+A: Member accounts keep access to the model. When the parent subscription expires, each member account falls back to its own subscription to the model and is billed at public rates. To keep your negotiated pricing, renew the private offer before it expires. Grants carry forward automatically when the offer renews.
 
 **Q: What happens to distributed grants when my private offer renews or is upgraded?**
 

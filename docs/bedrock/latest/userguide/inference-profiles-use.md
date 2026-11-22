@@ -1,7 +1,6 @@
 
 
 # Use an inference profile in model invocation
-<a name="inference-profiles-use"></a>
 
 You can use a cross Region inference profile in place of a foundation model to route requests to multiple Regions. To track costs and usage for a model, in one or multiple Regions, you can use an application inference profile. To learn how to use an inference profile when running model inference, choose the tab for your preferred method, and then follow the steps:
 

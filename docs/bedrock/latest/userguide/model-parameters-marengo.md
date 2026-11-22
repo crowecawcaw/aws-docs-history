@@ -1,7 +1,6 @@
 
 
 # TwelveLabs Marengo Embed 2.7
-<a name="model-parameters-marengo"></a>
 
 The TwelveLabs Marengo Embed 2.7 model generates embeddings from video, text, audio, or image inputs. These embeddings can be used for similarity search, clustering, and other machine learning tasks.
 + Provider — TwelveLabs
@@ -54,7 +53,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ Text ]
 
-```
+```json
 {
     "inputType": "text",
     "inputText": "{{string}}",
@@ -65,7 +64,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ Inline image ]
 
-```
+```json
 {
      "inputType": "image",
      "mediaSource": {
@@ -77,7 +76,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ S3 image ]
 
-```
+```json
 {
     "inputType": "image",
     "mediaSource": {
@@ -92,7 +91,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ Inline video ]
 
-```
+```json
 {
     "inputType": "video",
     "mediaSource": {
@@ -110,7 +109,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ S3 video ]
 
-```
+```json
 {
     "inputType": "image",
     "mediaSource": {
@@ -130,7 +129,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ Inline audio ]
 
-```
+```json
 {
     "inputType": "audio", 
     "mediaSource": { 
@@ -145,7 +144,7 @@ The format of the model input depends on the input modality:
 ------
 #### [ S3 audio ]
 
-```
+```json
 {
     "inputType": "audio",
     "mediaSource": {
@@ -203,7 +202,7 @@ Contains information about the media source.
 The format of the `mediaSource` object in the request body depends on whether the media is defined as a Base64-encoded string or as an S3 location.
 + **Base64-encoded string**
 
-  ```
+  ```json
   {
       "mediaSource": {
           "base64String": "base64-encoded string"
@@ -213,7 +212,7 @@ The format of the `mediaSource` object in the request body depends on whether th
   + `base64String` – The Base64-encoded string for the media.
 + **S3 location** – Specify the S3 URI and the bucket owner.
 
-  ```
+  ```json
   {
       "s3Location": {
           "uri": "string",
@@ -301,7 +300,7 @@ If there are multiple embeddings vectors, the output is a list of objects, each 
 
 The format of the output embeddings vector is as follows:
 
-```
+```json
 {
     "embedding": ["{{string}}"],
     "embeddingOption": "visual-text" | "visual-image" | "audio",
@@ -359,7 +358,7 @@ Define the model-specific input depending on your input type:
 ------
 #### [ Text ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -374,7 +373,7 @@ model_input = {
 ------
 #### [ Inline image ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -391,7 +390,7 @@ model_input = {
 ------
 #### [ S3 image ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -411,7 +410,7 @@ model_input = {
 ------
 #### [ Inline video ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -435,7 +434,7 @@ model_input = {
 ------
 #### [ S3 video ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -462,7 +461,7 @@ model_input = {
 ------
 #### [ Inline audio ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -482,7 +481,7 @@ model_input = {
 ------
 #### [ S3 audio ]
 
-```
+```python
 # Create the model-specific input
 model_id = "twelvelabs.marengo-embed-2-7-v1:0"
 # Replace the {{us}} prefix depending on your region
@@ -510,7 +509,7 @@ Then, add the code snippet that corresponds to your model invocation method of c
 ------
 #### [ InvokeModel ]
 
-```
+```python
 # Run model invocation with InvokeModel
 import boto3
 import json
@@ -533,7 +532,7 @@ print(response_body)
 ------
 #### [ StartAsyncInvoke ]
 
-```
+```python
 # Run model invocation asynchronously
 import boto3
 import json

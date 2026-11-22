@@ -1,7 +1,6 @@
 
 
 # Cohere Embed v4
-<a name="model-parameters-embed-v4"></a>
 
 Cohere Embed v4 is a multimodal embedding model that supports both text and image inputs. It can process interleaved text and image content, making it ideal for document understanding, visual search, and multimodal retrieval applications. The model supports various embedding types including float, int8, uint8, binary, and ubinary formats, with configurable output dimensions from 256 to 1536.
 
@@ -26,7 +25,7 @@ The model ID for Cohere Embed v4 is `cohere.embed-v4`.
 
 Content type: application/json
 
-```
+```json
 {
   "input_type": "search_document | search_query | classification | clustering",
   "texts": ["..."],                      // optional; text-only
@@ -73,7 +72,7 @@ Content type: application/json
 
 If you requested a single embedding type (e.g., only `float`):
 
-```
+```json
 {
 "id": "string",
 "embeddings": [[ /* length = output_dimension */ ]],
@@ -85,7 +84,7 @@ If you requested a single embedding type (e.g., only `float`):
 
 If you requested multiple embedding types (e.g., `["float","int8"]`):
 
-```
+```json
 {
   "id": "string",
   "embeddings": {
@@ -110,7 +109,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 **Request**  
 
 
-```
+```json
 {
   "input_type": "search_document",
   "inputs": [
@@ -131,7 +130,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 **Response (truncated)**  
 
 
-```
+```json
 {
   "id": "836a33cc-61ec-4e65-afaf-c4628171a315",
   "embeddings": { "int8": [[ 7, -3, ... ]] },
@@ -150,7 +149,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 **Request**  
 
 
-```
+```json
 {
   "input_type": "search_document",
   "texts": [
@@ -163,7 +162,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 **Response (sample)**  
 
 
-```
+```json
 {
   "response_type": "embeddings_floats",
   "embeddings": [
@@ -179,7 +178,7 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 ------
 #### [ Text input ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -284,7 +283,7 @@ if __name__ == "__main__":
 ------
 #### [ Mixed modalities ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

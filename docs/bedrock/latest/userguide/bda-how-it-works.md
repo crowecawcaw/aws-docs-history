@@ -1,7 +1,6 @@
 
 
 # How Bedrock Data Automation works
-<a name="bda-how-it-works"></a>
 
 Bedrock Data Automation (BDA) lets you configure output based on your processing needs for a specific data type: documents, images, video or audio. BDA can generate standard output or custom output. Below are some key concepts for understanding how BDA works. If you're a new user, start with the information about standard output.
 + Standard output – Sending a file to BDA with no other information returns the default standard output, which consists of commonly required information that's based on the data type. Examples include audio transcriptions, scene summaries for video, and document summaries. These outputs can be tuned to your use case using projects to modify them. For more information, see [Standard output in Bedrock Data Automation](bda-standard-output.md).

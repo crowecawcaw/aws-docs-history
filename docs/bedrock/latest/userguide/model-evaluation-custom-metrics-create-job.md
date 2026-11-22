@@ -1,7 +1,6 @@
 
 
 # Create a model evaluation job using custom metrics
-<a name="model-evaluation-custom-metrics-create-job"></a>
 
 To create an evaluation job that uses a custom metric, you need to supply the following:
 + A prompt containing detailed instructions for the judge model to use
@@ -131,7 +130,7 @@ You can either evaluate the performance of models in Amazon Bedrock, or you can 
 aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
 ```
 
-```
+```json
 {
     "jobName": "custom-metrics-maaj",
     "applicationType": "ModelEvaluation",
@@ -211,7 +210,7 @@ The example JSON file contains two `evaluatorModelConfig` objects. The one insid
 aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
 ```
 
-```
+```json
 {
     "jobName": "custom-metrics-maaj",
     "applicationType": "ModelEvaluation",

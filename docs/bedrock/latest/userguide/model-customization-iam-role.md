@@ -1,7 +1,6 @@
 
 
 # Create a service role for model customization
-<a name="model-customization-iam-role"></a>
 
 To use a custom role for model customization instead of the one Amazon Bedrock automatically creates, create an IAM role and attach the following permissions by following the steps at [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html).
 + Trust relationship
@@ -29,7 +28,7 @@ You can optionally restrict the scope of the permission for [cross-service confu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -66,7 +65,7 @@ To restrict access to a specific folder in a bucket, add an `s3:prefix` conditio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,7 +112,7 @@ For permissions to invoke with a cross-Region (system-defined) inference profile
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

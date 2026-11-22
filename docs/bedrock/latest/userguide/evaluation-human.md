@@ -1,7 +1,6 @@
 
 
 # Creating a model evaluation job that use human workers in Amazon Bedrock
-<a name="evaluation-human"></a>
 
 The topic provides detail directions for creating an automatic model evaluation job.
 

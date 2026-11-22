@@ -1,7 +1,6 @@
 
 
 # Pegasus v1.2
-<a name="model-card-twelvelabs-pegasus-v1-2"></a>
 
 ## ![TwelveLabs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Pegasus v1.2
 <a name="model-card-twelvelabs-pegasus-v1-2-header"></a>
@@ -188,7 +187,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 

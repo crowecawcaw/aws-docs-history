@@ -1,7 +1,6 @@
 
 
 # Handle compromised long-term and short-term Amazon Bedrock API keys
-<a name="api-keys-revoke"></a>
 
 If your API key becomes compromised, you should revoke permissions to use it. There are various methods that you can use to revoke permissions for an Amazon Bedrock API key:
 + For long-term Amazon Bedrock API keys, you can use the [UpdateServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.html), [ResetServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.html), or [DeleteServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.html) to revoke permissions in the following ways:
@@ -64,7 +63,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 To deactivate a key using the API, send an [UpdateServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.html) request with an [IAM endpoint](https://docs.aws.amazon.com/general/latest/gr/iam-service.html) and specify the `Status` as `Inactive`. You can use the following code snippet to deactivate a key, replacing {{${ServiceSpecificCredentialId}}} with the value returned when you created the key.
 
-```
+```python
 import boto3
                         
 iam_client = boto3.client("iam")
@@ -77,7 +76,7 @@ iam_client.update_service_specific_credential(
 
 To reactivate a key using the API, send an [UpdateServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.html) request with an [IAM endpoint](https://docs.aws.amazon.com/general/latest/gr/iam-service.html) and specify the `Status` as `Active`. You can use the following code snippet to reactivate a key, replacing {{${ServiceSpecificCredentialId}}} with the value returned when you created the key.
 
-```
+```python
 import boto3
                         
 iam_client = boto3.client("iam")
@@ -119,7 +118,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 To reset a key using the API, send a [ResetServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.html) request with an [IAM endpoint](https://docs.aws.amazon.com/general/latest/gr/iam-service.html). You can use the following code snippet to reset a key, replacing {{${ServiceSpecificCredentialId}}} with the value returned when you created the key.
 
-```
+```python
 import boto3
             
 iam_client = boto3.client("iam")
@@ -163,7 +162,7 @@ Deleting this API key doesn't delete the IAM user which was created with this ke
 
 To delete a key using the API, send a [DeleteServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.html) request with an [IAM endpoint](https://docs.aws.amazon.com/general/latest/gr/iam-service.html). You can use the following code snippet to delete a key, replacing {{${ServiceSpecificCredentialId}}} with the value returned when you created the key.
 
-```
+```python
 import boto3
             
 iam_client = boto3.client("iam")
@@ -201,7 +200,7 @@ The IAM policy that you can attach to the IAM identity is as follows:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {
@@ -227,7 +226,7 @@ If a short-term key becomes compromised, you can prevent its usage by invalidati
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": {

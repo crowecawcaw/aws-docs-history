@@ -1,7 +1,6 @@
 
 
 # Create and design a flow in Amazon Bedrock
-<a name="flows-create"></a>
 
 In this section learn how to create and design flows with the Amazon Bedrock console. To help you get started, flows you create with the console are configured to run with a single prompt node. This section also includes further examples, and templates, for creating different types of flows.
 

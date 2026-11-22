@@ -1,7 +1,6 @@
 
 
 # Custom Vocabulary
-<a name="bda-library-custom-vocabulary"></a>
 
 You can provide domain-specific words and phrases per language, which enables BDA to improve extraction accuracy for your audio and video content. You can include terminology unique to your industry or domain — such as brand names, acronyms, proper nouns, and specialized terms — which enables BDA to recognize and extract those terms accurately from your processed content.
 

@@ -1,7 +1,6 @@
 
 
 # Automated Reasoning checks concepts
-<a name="automated-reasoning-checks-concepts"></a>
 
 This page describes the building blocks of Automated Reasoning checks. Understanding these concepts will help you create effective policies, interpret test results, and debug issues. For a high-level overview of what Automated Reasoning checks do and when to use them, see [Rules](#ar-concept-rules).
 

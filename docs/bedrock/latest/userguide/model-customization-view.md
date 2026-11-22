@@ -1,7 +1,6 @@
 
 
 # View details about a custom model
-<a name="model-customization-view"></a>
 
 To learn how to view details about your customized model, choose the tab for your preferred method, and then follow the steps:
 

@@ -1,7 +1,6 @@
 
 
 # Create and manage retrieval instructions
-<a name="kb-test-agentic-retrieve-instruction"></a>
 
 A retrieval instruction is a reusable resource that steers agentic retrieval. It sets how the agent searches your knowledge bases, who the assistant is, how the assistant formats answers, and when it declines to answer. You write the instruction once, Amazon Bedrock reviews it, and then you reference it from `AgenticRetrieveStream` requests.
 
@@ -41,7 +40,7 @@ Before you start, you need a fully managed knowledge base that you query with ag
 
 1. Send a [CreateRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateRetrievalInstruction.html) request with a `name` and an `instruction`. The following JSON example creates an instruction that sets all four fields:
 
-   ```
+   ```json
    {
        "name": "{{support-assistant}}",
        "description": "Instruction for the customer support assistant",
@@ -105,7 +104,7 @@ To delete the instruction, first delete each of its versions and wait for any re
 
 To manage retrieval instructions, the calling IAM identity needs permissions for the operations that it uses. The following policy allows all of them:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

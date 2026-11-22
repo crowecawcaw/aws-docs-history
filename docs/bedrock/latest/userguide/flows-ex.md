@@ -1,7 +1,6 @@
 
 
 # Try example flows
-<a name="flows-ex"></a>
 
 This topic provides some example flows that you can try out to get started with using Amazon Bedrock Flows. You can also use templates to create an initial flow. For more information, see [Use a template to create an Amazon Bedrock flow](flows-templates.md).
 

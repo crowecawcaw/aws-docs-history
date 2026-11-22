@@ -1,7 +1,6 @@
 
 
 # Kimi K3
-<a name="model-card-moonshot-ai-kimi-k3"></a>
 
 ## ![Moonshot AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/kimik2.5.png) Moonshot AI — Kimi K3
 <a name="model-card-moonshot-ai-kimi-k3-header"></a>
@@ -227,7 +226,7 @@ pip install boto3
 ------
 #### [ Responses API ]
 
-```
+```python
 from aws_bedrock_token_generator import provide_token
 from openai import OpenAI
 
@@ -247,7 +246,7 @@ print(resp.output_text)
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-west-2')
@@ -266,7 +265,7 @@ print(response)
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 

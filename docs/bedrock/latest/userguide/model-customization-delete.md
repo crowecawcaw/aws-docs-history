@@ -1,7 +1,6 @@
 
 
 # Delete a custom model
-<a name="model-customization-delete"></a>
 
 To delete a custom model, choose the tab for your preferred method, and then follow the steps:
 

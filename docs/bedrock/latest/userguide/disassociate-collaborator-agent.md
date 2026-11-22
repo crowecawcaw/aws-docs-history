@@ -1,7 +1,6 @@
 
 
 # Disassociate collaborator agent
-<a name="disassociate-collaborator-agent"></a>
 
 You can disassociate one or more collaborator agents from the supervisor agent in the Amazon Bedrock console, using the APIs, using the AWS CLI, or by using the AWS SDK. To learn how to disassociate a collaborator agent choose the tab for your preferred method, and then follow the steps:.
 

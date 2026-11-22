@@ -1,7 +1,6 @@
 
 
 # Using models with Bedrock
-<a name="foundation-models-reference"></a>
 
 A foundation model is an Artificial Intelligence model with a large number of parameters and trained on a massive amount of diverse data. A foundation model can generate a variety of responses for a wide range of use cases. Foundation models can generate text or image, and can also convert input into *embeddings*. This section provides information about the foundation models (FM) that you can use in Amazon Bedrock, such as the features that models support and the AWS Regions in which models are available. For information about the foundation models that Amazon Bedrock supports, see [Supported foundation models in Amazon Bedrock](models-supported.md). 
 

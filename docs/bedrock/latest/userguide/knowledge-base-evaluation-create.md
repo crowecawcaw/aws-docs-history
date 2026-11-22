@@ -1,7 +1,6 @@
 
 
 # Creating a RAG evaluation job in Amazon Bedrock
-<a name="knowledge-base-evaluation-create"></a>
 
 You can create a RAG evaluation job using the AWS Management Console, AWS CLI, or a supported AWS SDK.
 
@@ -26,7 +25,7 @@ The IAM policy must grant access to both an evaluator model and, for retrieve an
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

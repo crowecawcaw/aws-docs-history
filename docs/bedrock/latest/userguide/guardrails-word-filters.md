@@ -1,7 +1,6 @@
 
 
 # Remove a specific list of words and phrases from conversations with word filters
-<a name="guardrails-word-filters"></a>
 
 Amazon Bedrock Guardrails has word filters that you can use to block words and phrases in input prompts and model responses. You can use the following word filters to block profanity, offensive, or inappropriate content, or content with competitor or product names.
 + **Profanity filter** – Turn on to block profane words. The list of profanities is based on conventional definitions of profanity and it's continually updated.
@@ -93,7 +92,7 @@ You can configure word policies for your guardrail by using the AWS Management C
 
 To create a guardrail with word policies, send a [CreateGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html) request. The request format is as follows:
 
-```
+```json
 POST /guardrails HTTP/1.1
 Content-type: application/json
 
@@ -144,7 +143,7 @@ Content-type: application/json
 
 The response format is as follows:
 
-```
+```json
 HTTP/1.1 202
 Content-type: application/json
 

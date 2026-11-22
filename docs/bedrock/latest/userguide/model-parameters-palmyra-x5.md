@@ -1,7 +1,6 @@
 
 
 # Writer Palmyra X5
-<a name="model-parameters-palmyra-x5"></a>
 
 Writer Palmyra X5 includes a suite of enterprise-ready capabilities, including advanced reasoning, tool-calling, LLM delegation, built-in RAG, code generation, structured outputs, multi-modality, and multi-lingual support.
 
@@ -21,7 +20,7 @@ The Writer Palmyra X5 model has the following controls:
 
 When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) call using a Writer model, fill the `body` field with a JSON object that conforms to the one below. Enter the prompt in the `text` field in the `text_prompts` object.
 
-```
+```json
 {
 "modelId": "writer.palmyra-x5-v1:0",
 "contentType": "application/json",
@@ -51,7 +50,7 @@ The following table shows the minimum, maximum, and default values for the numer
 
 The response JSON for Writer Palmyra X5 uses the following format:
 
-```
+```json
 {
   "id": "chatcmpl-a689a6e150b048ca8814890d3d904d41",
   "object": "chat.completion",

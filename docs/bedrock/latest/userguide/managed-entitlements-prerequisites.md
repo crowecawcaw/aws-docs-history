@@ -1,11 +1,10 @@
 
 
 # Prerequisites
-<a name="managed-entitlements-prerequisites"></a>
 
 Before you can use managed entitlements for Amazon Bedrock, you must complete the following prerequisites.
 
-**Recommendation**: If you use AWS Organizations, request that private offers for third-party models in Amazon Bedrock be issued to your management account. When you accept the offer from your management account, you can distribute it to every account in your organization directly from AWS Marketplace, immediately after you accept it.
+**Recommendation**: If you use AWS Organizations, request that private offers for third-party models in Amazon Bedrock be issued to your management account. When you accept the offer from your management account, you can distribute it to every account in your organization directly from AWS Marketplace, when you accept it or later from the agreement.
 
 If you prefer to manage private offers from an account other than your management account, you can register that account as your delegated administrator instead. You must complete delegated administrator registration before you accept the private offer, and you must accept the offer from that same account. To register a delegated administrator, see [Step 1: Determine if you need a delegated admin](managed-entitlements-setup.md#managed-entitlements-delegated-admin).
 
@@ -37,11 +36,11 @@ If you distribute a private offer for a third-party model in Amazon Bedrock from
 ## Granting permissions to distribute from AWS Marketplace
 <a name="managed-entitlements-marketplace-permissions"></a>
 
-To distribute a private offer for a third-party model in Amazon Bedrock from AWS Marketplace, the IAM identity that accepts the offer needs the permissions in the following policy. The identity also needs permission to view and accept the private offer.
+To distribute a private offer for a third-party model in Amazon Bedrock from AWS Marketplace, the IAM identity that you use needs the permissions in the following policy. To distribute a private offer when you accept it, the identity also needs permission to view and accept the private offer, for example through the [AWSMarketplaceManageSubscriptions](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html) managed policy. To distribute a private offer that you already accepted, the identity needs permission to view your subscriptions on the **Manage subscriptions** page, which the same managed policy includes.
 
 The `DistributeMarketplaceSubscription` statement covers the actions used on every distribution. The `FirstTimeOnboarding` statements cover the setup that AWS performs the first time your organization distributes from AWS Marketplace.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

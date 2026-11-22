@@ -1,7 +1,6 @@
 
 
 # Track agent's step-by-step reasoning process using trace
-<a name="trace-events"></a>
 
 Each response from an Amazon Bedrock agent is accompanied by a *trace* that details the steps being orchestrated by the agent. The trace helps you follow the agent's reasoning process that leads it to the response it gives at that point in the conversation.
 
@@ -12,7 +11,7 @@ Use the trace to track the agent's path from the user input to the response it r
 
 If you enable the trace, in the [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) response, each `chunk` in the stream is accompanied by a `trace` field that maps to a [TracePart](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_TracePart.html) object. The `tracePart` object contains information about the agent and sessions, alongside the agent's reasoning process and and results from calling API functions. 
 
-```
+```json
 {
     "agentId": "string",
     "agentName": "string",
@@ -50,7 +49,7 @@ The following list describes the fields of [TracePart](https://docs.aws.amazon.c
 
 Each of the traces (except `FailureTrace`) contains a [ModelInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ModelInvocationInput.html) object. The [ModelInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ModelInvocationInput.html) object contains configurations set in the prompt template for the step, alongside the prompt provided to the agent at this step. For more information about how to modify prompt templates, see [Enhance agent's accuracy using advanced prompt templates in Amazon Bedrock](advanced-prompts.md). The structure of the `ModelInvocationInput` object is as follows:
 
-```
+```json
 {
     "traceId": "string",
     "text": "string",
@@ -84,7 +83,7 @@ For more information about each trace type, see the following sections:
 ### PreProcessingTrace
 <a name="trace-preprocessing"></a>
 
-```
+```json
 {
     "modelInvocationInput": { // see above for details }
     "modelInvocationOutput": {
@@ -122,7 +121,7 @@ The [PreProcessingTrace](https://docs.aws.amazon.com/bedrock/latest/APIReference
 
 The [OrchestrationTrace](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OrchestrationTrace.html) consists of the [ModelInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ModelInvocationInput.html) object, [OrchestrationModelInvocationOutput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OrchestrationModelInvocationOutput.html) object, and any combination of the [Rationale](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Rationale.html), [InvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvocationInput.html), and [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) objects. The [OrchestrationModelInvocationOutput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OrchestrationModelInvocationOutput.html) contains the following fields. For more information about [Rationale](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Rationale.html), [InvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvocationInput.html), and [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) objects, select from the following tabs. 
 
-```
+```json
 {
     "modelInvocationInput": { // see above for details },
      "modelInvocationOutput": {
@@ -142,7 +141,7 @@ The [OrchestrationTrace](https://docs.aws.amazon.com/bedrock/latest/APIReference
 
 If the `type` is `AGENT_COLLABORATOR` and if the routing was enabled for the supervisor agent, [OrchestrationModelInvocationOutput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OrchestrationModelInvocationOutput.html) will contain the following structure:
 
-```
+```json
 routingClassifierModelInvocationOutput: {
         traceId: "string",
         rawResponse: "string",
@@ -175,7 +174,7 @@ The following list describes the fields of the [Rationale](https://docs.aws.amaz
 
 The [InvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvocationInput.html) object contains information that will be input to the action group or knowledge base that is to be invoked or queried. Following is the structure:
 
-```
+```json
 {
     "traceId": "string",
     "invocationType": "AGENT_COLLABORATOR" | "ACTION_GROUP | KNOWLEDGE_BASE | FINISH",
@@ -198,7 +197,7 @@ The following list describes the fields of the [InvocationInput](https://docs.aw
 + `agentCollaborationInvocationInput` – Contains the invocation input to the collaborator agents. Appears if the `type` is `AGENT_COLLABORATOR` and if routing is enabled for the supervisor agent. For more information, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md).
   + The `agentCollaborationInvocationInput ` structure is as follows:
 
-    ```
+    ```json
     {
       "agentCollaboratorName": "string",
       "agentCollaboratorAliasArn": "string",
@@ -215,7 +214,7 @@ The following list describes the fields of the [InvocationInput](https://docs.aw
 + `actionGroupInvocationInput` – Appears if the `type` is `ACTION_GROUP`. For more information, see [Define actions in the action group](action-define.md). Can be one of the following structures:
   + If the action group is defined by an API schema, the structure is as follows:
 
-    ```
+    ```json
     {
         "actionGroupName": "string",
         "apiPath": "string",
@@ -254,7 +253,7 @@ The following list describes the fields of the [InvocationInput](https://docs.aw
     + `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
   + If the action group is defined by function details, the structure is as follows:
 
-    ```
+    ```json
     {
         "actionGroupName": "string",
         "function": "string",
@@ -286,7 +285,7 @@ The following list describes the fields of the [InvocationInput](https://docs.aw
 
 The [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) object contains the result or output of an agent collaborator, an action group or knowledge base, or the response to the user. Following is the structure:
 
-```
+```json
 {
     "traceId": "string",
     "type": "AGENT_COLLABORATOR |ACTION_GROUP | KNOWLEDGE_BASE | REPROMPT | ASK_USER | FINISH",
@@ -344,7 +343,7 @@ The following list describes the fields of the [Observation](https://docs.aws.am
 ### PostProcessingTrace
 <a name="trace-postprocessing"></a>
 
-```
+```json
 {
     "modelInvocationInput": { // see above for details }
     "modelInvocationOutput": {
@@ -378,7 +377,7 @@ The [PostProcessingTrace](https://docs.aws.amazon.com/bedrock/latest/APIReferenc
 ### FailureTrace
 <a name="trace-failure"></a>
 
-```
+```json
 {
     "failureReason": "string",
     "traceId": "string"
@@ -392,7 +391,7 @@ The following list describes the fields of the [FailureTrace](https://docs.aws.a
 ### GuardrailTrace
 <a name="trace-guardrail"></a>
 
-```
+```json
 {
     "action": "GUARDRAIL_INTERVENED" | "NONE",
     "inputAssessments": [GuardrailAssessment],
@@ -409,7 +408,7 @@ For more details on the `GuardrailAssessment` object and testing a Guardrail, se
 
 GuardrailAssessment example:
 
-```
+```json
 {
     "topicPolicy": {
         "topics": [{

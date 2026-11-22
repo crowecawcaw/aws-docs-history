@@ -1,7 +1,6 @@
 
 
 # Connect a OneDrive data source
-<a name="kb-managed-ds-onedrive-connect"></a>
 
 After you set up authentication and store your credentials in an AWS Secrets Manager secret, create the OneDrive data source in your knowledge base. This page describes how to create the data source with the AWS Management Console or the API, followed by a reference for the connector parameters you can configure.
 
@@ -54,7 +53,7 @@ aws bedrock-agent create-data-source \
 
 The `onedrive-managed-connector.json` file contains the following:
 
-```
+```json
 {
     "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     "managedKnowledgeBaseConnectorConfiguration": {
@@ -77,7 +76,7 @@ The `onedrive-managed-connector.json` file contains the following:
 
 To enable document-level access control, set `aclEnabled` to `true` and add `certificateS3Path` to `connectionConfiguration`:
 
-```
+```json
 {
     "type": "ONEDRIVE",
     "version": "1",
@@ -164,7 +163,7 @@ Organizations often need to keep sensitive files out of a shared knowledge base.
 
 To configure this in the API, add `excludedSensitivityLabelNames` to `connectorParameters`, alongside `connectionConfiguration` and `dataEntityConfiguration`. Set it to the list of sensitivity label names to exclude; the connector excludes any document assigned one of these labels from the crawl. For example:
 
-```
+```json
 "excludedSensitivityLabelNames": ["Confidential", "CustomConfidential1"]
 ```
 

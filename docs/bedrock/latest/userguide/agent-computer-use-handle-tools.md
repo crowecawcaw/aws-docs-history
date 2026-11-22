@@ -1,7 +1,6 @@
 
 
 # Handle computer use tool requests from agents in conversations
-<a name="agent-computer-use-handle-tools"></a>
 
 When your agent requests a tool, the response to your InvokeAgent API operation includes a `returnControl` payload that includes the tool to use and the tool action in the invocationInputs. For more information about return control to agent developer, see [Return control to the agent developer by sending elicited information in an InvokeAgent response](agents-returncontrol.md).
 
@@ -14,7 +13,7 @@ When your agent requests a tool, the response to your InvokeAgent API operation 
 
 The following is an example of a `returnControl` payload with a request to use the `ANTHROPIC.Computer` tool with the `screenshot` action.
 
-```
+```json
 {
     "returnControl": {
         "invocationId": "invocationIdExample",
@@ -44,7 +43,7 @@ The following code shows how to extract the computer use tool choice in an Invok
 
 For more information about computer use tools, including implementation examples and tool descriptions, see [Computer use (beta)](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) in the Anthropic documentation.
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import json

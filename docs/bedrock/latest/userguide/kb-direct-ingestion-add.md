@@ -1,7 +1,6 @@
 
 
 # Ingest documents directly into a knowledge base
-<a name="kb-direct-ingestion-add"></a>
 
 This topic describes how to ingest documents directly into a knowledge base. Restrictions apply for the types of documents that you can directly ingest depending on your data source. Refer to the following table for restrictions on the methods that you can use to specify the documents to ingest:
 
@@ -84,7 +83,7 @@ You can define the following types of documents in-line:
 
 If the document is text, the [DocumentContent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentContent.html) object should be in the following format:
 
-```
+```json
 { 
     "custom": { 
         "customDocumentIdentifier": { 
@@ -109,7 +108,7 @@ Include an ID for the document in the `id` field and the text of the document in
 
 If the document contains more than text, convert it into a Base64-string. The [DocumentContent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentContent.html) object should then be in the following format:
 
-```
+```json
 { 
     "custom": { 
         "customDocumentIdentifier": { 
@@ -137,7 +136,7 @@ Include an ID for the document in the `id` field, the Base64-encoded document in
 
 If you're ingesting a document from an S3 location, the [DocumentContent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentContent.html) object in the `content` field should be of the following form:
 
-```
+```json
 { 
     "custom": { 
         "customDocumentIdentifier": { 
@@ -162,7 +161,7 @@ The metadata for a document can be defined in the following ways:
 
 If you define the metadata inline, the [DocumentMetadata](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentMetadata.html) object in the `metadata` field should be in the following format:
 
-```
+```json
 { 
     "inlineAttributes": [ 
         { 
@@ -182,7 +181,7 @@ If you define the metadata inline, the [DocumentMetadata](https://docs.aws.amazo
 
 For each attribute that you add, define the key in the `key` field. Specify the data type of the value in the `type` field and include the field that corresponds to the data type. For example, if you include a string, the attribute would be in the following format:
 
-```
+```json
 { 
     "key": "string",
     "value": { 
@@ -199,7 +198,7 @@ You can also ingest metadata from a file with the extension `.metadata.json` in 
 
 If the metadata is from an S3 file, the [DocumentMetadata](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentMetadata.html) object in the `metadata` field should be in the following format:
 
-```
+```json
 {
     "s3Location": { 
         "bucketOwnerAccountId": "string",
@@ -225,7 +224,7 @@ For S3 data sources, you can add content and metadata only from an S3 location.
 
 The content of an S3 document to add to S3 should be added to a [DocumentContent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentContent.html) object in the following format:
 
-```
+```json
 { 
     "dataSourceType": "string",
     "s3": { 
@@ -240,7 +239,7 @@ Include the owner of the S3 bucket that contains the document in `bucketOwnerAcc
 
 The metadata for a document added to a custom data source can be defined in the following format:
 
-```
+```json
 {
     "s3Location": { 
         "bucketOwnerAccountId": "string",
@@ -264,7 +263,7 @@ Expond the following sections to see request bodies for different use cases with
 
 The following example shows the addition of one text document to a custom data source:
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 
@@ -296,7 +295,7 @@ Content-type: application/json
 
 The following example shows the addition of a PDF document to a custom data source:
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 
@@ -329,7 +328,7 @@ Content-type: application/json
 
 The following example shows the addition of one text document to a custom data source from an S3 location:
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 
@@ -360,7 +359,7 @@ Content-type: application/json
 
 The following example shows the inline addition to a custom data source of a document alongside metadata containing two attributes:
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 
@@ -411,7 +410,7 @@ Content-type: application/json
 
 The following example shows the addition of a document alongside metadata to an S3 data source. You can include the metadata only through S3:
 
-```
+```json
 PUT /knowledgebases/{{KB12345678}}/datasources/{{DS12345678}}/documents HTTP/1.1
 Content-type: application/json
 

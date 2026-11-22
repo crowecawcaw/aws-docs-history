@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Premier
-<a name="model-evaluation-type-kb-prompt-nova-premier"></a>
 
 Prompts used with Amazon Nova Premier.
 

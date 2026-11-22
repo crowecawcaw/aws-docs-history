@@ -1,7 +1,6 @@
 
 
 # Required steps before creating your first automatic model evaluation job
-<a name="model-evaluation-type-automatic"></a>
 
 Automatic model evaluation jobs require access to the following service level resources. Use the linked topics to learn more about getting setting up.
 
@@ -34,7 +33,7 @@ In the policy, we recommend using the IAM JSON policy element [Resource](https:/
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

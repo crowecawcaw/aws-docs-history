@@ -1,7 +1,6 @@
 
 
 # Monitor `bedrock-runtime` inference using CloudWatch metrics
-<a name="monitoring-runtime-metrics"></a>
 
 The Amazon Bedrock `bedrock-runtime.{{region}}.amazonaws.com` endpoint publishes metrics to Amazon CloudWatch under the `AWS/Bedrock` namespace. Use these metrics to monitor invocation volume, latency, token consumption, error rates, and model invocation logging delivery.
 

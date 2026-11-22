@@ -1,7 +1,6 @@
 
 
 # Review a human-based model evaluation job in Amazon Bedrock (console)
-<a name="model-evaluation-report-human-customer"></a>
 
 You can review the data for human evaluation presented in a report using the Amazon Bedrock console.
 

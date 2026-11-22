@@ -1,7 +1,6 @@
 
 
 # Prepare data for Amazon Nova models
-<a name="rft-prepare-data"></a>
 
 When you fine-tune an Amazon Nova model with reinforcement fine-tuning, you can bring your own prompts or use existing Amazon Bedrock API invocation logs as training data.
 
@@ -29,7 +28,7 @@ Collect your prompts and store them in `.jsonl` file format. You can upload cust
 ------
 #### [ Example: General question-answering ]
 
-```
+```json
 {
             "messages": [
                 {
@@ -47,7 +46,7 @@ Collect your prompts and store them in `.jsonl` file format. You can upload cust
 ------
 #### [ Example: Math problem ]
 
-```
+```json
 {
   "id": "sample-001",
   "messages": [
@@ -94,7 +93,7 @@ With invocation logs, you can identify the training dataset prompts that you wan
 
 The following is an example of an invocation log from an `InvokeModel` call with the `requestMetadata`:
 
-```
+```json
 {
 "schemaType": "ModelInvocationLog",
     "schemaVersion": "1.0",
@@ -179,7 +178,7 @@ These additional fields are passed to your reward function during evaluation, en
 ------
 #### [ Chemistry problem ]
 
-```
+```json
 {
   "id": "chem-001",
   "messages": [
@@ -204,7 +203,7 @@ The `reference_answer` field contains the expected output or evaluation criteria
 ------
 #### [ Math problem with metadata ]
 
-```
+```json
 {
   "messages": [
     {

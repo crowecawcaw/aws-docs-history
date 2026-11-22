@@ -1,7 +1,6 @@
 
 
 # Required Key policy elements to encrypt your model evaluation job using AWS KMS
-<a name="model-evaluation-security-kms"></a>
 
 Every AWS KMS key must have exactly one key policy. The statements in the key policy determine who has permission to use the AWS KMS key and how they can use it. You can also use IAM policies and grants to control access to the AWS KMS key, but every AWS KMS key must have a key policy.
 
@@ -12,7 +11,7 @@ Every AWS KMS key must have exactly one key policy. The statements in the key po
 
 You must add the following statement to your existing AWS KMS key policy. It provides Amazon Bedrock with permissions to temporarily store your data in an Amazon Bedrock service bucket using the AWS KMS that you've specified.
 
-```
+```json
 {
 	"Effect": "Allow",
 	"Principal": {
@@ -40,7 +39,7 @@ The following is an example of a complete AWS KMS policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-consolepolicy-3",
@@ -125,7 +124,7 @@ Example IAM Policy for Role Calling CreateEvaluationJob API
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Data retention
-<a name="data-retention"></a>
 
 ## Overview
 <a name="data-retention-overview"></a>
@@ -16,7 +15,9 @@ There is no data retention change to Claude models released before Claude Fable 
 ## Data retention modes
 <a name="data-retention-modes"></a>
 
-Data retention is controlled by a **mode** rather than a simple on/off toggle:
+Data retention is controlled by a **mode** rather than a simple on or off toggle.
+
+Amazon Bedrock does not share your content with model providers for any current mode.
 
 
 | **Mode** | **Behavior** | 
@@ -93,7 +94,7 @@ curl -X PUT https://bedrock-mantle.us-east-1.api.aws/v1/data_retention \
 
 **Response:**
 
-```
+```json
 {
   "mode": "aws_review",
   "updated_at": 1733529600
@@ -123,7 +124,7 @@ curl -X PUT https://bedrock.us-east-1.amazonaws.com/data-retention \
 
 **Response:**
 
-```
+```json
 {
   "mode": "aws_review",
   "updated_at": "2026-06-07T20:19:44.723Z"
@@ -161,7 +162,7 @@ curl https://bedrock-mantle.us-east-1.api.aws/v1/models/anthropic.claude-fable-5
 
 **Response:**
 
-```
+```json
 {
   "id": "anthropic.claude-fable-5",
   "created": 1733443200,
@@ -192,7 +193,7 @@ At launch, there is no console UI for configuring data retention. Customers must
 
 **Response when a model is unavailable due to retention policy:**
 
-```
+```json
 {
   "id": "anthropic.claude-fable-5",
   "created": 1733443200,
@@ -259,7 +260,7 @@ You can enforce a data retention policy across your organization using IAM polic
 
 **Example SCP — require zero data retention across the organization:**
 
-```
+```json
 {
     "Effect": "Deny",
     "Action": [
@@ -278,7 +279,7 @@ You can enforce a data retention policy across your organization using IAM polic
 
 **Bedrock Control Plane:**
 
-```
+```json
 {
     "Effect": "Deny",
     "Action": [
@@ -297,7 +298,7 @@ This prevents anyone in the organization from setting data retention to anything
 
 **Example SCP — permit AWS retention but not human review:**
 
-```
+```json
 {
     "Effect": "Deny",
     "Action": [

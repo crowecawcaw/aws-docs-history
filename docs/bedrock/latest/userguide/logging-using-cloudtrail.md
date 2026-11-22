@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Bedrock API calls using CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Bedrock is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Bedrock. CloudTrail captures all API calls for Amazon Bedrock as events. The calls captured include calls from the Amazon Bedrock console and code calls to the Amazon Bedrock API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Bedrock.
 
@@ -57,7 +56,7 @@ From the AWS CLI, set the `resource.type` value equal to `AWS::Bedrock::AgentAli
 
 The following example shows how to configure a trail to log all Amazon Bedrock data events for all Amazon Bedrock resource types in the AWS CLI.
 
-```
+```bash
 aws cloudtrail put-event-selectors --trail-name {{trailName}} \
 --advanced-event-selectors \
 '[
@@ -120,7 +119,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the `InvokeModel` action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -158,7 +157,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Invoke
 
 The following example shows the fields relevant to an `ApplyGuardrail` data event for a model invocation evaluated by both a guardrail supplied in the request and a guardrail enforced by an organization. Standard CloudTrail identity and network fields are omitted from the example.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "eventTime": "2026-08-20T16:57:41Z",
@@ -238,7 +237,7 @@ The number of CloudTrail events that one streaming invocation produces depends o
 
 The `serviceEventDetails.parentRequestId` field contains the `requestID` of the API call that produced the stream-completion event. Use it to join a stream-completion event back to that API call. The following example shows a stream-completion event for a `ConverseStream` call.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

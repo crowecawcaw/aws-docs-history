@@ -1,7 +1,6 @@
 
 
 # Create and manage optimization jobs
-<a name="advanced-prompt-optimization-jobs"></a>
 
 ## Create a job (console)
 <a name="advanced-prompt-optimization-jobs-console"></a>
@@ -30,7 +29,7 @@ If you move the results files away from the output S3 location after the job is 
 
 Replace the Region, S3 bucket location, model ID, and other fields as necessary for your use case. For `modelId`, you can specify a foundation model ID, a cross-region inference profile ID, or an application inference profile ARN.
 
-```
+```python
 import boto3
 import json
 
@@ -61,7 +60,7 @@ When you create the job through the API, no additional optimization configuratio
 
 Replace the Region, S3 bucket location, model ID, and other fields as necessary for your use case.
 
-```
+```bash
 JOB_ARN=$(aws bedrock create-advanced-prompt-optimization-job \
     --job-name "my-optimization-job" \
     --model-configurations '[{"modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"}]' \
@@ -77,7 +76,7 @@ When you create the job through the API, no additional optimization configuratio
 ## Check job status
 <a name="advanced-prompt-optimization-jobs-status"></a>
 
-```
+```python
 response = client.get_advanced_prompt_optimization_job(
     jobIdentifier=job_arn
 )
@@ -87,7 +86,7 @@ if response.get('failureMessage'):
     print(f"Failure: {response['failureMessage']}")
 ```
 
-```
+```bash
 aws bedrock get-advanced-prompt-optimization-job \
     --job-identifier "$JOB_ARN" \
     --region us-west-2
@@ -96,7 +95,7 @@ aws bedrock get-advanced-prompt-optimization-job \
 ## List jobs
 <a name="advanced-prompt-optimization-jobs-list"></a>
 
-```
+```python
 response = client.list_advanced_prompt_optimization_jobs(
     maxResults=10
 )
@@ -105,7 +104,7 @@ for job in response['advancedPromptOptimizationJobSummaries']:
     print(f"{job['jobName']} | {job['jobStatus']} | {job['jobArn']}")
 ```
 
-```
+```bash
 aws bedrock list-advanced-prompt-optimization-jobs \
     --max-results 10 \
     --region us-west-2
@@ -114,14 +113,14 @@ aws bedrock list-advanced-prompt-optimization-jobs \
 ## Stop a job
 <a name="advanced-prompt-optimization-jobs-stop"></a>
 
-```
+```python
 client.stop_advanced_prompt_optimization_job(
     jobIdentifier=job_arn
 )
 print('Job stop requested')
 ```
 
-```
+```bash
 aws bedrock stop-advanced-prompt-optimization-job \
     --job-identifier "$JOB_ARN" \
     --region us-west-2
@@ -130,7 +129,7 @@ aws bedrock stop-advanced-prompt-optimization-job \
 ## Batch delete jobs
 <a name="advanced-prompt-optimization-jobs-delete"></a>
 
-```
+```python
 response = client.batch_delete_advanced_prompt_optimization_jobs(
     jobIdentifiers=[job_arn]
 )
@@ -139,7 +138,7 @@ for result in response['results']:
     print(f"{result['jobIdentifier']}: {result['status']}")
 ```
 
-```
+```bash
 aws bedrock batch-delete-advanced-prompt-optimization-jobs \
     --job-identifiers "$JOB_ARN" \
     --region us-west-2

@@ -1,7 +1,6 @@
 
 
 # Rerank 3.5
-<a name="model-card-cohere-rerank-3-5"></a>
 
 ## ![Cohere logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Rerank 3.5
 <a name="model-card-cohere-rerank-3-5-header"></a>
@@ -104,7 +103,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Rerank API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-agent-runtime', region_name='us-east-1')

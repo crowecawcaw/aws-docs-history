@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-servicenow-acl"></a>
 
 ServiceNow data sources optionally support document-level access control. When enabled, Bedrock Managed Knowledge Base resolves each document's ServiceNow user criteria into concrete users during the crawl. It enforces these criteria at query time, so users only see content they are entitled to in ServiceNow. For the overview of ACL awareness across all connectors, see [Access Control Lists awareness enablement](kb-managed-acl.md).
 
@@ -44,7 +43,7 @@ When you create an ACL-enabled data source, use the following settings:
 
 The following example shows the `connectorParameters` configuration for an ACL-enabled ServiceNow data source:
 
-```
+```json
 "connectorParameters": {
     "type": "SERVICENOW",
     "connectorType": "SERVICENOW",

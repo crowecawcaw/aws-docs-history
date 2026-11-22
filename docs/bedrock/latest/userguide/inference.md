@@ -1,7 +1,6 @@
 
 
 # Making inference requests
-<a name="inference"></a>
 
 Inference is the process of generating an output from an input provided to a model. Before you can send an inference request to Amazon Bedrock, you need to allow your role to perform the model invocation API actions. This depends on the endpoint you are using. For new applications, we recommend the `bedrock-runtime` endpoint.
 
@@ -9,7 +8,7 @@ Inference is the process of generating an output from an input provided to a mod
 
 If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess) AWS managed policy attached, you can skip this section. Otherwise, attach the following permissions to allow inference through the `bedrock-runtime` endpoint (Converse, Invoke, Chat Completions, and Responses APIs):
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -45,7 +44,7 @@ If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#securit
 
 If your role has the `AmazonBedrockMantleInferenceAccess` AWS managed policy attached, you can skip this section. Otherwise, attach the following permissions to allow inference through the `bedrock-mantle` endpoint (Responses API, Chat Completions, Messages API):
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -67,7 +66,7 @@ If your role has the `AmazonBedrockMantleInferenceAccess` AWS managed policy att
 **Important**  
 If you scope your policy to specific resources instead of using `"Resource": "*"`, the [Responses API](inference-responses-api.md#bedrock-mantle-responses) on the `bedrock-runtime` endpoint needs two resources rather than one. In addition to the inference target, creating a response requires `bedrock:InvokeModel` on your account's default project, and retrieving, canceling, or deleting a stored response requires `bedrock:GetInvoke`, `bedrock:CancelInvoke`, or `bedrock:DeleteInvoke` on that same project. The following policy grants the minimum:  
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

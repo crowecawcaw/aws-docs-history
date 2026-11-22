@@ -1,7 +1,6 @@
 
 
 # Analyze the results of a model customization job
-<a name="model-customization-analyze"></a>
 
 When your model customization job completes, you can analyze the results of the customization process. The following artifacts are uploaded to the S3 bucket that you specify when creating your model customization job:
 + **Training and validation metrics** – Amazon Bedrock provides training metrics for all model customization jobs. Validation metrics are also included with some model customization jobs.

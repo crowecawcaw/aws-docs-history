@@ -1,7 +1,6 @@
 
 
 # Types of PII that Amazon Bedrock Data Automation can detect and redact
-<a name="bda-sensitive-data-types"></a>
 
 The following table lists the PII entity types that BDA can detect and redact.
 

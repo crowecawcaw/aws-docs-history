@@ -1,7 +1,6 @@
 
 
 # Deleting a Library
-<a name="bda-library-deleting"></a>
 
 Use the [DeleteDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_DeleteDataAutomationLibrary.html) API to delete the library and its entities.
 
@@ -10,7 +9,7 @@ Use the [DeleteDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation delete-data-automation-library \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary"
 ```

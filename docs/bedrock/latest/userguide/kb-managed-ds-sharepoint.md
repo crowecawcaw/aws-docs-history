@@ -1,7 +1,6 @@
 
 
 # Microsoft SharePoint
-<a name="kb-managed-ds-sharepoint"></a>
 
 Microsoft SharePoint is a collaborative web-based service for working on documents, web pages, web sites, lists, and more. You can connect your SharePoint Online instance as a data source for your managed knowledge base to crawl files and pages from one or more SharePoint sites.
 

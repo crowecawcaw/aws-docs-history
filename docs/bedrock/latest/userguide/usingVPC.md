@@ -1,7 +1,6 @@
 
 
 # Protect your data using Amazon VPC and AWS PrivateLink
-<a name="usingVPC"></a>
 
 To control access to your data, we recommend that you use a virtual private cloud (VPC) with [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html). Using a VPC protects your data and lets you monitor all network traffic in and out of the AWS job containers by using [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html).
 

@@ -1,7 +1,6 @@
 
 
 # Understanding your Amazon Bedrock Cost and Usage Report data
-<a name="cost-mgmt-understanding-cur-data"></a>
 
 AWS Data Exports Cost and Usage Reports (CUR 2.0) is the AWS recommended way to receive your detailed cost and usage data. CUR 2.0 provides line-item detail for every Amazon Bedrock inference request. Each request generates separate line items for each token type, with distinct usage types and unit prices. This page explains how to read Amazon Bedrock entries in CUR and reconcile them to your actual spend. For more information about AWS CUR 2.0, see [AWS Data Exports documentation](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html).
 

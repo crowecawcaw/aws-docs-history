@@ -1,7 +1,6 @@
 
 
 # Evaluate the performance of RAG sources using Amazon Bedrock evaluations
-<a name="evaluation-kb"></a>
 
 You can use computed metrics to evaluate how effectively a Retrieval Augmented Generation (RAG) system retrieves relevant information from your data sources, and how effective the generated responses are in answering questions. The results of a RAG evaluation allow you to compare different Amazon Bedrock Knowledge Bases and other RAG sources, and then to choose the best Knowledge Base or RAG system for your application.
 

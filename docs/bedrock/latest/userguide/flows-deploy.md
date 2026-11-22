@@ -1,7 +1,6 @@
 
 
 # Deploy a flow to your application using versions and aliases
-<a name="flows-deploy"></a>
 
 When you first create a flow, a working draft version (`DRAFT`) and a test alias (`TSTALIASID`) that points to the working draft version are created. When you make changes to your flow, the changes apply to the working draft, and so it is the latest version of your flow. You iterate on your working draft until you're satisfied with the behavior of your flow. Then, you can set up your flow for deployment by creating *versions* of your flow.
 

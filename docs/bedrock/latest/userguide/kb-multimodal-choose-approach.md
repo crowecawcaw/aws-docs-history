@@ -1,7 +1,6 @@
 
 
 # Choosing your multimodal processing approach
-<a name="kb-multimodal-choose-approach"></a>
 
 Amazon Bedrock Knowledge Bases offers two approaches for processing multimodal content: Nova Multimodal Embeddings for visual similarity searches, and Bedrock Data Automation (BDA) for text-based processing of multimedia content. You can also use foundation models as your parser if your input modality is image but not for audio or video.
 

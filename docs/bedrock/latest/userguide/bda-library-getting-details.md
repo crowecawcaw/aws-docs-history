@@ -1,7 +1,6 @@
 
 
 # Getting Library Details
-<a name="bda-library-getting-details"></a>
 
 Use the [GetDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.html) API to retrieve information about an existing library.
 
@@ -10,14 +9,14 @@ Use the [GetDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest/AP
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation get-data-automation-library \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary"
 ```
 
 **Response:**
 
-```
+```json
 {
   "library": {
     "libraryArn": "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary",

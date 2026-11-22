@@ -1,7 +1,6 @@
 
 
 # Geographic cross-Region inference
-<a name="geographic-cross-region-inference"></a>
 
 Geographic cross-Region inference keeps data processing within specified geographic boundaries (such as US, EU, and APAC). This option is ideal for organizations with data residency requirements and compliance regulations.
 

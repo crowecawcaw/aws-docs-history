@@ -1,7 +1,6 @@
 
 
 # ACL-aware retrieval on managed knowledge bases
-<a name="kb-test-retrieve-acl"></a>
 
 When ACL awareness is enabled on a managed knowledge base data source, you filter query results by passing a user context in your [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) request. Bedrock Managed Knowledge Base returns only the documents that the supplied user is permitted to access. For an overview of how ACL awareness works, the identity model, connector support, and your responsibilities when enabling it, see [Access Control Lists awareness enablement](kb-managed-acl.md).
 
@@ -13,7 +12,7 @@ ACL awareness provides ACL-aware filtering, not authorization. Bedrock Managed K
 
 To perform ACL-aware retrieval, include the `userContext` field in your [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) request. The `userContext` specifies the user's identity. The `userId` is always the user's universal email address associated with the underlying data source.
 
-```
+```json
 {
     "knowledgeBaseId": "{{your-knowledge-base-id}}",
     "retrievalQuery": {

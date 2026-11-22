@@ -1,12 +1,11 @@
 
 
 # Crawl web pages for your knowledge base
-<a name="webcrawl-data-source-connector"></a>
 
 **Important**  
 Starting September 30, 2026, the creation of new connectors for Confluence, Microsoft SharePoint, Salesforce, and Web Crawler will no longer be supported on customer-managed knowledge bases. Existing connectors of these types will continue to function, including data ingestion and retrieval. For applications that require these connectors, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
 
-The Amazon Bedrock provided Web Crawler connects to and crawls URLs you have selected for use in your Amazon Bedrock knowledge base. You can crawl website pages in accordance with your set scope or limits for your selected URLs. You can crawl website pages using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home) or the [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) API (see Amazon Bedrock [supported SDKs and AWS CLI](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)). Currently, only Amazon OpenSearch Serverless vector store is available to use with this data source.
+The Amazon Bedrock provided Web Crawler connects to and crawls URLs you have selected for use in your Amazon Bedrock knowledge base. You can crawl website pages in accordance with your set scope or limits for your selected URLs. You can crawl website pages using either the [AWS Management Console for Amazon Bedrock](https://console.aws.amazon.com/bedrock/home) or the [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) API (see Amazon Bedrock [supported SDKs and AWS CLI](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)). Currently, only OpenSearch Serverless vector store is available to use with this data source.
 
 **Note**  
 The Web Crawler data source connector is in preview release and is subject to change.
@@ -96,7 +95,7 @@ You can specify certain user agent bots to either ‘Allow’ or ‘Disallow’ 
 
 You can also add a User-Agent suffix that can be used to allowlist your crawler in bot protection systems. Note that this suffix does not need to be added to the `robots.txt` file to make sure that no one can impersonate the User Agent string. For example, to allow the Web Crawler to crawl all website content and disallow crawling for any other robots, use the following directive:
 
-```
+```json
 User-agent: bedrockbot-UUID # Amazon Bedrock Web Crawler
 Allow: / # allow access to all pages
 User-agent: * # any (other) robot
@@ -160,7 +159,7 @@ You can't change the chunking strategy after connecting to the data source.
 
 To connect a knowledge base to a data source using WebCrawler, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt), specify `WEB` in the `type` field of the [DataSourceConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DataSourceConfiguration.html), and include the `webConfiguration` field. The following is an example of a configuration of Web Crawler for your Amazon Bedrock knowledge base.
 
-```
+```json
 {
     "webConfiguration": {
         "sourceConfiguration": {

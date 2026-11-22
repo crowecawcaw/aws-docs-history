@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude tool use
-<a name="model-parameters-anthropic-claude-messages-tool-use"></a>
 
 **Warning**  
 Several functions below are offered in beta as indicated. These features are made available to you as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms, and the applicable model EULA.
@@ -19,7 +18,7 @@ Claude Sonnet 4.5 includes automatic optimizations to improve model performance.
 
 You specify the tools that you want to make available to a model in the `tools` field. The following example is for a tool that gets the most popular songs on a radio station. 
 
-```
+```json
 [
     {
         "name": "top_song",
@@ -42,7 +41,7 @@ You specify the tools that you want to make available to a model in the `tools` 
 
 When the model needs a tool to generate a response to a message, it returns information about the requested tool, and the input to the tool, in the message `content` field. It also sets the stop reason for the response to `tool_use`.
 
-```
+```json
 {
     "id": "msg_bdrk_01USsY5m3XRUF4FCppHP8KBx",
     "type": "message",
@@ -69,7 +68,7 @@ When the model needs a tool to generate a response to a message, it returns info
 
 In your code, you call the tool on the tools behalf. You then pass the tool result (`tool_result`) in a user message to the model.
 
-```
+```json
 {
     "role": "user",
     "content": [
@@ -84,7 +83,7 @@ In your code, you call the tool on the tools behalf. You then pass the tool resu
 
 In its response, the model uses the tool result to generate a response for the original message.
 
-```
+```json
 {
     "id": "msg_bdrk_012AaqvTiKuUSc6WadhUkDLP",
     "type": "message",
@@ -112,7 +111,7 @@ To use this feature, set `eager_input_streaming` to `true` on each user-defined 
 
 The following example turns on fine-grained tool streaming for a `make_file` tool:
 
-```
+```json
 {
   "anthropic_version": "bedrock-2023-05-31",
   "max_tokens": 1024,
@@ -273,7 +272,7 @@ The Anthropic `web_search_20250305` server tool is not supported on Amazon Bedro
 ------
 #### [ Request ]
 
-```
+```python
 from anthropic import Anthropic
 from aws_bedrock_token_generator import provide_token
 
@@ -334,7 +333,7 @@ response = client.beta.messages.create(
 ------
 #### [ Response ]
 
-```
+```json
 {
     "id": "msg_123",
     "type": "message",
@@ -369,7 +368,7 @@ response = client.beta.messages.create(
 ------
 #### [ Streaming Response ]
 
-```
+```json
 data: {"type": "message_start", "message": {"id": "msg_123", "type": "message", "role": "assistant"}}
 
 data: {"type": "content_block_start", "index": 0, "content_block": {"type": "tool_use", "id": "toolu_456", "name": "data_analyzer", "input": {}}}
@@ -414,7 +413,7 @@ Claude Sonnet 4.5 includes a new memory tool. This tool provides you a way to ma
 
 Tool definition:
 
-```
+```json
 {
   "type": "memory_20250818",
   "name": "memory"
@@ -423,7 +422,7 @@ Tool definition:
 
 Example Request:
 
-```
+```json
 {
     "max_tokens": 2048,
     "anthropic_version": "bedrock-2023-05-31",
@@ -443,7 +442,7 @@ Example Request:
 
 Example Response:
 
-```
+```json
 {
     "id": "msg_vrtx_014mQ5ficCRB6PEa5k5sKqHd",
     "type": "message",
@@ -508,33 +507,37 @@ When you use tools, the Anthropic models automatically include a special system 
 | Claude 3 Haiku | auto or none | 264 | 
 | Claude 3 Haiku | any or tool | 340 | 
 
-## Tool search tool (beta)
+## Tool search tool
 <a name="model-parameters-anthropic-claude-tool-search-tool"></a>
 
-Tool Search Tool allows Claude to work with hundreds or even thousands of tools without loading all their definitions into the context window upfront. Instead of declaring all tools immediately, you can mark them with `defer_loading: true`, and Claude finds and loads only the tools it needs through the tool search mechanism.
+With tool search, Claude can work with hundreds or even thousands of tools without loading all of their definitions into the context window upfront. You mark tools with `defer_loading: true`, and Claude searches your tool catalog (tool names, descriptions, argument names, and argument descriptions) and loads only the tools it needs.
 
-To access this feature, you must include `tool-search-tool-2025-10-19` in the `anthropic_beta` parameter. Note that this feature is currently only available through the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) APIs.
+Tool search is generally available. No `anthropic_beta` value is required. Requests that still include the earlier `tool-search-tool-2025-10-19` beta value continue to work. Tool search is available through the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) APIs and the `bedrock-mantle` endpoint. It is not available through the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API. To find which models support tool search, see the *Capabilities and Features* table in each [Models at a glance](model-cards.md). Claude Opus 4.1 and earlier models don't support tool search and return a `400` error.
 
-Tool definition:
+The following table describes the two tool search variants.
 
-```
-{
-    "type": "tool_search_tool_regex",
-    "name": "tool_search_tool_regex"
-}
-```
+
+| Tool type | Tool name | How Claude searches | 
+| --- | --- | --- | 
+| `tool_search_tool_regex_20251119` | `tool_search_tool_regex` | Claude writes a case-insensitive Python regular expression, sent in the `pattern` field. | 
+| `tool_search_tool_bm25_20251119` | `tool_search_tool_bm25` | Claude writes a natural language query, sent in the `query` field. | 
+
+**Note**  
+The undated tool types `tool_search_tool_regex` and `tool_search_tool_bm25` are still accepted. Use the dated types in new code.
+
+When you use tool search, follow these rules:
++ Send the full definition of every tool in the `tools` array on every request, including deferred tools. Amazon Bedrock needs the definitions to run the search and to expand the tools that Claude finds.
++ Don't set `defer_loading: true` on the tool search tool. At least one tool must be non-deferred. Keep your three to five most frequently used tools non-deferred so that Claude can call them without searching first.
++ A tool with `defer_loading: true` can't also have `cache_control`. To cache your tool definitions, put the cache checkpoint on a non-deferred tool.
 
 Request example:
 
-```
+```json
 {
     "anthropic_version": "bedrock-2023-05-31",
-    "anthropic_beta": [
-        "tool-search-tool-2025-10-19"
-    ],
     "max_tokens": 4096,
     "tools": [{
-            "type": "tool_search_tool_regex",
+            "type": "tool_search_tool_regex_20251119",
             "name": "tool_search_tool_regex"
         },
         {
@@ -583,26 +586,26 @@ Request example:
 }
 ```
 
-Response example
+Response example:
 
-```
+```json
 {
     "role": "assistant",
     "content": [{
             "type": "text",
-            "text": "I'll search for the appropriate tools to help with this task."
+            "text": "I'll search for a tool that can get the weather."
         },
         {
             "type": "server_tool_use",
-            "id": "srvtoolu_01ABC123",
+            "id": "srvtoolu_bdrk_01ABC123",
             "name": "tool_search_tool_regex",
             "input": {
-                "pattern": "weather"
+                "pattern": "weather|forecast"
             }
         },
         {
             "type": "tool_search_tool_result",
-            "tool_use_id": "srvtoolu_01ABC123",
+            "tool_use_id": "srvtoolu_bdrk_01ABC123",
             "content": {
                 "type": "tool_search_tool_search_result",
                 "tool_references": [{
@@ -612,16 +615,11 @@ Response example
             }
         },
         {
-            "type": "text",
-            "text": "Now I can check the weather."
-        },
-        {
             "type": "tool_use",
-            "id": "toolu_01XYZ789",
+            "id": "toolu_bdrk_01XYZ789",
             "name": "get_weather",
             "input": {
-                "location": "Seattle",
-                "unit": "fahrenheit"
+                "location": "Seattle, WA"
             }
         }
     ],
@@ -629,39 +627,44 @@ Response example
 }
 ```
 
-Streaming example
+In the response, `server_tool_use` is Claude's call to the tool search tool, which Amazon Bedrock runs for you. `tool_search_tool_result` contains the matching tools as `tool_reference` blocks, which Amazon Bedrock expands into full tool definitions for Claude. `tool_use` is Claude's call to a tool that it found. You run that tool and return a `tool_result` as in standard tool use.
 
-```
-# Event 1: content_block_start(with complete server_tool_use block) {
+On the next request, send the assistant content back unchanged, including the `server_tool_use` and `tool_search_tool_result` blocks, and send the same `tools` array. Don't return a `tool_result` for the `srvtoolu_` ID. Amazon Bedrock rejects the request. Claude can call tools that it found in earlier turns without searching again.
+
+Streaming example ([InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)):
+
+```json
+# The server_tool_use block starts, and the search input streams as input_json_delta events
+{
     "type": "content_block_start",
     "index": 0,
     "content_block": {
         "type": "server_tool_use",
-        "id": "srvtoolu_01ABC123",
-        "name": "tool_search_tool_regex"
+        "id": "srvtoolu_bdrk_01ABC123",
+        "name": "tool_search_tool_regex",
+        "input": {}
     }
 }
-
-# Event 2: content_block_delta(input JSON streamed) {
+{
     "type": "content_block_delta",
     "index": 0,
     "delta": {
         "type": "input_json_delta",
-        "partial_json": "{\"regex\": \".*weather.*\"}"
+        "partial_json": "{\"pattern\": \"weather|forecast\"}"
     }
 }
-
-# Event 3: content_block_stop(tool_use complete) {
+{
     "type": "content_block_stop",
     "index": 0
 }
 
-# Event 4: content_block_start(COMPLETE result in single chunk) {
+# The search result arrives complete in a single content_block_start event
+{
     "type": "content_block_start",
     "index": 1,
     "content_block": {
         "type": "tool_search_tool_result",
-        "tool_use_id": "srvtoolu_01ABC123",
+        "tool_use_id": "srvtoolu_bdrk_01ABC123",
         "content": {
             "type": "tool_search_tool_search_result",
             "tool_references": [{
@@ -671,46 +674,25 @@ Streaming example
         }
     }
 }
-
-# Event 5: content_block_stop(result complete) {
+{
     "type": "content_block_stop",
     "index": 1
 }
+
+# Claude then calls the discovered tool in a tool_use block
 ```
+
+**Tip**  
+If Claude answers without searching, add a sentence to your system prompt that describes the tool categories it can search for. For example: `You can search for tools to get weather data and search workspace files.`
 
 **Custom tool search tools**  
-You can implement custom tool search tools (for example, using embeddings) by defining a tool that returns `tool_reference` blocks. The custom tool must have `defer_loading: false` while other tools should have `defer_loading: true`. When you define your own Tool Search Tool, it should return a tool result containing `tool_reference` content blocks that point to the tools you want Claude to use.
+You can implement your own tool search (for example, using embeddings or semantic search) by defining a regular tool that returns `tool_reference` blocks. Leave your search tool non-deferred, and set `defer_loading: true` on the tools that it can find. When Claude calls your search tool, return a standard `tool_result` whose `content` contains a `tool_reference` block for each tool to load. Each `tool_name` must match a tool defined in the request. Amazon Bedrock expands the references into full tool definitions, and Claude can then call those tools.
 
-The expected customer-defined Tool Search Tool result response format:
+Request example with a custom tool search tool:
 
-```
+```json
 {
-    "type": "tool_result",
-    "tool_use_id": "toolu_01ABC123",
-    "content": [{
-            "type": "tool_reference",
-            "tool_name": "get_weather"
-        },
-        {
-            "type": "tool_reference",
-            "tool_name": "weather_forecast"
-        }
-    ]
-}
-```
-
-The `tool_name` must match a tool defined in the request with `defer_loading: true`. Claude will then have access to those tools' full schemas.
-
-**Custom search tools - Detailed example**  
-You can implement custom tool search tools (for example, using embeddings or semantic search) by defining a tool that returns `tool_reference` blocks. This enables sophisticated tool discovery mechanisms beyond regex matching.
-
-Request example with custom TST:
-
-```
-{
-    "model": "claude-sonnet-4-5-20250929",
     "anthropic_version": "bedrock-2023-05-31",
-    "anthropic_beta": ["tool-search-tool-2025-10-19"],
     "max_tokens": 4096,
     "tools": [{
             "name": "semantic_tool_search",
@@ -728,8 +710,7 @@ Request example with custom TST:
                     }
                 },
                 "required": ["query"]
-            },
-            "defer_loading": false
+            }
         },
         {
             "name": "get_weather",
@@ -739,10 +720,6 @@ Request example with custom TST:
                 "properties": {
                     "location": {
                         "type": "string"
-                    },
-                    "unit": {
-                        "type": "string",
-                        "enum": ["celsius", "fahrenheit"]
                     }
                 },
                 "required": ["location"]
@@ -772,79 +749,79 @@ Request example with custom TST:
     ],
     "messages": [{
         "role": "user",
-        "content": "What's the weather forecast in Seattle for the next 3 days?"
+        "content": "What's the weather forecast in Seattle?"
     }]
 }
 ```
 
-Claude's response (calling custom TST):
+Claude calls your search tool:
 
-```
+```json
 {
     "role": "assistant",
     "content": [{
-            "type": "text",
-            "text": "I'll search for the appropriate tools to help with weather information."
-        },
-        {
-            "type": "tool_use",
-            "id": "toolu_01ABC123",
-            "name": "semantic_tool_search",
-            "input": {
-                "query": "weather forecast multiple days",
-                "top_k": 3
-            }
+        "type": "tool_use",
+        "id": "toolu_bdrk_01ABC123",
+        "name": "semantic_tool_search",
+        "input": {
+            "query": "weather forecast"
         }
-    ],
+    }],
     "stop_reason": "tool_use"
 }
 ```
 
-**Customer-provided tool result**  
-After performing semantic search on the tool library, the customer returns matching tool references:
+You run the search and return the matching tools as `tool_reference` blocks in a standard `tool_result`:
 
-```
+```json
 {
     "role": "user",
     "content": [{
-        "type": "tool_search_tool_result",
-        "tool_use_id": "toolu_01ABC123",
-        "content": {
-            "type": "tool_search_tool_search_result",
-            "tool_references": [{
-                "type": "tool_reference",
-                "tool_name": "get_weather"
-            }]
-        }
+        "type": "tool_result",
+        "tool_use_id": "toolu_bdrk_01ABC123",
+        "content": [{
+            "type": "tool_reference",
+            "tool_name": "get_weather"
+        }]
     }]
 }
 ```
 
-Claude's follow-up (using discovered tool)
+Claude then calls the tool that you returned:
 
-```
+```json
 {
     "role": "assistant",
     "content": [{
-            "type": "text",
-            "text": "I found the forecast tool. Let me get the weather forecast for Seattle."
-        },
-        {
-            "type": "tool_use",
-            "id": "toolu_01DEF456",
-            "name": "get_weather",
-            "input": {
-                "location": "Seattle, WA"
-            }
+        "type": "tool_use",
+        "id": "toolu_bdrk_01DEF456",
+        "name": "get_weather",
+        "input": {
+            "location": "Seattle"
         }
-    ],
+    }],
     "stop_reason": "tool_use"
 }
 ```
 
-**Error handling**
-+ Setting `defer_loading: true` for all tools (including the Tool Search Tool) will throw a 400 error.
-+ Passing a `tool_reference` without a corresponding tool definition will throw a 400 error
+**Note**  
+The `tool_search_tool_result` block is only for the built-in tool search tools. If you send it as the result of a custom search tool, the request is rejected.
+
+The following list describes requests that return a `400` `ValidationException` error, and the error message for each.
+
+Every tool, including the tool search tool, has `defer_loading: true`  
+`At least one tool must have defer_loading=false. All tools cannot be deferred.`
+
+A `tool_reference` names a tool that isn't defined in the request  
+`Tool reference '{{name}}' not found in available tools`
+
+A deferred tool also has `cache_control`  
+`Tool '{{name}}' cannot have both defer_loading=true and cache_control set.`
+
+The model doesn't support tool search  
+`Input tag 'tool_search_tool_regex_20251119' found using 'type' does not match any of the expected tags`
+
+For more information, see [Tool search tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) on the Claude Developer Platform website.
 
 ## Tool use examples (beta)
 <a name="model-parameters-anthropic-claude-tool-use-examples"></a>
@@ -853,7 +830,7 @@ Claude Opus 4.5 supports user-provided examples in tool definitions to increase 
 
 Tool definition example:
 
-```
+```json
 {
     "name": "get_weather",
     "description": "Get the current weather in a given location",
@@ -900,7 +877,7 @@ Tool definition example:
 
 Error examples:
 
-```
+```json
 // Invalid: Example doesn't match schema (missing required field)
 {
     "type": "invalid_request_error",
@@ -935,7 +912,7 @@ Supported models add and remove tools mid-conversation through `tool_addition` a
 
 `tool_addition` and `tool_removal` blocks appear in the `content` array of a `role: "system"` message, alongside optional `text` blocks. Each block references **one** tool through its `tool` field. Multiple blocks are allowed and are processed in content order.
 
-```
+```json
 {
   "role": "system",
   "content": [
@@ -958,7 +935,7 @@ Claude Haiku 5.5 supports inline tool definitions (`inline-tools-2026-09-15`), b
 
 The following request declares one tool (`get_time`) in `tools[]`, then adds a second tool (`convert_length`) by value through a `tool_addition` block on a `role: "system"` message, and asks the model to use it:
 
-```
+```json
 {
   "anthropic_version": "bedrock-2023-05-31",
   "max_tokens": 1024,

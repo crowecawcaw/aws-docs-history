@@ -1,7 +1,6 @@
 
 
 # Prerequisites for inference profiles
-<a name="inference-profiles-prereq"></a>
 
 Before you can use an inference profile, check that you've fulfilled the following prerequisites:
 + Your role has access to the inference profile API actions. If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess) AWS-managed policy attached, you can skip this step. Otherwise, do the following:
@@ -13,7 +12,7 @@ Before you can use an inference profile, check that you've fulfilled the followi
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -63,7 +62,7 @@ When you specify an inference profile in the `Resource` field in the first state
 
 ****  
 
-       ```
+       ```json
        {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -103,7 +102,7 @@ When you specify an inference profile in the `Resource` field in the first state
 
 ****  
 
-       ```
+       ```json
        {
            "Version":"2012-10-17",		 	 	 
            "Statement": [
@@ -138,7 +137,7 @@ When you specify an inference profile in the `Resource` field in the first state
 ------
      + You can also restrict the use of the Global Claude Sonnet 4 inference profile by adding an explicit Deny with a `StringEquals` condition that checks the request context key `aws:RequestedRegion` equals unspecified. Because it matches `StringEquals`, the Deny overrides any Allow and blocks Global routing of inference requests.
 
-       ```
+       ```json
        {
            "Effect": "Deny",
            "Action": [

@@ -1,7 +1,6 @@
 
 
 # Delete an alias of an agent in Amazon Bedrock
-<a name="agents-alias-delete"></a>
 
 To learn how to delete an alias of an agent, choose the tab for your preferred method, and then follow the steps:
 
@@ -27,7 +26,7 @@ To learn how to delete an alias of an agent, choose the tab for your preferred m
 
 To delete an alias of an agent, send a [DeleteAgentAlias](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteAgentAlias.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). By default, the `skipResourceInUseCheck` parameter is `false` and deletion is stopped if the resource is in use. If you set `skipResourceInUseCheck` to `true`, the resource will be deleted even if the resource is in use.
 
-```
+```python
     def delete_agent_alias(self, agent_id, agent_alias_id):
         """
         Deletes an alias of an Amazon Bedrock agent.

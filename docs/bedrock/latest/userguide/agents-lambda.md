@@ -1,7 +1,6 @@
 
 
 # Configure Lambda functions to send information that an Amazon Bedrock agent elicits from the user
-<a name="agents-lambda"></a>
 
 You can define a Lambda function to program the business logic for an action group. After an Amazon Bedrock agent determines the API operation that it needs to invoke in an action group, it sends information from the API schema alongside relevant metadata as an input event to the Lambda function. To write your function, you must understand the following components of the Lambda function:
 + **Input event** – Contains relevant metadata and populated fields from the request body of the API operation or the function parameters for the action that the agent determines must be called.
@@ -29,7 +28,7 @@ When an action group using a Lambda function is invoked, Amazon Bedrock sends a 
 The input event format depends on whether you defined the action group with an API schema or with function details:
 + If you defined the action group with an API schema, the input event format is as follows:
 
-  ```
+  ```json
   {
       "messageVersion": "1.0",
       "agent": {
@@ -75,7 +74,7 @@ The input event format depends on whether you defined the action group with an A
   ```
 + If you defined the action group with function details, the input event format is as follows:
 
-  ```
+  ```json
   {
       "messageVersion": "1.0",
       "agent": {
@@ -132,7 +131,7 @@ The maximum payload response size matches the maximum size of a synchronous resp
 The input event format depends on whether you defined the action group with an API schema or with function details:
 + If you defined the action group with an API schema, the response format is as follows:
 
-  ```
+  ```json
   {
       "messageVersion": "1.0",
       "response": {
@@ -171,7 +170,7 @@ The input event format depends on whether you defined the action group with an A
   ```
 + If you defined the action group with function details, the response format is as follows:
 
-  ```
+  ```json
   {
       "messageVersion": "1.0",
       "response": {
@@ -235,7 +234,7 @@ The following is a minimal example of how the Lambda function can be defined in 
 ------
 #### [ OpenAPI schema ]
 
-```
+```python
 def lambda_handler(event, context):
 
     agent = event['agent']
@@ -276,7 +275,7 @@ def lambda_handler(event, context):
 ------
 #### [ Function details ]
 
-```
+```python
 def lambda_handler(event, context):
 
     agent = event['agent']

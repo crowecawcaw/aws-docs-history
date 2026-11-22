@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Amazon Bedrock
-<a name="security-iam-awsmanpol"></a>
 
 To add permissions to users, groups, and roles, it's easier to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. To get started quickly, you can use our AWS managed policies. These policies cover common use cases and are available in your AWS account.
 
@@ -40,7 +39,7 @@ This policy includes the following permissions:
 
 ****  
 
-```
+```json
 {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

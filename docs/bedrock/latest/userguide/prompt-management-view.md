@@ -1,7 +1,6 @@
 
 
 # View information about prompts using Prompt management
-<a name="prompt-management-view"></a>
 
 To learn how to view information about prompts using Prompt management, choose the tab for your preferred method, and then follow the steps:
 

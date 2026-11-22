@@ -1,7 +1,6 @@
 
 
 # Submit a model import job
-<a name="model-customization-import-model-job"></a>
 
 You import a model into Amazon Bedrock by submitting a model import job in the Amazon Bedrock console, using the API, using the AWS CLI or using AWS SDK. In the job you specify the Amazon S3 URI for the source of the model files. Alternatively, if you've created the model in Amazon SageMaker AI, you can specify the SageMaker AI model. During model import, the import job automatically detects your model's architecture. The model import job can take several minutes. During the job, Amazon Bedrock validates that the model that is being imported is using a compatible the model architecture. 
 

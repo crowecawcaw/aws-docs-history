@@ -1,7 +1,6 @@
 
 
 # Sync your data with your Amazon Bedrock knowledge base
-<a name="kb-data-source-sync-ingest"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
@@ -15,8 +14,8 @@ Before you begin ingestion, check that your data source fulfills the following c
 + The files don't exceed the **Ingestion job file size** specified in [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) in the AWS General Reference.
 + If your data source contains metadata files, check the following conditions to ensure that the metadata files aren't ignored:
   + Each `.metadata.json` file shares the same file name and extension as the source file that it's associated with.
-  + If the vector index for your knowledge base is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
-    + [Create a new knowledge base](knowledge-base-create.md) in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
+  + If the vector index for your knowledge base is in an OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
+    + [Create a new knowledge base](knowledge-base-create.md) in the console and let Amazon Bedrock automatically create a vector index in OpenSearch Serverless for you.
     + [Create another vector index](knowledge-base-setup.md) in the vector store and select `faiss` as the **Engine**. Then [create a new knowledge base](knowledge-base-create.md) and specify the new vector index.
   + If the vector index for your knowledge base is in an Amazon Aurora database cluster, we recommend that you use the custom metadata field to store all your metadata in a single column and create an index on this column. If you do not provide the custom metadata field, you must check that the table for your index contains a column for each metadata property in your metadata files before starting ingestion. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md).
 

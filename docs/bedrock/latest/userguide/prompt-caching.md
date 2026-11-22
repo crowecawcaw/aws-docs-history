@@ -1,7 +1,6 @@
 
 
 # Prompt caching for faster model inference
-<a name="prompt-caching"></a>
 
 Prompt caching is an optional feature that you can use with supported models on Amazon Bedrock to reduce inference response latency and input token costs. Amazon Bedrock supports two types of prompt caching: [Implicit Prompt Caching](#prompt-caching-implicit) and [Explicit Prompt Caching](#prompt-caching-explicit). Support for each type varies by model and API.
 
@@ -136,7 +135,7 @@ Automatic caching is the simplest way to use Explicit Prompt Caching with Claude
 
 InvokeModel and Messages API request body:
 
-```
+```json
 {
   "anthropic_version": "bedrock-2023-05-31",
   "cache_control": {"type": "ephemeral"},
@@ -148,7 +147,7 @@ InvokeModel and Messages API request body:
 
 Converse API request:
 
-```
+```python
 response = client.converse(
     modelId="us.anthropic.claude-sonnet-5-5",
     system=[{"text": "Long, unchanging system prompt..."}],
@@ -255,7 +254,7 @@ For models that support the 1-hour TTL, specify it as follows. For models that s
 
 In this example, the first `image` field provides an image to the model, and the second `text` field asks the model to analyze the image. As long as the number of tokens preceding the `cachePoint` in the `content` object meets the minimum token count for the model, a cache checkpoint is created.
 
-```
+```json
 ...
 "messages": [
    {
@@ -285,7 +284,7 @@ In this example, the first `image` field provides an image to the model, and the
 
 In this example, you provide your system prompt in the `text` field. Additionally, you can add a `cachePoint` field to cache the system prompt.
 
-```
+```json
 ...
   "system": [ 
     {
@@ -305,7 +304,7 @@ In this example, you provide your system prompt in the `text` field. Additionall
 
 In this example, you provide your tool definition in the `toolSpec` field. (Alternatively, you can call a tool that you've previously defined. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md).) Afterward, you can add a `cachePoint` field to cache the tool.
 
-```
+```json
 ...
 toolConfig={
     "tools": [
@@ -366,7 +365,7 @@ For models that support the 1-hour TTL, specify it as follows. For models that s
 }
 ```
 
-```
+```json
 body={
     "anthropic_version": "bedrock-2023-05-31",
     "system": "Reply concisely",
@@ -395,7 +394,7 @@ body={
 
 The following example shows how to structure the body of your InvokeModel request for the Amazon Nova model. Note that the exact format and fields of the body for InvokeModel requests may vary depending on the model you choose. To see the format and content of the request and response bodies for different models, see [Inference request parameters and response fields for foundation models](model-parameters.md).
 
-```
+```JSON
 {
     "system": [{
         "text": "Reply Concisely"
@@ -434,7 +433,7 @@ For OpenAI models, you use the Responses API — available on both the `bedrock-
 
 The following example targets `bedrock-runtime` and sends a Responses API request to the `global.openai.gpt-5.6-sol` system inference profile using explicit cache breakpoints. The system instruction is cached and reused across subsequent requests.
 
-```
+```json
 {
     "model": "global.openai.gpt-5.6-sol",
     "prompt_cache_key": "my-app:system-prompt-v1",
@@ -473,7 +472,7 @@ The following example targets `bedrock-runtime` and sends a Responses API reques
 
 The following GPT-5.5 example targets `bedrock-mantle`. For GPT-5.5 and earlier models, prompt caching is automatic. No breakpoints or cache keys are needed — just ensure your prompt prefix is at least 1,024 tokens.
 
-```
+```json
 {
     "model": "openai.gpt-5.5",
     "input": [
@@ -505,7 +504,7 @@ The following GPT-5.5 example targets `bedrock-mantle`. For GPT-5.5 and earlier 
 
 The response includes cache usage metrics in the `usage` object:
 
-```
+```json
 {
     "id": "resp_abc123",
     "output": [...],

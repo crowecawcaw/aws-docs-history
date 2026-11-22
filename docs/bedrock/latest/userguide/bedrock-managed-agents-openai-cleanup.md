@@ -1,7 +1,6 @@
 
 
 # Clean up example resources
-<a name="bedrock-managed-agents-openai-cleanup"></a>
 
 Clean up sessions before deleting the resources they use. Retain any generated files that you need before removing storage.
 
@@ -10,7 +9,7 @@ Clean up sessions before deleting the resources they use. Retain any generated f
 
 From the example directory, select the client profile and state file for the session:
 
-```
+```bash
 export AWS_PROFILE=my-bma-client-profile
 ./scripts/bma/4.delete-session.sh
 ```
@@ -29,7 +28,7 @@ For AgentCore, copy the files you need from the outputs bucket before destroying
 
 From `acr/`:
 
-```
+```bash
 export AWS_PROFILE=my-deployment-profile
 export AWS_REGION=us-east-1
 export AWS_DEFAULT_REGION="$AWS_REGION"
@@ -47,7 +46,7 @@ Networking cleanup can continue after the Runtime and storage resources have bee
 
 After every session and Runtime that uses its session role has been cleaned up, run from `self-hosted/`:
 
-```
+```bash
 export AWS_PROFILE=my-deployment-profile
 npm run destroy
 ```

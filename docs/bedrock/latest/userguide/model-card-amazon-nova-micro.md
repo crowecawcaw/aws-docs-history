@@ -1,7 +1,6 @@
 
 
 # Nova Micro
-<a name="model-card-amazon-nova-micro"></a>
 
 ## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova Micro
 <a name="model-card-amazon-nova-micro-header"></a>
@@ -170,7 +169,7 @@ For the complete request and response schema, including all supported parameters
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -193,7 +192,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

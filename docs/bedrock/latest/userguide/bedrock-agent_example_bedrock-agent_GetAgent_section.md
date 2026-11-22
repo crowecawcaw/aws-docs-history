@@ -1,7 +1,6 @@
 
 
 # Use `GetAgent` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_GetAgent_section"></a>
 
 The following code examples show how to use `GetAgent`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples). 
 Get an agent.  
 
-```
+```javascript
 import { fileURLToPath } from "node:url";
 import { checkForPlaceholders } from "../lib/utils.js";
 
@@ -65,7 +64,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Get an agent.  
 
-```
+```python
     def get_agent(self, agent_id, log_error=True):
         """
         Gets information about an agent.

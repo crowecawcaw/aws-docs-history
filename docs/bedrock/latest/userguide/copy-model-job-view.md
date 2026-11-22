@@ -1,7 +1,6 @@
 
 
 # View information about model copy jobs
-<a name="copy-model-job-view"></a>
 
 To learn how to view information about model copy jobs that you've submitted, choose the tab for your preferred method, and then follow the steps:
 

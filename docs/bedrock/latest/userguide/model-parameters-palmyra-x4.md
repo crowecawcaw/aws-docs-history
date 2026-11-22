@@ -1,7 +1,6 @@
 
 
 # Writer Palmyra X4
-<a name="model-parameters-palmyra-x4"></a>
 
 Writer Palmyra X4 is a model with a context window of up to 128,000 tokens. This model excels in processing and understanding complex tasks, making it ideal for workflow automation, coding tasks, and data analysis.
 + Provider — Writer
@@ -19,7 +18,7 @@ Writer Palmyra X4 is a model with a context window of up to 128,000 tokens. This
 
 When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) call using a Writer model, fill the `body` field with a JSON object that conforms to the one below. Enter the prompt in the `text` field in the `text_prompts` object.
 
-```
+```json
 {
 "modelId": "writer.palmyra-x4-v1:0",
 "contentType": "application/json",
@@ -49,7 +48,7 @@ The following table shows the minimum, maximum, and default values for the numer
 
 The response JSON for Writer Palmyra X4 uses the following format:
 
-```
+```json
 {
   "id": "chatcmpl-a689a6e150b048ca8814890d3d904d41",
   "object": "chat.completion",
@@ -84,7 +83,7 @@ The response JSON for Writer Palmyra X4 uses the following format:
 
 Example code for Writer Palmyra X4:
 
-```
+```json
 import boto3
 import json
 from botocore.exceptions import ClientError

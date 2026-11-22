@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Premier
-<a name="model-evaluation-type-judge-prompt-nova-premier"></a>
 
 Prompts used with Amazon Nova Premier.
 

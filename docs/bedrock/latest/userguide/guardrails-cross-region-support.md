@@ -1,7 +1,6 @@
 
 
 # Supported Regions for cross-Region guardrail inference
-<a name="guardrails-cross-region-support"></a>
 
 Cross-Region inference with Amazon Bedrock Guardrails routes your guardrail policy evaluations by using compute across different AWS Regions.
 
@@ -23,13 +22,13 @@ To use a guardrail profile in the US geographic boundary, specify the following 
 
 **Guardrail profile ID**  
 
-```
+```bash
 us.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/us.guardrail.v1:0
 ```
 
@@ -50,13 +49,13 @@ To use a guardrail profile in the AWS GovCloud (US) geographic boundary, specify
 
 **Guardrail profile ID**  
 
-```
+```bash
 us-gov.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws-us-gov:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/us-gov.guardrail.v1:0
 ```
 
@@ -75,13 +74,13 @@ To use a guardrail profile in the EU geographic boundary, specify the following 
 
 **Guardrail profile ID**  
 
-```
+```bash
 eu.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/eu.guardrail.v1:0
 ```
 
@@ -108,13 +107,13 @@ To use a guardrail profile in the UK geographic boundary, specify the following 
 
 **Guardrail profile ID**  
 
-```
+```bash
 uk.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/uk.guardrail.v1:0
 ```
 
@@ -132,13 +131,13 @@ To use a guardrail profile in the Australia geographic boundary, specify the fol
 
 **Guardrail profile ID**  
 
-```
+```bash
 au.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/au.guardrail.v1:0
 ```
 
@@ -156,13 +155,13 @@ To use a guardrail profile in the Canada geographic boundary, specify the follow
 
 **Guardrail profile ID**  
 
-```
+```bash
 ca.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/ca.guardrail.v1:0
 ```
 
@@ -180,13 +179,13 @@ To apply a guardrail cross-region in the APAC geographic boundary, specify the f
 
 **Guardrail profile ID**  
 
-```
+```bash
 apac.guardrail.v1:0
 ```
 
 **Guardrail profile ARN**  
 
-```
+```bash
 arn:aws:bedrock:{{source-region}}:{{account-id}}:guardrail-profile/apac.guardrail.v1:0
 ```
 

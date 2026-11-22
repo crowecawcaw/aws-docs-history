@@ -1,7 +1,6 @@
 
 
 # Compaction
-<a name="claude-messages-compaction"></a>
 
 **Tip**  
 Server-side compaction is recommended for managing context in long-running conversations and agentic workflows as it handles context management automatically with minimal integration work.
@@ -63,7 +62,7 @@ Enable compaction by adding the `compact_20260112` strategy to `context_manageme
 ------
 #### [ CLI ]
 
-```
+```bash
 aws bedrock-runtime invoke-model \
     --model-id "us.anthropic.claude-opus-4-6-v1" \
     --body '{
@@ -94,7 +93,7 @@ cat /tmp/response.json | jq '.content[] | {type, text: .text[0:500]}'
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import json
 
@@ -134,7 +133,7 @@ for block in response_body["content"]:
 ------
 #### [ TypeScript ]
 
-```
+```typescript
 import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 
 async function main() {
@@ -197,7 +196,7 @@ main().catch(console.error);
 
 Configure when compaction triggers using the `trigger` parameter:
 
-```
+```python
 import boto3
 import json
 
@@ -239,7 +238,7 @@ You have written a partial transcript for the initial task above. Please write a
 
 You can provide custom instructions through the `instructions` parameter to replace this prompt entirely. Custom instructions don't supplement the default; they completely replace it:
 
-```
+```python
 import boto3
 import json
 
@@ -274,7 +273,7 @@ Use `pause_after_compaction` to pause the API after generating the compaction su
 
 When enabled, the API returns a message with the `compaction` stop reason after generating the compaction block:
 
-```
+```python
 import boto3
 import json
 
@@ -332,7 +331,7 @@ When compaction is triggered, the API returns a `compaction` block at the start 
 
 A long-running conversation may result in multiple compactions. The last compaction block reflects the final state of the prompt, replacing content before it with the generated summary.
 
-```
+```JSON
 {
   "content": [
     {
@@ -357,7 +356,7 @@ When streaming responses with compaction enabled, you'll receive a `content_bloc
 
 You may add a `cache_control` breakpoint on compaction blocks, which caches the full system prompt along with the summarized content. The original compacted content is ignored. Note that when compaction is triggered, it can result in a cache miss on the subsequent request.
 
-```
+```JSON
 {
     "role": "assistant",
     "content": [
@@ -379,7 +378,7 @@ You may add a `cache_control` breakpoint on compaction blocks, which caches the 
 
 Compaction requires an additional sampling step, which contributes to rate limits and billing. The API returns detailed usage information in the response:
 
-```
+```JSON
 {
   "usage": {
     "input_tokens": 45000,
@@ -421,7 +420,7 @@ Compaction with the `compaction` parameter is a beta capability available on mod
 
 The `compaction` parameter is an object of the form `{"type": "summarize", "instructions"?: string}`. The `instructions` member is optional. The following example sends a compaction request with the beta flag, a few messages, and custom instructions.
 
-```
+```JSON
 {
   "anthropic_version": "bedrock-2023-05-31",
   "anthropic_beta": ["compact-2026-09-04"],
@@ -443,7 +442,7 @@ The `compaction` parameter is an object of the form `{"type": "summarize", "inst
 
 The response `content` holds a single signed `compaction` block, and `stop_reason` is `"compaction"`. The top-level `usage` counts are zeroed, and the tokens for the summarization call appear under `usage.iterations` as a `compaction` entry.
 
-```
+```JSON
 {
   "content": [
     {

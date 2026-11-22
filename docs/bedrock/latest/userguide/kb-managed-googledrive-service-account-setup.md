@@ -1,7 +1,6 @@
 
 
 # Set up service account authentication for Google Drive
-<a name="kb-managed-googledrive-service-account-setup"></a>
 
 Service account authentication (`SERVICE_ACCOUNT`) is the recommended method for a Google Drive data source. A Google Cloud service account authenticates with a private key, then impersonates a Google Workspace admin user to crawl Drive content for any user in your domain. This is the only method that supports document-level access control (ACLs).
 
@@ -103,7 +102,7 @@ The service account impersonates a Google Workspace admin user when crawling con
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs. Copy `clientEmail` and `privateKey` from the JSON key file you downloaded in Step 4 (use the `client_email` and `private_key` values).
 
-```
+```json
 {
     "adminAccountEmail": "{{admin@your-domain.com}}",
     "clientEmail": "{{your-service-account@your-project.iam.gserviceaccount.com}}",

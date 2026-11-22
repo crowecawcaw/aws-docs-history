@@ -1,7 +1,6 @@
 
 
 # Run example Amazon Bedrock API requests using an Amazon SageMaker AI notebook
-<a name="getting-started-api-ex-sm"></a>
 
 This section guides you through trying out some common operations in Amazon Bedrock with an Amazon SageMaker AI notebook to test that your Amazon Bedrock role permissions are set up properly. Before you run the following examples, you should check that you have fulfilled the following prerequisites:
 
@@ -16,7 +15,7 @@ This section guides you through trying out some common operations in Amazon Bedr
 
 ****  
 
-     ```
+     ```json
      {
          "Version":"2012-10-17",		 	 	 
          "Statement": [
@@ -59,7 +58,7 @@ After you open up your SageMaker AI notebook, you can try out the following exam
 
 The following example runs the [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) operation using an Amazon Bedrock client. `ListFoundationModels` lists the foundation models (FMs) that are available in Amazon Bedrock in your Region. Run the following Python script to create an Amazon Bedrock client and test the [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) operation:
 
-```
+```python
 """
 Lists the available Amazon Bedrock models in an &AWS-Region;.
 """
@@ -120,7 +119,7 @@ If the script is successful, the response returns a list of foundation models th
 
 The following example runs the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) operation using an Amazon Bedrock client. `Converse` lets you submit a prompt to generate a model response. Run the following Python script to create an Amazon Bedrock runtime client and test the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) operation:
 
-```
+```python
 # Use the Conversation API to send a text message to Amazon Nova Micro.
 
 import boto3

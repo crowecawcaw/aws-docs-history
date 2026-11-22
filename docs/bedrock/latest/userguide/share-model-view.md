@@ -1,7 +1,6 @@
 
 
 # View information about shared models
-<a name="share-model-view"></a>
 
 To learn how to view information about models that you've shared with other accounts or models that have been shared with you, choose the tab for your preferred method, and then follow the steps:
 

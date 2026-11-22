@@ -1,7 +1,6 @@
 
 
 # Distribute guardrail inference across AWS Regions
-<a name="guardrails-cross-region"></a>
 
 You can enable cross-Region inference with Amazon Bedrock Guardrails, which routes inference requests during guardrail policy evaluation to an AWS Region within your geography. (For more information on how this works, see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md).) There's no additional cost for using cross-Region inferencing.
 

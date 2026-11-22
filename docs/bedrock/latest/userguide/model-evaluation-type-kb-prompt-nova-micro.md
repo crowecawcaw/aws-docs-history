@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Micro
-<a name="model-evaluation-type-kb-prompt-nova-micro"></a>
 
 Prompts used with Amazon Nova Micro.
 

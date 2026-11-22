@@ -1,7 +1,6 @@
 
 
 # Create a prompt for a custom metric
-<a name="model-evaluation-custom-metrics-prompt-formats"></a>
 
 With model-as-a-judge evaluation jobs, you can create your own metrics to better characterize model performance for your particular business case. You can define up to 10 custom metrics for each evaluation job.
 
@@ -175,7 +174,7 @@ When you create an evaluation job with one or more custom metrics, Amazon Bedroc
 ------
 #### [ Definition with numerical scale ]
 
-```
+```json
 {
     "customMetricDefinition": {
         "metricName": {{"my_custom_metric"}},
@@ -207,7 +206,7 @@ When you create an evaluation job with one or more custom metrics, Amazon Bedroc
 ------
 #### [ Definition with string scale ]
 
-```
+```json
 {
     "customMetricDefinition": {
         "metricName": {{"my_custom_metric"}},
@@ -239,7 +238,7 @@ When you create an evaluation job with one or more custom metrics, Amazon Bedroc
 ------
 #### [ Definition with no scale ]
 
-```
+```json
 {
     "customMetricDefinition": {
         "metricName": {{"my_custom_metric"}},

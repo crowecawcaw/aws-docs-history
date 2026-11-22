@@ -1,7 +1,6 @@
 
 
 # Claude Sonnet 4
-<a name="model-card-anthropic-claude-sonnet-4"></a>
 
 ## ![Anthropic logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Sonnet 4
 <a name="model-card-anthropic-claude-sonnet-4-header"></a>
@@ -231,7 +230,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -250,7 +249,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

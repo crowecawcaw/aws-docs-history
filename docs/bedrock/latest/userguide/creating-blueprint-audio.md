@@ -1,7 +1,6 @@
 
 
 # Creating blueprints for audio
-<a name="creating-blueprint-audio"></a>
 
 Similar to image blueprints, you can only have one audio blueprint per project.
 

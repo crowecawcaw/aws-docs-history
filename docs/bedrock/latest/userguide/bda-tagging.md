@@ -1,7 +1,6 @@
 
 
 # Tagging Inferences and Resources in Bedrock Data Automation
-<a name="bda-tagging"></a>
 
 To help you manage your BDA resources and inferences, you can assign metadata to either as tags. A tag is a label that you assign to an AWS resource, such as a project, or blueprint. Each tag consists of a key and a value.
 

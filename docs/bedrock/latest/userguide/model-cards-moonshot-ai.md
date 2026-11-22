@@ -1,7 +1,6 @@
 
 
 # Moonshot AI
-<a name="model-cards-moonshot-ai"></a>
 
 The following Moonshot AI models are available in Amazon Bedrock:
 

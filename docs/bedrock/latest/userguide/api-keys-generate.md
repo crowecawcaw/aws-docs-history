@@ -1,7 +1,6 @@
 
 
 # Generate an Amazon Bedrock API key
-<a name="api-keys-generate"></a>
 
 You can generate an Amazon Bedrock API key using either the AWS Management Console or the AWS API. We recommend that you use the AWS Management Console to easily generate an Amazon Bedrock API key with few steps.
 
@@ -66,19 +65,19 @@ Open a terminal and run the following commands:
 
 1. Create an IAM user. You can replace the name with one of your choice:
 
-   ```
+   ```bash
    aws iam create-user --user-name bedrock-api-user
    ```
 
 1. Attach the [AmazonBedrockLimitedAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockLimitedAccess) to the user. You can repeat this step with the ARNs of any other AWS-managed or custom policies you want to add to the API key:
 
-   ```
+   ```bash
    aws iam attach-user-policy --user-name bedrock-api-user --policy-arn arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess
    ```
 
 1. Create the long-term Amazon Bedrock API key, replacing {{${NUMBER-OF-DAYS}}} with the number of days for which you want the key to last:
 
-   ```
+   ```bash
    aws iam create-service-specific-credential \
        --user-name bedrock-api-user \
        --service-name bedrock.amazonaws.com \
@@ -95,7 +94,7 @@ Make sure that your setup allows Python to automatically recognize your AWS cred
 
 Run the following script to create an IAM user, attach permissions to perform Amazon Bedrock actions, and generate a long-term Amazon Bedrock API key to associate with the user:
 
-```
+```python
 import boto3
 from datetime import datetime, timedelta
 
@@ -152,7 +151,7 @@ For long-running applications, the [aws-bedrock-token-generator](https://github.
 
 Open a terminal and run the following command:
 
-```
+```bash
 pip install aws-bedrock-token-generator
 ```
 
@@ -161,7 +160,7 @@ pip install aws-bedrock-token-generator
 
 Open a terminal and run the following command:
 
-```
+```bash
 npm install @aws/bedrock-token-generator
 ```
 
@@ -170,7 +169,7 @@ npm install @aws/bedrock-token-generator
 
 If you use Maven, add the following dependency to your `pom.xml`:
 
-```
+```xml
 <dependency>
     <groupId>software.amazon.bedrock</groupId>
     <artifactId>aws-bedrock-token-generator</artifactId>
@@ -192,7 +191,7 @@ To see examples for using the token generator to generate a short-term Amazon Be
 ------
 #### [ Python ]
 
-```
+```python
 from aws_bedrock_token_generator import provide_token
 
 token = provide_token()
@@ -202,7 +201,7 @@ print(f"Token: {token}")
 ------
 #### [ Javascript ]
 
-```
+```java
 import { getTokenProvider } from "@aws/bedrock-token-generator";
 
 // Create a token provider that uses default credentials and region providers.
@@ -225,7 +224,7 @@ async function example() {
 ------
 #### [ Java ]
 
-```
+```javascript
 import software.amazon.bedrock.token.BedrockTokenGenerator;
 
 // Credentials and region will be picked up from the default provider chain
@@ -248,7 +247,7 @@ You can create a script with the help of the `aws-bedrock-token-generator` packa
 ------
 #### [ Python ]
 
-```
+```python
 from aws_bedrock_token_generator import provide_token
 import requests
 
@@ -284,7 +283,7 @@ if __name__ == "__main__":
 ------
 #### [ Javascript ]
 
-```
+```javascript
 import { getTokenProvider } from "@aws/bedrock-token-generator";
 
 // Create a token provider that uses default credentials and region providers.
@@ -319,7 +318,7 @@ async function example() {
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazon.bedrocktoken;
 
 import software.amazon.bedrock.token.BedrockTokenGenerator;

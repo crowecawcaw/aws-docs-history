@@ -1,7 +1,6 @@
 
 
 # Access and security for open-weight models
-<a name="rft-open-weight-access-security"></a>
 
 Before you begin reinforcement fine-tuning (RFT), make sure that you understand what kind of access Amazon Bedrock needs for RFT-specific operations. RFT requires additional permissions beyond standard fine-tuning due to its reward function execution capabilities.
 
@@ -33,7 +32,7 @@ If you are using Amazon Bedrock short-term/long-term API keys, then make sure th
 
 You must add Lambda invocation permissions. The following shows an example policy you can use:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -54,7 +53,7 @@ You can also use Amazon Bedrock hosted models as Judges for setting up reward fu
 
 The following is an example for invoking Amazon Bedrock foundation models as judge using the Invoke API:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # APIs supported by Amazon Bedrock
-<a name="apis"></a>
 
 **Inference APIs supported**
 

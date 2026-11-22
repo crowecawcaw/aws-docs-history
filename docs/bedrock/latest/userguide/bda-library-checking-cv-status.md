@@ -1,9 +1,8 @@
 
 
 # Checking Vocabulary Ingestion Job Status
-<a name="bda-library-checking-cv-status"></a>
 
-```
+```bash
 aws bedrock-data-automation get-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --job-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library-ingestion-job/job-12345"
@@ -21,7 +20,7 @@ aws bedrock-data-automation get-data-automation-library-ingestion-job \
 
 After job completion, check the S3 output location for detailed results.
 
-```
+```json
 {
   "metadata": {
     "jobId": "job-12345",

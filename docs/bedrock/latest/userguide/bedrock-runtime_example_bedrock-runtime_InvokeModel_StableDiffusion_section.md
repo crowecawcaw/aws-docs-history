@@ -1,7 +1,6 @@
 
 
 # Invoke Stability.ai Stable Image Core on Amazon Bedrock to generate an image
-<a name="bedrock-runtime_example_bedrock-runtime_InvokeModel_StableDiffusion_section"></a>
 
 The following code examples show how to invoke Stability.ai Stable Image Core on Amazon Bedrock to generate an image.
 
@@ -12,7 +11,7 @@ The following code examples show how to invoke Stability.ai Stable Image Core on
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples). 
 Create an image with Stable Image Core.  
 
-```
+```csharp
         /// <summary>
         /// Asynchronously invokes the Stability.ai Stable Image Core model to run an inference based on the provided input.
         /// </summary>
@@ -71,7 +70,7 @@ Create an image with Stable Image Core.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
 Create an image with Stable Image Core.  
 
-```
+```csharp
         /// <summary>
         /// Asynchronously invokes the Stability.ai Stable Image Core model to run an inference based on the provided input.
         /// </summary>
@@ -133,7 +132,7 @@ Create an image with Stable Image Core.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Create an image with Stable Diffusion.  
 
-```
+```java
 // Create an image with Stability AI Stable Image Core.
 
 import org.json.JSONObject;
@@ -227,7 +226,7 @@ public class InvokeModel {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples). 
 Create an image with Stable Diffusion.  
 
-```
+```php
     public function invokeStableDiffusion(string $prompt, int $seed = 0, string $aspect_ratio = '1:1')
     {
         // The different model providers have individual request and response formats.
@@ -267,7 +266,7 @@ Create an image with Stable Diffusion.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Create an image with Stable Diffusion.  
 
-```
+```python
 # Use the native inference API to create an image with Stability AI Stable Image Core
 
 import base64
@@ -332,7 +331,7 @@ print(f"The generated image has been saved to {image_path}")
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples). 
 Create an image with Stable Diffusion.  
 
-```
+```sap-abap
     "Stable Image Core Input Parameters should be in a format like this:
 *   {
 *     "prompt": "Draw a dolphin with a mustache, photorealistic",
@@ -388,7 +387,7 @@ Create an image with Stable Diffusion.
 ```
 Invoke the Stability.ai Stable Image Core foundation model to generate images using L2 high level client.  
 
-```
+```sap-abap
     TRY.
         DATA(lo_bdr_l2_sd) = /aws1/cl_bdr_l2_factory=>create_stable_diffusion_xl_1( lo_bdr ).
         " iv_prompt contains a prompt like 'Show me a picture of a unicorn reading an enterprise financial report'.

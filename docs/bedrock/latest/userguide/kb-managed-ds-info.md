@@ -1,7 +1,6 @@
 
 
 # View data source information for your Amazon Bedrock knowledge base
-<a name="kb-managed-ds-info"></a>
 
 You can view information about a data source for your knowledge base, such as the settings and sync history.
 

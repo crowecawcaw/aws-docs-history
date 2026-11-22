@@ -1,7 +1,6 @@
 
 
 # View data source information for your Amazon Bedrock knowledge base
-<a name="kb-ds-info"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).

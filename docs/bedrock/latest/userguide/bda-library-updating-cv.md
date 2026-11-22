@@ -1,7 +1,6 @@
 
 
 # Updating Vocabulary Entities
-<a name="bda-library-updating-cv"></a>
 
 Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
 
@@ -15,7 +14,7 @@ UPSERT operations are clobber-style at the entity level. The entire entity is re
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation-data-automation invoke-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \

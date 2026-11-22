@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 authentication for Confluence
-<a name="kb-managed-confluence-oauth2-setup"></a>
 
 OAuth 2.0 authentication (`OAUTH2`) authenticates with an Atlassian OAuth 2.0 three-legged (3LO) app. You register an app in the Atlassian developer console, complete a one-time authorization flow to obtain a refresh token, and store the credentials in AWS. At crawl time, Amazon Bedrock uses the refresh token to mint short-lived access tokens automatically.
 
@@ -75,7 +74,7 @@ The response contains `access_token` and `refresh_token`. Record both values. Th
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs:
 
-```
+```json
 {
     "confluenceAppKey": "{{your-client-id}}",
     "confluenceAppSecret": "{{your-client-secret}}",
@@ -100,7 +99,7 @@ Record the secret ARN from the response. You use it as the data source `secretAr
 
 Atlassian access tokens expire after 60 minutes. Amazon Bedrock uses the refresh token to mint a new access token and writes the new value back to the same secret. Add `secretsmanager:PutSecretValue` for the secret to your knowledge base service role's permissions policy:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "secretsmanager:PutSecretValue",

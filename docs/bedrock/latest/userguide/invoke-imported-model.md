@@ -1,7 +1,6 @@
 
 
 # Invoke your imported model
-<a name="invoke-imported-model"></a>
 
 The model import job can take several minutes to import your model after you send [CreateModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html) request. You can check the status of your import job in the console or by calling the [GetModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelImportJob.html) operation and checking the `Status` field in the response. The import job is complete if the Status for the model is **Complete**. 
 
@@ -40,7 +39,7 @@ The following examples demonstrate how to use each of the four supported API for
 
 Example request:
 
-```
+```python
 import json
 import boto3
 
@@ -64,7 +63,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "generation": " – A scientific explanation\nA rainbow is a beautiful natural phenomenon that occurs when sunlight passes through water droplets in the air. It is formed through a process called refraction, which is the bending of light as it passes from one medium to another.\nHere's a step-by-step explanation of how a rainbow is formed:\n1. Sunlight enters the Earth's atmosphere: The first step in forming a rainbow is for sunlight to enter the Earth's atmosphere. This sunlight is made up of a spectrum of",
     "prompt_token_count": 7,
@@ -83,7 +82,7 @@ BedrockCompletion supports structured outputs using `response_format` parameter 
 
 Example request:
 
-```
+```python
 import json
 import boto3
 
@@ -107,7 +106,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "id": "cmpl-b09d5810bd64428f8a853be71c31f912",
     "object": "text_completion",
@@ -136,7 +135,7 @@ OpenAICompletion supports full structured outputs capabilities including `json`,
 
 Example request:
 
-```
+```python
 import json
 import boto3
 
@@ -165,7 +164,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "id": "chatcmpl-1d84ce1d3d61418e8c6d1973f87173db",
     "object": "chat.completion",
@@ -237,7 +236,7 @@ If your `InvokeModel` or `InvokeModelWithStream` request returns `ModelNotReadyE
 
    The following example shows how to configure the retry. Replace {{${region-name}}}, {{${model-arn}}}, and {{10}} with your Region, model ARN, and maximum attempts.
 
-   ```
+   ```python
    import json
    import boto3
    from botocore.config import Config

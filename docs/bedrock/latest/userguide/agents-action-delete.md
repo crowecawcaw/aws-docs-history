@@ -1,7 +1,6 @@
 
 
 # Delete an action group
-<a name="agents-action-delete"></a>
 
 To learn how to delete an action group, choose the tab for your preferred method, and then follow the steps:
 

@@ -1,7 +1,6 @@
 
 
 # Configure your agent using conversational builder
-<a name="agents-create-cb"></a>
 
 Conversational builder is an interactive assistant that helps in configuring an agent for you. With conversational builder, you use natural language to describe the purpose of your agent which results in a fully testable agent being built that fulfills the purpose. The conversational builder interacts with you to get all the necessary information to build or update your agent.
 
@@ -69,14 +68,14 @@ Conversational builder: The travel agent with the purpose of booking flights and
 ## Add the following permissions to use conversational builder in the Amazon Bedrock console
 <a name="permissions-cb"></a>
 
-If you plan to [Configure your agent using conversational builder](#agents-create-cb), make sure to attach the following permissions:
+If you plan to [Configure your agent using conversational builder](agents-create-cb.md), make sure to attach the following permissions:
 
 ------
 #### [ JSON ]
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

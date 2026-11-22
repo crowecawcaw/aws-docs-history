@@ -1,7 +1,6 @@
 
 
 # Service role requirements for automatic model evaluation jobs
-<a name="automatic-service-roles"></a>
 
 To create an automatic model evaluation job, you must specify a service role. The policy you attach grants Amazon Bedrock access to resources in your account, and allows Amazon Bedrock to invoke the selected model on your behalf.
 
@@ -17,7 +16,7 @@ The following policy example grants access to the S3 buckets where your model ev
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [
@@ -65,7 +64,7 @@ You also need to create a policy that allows Amazon Bedrock to invoke the model 
 
 ****  
 
-```
+```json
 {
 		    "Version":"2012-10-17",		 	 	 
             "Statement": [
@@ -109,7 +108,7 @@ You must also specify a trust policy that defines Amazon Bedrock as the service 
 
 ****  
 
-```
+```json
 {
 "Version":"2012-10-17",		 	 	 
 "Statement": [{

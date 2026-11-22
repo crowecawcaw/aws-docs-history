@@ -1,7 +1,6 @@
 
 
 # Deploy your knowledge base for your AI application
-<a name="knowledge-base-deploy"></a>
 
 To deploy a knowledge base for your application, set it up to make [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) or [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) requests to the knowledge base. To see how to use these API operations for querying and generating responses, see [Test your knowledge base with queries and responses](knowledge-base-test.md).
 

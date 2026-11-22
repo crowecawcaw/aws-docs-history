@@ -1,7 +1,6 @@
 
 
 # Server-side tool use
-<a name="tool-use-server-side"></a>
 
 If you use the Responses API to invoke the model, then it can use server-side tool calling, in addition to the client-side tool calling we discussed before. Server-side tool calling is a mechanism where tools (APIs, functions, workflows) are executed in a trusted, backend environment, not on the client. This improves the security, reliability, and governance posture of the application. Before Amazon Bedrock executes the Lambda function that implements the tool use, it ensures that the Lambda function has the same IAM policy as that of the application that calls it. Because Amazon Bedrock handles tool execution, clients can focus on implementing their business logic, rather than adding tool functionality. Amazon Bedrock also supports the highest governance standards such as ISO, SOC, and HIPAA eligible. You can either submit your own custom Lambda function to run the tool or use existing pre-defined tools, such as notes and tasks. Server-side tools using the Responses API are available starting with the GPT OSS 20B/120B models, with support for other models coming soon. You can use the Models API to discover available models that you can use with the Responses API. For more details on the Responses API, see [Generate responses using OpenAI APIs](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-responses-api.html).
 
@@ -36,7 +35,7 @@ The following steps show how to use a tool with the [Responses API](https://docs
 
 Create a Lambda function that implements the MCP protocol. Here's a simple Python example:
 
-```
+```python
 import json
 
 def lambda_handler(event, context):
@@ -103,7 +102,7 @@ def lambda_handler(event, context):
 
 Next, use your IAM role to deploy this Lambda function to get an ARN. You can read more in [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the Lambda Developer Guide.
 
-```
+```bash
 # Example using AWS CLI
 aws lambda create-function \
   --function-name my-custom-tool \
@@ -119,7 +118,7 @@ Let's say that your ARN is: `arn:aws:lambda:us-west-2:123456789012:function:my-c
 
 To send the message and tool definition, you use the [Responses API](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-responses-api.html) operations. Amazon Bedrock uses the [connectors and remote MCP servers functionality](https://platform.openai.com/docs/guides/tools-connectors-mcp) of the Responses API to provide tool-use capability. The definition of the tool is a JSON schema that you pass in the mcp request parameter to the Create operation. In the `connector_id` field in the Responses connectors API, you can pass in the Lambda ARN that you have created in the previous step. You do not need to provide authorization credentials because Amazon Bedrock uses the same IAM roles and policy that is used for your application that invokes the model. The following is an example schema for a tool that gets the most popular song played on a radio station.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -146,7 +145,7 @@ The ability to use the connector tool is available in the models that support th
 
 When you specify a Lambda function in the `tools` parameter, the API will attempt to get a list of tools from the server. If successful in retrieving the list of tools, a new `mcp_list_tools` output item will appear in the model response output. The `tools` property of this object will show the tools that were successfully imported. After the model has access to these tool definitions, it might choose to call them depending on what's in the model's context. When the model decides to call a Lambda tool, the API will make a request to the Lambda function to call the tool and put its output into the model's context. You can read more on the list tools and calling tools in the [OpenAI documentation](https://platform.openai.com/docs/guides/tools-connectors-mcp?quickstart-panels=connector). Note that your Lambda function must have the same IAM roles and policy attached to it as that of the application calling the model in Amazon Bedrock, otherwise the Lambda function will fail. The following is the error definition.
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -182,7 +181,7 @@ You can call the Tasks tool by either using natural language (e.g. "Add a task t
 
 The notes and tasks tools are built into the `openai.gpt-oss-20b` and `openai.gpt-oss-120b` models. You do not need to define them explicitly in the `tools` parameter — simply reference them in your prompt:
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -230,7 +229,7 @@ The AgentCore Gateway integration follows the same pattern as Lambda function in
 
 When configuring AgentCore Gateway as a tool source, use the following structure in your `tools` array in your Responses API request.
 
-```
+```json
 {
   "type":"mcp",
   "server_label":"agentcore_tools",
@@ -253,7 +252,7 @@ When configuring AgentCore Gateway as a tool source, use the following structure
 
 **Complete Request Example**
 
-```
+```json
 {
   "model":"openai.gpt-oss-120b",
   "stream":true,
@@ -307,7 +306,7 @@ Before using AgentCore Gateway integration, make sure you have:
 
 Your Bedrock execution role needs permission to invoke the AgentCore Gateway:
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [

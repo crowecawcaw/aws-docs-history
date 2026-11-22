@@ -1,7 +1,6 @@
 
 
 # Create your Automated Reasoning policy
-<a name="create-automated-reasoning-policy"></a>
 
 When you create an Automated Reasoning policy, your source document is translated into a set of formal logic rules and a schema of variables and types. This page walks you through preparing your document, creating the policy, and reviewing the results.
 
@@ -223,7 +222,7 @@ An idempotency token to ensure the operation completes no more than once.
 
 **Example:**
 
-```
+```bash
 aws bedrock create-automated-reasoning-policy \
   --name "{{MyHRPolicy}}" \
   --description "{{Validates HR chatbot responses about leave eligibility}}" \
@@ -232,7 +231,7 @@ aws bedrock create-automated-reasoning-policy \
 
 Example response:
 
-```
+```json
 {
   "createdAt": "2025-07-21T14:43:52.692Z",
   "definitionHash": "f16ba1ceca36e1d21adce559481add6a...",
@@ -259,7 +258,7 @@ Contains the document to process and an optional starting policy definition.
 
 **Example:**
 
-```
+```bash
 # Encode your PDF to base64
 PDF_BASE64=$(base64 -i {{your-policy.pdf}} | tr -d '\n')
 
@@ -292,7 +291,7 @@ In the `policyDefinition` object, the `version` field is required and must be se
 
 Example response:
 
-```
+```json
 {
   "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk",
   "buildWorkflowId": "d40fa7fc-351e-47d8-a338-53e4b3b1c690"
@@ -301,7 +300,7 @@ Example response:
 
 Check the build status with `ListAutomatedReasoningPolicyBuildWorkflows`:
 
-```
+```bash
 aws bedrock list-automated-reasoning-policy-build-workflows \
   --policy-arn arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}
 ```
@@ -385,7 +384,7 @@ For complex domains, build your policy incrementally rather than trying to captu
 
 Call `StartAutomatedReasoningPolicyBuildWorkflow` with `INGEST_CONTENT`, passing the complete current policy definition alongside the new document. You must include the full existing definition — rules, variables, and types — so that the new content is merged with the existing policy rather than replacing it.
 
-```
+```bash
 # First, retrieve the current policy definition
 aws bedrock get-automated-reasoning-policy \
   --policy-arn arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}
@@ -420,7 +419,7 @@ The API supports a maximum of 2 build workflows per policy, with only 1 allowed 
 
 If you already have a policy definition in JSON format, use `StartAutomatedReasoningPolicyBuildWorkflow` with `IMPORT_POLICY` to import it directly. This skips the document extraction step and loads the definition as-is.
 
-```
+```bash
 aws bedrock start-automated-reasoning-policy-build-workflow \
   --policy-arn arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}} \
   --build-workflow-type IMPORT_POLICY \
@@ -462,7 +461,7 @@ The source document to use as context for the refinement.
 `workflowContent.iterativeRefinementContent.feedback` (optional)  
 Natural language instructions describing the specific changes or improvements you want. For example, "Add rules for bereavement leave eligibility" or "Update the tenure threshold from 12 months to 6 months based on the new policy revision."
 
-```
+```bash
 # Encode your updated policy document
 PDF_BASE64=$(base64 -i {{updated-policy.pdf}} | tr -d '\n')
 
@@ -500,7 +499,7 @@ If you specify a customer managed KMS key to encrypt your Automated Reasoning po
 
 Add the following statement to your KMS key policy to allow Amazon Bedrock to use the key for Automated Reasoning policies:
 
-```
+```json
 {
   "Sid": "PermissionsForAutomatedReasoningPolicy",
   "Effect": "Allow",
@@ -530,7 +529,7 @@ Add the following statement to your KMS key policy to allow Amazon Bedrock to us
 
 Your IAM principal must have the following permissions to use a customer managed KMS key with Automated Reasoning policies:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

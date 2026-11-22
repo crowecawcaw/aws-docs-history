@@ -1,7 +1,6 @@
 
 
 # Qwen3 235B A22B 2507
-<a name="model-card-qwen-qwen3-235b-a22b-2507"></a>
 
 ## ![Qwen logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/qwen.png) Qwen — Qwen3 235B A22B 2507
 <a name="model-card-qwen-qwen3-235b-a22b-2507-header"></a>
@@ -182,7 +181,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Chat Completions API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -197,7 +196,7 @@ print(response)
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -215,7 +214,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

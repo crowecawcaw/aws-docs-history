@@ -1,7 +1,6 @@
 
 
 # Block harmful words and conversations with content filters
-<a name="guardrails-content-filters"></a>
 
 Amazon Bedrock Guardrails supports content filters to help detect and filter harmful user inputs and model-generated outputs in natural language as well as code-related content in Standard tier. Content filters are supported across the following categories:
 
@@ -53,7 +52,7 @@ You can configure content filters for your guardrail by using the AWS Management
 
    1. Choose **Next**.
 
-1. On the **Configure content filters** page, set up how strongly you want to filter out content related to the categories defined in [Block harmful words and conversations with content filters](#guardrails-content-filters) by doing the following:
+1. On the **Configure content filters** page, set up how strongly you want to filter out content related to the categories defined in [Block harmful words and conversations with content filters](guardrails-content-filters.md) by doing the following:
 
    1. Select **Configure harmful categories filter**. Select **Text** and/or **Image** to filter text or image content from prompts or responses to the model. Select **None, Low, Medium, or High** for the level of filtration you want to apply to each category. You can choose to have different filter levels for prompts or responses. You can select the filter for prompt attacks in the harmful categories. Configure how strict you want each filter to be for prompts that the user provides to the model.
 
@@ -80,7 +79,7 @@ You can configure content filters for your guardrail by using the AWS Management
 
 Configure content filters for your guardrail by sending a [CreateGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html) request. The request format is as follows:
 
-```
+```json
 POST /guardrails HTTP/1.1
 Content-type: application/json
 
@@ -112,7 +111,7 @@ Content-type: application/json
 + Specify messages for when the guardrail successfully blocks a prompt or a model response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
 + Specify filter strengths for the harmful categories available the `contentPolicyConfig` object.
 
-  Each item in the `filtersConfig` list pertains to a harmful category. For more information, see [Block harmful words and conversations with content filters](#guardrails-content-filters). For more information about the fields in a content filter, see [ContentFilter](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ContentFilter.html).
+  Each item in the `filtersConfig` list pertains to a harmful category. For more information, see [Block harmful words and conversations with content filters](guardrails-content-filters.md). For more information about the fields in a content filter, see [ContentFilter](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ContentFilter.html).
   + (Optional) For `inputAction` and `outputAction`, specify the action your guardrail takes when it detects harmful content in prompts and responses. 
   + (Optional) Specify the action to take when harmful content is detected in prompts using `inputAction` or responses using `outputAction`. Choose `BLOCK` to block content and replace with blocked messaging, or `NONE` to take no action but return detection information. For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md).
   + Specify the strength of the filter for prompts in the `inputStrength` field and for model responses in the `outputStrength` field.
@@ -124,7 +123,7 @@ Content-type: application/json
 
 The response format looks like this:
 
-```
+```json
 HTTP/1.1 202
 Content-type: application/json
 

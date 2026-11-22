@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-salesforce-acl"></a>
 
 **ACL awareness is not authorization**  
 Bedrock Managed Knowledge Base provides ACL-aware filtering (it filters results by access permissions) but this is not a security boundary. Bedrock Managed Knowledge Base does not authenticate end users. Your application is responsible for authenticating users and passing verified identity context. Bedrock Managed Knowledge Base cannot verify the authenticity of the user context you provide. As a result, this feature filters results based on the identity you supply, but it does not constitute true authorization. You must not rely on this feature as your only access control mechanism — always pair it with upstream authentication.
@@ -52,7 +51,7 @@ Complete [Set up OAuth 2.0 JWT Bearer authentication for Salesforce document-lev
 **Important**  
 ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs after they are enabled.
 
-```
+```json
 "connectorParameters": {
     "type": "SALESFORCE",
     "connectorType": "SALESFORCE",

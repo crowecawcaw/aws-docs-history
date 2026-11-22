@@ -1,7 +1,6 @@
 
 
 # Query a knowledge base and generate responses based off the retrieved data
-<a name="kb-test-retrieve-generate"></a>
 
 **Important**  
 Guardrails are applied only to the input and the generated response from the LLM. They are not applied to the references retrieved from Knowledge Bases at runtime.

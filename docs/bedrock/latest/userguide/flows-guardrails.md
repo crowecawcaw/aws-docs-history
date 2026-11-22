@@ -1,7 +1,6 @@
 
 
 # Include guardrails in your flow in Amazon Bedrock
-<a name="flows-guardrails"></a>
 
 Amazon Bedrock Flows integrates with Amazon Bedrock Guardrails to let you identify and block or filter unwanted content in your flow. To learn how to apply guardrails to supported node types in a flow, see the following table:
 

@@ -1,7 +1,6 @@
 
 
 # Delete your guardrail
-<a name="guardrails-delete"></a>
 
 You can delete a guardrail when you no longer need to use it. Be sure to disassociate the guardrail from all the resources or applications that use it before you delete the guardrail. You can delete your guardrails by following these steps for the AWS Console or API:
 
@@ -25,7 +24,7 @@ To delete a guardrail, send a [DeleteGuardrail](https://docs.aws.amazon.com/bedr
 
 The following is the request format:
 
-```
+```json
 DELETE /guardrails/{{guardrailIdentifier}}?guardrailVersion={{guardrailVersion}} HTTP/1.1
 ```
 

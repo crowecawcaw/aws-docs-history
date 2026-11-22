@@ -1,7 +1,6 @@
 
 
 # Cohere Command R and Command R\+ models
-<a name="model-parameters-cohere-command-r-plus"></a>
 
 You make inference requests to Cohere Command R and Cohere Command R\+ models with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming). You need the model ID for the model that you want to use. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). 
 
@@ -20,7 +19,7 @@ For conversational applications, we recommend that you use the Converse API. The
 
 The Cohere Command models have the following inference parameters. 
 
-```
+```json
 {
     "message": string,
     "chat_history": [
@@ -90,7 +89,7 @@ The following are optional parameters.
 
   The following is example JSON for the `chat_history` field
 
-  ```
+  ```json
   "chat_history": [
   {"role": "USER", "message": "Who discovered gravity?"},
   {"role": "CHATBOT", "message": "The man who is widely credited with discovering gravity is Sir Isaac Newton"}
@@ -100,7 +99,7 @@ The following are optional parameters.
 
   The following is example JSON for the `documents` field.
 
-  ```
+  ```json
   "documents": [
   {"title": "Tall penguins", "snippet": "Emperor penguins are the tallest."},
   {"title": "Penguin habitats", "snippet": "Emperor penguins only live in Antarctica."}
@@ -180,7 +179,7 @@ We recommend that you use the Responses API or Messages API for integrating tool
 
   The following is example JSON for the `tools` field.
 
-  ```
+  ```json
   [
       {
           "name": "top_song",
@@ -203,7 +202,7 @@ We recommend that you use the Responses API or Messages API for integrating tool
 
   The following is example JSON for the `tools_results` field.
 
-  ```
+  ```json
   [
       {
           "call": {
@@ -228,7 +227,7 @@ We recommend that you use the Responses API or Messages API for integrating tool
 
 The response has the following possible fields:
 
-```
+```json
 {
     "response_id": string,
     "text": string,
@@ -288,7 +287,7 @@ We recommend that you use the Responses API or Messages API for integrating tool
 
   The following is example JSON for the `tool_calls` field.
 
-  ```
+  ```json
   [
           {
               "name": "top_song",
@@ -311,7 +310,7 @@ We recommend that you use the Responses API or Messages API for integrating tool
 
 This examples shows how to call the *Cohere Command R* model.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

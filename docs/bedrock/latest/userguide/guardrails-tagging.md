@@ -1,7 +1,6 @@
 
 
 # Apply tags to user input to filter content
-<a name="guardrails-tagging"></a>
 
 Input tags allow you to mark specific content within the input text that you want to be processed by guardrails. This is useful when you want to apply guardrails to certain parts of the input, while leaving other parts unprocessed.
 

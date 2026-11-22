@@ -1,7 +1,6 @@
 
 
 # Parsing options for your data source
-<a name="kb-advanced-parsing"></a>
 
 Parsing refers to the understanding and extraction of content from raw data. Amazon Bedrock Knowledge Bases offers the following options for parsing your data source during ingestion:
 + **Amazon Bedrock default parser** – Only parses text in text files, including .txt, .md, .html, .doc/.docx, .xls/.xlsx, and .pdf files. This parser doesn't incur any usage charges.

@@ -1,7 +1,6 @@
 
 
 # Meta Llama models
-<a name="model-parameters-meta"></a>
 
 This section describes the request parameters and response fields for Meta Llama models. Use this information to make inference calls to Meta Llama models with the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming) operations. This section also includes Python code examples that shows how to call Meta Llama models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). Some models also work with the [Converse API](conversation-inference.md). To check if a specific Meta Llama model supports a feature, see [models at a glance](model-cards.md). For more code examples, see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md).
 
@@ -36,7 +35,7 @@ Response streaming works with these models. Tool use *within* a streaming reques
 
 The Llama 3 Instruct, Llama 3.1 Instruct, Llama 3.2 Instruct, and Llama 4 Instruct models have the following inference parameters: 
 
-```
+```json
 {
     "prompt": string,
     "temperature": float,
@@ -129,7 +128,7 @@ The following are optional parameters:
 
 The Llama 3 Instruct models return the following fields for a text completion inference call. 
 
-```
+```json
 {
     "generation": "\n\n{{<response>}}",
     "prompt_token_count": int,
@@ -153,7 +152,7 @@ More information about each field is provided below.
 
 This example shows how to call the *Llama 3 Instruct* model.
 
-```
+```python
 # Use the native inference API to send a text message to Meta Llama 3.
 
 import boto3

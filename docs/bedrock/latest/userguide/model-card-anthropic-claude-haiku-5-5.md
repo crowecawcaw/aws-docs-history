@@ -1,7 +1,6 @@
 
 
 # Claude Haiku 5.5
-<a name="model-card-anthropic-claude-haiku-5-5"></a>
 
 ## ![Anthropic logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Haiku 5.5
 <a name="model-card-anthropic-claude-haiku-5-5-header"></a>
@@ -330,7 +329,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Messages API ]
 
-```
+```python
 from anthropic import Anthropic
 from aws_bedrock_token_generator import provide_token
 
@@ -353,7 +352,7 @@ print(response)
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -372,7 +371,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

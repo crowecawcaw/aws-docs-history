@@ -1,7 +1,6 @@
 
 
 # Prerequisites and permissions required for using OpenSearch Managed Clusters with Amazon Bedrock Knowledge Bases
-<a name="kb-osm-permissions-prereq"></a>
 
 This section shows you how to configure permissions if you're creating your own vector database with Amazon OpenSearch Service Managed Clusters. This configuration must be performed before you create the knowledge base. The steps assume that you've already created a domain and vector index in Amazon OpenSearch Service. For more information, see [Creating and managing OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service developer guide*.
 

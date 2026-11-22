@@ -1,7 +1,6 @@
 
 
 # Get started in the Amazon Bedrock console
-<a name="getting-started-console"></a>
 
 This section describes how to use the [playgrounds](playgrounds.md) in the AWS console to submit a text prompt to an Amazon Bedrock foundation model (FM) and generate a text or image response. Before you run the following examples, you should check that you have fulfilled the following prerequisites:
 

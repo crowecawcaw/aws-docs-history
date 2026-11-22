@@ -1,7 +1,6 @@
 
 
 # Titan Embeddings G1 - Text
-<a name="model-card-amazon-titan-embeddings-g1---text"></a>
 
 ## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Titan Embeddings G1 - Text
 <a name="model-card-amazon-titan-embeddings-g1---text-header"></a>
@@ -102,7 +101,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 

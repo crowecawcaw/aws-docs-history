@@ -1,7 +1,6 @@
 
 
 # Monitoring your encryption keys for the Amazon Bedrock service
-<a name="import-model-monitor-encryption-keys"></a>
 
 When you use an AWS KMS customer managed key with your Amazon Bedrock resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Amazon Bedrock sends to AWS KMS.
 
@@ -80,7 +79,7 @@ Attach the following resource-based policy to the KMS key by following the steps
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "KMS Key Policy",

@@ -1,7 +1,6 @@
 
 
 # Create Blueprints for Validation
-<a name="idp-cases-validation"></a>
 
 BDA allows you to define validation rules to ensure the accuracy of the extracted data. These validation rules can be incorporated into your blueprints, enabling BDA to perform various checks on the extracted data. BDA allows you to create custom validations tailored to your specific business or industry requirements. Below are some examples of validations to illustrate the range of this capability.
 

@@ -1,7 +1,6 @@
 
 
 # Nova Canvas
-<a name="model-card-amazon-nova-canvas"></a>
 
 ## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova Canvas
 <a name="model-card-amazon-nova-canvas-header"></a>
@@ -103,7 +102,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import base64
 import boto3

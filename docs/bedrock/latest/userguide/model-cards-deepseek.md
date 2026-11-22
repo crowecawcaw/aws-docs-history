@@ -1,7 +1,6 @@
 
 
 # DeepSeek
-<a name="model-cards-deepseek"></a>
 
 The following DeepSeek models are available in Amazon Bedrock:
 

@@ -1,7 +1,6 @@
 
 
 # An end-to-end example showing how to create and invoke Amazon Bedrock managed prompts using an AWS SDK
-<a name="bedrock-runtime_example_bedrock-agent_GettingStartedWithBedrockPrompts_section"></a>
 
 The following code example shows how to:
 + Create a managed prompt.
@@ -16,7 +15,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Create and invoke a managed prompt.  
 
-```
+```python
 import argparse
 import boto3
 import logging

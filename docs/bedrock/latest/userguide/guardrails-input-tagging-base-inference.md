@@ -1,7 +1,6 @@
 
 
 # Use your guardrail with inference operations to evaluate user input
-<a name="guardrails-input-tagging-base-inference"></a>
 
 You can use guardrails with the base inference operations, [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming). This section covers how you selectively evaluate user input and how you can configure streaming response behavior. Note that for conversational applications, you can achieve the same results with the [Converse API](guardrails-use-converse-api.md).
 

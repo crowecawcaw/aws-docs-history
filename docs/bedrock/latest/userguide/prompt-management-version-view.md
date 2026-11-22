@@ -1,7 +1,6 @@
 
 
 # View information about versions of a prompt in Prompt management
-<a name="prompt-management-version-view"></a>
 
 To learn how to view information about a version of your prompt, choose the tab for your preferred method, and then follow the steps:
 

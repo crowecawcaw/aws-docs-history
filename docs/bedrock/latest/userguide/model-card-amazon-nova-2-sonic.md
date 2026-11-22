@@ -1,7 +1,6 @@
 
 
 # Nova 2 Sonic
-<a name="model-card-amazon-nova-2-sonic"></a>
 
 ## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova 2 Sonic
 <a name="model-card-amazon-nova-2-sonic-header"></a>

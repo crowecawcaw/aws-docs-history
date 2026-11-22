@@ -1,7 +1,6 @@
 
 
 # Include metadata in a data source to improve knowledge base query
-<a name="kb-metadata"></a>
 
 When ingesting CSV (comma separate values) files, you have the ability to have the knowledge base treat certain columns as content fields versus metadata fields. Instead of potentially having hundreds or thousands of content/metadata file pairs, you can now have a single CSV file and a corresponding metadata.json file, giving the knowledge base hints as to how to treat each column inside of your CSV.
 
@@ -13,7 +12,7 @@ Before ingesting a CSV file, make sure:
 + Metadata fields provided in your metadata.json are present as columns in your CSV.
 + You provide a fileName.csv.metadata.json file with the following format:
 
-  ```
+  ```json
   {
       "metadataAttributes": {
           "${attribute1}": "${value1}",
@@ -69,7 +68,7 @@ description,city,price,bedrooms
 
 **Corresponding metadata file (`properties.csv.metadata.json`)**
 
-```
+```json
 {
     "metadataAttributes": {
         "source": "property_listings_2024"

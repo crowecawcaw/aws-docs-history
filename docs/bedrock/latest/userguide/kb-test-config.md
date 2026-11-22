@@ -1,7 +1,6 @@
 
 
 # Configure and customize queries and response generation
-<a name="kb-test-config"></a>
 
 You can configure and customize retrieval and response generation, further improving the relevancy of responses. For example, you can apply filters to document metadata fields/attributes to use the most recently updated documents or documents with recent modification times.
 
@@ -32,7 +31,7 @@ When you make a [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReferen
 
 The following JSON object shows the minimal fields required in the [KnowledgeBaseRetrievalConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.html) object to set the maximum number of results to return:
 
-```
+```json
 "retrievalConfiguration": {
     "vectorSearchConfiguration": {
         "numberOfResults": number
@@ -50,7 +49,7 @@ Specify the maximum number of retrieved results (see the `numberOfResults` field
 The search type defines how data sources in the knowledge base are queried. The following search types are possible:
 
 **Note**  
-Hybrid search is only supported for Amazon RDS, Amazon OpenSearch Serverless, and MongoDB vector stores that contain a filterable text field. If you use a different vector store or your vector store doesn't contain a filterable text field, the query uses semantic search.
+Hybrid search is only supported for Amazon RDS, OpenSearch Serverless, and MongoDB vector stores that contain a filterable text field. If you use a different vector store or your vector store doesn't contain a filterable text field, the query uses semantic search.
 + **Default** – Amazon Bedrock decides the search strategy for you.
 + **Hybrid** – Combines searching vector embeddings (semantic search) with searching through the raw text.
 + **Semantic** – Only searches vector embeddings.
@@ -69,7 +68,7 @@ When you make a [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReferen
 
 The following JSON object shows the minimal fields required in the [KnowledgeBaseRetrievalConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.html) object to set search type configurations:
 
-```
+```json
 "retrievalConfiguration": {
     "vectorSearchConfiguration": {
         "overrideSearchType": "HYBRID | SEMANTIC"
@@ -113,15 +112,15 @@ For example, "epoch\_modification\_time" represents the time in number of second
 
 To use filters when querying a knowledge base, check that your knowledge base fulfills the following requirements:
 + When configuring your data source connector, most connectors crawl the main metadata fields of your documents. If you're using an Amazon S3 bucket as your data source, the bucket must include at least one `fileName.extension.metadata.json` for the file or document it's associated with. See **Document metadata fields** in [Connection configuration](s3-data-source-connector.md#configuration-s3-connector) for more information about configuring the metadata file.
-+ If your knowledge base's vector index is in an Amazon OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
-  + [Create a new knowledge base](knowledge-base-create.md) in the console and let Amazon Bedrock automatically create a vector index in Amazon OpenSearch Serverless for you.
++ If your knowledge base's vector index is in an OpenSearch Serverless vector store, check that the vector index is configured with the `faiss` engine. If the vector index is configured with the `nmslib` engine, you'll have to do one of the following:
+  + [Create a new knowledge base](knowledge-base-create.md) in the console and let Amazon Bedrock automatically create a vector index in OpenSearch Serverless for you.
   + [Create another vector index](knowledge-base-setup.md) in the vector store and select `faiss` as the **Engine**. Then [Create a new knowledge base](knowledge-base-create.md) and specify the new vector index.
 + If your knowledge base uses a vector index in an S3 vector bucket, you cannot use the `startsWith` and `stringContains` filters.
 + If you're adding metadata to an existing vector index in an Amazon Aurora database cluster, we recommend that you provide the field name of the custom metadata column to store all your metadata in a single column. During [data ingestion](kb-data-source-sync-ingest.md), this column will be used to populate all the information in your metadata files from your data sources. If you choose to provide this field, you must create an index on this column.
   + When you [create a new knowledge base](knowledge-base-create.md) in the console and let Amazon Bedrock configure your Amazon Aurora database, it will automatically create a single column for you and populate it with the information from your metadata files.
   + When you choose to [create another vector index](knowledge-base-setup.md) in the vector store, you must provide the custom metadata field name to store information from your metadata files. If you don't provide this field name, you must create a column for each metadata attribute in your files and specify the data type (text, number, or boolean). For example, if the attribute `genre` exists in your data source, you would add a column named `genre` and specify `text` as the data type. During ingestion, these separate columns will be populated with the corresponding attribute values.
 
-If you have PDF documents in your data source and use Amazon OpenSearch Serverless or Amazon Aurora for your vector store: Amazon Bedrock knowledge bases will generate document page numbers and store them in a metadata field/attribute called *x-amz-bedrock-kb-document-page-number*. Note that page numbers stored in a metadata field is not supported if you choose no chunking for your documents.
+If you have PDF documents in your data source and use OpenSearch Serverless or Amazon Aurora for your vector store: Amazon Bedrock knowledge bases will generate document page numbers and store them in a metadata field/attribute called *x-amz-bedrock-kb-document-page-number*. Note that page numbers stored in a metadata field is not supported if you choose no chunking for your documents.
 
 You can use the following filtering operators to filter results when you query:
 
@@ -192,7 +191,7 @@ The following JSON objects show the minimal fields required in the [KnowledgeBas
 
 1. Use one filtering operator (see the **Filtering operators** table above).
 
-   ```
+   ```json
    "retrievalConfiguration": {
        "vectorSearchConfiguration": {
            "filter": {
@@ -207,7 +206,7 @@ The following JSON objects show the minimal fields required in the [KnowledgeBas
 
 1. Use a logical operator (see the **Logical operators** table above) to combine up to 5.
 
-   ```
+   ```json
    "retrievalConfiguration": {
        "vectorSearchConfiguration": {
            "filter": {
@@ -229,7 +228,7 @@ The following JSON objects show the minimal fields required in the [KnowledgeBas
 
 1. Use a logical operator to combine up to 5 filtering operators into a filter group, and a second logical operator to combine that filter group with another filtering operator.
 
-   ```
+   ```json
    "retrievalConfiguration": {
        "vectorSearchConfiguration": {
            "filter": {
@@ -257,7 +256,7 @@ The following JSON objects show the minimal fields required in the [KnowledgeBas
 
 1. Combine up to 5 filter groups by embedding them within another logical operator. You can create one level of embedding.
 
-   ```
+   ```json
    "retrievalConfiguration": {
        "vectorSearchConfiguration": {
            "filter": {
@@ -304,7 +303,7 @@ The following table describes the filter types that you can use:
 | lessThanOrEquals | number | Attribute is less than or equal to the value you provide | 
 | in | list of strings | Attribute is in the list you provide | 
 | notIn | list of strings | Attribute isn't in the list you provide | 
-| startsWith | string | Attribute starts with the string you provide (only supported for Amazon OpenSearch Serverless vector stores) | 
+| startsWith | string | Attribute starts with the string you provide (only supported for OpenSearch Serverless vector stores) | 
 
 To combine filter types, you can use one of the following logical operators:
 
@@ -333,7 +332,7 @@ The `implicitFilterConfiguration` is specified in the `vectorSearchConfiguration
 
 The following shows an example of metadata schemas that you can add to the array in `metadataAttributes`.
 
-```
+```json
 [
     {
         "key": "company",
@@ -393,7 +392,7 @@ When you make a [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest
 
 The following JSON object shows the minimal fields required in the [GenerationConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GenerationConfiguration.html) to set the `guardrailConfiguration`:
 
-```
+```json
 "generationConfiguration": {
     "guardrailConfiguration": {
         "guardrailId": "{{string}}",
@@ -563,7 +562,7 @@ When you make a [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest
 
 The following JSON object shows the minimal fields required in the [GenerationConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GenerationConfiguration.html) object to set the maximum number of retrieved results to return:
 
-```
+```json
 "generationConfiguration": {
     "promptTemplate": {
         "textPromptTemplate": "string"

@@ -1,7 +1,6 @@
 
 
 # Construct and store reusable prompts with Prompt management in Amazon Bedrock
-<a name="prompt-management"></a>
 
 Amazon Bedrock provides you the ability to create, edit, and save your own prompts using Prompt management so that you can save time by applying the same prompt to different workflows. When you create a prompt, you can select a model to run inference on it and modify the inference parameters to use. You can include variables in the prompt so that you can adjust the prompt for different use cases.
 

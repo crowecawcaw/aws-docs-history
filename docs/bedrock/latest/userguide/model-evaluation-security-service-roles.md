@@ -1,7 +1,6 @@
 
 
 # Service role requirements for model evaluation jobs
-<a name="model-evaluation-security-service-roles"></a>
 
 To create a model evaluation job, you must specify a service role. A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 

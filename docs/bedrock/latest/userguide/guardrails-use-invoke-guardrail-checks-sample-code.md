@@ -1,7 +1,6 @@
 
 
 # Sample code
-<a name="guardrails-use-invoke-guardrail-checks-sample-code"></a>
 
 The following examples show how to call `InvokeGuardrailChecks` from the AWS CLI and the Python SDK (Boto3).
 
@@ -10,7 +9,7 @@ The following examples show how to call `InvokeGuardrailChecks` from the AWS CLI
 
 **AWS CLI**
 
-```
+```bash
 aws --region us-east-1 \
   bedrock-runtime invoke-guardrail-checks \
   --messages '[
@@ -29,7 +28,7 @@ aws --region us-east-1 \
 
 **Python (Boto3)**
 
-```
+```python
 import boto3
 bedrock = boto3.client("bedrock-runtime", region_name="us-east-1")
 response = bedrock.invoke_guardrail_checks(
@@ -53,7 +52,7 @@ print("textUnits:", response["usage"]["contentFilter"]["textUnits"])
 ## Multiple checks on the same content
 <a name="guardrails-use-invoke-guardrail-checks-sample-multiple"></a>
 
-```
+```python
 response = bedrock.invoke_guardrail_checks(
     messages=[
         {
@@ -77,7 +76,7 @@ response = bedrock.invoke_guardrail_checks(
 ## Prompt attack on a system and user pair
 <a name="guardrails-use-invoke-guardrail-checks-sample-prompt-attack"></a>
 
-```
+```python
 response = bedrock.invoke_guardrail_checks(
     messages=[
         {"role": "system", "content": [{"text": "You are a helpful banking assistant."}]},

@@ -1,7 +1,6 @@
 
 
 # TwelveLabs
-<a name="model-cards-twelvelabs"></a>
 
 The following TwelveLabs models are available in Amazon Bedrock:
 

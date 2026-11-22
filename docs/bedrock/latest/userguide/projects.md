@@ -1,7 +1,6 @@
 
 
 # Projects (OpenAI-compatible)
-<a name="projects"></a>
 
 Amazon Bedrock Projects API provides application-level isolation for your generative AI workloads using [OpenAI-compatible APIs](inference-responses-api.md). Projects enable you to organize and manage your AI applications with improved access control, cost tracking, and observability across your organization.
 
@@ -152,7 +151,7 @@ To associate your project for inference requests, provide the project ID when cr
 ------
 #### [ cURL ]
 
-```
+```bash
 curl -X POST $OPENAI_BASE_URL/responses \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
@@ -166,7 +165,7 @@ curl -X POST $OPENAI_BASE_URL/responses \
 ------
 #### [ Python ]
 
-```
+```python
 from openai import OpenAI
 client = OpenAI(project="proj_5d5ykleja6cwpirysbb7")
 ```
@@ -354,7 +353,7 @@ Archived projects cannot be used for new inference requests, but historical data
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(project="proj_abc123")
@@ -369,7 +368,7 @@ print(response)
 ------
 #### [ Chat Completions API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(project="proj_abc123")

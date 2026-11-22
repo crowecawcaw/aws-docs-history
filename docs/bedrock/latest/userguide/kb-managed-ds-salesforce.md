@@ -1,7 +1,6 @@
 
 
 # Salesforce
-<a name="kb-managed-ds-salesforce"></a>
 
 Salesforce is a cloud-based customer relationship management (CRM) platform for managing support, sales, and marketing. You can connect your Salesforce org as a data source for your managed knowledge base to crawl Salesforce Knowledge articles, including their attachments, and documents.
 

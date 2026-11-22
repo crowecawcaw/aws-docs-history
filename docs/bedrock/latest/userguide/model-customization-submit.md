@@ -1,7 +1,6 @@
 
 
 # Submit a model customization job for fine-tuning
-<a name="model-customization-submit"></a>
 
 You can create a custom model by using fine-tuning in the Amazon Bedrock console or API. You can further fine tune an existing custom model. The customization job can take several hours. The duration of the job depends on the size of the training data (number of records, input tokens, and output tokens), number of epochs, and batch size.
 

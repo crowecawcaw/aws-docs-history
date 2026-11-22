@@ -1,7 +1,6 @@
 
 
 # Use the InvokeGuardrailChecks API in your application
-<a name="guardrails-use-invoke-guardrail-checks"></a>
 
 With the [InvokeGuardrailChecks](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeGuardrailChecks.html) API, you can evaluate user prompts and model responses with specific safeguards such as content filters, prompt attack detection, and sensitive information filters at any point in your application without creating individual guardrail resources. You can use this API in various applications including agentic AI workflows that involve multi-turn conversations where content evaluation is required for each turn. The API is detect-only: it detects undesirable content and returns a numeric score for each safety check so that you can define the threshold and take the required action within your application logic. With these scores, you can build adaptive response logic such as block, bypass, retry, or route for human review based on your custom threshold and your application requirements.
 

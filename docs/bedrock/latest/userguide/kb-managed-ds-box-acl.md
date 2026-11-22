@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-box-acl"></a>
 
 **ACL awareness is not authorization**  
 Bedrock Managed Knowledge Base provides ACL-aware filtering, not a security boundary. Bedrock Managed Knowledge Base does not authenticate end users — your application is responsible for authenticating users and passing verified identity context. Because Bedrock Managed Knowledge Base cannot verify the authenticity of the user context you provide, this feature filters results based on the identity you supply but does not constitute true authorization. You must not rely on this feature as a sole access control mechanism without upstream authentication.

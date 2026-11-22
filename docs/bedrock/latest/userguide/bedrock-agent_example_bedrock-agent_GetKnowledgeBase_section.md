@@ -1,7 +1,6 @@
 
 
 # Use `GetKnowledgeBase` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_GetKnowledgeBase_section"></a>
 
 The following code example shows how to use `GetKnowledgeBase`.
 
@@ -12,7 +11,7 @@ The following code example shows how to use `GetKnowledgeBase`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Get an Amazon Bedrock knowledge base.  
 
-```
+```python
 def get_knowledge_base(bedrock_agent_client, knowledge_base_id):
     """
     Gets details about a specific knowledge base.

@@ -1,7 +1,6 @@
 
 
 # Submit a batch of prompts with the OpenAI Batch API
-<a name="inference-openai-batch"></a>
 
 You can run a batch inference job using the [OpenAI Create batch API](https://platform.openai.com/docs/api-reference/batch) with Amazon Bedrock OpenAI models.
 
@@ -112,7 +111,7 @@ Before running the following example, replace the placeholders in the following 
 
 The example calls the OpenAI Create batch job API in `us-west-2` and includes one piece of metadata.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -157,7 +156,7 @@ Before running the following example, first replace the placeholders in the foll
 
 The following example calls the Create chat completion API in `us-west-2` and includes one piece of metadata:
 
-```
+```bash
 curl -X POST 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches' \
     -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK' \  
     -H 'Content-Type: application/json' \
@@ -204,7 +203,7 @@ Before running the following example, replace the placeholders in the following 
 
 The example calls the OpenAI Retrieve batch job API in `us-west-2` on a batch job whose ID is {{batch\_abc123}}.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -236,7 +235,7 @@ Before running the following example, first replace the placeholders in the foll
 
 The following example calls the OpenAI Retrieve batch API in `us-west-2` on a batch job whose ID is {{batch\_abc123}}.
 
-```
+```bash
 curl -X GET 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches/batch_abc123' \
     -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK'
 ```
@@ -273,7 +272,7 @@ Before running the following example, replace the placeholders in the following 
 
 The example calls the OpenAI List batch jobs API in `us-west-2` and specifies a limit of 2 results to return.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -306,7 +305,7 @@ Before running the following example, first replace the placeholders in the foll
 
 The following example calls the OpenAI List batches API in `us-west-2` and specifies a limit of 2 results to return.
 
-```
+```bash
 curl -X GET 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches?limit=2' \
     -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK' \
 ```
@@ -344,7 +343,7 @@ Before running the following example, replace the placeholders in the following 
 
 The example calls the OpenAI Cancel batch job API in `us-west-2` on a batch job whose ID is {{batch\_abc123}}.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -376,7 +375,7 @@ Before running the following example, first replace the placeholders in the foll
 
 The following example calls the OpenAI Cancel batch API in `us-west-2` on a batch job whose ID is {{batch\_abc123}}.
 
-```
+```bash
 curl -X GET 'https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/batches/batch_abc123/cancel' \
     -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK'
 ```

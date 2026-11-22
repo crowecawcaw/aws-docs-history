@@ -1,14 +1,13 @@
 
 
 # Converse API code samples for custom model import
-<a name="custom-model-import-code-samples-converse"></a>
 
 If you're importing a Mistral, Llama, or Qwen type instruct model and you want to use the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) or the [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) API, make sure to include the `chat_template` for the model type you are importing in the `tokenizer_config.json`. Select the tab corresponding to the model type you are importing in the following table.
 
 ------
 #### [ Llama 3.2 Text ]
 
-```
+```json
 {
   "added_tokens_decoder": {
     "128000": {
@@ -2076,7 +2075,7 @@ If you're importing a Mistral, Llama, or Qwen type instruct model and you want t
 ------
 #### [ Llama 3.1 Text ]
 
-```
+```json
 {
   "added_tokens_decoder": {
     "128000": {
@@ -4144,7 +4143,7 @@ If you're importing a Mistral, Llama, or Qwen type instruct model and you want t
 ------
 #### [ Llama 3.0 Text ]
 
-```
+```json
 {
   "added_tokens_decoder": {
     "128000": {
@@ -6212,7 +6211,7 @@ If you're importing a Mistral, Llama, or Qwen type instruct model and you want t
 ------
 #### [ Llama 2.0 Chat models ]
 
-```
+```json
 {
   "add_bos_token": true,
   "add_eos_token": false,
@@ -6254,7 +6253,7 @@ If you're importing a Mistral, Llama, or Qwen type instruct model and you want t
 ------
 #### [ Mistral 8x7b Text ]
 
-```
+```json
 {
   "add_bos_token": true,
   "add_eos_token": false,
@@ -6304,7 +6303,7 @@ If you're importing a Mistral, Llama, or Qwen type instruct model and you want t
 ------
 #### [ Mistral 7b ]
 
-```
+```json
 {
   "add_bos_token": true,
   "add_eos_token": false,

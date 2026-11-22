@@ -1,7 +1,6 @@
 
 
 # Concepts: Messages, content block types, and checks
-<a name="guardrails-use-invoke-guardrail-checks-concepts"></a>
 
 The following concepts describe the structure of requests to the `InvokeGuardrailChecks` API.
 
@@ -10,7 +9,7 @@ The following concepts describe the structure of requests to the `InvokeGuardrai
 
 A message is the basic unit of content you submit for evaluation. Each message has two fields: a role that identifies who produced the content, and a content array that holds the actual text as one or more typed content blocks.
 
-```
+```json
 {
   "role": "user",
   "content": [{ "text": "Hello world" }]
@@ -29,7 +28,7 @@ The role labels the origin of the content. The following roles are supported:
 
 The `content` field is an array of typed blocks rather than a plain string. A typed block is a small object whose key names its type. This design lets the message format carry other kinds of content (such as images or documents) in the future without changing the overall message shape. Currently, the only supported block type is `text`, whose value is a bare string:
 
-```
+```json
 { "text": "Hello world" }
 ```
 
@@ -40,7 +39,7 @@ A message can contain at most ten content blocks. A content block can contain at
 
 The term *checks* is interchangeable with the term *safeguards* offered by Amazon Bedrock Guardrails. The `checks` object is a configuration object with one optional field per check type, and you include only the checks you want to run. You don't set a separate enable/disable flag: a check runs if and only if its field is present, and omitted checks produce no result and no usage. You must set at least one check field.
 
-```
+```json
 "checks": {
   "contentFilter":         { ... },
   "promptAttack":          { ... },

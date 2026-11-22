@@ -1,7 +1,6 @@
 
 
 # Test your guardrail
-<a name="guardrails-test"></a>
 
 After you create a guardrail, a *working draft* (`DRAFT`) version is available. The working draft is a version of the guardrail that you can continually edit and iterate upon until you reach a satisfactory configuration for your use case. You can test and benchmark the working draft or other versions of the guardrail to ensure that the configurations meet your use-case requirements. Edit configurations in the working draft and test different prompts to see how well the guardrail evaluates and intercepts the prompts or responses.
 
@@ -47,7 +46,7 @@ The request endpoints for invoking a model, with and without streaming, are as f
 
 The header for both API operations is of the following format.
 
-```
+```json
 Accept: {{accept}}
 Content-Type: {{contentType}}
 X-Amzn-Bedrock-Trace: {{trace}}
@@ -64,7 +63,7 @@ The parameters are described below.
 
 The general request body format is shown in the following example. The `tagSuffix` property is only used with *Input tagging*. You can also configure the guardrail on streaming synchronously or asynchronously by using `streamProcessingMode`. This only works with `InvokeModelWithResponseStream`.
 
-```
+```json
 {
     {{<see model details>}},
     "amazon-bedrock-guardrailConfig": {
@@ -88,7 +87,7 @@ For Cohere Command models, you can only specify one generation in the `num_gener
 If you enable a guardrail and its trace, the general format of the response for invoking a model, with and without streaming, is as follows. To see the format of the rest of the `body` for each model, see [Inference request parameters and response fields for foundation models](model-parameters.md). The {{contentType}} matches what you specified in the request.
 + `InvokeModel`
 
-  ```
+  ```json
   HTTP/1.1 200
   Content-Type: contentType
   
@@ -180,7 +179,7 @@ If you enable a guardrail and its trace, the general format of the response for 
   ```
 + `InvokeModelWithResponseStream` – Each response returns a `chunk` whose text is in the `bytes` field, alongside any exceptions that occur. The guardrail trace is returned only for the last chunk.
 
-  ```
+  ```json
   HTTP/1.1 200
   X-Amzn-Bedrock-Content-Type: {{contentType}}
   Content-type: application/json

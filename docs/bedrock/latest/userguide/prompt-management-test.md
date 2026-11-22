@@ -1,7 +1,6 @@
 
 
 # Test a prompt using Prompt management
-<a name="prompt-management-test"></a>
 
 To learn how to test a prompt you created in Prompt management, choose the tab for your preferred method, and then follow the steps:
 
@@ -34,7 +33,7 @@ You can also test the prompt in the following ways:
 You can test your prompt in the following ways:
 + To run inference on the prompt, send an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html), [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html), or [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) request with an [Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-rt) and specify the ARN of the prompt in the `modelId` parameter. To pass values for prompt variables, include the `promptVariables` field with a map of variable names to their values:
 
-  ```
+  ```python
   response = bedrock_runtime.converse(
       modelId="arn:aws:bedrock:us-east-1:123456789012:prompt/PROMPT_ID:VERSION",
       promptVariables={

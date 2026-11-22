@@ -1,7 +1,6 @@
 
 
 # Build a knowledge base with Amazon Neptune Analytics graphs
-<a name="knowledge-base-build-graphs"></a>
 
 Amazon Bedrock Knowledge Bases offers a fully managed GraphRAG feature with Amazon Neptune. GraphRAG is a capability provided with Amazon Bedrock Knowledge Bases that combines graph modeling with generative AI to enhance retrieval-augmented generation (RAG). This feature combines vector search with the ability to quickly analyze large amounts of graph data from Amazon Neptune in RAG applications.
 

@@ -1,7 +1,6 @@
 
 
 # `AWS::Bedrock` resources
-<a name="cfn-bedrock-resources"></a>
 
 The `AWS::Bedrock` namespace contains the Amazon Bedrock control-plane resources that you create through `bedrock` and : agents, knowledge bases, flows, guardrails, and prompts.
 

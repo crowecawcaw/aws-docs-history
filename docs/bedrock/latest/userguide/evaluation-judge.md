@@ -1,7 +1,6 @@
 
 
 # Evaluate model performance using another LLM as a judge
-<a name="evaluation-judge"></a>
 
 With a model evaluation job that uses a judge model, Amazon Bedrock uses an LLM to score another model's responses and provide an explanation of how it scored each prompt and response pair. Scores and explanations are available in the Amazon Bedrock console through the [Evaluations](https://console.aws.amazon.com/bedrock/home#/eval/evaluation) page.
 

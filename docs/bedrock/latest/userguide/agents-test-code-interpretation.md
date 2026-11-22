@@ -1,7 +1,6 @@
 
 
 # Test code interpretation in Amazon Bedrock
-<a name="agents-test-code-interpretation"></a>
 
 Before you test code interpretation in Amazon Bedrock, make sure to prepare your agent to apply the changes you’ve just made.
 
@@ -68,7 +67,7 @@ To test code interpretation, send an [InvokeAgent](https://docs.aws.amazon.com/b
 
  The following example shows the general format for specifying the required fields to attach files to chat.
 
-```
+```json
                   
 "sessionState": {
         "promptSessionAttributes": {
@@ -105,7 +104,7 @@ To test code interpretation, send an [InvokeAgent](https://docs.aws.amazon.com/b
 
 The following example shows the general format for specifying the required fields to attach files for code interpretation.
 
-```
+```json
 "sessionState": {
         "promptSessionAttributes": {
             "string": "string"

@@ -1,7 +1,6 @@
 
 
 # Step 1: Create a Lambda function
-<a name="agent-tutorial-step1"></a>
 
 First, create a Lambda function that your agent will invoke to perform actions. In this procedure, you'll create a Python Lambda function that returns the current date and time when invoked. You'll set up the function with basic permissions, add the necessary code to handle requests from your Amazon Bedrock agent, and deploy the function so it's ready to be connected to your agent.
 
@@ -27,7 +26,7 @@ For more information, see [Create your first Lambda function](https://docs.aws.a
 
 1. In the **Code** tab, replace the existing code with the following:
 
-   ```
+   ```python
    # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    # SPDX-License-Identifier: Apache-2.0
    import datetime

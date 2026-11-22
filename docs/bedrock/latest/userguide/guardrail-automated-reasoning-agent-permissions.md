@@ -1,7 +1,6 @@
 
 
 # Permissions for Automated Reasoning policies with agents
-<a name="guardrail-automated-reasoning-agent-permissions"></a>
 
 When you create an agent in Amazon Bedrock, the service role for the agent automatically includes policies for invoking guardrails (`bedrock:ApplyGuardrail`) and foundation models. To attach a guardrail that includes an Automated Reasoning policy to your agent, manually add permissions to the agent's service role.
 
@@ -9,7 +8,7 @@ Update the `AmazonBedrockAgentBedrockApplyGuardrailPolicy` policy on your agent'
 
 The following example shows the complete statements list:
 
-```
+```json
     "Statement": [
         {
             "Sid": "AmazonBedrockAgentBedrockApplyGuardrailPolicyProd",

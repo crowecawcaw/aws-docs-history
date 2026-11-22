@@ -1,7 +1,6 @@
 
 
 # Return control to the agent developer by sending elicited information in an InvokeAgent response
-<a name="agents-returncontrol"></a>
 
 Rather than sending the information that your agent has elicited from the user to a Lambda function for fulfillment, you can instead choose to return control to the agent developer by sending the information in the [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) response. You can configure return of control to the agent developer when creating or updating an action group. Through the API, you specify `RETURN_CONTROL` as the `customControl` value in the `actionGroupExecutor` object in a [CreateAgentActionGroup](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html) or [UpdateAgentActionGroup](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html) request. For more information, see [Add an action group to your agent in Amazon Bedrock](agents-action-add.md).
 
@@ -35,7 +34,7 @@ The following is a hypothetical sequence that might occur:
 ------
 #### [ Function details ]
 
-   ```
+   ```json
    HTTP/1.1 200
    x-amzn-bedrock-agent-content-type: application/json
    x-amz-bedrock-agent-session-id: session0
@@ -69,7 +68,7 @@ The following is a hypothetical sequence that might occur:
 ------
 #### [ OpenAPI schema ]
 
-   ```
+   ```json
    HTTP/1.1 200
    x-amzn-bedrock-agent-content-type: application/json
    x-amz-bedrock-agent-session-id: session0
@@ -108,7 +107,7 @@ The following is a hypothetical sequence that might occur:
 ------
 #### [ Function details ]
 
-   ```
+   ```json
    POST https://bedrock-agent-runtime.us-east-1.amazonaws.com/agents/{{AGENT12345}}/agentAliases/TSTALIASID/sessions/abb/text
                
    {
@@ -133,7 +132,7 @@ The following is a hypothetical sequence that might occur:
 ------
 #### [ OpenAPI schema ]
 
-   ```
+   ```json
    POST https: //bedrock-agent-runtime.us-east-1.amazonaws.com/agents/AGENT12345/agentAliases/TSTALIASID/sessions/abb/text
     
    {
@@ -168,7 +167,7 @@ If you are using [multi-agent collaboration](agents-multi-agent-collaboration.md
 ------
 #### [ Function details ]
 
-```
+```json
 HTTP/1.1 200
 x-amzn-bedrock-agent-content-type: application/json
 x-amz-bedrock-agent-session-id: session0
@@ -204,7 +203,7 @@ Content-type: application/json
 ------
 #### [ OpenAPI Schema ]
 
-```
+```json
 HTTP/1.1 200
 x-amzn-bedrock-agent-content-type: application/json
 x-amz-bedrock-agent-session-id: session0
@@ -243,7 +242,7 @@ Invoker of supervisor agent sends the results in the `sessionState` field back t
 ------
 #### [ Function details ]
 
-```
+```json
 POST https://bedrock-agent-runtime.us-east-1.amazonaws.com/agents/AGENT12345/agentAliases/TSTALIASID/sessions/abb/text
             
 {
@@ -269,7 +268,7 @@ POST https://bedrock-agent-runtime.us-east-1.amazonaws.com/agents/AGENT12345/age
 ------
 #### [ OpenAPI Schema ]
 
-```
+```json
 POST https: //bedrock-agent-runtime.us-east-1.amazonaws.com/agents/AGENT12345/agentAliases/TSTALIASID/sessions/abb/text
  
 {

@@ -1,7 +1,6 @@
 
 
 # Microsoft OneDrive
-<a name="kb-managed-ds-onedrive"></a>
 
 Microsoft OneDrive is a cloud storage service that lets you store, share, and collaborate on files. You can connect your OneDrive for Business instance as a data source for your managed knowledge base to crawl the personal drives of users in your Microsoft 365 tenant.
 

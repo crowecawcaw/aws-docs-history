@@ -1,7 +1,6 @@
 
 
 # User-managed setup (3LO)
-<a name="kb-managed-onedrive-3lo-setup"></a>
 
 With user-managed setup, you sign in to OneDrive directly and Amazon Bedrock Managed Knowledge Base handles authentication. Users can complete setup in a few minutes.
 
@@ -23,7 +22,7 @@ arn:aws:secretsmanager:{{region}}:{{account-id}}:secret:bedrock-managedkb-oauth/
 
 **Permissions for the caller (CreateDataSource):** The IAM principal that calls `CreateDataSource` needs the following permissions on the secret. The console user who signs in also needs Amazon Bedrock permissions to complete the user-managed setup (3LO) flow. For the complete set of IAM permissions the console user needs, see [IAM permissions for user-managed setup (3LO)](kb-managed-3lo-setup.md).
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -38,7 +37,7 @@ arn:aws:secretsmanager:{{region}}:{{account-id}}:secret:bedrock-managedkb-oauth/
 
 **Permissions for the execution role:** The knowledge base execution role needs read and write access to the secret for token refresh:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [

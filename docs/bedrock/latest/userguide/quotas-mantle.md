@@ -1,7 +1,6 @@
 
 
 # Quotas for the bedrock-mantle endpoint
-<a name="quotas-mantle"></a>
 
 The `bedrock-mantle.{{region}}.api.aws` endpoint serves the OpenAI Responses API, the OpenAI Chat Completions API, and the Anthropic Messages API. Inference traffic to this endpoint is governed by a separate set of quotas from the `bedrock-runtime` endpoint.
 

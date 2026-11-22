@@ -1,7 +1,6 @@
 
 
 # Google Drive
-<a name="kb-managed-ds-googledrive"></a>
 
 Google Drive is a cloud-based file storage and collaboration service. You can connect Google Drive as a data source for your managed knowledge base to crawl personal drives, shared drives, and files shared with the authenticated identity.
 

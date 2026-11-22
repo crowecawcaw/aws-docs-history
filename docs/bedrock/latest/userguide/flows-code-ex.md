@@ -1,7 +1,6 @@
 
 
 # Run Amazon Bedrock Flows code samples
-<a name="flows-code-ex"></a>
 
 The following code samples assume that you've fulfilled the following prerequisites:
 
@@ -11,7 +10,7 @@ The following code samples assume that you've fulfilled the following prerequisi
 
 1. Create a service role to carry out flow-related actions on your behalf. If you haven't, refer to [Create a service role for Amazon Bedrock Flows in Amazon Bedrock](flows-permissions.md).
 
-To create a flow, send a [CreateFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateFlow.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). For example code, see [Run Amazon Bedrock Flows code samples](#flows-code-ex)
+To create a flow, send a [CreateFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateFlow.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). For example code, see [Run Amazon Bedrock Flows code samples](flows-code-ex.md)
 
 The following fields are required:
 
@@ -50,7 +49,7 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    Run the following code snippet to load the AWS SDK for Python (Boto3), create an Amazon Bedrock Agents client, and create a flow with the nodes (replace the `executionRoleArn` field with the ARN of your the service role that you created for flow):
 
-   ```
+   ```python
    # Import Python SDK and create client
    import boto3
    
@@ -186,19 +185,19 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
 1. List the flows in your account, including the one you just created, by running the following code snippet to make a [ListFlows](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlows.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    client.list_flows()
    ```
 
 1. Get information about the flow that you just created by running the following code snippet to make a [GetFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    client.get_flow(flowIdentifier=flow_id)
    ```
 
 1. Prepare your flow so that the latest changes from the working draft are applied and so that it's ready to version. Run the following code snippet to make a [PrepareFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareFlow.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    client.prepare_flow(flowIdentifier=flow_id)
    ```
 
@@ -206,7 +205,7 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    1. Create a version by running the following code snippet to make a [CreateFlowVersion](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateFlowVersion.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       response = client.create_flow_version(flowIdentifier=flow_id)
                                       
       flow_version = response.get("version")
@@ -214,13 +213,13 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    1. List all versions of your flow by running the following code snippet to make a [ListFlowVersions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowVersions.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       client.list_flow_versions(flowIdentifier=flow_id)
       ```
 
    1. Get information about the version by running the following code snippet to make a [GetFlowVersion](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlowVersion.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       client.get_flow_version(flowIdentifier=flow_id, flowVersion=flow_version)
       ```
 
@@ -228,7 +227,7 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    1. Create an alias and point it to the version you just created by running the following code snippet to make a [CreateFlowAlias](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateFlowAlias.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       response = client.create_flow_alias(
           flowIdentifier=flow_id,
           name="latest",
@@ -245,19 +244,19 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    1. List all aliases of your flow by running the following code snippet to make a [ListFlowAliass](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListFlowAliass.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       client.list_flow_aliases(flowIdentifier=flow_id)
       ```
 
    1. Get information about the alias that you just created by running the following code snippet to make a [GetFlowAlias](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlowAlias.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```python
       client.get_flow_alias(flowIdentifier=flow_id, aliasIdentifier=flow_alias_id)
       ```
 
 1. Run the following code snippet to create an Amazon Bedrock Agents Runtime client and invoke a flow. The request fills in the variables in the prompt in your flow and returns the response from the model to make a [InvokeFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html) request with an [Agents for Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-rt):
 
-   ```
+   ```python
    client_runtime = boto3.client('bedrock-agent-runtime')
    
    response = client_runtime.invoke_flow(
@@ -296,19 +295,19 @@ To try out some code samples for Amazon Bedrock Flows, choose the tab for your p
 
    1. Delete the alias by running the following code snippet to make a [DeleteFlowAlias](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteFlowAlias.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```json
       client.delete_flow_alias(flowIdentifier=flow_id, aliasIdentifier=flow_alias_id)
       ```
 
    1. Delete the version by running the following code snippet to make a [DeleteFlowVersion](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteFlowVersion.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```json
       client.delete_flow_version(flowIdentifier=flow_id, flowVersion=flow_version)
       ```
 
    1. Delete the flow by running the following code snippet to make a [DeleteFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteFlow.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-      ```
+      ```json
       client.delete_flow(flowIdentifier=flow_id)
       ```
 

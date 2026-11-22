@@ -1,7 +1,6 @@
 
 
 # A tool use demo illustrating how to connect AI models on Amazon Bedrock with a custom tool or API
-<a name="bedrock-runtime_example_bedrock-runtime_Scenario_ToolUseDemo_AmazonNova_section"></a>
 
 The following code examples show how to build a typical interaction between an application, a generative AI model, and connected tools or APIs to mediate interactions between the AI and the outside world. It uses the example of connecting an external weather API to the AI model so it can provide real-time weather information based on user input.
 
@@ -12,7 +11,7 @@ The following code examples show how to build a typical interaction between an a
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime/Scenarios/ConverseToolScenario#code-examples). 
 The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
-```
+```csharp
 using Amazon;
 using Amazon.BedrockRuntime;
 using Amazon.BedrockRuntime.Model;
@@ -372,7 +371,7 @@ public static class ConverseToolScenario
 ```
 The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
-```
+```csharp
 using Amazon.BedrockRuntime.Model;
 using Amazon.Runtime.Documents;
 using Microsoft.Extensions.Logging;
@@ -468,7 +467,7 @@ public class WeatherTool
 ```
 The Converse API action with a tool configuration.  
 
-```
+```csharp
 /// <summary>
 /// Wrapper class for interacting with the Amazon Bedrock Converse API.
 /// </summary>
@@ -549,7 +548,7 @@ public class BedrockActionsWrapper
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
-```
+```java
 /*
  This demo illustrates a tool use scenario using Amazon Bedrock's Converse API and a weather tool.
  The program interacts with a foundation model on Amazon Bedrock to provide weather information based on user
@@ -854,7 +853,7 @@ public class BedrockScenario {
 ```
 The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
-```
+```java
 public class WeatherTool {
 
     private static final Logger logger = LoggerFactory.getLogger(WeatherTool.class);
@@ -978,7 +977,7 @@ public class WeatherTool {
 ```
 The Converse API action with a tool configuration.  
 
-```
+```java
     /**
      * Sends an asynchronous converse request to the AI model.
      *
@@ -1031,7 +1030,7 @@ The Converse API action with a tool configuration.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime/scenarios/converse_tool_scenario#code-examples). 
 The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
-```
+```javascript
 /* Before running this JavaScript code example, set up your development environment, including your credentials.
 This demo illustrates a tool use scenario using Amazon Bedrock's Converse API and a weather tool.
 The script interacts with a foundation model on Amazon Bedrock to provide weather information based on user

@@ -1,7 +1,6 @@
 
 
 # Service role requirements for knowledge base evaluation jobs
-<a name="rag-eval-service-roles"></a>
 
 To create a knowledge base evaluation job, you must specify a service role. The policy that you attach to the role grants Amazon Bedrock access to resources in your account, and it allows Amazon Bedrock to do the following:
 + Invoke the models that you select for output generation with the `RetrieveAndGenerate` API action, and evaluate the knowledge base outputs.
@@ -19,7 +18,7 @@ The following example policy grants access to the S3 buckets where both of the f
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement":
@@ -80,7 +79,7 @@ You also need to create a policy that allows Amazon Bedrock to do the following:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -129,7 +128,7 @@ You must also specify a trust policy that defines Amazon Bedrock as the service 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

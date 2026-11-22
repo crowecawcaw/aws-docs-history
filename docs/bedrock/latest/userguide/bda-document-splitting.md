@@ -1,7 +1,6 @@
 
 
 # Splitting documents while using projects
-<a name="bda-document-splitting"></a>
 
 Amazon Bedrock Data Automation (BDA) supports splitting documents when using the Amazon Bedrock API. When enabled, splitting allows BDA to take a PDF containing multiple logical documents and split it into separate documents for processing. 
 

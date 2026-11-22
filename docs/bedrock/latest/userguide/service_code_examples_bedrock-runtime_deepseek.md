@@ -1,7 +1,6 @@
 
 
 # DeepSeek for Amazon Bedrock Runtime
-<a name="service_code_examples_bedrock-runtime_deepseek"></a>
 
 The following code examples show how to use Amazon Bedrock Runtime with AWS SDKs.
 

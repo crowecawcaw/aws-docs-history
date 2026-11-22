@@ -1,7 +1,6 @@
 
 
 # Stability AI models
-<a name="model-parameters-stability-diffusion"></a>
 
 This section describes the request parameters and response fields for Stability AI models. Use this information to make inference calls to Stability AI models with the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) operation. This section also includes Python code examples that shows how to call Stability AI models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). Some models also work with the [Converse API](conversation-inference.md). To check if the Converse API supports a specific Stability AI model, see [models at a glance](model-cards.md). For more code examples, see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md).
 

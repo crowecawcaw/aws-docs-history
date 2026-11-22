@@ -1,7 +1,6 @@
 
 
 # Meta Llama 3.1 70B Instruct
-<a name="model-evaluation-type-kb-llama"></a>
 
 Prompts used with Meta Llama 3.1 70B Instruct
 

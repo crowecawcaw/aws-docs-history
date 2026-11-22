@@ -1,7 +1,6 @@
 
 
 # Encryption of knowledge base resources
-<a name="encryption-kb"></a>
 
 Amazon Bedrock encrypts resources related to your knowledge bases. By default, Amazon Bedrock encrypts this data using an AWS-owned key. Optionally, you can encrypt the model artifacts using a customer managed key.
 
@@ -54,7 +53,7 @@ When you create a fully managed knowledge base with a customer managed key, Amaz
 
 You provide these permissions in the key policy of your AWS KMS key for the IAM identity that creates the knowledge base, as shown in the following example. Replace the example values with your own AWS Region, account ID, and the IAM role or user that creates the knowledge base. The IAM service role that is associated with the knowledge base (the role that Amazon Bedrock uses to read your data sources) does not require any permissions on the KMS key.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -110,7 +109,7 @@ When you use an AWS KMS customer managed key with your knowledge base, you can u
 
 The following is an example AWS CloudTrail event for that shows the grant that Amazon Bedrock creates on your AWS KMS key when you create a fully managed knowledge base:
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {
@@ -180,7 +179,7 @@ You can encrypt sessions in which you generate responses from querying a knowled
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -229,7 +228,7 @@ The key is set when you create the instruction and cannot be changed afterward. 
 
 Your key policy must allow the IAM role that creates, updates, and reads retrieval instructions (shown below as `RetrievalInstructionAuthor`), and the Amazon Bedrock service principal, which decrypts your content during the automatic content review.
 
-```
+```json
 {
   "Version": "2012-10-17",		 	 	 
   "Statement": [
@@ -327,7 +326,7 @@ To allow the creation of a AWS KMS key for transient data storage in the process
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -371,7 +370,7 @@ If you encrypted your data sources in Amazon S3 with a custom AWS KMS key, attac
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -409,7 +408,7 @@ If you do so, you attach the following policy to your Amazon Bedrock service rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -435,7 +434,7 @@ When using BDA to process multimodal content with customer-managed AWS KMS keys,
 
 Attach the following policy to your Amazon Bedrock service role to allow BDA to work with encrypted multimedia files. Replace the example values with your own AWS Region, account ID, and AWS KMS key ID.
 
-```
+```json
 {
     "Sid": "KmsPermissionStatementForBDA",
     "Effect": "Allow",

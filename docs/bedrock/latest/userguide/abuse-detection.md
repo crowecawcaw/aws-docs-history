@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock abuse detection
-<a name="abuse-detection"></a>
 
 You are responsible for your (and your end users') data input into, and content generated using, Amazon Bedrock. As part of providing the Service, Amazon Bedrock may use automated abuse detection mechanisms to detect activity that violates our, or third-party model providers', terms of service or use policies. In certain limited circumstances described below, we may also store or review model inputs or outputs. Amazon Bedrock uses a zero operator access (ZOA) data security model, subject to the model-specific abuse and CSAM detection detailed below.
 

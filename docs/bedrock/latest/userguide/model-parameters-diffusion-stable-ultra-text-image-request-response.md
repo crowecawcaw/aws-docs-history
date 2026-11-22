@@ -1,7 +1,6 @@
 
 
 # Stable Image Ultra request and response
-<a name="model-parameters-diffusion-stable-ultra-text-image-request-response"></a>
 
 The request body is passed in the `body` field of a request to [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) operation. 
 
@@ -25,7 +24,7 @@ When you make an InvokeModel call using a Stable Image Ultra model, fill the bod
 
 When you make an `InvokeModel` call using a Stable Image Ultra model, the response looks like the following 
 
-```
+```json
 {
          'seeds': [2130420379], 
          "finish_reasons":[null], 
@@ -35,7 +34,7 @@ When you make an `InvokeModel` call using a Stable Image Ultra model, the respon
 
 A response with a finish reason that is not `null`, will look like the following:
 
-```
+```json
 {
          "finish_reasons":["Filter reason: prompt"]
      }
@@ -70,7 +69,7 @@ The Stability.ai Stable Image Ultra model has the following inference parameters
 + **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295.
 + **negative\_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
 
-```
+```json
 import boto3
        import json
        import base64
@@ -116,7 +115,7 @@ The Stability.ai Stable Image Ultra model has the following inference parameters
 + **seed** – (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range: 0 to 4294967295.
 + **negative\_prompt** – Keywords of what you do not wish to see in the output image. Max: 10.000 characters.
 
-```
+```json
 import boto3
        import json
        import base64

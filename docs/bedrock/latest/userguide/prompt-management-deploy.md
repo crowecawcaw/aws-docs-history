@@ -1,7 +1,6 @@
 
 
 # Deploy a prompt to your application using versions in Prompt management
-<a name="prompt-management-deploy"></a>
 
 When you save your prompt, you create a *draft version* of it. You can keep iterating on the draft version by modifying the prompt and its configurations and saving it.
 

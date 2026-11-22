@@ -1,7 +1,6 @@
 
 
 # Build an end-to-end generative AI workflow with Amazon Bedrock Flows
-<a name="flows"></a>
 
 Amazon Bedrock Flows offers the ability for you to use supported foundation models (FMs) to build workflows by linking prompts, foundational models, and other AWS services to create end-to-end solutions.
 

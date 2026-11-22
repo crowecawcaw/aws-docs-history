@@ -1,7 +1,6 @@
 
 
 # Integrate Automated Reasoning checks in your application
-<a name="integrate-automated-reasoning-checks"></a>
 
 After you deploy your Automated Reasoning policy in a guardrail (see [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md)), you can use it at runtime to validate LLM responses and act on the feedback. This page explains how to call the validation API, interpret the findings programmatically, and implement common integration patterns such as rewriting invalid responses and asking clarifying questions.
 
@@ -90,7 +89,7 @@ An array of content blocks to validate. Each block contains a `text` field with 
 ### Example: Validate an LLM response using the AWS CLI
 <a name="call-apply-guardrail-ar-cli-example"></a>
 
-```
+```bash
 aws bedrock-runtime apply-guardrail \
   --guardrail-identifier "{{your-guardrail-id}}" \
   --guardrail-version "{{1}}" \
@@ -107,7 +106,7 @@ aws bedrock-runtime apply-guardrail \
 ### Example: Validate an LLM response using Python (boto3)
 <a name="call-apply-guardrail-ar-python-example"></a>
 
-```
+```python
 import boto3
 import json
 
@@ -165,7 +164,7 @@ Automated Reasoning checks run on a `Converse` request only when the request inc
 
 If your `Converse` request uses only plain `text` blocks (no `guardContent` blocks), the text is not tagged for guardrail evaluation, so Automated Reasoning checks have nothing to evaluate and are skipped:
 
-```
+```json
 {
   "messages": [{"role": "user", "content": [{"text": "Apply a 20% discount to my order"}]}]
 }
@@ -201,7 +200,7 @@ On `Converse`, the model's response is appended as an agent-side (claim) block a
 ### Example: Call Converse with Automated Reasoning qualifiers using the AWS CLI
 <a name="call-converse-ar-cli-example"></a>
 
-```
+```bash
 aws bedrock-runtime converse \
   --model-id "{{model-id}}" \
   --guardrail-config '{
@@ -292,7 +291,7 @@ The following nesting rules apply:
 ### Example: Call InvokeModel with Automated Reasoning tags using the AWS CLI
 <a name="call-invoke-model-ar-cli-example"></a>
 
-```
+```bash
 aws bedrock-runtime invoke-model \
   --model-id "{{model-id}}" \
   --guardrail-identifier "{{your-guardrail-id}}" \
@@ -327,7 +326,7 @@ This request returns `automatedReasoningPolicyUnits: 1`, with Automated Reasonin
 
 The same request without the XML tags uses plain text:
 
-```
+```json
 "text": "Apply a 20% discount to my order and confirm it is done."
 ```
 
@@ -343,7 +342,7 @@ To act on Automated Reasoning findings programmatically, your application needs 
 
 Each finding is a union – exactly one key is present. Check which key exists to determine the finding type:
 
-```
+```python
 def get_finding_type(finding):
     """Return the finding type and its data from an AR finding union."""
     for finding_type in [
@@ -381,7 +380,7 @@ These rules and scenarios are the key inputs for the rewriting pattern described
 
 A single validation request can return multiple findings. To determine the overall result, sort findings by severity and select the worst. The severity order from worst to best is: `translationAmbiguous`, `impossible`, `invalid`, `satisfiable`, `valid`.
 
-```
+```python
 SEVERITY_ORDER = {
     "tooComplex": 0,
     "translationAmbiguous": 0,
@@ -527,7 +526,7 @@ The clarification flow works as follows:
 
 **Example: Generate clarifying questions from a `satisfiable` finding**
 
-```
+```python
 def generate_clarifying_questions(finding_data, user_question):
     """Ask the LLM to generate clarifying questions from a SATISFIABLE finding."""
     claims_true = json.dumps(
@@ -579,7 +578,7 @@ To build an effective audit trail, log the following information for each valida
 
 **Example: Audit log entry structure**
 
-```
+```json
 {
   "timestamp": "2025-07-21T14:30:00Z",
   "request_id": "req-abc123",

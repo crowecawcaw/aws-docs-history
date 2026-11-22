@@ -1,7 +1,6 @@
 
 
 # Stability.ai Stable Diffusion 3.5 Large
-<a name="model-parameters-diffusion-3-5-large"></a>
 
 The Stable Diffusion 3.5 Large model uses 8 billion parameters and supports 1 megapixel resolution output for text-to-image and image-to-image generation.
 
@@ -27,7 +26,7 @@ When you make an InvokeModel call using a Stable Diffusion 3.5 Large model, fill
 
 When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, the response looks like the following
 
-```
+```json
 {
     'seeds': [2130420379], 
     "finish_reasons":[null], 
@@ -37,7 +36,7 @@ When you make an `InvokeModel` call using a Stable Diffusion 3.5 Large model, th
 
 A response with a finish reason that is not `null`, will look like the following:
 
-```
+```json
 {
     "finish_reasons":["Filter reason: prompt"]
 }
@@ -94,7 +93,7 @@ The Stability.ai Stable Diffusion 3.5 Large model has the following inference pa
 
 + **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
-```
+```python
 import boto3
 import json
 
@@ -165,7 +164,7 @@ The Stability.ai Stable Diffusion 3.5 Large model has the following inference pa
 
 + **output\_format** (string) – Output image format. Enum: jpeg, png, webp. Default png.
 
-```
+```python
 import boto3
 import base64
 import json

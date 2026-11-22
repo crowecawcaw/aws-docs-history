@@ -1,7 +1,6 @@
 
 
 # Stable Diffusion 3.5 Large
-<a name="model-card-stability-ai-stable-diffusion-3-5-large"></a>
 
 ## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Diffusion 3.5 Large
 <a name="model-card-stability-ai-stable-diffusion-3-5-large-header"></a>
@@ -108,7 +107,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import boto3
 import json
 import base64

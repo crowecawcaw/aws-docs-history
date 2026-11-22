@@ -1,7 +1,6 @@
 
 
 # Creating blueprints
-<a name="bda-idp"></a>
 
 ## How to create blueprints for custom outputs
 <a name="how-to-create-blueprints"></a>
@@ -120,7 +119,7 @@ The following image shows "Add fields" module in the Amazon Bedrock console with
 
 Here is an example of what that same field definition looks like in a JSON schema, for the API:
 
-```
+```json
 "product_type":{
 "type": "string",
 "inferenceType": "inferred",

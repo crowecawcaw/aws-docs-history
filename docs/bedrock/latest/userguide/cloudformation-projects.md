@@ -1,7 +1,6 @@
 
 
 # Managing Projects with AWS CloudFormation
-<a name="cloudformation-projects"></a>
 
 Amazon Bedrock is integrated with AWS CloudFormation, allowing you to define and manage Projects as part of your infrastructure templates. You can provision projects consistently and repeatedly across multiple AWS accounts and Regions using JSON or YAML templates.
 
@@ -17,7 +16,7 @@ To declare this entity in your CloudFormation template, use the following syntax
 
 **Example CloudFormation Syntax**  
 
-```
+```json
 {
   "Type": "AWS::BedrockMantle::Project",
   "Properties": {
@@ -29,7 +28,7 @@ To declare this entity in your CloudFormation template, use the following syntax
 }
 ```
 
-```
+```yaml
 Type: AWS::BedrockMantle::Project
 Properties:
   Name: String
@@ -88,7 +87,7 @@ The following example creates a project for a production chatbot application:
 
 **Example Basic Project**  
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Amazon Bedrock Project for Production Chatbot
 
@@ -117,7 +116,7 @@ Outputs:
     Value: !Ref CustomerChatbotProject
 ```
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
@@ -152,7 +151,7 @@ Outputs:
 
 The following example provisions separate projects for development, staging, and production environments in a single stack:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Amazon Bedrock Projects for Multi-Environment Deployment
 
@@ -225,7 +224,7 @@ Outputs:
 
 The following example creates a project and attaches an IAM policy granting a specific role access to invoke models:
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Amazon Bedrock Project with IAM Access Control
 
@@ -275,7 +274,7 @@ Outputs:
 
 After deploying your CloudFormation stack, you can reference the project ARN and ID in your application code using the stack outputs:
 
-```
+```python
 import boto3
 from openai import OpenAI
 

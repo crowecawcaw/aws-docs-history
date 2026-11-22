@@ -1,7 +1,6 @@
 
 
 # Luma AI models
-<a name="model-parameters-luma"></a>
 
 This section describes the request parameters and response fields for Luma AI models. Use this information to make inference calls to Luma AI models with the [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_StartAsyncInvoke.html) operation. This section also includes Python code examples that shows how to call Luma AI models. To use a model in an inference operation, you need the model ID for the model. 
 + Model ID: luma.ray-v2:0
@@ -19,7 +18,7 @@ For more information using the Luma AI models with the APIs, see [Video Generati
 
 Luma AI inference call. 
 
-```
+```json
 POST /async-invoke HTTP/1.1
 Content-type: application/json
 {
@@ -55,7 +54,7 @@ Generate videos from text prompts using the Luma Ray 2 model. The model supports
 
 **Basic Text-to-Video Request**
 
-```
+```json
 {
   "modelId": "luma.ray-v2:0",
   "modelInput": {
@@ -71,7 +70,7 @@ Generate videos from text prompts using the Luma Ray 2 model. The model supports
 
 **Advanced Text-to-Video with Options**
 
-```
+```json
 {
   "modelId": "luma.ray-v2:0",
   "modelInput": {
@@ -93,7 +92,7 @@ Generate videos from text prompts using the Luma Ray 2 model. The model supports
 
 Example with resolution and duration parameters.
 
-```
+```json
 {
   "modelId": "luma.ray-v2:0",
   "modelInput": {
@@ -116,7 +115,7 @@ Transform static images into dynamic videos by providing keyframes. You can spec
 
 **Basic Image-to-Video with Start Frame**
 
-```
+```json
 {
   "modelId": "luma.ray-v2:0",
   "modelInput": {
@@ -142,7 +141,7 @@ Transform static images into dynamic videos by providing keyframes. You can spec
 
 **Image-to-Video with Start and End Frames**
 
-```
+```json
 {
   "modelId": "luma.ray-v2:0",
   "modelInput": {

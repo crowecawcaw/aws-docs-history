@@ -1,7 +1,6 @@
 
 
 # Run Amazon Bedrock flows asynchronously with flow executions
-<a name="flows-create-async"></a>
 
 With flow executions, you can run Amazon Bedrock flows asynchronously. This lets your flows run for longer durations and also yield control so that your application can perform other tasks.
 
@@ -61,7 +60,7 @@ To run a flow execution, send a [StartFlowExecution](https://docs.aws.amazon.com
 + **inputs** – An array containing the [input](flows-nodes.md#flows-nodes-input) node that you want the flow to start running from. You specify the input to send to the prompt flow input node in the `content` field.
 + **name** – A name for the flow execution.
 
-```
+```json
 {
     "inputs": [{
         "nodeName": "FlowInputNode",
@@ -85,7 +84,7 @@ The response is the Amazon Resource Name (ARN) of the flow execution. You can us
 **Track the progress of a flow execution**  
 Use the [GetFlowExecution](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetFlowExecution.html) operation to get the current status of a flow that you identify by its execution ARN. A flow status is either `Running`, `Succeeded`, `Failed`, `TimedOut`, or `Aborted`.
 
-```
+```json
 {
       "endedAt": null,
       "errors": null,
@@ -100,7 +99,7 @@ Use the [GetFlowExecution](https://docs.aws.amazon.com/bedrock/latest/APIReferen
 
 Errors (such as a Lambda node that times out) are returned in the `errors` array like the following example:
 
-```
+```json
 "errors": [{
     "nodeName": "LambdaNode1",
     "errorType": "ExecutionTimedOut",
@@ -115,7 +114,7 @@ If you want the flow to complete first, make a call to `GetFlowExecution` and ma
 
 To get a list of output events from the flow execution, make a call to [ListFlowExecutionEvents](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListFlowExecutionEvents.html). In the response, check for `flowOutputEvent` objects in `flowExecutionEvents`. For example, you can get a flow's output in the `content` field:
 
-```
+```json
 {
       "flowOutputEvent": {
         "content": {
@@ -131,7 +130,7 @@ You can limit the output from `ListFlowExecutions` to just input and output node
 **View events**  
 To help debug your flow execution, you can use the [ListFlowExecutionEvents](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListFlowExecutionEvents.html) operation to view events that nodes generate while the flow is running. Set the `eventType` query parameter to `Node` to see the inputs and outputs of all nodes (including intermediate nodes) in the response that's similar to the following example:
 
-```
+```json
 {
     "flowExecutionEvents": [{
             "nodeOutputEvent": {
@@ -194,7 +193,7 @@ Amazon Bedrock automatically takes a snapshot of a flow definition and metadata 
 + **flowIdentifier** – The flow's ID.
 + **flowVersion** – The flow's version.
 
-```
+```json
 {
       "customerEncryptionKeyArn": null,
       "definition": "{{{flow-definition}}}",
@@ -208,7 +207,7 @@ Amazon Bedrock automatically takes a snapshot of a flow definition and metadata 
 **List your flow executions**  
 You can get a list of your flow executions by calling the [ListFlowExecutions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListFlowExecutions.html) operation. The response includes a `flowExecutionSummaries` array with information about each of your flow executions in the current AWS Region for a flow or flow alias. Each element includes information such as the execution ARN, the start time, and the current status of the flow.
 
-```
+```json
 {
     "flowExecutionSummaries": [{
         "createdAt": "2025-03-11T23:21:02.875598966Z",

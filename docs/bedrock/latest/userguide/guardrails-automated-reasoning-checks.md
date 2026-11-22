@@ -1,7 +1,6 @@
 
 
 # What are Automated Reasoning checks in Amazon Bedrock Guardrails?
-<a name="guardrails-automated-reasoning-checks"></a>
 
 ## What Automated Reasoning checks do
 <a name="automated-reasoning-what-it-does"></a>

@@ -1,7 +1,6 @@
 
 
 # Calculate the cost of running a custom model
-<a name="import-model-calculate-cost"></a>
 
 You are charged for running inference with custom models that you import into Amazon Bedrock. Use the following information to estimate the cost of running a custom model.
 

@@ -1,7 +1,6 @@
 
 
 # Managing Library Entities
-<a name="bda-library-managing-entities"></a>
 
 This section describes how to manage entities within your Data Automation Libraries. Entities are domain-specific resources that enhance extraction accuracy for your content processing workloads. Currently, [Custom Vocabulary](bda-library-custom-vocabulary.md) is the only supported entity type, which improves speech recognition and transcription for audio and video content.
 

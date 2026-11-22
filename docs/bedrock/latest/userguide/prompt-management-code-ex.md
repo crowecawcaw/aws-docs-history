@@ -1,7 +1,6 @@
 
 
 # Run Prompt management code samples
-<a name="prompt-management-code-ex"></a>
 
 To try out some code samples for Prompt management, choose the tab for your preferred method, and then follow the steps: The following code samples assume that you've set up your credentials to use the AWS API. If you haven't, refer to [Get started with the API](getting-started-api.md).
 
@@ -10,7 +9,7 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. Run the following code snippet to load the AWS SDK for Python (Boto3), create a client, and create a prompt that creates a music playlist using two variables (`genre` and `number`) by making a [CreatePrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreatePrompt.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Create a prompt in Prompt management
    import boto3
    
@@ -45,21 +44,21 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. Run the following code snippet to see the prompt that you just created (alongside any other prompts in your account) to make a [ListPrompts](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # List prompts that you've created
    client.list_prompts()
    ```
 
 1. You should see the ID of the prompt you created in the `id` field in the object in the `promptSummaries` field. Run the following code snippet to show information for the prompt that you created by making a [GetPrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetPrompt.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Get information about the prompt that you created
    client.get_prompt(promptIdentifier=prompt_id)
    ```
 
 1. Create a version of the prompt and get its ID by running the following code snippet to make a [CreatePromptVersion](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreatePromptVersion.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Create a version of the prompt that you created
    response = client.create_prompt_version(promptIdentifier=prompt_id)
                            
@@ -69,14 +68,14 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. View information about the prompt version that you just created, alongside information about the draft version, by running the following code snippet to make a [ListPrompts](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # List versions of the prompt that you just created
    client.list_prompts(promptIdentifier=prompt_id)
    ```
 
 1. View information for the prompt version that you just created by running the following code snippet to make a [GetPrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetPrompt.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Get information about the prompt version that you created
    client.get_prompt(
        promptIdentifier=prompt_id, 
@@ -86,7 +85,7 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. Test the prompt by adding it to a flow by following the steps at [Run Amazon Bedrock Flows code samples](flows-code-ex.md). In the first step when you create the flow, run the following code snippet instead to use the prompt that you created instead of defining an inline prompt in the flow (replace the ARN of the prompt version in the `promptARN` field with the ARN of the version of the prompt that you created):
 
-   ```
+   ```python
    # Import Python SDK and create client
    import boto3
    
@@ -207,7 +206,7 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. Delete the prompt version that you just created by running the following code snippet to make a [DeletePrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeletePrompt.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Delete the prompt version that you created
    client.delete_prompt(
        promptIdentifier=prompt_id, 
@@ -217,7 +216,7 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 1. Fully delete the prompt that you just created by running the following code snippet to make a [DeletePrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeletePrompt.html) [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt):
 
-   ```
+   ```python
    # Delete the prompt that you created
    client.delete_prompt(
        promptIdentifier=prompt_id
@@ -231,7 +230,7 @@ To try out some code samples for Prompt management, choose the tab for your pref
 
 After you create and version a prompt, you can invoke it for inference using the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API. Specify the prompt ARN as the `modelId` and provide values for any prompt variables in the `promptVariables` field.
 
-```
+```python
 import boto3, json
 
 bedrock_runtime = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")

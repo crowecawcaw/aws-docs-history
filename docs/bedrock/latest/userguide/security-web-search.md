@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Web Search
-<a name="security-web-search"></a>
 
 Web Search on Amazon Bedrock uses AWS Identity and Access Management (IAM) to control who can run searches and fetches and in which Regions. This page describes the service's IAM prefix, actions, AWS managed policies, condition keys, example policies, and the controls administrators use to disable Web Search.
 
@@ -78,7 +77,7 @@ The model decides when to call search and when to call fetch based on the conten
 
 **Allow search and cached fetch in a specific Region**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -102,7 +101,7 @@ The model decides when to call search and when to call fetch based on the conten
 
 **Allow search, cached fetch, and external web access**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -122,7 +121,7 @@ The model decides when to call search and when to call fetch based on the conten
 
 **Allow cached fetch only**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -140,7 +139,7 @@ The model decides when to call search and when to call fetch based on the conten
 
 **Deny Web Search across an organization (SCP)**
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

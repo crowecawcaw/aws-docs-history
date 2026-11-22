@@ -1,7 +1,6 @@
 
 
 # Sync your structured data store with your Amazon Bedrock knowledge base
-<a name="kb-data-source-structured-sync-ingest"></a>
 
 After you connect your knowledge base to a structured data store, you perform a sync to start the metadata ingestion process so that data can be retrieved. The metadata allows Amazon Bedrock Knowledge Bases to translate user prompts into a query for the connected database.
 

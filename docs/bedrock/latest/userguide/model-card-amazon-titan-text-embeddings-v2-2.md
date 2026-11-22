@@ -1,7 +1,6 @@
 
 
 # Titan Embeddings G1 - Text v2
-<a name="model-card-amazon-titan-text-embeddings-v2-2"></a>
 
 ## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Titan Embeddings G1 - Text v2
 <a name="model-card-amazon-titan-text-embeddings-v2-2-header"></a>

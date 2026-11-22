@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 Client Credentials authentication for ServiceNow
-<a name="kb-managed-servicenow-oauth2-setup"></a>
 
 Use the ServiceNow Table API with OAuth 2.0 Client Credentials (2LO) for authentication. Complete all the following steps in your ServiceNow instance before you configure the data source in Amazon Bedrock.
 
@@ -145,7 +144,7 @@ The following table describes each verification result and the action to take.
 
 Store the credentials in an AWS Secrets Manager secret in the same AWS Region as your knowledge base with the following key-value pairs:
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",
@@ -287,7 +286,7 @@ To set up the endpoint, complete the following steps.
 
 1. **Add the resource script.** Paste the following script into the resource.
 
-   ```
+   ```javascript
    (function process(request, response) {
        // Contract:
        //   IN : { "user_email": "<email>", "document_ids": ["<sys_id>", ...] }   (<= 50 ids)
@@ -571,7 +570,7 @@ To set up the endpoint, complete the following steps.
 
 **Troubleshooting.** Before you expose the endpoint, validate impersonation and release compatibility in a **Scripts - Background** window on the target instance. Replace the two IDs with a real advanced `user_criteria` sys ID and a real user sys ID.
 
-```
+```javascript
 var criteriaId = '<advanced_user_criteria_sys_id>';
 var userId     = '<user_sys_id>';
 

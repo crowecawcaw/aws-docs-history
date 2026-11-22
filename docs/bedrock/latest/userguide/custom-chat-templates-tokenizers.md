@@ -1,7 +1,6 @@
 
 
 # Handling Custom Chat Templates and Tokenizers
-<a name="custom-chat-templates-tokenizers"></a>
 
 Custom chat templates and tokenizers are essential components for properly formatting conversational inputs and managing token generation in your imported models. Custom Model Import supports importing models with custom chat templates that define how multi-turn conversations are structured and tokenized.
 
@@ -48,7 +47,7 @@ Here are examples of the two supported chat template formats:
 
 A simplified example of a Jinja2-based chat template:
 
-```
+```jinja
 {% for message in messages %}
 {% if loop.first and message['role'] != 'system' %}
 <|im_start|>system
@@ -69,7 +68,7 @@ For a complete example, see the [GPT-OSS chat template](https://huggingface.co/o
 
 A simplified example of a JSON-based chat template with vision support:
 
-```
+```json
 {
     "chat_template": "{% for message in messages %}{% if loop.first and message['role'] != 'system' %}<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n{% endif %}<|im_start|>{{ message['role'] }}\n{% if message['content'] is string %}{{ message['content'] }}<|im_end|>\n{% else %}{% for content in message['content'] %}{% if content['type'] == 'image' %}<|vision_start|><|image_pad|><|vision_end|>{% elif 'text' in content %}{{ content['text'] }}{% endif %}{% endfor %}<|im_end|>\n{% endif %}{% endfor %}{% if add_generation_prompt %}<|im_start|>assistant\n{% endif %}"
 }
@@ -96,7 +95,7 @@ This is the recommended approach as it provides the most seamless integration an
 
 **Example: Using OpenAI ChatCompletion API with custom chat template**
 
-```
+```python
 import json
 import boto3
 
@@ -149,7 +148,7 @@ This approach is useful when you need to customize the template application logi
 
 Use the following code snippet to load your custom chat template and apply it to a conversation locally:
 
-```
+```python
 from transformers import AutoTokenizer
 
 # Configuration paths - update these with your actual paths
@@ -184,7 +183,7 @@ This code demonstrates how to:
 
 After applying the chat template locally, use the formatted text with the Completion API:
 
-```
+```python
 import json
 import boto3
 

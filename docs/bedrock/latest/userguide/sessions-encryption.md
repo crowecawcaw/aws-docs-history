@@ -1,7 +1,6 @@
 
 
 # Session encryption
-<a name="sessions-encryption"></a>
 
 By default, Amazon Bedrock uses AWS-managed keys for session encryption. For more information about the default encryption Amazon Bedrock uses, see [Data encryption](https://docs.aws.amazon.com/bedrock/latest/userguide/data-encryption.html).
 
@@ -12,7 +11,7 @@ By default, Amazon Bedrock uses AWS-managed keys for session encryption. For mor
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Customize agent orchestration strategy
-<a name="orch-strategy"></a>
 
 An orchestration strategy defines how an agent accomplishes a task. When an agent is given a task it has to develop a plan and execute that plan. The orchestration strategy defines the process of creating the plan and executing the plan which results in the final answer. The orchestration strategy generally relies on the prompts sent to the model to create the plan and give the appropriate actions to solve the user’s request. By default, agents use the orchestration strategy defined in the base default prompt templates. The default orchestration strategy is ReAct or Reason and Action which makes use of the foundation model’s tool use patterns where applicable. You can customize the orchestration strategy for your agent by creating an AWS Lambda function where you can add your own orchestration logic for your specific use case. 
 

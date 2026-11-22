@@ -1,7 +1,6 @@
 
 
 # Set up Basic or PAT authentication for Confluence Data Center
-<a name="kb-managed-confluence-onprem-auth-setup"></a>
 
 A Confluence Data Center data source supports two authentication methods: Basic authentication and personal access token (PAT) authentication. For either method, you create an AWS Secrets Manager secret that holds the credentials, then reference the secret ARN when you connect the data source. Choose the method that matches how your Confluence Data Center instance is configured.
 
@@ -12,7 +11,7 @@ With Basic authentication (`BASIC`), you create a secret containing a username (
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs:
 
-```
+```json
 {
     "username": "{{your-confluence-username}}",
     "password": "{{your-confluence-password}}"
@@ -34,7 +33,7 @@ With personal access token authentication (`PERSONAL_TOKEN`), you create a secre
 
 Store the token in an AWS Secrets Manager secret with the following key-value pair:
 
-```
+```json
 {
     "patToken": "{{your-confluence-data-center-personal-access-token}}"
 }

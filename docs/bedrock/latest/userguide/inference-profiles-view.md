@@ -1,7 +1,6 @@
 
 
 # View information about an inference profile
-<a name="inference-profiles-view"></a>
 
 You can view information about cross Region inference profiles or application inference profiles that you've created. To learn how to view information about an inference profile, choose the tab for your preferred method, and then follow the steps:
 

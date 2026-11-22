@@ -1,7 +1,6 @@
 
 
 # Cross Region support required for Bedrock Data Automation
-<a name="bda-cris"></a>
 
 BDA requires users to use cross Region inference support when processing files. With cross-Region inference, Amazon Bedrock Data Automation will automatically select the optimal Region within your geography (as shown in the table below) to process your inference request, maximizing available compute resources and model availability, and providing the best customer experience. If you use the global inference profile, BDA can select any commercial AWS Region. There's no additional cost for using cross-Region inference. Unless you select the global inference profile, cross-Region inference requests are kept within the AWS Regions that are part of the geography where the data originally resides. For example, a request made within the US is kept within the AWS Regions in the US. Although the data remains stored only in the source Region, when using cross-Region inference, your requests and output results may move outside of your primary Region. All data will be encrypted while transmitted across Amazon's secure network. 
 
@@ -72,7 +71,7 @@ This error occurs when the inference profile ARN in your IAM policy references `
 
 Verify the profile ARN in your IAM policy matches a supported profile for your Region:
 + If your Region supports the global profile, check for typos in the ARN.
-+ If your Region does not support the global profile, use the geographic profile for your Region instead (for example, `us.data-automation-v1` or `eu.data-automation-v1`). For supported Regions and profile ARNs, see the table in [Cross Region support required for Bedrock Data Automation](#bda-cris).
++ If your Region does not support the global profile, use the geographic profile for your Region instead (for example, `us.data-automation-v1` or `eu.data-automation-v1`). For supported Regions and profile ARNs, see the table in [Cross Region support required for Bedrock Data Automation](bda-cris.md).
 
 **Existing customers unaffected**  
 Existing customers using geographic profiles are not affected by the introduction of the global profile. This error only applies when explicitly referencing `global.data-automation-v1`.

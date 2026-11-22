@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a flow that processes mortgage applications
-<a name="getting-started-mortgage-flow"></a>
 
 To get familiar with Amazon Bedrock resources and their capabilities, we'll use an CloudFormation template to set up a [flow](flows.md) that automates a mortgage application process processes by combining various Amazon Bedrock and other AWS resources.
 
@@ -72,7 +71,7 @@ First, use the script from the .zip file to upload the resources to an S3 bucket
 
 1. In a terminal, run the following command to copy the resources into an Amazon S3 bucket and populate the `main-stack.yaml` and `main-stack.json` files with the S3 bucket name as the default value for the bucket name parameter.
 
-   ```
+   ```bash
    bash deploy.sh
    ```
 **Note**  
@@ -157,7 +156,7 @@ Once the mortgage processing flow has been created, you can use the Amazon Bedro
 
 1. In the **Test flow** pane, enter the following in the text field and then select **Run**.
 
-   ```
+   ```json
    {
        "income": 80000, 
        "totalDebt": 5000, 
@@ -172,7 +171,7 @@ Once the mortgage processing flow has been created, you can use the Amazon Bedro
 
 1. Again, in the **Test flow** pane, enter the following in the text field and then select **Run**.
 
-   ```
+   ```json
    {
        "income": 120000, 
        "totalDebt": 5000, 

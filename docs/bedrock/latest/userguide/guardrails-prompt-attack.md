@@ -1,7 +1,6 @@
 
 
 # Detect prompt attacks with Amazon Bedrock Guardrails
-<a name="guardrails-prompt-attack"></a>
 
 Prompt attacks are user prompts intended to bypass the safety and moderation capabilities of a foundation model to generate harmful content, and ignore and override instructions specified by the developer, or extract confidential information such as system prompts.
 
@@ -104,7 +103,7 @@ You can configure prompt attack filters for your guardrail by using the AWS Mana
 
 To create a guardrail with prompt attack filters, send a [CreateGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html) request. The request format is as follows:
 
-```
+```json
 POST/guardrails HTTP/1.1
 Content - type: application/json
 
@@ -150,7 +149,7 @@ Content - type: application/json
 
 The response format is as follows:
 
-```
+```json
 HTTP/1.1 202
 Content - type: application/json
 

@@ -1,7 +1,6 @@
 
 
 # Handle fulfillment of the action
-<a name="action-handle"></a>
 
 When you configure the action group, you also select one of the following options for the agent to pass the information and parameters that it receives from the user:
 + Add user input to your agent's action group. With user input, agent can [request user for more information](agents-user-input.md) if it doesn't have enough information to complete a task. 

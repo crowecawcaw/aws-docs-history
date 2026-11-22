@@ -1,7 +1,6 @@
 
 
 # Increase model invocation capacity with Provisioned Throughput in Amazon Bedrock
-<a name="prov-throughput"></a>
 
 **Throughput** refers to the number and rate of inputs and outputs that a model processes and returns. You can purchase **Provisioned Throughput** to provision a higher level of throughput for a model at a fixed cost. If you customized a model, you must purchase Provisioned Throughput to be able to use it.
 

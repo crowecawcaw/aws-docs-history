@@ -1,7 +1,6 @@
 
 
 # Amazon Titan Multimodal Embeddings G1
-<a name="model-parameters-titan-embed-mm"></a>
 
 This section provides request and response body formats and code examples for using Amazon Titan Multimodal Embeddings G1.
 
@@ -19,7 +18,7 @@ The request body is passed in the `body` field of an [InvokeModel](https://docs.
 
 The request body for Amazon Titan Multimodal Embeddings G1 includes the following fields.
 
-```
+```json
 {
     "inputText": string,
     "inputImage": base64-encoded string,
@@ -44,7 +43,7 @@ The following field is optional.
 
 The `body` of the response contains the following fields.
 
-```
+```json
 {
     "embedding": [float, float, ...],
     "inputTextTokenCount": int,
@@ -69,7 +68,7 @@ The following examples show how to invoke the Amazon Titan Multimodal Embeddings
 
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate text embeddings.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -176,7 +175,7 @@ if __name__ == "__main__":
 
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate image embeddings.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -285,7 +284,7 @@ if __name__ == "__main__":
 
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate embeddings from a combined text and image input. The resulting vector is the average of the generated text embeddings vector and the image embeddings vector.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

@@ -1,7 +1,6 @@
 
 
 # Use `InvokeAgent` with an AWS SDK
-<a name="bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeAgent_section"></a>
 
 The following code examples show how to use `InvokeAgent`.
 
@@ -11,7 +10,7 @@ The following code examples show how to use `InvokeAgent`.
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples). 
 
-```
+```javascript
 import {
   BedrockAgentRuntimeClient,
   InvokeAgentCommand,
@@ -86,7 +85,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples). 
 Invoke an agent.  
 
-```
+```python
     def invoke_agent(self, agent_id, agent_alias_id, session_id, prompt):
         """
         Sends a prompt for the agent to process and respond to.
@@ -130,7 +129,7 @@ Invoke an agent.
 **SDK for Rust**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-agent-runtime#code-examples). 
 
-```
+```rust
 use aws_config::{BehaviorVersion, SdkConfig};
 use aws_sdk_bedrockagentruntime::{
     self as bedrockagentruntime,
@@ -292,7 +291,7 @@ mod test {
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdz#code-examples). 
 
-```
+```sap-abap
     DATA(lo_result) = lo_bdz->invokeagent(
       iv_agentid      = iv_agentid
         iv_agentaliasid = iv_agentaliasid

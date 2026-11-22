@@ -1,7 +1,6 @@
 
 
 # Use Anthropic Claude 3.7 Sonnet's reasoning capability on Amazon Bedrock
-<a name="bedrock-runtime_example_bedrock-runtime_ConverseStream_AnthropicClaudeReasoning_section"></a>
 
 The following code example shows how to use Anthropic Claude 3.7 Sonnet's reasoning capability on Amazon Bedrock
 
@@ -12,7 +11,7 @@ The following code example shows how to use Anthropic Claude 3.7 Sonnet's reason
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Use Anthropic Claude 3.7 Sonnet's reasoning capability to generate streaming text responses.  
 
-```
+```java
 import com.example.bedrockruntime.models.anthropicClaude.lib.ReasoningResponse;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.document.Document;

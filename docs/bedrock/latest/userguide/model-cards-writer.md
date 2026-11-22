@@ -1,7 +1,6 @@
 
 
 # Writer
-<a name="model-cards-writer"></a>
 
 The following Writer models are available in Amazon Bedrock:
 

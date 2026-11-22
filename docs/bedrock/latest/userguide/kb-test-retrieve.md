@@ -1,7 +1,6 @@
 
 
 # Query a knowledge base and retrieve data
-<a name="kb-test-retrieve"></a>
 
 **Important**  
 Guardrails are applied only to the input and the generated response from the LLM. They are not applied to the references retrieved from Knowledge Bases at runtime.
@@ -20,7 +19,7 @@ Managed reranking is available only for knowledge bases that use managed embeddi
 The `startsWith` and `stringContains` metadata filters are not supported for managed knowledge bases. For details, see [Manual metadata filtering](kb-test-config.md#kb-test-config-filters).
 The following example shows a minimal `Retrieve` request for a fully managed knowledge base with managed reranking (default):  
 
-```
+```json
 {
     "retrievalQuery": {
         "text": "{{your query text}}"
@@ -29,7 +28,7 @@ The following example shows a minimal `Retrieve` request for a fully managed kno
 ```
 To disable reranking:  
 
-```
+```json
 {
     "retrievalQuery": {
         "text": "{{your query text}}"
@@ -43,7 +42,7 @@ To disable reranking:
 ```
 To use a custom Bedrock reranking model:  
 
-```
+```json
 {
     "retrievalQuery": {
         "text": "{{your query text}}"
@@ -156,7 +155,7 @@ For comprehensive guidance on setting up and working with multimodal knowledge b
 
 You can query with images by using the `multimodalInputList` field:
 
-```
+```json
 {
     "knowledgeBaseId": "EXAMPLE123", 
     "retrievalQuery": {
@@ -174,7 +173,7 @@ You can query with images by using the `multimodalInputList` field:
 
 Or you can query with text only by using the `text` field:
 
-```
+```json
 {
     "knowledgeBaseId": "EXAMPLE123",
     "retrievalQuery": {

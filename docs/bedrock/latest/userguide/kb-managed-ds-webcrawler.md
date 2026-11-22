@@ -1,7 +1,6 @@
 
 
 # Web Crawler
-<a name="kb-managed-ds-webcrawler"></a>
 
 The Web Crawler connects to and crawls URLs you specify for use in your managed knowledge base. The Web Crawler traverses HTML pages starting from your seed URLs, following child links according to your crawl scope and limits. You can also provide sitemap URLs as starting points. The Web Crawler respects robots.txt in accordance with [RFC 9309](https://www.rfc-editor.org/rfc/rfc9309.html).
 
@@ -98,7 +97,7 @@ aws bedrock-agent create-data-source \
 
 The `webcrawler-managed-connector.json` file contains the following:
 
-```
+```json
 {
     "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     "managedKnowledgeBaseConnectorConfiguration": {
@@ -181,7 +180,7 @@ If your website requires authentication, store your credentials in an AWS Secret
 
 **Basic authentication (`BASIC_AUTH`)**
 
-```
+```json
 {
     "userName": "{{your-username}}",
     "password": "{{your-password}}",
@@ -193,7 +192,7 @@ If your website requires authentication, store your credentials in an AWS Secret
 
 For form-based authentication, provide XPath expressions that identify the user name field, password field, and submit button on the login page.
 
-```
+```json
 {
     "authentication": "FORM",
     "loginPageUrl": "{{https://example.com/login}}",
@@ -210,7 +209,7 @@ For form-based authentication, provide XPath expressions that identify the user 
 
 For SAML authentication, provide the SAML identity provider's login page URL and XPath expressions for the form fields.
 
-```
+```json
 {
     "authentication": "SAML",
     "loginPageUrl": "{{https://your-idp.example.com/login}}",

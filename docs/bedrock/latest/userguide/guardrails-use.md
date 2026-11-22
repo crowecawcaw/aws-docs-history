@@ -1,7 +1,6 @@
 
 
 # Use cases for Amazon Bedrock Guardrails
-<a name="guardrails-use"></a>
 
 After you create a guardrail, you can apply with the following features:
 + [Model inference](inference.md) – Apply a guardrail to submitted prompts and generated responses when running inference on a model.

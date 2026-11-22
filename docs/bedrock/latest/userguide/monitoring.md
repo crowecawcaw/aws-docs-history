@@ -1,7 +1,6 @@
 
 
 # Monitor the `bedrock-runtime` endpoint
-<a name="monitoring"></a>
 
 The `bedrock-runtime.{{region}}.amazonaws.com` endpoint serves the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html), [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html), [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) API operations. The topics in this section describe the observability options available for traffic to this endpoint, including Amazon CloudWatch metrics, AWS CloudTrail logging, and model invocation logging.
 

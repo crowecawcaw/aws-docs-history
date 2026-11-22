@@ -1,7 +1,6 @@
 
 
 # Mistral AI
-<a name="model-cards-mistral-ai"></a>
 
 The following Mistral AI models are available in Amazon Bedrock:
 

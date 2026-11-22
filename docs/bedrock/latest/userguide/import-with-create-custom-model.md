@@ -1,7 +1,6 @@
 
 
 # Import a SageMaker AI-trained Amazon Nova model
-<a name="import-with-create-custom-model"></a>
 
 **Note**  
 To import open-source models into Amazon Bedrock, you use a model import job. For more information, see [Use Custom model import to import a customized open-source model into Amazon Bedrock](model-customization-import-model.md). 

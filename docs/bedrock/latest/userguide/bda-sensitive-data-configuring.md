@@ -1,7 +1,6 @@
 
 
 # Configuring sensitive data settings
-<a name="bda-sensitive-data-configuring"></a>
 
 You configure sensitive data settings within an Amazon Bedrock Data Automation (BDA) project. For more information about creating a project, see [Bedrock Data Automation projects](bda-projects.md).
 

@@ -1,7 +1,6 @@
 
 
 # Advanced prompt templates
-<a name="advanced-prompts-templates"></a>
 
 With advanced prompts, you can do the following:
 + Edit the default base prompt templates that the agent uses. By overriding the logic with your own configurations, you can customize your agent's behavior. 
@@ -17,7 +16,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
 + If you're using Anthropic Claude Instant, Claude v2.0, or Claude v2.1, the prompt templates must be raw text.
 + If you're using Anthropic Claude 3 Sonnet, Claude 3 Haiku, or Claude 3 Opus, the knowledge base response generation prompt template must be raw text, but the pre-processing, orchestration, and post-processing prompt templates must match the JSON format outlined in the [Anthropic Claude Messages API](model-parameters-anthropic-claude-messages.md). For an example, see the following prompt templates:
 
-  ```
+  ```json
   {
       "anthropic_version": "bedrock-2023-05-31",
       "system": "
@@ -67,7 +66,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
   ```
 + If you are using Claude 3.5 Sonnet, see the example prompt template:
 
-  ```
+  ```json
   {
           "anthropic_version": "bedrock-2023-05-31",
           "system": "
@@ -106,7 +105,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
   ```
 + If you are using Llama 3.1 or Llama 3.2, see the following example prompt template:
 
-  ```
+  ```json
   {
           "anthropic_version": "bedrock-2023-05-31",
           "system": "
@@ -140,7 +139,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
 **Example prompt templates for multi-agent collaboration**
 + If you are using Claude 3.5 Sonnet, see the example prompt template:
 
-  ```
+  ```json
           {
               "anthropic_version": "bedrock-2023-05-31",
               "system": "
@@ -198,7 +197,7 @@ Describes how the agent should evaluate and use the prompt that it receives at t
   ```
 + If you are using routing classifier, see the example prompt template:
 
-  ```
+  ```json
       Here is a list of agents for handling user's requests:
       <agent_scenarios>
       $reachable_agents$
@@ -273,7 +272,7 @@ After you edit the prompt templates, you can test your agent. To analyze the ste
 
 Certain models allow model reasoning, where the foundation model will perform chain of thought reasoning to reach its conclusions. This can often generate more accurate responses, but requires additional output tokens. To turn on model reasoning, you need to include the following `additionalModelRequestField` statement:
 
-```
+```JSON
 "additionalModelRequestFields": {
     "reasoning_config": {
         "type": "enabled",

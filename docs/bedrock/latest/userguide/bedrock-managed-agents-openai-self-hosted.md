@@ -1,7 +1,6 @@
 
 
 # Run your first agent with self-hosted compute
-<a name="bedrock-managed-agents-openai-self-hosted"></a>
 
 This tutorial connects a local or remote host to a BMA session. The host runs `codex exec-server`, and BMA uses that connection for tool execution. The example creates IAM roles in your AWS account and uses a workspace on your host.
 
@@ -12,7 +11,7 @@ Complete the [prerequisites](bedrock-managed-agents-openai-prerequisites.md) fir
 
 From the extracted bundle root:
 
-```
+```bash
 cd self-hosted
 npm ci
 npx cdk bootstrap
@@ -21,7 +20,7 @@ npm run deploy
 
 Review the IAM changes when CDK prompts you. If another stack already owns `BedrockManagedAgentsPreviewInferenceServiceRole`, use:
 
-```
+```bash
 npm run deploy -- --parameters ManageCustomerInferenceRole=false
 ```
 
@@ -32,7 +31,7 @@ The stack outputs `BmaAccessRoleArn` and `CustomerInferenceRoleArn`. Configure y
 
 Select your BMA client profile and create a dedicated workspace. The path must exist on the host where the exec server runs.
 
-```
+```bash
 export AWS_PROFILE=my-bma-client-profile
 export BMA_REGION=us-east-1
 export BMA_ENDPOINT="https://bedrock-mantle.${BMA_REGION}.api.aws"
@@ -51,14 +50,14 @@ A successful response includes a session ID, an environment ID, the selected mod
 
 Open a second terminal, select the same AWS client profile, and change to the same `self-hosted/` directory:
 
-```
+```bash
 export AWS_PROFILE=my-bma-client-profile
 ./scripts/bma/1.attach-exec-server.sh
 ```
 
 The script uses `bin/codex` in the bundle root. To select a different host executable:
 
-```
+```bash
 ./scripts/bma/1.attach-exec-server.sh /path/to/host/codex
 ```
 
@@ -69,7 +68,7 @@ Leave this process running. Its log reports when the direct exec-server connecti
 
 In the first terminal:
 
-```
+```bash
 ./scripts/bma/2.submit-turn.sh "Run: uname -a"
 ./scripts/bma/3.read-result.sh
 ```
@@ -78,7 +77,7 @@ Submitting a message starts a turn. The result script polls the session and then
 
 Submit another message to continue the same conversation:
 
-```
+```bash
 ./scripts/bma/2.submit-turn.sh "Summarize the operating system information you just retrieved."
 ./scripts/bma/3.read-result.sh
 ```
@@ -88,7 +87,7 @@ Process one turn at a time in this introductory workflow. See [sessions and resu
 ## Step 5: Delete the session
 <a name="bedrock-managed-agents-openai-self-hosted-step-5-delete-the-session"></a>
 
-```
+```bash
 ./scripts/bma/4.delete-session.sh
 ```
 

@@ -1,7 +1,6 @@
 
 
 # GPT OSS Safeguard 20B
-<a name="model-card-openai-gpt-oss-safeguard-20b"></a>
 
 ## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT OSS Safeguard 20B
 <a name="model-card-openai-gpt-oss-safeguard-20b-header"></a>
@@ -181,7 +180,7 @@ Choose the tab for your SDK and endpoint.
 ------
 #### [ bedrock-mantle ]
 
-```
+```bash
 OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
 ```
@@ -216,7 +215,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -231,7 +230,7 @@ print(response)
 ------
 #### [ Chat ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -253,7 +252,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 **Note**  
 To call the Responses API with this model, use `bedrock-mantle`. You can't call it on `bedrock-runtime`.
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -273,7 +272,7 @@ Use the Boto3 settings from [Step 4 - Set environment variables](#model-card-ope
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -291,7 +290,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

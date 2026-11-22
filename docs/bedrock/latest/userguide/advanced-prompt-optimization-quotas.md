@@ -1,7 +1,6 @@
 
 
 # Supported Regions, models, and quotas
-<a name="advanced-prompt-optimization-quotas"></a>
 
 ## Supported Regions
 <a name="advanced-prompt-optimization-quotas-regions"></a>

@@ -1,7 +1,6 @@
 
 
 # Inference request parameters and response fields for foundation models
-<a name="model-parameters"></a>
 
 The topics in this section describe the request parameters and response fields for the models that Amazon Bedrock supplies. When you make inference calls to models with the model invocation ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html), [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html), and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)) API operations, you include request parameters depending on the model that you're using.
 

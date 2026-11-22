@@ -1,7 +1,6 @@
 
 
 # Step 3: Test the agent
-<a name="agent-tutorial-step3"></a>
 
 In this procedure, you'll test the working draft of your agent using the built-in testing interface in the Amazon Bedrock console. You'll send natural language queries asking for the current date and time, and observe how the agent processes these requests, invokes your Lambda function, and returns formatted responses. This testing step allows you to verify that your agent correctly understands user intent, properly calls the Lambda function, and presents the information in a user-friendly way.
 

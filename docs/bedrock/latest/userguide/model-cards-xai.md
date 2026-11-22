@@ -1,7 +1,6 @@
 
 
 # xAI
-<a name="model-cards-xai"></a>
 
 The following xAI models are available in Amazon Bedrock:
 

@@ -1,7 +1,6 @@
 
 
 # Get user confirmation before invoking action group function
-<a name="agents-userconfirmation"></a>
 
 You can safeguard your application from malicious prompt injections by requesting confirmation from your application users before invoking the action group function. When an end user interacts with your application, Amazon Bedrock Agent figures out the API or knowledge bases to invoke to automate the task for the user. The information from the API or knowledge bases might contain potentially damaging data. Between each iteration if the response contains any instruction, the agent will comply. If the response includes instructions for the model to invoke unintended actions, the agent will go ahead and comply with the instruction. To ensure that certain actions are implemented only after explicit user consent, we recommend that you request confirmation from the end user before invoking the function. 
 
@@ -27,7 +26,7 @@ If the user response is **DENY**, the function or the API in the response is not
 
 **Response**
 
-```
+```json
 HTTP/1.1 200
 x-amzn-bedrock-agent-content-type: contentType
 x-amz-bedrock-agent-session-id: sessionId
@@ -56,7 +55,7 @@ Content-type: application/json
 
 **Request**
 
-```
+```json
 POST /agents/agentId/agentAliases/agentAliasId/sessions/sessionId/text HTTP/1.1
 Content-type: application/json
 

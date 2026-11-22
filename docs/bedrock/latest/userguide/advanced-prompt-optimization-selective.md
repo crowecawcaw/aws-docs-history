@@ -1,7 +1,6 @@
 
 
 # Selective optimization
-<a name="advanced-prompt-optimization-selective"></a>
 
 By default, Advanced Prompt Optimization rewrites any part of your entire prompt template end-to-end. With selective optimization, you control exactly which sections of your prompt the optimizer can modify. Use selective optimization when your prompt is large or complex and some sections are already well-tuned. This lets you improve only the parts that still need work.
 

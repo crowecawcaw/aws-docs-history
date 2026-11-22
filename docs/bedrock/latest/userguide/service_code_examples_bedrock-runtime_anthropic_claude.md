@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude for Amazon Bedrock Runtime
-<a name="service_code_examples_bedrock-runtime_anthropic_claude"></a>
 
 The following code examples show how to use Amazon Bedrock Runtime with AWS SDKs.
 

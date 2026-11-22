@@ -1,7 +1,6 @@
 
 
 # Meta
-<a name="model-cards-meta"></a>
 
 The following Meta models are available in Amazon Bedrock:
 

@@ -1,7 +1,6 @@
 
 
 # Use agentic retrieval to query a knowledge base
-<a name="kb-test-agentic-retrieve"></a>
 
 Agentic retrieval uses a foundation model to intelligently decompose complex queries into sub-queries, iteratively retrieve relevant information from your knowledge bases, and evaluate whether the retrieved results are sufficient to answer the original query. This approach improves retrieval accuracy for complex, multi-step questions that a single retrieval pass might not fully address.
 
@@ -104,7 +103,7 @@ When `sessionBinding` is set, use `persistenceMode` to control whether the curre
 
 The following example restores an earlier session, gives the agent access to that actor's long-term memory, and persists the exchange back to the session:
 
-```
+```json
 {
     "messages": [
         {
@@ -156,7 +155,7 @@ To apply one, supply the `retrievalInstructionConfiguration` field with the `ret
 
 In the following example, replace `abcde12345` with your retrieval instruction ID and `3` with the version to apply:
 
-```
+```json
 {
     "messages": [
         {
@@ -188,7 +187,7 @@ In the following example, replace `abcde12345` with your retrieval instruction I
 
 To confirm which instruction and version a request used, read the `appliedInstruction` attribute on the first **Planning** trace event. The following example shows the attributes of that trace event:
 
-```
+```json
 {
     "step": "Planning",
     "status": "IN_PROGRESS",
@@ -207,7 +206,7 @@ For more information about trace events, see [Agentic retrieval response](#kb-ag
 
 To use the `AgenticRetrieveStream` API, the calling IAM identity must have the following permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -235,7 +234,7 @@ To use the `AgenticRetrieveStream` API, the calling IAM identity must have the f
 
 If you use guardrails with agentic retrieval, add the following permissions:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -248,7 +247,7 @@ If you use guardrails with agentic retrieval, add the following permissions:
 
 If you use an AgentCore Memory resource with agentic retrieval, add the following permissions:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": [
@@ -265,7 +264,7 @@ If you use an AgentCore Memory resource with agentic retrieval, add the followin
 
 If the memory resource is encrypted with a customer managed key, add the following permission on that key:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "kms:Decrypt",
@@ -275,7 +274,7 @@ If the memory resource is encrypted with a customer managed key, add the followi
 
 If you apply a retrieval instruction with agentic retrieval, add the following permission:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "bedrock:GetRetrievalInstruction",
@@ -287,7 +286,7 @@ Versions don't have their own ARN, so this permission also covers the version th
 
 If the retrieval instruction is encrypted with a customer managed key, add the following permission on that key:
 
-```
+```json
 {
     "Effect": "Allow",
     "Action": "kms:Decrypt",

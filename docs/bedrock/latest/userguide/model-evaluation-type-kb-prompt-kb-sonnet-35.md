@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude 3.5 Sonnet
-<a name="model-evaluation-type-kb-prompt-kb-sonnet-35"></a>
 
 Prompts used with Anthropic Claude 3.5 Sonnet
 

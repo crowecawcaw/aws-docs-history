@@ -1,7 +1,6 @@
 
 
 # Converse with an Amazon Bedrock flow
-<a name="flows-multi-turn-invocation"></a>
 
 **Note**  
 Amazon Bedrock Flows multi-turn conversation is in preview release for Amazon Bedrock and is subject to change.
@@ -32,7 +31,7 @@ You start a flow by calling the [InvokeFlow](https://docs.aws.amazon.com/bedrock
 
 The following is example JSON for a request to `InvokeFlow`.
 
-```
+```json
 {
   "flowIdentifier": "XXXXXXXXXX",
   "flowAliasIdentifier": "YYYYYYYYYY",
@@ -55,7 +54,7 @@ If the agent node in the flow decides that it needs more information from the us
 
 The following is an example `FlowMultiTurnInputRequestEvent` JSON object.
 
-```
+```json
 {
     "nodeName": "AgentsNode_1",
     "nodeType": "AgentNode",
@@ -85,7 +84,7 @@ Send the user response back to the flow by calling the `InvokeFlow` operation ag
 
 The following is example JSON for the request to `InvokeFlow`. The `document` field contains the response from the user.
 
-```
+```json
 {
   "flowIdentifier": "AUS7BMHXBE",
   "flowAliasIdentifier": "4KUDB8VBEF",
@@ -111,7 +110,7 @@ When no more information is needed, the flow emits a `FlowOutputEvent` event whi
 
 The following is an example `FlowOutputEvent` JSON object.
 
-```
+```json
 {
     "nodeName": "FlowOutputNode",
     "content": {
@@ -172,7 +171,7 @@ To run the code, specify the following:
 
 For information about getting the IDs, see [View information about flows in Amazon Bedrock](flows-view.md). The code prompts for an initial request to send to the flow and requests more input as needed by the flow. The code doesn't manage other requests from the agent, such as requests to call AWS Lambda functions. For more information, see [How Amazon Bedrock Agents works](agents-how.md). While running, the code generates `FlowTraceEvent` objects that you can use to track the path from the input to the response that flow returns. For more information, see [Track each step in your flow by viewing its trace in Amazon Bedrock](flows-trace.md).
 
-```
+```python
 """
 Runs an Amazon Bedrock flow and handles muli-turn interaction for a single conversation.
 

@@ -1,7 +1,6 @@
 
 
 # Invoke Amazon Titan Image on Amazon Bedrock to generate an image
-<a name="bedrock-runtime_example_bedrock-runtime_InvokeModel_TitanImageGenerator_section"></a>
 
 The following code examples show how to invoke Amazon Titan Image on Amazon Bedrock to generate an image.
 
@@ -12,7 +11,7 @@ The following code examples show how to invoke Amazon Titan Image on Amazon Bedr
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples). 
 Create an image with the Amazon Titan Image Generator.  
 
-```
+```go
 import (
 	"context"
 	"encoding/json"
@@ -106,7 +105,7 @@ func (wrapper InvokeModelWrapper) InvokeTitanImage(ctx context.Context, prompt s
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Create an image with the Amazon Titan Image Generator.  
 
-```
+```java
 // Create an image with the Amazon Titan Image Generator.
 
 import org.json.JSONObject;
@@ -196,7 +195,7 @@ public class InvokeModel {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Create an image with the Amazon Titan Image Generator.  
 
-```
+```python
 # Use the native inference API to create an image with Amazon Titan Image Generator
 
 import base64

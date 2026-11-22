@@ -1,7 +1,6 @@
 
 
 # Blueprints
-<a name="bda-blueprint-info"></a>
 
 Blueprints are artifacts that you can use to configure your file processing business logic. Each blueprint consists of a list of field names that you can extract, the data format in which you want the response for the field to be extracted—such as string, number, or boolean—as well as natural language context for each field that you can use to specify data normalization and validation rules. You can create a blueprint for each class of file that you want to process, such as a W2, pay stub or ID card. Blueprints can be created using the console or the API. Each blueprint that you create is an AWS resource with its own blueprint ID and ARN.
 

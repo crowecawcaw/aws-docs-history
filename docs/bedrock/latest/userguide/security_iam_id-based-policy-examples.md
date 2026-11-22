@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Bedrock
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Bedrock resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -44,7 +43,7 @@ To ensure that users and roles can still use the Amazon Bedrock console, also at
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -89,7 +88,7 @@ To prevent a user from invoking foundation models, you need to deny access to AP
 
 ****  
 
-```
+```json
 {
           "Version":"2012-10-17",		 	 	 
           "Statement": {
@@ -119,7 +118,7 @@ The following is a sample policy that you can attach to an IAM role to allow it 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -143,7 +142,7 @@ The following is a sample policy that you can attach to an IAM role to allow it 
 
 The following policy grants the minimum permissions required to use the Amazon Bedrock Playground in the AWS Management Console to chat with a model. Replace {{<region>}}, {{<account-id>}}, and the model resource ARNs with your values.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

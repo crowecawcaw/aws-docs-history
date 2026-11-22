@@ -1,7 +1,6 @@
 
 
 # Access Control Lists awareness enablement
-<a name="kb-managed-acl"></a>
 
 Bedrock Managed Knowledge Base supports *ACL-aware retrieval* — the ability to filter query results based on document-level access control lists (ACLs) crawled from your connected data sources. When ACL awareness is enabled on a data source, Bedrock Managed Knowledge Base ingests the permissions (allowed users, denied users, allowed groups, denied groups) alongside document content. At query time, you supply a user context and Bedrock Managed Knowledge Base returns only the documents that user is permitted to access. For the request syntax used to pass user context at retrieval time, see [ACL-aware retrieval on managed knowledge bases](kb-test-retrieve-acl.md).
 
@@ -13,7 +12,7 @@ Bedrock Managed Knowledge Base provides *ACL-aware filtering*, not a security bo
 
 ACL-aware retrieval operates in two stages:
 + **Pre-retrieval filtering** — During ingestion, Bedrock Managed Knowledge Base crawls document permissions from the data source. At query time, Bedrock Managed Knowledge Base uses the user context you provide to filter the search results, returning only documents where the user (or their groups) appears in the allow list and does not appear in the deny list.
-+ **Real-time ACL verification** — For connectors that support it (SharePoint, OneDrive, Google Drive, Confluence, Confluence Data Center, Box, Zendesk, and Salesforce), Bedrock Managed Knowledge Base makes a real-time call to the data source to verify that the user still has access to each returned document. This catches permission changes that occurred between syncs. For ServiceNow, real-time verification applies only to advanced (scripted) user criteria and requires the real-time ACL verifier endpoint that you install in your ServiceNow instance; all other user criteria are resolved at crawl time and permission changes take effect only after the next sync. S3 and Custom connectors do not support real-time verification because their ACL metadata is provided by the customer through configuration files rather than crawled from a live permission system.
++ **Real-time ACL verification** — For connectors that support it (SharePoint, OneDrive, Google Drive, Confluence, Confluence Data Center, Box, Zendesk, Salesforce, and Dropbox), Bedrock Managed Knowledge Base makes a real-time call to the data source to verify that the user still has access to each returned document. This catches permission changes that occurred between syncs. For ServiceNow, real-time verification applies only to advanced (scripted) user criteria and requires the real-time ACL verifier endpoint that you install in your ServiceNow instance; all other user criteria are resolved at crawl time and permission changes take effect only after the next sync. S3 and Custom connectors do not support real-time verification because their ACL metadata is provided by the customer through configuration files rather than crawled from a live permission system.
 
 Both stages use the same evaluation logic: if a user appears in both an allow list and a deny list for a document, access is denied. Deny always overrides allow.
 
@@ -49,6 +48,7 @@ Not all connectors support ACL awareness. The following table shows which connec
 | [Box](kb-managed-ds-box-acl.md) | Supported | Supported | Uses Client Credentials Grant (2LO) for real-time checks. Requires CCG auth type. | 
 | [Zendesk](kb-managed-ds-zendesk-acl.md) | Supported | Supported | Uses OAuth 2.0 Client Credentials (2LO) for real-time checks. Requires OAUTH2 auth type. | 
 | [Salesforce](kb-managed-ds-salesforce-acl.md) | Supported | Supported | Uses the OAuth 2.0 JWT Bearer Flow to check access as the querying user. Requires OAUTH2\_WITH\_JWT\_BEARER auth type. Experience Cloud users are not supported. | 
+| [Dropbox](kb-managed-ds-dropbox-acl.md) | Supported | Supported | Uses the team-linked app's credentials to check access as the querying user. Requires TEAM\_ADMIN auth type. | 
 | [Amazon S3](kb-managed-ds-s3-acl.md) | Supported | Not supported | ACLs defined through a customer-provided ACL configuration file in Amazon S3. No real-time verification because the customer-provided metadata file is the source of truth. | 
 | [Custom](kb-managed-ds-custom-acl.md) | Supported | Not supported | ACLs defined through customer-provided metadata. No real-time verification because the customer-provided metadata is the source of truth. | 
 | Web Crawler | Not supported | N/A | Web content has no permission model. ACL awareness cannot be enabled for this connector. | 
@@ -63,6 +63,7 @@ For connector-specific ACL configuration details, see:
 + [ACL awareness for Box](kb-managed-ds-box-acl.md)
 + [ACL awareness for Zendesk](kb-managed-ds-zendesk-acl.md)
 + [ACL awareness for Salesforce](kb-managed-ds-salesforce-acl.md)
++ [ACL awareness for Dropbox](kb-managed-ds-dropbox-acl.md)
 + [ACL awareness for Amazon S3](kb-managed-ds-s3-acl.md)
 + [ACL awareness for Custom](kb-managed-ds-custom-acl.md)
 

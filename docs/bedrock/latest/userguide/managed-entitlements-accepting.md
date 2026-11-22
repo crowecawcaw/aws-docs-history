@@ -1,7 +1,6 @@
 
 
 # Accepting and activating grants
-<a name="managed-entitlements-accepting"></a>
 
 After a grant has been distributed to a member account, the grant must be accepted and activated before the third-party Bedrock model can be used. The acceptance and activation workflow differs depending on your organization configuration.
 
@@ -91,7 +90,7 @@ To activate grants programmatically, use the `CreateGrantVersion` operation. For
 
 The following AWS CLI command activates a grant for all recipients.
 
-```
+```bash
 aws license-manager create-grant-version \
     --region us-east-1 \
     --client-token "$(uuidgen)" \

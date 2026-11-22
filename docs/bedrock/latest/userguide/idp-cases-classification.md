@@ -1,7 +1,6 @@
 
 
 # Create Blueprints for Classification
-<a name="idp-cases-classification"></a>
 
 With BDA, you can classify documents by assigning a document class and providing a description when you create a blueprint. The document class serves as a high-level categorization of the document type, while the description provides more granular details about the expected content and elements within that class of documents. We recommend that your description specifies the typical type of data found in the documents along with other relevant information such as purpose of the document and entities expected. 
 

@@ -1,7 +1,6 @@
 
 
 # Test and troubleshoot agent behavior
-<a name="agents-test"></a>
 
 **Amazon Bedrock Agents Classic availability**  
 You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  
@@ -90,7 +89,7 @@ For agents that are created `after` March 31, 2025:
 
 Before you test your agent for the first time, you must package it with the working draft changes by sending a [PrepareAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PrepareAgent.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). Include the `agentId` in the request. The changes apply to the `DRAFT` version, which the `TSTALIASID` alias points to.
 
-```
+```python
     def prepare_agent(self, agent_id):
         """
         Creates a DRAFT version of the agent that can be used for internal testing.
@@ -157,7 +156,7 @@ The response is returned in an event stream. Each event contains a `chunk`, whic
 + If you enabled a trace, a `trace` object is also returned. If an error occurs, a field is returned with the error message. For more information about how to read the trace, see [Track agent's step-by-step reasoning process using trace](trace-events.md).
 + If you set up your action group to skip using a Lambda function, a [ReturnControlPayload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ReturnControlPayload.html) object is returned in the `returnControl` field. The general structure of the [ReturnControlPayload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ReturnControlPayload.html) object is as follows:
 
-  ```
+  ```json
   {
       "invocationId": "string",
       "invocationInputs": [
@@ -170,7 +169,7 @@ The response is returned in an event stream. Each event contains a `chunk`, whic
   Each member of the `invocationInputs` list is one of the following:
   + An [ApiInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ApiInvocationInput.html) object containing the API operation that the agent predicts should be called based on the user input, in addition to the parameters and other information that it gets from the user to fulfill the API. The structure of the [ApiInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ApiInvocationInput.html) object is as follows:
 
-    ```
+    ```json
     {
         "actionGroup": "string",
         "apiPath": "string",
@@ -198,7 +197,7 @@ The response is returned in an event stream. Each event contains a `chunk`, whic
     ```
   + A [FunctionInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_FunctionInvocationInput.html) object containing the function that the agent predicts should be called based on the user input, in addition to the parameters for that function that it gets from the user. The structure of the [FunctionInvocationInput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_FunctionInvocationInput.html) is as follows:
 
-    ```
+    ```json
     {
         "actionGroup": "string",
         "function": "string",

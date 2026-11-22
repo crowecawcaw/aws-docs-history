@@ -1,7 +1,6 @@
 
 
 # Monitor your model customization job
-<a name="model-customization-monitor"></a>
 
 You can track the progress of your model customization job. Each job consists of the following events:
 + **Validation**

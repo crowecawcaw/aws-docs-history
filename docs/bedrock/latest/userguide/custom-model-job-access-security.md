@@ -1,7 +1,6 @@
 
 
 # Model customization access and security
-<a name="custom-model-job-access-security"></a>
 
 This page provides comprehensive security and permissions information for all Amazon Bedrock model customization types including fine-tuning, reinforcement fine-tuning, distillation, and model operations. Before you begin customizing a model, make sure that you understand what kind of access Amazon Bedrock needs and consider some options for securing your customization jobs and artifacts.
 
@@ -40,7 +39,7 @@ You can optionally restrict the scope of the permission for [cross-service confu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -77,7 +76,7 @@ To restrict access to a specific folder in a bucket, add an `s3:prefix` conditio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -124,7 +123,7 @@ To copy a model to another Region, you need specific permissions depending on yo
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -167,7 +166,7 @@ To use a cross-region inference profile for a teacher model in a distillation jo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -201,7 +200,7 @@ For permissions to invoke with a cross-Region (system-defined) inference profile
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -255,7 +254,7 @@ After you finish setting up your VPC, attach the following permissions to your [
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -377,7 +376,7 @@ For a job that includes VPC configuration, the console can't automatically creat
 
 When you submit a [CreateModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html) request, you can include a `VpcConfig` as a request parameter to specify the VPC subnets and security groups to use, as in the following example.
 
-```
+```json
 "vpcConfig": { 
     "securityGroupIds": [
         "{{${{sg-0123456789abcdef0}}}}"

@@ -1,7 +1,6 @@
 
 
 # Stability AI
-<a name="model-cards-stability-ai"></a>
 
 The following Stability AI models are available in Amazon Bedrock:
 

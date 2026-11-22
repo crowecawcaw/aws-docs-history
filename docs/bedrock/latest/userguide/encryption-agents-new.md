@@ -1,7 +1,6 @@
 
 
 # Encryption of agent resources
-<a name="encryption-agents-new"></a>
 
 Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements.
 

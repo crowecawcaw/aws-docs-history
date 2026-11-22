@@ -1,7 +1,6 @@
 
 
 # Processing use cases
-<a name="bda-document-processing-examples"></a>
 
 Amazon Bedrock Data Automation allows you to process documents, images, audio, and video. through the command line interface (CLI). For each modality, the workflow consists of creating a project, invoking the analysis, and retrieving the result.
 
@@ -13,6 +12,8 @@ Choose the tab for your preferred method, and then follow the steps:
 **Extracting data from a W2**
 
 ![Sample W2 form with standard fields, demonstrating layout and data fields that will be extracted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/W2.png)
+
+Sample passport containing personal identification information
 
 
 When processing a W2 form, an example schema would be the following:

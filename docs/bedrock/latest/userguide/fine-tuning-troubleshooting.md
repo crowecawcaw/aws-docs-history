@@ -1,7 +1,6 @@
 
 
 # Troubleshooting model customization issues
-<a name="fine-tuning-troubleshooting"></a>
 
 This section summarizes errors that you might encounter and what to check if you do.
 
@@ -50,7 +49,7 @@ If you encounter the preceding error, check that the following are true:
 
 1. Each JSON has two keys, an {{input}} and an {{output}}, and each key is a string. For example:
 
-   ```
+   ```json
    {
        "input": "this is my input",
        "output": "this is my output"

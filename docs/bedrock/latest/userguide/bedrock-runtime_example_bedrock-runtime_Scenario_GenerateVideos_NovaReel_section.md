@@ -1,7 +1,6 @@
 
 
 # Generate videos from text prompts using Amazon Bedrock and Nova-Reel
-<a name="bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section"></a>
 
 The following code example shows how to a Spring Boot app that generates videos from text prompts using Amazon Bedrock and the Nova-Reel model.
 
@@ -12,7 +11,7 @@ The following code example shows how to a Spring Boot app that generates videos 
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Generate videos from text prompts using Amazon Bedrock and Nova-Reel.  
 
-```
+```java
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.document.Document;

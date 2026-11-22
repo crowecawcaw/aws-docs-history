@@ -1,7 +1,6 @@
 
 
 # Data management and encryption in Amazon Bedrock evaluation job
-<a name="evaluation-data-management"></a>
 
 During the model evaluation job, Amazon Bedrock makes a temporary copy of your data and stores it in an AWS-owned Amazon S3 bucket. Amazon Bedrock deletes this data after the job finishes. Amazon Bedrock encrypts this data using a AWS KMS key. You can choose to specify your own AWS KMS key or to use an Amazon Bedrock-owned key to encrypt the data.
 

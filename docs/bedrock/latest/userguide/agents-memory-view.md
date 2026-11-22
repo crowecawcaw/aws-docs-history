@@ -1,7 +1,6 @@
 
 
 # View memory sessions
-<a name="agents-memory-view"></a>
 
 The agent stores the memory for each session against the unique memory identifier (`memoryId`) provided for each user when you invoke the agent. The next time you invoke the agent with the same `memoryId`, the entire memory is loaded to the session. After you end the session, the agent generates a summarized version of the session and stores the session summary.
 

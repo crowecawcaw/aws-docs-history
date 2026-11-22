@@ -1,7 +1,6 @@
 
 
 # Create a managed knowledge base
-<a name="kb-managed-create"></a>
 
 When you create a managed knowledge base, Amazon Bedrock AgentCore manages the storage, indexing, and retrieval infrastructure for you. By default, a service-managed embedding model is used and no model selection or configuration is required. You can optionally provide your own Bedrock embedding model instead. You can also optionally provide a KMS key for encryption of the managed vector store.
 
@@ -236,6 +235,7 @@ Managed knowledge bases support the following data source connectors:
 + Box
 + Confluence Cloud
 + Confluence Data Center
++ Dropbox
 + Microsoft SharePoint Online
 + Google Drive
 + Microsoft OneDrive

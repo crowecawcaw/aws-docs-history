@@ -1,7 +1,6 @@
 
 
 # Structured outputs for Anthropic Claude models
-<a name="claude-messages-structured-outputs"></a>
 
 Claude models on Amazon Bedrock return schema-compliant JSON on both the `bedrock-runtime` and `bedrock-mantle` endpoints. Responses conform to a JSON schema that you define, which removes the need for custom parsing, retry logic, or post-processing.
 
@@ -38,7 +37,7 @@ You can use these mechanisms independently or together.
 
 With the InvokeModel API, you send the Anthropic-native request body, so the schema goes in `output_config.format` as a JSON object (not a JSON string). The following example extracts customer details into a schema-compliant JSON object.
 
-```
+```python
 import boto3
 import json
 
@@ -92,7 +91,7 @@ For a Converse API example (which uses `outputConfig.textFormat`), see [Get vali
 
 The `bedrock-mantle` endpoint is designed for agentic applications that use server-side tools, background inference, and stateful conversations. Strict tool use ensures that tool parameters match your input schema. The following example defines a weather tool with `strict: true`.
 
-```
+```python
 import json
 from anthropic import AnthropicBedrockMantle
 
@@ -133,7 +132,7 @@ Setting `strict: true` constrains the tool input to match the schema exactly. Th
 
 Lightweight Claude models such as Haiku 5.5 are well suited to high-volume, repetitive workloads such as classification and routing. In the following example, enums restrict the output to a fixed set of labels.
 
-```
+```python
 import boto3
 import json
 

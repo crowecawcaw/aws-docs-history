@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-onedrive-acl"></a>
 
 OneDrive data sources optionally support document-level access control. When enabled, Bedrock Managed Knowledge Base syncs access control lists (ACLs) from OneDrive during each crawl and verifies each user's permissions at query time, so users only see results from documents they are authorized to access in OneDrive. For the overview of ACL awareness across all connectors, see [Access Control Lists awareness enablement](kb-managed-acl.md).
 
@@ -46,7 +45,7 @@ ACL configuration is permanent. You cannot enable ACLs on a data source created 
 
 When ACLs are enabled for OneDrive, you must include a `certificateS3Path` in the `connectionConfiguration` pointing to a PKCS\#12 (`.p12`) certificate file in Amazon S3. This certificate is used for real-time ACL verification against the SharePoint REST API. The `certificateS3Path` is not required when ACLs are disabled.
 
-```
+```json
 "connectorParameters": {
     "type": "ONEDRIVE",
     "version": "1",

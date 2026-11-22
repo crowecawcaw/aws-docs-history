@@ -1,7 +1,6 @@
 
 
 # Stability AI Image Services
-<a name="stable-image-services"></a>
 
 You can use Stability AI Image Services with Amazon Bedrock to access thirteen specialized image editing tools. These tools are designed to accelerate professional creative workflows. With Stability AI Image Services you can generate images from a sketch, restructure and restyle an existing image. You can also remove and replace objects within an image.
 
@@ -29,7 +28,7 @@ The request body is passed in the `body` field of a request to [InvokeModel](htt
 
 When you make an InvokeModel call using Stability AI Image Services, fill the body field with a JSON object that looks like the following. 
 
-```
+```json
 {
     'prompt': 'Create an image of a panda'
 }
@@ -39,7 +38,7 @@ When you make an InvokeModel call using Stability AI Image Services, fill the bo
 
 When you make an InvokeModel call using Stability AI Image Services, the response looks like the following 
 
-```
+```json
 {
     'seeds': [2130420379], 
     'finish_reasons': [null], 
@@ -171,7 +170,7 @@ The following table shows the input and output images of a Creative Upscale oper
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-creative-upscale.jpg)  |  ![Big Ben clock tower showing ornate golden details and white clock faces against cloudy sky.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-creative-upscale.jpg)  | 
+|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-creative-upscale.jpg)<br />*["Iconic Big Ben Tower Against Cloudy Sky"](https://www.pexels.com/photo/iconic-big-ben-tower-against-cloudy-sky-33915946/) by [Willemijn Doelman](https://www.pexels.com/@willemijn-doelman-2155820368/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Big Ben clock tower showing ornate golden details and white clock faces against cloudy sky.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-creative-upscale.jpg)  | 
 
 ### Conservative Upscale
 <a name="stable-image-services-6"></a>
@@ -286,7 +285,7 @@ The following table shows the input and output images of a Conservative Upscale 
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-conservative-upscale.jpg)  |  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-conservative-upscale.jpg)  | 
+|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-conservative-upscale.jpg)<br />*["Iconic Big Ben Tower Against Cloudy Sky"](https://www.pexels.com/photo/iconic-big-ben-tower-against-cloudy-sky-33915946/) by [Willemijn Doelman](https://www.pexels.com/@willemijn-doelman-2155820368/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-conservative-upscale.jpg)  | 
 
 ### Fast Upscale
 <a name="stable-image-services-7"></a>
@@ -391,7 +390,7 @@ The following table shows the input and output images of a Fast Upscale operatio
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-fast-upscale.jpg)  |  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-fast-upscale.jpg)  | 
+|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-fast-upscale.jpg)<br />*["Iconic Big Ben Tower Against Cloudy Sky"](https://www.pexels.com/photo/iconic-big-ben-tower-against-cloudy-sky-33915946/) by [Willemijn Doelman](https://www.pexels.com/@willemijn-doelman-2155820368/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-fast-upscale.jpg)  | 
 
 ## Edit
 <a name="stable-image-services-edit"></a>
@@ -523,7 +522,7 @@ The following table shows the input and output images of an Inpaint operation.
 
 |  Input  |  Mask  |  Output  | 
 | --- | --- | --- | 
-|  ![Man in blue three-piece suit standing outdoors at night with city skyline in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-image-inpaint.jpg)  |  ![A mask image showing the area selected for inpainting, with the selected region highlighted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/mask-image-inpaint.png)  |  ![Person wearing futuristic armor with glowing blue elements against city skyline at night.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-image-inpaint.jpg)  | 
+|  ![Man in blue three-piece suit standing outdoors at night with city skyline in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-image-inpaint.jpg)<br />*“Man in metropolis” generated by Stable Image Ultra, Prompts and edits by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![A mask image showing the area selected for inpainting, with the selected region highlighted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/mask-image-inpaint.png)  |  ![Person wearing futuristic armor with glowing blue elements against city skyline at night.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-image-inpaint.jpg)  | 
 
 ### Outpaint
 <a name="stable-image-services-9"></a>
@@ -648,7 +647,7 @@ The following table shows the input and output images of an Outpaint operation.
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-image-outpaint.jpg)  |  ![Big Ben clock tower with ornate Gothic architecture against cloudy sky.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-image-outpaint.jpg)  | 
+|  ![Big Ben clock tower showing ornate Gothic architecture with illuminated clock faces.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-image-outpaint.jpg)<br />*["Iconic Big Ben Tower Against Cloudy Sky"](https://www.pexels.com/photo/iconic-big-ben-tower-against-cloudy-sky-33915946/) by [Willemijn Doelman](https://www.pexels.com/@willemijn-doelman-2155820368/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Big Ben clock tower with ornate Gothic architecture against cloudy sky.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-image-outpaint.jpg)  | 
 
 ### Search and Recolor
 <a name="stable-image-services-10"></a>
@@ -767,7 +766,7 @@ The following table shows the input and output images of a Search and Recolor op
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Person wearing sunglasses and blue puffer jacket with backpack in snowy mountain setting.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-search-recolor.jpg)  |  ![Person wearing sunglasses and purple winter jacket with backpack in snowy mountain setting.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-search-recolor.jpg)  | 
+|  ![Person wearing sunglasses and blue puffer jacket with backpack in snowy mountain setting.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-search-recolor.jpg)<br />*“Man wearing puffer jacket” generated by Stable Image Ultra, Prompts and edits by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![Person wearing sunglasses and purple winter jacket with backpack in snowy mountain setting.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-search-recolor.jpg)  | 
 
 ### Search and Replace
 <a name="stable-image-services-11"></a>
@@ -886,7 +885,7 @@ The following table shows the input and output images of a Search and Replace op
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Woman wearing orange sweater outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-search-replace.jpg)  |  ![Woman wearing olive jacket and white shirt outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-search-replace.jpg)  | 
+|  ![Woman wearing orange sweater outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-search-replace.jpg)<br />*“Female model wearing fall sweater" generated by Stable Image Ultra. Prompts and edits by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![Woman wearing olive jacket and white shirt outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-search-replace.jpg)  | 
 
 ### Erase
 <a name="stable-image-services-12"></a>
@@ -1011,7 +1010,7 @@ The following table shows the input and output images of an Erase operation.
 
 |  Input  |  Mask  |  Output  | 
 | --- | --- | --- | 
-|  ![Overhead view of organized desk with laptop, open notebooks, pens, and plant on wooden surface.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-erase-object.jpg)  |  ![A mask image showing the object selected for removal, with the target area highlighted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/mask-erase-object.png)  |  ![Overhead view of organized desk with laptop, open notebooks, pencils, and blue journals.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-erase-object.jpg)  | 
+|  ![Overhead view of organized desk with laptop, open notebooks, pens, and plant on wooden surface.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-erase-object.jpg)<br />*“Students Desk" generated by Stable Image Ultra. Prompts and edits by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![A mask image showing the object selected for removal, with the target area highlighted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/mask-erase-object.png)  |  ![Overhead view of organized desk with laptop, open notebooks, pencils, and blue journals.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-erase-object.jpg)  | 
 
 ### Remove Background
 <a name="stable-image-services-13"></a>
@@ -1120,7 +1119,7 @@ The following table shows the input and output images of a Remove Background ope
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Woman wearing orange sweater outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-remove-background.jpg)  |  ![Person wearing orange knit sweater against background with horizontal stripes.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-remove-background.jpg)  | 
+|  ![Woman wearing orange sweater outdoors with autumn foliage in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-remove-background.jpg)<br />*“Female model wearing fall sweater" generated by Stable Image Ultra. Prompts and edits by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![Person wearing orange knit sweater against background with horizontal stripes.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-remove-background.jpg)  | 
 
 ## Control
 <a name="stable-image-services-control"></a>
@@ -1239,7 +1238,7 @@ The following table shows the input and output images of a Control Sketch call. 
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Simple line drawing of a house on a hillside with mountains in the background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-control-sketch.jpg)  |  ![Mountain valley with river, green meadows, traditional building, and snow-capped peaks.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-control-sketch.jpg)  | 
+|  ![Simple line drawing of a house on a hillside with mountains in the background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-control-sketch.jpg)<br />*"House, mountains, and river sketch" by Sanwal Yousaf. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)*  |  ![Mountain valley with river, green meadows, traditional building, and snow-capped peaks.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-control-sketch.jpg)  | 
 |   |  | 
 
 ### Control Structure
@@ -1356,7 +1355,7 @@ The following table shows the input and output images of a Control Structure ope
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Tunnel-like structure with latticed metal framework creating striped light patterns on floor.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-control-structure.jpg)  |  ![Tunnel interior with illuminated brick pattern and sparks flying at the opening.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-control-structure.jpg)  | 
+|  ![Tunnel-like structure with latticed metal framework creating striped light patterns on floor.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-control-structure.jpg)<br />*[“Person sitting on brown box”](https://www.pexels.com/photo/person-sitting-on-brown-box-1320737/) by [Pawel L](https://www.pexels.com/@pawel-l-435199/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Tunnel interior with illuminated brick pattern and sparks flying at the opening.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-control-structure.jpg)  | 
 
 ### Style Guide
 <a name="stable-image-services-3"></a>
@@ -1471,7 +1470,7 @@ The following table shows the input and output images of a Style Guide call. The
 
 |  Input  |  Output  | 
 | --- | --- | 
-|  ![Abstract painting with vibrant colors including blue, yellow, green, orange, and red brushstrokes.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-style-guide.jpg)  |  ![Colorful abstract cityscape with buildings in blue, yellow, green, orange, and red tones.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-style-guide.jpg)  | 
+|  ![Abstract painting with vibrant colors including blue, yellow, green, orange, and red brushstrokes.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-style-guide.jpg)<br />*[“Abstract Painting”](https://www.pexels.com/photo/abstract-painting-1109354/) by [Steven Johnson](https://www.pexels.com/@steve/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Colorful abstract cityscape with buildings in blue, yellow, green, orange, and red tones.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-style-guide.jpg)  | 
 
 ### Style Transfer
 <a name="stable-image-services-4"></a>
@@ -1597,4 +1596,4 @@ The following table shows the input and output images of a Style Transfer call.
 
 |  Input  |  Style  |  Output  | 
 | --- | --- | --- | 
-|  ![Marble statue of a woman with flowing hair and draped clothing, hand raised to head.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-style-transfer.jpg)  |  ![Network of illuminated blue lines connecting buildings in a nighttime cityscape.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/style-style-transfer.jpg)  |  ![Classical statue with cyan lighting in urban setting with modern architecture in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-style-transfer.jpg)  | 
+|  ![Marble statue of a woman with flowing hair and draped clothing, hand raised to head.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/input-style-transfer.jpg)<br />*["Standing Woman Statue"](https://www.pexels.com/photo/standing-woman-statue-2193186/) by [Simon Berger](https://www.pexels.com/@simon73/). Licensed under [CC](https://www.pexels.com/license/)*  |  ![Network of illuminated blue lines connecting buildings in a nighttime cityscape.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/style-style-transfer.jpg)<br />*["Blue Bright Lights"](https://www.pexels.com/photo/blue-bright-lights-373543/) by [Pixabay](https://www.pexels.com/@pixabay/). Licensed under [CC0](https://www.pexels.com/creative-commons-images/)*  |  ![Classical statue with cyan lighting in urban setting with modern architecture in background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/stable-image-services/output-style-transfer.jpg)  | 

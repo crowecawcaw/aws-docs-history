@@ -1,7 +1,6 @@
 
 
 # Basic examples for Amazon Bedrock using AWS SDKs
-<a name="service_code_examples_bedrock_basics"></a>
 
 The following code examples show how to use the basics of Amazon Bedrock with AWS SDKs. 
 

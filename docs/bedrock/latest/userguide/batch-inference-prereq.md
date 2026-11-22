@@ -1,7 +1,6 @@
 
 
 # Prerequisites for batch inference
-<a name="batch-inference-prereq"></a>
 
 To perform batch inference, you must fulfill the following prerequisites:
 

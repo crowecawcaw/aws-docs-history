@@ -1,7 +1,6 @@
 
 
 # An end-to-end example showing how to create and invoke an Amazon Bedrock flow using an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockFlows_section"></a>
 
 The following code example shows how to:
 + Create an execution role for the flow.
@@ -17,7 +16,7 @@ The following code example shows how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Generates a music playlist based on user-specified genre and number of songs.  
 
-```
+```python
 from datetime import datetime
 import logging
 import boto3

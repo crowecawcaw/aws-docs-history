@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 authentication for SharePoint
-<a name="kb-managed-sharepoint-oauth2-setup"></a>
 
 OAuth 2.0 authentication (`OAUTH2_APP`) authenticates with an application client ID and secret together with the user name and password of a Microsoft 365 user account, using the OAuth 2.0 resource-owner password credentials (ROPC) flow. The connector signs in as that user to read content.
 
@@ -78,7 +77,7 @@ Store the credentials in an AWS Secrets Manager secret with the following key-va
 + `userName` — the user name (UPN) of the Microsoft 365 user account.
 + `password` — the password for that account.
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",

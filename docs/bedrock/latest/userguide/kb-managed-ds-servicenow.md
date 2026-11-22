@@ -1,7 +1,6 @@
 
 
 # ServiceNow
-<a name="kb-managed-ds-servicenow"></a>
 
 ServiceNow is a cloud-based platform for IT service management, knowledge management, and service catalogs. You can connect your ServiceNow instance as a data source for your managed knowledge base to crawl knowledge articles and service catalog items.
 

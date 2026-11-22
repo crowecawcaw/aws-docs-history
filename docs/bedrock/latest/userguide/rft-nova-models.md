@@ -1,7 +1,6 @@
 
 
 # Fine-tune Amazon Nova models with reinforcement fine-tuning
-<a name="rft-nova-models"></a>
 
 Before fine-tuning, make sure you have the pre-requisites as Amazon Bedrock needs specific permissions to create and manage the fine-tuning process. For comprehensive security and permissions information, see [Access and security for Amazon Nova models](rft-access-security.md).
 

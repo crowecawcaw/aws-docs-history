@@ -1,7 +1,6 @@
 
 
 # Encryption of imported custom models
-<a name="encryption-import-model"></a>
 
 Amazon Bedrock supports creating custom models through two methods that both use the same encryption approach. Your custom models are managed and stored by AWS:
 + **Custom model import jobs** — For importing customized open-source foundation models (such as Mistral AI or Llama models).

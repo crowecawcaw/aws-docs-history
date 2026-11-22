@@ -1,7 +1,6 @@
 
 
 # Pixtral Large
-<a name="model-card-mistral-ai-pixtral-large"></a>
 
 ## ![Mistral AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/mistralai.png) Mistral AI — Pixtral Large
 <a name="model-card-mistral-ai-pixtral-large-header"></a>
@@ -143,7 +142,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -161,7 +160,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

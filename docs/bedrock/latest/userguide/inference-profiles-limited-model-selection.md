@@ -1,7 +1,6 @@
 
 
 # Inference profiles with limited model selection
-<a name="inference-profiles-limited-model-selection"></a>
 
 Amazon Bedrock offers a range of inference options, including in-Region inference, geographic cross-Region inference, and global cross-Region inference, to help customers meet different performance, cost, and compliance needs. For example, in-Region inference is designed primarily for customers with data residency requirements, and keeps inference processing within a specific Region. The following table lists the inference profiles that are designated as inference profiles with limited model selection. Compared with other inference profiles, they are expected to offer a narrower selection of models, new models or model versions might not be released for them, and quota increase requests might take longer to process.
 

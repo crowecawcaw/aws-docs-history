@@ -1,7 +1,6 @@
 
 
 # Additional capabilities
-<a name="additional-capabilities"></a>
 
 Amazon Bedrock provides additional capabilities to enhance your generative AI applications:
 

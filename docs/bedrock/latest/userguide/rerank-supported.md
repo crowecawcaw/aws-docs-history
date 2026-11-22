@@ -1,7 +1,6 @@
 
 
 # Supported Regions and models for reranking in Amazon Bedrock
-<a name="rerank-supported"></a>
 
 The following list provides links to general information about Regional and model support in Amazon Bedrock:
 + For a list of Region codes and endpoints supported in Amazon Bedrock, see [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bedrock_region).

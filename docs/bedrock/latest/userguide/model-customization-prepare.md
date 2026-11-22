@@ -1,7 +1,6 @@
 
 
 # Prepare data for fine-tuning your models
-<a name="model-customization-prepare"></a>
 
 To prepare training and validation datasets for your custom model, you create `.jsonl` files, where each line is a JSON object corresponding to a record. Before you can begin a model customization job, you must at minimum prepare a training dataset. The files you create must conform to the format for the customization method and model that you choose. The records in it must conform to size requirements depending your model. 
 
@@ -208,7 +207,7 @@ Non-conversational tasks involve generating a single output for a given input. E
 
 Example format
 
-```
+```json
 {"prompt": "What is the capital of France?", "completion": "The capital of France is Paris."}
 {"prompt": "Summarize the article about climate change.", "completion": "Climate change refers to the long-term alteration of temperature and typical weather patterns in a place."}
 ```
@@ -222,7 +221,7 @@ To use the Converse API, you call the `Converse` or `ConverseStream` operations 
 
 Example format
 
-```
+```json
 {
     "schemaVersion": "bedrock-conversation-2024",
     "system": [
@@ -258,13 +257,13 @@ Single-turn conversational tasks involve isolated exchanges, where the model gen
 
 Format
 
-```
+```json
 {"system": "<system message>","messages":[{"role": "user", "content": "<user query>"},{"role": "assistant", "content": "<expected generated text>"}]}
 ```
 
 Example
 
-```
+```json
 {"system": "You are an helpful assistant.","messages":[{"role": "user", "content": "what is AWS"},{"role": "assistant", "content": "it's Amazon Web Services."}]}
 ```
 
@@ -275,13 +274,13 @@ Multi-turn conversational tasks involve extended dialogues where the model must 
 
 Format
 
-```
+```json
 {"system": "<system message>","messages":[{"role": "user", "content": "<user query 1>"},{"role": "assistant", "content": "<expected generated text 1>"}, {"role": "user", "content": "<user query 2>"},{"role": "assistant", "content": "<expected generated text 2>"}]}
 ```
 
 Example
 
-```
+```json
 {"system": "system message","messages":[{"role": "user", "content": "Hello there."},{"role": "assistant", "content": "Hi, how can I help you?"},{"role": "user", "content": "what are LLMs?"},{"role": "assistant", "content": "LLM means large language model."},]}  
 ```
 
@@ -303,7 +302,7 @@ Each JSON object for single-turn conversations consists of a user message and an
 
 Example format
 
-```
+```json
 {
     "schemaVersion": "bedrock-conversation-2024",
     "system": [{
@@ -343,7 +342,7 @@ Each JSON object for multi-turn conversations contains a sequence of messages wi
 
 Example format
 
-```
+```json
 {
     "schemaVersion": "bedrock-conversation-2024",
     "system": [{
@@ -408,14 +407,14 @@ The images must be in JPEG or PNG format and meet the following requirements:
 
 For the full list of constraints, see [Amazon Titan Image Generator G1 V1](#quotas-cm-titan-image).
 
-```
+```json
 {"image-ref": "s3://bucket/path/to/image001.png", "caption": "<prompt text>"}
 {"image-ref": "s3://bucket/path/to/image002.png", "caption": "<prompt text>"}{"image-ref": "s3://bucket/path/to/image003.png", "caption": "<prompt text>"}
 ```
 
 The following is an example item:
 
-```
+```json
 {"image-ref": "s3://amzn-s3-demo-bucket/my-pets/cat.png", "caption": "an orange cat with white spots"}
 ```
 

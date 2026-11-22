@@ -1,7 +1,6 @@
 
 
 # Generate a query for structured data
-<a name="knowledge-base-generate-query"></a>
 
 When you connect a structured data store to your knowledge base, your knowledge base can query it by converting the natural language query provided by the user into an SQL query, based on the structure of the data source being queried. When you use:
 + [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html): The response returns the result of the SQL query execution.
@@ -58,7 +57,7 @@ For your knowledge base that's conencted to a structured data source, if you wan
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

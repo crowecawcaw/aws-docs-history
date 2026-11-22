@@ -1,7 +1,6 @@
 
 
 # Evaluate the performance of Amazon Bedrock resources
-<a name="evaluation"></a>
 
 Use Amazon Bedrock evaluations to evaluate the performance and effectiveness of Amazon Bedrock models and knowledge bases, as well as models and Retrieval Augmented Generation (RAG) sources outside of Amazon Bedrock. Amazon Bedrock can compute performance metrics such as the semantic robustness of a model and the correctness of a knowledge base in retrieving information and generating responses. For model evaluations, you can also use a team of human workers to rate and provide their input for the evaluation.
 

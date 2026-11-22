@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 authentication for Box
-<a name="kb-managed-box-oauth2-setup"></a>
 
 OAuth 2.0 authentication (`OAUTH2`) authenticates as a Box app on behalf of a specific user, using the OAuth 2.0 (3LO) flow. The connector crawls the content that user can access. OAuth 2.0 authentication is user-specific and does not support document-level access control (ACLs); use it only when Client Credentials Grant authentication is not viable. The user must sign in manually to generate tokens.
 
@@ -75,7 +74,7 @@ Do not enable administrative actions or the as-user header for OAuth 2.0. No oth
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs:
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",

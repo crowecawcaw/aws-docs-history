@@ -1,7 +1,6 @@
 
 
 # Delete a model evaluation job in Amazon Bedrock
-<a name="model-evaluation-jobs-management-human-delete"></a>
 
 You can delete a model evaluation job by using the Amazon Bedrock console, or by using the [BatchDeleteEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_BatchDeleteEvaluationJob.html) operation with the AWS CLI, or a supported AWS SDK. 
 
@@ -37,20 +36,20 @@ Use the following procedure to delete model evaluation job using the Amazon Bedr
 
 In the AWS CLI, you can use the `help` command to view parameters are required, and which parameters are optional when using `batch-delete-evaluation-job`.
 
-```
+```bash
 aws bedrock batch-delete-evaluation-job help
 ```
 
 The follow is an example of using `batch-delete-evaluation-job` and specifying that 2 model evaluation jobs be deleted. You use the `job-identifiers` parameter to specify a list of ARNS for the model evaluation jobs that you want to delete. You can delete up to 25 model evaluation jobs in a single call to `batch-delete-evaluation-job`. If you need to delete more jobs, make further calls to `batch-delete-evaluation-job`.
 
-```
+```bash
 aws bedrock batch-delete-evaluation-job \
 --job-identifiers {{arn:aws:bedrock:us-east-1:111122223333:evaluation-job/rmqp8zg80rvg}} {{arn:aws:bedrock:us-east-1:111122223333:evaluation-job/xmfp9zg204fdk}}
 ```
 
 After submitting you would get the following response.
 
-```
+```json
 {
 	"evaluationJobs": [
 		{
@@ -72,7 +71,7 @@ After submitting you would get the following response.
 
 The following examples show how to use the AWS SDK for Python (Boto3) to delete a model evaluation job. Use the `jobIdentifiers` parameter to specify a list of ARNS for the model evaluation jobs that you want to delete. You can delete up to 25 model evaluation jobs in a single call to `BatchDeleteEvaluationJob`. If you need to delete more jobs, make further calls to `BatchDeleteEvaluationJob`.
 
-```
+```python
 import boto3
 client = boto3.client('bedrock')
 

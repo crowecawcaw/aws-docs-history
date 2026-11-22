@@ -1,7 +1,6 @@
 
 
 # References/Advanced
-<a name="references"></a>
 
 Find reference materials, tutorials, and troubleshooting resources for Amazon Bedrock:
 

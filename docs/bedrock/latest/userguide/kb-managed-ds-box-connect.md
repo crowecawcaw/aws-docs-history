@@ -1,7 +1,6 @@
 
 
 # Connect a Box data source
-<a name="kb-managed-ds-box-connect"></a>
 
 After you set up authentication and store your credentials in an AWS Secrets Manager secret, create the Box data source in your knowledge base. This page describes how to create the data source with the AWS Management Console or the API, followed by a reference for the connector parameters you can configure.
 
@@ -40,7 +39,7 @@ aws bedrock-agent create-data-source \
 
 The `box-managed-connector.json` file contains the following:
 
-```
+```json
 {
     "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     "managedKnowledgeBaseConnectorConfiguration": {
@@ -62,7 +61,7 @@ The `box-managed-connector.json` file contains the following:
 
 For an OAuth 2.0 data source, set `authType` to `OAUTH2`. You can optionally add a `dataEntityConfiguration` with `inclusionFolderIds` and `inclusionFileIds` to crawl specific folders and files:
 
-```
+```json
 {
     "type": "BOX",
     "version": "1",

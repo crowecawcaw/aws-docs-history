@@ -1,7 +1,6 @@
 
 
 # API reference overview
-<a name="api-reference-overview"></a>
 
 The [Amazon Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html) provides detailed information about the Amazon Bedrock API actions and their parameters. For more information about setting up the Amazon Bedrock APIs, see [Set up the Amazon Bedrock API](https://docs.aws.amazon.com/bedrock/latest/userguide/api-setup.html).
 

@@ -1,7 +1,6 @@
 
 
 # Set up a model invocation resource using inference profiles
-<a name="inference-profiles"></a>
 
 *Inference profiles* are a resource in Amazon Bedrock that define a model and one or more Regions to which the inference profile can route model invocation requests. You can use inference profiles for the following tasks:
 + **Track usage metrics** – Set up CloudWatch logs and submit model invocation requests with an application inference profile to collect usage metrics for model invocation. You can examine these metrics when you view information about the inference profile and use them to inform your decisions. For more information about how to set up CloudWatch logs, see [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md).

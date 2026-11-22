@@ -1,7 +1,6 @@
 
 
 # Create multi-agent collaboration
-<a name="create-multi-agent-collaboration"></a>
 
 Creating a multi-agent collaboration comprises of the following steps:
 

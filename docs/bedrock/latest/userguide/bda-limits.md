@@ -1,7 +1,6 @@
 
 
 # Prerequisites for using Bedrock Data Automation
-<a name="bda-limits"></a>
 
 Files for BDA need to meet certain requirements to be processed. The following tables show what those requirements are for different file types.
 

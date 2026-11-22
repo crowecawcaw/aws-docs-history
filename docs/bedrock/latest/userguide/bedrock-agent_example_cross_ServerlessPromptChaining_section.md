@@ -1,7 +1,6 @@
 
 
 # Build and orchestrate generative AI applications with Amazon Bedrock and Step Functions
-<a name="bedrock-agent_example_cross_ServerlessPromptChaining_section"></a>
 
 The following code example shows how to build and orchestrate generative AI applications with Amazon Bedrock and Step Functions.
 

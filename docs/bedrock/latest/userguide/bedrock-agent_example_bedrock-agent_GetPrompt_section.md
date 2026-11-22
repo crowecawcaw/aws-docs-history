@@ -1,7 +1,6 @@
 
 
 # Use `GetPrompt` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_GetPrompt_section"></a>
 
 The following code example shows how to use `GetPrompt`.
 
@@ -12,7 +11,7 @@ The following code example shows how to use `GetPrompt`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Get an Amazon Bedrock managed prompt.  
 
-```
+```python
 def get_prompt(client, prompt_id):
     """
     Gets an Amazon Bedrock managed prompt.

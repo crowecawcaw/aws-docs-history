@@ -1,7 +1,6 @@
 
 
 # Capacity and Performance
-<a name="capacity-limits-cost-optimization"></a>
 
 Amazon Bedrock offers flexible capacity options to match your workload requirements and budget. Understanding the differences between on-demand tiers (Flex, Priority, Standard), reserved tier, batch processing, and cross-region inference helps you optimize both performance and cost.
 

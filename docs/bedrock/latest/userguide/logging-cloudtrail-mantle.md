@@ -1,7 +1,6 @@
 
 
 # Monitor `bedrock-mantle` API calls using CloudTrail
-<a name="logging-cloudtrail-mantle"></a>
 
 The `bedrock-mantle.{{region}}.api.aws` endpoint integrates with AWS CloudTrail. CloudTrail records calls to the `bedrock-mantle` API operations as events, including calls from the AWS Management Console, the AWS CLI, the OpenAI SDK, the Anthropic SDK, and direct HTTPS calls. Events have an `eventSource` of `bedrock-mantle.amazonaws.com`.
 
@@ -83,7 +82,7 @@ Customer-supplied `metadata` on `CreateInference` calls is logged verbatim in Cl
 
 The following example configures a trail to capture `bedrock-mantle` data events associated with a project:
 
-```
+```bash
 aws cloudtrail put-event-selectors \
     --trail-name <trailName> \
     --advanced-event-selectors '[
@@ -112,7 +111,7 @@ The `resources` array in a delivered event references the following resource typ
 
 The following example is a `CreateInference` data event. The `eventType` value `AwsApiCall` indicates that the event records an API call; it doesn't classify the event as a management event. The `eventCategory` value `Data` and the `managementEvent` value `false` identify it as a data event.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

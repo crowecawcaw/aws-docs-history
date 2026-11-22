@@ -1,7 +1,6 @@
 
 
 # How Amazon Bedrock Guardrails works
-<a name="guardrails-how"></a>
 
 Amazon Bedrock Guardrails helps keep your generative AI applications safe by evaluating both user inputs and model responses.
 

@@ -1,7 +1,6 @@
 
 
 # AI21 Labs
-<a name="model-cards-ai21-labs"></a>
 
 The following AI21 Labs models are available in Amazon Bedrock:
 

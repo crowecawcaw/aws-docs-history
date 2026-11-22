@@ -1,7 +1,6 @@
 
 
 # Customize a model with reinforcement fine-tuning in Amazon Bedrock
-<a name="reinforcement-fine-tuning"></a>
 
 Reinforcement fine-tuning is a model customization technique in Amazon Bedrock that improves foundation model performance by teaching models what constitutes a "good" response through feedback signals called rewards. Unlike traditional fine-tuning methods that depend on labeled datasets, reinforcement fine-tuning uses a feedback-driven approach that iteratively optimizes the model to maximize these rewards.
 

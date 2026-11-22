@@ -1,7 +1,6 @@
 
 
 # Advanced inference topics
-<a name="advanced-inference-topics"></a>
 
 **Topics**
 + [Inference request parameters and response fields for foundation models](model-parameters.md)

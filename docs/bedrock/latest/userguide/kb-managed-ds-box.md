@@ -1,7 +1,6 @@
 
 
 # Box
-<a name="kb-managed-ds-box"></a>
 
 Box is a cloud content management and file sharing service for storing, sharing, and collaborating on files and folders. You can connect your Box enterprise as a data source for your managed knowledge base to crawl files and folders.
 

@@ -1,7 +1,6 @@
 
 
 # How Advanced Prompt Optimization works
-<a name="advanced-prompt-optimization-how"></a>
 
 ## Overview
 <a name="advanced-prompt-optimization-how-overview"></a>

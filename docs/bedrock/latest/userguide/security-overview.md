@@ -1,7 +1,6 @@
 
 
 # Security
-<a name="security-overview"></a>
 
 Security in Amazon Bedrock encompasses multiple layers of protection for your data, applications, and infrastructure.
 

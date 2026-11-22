@@ -1,7 +1,6 @@
 
 
 # Use a tool to complete an Amazon Bedrock model response
-<a name="tool-use"></a>
 
 You can use the Amazon Bedrock API to give a model access to tools that can help it generate responses for messages that you send to the model. For example, you might have a chat application that lets users find out the most popular song played on a radio station. To answer a request for the most popular song, a model needs a tool that can query and return the song information.
 

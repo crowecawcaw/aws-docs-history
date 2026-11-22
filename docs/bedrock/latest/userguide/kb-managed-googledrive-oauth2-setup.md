@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 authentication for Google Drive
-<a name="kb-managed-googledrive-oauth2-setup"></a>
 
 OAuth 2.0 authentication (`OAUTH2`) authenticates with an OAuth 2.0 client ID and secret together with a refresh token that you obtain from a single Google user's sign-in. The connector accesses only the content that user can access — their own drive, files shared with them, and any shared drives they belong to.
 
@@ -52,7 +51,7 @@ Use the OAuth 2.0 Playground to obtain a refresh token for the Google user whose
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs:
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",

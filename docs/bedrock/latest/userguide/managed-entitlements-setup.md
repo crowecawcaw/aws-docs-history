@@ -1,7 +1,6 @@
 
 
 # Setting up managed entitlements
-<a name="managed-entitlements-setup"></a>
 
 Complete the following setup steps once for your AWS Organization. After setup is complete, you can subscribe to third-party Bedrock models and distribute licenses across your organization. To complete these steps, you need access to your organization's management account.
 
@@ -31,7 +30,7 @@ You can also designate a delegated administrator using the RegisterDelegatedAdmi
 
 To register a delegated administrator with the AWS CLI, run the following command from your management account. Replace {{444455556666}} with the account ID of the member account.
 
-```
+```bash
 aws organizations register-delegated-administrator \
     --account-id {{444455556666}} \
     --service-principal license-manager.amazonaws.com
@@ -47,14 +46,14 @@ Always `license-manager.amazonaws.com`, which registers the account for AWS Lice
 
 To confirm the registration, run the following command:
 
-```
+```bash
 aws organizations list-delegated-administrators \
     --service-principal license-manager.amazonaws.com
 ```
 
 If this is the first time you are setting up License Manager for your organization, also run the following commands from your management account to enable the required service access and create the service-linked role:
 
-```
+```bash
 aws organizations enable-aws-service-access --service-principal license-manager.amazonaws.com
 aws organizations enable-aws-service-access --service-principal license-manager.member-account.amazonaws.com
 aws iam create-service-linked-role --aws-service-name license-manager.amazonaws.com

@@ -1,7 +1,6 @@
 
 
 # Viewing Library Entities
-<a name="bda-library-viewing-entities"></a>
 
 You can view data automation library entities using two operations:
 + [ListDataAutomationLibraryEntities](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.html): Retrieves a paginated list of all entities within a library, showing entity metadata.

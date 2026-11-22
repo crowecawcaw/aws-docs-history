@@ -1,7 +1,6 @@
 
 
 # Prerequisites for creating Amazon Bedrock Agents
-<a name="agents-prereq"></a>
 
 Make sure that your IAM role has the [necessary permissions](security_iam_id-based-policy-examples-agent.md#iam-agents-ex-all) to perform actions related to Amazon Bedrock Agents.
 

@@ -1,7 +1,6 @@
 
 
 # Service roles
-<a name="security-iam-sr"></a>
 
 Amazon Bedrock uses [IAM service roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) for some features to let Amazon Bedrock carry out tasks on your behalf.
 

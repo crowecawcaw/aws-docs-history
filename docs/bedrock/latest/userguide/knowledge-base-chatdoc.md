@@ -1,7 +1,6 @@
 
 
 # Query a document without creating a knowledge base
-<a name="knowledge-base-chatdoc"></a>
 
 To query a single document without creating or configuring a knowledge base, use the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API operation with an external source. This workflow is available through the Agents for Amazon Bedrock Runtime API and AWS SDKs, rather than the Amazon Bedrock console.
 
@@ -28,7 +27,7 @@ Before you send a request, configure the permissions described in [Permissions t
 
 The following example queries a document stored in Amazon S3:
 
-```
+```json
 {
     "input": {
         "text": "{{your query}}"

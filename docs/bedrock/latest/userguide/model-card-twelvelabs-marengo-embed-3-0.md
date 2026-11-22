@@ -1,7 +1,6 @@
 
 
 # Marengo Embed 3.0
-<a name="model-card-twelvelabs-marengo-embed-3-0"></a>
 
 ## ![TwelveLabs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Marengo Embed 3.0
 <a name="model-card-twelvelabs-marengo-embed-3-0-header"></a>
@@ -130,7 +129,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** This model uses `StartAsyncInvoke`. Save the file as `bedrock-first-request.py`
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

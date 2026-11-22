@@ -1,7 +1,6 @@
 
 
 # Inference endpoints supported by Amazon Bedrock
-<a name="endpoints"></a>
 
 An endpoint is the URL that your application uses to send [inference](inference.md) requests to Amazon Bedrock. Amazon Bedrock provides two inference endpoints. The endpoint you choose determines which APIs and features are available.
 

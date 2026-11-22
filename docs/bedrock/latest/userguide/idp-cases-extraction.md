@@ -1,7 +1,6 @@
 
 
 # Creating Blueprints for Extraction
-<a name="idp-cases-extraction"></a>
 
 BDA allows you to define the specific data fields you want to extract from your documents when creating a blueprint. This acts as a set of instructions that guide BDA on what information to look for and how to interpret it.
 

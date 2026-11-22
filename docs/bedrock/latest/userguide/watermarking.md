@@ -1,7 +1,6 @@
 
 
 # Watermarking in Amazon Bedrock
-<a name="watermarking"></a>
 
 A watermark is a machine-readable signal embedded in AI-generated content. Some models in Amazon Bedrock add a watermark to the content that they generate. In text, the watermark is a statistical pattern in the model's token choices. In speech, it is a signal embedded in the media. Watermarks are not perceptible to people. Instead, detection tools, where the model provider makes them available, can identify the watermark.
 
@@ -13,26 +12,28 @@ The following table lists the models available in Amazon Bedrock that add a wate
 
 | Model provider | Model | Output type | Default | Detection method | 
 | --- | --- | --- | --- | --- | 
-| Amazon | Amazon Nova 2.5 Sonic | Speech | On | Contact your AWS account team | 
 | Amazon | Amazon Nova 2 Sonic | Speech | On | Contact your AWS account team | 
-| Anthropic | Claude Fable 5.2 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Mythos 5.2 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Fable 5.1 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Mythos 5.1 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Opus 5.5 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Sonnet 5.5 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Haiku 5.5 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Opus 5 | Text | On | Anthropic watermark detection | 
-| Anthropic | Claude Sonnet 5 | Text | On | Anthropic watermark detection | 
+| Amazon | Amazon Nova 2.5 Sonic | Speech | On | Contact your AWS account team | 
 | Anthropic | Claude Fable 5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Fable 5.1 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Fable 5.2 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Haiku 5.5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Mythos 5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Mythos 5.1 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Mythos 5.2 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Opus 4.7 | Text | On | Anthropic watermark detection | 
 | Anthropic | Claude Opus 4.8 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Opus 5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Opus 5.5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Sonnet 5 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Sonnet 5.5 | Text | On | Anthropic watermark detection | 
 
 ### Amazon Nova Sonic models
 <a name="watermarking-nova-sonic"></a>
 
-Amazon Nova 2.5 Sonic and Amazon Nova 2 Sonic add an inaudible watermark to all speech that they generate. The watermark is enabled by default, and you can't disable it. The text transcripts in their responses don't carry a watermark.
+Amazon Nova 2 Sonic and Amazon Nova 2.5 Sonic add an inaudible watermark to all speech that they generate. The watermark is enabled by default, and you can't disable it. The text transcripts in their responses don't carry a watermark.
 
-To request watermark detection for an audio file, contact your AWS account team. For more information about these models, see [Amazon Nova 2.5 Sonic](https://docs.aws.amazon.com/ai/responsible-ai/nova-2-5-sonic/overview.html) and [Amazon Nova 2 Sonic](https://docs.aws.amazon.com/ai/responsible-ai/nova-2-sonic/overview.html) in *AWS AI Service Cards*.
+To request watermark detection for an audio file, contact your AWS account team. For more information about these models, see [Amazon Nova 2 Sonic](https://docs.aws.amazon.com/ai/responsible-ai/nova-2-sonic/overview.html) and [Amazon Nova 2.5 Sonic](https://docs.aws.amazon.com/ai/responsible-ai/nova-2-5-sonic/overview.html) in *AWS AI Service Cards*.
 
 ### Anthropic Claude models
 <a name="watermarking-anthropic-claude"></a>

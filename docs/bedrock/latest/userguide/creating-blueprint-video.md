@@ -1,7 +1,6 @@
 
 
 # Creating blueprints for video
-<a name="creating-blueprint-video"></a>
 
 Blueprints for video files have a few unique qualities compared to other blueprints, particularly in field creation. Video blueprints have a parameter called granularity, which lets you set a field to either Video, or Chapter. When the field is set to video, it will be detected across an entire video. For example, if you wanted a summary of the entire clip, you would want to set that field's granularity to video. 
 

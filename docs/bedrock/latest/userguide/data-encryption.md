@@ -1,7 +1,6 @@
 
 
 # Data encryption
-<a name="data-encryption"></a>
 
 Amazon Bedrock uses encryption to protect data at rest and data in transit.
 

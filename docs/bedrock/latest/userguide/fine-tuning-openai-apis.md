@@ -1,7 +1,6 @@
 
 
 # Fine-tune open-weight models using OpenAI-compatible APIs
-<a name="fine-tuning-openai-apis"></a>
 
 Amazon Bedrock provides OpenAI compatible API endpoints for fine-tuning foundation models. These endpoints allow you to use familiar OpenAI SDKs and tools to create, monitor, and manage fine-tuning jobs with Amazon Bedrock models. This page highlights using these APIs for reinforcement fine-tuning.
 

@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude Sonnet 4.5
-<a name="model-evaluation-type-judge-prompt-claude-sonnet-4-5"></a>
 
 Prompts used with Anthropic Claude Sonnet 4.5.
 

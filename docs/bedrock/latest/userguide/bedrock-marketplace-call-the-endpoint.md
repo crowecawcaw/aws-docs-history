@@ -1,7 +1,6 @@
 
 
 # Call the endpoint
-<a name="bedrock-marketplace-call-the-endpoint"></a>
 
 You can start using your model after you've deployed it to an endpoint. You use either the `Converse` or `InvokeModel` operations to call the models.
 
@@ -21,10 +20,10 @@ For a list of models which are supported by `Converse` operation, see [Model com
 
 You can also use the following example AWS Command Line Interface commands to call the endpoint.
 
-```
+```bash
 aws bedrock-runtime converse --model-id arn:aws:sagemaker:region:{{111122223333}}:endpoint/{{example-endpoint-name}} --messages '[{"role": "user", "content": [{"text": "Describe the purpose of a \"hello world\" program in one line."}]}]'
 ```
 
-```
+```bash
 aws bedrock-runtime invoke-model --model-id arn:aws:sagemaker:region:{{111122223333}}:endpoint/{{example-endpoint-name}} --body '{"inputs": "Hello? How are you?", "parameters": {"details": true}}' --cli-binary-format raw-in-base64-out test.txt
 ```

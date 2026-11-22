@@ -1,7 +1,6 @@
 
 
 # Create a prompt dataset for a model evaluation job that uses a model as judge
-<a name="model-evaluation-prompt-datasets-judge"></a>
 
 To create a model evaluation job that uses a model as judge you must specify a prompt dataset. This prompt dataset uses the same format as automatic model evaluation jobs and is used during inference with the models you select to evaluate.
 
@@ -24,7 +23,7 @@ If you choose to supply a ground truth response (`referenceResponse)`, Amazon Be
 
 The following is an example custom dataset that contains 6 inputs and uses the JSON line format.
 
-```
+```json
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
@@ -35,7 +34,7 @@ The following is an example custom dataset that contains 6 inputs and uses the J
 
 The following example is a single entry expanded for clarity. In your actual prompt dataset each line must be a valid JSON object.
 
-```
+```json
 {
   "prompt": "What is high intensity interval training?",
   "category": "Fitness",
@@ -59,7 +58,7 @@ If you choose to supply a ground truth response (`referenceResponse)`, Amazon Be
 
 The following is a custom example dataset with 6 inputs in JSON line format.
 
-```
+```json
 {"prompt":{{"The prompt you used to generate the model response"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your model generated"}},"modelIdentifier":{{"A string identifying your model"}}}]}
 {"prompt":{{"The prompt you used to generate the model response"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your model generated"}},"modelIdentifier":{{"A string identifying your model"}}}]}
 {"prompt":{{"The prompt you used to generate the model response"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your model generated"}},"modelIdentifier":{{"A string identifying your model"}}}]}
@@ -70,7 +69,7 @@ The following is a custom example dataset with 6 inputs in JSON line format.
 
 The following example shows a single entry in a prompt dataset expanded for clarity.
 
-```
+```json
 {
     "prompt": "What is high intensity interval training?",
     "referenceResponse": "High-Intensity Interval Training (HIIT) is a cardiovascular exercise approach that involves short, intense bursts of exercise followed by brief recovery or rest periods.",

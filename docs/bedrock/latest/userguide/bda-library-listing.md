@@ -1,7 +1,6 @@
 
 
 # Listing Libraries
-<a name="bda-library-listing"></a>
 
 Use the [ListDataAutomationLibraries](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.html) API to retrieve the list of libraries.
 
@@ -10,7 +9,7 @@ Use the [ListDataAutomationLibraries](https://docs.aws.amazon.com/bedrock/latest
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation list-data-automation-libraries \
     --max-results 50
 ```

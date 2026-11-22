@@ -1,7 +1,6 @@
 
 
 # Stable Image Inpaint
-<a name="model-card-stability-ai-stable-image-inpaint"></a>
 
 ## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Inpaint
 <a name="model-card-stability-ai-stable-image-inpaint-header"></a>
@@ -125,7 +124,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import base64
 import boto3

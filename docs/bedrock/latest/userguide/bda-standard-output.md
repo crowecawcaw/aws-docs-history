@@ -1,7 +1,6 @@
 
 
 # Standard output in Bedrock Data Automation
-<a name="bda-standard-output"></a>
 
 Standard output is the default way of interacting with Amazon Bedrock Data Automation (BDA). If you pass a document to the BDA API with no established blueprint or project it returns the default standard output for that file type. Standard output can be modified using projects, which store configuration information for each data type. You can have one standard output configuration per data type for each project. BDA always provides a standard output response even if it's alongside a custom output response.
 

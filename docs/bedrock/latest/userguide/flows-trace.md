@@ -1,7 +1,6 @@
 
 
 # Track each step in your flow by viewing its trace in Amazon Bedrock
-<a name="flows-trace"></a>
 
 When you invoke a flow, you can view the *trace* to see the inputs to and outputs from each node. The trace helps you track the path from the input to the response that it ultimately returns. You can use the trace to troubleshoot errors that occur, to identify steps that lead to an unexpected outcome or performance bottleneck, and to consider ways in which you can improve the flow.
 
@@ -16,7 +15,7 @@ Each trace event includes the name of the node that either received an input or 
 
 This type of trace identifies which conditions are satisfied for a condition node and helps you identify the branch or branches of the flow that are activated during the invocation. The following JSON object shows what a [FlowTraceEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowTraceEvent.html) looks like for the result of a condition node:
 
-```
+```json
 {
     "trace": {
         "conditionNodeOutputTrace": {
@@ -38,7 +37,7 @@ This type of trace identifies which conditions are satisfied for a condition nod
 
 This type of trace displays the input that was sent to a node. If the event is downstream from an iterator node but upstream from a collector node, the `iterationIndex` field indicates the index of the item in the array that the input is from. The following JSON object shows what a [FlowTraceEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowTraceEvent.html) looks like for the input into a node.
 
-```
+```json
 {
     "trace": {
         "nodeInputTrace": {
@@ -64,7 +63,7 @@ This type of trace displays the input that was sent to a node. If the event is d
 
 This type of trace displays the output that was produced by a node. If the event is downstream from an iterator node but upstream from a collector node, the `iterationIndex` field indicates the index of the item in the array that the output is from. The following JSON object shows what a [FlowTraceEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FlowTraceEvent.html) looks like for the output from a node.
 
-```
+```json
 {
     "trace": {
         "nodeOutputTrace": {

@@ -1,7 +1,6 @@
 
 
 # Blueprint Operations CLI
-<a name="bda-blueprint-operations"></a>
 
 This guide covers Blueprint operations available through the AWS Command Line Interface (CLI) for Amazon Bedrock Data Automation (BDA).
 

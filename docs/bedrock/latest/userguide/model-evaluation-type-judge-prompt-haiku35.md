@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude 3.5 Haiku
-<a name="model-evaluation-type-judge-prompt-haiku35"></a>
 
 Prompts used with Anthropic Claude 3.5 Haiku.
 

@@ -1,7 +1,6 @@
 
 
 # Use metrics to understand model performance
-<a name="model-evaluation-metrics"></a>
 
 When you run a judge-based model evaluation job, the evaluator model you select uses a set of metrics to characterize the performance of the models being evaluated. Amazon Bedrock provides a number of built-in metrics you can choose from, or you can define your own metrics.
 

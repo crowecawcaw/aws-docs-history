@@ -1,7 +1,6 @@
 
 
 # Set up permissions and prerequisites
-<a name="bedrock-managed-agents-openai-prerequisites"></a>
 
 Before using Amazon Bedrock Managed Agents, powered by OpenAI, configure an AWS identity, select a supported Region and model, and prepare an execution environment.
 
@@ -25,7 +24,7 @@ Configure an AWS profile using your organization's authentication method. For IA
 
 Select the profile that you use to deploy the examples:
 
-```
+```bash
 export AWS_PROFILE=my-deployment-profile
 export AWS_REGION=us-east-1
 export AWS_DEFAULT_REGION="$AWS_REGION"
@@ -58,7 +57,7 @@ Only one CloudFormation stack can own a role with a given name. If the example's
 
 After deploying an example, read `BmaAccessRoleArn` from the stack outputs. If your existing profile can assume that role, you can configure a separate AWS CLI profile:
 
-```
+```bash
 BMA_ACCESS_ROLE_ARN=$(aws cloudformation describe-stacks \
   --stack-name BmaSelfHostedStack --region "$BMA_REGION" \
   --query "Stacks[0].Outputs[?OutputKey=='BmaAccessRoleArn'].OutputValue | [0]" \
@@ -88,7 +87,7 @@ The Codex executable is downloaded separately. Choose the binary for the host th
 
 For example, extract the Linux ARM64 archive from the bundle root:
 
-```
+```bash
 mkdir -p bin
 tar -xzf /path/to/codex-aarch64-unknown-linux-musl.tar.gz -C bin
 mv bin/codex-aarch64-unknown-linux-musl bin/codex
@@ -104,7 +103,7 @@ If you test both workflows on a Mac, keep the macOS and Linux executables at sep
 
 From the example directory that you plan to deploy, install dependencies and bootstrap the account and Region:
 
-```
+```bash
 npm ci
 npx cdk bootstrap
 ```
@@ -116,13 +115,13 @@ Bootstrapping creates resources used by CDK to publish deployment assets. See [A
 
 The session scripts default to `openai.gpt-5.6-luna`. Select an OpenAI model supported by BMA and available in your target Region and account. To override the example:
 
-```
+```bash
 export BMA_MODEL=openai.gpt-5.6-luna
 ```
 
 The optional signed Python client can list the endpoint's model catalog:
 
-```
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r requirements.txt

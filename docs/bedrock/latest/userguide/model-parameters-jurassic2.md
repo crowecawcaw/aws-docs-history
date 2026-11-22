@@ -1,7 +1,6 @@
 
 
 # AI21 Labs Jurassic-2 models
-<a name="model-parameters-jurassic2"></a>
 
 This section provides inference parameters and a code example for using AI21 Labs AI21 Labs Jurassic-2 models.
 
@@ -54,7 +53,7 @@ The AI21 Labs Jurassic-2 models support the following parameters to control repe
 
 When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) call using an AI21 Labs model, fill the `body` field with a JSON object that conforms to the one below. Enter the prompt in the `prompt` field.
 
-```
+```json
 {
     "prompt": string,
     "temperature": float,
@@ -75,7 +74,7 @@ When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIRef
 
 To penalize special tokens, add those fields to any of the penalty objects. For example, you can modify the `countPenalty` field as follows.
 
-```
+```json
 "countPenalty": {
     "scale": float,
     "applyToWhitespaces": boolean,
@@ -120,7 +119,7 @@ Amazon Bedrock returns the response identifier (`id`) as an integer value.
 
 This examples shows how to call the *A2I AI21 Labs Jurassic-2 Mid* model.
 
-```
+```python
 import boto3
 import json
 

@@ -1,7 +1,6 @@
 
 
 # Projects
-<a name="cost-mgmt-projects"></a>
 
 Amazon Bedrock [Projects](projects.md) provide cost attribution at the application and workload level for the [Responses API](inference-responses-api.md) and [Chat Completions API](inference-chat-completions.md) on the `bedrock-mantle` endpoint. When you tag a project, those tags flow to AWS Cost Explorer and AWS Cost and Usage Reports (CUR 2.0), so you can filter and group Amazon Bedrock spend by application, team, environment, cost center, or any other dimension.
 
@@ -22,7 +21,7 @@ Requests that don't specify a project ID are associated with the default project
 ------
 #### [ Python ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(project="proj_123")
@@ -36,7 +35,7 @@ response = client.chat.completions.create(
 ------
 #### [ cURL ]
 
-```
+```bash
 curl -X POST $OPENAI_BASE_URL/responses \
     -H "Authorization: Bearer $OPENAI_API_KEY" \
     -H "Content-Type: application/json" \

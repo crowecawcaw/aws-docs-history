@@ -1,7 +1,6 @@
 
 
 # Prerequisites for model distillation
-<a name="prequisites-model-distillation"></a>
 
 Before you can begin, make sure that you understand access and security controls for Model Distillation. You must also choose a teacher and student model for your distillation job.
 

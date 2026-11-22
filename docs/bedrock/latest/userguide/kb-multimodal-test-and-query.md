@@ -1,7 +1,6 @@
 
 
 # Testing and querying multimodal knowledge bases
-<a name="kb-multimodal-test-and-query"></a>
 
 After ingesting your multimodal content, you can test and query your knowledge base using the console or API. The available query types depend on your chosen processing approach.
 
@@ -49,7 +48,7 @@ aws bedrock-agent-runtime retrieve \
 **Image query example (Nova Multimodal Embeddings only)**  
 Search using an uploaded image:
 
-```
+```json
 {
     "knowledgeBaseId": "<knowledge-base-id>",
     "retrievalQuery": {
@@ -93,7 +92,7 @@ When multimodal content is processed and stored, the following metadata structur
 + **text field:** For multimedia files processed with Nova Multimodal Embeddings, this field contains an empty string since the content is embedded as native multimedia rather than text
 + **metadata field:** Contains structured information including source details and related content references:
 
-  ```
+  ```json
   {
     "source": {
       "sourceType": "S3",

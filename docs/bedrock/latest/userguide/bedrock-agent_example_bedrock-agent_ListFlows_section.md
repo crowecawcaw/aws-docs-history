@@ -1,7 +1,6 @@
 
 
 # Use `ListFlows` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_ListFlows_section"></a>
 
 The following code example shows how to use `ListFlows`.
 
@@ -12,7 +11,7 @@ The following code example shows how to use `ListFlows`.
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 List Amazon Bedrock flows.  
 
-```
+```python
 def list_flows(client):
     """
     Lists versions of an Amazon Bedrock flow.

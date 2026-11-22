@@ -1,7 +1,6 @@
 
 
 # Create a custom prompt dataset for a model evaluation job that uses human workers
-<a name="model-evaluation-prompt-datasets-custom-human"></a>
 
 To create a model evaluation job that uses human workers you must specify a custom prompt dataset. These prompts are then used during inference with the models you select to evaluate. 
 
@@ -23,7 +22,7 @@ In the worker UI, what you specify for `prompt` and `referenceResponse` are visi
 
 The following is an example custom dataset that contains 6 inputs and uses the JSON line format.
 
-```
+```json
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
 {"prompt":"{{Provide the prompt you want the model to use during inference}}","category":"{{(Optional) Specify an optional category}}","referenceResponse":"{{(Optional) Specify a ground truth response}}."}
@@ -34,7 +33,7 @@ The following is an example custom dataset that contains 6 inputs and uses the J
 
 The following example is a single entry expanded for clarity. In your actual prompt dataset each line must be a valid JSON object.
 
-```
+```json
 {
   "prompt": "What is high intensity interval training?",
   "category": "Fitness",
@@ -57,7 +56,7 @@ Every line in your prompt dataset must contain the same number of responses (eit
 
 The following is a custom example dataset with 6 inputs in JSON line format.
 
-```
+```json
 {"prompt":{{"The prompt you used to generate the model responses"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your first model generated"}},"modelIdentifier":{{"A string identifying your first model"}}},{"response":{{"The response your second model generated"}},"modelIdentifier":{{"A string identifying your second model"}}}]}
 {"prompt":{{"The prompt you used to generate the model responses"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your first model generated"}},"modelIdentifier":{{"A string identifying your first model"}}},{"response":{{"The response your second model generated"}},"modelIdentifier":{{"A string identifying your second model"}}}]}
 {"prompt":{{"The prompt you used to generate the model responses"}},"referenceResponse":{{"(Optional) a ground truth response"}},"category":{{"(Optional) a category for the prompt"}},"modelResponses":[{"response":{{"The response your first model generated"}},"modelIdentifier":{{"A string identifying your first model"}}},{"response":{{"The response your second model generated"}},"modelIdentifier":{{"A string identifying your second model"}}}]}
@@ -68,7 +67,7 @@ The following is a custom example dataset with 6 inputs in JSON line format.
 
 The following example shows a single entry in a prompt dataset expanded for clarity.
 
-```
+```json
 {
     "prompt": "What is high intensity interval training?",
     "referenceResponse": "High-Intensity Interval Training (HIIT) is a cardiovascular exercise approach that involves short, intense bursts of exercise followed by brief recovery or rest periods.",

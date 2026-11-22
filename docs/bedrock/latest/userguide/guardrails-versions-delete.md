@@ -1,7 +1,6 @@
 
 
 # Delete a version of a guardrail
-<a name="guardrails-versions-delete"></a>
 
 To learn how to delete a version of a guardrail, select one of the tabs below and follow the steps indicated:
 
@@ -29,7 +28,7 @@ To delete a version of a guardrail, send a [DeleteGuardrail](https://docs.aws.am
 
 The following is the request format:
 
-```
+```json
 DELETE /guardrails/{{guardrailIdentifier}}?guardrailVersion={{guardrailVersion}} HTTP/1.1
 ```
 

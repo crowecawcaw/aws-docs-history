@@ -1,7 +1,6 @@
 
 
 # Prerequisites for direct ingestion
-<a name="kb-direct-ingestion-prereq"></a>
 
 To use direct ingestion, an IAM role must have permissions to use the `KnowledgeBaseDocs` API operations. If your IAM role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess) AWS managed policy attached, you can skip this section.
 
@@ -12,7 +11,7 @@ The following policy can be attached to an IAM role to allow it to perform direc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

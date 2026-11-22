@@ -1,7 +1,6 @@
 
 
 # Use Amazon Nova Reel to generate a video from a text prompt
-<a name="bedrock-runtime_example_bedrock-runtime_Scenario_AmazonNova_TextToVideo_section"></a>
 
 The following code examples show how to use Amazon Nova Reel to generate a video from a text prompt.
 
@@ -12,7 +11,7 @@ The following code examples show how to use Amazon Nova Reel to generate a video
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Use Amazon Nova Reel to generate a video from a text prompt.  
 
-```
+```python
 """
 This example demonstrates how to use Amazon Nova Reel to generate a video from a text prompt.
 
@@ -145,7 +144,7 @@ if __name__ == "__main__":
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
 Use Amazon Nova Reel to generate a video from a text prompt.  
 
-```
+```swift
 // This example demonstrates how to use Amazon Nova Reel to generate a video from a text prompt.
 // It shows how to:
 // - Set up the Amazon Bedrock runtime client

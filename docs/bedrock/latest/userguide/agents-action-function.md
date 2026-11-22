@@ -1,7 +1,6 @@
 
 
 # Define function details for your agent's action groups in Amazon Bedrock
-<a name="agents-action-function"></a>
 
 When you create an action group in Amazon Bedrock, you can define function details to specify the parameters that the agent needs to invoke from the user. Function details consist of a list of parameters, defined by their name, data type (for a list of supported data types, see [ParameterDetail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ParameterDetail.html)), and whether they are required. The agent uses these configurations to determine what information it needs to elicit from the user.
 

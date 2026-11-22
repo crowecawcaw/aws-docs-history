@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Bedrock Agents Runtime using AWS SDKs
-<a name="service_code_examples_bedrock-agent-runtime"></a>
 
 The following code examples show how to use Amazon Bedrock Agents Runtime with an AWS software development kit (SDK). 
 

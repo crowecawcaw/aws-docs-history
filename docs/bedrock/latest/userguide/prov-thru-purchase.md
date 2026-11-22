@@ -1,7 +1,6 @@
 
 
 # Purchase a Provisioned Throughput for an Amazon Bedrock model
-<a name="prov-thru-purchase"></a>
 
 Amazon Bedrock offers two types of Provisioned Throughput - by Tokens and by Model Units. Refer to the following instructions for the type of Provisioned Throughput you wish to to purchase.
 

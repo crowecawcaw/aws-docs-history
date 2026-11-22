@@ -1,7 +1,6 @@
 
 
 # Amazon Titan Multimodal Embeddings G1 model
-<a name="titan-multiemb-models"></a>
 
 Amazon Titan Foundation Models are pre-trained on large datasets, making them powerful, general-purpose models. Use them as-is, or customize them by fine tuning the models with your own data for a particular task without annotating large volumes of data.
 

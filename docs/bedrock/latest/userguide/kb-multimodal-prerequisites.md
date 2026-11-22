@@ -1,14 +1,13 @@
 
 
 # Prerequisites for multimodal knowledge bases
-<a name="kb-multimodal-prerequisites"></a>
 
 Amazon Bedrock multimodal knowledge bases require additional setup beyond standard knowledge bases to process images, audio, and video content. The specific prerequisites depend on your chosen processing approach and storage configuration.
 
 Before you can create a multimodal knowledge base, you must fulfill the following prerequisites:
 
 **Topics**
-+ [Prerequisites](#kb-multimodal-prerequisites)
++ [Prerequisites](kb-multimodal-prerequisites.md)
 + [Permissions for multimodal content](#kb-multimodal-prerequisites-permissions)
 
 ## Prerequisites

@@ -1,7 +1,6 @@
 
 
 # Embed English
-<a name="model-card-cohere-embed-english"></a>
 
 ## ![Cohere logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Embed English
 <a name="model-card-cohere-embed-english-header"></a>
@@ -111,7 +110,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 

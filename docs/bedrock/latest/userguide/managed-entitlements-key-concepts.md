@@ -1,7 +1,6 @@
 
 
 # Key concepts
-<a name="managed-entitlements-key-concepts"></a>
 
 ## Account roles
 <a name="managed-entitlements-account-roles"></a>

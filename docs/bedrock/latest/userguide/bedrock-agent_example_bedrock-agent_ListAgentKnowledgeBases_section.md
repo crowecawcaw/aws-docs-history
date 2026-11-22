@@ -1,7 +1,6 @@
 
 
 # Use `ListAgentKnowledgeBases` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_ListAgentKnowledgeBases_section"></a>
 
 The following code example shows how to use `ListAgentKnowledgeBases`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 List the knowledge bases associated with an agent.  
 
-```
+```python
     def list_agent_knowledge_bases(self, agent_id, agent_version):
         """
         List the knowledge bases associated with a version of an Amazon Bedrock Agent.

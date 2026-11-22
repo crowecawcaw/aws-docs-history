@@ -1,7 +1,6 @@
 
 
 # Enable memory summarization log delivery
-<a name="agents-memory-log-delivery-enable"></a>
 
 To enable logging for your Amazon Bedrock agent alias, use the [PutDeliverySource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html) CloudWatch API. Make sure to specify the following:
 + For `resourceArn`, provide the Amazon Resource Name (ARN) of the agent alias that is generating and sending the logs

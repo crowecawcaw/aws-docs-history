@@ -1,7 +1,6 @@
 
 
 # Troubleshooting multimodal knowledge bases
-<a name="kb-multimodal-troubleshooting"></a>
 
 This section provides guidance for resolving common issues encountered when working with multimodal knowledge bases. The troubleshooting information is organized by general limitations, common error scenarios with their causes and solutions, and performance optimization recommendations. Use this information to diagnose and resolve issues during setup, ingestion, or querying of your multimodal content.
 
@@ -101,7 +100,7 @@ Do not apply lifecycle policies to the entire bucket or to the "aws/" prefix, as
    + {{knowledge-base-id}} - Your knowledge base identifier
    + {{data-source-id}} - Your data source identifier
 
-   ```
+   ```json
    {
        "Rules": [
            {

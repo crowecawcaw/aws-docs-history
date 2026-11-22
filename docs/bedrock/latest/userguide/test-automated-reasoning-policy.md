@@ -1,7 +1,6 @@
 
 
 # Test an Automated Reasoning policy
-<a name="test-automated-reasoning-policy"></a>
 
 Testing validates that your policy's rules are correct and that Automated Reasoning checks can accurately translate natural language into formal logic. You test a policy by sending natural language statements for validation, then inspecting the feedback to ensure the translation uses the right variables and that the rules produce the expected results.
 
@@ -80,7 +79,7 @@ To generate test scenarios using the API, first start a `GENERATE_POLICY_SCENARI
 
 Use `StartAutomatedReasoningPolicyBuildWorkflow` with `GENERATE_POLICY_SCENARIOS` to generate scenarios from your policy's rules.
 
-```
+```bash
 aws bedrock start-automated-reasoning-policy-build-workflow \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
   --build-workflow-type GENERATE_POLICY_SCENARIOS \
@@ -101,7 +100,7 @@ The identifier of the `GENERATE_POLICY_SCENARIOS` build workflow. Retrieve it fr
 
 **Example:**
 
-```
+```bash
 aws bedrock get-automated-reasoning-policy-next-scenario \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
   --build-workflow-id {{d40fa7fc-351e-47d8-a338-53e4b3b1c690}}
@@ -148,7 +147,7 @@ The minimum confidence level for logic validation.
 
 **Example:**
 
-```
+```bash
 aws bedrock create-automated-reasoning-policy-test-case \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \
   --query-content "{{Can I take a leave of absence if I'm a part-time employee?}}" \
@@ -159,7 +158,7 @@ aws bedrock create-automated-reasoning-policy-test-case \
 
 Example response:
 
-```
+```json
 {
   "testCaseId": "test-12345abcde",
   "policyArn": "arn:aws:bedrock:us-east-1:111122223333:automated-reasoning-policy/lnq5hhz70wgk"
@@ -196,7 +195,7 @@ A list of test identifiers to run. If not provided, all tests for the policy are
 
 **Example:**
 
-```
+```bash
 # Run tests
 aws bedrock start-automated-reasoning-policy-test-workflow \
   --policy-arn "arn:aws:bedrock:{{us-east-1}}:{{111122223333}}:automated-reasoning-policy/{{lnq5hhz70wgk}}" \

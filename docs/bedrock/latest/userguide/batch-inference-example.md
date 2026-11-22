@@ -1,7 +1,6 @@
 
 
 # Code example for batch inference
-<a name="batch-inference-example"></a>
 
 The code example in this chapter shows how to create a batch inference job, view information about it, and stop it. This example uses the `InvokeModel` API format. For information about using the `Converse` API format, see [Format and upload your batch inference data](batch-inference-data.md).
 
@@ -12,7 +11,7 @@ Select a language to see a code example for it:
 
 Create a JSONL file named {{abc.jsonl}} and include a JSON object for each record that contains at least the minimum number of records (see the **Minimum number of records per batch inference job for {{{Model}}}** [Quotas for Amazon Bedrock](quotas.md)). In this example, you'll use the Anthropic Claude 3 Haiku model. The following example shows the first input JSON in the file:
 
-```
+```json
 {
     "recordId": "CALL0000001", 
     "modelInput": {
@@ -37,7 +36,7 @@ Create a JSONL file named {{abc.jsonl}} and include a JSON object for each recor
 
 Create an S3 bucket called {{amzn-s3-demo-bucket-input}} and upload the file to it. Then create an S3 bucket called {{amzn-s3-demo-bucket-output}} to write your output files to. Run the following code snippet to submit a job and get the {{jobArn}} from the response:
 
-```
+```python
 import boto3
 
 bedrock = boto3.client(service_name="bedrock")
@@ -67,13 +66,13 @@ jobArn = response.get('jobArn')
 
 Return the `status` of the job.
 
-```
+```python
 bedrock.get_model_invocation_job(jobIdentifier=jobArn)['status']
 ```
 
 List batch inference jobs that {{Failed}}.
 
-```
+```python
 bedrock.list_model_invocation_jobs(
     maxResults=10,
     statusEquals="Failed",
@@ -83,14 +82,14 @@ bedrock.list_model_invocation_jobs(
 
 Stop the job that you started.
 
-```
+```python
 bedrock.stop_model_invocation_job(jobIdentifier=jobArn)
 ```
 
 ------
 #### [ Java ]
 
-```
+```java
 package com.amazon.aws.sample.bedrock.inference;
 
 import software.amazon.awssdk.services.bedrock.BedrockClient;

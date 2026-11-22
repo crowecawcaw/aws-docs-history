@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Provisioned Throughput
-<a name="prov-thru-prereq"></a>
 
 Before you can purchase and manage Provisioned Throughput, you need to fulfill the following prerequisites:
 
@@ -16,7 +15,7 @@ Before you can purchase and manage Provisioned Throughput, you need to fulfill t
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Monitor batch inference jobs
-<a name="batch-inference-monitor"></a>
 
 Apart from the configurations you set for a batch inference job, you can also monitor its progress by seeing its status. For more information about the possible statuses for a job, see the `status` field in [ModelInvocationJobSummary](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ModelInvocationJobSummary.html).
 

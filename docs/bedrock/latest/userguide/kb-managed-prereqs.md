@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="kb-managed-prereqs"></a>
 
 Amazon Bedrock managed knowledge bases require data and AWS Identity and Access Management permissions to access your data and perform actions. By default, managed knowledge bases use service-managed embedding and reranking models, so no Bedrock model access is required for those. If you provide your own embedding or reranking models, you also need access to those Bedrock models.
 
@@ -11,7 +10,7 @@ Before you can create a managed knowledge base, you must fulfill the following p
 
 1. Make sure that the IAM role used to create the knowledge base has the `iam:PassRole` permission to pass the service role to Amazon Bedrock. Add the following statement to the role's policy:
 
-   ```
+   ```json
    {
        "Sid": "IAMPassRole",
        "Effect": "Allow",
@@ -35,7 +34,7 @@ Before you can create a managed knowledge base, you must fulfill the following p
 
 1. (Optional) To encrypt data storage in your managed knowledge base with a custom KMS key, specify `ServerSideEncryptionConfiguration` during knowledge base creation. You also need to add the required KMS permissions to the service role. For more information, see [Encryption of data storage in fully managed knowledge base](encryption-kb.md#encryption-kb-managed-ingestion).
 
-   ```
+   ```json
    "ManagedKnowledgeBaseConfiguration": {
        "ServerSideEncryptionConfiguration": {
            "KmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/6d2dc333-1294-40bb-840a-c86e46ddc8b7"

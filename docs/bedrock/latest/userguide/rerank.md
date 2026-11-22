@@ -1,7 +1,6 @@
 
 
 # Improve the relevance of query responses with a reranker model in Amazon Bedrock
-<a name="rerank"></a>
 
 Amazon Bedrock provides access to reranker models that you can use when querying to improve the relevance of the retrieved results. A reranker model calculates the relevance of chunks to a query and reorders the results based on the scores that it calculates. By using a reranker model, you can return responses that are better suited to answering the query. Or, you can include the results in a prompt when running model inference to generate more pertinent and accurate responses. With a reranker model, you can retrieve fewer, but more relevant, results. By feeding these results to the foundation model that you use to generate a response, you can also decrease cost and latency.
 

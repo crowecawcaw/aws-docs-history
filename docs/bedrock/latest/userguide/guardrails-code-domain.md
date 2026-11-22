@@ -1,7 +1,6 @@
 
 
 # Code domain support
-<a name="guardrails-code-domain"></a>
 
 Guardrails now detect and filter harmful content across both natural-language and code-related inputs and outputs. The code domain covers three categories:
 + **Text with coding intent** – Natural-language descriptions of code functionality, programming concepts, or instructions related to software development.

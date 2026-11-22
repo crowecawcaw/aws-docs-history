@@ -1,7 +1,6 @@
 
 
 # Delete a version of an agent in Amazon Bedrock
-<a name="agents-version-delete"></a>
 
 To learn how to delete a version of an agent, choose the tab for your preferred method, and then follow the steps:
 

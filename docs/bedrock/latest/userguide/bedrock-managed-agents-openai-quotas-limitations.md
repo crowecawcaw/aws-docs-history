@@ -1,7 +1,6 @@
 
 
 # Preview availability and limitations
-<a name="bedrock-managed-agents-openai-quotas-limitations"></a>
 
 Amazon Bedrock Managed Agents, powered by OpenAI is available in preview through regional `bedrock-mantle` endpoints in US East (N. Virginia), US West (Oregon), and US East (Ohio).
 

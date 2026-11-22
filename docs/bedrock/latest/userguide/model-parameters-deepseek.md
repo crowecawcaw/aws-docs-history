@@ -1,7 +1,6 @@
 
 
 # DeepSeek models
-<a name="model-parameters-deepseek"></a>
 
 DeepSeek’s R1 and V3.1 models are text-to-text models available for use for inferencing through the Invoke API ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)) and the Converse API ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)). 
 
@@ -25,7 +24,7 @@ For more information on how to use DeepSeek models with APIs, see [DeepSeek Mode
 
 DeepSeek has the following inference parameters for a Text Completion inference call.
 
-```
+```json
 {
     "prompt": string,
     "temperature": float, 
@@ -46,7 +45,7 @@ DeepSeek has the following inference parameters for a Text Completion inference 
 
 DeepSeek has the following response parameters for a Text Completion inference call. This example is a text completion from DeepSeek, and does not return a content reasoning block.
 
-```
+```json
 {
     "choices": [
         {

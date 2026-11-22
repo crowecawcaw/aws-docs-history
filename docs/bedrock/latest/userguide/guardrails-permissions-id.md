@@ -1,7 +1,6 @@
 
 
 # Enforce the use of specific guardrails in model inference requests
-<a name="guardrails-permissions-id"></a>
 
 You can enforce the use of a specific guardrail for model inference by including the `bedrock:GuardrailIdentifier` condition key in your IAM policy. This allows you to deny any inference API request that doesn't include the guardrail configured in your IAM policy.
 
@@ -18,7 +17,7 @@ Use the following policy to enforce the use of a specific guardrail (`{{guardrai
 The explicit deny keeps the user request from calling the listed actions with any other `GuardrailIdentifier` and guardrail version no matter what other permissions the user might have.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -72,7 +71,7 @@ The explicit deny keeps the user request from calling the listed actions with an
 Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and its DRAFT version during model inference.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -126,7 +125,7 @@ Use the following policy to enforce the use of a specific guardrail (`{{guardrai
 Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and any of its numeric versions during model inference.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -180,7 +179,7 @@ Use the following policy to enforce the use of a specific guardrail (`{{guardrai
 Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and any of its numeric versions (including the DRAFT version) during model inference.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -234,7 +233,7 @@ Use the following policy to enforce the use of a specific guardrail (`{{guardrai
 Use the following policy to allow model inference for only a set of guardrails and their respective versions.    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

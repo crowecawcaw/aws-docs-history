@@ -1,7 +1,6 @@
 
 
 # Set up your query engine and permissions for creating a knowledge base with structured data store
-<a name="knowledge-base-prereq-structured"></a>
 
 This topic describes the permissions that you need when connecting your knowledge base to a structured data store. If you plan to connect an Amazon Bedrock knowledge base to a structured data store, you need to fulfill the prerequisites. For general permissions requirements to be fulfilled, see [Set up permissions for a user or role to create and manage knowledge bases](knowledge-base-prereq-permissions-general.md).
 
@@ -65,7 +64,7 @@ Attach the following policy to your custom service role to allow it to access yo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -133,7 +132,7 @@ To allow your service role to authenticate to your Amazon Redshift provisioned q
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -161,7 +160,7 @@ To authenticate as an Amazon Redshift database user, attach the following policy
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -188,7 +187,7 @@ To authenticate as an Amazon Redshift database user, attach the following policy
 To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following:
 + Attach the following policy to the role:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -223,7 +222,7 @@ To allow your service role to authenticate to your Amazon Redshift serverless qu
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -247,7 +246,7 @@ To allow your service role to authenticate to your Amazon Redshift serverless qu
 To allow your service role to authenticate to your Amazon Redshift provisioned query engine with an AWS Secrets Manager secret, do the following:
 + Attach the following policy to the role:
 
-  ```
+  ```json
   {
       "Version": "2012-10-17",		 	 	 
       "Statement": [
@@ -293,7 +292,7 @@ To grant your Amazon Bedrock Knowledge Bases service role access to your Amazon 
 
 1. (If you authenticate with IAM and a user wasn't already created for your database) Run the following command, which uses [CREATE USER](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html) to create a database user and allow it to authenticate through IAM, replacing {{${service-role}}} with the name of the custom Amazon Bedrock Knowledge Bases service role you created:
 
-   ```
+   ```sql
    CREATE USER "IAMR:{{${service-role}}}" WITH PASSWORD DISABLE;
    ```
 **Important**  
@@ -304,21 +303,21 @@ If you use the Amazon Bedrock Knowledge Bases service role created for you in th
 ------
 #### [ IAM ]
 
-   ```
+   ```sql
    GRANT SELECT ON ALL TABLES IN SCHEMA {{${schemaName}}} TO "IAMR:{{${serviceRole}}}";
    ```
 
 ------
 #### [ Database user ]
 
-   ```
+   ```sql
    GRANT SELECT ON ALL TABLES IN SCHEMA {{${schemaName}}} TO "{{${dbUser}}}";
    ```
 
 ------
 #### [ AWS Secrets Manager username ]
 
-   ```
+   ```sql
    GRANT SELECT ON ALL TABLES IN SCHEMA {{${schemaName}}} TO "{{${secretsUsername}}}";
    ```
 
@@ -331,21 +330,21 @@ Don't grant `CREATE`, `UPDATE`, or `DELETE` access. Granting these actions can l
 ------
 #### [ IAM ]
 
-   ```
+   ```sql
    GRANT SELECT ON {{${schemaName}}}.{{${tableName}}} TO "IAMR:{{${serviceRole}}}";
    ```
 
 ------
 #### [ Database user ]
 
-   ```
+   ```sql
    GRANT SELECT ON {{${schemaName}}}.{{${tableName}}} TO "{{${dbUser}}}";
    ```
 
 ------
 #### [ AWS Secrets Manager username ]
 
-   ```
+   ```sql
    GRANT SELECT ON {{${schemaName}}}.{{${tableName}}} TO "{{${secretsUsername}}}";
    ```
 
@@ -364,7 +363,7 @@ To grant your Amazon Bedrock Knowledge Bases service role access to your AWS Glu
 
 1. Run the following command, which uses [CREATE USER](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html) to create a database user and allow it to authenticate through IAM, replacing {{${service-role}}} with the name of the custom Amazon Bedrock Knowledge Bases service role you created:
 
-   ```
+   ```sql
    CREATE USER "IAMR:{{${service-role}}}" WITH PASSWORD DISABLE;
    ```
 **Important**  
@@ -372,7 +371,7 @@ If you use the Amazon Bedrock Knowledge Bases service role created for you in th
 
 1. Grant the service role permissions to retrieve information from your database by running the following [GRANT](https://docs.aws.amazon.com/redshift/latest/dg/r_GRANT.html) command:
 
-   ```
+   ```sql
    GRANT USAGE ON DATABASE awsdatacatalog TO "IAMR:{{${serviceRole}}}";
    ```
 **Important**  
@@ -385,7 +384,7 @@ Don't grant `CREATE`, `UPDATE`, or `DELETE` access. Granting these actions can l
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -417,7 +416,7 @@ Don't grant `CREATE`, `UPDATE`, or `DELETE` access. Granting these actions can l
 **Important**  
 You must also add the `lakeformation:GetDataAccess` action to your Amazon Bedrock Knowledge Bases service role's IAM policy. Without this permission, queries to the knowledge base will fail with an authorization error. Add the following statement to the service role policy:  
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Action": "lakeformation:GetDataAccess",
@@ -435,7 +434,7 @@ You must also add the `lakeformation:GetDataAccess` action to your Amazon Bedroc
 
 1. Depending on the data source you use in AWS Glue Data Catalog, you might need to add permissions to access that data source (for more information, see [AWS Glue dependency on other AWS services](https://docs.aws.amazon.com/glue/latest/dg/dependency-on-other-services.html)). For example, if your data source is in an Amazon S3 location, you'll need to add the following statement to the policy above.
 
-   ```
+   ```json
    {
        "Sid": "Statement1",
        "Effect": "Allow",
@@ -452,7 +451,7 @@ You must also add the `lakeformation:GetDataAccess` action to your Amazon Bedroc
 
 1. (Optional) If you use AWS KMS to encrypt the data in Amazon S3 or AWS Glue Data Catalog, then you need to add permissions to the role to decrypt the data on the KMS key.
 
-   ```
+   ```json
    {
        "Action": [
            "kms:Decrypt"

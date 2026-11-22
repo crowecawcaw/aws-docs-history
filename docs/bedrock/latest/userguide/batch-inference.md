@@ -1,7 +1,6 @@
 
 
 # Process multiple prompts with batch inference
-<a name="batch-inference"></a>
 
 With batch inference, you can submit multiple prompts and generate responses asynchronously. You can format your input data by using either the `InvokeModel` or `Converse` API format. Batch inference helps you process a large number of requests efficiently by sending a single request and generating the responses in an Amazon S3 bucket. After defining model inputs in files you create, you upload the files to an S3 bucket. You then submit a batch inference request and specify the S3 bucket. After the job is complete, you can retrieve the output files from S3. You can use batch inference to improve the performance of model inference on large datasets.
 

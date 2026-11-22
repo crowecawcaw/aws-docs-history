@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Bedrock job state changes using Amazon EventBridge
-<a name="monitoring-eventbridge"></a>
 
 Amazon EventBridge is an AWS service that monitors events from other AWS services in near real-time. You can use Amazon EventBridge to monitor events in Amazon Bedrock and to send event information when they match a rule you define. You can then configure your application to respond automatically to these events. Amazon EventBridge supports monitoring of the following events in Amazon Bedrock:
 + [Model customization jobs](custom-models.md) – The state of a job can be seen in the job details in the AWS Management Console or in a [GetModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCustomizationJob.html) response. For more information, see [Monitor your model customization job](model-customization-monitor.md).

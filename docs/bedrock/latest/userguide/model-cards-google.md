@@ -1,7 +1,6 @@
 
 
 # Google
-<a name="model-cards-google"></a>
 
 The following Google models are available in Amazon Bedrock:
 

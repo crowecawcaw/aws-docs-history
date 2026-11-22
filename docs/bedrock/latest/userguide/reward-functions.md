@@ -1,7 +1,6 @@
 
 
 # Setting up reward functions for Amazon Nova models
-<a name="reward-functions"></a>
 
 Reward functions evaluate response quality and provide feedback signals for model training. You can set up reward functions using custom Lambda functions or Amazon Bedrock-hosted foundation models as judges. Guided templates are available to simplify reward function creation for common tasks like instruction following and format validation. Choose the approach that matches your task requirements.
 
@@ -59,7 +58,7 @@ When implementing custom Lambda reward functions, your function must accept and 
 ------
 #### [ Input structure ]
 
-```
+```json
 [{
   "id": "123",
   "messages": [
@@ -85,7 +84,7 @@ When implementing custom Lambda reward functions, your function must accept and 
 ------
 #### [ Output structure ]
 
-```
+```json
 [{
   "id": "123",
   "aggregate_reward_score": 0.85,

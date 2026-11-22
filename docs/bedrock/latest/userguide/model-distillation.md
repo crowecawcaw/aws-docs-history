@@ -1,7 +1,6 @@
 
 
 # Customize a model with distillation in Amazon Bedrock
-<a name="model-distillation"></a>
 
 *Model distillation* is the process of transferring knowledge from a larger more intelligent model (known as teacher) to a smaller, faster, cost-efficient model (known as student). In this process, the student model's performance improves for a specific use case. Amazon Bedrock Model Distillation uses the latest data synthesis techniques to generate diverse, high-quality responses (known as synthetic data) from the teacher model, and fine-tunes the student model.
 

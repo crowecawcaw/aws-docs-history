@@ -1,7 +1,6 @@
 
 
 # Set up Basic authentication for Confluence
-<a name="kb-managed-confluence-basic-setup"></a>
 
 Basic authentication (`BASIC`) is the recommended authentication method for a Confluence data source. The connector signs in with the email address of a Confluence user and an Atlassian API token (used in place of a password). It is the only authentication method that supports document-level access control (ACLs); ACLs also require Atlassian organization admin credentials in the same secret.
 
@@ -43,7 +42,7 @@ Store the credentials in an AWS Secrets Manager secret with the following key-va
 
 **Without document-level access control**
 
-```
+```json
 {
     "username": "{{your-confluence-email}}",
     "password": "{{your-atlassian-api-token}}",
@@ -53,7 +52,7 @@ Store the credentials in an AWS Secrets Manager secret with the following key-va
 
 **With document-level access control**
 
-```
+```json
 {
     "username": "{{your-confluence-email}}",
     "password": "{{your-atlassian-api-token}}",

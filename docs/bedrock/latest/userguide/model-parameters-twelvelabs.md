@@ -1,7 +1,6 @@
 
 
 # TwelveLabs models
-<a name="model-parameters-twelvelabs"></a>
 
 This section describes the request parameters and response fields for TwelveLabs models. Use this information to make inference calls to TwelveLabs models. The TwelveLabs Pegasus 1.2 and TwelveLabs Pegasus 1.5 models support [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming) operations. The TwelveLabs Marengo Embed 2.7 and TwelveLabs Marengo Embed 3.0 models support [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_StartAsyncInvoke.html) operations. This section also includes code examples that show how to call TwelveLabs models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md).
 

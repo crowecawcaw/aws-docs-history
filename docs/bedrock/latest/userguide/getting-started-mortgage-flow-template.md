@@ -1,7 +1,6 @@
 
 
 # CloudFormation templates
-<a name="getting-started-mortgage-flow-template"></a>
 
 The `cloudformation-mortgage-flow-setup.zip` file that you download contains the following files:
 + `deploy.sh` – A shell script that deploys your resources and prepares the main CloudFormation template that you'll use.
@@ -21,7 +20,7 @@ The `cloudformation-mortgage-flow-setup.zip` file that you download contains the
   + `guardrails-template` – The template for the guardrail to be associated with the agent.
   + `prompts-template` – The template for the prompts to be used in flow.
   + `kb-role-template` – The template for the knowledge base role, to be used both by the OpenSearch template and by the knowledge base template.
-  + `oss-infra-template` – The template for the Amazon OpenSearch Serverless vector store to be used for the knowledge base.
+  + `oss-infra-template` – The template for the OpenSearch Serverless vector store to be used for the knowledge base.
   + `kb-infra-template` – The template for the mortgage loan knowledge base to be associated with the agent.
   + `agent-template` – The template for mortgage processing agent to be used in the flow.
   + `mortgage-flow-template` – The template for the mortgage processing flow that combines all the resources.
@@ -43,7 +42,7 @@ The main stack defines the parameters that you can define when you upload the te
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow"
 
@@ -261,7 +260,7 @@ Resources:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow",
@@ -562,7 +561,7 @@ This stack creates the following [guardrails](guardrails.md)-related resources:
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow"
 
@@ -649,7 +648,7 @@ Outputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow",
@@ -800,7 +799,7 @@ This stack creates the following [prompt](prompt-management.md) ([AWS::IAM::Prom
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow"
 
@@ -899,7 +898,7 @@ Outputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow",
@@ -1032,7 +1031,7 @@ This template creates the [knowledge base](knowledge-base.md) and its data sourc
 ------
 #### [ YAML ]
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Description: "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow"
 Parameters:
@@ -1175,7 +1174,7 @@ Outputs:
 ------
 #### [ JSON ]
 
-```
+```json
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "[AWSDocs] AmazonBedrockDocs: getting-started-mortgage-flow",

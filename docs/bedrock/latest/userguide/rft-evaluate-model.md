@@ -1,7 +1,6 @@
 
 
 # Evaluate your RFT model
-<a name="rft-evaluate-model"></a>
 
 After your reinforcement fine-tuning job completes successfully, you can evaluate your custom model's performance using multiple assessment methods. Amazon Bedrock provides built-in evaluation tools to help you compare your RFT model against the base model and validate improvements.
 

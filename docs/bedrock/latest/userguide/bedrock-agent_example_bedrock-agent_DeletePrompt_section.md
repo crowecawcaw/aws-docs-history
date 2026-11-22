@@ -1,7 +1,6 @@
 
 
 # Use `DeletePrompt` with an AWS SDK
-<a name="bedrock-agent_example_bedrock-agent_DeletePrompt_section"></a>
 
 The following code example shows how to use `DeletePrompt`.
 
@@ -15,7 +14,7 @@ Action examples are code excerpts from larger programs and must be run in contex
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
 Delete an Amazon Bedrock managed prompt.  
 
-```
+```python
 def delete_prompt(client, prompt_id):
     """
     Deletes an Amazon Bedrock managed prompt.

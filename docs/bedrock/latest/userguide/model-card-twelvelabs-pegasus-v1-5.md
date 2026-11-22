@@ -1,7 +1,6 @@
 
 
 # Pegasus v1.5
-<a name="model-card-twelvelabs-pegasus-v1-5"></a>
 
 ## ![Icon showing branching arrows representing a merge or split workflow pattern.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Pegasus v1.5
 <a name="model-card-twelvelabs-pegasus-v1-5-header"></a>
@@ -154,7 +153,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 

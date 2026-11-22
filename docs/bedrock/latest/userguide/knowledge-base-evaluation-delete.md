@@ -1,7 +1,6 @@
 
 
 # Delete a RAG evaluation job in Amazon Bedrock
-<a name="knowledge-base-evaluation-delete"></a>
 
 You can delete a RAG evaluation job that you no longer want to use.
 

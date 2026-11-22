@@ -1,7 +1,6 @@
 
 
 # Encryption of Amazon Bedrock Flows resources
-<a name="encryption-flows"></a>
 
 Amazon Bedrock encrypts your data at rest. By default, Amazon Bedrock encrypts this data using an AWS managed key. Optionally, you can encrypt the data using a customer managed key.
 
@@ -16,7 +15,7 @@ If you encrypt data with a custom KMS key, you must set up the following identit
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -48,7 +47,7 @@ If you encrypt data with a custom KMS key, you must set up the following identit
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -92,7 +91,7 @@ If you encrypt data with a custom KMS key, you must set up the following identit
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

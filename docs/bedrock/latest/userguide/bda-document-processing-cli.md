@@ -1,7 +1,8 @@
 
 
 # Processing through CLI
-<a name="bda-document-processing-cli"></a>
+
+**Input files into an S3 bucket**
 
 Before processing documents with BDA, you must first upload your documents to an S3 bucket:
 

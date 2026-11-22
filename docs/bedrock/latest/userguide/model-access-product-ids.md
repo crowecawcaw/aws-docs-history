@@ -1,7 +1,6 @@
 
 
 # Use product ID condition keys to control access
-<a name="model-access-product-ids"></a>
 
 The `aws-marketplace:ProductId` condition key can be used to control the ability to subscribe to Amazon Bedrock serverless models that have a product ID in AWS Marketplace. To learn how to use the product ID condition key, see the examples in [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](model-access.md#model-access-permissions).
 

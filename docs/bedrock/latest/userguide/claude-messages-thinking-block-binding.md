@@ -1,7 +1,6 @@
 
 
 # Preserved thinking
-<a name="claude-messages-thinking-block-binding"></a>
 
 ## Overview
 <a name="claude-messages-thinking-block-binding-overview"></a>
@@ -43,7 +42,7 @@ When you switch models partway through a conversation, the model check decides w
 
 Add `block_binding` to the `thinking` object and include the beta value in `anthropic_beta` to control what happens when a prefix mismatch is detected:
 
-```
+```json
 {
     "anthropic_version": "bedrock-2023-05-31",
     "anthropic_beta": ["thinking-binding-controls-2026-08-01"],
@@ -76,7 +75,7 @@ Neither value changes the model check, which always drops.
 
 When the beta value is sent, the response may include a top-level `input_transformations` array describing any blocks that were removed:
 
-```
+```json
 {
     "type": "message", "role": "assistant", "content": [ ... ],
     "stop_reason": "end_turn",
@@ -96,7 +95,7 @@ On Claude Fable 5.2, Claude Mythos 5.2, Claude Sonnet 5.5, and Claude Haiku 5.5,
 
 By default the drop is silent. With the `thinking-binding-controls-2026-08-01` beta, each dropped block is listed in the top-level `input_transformations` array:
 
-```
+```json
 {
     "input_transformations": [
         {"type": "thinking_dropped", "path": "messages.1.content.0", "reason": "organization_binding_mismatch"}
@@ -113,7 +112,7 @@ This binding applies on Claude Fable 5.2, Claude Mythos 5.2, Claude Sonnet 5.5, 
 
 When `prefix_mismatch_behavior` is `"error"`, a prefix mismatch returns:
 
-```
+```json
 {
     "type": "error",
     "error": {

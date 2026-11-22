@@ -1,7 +1,6 @@
 
 
 # Distributing licenses
-<a name="managed-entitlements-distributing"></a>
 
 After you have subscribed to a third-party Bedrock model and verified that a license has been created, you can create grants to distribute access to other accounts in your organization.
 
@@ -104,19 +103,19 @@ The example values in the following commands are fictitious. Replace them with y
 
 1. Find the license ARN.
 
-   ```
+   ```bash
    aws license-manager list-received-licenses --region us-east-1
    ```
 
 1. Find your organization ID and management account ID.
 
-   ```
+   ```bash
    aws organizations describe-organization
    ```
 
 1. Create the grant. The following command creates the grant by using the values described earlier in this section.
 
-   ```
+   ```bash
    aws license-manager create-grant \
        --region us-east-1 \
        --client-token "$(uuidgen)" \
@@ -129,7 +128,7 @@ The example values in the following commands are fictitious. Replace them with y
 
 1. Check the grant status. Replace {{my-grant-arn}} with the grant ARN from the previous step.
 
-   ```
+   ```bash
    aws license-manager get-grant --region us-east-1 --grant-arn "{{my-grant-arn}}"
    ```
 

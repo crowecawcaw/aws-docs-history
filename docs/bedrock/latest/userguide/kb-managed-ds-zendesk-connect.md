@@ -1,7 +1,6 @@
 
 
 # Connect a Zendesk data source
-<a name="kb-managed-ds-zendesk-connect"></a>
 
 After you set up authentication and store your credentials in an AWS Secrets Manager secret, create the Zendesk data source in your knowledge base. This page describes how to create the data source with the AWS Management Console or the API, followed by a reference for the connector parameters you can configure.
 
@@ -50,7 +49,7 @@ aws bedrock-agent create-data-source \
 
 The `zendesk-managed-connector.json` file contains the following:
 
-```
+```json
 {
     "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     "managedKnowledgeBaseConnectorConfiguration": {

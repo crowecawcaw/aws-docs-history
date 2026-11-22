@@ -1,7 +1,6 @@
 
 
 # View information about versions of flows in Amazon Bedrock
-<a name="flows-version-view"></a>
 
 To learn how to view information about the versions of a flow, choose the tab for your preferred method, and then follow the steps:
 

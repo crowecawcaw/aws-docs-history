@@ -1,7 +1,6 @@
 
 
 # Gemma 4 31B
-<a name="model-card-google-gemma-4-31b"></a>
 
 ## ![Google logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/google.png) Google — Gemma 4 31B
 <a name="model-card-google-gemma-4-31b-header"></a>
@@ -119,7 +118,7 @@ OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/openai/v1"
 ------
 #### [ Chat Completions API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -134,7 +133,7 @@ print(response)
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()

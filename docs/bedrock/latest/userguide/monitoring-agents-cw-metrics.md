@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Bedrock Agents using CloudWatch Metrics
-<a name="monitoring-agents-cw-metrics"></a>
 
 The following table describes runtime metrics provided by Amazon Bedrock Agents that you can monitor with Amazon CloudWatch Metrics.
 
@@ -55,7 +54,7 @@ If you aren't seeing metrics published in the CloudWatch dashboard, make sure th
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": {

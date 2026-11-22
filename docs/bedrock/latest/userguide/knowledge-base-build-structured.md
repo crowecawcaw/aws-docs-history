@@ -1,7 +1,6 @@
 
 
 # Build a knowledge base by connecting to a structured data store
-<a name="knowledge-base-build-structured"></a>
 
 Amazon Bedrock Knowledge Bases allows you to connect to structured data stores, which contain data that conforms to a predefined schema. Examples of structured data include tables and databases. Amazon Bedrock Knowledge Bases can convert user queries into language that is suitable for extracting data from supported structured data stores. It can then use the converted query to retrieve data that is relevant to the query and generate appropriate responses. This enables you to use the existing structured data directly without having to convert it to a different format or generate your own SQL queries.
 

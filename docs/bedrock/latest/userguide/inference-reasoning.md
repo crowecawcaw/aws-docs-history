@@ -1,7 +1,6 @@
 
 
 # Enhance model responses with model reasoning
-<a name="inference-reasoning"></a>
 
 Some foundation models are able to perform model reasoning, where they are able to take a larger, complex task and break it down into smaller, simpler steps. This process is often referred to as chain of thought (CoT) reasoning. Chain of thought reasoning can often improve model accuracy by giving the model a chance to think before it responds. Model reasoning is most useful for tasks such as multi-step analysis, math problems, and complex reasoning tasks. 
 

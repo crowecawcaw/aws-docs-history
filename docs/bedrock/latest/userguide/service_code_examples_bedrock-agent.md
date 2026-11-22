@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Bedrock Agents using AWS SDKs
-<a name="service_code_examples_bedrock-agent"></a>
 
 The following code examples show how to use Amazon Bedrock Agents with an AWS software development kit (SDK). 
 

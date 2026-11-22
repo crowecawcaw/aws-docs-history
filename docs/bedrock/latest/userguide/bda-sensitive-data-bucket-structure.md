@@ -1,7 +1,6 @@
 
 
 # Sensitive data detection and redaction output bucket structure
-<a name="bda-sensitive-data-bucket-structure"></a>
 
 When you set the detection mode to DETECTION\_AND\_REDACTION, BDA creates a `redacted/` directory for redacted output files, as shown in the following example.
 

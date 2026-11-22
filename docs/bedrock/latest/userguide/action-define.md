@@ -1,7 +1,6 @@
 
 
 # Define actions in the action group
-<a name="action-define"></a>
 
 You can define action groups in one of the following ways (you can use different methods for different action groups):
 + [Set up an OpenAPI schema](agents-api-schema.md) with descriptions, structure, and parameters that define each action in the action group as an API operation. With this option, you can define actions more explicitly and map them to API operations in your system. You add the API schema to the action group in one of the following ways:

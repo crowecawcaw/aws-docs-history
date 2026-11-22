@@ -1,13 +1,12 @@
 
 
 # Control agent session context
-<a name="agents-session-state"></a>
 
 For greater control of session context, you can modify the [SessionState](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_SessionState.html#bedrock-Type-agent-runtime_SessionState) object in your agent. The [SessionState](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_SessionState.html#bedrock-Type-agent-runtime_SessionState) object contains information that can be maintained across turns (separate [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request and responses). You can use this information to provide conversational context for the agent during user conversations.
 
 The general format of the [SessionState](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_SessionState.html#bedrock-Type-agent-runtime_SessionState) object is as follows.
 
-```
+```json
 {
     "sessionAttributes": {
         "{{<attributeName1>}}": "{{<attributeValue1>"}},
@@ -78,7 +77,7 @@ The following example uses a session attribute to personalize a message to your 
 
 1. Write your application code to send an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request with the following body:
 
-   ```
+   ```json
    {
        "inputText": "{{<request>}}",
        "sessionState": {
@@ -104,7 +103,7 @@ The following general example uses a prompt session attribute to provide tempora
 
 1. Write your application to send an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request with the following body:
 
-   ```
+   ```json
    {
        "inputText": "{{<request>}}",
        "sessionState": {
@@ -131,7 +130,7 @@ If you configured an action group to [return control in an [InvokeAgent](https:/
 + `returnControlInvocationResults` – Includes results that you obtain from invoking the action. You can set up your application to pass the [ReturnControlPayload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ReturnControlPayload.html) object to perform an API request or call a function that you define. You can then provide the results of that action here. Each member of the `returnControlInvocationResults` list is one of the following:
   + An [ApiResult](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ApiResult.html) object containing the API operation that the agent predicted should be called in a previous [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) sequence and the results from invoking the action in your systems. The general format is as follows:
 
-    ```
+    ```json
     {
         "actionGroup": "string",
         "agentId" : :string",
@@ -148,7 +147,7 @@ If you configured an action group to [return control in an [InvokeAgent](https:/
     ```
   + A [FunctionResult](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_FunctionResult.html) object containing the function that the agent predicted should be called in a previous [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) sequence and the results from invoking the action in your systems. The general format is as follows:
 
-    ```
+    ```json
     {
         "actionGroup": "string",
         "agentId" : :string",

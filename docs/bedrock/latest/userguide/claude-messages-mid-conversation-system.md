@@ -1,7 +1,6 @@
 
 
 # Mid-conversation system messages
-<a name="claude-messages-mid-conversation-system"></a>
 
 You can append `{"role": "system", ...}` messages to the `messages` array. This adds or updates system instructions partway through a conversation without invalidating the cached prefix.
 
@@ -46,7 +45,7 @@ Set `content` to either a plain string or content blocks. The instruction applie
 
 A system-role message can carry a directive instead of instructional text. In this form, `content` is an empty list (`[]`) and the message carries an `output_config` field — for example, to change the thinking effort level for the turns that follow. This requires one of the per-turn control beta values; see [Setting effort per turn (beta)](claude-messages-adaptive-thinking.md#claude-messages-adaptive-thinking-per-turn-effort).
 
-```
+```json
 {
     "role": "system",
     "content": [],
@@ -75,7 +74,7 @@ The response shape is unchanged. System-role messages do not appear in the respo
 
 The following Python example demonstrates how to use mid-conversation system prompts with Amazon Bedrock:
 
-```
+```python
 import boto3
 import json
 

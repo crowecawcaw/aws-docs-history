@@ -1,7 +1,6 @@
 
 
 # Monitor your token usage by counting tokens before running inference
-<a name="count-tokens"></a>
 
 When you run model inference, the number of tokens that you send in the input contributes to the cost of the request and towards the quota of tokens that you can use per minute and per day. The [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) API helps you estimate token usage before sending requests to foundation models by returning the token count that would be used if the same input were sent to the model in an inference request.
 
@@ -49,7 +48,7 @@ The examples in this section let you count tokens for an `InvokeModel` and `Conv
 
 To try out counting tokens for an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) request, run the following Python code:
 
-```
+```python
 import boto3
 import json
 
@@ -80,7 +79,7 @@ print(response["inputTokens"])
 
 To try out counting tokens for a [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) request, run the following Python code:
 
-```
+```python
 import boto3
 import json 
 
@@ -148,7 +147,7 @@ The `count_tokens` endpoint validates the request body using the same schema as 
 
 The following example uses `curl` with a Amazon Bedrock API key to count tokens on the `bedrock-mantle` endpoint:
 
-```
+```bash
 curl -X POST https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages/count_tokens \
   -H "x-api-key: $BEDROCK_API_KEY" \
   -H "anthropic-version: 2023-06-01" \

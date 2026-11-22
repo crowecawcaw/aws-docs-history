@@ -1,7 +1,6 @@
 
 
 # Quickstart
-<a name="getting-started"></a>
 
 Get started with Amazon Bedrock in minutes. For new applications, we recommend the [`bedrock-runtime`](endpoints.md) endpoint. The following steps walk you through running your first inference request using the Anthropic-native [Messages API](inference-messages-api.md), the OpenAI-compatible [Responses API](inference-responses-api.md) and [Chat Completions API](inference-chat-completions.md), and the [Converse](conversation-inference.md) and [Invoke](inference-invoke.md) APIs. For a complete list of APIs, see [Build](build.md). After you complete these steps, you can send inference requests to any supported foundation model.
 
@@ -96,7 +95,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 ------
 #### [ Messages API ]
 
-      ```
+      ```python
       from anthropic import Anthropic
       from aws_bedrock_token_generator import provide_token
       
@@ -115,7 +114,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 ------
 #### [ Responses API ]
 
-      ```
+      ```python
       from openai import OpenAI
       
       client = OpenAI()
@@ -130,7 +129,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 ------
 #### [ Chat Completions API ]
 
-      ```
+      ```python
       from openai import OpenAI
       
       client = OpenAI()
@@ -145,7 +144,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 ------
 #### [ Converse API ]
 
-      ```
+      ```python
       import boto3
       
       client = boto3.client('bedrock-runtime', region_name='us-east-1')
@@ -164,7 +163,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 ------
 #### [ Invoke API ]
 
-      ```
+      ```python
       import json
       import boto3
       

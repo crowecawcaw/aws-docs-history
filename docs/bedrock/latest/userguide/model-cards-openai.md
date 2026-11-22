@@ -1,7 +1,6 @@
 
 
 # OpenAI
-<a name="model-cards-openai"></a>
 
 You can use all models on this page with both the Responses API and the Chat Completions API on `bedrock-mantle`. See each model card for details.
 
@@ -10,6 +9,8 @@ The following OpenAI models are available in Amazon Bedrock:
 
 | **Model** | **Description** | 
 | --- | --- | 
+| [GPT-6.2 Astra](model-card-openai-gpt-6-2-astra.md) | The next generation of GPT-6 Astra, OpenAI's frontier model for complex, multistep projects such as coding in existing codebases and producing professional deliverables. Launches with an Ultrafast speed tier for latency-sensitive workloads. | 
+| [GPT-6.2 Sol](model-card-openai-gpt-6-2-sol.md) | The next generation of GPT-6.1 Sol, a fast, versatile model for everyday coding, technical writing, and business-application automation. | 
 | [GPT-6 Astra](model-card-openai-gpt-6-astra.md) | OpenAI's most capable model, built for complex reasoning, coding, computer use, research, and document creation. | 
 | [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md) | OpenAI GPT-6.1 Sol brings performance approaching GPT-6 Astra on several demanding evaluations at Sol pricing. It advances coding, professional work, and agentic workflows for teams balancing capability and cost. | 
 | [GPT-6.1 Terra](model-card-openai-gpt-6-1-terra.md) | A Terra-line model offering balanced performance with detailed visual reasoning, accurate computer use, and improved factuality at a low price. | 

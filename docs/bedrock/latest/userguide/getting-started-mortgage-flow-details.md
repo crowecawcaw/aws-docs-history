@@ -1,7 +1,6 @@
 
 
 # Details about the mortgage processing flow
-<a name="getting-started-mortgage-flow-details"></a>
 
 The visual representation of the mortgage processing flow in the AWS Management Console is as follows:
 

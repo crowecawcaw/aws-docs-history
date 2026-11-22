@@ -1,7 +1,6 @@
 
 
 # Store and retrieve conversation history and context with session management APIs
-<a name="sessions"></a>
 
 **Note**  
 The session management APIs are in preview and are subject to change.

@@ -1,7 +1,6 @@
 
 
 # Optimize performance for Amazon Bedrock agents using a single knowledge base
-<a name="agents-optimize-performance"></a>
 
 Amazon Bedrock Agents offers options to choose different flows that can optimize on latency for simpler use cases in which agents have a single knowledge base. To ensure that your agent is able to take advantage of this optimization, check that the following conditions apply to the relevant version of your agent:
 + Your agent contains only one knowledge base.

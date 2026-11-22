@@ -1,7 +1,6 @@
 
 
 # Advanced API features for imported models
-<a name="custom-model-import-advanced-features"></a>
 
 This page provides detailed examples of advanced features available for models imported after November 11, 2025. These capabilities include structured outputs for controlled generation, enhanced vision support for multi-image processing, log probabilities for confidence insights, and tool calling for GPT-OSS models.
 
@@ -19,7 +18,7 @@ When using structured outputs on Custom Model Import, customers should expect pe
 
 The following examples demonstrate structured outputs support across different API formats. The Pydantic model definition is:
 
-```
+```python
 from pydantic import BaseModel
 from enum import Enum
 
@@ -42,7 +41,7 @@ BedrockCompletion supports structured outputs using the `response_format` parame
 
 **Example: JSON Schema**
 
-```
+```python
 payload = {
     "prompt": "Generate a JSON with the brand, model and car_type of the most iconic car from the 90's",
     "response_format": {
@@ -63,7 +62,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "generation": "{\n    \"brand\": \"Ferrari\",\n    \"model\": \"F40\",\n    \"car_type\": \"SUV\"\n  }",
     "prompt_token_count": 22,
@@ -80,7 +79,7 @@ OpenAICompletion supports both `response_format` (json\_object, json\_schema) an
 
 **Example: Structured Outputs - Choice**
 
-```
+```python
 payload = {
     "prompt": "Classify the sentiment of this sentence. Amazon Bedrock CMI is Amazing!",
     "max_tokens": 10,
@@ -101,7 +100,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "id": "cmpl-01f94c4652d24870bbb4d5418a01c384",
     "object": "text_completion",
@@ -126,7 +125,7 @@ OpenAIChatCompletion supports both `response_format` (json\_object, json\_schema
 
 **Example: Response Format - JSON Schema**
 
-```
+```python
 payload = {
     "messages": [
         {"role": "user", "content": "Generate a JSON with the brand, model and car_type of the most iconic car from the 90's"}
@@ -153,7 +152,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "id": "chatcmpl-cae5a43b0a924b8eb434510cbf978a19",
     "object": "chat.completion",
@@ -196,7 +195,7 @@ High resolution images significantly increase processing time, memory usage, and
 
 **Example: Multi-Image Processing**
 
-```
+```python
 import json
 import boto3
 import base64
@@ -254,7 +253,7 @@ response_body = json.loads(response['body'].read())
 
 Example response:
 
-```
+```json
 {
     "id": "chatcmpl-ccae8a67e62f4014a9ffcbedfff96f44",
     "object": "chat.completion",
@@ -315,7 +314,7 @@ Log probability support varies by API format:
 
 BedrockCompletion only supports output token logprobs. This will return top 1 logprob for each output token.
 
-```
+```python
 payload = {
     "prompt": "How is the rainbow formed?",
     "max_gen_len": 10,
@@ -335,7 +334,7 @@ response_body = json.loads(response['body'].read())
 
 Example response (truncated):
 
-```
+```json
 {
     "generation": " A rainbow is formed when sunlight passes through water dro",
     "prompt_token_count": 7,
@@ -361,7 +360,7 @@ Example response (truncated):
 
 OpenAIChatCompletion supports both prompt and output token logprobs. You can set `top_logprobs=N` and `prompt_logprobs=N` where N is an integer representing log probabilities for the N most likely tokens at each position.
 
-```
+```python
 payload = {
     "messages": [
         {
@@ -388,7 +387,7 @@ response_body = json.loads(response['body'].read())
 
 Example response (truncated):
 
-```
+```json
 {
     "id": "chatcmpl-xxx",
     "object": "chat.completion",

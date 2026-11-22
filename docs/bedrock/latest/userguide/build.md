@@ -1,7 +1,6 @@
 
 
 # Build
-<a name="build"></a>
 
 This section covers how to interact with Amazon Bedrock programmatically. For new applications, we recommend the `bedrock-runtime` endpoint. Pick an API, and start making inference requests.
 

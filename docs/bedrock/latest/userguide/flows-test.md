@@ -1,7 +1,6 @@
 
 
 # Test a flow in Amazon Bedrock
-<a name="flows-test"></a>
 
 After you’ve created a flow, you will have a *working draft*. The working draft is a version of the flow that you can iteratively build and test. Each time you make changes to your flow, the working draft is updated.
 
@@ -49,7 +48,7 @@ To view the inputs and outputs for each node, set the `enableTrace` field to `TR
 
 The request body specifies the input for the flow and is of the following format:
 
-```
+```json
 {
    "inputs": [ 
       { 
@@ -68,7 +67,7 @@ Provide the input in the `document` field, provide a name for the input in the `
 
 The response is returned in a stream. Each event returned contains output from a node in the `document` field, the node that was processed in the `nodeName` field, and the type of node in the `nodeType` field. These events are of the following format:
 
-```
+```json
 {
     "flowOutputEvent": { 
         "content": { 

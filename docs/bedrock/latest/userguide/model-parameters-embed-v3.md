@@ -1,7 +1,6 @@
 
 
 # Cohere Embed v3
-<a name="model-parameters-embed-v3"></a>
 
 **Topics**
 + [Request and Response](#model-parameters-embed-v3-request-response)
@@ -15,7 +14,7 @@
 
 The Cohere Embed models have the following inference parameters. 
 
-```
+```json
 {
     "input_type": "search_document|search_query|classification|clustering|image",
     "texts":[string],
@@ -88,7 +87,7 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
 
 The `body` response from a call to `InvokeModel` is the following:
 
-```
+```json
 {
     "embeddings": [
         [ {{array of 1024 floats.}} ]
@@ -109,7 +108,7 @@ The `body` response has the following fields:
 
   An `image_description`image\_description is of this form:
 
-  ```
+  ```json
   {
       "width": long,
       "height": long,
@@ -129,7 +128,7 @@ For more information, see [https://docs.cohere.com/reference/embed](https://docs
 
 This examples shows how to call the *Cohere Embed English* model.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -233,7 +232,7 @@ if __name__ == "__main__":
 
 **Image Input**
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

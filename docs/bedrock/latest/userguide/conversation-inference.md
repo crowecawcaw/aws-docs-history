@@ -1,7 +1,6 @@
 
 
 # Inference using Converse API
-<a name="conversation-inference"></a>
 
 The Converse API is available on the `bedrock-runtime` endpoint only.
 
@@ -92,7 +91,7 @@ If you exclude the `text` field, the model describes the image.
 
 The following shows an example [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only an image [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html):
 
-```
+```json
 {
     "role": "user",
     "content": [
@@ -110,7 +109,7 @@ The following shows an example [Message](https://docs.aws.amazon.com/bedrock/lat
 
 If you are using an Amazon Nova model, you can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. Other models accept only the `bytes` field and reject an Amazon S3 URI with a validation error. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
 
-```
+```json
 {
     "role": "user",
     "content": [
@@ -155,7 +154,7 @@ When `citations` is enabled, the following additional restrictions apply:
 
 The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a document [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) and a required accompanying text [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html).
 
-```
+```json
 {
     "role": "user",
     "content": [
@@ -177,7 +176,7 @@ The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/lates
 
 If you are using an Amazon Nova model, you can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. Other models accept only the `bytes` field and reject an Amazon S3 URI with a validation error. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
 
-```
+```json
 {
     "role": "user",
     "content": [
@@ -287,7 +286,7 @@ The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/lates
 The `guardContent` field maps to a [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html) object. You can use this field to target an input to be evaluated by the guardrail defined in the `guardrailConfig` field. If you don't specify this field, the guardrail evaluates all messages in the request body. You can pass the following types of content in a `GuardBlock`:
 + **text** – The following shows an example [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a text [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html):
 
-  ```
+  ```json
   {
       "role": "user",
       "content": [
@@ -304,7 +303,7 @@ The `guardContent` field maps to a [GuardrailConverseContentBlock](https://docs.
   You define the text to be evaluated and include any qualifiers to use for [contextual grounding](guardrails-contextual-grounding-check.md).
 + **image** – The following shows a [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only an image [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html):
 
-  ```
+  ```json
   {
       "role": "user",
       "content": [
@@ -367,7 +366,7 @@ Contains information about the result from the model using a tool. For more info
 
 In the following `messages` example, the user asks for a list of three pop songs, and the model generates a list of songs. 
 
-```
+```json
 [
     {
         "role": "user",
@@ -393,7 +392,7 @@ In the following `messages` example, the user asks for a list of three pop songs
 
 A system prompt is a type of prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation. You can specify a list of system prompts for the request in the `system` ([SystemContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_SystemContentBlock.html)) field, as shown in the following example.
 
-```
+```json
 [
     {
         "text": "You are an app that creates play lists for a radio station that plays rock and pop music. Only return song names and the artist. "
@@ -414,7 +413,7 @@ For more information, see [Influence response generation with inference paramete
 
 The following example JSON sets the `temperature` inference parameter. 
 
-```
+```json
 {"temperature": 0.5}
 ```
 
@@ -423,7 +422,7 @@ The following example JSON sets the `temperature` inference parameter.
 
 If the model you are using has additional inference parameters, you can set those parameters by specifying them as JSON in the `additionalModelRequestFields` field. The following example JSON shows how to set `top_k`, which is available in Anthropic Claude models, but isn't a base inference parameter in the messages API. 
 
-```
+```json
 {"top_k": 200}
 ```
 
@@ -434,7 +433,7 @@ If you specify a prompt from [Prompt management](prompt-management.md) in the `m
 
 For example, let's say that you have a prompt that says **Make me a {{{{genre}}}} playlist consisting of the following number of songs: {{{{number}}}}.**. The prompt's ID is `PROMPT12345` and its version is `1`. You could send the following `Converse` request to replace the variables:
 
-```
+```json
 POST /model/arn:aws:bedrock:us-east-1:111122223333:prompt/PROMPT12345:1/converse HTTP/1.1
 Content-type: application/json
 
@@ -469,7 +468,7 @@ If your application needs one or more of those model-native fields, list their J
 
 The following example asks [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) to also return Anthropic Claude's `stop_sequence` field, which contains the value of the stop sequence that ended generation:
 
-```
+```json
 [ "/stop_sequence" ]
 ```
 
@@ -492,7 +491,7 @@ This field maps to a JSON object. You can specify the service tier for a particu
 
 The following example shows the `serviceTier` structure:
 
-```
+```json
 "serviceTier": {
   "type": "reserved" | "priority" | "default" | "flex"
 }
@@ -612,7 +611,7 @@ The following examples show you how to use the `Converse` and `ConverseStream` o
 
 This example shows how to call the `Converse` operation with the *Anthropic Claude 3 Sonnet* model. The example shows how to send the input text, inference parameters, and additional parameters that are unique to the model. The code starts a conversation by asking the model to create a list of songs. It then continues the conversation by asking that the songs are by artists from the United Kingdom.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -744,7 +743,7 @@ if __name__ == "__main__":
 
 This example shows how to send an image as part of a message and requests that the model describe the image. The example uses `Converse` operation and the *Anthropic Claude 3 Sonnet* model. 
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -865,7 +864,7 @@ if __name__ == "__main__":
 
 This example shows how to send a document as part of a message and requests that the model describe the contents of the document. The example uses `Converse` operation and the *Anthropic Claude 3 Sonnet* model. 
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -989,7 +988,7 @@ if __name__ == "__main__":
 
 This example shows how to call the `ConverseStream` operation with the *Anthropic Claude 3 Sonnet* model. The example shows how to send the input text, inference parameters, and additional parameters that are unique to the model.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -1124,7 +1123,7 @@ if __name__ == "__main__":
 
 This example shows how to send a video as part of a message and requests that the model describes the video. The example uses `Converse` operation and the Amazon Nova Pro model.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

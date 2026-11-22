@@ -1,7 +1,6 @@
 
 
 # Bedrock Data Automation projects
-<a name="bda-projects"></a>
 
 One way to process files using Amazon Bedrock data automation (BDA) is to create a project. A project is a grouping of both standard and custom output configurations. Standard outputs are required in projects, but custom outputs are optional. When you call the `InvokeDataAutomationAsync` API with a project ARN, the file is automatically processed using the configuration settings defined in that project. Output is then generated based on the project's configuration.
 

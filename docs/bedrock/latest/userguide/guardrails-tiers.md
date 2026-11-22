@@ -1,7 +1,6 @@
 
 
 # Safeguard tiers for guardrails policies
-<a name="guardrails-tiers"></a>
 
 Amazon Bedrock Guardrails provides *safeguard tiers* for specific policies. Safeguard tiers have distinct performance characteristics and [language support](guardrails-supported-languages.md) for different application requirements and use cases.
 

@@ -1,7 +1,6 @@
 
 
 # Enterprise Frontier Safeguards (EFS) for Anthropic models
-<a name="efs-anthropic"></a>
 
 The [Enterprise Frontier Safeguards on the Anthropic website](https://www.anthropic.com/news/enterprise-frontier-safeguards) (EFS) program was built in collaboration between AWS and Anthropic to ensure that customers can access Anthropic's most intelligent models safely, from both a model use and a customer data perspective. EFS applies to Anthropic Claude models on Amazon Bedrock that Anthropic requires data retention for safety review, called "Covered Models". Covered Models are a category of Claude models that carry additional data retention, safety review, and access policies wherever they're offered.
 

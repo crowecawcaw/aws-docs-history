@@ -1,7 +1,6 @@
 
 
 # Write a custom parser Lambda function in Amazon Bedrock Agents
-<a name="lambda-parser"></a>
 
 Each prompt template includes a parser Lambda function. You can write your own custom parser Lambda function and specify the templates whose default parser function you want to override. To write a custom parser Lambda function, you must understand the input event that your agent sends and the response that the agent expects as the output from the Lambda function. You write a handler function to manipulate variables from the input event and to return the response. For more information about how AWS Lambda works, see [Event-driven invocation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html#event-driven-invocation) in the AWS Lambda Developer Guide.
 
@@ -15,7 +14,7 @@ Each prompt template includes a parser Lambda function. You can write your own c
 
 The following is the general structure of the input event from the agent. Use the fields to write your Lambda handler function.
 
-```
+```json
 {
     "messageVersion": "1.0",
     "agent": {
@@ -62,7 +61,7 @@ The `MessageVersion 1.0` indicates that the agent is running the next top recomm
 ------
 #### [ OpenAPI schema ]
 
-```
+```json
 {
     "messageVersion": "1.0",
     "promptType": "ORCHESTRATION | PRE_PROCESSING | ROUTING_CLASSIFIER | POST_PROCESSING | KNOWLEDGE_BASE_RESPONSE_GENERATION",
@@ -161,7 +160,7 @@ The `MessageVersion 1.0` indicates that the agent is running the next top recomm
 ------
 #### [ Function details ]
 
-```
+```json
 {
     "messageVersion": "1.0",
     "promptType": "ORCHESTRATION | PRE_PROCESSING | POST_PROCESSING | KNOWLEDGE_BASE_RESPONSE_GENERATION",
@@ -248,7 +247,7 @@ The `MessageVersion 2.0` indicates that the agent is running the next recommende
 ------
 #### [ OpenAPI schema ]
 
-```
+```json
 {
     "messageVersion": "2.0",
     "promptType": "ORCHESTRATION | PRE_PROCESSING | POST_PROCESSING | KNOWLEDGE_BASE_RESPONSE_GENERATION",
@@ -328,7 +327,7 @@ The `MessageVersion 2.0` indicates that the agent is running the next recommende
 ------
 #### [ Function details ]
 
-```
+```json
 {
     "messageVersion": "2.0",
     "promptType": "ORCHESTRATION | PRE_PROCESSING | POST_PROCESSING | KNOWLEDGE_BASE_RESPONSE_GENERATION",
@@ -419,7 +418,7 @@ For more details about the parsed responses for the four prompt templates, see t
 ------
 #### [ preProcessingParsedResponse ]
 
-```
+```json
 {
     "isValidInput": "boolean",
     "rationale": "string"
@@ -436,7 +435,7 @@ The `preProcessingParsedResponse` contains the following fields.
 The format of the `orchestrationResponse` depends on whether you defined the action group with an OpenAPI schema or function details:
 + If you defined the action group with an OpenAPI schema, the response must be in the following format:
 
-  ```
+  ```json
   {
       "rationale": "string",
       "parsingErrorDetails": {
@@ -487,7 +486,7 @@ The format of the `orchestrationResponse` depends on whether you defined the act
   ```
 + If you defined the action group with function details, the response must be in the following format:
 
-  ```
+  ```json
   {
       "rationale": "string",
       "parsingErrorDetails": {
@@ -557,7 +556,7 @@ The `orchestrationParsedResponse` contains the following fields:
 ------
 #### [ knowledgeBaseResponseGenerationParsedResponse ]
 
-```
+```json
 { 
    "generatedResponse": {
         "generatedResponseParts": [
@@ -579,7 +578,7 @@ The `knowledgeBaseResponseGenerationParsedResponse` contains the `generatedRespo
 ------
 #### [ postProcessingParsedResponse ]
 
-```
+```json
 {
     "responseText": "string",
     "citations": {
@@ -613,7 +612,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example input event**
 
-```
+```json
 {
     "agent": {
         "alias": "TSTALIASID",
@@ -630,7 +629,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example response**
 
-```
+```json
 {
   "promptType": "PRE_PROCESSING",
   "preProcessingParsedResponse": {
@@ -645,7 +644,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example input event**
 
-```
+```json
 {
     "agent": {
         "alias": "TSTALIASID", 
@@ -662,7 +661,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example response**
 
-```
+```json
 {
     "promptType": "ORCHESTRATION",
     "orchestrationParsedResponse": {
@@ -685,7 +684,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example input event**
 
-```
+```json
 {
     "agent": {
         "alias": "TSTALIASID",
@@ -702,7 +701,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example response**
 
-```
+```json
 {
     "promptType": "KNOWLEDGE_BASE_RESPONSE_GENERATION",
     "knowledgeBaseResponseGenerationParsedResponse": {
@@ -727,7 +726,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example input event**
 
-```
+```json
 {
     "agent": {
         "alias": "TSTALIASID",
@@ -744,7 +743,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example response**
 
-```
+```json
 {
     "promptType": "POST_PROCESSING",
     "postProcessingParsedResponse": {
@@ -758,7 +757,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example input event**
 
-```
+```json
 {
     "messageVersion": "1.0",
     "promptType": "MEMORY_SUMMARIZATION",
@@ -768,7 +767,7 @@ To see example parser Lambda function input events and responses, select from th
 
 **Example response**
 
-```
+```json
 {"topicwiseSummaries": [
     {
         "topic": "TopicName1",
@@ -789,7 +788,7 @@ To see example parser Lambda functions, expand the section for the prompt templa
 
 The following example shows a pre-processing parser Lambda function written in Python.
 
-```
+```python
 import json
 import re
 import logging
@@ -855,7 +854,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 2.0 ]
 
-   ```
+   ```python
    import json
    import re
    import logging
@@ -1111,7 +1110,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 2.1 ]
 
-   ```
+   ```python
    import logging
    import re
    import xml.etree.ElementTree as ET
@@ -1397,7 +1396,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 3 ]
 
-   ```
+   ```python
    import logging
    import re
    import xml.etree.ElementTree as ET
@@ -1683,7 +1682,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 3.5 ]
 
-   ```
+   ```python
    import json
    import logging
    import re
@@ -1954,7 +1953,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 2.0 ]
 
-   ```
+   ```python
    import json
    import re
    import logging
@@ -2226,7 +2225,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 2.1 ]
 
-   ```
+   ```python
    import logging
    import re
    import xml.etree.ElementTree as ET
@@ -2525,7 +2524,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 3 ]
 
-   ```
+   ```python
    import logging
    import re
    import xml.etree.ElementTree as ET
@@ -2824,7 +2823,7 @@ The example code differs depending on whether your action group was defined with
 ------
 #### [ Anthropic Claude 3.5 ]
 
-   ```
+   ```python
    import json
    import logging
    import re
@@ -3109,7 +3108,7 @@ The example code differs depending on whether your action group was defined with
 
 The following example shows a knowledge base response generation parser Lambda function written in Python.
 
-```
+```python
 import json
 import re
 import logging
@@ -3177,7 +3176,7 @@ def parse_references(raw_response, answer_part):
 
 The following example shows a post-processing parser Lambda function written in Python.
 
-```
+```python
 import json
 import re
 import logging
@@ -3213,7 +3212,7 @@ def lambda_handler(event, context):
 
 The following example shows a memory summarization parser Lambda function written in Python.
 
-```
+```python
 import re
 import logging
 

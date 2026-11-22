@@ -1,7 +1,6 @@
 
 
 # Create a human-based model evaluation job
-<a name="model-evaluation-jobs-management-create-human"></a>
 
 The following examples show how to create a model evaluation job that uses human workers.
 
@@ -93,7 +92,7 @@ In the [`CreateFlowDefinition`](https://docs.aws.amazon.com/sagemaker/latest/API
 
 The following is an example request using the AWS CLI. In the request, the `HumanTaskUiArn` is a SageMaker AI owned ARN. In the ARN, you can only modify the AWS Region.
 
-```
+```bash
 aws sagemaker create-flow-definition --cli-input-json '
 {
 	"FlowDefinitionName": "human-evaluation-task01",
@@ -133,7 +132,7 @@ The following example command and JSON file shows you how to create a model eval
 aws bedrock create-evaluation-job --cli-input-json file://my_eval_job.json
 ```
 
-```
+```json
 {
     "jobName": {{"model-eval-llama-vs-my-other-model"}},
     "roleArn": {{"arn:aws:iam::111122223333:role/service-role/Amazon-Bedrock-IAM-Role-20250218T223671"}},
@@ -197,7 +196,7 @@ aws bedrock create-evaluation-job --cli-input-json file://my_eval_job.json
 
 The following code example shows you how to create a model evaluation job that uses human workers through the AWS SDK for Python (Boto3).
 
-```
+```python
 import boto3
 client = boto3.client('bedrock')
 

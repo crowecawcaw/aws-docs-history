@@ -1,7 +1,6 @@
 
 
 # Z.AI
-<a name="model-cards-zai"></a>
 
 The following Z.AI models are available in Amazon Bedrock:
 

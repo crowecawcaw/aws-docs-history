@@ -1,7 +1,6 @@
 
 
 # Set up Microsoft Entra App ID authentication for OneDrive
-<a name="kb-managed-onedrive-entra-setup"></a>
 
 Microsoft Entra App ID authentication (`ENTRA_APP_ID`) is the recommended authentication method for a OneDrive data source. The connector crawls content with the OAuth 2.0 client-credentials (application-only) flow, using your application's client ID and secret — no user sign-in is involved. This is the only authentication method that supports document-level access control (ACLs). For a comparison with the alternative `OAUTH2` method, see [Authentication methods](kb-managed-ds-onedrive.md#kb-managed-onedrive-auth-methods).
 
@@ -240,7 +239,7 @@ Store the credentials in an AWS Secrets Manager secret. For Microsoft Entra App 
 
 **Content only (no document-level access control)**
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}"
@@ -249,7 +248,7 @@ Store the credentials in an AWS Secrets Manager secret. For Microsoft Entra App 
 
 **With document-level access control**
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",
@@ -275,7 +274,7 @@ When document-level access control is enabled, set `certificatePassword` to the 
 
 Your knowledge base service role must be able to read the certificate object from Amazon S3. Add the following statement to the role's permissions policy, replacing the bucket name and key with your values.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -311,7 +310,7 @@ The policy also allows read access to an optional `.metadata.json` file alongsid
 
 The upload command in [Step 6 (ACLs only): Upload the certificate to Amazon S3](#kb-managed-onedrive-entra-step6) uses Amazon S3-managed encryption (`AES256`), which needs no additional permissions. If instead you encrypt the certificate object with Amazon S3 server-side encryption using a customer managed KMS key (SSE-KMS), the service role also needs `kms:Decrypt` permission on that key, and the key's policy must allow the role to use it. Objects encrypted with the AWS managed `aws/s3` key do not require this additional grant.
 
-```
+```json
 {
     "Sid": "KmsDecryptCertificate",
     "Effect": "Allow",

@@ -1,7 +1,6 @@
 
 
 # View and interpret results
-<a name="advanced-prompt-optimization-results"></a>
 
 ## Output location
 <a name="advanced-prompt-optimization-results-location"></a>
@@ -39,7 +38,7 @@ Median time to first token, average latency, and median latency are available fo
 ## Reading results programmatically
 <a name="advanced-prompt-optimization-results-code"></a>
 
-```
+```python
 import boto3
 import json
 

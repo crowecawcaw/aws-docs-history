@@ -1,7 +1,6 @@
 
 
 # Creating a retrieve-and-generate RAG evaluation job using custom metrics
-<a name="knowledge-base-evaluation-create-randg-custom"></a>
 
 To create an evaluation job that uses a custom metric, you need to supply the following:
 + A prompt containing detailed instructions for the judge model to use
@@ -126,7 +125,7 @@ For a list of supported evaluator models, see [Supported models](evaluation-kb.m
   aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
   ```
 
-  ```
+  ```json
   {
       "jobName": "my_rag_eval",
       "roleArn": "arn:aws:iam::111122223333:role/service-role/Amazon-Bedrock-Custom-Metric",
@@ -235,7 +234,7 @@ The example JSON file contains two `evaluatorModelConfig` objects. The one insid
   aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
   ```
 
-  ```
+  ```json
   {
       "jobName": "my_rag_eval",
       "roleArn": "arn:aws:iam::{{111122223333}}:role/service-role/Amazon-Bedrock-Custom-Metric",

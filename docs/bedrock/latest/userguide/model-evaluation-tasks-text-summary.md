@@ -1,7 +1,6 @@
 
 
 # Text summarization for model evaluation in Amazon Bedrock
-<a name="model-evaluation-tasks-text-summary"></a>
 
 Text summarization is used for tasks including creating summaries of news, legal documents, academic papers, content previews, and content curation. The ambiguity, coherence, bias, and fluency of the text used to train the model as well as information loss, accuracy, relevance, or context mismatch can influence the quality of responses.
 

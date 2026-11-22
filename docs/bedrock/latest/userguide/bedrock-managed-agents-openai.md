@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock Managed Agents, powered by OpenAI (preview)
-<a name="bedrock-managed-agents-openai"></a>
 
 Amazon Bedrock Managed Agents, powered by OpenAI, helps you build applications that run stateful agents with OpenAI models on Amazon Bedrock. You create a session, provide instructions and an execution environment, and submit messages. The service manages the agent's conversation and model interactions. Tools execute in the compute environment that you provide.
 
@@ -39,6 +38,8 @@ The principal components are:
 +  **Session role** — An IAM role that BMA assumes for authorized operations on your behalf, including model inference and, when configured, AgentCore Runtime activation.
 
 <a name="bedrock-managed-agents-openai-architecture"></a>![Your application calls BMA, which invokes an OpenAI model on Amazon Bedrock and exchanges tool requests and results with your execution environment.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bma-architecture.png)
+
+BMA session and execution environment
 
 
 The service-managed conversation and the execution environment's files have separate lifecycles. Deleting a BMA session does not delete files that you store in your own S3 buckets or on your own host.

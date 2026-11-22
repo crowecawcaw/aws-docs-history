@@ -1,7 +1,6 @@
 
 
 # Redaction mask mode
-<a name="bda-sensitive-data-redaction-mask-mode"></a>
 
 Use this setting to control how BDA masks detected PII entities in redacted output files.
 

@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-sharepoint-acl"></a>
 
 SharePoint data sources optionally support document-level access control. When enabled, Bedrock Managed Knowledge Base syncs access control lists (ACLs) from SharePoint during each crawl and verifies each user's permissions at query time, so users only see results from documents they are authorized to access in SharePoint. For the overview of ACL awareness across all connectors, see [Access Control Lists awareness enablement](kb-managed-acl.md).
 
@@ -45,7 +44,7 @@ The `connectionConfiguration` must include a `certificateS3Path` pointing to a P
 **Note**  
 The `certificatePassword` field in the secret is optional. If you omit it, Bedrock Managed Knowledge Base opens the PKCS\#12 (.p12) file using your application's client ID as the password, so the certificate must have been created with that password. We recommend that you always set an explicit, high-entropy `certificatePassword` to protect the certificate's private key at rest.
 
-```
+```json
 "connectorParameters": {
     "type": "SHAREPOINT",
     "version": "1",

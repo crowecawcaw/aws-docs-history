@@ -1,7 +1,6 @@
 
 
 # Monitor Web Search
-<a name="monitoring-web-search"></a>
 
 Web Search on Amazon Bedrock is integrated with AWS CloudTrail. CloudTrail captures API activity for Web Search so you can audit who invoked the tool, when, and from where.
 

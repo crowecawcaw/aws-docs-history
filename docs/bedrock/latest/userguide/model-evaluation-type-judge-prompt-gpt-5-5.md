@@ -1,7 +1,6 @@
 
 
 # OpenAI GPT-5.5
-<a name="model-evaluation-type-judge-prompt-gpt-5-5"></a>
 
 Prompts used with OpenAI GPT-5.5.
 

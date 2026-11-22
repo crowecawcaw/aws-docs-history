@@ -1,7 +1,6 @@
 
 
 # Shorten prompts
-<a name="advanced-prompt-optimization-shorten"></a>
 
 By default, Advanced Prompt Optimization optimizes your prompt for quality only. There is no constraint on prompt length. An optimized prompt can be longer than the original. A longer prompt increases input token costs and can increase time to first token (TTFT). If you are cost-sensitive or latency-constrained, you can enable prompt shortening. When enabled, the optimizer looks for a prompt that is shorter than your original and scores at least as high on your evaluation.
 
@@ -32,7 +31,7 @@ Because the setting is per template, you can enable shortening for some template
 
 The following example shows a single line of an input JSONL file with prompt shortening enabled:
 
-```
+```json
 {
   "version": "bedrock-2026-05-14",
   "templateId": "customer-support-v1",
@@ -78,7 +77,7 @@ The API request does not change when you enable prompt shortening. Continue to c
 
 The following Python example creates a job whose input file enables prompt shortening. Note that the shortening setting appears in the file written to Amazon S3, not in the API call:
 
-```
+```python
 import boto3
 import json
 
@@ -119,7 +118,7 @@ response = bedrock.create_advanced_prompt_optimization_job(
 
 The equivalent AWS CLI command is also unchanged:
 
-```
+```bash
 aws bedrock create-advanced-prompt-optimization-job \
     --job-name "my-optimization-job" \
     --model-configurations '[{"modelId": "us.anthropic.claude-sonnet-4-6"}]' \
@@ -146,7 +145,7 @@ This return logic guarantees that enabling `shortenPrompt` never returns a promp
 
 When prompt shortening is enabled, each per-model entry in `promptOptimizationResults` includes three additional fields: `compressionRatio`, `originalTokenCount`, and `optimizedTokenCount`. The following example is abbreviated; for the complete output schema, see [View and interpret results](advanced-prompt-optimization-results.md).
 
-```
+```json
 {
   "promptTemplateId": "customer-support-v1",
   "promptTemplate": "...",

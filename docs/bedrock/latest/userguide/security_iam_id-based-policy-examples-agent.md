@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Bedrock Agents
-<a name="security_iam_id-based-policy-examples-agent"></a>
 
 Select a topic to see example IAM policies that you can attach to an IAM role to provision permissions for actions in [Automate tasks in your application using AI agents](agents.md).
 
@@ -22,7 +21,7 @@ To restrict permissions to only actions that are used in Amazon Bedrock Agents, 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ The following is a sample policy that you can attach to an IAM role to allow it 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -122,7 +121,7 @@ However, organizations may want to control which service tiers their users can a
 
 The following example shows an identity-based policy that denies access to all service tiers. This type of policy is useful when you want to prevent users from specifying any service tier, forcing them to use the system default behavior:
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [

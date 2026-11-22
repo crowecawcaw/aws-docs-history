@@ -1,7 +1,6 @@
 
 
 # Legacy pages
-<a name="references-legacy-pages"></a>
 
 Legacy reference pages retained for backward compatibility. The content has moved or been superseded.
 

@@ -1,7 +1,6 @@
 
 
 # Connect a data source
-<a name="kb-managed-connect-ds"></a>
 
 After finishing the configurations for your knowledge base, you connect a supported data source to the knowledge base.
 
@@ -54,7 +53,7 @@ Within `dataSourceConfiguration`, you must specify the following:
 
 The following example shows a `CreateDataSource` request with an S3 connector:
 
-```
+```json
 {
     "knowledgeBaseId": "{{your-knowledge-base-id}}",
     "name": "{{my-s3-data-source}}",
@@ -103,6 +102,7 @@ For third-party data sources that support user-managed setup (3LO), such as Shar
 + [Confluence](kb-managed-ds-confluence.md)
 + [Confluence Data Center](kb-managed-ds-confluence-onprem.md)
 + [Custom](kb-managed-ds-custom.md)
++ [Dropbox](kb-managed-ds-dropbox.md)
 + [Google Drive](kb-managed-ds-googledrive.md)
 + [Microsoft OneDrive](kb-managed-ds-onedrive.md)
 + [Salesforce](kb-managed-ds-salesforce.md)

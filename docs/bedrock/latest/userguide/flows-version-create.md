@@ -1,7 +1,6 @@
 
 
 # Create a version of a flow in Amazon Bedrock
-<a name="flows-version-create"></a>
 
 When you're satisfied with the configuration of your flow, create a immutable version of the flow that you can point to with an alias. To learn how to create a version of your flow, Choose the tab for your preferred method, and then follow the steps:
 

@@ -1,7 +1,6 @@
 
 
 # Configure an inline agent at runtime
-<a name="agents-create-inline"></a>
 
 You can configure and invoke an inline Amazon Bedrock agent dynamically at runtime using [InvokeInlineAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html) API. Using an inline agent provides you with flexibility to specify your agent capabilities like foundation models, instructions, action groups, guardrails, and knowledge bases at the same time you invoke your agent. You do not need to pre-define agent capabilities before you can use it. 
 

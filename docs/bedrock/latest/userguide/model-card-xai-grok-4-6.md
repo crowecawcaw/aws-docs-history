@@ -1,7 +1,6 @@
 
 
 # Grok 4.6
-<a name="model-card-xai-grok-4-6"></a>
 
 ## ![xAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/xai.png) xAI — Grok 4.6
 <a name="model-card-xai-grok-4-6-header"></a>
@@ -221,7 +220,7 @@ On `bedrock-runtime`, name a cross-Region inference profile as the model — `us
 ------
 #### [ Responses API (bedrock-mantle) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -236,7 +235,7 @@ print(response)
 ------
 #### [ Responses API (bedrock-runtime) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -251,7 +250,7 @@ print(response)
 ------
 #### [ Chat Completions API (bedrock-mantle) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -268,7 +267,7 @@ print(response)
 ------
 #### [ Chat Completions API (bedrock-runtime) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -285,7 +284,7 @@ print(response)
 ------
 #### [ Converse API (bedrock-runtime) ]
 
-```
+```python
 import boto3
 
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
@@ -307,7 +306,7 @@ print(response)
 Keep the following considerations and limitations in mind when you use Grok 4.6:
 + **Reasoning effort** — Reasoning is always active by default. You can configure effort through the `reasoning` parameter: `"low"` (default), `"medium"`, `"high"`, or `"xhigh"`. Reasoning content is encrypted and can be returned by passing `include: ["reasoning.encrypted_content"]` in the Responses API request. You can send the encrypted content back in subsequent turns to provide reasoning context for multi-turn conversations. The Chat Completions API does not return reasoning tokens.
 
-  ```
+  ```python
   response = client.responses.create(
       model="us.xai.grok-4.6",
       reasoning={"effort": "high"},

@@ -1,7 +1,6 @@
 
 
 # Route model inference requests across AWS Regions with cross-Region inference
-<a name="cross-region-inference"></a>
 
 With cross-Region inference, you can choose a cross-Region inference profile tied to a specific geography (such as US or EU), or a global inference profile. When you choose an inference profile tied to a specific geography, Amazon Bedrock automatically selects a commercial AWS Region within that geography to process your inference request. With global inference profiles, Amazon Bedrock automatically selects a commercial AWS Region to process the request.
 

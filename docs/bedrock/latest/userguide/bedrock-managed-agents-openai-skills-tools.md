@@ -1,7 +1,6 @@
 
 
 # Add skills and tools
-<a name="bedrock-managed-agents-openai-skills-tools"></a>
 
 Skills provide reusable instructions. Tools perform operations. BMA reads skills from the execution environment and can connect to MCP servers that run in that environment.
 
@@ -12,7 +11,7 @@ A skill is a directory containing a `SKILL.md` file. Place skill directories und
 
 For the self-hosted example, create a skill in your workspace:
 
-```
+```bash
 mkdir -p "$BMA_WORKSPACE_DIRECTORY/skills/hello-docs"
 cat > "$BMA_WORKSPACE_DIRECTORY/skills/hello-docs/SKILL.md" <<'EOF'
 ---
@@ -27,7 +26,7 @@ EOF
 
 The revised example defaults its capability directory to `$BMA_WORKSPACE_DIRECTORY/skills`. Create the session after making the skill available, attach the exec server, then submit:
 
-```
+```bash
 ./scripts/bma/2.submit-turn.sh "Run the hello-docs skill."
 ./scripts/bma/3.read-result.sh
 ```
@@ -50,7 +49,7 @@ The example bundle includes a read-only Python MCP server, `mcp/word_count.py`. 
 
 From `self-hosted/`, configure the server before creating a new session:
 
-```
+```bash
 export BMA_MCP_LABEL=word_tools
 export BMA_MCP_COMMAND="$(command -v python3)"
 export BMA_MCP_CWD="$BMA_WORKSPACE_DIRECTORY"
@@ -64,7 +63,7 @@ export BMA_STATE_FILE="$PWD/scripts/bma/.mcp-session.env"
 
 In a second terminal, set the same `BMA_STATE_FILE`, select your BMA client profile, and attach the exec server. Then submit:
 
-```
+```bash
 ./scripts/bma/2.submit-turn.sh \
   'Use the word_count MCP tool to count the words in "Bedrock agents execute tasks". Return the tool result.'
 ./scripts/bma/3.read-result.sh
@@ -79,7 +78,7 @@ For AgentCore Runtime, the MCP executable and any dependencies must be present i
 
 Set `BMA_MCP_SERVERS_JSON` to an array of server definitions. For example:
 
-```
+```json
 [
   {
     "server_label": "my_server",

@@ -1,7 +1,6 @@
 
 
 # Monitor Amazon Bedrock Guardrails using CloudWatch metrics
-<a name="monitoring-guardrails-cw-metrics"></a>
 
 The following table describes runtime metrics provided by Amazon Bedrock Guardrails that you can monitor with Amazon CloudWatch metrics.
 

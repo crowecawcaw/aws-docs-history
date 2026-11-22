@@ -1,13 +1,12 @@
 
 
 # Set up Amazon Bedrock Marketplace
-<a name="setup-amazon-bedrock-marketplace"></a>
 
 You can use the [Amazon Bedrock Full Access policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html) to provide permissions to SageMaker AI. We recommend using the managed policy, but if you can't use the managed policy, make sure that your IAM role has the following permissions.
 
 The following is a recommended custom policy for Amazon Bedrock Marketplace. For the latest version of the Amazon Bedrock Full Access managed policy, see [AmazonBedrockFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html).
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -178,7 +177,7 @@ The following is a recommended custom policy for Amazon Bedrock Marketplace. For
 **Important**  
 The Amazon Bedrock Full Access policy only provides permissions to the Amazon Bedrock API. To use Amazon Bedrock in the AWS Management Console, your IAM role must also have the following permissions:  
 
-```
+```json
 {
         "Sid": "AllowConsoleS3AccessForBedrockMarketplace",
         "Effect": "Allow",
@@ -200,7 +199,7 @@ If you’re writing your own policy, you must include the policy statement that 
 
 ****  
 
-```
+```json
 {
     
         "Version":"2012-10-17",		 	 	 
@@ -242,7 +241,7 @@ The AWS KMS key must also have permissions to encrypt the endpoint. You must mod
 
 Your AWS KMS key must also have `CreateGrant` permissions. The following is an example of the permissions that must be in the key policy.
 
-```
+```json
 {
 "Sid": "Allow access for AmazonSageMaker-ExecutionRole",
 "Effect": "Allow",

@@ -1,7 +1,6 @@
 
 
 # Encryption of agent resources for agents created before January 22, 2025
-<a name="encryption-agents"></a>
 
 **Important**  
 If you've created your agent *after* January 22, 2025, follow instructions for [Encryption of agent resources](encryption-agents-new.md)
@@ -19,7 +18,7 @@ If you encrypt sessions with your agent with a custom KMS key, you must set up t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -50,7 +49,7 @@ If you encrypt sessions with your agent with a custom KMS key, you must set up t
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

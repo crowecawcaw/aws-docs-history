@@ -1,7 +1,6 @@
 
 
 # Update access to a shared model
-<a name="share-model-edit"></a>
 
 To learn how to update access to models that you've shared with other accounts, choose the tab for your preferred method, and then follow the steps:
 

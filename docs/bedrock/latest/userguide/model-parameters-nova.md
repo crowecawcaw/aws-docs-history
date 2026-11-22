@@ -1,7 +1,6 @@
 
 
 # Amazon Nova models
-<a name="model-parameters-nova"></a>
 
 Amazon Nova multimodal understanding models are available for use for inferencing through the Invoke API ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)) and the Converse API ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)). To create conversational applications see [Inference using Converse API](conversation-inference.md). Both of the API methods (Invoke and Converse) follow a very similar request pattern, for more information on API schema and Python code examples see [How to Invoke Amazon Nova Understanding Models](https://docs.aws.amazon.com/nova/latest/userguide/invoke.html).
 

@@ -1,7 +1,6 @@
 
 
 # Edit an alias of an agent in Amazon Bedrock
-<a name="agents-alias-edit"></a>
 
 To learn how to edit an alias of an agent, choose the tab for your preferred method, and then follow the steps:
 

@@ -1,7 +1,6 @@
 
 
 # Use expressions to define inputs by extracting the relevant part of a whole input in Amazon Bedrock Flows
-<a name="flows-expressions"></a>
 
 When you configure the inputs for a node, you must define it in relation to the whole input that will enter the node. The whole input can be a string, number, boolean, array, or object. To define an input in relation to the whole input, you use a subset of supported expressions based off [JsonPath](https://github.com/json-path/JsonPath). Every expression must begin with `$.data`, which refers to the whole input. Note the following for using expressions:
 + If the whole input is a string, number, or boolean, the only expression that you can use to define an individual input is `$.data`
@@ -9,7 +8,7 @@ When you configure the inputs for a node, you must define it in relation to the 
 
 As an example to understand how to use expressions, let's say that the whole input is the following JSON object:
 
-```
+```json
 {
     "animals": {
         "mammals": ["cat", "dog"],

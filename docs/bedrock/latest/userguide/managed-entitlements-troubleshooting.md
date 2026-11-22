@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="managed-entitlements-troubleshooting"></a>
 
 This section provides solutions to common issues you may encounter when using Managed Entitlements for Amazon Bedrock.
 

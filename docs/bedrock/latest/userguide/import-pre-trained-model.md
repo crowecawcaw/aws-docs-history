@@ -1,7 +1,6 @@
 
 
 # Import a pre-trained model into Amazon Bedrock
-<a name="import-pre-trained-model"></a>
 
  You can create a custom model in Amazon Bedrock by importing a model you customized in other environments, such as Amazon SageMaker AI. For example, you might have a model that you have created in Amazon SageMaker AI that has proprietary model weights. You can now import that model into Amazon Bedrock and then use Amazon Bedrock features to make inference calls to the model. 
 

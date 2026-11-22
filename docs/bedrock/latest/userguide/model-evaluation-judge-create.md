@@ -1,7 +1,6 @@
 
 
 # Create a model evaluation job that uses an LLM as a judge
-<a name="model-evaluation-judge-create"></a>
 
 You can create a model evaluation job using the AWS Management Console, AWS CLI, or a supported AWS SDK.
 
@@ -26,7 +25,7 @@ The IAM policy must grant access to both generator and evaluator models.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

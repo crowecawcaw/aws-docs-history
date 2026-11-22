@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Micro
-<a name="model-evaluation-type-judge-prompt-nova-micro"></a>
 
 Prompts used with Amazon Nova Micro.
 

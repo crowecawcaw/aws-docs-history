@@ -1,7 +1,6 @@
 
 
 # Delete a prompt in Prompt management
-<a name="prompt-management-delete"></a>
 
 If you no longer need a prompt, you can delete it. Prompts that you delete are retained in the AWS servers for up to fourteen days. To learn how to delete a prompt using Prompt management, choose the tab for your preferred method, and then follow the steps:
 

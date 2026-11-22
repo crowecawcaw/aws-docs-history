@@ -1,7 +1,6 @@
 
 
 # Adding data sources and starting ingestion
-<a name="kb-multimodal-add-data-source-and-ingest"></a>
 
 After creating your knowledge base, add data sources containing your multimodal content and start ingestion jobs to process and index the content.
 
@@ -54,7 +53,7 @@ Text embedding models limit retrieval to text-only content. However, you can ena
 
   For Nova Multimodal Embeddings (no special parsing configuration needed), use this `ds-multimodal.json` content:
 
-  ```
+  ```json
   {
       "dataSourceConfiguration": {
           "type": "S3",
@@ -71,7 +70,7 @@ Text embedding models limit retrieval to text-only content. However, you can ena
 
   For BDA parsing approach, use this configuration:
 
-  ```
+  ```json
   {
       "dataSourceConfiguration": {
           "type": "S3",

@@ -1,7 +1,6 @@
 
 
 # Query a knowledge base connected to an Amazon Neptune Analytics graph
-<a name="kb-test-neptune"></a>
 
 You can query a knowledge base that uses an Amazon Neptune Analytics graph, and return only relevant text from data sources. For this query, send a [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) request with an [Agents for Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-rt), like with a standard knowledge base. For information about querying a knowledge base and retrieving data and generating responses, see:
 +  [Query a knowledge base and retrieve data](kb-test-retrieve.md) 
@@ -32,7 +31,7 @@ The following are some considerations for using the `RetrievalFilter` API for Ne
 
 The following shows an example:
 
-```
+```json
 "vectorSearchConfiguration": {
         "numberOfResults": 5,
         "filter": {

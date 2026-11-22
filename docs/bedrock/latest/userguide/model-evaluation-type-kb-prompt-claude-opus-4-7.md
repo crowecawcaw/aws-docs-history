@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude Opus 4.7
-<a name="model-evaluation-type-kb-prompt-claude-opus-4-7"></a>
 
 Prompts used with Anthropic Claude Opus 4.7.
 

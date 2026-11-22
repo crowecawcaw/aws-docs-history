@@ -1,7 +1,6 @@
 
 
 # Amazon Titan Text Embeddings models
-<a name="titan-embedding-models"></a>
 
 Amazon Titan Embeddings models include Amazon Titan Text Embeddings V2 and Titan Text Embeddings G1 model.
 

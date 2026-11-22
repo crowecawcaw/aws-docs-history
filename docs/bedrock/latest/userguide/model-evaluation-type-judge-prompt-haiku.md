@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude 3 Haiku
-<a name="model-evaluation-type-judge-prompt-haiku"></a>
 
 Prompts used with Anthropic Claude 3 Haiku.
 
@@ -10,7 +9,7 @@ Prompts used with Anthropic Claude 3 Haiku.
 
 *Logical coherence* – Looks for logical gaps, inconsistencies, and contradictions in a model's responses to a prompt. Responses are graded on a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question and a response from the LLM. Your task is to check if the
@@ -95,7 +94,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 *Faithfulness* – Looks at whether the response contains information not found in the prompt, that cannot be inferred easily from the prompt. Responses are graded a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are given a task in some context (Input), and a candidate answer. Is the candidate answer faithful to the task description and context?
 
 A response is unfaithful only when (1) it clearly contradicts the context, or (2) the task implies that the response must be based on the context, like in a summarization task. If the task does not ask to respond based on the context, the model is allowed to use its own knowledge to provide a response, even if its claims are not verifiable.
@@ -131,7 +130,7 @@ all is faithful
 
 *Following instructions* – Looks at whether the generator model's responses respect the exact directions found in the prompt. Responses are graded a 3-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question and a response from the LLM. Your task is to determine whether the model's output respects all explicit parts of the instructions provided in the input, regardless of the overall quality or correctness of the response.
@@ -188,7 +187,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 *Completeness* – Measures if the model's response answers every question from the prompt. For this metric, if you supplied a ground truth response it is considered. Responses are graded a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses. The `{{ground_truth}}` is used when you supply a ground truth response in your prompt dataset.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question, a candidate response from the LLM and a reference response. Your task is to check if the candidate response contain the necessary amount of information and details for answering the question.
@@ -268,7 +267,7 @@ Do not return any preamble or explanations, return only a pure XML string surrou
 
 When no ground truth is provided in the prompt dataset, the following prompt is used to evaluate the model's response.
 
-```
+```markdown
 You are an expert evaluator focusing specifically on assessing the completeness of responses.
 
 You will be presented with an Input (the original request/question) and an Output (the response to be evaluated). Your task is to determine whether an Output contains all the necessary information and detail to properly answer the Input.
@@ -331,7 +330,7 @@ Do not return any preamble or explanations, return only a pure JSON string surro
 
 *Correctness* – Measures if the model's response is correct. For this metric, if you supplied a ground truth response it is considered. Responses are graded a 3-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses. The `{{ground_truth}}` is used when you supply a ground truth response in your prompt dataset.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question, a candidate response from the LLM and a reference response. Your task is to check if the candidate response is correct or not.
@@ -364,7 +363,7 @@ incorrect
 
 When no ground truth is provided in the prompt dataset, the following prompt is used to evaluate the model's response.
 
-```
+```markdown
 You are given a task and a candidate response. Is this a correct and accurate response to the task?
 
 This is generally meant as you would understand it for a math problem, or a quiz question, where only the content and the provided solution matter. Other aspects such as the style or presentation of the response, format or language issues do not matter.
@@ -393,7 +392,7 @@ incorrect
 
 *Helpfulness* – Looks at how helpful the generator model's responses are in the context of several factors. Responses are graded on a 7-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are given a task and a candidate completion. Provide a holistic evaluation of how helpful the completion is taking the following factors into consideration.
 
 
@@ -446,7 +445,7 @@ not helpful at all
 
 *Professional style and tone* – Looks at the model's responses and decides if the style, formatting, and tone of a response is appropriate for progressional genres. Responses are graded a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question and a response from the LLM. Your task is to assess the quality of the LLM response as to professional style and tone. In other words, you should assess whether the LLM response is written with a professional style and tone, like something people might see in a company-wide memo at a corporate office. Please assess by strictly following the specified evaluation criteria and rubrics.
@@ -493,7 +492,7 @@ completely yes
 
 *Readability* – Looks at the model's responses and evaluates the terminological and linguistic complexity of the response. Responses are graded a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question and a response from the LLM. Your task is to assess the readability of the LLM response to the question, in other words, how easy it is for a typical reading audience to comprehend the response at a normal reading rate.
@@ -534,7 +533,7 @@ excellent readability
 
 *Relevance* – Looks at the model's responses and evaluates how relevant the answer is to question from the prompt. Responses are graded a 5-point Likert scale, and then normalized in the output and the job's report card. The `{{prompt}}` will contain the prompt sent to the generator from your dataset, and the `{{prediction}}` is the generator model's responses.
 
-```
+```markdown
 You are a helpful agent that can assess an LLM response according to the given rubrics.
 
 You are given a question and a response from the LLM. Your task is to assess the relevance of the LLM response to the question, in other words, how focused the LLM response is on the given question.

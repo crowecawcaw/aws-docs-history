@@ -1,7 +1,6 @@
 
 
 # Set up inference for a custom model
-<a name="model-customization-use"></a>
 
 After you create a custom model, you can set up inference using one of the following options:
 + **Purchase Provisioned Throughput** – Purchase Provisioned Throughput for your model to set up dedicated compute capacity with guaranteed throughput for consistent performance and lower latency. 

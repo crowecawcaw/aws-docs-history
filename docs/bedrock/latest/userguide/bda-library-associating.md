@@ -1,7 +1,6 @@
 
 
 # Associating Library with a Project
-<a name="bda-library-associating"></a>
 
 To use custom vocabulary, associate your library with a BDA project. This can be done in two ways:
 
@@ -10,7 +9,7 @@ To use custom vocabulary, associate your library with a BDA project. This can be
 
 **AWS CLI Example:**
 
-```
+```bash
 aws bedrock-data-automation create-data-automation-project \
     --project-name "audio-transcription-project" \
     --standard-output-configuration '{
@@ -48,7 +47,7 @@ aws bedrock-data-automation create-data-automation-project \
 ## Option 2: Update Existing Project with library:
 <a name="bda-library-associating-option2"></a>
 
-```
+```bash
 aws bedrock-data-automation update-data-automation-project \
     --project-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-project/audio-transcription-project" \
     --data-automation-libraries '[{

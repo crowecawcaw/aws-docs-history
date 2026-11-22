@@ -1,7 +1,6 @@
 
 
 # Encryption of agent resources with customer managed keys (CMK)
-<a name="cmk-agent-resources"></a>
 
 You can at any time create a customer managed key to encrypt your agent’s information using the following agent information provided when building your agent.
 
@@ -66,7 +65,7 @@ Attach the following identity-based policy to an IAM role or user with permissio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -101,7 +100,7 @@ To attach the following resource-based policy, change the scope of the permissio
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

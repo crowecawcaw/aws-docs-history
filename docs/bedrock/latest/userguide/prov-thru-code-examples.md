@@ -1,7 +1,6 @@
 
 
 # Code examples for Provisioned Throughput
-<a name="prov-thru-code-examples"></a>
 
 The following code examples demonstrate how to create a Provisioned Throughput and how to manage and invoke it, using the AWS CLI and the Python SDK. You can create a Provisioned Throughput from a foundation model or from a model that you've already customized. Before you get started, carry out the following prerequisites:
 
@@ -28,7 +27,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 1. Send a [CreateProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html) request to create a no-commitment Provisioned Throughput called {{MyPT}}, by running the following command in a terminal:
 
-   ```
+   ```bash
    aws bedrock create-provisioned-model-throughput \
       --model-units 1 \
       --provisioned-model-name {{MyPT}} \
@@ -37,14 +36,14 @@ Choose the tab for your preferred method, and then follow the steps:
 
 1. The response returns a `provisioned-model-arn`. Allow some time for the creation to complete. To check its status, send a [GetProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html) request and provide the name or ARN of the provisioned model as the `provisioned-model-id`, by running the following command:
 
-   ```
+   ```bash
    aws bedrock get-provisioned-model-throughput \
        --provisioned-model-id {{${provisioned-model-arn}}}
    ```
 
 1. Run inference with your provisioned model by sending an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) request. Provide the ARN of the provisioned model that was returned in the `CreateProvisionedModelThroughput` response, as the `model-id`. The output is written to a file named {{output.txt}} in your current folder.
 
-   ```
+   ```bash
    aws bedrock-runtime invoke-model \
        --model-id {{${provisioned-model-arn}}} \
        --body '{
@@ -64,7 +63,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 1. Send a [DeleteProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteProvisionedModelThroughput.html) request to delete the Provisioned Throughput using the following command. You'll no longer be charged for the Provisioned Throughput.
 
-   ```
+   ```bash
    aws bedrock delete-provisioned-model-throughput 
      --provisioned-model-id {{MyPT}}
    ```
@@ -76,7 +75,7 @@ The following code snippets walk you through creating a Provisioned Throughput g
 
 1. To create a no-commitment Provisioned Throughput called {{MyPT}} and assign the ARN of the Provisioned Throughput to a variable called {{provisioned\_model\_arn}}, send the following [CreateProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html) request:
 
-   ```
+   ```python
    import boto3 
    
    provisioned_model_name = '{{MyPT}}'
@@ -93,13 +92,13 @@ The following code snippets walk you through creating a Provisioned Throughput g
 
 1. Allow some time for the creation to complete. You can check its status with the following code snippet. You can provide either the name of the Provisioned Throughput or the ARN returned from the [CreateProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html) response as the `provisionedModelId`.
 
-   ```
+   ```python
    bedrock.get_provisioned_model_throughput(provisionedModelId=provisioned_model_name)
    ```
 
 1. Run inference with your updated provisioned model with the following command and using the ARN of the provisioned model as the `modelId`.
 
-   ```
+   ```python
    import json
    import logging
    import boto3
@@ -194,7 +193,7 @@ The following code snippets walk you through creating a Provisioned Throughput g
 
 1. Delete the Provisioned Throughput with the following code snippet. You'll no longer be charged for the Provisioned Throughput.
 
-   ```
+   ```python
    bedrock.delete_provisioned_model_throughput(provisionedModelId=provisioned_model_name)
    ```
 

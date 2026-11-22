@@ -1,7 +1,6 @@
 
 
 # Share a model for another account to use
-<a name="share-model"></a>
 
 By default, models are only available in the Region and account in which they were created. Amazon Bedrock provides you the ability to share custom models with other accounts so that they can use them. The general process to share a model with another account is as follows:
 

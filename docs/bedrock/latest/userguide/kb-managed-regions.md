@@ -1,7 +1,6 @@
 
 
 # Supported AWS Regions
-<a name="kb-managed-regions"></a>
 
 Managed Amazon Bedrock knowledge bases are available in the following AWS Regions:
 
@@ -16,8 +15,10 @@ Managed Amazon Bedrock knowledge bases are available in the following AWS Region
 | eu-west-2 | Europe (London) | 
 | eu-central-1 | Europe (Frankfurt) | 
 | ap-northeast-1 | Asia Pacific (Tokyo) | 
+| ap-south-1 | Asia Pacific (Mumbai) | 
 | ap-southeast-1 | Asia Pacific (Singapore) | 
 | ap-southeast-2 | Asia Pacific (Sydney) | 
+| sa-east-1 | South America (São Paulo) | 
 | us-gov-west-1 | AWS GovCloud (US-West) | 
 
 ## Feature differences in AWS GovCloud (US-West)

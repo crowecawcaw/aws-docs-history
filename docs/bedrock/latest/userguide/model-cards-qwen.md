@@ -1,7 +1,6 @@
 
 
 # Qwen
-<a name="model-cards-qwen"></a>
 
 The following Qwen models are available in Amazon Bedrock:
 

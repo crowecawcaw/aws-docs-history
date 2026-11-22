@@ -1,7 +1,6 @@
 
 
 # Luma AI
-<a name="model-cards-luma-ai"></a>
 
 The following Luma AI model is available in Amazon Bedrock:
 

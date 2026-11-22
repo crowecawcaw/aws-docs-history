@@ -1,7 +1,6 @@
 
 
 # Delete a flow in Amazon Bedrock
-<a name="flows-delete"></a>
 
 If you no longer need a flow, you can delete it. Flows that you delete are retained in the AWS servers for up to fourteen days. To learn how to delete a flow, choose the tab for your preferred method, and then follow the steps:
 

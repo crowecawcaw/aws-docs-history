@@ -1,7 +1,6 @@
 
 
 # Diagnose `InvocationLatency` increases using output tokens per second (OTPS)
-<a name="monitoring-runtime-otps"></a>
 
 The `InvocationLatency` metric reports the wall-clock time of an inference request, from when the request is received to when the last output token is produced. By itself, this metric cannot tell you *why* latency increased. The same elevated value can result from two different conditions:
 + The model is generating tokens more slowly — a service-side throughput change.
@@ -96,7 +95,7 @@ Use an anomaly detection alarm when workload patterns vary over time and you wan
 
 The following Python example uses the AWS SDK for Python (Boto3) to create the static threshold alarm described in the preceding section. Replace `MODEL_ID`, `OTPS_THRESHOLD`, and `AlarmActions` with values appropriate for your environment.
 
-```
+```python
 import boto3
 
 cw = boto3.client("cloudwatch", region_name="us-east-1")

@@ -1,7 +1,6 @@
 
 
 # Getting Library Entity Details
-<a name="bda-library-getting-entity-details"></a>
 
 Use the [GetDataAutomationLibraryEntity](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.html) API to retrieve the list of vocabulary for an entity.
 
@@ -10,7 +9,7 @@ Use the [GetDataAutomationLibraryEntity](https://docs.aws.amazon.com/bedrock/lat
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation get-data-automation-library-entity \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \
@@ -19,7 +18,7 @@ aws bedrock-data-automation get-data-automation-library-entity \
 
 **Response**
 
-```
+```json
 {
     "entity": {
         "vocabulary": {

@@ -1,7 +1,6 @@
 
 
 # Create a custom service role for batch inference
-<a name="batch-iam-sr"></a>
 
 To use a custom service role for batch inference instead of the one Amazon Bedrock automatically creates for you in the AWS Management Console, create an IAM role and attach the following permissions by following the steps at [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html).
 
@@ -22,7 +21,7 @@ As a best practice for security purposes, replace the {{\*}} with specific batch
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -67,7 +66,7 @@ To allow a service role to access the Amazon S3 bucket containing your input dat
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -108,7 +107,7 @@ If you encrypt your batch inference data with a customer managed AWS KMS key ins
 
 To grant both, attach the following policy to the service role. Replace {{region}}, {{account-id}}, and {{key-id}} with your own values. If you use a different key for input and output, add a statement for each key.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -148,7 +147,7 @@ For permissions to invoke with a cross-Region (system-defined) inference profile
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -177,7 +176,7 @@ For permissions to invoke with an application inference profile, use the followi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

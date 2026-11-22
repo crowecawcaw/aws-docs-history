@@ -1,7 +1,6 @@
 
 
 # Creating a retrieve-only RAG evaluation job
-<a name="knowledge-base-evaluation-create-ro"></a>
 
 You can create a RAG evaluation job using the AWS Management Console, AWS CLI, or a supported AWS SDK.
 
@@ -64,7 +63,7 @@ To create a job using the following instructions, you also need a prompt dataset
   aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
   ```
 
-  ```
+  ```json
   {
       "jobName": {{"my_rag_eval"}},
       "roleArn": {{"arn:aws:iam::111122223333:role/service-role/Amazon-Bedrock-IAM-Role-Amazon-Bedrock-IAM-Role-20250218T063974"}},
@@ -124,7 +123,7 @@ To create a job using the following instructions, you also need a prompt dataset
   aws bedrock create-evaluation-job --cli-input-json file://{{my_eval_job.json}}
   ```
 
-  ```
+  ```json
   {
       "jobName": {{"my_rag_eval"}},
       "roleArn": {{"arn:aws:iam::111122223333:role/service-role/Amazon-Bedrock-IAM-Role-Amazon-Bedrock-IAM-Role-20250218T063974"}},
@@ -177,7 +176,7 @@ To create a job using the following instructions, you also need a prompt dataset
 
 The following python example demonstrates how to create a retrieve-only job for an Amazon Bedrock Knowledge Base using the AWS SDK for Python (Boto3) To learn more about creating an evaluation job using Boto3, refer to [`create_evaluation_job`](https://boto3.amazonaws.com/v1/documentation/api/1.35.6/reference/services/bedrock/client/create_evaluation_job.html) in the Boto3 documentation.
 
-```
+```python
 import boto3
 client = boto3.client('bedrock')
 

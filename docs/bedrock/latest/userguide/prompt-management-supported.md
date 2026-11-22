@@ -1,7 +1,6 @@
 
 
 # Supported Regions and models for Prompt management
-<a name="prompt-management-supported"></a>
 
 Prompt management is supported in the following AWS Regions:
 + ap-northeast-1

@@ -1,7 +1,6 @@
 
 
 # Claude Sonnet 5.5
-<a name="model-card-anthropic-claude-sonnet-5-5"></a>
 
 ## ![Anthropic logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Sonnet 5.5
 <a name="model-card-anthropic-claude-sonnet-5-5-header"></a>
@@ -144,7 +143,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-runtime | anthropic.claude-sonnet-5-5 | N/A | `us.anthropic.claude-sonnet-5-5`<br />`eu.anthropic.claude-sonnet-5-5`<br />`au.anthropic.claude-sonnet-5-5` | global.anthropic.claude-sonnet-5-5 | 
+| bedrock-runtime | anthropic.claude-sonnet-5-5 | N/A | `us.anthropic.claude-sonnet-5-5`<br />`ca.anthropic.claude-sonnet-5-5`<br />`eu.anthropic.claude-sonnet-5-5`<br />`au.anthropic.claude-sonnet-5-5` | global.anthropic.claude-sonnet-5-5 | 
 | bedrock-mantle | anthropic.claude-sonnet-5-5 | https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages | N/A | N/A | 
 
 *For example, to use Global cross-Region inference from us-east-1 (N. Virginia), use the endpoint URL "https://bedrock-runtime.us-east-1.amazonaws.com" with the inference profile ID "global.anthropic.claude-sonnet-5-5".*
@@ -165,6 +164,9 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 ***Regional availability at a glance***
 
 Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md) page for more details.
+
+**Important**  
+This model is offered through one or more inference profiles designated as inference profiles with limited model selection. These profiles are expected to offer a narrower selection of models, and new models or model versions might not be released for them. Before you take a dependency on one of these inference profiles, review [Inference profiles with limited model selection](inference-profiles-limited-model-selection.md) and plan for model lifecycle events.
 
 Availability differs by endpoint.
 
@@ -233,6 +235,16 @@ Geo inference ID: `us.anthropic.claude-sonnet-5-5`
 | us-west-2 (Oregon) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
 | ca-central-1 (Canada) | ca-central-1 (Canada), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
 | ca-west-1 (Calgary) | ca-west-1 (Calgary), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+
+**Geo: CA**
+
+Geo inference ID: `ca.anthropic.claude-sonnet-5-5`
+
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| ca-central-1 (Canada) | ca-central-1 (Canada), ca-west-1 (Calgary) | 
+| ca-west-1 (Calgary) | ca-central-1 (Canada), ca-west-1 (Calgary) | 
 
 **Geo: EU**
 
@@ -313,7 +325,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Messages API ]
 
-```
+```python
 from anthropic import Anthropic
 from aws_bedrock_token_generator import provide_token
 
@@ -336,7 +348,7 @@ print(response)
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -355,7 +367,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

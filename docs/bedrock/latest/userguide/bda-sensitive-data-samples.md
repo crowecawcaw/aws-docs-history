@@ -1,7 +1,6 @@
 
 
 # Sensitive data detection and redaction sample outputs
-<a name="bda-sensitive-data-samples"></a>
 
 The following examples show excerpts of sensitive data detection and redaction for standard outputs. For the complete response format, see [InvokeDataAutomationAsync](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationAsync.html) in the API Reference.
 

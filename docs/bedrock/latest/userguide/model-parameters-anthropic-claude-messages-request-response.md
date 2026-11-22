@@ -1,7 +1,6 @@
 
 
 # Request and Response
-<a name="model-parameters-anthropic-claude-messages-request-response"></a>
 
 The request body is passed in the `body` field of a request to [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html).
 
@@ -125,7 +124,6 @@ The 1 million token context length variant of Claude Sonnet 4 is available to yo
   <tr><td>1 million tokens</td><td><code>context-1m-2025-08-07</code></td><td>Compatible with Claude Sonnet 4, Claude Sonnet 4.6, and Claude Opus 4.6.</td></tr>
   <tr><td>Context management</td><td><code>context-management-2025-06-27</code></td><td>Compatible with Claude Sonnet 4.5 and Claude Haiku 4.5</td></tr>
   <tr><td>Effort</td><td><code>effort-2025-11-24</code></td><td>Compatible with Claude Opus 4.5</td></tr>
-  <tr><td>Tool search tool</td><td><code>tool-search-tool-2025-10-19</code></td><td>Compatible with Claude Opus 4.5</td></tr>
   <tr><td>Tool use examples</td><td><code>tool-examples-2025-10-29</code></td><td>Compatible with Claude Opus 4.5</td></tr>
 </tbody>
 </table>
@@ -369,7 +367,7 @@ To use this feature you must pass the beta header `effort-2025-11-24`.
 
 Request example:
 
-```
+```json
 {
     "anthropic_version": "bedrock-2023-05-31",
     "anthropic_beta": [

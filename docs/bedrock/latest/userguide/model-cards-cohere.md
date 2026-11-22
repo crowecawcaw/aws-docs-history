@@ -1,7 +1,6 @@
 
 
 # Cohere
-<a name="model-cards-cohere"></a>
 
 The following Cohere models are available in Amazon Bedrock:
 

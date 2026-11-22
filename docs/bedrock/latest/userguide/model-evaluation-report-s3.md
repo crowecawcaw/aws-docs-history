@@ -1,7 +1,6 @@
 
 
 # Understand how the results of your model evaluation job are saved in Amazon S3
-<a name="model-evaluation-report-s3"></a>
 
 The output from a model evaluation job is saved in the Amazon S3 bucket you specified when you created the model evaluation job. Results of model evaluation jobs are saved as JSON line files (`.jsonl`).
 
@@ -32,7 +31,7 @@ The third key, `modelResponses` contains a list of JSON objects which contains t
 
 The following is an example output for the text summarization task type with only one metric, accuracy, selected.
 
-```
+```json
 {
 "automatedEvaluationResult": {
     "scores": [{
@@ -70,7 +69,7 @@ When a model evaluation job has completed, you see the following parameters in t
 
 <a name="code-sample-model-eval"></a>The following is an example of output data from a model evaluation job. 
 
-```
+```json
 {
 "humanEvaluationResult": [{
     "flowDefinitionArn": "arn:aws:sagemaker:us-west-2:111122223333:flow-definition/flow-definition-name",

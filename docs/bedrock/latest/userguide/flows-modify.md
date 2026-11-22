@@ -1,7 +1,6 @@
 
 
 # Modify a flow in Amazon Bedrock
-<a name="flows-modify"></a>
 
 To learn how to modify a flow, choose the tab for your preferred method, and then follow the steps:
 

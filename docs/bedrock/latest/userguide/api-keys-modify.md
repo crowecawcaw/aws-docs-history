@@ -1,7 +1,6 @@
 
 
 # Modify permissions for long-term and short-term Amazon Bedrock API keys
-<a name="api-keys-modify"></a>
 
 When you generate a long-term Amazon Bedrock API key, you create an IAM user associated with the key. To change the permissions associated with the key, modify permissions for the IAM user through the IAM service. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the IAM User Guide.
 
@@ -34,7 +33,7 @@ At this point, you've removed all permissions from the APi key and you won't be 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

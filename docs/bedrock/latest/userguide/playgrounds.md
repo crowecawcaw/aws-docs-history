@@ -1,7 +1,6 @@
 
 
 # Generate responses in the console using playgrounds
-<a name="playgrounds"></a>
 
 The content from this page has been incorporated into the Amazon Bedrock console experience. To experiment with foundation models, open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/) and use the playgrounds directly.
 

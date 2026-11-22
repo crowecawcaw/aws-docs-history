@@ -1,7 +1,6 @@
 
 
 # TwelveLabs Pegasus 1.2
-<a name="model-parameters-pegasus"></a>
 
 The TwelveLabs Pegasus 1.2 model provides comprehensive video understanding and analysis capabilities. It can analyze video content and generate textual descriptions, insights, and answers to questions about the video.
 
@@ -57,7 +56,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.2 model
 
 **Using base64 encoded video:**
 
-```
+```json
 {
   "inputPrompt": "tell me about the video",
   "mediaSource": {
@@ -69,7 +68,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.2 model
 
 **Using S3 stored video:**
 
-```
+```json
 {
     "inputPrompt": "Tell me about this video",
     "mediaSource": {
@@ -84,7 +83,7 @@ The following examples show request formats for the TwelveLabs Pegasus 1.2 model
 
 **Using structured output format:**
 
-```
+```json
 {
     "inputPrompt": "Analyze this video and provide a structured summary",
     "mediaSource": {
@@ -116,7 +115,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.2 mod
 
 **Standard response:**
 
-```
+```json
 {
   "message": "This video shows a person walking through a park during sunset. The scene includes trees, a walking path, and golden lighting from the setting sun. The person appears to be enjoying a peaceful evening stroll.",
   "finishReason": "stop"
@@ -125,7 +124,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.2 mod
 
 **Response with structured output:**
 
-```
+```json
 {
   "message": "{\"summary\": \"A peaceful evening walk through a park at sunset\", \"key_scenes\": [\"Person entering the park\", \"Walking along tree-lined path\", \"Sunset lighting through trees\", \"Person sitting on bench\"], \"duration\": \"Approximately 2 minutes\"}",
   "finishReason": "stop"
@@ -134,7 +133,7 @@ The following examples show response formats from the TwelveLabs Pegasus 1.2 mod
 
 **Response when max tokens reached:**
 
-```
+```json
 {
   "message": "This video contains multiple scenes showing various activities. The first scene shows...",
   "finishReason": "length"

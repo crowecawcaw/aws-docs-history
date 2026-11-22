@@ -1,7 +1,6 @@
 
 
 # Block harmful images with content filters
-<a name="guardrails-mmfilter"></a>
 
 Amazon Bedrock Guardrails can help block inappropriate or harmful images while configuring content filters within a guardrail.
 
@@ -66,7 +65,7 @@ With the `contentPolicyConfig` operation, `filtersConfig` is a object, as shown 
 
 **Example Python Boto3 code for creating a Guardrail with Image Content Filters**
 
-```
+```json
 import boto3
 import botocore
 import json
@@ -145,7 +144,7 @@ You can use content filters for both image and text content using the `ApplyGuar
 
 You can update the request payload in below script for various models by following the inference parameters documentation for each bedrock foundation model that is supported by Amazon Bedrock Guardrails.
 
-```
+```json
 import boto3
 import botocore
 import json
@@ -202,7 +201,7 @@ if __name__ == "__main__":
 
 You can also use Amazon Bedrock Guardrails image filters with Image generation models like Titan Image Generator and Stability Image or Diffusion models. These models are currently supported through the `InvokeModel` API which can be invoked with a guardrail. You can update the request payload in the following script for various models by following the inference parameters documentation for various Amazon Bedrock foundation models that are supported by guardrails.
 
-```
+```json
 import base64
 import boto3
 import botocore

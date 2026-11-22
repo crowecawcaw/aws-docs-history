@@ -1,7 +1,6 @@
 
 
 # Set up permissions for a user or role to create and manage knowledge bases
-<a name="knowledge-base-prereq-permissions-general"></a>
 
 For a user or role to perform actions related to Amazon Bedrock Knowledge Bases, you must attach policies to it that grant permissions to perform the actions. It describes permissions that allow a user to retrieve information from these knowledge bases and generate responses from them.
 
@@ -22,7 +21,7 @@ To allow a role to perform these actions, attach the following policy to the rol
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -73,7 +72,7 @@ Attach the following policy to the role:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

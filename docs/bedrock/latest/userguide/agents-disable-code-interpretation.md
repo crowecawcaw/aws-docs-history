@@ -1,7 +1,6 @@
 
 
 # Disable code interpretation in Amazon Bedrock
-<a name="agents-disable-code-interpretation"></a>
 
 You can disable code interpretation in Amazon Bedrock at any time.
 
@@ -37,7 +36,7 @@ To disable code interpretation, send an [UpdateAgentActionGroup](https://docs.aw
 
 The following example shows the general format for specifying the required fields to disable code interpretation.
 
-```
+```json
 UpdateAgentActionGroup:
 {
   "actionGroupName": "CodeInterpreterAction",

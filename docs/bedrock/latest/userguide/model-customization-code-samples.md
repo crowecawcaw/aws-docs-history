@@ -1,7 +1,6 @@
 
 
 # Code samples for model customization
-<a name="model-customization-code-samples"></a>
 
 The following code samples show how to prepare a basic dataset, set up permissions, create a custom model, view the output files, purchase throughput for the model, and run inference on the model. You can modify these code snippets to your specific use-case.
 
@@ -9,7 +8,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. Create a training dataset file containing the following one line and name it {{train.jsonl}}.
 
-      ```
+      ```json
       {"prompt": "what is AWS", "completion": "it's Amazon Web Services"}
       ```
 
@@ -35,7 +34,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -81,7 +80,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
 ****  
 
-         ```
+         ```json
          {
              "Version":"2012-10-17",		 	 	 
              "Statement": [
@@ -112,7 +111,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -136,7 +135,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -173,7 +172,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. Make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyCustomizationRole}} and attach the {{BedrockTrust.json}} trust policy that you created.
 
-      ```
+      ```bash
       aws iam create-role \
           --role-name MyCustomizationRole \
           --assume-role-policy-document file://BedrockTrust.json
@@ -181,7 +180,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. Make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create the S3 data access policy with the {{MyFineTuningDataAccess.json}} file you created. The response returns an `Arn` for the policy.
 
-      ```
+      ```bash
       aws iam create-policy \
           --policy-name MyFineTuningDataAccess \
           --policy-document file://MyFineTuningDataAccess.json
@@ -189,7 +188,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. Make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request to attach the S3 data access policy to your role, replacing the `policy-arn` with the ARN in the response from the previous step:
 
-      ```
+      ```bash
       aws iam attach-role-policy \
           --role-name MyCustomizationRole \
           --policy-arn {{${policy-arn}}}
@@ -200,7 +199,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. Run the following code to make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyCustomizationRole}} and to make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create an S3 data access policy called {{MyFineTuningDataAccess}}. For the S3 data access policy, replace {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
-      ```
+      ```python
       import boto3
       import json
       
@@ -257,7 +256,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
    1. An `Arn` is returned in the response. Run the following code snippet to make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request, replacing {{${policy-arn}}} with the returned `Arn`.
 
-      ```
+      ```python
       iam.attach_role_policy(
           RoleName="MyCustomizationRole",
           PolicyArn="{{${policy-arn}}}"
@@ -273,7 +272,7 @@ The following code samples show how to prepare a basic dataset, set up permissio
 
 First, create a text file named {{FineTuningData.json}}. Copy the JSON code from below into the text file, replacing {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
-```
+```json
 {
     "trainingDataConfig": {
         "s3Uri": "s3://{{${training-bucket}}}/train.jsonl"
@@ -286,7 +285,7 @@ First, create a text file named {{FineTuningData.json}}. Copy the JSON code from
 
 To submit a model customization job, navigate to the folder containing {{FineTuningData.json}} in a terminal and run the following command in the command line, replacing {{${your-customization-role-arn}}} with the model customization role that you set up.
 
-```
+```bash
 aws bedrock create-model-customization-job \
     --customization-type FINE_TUNING \
     --base-model-identifier arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1 \
@@ -299,14 +298,14 @@ aws bedrock create-model-customization-job \
 
 The response returns a {{jobArn}}. Allow the job some time to complete. You can check its status with the following command.
 
-```
+```bash
 aws bedrock get-model-customization-job \
     --job-identifier "{{jobArn}}"
 ```
 
 When the `status` is `COMPLETE`, you can see the `trainingMetrics` in the response. You can download the artifacts to the current folder by running the following command, replacing {{aet.et-bucket}} with your output bucket name and {{jobId}} with the ID of the customization job (the sequence following the last slash in the `jobArn`).
 
-```
+```bash
 aws s3 cp s3://{{${output-bucket}}}/model-customization-job-{{jobId}} . --recursive
 ```
 
@@ -315,7 +314,7 @@ Purchase a no-commitment Provisioned Throughput for your custom model with the f
 **Note**  
 You will be charged hourly for this purchase. Use the console to see price estimates for different options.
 
-```
+```bash
 aws bedrock create-provisioned-model-throughput \
     --model-id MyCustomModel \
     --provisioned-model-name MyProvisionedCustomModel \
@@ -324,14 +323,14 @@ aws bedrock create-provisioned-model-throughput \
 
 The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some time to be created. To check its status, provide the name or ARN of the provisioned model as the `provisioned-model-id` in the following command.
 
-```
+```bash
 aws bedrock get-provisioned-model-throughput \
     --provisioned-model-id {{${provisioned-model-arn}}}
 ```
 
 When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `model-id`. The output is written to a file named {{output.txt}} in your current folder.
 
-```
+```bash
 aws bedrock-runtime invoke-model \
     --model-id {{${provisioned-model-arn}}} \
     --body '{"inputText": "What is AWS?", "textGenerationConfig": {"temperature": 0.5}}' \
@@ -344,7 +343,7 @@ aws bedrock-runtime invoke-model \
 
 Run the following code snippet to submit a fine-tuning job. Replace {{${your-customization-role-arn}}} with the ARN of the {{MyCustomizationRole}} that you set up and replace {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
-```
+```python
 import boto3
 
 bedrock = boto3.client(service_name='bedrock')
@@ -380,7 +379,7 @@ jobArn = response_ft.get('jobArn')
 
 The response returns a {{jobArn}}. Allow the job some time to complete. You can check its status with the following command.
 
-```
+```python
 bedrock.get_model_customization_job(jobIdentifier=jobArn).get('status')
 ```
 
@@ -388,7 +387,7 @@ When the `status` is `COMPLETE`, you can see the `trainingMetrics` in the [GetMo
 
 Purchase a no-commitment Provisioned Throughput for your custom model with the following command.
 
-```
+```python
 response_pt = bedrock.create_provisioned_model_throughput(
     modelId="MyCustomModel",
     provisionedModelName="MyProvisionedCustomModel",
@@ -400,13 +399,13 @@ provisionedModelArn = response_pt.get('provisionedModelArn')
 
 The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some time to be created. To check its status, provide the name or ARN of the provisioned model as the `provisionedModelId` in the following command.
 
-```
+```bash
 bedrock.get_provisioned_model_throughput(provisionedModelId=provisionedModelArn)
 ```
 
 When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `modelId`. 
 
-```
+```python
 import json
 import logging
 import boto3

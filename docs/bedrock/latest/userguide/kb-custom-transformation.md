@@ -1,7 +1,6 @@
 
 
 # Use a custom transformation Lambda function to define how your data is ingested
-<a name="kb-custom-transformation"></a>
 
 You have the ability to define a custom transformation Lambda function to inject your own logic into the knowledge base ingestion process.
 
@@ -22,7 +21,7 @@ For API and file contracts, refer the the following structures:
 
 **API contract when adding a custom transformation using Lambda function**
 
-```
+```json
 {
 ...
     "vectorIngestionConfiguration": {
@@ -55,7 +54,7 @@ For API and file contracts, refer the the following structures:
 
 **Custom Lambda transformation input format**
 
-```
+```json
 {
     "version": "1.0",
     "knowledgeBaseId": "string",
@@ -83,7 +82,7 @@ For API and file contracts, refer the the following structures:
 
 **Custom Lambda transformation output format**
 
-```
+```json
 {
     "outputFiles": [{
         "originalFileLocation": {
@@ -105,7 +104,7 @@ For API and file contracts, refer the the following structures:
 
 **File format for objects in referenced in `fileContents`**
 
-```
+```json
 {
     "fileContents": [{
         "contentBody": "...",

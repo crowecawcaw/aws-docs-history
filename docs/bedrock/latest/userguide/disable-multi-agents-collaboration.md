@@ -1,7 +1,6 @@
 
 
 # Disable a multi-agent collaboration
-<a name="disable-multi-agents-collaboration"></a>
 
 You can disable multi-agent collaboration at any time. Before you disable multi-agent collaboration, make sure that you've [disassociated all collaborator agents](disassociate-collaborator-agent.md) that are associated with the supervisor agent.
 

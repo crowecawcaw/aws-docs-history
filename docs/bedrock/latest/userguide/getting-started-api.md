@@ -1,7 +1,6 @@
 
 
 # Get started with the API
-<a name="getting-started-api"></a>
 
 This section describes how to set up your environment to make Amazon Bedrock requests through the AWS API. AWS offers the following tools to streamline your experience:
 + AWS Command Line Interface (AWS CLI)
@@ -106,7 +105,7 @@ IAM recommends that you limit your access keys to 12 hours.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -157,7 +156,7 @@ After setting up credentials for programmatic access, you need to configure perm
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

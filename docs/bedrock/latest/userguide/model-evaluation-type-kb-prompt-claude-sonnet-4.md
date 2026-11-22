@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude Sonnet 4.0
-<a name="model-evaluation-type-kb-prompt-claude-sonnet-4"></a>
 
 Prompts used with Anthropic Claude Sonnet 4.0.
 

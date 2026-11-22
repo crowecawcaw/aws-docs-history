@@ -1,7 +1,6 @@
 
 
 # Set up Client Credentials Grant authentication for Box
-<a name="kb-managed-box-ccg-setup"></a>
 
 Client Credentials Grant (`CCG`) authentication is the recommended authentication method for a Box data source. The connector authenticates as a Box app using the Client Credentials Grant (2LO) flow, with a service account (not a user) that crawls all enterprise content and no interactive sign-in. It is the only authentication method that supports document-level access control (ACLs). Use it for most deployments.
 
@@ -72,7 +71,7 @@ The app does not function until admin authorization is granted. **Not Submitted*
 
 Store the credentials in an AWS Secrets Manager secret with the following key-value pairs:
 
-```
+```json
 {
     "clientId": "{{your-client-id}}",
     "clientSecret": "{{your-client-secret}}",

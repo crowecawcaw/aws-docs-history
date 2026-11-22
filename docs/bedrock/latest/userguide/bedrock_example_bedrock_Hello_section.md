@@ -1,7 +1,6 @@
 
 
 # Hello Amazon Bedrock
-<a name="bedrock_example_bedrock_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Bedrock.
 
@@ -11,7 +10,7 @@ The following code examples show how to get started using Amazon Bedrock.
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock#code-examples). 
 
-```
+```csharp
 using Amazon;
 using Amazon.Bedrock;
 using Amazon.Bedrock.Model;
@@ -88,7 +87,7 @@ internal class HelloBedrock
 **SDK for Go V2**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock#code-examples). 
 
-```
+```go
 package main
 
 import (
@@ -135,7 +134,7 @@ func main() {
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples). 
 
-```
+```javascript
 import { fileURLToPath } from "node:url";
 
 import {
@@ -196,7 +195,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples). 
 
-```
+```python
 """
 Lists the available Amazon Bedrock models.
 """
@@ -258,7 +257,7 @@ if __name__ == "__main__":
 **SDK for Swift**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock#code-examples). 
 
-```
+```swift
 import ArgumentParser
 import AWSClientRuntime
 import Foundation

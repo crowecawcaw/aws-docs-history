@@ -1,7 +1,6 @@
 
 
 # Automate tasks in your application using AI agents
-<a name="agents"></a>
 
 **Amazon Bedrock Agents Classic availability**  
 You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  

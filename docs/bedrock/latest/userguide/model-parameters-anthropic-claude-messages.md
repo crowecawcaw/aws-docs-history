@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude Messages API
-<a name="model-parameters-anthropic-claude-messages"></a>
 
 This section provides inference parameters and code examples for using the Anthropic Claude Messages API.
 
@@ -57,7 +56,7 @@ Example with a partially-filled response from Claude:
 
 Each input message content may be either a single string or an array of content blocks, where each block has a specific type. Using a string is shorthand for an array of one content block of type "text". The following input messages are equivalent:
 
-```
+```json
 {"role": "user", "content": "Hello, Claude"}
 ```
 
@@ -75,7 +74,7 @@ The timeout period for inference calls to Anthropic Claude 3.7 Sonnet and Claude
 
 You can also include a system prompt in the request. A system prompt lets you provide context and instructions to Anthropic Claude, such as specifying a particular goal or role. Specify a system prompt in the `system` field, as shown in the following example. 
 
-```
+```json
 "system": "You are Claude, an AI assistant created by Anthropic to be helpful,
                 harmless, and honest. Your goal is to provide informative and substantive responses
                 to queries while avoiding potential harms."

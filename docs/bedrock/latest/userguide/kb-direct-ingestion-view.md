@@ -1,7 +1,6 @@
 
 
 # View information about documents in your data source
-<a name="kb-direct-ingestion-view"></a>
 
 The following topics describe how to view documents in your data source. If your knowledge base is connected to an Amazon S3 data source, you can view the documents in the connected S3 bucket.
 
@@ -42,7 +41,7 @@ To view information about specific documents in your data source, send a [GetKno
 For each document that you want to get information for, add a [DocumentIdentifier](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DocumentIdentifier.html) item in the `documentIdentifiers` array in one of the following formats:
 + If the data source is a custom one, specify the ID of the document in the `id` field:
 
-  ```
+  ```json
   { 
       "custom": { 
           "id": "string"
@@ -52,7 +51,7 @@ For each document that you want to get information for, add a [DocumentIdentifie
   ```
 + If the data source is an Amazon S3 one, specify the S3 URI of the document in the `uri` field:
 
-  ```
+  ```json
   {
       "dataSourceType": "S3",
       "s3": { 

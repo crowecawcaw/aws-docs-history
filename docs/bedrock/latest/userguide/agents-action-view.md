@@ -1,7 +1,6 @@
 
 
 # View information about an action group
-<a name="agents-action-view"></a>
 
 To learn how to view information about an action group, choose the tab for your preferred method, and then follow the steps:
 
@@ -34,7 +33,7 @@ To list information about an agent's action groups, send a [ListAgentActionGroup
 | maxResults | The maximum number of results to return in a response. | 
 | nextToken | If there are more results than the number you specified in the maxResults field, the response returns a nextToken value. To see the next batch of results, send the nextToken value in another request. | 
 
-```
+```python
     def list_agent_action_groups(self, agent_id, agent_version):
         """
         List the action groups for a version of an Amazon Bedrock Agent.

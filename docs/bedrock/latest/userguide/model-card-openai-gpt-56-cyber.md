@@ -1,7 +1,6 @@
 
 
 # Daybreak Red: GPT-5.6 Cyber
-<a name="model-card-openai-gpt-56-cyber"></a>
 
 ## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — Daybreak Red: GPT-5.6 Cyber
 <a name="model-card-openai-gpt-56-cyber-header"></a>
@@ -102,7 +101,7 @@ Use an object schema. Put all fields in `required`. Set `additionalProperties` t
 **Important**  
 For JSON Schema output with the Converse API, you must set `additionalModelRequestFields.text.format.strict` to `true`, in addition to specifying the schema in `outputConfig`. Include the following field in your request.  
 
-```
+```json
 {
   "additionalModelRequestFields": {
     "text": {
@@ -276,7 +275,7 @@ Configure your environment to use the API key for authentication.
 ------
 #### [ bedrock-runtime ]
 
-```
+```bash
 OPENAI_API_KEY="<provide your Bedrock API key>"
 OPENAI_BASE_URL="https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1"
 ```
@@ -307,7 +306,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -322,7 +321,7 @@ print(response)
 ------
 #### [ Chat ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -344,7 +343,7 @@ Use the settings from [Step 4 - Set environment variables](#model-card-openai-gp
 ------
 #### [ Responses API ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -359,7 +358,7 @@ print(response)
 ------
 #### [ Chat ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()

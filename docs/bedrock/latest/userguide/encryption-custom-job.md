@@ -1,7 +1,6 @@
 
 
 # Encryption of custom models
-<a name="encryption-custom-job"></a>
 
 Amazon Bedrock uses your training data with the [CreateModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html) action, or with the [console](model-customization-submit.md), to create a custom model which is a fine tuned version of an Amazon Bedrock foundational model. Your custom models are managed and stored by AWS.
 
@@ -88,7 +87,7 @@ The following statements are relevant to encrypting custom and copied models:
 
 To use your customer managed key to encrypt a custom or copied model, include the following statement in a key policy to allow encryption of a model. In the `Principal` field, add accounts that you want to allow to encrypt and decrypt the key to the list that the `AWS` subfield maps to. If you use the `kms:ViaService` condition key, you can add a line for each Region, or use {{\*}} in place of {{${region}}} to allow all Regions that support Amazon Bedrock.
 
-```
+```json
 {
     "Sid": "PermissionsEncryptDecryptModel",
     "Effect": "Allow",
@@ -119,7 +118,7 @@ To use your customer managed key to encrypt a custom or copied model, include th
 
 To allow access to a model that has been encrypted with a KMS key, include the following statement in a key policy to allow decryption of the key. In the `Principal` field, add accounts that you want to allow to decrypt the key to the list that the `AWS` subfield maps to. If you use the `kms:ViaService` condition key, you can add a line for each Region, or use {{\*}} in place of {{${region}}} to allow all Regions that support Amazon Bedrock.
 
-```
+```json
 {
     "Sid": "PermissionsDecryptModel",
     "Effect": "Allow",
@@ -159,7 +158,7 @@ If the roles that will invoke the custom model are the same as the roles that wi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{PermissionsCustomModelKey}}",
@@ -207,7 +206,7 @@ If the roles that will invoke the custom model are different from the role that 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{PermissionsCustomModelKey}}",
@@ -281,7 +280,7 @@ If the roles that will invoke the copied model are the same as the roles that wi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{PermissionsCopiedModelKey}}",
@@ -329,7 +328,7 @@ If the roles that will invoke the copied model are different from the role that 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{PermissionsCopiedModelKey}}",
@@ -393,7 +392,7 @@ If the source model that you will copy is encrypted with a KMS key, attach the s
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "{{PermissionsSourceModelKey}}",
@@ -431,7 +430,7 @@ When you use an AWS KMS customer managed key with your Amazon Bedrock resources,
 
 The following is an example AWS CloudTrail event for [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) to monitor KMS operations called by Amazon Bedrock to create a primary grant:
 
-```
+```json
 {
     "eventVersion": "1.09",
     "userIdentity": {

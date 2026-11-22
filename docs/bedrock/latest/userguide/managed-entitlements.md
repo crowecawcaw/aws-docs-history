@@ -1,7 +1,6 @@
 
 
-# Manage model subscriptions with AWS License Manager
-<a name="managed-entitlements"></a>
+# Manage model subscriptions across your organization
 
 **Note**  
 The following guidance applies only to third-party serverless models that require AWS Marketplace subscriptions.
@@ -15,8 +14,8 @@ Managed entitlements for Amazon Bedrock solves this by letting you subscribe onc
 The distribution workflow uses AWS License Manager. When you subscribe to a model, a license is automatically created, and you create grants to share that license with other accounts in your organization.
 
 You can distribute in two ways.
-+ **Through AWS Marketplace** – Distribute a private offer for a third-party model in Amazon Bedrock on the purchase confirmation page, right after you accept it from your management account or delegated administrator account. AWS creates and activates grants for every account in your organization. This option isn't available for private offers that you accept as part of an offer set. An offer set is a package of private offers for multiple products that a seller groups together so that you can review and accept them with a single action. For more information about offer sets, see [Understanding offer sets](https://docs.aws.amazon.com/marketplace/latest/buyerguide/understanding-offer-sets.html) in the *AWS Marketplace Buyer Guide*. For more information about this option, see [Distribute through AWS Marketplace](managed-entitlements-marketplace.md).
-+ **Through AWS License Manager** – Distribute any subscription, including public offers and offer sets, to your organization, organizational units (OUs), or specific accounts. You create and activate the grants yourself. You can use this option for all third-party Bedrock model subscriptions. For more information, see [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
++ **Through AWS Marketplace** – Distribute a private offer for a third-party model in Amazon Bedrock that you accept from your management account or delegated administrator account. You can distribute on the purchase confirmation page, right after you accept the offer, or later from the agreement. AWS creates and activates grants for every account in your organization. For private offers that you accept as part of an offer set, distribute each offer later from its agreement, because you can't distribute them on the purchase confirmation page. An offer set is a package of private offers for multiple products that a seller groups together so that you can review and accept them with a single action. For more information about offer sets, see [Understanding offer sets](https://docs.aws.amazon.com/marketplace/latest/buyerguide/understanding-offer-sets.html) in the *AWS Marketplace Buyer Guide*. For more information about this option, see [Distribute through AWS Marketplace](managed-entitlements-marketplace.md).
++ **Through AWS License Manager** – Distribute any subscription, including public offers, to your organization, organizational units (OUs), or specific accounts. You create and activate the grants yourself. You can use this option for all third-party Bedrock model subscriptions. For more information, see [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
 
 To distribute from the delegated administrator account through AWS Marketplace, register it as the delegated administrator before you accept the private offer. Then accept the offer from that account.
 

@@ -1,7 +1,6 @@
 
 
 # Retrieving information from data sources using Amazon Bedrock Knowledge Bases
-<a name="kb-how-retrieval"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).

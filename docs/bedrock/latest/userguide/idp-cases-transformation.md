@@ -1,7 +1,6 @@
 
 
 # Create Blueprints for Transformation
-<a name="idp-cases-transformation"></a>
 
 BDA allow you to split, and restructure data fields according to your specific requirements. This capability enables you to transform the extracted data into a format that better aligns with your downstream systems or analytical needs. 
 

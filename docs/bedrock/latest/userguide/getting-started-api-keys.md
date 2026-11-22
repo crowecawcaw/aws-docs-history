@@ -1,7 +1,6 @@
 
 
 # Get started with Amazon Bedrock API keys: Generate a 30-day key and make your first API call
-<a name="getting-started-api-keys"></a>
 
 This tutorial walks you through creating a long-term Amazon Bedrock API key that expires in 30 days and using it to make a simple [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API call using Python. This is the fastest way to start experimenting with Amazon Bedrock without setting up complex AWS credentials.
 
@@ -29,7 +28,7 @@ The API key is only displayed once. Make sure to copy and save it before closing
 ------
 #### [ Python ]
 
-   ```
+   ```python
    import boto3
    import os
    
@@ -59,7 +58,7 @@ The API key is only displayed once. Make sure to copy and save it before closing
 ------
 #### [ HTTP client using Python ]
 
-   ```
+   ```python
    import requests
    
    url = "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse"
@@ -86,7 +85,7 @@ The API key is only displayed once. Make sure to copy and save it before closing
 ------
 #### [ HTTP request using cURL ]
 
-   ```
+   ```bash
    curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-3-5-haiku-20241022-v1:0/converse" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer {{${api-key}}}" \

@@ -1,7 +1,6 @@
 
 
 # Cross-account access to Amazon S3 bucket for custom model import jobs
-<a name="cross-account-access-cmi"></a>
 
 If you are importing your model from an Amazon S3 bucket in a different AWS account, you will need to grant permissions for accessing the bucket before you import your customized model. See [Prerequisites for importing custom model](custom-model-import-prereq.md).
 
@@ -24,7 +23,7 @@ Follow these steps to configure cross-account access to an Amazon S3 bucket for 
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -58,7 +57,7 @@ Follow these steps to configure cross-account access to an Amazon S3 bucket for 
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -100,7 +99,7 @@ If the Amazon S3 bucket is encrypted with a custom AWS Key Management Service (A
 
 ****  
 
-   ```
+   ```json
    { 
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -127,7 +126,7 @@ If the Amazon S3 bucket is encrypted with a custom AWS Key Management Service (A
 
 1. **Update the AWS KMS key policy** – In the bucket owner's account, add the following statement to the AWS KMS key policy to allow the user's import execution role to decrypt objects.
 
-   ```
+   ```json
    {
        "Sid": "Allow use of the key by the destination account",
        "Effect": "Allow",
@@ -151,7 +150,7 @@ If the Amazon S3 bucket is encrypted with a custom AWS Key Management Service (A
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
       "Statement": [

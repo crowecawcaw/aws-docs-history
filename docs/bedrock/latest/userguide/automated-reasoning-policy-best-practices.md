@@ -1,7 +1,6 @@
 
 
 # Automated Reasoning policy best practices
-<a name="automated-reasoning-policy-best-practices"></a>
 
 This page consolidates best practices for creating and maintaining Automated Reasoning policies. Read this before creating your first policy and refer back to it when debugging issues. For the conceptual foundations behind these practices, see [Automated Reasoning checks concepts](automated-reasoning-checks-concepts.md). For step-by-step creation instructions, see [Create your Automated Reasoning policy](create-automated-reasoning-policy.md).
 

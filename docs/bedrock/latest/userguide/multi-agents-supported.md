@@ -1,7 +1,6 @@
 
 
 # Supported Regions, models, and Amazon Bedrock Agents features for multi-agent collaboration
-<a name="multi-agents-supported"></a>
 
 **Supported models**
 

@@ -1,7 +1,6 @@
 
 
 # Amazon Titan Image Generator G1 models
-<a name="model-parameters-titan-image"></a>
 
 The Amazon Titan Image Generator G1 V1 and Titan Image Generator G1 V2 models support the following inference parameters and model responses when carrying out model inference.
 
@@ -45,7 +44,7 @@ Select a tab to view API request bodies for different image generation use-cases
 
 A text prompt to generate the image must be <= 512 characters. Resolutions <= 1,408 on the longer side. negativeText (Optional) – A text prompt to define what not to include in the image that is <= 512 characters. See the table below for a full list of resolutions.
 
-```
+```json
 {
     "taskType": "TEXT_IMAGE",
     "textToImageParams": {
@@ -74,7 +73,7 @@ Don't use negative words in the `negativeText` prompt. For example, if you don't
 
 text (Optional) – A text prompt to define what to change inside the mask. If you don't include this field, the model tries to replace the entire mask area with the background. Must be <= 512 characters. negativeText (Optional) – A text prompt to define what not to include in the image. Must be <= 512 characters. The size limits for the input image and input mask are <= 1,408 on the longer side of image. The output size is the same as the input size.
 
-```
+```json
 {
     "taskType": "INPAINTING",
     "inPaintingParams": {
@@ -111,7 +110,7 @@ Don't use negative words in the `negativeText` prompt. For example, if you don't
 
 text (Required) – A text prompt to define what to change outside the mask. Must be <= 512 characters. negativeText (Optional) – A text prompt to define what not to include in the image. Must be <= 512 characters. The size limits for the input image and input mask are <= 1,408 on the longer side of image. The output size is the same as the input size. 
 
-```
+```json
 {
     "taskType": "OUTPAINTING",
     "outPaintingParams": {
@@ -156,7 +155,7 @@ Image variation allow you to create variations of your original image based on t
 + text (Optional) – A text prompt that can define what to preserve and what to change in the image. Must be <= 512 characters.
 + similarityStrength (Optional) – Specifies how similar the generated image should be to the input image(s) Use a lower value to introduce more randomness in the generation. Accepted range is between 0.2 and 1.0 (both inclusive), while a default of 0.7 is used if this parameter is missing in the request.
 
-```
+```json
 {
      "taskType": "IMAGE_VARIATION",
      "imageVariationParams": {
@@ -192,7 +191,7 @@ The conditioned image generation task type allows customers to augment text-to-i
 
 Text prompt to generate the image must be <= 512 characters. Resolutions <= 1,408 on the longer side. negativeText (Optional) is a text prompt to define what not to include in the image and is <= 512 characters. See the table below for a full list of resolutions.
 
-```
+```json
 {
     "taskType": "TEXT_IMAGE",
     "textToImageParams": {
@@ -228,7 +227,7 @@ If controlMode or controlStrength are provided, then conditionImage must also be
 
 Provide a list of hex color codes along with a text prompt to generate an image that follows the color palette. A text prompt is required to generate the image must be <= 512 characters. Resolutions maximum is 1,408 on the longer side. A list of 1 to 10 hex color codes are required to specify colors in the generated image, negativeText Optional A text prompt to define what not to include in the image <= 512 characters referenceImage optional an additional reference image to guide the color palette in the generate image. The size limit for user-uploaded RGB reference image is <= 1,408 on the longer side. 
 
-```
+```json
 {
     "taskType": "COLOR_GUIDED_GENERATION",
     "colorGuidedGenerationParams": {
@@ -263,7 +262,7 @@ The background removal task type automatically identifies multiple objects in th
 
 **Request format**
 
-```
+```json
 {
     "taskType": "BACKGROUND_REMOVAL",
     "backgroundRemovalParams": {
@@ -274,7 +273,7 @@ The background removal task type automatically identifies multiple objects in th
 
 **Response format**
 
-```
+```json
 {
   "images": [
     "base64-encoded string", 
@@ -290,7 +289,7 @@ The backgroundRemovalParams field is described below.
 ------
 #### [ Response body ]
 
-```
+```json
 {
   "images": [
     "base64-encoded string", 
@@ -399,7 +398,7 @@ The following examples show how to invoke the Amazon Titan Image Generator model
 ------
 #### [ Text-to-image generation ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -517,7 +516,7 @@ if __name__ == "__main__":
 ------
 #### [ Inpainting ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -640,7 +639,7 @@ if __name__ == "__main__":
 ------
 #### [ Outpainting ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -768,7 +767,7 @@ if __name__ == "__main__":
 ------
 #### [ Image variation ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -890,7 +889,7 @@ if __name__ == "__main__":
 ------
 #### [ Image conditioning (V2 only) ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -1012,7 +1011,7 @@ if __name__ == "__main__":
 ------
 #### [ Color guided content (V2 only) ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
@@ -1134,7 +1133,7 @@ if __name__ == "__main__":
 ------
 #### [ Background removal (V2 only) ]
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

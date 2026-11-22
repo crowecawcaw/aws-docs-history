@@ -1,7 +1,6 @@
 
 
 # Advanced topics and strategies
-<a name="advanced-prompt-optimization-advanced-topics"></a>
 
 ## Topics on this page
 <a name="advanced-prompt-optimization-advanced-topics-toc"></a>
@@ -53,7 +52,7 @@ final = 0.5 * tool_correctness + 0.3 * answer_correctness + 0.2 * format_complia
 
 Define one or more gating objectives. If any gate fails, the score is 0 (or some floor) regardless of the rest. Otherwise, score is the weighted sum of remaining objectives.
 
-```
+```python
 if not safety_check_passed:
     return 0.0
 if wrong_tool_called_for_destructive_action:
@@ -70,7 +69,7 @@ return 0.6 * accuracy + 0.4 * tone
 
 Pick the most important objective as the reward. Express the rest as constraints that, when violated, subtract from the reward (rather than zeroing it out).
 
-```
+```python
 reward = task_accuracy
 penalty = 0.0
 if response_too_long:
@@ -87,7 +86,7 @@ return max(0.0, reward - penalty)
 
 A Lambda metric computes deterministic sub-scores (regex, JSON parse, schema validation) and calls an LLM-as-a-Judge sub-evaluation for the fuzzy parts (tone, faithfulness, helpfulness) inside the Lambda function. It then aggregates them into one scalar.
 
-```
+```python
 def compute_score(prompt, prediction, gold, ...):
     structural = grade_format_and_tools(prediction)        # 0..1 from regex
     semantic   = call_llm_judge(prediction, gold, criteria) # 0..1 from LLMJ
@@ -186,7 +185,7 @@ User's current message:
 #### Sample shape
 <a name="advanced-prompt-optimization-multi-turn-pattern-a-sample"></a>
 
-```
+```json
 {
     "inputVariables": [
         {"conversation_so_far": "user: ...\nassistant: ...\n... (turns 1..N-1)"},
@@ -236,7 +235,7 @@ User's current message:
 #### Sample shape (probe at any turn N)
 <a name="advanced-prompt-optimization-multi-turn-pattern-b-sample"></a>
 
-```
+```json
 {
     "inputVariables": [
         {"conversation_so_far": "user: ...\nassistant: ...\n[tool_call: X(...)]\n... (turns 1..N-1)"},

@@ -1,7 +1,6 @@
 
 
 # Build a knowledge base with vector stores
-<a name="knowledge-base-build"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).

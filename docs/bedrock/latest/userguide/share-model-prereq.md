@@ -1,7 +1,6 @@
 
 
 # Fulfill prerequisites to share models
-<a name="share-model-prereq"></a>
 
 Amazon Bedrock interfaces with the [AWS Resource Access Manager](https://docs.aws.amazon.com/ram/latest/userguide/) and [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/) services to allow the sharing of models. Before you can share a model with another account, you must fulfill the following prerequisites:
 
@@ -30,7 +29,7 @@ For a role to have permissions to share a model, it must have permissions to bot
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -66,7 +65,7 @@ You can also attach the more permissive [AWSResourceManagerFullAccess managed po
 
 ****  
 
-   ```
+   ```json
    { 
        "Version":"2012-10-17",		 	 	 
        "Statement": [

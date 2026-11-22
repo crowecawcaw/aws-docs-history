@@ -1,7 +1,6 @@
 
 
 # Llama 3.1 405B Instruct
-<a name="model-card-meta-llama-3-1-405b-instruct"></a>
 
 ## ![Meta logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/meta.png) Meta — Llama 3.1 405B Instruct
 <a name="model-card-meta-llama-3-1-405b-instruct-header"></a>
@@ -123,7 +122,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

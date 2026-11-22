@@ -1,7 +1,6 @@
 
 
 # View information about flows in Amazon Bedrock
-<a name="flows-view"></a>
 
 To learn how to view information about a flow, choose the tab for your preferred method, and then follow the steps:
 

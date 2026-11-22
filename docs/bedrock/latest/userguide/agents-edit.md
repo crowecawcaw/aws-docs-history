@@ -1,7 +1,6 @@
 
 
 # Modify an agent
-<a name="agents-edit"></a>
 
 After you create an agent, you can update its configuration as required. The configuration applies to the working draft.
 

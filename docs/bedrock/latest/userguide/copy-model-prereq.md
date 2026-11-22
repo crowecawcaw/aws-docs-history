@@ -1,7 +1,6 @@
 
 
 # Fulfill prerequisites to copy models
-<a name="copy-model-prereq"></a>
 
 To allow a role to copy a model, you might have to set up permissions, depending on the role's permissions and the model's configuration. Review the permissions in the following list and the circumstances in which you must configure them:
 
@@ -12,7 +11,7 @@ To allow a role to copy a model, you might have to set up permissions, depending
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

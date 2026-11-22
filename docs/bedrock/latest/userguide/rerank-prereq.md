@@ -1,7 +1,6 @@
 
 
 # Permissions for reranking in Amazon Bedrock
-<a name="rerank-prereq"></a>
 
 A user requires the following permissions to use reranking:
 + Access to the reranking models that they plan to use. For more information, see [Request access to models](model-access.md). For third-party models (such as Cohere Rerank), your IAM role also needs `aws-marketplace:ViewSubscriptions` and `aws-marketplace:Subscribe` permissions. For more information, see [Use product ID condition keys to control access](model-access-product-ids.md).
@@ -43,7 +42,7 @@ To use [Rerank](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -87,7 +86,7 @@ The user role needs permissions to use the `bedrock:Retrieve` action. To allow t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ The [Amazon Bedrock Knowledge Bases service role](kb-permissions.md) that the us
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -156,7 +155,7 @@ To use a reranker model when retrieving data from a knowledge base and subsequen
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

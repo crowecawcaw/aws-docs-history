@@ -1,7 +1,6 @@
 
 
 # Implement safeguards for your application by associating a guardrail with your agent
-<a name="agents-guardrail"></a>
 
 To implement safeguards and prevent unwanted behavior from model responses or user messages, associate a guardrail with your agent. To learn more about guardrails and how to create them, see [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md).
 

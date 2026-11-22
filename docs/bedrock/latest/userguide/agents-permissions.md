@@ -1,7 +1,6 @@
 
 
 # Create a service role for Amazon Bedrock Agents
-<a name="agents-permissions"></a>
 
 To use a custom service role for agents instead of the one Amazon Bedrock automatically creates, create an IAM role and attach the following permissions by following the steps at [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html).
 + Trust policy
@@ -39,7 +38,7 @@ As a best practice for security purposes, replace the {{\*}} with specific agent
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -74,7 +73,7 @@ If you encrypt your agent with a customer-managed KMS key, refer to [Encryption 
 + Permissions to use Amazon Bedrock foundation models to run model inference on prompts used in your agent's orchestration.
 + Permissions to access your agent's action group API schemas in Amazon S3. Omit this statement if your agent has no action groups.
 + Permissions to access knowledge bases associated with your agent. Omit this statement if your agent has no associated knowledge bases.
-+ Permissions to access a third-party (Pinecone or Redis Enterprise Cloud) knowledge base associated with your agent. Omit this statement if your knowledge base is first-party (Amazon OpenSearch Serverless or Amazon Aurora) or if your agent has no associated knowledge bases.
++ Permissions to access a third-party (Pinecone or Redis Enterprise Cloud) knowledge base associated with your agent. Omit this statement if your knowledge base is first-party (OpenSearch Serverless or Amazon Aurora) or if your agent has no associated knowledge bases.
 + Permissions to access a prompt from Prompt management. Omit this statement if you don't plan to test a prompt from prompt management with your agent in the Amazon Bedrock console.
 
 ------
@@ -82,7 +81,7 @@ If you encrypt your agent with a customer-managed KMS key, refer to [Encryption 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -171,7 +170,7 @@ If you associate a [Provisioned Throughput](prov-throughput.md) with an alias of
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -202,7 +201,7 @@ If you enable [multi-agent collaboration](agents-multi-agent-collaboration.md), 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -233,7 +232,7 @@ If you associate a [guardrail](guardrails.md) with your agent, attach the follow
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -261,7 +260,7 @@ If you enable [Enable code interpretation in Amazon Bedrock](agents-enable-code-
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -294,7 +293,7 @@ Follow the steps at [Using resource-based policies for Lambda](https://docs.aws.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

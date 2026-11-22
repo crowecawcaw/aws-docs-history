@@ -1,7 +1,6 @@
 
 
 # Create a knowledge base for multimodal content
-<a name="kb-multimodal-create"></a>
 
 You can create multimodal knowledge bases using either the console or API. Choose your approach based on your multimodal processing needs.
 
@@ -65,7 +64,7 @@ When using Nova Multimodal Embeddings, Amazon Bedrock stores transient data in y
 
   Contents of `kb-nova-mme.json` (replace the placeholder values with your specific configuration):
 
-  ```
+  ```json
   {
       "knowledgeBaseConfiguration": {
           "vectorKnowledgeBaseConfiguration": {

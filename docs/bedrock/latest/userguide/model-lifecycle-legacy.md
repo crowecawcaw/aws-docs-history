@@ -1,7 +1,6 @@
 
 
 # Model lifecycle (Legacy)
-<a name="model-lifecycle-legacy"></a>
 
 **Important**  
 This page applies to all models launched on Amazon Bedrock before September 7, 2026. For models launched on or after September 7, 2026, see [Model lifecycle](model-lifecycle.md).

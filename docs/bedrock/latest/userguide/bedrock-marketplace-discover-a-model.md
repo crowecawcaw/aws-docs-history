@@ -1,7 +1,6 @@
 
 
 # Discover a model
-<a name="bedrock-marketplace-discover-a-model"></a>
 
 You can discover both Amazon Bedrock Marketplace models and Amazon Bedrock serverless models from the model catalog.
 

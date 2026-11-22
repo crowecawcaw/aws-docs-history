@@ -1,7 +1,6 @@
 
 
 # Optimize a prompt
-<a name="prompt-management-optimize"></a>
 
 Amazon Bedrock offers simple prompt optimization, which performs a fast, heuristic rewrite of a single short prompt for one model. It works best for prompts of approximately 1k tokens or less. You can choose the model that you want to optimize the prompt for and then generate a revised prompt. Simple optimization does not use evaluation data or support multiple models. For evaluation-driven optimization where your evaluation steers the prompt rewriting across multiple models, see [Advanced Prompt Optimization](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompt-optimization-how.html).
 
@@ -94,7 +93,7 @@ The response stream returns the following events:
 
 Run the following code sample to optimize a prompt:
 
-```
+```python
 import boto3
 
 # Set values here

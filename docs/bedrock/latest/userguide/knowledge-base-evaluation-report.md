@@ -1,7 +1,6 @@
 
 
 # Review RAG evaluation job reports and metrics
-<a name="knowledge-base-evaluation-report"></a>
 
 The results of a Retrieval Augmented Generation (RAG) evaluation job are presented in a report, and include key metrics or data that can help you assess the performance or effectiveness of a knowledge base. The results of a knowledge base evaluation job are available through the Amazon Bedrock console or in the Amazon S3 bucket you specified when creating the job.
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="advanced-prompt-optimization-troubleshooting"></a>
 
 
 | Error | Cause | Fix | 

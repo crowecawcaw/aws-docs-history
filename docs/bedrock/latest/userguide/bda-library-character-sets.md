@@ -1,7 +1,6 @@
 
 
 # Character Sets
-<a name="bda-library-character-sets"></a>
 
 **Topics**
 + [English character set](#char-english)

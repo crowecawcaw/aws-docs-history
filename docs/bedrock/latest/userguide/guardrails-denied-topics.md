@@ -1,7 +1,6 @@
 
 
 # Block denied topics to help remove harmful content
-<a name="guardrails-denied-topics"></a>
 
 You can specify a set of denied topics in a guardrail that are undesirable in the context of your generative AI application. For example, a bank might want its AI assistant to avoid conversations related to investment advice or cryptocurrencies. 
 
@@ -63,7 +62,7 @@ You can add up to 30 denied topics to your guardrail by using the AWS Management
 
    1. Enter a **Name** for the topic.
 
-   1. For **Definition**, define the topic. For guidelines on how to define a denied topic, see [Block denied topics to help remove harmful content](#guardrails-denied-topics).
+   1. For **Definition**, define the topic. For guidelines on how to define a denied topic, see [Block denied topics to help remove harmful content](guardrails-denied-topics.md).
 
    1. (Optional) For **Input**, specify whether guardrail evaluation is enabled for model prompts. If enabled, choose which action you want your guardrail. **Block** is enabled by default. For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md).
 
@@ -90,7 +89,7 @@ You can add up to 30 denied topics to your guardrail by using the AWS Management
 
 Add denied topics to your guardrail by sending a [CreateGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html) request. Here's what the request format looks like:
 
-```
+```json
 POST /guardrails HTTP/1.1
 Content-type: application/json
 
@@ -136,7 +135,7 @@ Content-type: application/json
 
 The response format looks like this:
 
-```
+```json
 HTTP/1.1 202
 Content-type: application/json
 

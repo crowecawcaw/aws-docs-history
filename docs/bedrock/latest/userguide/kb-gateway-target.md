@@ -1,7 +1,6 @@
 
 
 # Connect to your knowledge base through AgentCore Gateway
-<a name="kb-gateway-target"></a>
 
 AgentCore Gateway lets you expose your Amazon Bedrock managed knowledge base as a tool using the Model Context Protocol (MCP). After you add a knowledge base target to a gateway, any MCP-compatible client can query the knowledge base as a standard MCP tool. The connector exposes two tools:
 + `AgenticRetrieveStream` — a multi-step, streaming agentic retrieval that plans, retrieves iteratively, and streams back results and an optional synthesized, citation-backed answer.
@@ -25,13 +24,13 @@ If you have an existing agent built with the [Strands Agents SDK](https://strand
 
 Install the `mcp-proxy-for-aws` package:
 
-```
+```bash
 pip install mcp-proxy-for-aws
 ```
 
 Then update your MCP client to point to the gateway URL with IAM authentication:
 
-```
+```python
 from mcp_proxy_for_aws.client import aws_iam_streamablehttp_client
 from strands.tools.mcp.mcp_client import MCPClient
 

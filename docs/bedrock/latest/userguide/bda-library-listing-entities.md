@@ -1,7 +1,6 @@
 
 
 # Listing Library Entities
-<a name="bda-library-listing-entities"></a>
 
 Use the [ListDataAutomationLibraryEntities](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.html) API to retrieve the list of entities.
 
@@ -10,7 +9,7 @@ Use the [ListDataAutomationLibraryEntities](https://docs.aws.amazon.com/bedrock/
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation list-data-automation-library-entities \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \

@@ -1,7 +1,6 @@
 
 
 # Mistral AI text completion
-<a name="model-parameters-mistral-text-completion"></a>
 
 The Mistral AI text completion API lets you generate text with a Mistral AI model.
 
@@ -33,7 +32,7 @@ You need the model ID for the model that you want to use. To get the model ID, s
 
 The Mistral AI models have the following inference parameters. 
 
-```
+```json
 {
     "prompt": string,
     "max_tokens" : int,
@@ -47,13 +46,13 @@ The Mistral AI models have the following inference parameters.
 The following are required parameters.
 +  **prompt** – (Required) The prompt that you want to pass to the model, as shown in the following example. 
 
-  ```
+  ```json
   <s>[INST] What is your favourite condiment? [/INST]
   ```
 
   The following example shows how to format is a multi-turn prompt. 
 
-  ```
+  ```json
   <s>[INST] What is your favourite condiment? [/INST]
   Well, I'm quite partial to a good squeeze of fresh lemon juice. 
   It adds just the right amount of zesty flavour to whatever I'm cooking up in the kitchen!</s> 
@@ -129,7 +128,7 @@ The following are optional parameters.
 
 The `body` response from a call to `InvokeModel` is the following:
 
-```
+```json
 {
   "outputs": [
     {
@@ -154,7 +153,7 @@ The `body` response has the following fields:
 
 This examples shows how to call the Mistral 7B Instruct model.
 
-```
+```python
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """

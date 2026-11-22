@@ -1,7 +1,6 @@
 
 
 # Create and manage fine-tuning jobs for Amazon Nova models
-<a name="rft-submit-job"></a>
 
 You can create a reinforcement fine-tuning (RFT) job using the Amazon Bedrock console or API. The RFT job can take a few hours depending on the size of your training data, number of epochs, and complexity of your reward functions.
 
@@ -59,7 +58,7 @@ Send a CreateModelCustomizationJob request with `customizationType` set to `REIN
 
 **Example request:**
 
-```
+```json
 {
     "roleArn": "arn:aws:iam::{{123456789012}}:role/{{BedrockRFTRole}}",
     "baseModelIdentifier": "amazon.nova-2.0",
@@ -96,7 +95,7 @@ Send a CreateModelCustomizationJob request with `customizationType` set to `REIN
 
 **Python API sample request:**
 
-```
+```python
 import boto3
 
 bedrock = boto3.client(service_name='bedrock')

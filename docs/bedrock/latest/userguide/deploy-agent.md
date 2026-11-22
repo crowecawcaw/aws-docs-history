@@ -1,7 +1,6 @@
 
 
 # Deploy an agent
-<a name="deploy-agent"></a>
 
 When you first create an Amazon Bedrock agent, you have a working draft version (`DRAFT`) and a test alias (`TSTALIASID`) that points to the working draft version. When you make changes to your agent, the changes apply to the working draft. You iterate on your working draft until you're satisfied with the behavior of your agent. Then, you can set up your agent for deployment and integration into your application by creating *aliases* of your agent.
 

@@ -1,7 +1,6 @@
 
 
 # Data Automation Library
-<a name="bda-library"></a>
 
 Amazon Bedrock Data Automation Library enables you to enhance BDA's understanding of your content and generate more accurate insights from your data. A Data Automation Library serves as a container that stores entities and can be associated with BDA projects to improve extraction accuracy across multiple entity types and modalities for your specific use cases. Currently, Data Automation Library supports [Custom Vocabulary](bda-library-custom-vocabulary.md) to enhance extraction accuracy for audio and video content. For limits related to this feature, see the [quotas and limits](https://docs.aws.amazon.com/bedrock/latest/userguide/bda-limits.html) page.
 

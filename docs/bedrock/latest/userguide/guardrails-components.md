@@ -1,7 +1,6 @@
 
 
 # Create your guardrail
-<a name="guardrails-components"></a>
 
 Amazon Bedrock Guardrails offers filters that you can configure to help avoid undesirable and harmful content and remove or mask sensitive information for privacy protection. 
 

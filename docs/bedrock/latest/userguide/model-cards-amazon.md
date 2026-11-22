@@ -1,7 +1,6 @@
 
 
 # Amazon
-<a name="model-cards-amazon"></a>
 
 The following Amazon models are available in Amazon Bedrock:
 

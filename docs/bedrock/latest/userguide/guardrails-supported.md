@@ -1,7 +1,6 @@
 
 
 # Supported Regions and models for Amazon Bedrock Guardrails
-<a name="guardrails-supported"></a>
 
 Amazon Bedrock Guardrails applies to foundation models that you invoke on the `bedrock-runtime` endpoint through the `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream` operations. Within those requests, a guardrail can evaluate both text and image content — for image content, see [Block harmful images with content filters](guardrails-mmfilter.md). The `bedrock-mantle` endpoint doesn't support Amazon Bedrock Guardrails.
 

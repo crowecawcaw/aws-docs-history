@@ -1,7 +1,6 @@
 
 
 # Subscribe to a model
-<a name="bedrock-marketplace-subscribe-to-a-model"></a>
 
 To use a model from Amazon Bedrock Marketplace, you subscribe to the model. If you're using a publicly available model, such as a HuggingFace model, you don't need a subscription. Models can be publicly available or proprietary. When you subscribe to a model, you review and accept the prices and EULAs of the model provider.
 

@@ -1,7 +1,6 @@
 
 
 # Invoke Meta Llama on Amazon Bedrock using Bedrock's Converse API
-<a name="bedrock-runtime_example_bedrock-runtime_Converse_MetaLlama_section"></a>
 
 The following code examples show how to send a text message to Meta Llama, using Bedrock's Converse API.
 
@@ -12,7 +11,7 @@ The following code examples show how to send a text message to Meta Llama, using
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
 Send a text message to Meta Llama, using Bedrock's Converse API.  
 
-```
+```csharp
 // Use the Converse API to send a text message to Meta Llama.
 
 using System;
@@ -74,7 +73,7 @@ catch (AmazonBedrockRuntimeException e)
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Send a text message to Meta Llama, using Bedrock's Converse API.  
 
-```
+```java
 // Use the Converse API to send a text message to Meta Llama.
 
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
@@ -137,7 +136,7 @@ public class Converse {
 ```
 Send a text message to Meta Llama, using Bedrock's Converse API with the async Java client.  
 
-```
+```java
 // Use the Converse API to send a text message to Meta Llama
 // with the async Java client.
 
@@ -223,7 +222,7 @@ public class ConverseAsync {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
 Send a text message to Meta Llama, using Bedrock's Converse API.  
 
-```
+```javascript
 // Use the Conversation API to send a text message to Meta Llama.
 
 import {
@@ -275,7 +274,7 @@ try {
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Send a text message to Meta Llama, using Bedrock's Converse API.  
 
-```
+```python
 # Use the Conversation API to send a text message to Meta Llama.
 
 import boto3
@@ -321,7 +320,7 @@ except (ClientError, Exception) as e:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
 Send a text message to Meta Llama, using Bedrock's Converse API.  
 
-```
+```swift
 // An example demonstrating how to use the Conversation API to send 
 // a text message to Meta Llama.
 

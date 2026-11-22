@@ -1,7 +1,6 @@
 
 
 # Build a managed knowledge base
-<a name="kb-build-managed"></a>
 
 **Note**  
 For optimized combination of ease-of-use, accuracy and cost, we recommend that you choose Bedrock Managed Knowledge Base.

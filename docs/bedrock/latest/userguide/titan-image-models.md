@@ -1,7 +1,6 @@
 
 
 # Amazon Titan Image Generator G1 model
-<a name="titan-image-models"></a>
 
 Amazon Titan Image Generator G1 is an image generation model that enables users to generate and edit images in versatile ways. Users can create images that match their text-based descriptions by simply inputting natural language prompts. Furthermore, they can upload and edit existing images, including applying text-based prompts without the need for a mask, or editing specific parts of an image using an image mask. The model also supports outpainting, which extends the boundaries of an image, and inpainting, which fills in missing areas. It offers the ability to generate variations of an image based on an optional text prompt, as well as instant customization options that allow users to transfer styles using reference images or combine styles from multiple references, all without requiring any fine-tuning.
 

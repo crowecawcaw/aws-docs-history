@@ -1,7 +1,6 @@
 
 
 # Adding New Vocabulary Entities
-<a name="bda-library-adding-cv"></a>
 
 You can add vocabulary to your library using the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) API. You can provide vocabulary through an S3 manifest file or inline payload.
 
@@ -34,7 +33,7 @@ Example: `vocabulary-manifest.json`
 ### Step 2: Upload the manifest to S3
 <a name="bda-library-adding-cv-manifest-step2"></a>
 
-```
+```bash
 aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 ```
 
@@ -47,7 +46,7 @@ Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/be
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation-data-automation invoke-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \
@@ -88,7 +87,7 @@ Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/be
 
 **Request**
 
-```
+```bash
 aws bedrock-data-automation-data-automation invoke-data-automation-library-ingestion-job \
     --library-arn "arn:aws:bedrock:us-east-1:123456789012:data-automation-library/healthcare-vocabulary" \
     --entity-type "VOCABULARY" \

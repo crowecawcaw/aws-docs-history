@@ -1,7 +1,6 @@
 
 
 # Customize ingestion for a data source
-<a name="kb-data-source-customize-ingestion"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
@@ -50,7 +49,7 @@ To use the default parser, don't include a `parsingConfiguration` field within t
 
 To use the Amazon Bedrock Data Automation parser, specify `BEDROCK_DATA_AUTOMATION` in the `parsingStrategy` field of the `ParsingConfiguration` and include a [BedrockDataAutomationConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_BedrockDataAutomationConfiguration.html) in the `bedrockDataAutomationConfiguration` field, as in the following format:
 
-```
+```json
 {
     "parsingStrategy": "BEDROCK_DATA_AUTOMATION",
     "bedrockDataAutomationConfiguration": {
@@ -64,7 +63,7 @@ To use the Amazon Bedrock Data Automation parser, specify `BEDROCK_DATA_AUTOMATI
 
 To use a foundation model as a parser, specify the `BEDROCK_FOUNDATION_MODEL` in the `parsingStrategy` field of the `ParsingConfiguration` and include a [BedrockFoundationModelConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_BedrockFoundationModelConfiguration.html) in the `bedrockFoundationModelConfiguration` field, as in the following format:
 
-```
+```json
 {
     "parsingStrategy": "BEDROCK_FOUNDATION_MODEL",
     "bedrockFoundationModelConfiguration": {
@@ -97,7 +96,7 @@ Expand the section that corresponds to the parsing strategy that you want to use
 
 To treat each document in your data source as a single source chunk, specify `NONE` in the `chunkingStrategy` field of the `ChunkingConfiguration`, as in the following format:
 
-```
+```json
 {
     "chunkingStrategy": "NONE"
 }
@@ -108,7 +107,7 @@ To treat each document in your data source as a single source chunk, specify `NO
 
 To divide each document in your data source into chunks of approximately the same size, specify `FIXED_SIZE` in the `chunkingStrategy` field of the `ChunkingConfiguration` and include a [FixedSizeChunkingConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FixedSizeChunkingConfiguration.html) in the `fixedSizeChunkingConfiguration` field, as in the following format:
 
-```
+```json
 {
     "chunkingStrategy": "FIXED_SIZE",
     "fixedSizeChunkingConfiguration": {
@@ -123,7 +122,7 @@ To divide each document in your data source into chunks of approximately the sam
 
 To divide each document in your data source into two levels, where the second layer contains smaller chunks derived from the first layer, specify `HIERARCHICAL` in the `chunkingStrategy` field of the `ChunkingConfiguration` and include the `hierarchicalChunkingConfiguration` field, as in the following format:
 
-```
+```json
 {
     "chunkingStrategy": "HIERARCHICAL",
     "hierarchicalChunkingConfiguration": {
@@ -140,7 +139,7 @@ To divide each document in your data source into two levels, where the second la
 
 To divide each document in your data source into chunks that prioritize semantic meaning over syntactic structure, specify `SEMANTIC` in the `chunkingStrategy` field of the `ChunkingConfiguration` and include the `semanticChunkingConfiguration` field, as in the following format:
 
-```
+```json
 {
     "chunkingStrategy": "SEMANTIC",
     "semanticChunkingConfiguration": {
@@ -160,7 +159,7 @@ You can post-process how the source chunks from your data are written to the vec
 
 To learn about writing a custom Lambda function for ingestion, see [Use a custom transformation Lambda function to define how your data is ingested](kb-custom-transformation.md). In the AWS Management Console you choose the Lambda function when connecting to a data source. With the Amazon Bedrock API, you include a [CustomTransformationConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CustomTransformationConfiguration.html) in the `CustomTransformationConfiguration` field of the [VectorIngestionConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_VectorIngestionConfiguration.html) and specify the ARN of the Lambda, as in the following format:
 
-```
+```json
 {
     "transformations": [{
         "transformationFunction": {

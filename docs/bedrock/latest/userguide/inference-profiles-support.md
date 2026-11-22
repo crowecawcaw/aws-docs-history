@@ -1,7 +1,6 @@
 
 
 # Supported Regions and models for inference profiles
-<a name="inference-profiles-support"></a>
 
 For a list of Region codes and endpoints supported in Amazon Bedrock, see [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bedrock_region). This topic describes predefined inference profiles that you can use and the Regions and models that support application inference profiles.
 
@@ -45,7 +44,7 @@ You can find supported cross-Region inference profiles in either of the followin
 
 For example, the following AWS CLI command lists the active AU inference profiles that you can use from the Asia Pacific (Sydney) Region:
 
-```
+```bash
 aws bedrock list-inference-profiles \
     --region ap-southeast-2 \
     --type-equals SYSTEM_DEFINED \
@@ -55,7 +54,7 @@ aws bedrock list-inference-profiles \
 
 For each inference profile that you want to use, send a [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) request from the same source Region. The Region in each model ARN in the `models` field is a destination Region to which the inference profile can route requests. For example:
 
-```
+```bash
 aws bedrock get-inference-profile \
     --region ap-southeast-2 \
     --inference-profile-identifier {{inference-profile-id}} \

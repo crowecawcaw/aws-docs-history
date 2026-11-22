@@ -1,7 +1,6 @@
 
 
 # Example configurations, results, and scores
-<a name="guardrails-use-invoke-guardrail-checks-examples"></a>
 
 The following blocks show each check's request configuration alongside the result it returns, including example scores.
 
@@ -9,7 +8,7 @@ The following blocks show each check's request configuration alongside the resul
 
 Content filter returns one entry per requested category, each with a `severityScore` between 0.0 and 1.0. A higher score indicates a stronger match to that category. You pick the threshold that counts as a violation. If you need a highly restricted experience to block content, set the threshold at the lower end.
 
-```
+```json
 // config
 "contentFilter": {
   "categories": [
@@ -30,7 +29,7 @@ Content filter returns one entry per requested category, each with a `severitySc
 
 Prompt attack returns one entry per requested category with a `severityScore`.
 
-```
+```json
 // config
 "promptAttack": {
   "categories": [
@@ -51,7 +50,7 @@ Prompt attack returns one entry per requested category with a `severityScore`.
 
 Sensitive information returns one entry per detected entity instance. Each entry has a `confidenceScore`, the `messageIndex` and `contentIndex` it appeared in, and the begin/end character offsets within that block, which is enough for client-side masking or redaction. Results are capped at a service-defined maximum; if more entities exist than the cap, `truncated` is `true`.
 
-```
+```json
 // config
 "sensitiveInformation": {
   "entities": [

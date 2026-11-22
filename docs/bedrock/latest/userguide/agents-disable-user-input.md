@@ -1,7 +1,6 @@
 
 
 # Disable user input in Amazon Bedrock
-<a name="agents-disable-user-input"></a>
 
 If you disable user input, the agent doesn't request the user for additional details. if it needs to invoke an API in an action group, but doesn't have enough information to complete the API request. Instead, the model within the agent will use the default values and make a best guess at invoking the appropriate function or the method. This might cause agent to hallucinate on the function call prediction. 
 
@@ -39,7 +38,7 @@ To disable user input, send an [UpdateAgentActionGroup](https://docs.aws.amazon.
 
 The following example shows the general format for specifying the required fields to disable user input.
 
-```
+```json
 CreateAgentActionGroup:
 {
   "actionGroupName": "AskUserAction",

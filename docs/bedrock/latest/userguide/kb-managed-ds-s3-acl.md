@@ -1,7 +1,6 @@
 
 
 # Document-level access controls
-<a name="kb-managed-ds-s3-acl"></a>
 
 **ACL awareness is not authorization**  
 Bedrock Managed Knowledge Base provides ACL-aware filtering, not a security boundary. Bedrock Managed Knowledge Base does not authenticate end users — your application is responsible for authenticating users and passing verified identity context. Because Bedrock Managed Knowledge Base cannot verify the authenticity of the user context you provide, this feature filters results based on the identity you supply but does not constitute true authorization. You must not rely on this feature as a sole access control mechanism without upstream authentication.
@@ -23,7 +22,7 @@ To enable ACL awareness for an Amazon S3 data source, set `aclEnabled` to `true`
 **Important**  
 For ACL-enabled Amazon S3 data sources, documents without an associated ACL entry are not ingested. Ensure every document has an ACL defined either through the global ACL file or in its metadata file.
 
-```
+```json
 "connectorParameters": {
     "type": "S3",
     "version": "1",
@@ -43,7 +42,7 @@ For ACL-enabled Amazon S3 data sources, documents without an associated ACL entr
 
 The global ACL file is a JSON array where each entry maps a key prefix to a set of access control entries. Each `keyPrefix` is the absolute Amazon S3 URI of a folder (applying to all documents under it) or an individual document.
 
-```
+```json
 [
     {
         "keyPrefix": "s3://{{your-bucket-name}}/{{finance/}}",
@@ -68,7 +67,7 @@ Each `aclEntries` element contains:
 
 As an alternative to the global ACL file, you can define ACLs per document using metadata files. For each document, create a file named `{{filename}}.metadata.json` in the same Amazon S3 path. Include an `accessControlList` array with the same entry format as the global file.
 
-```
+```json
 {
     "metadataAttributes": {},
     "accessControlList": [

@@ -1,7 +1,6 @@
 
 
 # Using Amazon Bedrock Data Automation CLI
-<a name="bda-cli-guide"></a>
 
 The Amazon Bedrock Data Automation (BDA) feature provides a streamlined CLI workflow for processing your data. For all modalities, this workflow consists of three main steps: creating a project, creating Blueprints for custom output, and processing documents. This guide walks you through the key CLI commands for working with BDA. 
 
@@ -17,7 +16,7 @@ Consider this sample passport that we'll process:
 
 When creating a project, you must define your configuration settings for the type of file you intend to process. The following command represents a minimal working example for creating an image processing project:
 
-```
+```bash
 aws bedrock-data-automation create-data-automation-project \
     --project-name "ImageProcessingProject" \
     --standard-output-configuration '{
@@ -40,7 +39,7 @@ aws bedrock-data-automation create-data-automation-project \
 
 The command validates the input configuration and creates a new project with a unique ARN. A response would include the project ARN and stage:
 
-```
+```bash
 {
     "projectArn": "Amazon Resource Name (ARN)",
     "projectStage": "DEVELOPMENT",
@@ -75,7 +74,7 @@ After creating a project, you can create a Blueprint to define the structure of 
 
 Here's a minimal working example for creating a Blueprint tailored to passport processing:
 
-```
+```bash
 aws bedrock-data-automation create-blueprint \
     --blueprint-name "passport-blueprint" \
     --type "IMAGE" \
@@ -108,7 +107,7 @@ The command creates a new Blueprint with the specified schema. You can then use 
 
 To add a Blueprint to your project, use the `update-data-automation-project` command:
 
-```
+```bash
 aws bedrock-data-automation update-data-automation-project \
     --project-arn "Amazon Resource Name (ARN)" \
     --standard-output-configuration '{
@@ -198,7 +197,7 @@ aws bedrock-data-automation-runtime get-data-automation-status \
 
 The command returns the current status of the processing job:
 
-```
+```json
 {
     "status": "COMPLETED",
     "creationTime": "2025-07-09T12:34:56.789Z",
@@ -218,13 +217,13 @@ Possible status values include:
 
 Once processing is complete, you can list the output files in your S3 bucket:
 
-```
+```bash
 aws s3 ls s3://my-bda-documents/output/efgh5678/
 ```
 
 To download the results to your local machine:
 
-```
+```bash
 aws s3 cp s3://my-bda-documents/output/efgh5678/ ~/Downloads/bda-results/ --recursive
 ```
 
@@ -235,7 +234,7 @@ The output includes structured data based on your project configuration and any 
 
 Before processing documents with BDA, you must first upload your documents to an S3 bucket. Sync API supports both input through S3 bucket or image bytes (that is, processing documents without S3). The command returns structured data based on your project configuration and any Blueprints you've applied:
 
-```
+```bash
 aws bedrock-data-automation-runtime invoke-data-automation \
     --input-configuration '{
         "s3Uri": "s3://my-bda-documents/invoices/invoice-123.pdf"
@@ -252,7 +251,7 @@ aws bedrock-data-automation-runtime invoke-data-automation \
 
 The command returns structured data based on your project configuration and any Blueprints you've applied:
 
-```
+```bash
 aws bedrock-data-automation-runtime invoke-data-automation \
     --input-configuration '{
         "s3Uri": "s3://my-bda-documents/invoices/advertisement_latest.jpeg"

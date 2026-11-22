@@ -1,7 +1,6 @@
 
 
 # Responses API
-<a name="inference-responses-api"></a>
 
 Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` and `bedrock-mantle` endpoints. Use `bedrock-runtime` for new applications. Use `bedrock-mantle` only when a model or capability that you require isn't available on `bedrock-runtime`.
 
@@ -78,7 +77,7 @@ The OpenAI-compatible Models API is available on `bedrock-mantle`. For complete 
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # List all available models using the OpenAI SDK
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 
@@ -97,7 +96,7 @@ for model in models.data:
 
 Make a GET request to `/v1/models`:
 
-```
+```bash
 # List all available models
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 
@@ -149,7 +148,7 @@ To create a response, choose an example for your endpoint. The `bedrock-runtime`
 ------
 #### [ bedrock-runtime: OpenAI SDK (Python) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -166,7 +165,7 @@ print(response)
 
 Make a POST request to `/openai/v1/responses`:
 
-```
+```bash
 curl -X POST "$OPENAI_BASE_URL/responses" \
    -H "Content-Type: application/json" \
    -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -179,7 +178,7 @@ curl -X POST "$OPENAI_BASE_URL/responses" \
 ------
 #### [ bedrock-mantle: OpenAI SDK (Python) ]
 
-```
+```python
 # Create a basic response using the OpenAI SDK
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 
@@ -202,7 +201,7 @@ print(response)
 
 Make a POST request to `/v1/responses`:
 
-```
+```bash
 # Create a basic response
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 
@@ -227,7 +226,7 @@ To receive response events incrementally, choose an example for your endpoint.
 ------
 #### [ bedrock-runtime: OpenAI SDK (Python) ]
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -247,7 +246,7 @@ for event in stream:
 
 Make a POST request to `/openai/v1/responses` with `stream` set to `true`:
 
-```
+```bash
 curl -X POST "$OPENAI_BASE_URL/responses" \
    -H "Content-Type: application/json" \
    -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -261,7 +260,7 @@ curl -X POST "$OPENAI_BASE_URL/responses" \
 ------
 #### [ bedrock-mantle: OpenAI SDK (Python) ]
 
-```
+```python
 # Stream response events incrementally using the OpenAI SDK
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 
@@ -284,7 +283,7 @@ for event in stream:
 
 Make a POST request to `/v1/responses` with `stream` set to `true`:
 
-```
+```bash
 # Stream response events incrementally
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 

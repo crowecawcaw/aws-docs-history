@@ -1,7 +1,6 @@
 
 
 # Invoke Amazon Titan Text Embeddings on Amazon Bedrock
-<a name="bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_TitanTextEmbeddings_section"></a>
 
 The following code examples show how to:
 + Get started creating your first embedding.
@@ -14,7 +13,7 @@ The following code examples show how to:
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
 Create your first embedding with Titan Text Embeddings V2.  
 
-```
+```java
 // Generate and print an embedding with Amazon Titan Text Embeddings.
 
 import org.json.JSONObject;
@@ -79,7 +78,7 @@ public class InvokeModel {
 ```
 Invoke Titan Text Embeddings V2 configuring the number of dimensions and normalization.  
 
-```
+```java
     /**
      * Invoke Amazon Titan Text Embeddings V2 with additional inference parameters.
      *
@@ -136,7 +135,7 @@ Invoke Titan Text Embeddings V2 configuring the number of dimensions and normali
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
 Create your first embedding with Amazon Titan Text Embeddings.  
 
-```
+```python
 # Generate and print an embedding with Amazon Titan Text Embeddings V2.
 
 import boto3

@@ -1,7 +1,6 @@
 
 
 # Images
-<a name="bda-ouput-image"></a>
 
 The Amazon Bedrock Data Automation (BDA) feature offers a comprehensive set of standard outputs for image processing to generate insights from your images. You can use these insights to enable a wide range of applications and use cases, such as content discovery, contextual ad placement, and brand safety. Here's an overview of each operation type available as part of standard outputs for images:
 

@@ -1,7 +1,6 @@
 
 
 # Options for handling harmful content detected by Amazon Bedrock Guardrails
-<a name="guardrails-harmful-content-handling-options"></a>
 
 You can configure what actions your Amazon Bedrock guardrail takes at runtime when it detects harmful content in prompts (`inputAction`) and responses (`outputAction`).
 
@@ -29,7 +28,7 @@ For example, let's say you configure a policy with a content filter strength of 
 
 To understand this behavior (and make sure that your application doesn't block content you aren't expecting it to), you can configure the policy action as `NONE`. The trace response might look like this:
 
-```
+```json
 {
     "assessments": [{
         "contentPolicy": {

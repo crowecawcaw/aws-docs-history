@@ -1,7 +1,6 @@
 
 
 # Create an application inference profile
-<a name="inference-profiles-create"></a>
 
 You can create an application inference profile with one or more Regions to track usage and costs when invoking a model.
 + To create an application inference profile for one Region, specify a foundation model. Usage and costs for requests made to that Region with that model will be tracked.

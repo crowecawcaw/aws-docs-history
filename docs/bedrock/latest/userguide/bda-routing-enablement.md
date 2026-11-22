@@ -1,7 +1,6 @@
 
 
 # Disabling modalities and routing file types
-<a name="bda-routing-enablement"></a>
 
 By default, projects in BDA process supported file types, by sorting them to different semantic modalities. When creating or editing your project, you can modify what modalities will be processed, and which file types will be sent to which modalities. In this section, we will go through enabling and disabling different modalities, routing files to specific modalities, and the default routing procedure for BDA.
 
@@ -19,7 +18,7 @@ When using the BDA console, modality enablement is handled by a checklist, where
 **Disabling modalities with the BDA API**  
 When using the BDA API, modality enablement is handled by the `overrideConfiguration` request element, located in the `CreateDataAutomation` operation. Each modality has an associate section where you can declare the modality `ENABLED` or `DISABLED`. Below is an example of the `overrideConfiguration` element with only document and audio modalities enabled. The `modalityProcessing` flag defaults to `ENABLED`.
 
-```
+```json
 "overrideConfiguration" : {
     "document": {
         "splitter": {

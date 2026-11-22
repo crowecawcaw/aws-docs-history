@@ -1,7 +1,6 @@
 
 
 # Manage your endpoints
-<a name="bedrock-marketplace-manage-your-endpoints"></a>
 
 You view and manage your Amazon Bedrock Marketplace model endpoints in the following ways:
 + Editing the number of instances or instance types
@@ -24,7 +23,7 @@ You can also register and de-register endpoints of Amazon Bedrock Marketplace mo
 
 You can use the following AWS Command Line Interface command to delete the endpoint.
 
-```
+```bash
 aws bedrock delete-marketplace-model-endpoint --endpoint-arn "arn:aws:sagemaker:region:{{111122223333}}:endpoint/{{example-endpoint}}"
 ```
 
@@ -32,7 +31,7 @@ The preceding command doesn't return a response.
 
 You can use the following AWS Command Line Interface command to update the endpoint.
 
-```
+```bash
 aws bedrock update-marketplace-model-endpoint --endpoint-config "{\"sageMaker\":{\"initialInstanceCount\":2,\"instanceType\":\"ml.g5.xlarge\",\"executionRole\":\"arn:aws:iam::{{111122223333}}:role/service-role/{{example-sagemaker-service-role}}\"}}" --endpoint-arn "arn:aws:sagemaker:region:account-number:endpoint/example-endpoint-name"
 ```
 

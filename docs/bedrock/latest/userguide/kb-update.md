@@ -1,7 +1,6 @@
 
 
 # Modify an Amazon Bedrock knowledge base
-<a name="kb-update"></a>
 
 You can update a knowledge base, such as changing knowledge base configurations.
 

@@ -1,7 +1,6 @@
 
 
 # Create and manage fine-tuning jobs for open-weight models using OpenAI APIs
-<a name="fine-tuning-openai-job-create"></a>
 
 The OpenAI-compatible fine-tuning job APIs allow you to create, monitor, and manage fine-tuning jobs. This page highlights using these APIs for reinforcement fine-tuning. For complete API details, see the [OpenAI Fine-tuning documentation](https://platform.openai.com/docs/api-reference/fine-tuning).
 
@@ -18,7 +17,7 @@ To create a fine-tuning job with RFT method, choose the tab for your preferred m
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -59,7 +58,7 @@ print({job_id})
 
 Make a POST request to `/v1/fine_tuning/jobs`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -100,7 +99,7 @@ To list fine-tuning events, choose the tab for your preferred method, and then f
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -122,7 +121,7 @@ for event in events.data:
 
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/events`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/events?limit=50
 ```
 
@@ -139,7 +138,7 @@ To paginate through all events, choose the tab for your preferred method, and th
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -168,7 +167,7 @@ while True:
 
 Make multiple GET requests with the `after` parameter:
 
-```
+```bash
 # First request
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/events?limit=100
 
@@ -191,7 +190,7 @@ To retrieve specific job details, choose the tab for your preferred method, and 
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -208,7 +207,7 @@ print(json.dumps(job_details.model_dump(), indent=2))
 
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123 \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
@@ -228,7 +227,7 @@ To list fine-tuning jobs with limit and pagination, choose the tab for your pref
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -247,7 +246,7 @@ print(json.dumps(response.model_dump(), indent=2))
 
 Make a GET request to `/v1/fine_tuning/jobs`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs?limit=20 \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
@@ -267,7 +266,7 @@ To cancel a fine-tuning job, choose the tab for your preferred method, and then 
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -284,7 +283,7 @@ print(f"Status: {cancel_response.status}")  # Should be "cancelled"
 
 Make a POST request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/cancel`:
 
-```
+```bash
 curl -X POST https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/cancel \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
@@ -304,7 +303,7 @@ To list checkpoints for a fine-tuning job, choose the tab for your preferred met
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -328,7 +327,7 @@ for checkpoint in checkpoints.data:
 
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/checkpoints?limit=10
 ```
 
@@ -345,7 +344,7 @@ To use a checkpoint model for inference, choose the tab for your preferred metho
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -365,7 +364,7 @@ print(response.choices[0].message.content)
 
 Make a POST request to `/v1/chat/completions`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -390,7 +389,7 @@ Use the Responses API for single-turn text generation with your fine-tuned model
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -421,7 +420,7 @@ else:
 
 Make a POST request to `/v1/completions`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
@@ -443,7 +442,7 @@ Use the Chat Completions API for conversational interactions with your fine-tune
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
 from openai import OpenAI
 client = OpenAI()
@@ -475,7 +474,7 @@ else:
 
 Make a POST request to `/v1/chat/completions`:
 
-```
+```bash
 curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \

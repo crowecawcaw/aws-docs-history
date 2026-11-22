@@ -1,7 +1,6 @@
 
 
 # Configure access to Amazon S3 buckets
-<a name="s3-bucket-access"></a>
 
 Multiple Amazon Bedrock features require access to data that is stored in Amazon S3 buckets. To access this data, you must configure the following permissions:
 
@@ -58,7 +57,7 @@ Add, modify, and remove the statements, resources, and conditions in the followi
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ The following policy restricts read access to the {{my-folder}} folder in the {{
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

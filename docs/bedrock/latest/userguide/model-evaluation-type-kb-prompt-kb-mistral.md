@@ -1,7 +1,6 @@
 
 
 # Mistral Large 1 (24.02)
-<a name="model-evaluation-type-kb-prompt-kb-mistral"></a>
 
 Prompts used with Mistral Large 1 (24.02)
 

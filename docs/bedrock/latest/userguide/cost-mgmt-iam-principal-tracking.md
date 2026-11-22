@@ -1,7 +1,6 @@
 
 
 # IAM principal attribution
-<a name="cost-mgmt-iam-principal-tracking"></a>
 
 Amazon Bedrock automatically captures the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) identity ([IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) and [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)) for every inference request. You can optionally attach tags to your principals for additional cost dimensions like team, department, or cost center. This gives you per-user and per-role cost visibility without code changes or additional resources.
 
@@ -126,7 +125,7 @@ For more information, see [Passing session tags in AWS STS](https://docs.aws.ama
 
 The following Python example shows a gateway assuming its Amazon Bedrock role for a specific user, passing the user as both a `RoleSessionName` (which appears in `identity.arn` in your invocation logs) and as session tags (which surface as cost allocation data in AWS Cost Explorer and CUR 2.0). The role's trust policy must allow `sts:TagSession`. Cache the returned credentials for the session lifetime instead of calling `AssumeRole` on every request.
 
-```
+```python
 import boto3
 
 sts = boto3.client("sts")

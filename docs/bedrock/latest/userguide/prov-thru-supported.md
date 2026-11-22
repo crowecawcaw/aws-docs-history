@@ -1,7 +1,6 @@
 
 
 # Supported Region and models for Provisioned Throughput
-<a name="prov-thru-supported"></a>
 
 If you purchase Provisioned Throughput through the Amazon Bedrock API, you must specify a contextual variant of Amazon Bedrock FMs for the model ID.
 

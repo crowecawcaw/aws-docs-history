@@ -1,7 +1,6 @@
 
 
 # Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases
-<a name="knowledge-base-create"></a>
 
 **Important**  
 For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md).
@@ -55,7 +54,7 @@ When using Amazon Titan Multimodal Embeddings G1, you must provide an S3 content
       + **Quick create a new vector store** – choose one of the available vector stores for Amazon Bedrock to create. You can also optionally configure AWS KMS key encryption for your vector store.
 **Note**  
 When using this option, Amazon Bedrock automatically handles the metadata placement for each vector store.
-        + **Amazon OpenSearch Serverless** – Amazon Bedrock Knowledge Bases creates an Amazon OpenSearch Serverless vector search collection and index and configures it with the required fields for you.
+        + **OpenSearch Serverless** – Amazon Bedrock Knowledge Bases creates an OpenSearch Serverless vector search collection and index and configures it with the required fields for you.
         + **Amazon Aurora PostgreSQL Serverless** – Amazon Bedrock sets up an Amazon Aurora PostgreSQL Serverless vector store. This process takes unstructured text data from an Amazon S3 bucket, transforms it into text chunks and vectors, and then stores them in a PostgreSQL database. For more information, see [Quick create an Aurora PostgreSQL Knowledge Base for Amazon Bedrock](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.quickcreatekb.html).
         + **Amazon Neptune Analytics** – Amazon Bedrock uses Retrieval Augmented Generation (RAG) techniques combined with graphs to enhance generative AI applications so that end users can get more accurate and comprehensive responses.
         + **Amazon S3 Vectors** – Amazon Bedrock Knowledge Bases creates an S3 vector bucket and a vector index that will store the embeddings generated from your data sources.
@@ -65,7 +64,7 @@ When using this option, Amazon Bedrock automatically handles the metadata placem
 When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support) in [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md).
       + **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md).
 **Note**  
-If your data source is a Confluence, Microsoft SharePoint, or Salesforce instance, the only supported vector store service is Amazon OpenSearch Serverless.
+If your data source is a Confluence, Microsoft SharePoint, or Salesforce instance, the only supported vector store service is OpenSearch Serverless.
 
    1. (Optional) Expand the **Additional configurations** section and modify any relevant configurations.
 
@@ -120,9 +119,9 @@ In the `knowledgeBaseConfiguration` field, which maps to a [KnowledgeBaseConfigu
 
 In the `storageConfiguration` field, which maps to a [StorageConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StorageConfiguration.html) object, specify the vector store that you plan to connect to in the `type` field and include the field that corresponds to that vector store. See each vector store configuration type at [StorageConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StorageConfiguration.html) for details about the information you need to provide.
 
-The following shows an example request to create a knowledge base connected to an Amazon OpenSearch Serverless collection. The data from connected data sources will be converted into binary vector embeddings with Amazon Titan Text Embeddings V2 and multimodal data extracted by the parser is set up to be stored in a bucket called {{MyBucket}}.
+The following shows an example request to create a knowledge base connected to an OpenSearch Serverless collection. The data from connected data sources will be converted into binary vector embeddings with Amazon Titan Text Embeddings V2 and multimodal data extracted by the parser is set up to be stored in a bucket called {{MyBucket}}.
 
-```
+```json
 PUT /knowledgebases/ HTTP/1.1
 Content-type: application/json
 

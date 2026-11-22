@@ -1,7 +1,6 @@
 
 
 # OpenAI models
-<a name="model-parameters-openai"></a>
 
 GPT-6.1 Sol is available through `bedrock-mantle` in `us-east-1` and through US geographic cross-Region inference on `bedrock-runtime`. Use `openai.gpt-6.1-sol` on Mantle and `us.openai.gpt-6.1-sol` on Runtime. For model details, pricing, reasoning settings, and OpenAI first-party lifecycle terms, see [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md).
 
@@ -111,7 +110,7 @@ To see examples of using the OpenAI Create chat completion API, choose the tab f
 
 The following Python script calls the Create chat completion API with the OpenAI Python SDK:
 
-```
+```python
 from openai import OpenAI
 
 client = OpenAI(
@@ -141,7 +140,7 @@ print(completion.choices[0].message)
 
 You can run the following command in a terminal to call the Create chat completion API using curl:
 
-```
+```bash
 curl -X POST https://bedrock-runtime.us-west-2.amazonaws.com/openai/v1/chat/completions \
    -H "Content-Type: application/json" \
    -H "Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK" \
@@ -170,7 +169,7 @@ Choose the tab for your preferred method, and then follow the steps:
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 import json
 
@@ -228,7 +227,7 @@ For example, compare the following chat completion request body to its correspon
 ------
 #### [ Create chat completion request body ]
 
-```
+```json
 {
   "model": "openai.gpt-oss-20b-1:0",
   "messages": [
@@ -253,7 +252,7 @@ For example, compare the following chat completion request body to its correspon
 ------
 #### [ Converse request body ]
 
-```
+```json
 {
     "messages": [
         {
@@ -292,7 +291,7 @@ Choose the tab for your preferred method, and then follow the steps:
 ------
 #### [ Python ]
 
-```
+```python
 # Use the Conversation API to send a text message to Anthropic Claude.
 
 import boto3
@@ -364,7 +363,7 @@ Choose the tab for your preferred method, and then follow the steps:
 ------
 #### [ Python ]
 
-```
+```python
 import boto3
 from botocore.exceptions import ClientError
 import json
@@ -429,7 +428,7 @@ To see examples of using guardrails with OpenAI chat completions, choose the tab
 ------
 #### [ OpenAI SDK (Python) ]
 
-```
+```python
 import openai
 from openai import OpenAIError
 
@@ -494,7 +493,7 @@ except OpenAIError as e:
 ------
 #### [ OpenAI SDK (Java) ]
 
-```
+```python
 import com.openai.client.OpenAIClient;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
 import com.openai.core.http.HttpResponseFor;
@@ -547,7 +546,7 @@ System.out.println(chatCompletion);
 
 1. Create a JSONL file and populate it with at least the minimum number of JSON objects, each separated by a new line. Each `modelInput` object must conform to the format of the [OpenAI create chat completion](https://developers.openai.com/api/reference/chat-completions/overview) request body. The following shows an example of the first two lines of a JSONL file containing request bodies for OpenAI.
 
-   ```
+   ```json
    {
        "recordId": "RECORD1", 
        "modelInput": {

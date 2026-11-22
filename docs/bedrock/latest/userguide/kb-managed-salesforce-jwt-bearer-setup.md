@@ -1,7 +1,6 @@
 
 
 # Set up OAuth 2.0 JWT Bearer authentication for Salesforce document-level access controls
-<a name="kb-managed-salesforce-jwt-bearer-setup"></a>
 
 To filter results by each user's Salesforce permissions, the Salesforce connector checks access as the querying user at query time. It does this with the OAuth 2.0 JWT Bearer Flow: the connector signs a short-lived assertion with a private key that you provide, and Salesforce returns a token for that user. The content crawl continues to use the OAuth 2.0 Client Credentials Flow.
 
@@ -77,7 +76,7 @@ Pre-authorization is ongoing. When a new group of users starts using the knowled
 
 Document-level access controls use the authentication type `OAUTH2_WITH_JWT_BEARER`. Its secret contains the three Client Credentials fields plus three more. Store it in an AWS Secrets Manager secret in the same AWS Region as your knowledge base:
 
-```
+```json
 {
     "clientId": "{{your-consumer-key}}",
     "clientSecret": "{{your-consumer-secret}}",

@@ -1,7 +1,6 @@
 
 
 # Mistral Small
-<a name="model-card-mistral-ai-mistral-small"></a>
 
 ## ![Mistral AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/mistralai.png) Mistral AI — Mistral Small
 <a name="model-card-mistral-ai-mistral-small-header"></a>
@@ -112,7 +111,7 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 ------
 #### [ Invoke API ]
 
-```
+```python
 import json
 import boto3
 
@@ -130,7 +129,7 @@ print(json.loads(response['body'].read()))
 ------
 #### [ Converse API ]
 
-```
+```python
 import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')

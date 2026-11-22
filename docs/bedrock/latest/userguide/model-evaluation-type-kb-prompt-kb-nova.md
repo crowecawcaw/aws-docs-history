@@ -1,7 +1,6 @@
 
 
 # Amazon Nova Pro
-<a name="model-evaluation-type-kb-prompt-kb-nova"></a>
 
 Prompts used with Amazon Nova Pro
 

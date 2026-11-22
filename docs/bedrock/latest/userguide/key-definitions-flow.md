@@ -1,7 +1,6 @@
 
 
 # Key definitions for Amazon Bedrock Flows
-<a name="key-definitions-flow"></a>
 
 The following list introduces you to the basic concepts of Amazon Bedrock Flows.
 + **Flow** – A flow is a construct consisting of a name, description, permissions, a collection of nodes, and connections between nodes. When a flow is invoked, the input in the invocation is sent through each node of the flow until an output node is reached. The response of the invocation returns the final output.

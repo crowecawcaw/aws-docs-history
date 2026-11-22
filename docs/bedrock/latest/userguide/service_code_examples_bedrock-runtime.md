@@ -1,7 +1,6 @@
 
 
 # Code examples for Amazon Bedrock Runtime using AWS SDKs
-<a name="service_code_examples_bedrock-runtime"></a>
 
 The following code examples show how to use Amazon Bedrock Runtime with an AWS software development kit (SDK). 
 

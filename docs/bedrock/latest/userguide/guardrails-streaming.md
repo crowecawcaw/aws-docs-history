@@ -1,7 +1,6 @@
 
 
 # Configure streaming response behavior to filter content
-<a name="guardrails-streaming"></a>
 
 The [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) API returns data in a streaming format. This allows you to access responses in chunks without waiting for the entire result. When using guardrails with a streaming response, there are two modes of operation: synchronous and asynchronous.
 

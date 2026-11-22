@@ -1,7 +1,6 @@
 
 
 # Text classification for model evaluation in Amazon Bedrock
-<a name="model-evaluation-text-classification"></a>
 
 Text classification is used to categorize text into pre-defined categories. Applications that use text classification include content recommendation, spam detection, language identification and trend analysis on social media. Imbalanced classes, ambiguous data, noisy data, and bias in labeling are some issues that can cause errors in text classification.
 

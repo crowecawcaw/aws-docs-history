@@ -1,7 +1,6 @@
 
 
 # Work with sessions, events, and results
-<a name="bedrock-managed-agents-openai-sessions"></a>
 
 A BMA session keeps conversation context across turns. Create one session for a related sequence of tasks, submit messages to it, and delete it when the application no longer needs it.
 
@@ -26,7 +25,7 @@ The examples save one active session per state file. Use a different `BMA_STATE_
 
 Send `POST /openai/v1/agents/sessions/{session_id}/events` with an input-message event:
 
-```
+```json
 {
   "events": [
     {
@@ -55,7 +54,7 @@ Use `GET /openai/v1/agents/sessions/{session_id}/items` to retrieve conversation
 
 From the bundle root, after installing the Python client requirements, substitute your session ID:
 
-```
+```bash
 export SESSION_ID=sess_replace_with_your_session_id
 python3 bma_client.py GET "/openai/v1/agents/sessions/${SESSION_ID}/items?limit=100&order=asc"
 ```
@@ -64,7 +63,7 @@ Use `order=asc` for chronological processing. The items endpoint accepts a `limi
 
 When `has_more` is `true`, pass the response's `last_id` as the next request's `after` cursor. Treat cursors as opaque values and URL-encode them. For example:
 
-```
+```python
 from urllib.parse import urlencode
 from bma_client import BmaClient
 
@@ -93,7 +92,7 @@ while True:
 
 The events endpoint returns server-sent events (SSE), not a JSON list. Open the stream before submitting work:
 
-```
+```bash
 python3 bma_client.py GET "/openai/v1/agents/sessions/${SESSION_ID}/events" --stream
 ```
 
@@ -108,7 +107,7 @@ The dedicated turn-list and turn-retrieval endpoints are not part of this guide'
 
 To request cancellation, post an input-cancel event:
 
-```
+```bash
 python3 bma_client.py POST "/openai/v1/agents/sessions/${SESSION_ID}/events" \
   --body '{"events":[{"type":"agent.session.input.cancel"}]}'
 ```
@@ -120,7 +119,7 @@ Cancellation does not undo side effects from tools that already completed. Monit
 
 To delete a session, send a `DELETE` request for the session ID:
 
-```
+```bash
 python3 bma_client.py DELETE "/openai/v1/agents/sessions/${SESSION_ID}"
 ```
 

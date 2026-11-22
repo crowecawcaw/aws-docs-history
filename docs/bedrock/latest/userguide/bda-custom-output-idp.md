@@ -1,7 +1,6 @@
 
 
 # Custom output and blueprints
-<a name="bda-custom-output-idp"></a>
 
 When using Amazon Bedrock Data Automation (BDA) you can further fine tune your extractions using custom output configuration. Custom outputs are configured with artifacts called blueprints. Blueprints are a list of instructions for how to extract information from your file, allowing for transformation and adjustment of output. For more information and a detailed walkthrough of a blueprint, see [Blueprints](bda-blueprint-info.md).
 

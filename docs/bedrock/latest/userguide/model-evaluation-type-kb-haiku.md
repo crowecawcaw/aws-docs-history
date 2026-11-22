@@ -1,7 +1,6 @@
 
 
 # Anthropic Claude 3 Haiku
-<a name="model-evaluation-type-kb-haiku"></a>
 
 Prompts used with Anthropic Claude 3 Haiku.
 

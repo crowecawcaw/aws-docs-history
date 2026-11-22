@@ -1,7 +1,6 @@
 
 
 # Quotas for the bedrock-runtime endpoint
-<a name="quotas-runtime"></a>
 
 The `bedrock-runtime.{{region}}.amazonaws.com` endpoint is the primary inference endpoint for Amazon Bedrock. Inference traffic to this endpoint is governed by per-model token-based quotas. You can view these quotas in the [Service Quotas console](https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html) by selecting **Amazon Bedrock** as the service, or in the [Amazon Bedrock service quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#limits_bedrock) table in the AWS General Reference.
 

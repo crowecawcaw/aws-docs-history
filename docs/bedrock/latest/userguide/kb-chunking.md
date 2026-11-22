@@ -1,7 +1,6 @@
 
 
 # How content chunking works for knowledge bases
-<a name="kb-chunking"></a>
 
 When ingesting your data, Amazon Bedrock first splits your documents or content into manageable chunks for efficient data retrieval. The chunks are then converted to embeddings and written to a vector index (vector representation of the data), while maintaining a mapping to the original document. The vector embeddings allow the texts to be quantitatively compared.
 

@@ -1,7 +1,6 @@
 
 
 # Prerequisites for creating an Amazon Bedrock knowledge basewith a unstructured data source
-<a name="knowledge-base-prereq"></a>
 
 Amazon Bedrock knowledge bases require data and models to retrieve and generate responses, a vector store to store the vector representation of the data, and AWS Identity and Access Management permissions to access your data and perform actions.
 
@@ -13,7 +12,7 @@ Before you can create a knowledge base, you must fulfill the following prerequis
 
 1. (Optional) Create a custom AWS Identity and Access Management (IAM) [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) with the proper permissions by following the instructions at [Create a service role for Amazon Bedrock Knowledge Bases](kb-permissions.md). You can use the AWS Management Console to automatically create a service role for you.
 **Note**  
-If you choose to have Amazon Bedrock create a new service role for you, the user or role creating the knowledge base requires `iam:CreateRole` and `iam:CreatePolicy` permissions. If you're creating a knowledge base with Amazon OpenSearch Service (including Amazon OpenSearch Serverless), additional permissions are required, including `aoss:CreateAccessPolicy` and `iam:CreateServiceLinkedRole`.
+If you choose to have Amazon Bedrock create a new service role for you, the user or role creating the knowledge base requires `iam:CreateRole` and `iam:CreatePolicy` permissions. If you're creating a knowledge base with Amazon OpenSearch Service (including OpenSearch Serverless), additional permissions are required, including `aoss:CreateAccessPolicy` and `iam:CreateServiceLinkedRole`.
 
 1. (Optional) Set up extra security configurations by following the steps at [Encryption of knowledge base resources](encryption-kb.md).
 

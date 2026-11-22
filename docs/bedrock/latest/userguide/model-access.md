@@ -1,7 +1,6 @@
 
 
 # Request access to models
-<a name="model-access"></a>
 
 Access to many Amazon Bedrock foundation models is enabled by default with the correct AWS Marketplace permissions. To get started, simply select a model from the model catalog in the Amazon Bedrock console and open it in the playground or invoke the model using the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API operations. For information about the different models supported in Amazon Bedrock, see [Amazon Bedrock foundation model information](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models-reference.html). For information about model pricing, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
 
@@ -116,7 +115,7 @@ For example, you can attach the following policy to an identity to prevent it fr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -160,7 +159,7 @@ For example, you can attach the following policy to an identity to prevent it fr
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -223,7 +222,7 @@ aws bedrock list-foundation-model-agreement-offers --model-id <ModelId>
 ------
 #### [ Python ]
 
-```
+```python
 # Placeholder for modelId
 model_id = "<enter model id here>" 
 # Placeholder for offerId
@@ -261,7 +260,7 @@ aws bedrock put-use-case-for-model-access \
 ------
 #### [ Python ]
 
-```
+```python
 # Placeholder for form data, replace the names
 COMPANY_NAME = "<enter company name here>"
 COMPANY_WEBSITE = "<enter company website here>"
@@ -285,7 +284,7 @@ model_access_response = bedrock_client.put_use_case_for_model_access(formData=fo
 
 For CLI, the form data is base64 encoded json of the form below.
 
-```
+```json
 {
     "companyName": COMPANY_NAME,
     "companyWebsite": COMPANY_WEBSITE,
@@ -323,7 +322,7 @@ aws bedrock create-foundation-model-agreement \
 ------
 #### [ Python ]
 
-```
+```python
 offer_token= ''
 
 for agreement_offer in model_agreement_offers_response['offers']:
@@ -362,7 +361,7 @@ aws bedrock get-foundation-model-availability \
 ------
 #### [ Python ]
 
-```
+```python
 model_availability_response = bedrock_client.get_foundation_model_availability(modelId=model_id)
 ```
 
@@ -371,7 +370,7 @@ model_availability_response = bedrock_client.get_foundation_model_availability(m
 **Expected response**  
 `agreementAvailability` returns a `status` of `AVAILABLE` if access exists, `PENDING` if the agreement is still being set up, `NOT_AVAILABLE` if access doesn't exist, or `ERROR` if the agreement couldn't be completed. When the status is `ERROR`, the `errorMessage` field describes the problem. A status of `PENDING` can occur after you submit Anthropic use case details; invoking the model returns `AccessDeniedException` until the status becomes `AVAILABLE`.
 
-```
+```json
 {
   "modelId": "anthropic.claude-sonnet-4-20250514-v1:0",
   "agreementAvailability": {
@@ -406,7 +405,7 @@ aws bedrock delete-foundation-model-agreement \
 ------
 #### [ Python ]
 
-```
+```python
 delete_foundation_model_agreement_reponse = bedrock_client.delete_foundation_model_agreement(modelId= model_id)
 ```
 

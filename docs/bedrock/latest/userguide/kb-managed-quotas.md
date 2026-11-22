@@ -1,7 +1,6 @@
 
 
 # Service quotas for managed knowledge bases
-<a name="kb-managed-quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for managed Amazon Bedrock knowledge bases. To view service quotas for Amazon Bedrock, do one of the following:
 + Follow the steps at [Viewing service quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html) and select **Amazon Bedrock** as the service.

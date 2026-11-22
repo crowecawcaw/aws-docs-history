@@ -1,7 +1,6 @@
 
 
 # Configure response generation for reasoning models with Knowledge Bases
-<a name="kb-test-configure-reasoning"></a>
 
 Certain foundation models can perform model reasoning, where they take a larger, complex task and break it down into smaller, simpler steps. This process, often referred to as chain of thought (CoT) reasoning, can improve model accuracy by giving the model a chance to think before it responds. Model reasoning is most useful for tasks such as multi-step analysis, math problems, and complex reasoning tasks. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md).
 
@@ -29,7 +28,7 @@ Model reasoning is always enabled for the DeepSeek-R1 model. The model does not 
 
 When using the Claude 3.7 Sonnet model, model reasoning can be enabled or disabled using the `additionalModelRequestFields` parameter of the [`RetrieveAndGenerate`](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API. This parameter accepts any key-value pairs. For example, you can add a `reasoningConfig` field and use a `type` key to enable or disable reasoning, as shown below.
 
-```
+```JSON
 {
    "input": { 
       "text": "string",
@@ -65,7 +64,7 @@ The following are some general considerations for using the reasoning models for
 The following are some considerations when using the [`RetrieveAndGenerate`](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API for the reasoning models.
 + By default, when reasoning is disabled for all models including the Claude 3.7 Sonnet, the temperature is set to zero. When reasoning is enabled, the temperature must be set to one.
 
-  ```
+  ```json
   "inferenceConfig": {
       "textInferenceConfig": {
           "maxTokens": 8192,
