@@ -1,7 +1,6 @@
 
 
 # Testing your gateway
-<a name="GettingStartedTestGatewayMain"></a>
 
 You test your Volume Gateway setup by performing the following tasks:
 

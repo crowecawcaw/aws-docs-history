@@ -1,7 +1,6 @@
 
 
 # Backing up your volumes
-<a name="backing-up-volumes"></a>
 
 By using Storage Gateway, you can help protect your on-premises business applications that use Storage Gateway volumes for cloud-backed storage. You can back up your on-premises Storage Gateway volumes using the native snapshot scheduler in Storage Gateway or AWS Backup. In both cases, Storage Gateway volume backups are stored as Amazon EBS snapshots in Amazon Web Services. 
 

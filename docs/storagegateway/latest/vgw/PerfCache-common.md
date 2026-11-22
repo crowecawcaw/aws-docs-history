@@ -1,7 +1,6 @@
 
 
 # Monitoring cache storage
-<a name="PerfCache-common"></a>
 
 You can find information following about how to monitor a gateway's cache storage and how to create an alarm so that you get a notification when parameters of the cache pass specified thresholds. Using this alarm, you know when to add cache storage to a gateway.
 

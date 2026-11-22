@@ -1,7 +1,6 @@
 
 
 # Managing Your Volume Gateway
-<a name="managing-gateway-common"></a>
 
 Managing your gateway includes tasks such as configuring cache storage and upload buffer space, working with volumes, and doing general maintenance. If you haven't created a gateway, see [Getting started with AWS Storage Gateway](GettingStarted.md).
 

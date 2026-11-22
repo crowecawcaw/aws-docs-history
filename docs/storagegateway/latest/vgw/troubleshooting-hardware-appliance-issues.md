@@ -1,7 +1,6 @@
 
 
 # Troubleshooting hardware appliance issues
-<a name="troubleshooting-hardware-appliance-issues"></a>
 
 The following topics discuss issues that you might encounter with the Storage Gateway Hardware Appliance, and suggestions on troubleshooting these.
 

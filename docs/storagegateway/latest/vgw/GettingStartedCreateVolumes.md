@@ -1,7 +1,6 @@
 
 
 # Creating a storage volume
-<a name="GettingStartedCreateVolumes"></a>
 
 Previously, you allocated local disks that you added to the VM cache storage and upload buffer. Now you create a storage volume to which your applications read and write data. The gateway maintains the volume's recently accessed data locally in cache storage, and asynchronously transferred data to Amazon S3. For stored volumes, you allocated local disks that you added to the VM upload buffer and your application's data.
 

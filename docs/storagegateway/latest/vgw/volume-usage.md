@@ -1,7 +1,6 @@
 
 
 # Viewing volume usage
-<a name="volume-usage"></a>
 
 When you write data to a volume, you can view the amount of data stored on the volume in the Storage Gateway Management Console. The **Details** tab for each volume shows the volume usage information.
 

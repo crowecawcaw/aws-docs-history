@@ -1,7 +1,6 @@
 
 
 # Measuring Performance Between Your Gateway and AWS
-<a name="PerfGatewayAWS-common"></a>
 
 Data throughput, data latency, and operations per second are three measures that you can use to understand how your application storage using the Storage Gateway is performing. These three values can be measured using the Storage Gateway metrics provided for you when you use the correct aggregation statistic. The following table summarizes the metrics and corresponding statistic to use to measure the throughput, latency, and input/output operations per second (IOPS) between your gateway and AWS. 
 

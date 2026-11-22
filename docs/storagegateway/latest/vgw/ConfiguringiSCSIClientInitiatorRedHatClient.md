@@ -1,7 +1,6 @@
 
 
 # Connecting your volumes to a Linux client
-<a name="ConfiguringiSCSIClientInitiatorRedHatClient"></a>
 
 **Topics**
 

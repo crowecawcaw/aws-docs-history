@@ -1,7 +1,6 @@
 
 
 # Editing a snapshot schedule
-<a name="SchedulingSnapshot"></a>
 
 For stored volumes, AWS Storage Gateway creates a default snapshot schedule of once a day. 
 

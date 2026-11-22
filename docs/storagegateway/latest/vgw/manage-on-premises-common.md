@@ -1,7 +1,6 @@
 
 
 # Performing Tasks on the VM Local Console
-<a name="manage-on-premises-common"></a>
 
 For a Volume Gateway that you deploy on-premises, you can perform the following maintenance tasks using the gateway local console that you access from your virtual machine host platform. These tasks are common to VMware, Microsoft Hyper-V, and Linux Kernel-based Virtual Machine (KVM) hypervisors.
 

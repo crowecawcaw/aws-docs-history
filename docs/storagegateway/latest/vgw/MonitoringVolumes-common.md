@@ -1,7 +1,6 @@
 
 
 # Understanding volume metrics
-<a name="MonitoringVolumes-common"></a>
 
 You can find information following about the Storage Gateway metrics that cover a volume of a gateway. Each volume of a gateway has a set of metrics associated with it. 
 

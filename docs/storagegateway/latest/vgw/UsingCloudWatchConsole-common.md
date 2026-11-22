@@ -1,7 +1,6 @@
 
 
 # Using Amazon CloudWatch Metrics
-<a name="UsingCloudWatchConsole-common"></a>
 
 You can get monitoring data for your gateway using either the AWS Management Console or the CloudWatch API. The console displays a series of graphs based on the raw data from the CloudWatch API. You can also use the CloudWatch API through one of the [AWS Software Development Kits (SDKs)](https://aws.amazon.com/tools) or the [Amazon CloudWatch API](https://aws.amazon.com/cloudwatch) tools. Depending on your needs, you might prefer to use either the graphs displayed in the console or retrieved from the API. 
 

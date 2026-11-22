@@ -1,7 +1,6 @@
 
 
 # Performing Tasks on the Amazon EC2 Local Console
-<a name="ec2-local-console-common"></a>
 
 Some Storage Gateway maintenance tasks require that you log in to the gateway local console for a gateway that you have deployed on an Amazon EC2 instance. You can access the gateway local console on your Amazon EC2 instance by using a Secure Shell (SSH) client. The topics in this section describes how to log in to the gateway local console and perform maintenance tasks.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring your Volume Gateway
-<a name="monitoring-volume-gateway"></a>
 
 The topics in this section describe how to monitor Volume Gateway in either cached volume or stored volume setup, including monitoring the volumes associated with the gateway and monitoring the upload buffer. You use the AWS Management Console to view metrics for your gateway. For example, you can view the number of bytes used in read and write operations, the time spent in read and write operations, and the time taken to retrieve data from the Amazon Web Services cloud. With metrics, you can track the health of your gateway and set up alarms to notify you when one or more metrics fall outside a defined threshold. 
 

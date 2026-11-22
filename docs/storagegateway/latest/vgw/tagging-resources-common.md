@@ -1,7 +1,6 @@
 
 
 # Tagging Storage Gateway Resources
-<a name="tagging-resources-common"></a>
 
 In Storage Gateway, you can use tags to manage your resources. Tags let you add metadata to your resources and categorize your resources to make them easier to manage. Each tag consists of a key-value pair, which you define. You can add tags to gateways, volumes, and virtual tapes. You can search and filter these resources based on the tags you add.
 

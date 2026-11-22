@@ -1,7 +1,6 @@
 
 
 # Adding and expanding volumes
-<a name="volume-size-increase"></a>
 
 As your application needs grow, you might need to add more volumes to your gateway, or expand the size of existing volumes. When you add or expand volumes, you must consider the size of the cache storage and upload buffer you allocated to the gateway. The gateway must have sufficient buffer and cache space for new volumes. For more information, see [Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common). 
 

@@ -1,7 +1,6 @@
 
 
 # IPv6 support
-<a name="ipv6-support"></a>
 
 IPv6 support is only available on gateway appliance versions 3.x or higher. Gateway appliance versions 1.x and 2.x can't be updated to 3.x. You must migrate or replace your gateway appliance version 1.x or 2.x to get IPv6 support. 
 

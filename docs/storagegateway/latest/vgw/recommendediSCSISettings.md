@@ -1,7 +1,6 @@
 
 
 # Customizing iSCSI Settings
-<a name="recommendediSCSISettings"></a>
 
 After you set up your initiator, we highly recommend that you customize your iSCSI settings to prevent the initiator from disconnecting from targets.
 

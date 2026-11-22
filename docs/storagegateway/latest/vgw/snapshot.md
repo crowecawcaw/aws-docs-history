@@ -1,7 +1,6 @@
 
 
 # Creating a recovery snapshot
-<a name="snapshot"></a>
 
 The following procedure shows you how to create a recovery snapshot from a volume recovery point for a gateway, and where to find that snapshot in the Storage Gateway console after you create it. You can take recovery snapshots on a one time, ad hoc basis or you can set up a snapshot schedule to take recurring snapshots of the volume at regular intervals that you specify.
 

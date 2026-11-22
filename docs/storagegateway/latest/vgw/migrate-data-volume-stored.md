@@ -1,7 +1,6 @@
 
 
 # Moving stored volumes to a new stored Volume Gateway
-<a name="migrate-data-volume-stored"></a>
 
 
 

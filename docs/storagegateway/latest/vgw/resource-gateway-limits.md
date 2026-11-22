@@ -1,7 +1,6 @@
 
 
 # AWS Storage Gateway quotas
-<a name="resource-gateway-limits"></a>
 
 In this topic, you can find information about volume and tape quotas, configuration, and performance limits for Storage Gateway.
 

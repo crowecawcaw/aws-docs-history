@@ -1,7 +1,6 @@
 
 
 # Using Direct Connect with Storage Gateway
-<a name="using-dx"></a>
 
 Direct Connect links your internal network to the Amazon Web Services Cloud. By using Direct Connect with Storage Gateway, you can create a connection for high-throughput workload needs, providing a dedicated network connection between your on-premises gateway and AWS. 
 

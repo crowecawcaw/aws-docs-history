@@ -1,7 +1,6 @@
 
 
 # Connecting your volumes to your client
-<a name="GettingStartedAccessVolumes"></a>
 
 You use the iSCSI initiator in your client to connect to your volumes. At the end of the following procedure, the volumes become available as local devices on your client.
 

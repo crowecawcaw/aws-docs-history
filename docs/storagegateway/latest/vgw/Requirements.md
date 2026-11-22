@@ -1,7 +1,6 @@
 
 
 # Requirements for setting up Volume Gateway
-<a name="Requirements"></a>
 
 Unless otherwise noted, the following requirements are common to all gateway configurations.
 

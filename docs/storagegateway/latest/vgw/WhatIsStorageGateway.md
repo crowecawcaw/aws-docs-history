@@ -1,7 +1,6 @@
 
 
 # What is Volume Gateway?
-<a name="WhatIsStorageGateway"></a>
 
 AWS Storage Gateway connects an on-premises software appliance with cloud-based storage to provide seamless integration with data security features between your on-premises IT environment and the AWS storage infrastructure. You can use the service to store data in the Amazon Web Services Cloud for scalable and cost-effective storage that helps maintain data security.
 

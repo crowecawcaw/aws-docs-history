@@ -1,7 +1,6 @@
 
 
 # Working with open-source components for Storage Gateway
-<a name="AboutAWSStorageGatewaySoftware"></a>
 
 This section describes third party tools and licenses that we depend on to deliver Storage Gateway functionality. 
 

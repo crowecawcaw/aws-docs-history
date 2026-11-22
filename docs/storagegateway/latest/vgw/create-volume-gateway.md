@@ -1,7 +1,6 @@
 
 
 # Creating a Volume Gateway
-<a name="create-volume-gateway"></a>
 
 In this section, you can find instructions on how to download, deploy, and activate a Volume Gateway. 
 

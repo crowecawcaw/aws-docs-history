@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon EC2 gateway issues
-<a name="troubleshooting-EC2-gateway-issues"></a>
 
 In the following sections, you can find typical issues that you might encounter working with your gateway deployed on Amazon EC2. For more information about the difference between an on-premises gateway and a gateway deployed in Amazon EC2, see [Deploy a customized Amazon EC2 instance for Volume Gateway](ec2-gateway-common.md).
 

@@ -1,7 +1,6 @@
 
 
 # Cloning a cached volume from a recovery point
-<a name="clone-volume"></a>
 
 You can create a new volume from any existing cached volume in the same AWS Region. The new volume is created from the most recent recovery point of the selected volume. A *volume recovery point* is a point in time at which all data of the volume is consistent. To clone a volume, you choose the **Clone from last recovery point** option in the **Create volume** dialog box, then select the volume to use as the source.
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring Storage Gateway
-<a name="Main_monitoring-gateways-common"></a>
 
 This section describes how to monitor a Storage Gateway, including monitoring resources associated with the gateway, using Amazon CloudWatch. You can monitor the gateway's upload buffer and cache storage. You use the Storage Gateway console to view metrics and alarms for your gateway. For example, you can view the number of bytes used in read and write operations, the time spent in read and write operations, and the time taken to retrieve data from the Amazon Web Services Cloud. With metrics, you can track the health of your gateway and set up alarms to notify you when one or more metrics fall outside a defined threshold.
 

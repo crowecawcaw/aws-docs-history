@@ -1,7 +1,6 @@
 
 
 # Deciding the amount of local disk storage
-<a name="decide-local-disks-and-sizes"></a>
 
 The number and size of disks that you want to allocate for your gateway is up to you. Depending on the storage solution you deploy, the gateway requires the following additional storage:
 + Volume Gateways:

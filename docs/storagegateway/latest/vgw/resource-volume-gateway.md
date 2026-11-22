@@ -1,7 +1,6 @@
 
 
 # Working with Volume Gateway storage resources
-<a name="resource-volume-gateway"></a>
 
 The topics in this section describe how you can manage the storage resources that are associated with your Volume Gateway appliance and its virtual host platform. This includes resources such as the physical disks attached to a gateway's hypervisor host platform, with specific procedures for removing disks from VMware vSphere ESXi, Microsoft Hyper-V, or Linux Kernel-based Virtual Machine (KVM) virtualization hosts. This also includes managing the Amazon EBS volumes attached to a gateway's Amazon EC2 instance for gateways hosted on Amazon EC2 in the AWS cloud.
 

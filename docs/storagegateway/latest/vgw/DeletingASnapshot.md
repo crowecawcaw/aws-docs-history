@@ -1,7 +1,6 @@
 
 
 # Deleting snapshots of your storage volumes
-<a name="DeletingASnapshot"></a>
 
 You can delete a snapshot of your storage volume. For example, you might want to do this if you have taken many snapshots of a storage volume over time and you don't need the older snapshots. Because snapshots are incremental backups, if you delete a snapshot, only the data that is not needed in other snapshots is deleted. 
 
@@ -17,7 +16,7 @@ On the Amazon EBS console, you can delete snapshots one at a time. For informati
 ## Deleting Snapshots by Using the AWS SDK for Java
 <a name="DeletingSnapshotsUsingJava"></a>
 
-To delete many snapshots associated with a volume, you can use a programmatic approach. The example following demonstrates how to delete snapshots using the AWS SDK for Java. To use the example code, you should be familiar with running a Java console application. For more information, see [Getting Started](https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.html) in the *AWS SDK for Java Developer Guide*. If you need to just delete a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](#DeletingASnapshot).
+To delete many snapshots associated with a volume, you can use a programmatic approach. The example following demonstrates how to delete snapshots using the AWS SDK for Java. To use the example code, you should be familiar with running a Java console application. For more information, see [Getting Started](https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.html) in the *AWS SDK for Java Developer Guide*. If you need to just delete a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md).
 
 **Example : Deleting Snapshots by Using the AWS SDK for Java**  
 The following Java code example lists the snapshots for each volume of a gateway and whether the snapshot start time is before or after a specified date. It uses the AWS SDK for Java API for Storage Gateway and Amazon EC2. The Amazon EC2 API includes operations for working with snapshots.   
@@ -161,7 +160,7 @@ public class ListDeleteVolumeSnapshotsExample {
 ## Deleting Snapshots by Using the AWS SDK for .NET
 <a name="DeletingSnapshotsUsingDotNet"></a>
 
-To delete many snapshots associated with a volume, you can use a programmatic approach. The following example demonstrates how to delete snapshots using the AWS SDK for .NET version 2 and 3. To use the example code, you should be familiar with running a .NET console application. For more information, see [Getting Started](https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/net-dg-config.html) in the *AWS SDK for .NET Developer Guide*. If you need to just delete a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](#DeletingASnapshot).
+To delete many snapshots associated with a volume, you can use a programmatic approach. The following example demonstrates how to delete snapshots using the AWS SDK for .NET version 2 and 3. To use the example code, you should be familiar with running a .NET console application. For more information, see [Getting Started](https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/net-dg-config.html) in the *AWS SDK for .NET Developer Guide*. If you need to just delete a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md).
 
 **Example : Deleting Snapshots by Using the AWS SDK for .NET**  
 In the following C\# code example, an AWS Identity and Access Management user can list the snapshots for each volume of a gateway. The user can then determine whether the snapshot start time is before or after a specified date (retention period) and delete snapshots that have passed the retention period. The example uses the AWS SDK for .NET API for Storage Gateway and Amazon EC2. The Amazon EC2 API includes operations for working with snapshots.   
@@ -171,7 +170,7 @@ Update the code to provide the service endpoint, your gateway Amazon Resource Na
 The following code creates the minimum policy that allows an user to delete snapshots. In this example, the policy is named **sgw-delete-snapshot**.    
 ****  
 
-```
+```json
 {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -405,7 +404,7 @@ namespace DeleteStorageGatewaySnapshotNS
 ## Deleting Snapshots by Using the AWS Tools for Windows PowerShell
 <a name="DeletingSnapshotsUsingPowerShell"></a>
 
-To delete many snapshots associated with a volume, you can use a programmatic approach. The example following demonstrates how to delete snapshots using the AWS Tools for Windows PowerShell. To use the example script, you should be familiar with running a PowerShell script. For more information, see [Getting Started](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-started.html) in the *AWS Tools for Windows PowerShell*. If you need to delete just a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](#DeletingASnapshot).
+To delete many snapshots associated with a volume, you can use a programmatic approach. The example following demonstrates how to delete snapshots using the AWS Tools for Windows PowerShell. To use the example script, you should be familiar with running a PowerShell script. For more information, see [Getting Started](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-started.html) in the *AWS Tools for Windows PowerShell*. If you need to delete just a few snapshots, use the console as described in [Deleting snapshots of your storage volumes](DeletingASnapshot.md).
 
 **Example : Deleting Snapshots by Using the AWS Tools for Windows PowerShell**  
 The following PowerShell script example lists the snapshots for each volume of a gateway and whether the snapshot start time is before or after a specified date. It uses the AWS Tools for Windows PowerShell cmdlets for Storage Gateway and Amazon EC2. The Amazon EC2 API includes operations for working with snapshots.  

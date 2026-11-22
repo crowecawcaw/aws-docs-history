@@ -1,7 +1,6 @@
 
 
 # Configuring a SOCKS5 proxy for your on-premises gateway
-<a name="MaintenanceRoutingProxy-common"></a>
 
 Volume Gateways and Tape Gateways support configuration of a Socket Secure version 5 (SOCKS5) proxy between your on-premises gateway and AWS. 
 

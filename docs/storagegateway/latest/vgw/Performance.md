@@ -1,7 +1,6 @@
 
 
 # Performance and optimization for Volume Gateway
-<a name="Performance"></a>
 
 This section describes Storage Gateway performance.
 

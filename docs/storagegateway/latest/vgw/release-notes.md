@@ -1,7 +1,6 @@
 
 
 # Release notes for Volume Gateway appliance software
-<a name="release-notes"></a>
 
 These release notes describe the new and updated features, improvements, and fixes that are included with each version of the Volume Gateway appliance. Each software version is identified by its release date and a unique version number.
 

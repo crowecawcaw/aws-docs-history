@@ -1,7 +1,6 @@
 
 
 # Where do I go from here?
-<a name="GettingStartedWhatsNextStep3"></a>
 
 In the preceding sections, you created and provisioned a gateway and then connected your host to the gateway's storage volume. You added data to the gateway's iSCSI volume, took a snapshot of the volume, and restored it to a new volume, connected to the new volume, and verified that the data shows up on it. 
 
