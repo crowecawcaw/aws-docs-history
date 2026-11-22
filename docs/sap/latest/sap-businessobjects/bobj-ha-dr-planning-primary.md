@@ -1,7 +1,6 @@
 
 
 # Planning the Deployment in a Primary Region
-<a name="bobj-ha-dr-planning-primary"></a>
 
 Good planning is a key step in ensuring a successful HA deployment for SAP BusinessObjects BI Platform on AWS. Consider these guidelines in your planning:
 + Perform the sizing exercise using the [SAP BusinessObjects BI4 Sizing Guide](https://help.sap.com/doc/a47f2e0ca04847daa08f748eb6f40adc/4.2.4/en-US/sbo42_bi_sizing_guide_en.pdf). You can determine the resource requirements of each tier based on the sizing exercise.

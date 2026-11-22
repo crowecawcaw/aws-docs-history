@@ -1,7 +1,6 @@
 
 
 # Sizing
-<a name="bobi-linux-sizing"></a>
 
 At a high level, BOBI platform sizing is a two-step process. The first step is to get SAPS through the SAP Sizing tool [Quick Sizer](https://www.sap.com/about/benchmark/measuring.html). The second step is to map the output to appropriate Amazon EC2 instance types. See the SAP BOBI sizing guide available from the [SAP BusinessObjects Business Intelligence Platform help documentation](https://help.sap.com/bobi). Follow the standard SAP Quick Sizer to determine the right SAPS requirements for your workload. Once you have identified the SAPS numbers, you can use any of the AWS [SAP certified instances](https://aws.amazon.com/sap/instance-types/) for your SAP BOBI Platform instances. Make sure to read the SAP BusinessObjects Business Intelligence section of the note carefully to ensure that you meet the version, EC2 resource, operating system, and database requirements for AWS.
 

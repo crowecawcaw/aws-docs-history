@@ -1,7 +1,6 @@
 
 
 # Installing SAP BusinessObjects BI Platform for HA
-<a name="bobi-ha-dr-win-installing-for-ha"></a>
 
 ## Creating a VPC
 <a name="bobi-ha-dr-win-creating-a-vpc"></a>

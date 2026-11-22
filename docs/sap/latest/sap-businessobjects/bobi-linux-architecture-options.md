@@ -1,7 +1,6 @@
 
 
 # Architecture Options
-<a name="bobi-linux-architecture-options"></a>
 
 The server-side architecture of SAP BOBI Platform consists of five tiers: web, management, storage, processing, and data. (For details, see the administrator’s guide on the [SAP BusinessObjects Business Intelligence Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/) website). The following list provides high-level details.
 +  **Management tier:** Includes the CMS servers, event servers, and associated services.

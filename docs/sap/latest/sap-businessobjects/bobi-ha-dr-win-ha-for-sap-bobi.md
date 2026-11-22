@@ -1,7 +1,6 @@
 
 
 # HA for SAP BusinessObjects BI Platform on AWS
-<a name="bobi-ha-dr-win-ha-for-sap-bobi"></a>
 
 In this guide, we’ll provide an example HA architecture that closely resembles a typical on-premises installation, and we’ll also show how AWS features in combination with SAP BusinessObjects BI Platform installation options support an HA solution that extends beyond a single data center. For the AWS Cloud, this means that the application is highly available within an AWS Region and can survive the failure of a single Availability Zone. The HA solution discussed in this guide includes these design features:
 + SAP BusinessObjects BI Platform nodes are distributed across multiple EC2 instances within a virtual private cloud (VPC). Although Availability Zone failure is a rare occurrence, to protect your application against such scenarios, install each tier of SAP BusinessObjects BI Platform in multiple Availability Zones.

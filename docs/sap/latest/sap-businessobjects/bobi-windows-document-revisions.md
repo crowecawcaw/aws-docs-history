@@ -1,7 +1,6 @@
 
 
 # Document Revisions
-<a name="bobi-windows-document-revisions"></a>
 
 
 | Date | Change | 

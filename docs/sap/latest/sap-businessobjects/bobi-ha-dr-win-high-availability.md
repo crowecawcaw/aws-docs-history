@@ -1,7 +1,6 @@
 
 
 # High Availability
-<a name="bobi-ha-dr-win-high-availability"></a>
 
 HA design for a software application protects single points of failure (SPOFs). A SPOF is a critical component of an application whose failure can cause service outage for users. The server-side architecture of SAP BusinessObjects BI Platform consists of five tiers: web, management, storage, processing, and data. (For details, see the administrator’s guide on the [SAP BusinessObjects Business Intelligence Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/) website.) SAP BusinessObjects BI Platform 4.*x* provides HA of platform services using CMS clustering, which could provide customers with the required level of redundancy. CMS servers are in the management tier.
 

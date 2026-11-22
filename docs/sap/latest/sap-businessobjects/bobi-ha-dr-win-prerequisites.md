@@ -1,7 +1,6 @@
 
 
 # Prerequisite Knowledge
-<a name="bobi-ha-dr-win-prerequisites"></a>
 
 ## AWS Services
 <a name="bobi-ha-dr-win-aws-services"></a>

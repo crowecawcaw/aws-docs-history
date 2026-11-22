@@ -1,7 +1,6 @@
 
 
 # Additional Tips
-<a name="bobi-ha-dr-win-appendix-c"></a>
 
 ## Tagging AWS Resources
 <a name="bobi-ha-dr-win-tagging-resources"></a>

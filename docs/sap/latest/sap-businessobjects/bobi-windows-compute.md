@@ -1,7 +1,6 @@
 
 
 # Compute
-<a name="bobi-windows-compute"></a>
 
  AWS has certified multiple instance families with different sizes to run SAP workloads. The details of the latest list of EC2 instance types certified are all specified in our webpage [Amazon EC2 Instance Types for SAP](https://aws.amazon.com/sap/instance-types/).
 

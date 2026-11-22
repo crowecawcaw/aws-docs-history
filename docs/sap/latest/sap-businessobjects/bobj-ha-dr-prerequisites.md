@@ -1,7 +1,6 @@
 
 
 # Prerequisite Knowledge
-<a name="bobj-ha-dr-prerequisites"></a>
 
 ## AWS Services
 <a name="bobj-ha-dr-aws-services"></a>

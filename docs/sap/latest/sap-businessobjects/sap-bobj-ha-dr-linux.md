@@ -1,7 +1,6 @@
 
 
 # SAP BusinessObjects BI Platform on AWS: HA/DR Guide for Linux
-<a name="sap-bobj-ha-dr-linux"></a>
 
  *SAP specialists, Amazon Web Services (AWS)* 
 

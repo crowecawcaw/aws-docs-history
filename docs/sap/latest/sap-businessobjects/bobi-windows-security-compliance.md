@@ -1,7 +1,6 @@
 
 
 # Security & Compliance
-<a name="bobi-windows-security-compliance"></a>
 
 The following AWS security resources help you achieve the level of security you require for your SAP NetWeaver environment on AWS:
 +  [AWS Cloud Security](https://aws.amazon.com/security/) 

@@ -1,7 +1,6 @@
 
 
 # DR for SAP BusinessObjects BI Platform on AWS
-<a name="bobi-ha-dr-win-dr-for-sap-bobi"></a>
 
 DR for SAP BusinessObjects BI Platform on the AWS Cloud refers to a scenario in which the primary AWS Region where SAP BusinessObjects BI Platform application is running is unavailable. The goal of setting up a DR site is to be able to recover the application within your acceptable RTO and RPO.
 

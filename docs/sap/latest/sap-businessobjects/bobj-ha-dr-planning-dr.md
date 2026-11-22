@@ -1,7 +1,6 @@
 
 
 # Planning the Deployment in the DR Region
-<a name="bobj-ha-dr-planning-dr"></a>
 
 Planning the deployment of a DR system is critical. Consider these items in your planning:
 

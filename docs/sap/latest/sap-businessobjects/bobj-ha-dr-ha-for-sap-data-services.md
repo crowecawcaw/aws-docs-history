@@ -1,7 +1,6 @@
 
 
 # HA for SAP Data Services
-<a name="bobj-ha-dr-ha-for-sap-data-services"></a>
 
 The HA architecture of SAP Data Services is very similar to the HA architecture of SAP BusinessObjects BI Platform. Before you can install SAP Data Services, you must have a working CMS server for SAP BusinessObjects BI Platform. You can install SAP Data Services on existing SAP BusinessObjects BI Platform nodes. If you do not have a SAP BusinessObjects BI Platform installation, SAP BusinessObjects Information Platform Services (IPS) can provide the basic CMS functions required by SAP Data Services. For either option, you can follow the steps in the previous sections to install the CMS server (by clustering two IPS CMS servers together), the CMS database, and a filestore with HA. You must use two Availability Zones for the CMS servers, a highly available shared file system like Amazon EFS, and a CMS database with a Read Replica in a separate Availability Zone. Here are the high-level steps:
 

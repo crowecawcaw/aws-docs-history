@@ -1,7 +1,6 @@
 
 
 # Installing SAP BusinessObjects BI Platform for HA
-<a name="bobj-ha-dr-installing-for-ha"></a>
 
 ## Creating a VPC
 <a name="bobj-ha-dr-creating-a-vpc"></a>

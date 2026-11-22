@@ -1,7 +1,6 @@
 
 
 # SAP BusinessObjects Guides
-<a name="welcome"></a>
 
 This section covers the following guides.
 +  [Deployment and operations on Linux](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/bobi-linux-ops-guide.html) 
