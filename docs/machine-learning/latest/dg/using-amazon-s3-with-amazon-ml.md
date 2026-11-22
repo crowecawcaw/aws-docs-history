@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Using Amazon S3 with Amazon ML
-<a name="using-amazon-s3-with-amazon-ml"></a>
 
 Amazon Simple Storage Service (Amazon S3) is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. Amazon ML uses Amazon S3 as a primary data repository for the following tasks:
 + To access your input files to create datasource objects for training and evaluating your ML models.
@@ -31,7 +30,7 @@ The remainder of this section describes how to upload your input data directly f
 
 1.  Create a bucket or choose an existing bucket. 
 
-   1.  To create a bucket, choose **Create Bucket**. Name your bucket, choose a region (you can choose any available region), and then choose **Create**. For more information, see [Create a Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Getting Started Guide*. 
+   1.  To create a bucket, choose **Create Bucket**. Name your bucket, choose a region (you can choose any available region), and then choose **Create**. For more information, see [Step 1: Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) in the *Amazon S3 User Guide*. 
 
    1. To use an existing bucket, search for the bucket by choosing the bucket in the **All Buckets** list. When the bucket name appears, select it, and then choose **Upload**. 
 

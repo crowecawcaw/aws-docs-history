@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Multiclass Classification
-<a name="multiclass-classification"></a>
 
 Unlike the process for binary classification problems, you do not need to choose a score threshold to make predictions. The predicted answer is the class (i.e., label) with the highest predicted score. In some cases, you might want to use the predicted answer only if it is predicted with a high score. In this case, you might choose a threshold on the predicted scores based on which you will accept the predicted answer or not.
 

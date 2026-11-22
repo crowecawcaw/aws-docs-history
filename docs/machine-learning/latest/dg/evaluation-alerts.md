@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Evaluation Alerts
-<a name="evaluation-alerts"></a>
 
 Amazon ML provides insights to help you validate whether you evaluated the model correctly. If any of the validation criteria are not met by the evaluation, the Amazon ML console alerts you by displaying the validation criterion that has been violated, as follows.
 +  **Evaluation of ML model is done on held-out data** 

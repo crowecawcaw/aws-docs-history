@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Solving Business Problems with Amazon Machine Learning
-<a name="machine-learning-problems-in-amazon-machine-learning"></a>
 
 You can use Amazon Machine Learning to apply machine learning to problems for which you have existing examples of actual answers. For example, if you want to use Amazon Machine Learning to predict if an email is spam, you will need to collect email examples that are correctly labeled as spam or not spam. You then can use machine learning to generalize from these email examples to predict how likely new email is spam or not. This approach of learning from data that has been labeled with the actual answer is known as supervised machine learning.
 

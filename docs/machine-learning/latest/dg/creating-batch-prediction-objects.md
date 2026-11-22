@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Creating a Batch Prediction
-<a name="creating-batch-prediction-objects"></a>
 
 To create a batch prediction, you create a `BatchPrediction` object using either the Amazon Machine Learning (Amazon ML) console or API. A `BatchPrediction` object describes a set of predictions that Amazon ML generates by using your ML model and a set of input observations. When you create a `BatchPrediction` object, Amazon ML starts an asynchronous workflow that computes the predictions. 
 

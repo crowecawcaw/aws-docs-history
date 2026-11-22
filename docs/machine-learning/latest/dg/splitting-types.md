@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Splitting Your Data
-<a name="splitting-types"></a>
 
 The fundamental goal of an ML model is to make accurate predictions on future data instances beyond those used to train models. Before using an ML model to make predictions, we need to evaluate the predictive performance of the model. To estimate the quality of an ML models predictions with data it has not seen, we can reserve, or split, a portion of the data for which we already know the answer as a proxy for future data and evaluate how well the ML model predicts the correct answers for that data. You split the datasource into a portion for the training datasource and a portion for the evaluation datasource.
 

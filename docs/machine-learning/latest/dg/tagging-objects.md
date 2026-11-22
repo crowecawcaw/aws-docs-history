@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Tagging Your Amazon ML Objects
-<a name="tagging-objects"></a>
 
 Organize and manage your Amazon Machine Learning (Amazon ML) objects by assigning metadata to them with tags. A *tag* is a key-value pair that you define for an object. 
 

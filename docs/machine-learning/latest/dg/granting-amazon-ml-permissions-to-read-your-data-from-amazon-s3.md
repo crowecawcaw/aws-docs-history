@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Granting Amazon ML Permissions to Read Your Data from Amazon S3
-<a name="granting-amazon-ml-permissions-to-read-your-data-from-amazon-s3"></a>
 
  To create a datasource object from your input data in Amazon S3, you must grant Amazon ML the following permissions to the S3 location where your input data is stored: 
 +  **GetObject** permission on the S3 bucket and prefix. 
@@ -16,7 +15,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

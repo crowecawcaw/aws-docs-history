@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Logging Amazon ML API Calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Machine Learning (Amazon ML) is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon ML. CloudTrail captures all API calls for Amazon ML as events. The calls captured include calls from the Amazon ML console and code calls to the Amazon ML API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon ML. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon ML, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -63,7 +62,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 The following example shows a CloudTrail log entry that demonstrates the action.
 
-```
+```json
 {
     "Records": [
         {

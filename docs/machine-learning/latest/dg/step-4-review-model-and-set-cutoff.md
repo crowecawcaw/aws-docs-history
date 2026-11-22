@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold
-<a name="step-4-review-model-and-set-cutoff"></a>
 
  Now that you've created your ML model and Amazon Machine Learning (Amazon ML) has evaluated it, let's see if it is good enough to put to use. During evaluation, Amazon ML computed an industry-standard quality metric, called the Area Under a Curve (AUC) metric, that expresses the performance quality of your ML model. Amazon ML also interprets the AUC metric to tell you if the quality of the ML model is adequate for most machine learning applications. (Learn more about AUC in [Measuring ML Model Accuracy](binary-model-insights.md#measuring-ml-model-accuracy).) Let's review the AUC metric, and then adjust the score threshold or cut-off to optimize your model's predictive performance.
 

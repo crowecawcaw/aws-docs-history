@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Names and IDs for all Objects
-<a name="names-and-ids-for-all-objects"></a>
 
  Every object in Amazon ML must have an identifier, or ID. The Amazon ML console generates ID values for you, but if you use the API you must generate your own. Each ID must be unique among all Amazon ML objects of the same type in your AWS account. That is, you cannot have two evaluations with the same ID. It is possible to have an evaluation and a datasource with the same ID, although it is not recommended. 
 

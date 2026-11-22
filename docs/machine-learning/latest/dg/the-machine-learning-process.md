@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # The Amazon Machine Learning Process
-<a name="the-machine-learning-process"></a>
 
 The following table describes how to use the Amazon ML console to perform the ML process outlined in this document.
 

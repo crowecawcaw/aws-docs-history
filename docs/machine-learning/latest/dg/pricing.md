@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Pricing for Amazon ML
-<a name="pricing"></a>
 
 With AWS services, you pay only for what you use. There are no minimum fees and no upfront commitments.
 

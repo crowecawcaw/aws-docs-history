@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # System Limits
-<a name="system-limits"></a>
 
  In order to provide a robust, reliable service, Amazon ML imposes certain limits on the requests you make to the system. Most ML problems fit easily within these constraints. However, if you do find that your use of Amazon ML is being restricted by these limits, you can contact [AWS customer service](https://aws.amazon.com/contact-us/) and request to have a limit raised. For example, you might have a limit of five for the number of jobs that you can run simultaneously. If you find that you often have jobs queued that are waiting for resources because of this limit, then it probably makes sense to raise that limit for your account. 
 

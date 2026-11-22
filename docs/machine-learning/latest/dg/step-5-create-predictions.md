@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Step 5: Use the ML Model to Generate Predictions
-<a name="step-5-create-predictions"></a>
 
  Amazon Machine Learning (Amazon ML) can generate two types of predictions—batch and real-time. 
 

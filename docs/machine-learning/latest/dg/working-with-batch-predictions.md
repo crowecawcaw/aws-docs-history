@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Reviewing Batch Prediction Metrics
-<a name="working-with-batch-predictions"></a>
 
 After Amazon Machine Learning (Amazon ML) creates a batch prediction, it provides two metrics: `Records seen` and `Records failed to process`. `Records seen` tells you how many records Amazon ML looked at when it ran your batch prediction. `Records failed to process` tells you how many records Amazon ML could not process.
 

@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Building a Machine Learning Application
-<a name="building-machine-learning"></a>
 
 Building ML applications is an iterative process that involves a sequence of steps. To build an ML application, follow these general steps:
 

@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Retrieving Object Descriptions
-<a name="retrieving-object-descriptions"></a>
 
 You can view detailed descriptions of any object through the console or through the API.
 

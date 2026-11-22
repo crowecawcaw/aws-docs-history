@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Checking Request Status
-<a name="operation-request-status"></a>
 
 When you submit a request, you can check its status with the Amazon Machine Learning (Amazon ML) API. For example, if you submit a `createMLModel` request, you can check its status by using the `describeMLModel` call. Amazon ML responds with one of the following statuses. 
 

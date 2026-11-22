@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Requesting Real-time Predictions
-<a name="requesting-real-time-predictions"></a>
 
 A real-time prediction is a synchronous call to Amazon Machine Learning (Amazon ML). The prediction is made when Amazon ML gets the request, and the response is returned immediately. Real-time predictions are commonly used to enable predictive capabilities within interactive web, mobile, or desktop applications. You can query an ML model created with Amazon ML for predictions in real time by using the low-latency `Predict` API. The `Predict` operation accepts a single input observation in the request payload, and returns the prediction synchronously in the response. This sets it apart from the batch prediction API, which is invoked with the ID of an Amazon ML datasource object that points to the location of the input observations, and asynchronously returns a URI to a file that contains predictions for all these observations. Amazon ML responds to most real-time prediction requests within 100 milliseconds.
 

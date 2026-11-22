@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Creating and Using Datasources
-<a name="creating-and-using-datasources"></a>
 
 You can use Amazon ML datasources to train an ML model, evaluate an ML model, and generate batch predictions using an ML model. Datasource objects contain metadata about your input data. When you create a datasource, Amazon ML reads your input data, computes descriptive statistics on its attributes, and stores the statistics, a schema, and other information as part of the datasource object. After you create a datasource, you can use the [Amazon ML data insights](https://docs.aws.amazon.com/machine-learning/latest/dg/creating_datasources.html#data-insights) to explore statistical properties of your input data, and you can use the datasource to [train an ML model](https://docs.aws.amazon.com/machine-learning/latest/dg/training_models.html). 
 

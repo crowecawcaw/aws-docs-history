@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Controlling Access to Amazon ML Resources -with IAM
-<a name="controlling-access-to-amazon-ml-resources-by-using-iam"></a>
 
 AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users. Using IAM, you can create and manage AWS users, groups, and roles, and use permissions to allow and deny their access to AWS resources.By using IAM with Amazon Machine Learning (Amazon ML), you can control whether users in your organization can use specific AWS resources and whether they can perform a task using specific Amazon ML API actions.
 
@@ -49,7 +48,7 @@ For more information about IAM, see the [IAM User Guide](https://docs.aws.amazon
 
  To simplify creating and managing IAM policies, you can use the AWS Policy Generator and the IAM Policy Simulator. 
 
-## Specifying IAM Policy Actions for Amazon MLAmazon ML
+## Specifying IAM Policy Actions for Amazon ML
 <a name="actions-for-amazon-ml"></a>
 
  In an IAM policy statement, you can specify an API action for any service that supports IAM. When you create a policy statement for Amazon ML API actions, prepend `machinelearning:` to the name of the API action, as shown in the following examples: 
@@ -128,7 +127,7 @@ The following policy allows a user or group read the metadata of datasources, ML
 
 ****  
 
-```
+```json
 { "Version":"2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Action": [
     "machinelearning:Get*" ], "Resource": [
         "arn:aws:machinelearning:{{us-east-1}}:{{123456789012}}:datasource/S3-DS-ID1",
@@ -151,7 +150,7 @@ The following policy allows a user or group read the metadata of datasources, ML
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -182,7 +181,7 @@ The following policy allows a user or group read the metadata of datasources, ML
 
 ****  
 
-```
+```json
 { "Version":"2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Action": [
     "machinelearning:CreateRealtimeEndpoint", "machinelearning:DeleteRealtimeEndpoint",
     "machinelearning:Predict" ], "Resource": [
@@ -201,7 +200,7 @@ The following policy allows a user or group read the metadata of datasources, ML
 
 ****  
 
-```
+```json
 { "Version":"2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Action": [
     "machinelearning:Update*", "machinelearning:DeleteDataSource", "machinelearning:DeleteMLModel",
     "machinelearning:DeleteBatchPrediction", "machinelearning:DeleteEvaluation" ], "Resource": [
@@ -224,7 +223,7 @@ The following policy allows a user or group read the metadata of datasources, ML
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

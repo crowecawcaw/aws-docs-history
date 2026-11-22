@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Document History
-<a name="history"></a>
 
 The following table describes the important changes to the documentation in this release of Amazon Machine Learning (Amazon ML).
 + **API Version:** 2015-04-09

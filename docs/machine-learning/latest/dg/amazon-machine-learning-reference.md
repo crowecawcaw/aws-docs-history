@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Amazon Machine Learning Reference
-<a name="amazon-machine-learning-reference"></a>
 
 **Topics**
 + [Granting Amazon ML Permissions to Read Your Data from Amazon S3](granting-amazon-ml-permissions-to-read-your-data-from-amazon-s3.md)

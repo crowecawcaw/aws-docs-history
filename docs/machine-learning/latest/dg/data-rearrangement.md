@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Data Rearrangement
-<a name="data-rearrangement"></a>
 
  The data rearrangement functionality enables you to create a datasource that is based on only a portion of the input data that it points to. For example, when you create an ML Model using the **Create ML Model** wizard in the Amazon ML console, and choose the default evaluation option, Amazon ML automatically reserves 30% of your data for ML model evaluation, and uses the other 70% for training. This functionality is enabled by the Data Rearrangement feature of Amazon ML. 
 

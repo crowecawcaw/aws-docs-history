@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Deleting Objects
-<a name="deleting-objects"></a>
 
 When you no longer need your datasources, ML models, evaluations, and batch predictions, you can delete them. Although there is no additional cost for keeping Amazon ML objects other than batch predictions after you are done with them, deleting objects keeps your workspace uncluttered and easier to manage. You can delete single or multiple objects using the Amazon Machine Learning (Amazon ML) console or the API. 
 

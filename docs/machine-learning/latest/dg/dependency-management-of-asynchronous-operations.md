@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Dependency Management of Asynchronous Operations
-<a name="dependency-management-of-asynchronous-operations"></a>
 
  Batch operations in Amazon ML depend on other operations in order to complete successfully. To manage these dependencies, Amazon ML identifies requests that have dependencies, and verifies that the operations have completed. If the operations have not completed, Amazon ML sets the initial requests aside until the operations that they depend on have completed. 
 

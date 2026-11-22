@@ -3,7 +3,6 @@
 We are no longer updating the Amazon Machine Learning service or accepting new users for it. This documentation is available for existing users, but we are no longer updating it. For more information, see [ What is Amazon Machine Learning](https://docs.aws.amazon.com/machine-learning/latest/dg/what-is-amazon-machine-learning.html).
 
 # Recipe Format Reference
-<a name="recipe-format-reference"></a>
 
 Amazon ML recipes contain instructions for transforming your data as a part of the machine learning process. Recipes are defined using a JSON-like syntax, but they have additional restrictions beyond the normal JSON restrictions. Recipes have the following sections, which must appear in the order shown here:
 +  **Groups** enable grouping of multiple variables, for ease of applying transformations. For example, you can create a group of all variables having to do with free-text parts of a web page (title, body), and then perform a transformation on all of these parts at once. 
