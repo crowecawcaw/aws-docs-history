@@ -1,7 +1,6 @@
 
 
 # RAIMON03-BP01 Establish mechanisms for honoring stakeholder obligations
-<a name="raimon03-bp01"></a>
 
  Consider how to honor obligations you many have to upstream stakeholders (such as people who contributed content to an evaluation or training dataset) and downstream stakeholders (such as workflows that have taken dependencies on your AI system). 
 

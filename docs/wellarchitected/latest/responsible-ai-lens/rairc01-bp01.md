@@ -1,7 +1,6 @@
 
 
 # RAIRC01-BP01 Turn your expected benefits and potential harms into testable release criteria
-<a name="rairc01-bp01"></a>
 
  Turn your identified potential harms and expected benefits into clear yes or no questions that determine if your system is ready for deployment. Each question should address either a specific harm you want to block or a benefit you want your system to deliver. These questions form the basis of your release criteria that should be passed before your system is considered ready for release. Track which stakeholders bear the impact of a failed criterion. You may need multiple criteria for complex harms and benefits. This approach yields a consistent, data-driven approach for determining when your system is ready for release. 
 

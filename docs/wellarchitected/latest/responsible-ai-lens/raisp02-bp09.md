@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP09 Design your core AI system to handle input variations
-<a name="raisp02-bp09"></a>
 
  Design your system to be more resilient by building in the ability to handle input variations and edge cases that could cause it to fail or behave unpredictably. This means incorporating techniques like data augmentation that creates variations of your training examples, adversarial training that tests your system against challenging inputs, and exposure to diverse input formats, styles, and edge cases during the development process. The robustness techniques you choose should directly support your release criteria, assisting your system to perform consistently even when users interact with it in unexpected ways. 
 

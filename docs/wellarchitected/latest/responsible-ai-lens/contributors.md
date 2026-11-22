@@ -1,7 +1,6 @@
 
 
 # Contributors
-<a name="contributors"></a>
 
  The following individuals and organizations contributed to this document: 
 + Rachna Chadha, Principal Technologist, AI, Field-AGS-WorldwideTech-All-CS, Amazon Web Services

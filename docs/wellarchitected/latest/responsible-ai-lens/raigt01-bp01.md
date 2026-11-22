@@ -1,7 +1,6 @@
 
 
 # RAIGT01-BP01 Develop a transparency strategy
-<a name="raigt01-bp01"></a>
 
  For each identified stakeholder group, choose a transparency strategy (for example, blog post, user guide, FAQs, system documentation, service card) and identify appropriate distribution channels to provide downstream stakeholders information to make informed decisions about the AI system. 
 

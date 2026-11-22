@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP02 Measure fairness as unwanted bias across stakeholder groups
-<a name="rairc03-bp02"></a>
 
  Measure variations across relevant stakeholder groups based on your specific use case and context. This evaluation may include identifying appropriate fairness metrics that align with your use case requirements and could examine consistency at both individual and group levels. Technical approaches for measuring variations in system performance may include metrics such as demographic parity, equal outcome rates, equalized odds and equal opportunity to understand the experience of different groups using the system. Balance these different fairness metrics based on your use case context, as optimizing for one type of fairness may sometimes conflict with others. 
 

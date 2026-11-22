@@ -1,7 +1,6 @@
 
 
 # RAISP03-BP03 Implement output filtering to catch unsafe content before it reaches users
-<a name="raisp03-bp03"></a>
 
  Build screening mechanisms that automatically review and filter your system's outputs to catch potentially harmful content before users see it, acting as a final safety check regardless of what your system generates. This means implementing safety classifiers that can identify toxic, harmful, or inappropriate content in real-time, content filtering systems that block or modify unsafe outputs based on your safety definitions, and automated screening processes that evaluate each response against your safety criteria before delivery. 
 

@@ -1,7 +1,6 @@
 
 
 # RAIDP04-BP05 Document the characteristics of each dataset using a datasheet
-<a name="raidp04-bp05"></a>
 
  Create datasheets that document the intended uses, composition, and collection process for each dataset. Include information about data sources, collection methodologies, potential unwanted biases, and recommended and prohibited use cases to assist others to understand appropriate applications. Document the characteristics of data contributors and annotators, including demographic information and potential sources of unwanted bias that could affect system behavior. Maintain datasheets as living documents that are updated when datasets change or when new insights about their characteristics or limitations are discovered. 
 

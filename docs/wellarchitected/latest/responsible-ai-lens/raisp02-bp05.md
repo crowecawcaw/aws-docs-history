@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP05 Embed provenance indicators into core AI system outputs
-<a name="raisp02-bp05"></a>
 
  Address release criteria for transparency by building provenance indicators directly into your AI system. Providing machine readable labels for audio and imagery outputs is one of the approaches. 
 

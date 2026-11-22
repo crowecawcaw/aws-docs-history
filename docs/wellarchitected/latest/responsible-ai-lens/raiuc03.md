@@ -1,7 +1,6 @@
 
 
 # Refine your use case
-<a name="raiuc03"></a>
 
 
 | RAIUC03: How will you refine your use case understanding without detailing the technical solution? | 

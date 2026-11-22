@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP06 Identify potential harmful events impacting system and data security
-<a name="raibr02-bp06"></a>
 
  Because AI systems process inputs and generate responses based on patterns learned from data, they have the potential for issues that traditional security measures may not address. Specifically, security harms can occur when AI systems are subjected to adversarial inputs by authorized users. These inputs may manipulate your system to behave in unintended ways, disclose confidential data, or extract information about your model's design and capabilities. Security threats to AI systems include: 
 +  Vulnerabilities in system interfaces and interaction surfaces 

@@ -1,7 +1,6 @@
 
 
 # RAIDP03-BP03 Protect the privacy of individuals represented in your datasets
-<a name="raidp03-bp03"></a>
 
  Translate the guidance of your legal counsel on what constitutes personal information into technical definitions appropriate to your use case. Implement processes to identify and limit personal information in training, evaluation, and auxiliary datasets, using both automated filtering, data obfuscation, and manual review approaches. Validate the effectiveness of your privacy protection mechanisms against your taxonomy of personal information types. Maintain detailed documentation of privacy protection measures and regularly audit datasets so that personal information removal doesn't compromise your ability to measure important system behaviors. 
 

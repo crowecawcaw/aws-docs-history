@@ -1,7 +1,6 @@
 
 
 # RAIMON01-BP04 Create monitoring dashboards for operational visibility
-<a name="raimon01-bp04"></a>
 
  Design role-based monitoring dashboards that present relevant system health, performance, and risk indicators tailored to each stakeholder group's responsibilities and expertise levels. Create technical dashboards for engineering teams that show detailed performance metrics, error rates, and component-level health indicators with capabilities for deep-dive analysis. Develop executive dashboards that present summary-level information about benefit realization, risk mitigation effectiveness, and overall system performance against business objectives. Implement governance dashboards for teams that track adherence to release criteria and incident response metrics with historical trending capabilities. 
 

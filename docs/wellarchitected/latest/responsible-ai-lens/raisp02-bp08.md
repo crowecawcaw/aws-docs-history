@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP08 Consider core AI system designs that improve factual accuracy
-<a name="raisp02-bp08"></a>
 
  Design your system to produce more accurate information by incorporating techniques that distinguish facts from speculation, reduce hallucinations, and acknowledge uncertainty. This means connecting to authoritative knowledge sources through retrieval methods with source attribution (for example, RAG), employing alignment approaches like constitutional training and reinforcement learning from human feedback (RLHF) to block hallucinations, and incorporating automated reasoning capabilities like chain of thought reasoning for self-reflection along with uncertainty and confidence measurements that assist the system to recognize when it is not confident about information. 
 

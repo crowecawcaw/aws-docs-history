@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP07 Identify potential harmful events impacting explainability
-<a name="raibr02-bp07"></a>
 
  Users may want or need to understand why their input produced the system output that it did. Consider, for example, what harm might result from rejecting a loan application if an explanation would have assisted the user to fix an incorrect input. A lack of understanding of system outputs can compound AI harmful events and errors, making troubleshooting difficult. 
 

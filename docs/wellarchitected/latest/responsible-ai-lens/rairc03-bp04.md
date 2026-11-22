@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP04 Measure robustness of outputs to input variation
-<a name="rairc03-bp04"></a>
 
  Measure how consistently your system performs when faced with the specific input variations and distribution shifts that are relevant to your use case. Prepare to test performance across the natural variations your risk assessment determined users might provide (such as different writing styles, dialects, image qualities, or audio conditions relevant to your use case). 
 

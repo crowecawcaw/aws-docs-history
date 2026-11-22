@@ -1,7 +1,6 @@
 
 
 # Benefits and risks 
-<a name="benefits-and-risks"></a>
 
  The benefits and risks focus area assists you to characterize the potential benefits and inherent risks of the use case, using only minimal assumptions about the AI solution given in the Use Case focus area. In general, the depth of analysis devoted to potential benefits and inherent risks should align with the breadth and complexity of the use case, and the potential scale of deployment. Iteration is expected. Additionally, since use cases are often defined by working backwards from desired benefits, risks may require more effort to explore than benefits. 
 

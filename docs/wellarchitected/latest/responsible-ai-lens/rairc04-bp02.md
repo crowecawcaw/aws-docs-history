@@ -1,7 +1,6 @@
 
 
 # RAIRC04-BP02 Consider trade-offs between release criteria
-<a name="rairc04-bp02"></a>
 
  Consider trade-offs where meeting your criteria thresholds for one potential harm may reduce your ability to meet the criteria for another harm (for example, privacy as opposed to transparency). Consider harm and benefit trade-offs where meeting the criteria for your potential harms may also reduce your ability to meet the criteria for your benefits. Reconsider your threshold choices to appropriately balance the trade-offs given your use case priorities and document trade-off decisions. 
 

@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP03 Identify potential harmful events impacting robustness
-<a name="raibr02-bp03"></a>
 
  Mishandling foreseeable variations in inputs can create harmful events. Input variations come in two kinds. Intrinsic variations are differences in input data to which an AI system must attend to succeed. Confounding variations are differences in input data that an AI system must ignore to succeed. You should also consider whether slight changes in input data can produce dramatically different outputs and how input instabilities can cascade across system components. 
 

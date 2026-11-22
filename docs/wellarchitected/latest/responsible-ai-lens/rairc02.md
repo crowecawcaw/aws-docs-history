@@ -1,7 +1,6 @@
 
 
 # Measure test properties
-<a name="rairc02"></a>
 
 
 | RAIRC02: How will you measure the properties tested by your release criteria? | 

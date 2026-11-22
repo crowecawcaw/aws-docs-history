@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP08 Measure explainability of system behavior
-<a name="rairc03-bp08"></a>
 
  Consider metrics for explainability based on user studies that quantitatively measure stakeholders' ability to understand system outputs, including their comprehension of confidence scores, reasoning paths, and limitations, while also tracking the effectiveness of provided explanations across different user groups and expertise levels. This can include objective metrics (such as task completion rates when acting on AI explanations) and subjective assessments (like user satisfaction scores and trust ratings). Pay particular attention to whether users can accurately identify when to rely on or question the system's outputs. 
 

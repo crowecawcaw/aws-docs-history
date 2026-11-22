@@ -1,7 +1,6 @@
 
 
 # Define release criteria
-<a name="rairc01"></a>
 
 
 | RAIRC01: How will you define release criteria? | 

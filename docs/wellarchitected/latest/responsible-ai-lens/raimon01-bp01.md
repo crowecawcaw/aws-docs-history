@@ -1,7 +1,6 @@
 
 
 # RAIMON01-BP01 Obtain consent for monitoring production data
-<a name="raimon01-bp01"></a>
 
  As appropriate, implement consent mechanisms that inform users about what data will be collected for monitoring purposes and obtain appropriate permissions before beginning data collection activities. This includes considering opt-in and opt-out data collection strategies while adhering to guidance from your legal counsel. When appropriate, design transparent consent processes that explain monitoring objectives, data usage, retention periods, and user rights regarding their monitored data for opting in or opt out. Establish procedures for managing consent changes over time, including mechanisms for users to withdraw consent and processes for handling data from users who have opted out. 
 

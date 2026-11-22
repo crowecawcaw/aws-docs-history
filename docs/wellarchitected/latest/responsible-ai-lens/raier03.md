@@ -1,7 +1,6 @@
 
 
 # Address unmet release criteria
-<a name="raier03"></a>
 
 
 | RAIER03: How will you address release criteria that are not met? | 

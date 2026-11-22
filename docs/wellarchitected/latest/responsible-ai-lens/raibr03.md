@@ -1,7 +1,6 @@
 
 
 # Assess risks
-<a name="raibr03"></a>
 
 
 | RAIBR03: How will you assess the risks posed by the potential harmful events? | 

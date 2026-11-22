@@ -1,7 +1,6 @@
 
 
 # RAIUC03-BP03 Identify the type of AI required by your AI use case
-<a name="raiuc03-bp03"></a>
 
  Selecting the appropriate type of AI solution is a critical decision that fundamentally shapes your project's success and risk profile. Your choice of traditional ML, generative AI, or agentic AI must align with your specific use case requirements, data availability, and desired outcomes. The decision impacts everything from development complexity and resource requirements to explainability and risk management needs. A misaligned choice can lead to project failure, increased costs, or unmanageable risks, while the right selection creates a foundation for successful AI implementation that meets business objectives while maintaining appropriate controls. 
 

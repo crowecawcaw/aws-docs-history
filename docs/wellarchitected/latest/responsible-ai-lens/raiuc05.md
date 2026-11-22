@@ -1,7 +1,6 @@
 
 
 # Identify requirements and approvals
-<a name="raiuc05"></a>
 
 
 | RAIUC05: How will you identify applicable organizational requirements and approvals? | 

@@ -1,7 +1,6 @@
 
 
 # Mitigate risks
-<a name="raibr04"></a>
 
 
 | RAIBR04: How will you mitigate the risks you have identified? | 

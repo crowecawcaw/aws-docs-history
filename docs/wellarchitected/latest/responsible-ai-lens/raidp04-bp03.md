@@ -1,7 +1,6 @@
 
 
 # RAIDP04-BP03 Protect data from being manipulated or accessed for unintended purposes
-<a name="raidp04-bp03"></a>
 
  Implement the principle of least privilege, only providing access to relevant data to those who really need it for both automated systems and human users accessing your datasets. Consider scanning datasets for unwanted content, including adversarial prompts, disinformation, malware, or other data poisoning attempts that could affect downstream system behavior. Establish access controls and audit trails that track who accesses datasets and what modifications are made. Use cryptographic verification methods where appropriate to detect unauthorized changes to critical datasets, particularly those used for evaluation or system operation. 
 

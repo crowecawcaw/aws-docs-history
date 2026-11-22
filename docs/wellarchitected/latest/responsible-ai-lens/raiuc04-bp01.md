@@ -1,7 +1,6 @@
 
 
 # RAIUC04-BP01 Map the user journey to identify AI interaction requirements
-<a name="raiuc04-bp01"></a>
 
  Map the user journey to identify interaction requirements and risks. During pre-interaction, assist users in learning about the system's capabilities and limitations. 
 

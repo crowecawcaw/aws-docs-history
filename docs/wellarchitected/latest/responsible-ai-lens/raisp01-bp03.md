@@ -1,7 +1,6 @@
 
 
 # RAISP01-BP03 Check if design choices have introduced new risks
-<a name="raisp01-bp03"></a>
 
  Review how design decisions affect the risk profile, determining whether additional assessment criteria must be incorporated into the testing framework. 
 

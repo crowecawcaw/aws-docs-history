@@ -1,7 +1,6 @@
 
 
 # RAIER03-BP01 For each failed release criterion, re-assess the implementation strategy
-<a name="raier03-bp01"></a>
 
  Re-evaluate the original implementation strategy assigned to each release criteria. Either improve the execution of the implementation strategy or design a new approach based of baking techniques (for example, additional fine-tuning, new training approaches or component choices), blocking techniques (for example, adding additional guardrails or filtering strategies) or a user steering strategy (for example, publishing user guidance). 
 

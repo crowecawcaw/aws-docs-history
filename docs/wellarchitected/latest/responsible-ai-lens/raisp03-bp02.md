@@ -1,7 +1,6 @@
 
 
 # RAISP03-BP02 Add security filters
-<a name="raisp03-bp02"></a>
 
  Implement security safeguards that detect and block threats such as prompt injections, roleplay jailbreaks, and other adversarial inputs. Design input validation mechanisms that identify unwanted prompts and suspicious query patterns before they can manipulate system behavior or extract sensitive information. Implement guardrails with content filtering capabilities designed to block the generation of harmful outputs even when inputs successfully bypass input protections. 
 

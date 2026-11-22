@@ -1,7 +1,6 @@
 
 
 # RAIDP04-BP01 Create a dataset registry
-<a name="raidp04-bp01"></a>
 
  Create a registry to track dataset versions, metadata, and usage across training, evaluation, and operational contexts. Store datasets with version control, including local copies of public benchmarks to assist builders with reproducibility as external datasets evolve. Document the provenance, characteristics, and intended use of each dataset version to enable others to understand appropriate usage and limitations. Link dataset versions to specific system training events and evaluation results to maintain traceability between data changes and performance outcomes. 
 

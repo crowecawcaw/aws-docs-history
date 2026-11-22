@@ -1,7 +1,6 @@
 
 
 # RAIMON01-BP05 Design protocols that trigger human oversight of automated monitoring alerts
-<a name="raimon01-bp05"></a>
 
  Set protocols for when human reviewers should be involved in system oversight decisions. Create sampling-based human review processes that validate the accuracy and effectiveness of automated monitoring systems, including procedures for evaluating edge cases and challenging scenarios. Implement feedback mechanisms that enable human reviewers to improve automated monitoring through labeling ambiguous cases, refining alert criteria, and identifying new monitoring requirements. Design human oversight workflows that provide escalation paths, decision-making authority, and documentation requirements for monitoring decisions that affect system operation. 
 

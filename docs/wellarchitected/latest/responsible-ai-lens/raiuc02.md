@@ -1,7 +1,6 @@
 
 
 # Identify use case stakeholders
-<a name="raiuc02"></a>
 
 
 | RAIUC02: How will you identify the stakeholders of your use case? | 

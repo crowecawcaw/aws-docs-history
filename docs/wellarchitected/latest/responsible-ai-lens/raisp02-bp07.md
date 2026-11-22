@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP07 Incorporate explainability mechanisms into the core AI system
-<a name="raisp02-bp07"></a>
 
  Adding explainability to your AI system assists to address explainability release criteria by verifying stakeholders can understand and trust how decisions are made for your specific use case. Include confidence scores with predictions to show how certain the model is about its outputs, and for generative AI systems, use techniques such as content attribution, and token probabilities to explain what influenced the generated content. When explanations are critical, use interpretable models like decision trees that are simple to understand and when more complex models are required add explanation tools (like LIME or SHAP) afterward to interpret their decisions. 
 

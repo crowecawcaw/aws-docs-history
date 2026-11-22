@@ -1,7 +1,6 @@
 
 
 # RAIUC01-BP02 Verify that AI is required to solve the problem
-<a name="raiuc01-bp02"></a>
 
  Before committing to using AI, evaluate whether traditional software approaches or even manual processes could meet your requirements. Choose AI if it provides clear, substantial benefits over competing solutions, and not simply because it is technically possible to apply AI to the problem. 
 

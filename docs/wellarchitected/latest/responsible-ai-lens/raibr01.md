@@ -1,7 +1,6 @@
 
 
 # Characterize benefits
-<a name="raibr01"></a>
 
 
 | RAIBR01: How will you characterize intended benefits? | 

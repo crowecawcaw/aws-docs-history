@@ -1,7 +1,6 @@
 
 
 # Release criteria thresholds
-<a name="rairc04"></a>
 
 
 | RAIRC04: How will you set your release criteria thresholds? | 

@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP05 Measure privacy protection
-<a name="rairc03-bp05"></a>
 
  Measure how well your system protects each type of confidential or personal information that your risk assessment identified as at risk. This may include detecting privacy leaks, unauthorized data access patterns, or inappropriate data retention issues your risk assessment determined to be most likely or impactful. Assess private data identification and redaction capabilities for the data types that your risk assessment prioritized and consult with your legal team on the specific privacy regulations relevant to your use case. 
 

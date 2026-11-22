@@ -1,7 +1,6 @@
 
 
 # Conclusion
-<a name="conclusion"></a>
 
  The Responsible AI Lens provides guidance on implementing trustworthy AI systems. The eight focus areas of the Lens guide builder teams from initial use case definition through development, deployment, and ongoing operations. 
 

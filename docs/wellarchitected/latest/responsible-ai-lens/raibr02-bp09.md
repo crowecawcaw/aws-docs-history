@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP09 Choose multiple strategies to identify potential harmful events
-<a name="raibr02-bp09"></a>
 
  In addition to assessing potential harmful events for each responsible AI dimension independently, employ complementary strategies to identify potentially harmful events and negative stakeholder impact within the context of different use environments. Check for these events at different steps of using the AI system and under different failure modes, which includes both technical failures and misuse or abuse of the AI system. Additional strategies include scenario-based analyses, system limitation assessments that surface operational constraints, choosing a risk team with diverse backgrounds, consulting with external stakeholders, and reviewing historical incidents or risk assessment results from similar systems. 
 

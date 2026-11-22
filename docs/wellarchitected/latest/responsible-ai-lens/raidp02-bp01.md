@@ -1,7 +1,6 @@
 
 
 # RAIDP02-BP01 Validate the representativeness of datasets for the use case
-<a name="raidp02-bp01"></a>
 
  Consider whether your datasets accurately reflect the real-world conditions where your system will be used. Gather examples that represent your users while filtering out data from contexts that don't match your use case. This is especially relevant for fine-tuning, alignment, and calibration sets, and for evaluation sets since testing on unrepresentative data can make it seem that your system works better (or worse) than it really does. Ask yourself: "Does this dataset reflect how my system will be used and exclude scenarios that are not part of my use case?" Document what you've included and excluded so you know where your results might not be sufficient. 
 

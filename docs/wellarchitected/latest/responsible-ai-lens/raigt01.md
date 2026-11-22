@@ -1,7 +1,6 @@
 
 
 # Guiding
-<a name="raigt01"></a>
 
 
 | RAIGT01: How will downstream stakeholders learn how to responsibly use the AI system (guiding)? | 

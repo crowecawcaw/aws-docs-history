@@ -1,7 +1,6 @@
 
 
 # AI workflow impact
-<a name="raiuc04"></a>
 
 
 | RAIUC04: How will you anticipate the impact of your AI solution on the workflow in which it is deployed? | 

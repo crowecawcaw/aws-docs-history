@@ -1,7 +1,6 @@
 
 
 # RAIER01-BP02 Independently corroborate more critical and subjective evaluations
-<a name="raier01-bp02"></a>
 
  Consider getting second opinions on release criteria that are highly critical or more subjective. Such opinions can come from internal or external parties. To maximize independence, consider asking the independent party to build or acquire their own evaluation datasets, using the same information about the intended use case(s) of the AI solution that you intend to communicate to downstream users. 
 

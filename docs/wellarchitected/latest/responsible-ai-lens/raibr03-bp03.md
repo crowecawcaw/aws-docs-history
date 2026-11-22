@@ -1,7 +1,6 @@
 
 
 # RAIBR03-BP03 Assign an overall risk level to each potential harm
-<a name="raibr03-bp03"></a>
 
  Risk ratings are typically determined by using a risk matrix that combines the likelihood (probability of occurrence) and severity (degree of consequences) of the potential harmful events. 
 

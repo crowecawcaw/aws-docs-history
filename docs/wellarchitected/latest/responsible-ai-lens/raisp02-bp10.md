@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP10 Build safety protections into the core AI system
-<a name="raisp02-bp10"></a>
 
  Follow the safety-by-design principle and design your system from the start to block harmful outputs and unsafe behaviors through multiple layers of protection. Start by creating clear, objective definitions of what constitutes safe versus unsafe behavior for your specific use case, then incorporate safety training approaches like model alignment techniques, constitutional training, and reinforcement learning from human feedback (RLHF) that teach your system to recognize and avoid harmful content while aligning with human values and safety preferences, input sanitization techniques that clean or modify problematic user requests before processing, output alteration methods that modify or block unsafe responses before they reach users, and guardrails that enforce safe interaction boundaries throughout the system. 
 

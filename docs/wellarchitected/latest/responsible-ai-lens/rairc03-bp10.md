@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP10 Measure transparency quality
-<a name="rairc03-bp10"></a>
 
  Consider situations where system documentation is insufficient, users do not understand the probabilistic nature of a system output, or where users are unaware of AI system presence. Transparency deficits might conceal or amplify potential harms while evaluating impacts on different stakeholder groups. The goal is finding the right transparency level for your situation by balancing enough openness to build trust and meet requirements without creating new vulnerabilities or unintended consequences. 
 

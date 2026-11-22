@@ -1,7 +1,6 @@
 
 
 # Choosing a system configuration
-<a name="raisp04"></a>
 
 
 | RAISP04: How will you choose between different system configurations? | 

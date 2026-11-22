@@ -1,7 +1,6 @@
 
 
 # RAIDP01-BP02 Identify the datasets needed for training and customizing your system
-<a name="raidp01-bp02"></a>
 
  Identify and plan datasets needed to train your AI system to meet your release criteria. Determine which dataset types (training, fine-tuning, validation, calibration, and alignment) you need based on your training approach, assess existing data to identify gaps, then acquire or build the missing datasets through external sources, your own collection, crowdsourcing, or synthetic generation. Finally, plan how to combine and allocate your datasets while keeping them separate from evaluation data and maintaining proper representation across user groups. 
 

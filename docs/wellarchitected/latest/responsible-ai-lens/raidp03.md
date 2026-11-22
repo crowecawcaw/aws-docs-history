@@ -1,7 +1,6 @@
 
 
 # Dataset issues
-<a name="raidp03"></a>
 
 
 | RAIDP03: How will you identify and mitigate potential responsible AI issues in the datasets? | 

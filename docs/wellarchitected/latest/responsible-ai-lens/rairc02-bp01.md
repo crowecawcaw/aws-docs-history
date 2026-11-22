@@ -1,7 +1,6 @@
 
 
 # RAIRC02-BP01 Select metrics to measure the properties tested by the release criteria
-<a name="rairc02-bp01"></a>
 
  For each release criterion you defined, choose specific metrics that can reliably measure the information needed to answer the question. A single criterion may require multiple metrics to properly measure it. Consider both automated metrics (like accuracy scores and toxicity detection) and human evaluation methods (like expert reviews and user feedback) depending on what you're measuring and explore open-source libraries as well as proprietary services that provide pre-built metrics. Document which metrics map to which criteria so you have a clear measurement plan for every release question you need to answer. 
 

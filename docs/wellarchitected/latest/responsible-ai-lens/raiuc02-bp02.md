@@ -1,7 +1,6 @@
 
 
 # RAIUC02-BP02 Identify contributing and other upstream stakeholders
-<a name="raiuc02-bp02"></a>
 
  Identify the full set of people involved in designing, developing, deploying, operating, funding, supplying, and approving an AI system built by your team. The set may include product managers, engineers, data scientists, AI oversight functions (compliance, assurance, risk), domain experts on topics such as security, privacy, existing AI systems, or the use case itself, as well as other contributors or users. 
 

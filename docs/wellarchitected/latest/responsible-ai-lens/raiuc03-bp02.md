@@ -1,7 +1,6 @@
 
 
 # RAIUC03-BP02 Identify how your expected inputs could vary in their content
-<a name="raiuc03-bp02"></a>
 
  Identify the ways in which inputs to the AI system might systematically vary under real-world conditions. For example, the inputs to system that transcribes speech in audio recordings might vary by background noise, physical characteristics of the voices, or the sensitivity of the microphone. Or, inputs to chatbot could vary by language, use of slang or jargon, or word spellings ("analyze" vs "analyse"). Decide whether each type of variation is something the AI system should attend to, or ignore. 
 

@@ -1,7 +1,6 @@
 
 
 # RAIUC05-BP01 Engage your organization in approving your use case
-<a name="raiuc05-bp01"></a>
 
  Identify the geographic locations in which the proposed AI system will operate. Consult with your legal team to identify applicable regulatory requirements. Check your organization's policies and processes for the approval of AI use cases. They may establish governance procedures that outline approval requirements and designate responsible oversight bodies to evaluate and authorize AI initiatives. 
 

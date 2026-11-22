@@ -1,7 +1,6 @@
 
 
 # Responding to feedback
-<a name="raimon2"></a>
 
 
 | RAIMON02: How will you respond to feedback from monitoring? | 

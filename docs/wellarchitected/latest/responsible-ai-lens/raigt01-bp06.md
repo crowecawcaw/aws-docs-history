@@ -1,7 +1,6 @@
 
 
 # RAIGT01-BP06 Guide users on how to responsibly change system behavior
-<a name="raigt01-bp06"></a>
 
  Provide guidance that informs users how to effectively alter system behaviors and interpret results. Include user interface elements that guide users toward productive interactions while steering them away from approaches likely to produce poor or harmful results. Explain response mechanisms that provide real-time feedback on input quality and suggest improvements when user inputs are unclear, inappropriate, or likely to produce unsatisfactory results. Direct users to available education resources that assists users to understand system capabilities and limitations, enabling them to leverage the system effectively while maintaining realistic expectations about its performance. 
 

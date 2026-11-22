@@ -1,7 +1,6 @@
 
 
 # Select metrics
-<a name="rairc03"></a>
 
 
 | RAIRC03: How will you select metrics for the release criteria across each responsible AI dimension? | 

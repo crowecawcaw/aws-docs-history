@@ -1,7 +1,6 @@
 
 
 # RAISP03-BP04 Implement output filtering to detect and block hallucinations
-<a name="raisp03-bp04"></a>
 
  Build filtering mechanisms that automatically detect and block factually incorrect outputs, hallucinations, and misleading information before they reach users. These filters act as a final check to catch inaccuracies that your core AI system might generate. Use both automated reasoning checks and fact verification systems to validate outputs against known facts and logical consistency before delivery. 
 

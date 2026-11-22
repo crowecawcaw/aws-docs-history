@@ -1,7 +1,6 @@
 
 
 # Decomissioning
-<a name="raimon03"></a>
 
 
 | RAIMON03: How will you decommission your AI system? | 

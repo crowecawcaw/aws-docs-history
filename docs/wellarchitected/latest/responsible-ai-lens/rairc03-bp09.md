@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP09 Measure security risks and threats
-<a name="rairc03-bp09"></a>
 
  Consider quantitative measurements of security risks to AI systems, such as measuring adversarial attack success rates. For example, measure the rate of successful prompt injection attempts, prompt injection detection rates, jailbreaking success rate, guardrail bypass rates, and model extraction resistance (measuring how simply model parameters or behavior can be reverse engineered). 
 

@@ -1,7 +1,6 @@
 
 
 # RAIBR03-BP04 Use a risk registry to track and calibrate potential harms and risks
-<a name="raibr03-bp04"></a>
 
  Establish a risk registry to track and calibrate categories of risks across your ML lifecycle and other use cases your team or organization may be tackling. The registry includes information about each identified risk, including the associated use case, examples of harmful input and output pairs, affected stakeholders, likelihood, severity, risk level, and high-level mitigation approaches. Risk registry maintenance includes processes for keeping risk information current and accurate as use cases and systems evolve, new threats emerge, and responsible AI understanding deepens. 
 

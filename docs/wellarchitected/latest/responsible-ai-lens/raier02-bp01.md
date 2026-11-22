@@ -1,7 +1,6 @@
 
 
 # RAIER02-BP01 Add statistical confidence to your release decision
-<a name="raier02-bp01"></a>
 
  Move beyond simple averages and point estimates to understand how confident you can be that your system will meet its release criteria when deployed. Instead of just asking did we hit our target threshold, ask how confident are we that we'll consistently hit this threshold given the uncertainty in our test results? Use appropriate statistical methods to account for the limited data you have and the variation you expect to see in real-world performance. When you have multiple release criteria, adjust your analysis to account for the fact that meeting the criteria simultaneously is harder than meeting each one individually. This approach may provide a clear, data-driven answer to whether you're ready to release, rather than making that decision based on potentially misleading averages that don't account for uncertainty. 
 

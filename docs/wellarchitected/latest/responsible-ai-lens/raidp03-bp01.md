@@ -1,7 +1,6 @@
 
 
 # RAIDP03-BP01 Address data that may be unsafe or inappropriate for your use case
-<a name="raidp03-bp01"></a>
 
  To perpetuate dataset safety throughout the AI system lifecycle, establish definitions of safe and unsafe content for your use case. Create specific criteria for content exclusion across training, evaluation, and auxiliary datasets, considering both direct harms and contextual inappropriateness. Implement automated and human review filtering processes, with protective measures for reviewers. Document safety definitions and filtering decisions and regularly audit datasets to verify effective removal of unsafe content while maintaining necessary testing scenarios. 
 

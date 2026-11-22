@@ -1,7 +1,6 @@
 
 
 # RAISP03-BP01 Add privacy-preserving filters
-<a name="raisp03-bp01"></a>
 
  Implement filtering mechanisms that automatically detect and remove unwanted confidential and personal data from both inputs and outputs. Design input sanitization processes that cleanse user queries and system data of unwanted information before processing, using both rule-based and machine learning approaches to identify personal data. Implement output filtering that blocks the generation or disclosure of confidential or personal information, including techniques like anonymization that replace identifying details with generic placeholders or synthetic alternatives. 
 

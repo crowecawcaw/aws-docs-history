@@ -1,7 +1,6 @@
 
 
 # RAIUC02-BP01 Identify downstream stakeholders
-<a name="raiuc02-bp01"></a>
 
  Identify a person, group, or entity involved in or affected by the operation of the proposed AI system. Consider different stakeholder categories, like primary users, secondary users, and indirect stakeholders. Consider whether vulnerable populations could be stakeholders. Seek out individuals with different perspectives from those of the builder team, including potential stakeholder groups and different organizational functions, to identify possible stakeholders. 
 

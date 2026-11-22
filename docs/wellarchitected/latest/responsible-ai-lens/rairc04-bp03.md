@@ -1,7 +1,6 @@
 
 
 # RAIRC04-BP03 Set confidence requirements for your quantitative release criteria
-<a name="rairc04-bp03"></a>
 
  Decide how certain you need to be that your system meets each performance threshold before each release criterion question can be answered. For example, if you were to divide use cases into higher, moderate, and lower risk, you might set corresponding confidence requirements to 99%, 95%, and 90% respectively. Consider what level of confidence your stakeholders might expect. 
 

@@ -1,7 +1,6 @@
 
 
 # Monitoring for deviations
-<a name="raimon01"></a>
 
 
 | RAIMON01: How will you monitor for unexpected deviations from release criteria in operation? | 

@@ -1,7 +1,6 @@
 
 
 # RAIMON01-BP03 Preserve data privacy and set access controls on monitored data
-<a name="raimon01-bp03"></a>
 
  Apply data governance processes that specify what monitoring data can be collected, processed, stored, and accessed throughout the monitoring lifecycle. Consider implementing privacy-preserving techniques including anonymization, differential privacy, and secure computation methods that enable system oversight without exposing individual user information. Using the principle of least privilege, create role-based access controls that limit monitoring data access to authorized personnel based on job function, with detailed audit trails tracking data access activities. Establish data retention policies that specify how long different types of monitoring data should be stored, with automated deletion processes and procedures for handling individual data requests. 
 

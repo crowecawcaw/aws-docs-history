@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP03 Measure veracity of outputs
-<a name="rairc03-bp03"></a>
 
  Assess your system's tendency to generate factually accurate information while avoiding the specific types of hallucinations, misinformation, or fabricated content your risk assessment identified as problematic for your use case. Implement automated fact-checking and human expert evaluations. Measure the specific aspects of truthfulness your risk assessment prioritized such as factual accuracy, groundedness to source material, or consistency across interactions. 
 

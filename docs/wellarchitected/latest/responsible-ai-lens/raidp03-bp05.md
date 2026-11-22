@@ -1,7 +1,6 @@
 
 
 # RAIDP03-BP05 Review the correctness of the content of your datasets
-<a name="raidp03-bp05"></a>
 
  Create regular review processes for ground-truth labels and factual content across your datasets. Implement fact-checking procedures using human reviewers or comparison against authoritative sources to identify and correct inaccuracies. Datasets used for veracity evaluation may require high accuracy standards to provide reliable measurements. Document the review process and track accuracy metrics over time, updating datasets when new information becomes available or when errors are discovered. 
 

@@ -1,7 +1,6 @@
 
 
 # RAIDP03-BP04 Include both intrinsic and confounding variations in your datasets
-<a name="raidp03-bp04"></a>
 
  Revisit your release criteria and use case description to confirm that your definitions of intrinsic and confounding input variations (respectively, variations the system should attend to, and variations it should ignore). Include coverage of relevant variations for your use case in your datasets. If you have robustness release criteria, label what type of variation is present in each example in your evaluation set so you can measure how well your system handles different kinds of variations. 
 

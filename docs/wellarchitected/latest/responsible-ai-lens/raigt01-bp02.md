@@ -1,7 +1,6 @@
 
 
 # RAIGT01-BP02 Create a system card that communicates intended usage and limitations
-<a name="raigt01-bp02"></a>
 
  AI system cards are a form of responsible AI documentation that provide stakeholders with a single place to find information on the intended use cases and limitations, responsible AI design choices, and deployment and performance optimization best practices. System cards do not provide guidance on expected performance of the AI system on the specific inputs the deployer may provide; that testing is the responsibility of the deployer. 
 

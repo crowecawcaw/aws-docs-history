@@ -1,7 +1,6 @@
 
 
 # RAIGT01-BP04 Guide users on how to understand system outputs
-<a name="raigt01-bp04"></a>
 
  Provide accessible guidance on how a user should interpret system outputs. Provide guidance on features the user can use to better understand why a particular input might have produced a specific output. This includes features such as confidence scores, feature importance indicators, decision paths, or chains of thought. Tailor the complexity and format of the guidance to match user expertise levels, providing both high-level summaries and detailed technical information as appropriate. Assist users to identify when to trust system outputs, when to seek additional verification, and when to override or ignore system recommendations based on their domain knowledge. 
 

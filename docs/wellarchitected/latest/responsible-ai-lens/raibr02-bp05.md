@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP05 Identify potential harmful events impacting safety
-<a name="raibr02-bp05"></a>
 
  System outputs (content or actions) might create unintended impacts on the health or well-being of individuals, groups, society or the environment and can be misused in ways that could cause harm. Unsafe inputs can create harmful system responses. Understanding safety harms requires examining both immediate harms and downstream effects across different stakeholder groups, while considering how safety violations might cascade through system operations and user interactions. 
 

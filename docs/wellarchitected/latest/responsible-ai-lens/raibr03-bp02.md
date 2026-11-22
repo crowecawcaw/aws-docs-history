@@ -1,7 +1,6 @@
 
 
 # RAIBR03-BP02 Identify the severity of each potential harm
-<a name="raibr03-bp02"></a>
 
  Risk severity estimates the magnitude of the negative on affected stakeholder groups if it were to occur. Severity also considers the reversibility of harm, recognizing that some types of harm may be permanent or difficult to remedy. 
 

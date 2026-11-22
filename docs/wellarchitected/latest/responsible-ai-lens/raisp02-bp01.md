@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP01 Design the core AI system to directly address your release criteria
-<a name="raisp02-bp01"></a>
 
  Build your system with your release criteria in mind from the beginning, choosing components and designing processes that directly support the performance targets you need to hit. Think of your release criteria as the blueprint for your system design where every design decision should move you closer to meeting those specific goals. Set up regular check-ins during development to see how you are tracking against your targets and be ready to adjust your approach if you spot gaps early. Make sure your candidate testing and validation closely mirror the way you will measure success at release time, so there are no surprises when it is time to release. This approach assists you to build exactly what you need to pass your release criteria, rather than creating a system that performs well on general metrics but falls short on the specific measures that matter for your use case. 
 

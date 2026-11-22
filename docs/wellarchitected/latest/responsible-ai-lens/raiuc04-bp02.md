@@ -1,7 +1,6 @@
 
 
 # RAIUC04-BP02 Identify human oversight opportunities
-<a name="raiuc04-bp02"></a>
 
  Place human review at points where the quality of system inputs or outputs can be harder to judge. Consider moments where human expertise adds unique value or assists with consequential decisions. 
 

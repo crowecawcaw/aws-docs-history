@@ -1,7 +1,6 @@
 
 
 # Dataset quality
-<a name="raidp02"></a>
 
 
 | RAIDP02: How will you assess dataset quality? | 

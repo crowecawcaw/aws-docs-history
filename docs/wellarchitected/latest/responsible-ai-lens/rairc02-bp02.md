@@ -1,7 +1,6 @@
 
 
 # RAIRC02-BP02 Consider strength and limitation trade-offs when choosing metrics
-<a name="rairc02-bp02"></a>
 
  Before selecting a metric to measure a release criterion, assess its strengths and weaknesses. Validate model-derived metrics (such as LLM-as-a-judge or -jury) through correlation with human assessors, and document limitations that affect reproducibility (for example, random seed or model version used in LLM-as-a-judge). Evaluate metrics derived from human assessors and annotators for unwanted bias, assessor variance, and consistency. Consider trade-offs between automated metrics, which are generally consistent but may miss context, compared to human evaluation, which may be more nuanced but subjective and harder to scale. 
 

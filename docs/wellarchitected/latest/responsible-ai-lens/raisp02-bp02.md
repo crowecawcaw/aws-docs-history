@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP02 Privacy: Build privacy-preserving mechanisms into the core AI system
-<a name="raisp02-bp02"></a>
 
  Design your system from the start to protect confidential and personal data. This may include incorporating techniques like data encryption, access controls, data minimization, data obfuscation, and privacy-preserving training methods directly into how your system works, based on your release criteria. 
 

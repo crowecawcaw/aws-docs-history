@@ -1,7 +1,6 @@
 
 
 # RAIER03-BP02 Identify release criteria that cannot be met and narrow your use case
-<a name="raier03-bp02"></a>
 
  Assess which of your release criteria you cannot meet with your current system design and implementation strategies, no matter how you refine them. When you find gaps that can't be closed through technical solutions alone, consider whether you are trying to solve too broad of a problem with your current approach. Rather than compromising on safety or performance standards, narrow your use case to focus on scenarios where you can meet your release criteria. Go back to your original risk and benefit assessment with this more focused scope, identifying new opportunities and constraints that come with the narrower application. Update your release criteria to reflect this refined use case, verifying they capture the specific harms you need to block and benefits you want to deliver within your new boundaries. This iterative process assists you to build a system that performs appropriately in its intended domain rather than struggling to meet unrealistic expectations or risk releasing with unmet criteria. 
 

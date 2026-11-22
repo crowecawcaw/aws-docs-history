@@ -1,7 +1,6 @@
 
 
 # RAIER01-BP03 For each system update, re-run the evaluation and update the system registry
-<a name="raier01-bp03"></a>
 
  Record evaluation activities in logs that capture test conditions, system configurations, data inputs, raw results, and methodological notes with sufficient detail to make the entire process reproducible. Establish version control for evaluation artifacts to assist builders to trace unique system builds and their corresponding evaluation results. 
 

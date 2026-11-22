@@ -1,7 +1,6 @@
 
 
 # Harmful events
-<a name="raibr02"></a>
 
 
 | RAIBR02: How will you identify and categorize potential harmful events? | 

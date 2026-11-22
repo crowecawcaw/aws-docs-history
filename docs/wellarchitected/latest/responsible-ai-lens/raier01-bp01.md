@@ -1,7 +1,6 @@
 
 
 # RAIER01-BP01 Validate that release criteria still align with current industry standards
-<a name="raier01-bp01"></a>
 
  At the start of a release evaluation, check that the release criteria and associated evaluation tests are still aligned with the current version of the AI system. Research and confirm that there are no new and relevant benchmarks or expectations that need to be included in the evaluation. 
 

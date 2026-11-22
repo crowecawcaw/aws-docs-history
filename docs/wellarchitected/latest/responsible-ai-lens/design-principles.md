@@ -1,7 +1,6 @@
 
 
 # Design principles
-<a name="design-principles"></a>
 
  Through research, experimentation, and experience, AWS has identified a set of best practices (a Responsible AI best practice framework) for building and operating AI applications that are intended to solve specific use cases (for example, traditional ML applications, generative AI applications (including those requiring builders to customize foundation models), and agentic applications). The framework is published as this Well-Architected guidance. We have selected best practices according to the following design principles: 
 +  **Support narrowly defined use cases**: The specifications for an AI system should be developed by working backwards from the AI use case (in other words, the problem to be solved). The use case directly determines potential risks and release criteria. Narrowly defined use cases limit the extent of potential AI risks and focus builder teams on applicable risks. This guidance is not appropriate for building general purpose AI systems. 

@@ -1,7 +1,6 @@
 
 
 # Aggregate results
-<a name="raier02"></a>
 
 
 | RAIER02: How will you aggregate the release criteria results into a responsible release decision? | 

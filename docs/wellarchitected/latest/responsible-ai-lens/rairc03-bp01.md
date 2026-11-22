@@ -1,7 +1,6 @@
 
 
 # RAIRC03-BP01 Measure safety harms and harmful outputs
-<a name="rairc03-bp01"></a>
 
  Create objective definitions of safe and unsafe content for your use case by considering both direct potential harms and contextual inappropriateness. Identify harm categories relevant to possible outputs of your system (for example, toxicity or violence). For identified harm categories, select metrics and plan tests with both quantitative (for example, [model-based toxicity classifiers](https://aws.amazon.com/blogs/machine-learning/build-a-robust-text-based-toxicity-predictor/)) and qualitative evaluation strategies (for example, human red-teaming). Supplement your safety evaluation with popular open-source benchmarks (like [ToxiGen](https://github.com/microsoft/TOXIGEN) and [AdvBench](https://github.com/thunlp/Advbench)) and Resources (like [Detoxify](https://github.com/unitaryai/detoxify)), and choose metric types that are appropriate for the risk of your use case. 
 

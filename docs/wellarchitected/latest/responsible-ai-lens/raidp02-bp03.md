@@ -1,7 +1,6 @@
 
 
 # RAIDP02-BP03 Validate the quality of human and generated labels and features in your dataset
-<a name="raidp02-bp03"></a>
 
  Implement quality control mechanisms for human annotators including training processes, unwanted bias identification, and inter-rater agreement measurements. Assess potential sources of unwanted human bias and establish procedures to minimize their impact on label quality. When using synthetic or model-generated labels, validate their accuracy against human judgment and document known limitations that affect reliability. Track annotator performance over time and implement feedback mechanisms to maintain consistent labeling standards across your datasets. 
 

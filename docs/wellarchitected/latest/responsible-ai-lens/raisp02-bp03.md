@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP03 Mitigate unwanted bias directly in the core AI system design
-<a name="raisp02-bp03"></a>
 
  Consider incorporating fairness mitigations such as sampling and optimization methods during training, alignment and calibration techniques that actively mitigate biased system responses, and post-processing strategies that review and adjust outputs before they reach users. The specific fairness strategies you use should directly support the fairness goals in your release criteria. 
 

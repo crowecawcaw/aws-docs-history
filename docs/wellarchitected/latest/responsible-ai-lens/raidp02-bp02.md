@@ -1,7 +1,6 @@
 
 
 # RAIDP02-BP02 Set dataset quality requirements based on your release criteria
-<a name="raidp02-bp02"></a>
 
  Work backwards from your release criteria to define the quality standards for each dataset, then select metrics and thresholds to measure when your data meets those standards. Think of this as creating data readiness criteria just like your system release criteria. Data quality means different things depending on how you'll use the data and what your release criteria need. For example, it could mean label accuracy, representation across user groups, diversity of examples, or completeness of coverage. 
 

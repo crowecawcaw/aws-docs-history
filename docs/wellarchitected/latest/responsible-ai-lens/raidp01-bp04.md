@@ -1,7 +1,6 @@
 
 
 # RAIDP01-BP04 Identify potential overlaps between datasets
-<a name="raidp01-bp04"></a>
 
  Check for unintended data overlap between your training, evaluation, and auxiliary datasets. Ideally, evaluation datasets will contain entirely new examples that your system has never encountered during training, as testing on previously seen data can result in overconfidence in your system capabilities due to overfitting or memorization. Verify that you do not include public benchmarks used for evaluation in training data, particularly when using foundation models where training data provenance may be unclear. Document unavoidable overlaps and assess their potential impact on evaluation validity. 
 

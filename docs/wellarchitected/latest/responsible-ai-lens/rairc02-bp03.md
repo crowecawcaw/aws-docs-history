@@ -1,7 +1,6 @@
 
 
 # RAIRC02-BP03 Design a custom metric if no suitable metric exists
-<a name="rairc02-bp03"></a>
 
  When creating custom metrics for benefits or potential harmful events, define what you need to measure and its key characteristics. Break complex concepts into quantifiable components that directly relate to stakeholder impacts. Design metrics with definitions and examples of positive and negative results, including edge cases. Validate your custom metric against known examples, choose appropriate measurement scales (like binary, categorical, or continuous), and document the methodology. Plan for refinement based on testing, being cautious of metrics that may not generalize well beyond initial testing. 
 

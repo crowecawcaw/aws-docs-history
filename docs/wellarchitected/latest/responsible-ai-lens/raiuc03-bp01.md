@@ -1,7 +1,6 @@
 
 
 # RAIUC03-BP01 Identify the expected input and outputs for the AI system
-<a name="raiuc03-bp01"></a>
 
  Imagine the AI system solving the use case as a box containing an unknown mechanism. Describe the inputs to the AI system. Stay at a high level, focusing, for example, on whether inputs might contain spoken English text and images, but not on the specific audio or image filetypes. Consider what information is present in the input signal, and whether that information is enough to infer the desired outputs. Consider whether the inputs and outputs differ from how the use case is currently solved. 
 

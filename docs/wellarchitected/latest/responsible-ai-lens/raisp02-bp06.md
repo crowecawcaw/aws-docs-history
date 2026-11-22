@@ -1,7 +1,6 @@
 
 
 # RAISP02-BP06 Enable users to customize core AI system behaviors
-<a name="raisp02-bp06"></a>
 
  Design your system so users can adjust how it works to better fit their particular requirements and preferences, while keeping those adjustments within appropriate boundaries for your use case. This means incorporating features like adjustable output styles, user preference settings, or options that let users guide how the system interprets and responds to their requests. 
 

@@ -1,7 +1,6 @@
 
 
 # AI system baking
-<a name="raisp02"></a>
 
 
 | RAISP02: How will you design the core AI system to meet the release criteria (baking)? | 

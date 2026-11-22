@@ -1,7 +1,6 @@
 
 
 # RAIRC04-BP01 Identify baseline performance targets
-<a name="rairc04-bp01"></a>
 
  Set specific performance goals for your AI system before you build it. These goals become the pass or fail criteria that determine whether your system is ready to release. Good targets are based on real data, not guesswork, and assist you to make clear decisions about when your system is working well enough to release. 
 

@@ -1,7 +1,6 @@
 
 
 # RAIDP04-BP04 Establish governance procedures for managing your datasets
-<a name="raidp04-bp04"></a>
 
  Maintain procedures for managing dataset access, retention, and deletion throughout the AI system lifecycle. Implement mechanisms to handle individual data requests, including the ability to remove individual data points when contributors withdraw consent. Document data lineage and retention policies that specify how long different types of data can be stored and used. Create procedures for handling governance-related dataset updates. 
 

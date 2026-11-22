@@ -1,7 +1,6 @@
 
 
 # RAIBR02-BP01 Identify potential harmful events impacting fairness
-<a name="raibr02-bp01"></a>
 
  Examine how the proposed AI system might affect different stakeholder groups and subgroups throughout the entire system lifecycle. A fairness assessment may consider harms to individuals (for example, wrongful denials) and to groups (for example, performance variations across demographic groups). 
 

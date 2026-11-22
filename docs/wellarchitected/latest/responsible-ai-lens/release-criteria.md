@@ -1,7 +1,6 @@
 
 
 # Release criteria
-<a name="release-criteria"></a>
 
  The Release Criteria focus area assists you to translate benefits, risks, and organizational obligations from the previous focus areas into a single list of criteria that you use to assess the readiness of the AI solution for release. The list of release criteria defines a high-level specification for the design of system datasets and the AI system. You should consider defining release criteria for the full set of expected benefits and potential harms to reduce downstream surprises post deployment. For AI solutions using machine learning, a full set of criteria would cover factors such as overall usability performance, latency, and uptime, as well as responsible AI factors such as safety, controllability, security, privacy, robustness, fairness, veracity, explainability and transparency. 
 

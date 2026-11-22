@@ -1,7 +1,6 @@
 
 
 # RAISP04-BP01 Use paired tests to choose from candidate designs
-<a name="raisp04-bp01"></a>
 
  Test different candidate configurations of your system, including different versions of your components or models during development using validation sets to determine which performs best. Different versions can come from different component choices, hyperparameters, training settings, or model architectures. Set up controlled comparisons between versions on the same validation data, then use paired statistical tests to determine if one version is statistically better than the other based on your release criteria. Keep your evaluation sets separate from component selection because using them would bias your final performance measurements and make your release decisions unreliable. 
 
