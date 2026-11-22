@@ -1,7 +1,6 @@
 
 
 # Troubleshoot a VPC peering connection
-<a name="troubleshoot-vpc-peering-connections"></a>
 
 If you're having trouble connecting to a resource in a VPC from a resource in a peer VPC, do the following:
 + For each resource in each VPC, verify that the route table for its subnet contains a route that sends traffic destined for the peer VPC to the VPC peering connection. This ensures network traffic can properly flow between the two VPCs. For more information, see [Update route tables](vpc-peering-routing.md).

@@ -1,7 +1,6 @@
 
 
 # How VPC peering connections work
-<a name="vpc-peering-basics"></a>
 
 The following steps describe the VPC peering process:
 

@@ -1,7 +1,6 @@
 
 
 # VPC peering connection quotas for an account
-<a name="vpc-peering-connection-quotas"></a>
 
 VPC peering allows you to connect two VPCs. This enables resources in one VPC to communicate with resources in the other VPC as if they were in the same network. VPC peering is a useful feature for connecting your VPCs, whether they are in the same AWS Region or different Regions. This section describes the quotas you should be aware of when working with VPC peering connections.
 

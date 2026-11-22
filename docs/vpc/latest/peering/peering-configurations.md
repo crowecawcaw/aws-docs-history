@@ -1,7 +1,6 @@
 
 
 # Common VPC peering connection configurations
-<a name="peering-configurations"></a>
 
 This section describes two common types of VPC peering configurations that you can implement:
 + **VPC peering configurations with routes to an entire VPC**: In this configuration, you create a route in each VPC's route table that sends all traffic destined for the peer VPC to the VPC peering connection. This allows any resource in one VPC to communicate with any resource in the peer VPC, simplifying management. However, it also means that all traffic between the VPCs will flow through the peering connection, which could become a bottleneck if the traffic volume is high.

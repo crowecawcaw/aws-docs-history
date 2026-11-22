@@ -1,7 +1,6 @@
 
 
 # Update your security groups to reference peer security groups
-<a name="vpc-peering-security-groups"></a>
 
 You can update the inbound or outbound rules for your VPC security groups to reference security groups for peered VPCs. Doing so allows traffic to flow to and from instances that are associated with the referenced security group in the peered VPC.
 
@@ -64,7 +63,7 @@ In the following example, the response indicates that security group `sg-bbbb222
 aws ec2 describe-security-group-references --group-id {{sg-bbbb2222}}
 ```
 
-```
+```json
 {    
   "SecurityGroupsReferenceSet": [
     {
@@ -109,7 +108,7 @@ In the following example, VPC A `(vpc-aaaaaaaa`) and VPC B were peered, and the 
 aws ec2 describe-stale-security-groups --vpc-id {{vpc-aaaaaaaa}}
 ```
 
-```
+```json
 {
     "StaleSecurityGroupSet": [
         {

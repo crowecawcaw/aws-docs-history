@@ -1,7 +1,6 @@
 
 
 # VPC peering connections
-<a name="working-with-vpc-peering"></a>
 
 VPC peering enables you to connect two VPCs in the same or different AWS Regions. This enables instances in one VPC to communicate with instances in the other VPC as if they were all part of the same network.
 
@@ -19,5 +18,6 @@ Use the following procedures to create and work with VPC peering connections.
 + [Update your route tables for a VPC peering connection](vpc-peering-routing.md)
 + [Update your security groups to reference peer security groups](vpc-peering-security-groups.md)
 + [Enable DNS resolution for a VPC peering connection](vpc-peering-dns.md)
++ [Enable multipath resilience for a VPC peering connection](enable-multipath-resilience-peering.md)
 + [Delete a VPC peering connection](delete-vpc-peering-connection.md)
 + [Troubleshoot a VPC peering connection](troubleshoot-vpc-peering-connections.md)

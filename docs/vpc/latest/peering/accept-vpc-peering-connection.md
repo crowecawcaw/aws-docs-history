@@ -1,14 +1,13 @@
 
 
 # Accept or reject a VPC peering connection
-<a name="accept-vpc-peering-connection"></a>
 
 A VPC peering connection that's in the `pending-acceptance` state must be accepted by the owner of the accepter VPC to be activated. For more information about the `Deleted` peering connection status, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle). You can't accept a VPC peering connection request that you sent to another AWS account. To create a VPC peering connection between VPCs in the same AWS account, you can both create and accept the request yourself.
 
 You can reject any VPC peering connection request that you've received that's in the `pending-acceptance` state. You should only accept VPC peering connections from AWS accounts that you know and trust; you can reject any unwanted requests. For more information about the `Rejected` peering connection status, see [VPC peering connection lifecycle](vpc-peering-basics.md#vpc-peering-lifecycle).
 
 **Important**  
-Do not accept VPC peering connections from unknown AWS accounts. A malicious user may have sent you a VPC peering connection request to gain unauthorized network access to your VPC. This is known as peer phishing. You can safely reject unwanted VPC peering connection requests without any risk of the requester gaining access to any information about your AWS account or your VPC. For more information, see [Accept or reject a VPC peering connection](#accept-vpc-peering-connection). You can also ignore the request and let it expire; by default, requests expire after 7 days.
+Do not accept VPC peering connections from unknown AWS accounts. A malicious user may have sent you a VPC peering connection request to gain unauthorized network access to your VPC. This is known as peer phishing. You can safely reject unwanted VPC peering connection requests without any risk of the requester gaining access to any information about your AWS account or your VPC. For more information, see [Accept or reject a VPC peering connection](accept-vpc-peering-connection.md). You can also ignore the request and let it expire; by default, requests expire after 7 days.
 
 **To accept or reject a peering connection using the console**
 

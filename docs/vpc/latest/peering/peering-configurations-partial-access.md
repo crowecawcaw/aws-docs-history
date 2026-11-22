@@ -1,7 +1,6 @@
 
 
 # VPC peering configurations with specific routes
-<a name="peering-configurations-partial-access"></a>
 
 You can configure route tables for a VPC peering connection to restrict access to a subnet CIDR block, a specific CIDR block (if the VPC has multiple CIDR blocks), or a specific resource in the peer VPC. In these examples, a central VPC is peered to at least two VPCs that have overlapping CIDR blocks.
 
