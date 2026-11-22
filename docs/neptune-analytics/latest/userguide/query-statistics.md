@@ -1,7 +1,6 @@
 
 
 # Statistics
-<a name="query-statistics"></a>
 
 Neptune Analytics uses similar statistics for planning query execution as in [Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html). Computing these statistics is performed as an integrated part of the Neptune Analytics storage system. There are a number of differences between the features and usage of statistics between Neptune Analytics and Neptune Database: 
 

@@ -1,7 +1,6 @@
 
 
 # The  `.vectors.distance.byNode`  algorithm
-<a name="vectors.distance.byNode"></a>
 
 The `.vectors.distance.byNode` algorithm computes the distance between two nodes based on their embeddings. The default distance is the squared L2 norm.
 
@@ -94,7 +93,7 @@ RETURN n, m, distance
 
 Here is an example of the output returned by `.vectors.distance.byNode` when run against a sample Wikipedia dataset using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n{`~id`: '0'})

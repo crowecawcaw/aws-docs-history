@@ -1,7 +1,6 @@
 
 
 # Structure of exported files
-<a name="export-structure"></a>
 
 ## CSV
 <a name="export-structure-csv"></a>

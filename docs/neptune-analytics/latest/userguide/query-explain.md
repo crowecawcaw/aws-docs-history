@@ -1,7 +1,6 @@
 
 
 # Query explain
-<a name="query-explain"></a>
 
 The openCypher `explain` feature is a feature that helps users to understand how the query is executed. Usually this is used in the context of query performance analysis.
 

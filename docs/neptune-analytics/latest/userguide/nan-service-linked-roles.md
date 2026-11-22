@@ -1,7 +1,6 @@
 
 
 # Using service-linked roles (SLRs) in Neptune Analytics
-<a name="nan-service-linked-roles"></a>
 
 Neptune Analytics graphs use AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Neptune Analytics graphs. Service-linked roles are predefined by Neptune Analytics graphs and include all the permissions that the service requires to call other AWS services on your behalf.
 
@@ -21,7 +20,7 @@ This service-linked role has an IAM managed permissions policy attached to it na
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -82,7 +81,7 @@ This service-linked role has an IAM managed permissions policy attached to it na
 **Note**  
 To allow an IAM entity such as a user, group, or role to be able to create, edit, or delete a service-linked role, you must set the appropriate permissions, like this:  
 
-```
+```json
 {
   "Action": "iam:CreateServiceLinkedRole",
   "Effect": "Allow",

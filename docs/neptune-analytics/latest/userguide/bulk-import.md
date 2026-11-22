@@ -1,7 +1,6 @@
 
 
 # Bulk import data into a graph
-<a name="bulk-import"></a>
 
  The task system in Neptune Analytics provides a powerful and flexible way to bulk import data into your graph. The `import` task is specifically designed to handle large-scale data ingestion from various data [formats](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/loading-data-formats.html). 
 

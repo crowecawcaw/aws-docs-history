@@ -1,7 +1,6 @@
 
 
 # Strongly connected components algorithm
-<a name="scc"></a>
 
 Strongly connected components (SCC) are the maximally connected subgraphs of a directed graph where every node is reachable from every other node (in other words, there exists a path between every node in the subgraph).
 
@@ -80,7 +79,7 @@ RETURN n, component
 
 Here is an example of the output returned by .scc when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n) CALL neptune.algo.scc(n) YIELD node, component RETURN node, component LIMIT 2" \

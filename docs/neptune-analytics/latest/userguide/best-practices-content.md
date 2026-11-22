@@ -1,7 +1,6 @@
 
 
 # openCypher query best practices
-<a name="best-practices-content"></a>
 
 ## Use the SET clause to remove multiple properties at once
 <a name="best-practices-content-1"></a>

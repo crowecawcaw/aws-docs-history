@@ -1,7 +1,6 @@
 
 
 # Maintaining a Neptune Analytics graph
-<a name="managing-maintaining"></a>
 
  Periodically, Neptune Analytics performs maintenance on Neptune resources. Maintenance most often involves updates to the following resources in your graph: 
 +  Underlying hardware 

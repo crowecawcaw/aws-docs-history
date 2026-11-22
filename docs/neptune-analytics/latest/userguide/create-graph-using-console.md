@@ -1,7 +1,6 @@
 
 
 # Creating a new Neptune Analytics graph using the AWS Management Console
-<a name="create-graph-using-console"></a>
 
 You can use the Neptune console to create a new Neptune Analytics graph.
 

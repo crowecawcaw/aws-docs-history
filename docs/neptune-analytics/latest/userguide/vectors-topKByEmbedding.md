@@ -1,7 +1,6 @@
 
 
 # .vectors.topKByEmbedding algorithm (deprecated)
-<a name="vectors-topKByEmbedding"></a>
 
 The `.vectors.topKByEmbedding` algorithm finds the `topK` nearest neighbors of an embedding based on the distance of their vector embeddings.
 
@@ -85,7 +84,7 @@ In queries like the one above, be careful to limit `MATCH(n)` so that it doesn't
 
 Here is an example of the output returned by `.vectors.topKByEmbedding` when run against the sample Wikipedia dataset using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH ( n {`~id`: '0'} )

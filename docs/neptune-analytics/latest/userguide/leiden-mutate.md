@@ -1,7 +1,6 @@
 
 
 # Leiden mutate algorithm
-<a name="leiden-mutate"></a>
 
  The [Leiden algorithm](leiden.md) is an improvement over the [Louvain algorithm](louvain.md) that guarantees well-connected communities. 
 
@@ -135,7 +134,7 @@ RETURN n.leidenCommId
 
 Here is an example of the output returned by .leiden.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
     --graph-identifier ${graphIdentifier} \
     --query-string 'CALL neptune.algo.leiden.mutate({writeProperty: "leidenCommId"}) \

@@ -1,7 +1,6 @@
 
 
 # Degree centrality algorithm
-<a name="degree"></a>
 
 The `.degree` centrality algorithm counts the number of incident edges at each node that it traverses. This measure of how connected the node is can in turn indicate the node's importance and level of influence in the network.
 
@@ -127,7 +126,7 @@ RETURN id
 
 Here is an example of the output returned by .degree when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string 'MATCH (n)

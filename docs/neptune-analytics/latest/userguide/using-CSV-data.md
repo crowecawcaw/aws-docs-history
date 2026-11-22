@@ -1,7 +1,6 @@
 
 
 # Using CSV data
-<a name="using-CSV-data"></a>
 
  Neptune Analytics, like [Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html), supports two csv formats for loading graph data: [csv](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html) and [opencypher](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html). Both are csv-based formats with a specified schema. A csv file must contain a header row and the column values. The remainder of the files are interpreted based on the corresponding header column. The header could contain predefined system column names and user-defined column names, annotated with predefined datatypes and cardinality. 
 

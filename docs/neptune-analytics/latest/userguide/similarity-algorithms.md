@@ -1,7 +1,6 @@
 
 
 # Similarity algorithms in Neptune Analytics
-<a name="similarity-algorithms"></a>
 
 Graph similarity algorithms allow you to compare and analyze the similarities and dissimilarities between different graph structures, which can provide insight into relationships, patterns, and commonalities across diverse datasets. This is invaluable in various fields, including biology for comparing molecular structures, social networks for identifying similar communities, and recommendation systems for suggesting similar items based on user preferences.
 

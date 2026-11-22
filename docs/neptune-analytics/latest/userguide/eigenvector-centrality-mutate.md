@@ -1,7 +1,6 @@
 
 
 # Eigenvector centrality mutate algorithm
-<a name="eigenvector-centrality-mutate"></a>
 
 The `.eigenvectorCentrality.mutate` algorithm computes and stores each node's [eigenvector centrality](eigenvector-centrality.md) value as a property of the node. Eigenvector centrality measures a node's importance by accounting for both the number and the importance of the nodes connected to it. Nodes that are connected to many highly connected nodes receive higher scores.
 
@@ -115,7 +114,7 @@ RETURN count(m)
 
 The following example shows the output that `.eigenvectorCentrality.mutate` returns when you run it against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
     --graph-identifier ${graphIdentifier} \
     --query-string "CALL neptune.algo.eigenvectorCentrality.mutate({writeProperty: 'evscore'}) YIELD success RETURN success" \

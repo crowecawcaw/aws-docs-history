@@ -1,7 +1,6 @@
 
 
 # Jaccard similarity algorithm
-<a name="jaccard-similarity"></a>
 
 The Jaccard similarity algorithm measures the similarity between two sets. It is calculated by dividing the size of the intersection of the two sets by the size of their union.
 
@@ -89,7 +88,7 @@ It is not good practice to use `MATCH(n)` without restriction in query integrati
 
 Here is an example of the output returned by .jaccardSimilarity when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n {code: 'AUS'})

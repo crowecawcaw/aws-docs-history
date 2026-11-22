@@ -1,7 +1,6 @@
 
 
 # Overlap similarity algorithm
-<a name="overlap-similarity"></a>
 
 Overlap Similarity is an algorithm that measures the overlap between the neighbors of two nodes. It does this by dividing the intersection of the two neighborhoods by the neighbor with minimum degree.
 
@@ -89,7 +88,7 @@ It is not good practice to use `MATCH(n)` without restriction in query integrati
 
 Here is an example of the output returned by .overlapSimilarity when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string 'MATCH (n {code: "AUS"})

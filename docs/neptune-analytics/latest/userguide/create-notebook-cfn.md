@@ -1,7 +1,6 @@
 
 
 # Creating a new Neptune Analytics notebook using a CloudFormation template
-<a name="create-notebook-cfn"></a>
 
 [Amazon SageMaker AI Notebook instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html) provide a fully managed Jupyter environment for running graph notebooks that are connected to a Neptune Analytics graph. SageMaker AI Notebooks run natively on Amazon Linux 2, and support use of the Jupyter Classic Notebook or JupyterLab 3 interface on the same instance.
 

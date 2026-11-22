@@ -1,7 +1,6 @@
 
 
 # Quick start using AWS CloudShell
-<a name="gettingStarted-cloudshell"></a>
 
  You can connect to your Neptune Analytics graph with a single click through [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) directly from the AWS Management Console. CloudShell provides a pre-authenticated shell environment with the `graphsh` tool pre-installed, connecting to your graph's public endpoint. You don't need to provision notebooks to interact with the graph. 
 

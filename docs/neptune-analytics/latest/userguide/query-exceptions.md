@@ -1,7 +1,6 @@
 
 
 # Exceptions
-<a name="query-exceptions"></a>
 
 The following table lists query-side exceptions that could be encountered while using a query.
 

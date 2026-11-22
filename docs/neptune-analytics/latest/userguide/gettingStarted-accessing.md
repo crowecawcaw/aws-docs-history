@@ -1,7 +1,6 @@
 
 
 # Accessing the graph
-<a name="gettingStarted-accessing"></a>
 
  Once you’ve created a graph and set up the prerequisites for connecting to that graph, you can proceed with accessing your graph to load and query data. This section contains an explanation of ways you can communicate with your graph along with some example queries. For details on how to load data, see the [loading data](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/loading-data.html) section in the Neptune Analytics user guide. 
 

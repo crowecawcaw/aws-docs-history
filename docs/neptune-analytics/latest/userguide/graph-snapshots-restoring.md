@@ -1,7 +1,6 @@
 
 
 # Restoring from a graph snapshot
-<a name="graph-snapshots-restoring"></a>
 
  When you create a snapshot of a graph, Neptune Analytics creates a storage volume snapshot of the graph, backing up all of its data. You can later create a new Neptune Analytics graph by restoring from this snapshot. When you restore the graph, you provide the name of the graph snapshot to restore from, and then provide a name for the new graph that is created by the restore. 
 
@@ -10,7 +9,7 @@
 
 **Restore an analytics graph from a snapshot**
 
-```
+```bash
 aws neptune-graph restore-graph-from-snapshot \
 --graph-name <NEW_GRAPH_NAME> \
 --snapshot-id <SNAPSHOT_ID>

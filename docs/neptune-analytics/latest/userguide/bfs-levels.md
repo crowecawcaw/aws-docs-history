@@ -1,7 +1,6 @@
 
 
 # Levels breadth-first search (BFS) algorithm
-<a name="bfs-levels"></a>
 
 The `levels` variant of breadth-first search is an algorithm for searching nodes from a starting node or nodes in breadth-first order. From there it performs a breadth-first search and records the hop level from the starting node of each node that it finds.
 
@@ -136,7 +135,7 @@ It is not good practice to use `MATCH(n)` without restriction in query integrati
 
 Here is an example of the output returned by .bfs.levels when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.bfs.levels(['101'], {maxDepth: 1}) YIELD source, node, level RETURN source, node, level LIMIT 2" \

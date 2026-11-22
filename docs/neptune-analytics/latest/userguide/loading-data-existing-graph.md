@@ -1,7 +1,6 @@
 
 
 # Bulk import data into an existing Neptune Analytics graph
-<a name="loading-data-existing-graph"></a>
 
  Neptune Analytics now allows you to efficiently import large datasets into an already provisioned graph database using the `StartImportTask` API. This API facilitates the direct loading of data from an Amazon S3 bucket into an **empty** Neptune Analytics graph. This is designed for loading data into existing empty clusters. 
 

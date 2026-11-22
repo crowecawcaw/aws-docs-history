@@ -1,7 +1,6 @@
 
 
 # Misc. graph procedures
-<a name="custom-algorithms"></a>
 
  The miscellaneous graph procedures can be ran on your graphs to give you insight into your graphs and their metrics. 
 

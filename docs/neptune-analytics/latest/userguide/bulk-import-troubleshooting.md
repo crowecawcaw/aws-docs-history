@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="bulk-import-troubleshooting"></a>
 
  For both bulk load and batch load, all the errors and summary of the load is sent to the CloudWatch log group in your account. To view the logs go to CloudWatch, click log groups from the left column, then search for and click `/aws/neptune/import-task-logs/`. 
 

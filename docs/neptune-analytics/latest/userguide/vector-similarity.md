@@ -1,7 +1,6 @@
 
 
 # Working with vector similarity in Neptune Analytics
-<a name="vector-similarity"></a>
 
 You can answer complex questions about your data by transforming data shapes into embeddings (that is, vectors). Using a vector search index lets you answer questions about your data's context and its similarity and connection to other data.
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to a private endpoint from a different VPC (including cross-account)
-<a name="gettingStarted-connecting-different-VPC"></a>
 
  In some cases, you may be required to connect to your graph from a different VPC without enabling public connectivity. For example, applications that segregate AWS services using different VPCs or different accounts. In this case, connectivity can be achieved through the use of private graph endpoints and Amazon Route 53 private hosted zones. The steps in the following procedure refer to a client in VPC B, wanting to access a Neptune Analytics graph in VPC A. 
 

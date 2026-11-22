@@ -1,7 +1,6 @@
 
 
 # Creating a graph snapshot
-<a name="graph-snapshots-creating"></a>
 
  Creating a graph snapshot is a crucial step in managing and maintaining your data within the Neptune graph database. This process allows you to capture a point-in-time snapshot of your graph, which can be useful for various purposes such as backup, restoration, or analysis. The provided instructions outline the steps to create a graph snapshot using either the AWS Command Line Interface (CLI) or the AWS SDK, as well as the Neptune console. By following these steps, you can easily identify the graph you want to snapshot, provide a unique name for the snapshot, and initiate the creation process. 
 
@@ -10,7 +9,7 @@
 
 **Find the id of your graph**
 
-```
+```bash
 aws neptune-graph list-graphs
 ```
 
@@ -18,7 +17,7 @@ aws neptune-graph list-graphs
 
  **Create a graph snapshot** 
 
-```
+```bash
 aws neptune-graph create-graph-snapshot \
 --graph-identifier <GRAPH_ID> \
 --snapshot-name <SNAPSHOT_NAME>

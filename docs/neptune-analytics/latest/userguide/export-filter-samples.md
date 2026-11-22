@@ -1,7 +1,6 @@
 
 
 # Sample filters
-<a name="export-filter-samples"></a>
 
 ## Sample filter: Specifying vertex and edge properties for export
 <a name="export-filter-samples-1"></a>

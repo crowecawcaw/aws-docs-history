@@ -1,7 +1,6 @@
 
 
 # Creating a Neptune Analytics graph from Amazon S3
-<a name="bulk-import-create-from-s3"></a>
 
  Neptune Analytics supports bulk importing of CSV, ntriples, and Parquet data directly from Amazon S3 into a Neptune Analytics graph using the `CreateGraphUsingImportTask` API. The data formats supported are listed in [Data format for loading from Amazon S3 into Neptune Analytics](loading-data-formats.md). It is recommended that you try the batch load process with a subset of your data first to validate that it is correctly formatted. Once you have validated that your data files are fully compatible with Neptune Analytics, you can prepare your full dataset and perform the bulk import using the steps below. 
 
@@ -68,7 +67,7 @@ aws s3 cp datafile.txt s3://examplebucket/mydirectory/datafile.txt
 
 ****  
 
-   ```
+   ```json
    {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

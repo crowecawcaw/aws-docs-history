@@ -1,7 +1,6 @@
 
 
 # Sample CSV output
-<a name="csv-output"></a>
 
  Given the following CSV file: 
 

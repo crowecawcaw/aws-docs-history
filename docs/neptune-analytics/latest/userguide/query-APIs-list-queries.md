@@ -1,7 +1,6 @@
 
 
 # ListQueries
-<a name="query-APIs-list-queries"></a>
 
 ListQueries API fetches the list of running/waiting/cancelling queries on the graph.
 

@@ -1,7 +1,6 @@
 
 
 # Path-finding algorithms in Neptune Analytics
-<a name="path-finding-algorithms"></a>
 
 Path-finding algorithms are a category of graph algorithms that focus on finding a path, a connected set of nodes and edges, between two or more sets of nodes within a graph. They are often used to find available or optimized paths based on the existence, quantity, or quality of the paths and the values of properties along those paths.
 

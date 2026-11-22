@@ -1,7 +1,6 @@
 
 
 # .vectors.upsert algorithm
-<a name="vectors-upsert"></a>
 
 The `.vectors.upsert` algorithm is used to add a new embedding or update an existing one for a node.
 
@@ -67,7 +66,7 @@ RETURN n, embedding, success
 
 Here is an example of the output returned by `.vectors.upsert` when run against the sample Wikipedia dataset using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n{\`~id\`:\"0\"})

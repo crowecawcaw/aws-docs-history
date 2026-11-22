@@ -1,7 +1,6 @@
 
 
 # Accessing Neptune Analytics interface endpoints
-<a name="gettingStarted-connecting-private-link-access"></a>
 
  When you create an interface endpoint for Neptune Analytics, AWS PrivateLink generates two types of endpoint-specific, Neptune Analytics DNS names: Regional and zonal. 
 +  A Regional DNS name includes a unique Amazon VPC endpoint ID, a service identifier, the AWS Region, and `vpce.amazonaws.com` in its name. For example, for Amazon VPC endpoint ID `vpce-1a2b3c4d`, the DNS name generated might be similar to `vpce-1a2b3c4d-5e6f.neptune-graph.us-east-1.vpce.amazonaws.com`. 

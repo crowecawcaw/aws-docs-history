@@ -1,7 +1,6 @@
 
 
 # Neptune Analytics openCypher data model
-<a name="query-openCypher-data-model"></a>
 
  For details on the openCypher data model, please refer to the Neptune Database [documentation](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-data-model.html). There are some differences in modeling of vertices without labels. Neptune Database adds vertices with a default label if one is not explicitly provided. All but the last label of a vertex can be deleted. 
 

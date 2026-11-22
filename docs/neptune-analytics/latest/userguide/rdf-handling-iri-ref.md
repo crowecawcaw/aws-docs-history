@@ -1,7 +1,6 @@
 
 
 # Referencing IRIs in queries
-<a name="rdf-handling-iri-ref"></a>
 
  There are two ways to reference an IRI in an openCypher query: 
 +  Wrap the full IRI inside `<` and `>` . Depending on where in the query this IRI is referenced, the IRI is then provided as a String, such as `"<http://example.com/Alice>"` (when the IRI is the value of property `~id`), or in backticks such as ``<http://example.com/Alice>`` (when the IRI is a label, or property key). 

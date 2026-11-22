@@ -1,7 +1,6 @@
 
 
 # Creating a Neptune Analytics graph from Neptune cluster or snapshot
-<a name="bulk-import-create-from-neptune"></a>
 
  Neptune Analytics provides an easy way to bulk import data from an existing Neptune Database cluster or snapshot into a new Neptune Analytics graph, using the `CreateGraphUsingImportTask` API. Data from your source cluster or snapshot is bulk exported into an Amazon S3 bucket that you configure, analyzed to find the right memory configuration, and bulk imported into a new Neptune Analytics graph. You can check the progress of your bulk import at any time using the `GetImportTask` API as well. 
 
@@ -81,7 +80,7 @@
 
 ****  
 
-   ```
+   ```json
    {
          "Version":"2012-10-17",		 	 	 
          "Statement": [

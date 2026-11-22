@@ -1,7 +1,6 @@
 
 
 # Sample Parquet output
-<a name="parquet-output"></a>
 
  Given a Parquet file like this: 
 

@@ -1,7 +1,6 @@
 
 
 # Deleting a Neptune Analytics graph
-<a name="managing-deleting"></a>
 
  You can delete a Neptune Analytics graph when you no longer need it. Before deleting the graph, you can save a snapshot of your data. You can then restore that snapshot at a later date to create a new graph containing the same data. For more information about creating snapshots, see [Graph snapshots](graph-snapshots.md). 
 

@@ -1,7 +1,6 @@
 
 
 # Connecting to a private endpoint from within the same VPC
-<a name="gettingStarted-connecting-within-VPC"></a>
 
  For graphs using private endpoints, you can connect to your graph from any resource that has access to the private VPC, such as AWS Lambda, an Amazon SageMaker AI notebook instance, an Amazon EC2 instance, etc. The instance must be in the same VPC and subnet as the private endpoint for your graph. Ensure that the security group attached to the VPC endpoint of your private graph's endpoint allows ingress on port 443, and optionally port 8182. 
 

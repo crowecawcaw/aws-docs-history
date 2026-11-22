@@ -1,7 +1,6 @@
 
 
 # Source-target breadth-first search (BFS) algorithm
-<a name="bfs-path"></a>
 
  The `path` variant of breadth-first search finds a shortest path (the one with the fewest hops) between a source node and a target node. It is the unweighted analogue of the source-target shortest path algorithms (`.sssp.*.path`): where those minimize the accumulated edge weight, `.bfs.path` minimizes the number of hops. Because breadth-first search is unweighted, every edge counts as a single hop. If more than one shortest path exists between the source node and the target node, only one of them is returned. By default, when both `edgeLabels` and `vertexLabels` are empty, the whole graph is traversed. 
 
@@ -142,7 +141,7 @@ It is not good practice to use `MATCH(n)` without restriction in query integrati
 
 Here is an example of the output returned by .bfs.path when run against the [ sample air-routes dataset [nodes] on the GitHub website](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges] on the GitHub website](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH (n:airport {code: 'FLL'})

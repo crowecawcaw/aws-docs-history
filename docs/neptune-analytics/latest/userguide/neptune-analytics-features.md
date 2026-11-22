@@ -1,7 +1,6 @@
 
 
 # Neptune Analytics Features
-<a name="neptune-analytics-features"></a>
 
 Neptune Analytics operates in a managed environment that can load data extremely fast into memory and run graph algorithms natively. With Neptune Analytics, you can perform in-database analytics on large graphs.
 

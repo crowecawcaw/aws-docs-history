@@ -1,7 +1,6 @@
 
 
 # Label propagation mutate algorithm
-<a name="label-propagation-mutate"></a>
 
 [Label Propagation Algorithm (LPA)](label-propagation.md) is an algorithm for community detection that is also used in semi-supervised machine learning for data classification.
 
@@ -106,7 +105,7 @@ CALL neptune.algo.labelPropagation.mutate(
 
 Here is an example of the output returned by .labelPropagation.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.labelPropagation.mutate({writeProperty: 'communityId'}) YIELD success RETURN success" \

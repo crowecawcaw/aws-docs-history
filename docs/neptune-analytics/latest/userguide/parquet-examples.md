@@ -1,7 +1,6 @@
 
 
 # Query examples using Parquet
-<a name="parquet-examples"></a>
 
  The following example query returns the number of rows in a given Parquet file: 
 

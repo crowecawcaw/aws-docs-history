@@ -1,7 +1,6 @@
 
 
 # Supported Parquet column types
-<a name="parquet-column-types"></a>
 
 **Parquet data types:**
 +  NULL 

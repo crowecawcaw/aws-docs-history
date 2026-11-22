@@ -1,7 +1,6 @@
 
 
 # Best practices for metadata filtering in GraphRAG
-<a name="best-practices-graphrag-filters"></a>
 
  When using Neptune Analytics as the vector store for an Amazon Bedrock Knowledge Base with GraphRAG, you can apply metadata filters during retrieval to narrow down the set of candidate nodes. Choosing the right filter type and structure can have a significant impact on query latency. This page provides guidance on how to use metadata filters effectively. 
 
@@ -43,7 +42,7 @@
 
 Use:
 
-```
+```json
 {
     "retrievalConfiguration": {
         "vectorSearchConfiguration": {
@@ -72,7 +71,7 @@ Use:
 
 Avoid:
 
-```
+```json
 {
     "retrievalConfiguration": {
         "vectorSearchConfiguration": {
@@ -106,7 +105,7 @@ Avoid:
 
 Instead of using a `startsWith` filter like this in the Amazon Bedrock `Retrieve` or `RetrieveAndGenerate` API:
 
-```
+```json
 {
     "retrievalConfiguration": {
         "vectorSearchConfiguration": {
@@ -123,7 +122,7 @@ Instead of using a `startsWith` filter like this in the Amazon Bedrock `Retrieve
 
 Add a dedicated metadata attribute (for example, `document_category`) to your documents and use an `equals` filter. Note that adding new metadata attributes requires updating your source documents and re-syncing the knowledge base for the new attributes to take effect.
 
-```
+```json
 {
     "retrievalConfiguration": {
         "vectorSearchConfiguration": {
@@ -140,7 +139,7 @@ Add a dedicated metadata attribute (for example, `document_category`) to your do
 
  If you must match multiple categories, use `in`: 
 
-```
+```json
 {
     "retrievalConfiguration": {
         "vectorSearchConfiguration": {

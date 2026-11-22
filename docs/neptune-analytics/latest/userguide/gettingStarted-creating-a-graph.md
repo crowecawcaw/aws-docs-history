@@ -1,7 +1,6 @@
 
 
 # Create an empty Neptune graph
-<a name="gettingStarted-creating-a-graph"></a>
 
  Neptune allows you to create and manage graph databases. This step-by-step guide outlines the process of creating an empty Neptune graph using the AWS management console, the AWS CLI, and CloudFormation. The guide covers the necessary configurations, such as setting the graph name, size, replica configuration, and network connectivity options. 
 

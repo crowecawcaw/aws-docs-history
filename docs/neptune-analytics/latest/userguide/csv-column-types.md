@@ -1,7 +1,6 @@
 
 
 # Supported CSV column types
-<a name="csv-column-types"></a>
 +  Bool (or Boolean) - Allowed values: `true`, `false`. Indicates a Boolean field. Any value other than `true` will be treated as `false`. 
 +  FLOAT - Range: 32-bit IEEE 754 floating point including Infinity, INF, -Infinity, -INF and NaN (not-a-number). 
 +  DOUBLE - Range: 64-bit IEEE 754 floating point including Infinity, INF, -Infinity, -INF and NaN (not-a-number). 

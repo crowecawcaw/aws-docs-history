@@ -1,7 +1,6 @@
 
 
 # Managing your Neptune Analytics graphs
-<a name="managing"></a>
 
  Neptune Analytics graphs involve multiple instances that are connected in a replication topology. Managing graphs often involves deploying changes to multiple servers and making sure that all Neptune Analytics graph replicas are keeping up with the primary graph. Neptune Analytics automatically performs continuous backups, and does not require extensive planning or downtime for performing backups. 
 

@@ -1,7 +1,6 @@
 
 
 # Exporting data from a Neptune Analytics graph
-<a name="exporting-data"></a>
 
  Neptune Analytics provides export functionality to allow you to export your graph into columnar structured .csv and .parquet files that are compatible with the [bulk import](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/bulk-import.html) and [batch load](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html) functionality. This functionality facilitates workflows such as performing analytics on a Neptune Analytics graph, exporting the result for external processing and transformation, and importing the results into Neptune Database, Neptune Analytics, or other software for further analysis. Additionally, the export functionality allows you to specify a filter defining labels and properties of vertices and edges to include in your export, or simply to export your entire graph. Using Neptune Analytics export with the import and export features of Neptune Database also facilitates a round-tripping use case from Neptune Database, allowing you to create a temporary Neptune Analytics graph from your Neptune Database, run advanced analytics, and export the results back into Neptune Database. 
 

@@ -1,7 +1,6 @@
 
 
 # Degree mutate centrality algorithm
-<a name="degree-mutate"></a>
 
 The `.degree.mutate` centrality algorithm counts the number of incident edges of every node in the graph. This measure of how connected the node is can in turn indicate the node's importance and level of influence in the network. The `.degree.mutate` algorithm then stores each node's calculated degree value as a property of the node.
 
@@ -80,7 +79,7 @@ RETURN n.DEGREE
 
 Here is an example of the output returned by .degree.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.degree.mutate({writeProperty: 'degree'}) YIELD success RETURN success" \

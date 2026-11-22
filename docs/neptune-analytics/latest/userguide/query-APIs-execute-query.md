@@ -1,7 +1,6 @@
 
 
 # ExecuteQuery
-<a name="query-APIs-execute-query"></a>
 
 ExecuteQuery runs queries against a Neptune Analytics graph. Supported language: openCypher.
 

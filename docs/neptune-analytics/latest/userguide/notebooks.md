@@ -1,7 +1,6 @@
 
 
 # Using notebooks with Neptune Analytics
-<a name="notebooks"></a>
 
 The Neptune managed open-source [graph-notebook project](https://github.com/aws/graph-notebook) provides a plethora of [Jupyter](https://jupyter.org/) extensions and sample notebooks that make it easy to interact with and learn to use a Neptune Analytics graph.
 

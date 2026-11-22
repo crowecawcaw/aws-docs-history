@@ -1,7 +1,6 @@
 
 
 # Weakly connected components mutate algorithm
-<a name="wcc-mutate"></a>
 
 The mutate variant of the weakly connected components (WCC) algorithm performs the weakly connected components calculation over the entire graph unless the configuration parameters establish a filter, and each traversed node's calculated WCC value is stored as a property on the node.
 
@@ -73,7 +72,7 @@ RETURN n.CCID
 
 Here is an example of the output returned by .wcc.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.wcc.mutate({writeProperty: 'wccid'}) YIELD success RETURN success"

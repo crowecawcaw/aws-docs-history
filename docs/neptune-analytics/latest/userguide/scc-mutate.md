@@ -1,7 +1,6 @@
 
 
 # Strongly connected components mutate algorithm
-<a name="scc-mutate"></a>
 
 [Strongly connected components (SCC)](scc.md) are the maximally connected subgraphs of a directed graph, where every node is reachable from every other node (in other words, there exists a path between every node in the subgraph).
 
@@ -68,7 +67,7 @@ CALL neptune.algo.scc.mutate(
 
 Here is an example of the output returned by .scc.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.scc.mutate({writeProperty: 'sccid'}) YIELD success RETURN success" \

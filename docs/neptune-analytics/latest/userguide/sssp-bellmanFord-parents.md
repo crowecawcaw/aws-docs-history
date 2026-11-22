@@ -1,7 +1,6 @@
 
 
 # Bellman-Ford single source shortest path (SSSP) parents algorithm
-<a name="sssp-bellmanFord-parents"></a>
 
 The `.sssp.bellmanFord.parents` algorithm uses the [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm) algorithm to find the parent nodes along with the shortest path distances from the source node to all other nodes in the graph.
 
@@ -113,7 +112,7 @@ It is not good practice to use `MATCH(n)` without restriction in query integrati
 
 Here is an example of the output returned by .sssp.bellmanFord.parents when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.sssp.bellmanFord.parents(['101'],

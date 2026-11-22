@@ -1,7 +1,6 @@
 
 
 # Best practices
-<a name="bestPractices"></a>
 
  The following are some general recommendations for working with Neptune Analytics. Use this information as a reference to quickly find recommendations for maximizing performance while using Neptune Analytics. 
 

@@ -1,7 +1,6 @@
 
 
 # Querying Neptune Analytics
-<a name="query"></a>
 
  Neptune Analytics currently supports only the openCypher query language to access a graph. openCypher is a declarative query language for property graphs that was originally developed by Neo4j, then open-sourced in 2015, and contributed to the [openCypher](https://opencypher.org/) project under an Apache 2 open-source license. Its syntax is documented in the [openCypher](https://s3.amazonaws.com/artifacts.opencypher.org/openCypher9.pdf) spec. 
 

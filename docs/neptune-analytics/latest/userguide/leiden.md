@@ -1,7 +1,6 @@
 
 
 # Leiden algorithm
-<a name="leiden"></a>
 
  The Leiden algorithm is an improvement over the [Louvain algorithm](louvain.md) that guarantees well-connected communities. It adds a refinement phase before each aggregation step. This avoids Louvain's known shortcoming of producing arbitrarily badly connected or disconnected clusters. Like Louvain, it optimizes modularity through hierarchical clustering and can run in both weighted and unweighted modes. Leiden is particularly suited for applications where community cohesion matters. Use cases include detecting tightly-knit fraud rings in financial networks, identifying functionally coherent modules in biological systems, and discovering well-connected user groups in social platforms. 
 
@@ -170,7 +169,7 @@ RETURN n, community
 
 Here is an example of the output returned by .leiden when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
     --graph-identifier ${graphIdentifier} \
     --query-string 'MATCH (n) \

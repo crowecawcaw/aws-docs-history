@@ -1,7 +1,6 @@
 
 
 # The  `.vectors.get`  algorithm
-<a name="vectors-get"></a>
 
 The `.vectors.get` algorithm retrieves the embedding for a node.
 
@@ -46,7 +45,7 @@ RETURN n, embedding
 
 Here is an example of the output returned by `.vectors.get` when run against the sample Wikipedia dataset using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "MATCH ( n {`~id`: '0'} )

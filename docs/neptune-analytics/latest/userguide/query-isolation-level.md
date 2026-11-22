@@ -1,7 +1,6 @@
 
 
 # Transaction isolation levels in Neptune Analytics
-<a name="query-isolation-level"></a>
 
  Neptune Analytics has some differences with isolation level supported by [Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/transactions-neptune.html). 
 

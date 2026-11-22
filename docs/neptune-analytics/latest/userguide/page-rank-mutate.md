@@ -1,7 +1,6 @@
 
 
 # PageRank mutate centrality algorithm
-<a name="page-rank-mutate"></a>
 
 The ranking metric computed by `.pageRank.mutate` can indicate the importance of a node within a given graph, with the most important nodes having the highest score, and the least important node having the lowest score. PageRank is used in search engines to rank web pages based on their importance and influence, in citation networks to identify highly cited scientific papers, and in recommendation systems to suggest popular and relevant content to users.
 
@@ -143,7 +142,7 @@ CALL neptune.algo.pageRank.mutate(
 
 Here is an example of the output returned by .pageRank.mutate when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.pageRank.mutate({writeProperty: 'prscore'}) YIELD success RETURN success" \

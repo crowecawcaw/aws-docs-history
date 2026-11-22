@@ -1,7 +1,6 @@
 
 
 # Listing existing graph snapshots
-<a name="graph-snapshots-listing"></a>
 
  The following information outlines the various methods and commands for managing graph snapshots in the Amazon Neptune database service. It covers the steps to list all existing graph snapshots, as well as how to retrieve details of a specific snapshot. The information also explains the different status states that a graph snapshot can have, such as "CREATING," "AVAILABLE," "FAILED," and "DELETING." 
 
@@ -10,13 +9,13 @@
 
 **List all graph snapshots**
 
-```
+```bash
 aws neptune-graph list-graph-snapshots
 ```
 
 **Look up a single graph snapshot**
 
-```
+```bash
 aws neptune-graph get-graph-snapshot \
 --snapshot-id <SNAPSHOT_ID>
 ```

@@ -1,7 +1,6 @@
 
 
 # When to use Neptune Analytics and when to use Neptune Database
-<a name="neptune-analytics-vs-neptune-database"></a>
 
 Amazon Neptune makes it easy to work with graph data in the AWS Cloud. Amazon Neptune includes both Neptune Database and Neptune Analytics.
 

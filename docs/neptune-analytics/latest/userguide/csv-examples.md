@@ -1,7 +1,6 @@
 
 
 # Query examples using CSV
-<a name="csv-examples"></a>
 
  In this example, the query returns the number of rows in a given CSV file: 
 

@@ -1,7 +1,6 @@
 
 
 # Breadth-first search (BFS) path finding algorithms
-<a name="bfs-algorithms"></a>
 
 Breadth-first search (BFS) path-finding algorithms search for nodes in breadth-first order, starting from a single vertex. They can also, in the multi-source case, start from more than one vertex.
 

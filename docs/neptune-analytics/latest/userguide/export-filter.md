@@ -1,7 +1,6 @@
 
 
 # Specifying a filter
-<a name="export-filter"></a>
 
  The `vertexFilter` is used to specify filters on a per-label basis for vertices. This allows you to control which vertex labels and properties are included in the export. 
 +  `vertexFilter` - This is the top-level field for specifying vertex filters. 

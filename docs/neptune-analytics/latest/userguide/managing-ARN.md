@@ -1,7 +1,6 @@
 
 
 # Working with ARNs in Neptune Analytics graph
-<a name="managing-ARN"></a>
 
  You can get the ARN of a Neptune Analytics graph resource by using the AWS Management Console or the AWS CLI. 
 

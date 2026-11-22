@@ -1,7 +1,6 @@
 
 
 # Deleting a graph snapshot
-<a name="graph-snapshots-deleting"></a>
 
  Deleting a graph snapshot is an important task in managing and maintaining your Neptune graph database. The AWS Neptune Console and Command Line Interface (CLI) or Software Development Kit (SDK) provide the necessary tools to accomplish this. 
 
@@ -10,7 +9,7 @@
 
 **Delete a snapshot**
 
-```
+```bash
 aws neptune-graph delete-graph-snapshot \
 --snapshot-id <SNAPSHOT_ID>
 ```

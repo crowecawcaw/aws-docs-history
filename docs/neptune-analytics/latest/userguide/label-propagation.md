@@ -1,7 +1,6 @@
 
 
 # Label propagation algorithm (LPA)
-<a name="label-propagation"></a>
 
 Label Propagation Algorithm (LPA) is an algorithm for community detection that is also used in semi-supervised machine learning for data classification.
 
@@ -139,7 +138,7 @@ RETURN n, community
 
 Here is an example of the output returned by .labelPropagation when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 "results": [{
       "node": {
         "~id": "8",

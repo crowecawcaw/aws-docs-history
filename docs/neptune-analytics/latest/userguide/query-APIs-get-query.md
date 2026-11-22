@@ -1,7 +1,6 @@
 
 
 # GetQuery
-<a name="query-APIs-get-query"></a>
 
 The GetQuery API can be used to get the status of a specific query request.
 

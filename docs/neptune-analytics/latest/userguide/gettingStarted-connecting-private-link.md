@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for Neptune Analytics
-<a name="gettingStarted-connecting-private-link"></a>
 
  With AWS PrivateLink for Neptune Analytics, you can provision interface Amazon VPC endpoints (interface endpoints) in your virtual private cloud (Amazon VPC). These endpoints are directly accessible from applications that are on premises over VPN and AWS Direct Connect, or in a different AWS region over [Amazon VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html). Using AWS PrivateLink and interface endpoints, you can simplify private network connectivity from your applications to Neptune Analytics. 
 

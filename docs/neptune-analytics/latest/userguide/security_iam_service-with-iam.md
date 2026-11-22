@@ -1,7 +1,6 @@
 
 
 # How Neptune Analytics works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Neptune Analytics, learn what IAM features are available to use with Neptune Analytics.
 

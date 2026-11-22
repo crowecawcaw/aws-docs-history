@@ -1,7 +1,6 @@
 
 
 # Checking the details and progress of an import task
-<a name="bulk-import-checking-details"></a>
 
  You can use the [ GetImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetImportTask.html) API to track the progress and the status of your import task. 
 

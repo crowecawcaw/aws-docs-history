@@ -1,7 +1,6 @@
 
 
 # GraphSummary
-<a name="query-APIs-graph-summary"></a>
 
 You can use the GetGraphSummary API to quickly gain a high-level understanding of your graph data, size and content. In a graph application, this API can be used to improve the search results by providing discovered node or edge labels as part of the search.
 

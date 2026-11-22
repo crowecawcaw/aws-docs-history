@@ -1,7 +1,6 @@
 
 
 # Graph visualization tools for Neptune Analytics
-<a name="visualization-tools"></a>
 
 You can use solutions built by AWS partners and third-party vendors for visualizing data stored in Neptune Analytics.
 

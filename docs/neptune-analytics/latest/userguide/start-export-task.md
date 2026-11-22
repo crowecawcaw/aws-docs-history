@@ -1,7 +1,6 @@
 
 
 # start-export-task
-<a name="start-export-task"></a>
 
  This command starts an export task on a graph in Neptune Analytics. It allows you to export your graph into columnar structured .csv and .parquet files. Calling export on a graph will generate a unique `taskId` that you can use to track the progress of your export. When an export is triggered, a clone of your graph is created to process the export request, allowing your graph to continue servicing queries and analytics with no performance impact. 
 

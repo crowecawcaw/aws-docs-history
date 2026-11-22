@@ -1,7 +1,6 @@
 
 
 # .degreeDistribution algorithm
-<a name="degreeDistribution"></a>
 
 The `.degreeDistribution` algorithm is a tool for analyzing and visualizing the structural characteristics of a graph. It calculates the frequency distribution of vertex degrees across the entire network and provides basic statistics of the distribution.
 
@@ -87,7 +86,7 @@ RETURN meanDegree
 
 Here is an example of the output returned by .degreeDistribution when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
     \
    --region ${region}

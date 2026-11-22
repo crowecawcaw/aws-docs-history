@@ -1,7 +1,6 @@
 
 
 # CancelQuery
-<a name="query-APIs-cancel-query"></a>
 
 CancelQuery cancels a specific query request.
 

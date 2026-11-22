@@ -1,7 +1,6 @@
 
 
 # Using RDF data
-<a name="using-rdf-data"></a>
 
  Neptune Analytics supports importing RDF data using the n-triples format. The handling of RDF values is described below, including how RDF data is interpreted as LPG concepts and can be queried using openCypher. 
 

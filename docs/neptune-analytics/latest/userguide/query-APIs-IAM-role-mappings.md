@@ -1,7 +1,6 @@
 
 
 # IAM role mappings
-<a name="query-APIs-IAM-role-mappings"></a>
 
 When you're calling Neptune Analytics API methods on a cluster, you require an IAM policy attached to the user or role making the calls that provides permissions for the actions you want to make. You set those permissions in the policy using corresponding IAM actions. You can also restrict the actions that can be taken using [IAM condition keys](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html).
 

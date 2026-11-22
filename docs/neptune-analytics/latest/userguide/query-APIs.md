@@ -1,7 +1,6 @@
 
 
 # Query APIs
-<a name="query-APIs"></a>
 
 The Neptune Analytics data API provides support for data operations including query execution, query status checking, query cancellation, and graph summarizing via the HTTPS endpoint, the AWS CLI, and the SDK.
 

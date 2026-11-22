@@ -1,7 +1,6 @@
 
 
 # Accessing Neptune Analytics graph from Neptune Analytics interface endpoints
-<a name="gettingStarted-connecting-private-link-access-interface"></a>
 
  You can use the AWS CLI or AWS SDKs to access Neptune Analytics graph API operations through Neptune Analytics interface endpoints. 
 

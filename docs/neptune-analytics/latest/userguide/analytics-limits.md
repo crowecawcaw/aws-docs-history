@@ -1,7 +1,6 @@
 
 
 # Limits for Neptune Analytics
-<a name="analytics-limits"></a>
 
 ## Regions
 <a name="limits-regions"></a>

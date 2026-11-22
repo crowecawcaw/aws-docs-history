@@ -1,7 +1,6 @@
 
 
 # Create a Neptune graph from existing sources
-<a name="gettingStarted-existing-sources"></a>
 
  You can load data into a Neptune graph from another Neptune database, Neptune database cluster snapshot, or from Amazon S3 files. Select the data sources and an IAM role for the data import accordingly. For more information about loading data, see [Create a graph from Amazon S3, a Neptune cluster, or a snapshot](bulk-import-into-a-graph.md). 
 

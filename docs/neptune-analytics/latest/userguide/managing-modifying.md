@@ -1,7 +1,6 @@
 
 
 # Modifying a Neptune Analytics graph
-<a name="managing-modifying"></a>
 
  You can change the settings of a Neptune Analytics graph to accomplish tasks such as changing public connectivity or its provisioned-memory. 
 

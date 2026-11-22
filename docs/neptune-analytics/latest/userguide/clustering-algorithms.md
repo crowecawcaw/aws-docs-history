@@ -1,7 +1,6 @@
 
 
 # Clustering and community detection algorithms in Neptune Analytics
-<a name="clustering-algorithms"></a>
 
 Clustering algorithms evaluate how nodes are clustered in communities, in closely-knit sets, or in highly or loosely interconnected groups.
 

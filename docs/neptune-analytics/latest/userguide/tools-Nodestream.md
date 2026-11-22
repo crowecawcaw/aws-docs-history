@@ -1,7 +1,6 @@
 
 
 # Nodestream
-<a name="tools-Nodestream"></a>
 
  [Nodestream](https://nodestream-proj.github.io/docs/docs/intro/) is a framework for dealing with semantically modeling data as a graph. It is designed to be flexible and extensible, allowing you to define how data is collected and modeled as a graph. It uses a pipeline-based approach to define how data is collected and processed, and it provides a way to define how the graph should be updated when the schema changes. All of this is done using a simple, human-readable configuration file in yaml format. To accomplish this, Nodestream uses a number of core concepts, including pipelines, extractors, transformers, filters, interpreters, interpretations, and migrations. 
 

@@ -1,7 +1,6 @@
 
 
 # Create a graph from Amazon S3, a Neptune cluster, or a snapshot
-<a name="bulk-import-into-a-graph"></a>
 
  You can create a Neptune Analytics graph directly from Amazon S3 or from Neptune using the [CreateGraphUsingImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html) API. This is recommended for importing large graphs from files in Amazon S3 (>50GB of data), importing from existing Neptune clusters, or importing from existing Neptune snapshots. This API automatically analyzes the data, provisions a new graph based on the analysis, and imports data as one atomic operation using maximum available resources. 
 

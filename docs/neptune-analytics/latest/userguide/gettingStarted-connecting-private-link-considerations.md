@@ -1,7 +1,6 @@
 
 
 # Considerations when using AWS PrivateLink for Neptune Analytics
-<a name="gettingStarted-connecting-private-link-considerations"></a>
 
  Amazon VPC considerations apply to AWS PrivateLink for Neptune Analytics. For more information, see [ Interface endpoint considerations](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#vpce-interface-limitations) and [AWS PrivateLink quotas](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-limits-endpoints.html) in the AWS PrivateLink guide. Additionally, the following restrictions apply: 
 

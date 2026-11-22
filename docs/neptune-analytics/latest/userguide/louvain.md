@@ -1,7 +1,6 @@
 
 
 # Louvain algorithm
-<a name="louvain"></a>
 
  The Louvain algorithm is a hierarchical clustering method for detecting community structures within networks. A community is defined as a subset of nodes with dense internal connections relative to sparse external connections. The algorithm iteratively optimizes modularity, which mathematically measures the strength of network division into communities by comparing the density of connections within communities to what would be expected in a random network with the same degree distribution. 
 
@@ -164,7 +163,7 @@ RETURN n, community
 
 Here is an example of the output returned by .louvain when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
     --graph-identifier ${graphIdentifier} \
     --query-string 'MATCH (n) \

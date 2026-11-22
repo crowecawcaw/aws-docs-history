@@ -1,7 +1,6 @@
 
 
 # Data format for loading from Amazon S3 into Neptune Analytics
-<a name="loading-data-formats"></a>
 
  Neptune Analytics, just like [Neptune Database](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html), supports four formats for loading data: 
 +  [RDF (ntriples)](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-rdf.html), which is a line-based format for triples. See [Using RDF data](using-rdf-data.md) for more information on how this data is handled. 

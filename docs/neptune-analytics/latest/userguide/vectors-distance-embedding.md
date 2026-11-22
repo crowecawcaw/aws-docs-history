@@ -1,7 +1,6 @@
 
 
 # The  `.vectors.distanceByEmbedding`  algorithm (deprecated)
-<a name="vectors-distance-embedding"></a>
 
  The `.vectors.distanceByEmbedding` algorithm computes the distance between an embedding vector and the embedding of an input node. The default distance is the squared L2 norm of the input (source) embedding vector and the embedding vector of the (target) input node. 
 
@@ -102,7 +101,7 @@ RETURN embedding, n, distance
 
 Here is an example of the output returned by `.vectors.distanceByEmbedding` when run against a sample Wikipedia dataset using the following query:
 
-```
+```json
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "***embedding part***

@@ -1,7 +1,6 @@
 
 
 # Loading data into a Neptune Analytics graph
-<a name="loading-data"></a>
 
 Neptune Analytics provides several options for loading data into a graph, supporting both RDF (Resource Description Framework) and LPG (Labeled Property Graph) models.
 +  **Bulk import**  –   Designed to handle large scale data ingestion and is the fastest way to load large volumes of data. Bulk import runs a task to load data from files in [Amazon S3](bulk-import-create-from-s3.md). This option **must** be done on an empty graph, either at creation time using the [CreateGraphUsingImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html) action, or on an existing graph using the [StartImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartImportTask.html) action. 

@@ -1,7 +1,6 @@
 
 
 # Mitigation for query plan cache issue
-<a name="engine-releases-mitigation"></a>
 
 We have detected an issue in query plan cache when `skip` or `limit` is used in an inner `WITH` clause and are parameterized. For example:
 
