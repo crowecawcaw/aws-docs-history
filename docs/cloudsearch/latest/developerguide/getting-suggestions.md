@@ -1,7 +1,6 @@
 
 
 # Getting Autocomplete Suggestions in Amazon CloudSearch
-<a name="getting-suggestions"></a>
 
 This section describes how to configure suggesters so you can retrieve suggestions. Suggestions are possible matches for an incomplete search query—they enable you to display likely matches before users finish typing their queries. In Amazon CloudSearch, suggestions are based on the contents of a particular text field. When you request suggestions, Amazon CloudSearch finds all of the documents whose values in the suggester field start with the specified query string—the beginning of the field must match the query string to be considered a match. The return data includes the field value and document ID for each match. You can configure suggesters to find matches for the exact query string, or to perform approximate string matching (fuzzy matching) to correct for typographical errors and misspellings. 
 

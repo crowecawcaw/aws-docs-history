@@ -1,7 +1,6 @@
 
 
 # AvailabilityOptionsStatus
-<a name="API_AvailabilityOptionsStatus"></a>
 
 ## Description
 <a name="API_AvailabilityOptionsStatus_Description"></a>

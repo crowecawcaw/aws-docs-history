@@ -1,7 +1,6 @@
 
 
 # Integrating Amazon CloudSearch with API Gateway
-<a name="api-gateway"></a>
 
 This chapter provides information about integrating Amazon CloudSearch with Amazon API Gateway. API Gateway lets you create and host REST APIs that make calls to other services. Some use cases for using API Gateway with Amazon CloudSearch include the following:
 + Further securing the Amazon CloudSearch search endpoint using API keys or Amazon Cognito user pools
@@ -30,7 +29,7 @@ Before you integrate Amazon CloudSearch with API Gateway, you must have the foll
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -51,7 +50,7 @@ Before you integrate Amazon CloudSearch with API Gateway, you must have the foll
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -129,7 +128,7 @@ At this point, you've created an API that has one method. Before deploying the A
 
 1. Verify that the response body contains search results, such as the following:
 
-   ```
+   ```json
    {
      "status": {
        "rid": "rcWTo8IsviEK+own",

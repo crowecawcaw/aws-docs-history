@@ -1,7 +1,6 @@
 
 
 # DescribeServiceAccessPolicies
-<a name="API_DescribeServiceAccessPolicies"></a>
 
 ## Description
 <a name="API_DescribeServiceAccessPolicies_Description"></a>

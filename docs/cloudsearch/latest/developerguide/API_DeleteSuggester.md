@@ -1,7 +1,6 @@
 
 
 # DeleteSuggester
-<a name="API_DeleteSuggester"></a>
 
 ## Description
 <a name="API_DeleteSuggester_Description"></a>

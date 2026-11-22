@@ -1,7 +1,6 @@
 
 
 # UpdateServiceAccessPolicies
-<a name="API_UpdateServiceAccessPolicies"></a>
 
 ## Description
 <a name="API_UpdateServiceAccessPolicies_Description"></a>

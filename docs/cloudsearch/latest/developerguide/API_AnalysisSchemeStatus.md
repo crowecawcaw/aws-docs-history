@@ -1,7 +1,6 @@
 
 
 # AnalysisSchemeStatus
-<a name="API_AnalysisSchemeStatus"></a>
 
 ## Description
 <a name="API_AnalysisSchemeStatus_Description"></a>

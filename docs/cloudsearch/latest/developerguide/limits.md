@@ -1,7 +1,6 @@
 
 
 # Understanding Amazon CloudSearch Limits
-<a name="limits"></a>
 
 This table shows naming and size restrictions within Amazon CloudSearch. You can [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-cloudsearch-partitions-and-instances) if you need to increase the maximum number of partitions for a search domain. For information about increasing other limits such as the maximum number of search domains, contact Amazon CloudSearch.
 

@@ -1,7 +1,6 @@
 
 
 # ServiceEndpoint
-<a name="API_ServiceEndpoint"></a>
 
 ## Description
 <a name="API_ServiceEndpoint_Description"></a>

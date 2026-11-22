@@ -1,7 +1,6 @@
 
 
 # CreateDomainResult
-<a name="API_CreateDomainResult"></a>
 
 ## Description
 <a name="API_CreateDomainResult_Description"></a>

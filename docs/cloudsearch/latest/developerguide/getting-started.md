@@ -1,7 +1,6 @@
 
 
 # Getting Started with Amazon CloudSearch
-<a name="getting-started"></a>
 
 To start searching your data with Amazon CloudSearch, you simply take the following steps:
 + Create and configure a search domain

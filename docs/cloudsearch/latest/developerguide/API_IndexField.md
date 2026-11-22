@@ -1,7 +1,6 @@
 
 
 # IndexField
-<a name="API_IndexField"></a>
 
 ## Description
 <a name="API_IndexField_Description"></a>

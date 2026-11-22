@@ -1,7 +1,6 @@
 
 
 # DomainStatus
-<a name="API_DomainStatus"></a>
 
 ## Description
 <a name="API_DomainStatus_Description"></a>

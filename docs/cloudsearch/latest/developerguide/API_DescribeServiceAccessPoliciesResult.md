@@ -1,7 +1,6 @@
 
 
 # DescribeServiceAccessPoliciesResult
-<a name="API_DescribeServiceAccessPoliciesResult"></a>
 
 ## Description
 <a name="API_DescribeServiceAccessPoliciesResult_Description"></a>

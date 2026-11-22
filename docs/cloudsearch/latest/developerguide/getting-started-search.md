@@ -1,7 +1,6 @@
 
 
 # Step 3: Search Your Amazon CloudSearch Domain
-<a name="getting-started-search"></a>
 
 You can use the search tester in the Amazon CloudSearch console to submit sample search requests and view the results. You can also submit sample search requests through a Web browser or using cURL. In your application, you can use any HTTP library to send search traffic to your Amazon CloudSearch domain.
 

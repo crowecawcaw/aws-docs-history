@@ -1,7 +1,6 @@
 
 
 # Configuring Index Fields for an Amazon CloudSearch Domain
-<a name="configuring-index-fields"></a>
 
 Each document that you add to your search domain has a collection of fields that contain the data that can be searched or returned. Every document must have a unique document ID and at least one field. 
 
@@ -94,7 +93,7 @@ You can easily [configure individual index fields](#configuring-index-fields-ind
 
 1. Specify a unique name for the field and select the field type. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: a-z (lower-case letters), 0-9, and \_ (underscore). The name *score* is reserved and cannot be used as a field name.
 
-1. Select the query details that you want to enable for the field. For more information, see [Configuring Index Fields](#configuring-index-fields).
+1. Select the query details that you want to enable for the field. For more information, see [Configuring Index Fields](configuring-index-fields.md).
 
 1. Select the analysis scheme to use for each text field. The analysis scheme specifies the language-specific text processing options that are used during indexing. By default, text fields use the `_en_default_` analysis scheme. For more information, see [Configuring Analysis Schemes](configuring-analysis-schemes.md).
 

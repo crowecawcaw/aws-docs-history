@@ -1,7 +1,6 @@
 
 
 # Configuring Text Analysis Schemes for Amazon CloudSearch
-<a name="configuring-analysis-schemes"></a>
 
 Amazon CloudSearch enables you to configure a language-specific analysis scheme for each `text` and `text-array` field. An analysis scheme controls how the contents of the field are processed during indexing. Although the defaults for each language work well in many cases, fine-tuning the analysis options enables you to optimize the search results based on your knowledge of the data you are searching. For a list of supported languages, see [Supported Languages](supported-languages.md).
 
@@ -167,7 +166,7 @@ You use the `aws cloudsearch define-analysis-scheme` command to define language-
 You specify an analysis scheme as part of the configuration of each `text` or `text-array` field. For more information, see [Configuring Index Fields](configuring-index-fields.md).
 
 **To define an analysis scheme**
-+ Run the `aws cloudsearch define-analysis-scheme` command and specify the `--analysis-scheme` option and a JSON object that contains your analysis options. The analysis scheme must be valid JSON. The analysis option key and value pairs must be enclosed in quotes, and all quotes within the option values must be escaped with a backslash. For the format of the analysis options, see [define-analysis-scheme](https://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-analysis-scheme.html) in the AWS CLI Command Reference. See [Configuring Analysis Schemes](#configuring-analysis-schemes) for more information about specifying stemming, stopword, and synonym options.
++ Run the `aws cloudsearch define-analysis-scheme` command and specify the `--analysis-scheme` option and a JSON object that contains your analysis options. The analysis scheme must be valid JSON. The analysis option key and value pairs must be enclosed in quotes, and all quotes within the option values must be escaped with a backslash. For the format of the analysis options, see [define-analysis-scheme](https://docs.aws.amazon.com/cli/latest/reference/cloudsearch/define-analysis-scheme.html) in the AWS CLI Command Reference. See [Configuring Analysis Schemes](configuring-analysis-schemes.md) for more information about specifying stemming, stopword, and synonym options.
 
   If you specify Japanese (`ja`) as the language, you also have the option of specifying a custom tokenization dictionary that overrides the default tokenization of specific phrases. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization).
 **Tip**  
@@ -219,7 +218,7 @@ While indexing bigrams can improve search result quality, keep in mind that it c
 
 When you assign an analysis scheme that sets a field's language to `mul`, Amazon CloudSearch automatically generates bigrams for all Chinese, Japanese, and Korean text within the field.
 
-For more information about creating and using analysis schemes, see [Configuring Analysis Schemes](#configuring-analysis-schemes). 
+For more information about creating and using analysis schemes, see [Configuring Analysis Schemes](configuring-analysis-schemes.md). 
 
 If you are indexing Japanese content, you might also be interested in using a custom tokenization dictionary with the standard Japanese language processor. For more information, see [Customizing Japanese Tokenization](#customizing-japanese-tokenization).
 
@@ -257,7 +256,7 @@ aws cloudsearch define-analysis-scheme --region us-east-1 --domain-name
 mydomain --analysis-scheme file://jascheme.txt
 ```
 
-For more information about creating and using analysis schemes, see [Configuring Analysis Schemes](#configuring-analysis-schemes). 
+For more information about creating and using analysis schemes, see [Configuring Analysis Schemes](configuring-analysis-schemes.md). 
 
 ### Japanese Part-of-Speech Tags in Amazon CloudSearch
 <a name="ja_part_of_speech_tags"></a>

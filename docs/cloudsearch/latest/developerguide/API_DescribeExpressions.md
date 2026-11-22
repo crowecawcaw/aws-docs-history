@@ -1,7 +1,6 @@
 
 
 # DescribeExpressions
-<a name="API_DescribeExpressions"></a>
 
 ## Description
 <a name="API_DescribeExpressions_Description"></a>

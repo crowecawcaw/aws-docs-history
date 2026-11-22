@@ -1,7 +1,6 @@
 
 
 # Searching for a Range of Values in Amazon CloudSearch
-<a name="searching-ranges"></a>
 
 You can use structured queries to search a field for a range of values. To specify a range of values, use a comma (,) to separate the upper and lower bounds and enclose the range using brackets or braces. A square brace, [ or ], indicates that the bound is included in the range, a curly brace, { or }, excludes the bound. 
 

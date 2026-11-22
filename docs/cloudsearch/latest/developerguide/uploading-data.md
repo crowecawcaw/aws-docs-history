@@ -1,7 +1,6 @@
 
 
 # Uploading Data to an Amazon CloudSearch Domain
-<a name="uploading-data"></a>
 
 **Important**  
 Before uploading data to an Amazon CloudSearch domain, follow these guidelines:  

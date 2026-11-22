@@ -1,7 +1,6 @@
 
 
 # Handling Errors in Amazon CloudSearch
-<a name="error-handling"></a>
 
 This section provides information about how to handle errors when interacting with Amazon CloudSearch programmatically. For information about specific error codes returned by the Amazon CloudSearch services, see: 
 + [Search Service Errors](search-api.md#search-service-errors)

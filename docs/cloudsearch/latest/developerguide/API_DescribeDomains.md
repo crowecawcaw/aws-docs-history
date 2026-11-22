@@ -1,7 +1,6 @@
 
 
 # DescribeDomains
-<a name="API_DescribeDomains"></a>
 
 ## Description
 <a name="API_DescribeDomains_Description"></a>

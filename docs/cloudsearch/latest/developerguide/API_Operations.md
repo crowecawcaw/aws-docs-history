@@ -1,7 +1,6 @@
 
 
 # Actions
-<a name="API_Operations"></a>
 
 The following actions are supported:
 +  [BuildSuggesters](API_BuildSuggesters.md) 

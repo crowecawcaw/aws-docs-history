@@ -1,7 +1,6 @@
 
 
 # TextOptions
-<a name="API_TextOptions"></a>
 
 ## Description
 <a name="API_TextOptions_Description"></a>

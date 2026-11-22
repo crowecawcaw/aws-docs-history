@@ -1,7 +1,6 @@
 
 
 # Automatic Scaling in Amazon CloudSearch
-<a name="concepts-scaling"></a>
 
 A search domain has one or more search instances, each with a finite amount of RAM and CPU resources for indexing data and processing requests. How many search instances a domain needs depends on the documents in your collection and the volume and complexity of your search requests.
 

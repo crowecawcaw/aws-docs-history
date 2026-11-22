@@ -1,7 +1,6 @@
 
 
 # ListDomainNames
-<a name="API_ListDomainNames"></a>
 
 ## Description
 <a name="API_ListDomainNames_Description"></a>

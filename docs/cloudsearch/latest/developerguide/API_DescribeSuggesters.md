@@ -1,7 +1,6 @@
 
 
 # DescribeSuggesters
-<a name="API_DescribeSuggesters"></a>
 
 ## Description
 <a name="API_DescribeSuggesters_Description"></a>

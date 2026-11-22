@@ -1,7 +1,6 @@
 
 
 # Step 2: Upload Data to Amazon CloudSearch for Indexing
-<a name="getting-started-uploading-data"></a>
 
 You upload the data you want to search to your domain so that Amazon CloudSearch can build and deploy a searchable index. To be indexed by Amazon CloudSearch, the data must be formatted in either JSON or XML. The Amazon CloudSearch console can automatically convert the following file types to the required format:
 + Document batches formatted in JSON or XML (.json, .xml)

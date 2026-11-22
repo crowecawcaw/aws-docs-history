@@ -1,7 +1,6 @@
 
 
 # DeleteSuggesterResult
-<a name="API_DeleteSuggesterResult"></a>
 
 ## Description
 <a name="API_DeleteSuggesterResult_Description"></a>

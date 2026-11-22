@@ -1,7 +1,6 @@
 
 
 # SuggesterStatus
-<a name="API_SuggesterStatus"></a>
 
 ## Description
 <a name="API_SuggesterStatus_Description"></a>

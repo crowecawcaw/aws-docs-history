@@ -1,7 +1,6 @@
 
 
 # Filtering Matching Documents in Amazon CloudSearch
-<a name="filtering-results"></a>
 
 You use the `fq` parameter to filter the documents that match the search criteria specified with the `q` parameter without affecting the relevance scores of the documents included in the search results. Specifying a filter just controls which matching documents are included in the results, it has no effect on how they are scored and sorted. 
 

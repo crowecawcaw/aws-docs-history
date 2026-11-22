@@ -1,7 +1,6 @@
 
 
 # DefineAnalysisSchemeResult
-<a name="API_DefineAnalysisSchemeResult"></a>
 
 ## Description
 <a name="API_DefineAnalysisSchemeResult_Description"></a>

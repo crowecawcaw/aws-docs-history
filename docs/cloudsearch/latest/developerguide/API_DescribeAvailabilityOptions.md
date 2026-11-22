@@ -1,7 +1,6 @@
 
 
 # DescribeAvailabilityOptions
-<a name="API_DescribeAvailabilityOptions"></a>
 
 ## Description
 <a name="API_DescribeAvailabilityOptions_Description"></a>

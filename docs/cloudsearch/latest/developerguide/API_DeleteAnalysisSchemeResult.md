@@ -1,7 +1,6 @@
 
 
 # DeleteAnalysisSchemeResult
-<a name="API_DeleteAnalysisSchemeResult"></a>
 
 ## Description
 <a name="API_DeleteAnalysisSchemeResult_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # DescribeExpressionsResult
-<a name="API_DescribeExpressionsResult"></a>
 
 ## Description
 <a name="API_DescribeExpressionsResult_Description"></a>

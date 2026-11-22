@@ -1,7 +1,6 @@
 
 
 # Submitting Search Requests to an Amazon CloudSearch Domain
-<a name="submitting-search-requests"></a>
 
 We recommend using one of the AWS SDKs or the AWS CLI to submit search requests. The SDKs and AWS CLI handle request signing for you and provide an easy way to perform all Amazon CloudSearch actions. You can also use the Search Tester in the Amazon CloudSearch console to search your data, browse the results, and view the generated request URLs and JSON and XML responses. For more information, see [Searching with the Search Tester](getting-started-search.md#searching-console).
 

@@ -1,7 +1,6 @@
 
 
 # IntOptions
-<a name="API_IntOptions"></a>
 
 ## Description
 <a name="API_IntOptions_Description"></a>

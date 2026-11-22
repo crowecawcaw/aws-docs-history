@@ -1,7 +1,6 @@
 
 
 # DomainEndpointOptions
-<a name="API_DomainEndpointOptions"></a>
 
 ## Description
 <a name="API_DomainEndpointOptions_Description"></a>

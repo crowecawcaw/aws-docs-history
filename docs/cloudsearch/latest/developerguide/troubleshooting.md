@@ -1,7 +1,6 @@
 
 
 # Troubleshooting Amazon CloudSearch
-<a name="troubleshooting"></a>
 
 The following topics describe solutions to problems you might encounter when using Amazon CloudSearch.
 

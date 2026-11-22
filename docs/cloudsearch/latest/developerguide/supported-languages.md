@@ -1,7 +1,6 @@
 
 
 # Supported Languages in Amazon CloudSearch
-<a name="supported-languages"></a>
 
 
 |  |  |  | 

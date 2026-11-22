@@ -1,7 +1,6 @@
 
 
 # DeleteIndexFieldResult
-<a name="API_DeleteIndexFieldResult"></a>
 
 ## Description
 <a name="API_DeleteIndexFieldResult_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # ScalingParametersStatus
-<a name="API_ScalingParametersStatus"></a>
 
 ## Description
 <a name="API_ScalingParametersStatus_Description"></a>

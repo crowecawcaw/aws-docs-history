@@ -1,7 +1,6 @@
 
 
 # Paginating Results in Amazon CloudSearch
-<a name="paginating-results"></a>
 
 By default, Amazon CloudSearch returns the top ten hits according to the specified sort order. To control the number of hits returned in a result set, you use the `size` parameter. 
 

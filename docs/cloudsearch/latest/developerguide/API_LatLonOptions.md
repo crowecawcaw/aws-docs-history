@@ -1,7 +1,6 @@
 
 
 # LatLonOptions
-<a name="API_LatLonOptions"></a>
 
 ## Description
 <a name="API_LatLonOptions_Description"></a>

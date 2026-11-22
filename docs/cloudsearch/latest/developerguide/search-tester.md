@@ -1,7 +1,6 @@
 
 
 # Searching with the Search Tester
-<a name="search-tester"></a>
 
 The search tester in the Amazon CloudSearch console enables you to submit sample search requests using any of the supported query parsers: simple, structured, lucene, or dismax. By default, requests are processed with the simple query parser. You can specify options for the selected parser, filter and sort the results, and browse the configured facets. The search hits are automatically highlighted in the search results. For information about how this is done, see [Highlighting Search Hits in Amazon CloudSearch](highlighting.md). You can also select a suggester to get suggestions as you enter terms in the **Search** field. (You must configure a suggester before you can get suggestions. For more information see [Getting Autocomplete Suggestions in Amazon CloudSearch](getting-suggestions.md).)
 

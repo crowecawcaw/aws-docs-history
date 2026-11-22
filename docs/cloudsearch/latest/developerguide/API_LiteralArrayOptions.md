@@ -1,7 +1,6 @@
 
 
 # LiteralArrayOptions
-<a name="API_LiteralArrayOptions"></a>
 
 ## Description
 <a name="API_LiteralArrayOptions_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # OptionStatus
-<a name="API_OptionStatus"></a>
 
 ## Description
 <a name="API_OptionStatus_Description"></a>

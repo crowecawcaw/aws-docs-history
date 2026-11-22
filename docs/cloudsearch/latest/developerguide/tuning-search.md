@@ -1,7 +1,6 @@
 
 
 # Tuning Search Request Performance in Amazon CloudSearch
-<a name="tuning-search"></a>
 
 Search requests can become very resource intensive to process, which can have an impact on the performance and cost of running your search domain. In general, searches that return a large volume of hits and complex structured queries are more resource intensive than simple text queries that match a small percentage of the documents in your search domain. 
 

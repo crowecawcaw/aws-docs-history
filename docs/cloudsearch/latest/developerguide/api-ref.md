@@ -1,7 +1,6 @@
 
 
 # Amazon CloudSearch API Reference
-<a name="api-ref"></a>
 
 You use three APIs to interact with Amazon CloudSearch:
 + [Configuration API](configuration-api.md)—Set up and manage your search domain.

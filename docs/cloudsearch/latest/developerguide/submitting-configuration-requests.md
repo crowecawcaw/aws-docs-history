@@ -1,7 +1,6 @@
 
 
 # Submitting Configuration Requests in Amazon CloudSearch
-<a name="submitting-configuration-requests"></a>
 
 **Important**  
 The easiest way to submit configuration requests is to use the Amazon CloudSearch console, Amazon CloudSearch command line tools, or the AWS SDK for Java, JavaScript, .NET, PHP, Ruby, or Python (Boto). The command line tools and SDKs handle the signing process for you and ensure that Amazon CloudSearch configuration requests are properly formed. For more information about the AWS SDKs, see [AWS Software Development Kits](http://aws.amazon.com/code). 

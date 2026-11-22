@@ -1,7 +1,6 @@
 
 
 # Document History for Amazon CloudSearch
-<a name="document-history"></a>
 
 This topic describes important changes to Amazon CloudSearch.
 

@@ -1,7 +1,6 @@
 
 
 # DeleteExpression
-<a name="API_DeleteExpression"></a>
 
 ## Description
 <a name="API_DeleteExpression_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # DescribeAnalysisSchemesResult
-<a name="API_DescribeAnalysisSchemesResult"></a>
 
 ## Description
 <a name="API_DescribeAnalysisSchemesResult_Description"></a>

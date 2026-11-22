@@ -1,7 +1,6 @@
 
 
 # DefineIndexFieldResult
-<a name="API_DefineIndexFieldResult"></a>
 
 ## Description
 <a name="API_DefineIndexFieldResult_Description"></a>

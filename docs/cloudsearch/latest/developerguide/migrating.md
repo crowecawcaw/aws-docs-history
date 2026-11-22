@@ -1,7 +1,6 @@
 
 
 # Migrating to the Amazon CloudSearch 2013-01-01 API
-<a name="migrating"></a>
 
 The Amazon CloudSearch 2013-01-01 API offers several new features, including support for multiple languages, highlighting search terms in the results, and getting suggestions. To use these features, you create and configure a new 2013-01-01 search domain, modify your data pipeline to populate the new domain using the 2013-01-01 data format, and update your query pipeline to submit requests in the 2013-01-01 request format. This migration guide summarizes the API changes and highlights the ones that are most likely to affect your application. 
 

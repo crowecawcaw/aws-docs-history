@@ -1,7 +1,6 @@
 
 
 # Step 1: Create an Amazon CloudSearch Domain
-<a name="getting-started-create-domain"></a>
 
 An Amazon CloudSearch domain encapsulates a collection of data you want to search, the search instances that process your search requests, and a configuration that controls how your data is indexed and searched. You create a separate search domain for each collection of data you want to make searchable. For each domain, you configure indexing options that describe the fields you want to include in your index and how you want to use them, analysis schemes that specify language-specific text processing options for individual fields, expressions that you can use to customize how search results are ranked, and access policies that control access to the domain's document and search endpoints. 
 

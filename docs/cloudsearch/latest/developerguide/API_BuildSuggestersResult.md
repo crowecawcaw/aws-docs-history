@@ -1,7 +1,6 @@
 
 
 # BuildSuggestersResult
-<a name="API_BuildSuggestersResult"></a>
 
 ## Description
 <a name="API_BuildSuggestersResult_Description"></a>

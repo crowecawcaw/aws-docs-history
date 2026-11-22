@@ -1,7 +1,6 @@
 
 
 # Comparing Expressions in Amazon CloudSearch
-<a name="comparing-expressions"></a>
 
  You can use the Amazon CloudSearch console to compare expressions and see how changes to the expression and field weights affect how Amazon CloudSearch sorts search results.
 

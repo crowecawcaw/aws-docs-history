@@ -1,7 +1,6 @@
 
 
 # Getting and Using Facet Information in Amazon CloudSearch
-<a name="faceting"></a>
 
 **Topics**
 + [Getting Facet Information in Amazon CloudSearch](#getting-facet-info)

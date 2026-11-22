@@ -1,7 +1,6 @@
 
 
 # DeleteIndexField
-<a name="API_DeleteIndexField"></a>
 
 ## Description
 <a name="API_DeleteIndexField_Description"></a>

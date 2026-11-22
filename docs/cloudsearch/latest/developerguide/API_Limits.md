@@ -1,7 +1,6 @@
 
 
 # Limits
-<a name="API_Limits"></a>
 
 ## Description
 <a name="API_Limits_Description"></a>

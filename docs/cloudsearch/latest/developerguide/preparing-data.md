@@ -1,7 +1,6 @@
 
 
 # Preparing Your Data for Amazon CloudSearch
-<a name="preparing-data"></a>
 
 You need to format your data in JSON or XML before you can upload it to your search domain for indexing. Each item that you want to be able to receive as a search result is represented as a document. Every document has a unique document ID and one or more fields that contain the data that you want to search and return in results. These document fields are used to populate the index fields you configure for your domain. For more information, see [Configuring Index Fields](configuring-index-fields.md).
 
@@ -159,7 +158,7 @@ To delete documents, you upload document batches that contain delete operations.
 
 1. Specify a delete operation that contains the ID of the document you want to remove. For example, the following operation would remove document `tt0484575`: 
 
-   ```
+   ```json
    {
      "type": "delete",
      "id": "tt0484575"

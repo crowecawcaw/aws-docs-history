@@ -1,7 +1,6 @@
 
 
 # Creating an Amazon CloudSearch Domain
-<a name="creating-domains"></a>
 
 To search your data with Amazon CloudSearch, the first thing you need to do is create a search domain. If you have multiple collections of data that you want to make searchable, you can create multiple search domains. Before you can [send search requests](searching.md) to a new domain, you must also [configure access policies](configuring-access.md), [configure index fields](configuring-index-fields.md), and [upload the data you want to search](uploading-data.md).
 

@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon CloudSearch Domains
-<a name="tagging-cloudsearch-domains"></a>
 
 Use Amazon CloudSearch tags to attach metadata to your search domains. AWS does not apply any semantic meaning to your tags; tags are interpreted strictly as character strings. All tags contain the following elements.
 

@@ -1,7 +1,6 @@
 
 
 # Searching for Dates and Times in Amazon CloudSearch
-<a name="searching-dates"></a>
 
 You can use structured queries to search any search enabled date field for a particular date and time or a [date-time range](searching-ranges.md). Amazon CloudSearch supports two date field types, `date` and `date-array`. For more information, see [Configuring Index Fields](configuring-index-fields.md).
 

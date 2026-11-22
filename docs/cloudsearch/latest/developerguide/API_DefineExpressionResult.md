@@ -1,7 +1,6 @@
 
 
 # DefineExpressionResult
-<a name="API_DefineExpressionResult"></a>
 
 ## Description
 <a name="API_DefineExpressionResult_Description"></a>

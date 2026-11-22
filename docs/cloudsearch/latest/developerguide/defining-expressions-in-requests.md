@@ -1,7 +1,6 @@
 
 
 # Defining Amazon CloudSearch Expressions in Search Requests
-<a name="defining-expressions-in-requests"></a>
 
 You can define and use expressions directly within a search request so that you can iterate quickly while you fine-tune expressions that you use to sort results. By defining an expression within a search request, you can also incorporate contextual information into the expression, such as the user's geographic location. You can override an expression defined in the domain configuration by defining an expression with the same name within a search request.
 

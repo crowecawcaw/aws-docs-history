@@ -1,7 +1,6 @@
 
 
 # Highlighting Search Hits in Amazon CloudSearch
-<a name="highlighting"></a>
 
 Amazon CloudSearch can return excerpts with the search results to show where the search terms occur within a particular field of a matching document. For example, in the following excerpt the search terms *luke skywalker* are highlighted within the `plot` field:
 

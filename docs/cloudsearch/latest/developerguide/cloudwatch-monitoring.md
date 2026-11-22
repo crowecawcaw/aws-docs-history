@@ -1,7 +1,6 @@
 
 
 # Monitoring an Amazon CloudSearch Domain with Amazon CloudWatch
-<a name="cloudwatch-monitoring"></a>
 
 Amazon CloudSearch automatically sends metrics to Amazon CloudWatch so that you can gather and analyze performance statistics. You can monitor these metrics by using the Amazon CloudSearch console, or by using the CloudWatch console, AWS CLI, or AWS SDKs. Each of your domain's search instances sends metrics to CloudWatch at one-minute intervals. The metrics are archived for two weeks; after that period, the data is discarded. 
 
@@ -46,7 +45,7 @@ The AWS SDK for Java can generate performance metrics for your Amazon CloudSearc
 
 You can use the following code to test metrics generation. The code creates a new CloudWatch client and performs 2,500 searches. Because the SDK only sends metrics once per minute, long-running clients work best. The code uses the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials.html#credentials-default).
 
-```
+```java
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomain;
 import com.amazonaws.services.cloudsearchdomain.AmazonCloudSearchDomainClientBuilder;

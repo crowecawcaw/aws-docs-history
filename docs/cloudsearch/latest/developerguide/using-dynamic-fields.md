@@ -1,7 +1,6 @@
 
 
 # Using Dynamic Fields in Amazon CloudSearch
-<a name="using-dynamic-fields"></a>
 
 Dynamic fields provide a way to index documents without knowing in advance exactly what fields they contain. For example, consider the case where you want to search a set of products. You might not know the names of all of the possible product attributes across all product categories, but you can structure your data so that all text-based attributes are stored in fields that end in `_t`, and all integer values are stored in fields that end in `_i`. With dynamic fields, you can map the attribute fields to the appropriate field type without having to configure a field for every possible attribute. This reduces the amount of configuration that you need to do up front, and eliminates the need to modify your domain configuration every time a product with a new attribute is added. You can also use dynamic fields to essentially ignore new fields by mapping them to a field that is not searchable or returnable.
 

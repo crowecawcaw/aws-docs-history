@@ -1,7 +1,6 @@
 
 
 # IntArrayOptions
-<a name="API_IntArrayOptions"></a>
 
 ## Description
 <a name="API_IntArrayOptions_Description"></a>

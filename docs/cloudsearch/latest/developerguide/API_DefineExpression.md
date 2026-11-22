@@ -1,7 +1,6 @@
 
 
 # DefineExpression
-<a name="API_DefineExpression"></a>
 
 ## Description
 <a name="API_DefineExpression_Description"></a>

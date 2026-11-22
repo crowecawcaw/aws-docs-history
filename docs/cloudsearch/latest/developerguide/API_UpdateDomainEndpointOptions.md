@@ -1,7 +1,6 @@
 
 
 # UpdateDomainEndpointOptions
-<a name="API_UpdateDomainEndpointOptions"></a>
 
 ## Description
 <a name="API_UpdateDomainEndpointOptions_Description"></a>

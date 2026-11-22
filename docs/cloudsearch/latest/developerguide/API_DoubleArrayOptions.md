@@ -1,7 +1,6 @@
 
 
 # DoubleArrayOptions
-<a name="API_DoubleArrayOptions"></a>
 
 ## Description
 <a name="API_DoubleArrayOptions_Description"></a>

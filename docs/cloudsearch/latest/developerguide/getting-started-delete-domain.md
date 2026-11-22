@@ -1,7 +1,6 @@
 
 
 # Step 4: Delete Your Amazon CloudSearch Movies Domain
-<a name="getting-started-delete-domain"></a>
 
  When you are finished experimenting with your movies domain, **you must delete it to avoid incurring additional usage fees. **
 

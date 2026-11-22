@@ -1,7 +1,6 @@
 
 
 # UpdateAvailabilityOptionsResult
-<a name="API_UpdateAvailabilityOptionsResult"></a>
 
 ## Description
 <a name="API_UpdateAvailabilityOptionsResult_Description"></a>

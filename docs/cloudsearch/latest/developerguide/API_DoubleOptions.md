@@ -1,7 +1,6 @@
 
 
 # DoubleOptions
-<a name="API_DoubleOptions"></a>
 
 ## Description
 <a name="API_DoubleOptions_Description"></a>

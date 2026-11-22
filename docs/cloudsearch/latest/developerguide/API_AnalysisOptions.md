@@ -1,7 +1,6 @@
 
 
 # AnalysisOptions
-<a name="API_AnalysisOptions"></a>
 
 ## Description
 <a name="API_AnalysisOptions_Description"></a>

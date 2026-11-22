@@ -1,7 +1,6 @@
 
 
 # DateArrayOptions
-<a name="API_DateArrayOptions"></a>
 
 ## Description
 <a name="API_DateArrayOptions_Description"></a>

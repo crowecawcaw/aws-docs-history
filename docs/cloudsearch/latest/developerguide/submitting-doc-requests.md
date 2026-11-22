@@ -1,7 +1,6 @@
 
 
 # Submitting Document Upload Requests to an Amazon CloudSearch Domain
-<a name="submitting-doc-requests"></a>
 
 **Important**  
 Before uploading data to an Amazon CloudSearch domain, follow these guidelines:  

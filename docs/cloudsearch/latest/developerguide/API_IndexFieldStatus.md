@@ -1,7 +1,6 @@
 
 
 # IndexFieldStatus
-<a name="API_IndexFieldStatus"></a>
 
 ## Description
 <a name="API_IndexFieldStatus_Description"></a>

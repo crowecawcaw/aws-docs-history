@@ -1,7 +1,6 @@
 
 
 # DescribeScalingParameters
-<a name="API_DescribeScalingParameters"></a>
 
 ## Description
 <a name="API_DescribeScalingParameters_Description"></a>

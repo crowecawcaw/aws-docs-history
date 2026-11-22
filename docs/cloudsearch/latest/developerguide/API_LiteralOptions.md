@@ -1,7 +1,6 @@
 
 
 # LiteralOptions
-<a name="API_LiteralOptions"></a>
 
 ## Description
 <a name="API_LiteralOptions_Description"></a>

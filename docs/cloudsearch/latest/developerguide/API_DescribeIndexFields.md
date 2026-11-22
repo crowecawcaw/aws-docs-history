@@ -1,7 +1,6 @@
 
 
 # DescribeIndexFields
-<a name="API_DescribeIndexFields"></a>
 
 ## Description
 <a name="API_DescribeIndexFields_Description"></a>

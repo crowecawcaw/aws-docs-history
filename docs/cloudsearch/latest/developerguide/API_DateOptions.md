@@ -1,7 +1,6 @@
 
 
 # DateOptions
-<a name="API_DateOptions"></a>
 
 ## Description
 <a name="API_DateOptions_Description"></a>

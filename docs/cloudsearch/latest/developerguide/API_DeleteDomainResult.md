@@ -1,7 +1,6 @@
 
 
 # DeleteDomainResult
-<a name="API_DeleteDomainResult"></a>
 
 ## Description
 <a name="API_DeleteDomainResult_Description"></a>

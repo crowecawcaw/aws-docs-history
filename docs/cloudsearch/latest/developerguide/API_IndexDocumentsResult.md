@@ -1,7 +1,6 @@
 
 
 # IndexDocumentsResult
-<a name="API_IndexDocumentsResult"></a>
 
 ## Description
 <a name="API_IndexDocumentsResult_Description"></a>

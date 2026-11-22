@@ -1,7 +1,6 @@
 
 
 # How Search Works
-<a name="how-search-works"></a>
 
 The collection of data that you want to search (sometimes referred to as your *corpus*) can consist of unstructured full-text documents, semi-structured documents such as those formatted in mark-up languages like XML, or structured data that conforms to a strict data model. Each item that you want to be able to search (such as a forum post or web page) is represented as a document. Every document has a unique ID and one or more fields that contain the data that you want to search and include in results. 
 

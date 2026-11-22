@@ -1,7 +1,6 @@
 
 
 # Search API Reference for Amazon CloudSearch
-<a name="search-api"></a>
 
 **Topics**
 + [Search](#search-request)

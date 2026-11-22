@@ -1,7 +1,6 @@
 
 
 # Deleting an Amazon CloudSearch Domain
-<a name="deleting-domains"></a>
 
 If you are no longer using a search domain, you must delete it to avoid incurring additional usage fees. You will still be charged for a domain even if it does not contain any documents—deleting all documents does not delete the domain. Deleting a domain deletes the index associated with the domain and takes the domain's document and search endpoints offline permanently. It can take some time to completely remove a domain and decommission all of its resources. Small domains are typically deleted in a short amount of time, while especially large domains may require an extended amount of time to be deleted. During this process, the domain status is `Being Deleted` and your account is not charged. 
 

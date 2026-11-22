@@ -1,7 +1,6 @@
 
 
 # AccessPoliciesStatus
-<a name="API_AccessPoliciesStatus"></a>
 
 ## Description
 <a name="API_AccessPoliciesStatus_Description"></a>

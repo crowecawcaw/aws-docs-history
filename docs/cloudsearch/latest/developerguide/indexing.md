@@ -1,7 +1,6 @@
 
 
 # Indexing Document Data with Amazon CloudSearch
-<a name="indexing"></a>
 
 When you send document updates to your domain, Amazon CloudSearch automatically updates the domain's search index with the new data. You don't have to do anything for the updates to be indexed. However, if you change the configuration of your domain's index fields or text options, you must explicitly rebuild your search index for those changes to be visible in search results. Because rebuilding the index can take a significant amount of time if you have a lot of data, you should finish making all of your configuration changes before re-indexing your documents.
 

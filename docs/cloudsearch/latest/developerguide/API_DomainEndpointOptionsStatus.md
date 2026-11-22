@@ -1,7 +1,6 @@
 
 
 # DomainEndpointOptionsStatus
-<a name="API_DomainEndpointOptionsStatus"></a>
 
 ## Description
 <a name="API_DomainEndpointOptionsStatus_Description"></a>

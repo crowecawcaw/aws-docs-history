@@ -1,7 +1,6 @@
 
 
 # Constructing Compound Queries in Amazon CloudSearch
-<a name="searching-compound-queries"></a>
 
 You can use the structured query parser to combine match expressions using Boolean `and`, `or`, and `not` operators. To select the structured query parser, you include `q.parser=structured` in your query. The structured query operators are specified as *prefix* operators. The syntax is:
 + `(and boost=N EXPRESSION1 EXPRESSION2 ... EXPRESSIONn)`

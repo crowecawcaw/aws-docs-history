@@ -1,7 +1,6 @@
 
 
 # Using Relative Field Weighting to Customize Relevance Ranking in Amazon CloudSearch
-<a name="weighting-fields"></a>
 
 You can assign weights to selected fields so you can boost the relevance `_score` of documents with matches in key fields such as a `title` field, and minimize the impact of matches in less important fields. By default all fields have a weight of 1.
 

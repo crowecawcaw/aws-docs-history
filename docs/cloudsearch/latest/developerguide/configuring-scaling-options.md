@@ -1,7 +1,6 @@
 
 
 # Configuring Scaling Options in Amazon CloudSearch
-<a name="configuring-scaling-options"></a>
 
 A search domain has one or more search instances, each with a finite amount of RAM and CPU resources for indexing data and processing requests. You can configure scaling options to control the instance type that is used, the number of instances your search index is distributed across (partition count), and the number of replicas of each index partition (replication count). All instances for a domain are always of the same type.
 

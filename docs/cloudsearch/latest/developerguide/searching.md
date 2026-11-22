@@ -1,7 +1,6 @@
 
 
 # Searching Your Data with Amazon CloudSearch
-<a name="searching"></a>
 
 You specify the terms or values you want to search for with the `q` parameter. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:
 + `simple`—search all `text` and `text-array` fields for the specified string. The simple query parser enables you to search for phrases, individual terms, and prefixes. You can designate terms as required or optional, or exclude matches that contain particular terms. To search particular fields, you can specify the fields you want to search with the `q.options` parameter. The `simple` query parser is used by default if the `q.parser` parameter is not specified. 

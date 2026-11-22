@@ -1,7 +1,6 @@
 
 
 # BuildSuggesters
-<a name="API_BuildSuggesters"></a>
 
 ## Description
 <a name="API_BuildSuggesters_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # DescribeIndexFieldsResult
-<a name="API_DescribeIndexFieldsResult"></a>
 
 ## Description
 <a name="API_DescribeIndexFieldsResult_Description"></a>

@@ -1,7 +1,6 @@
 
 
 # Getting Information About an Amazon CloudSearch Domain
-<a name="getting-domain-info"></a>
 
 You can retrieve the following information about each of your search domains:
 + **Domain name**—The name of the domain.

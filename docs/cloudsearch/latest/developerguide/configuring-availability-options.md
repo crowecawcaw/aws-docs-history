@@ -1,7 +1,6 @@
 
 
 # Configuring Availability Options in Amazon CloudSearch
-<a name="configuring-availability-options"></a>
 
 You can expand an Amazon CloudSearch domain to an additional Availability Zone in the same region to increase fault tolerance in the event of a service disruption. Availability Zones are physically separate locations with independent infrastructure engineered to be insulated from failures in other Availability Zones. For more information, see [Regions and Availability Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the Amazon EC2 User Guide.
 

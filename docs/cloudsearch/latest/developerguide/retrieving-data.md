@@ -1,7 +1,6 @@
 
 
 # Retrieving Data from Index Fields in Amazon CloudSearch
-<a name="retrieving-data"></a>
 
 By default, the search results include all return enabled fields. To return a subset of the return enabled fields or return expression values for the matching documents, you can specify the `return` parameter. To return only the document IDs for the matching documents, specify `return=_no_fields`. To retrieve the relevance score calculated for each document, specify `return=_score`. You specify multiple return fields as a comma separated list. For example, `return=title,_score` returns just the title and relevance score of each matching document.
 

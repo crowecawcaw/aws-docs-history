@@ -1,7 +1,6 @@
 
 
 # Amazon CloudSearch Resources
-<a name="resources"></a>
 
 The following table lists resources that you might find useful as you work with Amazon CloudSearch.
 

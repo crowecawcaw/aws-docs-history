@@ -1,7 +1,6 @@
 
 
 # DocumentSuggesterOptions
-<a name="API_DocumentSuggesterOptions"></a>
 
 ## Description
 <a name="API_DocumentSuggesterOptions_Description"></a>

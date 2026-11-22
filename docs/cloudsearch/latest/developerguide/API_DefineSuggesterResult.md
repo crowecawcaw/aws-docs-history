@@ -1,7 +1,6 @@
 
 
 # DefineSuggesterResult
-<a name="API_DefineSuggesterResult"></a>
 
 ## Description
 <a name="API_DefineSuggesterResult_Description"></a>

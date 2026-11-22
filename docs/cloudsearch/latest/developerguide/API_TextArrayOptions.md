@@ -1,7 +1,6 @@
 
 
 # TextArrayOptions
-<a name="API_TextArrayOptions"></a>
 
 ## Description
 <a name="API_TextArrayOptions_Description"></a>

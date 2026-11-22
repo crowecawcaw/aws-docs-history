@@ -1,7 +1,6 @@
 
 
 # ExpressionStatus
-<a name="API_ExpressionStatus"></a>
 
 ## Description
 <a name="API_ExpressionStatus_Description"></a>
