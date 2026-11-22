@@ -1,7 +1,6 @@
 
 
 # Domain Consistency in Event-Driven Architectures
-<a name="domain-consistency-event-driven"></a>
 
 Publication date: **March 8, 2022 ([Diagram history](#diagram-history))**
 
