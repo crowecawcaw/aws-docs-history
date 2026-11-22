@@ -1,7 +1,6 @@
 
 
 # Worker host setup and configuration
-<a name="worker-host"></a>
 
 A worker host refers to a host machine that runs a Deadline Cloud worker. This section explains how to set up the worker host and configure it for your specific needs. Each worker host runs a program called a *worker agent*. The worker agent is responsible for:
 + Managing the worker life cycle.
@@ -41,7 +40,7 @@ On Windows, agent files must be installed into Python's global site-packages dir
 
 1. Create and activate a Python virtual environment.
 
-   ```
+   ```screen
    python3 -m venv /opt/deadline/worker
    source /opt/deadline/worker/bin/activate
    pip install --upgrade pip
@@ -53,7 +52,7 @@ On Windows, agent files must be installed into Python's global site-packages dir
 After you've set up your Python and created a virtual environment on Linux, install the Deadline Cloud worker agent Python packages.
 
 ### To install the worker agent Python packages
-<a name="w2aac38c18c19b5"></a>
+<a name="w2aac42c18c19b5"></a>
 
 ------
 #### [ Linux ]
@@ -92,7 +91,7 @@ When your Windows worker host requires long path names (greater than 250 charact
 
 1. Create a new file called `pythonservice.exe.manifest` in the same location. Add the following: 
 
-   ```
+   ```xml
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
      <assemblyIdentity type="win32" name="pythonservice" processorArchitecture="x86" version="1.0.0.0"/>
@@ -183,7 +182,7 @@ To set up a local worker agent user and `jobRunAsUser`, ensure you meet the foll
 
 The worker agent user and the shared `jobRunAsUser` group are set when you install the worker agent. The defaults are `deadline-worker-agent` and `deadline-job-users`, but you can change those when you install the worker agent.
 
-```
+```bash
 install-deadline-worker \
     --user {{AGENT_USER_NAME}} \
     --group {{JOB_USERS_GROUP}}
@@ -192,34 +191,34 @@ install-deadline-worker \
 Commands should be run as the root user. 
 + Each `jobRunAsUser` should have a matching primary group. Creating a user with the `adduser` command usually creates a matching primary group.
 
-  ```
+  ```bash
   adduser -r -m {{jobRunAsUser}}
   ```
 + The primary group of the `jobRunAsUser` is a secondary group for the worker agent user. The shared group allows the worker agent to make files available to the job as it is running. 
 
-  ```
+  ```bash
   usermod -a -G {{jobRunAsUser}} {{deadline-worker-agent}}
   ```
 + The `jobRunAsUser` must be a member of the shared job group.
 
-  ```
+  ```bash
   usermod -a -G {{deadline-job-users}} {{jobRunAsUser}}
   ```
 + The `jobRunAsUser` must not belong to the worker agent user's primary group. Sensitive files written by the worker agent are owned by the agent's primary group. If a `jobRunAsUser` is part of this group, worker agent files may be accessible to jobs running on the worker.
 + The default AWS Region must match the Region of the farm that the worker belongs to. Apply this setting to all `jobRunAsUser` accounts on the worker.
 
-  ```
+  ```bash
   sudo -u {{jobRunAsUser}} aws configure set default.region {{aws-region}}
   ```
 + The worker agent user must be able to run `sudo` commands as the `jobRunAsUser`. Run the following command to open an editor to create a new sudoers rule:
 
-  ```
+  ```bash
   visudo -f /etc/sudoers.d/deadline-worker-job-user
   ```
 
   Add the following to the file:
 
-  ```
+  ```bash
   # Allows the Deadline Cloud worker agent OS user to run commands
    # as the queue OS user without requiring a password.
   deadline-worker-agent ALL=(jobRunAsUser) NOPASSWD:ALL
@@ -254,19 +253,19 @@ The worker agent writes log files that may contain sensitive information from ho
 
 1. Create the log directory:
 
-   ```
+   ```bash
    sudo mkdir -p /var/log/amazon/deadline
    ```
 
 1. Set the owner and group to the worker agent user:
 
-   ```
+   ```bash
    sudo chown -R deadline-worker-agent:deadline-worker-agent /var/log/amazon/deadline
    ```
 
 1. Set permissions to 750:
 
-   ```
+   ```bash
    sudo chmod -R 750 /var/log/amazon/deadline
    ```
 
@@ -281,13 +280,13 @@ The worker agent writes log files that may contain sensitive information from ho
 
 1. Create the log directory:
 
-   ```
+   ```bash
    New-Item -ItemType Directory -Force -Path "$env:PROGRAMDATA\Amazon\Deadline\Logs"
    ```
 
 1. Configure restricted ACLs to allow only the worker agent user and Administrators:
 
-   ```
+   ```bash
    $acl = Get-Acl "$env:PROGRAMDATA\Amazon\Deadline\Logs"
    $acl.SetAccessRuleProtection($true, $false)
    $acl.Access | ForEach-Object { $acl.RemoveAccessRule($_) }

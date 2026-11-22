@@ -1,7 +1,6 @@
 
 
 # Encryption at rest
-<a name="encryption-rest"></a>
 
 AWS Deadline Cloud protects sensitive data by encrypting it at rest using encryption keys stored in [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms). Encryption at rest is available in all AWS Regions where Deadline Cloud is available.
 

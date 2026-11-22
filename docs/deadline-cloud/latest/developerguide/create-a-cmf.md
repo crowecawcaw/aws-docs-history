@@ -1,7 +1,6 @@
 
 
 # Create a customer-managed fleet
-<a name="create-a-cmf"></a>
 
 To create a customer-managed fleet (CMF), complete the following steps.
 
@@ -82,7 +81,7 @@ The conda queue environment is used to install conda packages requested by jobs.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -118,7 +117,7 @@ The conda queue environment is used to install conda packages requested by jobs.
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -186,7 +185,7 @@ The conda queue environment is used to install conda packages requested by jobs.
 You can find the {{ROLE\_ARN}} in the `create-cmf-fleet.json`.  
 For the {{OS\_FAMILY}}, you must choose one of `linux`, `macos` or `windows`.
 
-      ```
+      ```json
       {
           "farmId": "{{FARM_ID}}",
           "displayName": "{{FLEET_NAME}}",
@@ -218,7 +217,7 @@ For the {{OS\_FAMILY}}, you must choose one of `linux`, `macos` or `windows`.
 
 1. Create your fleet.
 
-   ```
+   ```bash
    aws deadline create-fleet --cli-input-json file://create-fleet-request.json
    ```
 

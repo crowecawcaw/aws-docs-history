@@ -1,7 +1,6 @@
 
 
 # Retrieving user metadata and attributes using userID in an identity store
-<a name="query-session-data-map-userid"></a>
 
 **Note**  
 This procedure also applies to the `createdBy` field returned by the [SearchJobs](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_SearchJobs.html) API, which uses the same user ID format.
@@ -19,7 +18,7 @@ To identify the username associated with an IAM Identity Center user ID, use the
 
 1. Run the following command, replacing {{IdentityStoreId}} with your Identity Store ID and {{userUUID}} with the `userId` from the session statistics response:
 
-   ```
+   ```bash
    aws identitystore describe-user \
        --identity-store-id {{IdentityStoreId}} \
        --user-id {{userUUID}}
@@ -27,7 +26,7 @@ To identify the username associated with an IAM Identity Center user ID, use the
 
 1. Review the response, which includes the username:
 
-   ```
+   ```json
    {
        "UserName": "jdoe",
        "UserId": "f9c1f3f0-1031-70dc-4d25-30d7225b04a0",
@@ -64,13 +63,13 @@ To find your Identity Store ID using the console, use the following procedure.
 
 Run the following command, replacing {{region-name}} with the Region where your IAM Identity Center instance is configured:
 
-```
+```bash
 aws sso-admin list-instances --region {{region-name}}
 ```
 
 The response includes the `IdentityStoreId`:
 
-```
+```json
 {
     "Instances": [
         {

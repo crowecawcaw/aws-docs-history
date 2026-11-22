@@ -1,7 +1,6 @@
 
 
 # Monitoring with CloudWatch
-<a name="monitoring-cloudwatch"></a>
 
 Amazon CloudWatch (CloudWatch) collects raw data and processes it into readable, near real-time metrics. You can open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/) to view and filter Deadline Cloud metrics.
 

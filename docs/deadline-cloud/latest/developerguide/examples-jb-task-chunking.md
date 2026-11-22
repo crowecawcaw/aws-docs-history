@@ -1,7 +1,6 @@
 
 
 # Group frames into chunks with task chunking on Deadline Cloud
-<a name="examples-jb-task-chunking"></a>
 
 The [task\_chunking](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/task_chunking) samples on the GitHub website demonstrate the [Task Chunking](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0001-task-chunking.md) extension for Open Job Description. Render jobs often spend significant time loading applications and scene files before rendering each frame. Chunking amortizes this overhead by processing multiple frames per chunk, which reduces total job runtime.
 
@@ -25,7 +24,7 @@ Choose a range constraint based on the application:
 
 Submit any of the samples with the Deadline Cloud CLI:
 
-```
+```bash
 deadline bundle submit {{sample-directory}}
 ```
 

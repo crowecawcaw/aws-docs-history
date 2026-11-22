@@ -1,7 +1,6 @@
 
 
 # Worker states and lifecycle
-<a name="worker-states"></a>
 
 A *worker* is a host in a fleet that runs the tasks that make up your jobs. Each worker runs the Deadline Cloud worker agent, which connects the host to your farm. Every worker has a status, on both service-managed and customer-managed fleets. You can see the status in the worker status column of the Deadline Cloud monitor and in the `status` field that the [GetWorker](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetWorker.html) and [ListWorkers](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListWorkers.html) operations return. The status shows whether the worker is available for work, shutting down, or no longer connected. It also determines whether Deadline Cloud charges for the worker.
 

@@ -1,7 +1,6 @@
 
 
 # Run a portable job locally and in a container
-<a name="containers-portable-job"></a>
 
 A portable job template defines the application command and arguments without selecting the runtime. The following example requires `bash`. It doesn't contain Docker commands, an image URI, or Amazon ECR authentication.
 
@@ -17,7 +16,7 @@ Install the OpenJD CLI and the Deadline Cloud CLI. Complete [Set up container su
 
 1. Create a directory named `portable-container-job` and save the following content as `template.yaml` in that directory.
 
-   ```
+   ```yaml
    specificationVersion: jobtemplate-2023-09
    name: Portable container job
    parameterDefinitions:
@@ -45,13 +44,13 @@ Install the OpenJD CLI and the Deadline Cloud CLI. Complete [Set up container su
 
 1. Validate the job template.
 
-   ```
+   ```bash
    openjd check portable-container-job/template.yaml
    ```
 
 1. Run the job directly on your workstation.
 
-   ```
+   ```bash
    openjd run portable-container-job/template.yaml \
        -p Message="Local execution"
    ```
@@ -60,7 +59,7 @@ Install the OpenJD CLI and the Deadline Cloud CLI. Complete [Set up container su
 
 1. Configure the Deadline Cloud CLI to use the Docker-enabled queue, and submit the unchanged job bundle.
 
-   ```
+   ```bash
    deadline bundle submit portable-container-job \
        -p Message="Container execution"
    ```

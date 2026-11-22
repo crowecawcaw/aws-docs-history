@@ -1,7 +1,6 @@
 
 
 # Tile rendering on Deadline Cloud
-<a name="examples-jb-tile-rendering"></a>
 
 Tile rendering divides each frame into evenly sized regions, renders each region as a separate task in parallel across workers, then assembles the regions into the final image. The samples repository on the GitHub website includes several tile rendering job bundles for different DCC and renderer combinations.
 

@@ -1,7 +1,6 @@
 
 
 # Test the configuration of your worker host
-<a name="test-software"></a>
 
 After you have installed the worker agent, installed the software necessary to process your jobs, and configured the AWS credentials for the worker agent, you should test that the installation can process your jobs before creating an AMI for your fleet. You should test the following:
 + The Deadline Cloud worker agent is properly configured to run as a system service.
@@ -25,7 +24,7 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From a root shell run the following command:
 
-   ```
+   ```bash
    systemctl start deadline-worker
    ```
 
@@ -34,7 +33,7 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From an administrator command prompt or PowerShell terminal, enter the following command:
 
-   ```
+   ```bash
    sc.exe start DeadlineWorker
    ```
 
@@ -47,19 +46,19 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From a root shell run the following command:
 
-   ```
+   ```bash
    systemctl status deadline-worker
    ```
 
    The command should return a response like:
 
-   ```
+   ```bash
    Active: active (running) since Wed 2023-06-14 14:44:27 UTC; 7min ago
    ```
 
    If the response doesn't look like that, inspect the log file using the following command:
 
-   ```
+   ```bash
    tail -n 25 /var/log/amazon/deadline/worker-agent.log
    ```
 
@@ -68,19 +67,19 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From an administrator command prompt or PowerShell terminal, enter the following command:
 
-   ```
+   ```bash
    sc.exe query DeadlineWorker
    ```
 
    The command should return a response like:
 
-   ```
+   ```bash
    STATE   : 4 RUNNING
    ```
 
    If the response doesn't contain `RUNNING`, inspect the worker log file. Open and administrator PowerShell prompt and run the following command:
 
-   ```
+   ```bash
    Get-Content -Tail 25 -Path $env:PROGRAMDATA\Amazon\Deadline\Logs\worker-agent.log
    ```
 
@@ -99,7 +98,7 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From a root shell run the following command:
 
-   ```
+   ```bash
    systemctl stop deadline-worker
    ```
 
@@ -108,7 +107,7 @@ To avoid these issues, use a staging fleet that doesn't auto scale to configure 
 
    From an administrator command prompt or PowerShell terminal, enter the following command:
 
-   ```
+   ```bash
    sc.exe stop DeadlineWorker
    ```
 

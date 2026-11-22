@@ -1,7 +1,6 @@
 
 
 # Classify satellite imagery in parallel on Deadline Cloud
-<a name="examples-jb-satellite-classification"></a>
 
 The [satellite\_classification](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/satellite_classification) job bundle on the GitHub website classifies satellite image tiles into land-cover categories (water, vegetation, bare soil, rock, cloud) and merges the results into a single map. The classifier reads color ratios between the four spectral bands of each tile to decide what's on the ground.
 
@@ -13,13 +12,13 @@ The bundle requires a farm with a conda queue environment that has `conda-forge`
 
 Submit with the sample tiles:
 
-```
+```bash
 deadline bundle submit job_bundles/satellite_classification/
 ```
 
 To classify your own tiles, point `TilesDir` at a local directory of 4-band `.tif` files:
 
-```
+```bash
 deadline bundle submit job_bundles/satellite_classification/ \
   -p TilesDir={{path-to-tiles}}
 ```

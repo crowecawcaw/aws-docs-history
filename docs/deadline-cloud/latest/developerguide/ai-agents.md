@@ -1,7 +1,6 @@
 
 
 # Using AI agents with Deadline Cloud
-<a name="ai-agents"></a>
 
 Use AI agents to write job bundles, develop conda packages, and troubleshoot jobs in Deadline Cloud. This topic explains what AI agents are, key points for working with them effectively, and resources to help agents understand Deadline Cloud.
 

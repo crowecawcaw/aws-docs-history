@@ -1,7 +1,6 @@
 
 
 # AI agent skills for Deadline Cloud
-<a name="examples-skills"></a>
 
 For background on working with AI agents, see [Using AI agents with Deadline Cloud](ai-agents.md). The [skills](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills) directory on the GitHub website provides the following Deadline Cloud AI agent skills (`SKILL.md` files) that you can load into an agent so it follows a known-good procedure:
 + [deadline-cloud-job](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/skills/deadline-cloud-job) — Walks the agent through creating an Open Job Description job bundle for Deadline Cloud, optionally with a conda package recipe for custom dependencies. Covers designing parameters and steps, writing the template, validating with `openjd check`, iterating locally with `openjd run --tasks`, and submitting to a farm.

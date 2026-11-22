@@ -1,7 +1,6 @@
 
 
 # Build an Adobe After Effects conda package for Deadline Cloud
-<a name="examples-conda-aftereffects"></a>
 
 The samples repository on the GitHub website includes the following After Effects conda recipes:
 + [aftereffects-25.1](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/aftereffects-25.1): Adobe After Effects 25.1.
@@ -10,6 +9,6 @@ The samples repository on the GitHub website includes the following After Effect
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job aftereffects-25.1
 ```

@@ -1,7 +1,6 @@
 
 
 # Build and test packages locally
-<a name="build-test-packages-locally"></a>
 
 Before publishing packages to Amazon S3 or setting up CI/CD automation on your Deadline Cloud farm, you can build and test conda packages on your workstation using a local filesystem channel. This approach lets you rapidly iterate locally on recipes and verify packages.
 
@@ -16,7 +15,7 @@ Before you begin, install the following tools on your workstation:
 + **pixi** – A package manager that you use to install `rattler-build` and to test packages. For installation instructions, see [pixi.sh](https://pixi.sh) on the Pixi website.
 + **rattler-build** – The package build tool used by Deadline Cloud conda recipes. After you install pixi, run the following command to install `rattler-build`.
 
-  ```
+  ```bash
   pixi global install rattler-build
   ```
 + **git** – Required to clone the samples repository. On Windows, [Git for Windows](https://gitforwindows.org/) on the Git for Windows website also provides a `bash` shell, which some of the Windows sample recipes require.
@@ -33,13 +32,13 @@ Large applications can require tens of GB of free disk space for the source arch
 
 1. Clone the Deadline Cloud samples repository.
 
-   ```
+   ```bash
    git clone https://github.com/aws-deadline/deadline-cloud-samples.git
    ```
 
 1. Change to the `conda_recipes` directory.
 
-   ```
+   ```bash
    cd deadline-cloud-samples/conda_recipes
    ```
 
@@ -47,7 +46,7 @@ Large applications can require tens of GB of free disk space for the source arch
 
    On Linux and macOS, run the following command.
 
-   ```
+   ```bash
    rattler-build publish blender-4.5/recipe/recipe.yaml \
        --to file://$HOME/my-conda-channel \
        --build-number=+1
@@ -55,7 +54,7 @@ Large applications can require tens of GB of free disk space for the source arch
 
    On Windows (cmd), run the following command.
 
-   ```
+   ```bash
    rattler-build publish blender-4.5/recipe/recipe.yaml ^
        --to file://%USERPROFILE%/my-conda-channel ^
        --build-number=+1
@@ -80,7 +79,7 @@ For more information about `rattler-build publish`, see the [rattler-build publi
 
 If a build fails, `rattler-build` preserves the build directory so you can investigate. Run the following command to open an interactive shell in the build environment with all environment variables set up as they were during the build.
 
-```
+```bash
 rattler-build debug shell
 ```
 
@@ -97,7 +96,7 @@ After you build and publish the package, create a temporary pixi project. Use th
 
    On Linux and macOS, run the following commands.
 
-   ```
+   ```bash
    mkdir package-test-env
    cd package-test-env
    pixi init --channel file://$HOME/my-conda-channel
@@ -113,13 +112,13 @@ After you build and publish the package, create a temporary pixi project. Use th
 
 1. Add the package to the project.
 
-   ```
+   ```bash
    pixi add blender=4.5
    ```
 
 1. Verify that the package works correctly.
 
-   ```
+   ```bash
    pixi run blender --version
    ```
 
@@ -132,7 +131,7 @@ When you are satisfied with the package, you can publish the package to an Amazo
 
 Avoid removing packages from channels that you use for production, because lockfiles reference specific packages by hash. Removing a package prevents re-creating environments from those lockfiles. For development and testing channels, you can remove a specific package by deleting the `.conda` file from the channel directory and then re-indexing the channel. First, install `rattler-index`.
 
-```
+```bash
 pixi global install rattler-index
 ```
 
@@ -140,7 +139,7 @@ Then delete the package file and re-index the channel.
 
 On Linux and macOS, run the following commands.
 
-```
+```bash
 rm $HOME/my-conda-channel/linux-64/blender-4.5.0-hb0f4dca_1.conda
 rattler-index fs $HOME/my-conda-channel
 ```
@@ -165,7 +164,7 @@ After testing, you can remove the test project and the local channel.
 
    On Linux and macOS, run the following command.
 
-   ```
+   ```bash
    rm -rf package-test-env
    ```
 
@@ -179,7 +178,7 @@ After testing, you can remove the test project and the local channel.
 
    On Linux and macOS, run the following command.
 
-   ```
+   ```bash
    rm -rf $HOME/my-conda-channel
    ```
 
@@ -193,7 +192,7 @@ After testing, you can remove the test project and the local channel.
 
    On Linux and macOS, run the following command.
 
-   ```
+   ```bash
    rm -rf deadline-cloud-samples/conda_recipes/output
    ```
 

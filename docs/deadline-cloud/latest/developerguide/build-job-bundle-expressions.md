@@ -1,7 +1,6 @@
 
 
 # Expressions in job templates
-<a name="build-job-bundle-expressions"></a>
 
 A job template uses `{{ }}` format strings to insert values into job names, commands, arguments, and embedded files. With the `EXPR` extension to Open Job Description, the text inside `{{ }}` is an *expression*. An expression can be a plain reference such as `{{Param.{{Name}}}}`, or it can compute a value with arithmetic, comparisons, `if`/`else` conditionals, string and path operations, and list comprehensions. The syntax is a subset of Python.
 

@@ -1,7 +1,6 @@
 
 
 # Build jobs to submit to Deadline Cloud
-<a name="building-jobs"></a>
 
 You submit jobs to Deadline Cloud using job bundles. A job bundle is a collection of files, including a job template and any asset files needed to render the job. The job template follows the [Open Job Description (OpenJD) specification](https://github.com/OpenJobDescription/openjd-specifications) on the GitHub website.
 

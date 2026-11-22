@@ -1,7 +1,6 @@
 
 
 # Using files in your jobs
-<a name="using-files-in-your-jobs"></a>
 
  Many of the jobs that you submit to AWS Deadline Cloud have input and output files. Your input files and output directories may be located on a combination of shared filesystems and local drives. Jobs need to locate the content in those locations. Deadline Cloud provides two features, [job attachments](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html) and [storage profiles](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-shared.html) that work together to help your jobs locate the files that they need. 
 

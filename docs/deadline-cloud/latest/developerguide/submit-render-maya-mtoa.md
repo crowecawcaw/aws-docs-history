@@ -1,7 +1,6 @@
 
 
 # Test your packages with a Maya render job
-<a name="submit-render-maya-mtoa"></a>
 
 After you build the Maya, MtoA, and `maya-openjd` packages, you can test them with a render job. The Deadline Cloud samples repository contains a [turntable with Maya/Arnold job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold) on the GitHub website that renders an animation using Maya and Arnold. The job bundle also uses FFmpeg to encode a video, which is available from the `conda-forge` channel.
 
@@ -10,13 +9,13 @@ After you build the Maya, MtoA, and `maya-openjd` packages, you can test them wi
 
 You can run the job template on your workstation using the [Open Job Description CLI](https://github.com/OpenJobDescription/openjd-cli#readme) on the GitHub website. Install the CLI with `pip`.
 
-```
+```bash
 pip install openjd-cli
 ```
 
 From the `job_bundles` directory in the samples repository, run the following command. The `ErrorOnArnoldLicenseFail=false` parameter tells Arnold to render with watermarks instead of failing when no license is available.
 
-```
+```bash
 openjd run turntable_with_maya_arnold/template.yaml \
     --environment ../queue_environments/conda_queue_env_pyrattler.yaml \
     -p CondaPackages="maya maya-mtoa maya-openjd ffmpeg" \
@@ -34,7 +33,7 @@ When the job completes, the rendered output is in the `turntable_with_maya_arnol
 
 After you configure your production queue to use the Amazon S3 conda channel, submit the render job to Deadline Cloud. Add the `conda-forge` channel to the `CondaChannels` parameter in your conda queue environment to provide a source for `ffmpeg` and the Python dependencies that the adaptor requires. From the `job_bundles` directory in the samples repository, run the following command.
 
-```
+```bash
 deadline bundle submit turntable_with_maya_arnold
 ```
 

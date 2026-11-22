@@ -1,7 +1,6 @@
 
 
 # Create a conda package for an application or plugin
-<a name="conda-package"></a>
 
 A conda package is a compressed archive of software written in any language. Conda supports a variety of operating system and architecture combinations, so you can package full applications like Blender, Maya, and Nuke alongside libraries for Python and other languages. For more information about conda packages, see the [Packages](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/packages.html) documentation on the conda website.
 

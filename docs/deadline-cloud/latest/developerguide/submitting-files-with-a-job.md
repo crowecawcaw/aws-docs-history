@@ -1,7 +1,6 @@
 
 
 # Submitting files with a job
-<a name="submitting-files-with-a-job"></a>
 
 A job bundle defines its job attachments in two places:
 + **`PATH` job parameters** in the job template. A parameter's `dataFlow` property marks its value as an input (`IN`), an output (`OUT`), or both (`INOUT`). Its `objectType` property says whether the value is a `FILE` or a `DIRECTORY`. For more information, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition) in the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications) on the GitHub website.

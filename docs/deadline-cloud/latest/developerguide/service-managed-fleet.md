@@ -1,7 +1,6 @@
 
 
 # Add a service-managed fleet to your developer farm in Deadline Cloud
-<a name="service-managed-fleet"></a>
 
 AWS CloudShell does not provide enough compute capacity to test larger workloads. It's also not configured to work with jobs that distribute tasks on multiple worker hosts. 
 
@@ -13,7 +12,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 1. Choose your first AWS CloudShell tab, then create the service-managed fleet and add its fleet ID to `.bashrc`. This action makes it available for other terminal sessions.
 
-   ```
+   ```bash
    FLEET_ROLE_ARN="arn:aws:iam::$(aws sts get-caller-identity \
             --query "Account" --output text):role/${DEV_FARM_NAME}FleetRole"
     aws deadline create-fleet \
@@ -50,7 +49,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 1. Associate the SMF with your queue.
 
-   ```
+   ```bash
    aws deadline create-queue-fleet-association \
         --farm-id $DEV_FARM_ID \
         --queue-id $DEV_QUEUE_ID \
@@ -59,7 +58,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 1. Submit simple\_file\_job to the queue. When prompted to confirm the upload, enter **y**.
 
-   ```
+   ```bash
    deadline bundle submit simple_file_job \
        -p InFile=simple_job/template.yaml \
        -p OutFile=hash-jobattachments.txt
@@ -67,7 +66,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 1. Confirm the SMF is working correctly.
 
-   ```
+   ```bash
    deadline fleet get
    ```
    + The worker may take a few minutes to start. Repeat the `deadline fleet get` command until you can see that the fleet is running.
@@ -76,7 +75,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
    Your status will look similar to the following:
 
-   ```
+   ```yaml
    fleetId: fleet-2cc78e0dd3f04d1db427e7dc1d51ea44
    farmId: farm-63ee8d77cdab4a578b685be8c5561c4a
    displayName: DeveloperFarm SMF
@@ -91,7 +90,7 @@ Before you add an SMF, you must set up a Deadline Cloud farm, queue, and fleet. 
 
 1. View the log for the job that you submitted. This log is stored in a log in Amazon CloudWatch Logs, not the CloudShell file system. 
 
-   ```
+   ```bash
     JOB_ID=$(deadline config get defaults.job_id)
     SESSION_ID=$(aws deadline list-sessions \
             --farm-id $DEV_FARM_ID \

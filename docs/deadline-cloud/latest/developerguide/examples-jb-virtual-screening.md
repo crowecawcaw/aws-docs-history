@@ -1,7 +1,6 @@
 
 
 # Run virtual screening with AutoDock Vina on Deadline Cloud
-<a name="examples-jb-virtual-screening"></a>
 
 The [virtual\_screening\_vina job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/virtual_screening_vina) on the GitHub website uses [AutoDock Vina](https://github.com/ccsb-scripps/AutoDock-Vina) to screen large compound libraries against a protein target. The bundle splits a compound library into chunks and docks them in parallel across a fleet of workers, then aggregates and ranks the results by binding affinity.
 
@@ -21,7 +20,7 @@ Set `CompoundLibrary=chembl` (default) to automatically download and filter drug
 
 From the `job_bundles` directory, submit the job:
 
-```
+```bash
 deadline bundle submit virtual_screening_vina \
   -p "ReceptorPdb=receptor.pdb" \
   -p "CompoundLibrary=chembl" \

@@ -1,7 +1,6 @@
 
 
 # Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud
-<a name="examples-container-al2023"></a>
 
 The [al2023-deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/containers/al2023-deadline) Dockerfile on the GitHub website replicates the package set of the Deadline Cloud service-managed fleet (SMF) worker AMI on top of the base Amazon Linux 2023 image. Use the image to:
 + Build and test conda packages with the same GLIBC version, system libraries, and runtime environment as real workers.
@@ -12,13 +11,13 @@ The image installs packages in layered groups that match the worker AMI: core sy
 
 Build the image:
 
-```
+```bash
 docker build -f Dockerfile.worker-equivalent -t al2023-deadline:latest .
 ```
 
 Build a conda package inside the container:
 
-```
+```bash
 docker run --rm -v "$PWD":/work -w /work al2023-deadline:latest \
     bash -c "pip3.11 install conda-build && conda build my-recipe/"
 ```

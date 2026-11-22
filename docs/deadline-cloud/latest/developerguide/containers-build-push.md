@@ -1,7 +1,6 @@
 
 
 # Building, tagging, and pushing a container image
-<a name="containers-build-push"></a>
 
 Build the image for the processor architecture used by your fleet. Linux service-managed fleets with the Docker software add-on use the `linux/amd64` platform. Give each image version a tag that identifies its contents, such as an application version or source revision.
 
@@ -17,7 +16,7 @@ Install Docker and AWS CLI on your workstation. Create an Amazon ECR private rep
 
 1. Set values for your AWS account, Region, repository, and image tag.
 
-   ```
+   ```bash
    REGION={{us-west-2}}
    ACCOUNT_ID={{111122223333}}
    REPOSITORY={{portable-job}}
@@ -28,7 +27,7 @@ Install Docker and AWS CLI on your workstation. Create an Amazon ECR private rep
 
 1. From the directory that contains your Dockerfile, build the image.
 
-   ```
+   ```bash
    docker build --platform linux/amd64 \
        --tag "${REPOSITORY}:${IMAGE_TAG}" \
        .
@@ -36,27 +35,27 @@ Install Docker and AWS CLI on your workstation. Create an Amazon ECR private rep
 
 1. Run an application-specific command to test the image locally.
 
-   ```
+   ```bash
    docker run --rm "${REPOSITORY}:${IMAGE_TAG}" {{test-command}}
    ```
 
 1. Authenticate Docker to your private Amazon ECR registry.
 
-   ```
+   ```bash
    aws ecr get-login-password --region "${REGION}" | \
        docker login --username AWS --password-stdin "${REGISTRY}"
    ```
 
 1. Apply the Amazon ECR image tag and push the image.
 
-   ```
+   ```bash
    docker tag "${REPOSITORY}:${IMAGE_TAG}" "${IMAGE_URI}"
    docker push "${IMAGE_URI}"
    ```
 
 1. Retrieve the image digest and record it with your build output.
 
-   ```
+   ```bash
    aws ecr describe-images \
        --region "${REGION}" \
        --repository-name "${REPOSITORY}" \

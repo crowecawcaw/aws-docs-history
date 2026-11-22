@@ -1,7 +1,6 @@
 
 
 # Use job attachments with service-managed fleets
-<a name="smf-job-attachments"></a>
 
 Job attachments transfer files between your workstation and Deadline Cloud workers using Amazon Simple Storage Service (Amazon S3). You can use job attachments alone or together with shared storage to attach auxiliary data to jobs that isn't shared with other jobs, such as job scripts, configuration files, or project assets stored locally.
 
@@ -36,7 +35,7 @@ Increasing Amazon EBS throughput and IOPS increases fleet cost. For pricing info
 **To update Amazon EBS settings on an existing fleet using the AWS CLI**
 + Run the following command:
 
-  ```
+  ```bash
   aws deadline update-fleet \
     --farm-id {{farm-0123456789abcdef0}} \
     --fleet-id {{fleet-0123456789abcdef0}} \
@@ -63,7 +62,7 @@ Increasing Amazon EBS throughput and IOPS increases fleet cost. For pricing info
 
 After your job completes, download output files using the Deadline Cloud CLI or AWS Deadline Cloud monitor (Deadline Cloud monitor):
 
-```
+```bash
 deadline job download-output --job-id {{job-0123456789abcdef0}}
 ```
 

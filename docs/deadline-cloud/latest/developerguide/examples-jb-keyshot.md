@@ -1,7 +1,6 @@
 
 
 # Render KeyShot scenes on Deadline Cloud
-<a name="examples-jb-keyshot"></a>
 
 The deadline-cloud-samples repository on the GitHub website includes the [keyshot\_standalone](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone) job bundle, a Windows KeyShot job bundle that renders a scene with each frame as a separate task. The bundle accepts the following job parameters:
 + `KeyShotFile`

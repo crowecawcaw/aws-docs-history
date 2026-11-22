@@ -1,7 +1,6 @@
 
 
 # Manage the bundles on your queue
-<a name="share-job-bundles-manage"></a>
 
 To publish an updated version of a bundle, upload it again with the same name. The command asks for confirmation before overwriting the existing archive. Teammates get the new version the next time they download or submit the bundle. Their cached copy is refreshed when the archive changes on the queue.
 

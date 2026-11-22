@@ -1,7 +1,6 @@
 
 
 # Verify the authenticity of downloaded software
-<a name="verify-installer"></a>
 
 Verify your software's authenticity after downloading the installer to protect against file tampering. This procedure works for both Windows and Linux systems.
 
@@ -27,7 +26,7 @@ To verify the authenticity of your downloaded files, use the `gpg` command line 
 
 1. Import the `OpenPGP` key by running the following command:
 
-   ```
+   ```shell
     gpg --import --armor <<EOF
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    
@@ -65,7 +64,7 @@ To verify the authenticity of your downloaded files, use the `gpg` command line 
 
 1. If you decide to trust the OpenPGP key, edit the key to trust with `gpg` similar to the following example:
 
-   ```
+   ```shell
    $ gpg --edit-key 0xC83BD4DD7C6E1B63
    
        gpg (GnuPG) 2.3.7; Copyright (C) 2021 Free Software Foundation, Inc.
@@ -116,7 +115,7 @@ To verify the authenticity of your downloaded files, use the `gpg` command line 
 
    1. Verify the signature of the Deadline Cloud submitter installer by running:
 
-      ```
+      ```bash
       gpg --verify ./DeadlineCloudSubmitter-linux-x64-installer.run.sig ./DeadlineCloudSubmitter-linux-x64-installer.run
       ```
 
@@ -137,19 +136,19 @@ You can verify the Deadline Cloud monitor download using signature files or plat
 
       **For .deb:**
 
-      ```
+      ```bash
       gpg --verify ./deadline-cloud-monitor_amd64.deb.sig ./deadline-cloud-monitor_amd64.deb
       ```
 
       **For .rpm:**
 
-      ```
+      ```bash
       gpg --verify ./deadline-cloud-monitor.x86_64.rpm.sig ./deadline-cloud-monitor.x86_64.rpm
       ```
 
       **For .AppImage:**
 
-      ```
+      ```bash
       gpg --verify ./deadline-cloud-monitor_amd64.AppImage.sig ./deadline-cloud-monitor_amd64.AppImage
       ```
 
@@ -165,7 +164,7 @@ You can verify the Deadline Cloud monitor download using signature files or plat
 
 If you downloaded an installer that was signed before the current key was issued, import the following historical key and repeat the verification steps.
 
-```
+```shell
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBGX6GQsBEADduUtJgqSXI+q76O6fsFwEYKmbnlyL0xKvlq32EZuyv0otZo5L
@@ -206,19 +205,19 @@ To verify packages that use a Linux .AppImage binary, first complete steps 1-3 i
 
 1. After downloading the file, to add execute permissions, run the following command.
 
-   ```
+   ```bash
    chmod a+x ./validate-x86_64.AppImage
    ```
 
 1. To add execute permissions, run the following command.
 
-   ```
+   ```bash
    chmod a+x ./deadline-cloud-monitor_{{<APP_VERSION>}}_amd64.AppImage
    ```
 
 1. To verify the Deadline Cloud monitor signature, run the following command.
 
-   ```
+   ```bash
    ./validate-x86_64.AppImage ./deadline-cloud-monitor_{{<APP_VERSION>}}_amd64.AppImage
    ```
 
@@ -237,13 +236,13 @@ To verify packages that use a Linux .deb binary, first complete steps 1-3 in the
 
 1. Verify the .deb file:
 
-   ```
+   ```bash
    dpkg-sig --verify deadline-cloud-monitor_amd64.deb
    ```
 
 1. The output will be similar to:
 
-   ```
+   ```bash
    Processing deadline-cloud-monitor_amd64.deb...
    GOODSIG _gpgbuilder C83BD4DD7C6E1B63 1765815349
    ```
@@ -261,7 +260,7 @@ To verify packages that use a Linux .rpm binary, first complete steps 1-3 in the
 
 1. Verify the .rpm file:
 
-   ```
+   ```bash
    gpg --export --armor "Deadline Cloud" > key.pub
    sudo rpm --import key.pub
    rpm -K deadline-cloud-monitor.x86_64.rpm
@@ -269,7 +268,7 @@ To verify packages that use a Linux .rpm binary, first complete steps 1-3 in the
 
 1. The output will be similar to:
 
-   ```
+   ```bash
    deadline-cloud-monitor.x86_64.rpm: digests signatures OK
    ```
 

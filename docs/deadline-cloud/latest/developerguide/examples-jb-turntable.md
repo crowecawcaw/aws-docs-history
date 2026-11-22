@@ -1,7 +1,6 @@
 
 
 # Render a turntable video with Maya and Arnold on Deadline Cloud
-<a name="examples-jb-turntable"></a>
 
 The [turntable\_with\_maya\_arnold job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/turntable_with_maya_arnold) on the GitHub website takes an OBJ geometry file as input and outputs a turntable render video. A turntable render is a 360-degree rotation of a rendered 3D model that allows inspection of the geometry without a 3D viewer.
 

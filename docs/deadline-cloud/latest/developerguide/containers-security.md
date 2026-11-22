@@ -1,7 +1,6 @@
 
 
 # Security and best practices for container jobs
-<a name="containers-security"></a>
 
 ## Rootless runtime
 <a name="containers-security-rootless"></a>

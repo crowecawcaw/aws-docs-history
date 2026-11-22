@@ -1,7 +1,6 @@
 
 
 # Render Autodesk Maya scenes on Deadline Cloud
-<a name="examples-jb-maya-render"></a>
 
 The deadline-cloud-samples repository on the GitHub website includes the [maya\_cli\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/maya_cli_render) job bundle, which renders a Maya software renderer scene with the Maya CLI `Render` command. It runs one task per frame using an Open Job Description parameter space and restricts execution to Linux workers through host requirements.
 
@@ -11,13 +10,13 @@ To run these bundles, your queue needs Maya available through a queue environmen
 
 Submit the bundle:
 
-```
+```bash
 deadline bundle gui-submit maya_cli_render/
 ```
 
 For an example that exports `.ass` files from Maya and renders them in a single job, use:
 
-```
+```bash
 deadline bundle submit maya_arnold_ass_export_render/ \
     -p MayaSceneFile={{path-to-scene.ma}} \
     -p Frames=1-100 \

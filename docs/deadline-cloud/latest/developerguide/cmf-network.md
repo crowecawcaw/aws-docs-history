@@ -1,7 +1,6 @@
 
 
 # Worker host data flow for customer-managed fleets
-<a name="cmf-network"></a>
 
 This topic describes the network connections that AWS Deadline Cloud (Deadline Cloud) worker hosts make during operation, including the endpoints contacted, protocols used, and data transmitted. This information applies to customer-managed fleet (CMF) workers, including both Amazon Elastic Compute Cloud (Amazon EC2) instances and on-premises workers. Use this information to configure firewall rules, create VPC endpoints, perform security audits, or plan network policies for your worker hosts. For information about service-managed fleet networking, see [Inter-network traffic privacy](inter-network-traffic-privacy.md).
 

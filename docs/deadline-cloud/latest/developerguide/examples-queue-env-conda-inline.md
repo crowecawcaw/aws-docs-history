@@ -1,7 +1,6 @@
 
 
 # Inline conda queue environments for Deadline Cloud customer-managed fleets
-<a name="examples-queue-env-conda-inline"></a>
 
 The samples repository on the GitHub website includes the following inline conda queue environments that run conda directly instead of using the `conda-queue-env-enter` command:
 

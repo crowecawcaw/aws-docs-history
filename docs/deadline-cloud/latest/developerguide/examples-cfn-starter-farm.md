@@ -1,7 +1,6 @@
 
 
 # Deploy a starter Deadline Cloud farm with CloudFormation
-<a name="examples-cfn-starter-farm"></a>
 
 The starter\_farm CloudFormation template deploys a Deadline Cloud farm that you can use to run jobs that render images, reconstruct 3D scenes, or transform data. For the template source, see [starter\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/starter_farm) on the GitHub website. The deployed farm includes:
 + One or more [service-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html) that you select during deployment.

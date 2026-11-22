@@ -1,7 +1,6 @@
 
 
 # Share job bundles on your queue
-<a name="share-job-bundles"></a>
 
 After you build a custom job bundle, you can share it on your queue. Everyone who submits jobs to that queue can then use it. AWS Deadline Cloud stores shared bundles in the queue's job attachments Amazon S3 bucket. Because of that, a teammate who can submit jobs to the queue can also browse, download, and submit the bundles shared on it. You don't need to create any additional infrastructure or permissions.
 

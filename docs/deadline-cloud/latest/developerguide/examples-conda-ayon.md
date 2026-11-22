@@ -1,7 +1,6 @@
 
 
 # Build an AYON Launcher conda package for Deadline Cloud
-<a name="examples-conda-ayon"></a>
 
 The [ayon-launcher](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/ayon-launcher) rattler-build recipe on the GitHub website packages the [AYON Launcher](https://github.com/ynput/ayon-launcher) as a conda package. The package provides the pipeline runtime needed for headless publishing on Deadline Cloud workers. It repackages the pre-built AYON Launcher release (cx\_Freeze binary) containing the Python 3.11 runtime, `ayon-python-api`, and core launcher logic.
 
@@ -11,7 +10,7 @@ The recipe builds for Linux (`linux-64`) directly from GitHub releases. For Wind
 
 Submit the build from the `conda_recipes` directory:
 
-```
+```bash
 ./submit-package-job ayon-launcher
 ```
 

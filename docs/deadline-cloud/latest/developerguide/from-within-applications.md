@@ -1,7 +1,6 @@
 
 
 # Submit a job within an application
-<a name="from-within-applications"></a>
 
  To make it easy for users to submit jobs, you can use the scripting runtimes or plugin systems provided by an application. Users have a familiar interface and you can create tools that assist the users when submitting a workload. 
 
@@ -14,13 +13,13 @@ This example demonstrates submitting job bundles that you make available in the 
 
  The following script enables a user to select the job bundle: 
 
-```
+```bash
 deadline bundle gui-submit --install-gui
 ```
 
  To use a specific job bundle in a menu item instead, use the following: 
 
-```
+```bash
 deadline bundle gui-submit {{</path/to/job/bundle>}} --install-gui
 ```
 

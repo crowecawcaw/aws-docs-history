@@ -1,7 +1,6 @@
 
 
 # Build a V-Ray Standalone conda package for Deadline Cloud
-<a name="examples-conda-vray"></a>
 
 The [vray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/vray) conda recipe on the GitHub website builds a V-Ray Standalone renderer conda package. For more information about V-Ray Standalone, see [V-Ray Standalone Home](https://docs.chaos.com/display/VNS/V-Ray+Standalone+Home) on the Chaos website.
 
@@ -9,7 +8,7 @@ To build the recipe, download the V-Ray Standalone archive (`vraystd_adv_71000_r
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job vray
 ```
 

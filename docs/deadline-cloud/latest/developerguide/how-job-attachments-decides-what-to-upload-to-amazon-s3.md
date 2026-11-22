@@ -1,7 +1,6 @@
 
 
 # How Deadline Cloud chooses the files to upload
-<a name="how-job-attachments-decides-what-to-upload-to-amazon-s3"></a>
 
 **Note**  
 The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`. The examples also modify the [job\_attachments\_devguide job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide) on the GitHub website.
@@ -14,7 +13,7 @@ The commands on this page are written for the sample project from [Sample projec
 
  In this example, you create `SHARED` file system locations in `WSAll` in your AWS CloudShell environment and then add files to those file system locations. Use the following command: 
 
-```
+```bash
 # Change the value of WSALL_ID to the identifier of the WSAll storage profile
 WSALL_ID=sp-{{00112233445566778899aabbccddeeff}}
 
@@ -28,7 +27,7 @@ done
 
  Next, add an asset references file to the job bundle that includes all the files that you created as inputs for the job. Use the following command: 
 
-```
+```yaml
 cat > ${HOME}/job_attachments_devguide/asset_references.yaml << EOF
 assetReferences:
   inputs:
@@ -42,7 +41,7 @@ EOF
 
  Next, configure the Deadline Cloud CLI to submit jobs with the `WSAll` storage profile, and then submit the job bundle: 
 
-```
+```bash
 # Change the value of FARM_ID to your farm's identifier
 FARM_ID=farm-{{00112233445566778899aabbccddeeff}}
 # Change the value of QUEUE1_ID to queue Q1's identifier
@@ -57,7 +56,7 @@ deadline bundle submit --farm-id $FARM_ID --queue-id $QUEUE1_ID job_attachments_
 
 Deadline Cloud uploads two files to Amazon S3 when you submit the job. You can download the manifest objects for the job from S3 to see the uploaded files: 
 
-```
+```bash
 for manifest in $( \
   aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID \
     --query 'attachments.manifests[].inputManifestPath' \
@@ -70,7 +69,7 @@ done
 
  In this example, there is a single manifest file with the following contents: 
 
-```
+```json
 {
     "hashAlg": "xxh128",
     "manifestVersion": "2023-03-03",
@@ -94,7 +93,7 @@ done
 
  Use the [GetJob operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html) for the manifest to see that the `rootPath` is "/". 
 
-```
+```bash
 aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID --query 'attachments.manifests[*]'
 ```
 
@@ -106,7 +105,7 @@ The files in file system locations `FSCommon` (`/shared/common/file.txt`) and `F
 
 You can see the file system locations considered `SHARED` for a job that is submitted with a particular storage profile with the [GetStorageProfileForQueue operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStorageProfileForQueue.html). To query for storage profile `WSAll` for queue `Q1` use the following command: 
 
-```
+```bash
 aws deadline get-storage-profile --farm-id $FARM_ID --storage-profile-id $WSALL_ID
 
 aws deadline get-storage-profile-for-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID --storage-profile-id $WSALL_ID

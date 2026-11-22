@@ -1,7 +1,6 @@
 
 
 # Isolate workloads with farms, fleets, and queues
-<a name="farm-structure"></a>
 
 You can arrange Deadline Cloud farms, fleets, and queues many ways. The arrangement you choose sets the isolation boundaries between your workloads, so decide how much separation your teams, shows, or clients need before you build.
 

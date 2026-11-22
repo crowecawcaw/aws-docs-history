@@ -1,7 +1,6 @@
 
 
 # CloudWatch metrics
-<a name="cloudwatch-metrics"></a>
 
 Deadline Cloud sends metrics to Amazon CloudWatch. You can use the AWS Management Console, the AWS CLI, or an API to list the metrics that Deadline Cloud sends to CloudWatch. By default, each data point covers the 1 minute that follows the start time of activity. For information about how to view the available metrics using the AWS Management Console or the AWS CLI, see [View available metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html) in the *Amazon CloudWatch User Guide*.
 

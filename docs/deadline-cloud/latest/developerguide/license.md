@@ -1,7 +1,6 @@
 
 
 # Using software licenses with Deadline Cloud
-<a name="license"></a>
 
 With Deadline Cloud, you can license the applications and renderers that process your jobs in two ways:
 + *Usage-based licensing (UBL)* – Deadline Cloud provides on-demand licenses for supported third-party applications and renderers, billed for the hours that your fleet uses them to process a job. There is no set number of licenses, so your fleet can scale as needed.

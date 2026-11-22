@@ -1,7 +1,6 @@
 
 
 # Render Autodesk VRED scenes on Deadline Cloud
-<a name="examples-jb-vred-render"></a>
 
 The [vred\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vred_render) job bundle on the GitHub website renders VRED scenes using either VRED Core or VRED Pro in headless mode. It uses VRED's Python API through the `VRED_RenderScript_DeadlineCloud.py` script, which controls the rendering process, converts job template parameters into VRED API calls, and manages settings such as quality, resolution, and tiling.
 
@@ -15,6 +14,6 @@ To run this bundle on a service-managed fleet, your queue needs access to the `d
 
 Submit the bundle:
 
-```
+```bash
 deadline bundle gui-submit vred_render/
 ```

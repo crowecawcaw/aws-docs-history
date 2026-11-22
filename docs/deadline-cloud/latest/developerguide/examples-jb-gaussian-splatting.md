@@ -1,7 +1,6 @@
 
 
 # Train 3D Gaussian Splatting from video on Deadline Cloud
-<a name="examples-jb-gaussian-splatting"></a>
 
 The [gsplat\_pipeline job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gsplat_pipeline) on the GitHub website runs a [3D Gaussian Splatting pipeline](https://aws.amazon.com/blogs/spatial/3d-gaussian-splatting-performant-3d-scene-reconstruction-at-scale/). The bundle takes a video file as input and produces a Gaussian Splatting `.ply` file as output. After downloading the output, you can view it in any Gaussian Splatting viewer such as [SuperSplat](https://github.com/playcanvas/supersplat) on the GitHub website.
 
@@ -24,7 +23,7 @@ To capture a usable video, follow these tips:
 
 From the `job_bundles` directory of the samples repository, submit the job:
 
-```
+```bash
 deadline bundle gui-submit gsplat_pipeline
 ```
 

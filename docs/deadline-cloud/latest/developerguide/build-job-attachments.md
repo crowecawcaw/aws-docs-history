@@ -1,7 +1,6 @@
 
 
 # Job attachments
-<a name="build-job-attachments"></a>
 
 Job attachments is a Deadline Cloud feature that uses Amazon S3 to transfer a job's files, making the job's input files available to worker hosts and its output files available for download from the AWS Deadline Cloud monitor (Deadline Cloud monitor). The files are stored in an Amazon S3 bucket that belongs to the job's queue. When you create a queue in the Deadline Cloud console with default settings, the bucket and IAM policies that job attachments needs are configured for you.
 

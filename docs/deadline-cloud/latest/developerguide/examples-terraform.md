@@ -1,7 +1,6 @@
 
 
 # Deploy Deadline Cloud farms with Terraform
-<a name="examples-terraform"></a>
 
 The [terraform](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/terraform) directory in the deadline-cloud-samples repository on the GitHub website contains Terraform configurations that deploy Deadline Cloud farms with `awscc_deadline_*` resources from the AWSCC provider. For a comparison of Terraform with CloudFormation and the AWS CDK, see [Manage Deadline Cloud infrastructure as code](infrastructure-as-code.md).
 
@@ -9,7 +8,7 @@ The [starter\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/
 
 To deploy the starter farm, you need Terraform 1.0 or later, AWS credentials, an Amazon S3 bucket for job attachments and the conda channel, and a Deadline Cloud monitor. Set the required `job_attachments_bucket_name` variable, then run:
 
-```
+```bash
 cd terraform/farm_templates/starter_farm
 terraform init
 terraform apply

@@ -1,7 +1,6 @@
 
 
 # Configure and use Deadline Cloud service-managed fleets
-<a name="smf"></a>
 
 A service-managed fleet (SMF) is a collection of workers managed by Deadline Cloud. An SMF eliminates the need to manage fleet scaling for processing demands or reduce fleet size after task completion. For more information about choosing a fleet type, see [Choose between service-managed and customer-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/fleet-types.html) in the *Deadline Cloud User Guide*.
 

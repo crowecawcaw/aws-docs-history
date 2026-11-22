@@ -1,7 +1,6 @@
 
 
 # Run a Monte Carlo simulation on Deadline Cloud
-<a name="examples-jb-monte-carlo"></a>
 
 The [monte\_carlo\_simulation job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/monte_carlo_simulation) on the GitHub website prices a portfolio of autocallable structured notes using Monte Carlo simulation with QuantLib's Heston stochastic volatility model. The job is a Deadline Cloud port of the [Pricing Financial Derivatives with AWS Batch](https://ec2spotworkshops.com/monte-carlo-with-batch.html) workshop.
 
@@ -17,13 +16,13 @@ To run this bundle, you need a queue with a conda queue environment that include
 
 Submit the bundle with the GUI submitter:
 
-```
+```bash
 deadline bundle gui-submit monte_carlo_simulation/
 ```
 
 Or submit a quick test with fewer positions:
 
-```
+```bash
 deadline bundle submit monte_carlo_simulation/ \
   -p PositionRange="0-1" -p NumPaths=100
 ```

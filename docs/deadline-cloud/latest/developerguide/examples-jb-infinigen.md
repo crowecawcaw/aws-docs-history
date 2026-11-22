@@ -1,7 +1,6 @@
 
 
 # Generate procedural 3D scenes with Infinigen on Deadline Cloud
-<a name="examples-jb-infinigen"></a>
 
 The [infinigen\_scene\_gen](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/infinigen_scene_gen) job bundle on the GitHub website generates photorealistic 3D scenes on Deadline Cloud GPU workers with the [Infinigen scene generator](https://infinigen.org/) on the Infinigen website. The bundle supports indoor rooms (dining room, bedroom, kitchen, bathroom) and outdoor nature landscapes (desert, forest, mountain, coast, arctic). Each seed produces a unique scene with different layout, furniture, materials, terrain, and vegetation. Seeds fan out as independent tasks for parallel execution across the GPU fleet.
 
@@ -11,7 +10,7 @@ The bundle requires the `infinigen` conda package built from the [Build an Infin
 
 From the `job_bundles` directory, submit the job:
 
-```
+```bash
 # Single indoor dining room (~15 min)
 deadline bundle submit infinigen_scene_gen/ \
   -p Frames="0-0" \
@@ -20,7 +19,7 @@ deadline bundle submit infinigen_scene_gen/ \
   -p RoomType="DiningRoom"
 ```
 
-```
+```bash
 # 10 unique bedrooms in parallel
 deadline bundle submit infinigen_scene_gen/ \
   -p Frames="0-9" \
@@ -28,7 +27,7 @@ deadline bundle submit infinigen_scene_gen/ \
   -p RoomType="Bedroom"
 ```
 
-```
+```bash
 # Desert landscape
 deadline bundle submit infinigen_scene_gen/ \
   -p Frames="0-0" \

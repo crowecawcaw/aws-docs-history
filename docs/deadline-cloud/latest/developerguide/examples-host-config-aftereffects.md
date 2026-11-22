@@ -1,7 +1,6 @@
 
 
 # Install Adobe After Effects with Red Giant on Deadline Cloud Windows workers
-<a name="examples-host-config-aftereffects"></a>
 
 The [aftereffects\_redgiant](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/aftereffects/aftereffects_redgiant) host configuration script on the GitHub website installs Adobe After Effects 2025 with Red Giant and Universe plugins on Windows GPU service-managed fleet workers. The script fetches installers from Amazon S3 and runs each one in silent mode on each worker launch.
 

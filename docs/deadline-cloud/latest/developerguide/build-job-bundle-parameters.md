@@ -1,7 +1,6 @@
 
 
 # Parameter values elements for job bundles
-<a name="build-job-bundle-parameters"></a>
 
 You can use the parameters file to set the values of some of the job parameters in the job template or [CreateJob](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html) operation request arguments in the job bundle so that you don't need to set values when submitting a job. The UI for job submission enables you to modify these values.
 
@@ -9,7 +8,7 @@ You can define the job template in either YAML format (`parameter_values.yaml`) 
 
 In YAML, the format of the file is:
 
-```
+```yaml
 parameterValues:
 - name: <string>
   value: <integer>, <float>, or <string>
@@ -40,7 +39,7 @@ deadline bundle gui-submit blender_render/
 
 The new job bundle contains a `parameter_values.yaml` file that contains the specified parameters:
 
-```
+```yaml
 % cat ~/.deadline/job_history/\(default\)/2024-06/2024-06-20-01-JobBundle-Demo/parameter_values.yaml
 parameterValues:
 - name: deadline:targetTaskRunStatus

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for Deadline Cloud
-<a name="security-iam-awsmanpol"></a>
 
 
 

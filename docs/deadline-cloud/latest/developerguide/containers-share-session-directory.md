@@ -1,7 +1,6 @@
 
 
 # Share the session working directory
-<a name="containers-share-session-directory"></a>
 
 Deadline Cloud writes embedded files and prepares job attachment paths under `Session.WorkingDirectory`. OpenJD values such as `Task.File.Run` contain absolute paths in that directory. A container can't access those paths unless its filesystem includes the session directory.
 
@@ -9,7 +8,7 @@ The default Docker queue environment bind-mounts the directory at the same path 
 
 When you create a custom wrapping environment, include both options in the container start command:
 
-```
+```bash
 --mount {{ repr_sh("type=bind,src=" + Session.WorkingDirectory + ",dst=" + Session.WorkingDirectory) }} \
 --workdir {{ repr_sh(Session.WorkingDirectory) }}
 ```
@@ -29,7 +28,7 @@ When no `SHARED` location in the job's storage profile covers an output location
 
 The session directory is mounted at the same path inside the container, so pass the parameter value to the application as its output directory. The following partial job template declares an output location and passes it to the task command:
 
-```
+```yaml
 parameterDefinitions:
 - name: OutputDir
   type: PATH

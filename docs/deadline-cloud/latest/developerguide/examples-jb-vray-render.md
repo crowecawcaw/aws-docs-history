@@ -1,7 +1,6 @@
 
 
 # Render V-Ray standalone scenes on Deadline Cloud
-<a name="examples-jb-vray-render"></a>
 
 The [vray\_render](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vray_render) job bundle on the GitHub website creates a V-Ray rendering job for Deadline Cloud.
 
@@ -11,13 +10,13 @@ To run this bundle, you need:
 
 Submit the bundle with the GUI submitter:
 
-```
+```bash
 deadline bundle gui-submit vray_render
 ```
 
 Or submit a Chaos ENVISION sample from the CLI:
 
-```
+```bash
 SAMPLE_DIR={{path-to-sample}}
 deadline bundle submit vray_render \
     -p VraySceneFile="$SAMPLE_DIR"/Building.vrscene \

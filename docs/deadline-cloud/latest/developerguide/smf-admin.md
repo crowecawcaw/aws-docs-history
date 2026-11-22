@@ -1,7 +1,6 @@
 
 
 # Run host configuration scripts with administrator privileges
-<a name="smf-admin"></a>
 
 Host configuration scripts allow you to perform administrative tasks, such as software installation, on the workers in your fleet. These scripts run with elevated privileges (`sudo` on Linux, Administrator on Windows), giving you the flexibility to configure your workers for your system.
 
@@ -82,7 +81,7 @@ The following scripts demonstrate:
 
 Use the following script to show that a script is running with `root` privileges:
 
-```
+```bash
 # Print environment variables
 set 
 # Check AWS Credentials
@@ -94,7 +93,7 @@ aws sts get-caller-identity
 
 Use the following PowerShell script to show that a script is running with Administrator privileges:
 
-```
+```powershell
 Get-ChildItem env: | ForEach-Object { "$($_.Name)=$($_.Value)" }
 aws sts get-caller-identity
 function Test-AdminPrivileges {

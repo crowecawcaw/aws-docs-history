@@ -1,7 +1,6 @@
 
 
 # Control the job environment with OpenJD queue environments
-<a name="control-the-job-environment"></a>
 
 You can define customized environments for your rendering jobs using *queue environments*. A queue environment is a template that controls the environment variables, file mappings, and other settings for jobs running in a specific queue. It enables you to tailor the execution environment for the jobs submitted to a queue to the requirements of your workloads. AWS Deadline Cloud provides three nested levels where you can apply Open Job Description (OpenJD) environments: queue, job, and step. For more information, see [Environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment) on the GitHub website. By defining queue environments, you can ensure consistent and optimized performance for different types of jobs, streamline resource allocation, and simplify queue management.
 

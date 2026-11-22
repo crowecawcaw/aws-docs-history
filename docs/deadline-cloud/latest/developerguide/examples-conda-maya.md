@@ -1,7 +1,6 @@
 
 
 # Build an Autodesk Maya conda package for Deadline Cloud
-<a name="examples-conda-maya"></a>
 
 The samples repository on the GitHub website includes the following Maya conda recipes. Each recipe configures the `MAYA_MODULE_PATH` environment variable so that Maya loads plugin `.mod` files placed in the standard plugin paths:
 
@@ -29,7 +28,7 @@ The Maya Windows installer requires Administrator permissions that aren't availa
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job maya-2026
 ```
 

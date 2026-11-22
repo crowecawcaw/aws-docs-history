@@ -1,7 +1,6 @@
 
 
 # Install and configure software required for jobs
-<a name="install-software"></a>
 
 After you set up the Deadline Cloud worker agent, you can prepare the worker host with any software that is required to run jobs.
 
@@ -33,7 +32,7 @@ To install a digital content creation (DCC) adaptor on a customer-managed fleet
 
 1. Install the adaptor package for your DCC application. The following example installs the Maya adaptor:
 
-   ```
+   ```screen
    pip install deadline-cloud-for-maya
    ```
 

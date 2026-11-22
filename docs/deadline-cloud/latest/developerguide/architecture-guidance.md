@@ -1,7 +1,6 @@
 
 
 # Deadline Cloud Architecture Guidance
-<a name="architecture-guidance"></a>
 
 This topic provides guidance and best practices for designing and building reliable, secure, efficient, and cost-effective render farms for your workloads using Deadline Cloud. Using this guidance can help you build stable and efficient workloads, allowing you to focus on innovation, reduce costs, and improve your customer's experience.
 

@@ -1,7 +1,6 @@
 
 
 # Job event Slack notifications with Lambda and EventBridge
-<a name="examples-cfn-slack-notifications"></a>
 
 The [job\_events\_slack\_lambda](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/notification_templates/job_events_slack_lambda) CloudFormation template on the GitHub website sends a Slack notification whenever a job completes (`SUCCEEDED`) or fails (`FAILED`). Use it as a starting point for connecting a Lambda function to Deadline Cloud job events through EventBridge. You can adapt the function to send an email, open a ticket, update a dashboard, or trigger a downstream workflow.
 

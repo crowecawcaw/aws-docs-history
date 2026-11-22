@@ -1,7 +1,6 @@
 
 
 # SSH or RDP to a Deadline Cloud worker through Session Manager
-<a name="examples-jb-ssh-to-worker"></a>
 
 The [ssh\_to\_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf) (Linux) and [ssh\_to\_smf\_windows](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/ssh_to_smf_windows) (Windows) job bundles on the GitHub website give SSH, RDP, or PowerShell access to Deadline Cloud workers. Each bundle registers the worker as an SSM hybrid managed node through Session Manager during the job. Use these bundles to debug a job on the worker. You can also forward ports for web UIs and Jupyter notebooks.
 
@@ -29,7 +28,7 @@ The Windows variant gives the RDP user local Administrator access. It also adds 
 
 Submit the job:
 
-```
+```bash
 # Linux: 60-minute session
 ./submit.sh
 
@@ -42,6 +41,6 @@ Submit the job:
 
 After the job starts, find the managed node ID in the job log and connect:
 
-```
+```bash
 aws ssm start-session --target mi-{{XXXXXXXXX}} --region {{region}}
 ```

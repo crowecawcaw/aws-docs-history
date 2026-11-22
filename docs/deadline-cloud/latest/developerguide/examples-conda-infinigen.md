@@ -1,7 +1,6 @@
 
 
 # Build an Infinigen conda package for Deadline Cloud
-<a name="examples-conda-infinigen"></a>
 
 The [infinigen-1.19.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/infinigen-1.19.0) rattler-build recipe on the GitHub website packages Infinigen, a procedural 3D scene generator from Princeton Vision & Learning Lab. For more information, see [Infinigen](https://infinigen.org/) on the Infinigen website. The package includes the following:
 + Infinigen v1.19.0 procedural scene generation engine.
@@ -12,7 +11,7 @@ To build this recipe, deploy the [CUDA farm CloudFormation template](https://git
 
 Submit the build from the `conda_recipes` directory:
 
-```
+```bash
 ./submit-package-job infinigen-1.19.0
 ```
 

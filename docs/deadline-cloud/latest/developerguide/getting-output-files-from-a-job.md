@@ -1,7 +1,6 @@
 
 
 # Getting output files from a job
-<a name="getting-output-files-from-a-job"></a>
 
 **Note**  
 The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`.
@@ -10,13 +9,13 @@ This example shows how Deadline Cloud identifies the output files that your jobs
 
  Use the `job_attachments_devguide_output` job bundle instead of the `job_attachments_devguide` job bundle for this example. Start by making a copy of the bundle in your AWS CloudShell environment from your clone of the Deadline Cloud samples GitHub repository: 
 
-```
+```bash
 cp -r deadline-cloud-samples/job_bundles/job_attachments_devguide_output ~/
 ```
 
  The important difference between this job bundle and the `job_attachments_devguide` job bundle is the addition of a new job parameter in the job template: 
 
-```
+```yaml
 ...
 parameterDefinitions:
 ...
@@ -39,13 +38,13 @@ The `OutputDir` parameter's `dataFlow` value of `OUT` marks its value as an outp
 
  To see how this process works, first start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any previously submitted jobs finish running. Then delete the job logs from the logs directory: 
 
-```
+```bash
 rm -rf ~/demoenv-logs/queue-*
 ```
 
  Next, submit a job with this job bundle. After the worker running in your CloudShell runs, look at the logs: 
 
-```
+```bash
 # Change the value of FARM_ID to your farm's identifier
 FARM_ID=farm-{{00112233445566778899aabbccddeeff}}
 # Change the value of QUEUE1_ID to queue Q1's identifier
@@ -77,7 +76,7 @@ Total processing time of 0.02281 seconds at 5.13 KB/s.
 
  The log also shows that Deadline Cloud created a new manifest object in the Amazon S3 bucket configured for use by job attachments on queue `Q1`. The name of the manifest object is derived from the farm, queue, job, step, task, timestamp, and `sessionaction` identifiers of the task that generated the output. Download this manifest file to see where Deadline Cloud placed the output files for this task: 
 
-```
+```bash
 # The name of queue `Q1`'s job attachments S3 bucket
 Q1_S3_BUCKET=$(
   aws deadline get-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID \
@@ -92,7 +91,7 @@ aws s3 cp --quiet s3://$Q1_S3_BUCKET/$OBJECT_KEY /dev/stdout | jq .
 
  The manifest looks like: 
 
-```
+```json
 {
   "hashAlg": "xxh128",
   "manifestVersion": "2023-03-03",
@@ -110,20 +109,20 @@ aws s3 cp --quiet s3://$Q1_S3_BUCKET/$OBJECT_KEY /dev/stdout | jq .
 
  The manifest shows that the content of the output file is saved to Amazon S3 the same way that job input files are saved. Similar to input files, the output file is stored in S3 with an object name containing the hash of the file and the prefix `DeadlineCloud/Data`. 
 
-```
+```bash
 $ aws s3 ls --recursive s3://$Q1_S3_BUCKET | grep 34178940e1ef9956db8ea7f7c97ed842
 2024-07-17 02:13:11        117 DeadlineCloud/Data/34178940e1ef9956db8ea7f7c97ed842.xxh128
 ```
 
  You can download the output of a job to your workstation using the Deadline Cloud monitor or the Deadline Cloud CLI: 
 
-```
+```bash
 deadline job download-output --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID
 ```
 
  The value of the `OutputDir` job parameter in the submitted job is `./output_dir`, so the output files are downloaded to a directory called `output_dir` within the job bundle directory. If you specified an absolute path or different relative location as the value for `OutputDir`, then the output files would be downloaded to that location instead. 
 
-```
+```bash
 $ deadline job download-output --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID
 Downloading output from Job 'Job Attachments Explorer: Output'
 

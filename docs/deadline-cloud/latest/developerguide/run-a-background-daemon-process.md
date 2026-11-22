@@ -1,7 +1,6 @@
 
 
 # Run a background daemon process from the queue environment
-<a name="run-a-background-daemon-process"></a>
 
  In many rendering use cases, loading the application and scene data can take a significant amount of time. If a job reloads them for every frame, it will spend most of its time on overhead. It's often possible to load the application once as a background daemon process, have it load the scene data, and then send it commands via inter-process communication (IPC) to perform the renders. 
 
@@ -20,7 +19,7 @@
 
 1.  Use `git` to clone the [Deadline Cloud samples GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples) on the GitHub website. 
 
-   ```
+   ```bash
    git clone https://github.com/aws-deadline/deadline-cloud-samples.git
     Cloning into 'deadline-cloud-samples'...
     ...
@@ -32,7 +31,7 @@
 
 1.  Use the Deadline Cloud CLI to submit the `job_env_daemon_process` sample.
 
-   ```
+   ```bash
     git clone https://github.com/aws-deadline/deadline-cloud-samples.git
    Cloning into 'deadline-cloud-samples'...
     ...
@@ -84,7 +83,7 @@
 
     The following lines from the job template specified this action.
 
-   ```
+   ```yaml
       stepEnvironments:
       - name: DaemonProcess
         description: Runs a daemon process for the step's tasks to share.
@@ -171,7 +170,7 @@
 
     The following lines from the job template are what specified this action. ``` steps: 
 
-   ```
+   ```yaml
     steps:
     - name: EnvWithDaemonProcess
       parameterSpace:

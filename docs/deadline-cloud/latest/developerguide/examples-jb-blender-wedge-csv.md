@@ -1,7 +1,6 @@
 
 
 # Render Blender wedges from a CSV file on Deadline Cloud
-<a name="examples-jb-blender-wedge-csv"></a>
 
 The [blender\_wedge\_from\_csv](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_wedge_from_csv) job bundle on the GitHub website renders a wedge from a CSV file. A wedge is a set of look-development variations of the same Blender scene, with one image for each variation. Choose the bundle when a spreadsheet defines your job's task list: wedge variations and shot lists, simulation parameter sweeps, per-asset QC checks, and similar structured data that doesn't fit a numeric frame range.
 
@@ -9,13 +8,13 @@ The bundle includes a pre-submission hook that expands the CSV into the job's ta
 
 The bundle requires the Deadline Cloud CLI version 0.58.0 or later with PyYAML available to `python3`, a queue with a conda queue environment that provides the `blender` package, and bundle hooks enabled once per workstation:
 
-```
+```bash
 deadline config set settings.allow_bundle_hooks true
 ```
 
 Submit from the bundle directory. The CLI asks for confirmation before running the bundle's hooks:
 
-```
+```bash
 deadline bundle submit .
 ```
 

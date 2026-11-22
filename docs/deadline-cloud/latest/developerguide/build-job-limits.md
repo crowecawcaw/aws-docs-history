@@ -1,7 +1,6 @@
 
 
 # Create resource limits for jobs
-<a name="build-job-limits"></a>
 
 Jobs submitted to Deadline Cloud may depend on resources that are shared between multiple jobs. For example, a farm may have more workers than floating licences for a specific resource. Or a shared file server may only be able to serve data to a limited number of workers at the same time. In some cases, one or more jobs can claim all of these resources, causing errors due to unavailable resources when new workers start. 
 

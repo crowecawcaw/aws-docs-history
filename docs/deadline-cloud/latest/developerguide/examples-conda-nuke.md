@@ -1,7 +1,6 @@
 
 
 # Build a Foundry Nuke conda package for Deadline Cloud
-<a name="examples-conda-nuke"></a>
 
 The following Nuke conda recipes are available on the GitHub website:
 + [nuke-16.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/nuke-16.0): Foundry Nuke 16.0 for Linux 64-bit.
@@ -14,6 +13,6 @@ To build a recipe, download the matching Nuke source archive from the Foundry we
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job nuke-17.0
 ```

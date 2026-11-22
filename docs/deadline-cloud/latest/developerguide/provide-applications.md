@@ -1,7 +1,6 @@
 
 
 # Provide applications for your jobs
-<a name="provide-applications"></a>
 
 You can use a queue environment to load applications to process your jobs. When you create a service-managed fleet using the Deadline Cloud console, you have the option of creating a queue environment that uses the conda package manager to load applications. 
 
@@ -40,7 +39,7 @@ The job sets the `CondaPackages` and `CondaChannels` parameters defined in the q
 
 The section of the job template that sets the parameters is:
 
-```
+```yaml
 - name: CondaPackages
   description: A list of conda packages to install. The job expects a Queue Environment to handle this.
   type: STRING
@@ -64,7 +63,7 @@ This job sets the `CondaPackages` parameter defined in the queue environment to 
 
 The section of the job template that sets the parameter is:
 
-```
+```yaml
 - name: CondaPackages
   type: STRING
   userInterface:
@@ -119,7 +118,7 @@ The following table summarizes the trade-offs of each package manager to help yo
 
 After you choose a queue environment, attach it to your queue. You can either add the YAML template from the **Queue environments** tab for your queue in the Deadline Cloud console, or use the [deadline:CreateQueueEnvironment](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueEnvironment.html) operation. For console instructions, see [Create a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html) in the *AWS Deadline Cloud User Guide*. To attach a queue environment with the AWS CLI:
 
-```
+```bash
 aws deadline create-queue-environment \
     --farm-id {{FARM_ID}} \
     --queue-id {{QUEUE_ID}} \

@@ -1,7 +1,6 @@
 
 
 # Clean up your farm resources in Deadline Cloud
-<a name="cleaning-up"></a>
 
 To develop and test new workloads and pipeline integrations, you can continue to use the Deadline Cloud developer farm that you created for this tutorial. If you no longer need your developer farm, you can delete its resources including farm, fleet, queue, AWS Identity and Access Management (IAM) roles, and logs in Amazon CloudWatch Logs. After you delete these resources, you will need to begin the tutorial again to use the resources. For more information, see [Getting started with Deadline Cloud resources](getting-started.md).
 
@@ -9,7 +8,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. Choose your first CloudShell tab, then stop all the queue-fleet associations for your queue.
 
-   ```
+   ```bash
     FLEETS=$(aws deadline list-queue-fleet-associations \
             --farm-id $DEV_FARM_ID \
             --queue-id $DEV_QUEUE_ID \
@@ -26,7 +25,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. List the queue fleet associations.
 
-   ```
+   ```bash
    aws deadline list-queue-fleet-associations \
         --farm-id $DEV_FARM_ID \
         --queue-id $DEV_QUEUE_ID
@@ -34,7 +33,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
    You might need to rerun the command until the output reports `"status": "STOPPED"`, then you can proceed to the next step. This process can take several minutes to complete. 
 
-   ```
+   ```json
    {
        "queueFleetAssociations": [
            {
@@ -61,7 +60,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. Delete all of the queue-fleet associations for your queue.
 
-   ```
+   ```bash
    for FLEET_ID in $FLEETS; do
         aws deadline delete-queue-fleet-association \
             --farm-id $DEV_FARM_ID \
@@ -72,7 +71,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. Delete all of the fleets associated with your queue.
 
-   ```
+   ```bash
    for FLEET_ID in $FLEETS; do
         aws deadline delete-fleet \
             --farm-id $DEV_FARM_ID \
@@ -82,7 +81,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. Delete the queue.
 
-   ```
+   ```bash
    aws deadline delete-queue \
         --farm-id $DEV_FARM_ID \
         --queue-id $DEV_QUEUE_ID
@@ -90,7 +89,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
 1. Delete the farm.
 
-   ```
+   ```bash
    aws deadline delete-farm \
         --farm-id $DEV_FARM_ID
    ```
@@ -99,7 +98,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
    1. Delete the fleet AWS Identity and Access Management (IAM) role.
 
-      ```
+      ```bash
       aws iam delete-role-policy \
            --role-name "${DEV_FARM_NAME}FleetRole" \
            --policy-name WorkerPermissions
@@ -109,7 +108,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
    1. Delete the queue IAM role.
 
-      ```
+      ```bash
       aws iam delete-role-policy \
            --role-name "${DEV_FARM_NAME}QueueRole" \
            --policy-name S3BucketsAccess
@@ -119,7 +118,7 @@ To develop and test new workloads and pipeline integrations, you can continue to
 
    1. Delete the Amazon CloudWatch Logs log groups. Each queue and fleet has their own log group.
 
-      ```
+      ```bash
       aws logs delete-log-group \
            --log-group-name "/aws/deadline/$DEV_FARM_ID/$DEV_QUEUE_ID"
       aws logs delete-log-group \

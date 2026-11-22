@@ -1,7 +1,6 @@
 
 
 # Enable swap on Deadline Cloud Linux workers
-<a name="examples-host-config-swap"></a>
 
 The [swap\_for\_smf](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/swap_for_smf) host configuration script on the GitHub website creates and enables a swap file on Deadline Cloud Linux service-managed fleet workers. Use this script for memory-intensive workloads that temporarily exceed physical RAM, such as ComfyUI.
 

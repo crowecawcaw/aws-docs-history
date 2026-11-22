@@ -1,7 +1,6 @@
 
 
 # Build a SideFX Houdini conda package for Deadline Cloud
-<a name="examples-conda-houdini"></a>
 
 The samples repository on the GitHub website includes the following Houdini conda recipes:
 + [houdini-20.5](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-20.5)
@@ -14,6 +13,6 @@ The [Render USD scenes with Houdini Husk on Deadline Cloud](examples-jb-houdini-
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job houdini-21.0
 ```

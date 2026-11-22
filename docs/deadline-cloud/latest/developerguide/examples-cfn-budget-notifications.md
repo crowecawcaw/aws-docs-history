@@ -1,7 +1,6 @@
 
 
 # Budget threshold notifications to email and Slack with CloudFormation
-<a name="examples-cfn-budget-notifications"></a>
 
 The [budget\_events\_notification](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/notification_templates/budget_events_notification) CloudFormation template on the GitHub website sets up notifications by email and to Slack when a budget threshold is reached in the `aws.deadline` service. The template creates the following resources:
 + An SNS topic with an email subscription.

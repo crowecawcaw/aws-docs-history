@@ -1,7 +1,6 @@
 
 
 # Queue environment examples for Deadline Cloud
-<a name="examples-queue-environments"></a>
 
 The [queue\_environments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/queue_environments) directory on the GitHub website includes queue environments that you can attach to a Deadline Cloud queue. Conda and Rez queue environments provide software to jobs so that each job only needs a parameter value for `CondaPackages` or `RezPackages` to specify the list of packages to use.
 
@@ -9,7 +8,7 @@ Queue environments follow the [Open Job Description environment template specifi
 
 To create a queue environment with the AWS CLI:
 
-```
+```bash
 aws deadline create-queue-environment \
     --farm-id {{FARM_ID}} \
     --queue-id {{QUEUE_ID}} \

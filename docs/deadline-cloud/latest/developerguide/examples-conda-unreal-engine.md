@@ -1,7 +1,6 @@
 
 
 # Build an Epic Unreal Engine conda package for Deadline Cloud
-<a name="examples-conda-unreal-engine"></a>
 
 The [unreal-engine](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine) conda recipe on the GitHub website builds an Epic Unreal Engine conda package.
 
@@ -15,7 +14,7 @@ To use the recipe:
 
 1. Build and publish the package to your conda channel:
 
-   ```
+   ```bash
    rattler-build publish {{path-to-recipe-file}} --to {{publish-conda-channel}}
    ```
 

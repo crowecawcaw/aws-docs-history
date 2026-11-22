@@ -1,7 +1,6 @@
 
 
 # Run batch LLM inference with vLLM
-<a name="tutorial-vllm-batch"></a>
 
 This tutorial walks you through running high-throughput large language model (LLM) inference on a JSONL file of prompts using the [vLLM inference engine](https://github.com/vllm-project/vllm) on the GitHub website. You submit the [vLLM batch inference job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch) on the GitHub website with a file where every line is one prompt, pick a model, and the job fans out across a GPU fleet. Every prompt gets an LLM response, and an aggregate step packages everything into a JSONL file plus a self-contained HTML viewer you can open in any browser.
 
@@ -33,7 +32,7 @@ To complete this tutorial, follow these steps:
 
 The fastest way to get a compatible farm is to deploy the [CUDA farm CloudFormation template](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm) on the GitHub website. After the stack reaches `CREATE_COMPLETE`, configure the Deadline Cloud CLI to use the new farm:
 
-```
+```bash
 deadline config set defaults.farm_id {{FarmId-from-stack-outputs}}
 deadline config set defaults.queue_id {{CUDAQueueId-from-stack-outputs}}
 ```
@@ -45,7 +44,7 @@ If you already have a farm, you need a service-managed fleet with NVIDIA GPUs an
 
 The input is a JSONL file with one JSON object per line. Each line must have a `prompt` field:
 
-```
+```json
 {"prompt": "What is photosynthesis?", "id": "001"}
 {"prompt": "Write a haiku about clouds.", "id": "002"}
 {"prompt": "Explain gravity to a 5 year old.", "id": "003", "max_tokens": 256, "temperature": 0.9}
@@ -62,7 +61,7 @@ The bundle includes a zero-dependency HTML tool for building input files. Open `
 
 1. From the `vllm_batch` bundle directory, open the submitter:
 
-   ```
+   ```bash
    deadline bundle gui-submit .
    ```
 
@@ -76,7 +75,7 @@ The bundle includes a zero-dependency HTML tool for building input files. Open `
 
 Alternatively, submit with the CLI:
 
-```
+```bash
 deadline bundle submit . \
   --parameter InputFile={{prompts.jsonl}} \
   --parameter Prompts=1-10 \
@@ -93,7 +92,7 @@ The `ModelName` parameter defaults to `Qwen/Qwen2.5-7B-Instruct` and accepts any
 
 1. After the job completes, download the output:
 
-   ```
+   ```bash
    deadline job download-output --job-id {{job-id}}
    ```
 
@@ -101,7 +100,7 @@ The `ModelName` parameter defaults to `Qwen/Qwen2.5-7B-Instruct` and accepts any
 
 Each output line carries the original prompt and its pass-through fields plus the `generated_text` response, the finish reason, and token counts:
 
-```
+```json
 {"prompt": "What is photosynthesis?", "id": "001", "generated_text": "Photosynthesis is...", "finish_reason": "stop", "prompt_tokens": 7, "completion_tokens": 42}
 ```
 

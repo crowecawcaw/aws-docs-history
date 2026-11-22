@@ -1,7 +1,6 @@
 
 
 # How jobs find job attachment input files
-<a name="how-jobs-find-job-attachments-input-files"></a>
 
 **Note**  
 The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`. The examples also modify the [job\_attachments\_devguide job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide) on the GitHub website.
@@ -10,13 +9,13 @@ The commands on this page are written for the sample project from [Sample projec
 
  For this example, start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any previously submitted jobs finish running, and then delete the job logs from the logs directory: 
 
-```
+```bash
 rm -rf ~/demoenv-logs/queue-*
 ```
 
  The following script modifies the job bundle to show all files in the session's temporary working directory and the contents of the path mapping rules file, and then submits a job with the modified bundle: 
 
-```
+```bash
 # Change the value of FARM_ID to your farm's identifier
 FARM_ID=farm-{{00112233445566778899aabbccddeeff}}
 # Change the value of QUEUE1_ID to queue Q1's identifier
@@ -63,7 +62,7 @@ deadline bundle submit --farm-id $FARM_ID --queue-id $QUEUE1_ID job_attachments_
 
  You can look at the log of the job's run after it has been run by the worker in your AWS CloudShell environment: 
 
-```
+```bash
 cat demoenv-logs/queue-*/session*.log
 ```
 
@@ -132,7 +131,7 @@ D:\audio\mix.wav      -> assetroot-{{be92f}}/mix.wav
 
  The path mapping rules file contains a separate rule for each root path. For the preceding example, a session running on a Linux-based worker host has the following rules: 
 
-```
+```json
 {
     "version": "pathmapping-1.0",
     "path_mapping_rules": [
@@ -156,7 +155,7 @@ D:\audio\mix.wav      -> assetroot-{{be92f}}/mix.wav
 
  If you need to reference the relocated file system location of one of your input files, directories, or file system locations you can either process the path mapping rules file in your job and perform the remapping yourself, or add a `PATH` type job parameter to the job template in your job bundle and pass the value that you need to remap as the value of that parameter. For example, the following example modifies the job bundle to have one of these job parameters and then submits a job with the file system location `/shared/projects/project2` as its value: 
 
-```
+```bash
 cat > ~/job_attachments_devguide/template.yaml << EOF
 specificationVersion: jobtemplate-2023-09
 name: "Job Attachments Explorer"

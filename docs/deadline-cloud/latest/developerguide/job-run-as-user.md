@@ -1,7 +1,6 @@
 
 
 # Run jobs as dedicated OS users
-<a name="job-run-as-user"></a>
 
 Each queue can specify an operating system (OS) user and its primary group, called the job run as user. The worker agent runs every job process submitted to the queue as that OS user, so the jobs inherit that user's OS permissions, including access to files and other resources on the worker host.
 

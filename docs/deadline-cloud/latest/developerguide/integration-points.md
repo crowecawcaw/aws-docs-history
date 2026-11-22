@@ -1,7 +1,6 @@
 
 
 # Hooks, events, and integration points for jobs
-<a name="integration-points"></a>
 
 Deadline Cloud provides several *integration points* where you can run your own logic around a job. An integration point is a place in the job lifecycle where Deadline Cloud runs custom code or hands control to a service that you configure, such as a script that prepares a worker or a rule that reacts to a job event. You use integration points to adapt Deadline Cloud to your production pipeline: to install software, set environment variables, validate or change a job, process outputs, or trigger downstream automation.
 

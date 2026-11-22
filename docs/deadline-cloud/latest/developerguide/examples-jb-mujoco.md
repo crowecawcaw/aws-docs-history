@@ -1,7 +1,6 @@
 
 
 # Train a robot manipulation policy with MuJoCo on Deadline Cloud
-<a name="examples-jb-mujoco"></a>
 
 The [mujoco\_sim\_to\_policy job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/mujoco_sim_to_policy) on the GitHub website trains and renders a learned robot-manipulation policy on Deadline Cloud using a simulation of the Strands Robots so100 arm in [MuJoCo](https://mujoco.org/) on the MuJoCo website. The job runs three dependent steps on managed GPU workers:
 
@@ -15,7 +14,7 @@ The bundle requires a Linux x86\_64 GPU fleet (steps render headless through EGL
 
 From the `job_bundles` directory, submit the job:
 
-```
+```bash
 OUT="$(pwd)/output"; mkdir -p "$OUT"
 deadline bundle submit mujoco_sim_to_policy -p "OutputDir=$OUT" --yes
 ```

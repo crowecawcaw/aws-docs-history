@@ -1,7 +1,6 @@
 
 
 # Render Autodesk 3ds Max scenes with V-Ray on Deadline Cloud
-<a name="examples-jb-3dsmax-vray-denoiser"></a>
 
 The [3dsmax\_vray\_denoiser](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/3dsmax_vray_denoiser) job bundle on the GitHub website renders 3ds Max scenes with V-Ray and converts the output from V-Ray's native VRIMG format to EXR while preserving denoising data. The bundle includes the following features:
 + **Frame chunking**: Handles both contiguous ranges (for example, `1-100`) and non-contiguous ranges (for example, `1-5,10,15-20`).
@@ -12,6 +11,6 @@ To run this bundle, you need 3ds Max 2025 and V-Ray for 3ds Max 2025 installed o
 
 Before submitting the job, configure your scene to save raw VRIMG output to a local worker path (for example, `C:\Temp\output.vrimg`) and remove absolute output paths from each render element including the Denoiser. Then submit the bundle:
 
-```
+```bash
 deadline bundle gui-submit 3dsmax_vray_denoiser/
 ```

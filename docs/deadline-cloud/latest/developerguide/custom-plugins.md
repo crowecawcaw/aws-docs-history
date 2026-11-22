@@ -1,7 +1,6 @@
 
 
 # Use custom plugins with Deadline Cloud
-<a name="custom-plugins"></a>
 
 Choose among plugin sync, conda packages, queue environments, and worker host configuration based on the plugin's dependencies, required access, and fleet type. The following table compares these delivery methods.
 

@@ -1,7 +1,6 @@
 
 
 # Run portable jobs in containers
-<a name="containers"></a>
 
 Write job templates for the application interface that the workload needs. Don't write them for a specific execution technology. An environment can provide that interface in several ways. Examples include software installed on the worker, a conda or Rez environment, a Docker container, an Apptainer container, or another runtime.
 

@@ -1,7 +1,6 @@
 
 
 # Automate package builds with Deadline Cloud
-<a name="automate-package-builds"></a>
 
 For CI/CD workflows or when you need to build packages for multiple operating systems, you can create a Deadline Cloud package building queue. The queue schedules build jobs on your fleet, which build the packages and publish them to your Amazon Simple Storage Service (Amazon S3) conda channel. This automation simplifies maintaining continuous package builds for software releases across all your required configurations.
 
@@ -58,7 +57,7 @@ To allow the package building queue to access the `/Conda` prefix in the queue's
 
 1. Add a new section to the queue service role like the following. Replace {{amzn-s3-demo-bucket}} and {{111122223333}} with your own bucket and account.
 
-   ```
+   ```json
    {
       "Effect": "Allow",
       "Sid": "CustomCondaChannelReadWrite",
@@ -95,19 +94,19 @@ You need the following:
 
 1. Open the Deadline Cloud configuration GUI and set the default farm and queue to your package building queue.
 
-   ```
+   ```bash
    deadline config gui
    ```
 
 1. Change to the `conda_recipes` directory in the samples repository.
 
-   ```
+   ```bash
    cd deadline-cloud-samples/conda_recipes
    ```
 
 1. Run the `submit-package-job` script with the recipe directory. The following example builds the Blender 4.5 recipe.
 
-   ```
+   ```bash
    ./submit-package-job blender-4.5/
    ```
 

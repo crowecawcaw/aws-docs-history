@@ -1,7 +1,6 @@
 
 
 # Using files from a step in a dependent step
-<a name="using-files-output-from-a-step-in-a-dependent-step"></a>
 
 **Note**  
 The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`.
@@ -12,7 +11,7 @@ This example shows how one step in a job can access the outputs from a step that
 
 Use the `job_attachments_devguide_output` job bundle for this example. Start by making a copy in your AWS CloudShell environment from your clone of the Deadline Cloud samples GitHub repository. Modify it to add a dependent step that only runs after the existing step and uses that step's output: 
 
-```
+```bash
 cp -r deadline-cloud-samples/job_bundles/job_attachments_devguide_output ~/
 
 cat >> job_attachments_devguide_output/template.yaml << EOF
@@ -32,13 +31,13 @@ EOF
 
 First start the Deadline Cloud worker agent in an CloudShell tab. Let any previously submitted jobs finish running, then delete the job logs from the logs directory: 
 
-```
+```bash
 rm -rf ~/demoenv-logs/queue-*
 ```
 
  Next, submit a job using the modified `job_attachments_devguide_output` job bundle. Wait for it to finish running on the worker in your CloudShell environment. Look at the logs for the two sessions: 
 
-```
+```bash
 # Change the value of FARM_ID to your farm's identifier
 FARM_ID=farm-{{00112233445566778899aabbccddeeff}}
 # Change the value of QUEUE1_ID to queue Q1's identifier

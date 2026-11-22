@@ -1,7 +1,6 @@
 
 
 # Migrate from Deadline 10 to AWS Deadline Cloud
-<a name="migrate-from-deadline-10"></a>
 
 A Deadline 10 farm consists of a repository file share, a MongoDB database, and worker hosts that select their own jobs. Pools and groups organize the farm, limits control shared resources, and event plugins and job scripts extend it. AWS Deadline Cloud (Deadline Cloud) has equivalents for most of these concepts, but several of them moved, changed names, or split into more focused features.
 

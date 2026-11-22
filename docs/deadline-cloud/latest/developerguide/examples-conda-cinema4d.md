@@ -1,7 +1,6 @@
 
 
 # Build a Maxon Cinema 4D conda package for Deadline Cloud
-<a name="examples-conda-cinema4d"></a>
 
 The samples repository on the GitHub website includes the following Cinema 4D conda recipes:
 + [cinema4d-2024](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2024), [cinema4d-2025](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2025), and [cinema4d-2026](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/cinema4d-2026). The `cinema4d-2026` recipe packages Cinema 4D 2026.3.3 for Windows workers and includes Plugin Sync activation hooks that download plugins from an Amazon S3 prefix during a session.
@@ -16,6 +15,6 @@ The Cinema 4D 2025 package includes the standalone Redshift command line rendere
 
 Submit the build:
 
-```
+```bash
 ./submit-package-job cinema4d-2025
 ```

@@ -1,7 +1,6 @@
 
 
 # Run batch LLM inference with vLLM on Deadline Cloud
-<a name="examples-jb-vllm-batch"></a>
 
 The [vllm\_batch job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/vllm_batch) on the GitHub website runs high-throughput large language model (LLM) inference on a JSONL file of prompts using vLLM. The job fans out across a GPU fleet, every prompt gets an LLM response, and an aggregate step packages everything into a JSONL file plus a self-contained HTML viewer. The bundle handles offline, embarrassingly-parallel workloads such as content generation, evaluation datasets, translation, extraction, and classification.
 
@@ -9,7 +8,7 @@ The bundle uses the Deadline Cloud task chunking feature to group prompts into b
 
 To run this bundle, you need a service-managed fleet with NVIDIA GPUs and at least 32 GB RAM, and a queue with a conda queue environment that reads `CondaPackages` and `CondaChannels` job parameters. From the `job_bundles` directory of the samples repository, submit the job:
 
-```
+```bash
 deadline bundle gui-submit vllm_batch
 ```
 

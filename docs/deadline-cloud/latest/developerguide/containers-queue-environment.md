@@ -1,7 +1,6 @@
 
 
 # Docker queue environment overview
-<a name="containers-queue-environment"></a>
 
 The default Docker queue environment declares the `EXPR` and `WRAP_ACTIONS` OpenJD extensions. Its own enter and exit actions manage the rootless Docker daemon and session container on the worker. Three wrap actions replace the actions of inner environments and tasks while the queue environment is active.
 
@@ -31,7 +30,7 @@ The wrapping environment's `onEnter` action starts the session container, and it
 
 The wrapping environment must define all three wrap actions. Each hook receives the original action through `WrappedAction.Command`, `WrappedAction.Args`, and `WrappedAction.Environment`. The following partial template shows how the default environment forwards those values:
 
-```
+```yaml
 specificationVersion: "environment-2023-09"
 extensions:
   - WRAP_ACTIONS
@@ -77,7 +76,7 @@ The console creates a default Docker queue environment. You can use that templat
 
 The `EXPR` extension supports conditional expressions. The following partial enter-script example chooses between two images and adds GPU arguments only when the `UseGpu` parameter is true:
 
-```
+```bash
 IMAGE={{ repr_sh(Param.GpuImage if Param.UseGpu else Param.CpuImage) }}
 GPU_ARGS=({{ repr_sh(['--gpus', 'all'] if Param.UseGpu else []) }})
 
@@ -92,7 +91,7 @@ docker container run \
 
 You can also select a wrapper script conditionally in each hook. The following partial action chooses a container wrapper or host wrapper from one queue environment parameter:
 
-```
+```yaml
 onWrapTaskRun:
   command: bash
   args:

@@ -1,7 +1,6 @@
 
 
 # Recommended alarms
-<a name="recommended-alarms"></a>
 
 With CloudWatch, you can create alarms that watch metrics and send you a notification or perform another action when a threshold is breached. For more information on configuring CloudWatch alarms, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 

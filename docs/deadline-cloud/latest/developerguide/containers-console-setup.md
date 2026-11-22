@@ -1,7 +1,6 @@
 
 
 # Set up container support in the console
-<a name="containers-console-setup"></a>
 
 This topic shows the key console controls for setting up container support. For the complete step-by-step procedure, prerequisites, and verification steps, see [Container support for service-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/fleet-container-support.html) in the *Deadline Cloud User Guide*.
 

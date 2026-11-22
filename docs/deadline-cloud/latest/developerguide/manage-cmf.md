@@ -1,7 +1,6 @@
 
 
 # Create and use Deadline Cloud customer-managed fleets
-<a name="manage-cmf"></a>
 
 When you create a customer-managed fleet (CMF), you have full control over your processing pipeline. You define the network and software environment for each worker. Deadline Cloud acts as the repository and scheduler for your jobs. For more information about choosing a fleet type, see [Choose between service-managed and customer-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/fleet-types.html) in the *Deadline Cloud User Guide*.
 

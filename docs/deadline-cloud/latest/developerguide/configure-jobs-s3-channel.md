@@ -1,7 +1,6 @@
 
 
 # Create a conda channel using S3
-<a name="configure-jobs-s3-channel"></a>
 
 If your jobs need to run applications not available on the [`deadline-cloud`](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment) channel or the [`conda-forge`](https://conda-forge.org/) channel on the conda-forge website, you can host a custom conda channel to serve your own packages. When you create a queue in the AWS Deadline Cloud (Deadline Cloud) console, the console adds a conda queue environment by default. To make your packages available to jobs, add the custom channel to the queue environment.
 
@@ -40,7 +39,7 @@ Your production queue needs read-only permissions to the `/Conda` prefix in the 
 
 1. Add a new section to the queue service role like the following. Replace {{amzn-s3-demo-bucket}} and {{111122223333}} with your own bucket and account.
 
-   ```
+   ```json
    {
       "Effect": "Allow",
       "Sid": "CustomCondaChannelReadOnly",
@@ -77,7 +76,7 @@ You can avoid modifying every job by editing the conda queue environment for you
 
 1. Edit the line `default: "deadline-cloud"` so that it starts with the newly created S3 conda channel:
 
-   ```
+   ```yaml
    default: "s3://amzn-s3-demo-bucket/Conda/Default deadline-cloud"
    ```
 

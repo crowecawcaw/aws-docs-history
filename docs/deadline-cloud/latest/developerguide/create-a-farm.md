@@ -1,7 +1,6 @@
 
 
 # Create a Deadline Cloud farm
-<a name="create-a-farm"></a>
 
 To create your developer farm and queue resources in AWS Deadline Cloud, use the AWS Command Line Interface (AWS CLI), as shown in the following procedure. You will also create an AWS Identity and Access Management (IAM) role and a customer-managed fleet (CMF) and associate the fleet with your queue. Then you can configure the AWS CLI and confirm that your farm is set up and working as specified.
 
@@ -13,14 +12,14 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Create a name for your farm, and add that farm name to `~/.bashrc`. Storing the name makes it available in other terminal sessions.
 
-   ```
+   ```bash
    echo "DEV_FARM_NAME=DeveloperFarm" >> ~/.bashrc
    source ~/.bashrc
    ```
 
 1. Create the farm resource, and add its farm ID to `~/.bashrc`.
 
-   ```
+   ```bash
    aws deadline create-farm \
        --display-name "$DEV_FARM_NAME"
    
@@ -32,7 +31,7 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Create the queue resource, and add its queue ID to `~/.bashrc.`
 
-   ```
+   ```bash
    aws deadline create-queue \
        --farm-id $DEV_FARM_ID \
        --display-name "$DEV_FARM_NAME Queue" \
@@ -47,7 +46,7 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Create an IAM role for the fleet. This role provides worker hosts in your fleet with the necessary security credentials to run jobs from your queue.
 
-   ```
+   ```bash
    aws iam create-role \
        --role-name "${DEV_FARM_NAME}FleetRole" \
        --assume-role-policy-document \
@@ -118,7 +117,7 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Create the customer-managed fleet (CMF), and add its fleet ID to `~/.bashrc`.
 
-   ```
+   ```bash
    FLEET_ROLE_ARN="arn:aws:iam::$(aws sts get-caller-identity \
            --query "Account" --output text):role/${DEV_FARM_NAME}FleetRole"
    aws deadline create-fleet \
@@ -148,7 +147,7 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Associate the CMF with your queue.
 
-   ```
+   ```bash
    aws deadline create-queue-fleet-association \
        --farm-id $DEV_FARM_ID \
        --queue-id $DEV_QUEUE_ID \
@@ -157,13 +156,13 @@ You can use this farm to explore the features of Deadline Cloud, then develop an
 
 1. Install the Deadline Cloud command-line interface.
 
-   ```
+   ```bash
    pip install deadline
    ```
 
 1. To set the default farm to the farm ID and the queue to the queue ID that you created earlier, use the following command.
 
-   ```
+   ```bash
    deadline config set defaults.farm_id $DEV_FARM_ID
    deadline config set defaults.queue_id $DEV_QUEUE_ID
    ```

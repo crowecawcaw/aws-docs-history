@@ -1,7 +1,6 @@
 
 
 # Deploy Deadline Cloud farms with the AWS CDK
-<a name="examples-cdk"></a>
 
 The [starter\_farm](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cdk/farm_templates/starter_farm) AWS CDK app in the deadline-cloud-samples repository on the GitHub website deploys Deadline Cloud farms from reusable TypeScript constructs that wrap the `CfnFarm`, `CfnQueue`, and `CfnFleet` L1 resources from `aws-cdk-lib/aws-deadline`. For a comparison of the AWS CDK with CloudFormation and Terraform, see [Manage Deadline Cloud infrastructure as code](infrastructure-as-code.md).
 
@@ -15,7 +14,7 @@ Every stack creates a farm and an Amazon S3 bucket for job attachments. Each sta
 
 To deploy, you need Node.js 18 or later, AWS credentials, an account and region bootstrapped for the AWS CDK, and a Deadline Cloud monitor. Then run:
 
-```
+```bash
 cd cdk/farm_templates/starter_farm
 npm ci
 npx cdk deploy SimpleFarm

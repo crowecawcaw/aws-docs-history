@@ -1,7 +1,6 @@
 
 
 # Modify a job in Deadline Cloud
-<a name="build-jobs-modifying"></a>
 
 You can use the following AWS Command Line Interface (AWS CLI) `update` commands to modify the configuration of a job, or to set the target status of a job, step, or task: ``
 + `aws deadline update-job`

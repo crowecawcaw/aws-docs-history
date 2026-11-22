@@ -1,7 +1,6 @@
 
 
 # Concepts and terminology for Deadline Cloud
-<a name="concepts-terminology"></a>
 
 To help you get started with AWS Deadline Cloud, this topic explains some of its key concepts and terminology.
 

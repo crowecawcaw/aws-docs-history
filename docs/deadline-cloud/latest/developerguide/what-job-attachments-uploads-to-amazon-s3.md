@@ -1,7 +1,6 @@
 
 
 # How Deadline Cloud uploads files to Amazon S3
-<a name="what-job-attachments-uploads-to-amazon-s3"></a>
 
 **Note**  
 The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1`.
@@ -10,20 +9,20 @@ This example shows how Deadline Cloud uploads files from your workstation or wor
 
  Start by cloning the deadline-cloud-samples repository into your [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) environment, then copy the `job_attachments_devguide` job bundle into your home directory: 
 
-```
+```bash
 git clone https://github.com/aws-deadline/deadline-cloud-samples.git
 cp -r deadline-cloud-samples/job_bundles/job_attachments_devguide ~/
 ```
 
  Install the Deadline Cloud CLI to submit job bundles: 
 
-```
+```bash
 pip install deadline --upgrade
 ```
 
  The `job_attachments_devguide` job bundle has a single step with a task that runs a bash shell script whose file system location is passed as a job parameter. The job parameter's definition is: 
 
-```
+```yaml
 ...
 - name: ScriptFile
   type: PATH
@@ -37,7 +36,7 @@ pip install deadline --upgrade
 
  Next, make sure that the Deadline Cloud CLI does not have a storage profile configured then submit the job to queue `Q1`: 
 
-```
+```bash
 # Change the value of FARM_ID to your farm's identifier
 FARM_ID=farm-{{00112233445566778899aabbccddeeff}}
 # Change the value of QUEUE1_ID to queue Q1's identifier
@@ -78,7 +77,7 @@ Deadline Cloud treats the S3 bucket as content-addressable storage. Files are up
 
  You can use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) to see the objects that were uploaded to Amazon S3: 
 
-```
+```bash
 # The name of queue `Q1`'s job attachments S3 bucket
 Q1_S3_BUCKET=$(
   aws deadline get-queue --farm-id $FARM_ID --queue-id $QUEUE1_ID \
@@ -94,7 +93,7 @@ aws s3 ls s3://$Q1_S3_BUCKET --recursive
 
  The manifest object contains the information for the input files on a specific root path uploaded to S3 as part of the job's submission. Download this manifest file (`aws s3 cp s3://$Q1_S3_BUCKET/<objectname>`). Its contents are similar to: 
 
-```
+```json
 {
     "hashAlg": "xxh128",
     "manifestVersion": "2023-03-03",
@@ -116,7 +115,7 @@ The manifest shows that the file `script.sh` was uploaded, and the hash of that 
 
 When you use the [CreateJob operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html) you can set the location of the manifest objects. You can use the [GetJob operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html) to see the location: 
 
-```
+```json
 {
     "attachments": {
         "fileSystem": "COPIED",

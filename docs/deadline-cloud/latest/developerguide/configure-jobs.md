@@ -1,7 +1,6 @@
 
 
 # Configure jobs using queue environments
-<a name="configure-jobs"></a>
 
 AWS Deadline Cloud uses *queue environments* to configure the software on your workers. An environment enables you to perform time-consuming tasks, such as set up and tear-down, once for all the tasks in a session. It defines the actions to run on a worker when starting or stopping a session. You can configure an environment for a queue, jobs that run in the queue, and the individual steps for a job.
 

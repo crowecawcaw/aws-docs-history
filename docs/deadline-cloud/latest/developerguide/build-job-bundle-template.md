@@ -1,7 +1,6 @@
 
 
 # Job template elements for job bundles
-<a name="build-job-bundle-template"></a>
 
 The job template defines the runtime environment and the processes that run as part of a Deadline Cloud job. You can create parameters in a template so that it can be used to create jobs that differ only in input values, much like a function in a programming language.
 
@@ -13,7 +12,7 @@ You can define the job template in either YAML format (`template.yaml`) or JSON 
 
 For example, the job template for the `blender_render` sample defines an input parameter `BlenderSceneFile` as a file path:
 
-```
+```yaml
 - name: BlenderSceneFile
   type: PATH
   objectType: FILE
@@ -50,7 +49,7 @@ The `objectType` and `dataFlow` properties control the behavior of job attachmen
 
 In contrast, the definition of the `OutputDir` parameter has `objectType: DIRECTORY` and `dataFlow: OUT`:
 
-```
+```yaml
 - name: OutputDir
   type: PATH
   objectType: DIRECTORY
@@ -74,7 +73,7 @@ For more information about the `objectType` and `dataFlow` properties, see [JobP
 
 The rest of the `blender_render` job template sample defines the job's workflow as a singe step with each frame in the animation rendered as a separate task:
 
-```
+```yaml
 steps:
 - name: RenderBlender
   parameterSpace:

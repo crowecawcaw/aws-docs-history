@@ -1,7 +1,6 @@
 
 
 # Run GROMACS molecular dynamics simulations on Deadline Cloud
-<a name="examples-jb-gromacs"></a>
 
 The [gromacs\_md job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gromacs_md) on the GitHub website runs a molecular dynamics simulation pipeline from raw protein structure to analyzed trajectory with [GROMACS](https://www.gromacs.org/) on the GROMACS website. The pipeline runs system preparation, energy minimization, NVT/NPT equilibration, production MD, and analysis (RMSD, RMSF, radius of gyration, hydrogen bonds). Multiple independent replicas fan out in parallel through the `MaxReplicaIndex` parameter.
 
@@ -11,7 +10,7 @@ The bundle includes sample data for hen egg-white lysozyme (PDB: 1AKI) and MDP p
 
 From the `job_bundles` directory, submit the job:
 
-```
+```bash
 deadline bundle submit gromacs_md \
   -p "InputPdb=sample_inputs/protein.pdb" \
   -p "MdpMinimization=sample_inputs/mdp/minimization.mdp" \
@@ -23,7 +22,7 @@ deadline bundle submit gromacs_md \
 
 To run 10 independent replicas in parallel:
 
-```
+```bash
 deadline bundle submit gromacs_md \
   -p "InputPdb=protein.pdb" \
   -p "MaxReplicaIndex=9" \

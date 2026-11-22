@@ -1,7 +1,6 @@
 
 
 # Storage profiles and path mapping
-<a name="storage-profiles-and-path-mapping"></a>
 
 Use storage profiles to model the file systems on your workstation and worker hosts. Each storage profile describes the operating system and file system layout of one of your system configurations. This topic describes how to use storage profiles to model the file system configurations of your hosts so Deadline Cloud can generate path mapping rules for your jobs, and how those path mapping rules are generated from your storage profiles.
 

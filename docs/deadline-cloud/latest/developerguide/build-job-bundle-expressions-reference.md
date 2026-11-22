@@ -1,7 +1,6 @@
 
 
 # Expression quick reference
-<a name="build-job-bundle-expressions-reference"></a>
 
 Expressions use a subset of Python expression syntax. Values have one of the types `bool`, `int`, `float`, `string`, `path`, `range_expr`, or `list[{{T}}]`. Job parameters have the lowercase form of their declared type, so a `PATH` parameter is a `path` value and a `CHUNK[INT]` task parameter is a `range_expr`. Any function can also be called as a method on its first argument, so `upper(Param.Name)` and `Param.Name.upper()` are the same. This page lists the parts of the language that job templates use most. For the complete function library, see the [Open Job Description function library](https://github.com/OpenJobDescription/openjd-specifications/wiki/2026-02-Expression-Language#2-function-library) on the GitHub website.
 

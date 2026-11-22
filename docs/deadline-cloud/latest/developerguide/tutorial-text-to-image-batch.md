@@ -1,7 +1,6 @@
 
 
 # Generate images in batch with a diffusion model
-<a name="tutorial-text-to-image-batch"></a>
 
 This tutorial walks you through running high-throughput batch image generation on a JSONL file of prompts using a diffusion model. You submit the [text-to-image batch job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/text_to_image_batch) on the GitHub website to a GPU fleet on your Deadline Cloud farm. The default model is [FLUX.2 Klein 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) on the Hugging Face website, which is Apache 2.0 licensed, ungated, distilled to 4 steps, and needs about 13 GB of video RAM (VRAM).
 
@@ -33,7 +32,7 @@ You need a service-managed fleet with NVIDIA GPUs and at least 32 GB RAM, and a 
 
 The fastest way to get a compatible farm is to deploy the [CUDA farm CloudFormation template](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/cuda_farm) on the GitHub website. The vLLM batch inference bundle uses the same template. After the stack reaches `CREATE_COMPLETE`, configure the Deadline Cloud CLI to use the new farm:
 
-```
+```bash
 deadline config set defaults.farm_id {{FarmId-from-stack-outputs}}
 deadline config set defaults.queue_id {{CUDAQueueId-from-stack-outputs}}
 ```
@@ -46,7 +45,7 @@ The bundle includes an `InstallDeps` job environment that installs PyTorch and t
 
 The input is a JSONL file with one JSON object per line. Each line must have either a `prompt` field or a `generated_text` field chained from the vLLM batch inference bundle's output:
 
-```
+```json
 {"prompt": "A golden hour photo of a sourdough loaf on a linen-covered table", "id": "loaf_01"}
 {"prompt": "A bakery storefront at sunrise, photorealistic", "caption": "OPEN AT DAWN", "id": "shop_01"}
 {"prompt": "Write a slogan for sourdough", "id": "001", "generated_text": "Real grain. Real fermentation. Real you.", "style": "rustic flat lay, warm tones"}
@@ -63,7 +62,7 @@ The bundled `sample_prompts.jsonl` file is a 10-image bakery campaign demo: bake
 
 1. From the `text_to_image_batch` bundle directory, open the submitter:
 
-   ```
+   ```bash
    deadline bundle gui-submit .
    ```
 
@@ -77,7 +76,7 @@ The bundled `sample_prompts.jsonl` file is a 10-image bakery campaign demo: bake
 
 Alternatively, submit with the CLI:
 
-```
+```bash
 deadline bundle submit . \
   --parameter InputFile=$PWD/sample_prompts.jsonl \
   --parameter Prompts=1-10 \
@@ -93,7 +92,7 @@ The `Prompts` and `ChunkSize` parameters work the same way as in the vLLM batch 
 
 1. After the job completes, run the download command from the same directory you used at submit time, so the `OutputDir` path resolves to the same place:
 
-   ```
+   ```bash
    deadline job download-output --job-id {{job-id}}
    ```
 
@@ -101,7 +100,7 @@ The `Prompts` and `ChunkSize` parameters work the same way as in the vLLM batch 
 
 1. If the gallery's images don't load when you open `gallery.html` directly, that's a browser security restriction on `file://` URLs. Serve the directory instead:
 
-   ```
+   ```bash
    cd {{OutputDir}}/output && python3 -m http.server 8080
    # open http://localhost:8080/gallery.html
    ```

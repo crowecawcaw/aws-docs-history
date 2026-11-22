@@ -1,7 +1,6 @@
 
 
 # Add task chunking to a job template
-<a name="build-job-bundle-chunking-add"></a>
 
 The following procedure converts a job template that renders one frame per task into one that renders chunks of frames. For background on chunking and how to choose a chunk size, see [Task chunking for job templates](build-job-bundle-chunking.md).
 
@@ -13,7 +12,7 @@ Before you begin, you need the following:
 
 1. Add the `TASK_CHUNKING` extension to the top of your `template.yaml` file:
 
-   ```
+   ```yaml
    specificationVersion: 'jobtemplate-2023-09'
    extensions:
      - TASK_CHUNKING
@@ -23,7 +22,7 @@ Before you begin, you need the following:
 
 1. In the step's `parameterSpace`, change the frame task parameter type from `INT` to `CHUNK[INT]` and add the `chunks` property:
 
-   ```
+   ```yaml
    taskParameterDefinitions:
      - name: Frame
        type: CHUNK[INT]
@@ -37,7 +36,7 @@ Before you begin, you need the following:
 
 1. Update the step's script to accept a frame range instead of a single frame. With `rangeConstraint: CONTIGUOUS`, the `{{Task.Param.Frame}}` variable always expands to a range in `start-end` format, so the script can split it with the `cut` command:
 
-   ```
+   ```bash
    START_FRAME="$(echo '{{Task.Param.Frame}}' | cut -d- -f1)"
    END_FRAME="$(echo '{{Task.Param.Frame}}' | cut -d- -f2)"
    ```
@@ -46,7 +45,7 @@ Before you begin, you need the following:
 
 1. Submit the job bundle with the Deadline Cloud CLI:
 
-   ```
+   ```bash
    deadline bundle submit {{my-job-bundle}}
    ```
 
@@ -54,7 +53,7 @@ Before you begin, you need the following:
 
 The following complete job template renders a Blender animation in chunks of 10 frames:
 
-```
+```yaml
 specificationVersion: 'jobtemplate-2023-09'
 extensions:
   - TASK_CHUNKING

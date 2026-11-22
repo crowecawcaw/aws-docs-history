@@ -1,7 +1,6 @@
 
 
 # FLUX.2 Klein LoRA fine-tuning and image generation
-<a name="flux2-klein-lora"></a>
 
 This example demonstrates how to fine-tune a FLUX.2 Klein image generation model using LoRA (Low-Rank Adaptation) and generate images at scale on Deadline Cloud. The workflow trains a lightweight adapter from a small image dataset. It then uses that adapter to generate new images from text prompts, all orchestrated as Deadline Cloud jobs on a GPU fleet.
 

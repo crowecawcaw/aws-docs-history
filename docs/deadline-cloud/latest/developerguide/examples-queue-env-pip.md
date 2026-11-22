@@ -1,7 +1,6 @@
 
 
 # Pip queue environment for Deadline Cloud
-<a name="examples-queue-env-pip"></a>
 
 The pip\_queue\_env.yaml queue environment provides Python packages to jobs using pip and the standard library venv module, rather than a package manager such as conda or Rez. For more information about the queue environment, see [pip\_queue\_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/pip_queue_env.yaml) on the GitHub website. For more information about pip, see [pip](https://pip.pypa.io/) on the pip website. For more information about venv, see [venv](https://docs.python.org/3/library/venv.html) on the Python website.
 

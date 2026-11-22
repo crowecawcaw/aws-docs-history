@@ -1,7 +1,6 @@
 
 
 # Create a conda build recipe for Blender
-<a name="create-conda-recipe-blender"></a>
 
 Blender is free to use and simple to package with conda, which makes it a good starting point for learning how to create conda packages for AWS Deadline Cloud (Deadline Cloud). The Blender Foundation provides [application archives](https://download.blender.org/release/Blender4.5/) on the Blender website for multiple operating systems. The [Blender 4.5 sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5) in the Deadline Cloud samples repository on the GitHub website packages these archives into a conda package.
 
@@ -23,7 +22,7 @@ The recipe also includes a `deadline-cloud.yaml` file that specifies the conda p
 
 Use `rattler-build publish` to build the Blender 4.5 recipe and publish the package to a channel. You can publish to a local filesystem channel for testing or directly to an Amazon S3 channel for production use. If you completed the setup in [Build and test packages locally](build-test-packages-locally.md), run the following command from the `conda_recipes` directory.
 
-```
+```bash
 rattler-build publish blender-4.5/recipe/recipe.yaml \
     --to file://$HOME/my-conda-channel \
     --build-number=+1

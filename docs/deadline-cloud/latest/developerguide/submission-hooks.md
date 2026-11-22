@@ -1,7 +1,6 @@
 
 
 # Submission hooks
-<a name="submission-hooks"></a>
 
 Submission hooks allow you to run custom scripts during the Deadline Cloud job submission workflow. Hooks run locally on the workstation that is submitting the job, before the job reaches the Deadline Cloud service. Hooks do not run on workers or in the AWS Cloud. Because hooks execute on your machine, they have access to local files, environment variables, and network resources available to the submitting user.
 
@@ -36,7 +35,7 @@ Pre-GUI hooks block the dialog from opening if they fail (non-zero exit code or 
 
 Output JSON to stdout to modify the initial dialog state. The following example shows the output format:
 
-```
+```python
 import json
 
 output = {
@@ -104,7 +103,7 @@ Output JSON to stdout to modify the submission. The hook output replaces asset r
 
 The following example adds discovered texture files to the submission:
 
-```
+```python
 import json
 import os
 import sys
@@ -130,7 +129,7 @@ if textures:
 
 Pre-submission hooks can also modify job template parameter values by emitting a `parameters` map on stdout:
 
-```
+```python
 print(json.dumps({"parameters": {"SceneFile": "/resolved/scene.ma", "Quality": "high"}}))
 ```
 
@@ -158,7 +157,7 @@ The `version` field is required and must be `"1.0"`.
 
 The following example shows a `hooks.yaml` configuration:
 
-```
+```yaml
 version: "1.0"
 preGUI:
   - command: python3
@@ -230,7 +229,7 @@ The following environment variables are available to all hooks.
 
 Complete metadata is provided as JSON on stdin. The following example shows the structure:
 
-```
+```json
 {
   "jobName": "My Render Job",
   "priority": 50,
@@ -262,7 +261,7 @@ To allow hooks defined in `hooks.yaml` within job bundles, enable the bundle hoo
 **To enable bundle hooks**
 + Run the following command:
 
-  ```
+  ```bash
   deadline config set settings.allow_bundle_hooks true
   ```
 
@@ -275,13 +274,13 @@ To allow hooks from a directory specified by `DEADLINE_HOOKS_DIR`, enable the en
 
 1. Enable the setting:
 
-   ```
+   ```bash
    deadline config set settings.allow_environment_hooks true
    ```
 
 1. Set the environment variable, typically in an application launcher script:
 
-   ```
+   ```bash
    export DEADLINE_HOOKS_DIR=/studio/pipeline/hooks/blender
    ```
 
@@ -311,7 +310,7 @@ Do you want to run these hooks? [Y/n]
 
 To skip confirmation prompts for CI/automation workflows, run the following command:
 
-```
+```bash
 deadline config set settings.auto_accept true
 ```
 
@@ -334,13 +333,13 @@ Pipeline technical directors can configure hooks to run automatically for all ar
 
 1. Configure workstations to allow environment hooks:
 
-   ```
+   ```bash
    deadline config set settings.allow_environment_hooks true
    ```
 
 1. Set `DEADLINE_HOOKS_DIR` in each application's launcher script:
 
-   ```
+   ```bash
    # blender_launcher.sh
    export DEADLINE_HOOKS_DIR=/studio/pipeline/hooks/blender
    exec blender "$@"

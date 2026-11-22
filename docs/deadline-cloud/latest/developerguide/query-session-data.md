@@ -1,7 +1,6 @@
 
 
 # Querying session statistics aggregated data using the AWS CLI
-<a name="query-session-data"></a>
 
 To track costs, analyze resource usage, or identify which users are consuming the most resources, you can use the AWS Command Line Interface (AWS CLI) to query aggregated session statistics for your AWS Deadline Cloud (Deadline Cloud) farms. The session statistics API provides data about costs, runtime, and usage that you can group by various dimensions such as queue, fleet, instance type, or user.
 
@@ -12,7 +11,7 @@ Querying session statistics is an asynchronous process. First, you start an aggr
 
 To start an aggregation request, run the `start-sessions-statistics-aggregation` command. The following example groups statistics by user ID for a specific queue. Replace the {{placeholder}} text with your information.
 
-```
+```bash
 aws deadline start-sessions-statistics-aggregation \
     --farm-id {{farm-id}} \
     --resource-ids '{"queueIds":["{{queue-id}}"]}' \
@@ -29,7 +28,7 @@ You can group statistics by other dimensions such as `QUEUE_ID`, `FLEET_ID`, `JO
 
 The response contains an aggregation ID:
 
-```
+```json
 {
     "aggregationId": "92b35143f2d04641979bc9b777232f38"
 }
@@ -40,7 +39,7 @@ The response contains an aggregation ID:
 
 Run the `get-sessions-statistics-aggregation` command with the aggregation ID to retrieve the results. Replace the {{placeholder}} text with your information.
 
-```
+```bash
 aws deadline get-sessions-statistics-aggregation \
     --farm-id {{farm-id}} \
     --aggregation-id {{aggregation-id}} \
@@ -49,7 +48,7 @@ aws deadline get-sessions-statistics-aggregation \
 
 The following example shows a response when you group statistics by user ID. The `userId` field contains a UUID that you must map to a username to identify the user:
 
-```
+```json
 {
     "statistics": [
         {

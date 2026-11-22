@@ -1,7 +1,6 @@
 
 
 # Configuring AWS credentials
-<a name="aws-credentials"></a>
 
 The initial phase of the worker life cycle is bootstrapping. In this phase the worker agent software creates a worker in your fleet, and obtains AWS credentials from your fleet's role for further operation. 
 
@@ -64,7 +63,7 @@ Any IAM user access keys that you create are long-term credentials. To ensure th
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

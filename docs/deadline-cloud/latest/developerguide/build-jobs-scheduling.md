@@ -1,7 +1,6 @@
 
 
 # Schedule jobs in Deadline Cloud
-<a name="build-jobs-scheduling"></a>
 
 After you create a job, AWS Deadline Cloud schedules it to be processed on one or more of the fleets associated with a queue. The fleet that processes a particular task is chosen based on the scheduling configuration, the capabilities configured for the fleet, and the host requirements of a specific step.
 
@@ -103,7 +102,7 @@ The fleet-level `workerCapabilities` declaration is the scheduling contract. The
 
 The following job template has a step that specifies host requirements for the step:
 
-```
+```yaml
 name: Sample Job With Host Requirements
 specificationVersion: jobtemplate-2023-09
 steps:
@@ -134,7 +133,7 @@ Submitters set the same requirements through the **Host requirements** tab. Choo
 
 This job can be scheduled to a fleet with the following capabilities:
 
-```
+```json
 {
     "vCpuCount": {"min": 4, "max": 8},
     "memoryMiB": {"min": 1024},
@@ -145,7 +144,7 @@ This job can be scheduled to a fleet with the following capabilities:
 
 This job can't be scheduled to a fleet with any of the following capabilities:
 
-```
+```json
 {
     "vCpuCount": {"min": 4},
     "memoryMiB": {"min": 1024},
@@ -205,7 +204,7 @@ Names in the form `amount.worker.*` and `attr.worker.*` are reserved by the serv
 
 The following example routes steps that need a specific solver to the fleet that provides it. The fleet declares the solvers installed on all of its workers in a custom attribute. This fleet configuration is part of the [CreateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateFleet.html) request:
 
-```
+```json
 "workerCapabilities": {
     "vCpuCount": {"min": 4},
     "memoryMiB": {"min": 16384},
@@ -222,7 +221,7 @@ The following example routes steps that need a specific solver to the fleet that
 
 A step that requires one of the declared values states the requirement in its `hostRequirements` in the job template:
 
-```
+```yaml
 steps:
 - name: RenderWithVray
   hostRequirements:
@@ -300,7 +299,7 @@ There are four session action types:
 
 The following job template has a step environment. It has an `onEnter` definition to set up the step environment, an `onRun` definition that defines the task to run, and an `onExit` definition to tear down the step environment. The sessions created for this job will include an `envEnter` action, one or more `taskRun` actions, and then an `envExit` action.
 
-```
+```yaml
 name: Sample Job with Maya Environment
 specificationVersion: jobtemplate-2023-09
 steps:
@@ -388,7 +387,7 @@ Step dependencies have the following restrictions:
 + **Dependencies per step** – A step can depend on a maximum of 128 other steps.
 + **Consumers per step** – A maximum of 32 other steps can depend on a single step.
 
-```
+```yaml
 name: Step-Step Dependency Test
 specificationVersion: 'jobtemplate-2023-09'
 steps:

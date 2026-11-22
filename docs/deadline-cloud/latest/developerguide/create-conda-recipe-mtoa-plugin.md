@@ -1,7 +1,6 @@
 
 
 # Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin
-<a name="create-conda-recipe-mtoa-plugin"></a>
 
 The Maya to Arnold (MtoA) plugin adds the Arnold renderer as an option within Maya. The [MtoA sample recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-mtoa-2026) on the GitHub website demonstrates how to package a plugin as a separate conda package that integrates with the host application package.
 
@@ -17,7 +16,7 @@ The recipe uses the same source archives as the Maya recipe. The build script in
 
 Build the Maya package before you build the MtoA package, because MtoA depends on Maya at build time. Use `rattler-build publish` to build and publish the package. From the `conda_recipes` directory, run the following command.
 
-```
+```bash
 rattler-build publish maya-mtoa-2026/recipe/recipe.yaml \
     --to file://$HOME/my-conda-channel \
     --build-number=+1

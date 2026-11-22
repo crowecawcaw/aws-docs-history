@@ -1,7 +1,6 @@
 
 
 # Task chunking for job templates
-<a name="build-job-bundle-chunking"></a>
 
 Render and simulation jobs often spend more time loading the application and scene file than processing each frame. When a job runs one frame per task, that load time repeats for every frame. *Task chunking* groups multiple tasks into a single unit of work called a *chunk*, so the application loads once for each chunk instead of once for each frame. Chunking helps most when the load time is long relative to the time to process each frame, such as a scene that loads for minutes and then renders each frame in seconds.
 

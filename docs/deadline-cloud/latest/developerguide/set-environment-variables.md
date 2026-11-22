@@ -1,7 +1,6 @@
 
 
 # Set environment variables in a queue environment
-<a name="set-environment-variables"></a>
 
 Many applications and frameworks use environment variables to control feature settings, logging levels, and display configuration. You can use Open Job Description (OpenJD) environments to set environment variables that every task command within their scope inherits. For more information, see [Environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment) on the GitHub website.
 
@@ -20,7 +19,7 @@ You can set environment variables in a queue environment using a `variables` map
 
 The following queue environment template uses a `variables` map to set the `QT_QPA_PLATFORM` variable to `offscreen`, which allows applications that use the Qt Framework to run on worker hosts without an interactive display. For more information, see the [Qt Framework](https://www.qt.io/product/framework) on the Qt website.
 
-```
+```yaml
 specificationVersion: 'environment-2023-09'
 environment:
   name: QtOffscreen
@@ -32,7 +31,7 @@ For dynamic values, such as modifying `PATH` or activating virtual environments,
 
 The following queue environment template sets the `QT_QPA_PLATFORM` variable using a script.
 
-```
+```yaml
 specificationVersion: 'environment-2023-09'
 environment:
   name: QtOffscreen
@@ -53,7 +52,7 @@ environment:
 
 To attach a queue environment to your queue, use the Deadline Cloud console or the AWS CLI. For more information, see [Create a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html) in the AWS Deadline Cloud User Guide. The following AWS CLI command creates a queue environment from a template file.
 
-```
+```bash
 aws deadline create-queue-environment \
     --farm-id {{FARM_ID}} \
     --queue-id {{QUEUE_ID}} \
@@ -71,7 +70,7 @@ In a job template, add a `variables` map to a `jobEnvironments` or `stepEnvironm
 
 The following job template sets the `QT_QPA_PLATFORM` environment variable to `offscreen`, which allows applications that use the Qt Framework to run on worker hosts without an interactive display. For more information, see the [Qt Framework](https://www.qt.io/product/framework) on the Qt website.
 
-```
+```yaml
 specificationVersion: 'jobtemplate-2023-09'
 name: MyJob
 jobEnvironments:
@@ -82,7 +81,7 @@ jobEnvironments:
 
 You can set multiple variables in a single environment definition.
 
-```
+```yaml
 jobEnvironments:
 - name: JobEnv
   variables:
@@ -94,7 +93,7 @@ jobEnvironments:
 
 You can reference job parameters in variable values by using the `{{Param.{{ParameterName}}}}` syntax.
 
-```
+```yaml
 jobEnvironments:
 - name: JobEnv
   variables:
@@ -103,7 +102,7 @@ jobEnvironments:
 
 To override a job-level variable for a specific step, define a `stepEnvironments` entry with the same variable name. The following example defines `JOB_PROJECT_ID` at the job level with the value `project-12`, and then overrides the value at the step level with `step-project-12`. Tasks in the step use the step-level value.
 
-```
+```yaml
 specificationVersion: 'jobtemplate-2023-09'
 name: MyJob
 jobEnvironments:
@@ -132,7 +131,7 @@ The Deadline Cloud samples repository includes a [job bundle that demonstrates s
 
 1. Use `git` to clone the [Deadline Cloud samples GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples) on the GitHub website.
 
-   ```
+   ```bash
    git clone https://github.com/aws-deadline/deadline-cloud-samples.git
    cd deadline-cloud-samples/job_bundles
    ```
@@ -142,7 +141,7 @@ The Deadline Cloud samples repository includes a [job bundle that demonstrates s
 
 1. Use the Deadline Cloud CLI to submit the `job_env_vars` sample.
 
-   ```
+   ```bash
    deadline bundle submit job_env_vars
    ```
 
@@ -165,7 +164,7 @@ The log view shows three session actions. Open the file [job\_env\_vars/template
 
    The following lines from the job template define this environment.
 
-   ```
+   ```yaml
    jobEnvironments:
    - name: JobEnv
      variables:
@@ -185,7 +184,7 @@ The log view shows three session actions. Open the file [job\_env\_vars/template
 
    The following lines from the job template define this environment.
 
-   ```
+   ```yaml
    stepEnvironments:
    - name: StepEnv
      variables:

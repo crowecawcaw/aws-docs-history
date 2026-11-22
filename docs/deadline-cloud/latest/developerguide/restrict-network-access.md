@@ -1,7 +1,6 @@
 
 
 # Restrict farm access to your network
-<a name="restrict-network-access"></a>
 
 Every request to your farm goes through the Deadline Cloud APIs. The monitor, the AWS CLI, the submitters, and the AWS Management Console all call the APIs with temporary credentials, so the network boundary belongs on the API calls. The monitor URL is reachable from any location on the internet and holds no farm data. For more information, see [Access to the monitor web application](security-data-flow.md#security-data-flow-monitor).
 
@@ -16,7 +15,7 @@ An `aws:SourceIp` condition limits requests to the public addresses that you lis
 
 The following policy denies Deadline Cloud requests from any other address. Attach it to the monitor role, alongside the managed policies that the role already has.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [
@@ -60,7 +59,7 @@ To require that people work from hosts in a VPC, such as virtual workstations, c
 
 1. Attach a policy to the monitor role that denies requests from outside the VPC. The VPC keys hold strings, so the condition operator is `StringNotEquals` rather than `NotIpAddress`.
 
-```
+```json
 {
   "Version": "2012-10-17", 		 	 	 
   "Statement": [

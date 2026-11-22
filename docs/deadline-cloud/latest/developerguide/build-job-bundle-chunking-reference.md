@@ -1,11 +1,10 @@
 
 
 # CHUNK[INT] task parameter reference
-<a name="build-job-bundle-chunking-reference"></a>
 
 The `CHUNK[INT]` task parameter type defines an integer task parameter that Deadline Cloud processes as chunks instead of as individual values. A chunked task parameter has the following structure:
 
-```
+```yaml
 taskParameterDefinitions:
   - name: {{identifier}}
     type: CHUNK[INT]

@@ -1,7 +1,6 @@
 
 
 # Copy an S3 prefix to job attachments on Deadline Cloud
-<a name="examples-jb-copy-s3-to-attachments"></a>
 
 The [copy\_s3\_prefix\_to\_job\_attachments](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/copy_s3_prefix_to_job_attachments) job bundle on the GitHub website pre-populates a queue's job attachments S3 bucket by copying files from where they are already stored in Amazon S3. If you are adding a Deadline Cloud farm to a project that already has a large volume of data, or are submitting a job that depends on a lot of new data such as a fluid simulation output, the initial job attachments upload can be slow.
 
@@ -9,7 +8,7 @@ Because job attachments uses content-addressed storage and never re-uploads file
 
 Submit the bundle and choose how many workers to parallelize across:
 
-```
+```bash
 deadline bundle submit copy_s3_prefix_to_job_attachments \
     -p S3CopySource=s3://{{SOURCE_BUCKET_NAME}}/{{prefix-to-copy}} \
     -p Parallelism=20

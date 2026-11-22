@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Machine Image
-<a name="create-ami"></a>
 
 To create an Amazon Machine Image (AMI) to use in an Amazon Elastic Compute Cloud (Amazon EC2) customer-managed fleet (CMF), complete the tasks in this section. You must create an Amazon EC2 instance before proceeding. For more information, see [Launch your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html) in the *Amazon EC2 User Guide for Linux Instances*.
 

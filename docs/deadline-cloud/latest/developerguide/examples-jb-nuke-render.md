@@ -1,7 +1,6 @@
 
 
 # Render Foundry Nuke scripts on Deadline Cloud
-<a name="examples-jb-nuke-render"></a>
 
 The [nuke\_render job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/nuke_render) on the GitHub website renders Nuke scripts in headless mode with the `nuke -x` command. The job creates one task per frame using the Open Job Description parameter space feature, and is restricted to Linux workers through host requirements.
 
@@ -11,7 +10,7 @@ To run this bundle, your queue needs Nuke available through a queue environment 
 
 Submit the bundle with custom parameters:
 
-```
+```bash
 deadline bundle submit nuke_render/ \
   --name "My Nuke Render" \
   -p Frames="1-10" \
@@ -21,6 +20,6 @@ deadline bundle submit nuke_render/ \
 
 Or open the GUI submitter:
 
-```
+```bash
 deadline bundle gui-submit nuke_render/
 ```

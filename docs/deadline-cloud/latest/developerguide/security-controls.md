@@ -1,7 +1,6 @@
 
 
 # Security controls in Deadline Cloud
-<a name="security-controls"></a>
 
 A render farm runs jobs from many people on shared infrastructure. Artists submit scenes, worker hosts run them, and the results land in shared storage. AWS Deadline Cloud gives you a set of controls to decide who can see and change farm resources, what jobs can do while they run, and how workloads stay separate from each other.
 

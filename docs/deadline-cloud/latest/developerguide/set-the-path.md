@@ -1,7 +1,6 @@
 
 
 # Set the path in a queue environment
-<a name="set-the-path"></a>
 
 Use OpenJD environments to provide new commands in an environment. First you create a directory containing script files, and then add that directory to the `PATH` environment variables so that executables in your script can run them without needing to specify the directory path each time. The list of variables in an environment definition doesn't provide a way to modify the variable, so you do this by running a script instead. After the script sets things up and modifies the `PATH`, it exports the variable to the OpenJD runtime with the command `echo "openjd_env: PATH=$PATH"`. 
 
@@ -16,7 +15,7 @@ Use OpenJD environments to provide new commands in an environment. First you cre
 
 1.  Use `git` to clone the [Deadline Cloud samples GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples) on the GitHub website. 
 
-   ```
+   ```bash
    git clone https://github.com/aws-deadline/deadline-cloud-samples.git
     Cloning into 'deadline-cloud-samples'...
     ...
@@ -28,7 +27,7 @@ Use OpenJD environments to provide new commands in an environment. First you cre
 
 1.  Use the Deadline Cloud CLI to submit the `job_env_with_new_command` sample.
 
-   ```
+   ```bash
     $ deadline bundle submit job_env_with_new_command
     Submitting to Queue: MySampleQueue
     ...
@@ -72,7 +71,7 @@ Open the file [job\_env\_with\_new\_command/template.yaml](https://github.com/aw
 
     The following lines from the job template specified this action.
 
-   ```
+   ```yaml
     jobEnvironments:
     - name: RandomSleepCommand
       description: Adds a command 'random-sleep' to the environment.
@@ -138,7 +137,7 @@ Open the file [job\_env\_with\_new\_command/template.yaml](https://github.com/aw
 
 1.  The following lines from the job template specified this action.
 
-   ```
+   ```yaml
     steps:
     - name: EnvWithCommand
       script:

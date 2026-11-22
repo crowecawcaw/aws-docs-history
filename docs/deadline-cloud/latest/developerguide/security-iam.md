@@ -1,7 +1,6 @@
 
 
 # Identity and Access Management in Deadline Cloud
-<a name="security-iam"></a>
 
 
 

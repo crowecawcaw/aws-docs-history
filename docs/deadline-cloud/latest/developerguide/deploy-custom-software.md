@@ -1,7 +1,6 @@
 
 
 # Deploy and configure custom software on workers
-<a name="deploy-custom-software"></a>
 
 AWS Deadline Cloud provides multiple methods to deploy and configure custom software, plugins, and tools on your workers. The method you choose depends on your requirements, such as whether you need administrator privileges, how often the software changes, and whether the software should be available to all jobs or only specific jobs.
 

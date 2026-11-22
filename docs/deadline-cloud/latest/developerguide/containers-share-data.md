@@ -1,7 +1,6 @@
 
 
 # Share data between the worker session and container
-<a name="containers-share-data"></a>
 
 A container has its own filesystem. Mount a worker directory into the container when an action needs files that Deadline Cloud prepared on the worker or when later host actions need files that the container created.
 

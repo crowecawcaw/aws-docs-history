@@ -1,7 +1,6 @@
 
 
 # py-rattler conda queue environment for Deadline Cloud
-<a name="examples-queue-env-conda-pyrattler"></a>
 
 The conda\_queue\_env\_pyrattler.yaml queue environment provides the same functionality as the inline conda queue environments but uses the py-rattler library. Rattler is written in Rust and provides common functionality used in the conda ecosystem. For more information about the queue environment, see [conda\_queue\_env\_pyrattler.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_pyrattler.yaml) on the GitHub website. For more information about py-rattler, see [py-rattler](https://conda.github.io/rattler/py-rattler/) on the conda website.
 

@@ -1,7 +1,6 @@
 
 
 # Conda recipe examples for Deadline Cloud
-<a name="examples-conda-recipes"></a>
 
 The [conda\_recipes](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes) directory on the GitHub website contains sample tools for creating an Amazon S3 conda channel and building packages into it. The recipes use [rattler-build](https://prefix-dev.github.io/rattler-build/) on the prefix.dev website or, in some cases, the older [conda-build](https://docs.conda.io/projects/conda-build/) on the conda website.
 
@@ -11,19 +10,19 @@ For setup, see [Create a conda channel using S3](https://docs.aws.amazon.com/dea
 
 To submit a Blender 4.5 build job, run the following from the `conda_recipes` directory of the samples repository:
 
-```
+```bash
 ./submit-package-job blender-4.5
 ```
 
 To submit a build for both Linux and Windows:
 
-```
+```bash
 ./submit-package-job blender-4.5 -p linux-64 -p win-64
 ```
 
 To submit a build for every platform listed in `deadline-cloud.yaml`:
 
-```
+```bash
 ./submit-package-job blender-4.5 --all-platforms
 ```
 

@@ -1,7 +1,6 @@
 
 
 # Create a conda build recipe for Autodesk Maya
-<a name="create-conda-recipe-maya"></a>
 
 Commercial applications like Autodesk Maya introduce additional packaging requirements compared to open source applications like Blender. The [Blender recipe](create-conda-recipe-blender.md) packages a simple relocatable archive under an open source license. Commercial applications are often distributed through installers and require license management configuration.
 
@@ -36,7 +35,7 @@ Before you build the Maya package, download the Maya installer from your Autodes
 
 Use `rattler-build publish` to build and publish the package. The Maya recipe requires `patchelf` as a build dependency on Linux, which is available from [conda-forge](https://conda-forge.org/) on the conda-forge website. Add `-c conda-forge` to make the dependency available during the build. From the `conda_recipes` directory, run the following command.
 
-```
+```bash
 rattler-build publish maya-2026/recipe/recipe.yaml \
     --to file://$HOME/my-conda-channel \
     --build-number=+1 \
