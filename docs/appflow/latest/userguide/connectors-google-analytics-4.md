@@ -1,7 +1,6 @@
 
 
 # Google Analytics 4 connector for Amazon AppFlow
-<a name="connectors-google-analytics-4"></a>
 
 Google Analytics 4 is an analytics service that tracks and reports metrics about visitor interactions with your apps and websites. These metrics include page views, active users, and events. You can use Amazon AppFlow to transfer data from Google Analytics 4 to certain AWS services or other supported applications.
 

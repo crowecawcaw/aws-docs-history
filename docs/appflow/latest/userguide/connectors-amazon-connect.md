@@ -1,7 +1,6 @@
 
 
 # Connect Customer connector for Amazon AppFlow
-<a name="connectors-amazon-connect"></a>
 
 Connect Customer is an AWS service that you can use to set up an omnichannel, cloud-based contact center for your customers. Connect Customer provides the Customer Profiles feature. This feature helps you create unified customer profiles. These profiles combine customer information from external applications with contact history from Connect Customer. For example, you can combine contact information, order history, and interaction history from software as a service (SaaS) applications like Salesforce, Zendesk and other Amazon AppFlow connectors. The contact center agents for your organization can use this consolidated information during customer support interactions.
 

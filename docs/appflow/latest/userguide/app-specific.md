@@ -1,7 +1,6 @@
 
 
 # Supported source and destination applications
-<a name="app-specific"></a>
 
 Choose an application in the following list to learn more about its setup requirements.
 

@@ -1,7 +1,6 @@
 
 
 # Data protection in Amazon AppFlow
-<a name="data-protection"></a>
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon AppFlow. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
@@ -48,7 +47,7 @@ Amazon AppFlow stores the encrypted credentials that are used to connect to flow
 **Note**  
 The [[`AmazonAppFlowFullAccess`](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#example-1)](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#policy-examples) policy includes these permissions.
 
-```
+```json
 { 
           "Sid": "SecretsManagerCreateSecretAccess", 
           "Effect": "Allow", 

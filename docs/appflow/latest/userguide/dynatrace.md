@@ -1,7 +1,6 @@
 
 
 # Dynatrace
-<a name="dynatrace"></a>
 
 The following are the requirements and connection instructions for using Dynatrace with Amazon AppFlow.
 

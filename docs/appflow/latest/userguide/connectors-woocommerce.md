@@ -1,7 +1,6 @@
 
 
 # WooCommerce connector for Amazon AppFlow
-<a name="connectors-woocommerce"></a>
 
 WooCommerce helps online merchants build commercial websites with a plugin for WordPress. If you're a WooCommerce user, then your account contains data about your site and your transactions, such as your orders, products, reviews, shipments, and more. You can use Amazon AppFlow to transfer data from WooCommerce to certain AWS services or other supported applications.
 

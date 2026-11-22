@@ -1,7 +1,6 @@
 
 
 # Oracle HCM connector for Amazon AppFlow
-<a name="connectors-oracle-hcm"></a>
 
 Oracle Human Capital Management (HCM) is a cloud-based application for human resources (HR) processes. You can use Amazon AppFlow to transfer data from Oracle HCM to certain AWS services or other supported applications.
 

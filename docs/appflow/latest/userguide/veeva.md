@@ -1,7 +1,6 @@
 
 
 # Veeva
-<a name="veeva"></a>
 
 The following are the requirements and connection instructions for using Veeva with Amazon AppFlow.
 

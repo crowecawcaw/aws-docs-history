@@ -1,7 +1,6 @@
 
 
 # Intercom connector for Amazon AppFlow
-<a name="connectors-intercom"></a>
 
 Intercom is a customer engagement solution. It helps organizations learn who is using a website or product so that the organization can engage those users with targeted messages and support. If you're an Intercom user, then your account contains data about your contacts, conversations, customer segments, and more. You can use Amazon AppFlow to transfer data from Intercom to certain AWS services or other supported applications.
 

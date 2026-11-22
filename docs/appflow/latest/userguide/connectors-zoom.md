@@ -1,7 +1,6 @@
 
 
 # Zoom connector for Amazon AppFlow
-<a name="connectors-zoom"></a>
 
 Zoom is an online video conferencing solution for individuals and teams. If you're a Zoom user, your account contains data about your resources, such as users, groups, and rooms. You can use Amazon AppFlow to transfer data from Zoom to certain AWS services or other supported applications.
 

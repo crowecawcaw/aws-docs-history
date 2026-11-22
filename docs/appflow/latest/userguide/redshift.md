@@ -1,7 +1,6 @@
 
 
 # Amazon Redshift connector for Amazon AppFlow
-<a name="redshift"></a>
 
 Amazon Redshift is a data warehouse service in AWS. If you use Amazon Redshift, you can also use Amazon AppFlow to transfer data from supported sources into your Amazon Redshift databases. When you connect Amazon AppFlow to Amazon Redshift with the recommended settings, Amazon AppFlow transfers your data with the Amazon Redshift Data API.
 
@@ -135,7 +134,7 @@ You must provide Amazon AppFlow with the following:
 + The JDBC URL of your Amazon Redshift cluster. For more information, see [Finding your cluster connection string](https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html#connecting-connection-string) in the *Amazon Redshift Management Guide*. 
 
 You must also do the following:
-+ Ensure that you enter a correct JDBC connector and password when configuring your Redshift connections. An incorrect JDBC connector or password can return an '[Amazon](500310)' error.
++ Ensure that you enter a correct JDBC connector and password when configuring your Redshift connections. An incorrect JDBC connector or password can return an `'[Amazon](500310)'` error.
 + Ensure that your cluster is publicly accessible by going to the AWS Management Console, navigating to the Amazon Redshift console and choose CLUSTERS. Then, select the cluster that you want to modify and choose **Actions > Modify Publicly > Enable**. Save your changes.
 
   If you still can't connect to the cluster from the internet or a different network, go to the Amazon Redshift console and select the cluster that you want to modify. Under **Properties**, choose **Network and security settings**. Choose the link next to VPC security group to open the Amazon Elastic Compute Cloud (Amazon EC2) console. On the Inbound Rules tab, make sure that your IP address and the port of your Amazon Redshift cluster are allowed. The default port for Amazon Redshift is 5439, but your port might be different.

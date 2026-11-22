@@ -1,7 +1,6 @@
 
 
 # Singular
-<a name="singular"></a>
 
 The following are the requirements and connection instructions for using Singular with Amazon AppFlow.
 

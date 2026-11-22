@@ -1,7 +1,6 @@
 
 
 # Zendesk Chat connector for Amazon AppFlow
-<a name="connectors-zendesk-chat"></a>
 
 Zendesk Chat is a live chat service that Zendesk offers as part of its platform. Zendesk Chat helps businesses automate and enhance customer support interactions across web, mobile, and social channels. In a Zendesk Chat account, you store data related to customer conversations. If you use Zendesk Chat, you can also use Amazon AppFlow to transfer this data to certain AWS services or other supported applications.
 

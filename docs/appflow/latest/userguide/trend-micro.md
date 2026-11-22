@@ -1,7 +1,6 @@
 
 
 # Trend Micro
-<a name="trend-micro"></a>
 
 The following are the requirements and connection instructions for using Trend Micro with Amazon AppFlow.
 

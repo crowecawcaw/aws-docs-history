@@ -1,7 +1,6 @@
 
 
 # Microsoft Dynamics 365 connector for Amazon AppFlow
-<a name="connectors-microsoft-dynamics-365"></a>
 
 Microsoft Dynamics 365 is a portfolio of business applications for enterprise resource planning (ERP) and customer relationship management (CRM). If you're a Microsoft Dynamics 365 user, your account contains data about your business, such as your products, customers, business units, and more. You can use Amazon AppFlow to transfer data from Microsoft Dynamics 365 to certain AWS services or other supported applications.
 

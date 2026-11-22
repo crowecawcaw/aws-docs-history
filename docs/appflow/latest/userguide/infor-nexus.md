@@ -1,7 +1,6 @@
 
 
 # Infor Nexus
-<a name="infor-nexus"></a>
 
 The following are the requirements and connection instructions for using Infor Nexus with Amazon AppFlow.
 

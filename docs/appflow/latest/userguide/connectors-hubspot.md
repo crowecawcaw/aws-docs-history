@@ -1,7 +1,6 @@
 
 
 # HubSpot connector for Amazon AppFlow
-<a name="connectors-hubspot"></a>
 
 HubSpot is a customer relations management (CRM) solution that supports marketing, sales, customer service, and content management. After you connect Amazon AppFlow your HubSpot account, you can use HubSpot as a data source or destination in your flows. Run these flows to transfer data between HubSpot and AWS services or other supported applications.
 
@@ -118,7 +117,7 @@ When you create a flow that uses HubSpot as the data source, you can set the des
 + [Amazon Redshift](redshift.md)
 + [Amazon RDS for PostgreSQL](connectors-amazon-rds-postgres-sql.md)
 + [Amazon S3](s3.md)
-+ [HubSpot](#connectors-hubspot)
++ [HubSpot](connectors-hubspot.md)
 + [Marketo](marketo.md)
 + [Salesforce](salesforce.md)
 + [SAP OData](sapodata.md)

@@ -1,7 +1,6 @@
 
 
 # Identity and access management for Amazon AppFlow
-<a name="security-iam"></a>
 
 
 

@@ -1,7 +1,6 @@
 
 
 # ServiceNow
-<a name="servicenow"></a>
 
 The following are the requirements and connection instructions for using ServiceNow with Amazon AppFlow.
 

@@ -1,7 +1,6 @@
 
 
 # Zendesk Sell connector for Amazon AppFlow
-<a name="connectors-zendesk-sell"></a>
 
 Zendesk Sell is a customer relationship management (CRM) service that Zendesk offers as part of its platform. Zendesk Sell automates sales workflows to help its users engage leads and close deals. In a Zendesk Sell account, you store data related to sales opportunities, such as contacts, deals, and leads. If you use Zendesk Sell, you can also use Amazon AppFlow to transfer this data to certain AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Zoho CRM connector for Amazon AppFlow
-<a name="connectors-zoho-crm"></a>
 
 Zoho CRM is a customer relationship management (CRM) system that helps its users conduct sales, marketing, and customer support. If you're a Zoho CRM user, your account contains data about your campaigns, deals, leads, and more. After you connect Amazon AppFlow your Zoho CRM account, you can use Zoho CRM as a data source or destination in your flows. Run these flows to transfer data between Zoho CRM and AWS services or other supported applications.
 
@@ -103,4 +102,4 @@ When you create a flow that uses Zoho CRM as the data source, you can set the de
 + [Snowflake](snowflake.md)
 + [Upsolver](upsolver.md)
 + [Zendesk](zendesk.md)
-+ [Zoho CRM](#connectors-zoho-crm)
++ [Zoho CRM](connectors-zoho-crm.md)

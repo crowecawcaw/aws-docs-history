@@ -1,7 +1,6 @@
 
 
 # Step 5: Clean up your resources
-<a name="flow-tutorial-clean-up"></a>
 
 After you've completed the tutorial, it's good practice to clean up any resources that you no longer want to use. This way, your account doesn't incur any further charges.
 

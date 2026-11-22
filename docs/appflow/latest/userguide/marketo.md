@@ -1,7 +1,6 @@
 
 
 # Marketo
-<a name="marketo"></a>
 
 The following are the requirements and connection instructions for using Marketo with Amazon AppFlow.
 
@@ -65,7 +64,7 @@ If you aren’t connected successfully, ensure that you have followed the instru
 <a name="marketo-notes"></a>
 + When you use Marketo as a source, you can run schedule-triggered flows at a maximum frequency of one flow run per hour.
 + Depending on your instance, Marketo might queue requests for data extraction. This can result in longer flow run times. If you want to avoid queueing, contact your Marketo administrator for assistance. We recommend that you avoid running concurrent flows using Marketo if your use case does not benefit from it.
-+ Depending on your Marketo instance, you can submit more than one bulk import request (with limitations). Each request is added as a job to be processed in a First-In-First-Out (FIFO) queue. A maximum of two jobs are processed at the same time. A maximum of ten jobs are allowed in the queue at any given time, including the two currently being processed. If you exceed the ten job maximum, a 1016: Too many imports error is returned. If you want to avoid queueing, contact your Marketo administrator for assistance.
++ Depending on your Marketo instance, you can submit more than one bulk import request (with limitations). Each request is added as a job to be processed in a First-In-First-Out (FIFO) queue. A maximum of two jobs are processed at the same time. A maximum of ten jobs are allowed in the queue at any given time, including the two currently being processed. If you exceed the ten job maximum, a `1016: Too many imports` error is returned. If you want to avoid queueing, contact your Marketo administrator for assistance.
 + There is a soft quota of 1 GB per flow when extracting data from Marketo. If you need to process more records in a single flow, you can submit a request to Amazon AppFlow through the Amazon AppFlow support channel. For more information, see [Creating a support case](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) in the *AWS Support User Guide*.
 
 ## Supported destinations
@@ -91,3 +90,4 @@ You can also set the destination to any custom connectors that you create with t
 + [API Limits with Marketo](https://developers.marketo.com/rest-api/marketo-integration-best-practices/) in the Marketo documentation
 + [Error Codes with Marketo](https://developers.marketo.com/rest-api/error-codes/) in the Marketo documentation
 + Introduction to the Marketo Connector in Amazon AppFlow  
+[![AWS Videos](https://img.youtube.com/vi/aZ4XDagkKXU/0.jpg)](https://www.youtube.com/watch?v=aZ4XDagkKXU)

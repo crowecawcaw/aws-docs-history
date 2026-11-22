@@ -1,7 +1,6 @@
 
 
 # Facebook Ads connector for Amazon AppFlow
-<a name="connectors-facebook-ads"></a>
 
 You can use the Facebook Ads connector in Amazon AppFlow to transfer data about the ads that you run with the Facebook Marketing API. The Marketing API is a series of Graph API endpoints that create and manage ads on Facebook and Instagram. After you connect Amazon AppFlow to your Facebook developer account, you can transfer data about your ads, campaigns, budgets, and more.
 

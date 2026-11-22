@@ -1,7 +1,6 @@
 
 
 # Create a flow using the AWS CLI
-<a name="create-flow-cli"></a>
 
 You may also use the [CLI](https://docs.aws.amazon.com/cli/latest/reference/appflow/index.html) to create a connector profile and configure a flow using the AWS CLI commands for **create-connector-profile** and **create-flow**. Due to the varying methods of authentication across each target application, the specific information provided for connection creation will vary. Two examples are provided here as a comparison — Salesforce and ServiceNow.
 

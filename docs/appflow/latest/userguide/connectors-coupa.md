@@ -1,7 +1,6 @@
 
 
 # Coupa connector for Amazon AppFlow
-<a name="connectors-coupa"></a>
 
 Coupa is a business spend software as a service (SaaS) solution. If you’re a Coupa user, your account contains data on procurements, invoicing, expenses, payments, and more. You can use Amazon AppFlow to transfer data between Coupa and certain AWS services or other supported applications.
 

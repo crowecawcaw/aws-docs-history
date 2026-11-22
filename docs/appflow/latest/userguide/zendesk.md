@@ -1,7 +1,6 @@
 
 
 # Zendesk
-<a name="zendesk"></a>
 
 The following are the requirements and connection instructions for using Zendesk with Amazon AppFlow.
 
@@ -97,3 +96,4 @@ You can also set the destination to any custom connectors that you create with t
 +  [Setting up the Amazon AppFlow integration with Zendesk](https://support.zendesk.com/hc/en-us/articles/360047196173-Setting-up-the-Amazon-AppFlow-integration-with-Zendesk#topic_lk1_xxn_4lb) in the Zendesk documentation 
 +  [Building great customer experiences with Zendesk and AWS](https://www.zendesk.com/blog/building-great-customer-experiences-zendesk-aws/) from Zendesk 
 + How to transfer data from Zendesk Support to Amazon S3 using Amazon AppFlow  
+[![AWS Videos](https://img.youtube.com/vi/BCtnfTCCYlg/0.jpg)](https://www.youtube.com/watch?v=BCtnfTCCYlg)

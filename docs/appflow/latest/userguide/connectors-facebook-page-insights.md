@@ -1,7 +1,6 @@
 
 
 # Facebook Page Insights connector for Amazon AppFlow
-<a name="connectors-facebook-page-insights"></a>
 
 Facebook Page Insights provides Facebook Page owners with information about the performance and visitor demographics of their Pages. You can use Amazon AppFlow to transfer data from Facebook Page Insights to certain AWS services or other supported applications.
 

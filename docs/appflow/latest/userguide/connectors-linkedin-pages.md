@@ -1,7 +1,6 @@
 
 
 # LinkedIn Pages connector for Amazon AppFlow
-<a name="connectors-linkedin-pages"></a>
 
 LinkedIn Pages is a solution for organizations to post industry updates, job opportunities, and information. If you're a LinkedIn Pages user, your account contains data about your pages, followers, and engagement. You can use Amazon AppFlow to transfer data from LinkedIn Pages to certain AWS services or other supported applications.
 

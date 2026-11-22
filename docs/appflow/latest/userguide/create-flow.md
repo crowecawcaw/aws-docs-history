@@ -1,7 +1,6 @@
 
 
 # Creating flows in Amazon AppFlow
-<a name="create-flow"></a>
 
 There are several ways to create flows in Amazon AppFlow. You can use the AWS Management Console, AWS CLI commands, the Amazon AppFlow API, or CloudFormation.
 

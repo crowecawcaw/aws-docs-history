@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon AppFlow
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon AppFlow resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -39,7 +38,7 @@ This policy example provides full access to Amazon AppFlow, to all AWS services 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -164,7 +163,7 @@ For definitions of each action, see [Actions defined by Amazon AppFlow](https://
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -197,7 +196,7 @@ If you use a custom policy to grant users permission to use Amazon AppFlow inste
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -218,7 +217,7 @@ If you use a custom policy to grant users permission to use Amazon AppFlow inste
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -261,7 +260,7 @@ Before you can create a flow that catalogs its output data in the AWS Glue Data 
 **Example permissions policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -308,7 +307,7 @@ Before you can create a flow that catalogs its output data in the AWS Glue Data 
 **Example trust policy**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Smartsheet connector for Amazon AppFlow
-<a name="connectors-smartsheet"></a>
 
 Smartsheet is a spreadsheet-based online collaboration service that helps teams plan and track their projects and initiatives. If you're a Smartsheet user, your account contains data about your sheets, such as their dates when created, dates when modified, owners, access levels, and more. You can use Amazon AppFlow to transfer data from Smartsheet to certain AWS services or other supported applications.
 

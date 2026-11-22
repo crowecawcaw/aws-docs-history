@@ -1,7 +1,6 @@
 
 
 # Service role policies for Amazon AppFlow
-<a name="security_iam_service-role-policies"></a>
 
  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
@@ -21,7 +20,7 @@ Before you can create a flow that catalogs its output data in the AWS Glue Data 
 **Example permissions policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -68,7 +67,7 @@ Before you can create a flow that catalogs its output data in the AWS Glue Data 
 **Example trust policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -96,7 +95,7 @@ To grant those permissions, you create an IAM role that contains the permissions
 **Example permissions policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -159,7 +158,7 @@ To grant those permissions, you create an IAM role that contains the permissions
 **Tag condition for Amazon Redshift Serverless resources**  
 In the example permissions policy, the statement that grants the `redshift-serverless:GetCredentials` action has the following condition block:   
 
-```
+```json
 "Condition":
 {
   "StringLike":
@@ -174,7 +173,7 @@ For more information about tagging resources in Amazon Redshift Serverless, see 
 **Example trust policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -212,7 +211,7 @@ To provide the required permissions to Amazon Redshift, you can attach the follo
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -230,7 +229,7 @@ To provide the required permissions to Amazon Redshift, you can attach the follo
 **Example trust policy**    
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Amazon AppFlow flows
-<a name="flows"></a>
 
 With Amazon AppFlow, a *flow* transfers data between a source and a destination. Amazon AppFlow supports a variety of AWS services and SaaS applications as sources or destinations.
 

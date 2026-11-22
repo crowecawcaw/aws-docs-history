@@ -1,7 +1,6 @@
 
 
 # Microsoft SharePoint Online connector for Amazon AppFlow
-<a name="connectors-microsoft-sharepoint-online"></a>
 
 Microsoft SharePoint Online is a collaboration solution that teams use to share files, data, and other resources throughout their organization. If you're a SharePoint user, you have sites with document libraries that contain various types of documents, like PDFs, Microsoft Word documents, Microsoft Excel files, and more. You can use Amazon AppFlow to transfer these documents to Amazon S3. When you run a transfer, Amazon AppFlow also provides a file with descriptive metadata for each document.
 

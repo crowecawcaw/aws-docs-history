@@ -1,7 +1,6 @@
 
 
 # DocuSign Monitor connector for Amazon AppFlow
-<a name="connectors-docusign-monitor"></a>
 
 DocuSign Monitor provides data about digital agreements that are processed through DocuSign. If you're a DocuSign user, your account contains monitoring data about your DocuSign activity. You can use Amazon AppFlow to transfer your monitoring data to certain AWS services or other supported applications.
 

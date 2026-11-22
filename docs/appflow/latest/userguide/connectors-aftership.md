@@ -1,7 +1,6 @@
 
 
 # AfterShip connector for Amazon AppFlow
-<a name="connectors-aftership"></a>
 
 AfterShip is a shipment tracking software as a service (SaaS) solution for e-commerce companies. AfterShip user accounts manage tracking data across more than 600 shipping services worldwide. You can use Amazon AppFlow to transfer data from AfterShip to certain AWS services or other supported applications.
 

@@ -1,7 +1,6 @@
 
 
 # Managing Amazon AppFlow connections
-<a name="connections"></a>
 
 To enable data flows in Amazon AppFlow, you provide access to your source and destination applications by creating *connections*. Connections store the configuration details and credentials that Amazon AppFlow requires to transfer data with applications on your behalf. For example, these details include your user names, passwords, secret keys, and API access tokens. After you create a connection, you can assign it to new or existing flows without manually entering the configuration details anew.
 
@@ -49,7 +48,7 @@ You can manage your connections in Amazon AppFlow by running commands with the A
 
   The `sap-odata-connector-profile-config.json` file contains the following configuration details: 
 
-  ```
+  ```json
   {
     "connectorProfileProperties":
     {
@@ -93,7 +92,7 @@ You can manage your connections in Amazon AppFlow by running commands with the A
 
   The command response is a JSON body with details for each of your connections. The following example response shows the details for an SAP OData connection:
 
-  ```
+  ```json
   {
       "connectorProfileDetails": [
           {

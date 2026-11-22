@@ -1,7 +1,6 @@
 
 
 # Freshdesk connector for Amazon AppFlow
-<a name="connectors-freshdesk"></a>
 
 Freshdesk is an online customer service solution. If you're a Freshdesk user, your account contains data about your customer engagements, including agents, conversations, and satisfaction ratings. You can use Amazon AppFlow to transfer data from Freshdesk to certain AWS services or other supported applications.
 

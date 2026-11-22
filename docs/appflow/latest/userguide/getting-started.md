@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon AppFlow
-<a name="getting-started"></a>
 
 This section provides an introduction to Amazon AppFlow with prerequisites for getting started. The following diagram illustrates how you can use Amazon AppFlow to transfer and enrich data from a data source to a data destination in your flow:
 

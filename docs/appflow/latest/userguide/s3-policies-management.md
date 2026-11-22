@@ -1,7 +1,6 @@
 
 
 # Amazon S3 Bucket Policies for Amazon AppFlow
-<a name="s3-policies-management"></a>
 
 By default, all Amazon S3 buckets and objects are private. Only the resource owner, the AWS account that created the bucket, can access the bucket and any objects that it contains. However, the resource owner can choose to grant access permissions to other resources and users by writing an access policy.
 

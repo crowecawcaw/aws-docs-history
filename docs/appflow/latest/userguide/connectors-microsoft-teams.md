@@ -1,7 +1,6 @@
 
 
 # Microsoft Teams connector for Amazon AppFlow
-<a name="connectors-microsoft-teams"></a>
 
 Microsoft Teams is a platform developed by Microsoft that helps teams collaborate through chat, online meetings, and more. If you're a Microsoft Teams user, your account contains data about your resources, including teams, groups, and channels. You can use Amazon AppFlow to transfer data from Microsoft Teams to certain AWS services or other supported applications.
 

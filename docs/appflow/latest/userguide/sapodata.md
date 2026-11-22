@@ -1,7 +1,6 @@
 
 
 # SAP OData connector for Amazon AppFlow
-<a name="sapodata"></a>
 
 The Amazon AppFlow SAP OData connector provides the ability to fetch, create, and update records exposed by SAP S/4HANA and SAP on premises systems through OData APIs.
 
@@ -217,7 +216,7 @@ To enable these capabilities, complete the following steps.
 
    Each deep entity can include multiple levels of hierarchical data. This example creates two Sales Orders, and each contains two associated Sales Order Items.
 
-   ```
+   ```json
    {"SalesOrderType": "OR","SalesOrganization": "1710","DistributionChannel": "10","OrganizationDivision": "00","SoldToParty": "USCU_S13","TransactionCurrency": "USD","PurchaseOrderByCustomer": "TEST-PO2021","to_Item": [{"Material": "MZ-FG-C990","RequestedQuantity": "10","RequestedQuantityUnit": "PC"},{"Material": "MZ-FG-M500","RequestedQuantity": "10","RequestedQuantityUnit": "PC"}]}
    {"SalesOrderType": "OR","SalesOrganization": "1710","DistributionChannel": "10","OrganizationDivision": "00","SoldToParty": "USCU_S13","TransactionCurrency": "USD","PurchaseOrderByCustomer": "TEST-PO2021","to_Item": [{"Material": "MZ-FG-C990","RequestedQuantity": "10","RequestedQuantityUnit": "PC"},{"Material": "MZ-FG-M500","RequestedQuantity": "10","RequestedQuantityUnit": "PC"}]}
    ```
@@ -227,7 +226,7 @@ To enable these capabilities, complete the following steps.
 
    The following example shows one of the deep entities from the JSON Lines input file. This example is formatted for readability so that you can more easily see the nested JSON values.
 
-   ```
+   ```json
    {
      "SalesOrderType": "OR",
      "SalesOrganization": "1710",

@@ -1,7 +1,6 @@
 
 
 # Cataloging the data output from an Amazon AppFlow flow
-<a name="flows-catalog"></a>
 
 When you use Amazon AppFlow to transfer data with a flow that meets certain requirements, you get the option to register the data with a *data catalog*. A data catalog is a metadata repository. The metadata represents aspects of your data, such as the schema, format, and data types. The metadata also includes *business metadata*, which consists of labels and descriptions that data users write to provide helpful context for themselves and other data users. A data catalog provides a unified view of your data, even if the data belongs to multiple datasets that reside in multiple locations. When you query the consolidated metadata in a data catalog, you can more quickly search and discover your data assets.
 

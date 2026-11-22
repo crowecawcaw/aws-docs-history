@@ -1,7 +1,6 @@
 
 
 # Google Analytics
-<a name="google-analytics"></a>
 
 The following are the requirements and connection instructions for using Google Analytics with Amazon AppFlow.
 
@@ -95,3 +94,4 @@ You can also set the destination to any custom connectors that you create with t
 + [Create a Property](https://support.google.com/analytics/answer/10269537#property) in the Google Analytics documentation
 +  [Analyzing Google Analytics data with Amazon AppFlow and Athena](https://aws.amazon.com/blogs/big-data/analyzing-google-analytics-data-with-amazon-appflow-and-amazon-athena) in the *AWS Big Data Blog* 
 + How to transfer data from Google Analytics to Amazon S3 using Amazon AppFlow  
+[![AWS Videos](https://img.youtube.com/vi/Y0nrScX--Fs/0.jpg)](https://www.youtube.com/watch?v=Y0nrScX--Fs)

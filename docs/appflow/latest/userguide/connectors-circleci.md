@@ -1,7 +1,6 @@
 
 
 # CircleCI connector for Amazon AppFlow
-<a name="connectors-circleci"></a>
 
 CircleCI is a continuous integration and continuous delivery platform. If you're a CircleCI user, your account contains data about your projects, pipelines, workflows, and more. You can use Amazon AppFlow to transfer data from CircleCI to certain AWS services or other supported applications.
 

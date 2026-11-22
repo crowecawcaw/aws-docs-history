@@ -1,7 +1,6 @@
 
 
 # Zendesk Sunshine connector for Amazon AppFlow
-<a name="connectors-zendesk-sunshine"></a>
 
 Zendesk Sunshine is an application that helps builders create custom experiences on the Zendesk platform for ticketing and customer service. If you're a Zendesk Sunshine user, your account contains data about your Zendesk objects and their relationships. You can use Amazon AppFlow to transfer data from Zendesk Sunshine to certain AWS services or other supported applications.
 

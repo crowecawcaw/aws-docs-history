@@ -1,7 +1,6 @@
 
 
 # Logging Amazon AppFlow API calls with AWS CloudTrail
-<a name="appflow-cloudtrail-logs"></a>
 
 Amazon AppFlow is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon AppFlow. CloudTrail captures all API calls for Amazon AppFlow as events. The calls captured include calls from the Amazon AppFlow console and code calls to the Amazon AppFlow API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon AppFlow. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon AppFlow, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
@@ -35,7 +34,7 @@ A trail is a configuration that enables delivery of events as log files to an S3
 
 The following is an example of a CloudTrail log entry generated when you view the details of a flow using the Amazon AppFlow console. Amazon AppFlow does not log the response elements, as they could contain sensitive data.
 
-```
+```json
 {
     "eventVersion": "1.05",
     "userIdentity": { 

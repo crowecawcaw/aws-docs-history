@@ -1,7 +1,6 @@
 
 
 # Google Search Console connector for Amazon AppFlow
-<a name="connectors-google-search-console"></a>
 
 Google Search Console is a service from Google that allows website owners to optimize and manage their sites’ presence in Google Search results. If you're a Google Search Console user, your account contains data about your sites and their search traffic. You can use Amazon AppFlow to transfer data from Google Search Console to certain AWS services or other supported applications.
 

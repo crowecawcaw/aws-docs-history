@@ -1,7 +1,6 @@
 
 
 # JDBC connector for Amazon AppFlow
-<a name="connectors-jdbc"></a>
 
 Java Database Connectivity (JDBC) is a Java API that developers use to connect their applications to relational databases. JDBC is included in the Java Standard Edition from Oracle. You can use Amazon AppFlow to transfer data from a databases by a creating a JDBC connection. Then you can transfer the data to other databases, AWS services, or other supported applications.
 

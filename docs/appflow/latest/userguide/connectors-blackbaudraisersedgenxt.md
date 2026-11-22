@@ -1,7 +1,6 @@
 
 
 # Blackbaud Raiser's Edge NXT connector for Amazon AppFlow
-<a name="connectors-blackbaudraisersedgenxt"></a>
 
 Blackbaud Raiser's Edge NXT is a customer relationship management (CRM) software as a service (SaaS) solution for nonprofit organizations. If you’re a Blackbaud Raiser's Edge NXT user, your account contains data on prospects, analytics, gift management, and more. You can use Amazon AppFlow to transfer data from Blackbaud Raiser's Edge NXT to certain AWS services or other supported applications.
 

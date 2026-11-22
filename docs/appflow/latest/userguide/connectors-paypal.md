@@ -1,7 +1,6 @@
 
 
 # PayPal connector for Amazon AppFlow
-<a name="connectors-paypal"></a>
 
 PayPal is a payments system that facilitates online money transfers between parties, such as transfers between customers and online vendors. If you're a PayPal user, your account contains data about your transactions, such as their payers, dates, and statuses. You can use Amazon AppFlow to transfer data from PayPal to certain AWS services or other supported applications.
 

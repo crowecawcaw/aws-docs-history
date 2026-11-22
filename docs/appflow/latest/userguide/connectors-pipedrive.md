@@ -1,7 +1,6 @@
 
 
 # Pipedrive connector for Amazon AppFlow
-<a name="connectors-pipedrive"></a>
 
 Pipedrive is a Customer Relationship Management (CRM) service that helps companies track and carry out projects. If you’re a Pipedrive user, your account contains data about connections with your customers and within your organization. This can include deals, contacts, demos, proposals, and more. You can use Amazon AppFlow to transfer data from Pipedrive to certain AWS services or other supported applications.
 

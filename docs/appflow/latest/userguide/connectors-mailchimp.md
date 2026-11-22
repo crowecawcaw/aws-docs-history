@@ -1,7 +1,6 @@
 
 
 # Mailchimp connector for Amazon AppFlow
-<a name="connectors-mailchimp"></a>
 
 Mailchimp is a marketing automation platform and email marketing service. If you're a Mailchimp user, your account contains data about your email campaigns, such as open and click details, segments, and automations. You can use Amazon AppFlow to transfer data from Mailchimp to certain AWS services or other supported applications.
 

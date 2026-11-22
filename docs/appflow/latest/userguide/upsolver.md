@@ -1,7 +1,6 @@
 
 
 # Upsolver
-<a name="upsolver"></a>
 
 The following are the requirements and connection instructions for using Upsolver with Amazon AppFlow.
 

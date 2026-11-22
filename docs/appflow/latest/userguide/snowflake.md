@@ -1,7 +1,6 @@
 
 
 # Snowflake
-<a name="snowflake"></a>
 
 The following are the requirements and connection instructions for using Snowflake with Amazon AppFlow.
 
@@ -18,7 +17,7 @@ You can use Snowflake as a destination only.
 + Amazon AppFlow uses the Snowflake COPY command to move data using an S3 bucket. To configure the integration, see [Configuring Secure Access to Amazon S3](https://docs.snowflake.net/manuals/user-guide/data-load-s3-config.html) in the Snowflake documentation.
 + You must also add access to the `kms:Decrypt` action so that Snowflake can access the encrypted data that Amazon AppFlow stored in the Amazon S3 bucket.
 
-  ```
+  ```json
   {
       "Effect": "Allow",
       "Action": "kms:Decrypt",

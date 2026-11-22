@@ -1,7 +1,6 @@
 
 
 # Braintree connector for Amazon AppFlow
-<a name="connectors-braintree"></a>
 
 Braintree is an online payment processing solution. If you're a Braintree user, your account contains data about your transactions. You can use Amazon AppFlow to transfer data from Braintree to certain AWS services or other supported applications.
 

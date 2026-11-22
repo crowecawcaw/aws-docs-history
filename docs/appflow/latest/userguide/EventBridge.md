@@ -1,7 +1,6 @@
 
 
 # Amazon EventBridge
-<a name="EventBridge"></a>
 
 The following are the requirements and connection instructions for using Amazon EventBridge with Amazon AppFlow.
 

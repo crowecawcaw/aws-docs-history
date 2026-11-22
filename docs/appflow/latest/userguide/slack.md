@@ -1,7 +1,6 @@
 
 
 # Slack
-<a name="slack"></a>
 
 The following are the requirements and connection instructions for using Slack with Amazon AppFlow.
 
@@ -97,3 +96,4 @@ You can also set the destination to any custom connectors that you create with t
 +  [Retrieve your client ID and secret](https://api.slack.com/docs/sign-in-with-slack#sign-in-with-slack__details__create-your-slack-app-if-you-havent-already) in the Slack documentation
 +  [New – Announcing Amazon AppFlow (dataflow: Slack, S3, Athena, QuickSight)](https://aws.amazon.com/blogs/aws/new-announcing-amazon-appflow) in the *AWS News* blog
 + How to transfer data from Slack to Amazon S3 using Amazon AppFlow  
+[![AWS Videos](https://img.youtube.com/vi/XQO98akt2jI/0.jpg)](https://www.youtube.com/watch?v=XQO98akt2jI)

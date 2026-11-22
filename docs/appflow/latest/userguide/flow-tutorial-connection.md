@@ -1,7 +1,6 @@
 
 
 # Step 2: Connect Amazon AppFlow to an application
-<a name="flow-tutorial-connection"></a>
 
 You can securely move your data between supported source and destination applications with a connection in Amazon AppFlow. Connections store the configuration details and credentials necessary to run flows without the need to repeatedly enter information. After you have an established connection with an application, you can use that connection in new or existing flows.
 

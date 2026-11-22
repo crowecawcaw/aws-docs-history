@@ -1,7 +1,6 @@
 
 
 # Typeform connector for Amazon AppFlow
-<a name="connectors-typeform"></a>
 
 Typeform is an online survey tool. If you're a Typeform user, your account contains data about your survey forms and responses. You can use Amazon AppFlow to transfer data from Typeform to certain AWS services or other supported applications.
 

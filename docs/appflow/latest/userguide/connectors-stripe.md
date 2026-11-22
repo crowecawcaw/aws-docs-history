@@ -1,7 +1,6 @@
 
 
 # Stripe connector for Amazon AppFlow
-<a name="connectors-stripe"></a>
 
 Stripe powers ecommerce with payment processing and other commerce solutions for businesses. If you're a Stripe user, your account contains data about your transactions, such as your balance, charges, and payouts. You can use Amazon AppFlow to transfer data from Stripe to certain AWS services or other supported applications.
 

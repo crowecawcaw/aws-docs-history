@@ -1,7 +1,6 @@
 
 
 # Create a flow using the AWS console
-<a name="create-flow-console"></a>
 
 There are several ways to gets started with creating your first flow by using the AWS console user interface, AWS CLI commands, APIs, or by specifying CloudFormation resources. The console enables you to input basic information for your flow and connect as a user of the associated SaaS application.
 

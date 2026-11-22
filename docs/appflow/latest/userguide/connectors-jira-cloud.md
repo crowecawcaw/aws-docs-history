@@ -1,7 +1,6 @@
 
 
 # Jira Cloud connector for Amazon AppFlow
-<a name="connectors-jira-cloud"></a>
 
 Jira Cloud is a platform developed by Atlassian. The platform includes issue tracking products that help teams plan and track their agile projects. If you're a Jira Cloud user, your account contains data about your projects, such as issues, workflows, and events. You can use Amazon AppFlow to transfer your Jira Cloud data to certain AWS services or other supported applications.
 

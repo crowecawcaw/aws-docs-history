@@ -1,7 +1,6 @@
 
 
 # Salesforce Pardot
-<a name="pardot"></a>
 
 The following are the requirements and connection instructions for using Pardot with Amazon AppFlow.
 

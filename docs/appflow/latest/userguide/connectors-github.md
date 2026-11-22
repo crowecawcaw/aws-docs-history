@@ -1,7 +1,6 @@
 
 
 # GitHub connector for Amazon AppFlow
-<a name="connectors-github"></a>
 
 GitHub is a service that hosts code repositories for software developers, and it provides version control with Git. If you're a GitHub user, your account contains data about your repositories, such as branches, commits, and pull requests. You can use Amazon AppFlow to transfer data from GitHub to certain AWS services or other supported applications.
 

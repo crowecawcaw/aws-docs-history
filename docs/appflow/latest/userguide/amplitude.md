@@ -1,7 +1,6 @@
 
 
 # Amplitude
-<a name="amplitude"></a>
 
 The following are the requirements and connection instructions for using Amplitude with Amazon AppFlow.
 

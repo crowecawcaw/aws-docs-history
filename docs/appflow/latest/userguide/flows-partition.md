@@ -1,7 +1,6 @@
 
 
 # Partitioning and aggregating data output from an Amazon AppFlow flow
-<a name="flows-partition"></a>
 
 When you use Amazon AppFlow to transfer data to Amazon S3 with a flow, you get the options to do the following:
 + Organize the output data into partitions

@@ -1,7 +1,6 @@
 
 
 # Step 1: Upload data to Amazon S3
-<a name="flow-tutorial-set-up-source"></a>
 
 Suppose you have data that you want to turn into Salesforce account records. You acquired this data from a web form and used it to generate account records. You can upload this list of additional accounts to Amazon Simple Storage Service (Amazon S3). Amazon AppFlow can transfer the data from Amazon S3 to Salesforce to synchronize your customer relationship management (CRM) data.
 

@@ -1,7 +1,6 @@
 
 
 # LinkedIn Ads connector for Amazon AppFlow
-<a name="connectors-linkedin-ads"></a>
 
 LinkedIn Ads is an ad platform that helps organizations and brands to reach audiences throughout the user community of professionals on LinkedIn. If you use LinkedIn Ads, your account contains data about your ads and campaigns. You can use Amazon AppFlow to transfer data from LinkedIn Ads to certain AWS services or other supported applications.
 

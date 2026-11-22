@@ -1,7 +1,6 @@
 
 
 # Flow notifications
-<a name="flow-notifications"></a>
 
 Amazon AppFlow is integrated with Amazon EventBridge to publish events related to the status of a flow. The following flow events are published to your default event bus.
 + **AppFlow Start Flow Run Report**: This event is published at the start of a flow run.

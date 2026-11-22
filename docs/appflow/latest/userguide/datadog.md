@@ -1,7 +1,6 @@
 
 
 # Datadog
-<a name="datadog"></a>
 
 The following are the requirements and connection instructions for using Datadog with Amazon AppFlow.
 

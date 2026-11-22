@@ -1,7 +1,6 @@
 
 
 # Create a flow using CloudFormation resources
-<a name="create-flow-cfn"></a>
 
 You may also use CloudFormation to create a connector profile and configure a flow using the `AWS::AppFlow::ConnectorProfile` and `AWS::AppFlow::Flow` resources. The following example creates a new Amazon AppFlow connection to Salesforce. Note that this leverages a Salesforce Connected App, which itself requires several steps to configure across AWS and Salesforce. See [Salesforce global connected app](https://docs.aws.amazon.com/appflow/latest/userguide/salesforce.html#salesforce-global-connected-app) for details.
 

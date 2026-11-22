@@ -1,7 +1,6 @@
 
 
 # Google Calendar connector for Amazon AppFlow
-<a name="connectors-google-calendar"></a>
 
 Google Calendar is an online calendar service that helps users schedule meetings, set up events, set reminders, and share their schedules. If you're a Google Calendar user, your account contains data about your calendar, events, access controls list rules, and more. You can use Amazon AppFlow to transfer data from Google Calendar to certain AWS services or other supported applications.
 

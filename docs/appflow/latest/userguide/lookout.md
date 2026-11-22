@@ -1,7 +1,6 @@
 
 
 # Amazon Lookout for Metrics
-<a name="lookout"></a>
 
 The following are the requirements and connection instructions for using Amazon Lookout for Metrics with Amazon AppFlow.
 
