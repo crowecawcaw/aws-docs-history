@@ -1,7 +1,6 @@
 
 
 # Configure custom health checks for DNS failover for an API Gateway API
-<a name="dns-failover"></a>
 
 You can use Amazon Route 53 health checks to control DNS failover from an API Gateway API in a primary AWS Region to one in a secondary Region. This can help mitigate impacts in the event of a Regional issue. If you use a custom domain, you can perform failover without requiring clients to change API endpoints.
 
@@ -46,7 +45,7 @@ Before failover to the secondary Region, make sure that all required resources a
 
 In the following example, the standby Region receives a CloudWatch metric and initiates failover. We use a custom metric that requires operator intervention to initiate failover.
 
-```
+```shell
 aws cloudwatch put-metric-data \
     --metric-name Failover \
     --namespace HealthCheck \
@@ -73,7 +72,7 @@ curl {{https://my-api.example.com}}
 
 To return to the primary Region, send a CloudWatch metric that causes the health check to pass.
 
-```
+```shell
 aws cloudwatch put-metric-data \
     --metric-name Failover \
     --namespace HealthCheck \

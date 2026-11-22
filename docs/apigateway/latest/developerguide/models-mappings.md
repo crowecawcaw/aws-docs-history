@@ -1,7 +1,6 @@
 
 
 # Mapping template transformations for REST APIs in API Gateway
-<a name="models-mappings"></a>
 
 A mapping template transformation uses a mapping template to modify your integration request or integration response. A *mapping template* is a script expressed in [Velocity Template Language (VTL)](https://velocity.apache.org/engine/devel/vtl-reference.html) and applied to a payload using [JSONPath ](https://goessner.net/articles/JsonPath/) based on the `Content-type` header. You use mapping templates when you use mapping template transformations. This section describes conceptual information related to mapping templates.
 

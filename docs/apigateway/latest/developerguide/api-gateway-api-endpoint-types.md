@@ -1,7 +1,6 @@
 
 
 # API endpoint types for REST APIs in API Gateway
-<a name="api-gateway-api-endpoint-types"></a>
 
 An *[API endpoint](api-gateway-basic-concept.md#apigateway-definition-api-endpoints)* type refers to the hostname of the API. The API endpoint type can be *edge-optimized*, *Regional*, or *private*, depending on where the majority of your API traffic originates from.
 

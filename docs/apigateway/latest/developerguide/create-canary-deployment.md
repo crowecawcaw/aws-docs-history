@@ -1,7 +1,6 @@
 
 
 # Create a canary release deployment
-<a name="create-canary-deployment"></a>
 
 You create a canary release deployment when deploying the API with [canary settings](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateDeployment.html#canarySettings) as an additional input to the [deployment creation](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateDeployment.html) operation. 
 

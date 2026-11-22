@@ -1,7 +1,6 @@
 
 
 # Private REST APIs in API Gateway
-<a name="apigateway-private-apis"></a>
 
 A private API is a REST API that is only callable from within an Amazon VPC. You can access your API using an [interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html), which is an endpoint network interface that you create in your VPC. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access AWS services by using private IP addresses.
 

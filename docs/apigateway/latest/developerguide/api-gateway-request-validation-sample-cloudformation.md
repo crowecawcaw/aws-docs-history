@@ -1,7 +1,6 @@
 
 
 # AWS CloudFormation template of a sample API with basic request validation
-<a name="api-gateway-request-validation-sample-cloudformation"></a>
 
  The following CloudFormation example template definition defines a sample API with request validation enabled. The API is a subset of the [PetStore API](http://petstore-demo-endpoint.execute-api.com/petstore/pets). It exposes a `POST` method to add a pet to the `pets` collection and a `GET` method to query pets by a specified type. 
 

@@ -1,7 +1,6 @@
 
 
 # Binary media types for WebSocket APIs in API Gateway
-<a name="websocket-api-develop-binary-media-types"></a>
 
 API Gateway WebSocket APIs don't currently support binary frames in incoming message payloads. If a client app sends a binary frame, API Gateway rejects it and disconnects the client with code 1003.
 

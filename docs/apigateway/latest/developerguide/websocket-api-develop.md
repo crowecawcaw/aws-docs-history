@@ -1,7 +1,6 @@
 
 
 # Develop WebSocket APIs in API Gateway
-<a name="websocket-api-develop"></a>
 
 This section provides details about API Gateway capabilities that you need while you're developing your API Gateway APIs.
 

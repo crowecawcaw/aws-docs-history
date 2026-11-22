@@ -1,7 +1,6 @@
 
 
 # Overview of WebSocket APIs in API Gateway
-<a name="apigateway-websocket-api-overview"></a>
 
 In API Gateway you can create a WebSocket API as a stateful frontend for an AWS service (such as Lambda or DynamoDB) or for an HTTP endpoint. The WebSocket API invokes your backend based on the content of the messages it receives from client apps.
 

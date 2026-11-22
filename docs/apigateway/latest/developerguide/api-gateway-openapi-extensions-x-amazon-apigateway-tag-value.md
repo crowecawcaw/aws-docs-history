@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-tag-value property
-<a name="api-gateway-openapi-extensions-x-amazon-apigateway-tag-value"></a>
 
 Specifies the value of an [AWS tag](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html) for an HTTP API. You can use the `x-amazon-apigateway-tag-value` property as part of the root-level [OpenAPI tag object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#tag-object) to specify AWS tags for an HTTP API. If you specify a tag name without the `x-amazon-apigateway-tag-value` property, API Gateway creates a tag with an empty string for a value.
 

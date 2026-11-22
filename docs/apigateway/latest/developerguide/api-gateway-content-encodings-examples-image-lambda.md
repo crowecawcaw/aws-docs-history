@@ -1,7 +1,6 @@
 
 
 # Access binary files in Lambda using an API Gateway API
-<a name="api-gateway-content-encodings-examples-image-lambda"></a>
 
 The following OpenAPI example demonstrates how to access a binary file in AWS Lambda through an API Gateway API. This API exposes the `GET /lambda?key={file-name}` and the `PUT /lambda?key={file-name}` methods for downloading and uploading a specified image file. The `GET` method returns the image file as a base64-encoded string as part of a JSON output, following the supplied mapping template, in a 200 OK response. The `PUT` method takes a raw binary blob as input and returns a 200 OK response with an empty payload.
 

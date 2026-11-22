@@ -1,7 +1,6 @@
 
 
 # Data models for REST APIs
-<a name="models-mappings-models"></a>
 
 In API Gateway, a model defines the data structure of a payload. In API Gateway, models are defined using the [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04). The following JSON object is sample data in the Pet Store example.
 

@@ -1,7 +1,6 @@
 
 
 # Create a log delivery for REST API execution logs
-<a name="rest-api-create-log-delivery"></a>
 
 You can route execution logs to your own CloudWatch Logs log groups, Amazon S3 buckets, or Firehose streams. To do this, create a Amazon CloudWatch Logs delivery. This involves three steps: creating a delivery source, creating a delivery destination, and linking them with a delivery.
 
@@ -35,7 +34,7 @@ The following example creates a delivery that sends execution logs from a REST A
 
    Register your REST API as a delivery source.
 
-   ```
+   ```bash
    aws logs put-delivery-source \
        --name {{my-apigw-source}} \
        --log-type EXECUTION_LOGS \
@@ -48,7 +47,7 @@ The following example creates a delivery that sends execution logs from a REST A
 
    Register your log group as a delivery destination.
 
-   ```
+   ```bash
    aws logs put-delivery-destination \
        --name {{my-log-destination}} \
        --delivery-destination-configuration "destinationResourceArn=arn:aws:logs:{{{region}}}:{{{account-id}}}:log-group:{{{log-group-name}}}"
@@ -60,7 +59,7 @@ The following example creates a delivery that sends execution logs from a REST A
 
    Link the source to the destination.
 
-   ```
+   ```bash
    aws logs create-delivery \
        --delivery-source-name {{my-apigw-source}} \
        --delivery-destination-arn arn:aws:logs:{{{region}}}:{{{account-id}}}:delivery-destination:{{my-log-destination}}
@@ -97,7 +96,7 @@ If you want delivery output that matches standard execution logging (payload onl
 
 When assembling the stage ARN for CloudFormation templates, use the following pattern:
 
-```
+```YAML
   DeliverySource:
     Type: AWS::Logs::DeliverySource
     Properties:

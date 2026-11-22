@@ -1,7 +1,6 @@
 
 
 # Disable the default endpoint for HTTP APIs
-<a name="http-api-disable-default-endpoint"></a>
 
 By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name, disable the default `execute-api` endpoint. When you disable the default endpoint, it affects all stages of an API.
 

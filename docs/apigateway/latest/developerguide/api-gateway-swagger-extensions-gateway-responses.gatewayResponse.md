@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-gateway-responses.gatewayResponse object
-<a name="api-gateway-swagger-extensions-gateway-responses.gatewayResponse"></a>
 
 Defines a gateway response of a given response type, including the status code, any applicable response parameters, or response templates. 
 

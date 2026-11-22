@@ -1,7 +1,6 @@
 
 
 # Configure cross-account Amazon Cognito authorizer for a REST API using the API Gateway console
-<a name="apigateway-cross-account-cognito-authorizer"></a>
 
 You can now also use a Amazon Cognito user pool from a different AWS account as your API authorizer. The Amazon Cognito user pool can use bearer token authentication strategies such as OAuth or SAML. This makes it easy to centrally manage and share a central Amazon Cognito user pool authorizer across multiple API Gateway APIs.
 

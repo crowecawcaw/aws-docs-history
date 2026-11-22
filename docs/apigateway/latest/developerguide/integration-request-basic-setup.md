@@ -1,7 +1,6 @@
 
 
 # Basic tasks of an API integration request
-<a name="integration-request-basic-setup"></a>
 
  An integration request is an HTTP request that API Gateway submits to the backend, passing along the client-submitted request data, and transforming the data, if necessary. The HTTP method (or verb) and URI of the integration request are dictated by the backend (that is, the integration endpoint). They can be the same as or different from the method request's HTTP method and URI, respectively. 
 

@@ -1,7 +1,6 @@
 
 
 # Methods for REST APIs in API Gateway
-<a name="how-to-method-settings"></a>
 
  In API Gateway, an API method embodies a [method request](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) and a [method response](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodResponse.html). You set up an API method to define what a client should or must do to submit a request to access the service at the backend and to define the responses that the client receives in return. For input, you can choose method request parameters, or an applicable payload, for the client to provide the required or optional data at run time. For output, you determine the method response status code, headers, and applicable body as targets to map the backend response data into, before they are returned to the client. To help the client developer understand the behaviors and the input and output formats of your API, you can [document your API](api-gateway-documenting-api.md) and [provide proper error messages](api-gateway-gatewayResponse-definition.md#customize-gateway-responses) for [invalid requests](api-gateway-method-request-validation.md). 
 

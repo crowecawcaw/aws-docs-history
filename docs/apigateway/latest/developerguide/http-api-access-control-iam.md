@@ -1,7 +1,6 @@
 
 
 # Control access to HTTP APIs with IAM authorization in API Gateway
-<a name="http-api-access-control-iam"></a>
 
 You can enable IAM authorization for HTTP API routes. When IAM authorization is enabled, clients must use [Signature Version 4 (SigV4)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) to sign their requests with AWS credentials. API Gateway invokes your API route only if the client has `execute-api` permission for the route.
 

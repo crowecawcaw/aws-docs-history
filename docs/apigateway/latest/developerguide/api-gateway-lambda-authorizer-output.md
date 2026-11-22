@@ -1,7 +1,6 @@
 
 
 # Output from an API Gateway Lambda authorizer
-<a name="api-gateway-lambda-authorizer-output"></a>
 
 A Lambda authorizer function's output is a dictionary-like object, which must include the principal identifier (`principalId`) and a policy document (`policyDocument`) containing a list of policy statements. The output can also include a `context` map containing key-value pairs. If the API uses a usage plan (the [`apiKeySource`](https://docs.aws.amazon.com/apigateway/latest/api/API_RestApi.html#apiKeySource) is set to `AUTHORIZER`), the Lambda authorizer function must return one of the usage plan's API keys as the `usageIdentifierKey` property value.
 
@@ -12,7 +11,7 @@ The following shows an example of this output.
 
 ****  
 
-```
+```json
 {
   "principalId": "{{yyyyyyyy}}", 
   "policyDocument": {
@@ -59,7 +58,7 @@ In addition, the Resource ARN, as shown in the policy statement output by the au
 
 ****  
 
-```
+```json
 {
   "principalId": "user",
   "policyDocument": {

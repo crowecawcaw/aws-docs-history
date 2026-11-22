@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with a Lambda non-proxy integration
-<a name="getting-started-lambda-non-proxy-integration"></a>
 
 In this walkthrough, we use the API Gateway console to build an API that enables a client to call Lambda functions through the Lambda non-proxy integration (also known as custom integration). For more information about AWS Lambda and Lambda functions, see the [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/). 
 
@@ -192,7 +191,7 @@ Now, create the `GetStartedLambdaIntegration` Lambda function.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -226,7 +225,7 @@ The other policy document applies to invoking another AWS service that is not us
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

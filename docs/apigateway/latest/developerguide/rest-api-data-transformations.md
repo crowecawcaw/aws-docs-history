@@ -1,7 +1,6 @@
 
 
 # Data transformations for REST APIs in API Gateway
-<a name="rest-api-data-transformations"></a>
 
 **Note**  
 This section explains features that you use with a non-proxy integration. However, we recommend that when possible, you use a proxy integration for your REST API. A proxy integration has a streamlined integration setup and can evolve with the backend without having to tear down the existing setup. For more information, see [Choose an API Gateway API integration type](api-gateway-api-integration-types.md).

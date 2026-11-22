@@ -1,7 +1,6 @@
 
 
 # Develop HTTP APIs in API Gateway
-<a name="http-api-develop"></a>
 
 This section provides details about API Gateway capabilities that you need while you're developing your API Gateway APIs.
 

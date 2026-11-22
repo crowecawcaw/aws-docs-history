@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-any-method object
-<a name="api-gateway-swagger-extensions-any-method"></a>
 
  Specifies the [OpenAPI Operation Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#operation-object) for the API Gateway catch-all `ANY` method in an [OpenAPI Path Item Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#path-item-object). This object can exist alongside other Operation objects and will catch any HTTP method that wasn't explicitly declared. 
 

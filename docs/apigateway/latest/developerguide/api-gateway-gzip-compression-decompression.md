@@ -1,7 +1,6 @@
 
 
 # Payload compression for REST APIs in API Gateway
-<a name="api-gateway-gzip-compression-decompression"></a>
 
  API Gateway allows your client to call your API with compressed payloads by using one of the [supported content codings](api-gateway-enable-compression.md#api-gateway-supported-content-encodings). By default, API Gateway supports decompression of the method request payload. However, you must configure your API to enable compression of the method response payload. 
 

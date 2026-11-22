@@ -1,7 +1,6 @@
 
 
 # Create a private API
-<a name="apigateway-private-api-create"></a>
 
 Before you create a private API, you first create a VPC endpoint for API Gateway. Next you create your private API and attach a resource policy to it. Optionally, you can associate your VPC endpoint with your private API to simplify how you invoke your API. Finally, you deploy your API.
 
@@ -493,7 +492,7 @@ In your resource policy, if you set the Principal to an AWS principal, such as t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

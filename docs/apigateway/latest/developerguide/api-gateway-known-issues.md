@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway important notes
-<a name="api-gateway-known-issues"></a>
 
 The following section details notes that might impact your use of API Gateway.
 

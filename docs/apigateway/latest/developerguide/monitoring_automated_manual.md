@@ -1,7 +1,6 @@
 
 
 # Monitoring tools in AWS for API Gateway
-<a name="monitoring_automated_manual"></a>
 
 AWS provides various tools that you can use to monitor API Gateway. You can configure some of these tools to do the monitoring for you automatically, while other tools require manual intervention. We recommend that you automate monitoring tasks as much as possible.
 

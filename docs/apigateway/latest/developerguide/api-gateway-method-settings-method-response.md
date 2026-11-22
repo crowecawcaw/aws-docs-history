@@ -1,7 +1,6 @@
 
 
 # Set up a method response in API Gateway
-<a name="api-gateway-method-settings-method-response"></a>
 
 An API method response encapsulates the output of an API method request that the client will receive. The output data includes an HTTP status code, some headers, and possibly a body. 
 

@@ -1,7 +1,6 @@
 
 
 # Examples of how API Gateway evaluates routing rules
-<a name="rest-api-routing-rules-examples"></a>
 
 The following section shows four examples of how API Gateway evaluates routing rules and API mappings.
 

@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-integration.tlsConfig object
-<a name="api-gateway-extensions-integration-tls-config"></a>
 
 Specifies the TLS configuration for an integration.
 

@@ -1,7 +1,6 @@
 
 
 # Delete a log delivery for REST API execution logs
-<a name="rest-api-delete-log-delivery"></a>
 
 When you delete a log delivery, API Gateway resumes writing execution logs to the auto-managed log group (`API-Gateway-Execution-Logs_{rest-api-id}/{stage_name}`), as long as execution logging is still enabled on the stage.
 
@@ -14,7 +13,7 @@ To delete a delivery, you delete the delivery and then optionally delete the del
 
 **Delete the delivery**
 
-   ```
+   ```bash
    aws logs delete-delivery --id {{{delivery-id}}}
    ```
 
@@ -22,7 +21,7 @@ To delete a delivery, you delete the delivery and then optionally delete the del
 
 **(Optional) Delete the delivery source**
 
-   ```
+   ```bash
    aws logs delete-delivery-source --name {{my-apigw-source}}
    ```
 
@@ -30,7 +29,7 @@ To delete a delivery, you delete the delivery and then optionally delete the del
 
 **(Optional) Delete the delivery destination**
 
-   ```
+   ```bash
    aws logs delete-delivery-destination --name {{my-log-destination}}
    ```
 

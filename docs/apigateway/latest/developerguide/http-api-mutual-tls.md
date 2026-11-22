@@ -1,7 +1,6 @@
 
 
 # How to turn on mutual TLS authentication for your HTTP APIs in API Gateway
-<a name="http-api-mutual-tls"></a>
 
 Mutual TLS authentication requires two-way authentication between the client and the server. With mutual TLS, clients must present X.509 certificates to verify their identity to access your API. Mutual TLS is a common requirement for Internet of Things (IoT) and business-to-business applications. 
 
@@ -75,7 +74,7 @@ API Gateway validates a number of certificate properties. You can use Lambda aut
 
 The following [cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) AWS CLI command uploads `certificates.pem` to your Amazon S3 bucket:
 
-```
+```shell
 aws s3 cp {{certificates.pem}} s3://{{bucket-name}}
 ```
 
@@ -89,7 +88,7 @@ Mutual TLS isn't supported for private APIs.
 
 After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS. The following [create-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-domain-name.html) creates a custom domain name with mutual TLS:
 
-```
+```shell
 aws apigatewayv2 create-domain-name \
     --domain-name {{api.example.com}} \
     --domain-name-configurations CertificateArn=arn:aws:acm:{{us-west-2}}:{{123456789012}}:certificate/{{123456789012-1234-1234-1234-12345678}} \
@@ -105,7 +104,7 @@ To invoke an API with mutual TLS enabled, clients must present a trusted certifi
 
 The following example `curl` command sends a request to `api.example.com,` that includes `my-cert.pem` in the request. `my-key.key` is the private key for the certificate.
 
-```
+```shell
 curl -v --key {{./my-key.key}} --cert {{./my-cert.pem}} {{api.example.com}}
 ```
 
@@ -142,7 +141,7 @@ To disable mutual TLS for a custom domain name, remove the truststore from your 
 
 The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-domain-name.html) command updates a custom domain name to remove the truststore from your custom domain name:
 
-```
+```shell
 aws apigatewayv2 update-domain-name \
     --domain-name api.example.com \
     --domain-name-configurations CertificateArn=arn:aws:acm:{{us-west-2}}:{{123456789012}}:certificate/{{123456789012-1234-1234-1234-12345678}} \

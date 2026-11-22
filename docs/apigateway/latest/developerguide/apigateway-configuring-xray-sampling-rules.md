@@ -1,7 +1,6 @@
 
 
 # Configure AWS X-Ray sampling rules for API Gateway APIs
-<a name="apigateway-configuring-xray-sampling-rules"></a>
 
 You can use AWS X-Ray console or SDK to configure sampling rules for your Amazon API Gateway API. A sampling rule specifies which requests X-Ray should record for your API. By customizing sampling rules, you can control the amount of data that you record, and modify sampling behavior on the fly without modifying or redeploying your code.
 

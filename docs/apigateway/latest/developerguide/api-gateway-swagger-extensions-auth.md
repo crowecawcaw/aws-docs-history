@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-auth object
-<a name="api-gateway-swagger-extensions-auth"></a>
 
 Defines an authorization type to be applied for authorization of method invocations in API Gateway.
 

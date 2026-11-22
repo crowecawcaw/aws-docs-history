@@ -1,7 +1,6 @@
 
 
 # What is Amazon API Gateway?
-<a name="welcome"></a>
 
 Amazon API Gateway is an AWS service for creating, publishing, maintaining, monitoring, and securing REST, HTTP, and WebSocket APIs at any scale. API developers can create APIs that access AWS or other web services, as well as data stored in the [AWS Cloud](https://aws.amazon.com/what-is-cloud-computing/). As an API Gateway API developer, you can create APIs for use in your own client applications. Or you can make your APIs available to third-party app developers. For more information, see [Who uses API Gateway?](api-gateway-overview-developer-experience.md#apigateway-who-uses-api-gateway).
 

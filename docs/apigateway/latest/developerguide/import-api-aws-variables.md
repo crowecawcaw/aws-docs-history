@@ -1,7 +1,6 @@
 
 
 # AWS variables for OpenAPI import
-<a name="import-api-aws-variables"></a>
 
 You can use the following AWS variables in OpenAPI definitions. API Gateway resolves the variables when the API is imported. To specify a variable, use `${{{variable-name}}}`. The following table describes the available AWS variables. 
 

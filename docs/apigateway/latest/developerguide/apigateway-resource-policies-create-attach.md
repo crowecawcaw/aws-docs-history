@@ -1,7 +1,6 @@
 
 
 # Create and attach an API Gateway resource policy to an API
-<a name="apigateway-resource-policies-create-attach"></a>
 
 To allow a user to access your API by calling the API execution service, you must create an API Gateway resource policy and attach the policy to the API. When you attach a policy to your API, it applies the permissions in the policy to the methods in the API. If you update the resource policy, you'll need to deploy the API.
 
@@ -152,7 +151,7 @@ In your resource policy, if you set the Principal to an AWS principal, such as t
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

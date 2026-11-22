@@ -1,7 +1,6 @@
 
 
 # Quotas for configuring and running a WebSocket in API Gateway
-<a name="apigateway-execution-service-websocket-limits-table"></a>
 
 The following quotas apply to configuring and running a WebSocket API in Amazon API Gateway. If the quota is per-API, it can only be increased on specific APIs, not for all the APIs in an account. For information about account-level quotas see [Amazon API Gateway quotas](limits.md)
 

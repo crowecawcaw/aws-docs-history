@@ -1,7 +1,6 @@
 
 
 # Control and manage access to HTTP APIs in API Gateway
-<a name="http-api-access-control"></a>
 
 API Gateway supports multiple mechanisms for controlling and managing access to your HTTP API:
 + **Lambda authorizers** use Lambda functions to control access to APIs. For more information, see [Control access to HTTP APIs with AWS Lambda authorizers](http-api-lambda-authorizer.md).

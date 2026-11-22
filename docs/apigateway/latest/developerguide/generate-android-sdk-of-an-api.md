@@ -1,7 +1,6 @@
 
 
 # Generate the Android SDK of an API in API Gateway
-<a name="generate-android-sdk-of-an-api"></a>
 
 The following procedure shows how to generate the Android SDK of an API in API Gateway.
 

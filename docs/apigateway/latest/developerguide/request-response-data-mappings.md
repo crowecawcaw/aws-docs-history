@@ -1,7 +1,6 @@
 
 
 # Parameter mapping examples for REST APIs in API Gateway
-<a name="request-response-data-mappings"></a>
 
 The following examples show how to create parameter mapping expressions using the API Gateway console, OpenAPI, and CloudFormation templates. For an example of how to use parameter mapping to create the required CORS headers, see [CORS for REST APIs in API Gateway](how-to-cors.md). 
 

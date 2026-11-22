@@ -1,7 +1,6 @@
 
 
 # Develop REST APIs using OpenAPI in API Gateway
-<a name="api-gateway-import-api"></a>
 
 You can use API Gateway to import a REST API from an external definition file into API Gateway. Currently, API Gateway supports [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md) and [OpenAPI v3.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.1.md) definition files, with exceptions listed in [Amazon API Gateway important notes for REST APIs](api-gateway-known-issues.md#api-gateway-known-issues-rest-apis). You can update an API by overwriting it with a new definition, or you can merge a definition with an existing API. You specify the options by using a `mode` query parameter in the request URL. 
 

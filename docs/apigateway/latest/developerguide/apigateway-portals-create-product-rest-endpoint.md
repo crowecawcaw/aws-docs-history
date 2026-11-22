@@ -1,7 +1,6 @@
 
 
 # Create a product REST endpoint in API Gateway
-<a name="apigateway-portals-create-product-rest-endpoint"></a>
 
 A product REST endpoint is an access point to your portal product. Each endpoint consists of the path and method of a REST API and the stage it's deployed to. The endpoint includes any documentation you've defined for your REST API, or can be updated with custom documentation. When you create your product REST endpoint, you configure the following settings:
 + The product REST endpoint's operation name. If your REST API has the path and method `GET /pets`, in a portal, the name is `/pets`. Using the operation name, you can change the product REST endpoint name to `Pet summaries`. This doesn't impact your existing API.

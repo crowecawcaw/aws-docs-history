@@ -1,7 +1,6 @@
 
 
 # Update a portal product in API Gateway
-<a name="apigateway-portals-update-portal-product"></a>
 
 When you update a portal product, you can change the name, description, or the display order of how your product REST endpoints and product pages appear. To modify the display order, you modify the page list for product pages and the section name for product endpoints. If you do this using the AWS CLI or SDKs, you specify the product page ARN or the product REST endpoint ARN. You need to republish any portals that use your products for your API consumers to see the changes reflected in a portal.
 

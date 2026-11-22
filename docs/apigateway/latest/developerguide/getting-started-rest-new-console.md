@@ -1,7 +1,6 @@
 
 
 # Get started with the REST API console
-<a name="getting-started-rest-new-console"></a>
 
 In this getting started exercise, you create a serverless REST API using the API Gateway REST API console. Serverless APIs let you focus on your applications instead of spending your time provisioning and managing servers. This exercise should take less than 20 minutes to complete, and is possible within the [AWS Free Tier](https://aws.amazon.com/free/).
 

@@ -1,7 +1,6 @@
 
 
 # How to use routing rules
-<a name="apigateway-routing-rules-use"></a>
 
 You can create a routing rule using the AWS Management Console, AWS CLI, or any AWS SDK. After you create a rule, you can change it's priority.
 
@@ -42,7 +41,7 @@ The following procedure shows how to create a routing rule for a custom domain n
 
 The following [create-routing-rule](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-routing-rule.html) command creates a routing rule with a priority of 50. In this example, API Gateway routes any incoming requests that have the headers `Hello:World` and `x-version:beta` and the base path `PetStoreShopper` to the target API `a1b2c3`.
 
-```
+```shell
  aws apigatewayv2 create-routing-rule \
   --domain-name 'api.example.com' \
   --priority 50 \
@@ -164,7 +163,7 @@ For example, consider two routing rules, rule `abc123` with a priority of 50 and
 
 The following [put-routing-rule](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/put-routing-rule.html) command changes the priority of a routing rule `abc123`.
 
-```
+```shell
  aws apigatewayv2 put-routing-rule \
   --domain-name 'api.example.com' \
   --priority 30 \

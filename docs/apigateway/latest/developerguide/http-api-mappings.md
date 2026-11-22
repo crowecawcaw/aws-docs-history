@@ -1,7 +1,6 @@
 
 
 # Map API stages to a custom domain name for HTTP APIs
-<a name="http-api-mappings"></a>
 
 You use API mappings to connect API stages to a custom domain name. After you create a domain name and configure DNS records, you use API mappings to send traffic to your APIs through your custom domain name.
 
@@ -86,7 +85,7 @@ For example AWS Serverless Application Model templates that create all resources
 
 The following [create-api-mapping](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-api.html) command creates an API mapping. In this example, API Gateway sends requests to `api.example.com/v1/orders` to the specified API and stage.
 
-```
+```shell
 aws apigatewayv2 create-api-mapping \
     --domain-name api.example.com \
     --api-mapping-key v1/orders \
@@ -99,7 +98,7 @@ aws apigatewayv2 create-api-mapping \
 
 The following CloudFormation example creates an API mapping.
 
-```
+```shell
 MyApiMapping:
   Type: 'AWS::ApiGatewayV2::ApiMapping'
   Properties:

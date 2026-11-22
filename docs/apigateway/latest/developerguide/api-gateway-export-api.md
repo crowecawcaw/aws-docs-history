@@ -1,7 +1,6 @@
 
 
 # Export a REST API from API Gateway
-<a name="api-gateway-export-api"></a>
 
  Once you created and configured a REST API in API Gateway, using the API Gateway console or otherwise, you can export it to an OpenAPI file using the API Gateway Export API, which is part of the Amazon API Gateway Control Service. To use the API Gateway Export API, you need to sign your API requests. For more information about signing requests, see [Signing AWS API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html) in the *IAM User Guide*. You have options to include the API Gateway integration extensions, as well as the [Postman](https://www.postman.com) extensions, in the exported OpenAPI definition file. 
 

@@ -1,7 +1,6 @@
 
 
 # Set up an API Gateway API with private integrations using the AWS CLI (legacy)
-<a name="set-up-api-with-vpclink-cli"></a>
 
 **Note**  
 The following implementation of private integrations uses VPC links V1. VPC links V1 are legacy resources. We recommend that you use [VPC links V2 for REST APIs](apigateway-vpc-links-v2.md).

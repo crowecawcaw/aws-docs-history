@@ -1,7 +1,6 @@
 
 
 # Protect your WebSocket APIs in API Gateway
-<a name="websocket-api-protect"></a>
 
 API Gateway provides a number of ways to protect your API from certain threats, like malicious users or spikes in traffic. You can protect your API using strategies like generating SSL certificates or setting throttling targets. For more information about generating SSL certificates, see [Use an API Gateway-generated certificate for backend authentication in API Gateway](getting-started-client-side-ssl-authentication.md). The rest of this section covers setting throttling targets.
 
@@ -27,7 +26,7 @@ You can set route-level throttling to override the account-level request throttl
 
 You can configure route-level throttling by using the AWS CLI. The following [update-stage](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-stage.html) command configures custom throttling for the specified stage and route of an API:
 
-```
+```shell
 aws apigatewayv2 update-stage \
     --api-id {{a1b2c3d4}} \
     --stage-name {{dev}} \

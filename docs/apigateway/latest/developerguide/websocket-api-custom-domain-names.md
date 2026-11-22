@@ -1,7 +1,6 @@
 
 
 # Custom domain names for WebSocket APIs in API Gateway
-<a name="websocket-api-custom-domain-names"></a>
 
 *Custom domain names* are simpler and more intuitive URLs that you can provide to your API users.
 

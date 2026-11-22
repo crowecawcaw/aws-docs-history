@@ -1,7 +1,6 @@
 
 
 # Monitor REST APIs in API Gateway
-<a name="rest-api-monitor"></a>
 
 In this section, you can learn how to monitor your API by using CloudWatch metrics, CloudWatch Logs, Firehose, and AWS X-Ray. By combining CloudWatch execution logs and CloudWatch metrics, you can log errors and execution traces, and monitor your API's performance. You might also want to log API calls to Firehose. You can also use AWS X-Ray to trace calls through the downstream services that make up your API.
 

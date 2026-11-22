@@ -1,7 +1,6 @@
 
 
 # Set up a proxy integration with a proxy resource
-<a name="api-gateway-set-up-simple-proxy"></a>
 
 To set up a proxy integration in an API Gateway API with a [proxy resource](api-gateway-method-settings-method-request.md#api-gateway-proxy-resource), you perform the following tasks: 
 + Create a proxy resource with a greedy path variable of `{{{proxy}}+}`. 

@@ -1,7 +1,6 @@
 
 
 # Monitoring API Gateway API configuration with AWS Config
-<a name="apigateway-config"></a>
 
 You can use [AWS Config](https://aws.amazon.com/config/) to record configuration changes made to your API Gateway API resources and send notifications based on resource changes. Maintaining a configuration change history for API Gateway resources is useful for operational troubleshooting, audit, and compliance use cases.
 

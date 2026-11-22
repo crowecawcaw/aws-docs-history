@@ -1,7 +1,6 @@
 
 
 # Documentation for REST APIs in API Gateway
-<a name="api-gateway-documenting-api"></a>
 
  To help customers understand and use your API, you should document the API. To help you document your API, API Gateway lets you add and update the help content for individual API entities as an integral part of your API development process. API Gateway stores the source content and enables you to archive different versions of the documentation. You can associate a documentation version with an API stage, export a stage-specific documentation snapshot to an external OpenAPI file, and distribute the file as a publication of the documentation. 
 

@@ -1,7 +1,6 @@
 
 
 # Control access based on an identity’s attributes with Verified Permissions
-<a name="apigateway-lambda-authorizer-verified-permissions"></a>
 
 Use Amazon Verified Permissions to control access to your API Gateway API. When you use API Gateway with Verified Permissions, Verified Permissions creates a Lambda authorizer that uses fine-grained authorization decisions to control access to your API. Verified Permissions authorizes callers based on a policy store schema and policies using the Cedar policy language to define fine-grained permissions for application users. For more information, see [Create a policy store with a connected API and identity provider](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/getting-started-api-policy-store.html) in the *Amazon Verified Permissions User Guide*.
 

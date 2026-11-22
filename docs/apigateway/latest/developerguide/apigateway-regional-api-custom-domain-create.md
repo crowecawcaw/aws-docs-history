@@ -1,7 +1,6 @@
 
 
 # Set up a Regional custom domain name in API Gateway
-<a name="apigateway-regional-api-custom-domain-create"></a>
 
 Use a Regional custom domain name to create a user-friendly API base URL. With a Regional custom domain name, you can map HTTP and REST API stages to the same custom domain name and use mutual TLS authentication. 
 
@@ -14,6 +13,9 @@ The following are considerations for your Regional custom domain name:
 + After your create your Regional custom domain name, you must create a DNS record to point the custom domain name to the Regional domain. This enables the traffic that is bound to the custom domain name to be routed to the API's Regional hostname.
 
   The DNS record can be the CNAME or an A Alias record. If you use Route 53 as your DNS provider, create an A Alias record. If you use a third-party DNS provider, use a CNAME record. If you use a CNAME record and create an API Gateway interface VPC endpoint with private DNS enabled for a private API, you can't resolve the custom domain name within the VPC that hosts your private API. 
++ This guidance applies to certificates issued by a publicly trusted certificate authority. Don't assign certificates with overlapping domain coverage to different custom domain names in the same Region. This applies even when the custom domain names are in different AWS accounts. A certificate covers a domain name when that name matches the certificate's subject or a subject alternative name (SAN), including a wildcard name. For example, a certificate for `*.example.org` and a certificate for `api.example.org` both cover `api.example.org`.
+
+  When more than one certificate covers the hostname a client requests, API Gateway might present either one. If the client doesn't trust the presented certificate, it can't complete the TLS handshake. Overlap can also appear when you reimport a certificate into ACM with additional domain names, because the new names might then cover a domain that another certificate already covers.
 
 ## Create a Regional custom domain name
 <a name="apigateway-regional-api-custom-domain-create-procedure"></a>

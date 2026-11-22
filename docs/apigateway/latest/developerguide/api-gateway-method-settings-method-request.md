@@ -1,7 +1,6 @@
 
 
 # Set up a method request in API Gateway
-<a name="api-gateway-method-settings-method-request"></a>
 
 Setting up a method request involves performing the following tasks, after creating a [RestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_RestApi.html) resource:
 
@@ -278,7 +277,7 @@ To use IAM permissions to authorize access to the API method, set the `authoriza
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

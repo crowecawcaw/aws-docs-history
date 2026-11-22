@@ -1,7 +1,6 @@
 
 
 # Update a portal in API Gateway
-<a name="apigateway-portals-update-portal"></a>
 
 You can update the theme, logo, or the portal products in your portal. When you update your portal, the changes don't take effect until you republish your portal.
 

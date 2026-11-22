@@ -1,7 +1,6 @@
 
 
 # Call an API with an API Gateway Lambda authorizer
-<a name="call-api-with-api-gateway-lambda-authorization"></a>
 
  Having configured the Lambda authorizer (formerly known as the custom authorizer) and deployed the API, you should test the API with the Lambda authorizer enabled. For this, you need a REST client, such as cURL or [Postman](https://www.postman.com/). For the following examples, we use Postman. 
 

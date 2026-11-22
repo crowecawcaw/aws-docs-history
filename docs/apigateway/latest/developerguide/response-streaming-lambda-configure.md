@@ -1,7 +1,6 @@
 
 
 # Configure a Lambda proxy integration with payload response streaming in API Gateway
-<a name="response-streaming-lambda-configure"></a>
 
 When you set up response payload streaming, you specify the transfer mode in the integration request of your resource. You configure these settings in the integration request to control how API Gateway behaves before and during the integration response.
 
@@ -18,7 +17,7 @@ Your Lambda function must adhere to the [Lambda proxy integration format for res
 
 The following code example streams the JSON metadata objects and payloads back to the client using the `awslambda.HttpResponseStream()` method without using the pipeline method. You don't need to create the delimiter. For more information, see [Writing response streaming-enabled Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/config-rs-write-functions.html).
 
-```
+```nodejs
 export const handler = awslambda.streamifyResponse(
   async (event, responseStream, context) => {
     const httpResponseMetadata = {
@@ -50,7 +49,7 @@ Lambda recommends that when you write response streaming-enabled functions, you 
 
 The following code example streams the JSON metadata objects and three payloads back to the client.
 
-```
+```nodejs
 import { pipeline } from 'node:stream/promises';
 import { Readable } from 'node:stream';
 
@@ -85,7 +84,7 @@ export const handler = awslambda.streamifyResponse(
 
 The following code example streams the JSON metadata objects and three payloads back to the client without using the `awslambda.HttpResponseStream()` method. Without the `awslambda.HttpResponseStream()` method, you must include a delimiter of 8 null bytes between the metadata and the payload. 
 
-```
+```nodejs
 export const handler = awslambda.streamifyResponse(async (event, response, ctx) => {
   response.write('{"statusCode": 200, "headers": {"hdr-x": "val-x"}}');
   response.write("\x00".repeat(8)); // DELIMITER

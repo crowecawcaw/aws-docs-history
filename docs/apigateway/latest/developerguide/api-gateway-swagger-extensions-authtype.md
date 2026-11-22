@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-authtype property
-<a name="api-gateway-swagger-extensions-authtype"></a>
 
 For REST APIs, this extension can be used to define a custom type of a Lambda authorizer. In this case, the value is free-form. For example, an API may have multiple Lambda authorizers that use different internal schemes. You can use this extension to identify the internal scheme of a Lambda authorizer.
 

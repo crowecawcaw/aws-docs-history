@@ -1,7 +1,6 @@
 
 
 # View API Gateway log events in the CloudWatch console
-<a name="view-cloudwatch-log-events-in-cloudwatch-console"></a>
 
 The following section explains the necessary prerequisites and how to view API Gateway log events in the CloudWatch console.
 

@@ -1,7 +1,6 @@
 
 
 # Set up a proxy resource with Lambda proxy integration with an OpenAPI definition
-<a name="api-gateway-set-up-lambda-proxy-integration-on-proxy-resource"></a>
 
 To set up a proxy resource with the Lambda proxy integration type, create an API resource with a greedy path parameter (for example, `/parent/{proxy+}`) and integrate this resource with a Lambda function backend (for example, `arn:aws:lambda:us-west-2:123456789012:function:SimpleLambda4ProxyResource`) on the `ANY` method. The greedy path parameter must be at the end of the API resource path. As with a non-proxy resource, you can set up the proxy resource by using the API Gateway console, importing an OpenAPI definition file, or calling the API Gateway REST API directly.
 

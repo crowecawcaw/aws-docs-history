@@ -1,7 +1,6 @@
 
 
 # Set up a private integration
-<a name="set-up-private-integration"></a>
 
 To create a private integration with an Application Load Balancer or Network Load Balancer, you create an HTTP proxy integration, specify the [VPC link V2](apigateway-vpc-links-v2.md) to use, and provide the ARN of an Network Load Balancer or an Application Load Balancer. By default, private integration traffic uses the HTTP protocol. To use HTTPS, specify an [`uri`](https://docs.aws.amazon.com/apigateway/latest/api/API_PutIntegration.html#apigw-PutIntegration-request-uri) that contains a secure server name, such as `https://example.com:443/test`. For a complete tutorial on how to create a REST API with a private integration, see [Tutorial: Create a REST API with a private integration](getting-started-with-private-integration.md).
 
@@ -20,7 +19,7 @@ For a tutorial on how to create a private integration see, [Tutorial: Create a R
 
 The following [put-integration](https://docs.aws.amazon.com/cli/latest/reference/latest/api/API_PutIntegration.html) command creates a private integration that connects to a load balancer by using a VPC link V2:
 
-```
+```shell
 aws apigateway put-integration \
     --rest-api-id abcdef123 \
     --resource-id aaa000 \
@@ -35,7 +34,7 @@ aws apigateway put-integration \
 
 Instead of directly providing the connection ID, you can use a stage variable instead. When you deploy your API to a stage, you set the VPC link V2 ID. The following [put-integration](https://docs.aws.amazon.com/cli/latest/reference/latest/api/API_PutIntegration.html) command creates a private integration using a stage variable for the VPC link V2 ID:
 
-```
+```shell
 aws apigateway put-integration \
     --rest-api-id abcdef123 \
     --resource-id aaa000 \
@@ -99,7 +98,7 @@ The following JSON-formatted OpenAPI file shows an example of an API with a VPC 
           "passthroughBehavior": "when_no_match",
           "connectionType": "VPC_LINK",
           "connectionId": "${stageVariables.vpcLinkV2Id}",
-          "integration-target": "arn:aws:elasticloadbalancing:us-east-2:111122223333:loadbalancer/app/myLoadBalancerName/1234567891011",
+          "integrationTarget": "arn:aws:elasticloadbalancing:us-east-2:111122223333:loadbalancer/app/myLoadBalancerName/1234567891011",
           "httpMethod": "GET",
           "type": "http_proxy"
         }

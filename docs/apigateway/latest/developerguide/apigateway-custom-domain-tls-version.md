@@ -1,7 +1,6 @@
 
 
 # Choose a security policy for your custom domain in API Gateway
-<a name="apigateway-custom-domain-tls-version"></a>
 
 A *security policy* is a predefined combination of minimum TLS version and cipher suites offered by API Gateway. When your clients establish a TLS handshake to your API or custom domain name, the security policy enforces the TLS version and cipher suite accepted by API Gateway. Security policies protect your APIs and custom domain names from network security problems such as tampering and eavesdropping between a client and server.
 

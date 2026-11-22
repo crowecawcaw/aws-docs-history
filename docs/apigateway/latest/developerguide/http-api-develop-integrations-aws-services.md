@@ -1,7 +1,6 @@
 
 
 # Create AWS service integrations for HTTP APIs in API Gateway
-<a name="http-api-develop-integrations-aws-services"></a>
 
 You can integrate your HTTP API with AWS services by using *first-class integrations*. A first-class integration connects an HTTP API route to an AWS service API. When a client invokes a route that's backed by a first-class integration, API Gateway invokes an AWS service API for you. For example, you can use first-class integrations to send a message to an Amazon Simple Queue Service queue, or to start an AWS Step Functions state machine. For supported service actions, see [Integration subtype reference](http-api-develop-integrations-aws-services-reference.md).
 
@@ -33,7 +32,7 @@ To create a first-class integration, choose a supported AWS service action, such
 
 The following [create-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html) command creates an integration that sends an Amazon SQS message:
 
-```
+```shell
 aws apigatewayv2 create-integration \
     --api-id abcdef123 \
     --integration-subtype SQS-SendMessage \

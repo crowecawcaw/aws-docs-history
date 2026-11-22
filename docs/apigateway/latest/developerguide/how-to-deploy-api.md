@@ -1,7 +1,6 @@
 
 
 # Deploy REST APIs in API Gateway
-<a name="how-to-deploy-api"></a>
 
  After creating your API, you must deploy it to make it callable by your users. 
 

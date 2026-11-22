@@ -1,7 +1,6 @@
 
 
 # Set up stage variables for REST APIs in API Gateway
-<a name="how-to-set-stage-variables-aws-console"></a>
 
 This section shows how to set up various stage variables for two deployment stages of a sample API by using the Amazon API Gateway console. To understand how to use stage variables in API Gateway, we recommend that you follow all procedures in this section.
 

@@ -1,9 +1,10 @@
 
 
 # Control access to REST APIs using Amazon Cognito user pools as an authorizer
-<a name="apigateway-integrate-with-cognito"></a>
 
 As an alternative to using [IAM roles and policies](permissions.md) or [Lambda authorizers](apigateway-use-lambda-authorizer.md) (formerly known as custom authorizers), you can use an [Amazon Cognito user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) to control who can access your API in Amazon API Gateway. 
+
+A [JWT authorizer](rest-api-jwt-authorizer.md) can accept Amazon Cognito user pools tokens alongside tokens from other OpenID Connect (OIDC) identity providers.
 
 To use an Amazon Cognito user pool with your API, you must first create an authorizer of the `COGNITO_USER_POOLS` type and then configure an API method to use that authorizer. After the API is deployed, the client must first sign the user in to the user pool, obtain an [identity or access token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html) for the user, and then call the API method with one of the tokens, which are typically set to the request's `Authorization` header. The API call succeeds only if the required token is supplied and the supplied token is valid, otherwise, the client isn't authorized to make the call because the client did not have credentials that could be authorized. 
 

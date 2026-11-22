@@ -1,7 +1,6 @@
 
 
 # Generate the Ruby SDK of an API in API Gateway
-<a name="generate-ruby-sdk-of-an-api"></a>
 
 The following procedure shows how to generate the Ruby SDK of an API in API Gateway.
 

@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a WebSocket API with an AWS integration
-<a name="websocket-api-step-functions-tutorial"></a>
 
 In this tutorial, you create a serverless broadcast application with a WebSocket API. Clients can receive messages without having to poll for updates.
 

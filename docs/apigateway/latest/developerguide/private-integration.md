@@ -1,7 +1,6 @@
 
 
 # Private integrations for REST APIs in API Gateway
-<a name="private-integration"></a>
 
 Use a private integration to expose your HTTP/HTTPS resources within an Amazon VPC for access by clients outside of the VPC. This extends access to your private VPC resources beyond the VPC boundaries. You can control access to your API by using any of the [authorization methods](apigateway-control-access-to-api.md) that API Gateway supports.
 
@@ -13,7 +12,6 @@ To create a private integration, you must first create a VPC link. API Gateway s
 The following considerations might impact your use of private integrations:
 + All resources must be owned by the same AWS account. This includes the load balancer, VPC link and REST API.
 + By default, private integration traffic uses the HTTP protocol. To use HTTPS, specify an [`uri`](https://docs.aws.amazon.com/apigateway/latest/api/API_PutIntegration.html#apigw-PutIntegration-request-uri) that contains a secure server name, such as `https://example.com:443/test`.
-+ In a private integration, API Gateway includes the [stage](set-up-stages.md) portion of the API endpoint in the request to your backend resources. For example, if you request the `test` stage of an API, API Gateway includes `test/path` in the request to your private integration. To remove the stage name from the request to your backend resources, use [parameter mapping](rest-api-parameter-mapping.md) to create an override for the `$context.requestOverride.path` variable.
 + Private integrations with AWS Cloud Map aren't supported.
 
 **Topics**

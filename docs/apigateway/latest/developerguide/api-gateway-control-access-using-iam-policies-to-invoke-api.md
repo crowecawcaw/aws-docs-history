@@ -1,7 +1,6 @@
 
 
 # Control access for invoking an API
-<a name="api-gateway-control-access-using-iam-policies-to-invoke-api"></a>
 
 In this section, you learn about the permissions model for controlling access to your API using IAM permissions. When IAM authorization is enabled, clients must use Signature Version 4a (SigV4a) and Signature Version 4 (SigV4) to sign their requests with AWS credentials. For more information, see [AWS Signature Version 4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
 
@@ -21,7 +20,7 @@ For private APIs, you should use a combination of an API Gateway resource policy
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -52,7 +51,7 @@ For IAM policies to be effective, you must have enabled IAM authentication on AP
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -87,7 +86,7 @@ To grant a user permission to view a specific pet exposed by an API that is conf
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

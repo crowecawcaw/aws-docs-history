@@ -1,7 +1,6 @@
 
 
 # Set up Lambda custom integrations in API Gateway
-<a name="set-up-lambda-custom-integrations"></a>
 
  To show how to set up the Lambda custom, or non-proxy, integration, we create an API Gateway API to expose the `GET /greeting?greeter={name}` method to invoke a Lambda function. Use one of the following example Lambda functions for you API.
 

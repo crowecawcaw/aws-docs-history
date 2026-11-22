@@ -1,7 +1,6 @@
 
 
 # Recreate an API mapping using routing rules
-<a name="rest-api-routing-rules-recreate-api-mapping"></a>
 
 You can recreate an API mapping using routing rules. To recreate an API mapping, make sure to turn on base path striping. This preserves the behavior of API mappings. For more information, see [Strip the base path with base path conditions](rest-api-routing-rules.md#rest-api-routing-rules-condition-path-split).
 
@@ -81,7 +80,7 @@ After you have successfully invoked your custom domain name, confirm that CloudW
 
 1. Use the following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-domain-name.html) command to update the domain name `{{api.example.com}}` to use the routing mode `ROUTING_RULE_THEN_API_MAPPING`.
 
-   ```
+   ```shell
    aws apigatewayv2 update-domain-name \
      --domain-name '{{api.example.com}}' \
      --routing-mode ROUTING_RULE_THEN_API_MAPPING
@@ -89,7 +88,7 @@ After you have successfully invoked your custom domain name, confirm that CloudW
 
 1. Use the following [create-routing-rule](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-routing-rule.html) command to create a new routing rule to recreate the API mapping `https://{{api.example.com}}/orders/v2/items/categories/5`.
 
-   ```
+   ```shell
    aws apigatewayv2 create-routing-rule \
      --domain-name '{{api.example.com}}' \
      --priority 50 \

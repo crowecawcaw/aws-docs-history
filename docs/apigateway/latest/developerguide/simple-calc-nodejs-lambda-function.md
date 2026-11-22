@@ -1,7 +1,6 @@
 
 
 # Simple calculator Lambda function
-<a name="simple-calc-nodejs-lambda-function"></a>
 
 As an illustration, we will use a Node.js Lambda function that performs the binary operations of addition, subtraction, multiplication and division. 
 

@@ -1,7 +1,6 @@
 
 
 # Create routes for WebSocket APIs in API Gateway
-<a name="websocket-api-develop-routes"></a>
 
 In your WebSocket API, incoming JSON messages are directed to backend integrations based on routes that you configure. (Non-JSON messages are directed to a `$default` route that you configure.)
 

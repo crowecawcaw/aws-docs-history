@@ -1,7 +1,6 @@
 
 
 # Integration subtype reference
-<a name="http-api-develop-integrations-aws-services-reference"></a>
 
 The following [integration subtypes](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.html#apis-apiid-integrations-integrationid-prop-integration-integrationsubtype) are supported for HTTP APIs.
 

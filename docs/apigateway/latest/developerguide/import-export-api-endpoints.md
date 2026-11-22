@@ -1,7 +1,6 @@
 
 
 # Import a Regional API into API Gateway
-<a name="import-export-api-endpoints"></a>
 
 When importing an API, you can choose the regional endpoint configuration for the API. You can use the API Gateway console, the AWS CLI, or an AWS SDK.
 

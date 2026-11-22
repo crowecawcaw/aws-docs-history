@@ -1,7 +1,6 @@
 
 
 # API provider: Share your private custom domain name using AWS RAM
-<a name="apigateway-private-custom-domains-provider-share"></a>
 
 You can provide API consumers in other AWS accounts access to your private custom domain name. In this section, you learn how to share your private custom domain name using AWS RAM and how to control access to your private custom domain name.
 
@@ -24,7 +23,7 @@ The following considerations might impact how you provide access to your private
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Id": "abcd1234-1234-abcd-abcd-1234abcdefg",
@@ -121,7 +120,7 @@ The following `policy` for the `execute-api` service allows incoming traffic to 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # IAM policy examples for API execution permissions
-<a name="api-gateway-iam-policy-examples-for-api-execution"></a>
 
 For permissions model and other background information, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md).
 
@@ -12,7 +11,7 @@ The following policy statement gives the user permission to call any POST method
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -38,7 +37,7 @@ The following example policy statement gives the user permission to call any met
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

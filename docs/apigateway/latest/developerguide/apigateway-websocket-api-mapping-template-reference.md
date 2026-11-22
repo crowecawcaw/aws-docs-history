@@ -1,7 +1,6 @@
 
 
 # WebSocket API mapping template reference for API Gateway
-<a name="apigateway-websocket-api-mapping-template-reference"></a>
 
 This section summarizes the set of variables that are currently supported for WebSocket APIs in API Gateway.
 

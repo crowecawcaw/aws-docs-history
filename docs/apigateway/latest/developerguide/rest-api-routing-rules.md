@@ -1,7 +1,6 @@
 
 
 # Routing rules to connect API stages to a custom domain name for REST APIs
-<a name="rest-api-routing-rules"></a>
 
 A routing rule is a set of conditions that when matched, invoke an action. For example, a rule can route any incoming request to a custom domain name that contains the header `Hello:World` and contains the base path `users` to the `production` stage of a REST API.
 

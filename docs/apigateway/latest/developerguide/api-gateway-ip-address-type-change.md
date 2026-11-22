@@ -1,7 +1,6 @@
 
 
 # Change the IP address type of a REST API
-<a name="api-gateway-ip-address-type-change"></a>
 
 You can change the IP address type by updating the API’s configuration. You can update the API's configuration by using the AWS Management Console, the AWS CLI, CloudFormation, or an AWS SDK. If you change the API’s IP address type, you don't redeploy your API for the changes to take effect. Before you change the IP address type, confirm that any policies controlling access to your APIs have been updated to account for IPv6 calls.
 

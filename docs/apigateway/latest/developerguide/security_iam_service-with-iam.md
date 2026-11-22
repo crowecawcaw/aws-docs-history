@@ -1,7 +1,6 @@
 
 
 # How Amazon API Gateway works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to API Gateway, you should understand what IAM features are available to use with API Gateway. To get a high-level view of how API Gateway and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
@@ -23,7 +22,7 @@ The following example shows an identity-based policy that allows a user to creat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

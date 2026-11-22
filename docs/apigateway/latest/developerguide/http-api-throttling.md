@@ -1,7 +1,6 @@
 
 
 # Throttle requests to your HTTP APIs for better throughput in API Gateway
-<a name="http-api-throttling"></a>
 
 You can configure throttling for your APIs to help protect them from being overwhelmed by too many requests. Throttles are applied on a best-effort basis and should be thought of as targets rather than guaranteed request ceilings.
 
@@ -25,7 +24,7 @@ You can set route-level throttling to override the account-level request throttl
 
 You can configure route-level throttling by using the AWS CLI. The following [update-stage](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-stage.html) command configures custom throttling for the specified stage and route of an API:
 
-```
+```shell
 aws apigatewayv2 update-stage \
     --api-id {{a1b2c3d4}} \
     --stage-name {{dev}} \

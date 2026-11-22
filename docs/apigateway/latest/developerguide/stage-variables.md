@@ -1,7 +1,6 @@
 
 
 # Use stage variables for a REST API in API Gateway
-<a name="stage-variables"></a>
 
 Stage variables are key-value pairs that you can define as configuration attributes associated with a deployment stage of a REST API. They act like environment variables and can be used in your API setup and mapping templates. With deployment stages in API Gateway, you can manage multiple release stages for each API and use stage variables to configure an API deployment stage to interact with different backend endpoints.
 

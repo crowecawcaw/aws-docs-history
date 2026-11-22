@@ -1,7 +1,6 @@
 
 
 # Representation of API documentation in API Gateway
-<a name="api-gateway-documenting-api-content-representation"></a>
 
 API Gateway API documentation consists of individual documentation parts associated with specific API entities that include API, resource, method, request, response, message parameters (i.e., path, query, header), as well as authorizers and models. 
 

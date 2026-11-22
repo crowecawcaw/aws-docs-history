@@ -1,7 +1,6 @@
 
 
 # Stream the integration response for your proxy integrations in API Gateway
-<a name="response-transfer-mode"></a>
 
 You can configure your proxy integration to control how API Gateway returns your integration response. By default, API Gateway waits to receive the complete response before beginning transmission. However, if you set your integration's response transfer mode to `STREAM`, API Gateway doesn't wait for a response to be completely computed before sending it to the client. Response streaming works for all REST API endpoint types.
 

@@ -1,7 +1,6 @@
 
 
 # Examples using variables for mapping template transformations for API Gateway
-<a name="api-gateway-mapping-variable-examples"></a>
 
 The following examples show how to use `$context`, `input`, and `util` variables in mapping templates. You can use a mock integration or a Lambda non-proxy integration that returns the input event back to API Gateway. For a list of all supported variables for data transformations, see [Variables for data transformations for API Gateway](api-gateway-mapping-template-reference.md).
 

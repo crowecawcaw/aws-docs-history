@@ -1,7 +1,6 @@
 
 
 # Tasks of API providers and API consumers for custom domain names for private APIs
-<a name="apigateway-private-custom-domains-associations"></a>
 
 When you create a private custom domain name, you're an *API provider*. When you invoke a private custom domain name, you're an *API consumer*. You can consume a private custom domain name from your own AWS account or from another AWS account.
 

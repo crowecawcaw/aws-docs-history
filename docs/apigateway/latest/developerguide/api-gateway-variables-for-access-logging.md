@@ -1,7 +1,6 @@
 
 
 # Variables for access logging for API Gateway
-<a name="api-gateway-variables-for-access-logging"></a>
 
  In access logging, you, as an API developer, want to log who has accessed your API and how the caller accessed the API. You can create your own log group or choose an existing log group that could be managed by API Gateway. To specify the access details, you can use the following case-sensitive `$context` variables.
 
@@ -15,7 +14,7 @@ For a list of reference variables for data transformations, see [Variables for d
 | $context.authorize.error | The authorization error message. | 
 | $context.authorize.latency | The authorization latency in ms. | 
 | $context.authorize.status | The status code returned from an authorization attempt. | 
-| $context.authorizer.claims.{{property}} | A property of the claims returned from the Amazon Cognito user pool after the method caller is successfully authenticated. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md). Calling `$context.authorizer.claims` returns null.  | 
+| $context.authorizer.claims.{{property}} | A property of the claims returned from the Amazon Cognito user pool or JWT authorizer after the method caller is successfully authenticated. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md). Calling `$context.authorizer.claims` returns null.  | 
 | $context.authorizer.error | The error message returned from an authorizer. | 
 | $context.authorizer.integrationLatency | The authorizer integration latency in ms. | 
 | $context.authorizer.integrationStatus | The status code returned from a Lambda authorizer. | 

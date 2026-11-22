@@ -1,7 +1,6 @@
 
 
 # Data encryption in Amazon API Gateway
-<a name="data-protection-encryption"></a>
 
 Data protection refers to protecting data while in transit (as it travels to and from API Gateway) and at rest (while it is stored in AWS).
 
@@ -32,7 +31,7 @@ To decrypt data, the same encryption context is included in the request. API Gat
 
 The following example shows the encryption context in the output of an operation such as `CreateGrant`.
 
-```
+```json
 "constraints": {
 "encryptionContextEquals": {
 "aws:acm:arn": "arn:aws:acm:us-west-2:859412291086:certificate/9177097a-f0ae-4be1-93b1-19f911ea4f88",

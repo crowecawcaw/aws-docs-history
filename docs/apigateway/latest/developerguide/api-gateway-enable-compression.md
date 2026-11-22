@@ -1,7 +1,6 @@
 
 
 # Enable payload compression for an API in API Gateway
-<a name="api-gateway-enable-compression"></a>
 
 You can enable compression for an API using the API Gateway console, the AWS CLI, or an AWS SDK.
 

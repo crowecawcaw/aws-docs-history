@@ -1,7 +1,6 @@
 
 
 # Use `@connections` commands in your backend service
-<a name="apigateway-how-to-call-websocket-api-connections"></a>
 
 Your backend service can use the following WebSocket connection HTTP requests to send a callback message to a connected client, get connection information, or disconnect the client.
 
@@ -42,7 +41,7 @@ DELETE https://{{{api-id}}}.execute-api.{{us-east-1}}.amazonaws.com/{{{stage}}}/
 
 You can dynamically build a callback URL by using the `$context` variables in your integration. For example, if you use Lambda proxy integration with a `Node.js` Lambda function, you can build the URL and send a message to a connected client as follows:
 
-```
+```javascript
 import {
   ApiGatewayManagementApiClient,
   PostToConnectionCommand,
@@ -77,3 +76,5 @@ export const handler = async (event) => {
 If you use a custom domain name for your WebSocket API, remove the `stage` variable from your function code.
 
 When sending a callback message, your Lambda function must have permission to call the API Gateway Management API. You might receive an error that contains `GoneException` if you post a message before the connection is established, or after the client has disconnected. 
+
+You might receive a `429` error that contains `LimitExceededException` if you post messages faster than the allowed rate, or if the connection's send buffer is full. For a rate limit, the response body is `{"message": "Too Many Requests. Rate exceeded"}`. For a full send buffer, it is `{"message": "Too Many Requests. WebSocket client buffer full"}`.

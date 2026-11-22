@@ -1,7 +1,6 @@
 
 
 # Get certificates ready in AWS Certificate Manager
-<a name="how-to-specify-certificate-for-custom-domain-name"></a>
 
 Before setting up a custom domain name for an API, you must have an SSL/TLS certificate ready in AWS Certificate Manager. For more information, see the [AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/).
 

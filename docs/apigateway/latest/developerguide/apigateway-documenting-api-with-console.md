@@ -1,7 +1,6 @@
 
 
 # Publish API documentation using the API Gateway console
-<a name="apigateway-documenting-api-with-console"></a>
 
 The following procedure describes how to publish a documentation version.
 

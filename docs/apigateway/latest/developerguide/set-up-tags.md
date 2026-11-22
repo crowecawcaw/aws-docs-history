@@ -1,7 +1,6 @@
 
 
 # Set up tags for an API stage in API Gateway
-<a name="set-up-tags"></a>
 
 In API Gateway, you can add a tag to an API stage, remove the tag from the stage, or view the tag. To do this, you can use the API Gateway console, the AWS CLI/SDK, or the API Gateway REST API.
 

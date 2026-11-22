@@ -1,7 +1,6 @@
 
 
 # Stages for HTTP APIs in API Gateway
-<a name="http-api-stages"></a>
 
 An API stage is a logical reference to a lifecycle state of your API (for example, `dev`, `prod`, `beta`, or `v2`). API stages are identified by their API ID and stage name, and they're included in the URL you use to invoke the API. Each stage is a named reference to a deployment of the API and is made available for client applications to call.
 

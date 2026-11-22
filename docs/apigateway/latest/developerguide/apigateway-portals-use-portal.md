@@ -1,7 +1,6 @@
 
 
 # Use an API Gateway portal
-<a name="apigateway-portals-use-portal"></a>
 
 After you publish your portal, it's available on the web. To use your portal, copy the **Portal default domain name** or the **domain name** and enter it in a browser. If your portal uses a domain name, the default domain name can't be used to access your portal.
 

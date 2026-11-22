@@ -1,7 +1,6 @@
 
 
 # Access policy language overview for Amazon API Gateway
-<a name="apigateway-control-access-policy-language-overview"></a>
 
 This page describes the basic elements used in Amazon API Gateway resource policies.
 
@@ -34,7 +33,7 @@ The following example resource policy shows the previous common policy elements.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

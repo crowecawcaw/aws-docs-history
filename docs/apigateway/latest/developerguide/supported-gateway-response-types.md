@@ -1,14 +1,13 @@
 
 
 # Gateway response types for API Gateway
-<a name="supported-gateway-response-types"></a>
 
  API Gateway exposes the following gateway responses for customization by API developers. 
 
 
 | Gateway response type | Default status code | Description | 
 | --- | --- | --- | 
-| ACCESS\_DENIED | 403 | The gateway response for authorization failure—for example, when access is denied by a custom or Amazon Cognito authorizer. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type. | 
+| ACCESS\_DENIED | 403 | The gateway response for authorization failure—for example, when access is denied by a custom or Amazon Cognito authorizer. For a JWT authorizer, a scope or claim validation failure returns this response. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type.<br />For a JWT authorizer, a 403 response includes a `WWW-Authenticate` header. | 
 | API\_CONFIGURATION\_ERROR | 500 | The gateway response for an invalid API configuration—including when an invalid endpoint address is submitted, when base64 decoding fails on binary data when binary support is enacted, or when integration response mapping can't match any template and no default template is configured. If the response type is unspecified, this response defaults to the `DEFAULT_5XX` type. | 
 | AUTHORIZER\_CONFIGURATION\_ERROR | 500 | The gateway response for failing to connect to a custom or Amazon Cognito authorizer. If the response type is unspecified, this response defaults to the `DEFAULT_5XX` type. | 
 | AUTHORIZER\_FAILURE | 500 | The gateway response when a custom or Amazon Cognito authorizer failed to authenticate the caller. If the response type is unspecified, this response defaults to the `DEFAULT_5XX` type. | 
@@ -26,6 +25,6 @@
 | REQUEST\_TOO\_LARGE | 413 | The gateway response for the request too large error. If the response type is unspecified, this response defaults to: `HTTP content length exceeded 10485760 bytes`. | 
 | RESOURCE\_NOT\_FOUND | 404 | The gateway response when API Gateway cannot find the specified resource after an API request passes authentication and authorization, except for API key authentication and authorization. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type. | 
 | THROTTLED | 429 | The gateway response when usage plan-, method-, stage-, or account-level throttling limits exceeded. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type. | 
-| UNAUTHORIZED | 401 | The gateway response when the custom or Amazon Cognito authorizer failed to authenticate the caller. | 
+| UNAUTHORIZED | 401 | The gateway response when the custom or Amazon Cognito authorizer failed to authenticate the caller. For a JWT authorizer, a token validation failure returns this response.<br />For a JWT authorizer, a 401 response includes a `WWW-Authenticate` header. | 
 | UNSUPPORTED\_MEDIA\_TYPE | 415 | The gateway response when a payload is of an unsupported media type, if strict passthrough behavior is enabled. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type. | 
 | WAF\_FILTERED | 403 | The gateway response when a request is blocked by AWS WAF. If the response type is unspecified, this response defaults to the `DEFAULT_4XX` type. [AWS WAF custom responses](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) take precedence over custom gateway responses.  | 

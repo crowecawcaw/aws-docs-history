@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-policy
-<a name="openapi-extensions-policy"></a>
 
 Specifies a resource policy for a REST API. To learn more about resource policies, see [Control access to a REST API with API Gateway resource policies](apigateway-resource-policies.md). For resource policy examples, see [API Gateway resource policy examples](apigateway-resource-policies-examples.md).
 

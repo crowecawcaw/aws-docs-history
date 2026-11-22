@@ -1,7 +1,6 @@
 
 
 # Set up Lambda proxy integration for API Gateway using the AWS CLI
-<a name="set-up-lambda-proxy-integration-using-cli"></a>
 
 In this section, we show how to set up an API with the Lambda proxy integration using the AWS CLI. For detailed instructions for using the API Gateway console to configure a proxy resource with the Lambda proxy integration, see [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md).
 

@@ -1,7 +1,6 @@
 
 
 # Troubleshooting issues with routing rules
-<a name="rest-api-routing-rules-troubleshoot"></a>
 
 The following troubleshooting guidance might help resolve issues with your routing rules.
 
@@ -17,28 +16,28 @@ The following example access log group can retrieve the relevant information for
 ------
 #### [ CLF ]
 
-```
+```clf
 $context.path $context.customDomain.routingRuleIdMatched $context.customDomain.basePathMatched $context.requestId $context.extendedRequestId
 ```
 
 ------
 #### [ JSON ]
 
-```
+```json
 {"requestPath": "$context.path", "routingRuleId" : "$context.customDomain.routingRuleIdMatched", "API mapping" : "$context.customDomain.basePathMatched", "requestId":"$context.requestId", "extendedRequestId":"$context.extendedRequestId"}
 ```
 
 ------
 #### [ XML ]
 
-```
+```xml
 <request id="$context.requestId"> <requestPath>$context.path</requestPath> <ruleId>$context.customDomain.routingRuleIdMatched</ruleId> <ApiMapping>$context.customDomain.basePathMatched</ApiMapping> <extendedRequestId>$context.extendedRequestId</extendedRequestId> </request>
 ```
 
 ------
 #### [ CSV ]
 
-```
+```csv
 $context.path,$context.customDomain.routingRuleIdMatched,$context.customDomain.basePathMatched,$context.requestId,$context.extendedRequestId
 ```
 
@@ -63,7 +62,7 @@ You'll receive this error if have or had an IAM policy that denies access to [Ba
 
 For example, if you had a policy like the following:
 
-```
+```json
 {
     "Sid": "DenyCreatingApiMappings",
     "Effect": "Deny",
@@ -78,7 +77,7 @@ When you enable routing rules for `example.com`, this policy will continue to de
 
 We recommend that you audit the IAM policies in your account. The following example policy will deny access to creating `ApiMapping`, `BasePathMapping`, and `RoutingRule`:
 
-```
+```json
 {
     "Sid": "DenyCreatingBasePathMappingsApiMappings",
     "Effect": "Deny",

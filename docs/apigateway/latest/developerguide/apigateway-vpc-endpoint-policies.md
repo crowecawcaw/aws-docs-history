@@ -1,7 +1,6 @@
 
 
 # Use VPC endpoint policies for private APIs in API Gateway
-<a name="apigateway-vpc-endpoint-policies"></a>
 
 To improve the security of your private API, you can create a VPC endpoint policy. A VPC endpoint policy is an IAM resource policy that you attach to a VPC endpoint. For more information, see [Controlling Access to Services with VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html).
 
@@ -55,7 +54,7 @@ The following example policy grants access to only two specific APIs via the VPC
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -86,7 +85,7 @@ The following example policy grants users access to `GET` methods for a specific
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -118,7 +117,7 @@ In this case, because the policy restricts access to specific IAM principals, yo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -152,7 +151,7 @@ The following example policy grants users access to a specific custom domain nam
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -187,7 +186,7 @@ The following example policy grants users access to specific APIs and domain res
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -229,7 +228,7 @@ The following example policy grants access to principals and resources that belo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

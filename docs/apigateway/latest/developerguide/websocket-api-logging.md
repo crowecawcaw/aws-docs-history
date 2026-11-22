@@ -1,7 +1,6 @@
 
 
 # Configure logging for WebSocket APIs in API Gateway
-<a name="websocket-api-logging"></a>
 
 You can enable logging to write logs to CloudWatch Logs. There are two types of API logging in CloudWatch: execution logging and access logging. In execution logging, API Gateway manages the CloudWatch Logs. The process includes creating log groups and log streams, and reporting to the log streams any caller's requests and responses. 
 
@@ -73,7 +72,7 @@ When you specify the **Log Format**, you can choose which context variables to l
 Examples of some commonly used access log formats are shown in the API Gateway console and are listed as follows.
 + `CLF` ([Common Log Format](https://httpd.apache.org/docs/current/logs.html#common)):
 
-  ```
+  ```clf
   $context.identity.sourceIp $context.identity.caller \
   $context.identity.user [$context.requestTime] "$context.eventType $context.routeKey $context.connectionId" \
   $context.status $context.requestId
@@ -82,7 +81,7 @@ Examples of some commonly used access log formats are shown in the API Gateway c
   The continuation characters (`\`) are meant as a visual aid. The log format must be a single line. You can add a newline character (`\n`) at the end of the log format to include a newline at the end of each log entry.
 +  `JSON`: 
 
-  ```
+  ```json
   {
   "requestId":"$context.requestId", \
   "ip": "$context.identity.sourceIp", \
@@ -99,7 +98,7 @@ Examples of some commonly used access log formats are shown in the API Gateway c
   The continuation characters (`\`) are meant as a visual aid. The log format must be a single line. You can add a newline character (`\n`) at the end of the log format to include a newline at the end of each log entry.
 + `XML`: 
 
-  ```
+  ```xml
   <request id="$context.requestId"> \
    <ip>$context.identity.sourceIp</ip> \
    <caller>$context.identity.caller</caller> \
@@ -115,7 +114,7 @@ Examples of some commonly used access log formats are shown in the API Gateway c
   The continuation characters (`\`) are meant as a visual aid. The log format must be a single line. You can add a newline character (`\n`) at the end of the log format to include a newline at the end of each log entry.
 + `CSV` (comma-separated values):
 
-  ```
+  ```csv
   $context.identity.sourceIp,$context.identity.caller, \
   $context.identity.user,$context.requestTime,$context.eventType, \
   $context.routeKey,$context.connectionId,$context.status, \

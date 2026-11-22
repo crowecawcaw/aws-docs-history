@@ -1,7 +1,6 @@
 
 
 # Sell your API Gateway APIs through AWS Marketplace
-<a name="sell-api-as-saas-on-aws-marketplace"></a>
 
 After you build, test, and deploy your APIs, you can package them in an API Gateway [usage plan](api-gateway-api-usage-plans.md) and sell the plan as a Software as a Service (SaaS) product through AWS Marketplace. API buyers subscribing to your product offering are billed by AWS Marketplace based on the number of requests made to the usage plan.
 
@@ -36,7 +35,7 @@ Create an IAM role named `ApiGatewayMarketplaceMeteringRole` with the following 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ Create an IAM role named `ApiGatewayMarketplaceMeteringRole` with the following 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

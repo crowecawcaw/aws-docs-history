@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway concepts
-<a name="api-gateway-basic-concept"></a>
 
 The following section describes introductory concepts for using API Gateway.
 

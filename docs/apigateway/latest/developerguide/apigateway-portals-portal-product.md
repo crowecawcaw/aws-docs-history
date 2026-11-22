@@ -1,7 +1,6 @@
 
 
 # Portal products in API Gateway
-<a name="apigateway-portals-portal-product"></a>
 
 A *portal product* represents a service or functionality that you want to share. Your portal product is a collection of product REST endpoints and product pages. *Product REST endpoints* are the access points to your portal product, and they consist of the path and method of a REST API and the stage it's deployed to. *Product pages* are documentation that you provide to explain how API consumers can use your product endpoints. A portal product can contain the entire `Prod` stage as a collection of product REST endpoints or just the `GET /pets` resource deployed to the `Prod` stage as a singular product REST endpoint.
 

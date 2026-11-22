@@ -1,7 +1,6 @@
 
 
 # API references
-<a name="api-ref"></a>
 
 Amazon API Gateway provides APIs for creating and deploying your own HTTP and WebSocket APIs. In addition, API Gateway APIs are available in standard AWS SDKs.
 
@@ -83,7 +82,7 @@ IAM policies that filter IP addresses use [IP Address Condition Operators](https
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

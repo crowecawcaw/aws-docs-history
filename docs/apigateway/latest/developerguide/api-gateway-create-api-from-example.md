@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API by importing an example
-<a name="api-gateway-create-api-from-example"></a>
 
 You can use the Amazon API Gateway console to create and test a simple REST API with the HTTP integration for a PetStore website. The API definition is preconfigured as a OpenAPI 2.0 file. After loading the API definition into API Gateway, you can use the API Gateway console to examine the API's basic structure or simply deploy and test the API. 
 

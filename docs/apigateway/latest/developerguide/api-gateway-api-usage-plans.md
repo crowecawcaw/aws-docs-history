@@ -1,7 +1,6 @@
 
 
 # Usage plans and API keys for REST APIs in API Gateway
-<a name="api-gateway-api-usage-plans"></a>
 
 After you create, test, and deploy your APIs, you can use API Gateway usage plans to make them available as product offerings for your customers. You can configure usage plans and API keys to allow customers to access selected APIs, and begin throttling requests to those APIs based on defined limits and quotas. These can be set at the API, or API method level.
 

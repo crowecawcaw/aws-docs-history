@@ -1,7 +1,6 @@
 
 
 # Control and manage access to REST APIs in API Gateway
-<a name="apigateway-control-access-to-api"></a>
 
 API Gateway supports multiple mechanisms for controlling and managing access to your API.
 
@@ -10,6 +9,7 @@ You can use the following mechanisms for authentication and authorization:
 + **Standard AWS IAM roles and policies** offer flexible and robust access controls that can be applied to an entire API or individual methods. IAM roles and policies can be used for controlling who can create and manage your APIs, as well as who can invoke them. For more information, see [Control access to a REST API with IAM permissions](permissions.md).
 + **IAM tags** can be used together with IAM policies to control access. For more information, see [Using tags to control access to API Gateway REST API resources](apigateway-tagging-iam-policy.md).
 + **Endpoint policies for interface VPC endpoints** allow you to attach IAM resource policies to interface VPC endpoints to improve the security of your [private APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html). For more information, see [Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md).
++ **JWT authorizers** validate JSON Web Tokens from an OpenID Connect identity provider in the gateway, without a function. A single JWT authorizer can trust multiple issuers, and each method can require its own authorization scopes. For more information, see [Control access to REST APIs using JWT authorizers](rest-api-jwt-authorizer.md).
 + **Lambda authorizers** are Lambda functions that control access to REST API methods using bearer token authentication—as well as information described by headers, paths, query strings, stage variables, or context variables request parameters. Lambda authorizers are used to control who can invoke REST API methods. For more information, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md).
 + **Amazon Cognito user pools** let you create customizable authentication and authorization solutions for your REST APIs. Amazon Cognito user pools are used to control who can invoke REST API methods. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md).
 

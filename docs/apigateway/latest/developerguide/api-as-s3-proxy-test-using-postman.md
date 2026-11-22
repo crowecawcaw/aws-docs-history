@@ -1,7 +1,6 @@
 
 
 # Call the API using a REST API client
-<a name="api-as-s3-proxy-test-using-postman"></a>
 
 To provide an end-to-end tutorial, we now show how to call the API using [Postman](https://www.postman.com/), which supports the AWS IAM authorization.<a name="api-as-s3-proxy-test-using-postman-steps"></a>
 

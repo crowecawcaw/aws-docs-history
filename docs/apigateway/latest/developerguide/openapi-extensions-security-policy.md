@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-security-policy
-<a name="openapi-extensions-security-policy"></a>
 
 Specifies a security policy for a REST API. If you create a security policy that starts with `"SecurityPolicy_"`, you must also set the [endpoint access mode](openapi-extensions-endpoint-access-mode.md). To learn more about security policies, see [Security policies for REST APIs in API Gateway](apigateway-security-policies.md).
 

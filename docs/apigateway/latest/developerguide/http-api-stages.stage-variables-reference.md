@@ -1,7 +1,6 @@
 
 
 # API Gateway stage variables reference for HTTP APIs in API Gateway
-<a name="http-api-stages.stage-variables-reference"></a>
 
 You can use API Gateway stage variables for HTTP APIs in the following cases.
 

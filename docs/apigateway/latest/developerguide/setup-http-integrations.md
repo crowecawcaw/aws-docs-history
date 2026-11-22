@@ -1,7 +1,6 @@
 
 
 # HTTP integrations for REST APIs in API Gateway
-<a name="setup-http-integrations"></a>
 
  You can integrate an API method with an HTTP endpoint using the HTTP proxy integration or the HTTP custom integration. 
 

@@ -1,7 +1,6 @@
 
 
 # Use stage variables for HTTP APIs in API Gateway
-<a name="http-api-stages.stage-variables"></a>
 
 Stage variables are key-value pairs that you can define for a stage of an HTTP API. They act like environment variables and can be used in your API setup.
 

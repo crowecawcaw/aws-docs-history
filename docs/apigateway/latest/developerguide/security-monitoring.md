@@ -1,7 +1,6 @@
 
 
 # Logging and monitoring in Amazon API Gateway
-<a name="security-monitoring"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of API Gateway and your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. AWS provides several tools for monitoring your API Gateway resources and responding to potential incidents:
 

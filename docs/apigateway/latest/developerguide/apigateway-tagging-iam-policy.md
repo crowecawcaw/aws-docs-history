@@ -1,7 +1,6 @@
 
 
 # Using tags to control access to API Gateway REST API resources
-<a name="apigateway-tagging-iam-policy"></a>
 
 Conditions in AWS Identity and Access Management policies are part of the syntax that you use to specify permissions to API Gateway resources. For details about specifying IAM policies, see [Control access to a REST API with IAM permissions](permissions.md). In API Gateway, resources can have tags, and some actions can include tags. When you create an IAM policy, you can use tag condition keys to control:
 + Which users can perform actions on an API Gateway resource, based on tags that the resource already has.
@@ -24,7 +23,7 @@ The following example policy grants users permission to perform all actions on a
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -56,7 +55,7 @@ The following example policy grants users permission to perform all actions on a
 
 The following example policy allows users to perform all actions on API Gateway resources, as long as the resources have the tag `Environment` with a value of `Development`. The `Deny` statement prevents the user from changing the value of the `Environment` tag.
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -114,7 +113,7 @@ The following example policy allows a user to perform all API Gateway actions, e
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -150,7 +149,7 @@ The following example policy allows a user to get all API Gateway resources, and
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

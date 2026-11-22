@@ -1,7 +1,6 @@
 
 
 # Set up a stage for a REST API in API Gateway
-<a name="set-up-stages"></a>
 
 A stage is a named reference to a deployment, which is a snapshot of the API. You use a [Stage](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html) to manage and optimize a particular deployment. For example, you can configure stage settings to enable caching, customize request throttling, configure logging, define stage variables, or attach a canary release for testing. The following section shows how to create and configure your stage.
 
@@ -76,7 +75,7 @@ The IAM role must also contain the following trust relationship statement:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

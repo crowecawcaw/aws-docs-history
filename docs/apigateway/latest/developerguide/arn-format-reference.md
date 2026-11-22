@@ -1,7 +1,6 @@
 
 
 # API Gateway Amazon Resource Name (ARN) reference
-<a name="arn-format-reference"></a>
 
 The following tables list the Amazon Resource Names (ARNs) for API Gateway resources. To learn more about using ARNs in AWS Identity and Access Management policies, see [How Amazon API Gateway works with IAM](security_iam_service-with-iam.md) and [Control access to a REST API with IAM permissions](permissions.md).
 

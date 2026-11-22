@@ -1,7 +1,6 @@
 
 
 # WebSocket selection expressions
-<a name="apigateway-websocket-api-selection-expressions"></a>
 
 API Gateway uses selection expressions as a way to evaluate request and response context and produce a key. The key is then used to select from a set of possible values, typically provided by you, the API developer. The exact set of supported variables will vary depending on the particular expression. Each expression is discussed in more detail below.
 

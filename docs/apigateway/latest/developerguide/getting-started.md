@@ -1,7 +1,6 @@
 
 
 # Get started with API Gateway
-<a name="getting-started"></a>
 
 In this getting started exercise, you create a serverless API. Serverless APIs let you focus on your applications, instead of spending time provisioning and managing servers. This exercise takes less than 20 minutes to complete, and is possible within the [AWS Free Tier](https://aws.amazon.com/free/).
 

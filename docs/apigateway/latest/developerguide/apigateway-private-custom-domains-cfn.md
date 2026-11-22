@@ -1,7 +1,6 @@
 
 
 # Create a custom domain name for private APIs using CloudFormation
-<a name="apigateway-private-custom-domains-cfn"></a>
 
 The following example CloudFormation template creates a private API and a private custom domain name, maps the private API to the custom domain name, and then creates a domain name access association. You need to provide your own VPC endpoint, domain name, and certificate ARN.
 

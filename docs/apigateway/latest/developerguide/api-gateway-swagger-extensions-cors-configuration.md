@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-cors object
-<a name="api-gateway-swagger-extensions-cors-configuration"></a>
 
 Specifies the cross-origin resource sharing (CORS) configuration for an HTTP API. The extension applies to the root-level OpenAPI structure. To learn more, see [Configure CORS for HTTP APIs in API Gateway](http-api-cors.md).
 

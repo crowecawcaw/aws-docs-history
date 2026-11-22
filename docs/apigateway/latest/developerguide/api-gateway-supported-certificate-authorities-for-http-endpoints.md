@@ -1,7 +1,6 @@
 
 
 # API Gateway-supported certificate authorities for HTTP and HTTP proxy integrations in API Gateway
-<a name="api-gateway-supported-certificate-authorities-for-http-endpoints"></a>
 
  The following list shows the certificate authorities supported by API Gateway for HTTP, HTTP proxy, and private integrations. 
 

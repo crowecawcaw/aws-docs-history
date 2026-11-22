@@ -1,7 +1,6 @@
 
 
 # Security policy for HTTP APIs in API Gateway
-<a name="http-api-ciphers"></a>
 
 API Gateway enforces a security policy of `TLS_1_2` for all HTTP API endpoints.
 

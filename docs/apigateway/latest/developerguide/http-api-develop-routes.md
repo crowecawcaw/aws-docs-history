@@ -1,7 +1,6 @@
 
 
 # Create routes for HTTP APIs in API Gateway
-<a name="http-api-develop-routes"></a>
 
 Routes direct incoming API requests to backend resources. Routes consist of two parts: an HTTP method and a resource path—for example, `GET /pets`. You can define specific HTTP methods for your route. Or, you can use the `ANY` method to match all methods that you haven't defined for a resource. You can create a `$default` route that acts as a catch-all for requests that don’t match any other routes.
 

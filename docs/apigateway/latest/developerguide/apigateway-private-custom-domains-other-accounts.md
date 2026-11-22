@@ -1,7 +1,6 @@
 
 
 # Working with cross-account private custom domain names
-<a name="apigateway-private-custom-domains-other-accounts"></a>
 
 This section explains how to work with cross-account private custom domain names. You can provide a private custom domain name to another AWS account and use another AWS account to invoke a private custom domain name.
 

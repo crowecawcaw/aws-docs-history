@@ -1,7 +1,6 @@
 
 
 # Quotas for configuring and running a REST API in API Gateway
-<a name="api-gateway-execution-service-limits-table"></a>
 
 The following quotas apply to configuring and running a REST API in Amazon API Gateway. If the quota is per-API, it can only be increased on specific APIs, not for all the APIs in an account.
 
@@ -26,6 +25,10 @@ For information about account-level quotas see [Amazon API Gateway quotas](limit
 | API Gateway-generated client certificates per account per Region | 60 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-824C9E42) | 
 | ACM client certificates per account per Region | 500 | No | 
 | Authorizers per API (AWS Lambda and Amazon Cognito) | 10 | Yes<br /> To increase this quota, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) | 
+| Issuers per JWT authorizer | 10 | No | 
+| Audiences per issuer | 100 | No | 
+| Additional claims per issuer | 10 | No | 
+| Size of a JWT authorizer configuration | 350 KB | No | 
 | Documentation parts per API | 2000 | Yes<br /> To increase this quota, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/) | 
 | Resources per API | 300 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-01C8A9E0) | 
 | Stages per API | 10 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-379E48B0) | 

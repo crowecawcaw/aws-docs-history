@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with a Lambda proxy integration
-<a name="api-gateway-create-api-as-simple-proxy-for-lambda"></a>
 
 [Lambda proxy integration](set-up-lambda-proxy-integrations.md) is a lightweight, flexible API Gateway API integration type that allows you to integrate an API method – or an entire API – with a Lambda function. The Lambda function can be written in [any language that Lambda supports](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Because it's a proxy integration, you can change the Lambda function implementation at any time without needing to redeploy your API.
 

@@ -1,7 +1,6 @@
 
 
 # Set up a gateway response for a REST API using the API Gateway console
-<a name="set-up-gateway-response-using-the-console"></a>
 
 The following example shows how to set up a gateway response for a REST API using the API Gateway console 
 

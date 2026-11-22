@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with an HTTP non-proxy integration
-<a name="api-gateway-create-api-step-by-step"></a>
 
  In this tutorial, you create an API from scratch using the Amazon API Gateway console. You can think of the console as an API design studio and use it to scope the API features, to experiment with its behaviors, to build the API, and to deploy your API in stages. 
 

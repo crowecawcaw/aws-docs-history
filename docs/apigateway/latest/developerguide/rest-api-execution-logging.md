@@ -1,7 +1,6 @@
 
 
 # Execution logging for REST APIs
-<a name="rest-api-execution-logging"></a>
 
 Execution logging records the actions that API Gateway takes to process an API request. Logged data includes errors, execution traces, request and response parameter values or payloads, data used by Lambda authorizers, whether API keys are required, and whether usage plans are enabled. API Gateway redacts authorization headers, API key values, and similar sensitive request parameters from the logged data.
 
@@ -18,7 +17,7 @@ With standard execution logging:
 
 To enable standard execution logging, set the `loggingLevel` on your stage to `ERROR` or `INFO`. No other configuration is required.
 
-### Permissions
+### Permissions for execution logging
 <a name="rest-api-execution-logging-permissions"></a>
 
 To enable CloudWatch Logs, you must grant API Gateway permission to read and write logs to CloudWatch for your account. The [AmazonAPIGatewayPushToCloudWatchLogs](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonAPIGatewayPushToCloudWatchLogs.html) managed policy has all the required permissions.
@@ -63,7 +62,7 @@ You don't need to redeploy the API when you update stage settings.
 
 Use the `MethodSettings` property on the stage resource to enable execution logging.
 
-```
+```YAML
   TestStage:
     Type: AWS::ApiGateway::Stage
     Properties:

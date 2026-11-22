@@ -1,7 +1,6 @@
 
 
 # OpenAPI definitions of the sample API as an Amazon S3 proxy
-<a name="api-as-s3-proxy-export-swagger-with-extensions"></a>
 
 The following OpenAPI definitions describes an API that works as an Amazon S3 proxy. This API contains more Amazon S3 operations than the API you created in the tutorial. The following methods are exposed in the OpenAPI definitions:
 + Expose GET on the API's root resource to [list all of the Amazon S3 buckets of a caller](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).

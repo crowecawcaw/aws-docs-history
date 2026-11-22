@@ -1,7 +1,6 @@
 
 
 # Develop REST APIs in API Gateway
-<a name="rest-api-develop"></a>
 
  In Amazon API Gateway, you build a REST API as a collection of programmable entities known as API Gateway [resources](https://docs.aws.amazon.com/apigateway/latest/api/API_Resource.html). For example, you use a [RestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_RestApi.html) resource to represent an API that can contain a collection of [Resource](https://docs.aws.amazon.com/apigateway/latest/api/API_Resource.html) entities. 
 

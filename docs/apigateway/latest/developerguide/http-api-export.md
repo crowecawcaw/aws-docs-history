@@ -1,7 +1,6 @@
 
 
 # Export HTTP APIs from API Gateway
-<a name="http-api-export"></a>
 
 After you've created an HTTP API, you can export an OpenAPI 3.0 definition of your API from API Gateway. You can either choose a stage to export, or export the latest configuration of your API. You can also import an exported API definition into API Gateway to create another, identical API. To learn more about importing API definitions, see [Importing an HTTP API](http-api-open-api.md#http-api-import).
 

@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway quotas
-<a name="limits"></a>
 
 The following quotas apply for all Amazon API Gateway API types.
 

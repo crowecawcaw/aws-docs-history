@@ -1,7 +1,6 @@
 
 
 # Create HTTP proxy integrations for HTTP APIs
-<a name="http-api-develop-integrations-http"></a>
 
 An HTTP proxy integration enables you to connect an API route to a publicly routable HTTP endpoint. With this integration type, API Gateway passes the entire request and response between the frontend and the backend. 
 

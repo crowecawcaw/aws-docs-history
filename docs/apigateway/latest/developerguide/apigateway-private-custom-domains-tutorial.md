@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create and invoke a custom domain name for private APIs
-<a name="apigateway-private-custom-domains-tutorial"></a>
 
 In this tutorial, you create a private custom domain name that you can invoke in a VPC in your own account. To accomplish this, you are the API provider and the API consumer. You need an existing private API and VPC endpoint to complete this tutorial. If you have a VPC endpoint that you use to access a public custom domain name, don't use it for this tutorial or to create any domain name access associations.
 
@@ -42,7 +41,7 @@ API Gateway provisions a domain name with a `deny` all resource policy. This is 
 1. Enter the following resource policy in the code editor. Replace the VPC endpoint {{vpce-abcd1234efg}} with your own VPC endpoint ID.  
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [
@@ -82,7 +81,7 @@ For this example, you'll attach the following resource policy as the `policy` by
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

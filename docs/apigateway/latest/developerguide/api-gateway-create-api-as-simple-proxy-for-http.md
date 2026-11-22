@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with an HTTP proxy integration
-<a name="api-gateway-create-api-as-simple-proxy-for-http"></a>
 
 HTTP proxy integration is a simple, powerful, and versatile mechanism to build an API that allows a web application to access multiple resources or features of the integrated HTTP endpoint, for example the entire website, with a streamlined setup of a single API method. In HTTP proxy integration, API Gateway passes the client-submitted method request to the backend. The request data that is passed through includes the request headers, query string parameters, URL path variables, and payload. The backend HTTP endpoint or the web server parses the incoming request data to determine the response that it returns. HTTP proxy integration makes the client and backend interact directly with no intervention from API Gateway after the API method is set up, except for known issues such as unsupported characters, which are listed in [Amazon API Gateway important notes](api-gateway-known-issues.md).
 

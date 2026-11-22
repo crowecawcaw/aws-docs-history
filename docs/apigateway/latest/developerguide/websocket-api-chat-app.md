@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and DynamoDB
-<a name="websocket-api-chat-app"></a>
 
 In this tutorial, you'll create a serverless chat application with a WebSocket API. With a WebSocket API, you can support two-way communication between clients. Clients can receive messages without having to poll for updates.
 
@@ -102,7 +101,7 @@ Next, you'll test your API to make sure that it works correctly. Use the `wscat`
 
 1. Use the following command to connect to your API. When you connect to your API, API Gateway invokes the `$connect` route. When this route is invoked, it calls a Lambda function that stores your connection ID in DynamoDB.
 
-   ```
+   ```shell
    wscat -c wss://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/production
    ```
 
@@ -112,7 +111,7 @@ Next, you'll test your API to make sure that it works correctly. Use the `wscat`
 
 1. Open a new terminal and run the **wscat** command again with the following parameters.
 
-   ```
+   ```shell
    wscat -c wss://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/production
    ```
 
@@ -125,7 +124,7 @@ Next, you'll test your API to make sure that it works correctly. Use the `wscat`
 **To send a message**
 +  API Gateway determines which route to invoke based on your API's route selection expression. Your API's route selection expression is `$request.body.action`. As a result, API Gateway invokes the `sendmessage` route when you send the following message:
 
-  ```
+  ```shell
   {"action": "sendmessage", "message": "hello, everyone!"}
   ```
 
@@ -138,7 +137,7 @@ Next, you'll test your API to make sure that it works correctly. Use the `wscat`
 **To invoke your API's $default route**
 + API Gateway invokes your API's default route when a client sends a message that doesn't match your defined routes. The Lambda function associated with the `$default` route uses the API Gateway Management API to send the client information about their connection.
 
-  ```
+  ```shell
   test
   ```
 

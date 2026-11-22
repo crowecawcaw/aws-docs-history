@@ -1,7 +1,6 @@
 
 
 # Configure CORS for HTTP APIs in API Gateway
-<a name="http-api-cors"></a>
 
 [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is a browser security feature that restricts HTTP requests that are initiated from scripts running in the browser. If you cannot access your API and receive an error message that contains `Cross-Origin Request Blocked`, you might need to enable CORS. For more information, see [What is CORS?](https://aws.amazon.com/what-is/cross-origin-resource-sharing/).
 

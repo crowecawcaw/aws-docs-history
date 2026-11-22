@@ -1,7 +1,6 @@
 
 
 # How API Gateway resource policies affect authorization workflow
-<a name="apigateway-authorization-flow"></a>
 
 When API Gateway evaluates the resource policy attached to your API, the result is affected by the authentication type that you have defined for the API, as illustrated in the flowcharts in the following sections.
 
@@ -27,7 +26,7 @@ The following is an example of such a resource policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -63,7 +62,7 @@ The following example resource policy allows calls only from the VPC endpoint wh
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -105,7 +104,7 @@ The following is an example of a cross-account resource policy. Assuming the IAM
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -143,7 +142,7 @@ The following is an example of a resource policy that allows calls only from spe
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

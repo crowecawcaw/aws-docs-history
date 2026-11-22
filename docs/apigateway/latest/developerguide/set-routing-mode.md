@@ -1,7 +1,6 @@
 
 
 # Set the routing mode for your custom domain name
-<a name="set-routing-mode"></a>
 
 You can choose which routing mode API Gateway uses to route traffic to your APIs. For more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md). This section discusses routing modes for custom domain names. You must set a routing mode for your custom domain name to route traffic to your APIs. The following routing modes are supported:
 + **ROUTING\_RULE\_THEN\_API\_MAPPING** – Use this mode to send traffic to your APIs with both routing rules and API mappings. In this mode, all routing rules take priority over any API mappings. For an example of this mode, see [Example 2: Routing rules and API mappings](rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-and-mappings). 
@@ -36,7 +35,7 @@ If you change the routing mode to `ROUTING_RULE_ONLY` or `API_MAPPING_ONLY`, any
 
 The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-domain-name.html) command updates a domain name to use the routing mode `ROUTING_RULE_THEN_API_MAPPING`:
 
-```
+```shell
 aws apigatewayv2 update-domain-name \
   --domain-name 'api.example.com' \
   --routing-mode "ROUTING_RULE_THEN_API_MAPPING"
@@ -69,7 +68,7 @@ The output will look like the following:
 
 The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-domain-name.html) command updates a private custom domain name to use the routing mode `ROUTING_RULE_THEN_BASE_PATH_MAPPING`:
 
-```
+```shell
 aws apigateway update-domain-name \
   --domain-name 'private.example.com' \
   --patch-operations "op='replace',path='/routingMode',value='ROUTING_RULE_THEN_BASE_PATH_MAPPING'"

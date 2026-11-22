@@ -1,7 +1,6 @@
 
 
 # Troubleshoot issues with response streaming in API Gateway
-<a name="response-streaming-troubleshoot"></a>
 
 The following troubleshooting guidance might help resolve issues with your APIs that use response streaming.
 

@@ -1,7 +1,6 @@
 
 
 # Additional mapping template example for REST APIs in API Gateway
-<a name="example-photos"></a>
 
 The following example shows a photo album API in API Gateway that uses mapping templates to transform integration request and integration response data. It also uses data models to define method request and integration response payloads. For more information about data models, see [Data models for REST APIs](models-mappings-models.md).
 

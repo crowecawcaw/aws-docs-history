@@ -1,7 +1,6 @@
 
 
 # Create a portal in API Gateway
-<a name="apigateway-portals-create-portal"></a>
 
 A portal is a collection of products. You control the authorization, branding, and publication of your portal. When you create a portal, its publish status is `Disabled`. This means your portal is not discoverable on the web. To let consumers access your portal, you need to publish it. Before you publish your portal, you can also preview it. 
 

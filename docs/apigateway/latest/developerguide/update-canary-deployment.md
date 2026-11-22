@@ -1,7 +1,6 @@
 
 
 # Update a canary release
-<a name="update-canary-deployment"></a>
 
  After a canary release is deployed, you may want to adjust the percentage of the canary traffic or enable or disable the use of a stage cache to optimize the test performance. You can also modify stage variables used in the canary release when the execution context is updated. To make such updates, call the [**stage:update**](https://docs.aws.amazon.com/apigateway/latest/api/API_UpdateStage.html) operation with new values on [canarySettings](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html#canarySettings). 
 

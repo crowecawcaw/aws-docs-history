@@ -1,7 +1,6 @@
 
 
 # Generate SDKs for REST APIs in API Gateway
-<a name="how-to-generate-sdk"></a>
 
 To call your REST API in a platform- or language-specific way, you must generate the platform- or language-specific SDK of the API. You generate your SDK after you create, test, and deploy your API to a stage. Currently, API Gateway supports generating an SDK for an API in Java, JavaScript, Java for Android, Objective-C or Swift for iOS, and Ruby.
 

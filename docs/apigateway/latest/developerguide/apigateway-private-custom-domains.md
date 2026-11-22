@@ -1,7 +1,6 @@
 
 
 # Custom domain names for private APIs in API Gateway
-<a name="apigateway-private-custom-domains"></a>
 
 You can create a custom domain name for your private APIs. Use a private custom domain name to provide API callers with a simpler and more intuitive URL. With a private custom domain name, you can reduce complexity, configure security measures during the TLS handshake, and control the certificate lifecycle of your domain name using AWS Certificate Manager (ACM). For more information, see [Securing your certificate's private key for your custom domain name](#apigateway-private-custom-domains-secure-certificate-private-key).
 

@@ -1,7 +1,6 @@
 
 
 # API Gateway use cases
-<a name="api-gateway-overview-developer-experience"></a>
 
 The following use cases section presents an overview of the different types of API Gateway APIs and the different kinds of developers who use API Gateway. For more detailed information about the difference between REST APIs and HTTP APIs, see [Choose between REST APIs and HTTP APIs](http-api-vs-rest.md).
 

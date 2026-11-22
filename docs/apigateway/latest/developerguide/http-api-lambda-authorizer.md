@@ -1,7 +1,6 @@
 
 
 # Control access to HTTP APIs with AWS Lambda authorizers
-<a name="http-api-lambda-authorizer"></a>
 
 You use a Lambda authorizer to use a Lambda function to control access to your HTTP API. Then, when a client calls your API, API Gateway invokes your Lambda function. API Gateway uses the response from your Lambda function to determine whether the client can access your API.
 
@@ -142,7 +141,7 @@ If you choose the `1.0` format version, Lambda authorizers must return an IAM po
 **Example**    
 ****  
 
-```
+```json
 {
   "principalId": "abcdef", 
   "policyDocument": {
@@ -183,7 +182,7 @@ If you choose the `2.0` format version, you can return a Boolean value or an IAM
 
 ****  
 
-```
+```json
 {
   "principalId": "abcdef", 
   "policyDocument": {
@@ -247,7 +246,7 @@ export const handler = async(event) => {
 ------
 #### [ Simple response - Python ]
 
-```
+```python
 import json
 
 
@@ -338,7 +337,7 @@ export const handler = async(event) => {
 ------
 #### [ IAM policy - Python ]
 
-```
+```python
 import json
 
 

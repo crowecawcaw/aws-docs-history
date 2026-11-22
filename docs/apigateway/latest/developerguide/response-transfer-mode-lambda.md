@@ -1,7 +1,6 @@
 
 
 # Set up a Lambda proxy integration with payload response streaming in API Gateway
-<a name="response-transfer-mode-lambda"></a>
 
 You can stream the response of a Lambda function to improve time to first byte (TTFB) performance and send partial responses back to the client as they become available. API Gateway requires you to use the [InvokeWithResponseStream](https://docs.aws.amazon.com/lambda/latest/api/API_InvokeWithResponseStream.html) Lambda API to invoke your Lambda function. API Gateway passes an event object to the Lambda function. The backend Lambda function parses the incoming request data to determine the response that it returns. In order for API Gateway to stream the Lambda output, the Lambda function must output the [format](#response-transfer-mode-lambda-format) required by API Gateway.
 

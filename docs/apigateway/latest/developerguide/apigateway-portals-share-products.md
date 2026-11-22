@@ -1,7 +1,6 @@
 
 
 # Share your portal product with a portal owner in API Gateway
-<a name="apigateway-portals-share-products"></a>
 
 As a product owner, you can share your product with a portal owner in another AWS account using AWS RAM. You maintain full control of all product pages and product REST endpoint pages.
 

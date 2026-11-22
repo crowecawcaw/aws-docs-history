@@ -1,7 +1,6 @@
 
 
 # Request validation for WebSocket APIs in API Gateway
-<a name="websocket-api-request-validation"></a>
 
 You can configure API Gateway to perform validation on a route request before proceeding with the integration request. If the validation fails, API Gateway fails the request without calling your backend, sends a "Bad request body" gateway response to the client, and publishes the validation results in CloudWatch Logs. Using validation this way reduces unnecessary calls to your API backend.
 
@@ -108,7 +107,7 @@ In this step, you deploy and test your API.
 
 1. Open a new terminal and run the **wscat** command with the following parameters.
 
-   ```
+   ```shell
    wscat -c wss://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/production
    ```
 
@@ -118,7 +117,7 @@ In this step, you deploy and test your API.
 
 1. Use the following command to test your API.
 
-   ```
+   ```shell
    {"action": "sendMessage", "messageType": "email"}
    ```
 
@@ -130,6 +129,6 @@ In this step, you deploy and test your API.
 
    Use the next command to send a valid request to your API.
 
-   ```
+   ```shell
    {"action": "sendMessage", "messageType": "email", "address": "mary_major@example.com"}
    ```

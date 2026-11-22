@@ -1,7 +1,6 @@
 
 
 # Throttle requests to your REST APIs for better throughput in API Gateway
-<a name="api-gateway-request-throttling"></a>
 
 You can configure throttling and quotas for your APIs to help protect them from being overwhelmed by too many requests. Both throttles and quotas are applied on a best-effort basis and should be thought of as targets rather than guaranteed request ceilings.
 

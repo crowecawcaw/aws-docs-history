@@ -1,7 +1,6 @@
 
 
 # Control access to API documentation in API Gateway
-<a name="api-gateway-documenting-api-content-provision-and-consumption"></a>
 
 If you have a dedicated documentation team to write and edit your API documentation, you can configure separate access permissions for your developers (for API development) and for your writers or editors (for content development). This is especially appropriate when a third-party vendor is involved in creating the documentation for you. 
 
@@ -12,7 +11,7 @@ If you have a dedicated documentation team to write and edit your API documentat
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

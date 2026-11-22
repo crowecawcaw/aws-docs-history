@@ -1,7 +1,6 @@
 
 
 # Monitor WebSocket APIs in API Gateway
-<a name="websocket-api-monitor"></a>
 
 You can use CloudWatch metrics and CloudWatch Logs to monitor WebSocket APIs. By combining logs and metrics, you can log errors and monitor your API's performance.
 

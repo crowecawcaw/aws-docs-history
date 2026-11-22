@@ -1,7 +1,6 @@
 
 
 # Require client certificates for your API with mutual TLS authentication in API Gateway
-<a name="rest-api-mutual-tls"></a>
 
 Mutual TLS authentication requires two-way authentication between the client and the server. With mutual TLS, clients must present X.509 certificates to verify their identity to access your API. Mutual TLS is a common requirement for Internet of Things (IoT) and business-to-business applications. 
 
@@ -85,7 +84,7 @@ The following is an example of what a .pem file might look like.
 
 The following [cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) AWS CLI command uploads `certificates.pem` to your Amazon S3 bucket:
 
-```
+```shell
 aws s3 cp {{certificates.pem}} s3://{{bucket-name}}
 ```
 
@@ -99,7 +98,7 @@ Mutual TLS isn't supported for private APIs.
 
 After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS. The following [create-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-domain-name.html) creates a custom domain name with mutual TLS:
 
-```
+```shell
 aws apigateway create-domain-name --region {{us-east-2}} \
     --domain-name {{api.example.com}} \
     --regional-certificate-arn {{arn:aws:acm:us-east-2:123456789012:certificate/123456789012-1234-1234-1234-12345678}} \
@@ -117,7 +116,7 @@ To invoke an API with mutual TLS enabled, clients must present a trusted certifi
 
 The following example `curl` command sends a request to `api.example.com,` that includes `my-cert.pem` in the request. `my-key.key` is the private key for the certificate.
 
-```
+```shell
 curl -v --key {{./my-key.key}} --cert {{./my-cert.pem}} {{api.example.com}}
 ```
 
@@ -151,7 +150,7 @@ aws apigateway update-domain-name \
 
 The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-domain-name.html) disables mutual TLS:
 
-```
+```shell
 aws apigateway update-domain-name \
     --domain-name api.example.com \
     --patch-operations op='replace',path='/mutualTlsAuthentication/truststoreUri',value=''

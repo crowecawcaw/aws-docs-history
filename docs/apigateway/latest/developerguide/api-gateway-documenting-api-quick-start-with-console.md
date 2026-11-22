@@ -1,7 +1,6 @@
 
 
 # Document an API using the API Gateway console
-<a name="api-gateway-documenting-api-quick-start-with-console"></a>
 
 In this section, we describe how to create and maintain documentation parts of an API using the API Gateway console. 
 

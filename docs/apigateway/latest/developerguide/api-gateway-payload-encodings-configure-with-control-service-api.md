@@ -1,7 +1,6 @@
 
 
 # Enabling binary support using the API Gateway REST API
-<a name="api-gateway-payload-encodings-configure-with-control-service-api"></a>
 
 The following tasks show how to enable binary support using the API Gateway REST API calls.
 

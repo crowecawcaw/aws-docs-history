@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with a private integration
-<a name="getting-started-with-private-integration"></a>
 
 In this tutorial, you create a REST API that connects to an Amazon ECS service that runs in an Amazon VPC. Clients outside of your Amazon VPC can use the API to access your Amazon ECS service. 
 

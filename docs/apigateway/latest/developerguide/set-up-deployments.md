@@ -1,7 +1,6 @@
 
 
 # Create a deployment for a REST API in API Gateway
-<a name="set-up-deployments"></a>
 
  In API Gateway, a REST API deployment is represented by a [Deployment](https://docs.aws.amazon.com/apigateway/latest/api/API_Deployment.html) resource. It's similar to an executable of an API that is represented by a [RestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_RestApi.html) resource. 
 

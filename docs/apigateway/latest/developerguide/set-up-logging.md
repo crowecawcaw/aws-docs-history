@@ -1,7 +1,6 @@
 
 
 # Set up CloudWatch logging for REST APIs in API Gateway
-<a name="set-up-logging"></a>
 
 To help debug issues related to request execution or client access to your API, you can enable Amazon CloudWatch Logs to log API calls. For more information about CloudWatch, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md).
 
@@ -10,6 +9,8 @@ There are two types of API logging in CloudWatch:
 + **Access logging** – You log who accessed your API and how. You create your own log group, choose a log format, and specify which `$context` variables to include.
 
 You can enable execution logging and access logging independently of each other.
+
+For requests to a method that uses a JWT authorizer, execution logs include the authorizer result, including the reason when a token is rejected. When you turn on logging of full request and response data, the logs also include a summary of the validated claims. You can test a JWT authorizer with `TestInvokeAuthorizer`.
 
 ## Permissions for CloudWatch logging
 <a name="set-up-access-logging-permissions"></a>

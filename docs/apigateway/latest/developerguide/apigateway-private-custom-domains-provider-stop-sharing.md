@@ -1,7 +1,6 @@
 
 
 # API provider: Stop sharing a private custom domain name using AWS RAM
-<a name="apigateway-private-custom-domains-provider-stop-sharing"></a>
 
 To stop sharing your private custom domain name, first you stop the API consumer from creating more domain name access associations by dissociating the resource share. Then, you reject the domain name access association and remove the API consumer's VPC endpoint from your `policy` for the `execute-api` service. The API consumer can then delete their domain name access association.
 

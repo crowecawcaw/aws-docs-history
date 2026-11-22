@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a calculator REST API with two AWS service integrations and one Lambda non-proxy integration
-<a name="integrating-api-with-aws-services-lambda"></a>
 
 The [Tutorial: Create a REST API with a Lambda non-proxy integration](getting-started-lambda-non-proxy-integration.md) uses `Lambda Function` integration exclusively. `Lambda Function` integration is a special case of the `AWS Service` integration type that performs much of the integration setup for you, such as automatically adding the required resource-based permissions for invoking the Lambda function. Here, two of the three integrations use `AWS Service` integration. In this integration type, you have more control, but you'll need to manually perform tasks like creating and specifying an IAM role containing appropriate permissions.
 
@@ -37,7 +36,7 @@ In order for your API to invoke your `Calc` Lambda function, you'll need to have
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -62,7 +61,7 @@ The role you create will need to have Lambda [InvokeFunction](https://docs.aws.a
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -104,7 +103,7 @@ Here's how to accomplish all this:
 
 ****  
 
-      ```
+      ```json
       {
           "Version":"2012-10-17",		 	 	 
           "Statement": [
@@ -154,7 +153,7 @@ Here's how to accomplish all this:
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

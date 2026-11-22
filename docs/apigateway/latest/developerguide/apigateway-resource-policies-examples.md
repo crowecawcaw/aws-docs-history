@@ -1,7 +1,6 @@
 
 
 # API Gateway resource policy examples
-<a name="apigateway-resource-policies-examples"></a>
 
 This page presents a few examples of typical use cases for API Gateway resource policies.
 
@@ -23,7 +22,7 @@ The following example resource policy grants API access in one AWS account to tw
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -56,7 +55,7 @@ The following example resource policy denies (blocks) incoming traffic to an API
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -99,7 +98,7 @@ The following example resource policy denies (blocks) incoming traffic to a priv
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -142,7 +141,7 @@ This example resource policy specifies a source VPC:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -180,7 +179,7 @@ This example resource policy specifies a source VPC endpoint:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

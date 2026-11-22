@@ -1,7 +1,6 @@
 
 
 # Create an Amazon Cognito user pool for a REST API
-<a name="apigateway-create-cognito-user-pool"></a>
 
 Before integrating your API with a user pool, you must create the user pool in Amazon Cognito. Your user pool configuration must follow all [resource quotas for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html). All user-defined Amazon Cognito variables such as groups, users, and roles should use only alphanumeric characters. For instructions on how to create a user pool, see [Tutorial: Creating a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html) in the *Amazon Cognito Developer Guide*.
 

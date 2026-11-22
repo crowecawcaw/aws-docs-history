@@ -1,7 +1,6 @@
 
 
 # API Gateway portals
-<a name="apigateway-portals"></a>
 
 You can use an API Gateway portal to share your APIs and API documentation with API consumers in a web page. A portal contains a set of *portal products*. Each portal product is a logical grouping of REST APIs and contains the documentation that you create and publish for your API consumers. Product pages within a portal contain the custom documentation at the portal product level. *Product REST endpoint pages* contain the documentation for each of the REST APIs and the path, method, and stage of a REST API. The combination of product pages and product REST endpoint pages provide the complete documentation to allow API consumers to learn how to start using your REST APIs.
 

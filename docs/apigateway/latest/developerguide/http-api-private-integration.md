@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create an HTTP API with a private integration to an Amazon ECS service
-<a name="http-api-private-integration"></a>
 
 In this tutorial, you create a serverless API that connects to an Amazon ECS service that runs in an Amazon VPC. Clients outside of your Amazon VPC can use the API to access your Amazon ECS service. 
 

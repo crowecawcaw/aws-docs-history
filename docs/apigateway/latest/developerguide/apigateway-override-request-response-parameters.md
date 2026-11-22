@@ -1,7 +1,6 @@
 
 
 # Override your API's request and response parameters and status codes for REST APIs in API Gateway
-<a name="apigateway-override-request-response-parameters"></a>
 
 You can use mapping template transformations to override any type of request parameter, response header, or response status code. You use a mapping template to do the following:
 + Perform many-to-one parameter mappings

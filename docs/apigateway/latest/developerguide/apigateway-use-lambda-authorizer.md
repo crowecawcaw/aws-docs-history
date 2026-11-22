@@ -1,11 +1,12 @@
 
 
 # Use API Gateway Lambda authorizers
-<a name="apigateway-use-lambda-authorizer"></a>
 
 Use a *Lambda authorizer* (formerly known as a *custom authorizer*) to control access to your API. When a client makes a request to your API's method, API Gateway calls your Lambda authorizer. The Lambda authorizer takes the caller's identity as the input and returns an IAM policy as the output.
 
 Use a Lambda authorizer to implement a custom authorization scheme. Your scheme can use request parameters to determine the caller's identity or use a bearer token authentication strategy such as OAuth or SAML. Create a Lambda authorizer in the API Gateway REST API console, using the AWS CLI, or an AWS SDK.
+
+To validate JSON Web Tokens without writing a Lambda function, use a [JWT authorizer](rest-api-jwt-authorizer.md).
 
 ## Lambda authorizer authorization workflow
 <a name="api-gateway-lambda-authorizer-flow"></a>
@@ -230,7 +231,7 @@ In this example, the Lambda authorizer function checks the input parameters and 
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -377,7 +378,7 @@ In this example, when the API receives a method request, API Gateway passes the 
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -398,7 +399,7 @@ In this example, when the API receives a method request, API Gateway passes the 
 
 ****  
 
-  ```
+  ```json
   {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

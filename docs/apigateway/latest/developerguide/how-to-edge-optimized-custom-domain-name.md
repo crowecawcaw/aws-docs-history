@@ -1,7 +1,6 @@
 
 
 # Set up an edge-optimized custom domain name in API Gateway
-<a name="how-to-edge-optimized-custom-domain-name"></a>
 
 When you create a custom domain name for an edge-optimized API, API Gateway sets up a CloudFront distribution and a DNS record to map the API domain name to the CloudFront distribution domain name. Requests for the API are then routed to API Gateway through the mapped CloudFront distribution. This mapping is for API requests that are bound for the custom domain name to be routed to API Gateway through the mapped CloudFront distribution.
 
@@ -18,7 +17,7 @@ The following are considerations for your edge-optimized custom domain name:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

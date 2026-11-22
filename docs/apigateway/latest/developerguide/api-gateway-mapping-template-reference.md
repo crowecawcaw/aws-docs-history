@@ -1,7 +1,6 @@
 
 
 # Variables for data transformations for API Gateway
-<a name="api-gateway-mapping-template-reference"></a>
 
 When you create a parameter mapping, you can use context variables as your data source. When you create mapping template transformations, you can use context variables, input, and util variables in scripts you write in [Velocity Template Language (VTL)](https://velocity.apache.org/engine/devel/vtl-reference.html). For example mapping templates that use these reference variables, see [Examples using variables for mapping template transformations for API Gateway](api-gateway-mapping-variable-examples.md).
 
@@ -17,7 +16,7 @@ You can use the following case-sensitive `$context` variables for data transform
 | --- | --- | 
 | $context.accountId | The API owner's AWS account ID. | 
 | $context.apiId | The identifier API Gateway assigns to your API. | 
-| $context.authorizer.claims.{{property}} | A property of the claims returned from the Amazon Cognito user pool after the method caller is successfully authenticated. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md). Calling `$context.authorizer.claims` returns null.  | 
+| $context.authorizer.claims.{{property}} | A property of the claims returned from the Amazon Cognito user pool after the method caller is successfully authenticated. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md).<br />For a JWT authorizer, this contains the claims from the validated JSON Web Token. For more information, see [Pass JWT claims to your integration](rest-api-jwt-authorizer-claims.md). Calling `$context.authorizer.claims` returns null.  | 
 | $context.authorizer.principalId | The principal user identification associated with the token sent by the client and returned from an API Gateway Lambda authorizer (formerly known as a custom authorizer). For more information, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md). | 
 | $context.authorizer.{{property}} | The stringified value of the specified key-value pair of the `context` map returned from an API Gateway Lambda authorizer function. For example, if the authorizer returns the following `context` map: <pre>"context" : {<br />  "key": "value",<br />  "numKey": 1,<br />  "boolKey": true<br />}</pre><br />Calling `$context.authorizer.key` returns the `"value"` string, calling `$context.authorizer.numKey` returns the `"1"` string, and calling `$context.authorizer.boolKey` returns the `"true"` string.<br />For {{property}}, the only supported special character is the underscore `(_)` character.<br />For more information, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md). | 
 | $context.awsEndpointRequestId | The AWS endpoint's request ID. | 

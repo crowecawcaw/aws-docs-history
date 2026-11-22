@@ -1,7 +1,6 @@
 
 
 # Use AWS WAF to protect your REST APIs in API Gateway
-<a name="apigateway-control-access-aws-waf"></a>
 
 AWS WAF is a web application firewall that helps protect web applications and APIs from attacks. It enables you to configure a set of rules called a web access control list (web ACL) that allow, block, or count web requests based on customizable web security rules and conditions that you define. For more information, see [How AWS WAF Works](https://docs.aws.amazon.com/waf/latest/developerguide/how-aws-waf-works.html).
 

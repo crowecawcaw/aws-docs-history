@@ -1,7 +1,6 @@
 
 
 # Handle Lambda errors in API Gateway
-<a name="handle-errors-in-lambda-integration"></a>
 
  For Lambda custom integrations, you must map errors returned by Lambda in the integration response to standard HTTP error responses for your clients. Otherwise, Lambda errors are returned as `200 OK` responses by default and the result is not intuitive for your API users. 
 

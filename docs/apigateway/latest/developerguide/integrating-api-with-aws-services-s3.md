@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API as an Amazon S3 proxy
-<a name="integrating-api-with-aws-services-s3"></a>
 
 As an example to showcase using a REST API in API Gateway to proxy Amazon S3, this section describes how to create and configure a REST API to expose the following Amazon S3 operations: 
 + Expose GET on the API's root resource to [list all of the Amazon S3 buckets of a caller](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html).

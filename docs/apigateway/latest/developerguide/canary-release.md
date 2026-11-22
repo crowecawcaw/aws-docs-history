@@ -1,7 +1,6 @@
 
 
 # Set up an API Gateway canary release deployment
-<a name="canary-release"></a>
 
 [Canary release](https://martinfowler.com/bliki/CanaryRelease.html) is a software development strategy in which a new version of an API (as well as other software) is deployed for testing purposes, and the base version remains deployed as a production release for normal operations on the same stage. For purposes of discussion, we refer to the base version as a production release in this documentation. Although this is reasonable, you are free to apply canary release on any non-production version for testing.
 

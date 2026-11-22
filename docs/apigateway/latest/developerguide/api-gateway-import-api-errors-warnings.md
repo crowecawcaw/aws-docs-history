@@ -1,7 +1,6 @@
 
 
 # Errors and warnings from importing your API into API Gateway
-<a name="api-gateway-import-api-errors-warnings"></a>
 
 When you import your external definition file into API Gateway, API Gateway might generate warnings and errors. The following sections discuss the errors and warnings that might occur during import.
 

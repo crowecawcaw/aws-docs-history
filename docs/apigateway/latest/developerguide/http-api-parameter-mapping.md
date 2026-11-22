@@ -1,7 +1,6 @@
 
 
 # Transform API requests and responses for HTTP APIs in API Gateway
-<a name="http-api-parameter-mapping"></a>
 
 You can modify API requests from clients before they reach your backend integrations. You can also change the response from integrations before API Gateway returns the response to clients. You use *parameter mapping* to modify API requests and responses for HTTP APIs. To use parameter mapping, you specify API request or response parameters to modify, and specify how to modify those parameters.
 
@@ -106,7 +105,7 @@ The following AWS CLI examples configure parameter mappings. For example CloudFo
 
 The following [create-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html) command creates a header named `header1` to an API request before it reaches your backend integration. API Gateway populates the header with the request ID.
 
-```
+```shell
 aws apigatewayv2 create-integration \
     --api-id abcdef123 \
     --integration-type HTTP_PROXY \
@@ -121,7 +120,7 @@ aws apigatewayv2 create-integration \
 
 The following [create-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html) command renames a request header from `header1` to `header2`:
 
-```
+```shell
 aws apigatewayv2 create-integration \
     --api-id abcdef123 \
     --integration-type HTTP_PROXY \
@@ -136,7 +135,7 @@ aws apigatewayv2 create-integration \
 
 The following [create-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html) command configures response parameters for an integration. When the integrations returns a 500 status code, API Gateway changes the status code to 403, and adds `header1`1 to the response. When the integration returns a 404 status code, API Gateway adds an `error` header to the response.
 
-```
+```shell
 aws apigatewayv2 create-integration \
     --api-id abcdef123 \
     --integration-type HTTP_PROXY \
@@ -151,7 +150,7 @@ aws apigatewayv2 create-integration \
 
 The following [update-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-integration.html) command removes previously configured request parameters for `append:header.header1`. It also removes previously configured response parameters for a 200 status code.
 
-```
+```shell
 aws apigatewayv2 update-integration \
     --api-id abcdef123 \
     --integration-id hijk456 \

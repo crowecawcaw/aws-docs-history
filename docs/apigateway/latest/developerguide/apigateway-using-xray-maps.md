@@ -1,7 +1,6 @@
 
 
 # Use AWS X-Ray service maps and trace views with API Gateway
-<a name="apigateway-using-xray-maps"></a>
 
 In this section you can find detailed information on how to use [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-apigateway.html) service maps and trace views with API Gateway.
 

@@ -1,7 +1,6 @@
 
 
 # Set up an integration response in API Gateway
-<a name="api-gateway-integration-settings-integration-response"></a>
 
  For a non-proxy integration, you must set up at least one integration response, and make it the default response, to pass the result returned from the backend to the client. You can choose to pass through the result as-is or to transform the integration response data to the method response data if the two have different formats. 
 

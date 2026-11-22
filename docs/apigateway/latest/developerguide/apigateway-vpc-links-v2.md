@@ -1,7 +1,6 @@
 
 
 # Set up VPC links V2 in API Gateway
-<a name="apigateway-vpc-links-v2"></a>
 
 VPC links enable you to create private integrations that connect your API routes to private resources in a VPC, such as Application Load Balancers or Amazon ECS container-based applications. A private integration uses a VPC link V2 to encapsulate connections between API Gateway and targeted VPC resources. You can reuse VPC links across different resources and APIs.
 

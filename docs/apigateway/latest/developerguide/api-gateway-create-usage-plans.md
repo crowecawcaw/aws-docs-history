@@ -1,7 +1,6 @@
 
 
 # Set up usage plans for REST APIs in API Gateway
-<a name="api-gateway-create-usage-plans"></a>
 
 Before you create a usage plan, make sure that you've set up the your API keys. For more information, see [Set up API keys for REST APIs in API Gateway](api-gateway-setup-api-keys.md).
 

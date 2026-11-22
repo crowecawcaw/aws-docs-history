@@ -1,7 +1,6 @@
 
 
 # Delete a portal product in API Gateway
-<a name="apigateway-portals-delete-product"></a>
 
 When you delete a portal product, it cannot be recovered.
 

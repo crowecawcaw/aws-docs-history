@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-request-validator property
-<a name="api-gateway-swagger-extensions-request-validator"></a>
 
  Specifies a request validator, by referencing a `{{request_validator_name}}` of the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md) map, to enable request validation on the containing API or a method. The value of this extension is a JSON string.
 

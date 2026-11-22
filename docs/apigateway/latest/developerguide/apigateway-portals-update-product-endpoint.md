@@ -1,7 +1,6 @@
 
 
 # Update a product REST endpoint in API Gateway
-<a name="apigateway-portals-update-product-endpoint"></a>
 
 When you update a product REST endpoint, you can change all the settings of the product endpoint except for the path and method of a REST API and the stage it's deployed to. Any changes to your product endpoints are updated automatically, but you need to republish any portals that use your products to see the changes reflected in a portal.
 

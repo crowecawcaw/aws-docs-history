@@ -1,7 +1,6 @@
 
 
 # CORS for REST APIs in API Gateway
-<a name="how-to-cors"></a>
 
 [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is a browser security feature that restricts cross-origin HTTP requests that are initiated from scripts running in the browser. For more information, see [What is CORS?](https://aws.amazon.com/what-is/cross-origin-resource-sharing/).
 
@@ -98,7 +97,7 @@ The following example Lambda functions return the required CORS headers:
 ------
 #### [ Node.js ]
 
-```
+```javascript
 export const handler = async (event) => {
     const response = {
         statusCode: 200,
@@ -116,7 +115,7 @@ export const handler = async (event) => {
 ------
 #### [ Python 3 ]
 
-```
+```python
 import json
 
 def lambda_handler(event, context):

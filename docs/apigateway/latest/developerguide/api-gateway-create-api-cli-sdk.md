@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API using AWS SDKs or the AWS CLI
-<a name="api-gateway-create-api-cli-sdk"></a>
 
 Use the following tutorial to create a PetStore API supporting the `GET /pets` and `GET /pets/{petId}` methods. The methods are integrated with an HTTP endpoint. You can follow this tutorial using the AWS SDK for JavaScript, the AWS SDK for Python (Boto3), or the AWS CLI. You use the following functions or commands to set up your API:
 

@@ -1,7 +1,6 @@
 
 
 # Import API documentation
-<a name="api-gateway-documenting-api-quick-start-import-export"></a>
 
  As with importing API entity definitions, you can import documentation parts from an external OpenAPI file into an API in API Gateway. You specify the to-be-imported documentation parts within the [x-amazon-apigateway-documentation object](api-gateway-swagger-extensions-documentation.md) extension in a valid OpenAPI definition file. Importing documentation does not alter the existing API entity definitions.
 

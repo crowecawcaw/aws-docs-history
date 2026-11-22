@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-integration.responseTemplates object
-<a name="api-gateway-swagger-extensions-integration-responseTemplates"></a>
 
  Specifies mapping templates for a response payload of the specified MIME types. 
 

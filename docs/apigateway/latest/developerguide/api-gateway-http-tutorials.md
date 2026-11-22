@@ -1,7 +1,6 @@
 
 
 # Amazon API Gateway HTTP API tutorials
-<a name="api-gateway-http-tutorials"></a>
 
 The following tutorials provide hands-on exercises to help you learn about API Gateway HTTP APIs.
 

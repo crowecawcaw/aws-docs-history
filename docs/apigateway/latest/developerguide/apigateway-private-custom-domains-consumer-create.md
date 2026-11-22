@@ -1,7 +1,6 @@
 
 
 # API consumer: Associate your VPC endpoint with a private custom domain name shared with you
-<a name="apigateway-private-custom-domains-consumer-create"></a>
 
 The following procedure shows how to consume a private domain name in another AWS account. Depending on your trust relationship with the API provider, AWS RAM might complete some tasks for you.
 

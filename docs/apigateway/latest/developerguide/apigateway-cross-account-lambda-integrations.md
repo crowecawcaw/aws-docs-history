@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a REST API with a cross-account Lambda proxy integration
-<a name="apigateway-cross-account-lambda-integrations"></a>
 
 You can now use an AWS Lambda function from a different AWS account as your API integration backend. Each account can be in any region where Amazon API Gateway is available. This makes it easy to centrally manage and share Lambda backend functions across multiple APIs.
 

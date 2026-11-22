@@ -1,7 +1,6 @@
 
 
 # Binary media types for REST APIs in API Gateway
-<a name="api-gateway-payload-encodings"></a>
 
 In API Gateway, the API request and response have a text or binary payload. A text payload is a `UTF-8`-encoded JSON string. A binary payload is anything other than a text payload. The binary payload can be, for example, a JPEG file, a GZip file, or an XML file. The API configuration required to support binary media depends on whether your API uses proxy or non-proxy integrations. 
 

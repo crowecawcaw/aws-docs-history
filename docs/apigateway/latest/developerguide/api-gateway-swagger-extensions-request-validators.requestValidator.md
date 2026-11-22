@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-request-validators.requestValidator object
-<a name="api-gateway-swagger-extensions-request-validators.requestValidator"></a>
 
  Specifies the validation rules of a request validator as part of the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md) map definition.
 

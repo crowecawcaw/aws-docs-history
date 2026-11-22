@@ -1,7 +1,6 @@
 
 
 # Set up an API integration request using the API Gateway console
-<a name="how-to-method-settings-console"></a>
 
  An API method setup defines the method and describes its behaviors. To set up a method, you must specify a resource, including the root ("/"), on which the method is exposed, an HTTP method (`GET`, `POST`, etc.), and how it will be integrated with the targeted backend. The method request and response specify the contract with the calling app, stipulating which parameters the API can receive and what the response looks like. 
 
@@ -114,7 +113,7 @@ You must choose **AWS service**.
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [

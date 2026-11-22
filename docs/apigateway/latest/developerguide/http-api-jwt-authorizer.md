@@ -1,7 +1,6 @@
 
 
 # Control access to HTTP APIs with JWT authorizers in API Gateway
-<a name="http-api-jwt-authorizer"></a>
 
 You can use JSON Web Tokens (JWTs) as a part of [OpenID Connect (OIDC)](https://openid.net/specs/openid-connect-core-1_0.html) and [OAuth 2.0](https://oauth.net/2/) frameworks to restrict client access to your APIs.
 
@@ -69,7 +68,7 @@ The following steps show how to create JWT authorizer using the console.
 
 The following [create-authorizer](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-authorizer.html) command creates a JWT authorizer. For `jwt-configuration`, specify the `Audience` and `Issuer` for your identity provider. If you use Amazon Cognito as an identity provider, the `IssuerUrl` is `https://cognito-idp.{{us-east-2}}.amazonaws.com/{{userPoolID}}`.
 
-```
+```shell
 aws apigatewayv2 create-authorizer \
     --name {{authorizer-name}} \
     --api-id {{api-id}} \

@@ -1,7 +1,6 @@
 
 
 # Custom domain name for public REST APIs in API Gateway
-<a name="how-to-custom-domains"></a>
 
 *Custom domain names* are simpler and more intuitive URLs that you can provide to your API users.
 

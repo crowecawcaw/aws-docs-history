@@ -1,7 +1,6 @@
 
 
 # Use the API Gateway console to test a REST API method
-<a name="how-to-test-method"></a>
 
 Use the API Gateway console to test a REST API method.
 

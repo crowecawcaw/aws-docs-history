@@ -1,7 +1,6 @@
 
 
 # Set up basic request validation in API Gateway
-<a name="api-gateway-request-validation-set-up"></a>
 
  This section shows how to set up request validation for API Gateway using the console, AWS CLI, and an OpenAPI definition.
 

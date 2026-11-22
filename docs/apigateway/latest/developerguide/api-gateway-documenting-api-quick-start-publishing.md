@@ -1,7 +1,6 @@
 
 
 # Publish API documentation using the API Gateway REST API
-<a name="api-gateway-documenting-api-quick-start-publishing"></a>
 
 To publish the documentation for an API, create, update, or get a documentation snapshot, and then associate the documentation snapshot with an API stage. When creating a documentation snapshot, you can also associate it with an API stage at the same time.
 

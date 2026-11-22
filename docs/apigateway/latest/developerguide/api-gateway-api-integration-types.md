@@ -1,7 +1,6 @@
 
 
 # Choose an API Gateway API integration type
-<a name="api-gateway-api-integration-types"></a>
 
 
 

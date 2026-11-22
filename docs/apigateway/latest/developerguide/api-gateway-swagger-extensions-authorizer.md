@@ -1,20 +1,19 @@
 
 
 # x-amazon-apigateway-authorizer object
-<a name="api-gateway-swagger-extensions-authorizer"></a>
 
  Defines a Lambda authorizer, Amazon Cognito user pool, or JWT authorizer to be applied for authorization of method invocations in API Gateway. This extension applies to the security definition in [OpenAPI 2](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#security-definitions-object) and the security scheme in [OpenAPI 3](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.1.md#security-scheme-object).
 
 
 | Property name | Type | Description | 
 | --- | --- | --- | 
-| type | string | The type of the authorizer. This is a required property.<br />For REST APIs, specify `token` for an authorizer with the caller identity embedded in an authorization token. Specify `request` for an authorizer with the caller identity contained in request parameters. Specify `cognito_user_pools` for an authorizer that uses an Amazon Cognito user pool to control access to your API. <br />For HTTP APIs, specify `request` for a Lambda authorizer with the caller identity contained in request parameters. Specify `jwt` for a JWT authorizer. | 
+| type | string | The type of the authorizer. This is a required property.<br />For REST APIs, specify `token` for an authorizer with the caller identity embedded in an authorization token. Specify `request` for an authorizer with the caller identity contained in request parameters. Specify `cognito_user_pools` for an authorizer that uses an Amazon Cognito user pool to control access to your API. Specify `jwt` for a JWT authorizer that validates JSON Web Tokens from an OpenID Connect (OIDC) identity provider. <br />For HTTP APIs, specify `request` for a Lambda authorizer with the caller identity contained in request parameters. Specify `jwt` for a JWT authorizer. | 
 | authorizerUri | string |  The Uniform Resource Identifier (URI) of the authorizer Lambda function. The syntax is as follows: <pre>"arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:{{account-id}}:function:{{auth_function_name}}/invocations"</pre> | 
 | authorizerCredentials | string | The credentials required for invoking the authorizer, if any, in the form of an ARN of an IAM execution role. For example, "arn:aws:iam::{{account-id}}:{{IAM\_role}}".  | 
 | authorizerPayloadFormatVersion | string | For HTTP APIs, specifies the format of the data that API Gateway sends to a Lambda authorizer, and how API Gateway interprets the response from Lambda. To learn more, see [Payload format version](http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format). | 
 | enableSimpleResponses | Boolean | For HTTP APIs, specifies whether a `request` authorizer returns a Boolean value or an IAM policy. Supported only for authorizers with an `authorizerPayloadFormatVersion` of `2.0`. If enabled, the Lambda authorizer function returns a Boolean value. To learn more, see [Lambda function response for format 2.0](http-api-lambda-authorizer.md#http-api-lambda-authorizer.v2). | 
-| identitySource | string | A comma-separated list of mapping expressions of the request parameters as the identity source. Applicable for the authorizer of the `request` and `jwt` type only. | 
-| jwtConfiguration | Object | Specifies the issuer and audiences for a JWT authorizer. To learn more, see [JWTConfiguration](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.html#apis-apiid-authorizers-authorizerid-model-jwtconfiguration) in the API Gateway Version 2 API Reference. Supported only for HTTP APIs. | 
+| identitySource | string | A comma-separated list of mapping expressions of the request parameters as the identity source. For HTTP APIs, applicable for `request` and `jwt` authorizers. For REST APIs, applicable for `request` authorizers only. A REST `jwt` authorizer takes its identity source from the security scheme's `name`, and the scheme's `in` value must be `header`. | 
+| jwtConfiguration | Object | Specifies the configuration of a JWT authorizer. The shape of this object differs between HTTP APIs and REST APIs.<br />For HTTP APIs, this object specifies the `issuer` (a `string`) and `audience` (an array of `string`) for the authorizer. To learn more, see [JWTConfiguration](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.html#apis-apiid-authorizers-authorizerid-model-jwtconfiguration) in the API Gateway Version 2 API Reference.<br />For REST APIs, this object contains the following properties:+  `issuers` – An array of issuer objects. Each object contains an `issuer` (a `string` that must match the token's `iss` claim exactly, including any trailing slash), an `audiences` array (`string` values matched against the token's `aud` claim), and an `additionalClaims` array of custom claim rules. Each claim rule contains a `claimName` (the name of the claim to validate), a `format` (the claim value type, such as `SINGLE_STRING`), a `required` (`Boolean`) flag that indicates whether the claim must be present, and an `expectedValues` array of accepted values. <br />+  `defaultAlgorithms` – An array of `string` signing algorithms accepted when validating a token's signature. <br />When you import an API definition, API Gateway ignores the `jwksUri` property. When you export an API definition, API Gateway omits it. | 
 | identityValidationExpression | string |  A regular expression for validating the token as the incoming identity. For example, "^x-[a-z]\+". Supported only for `TOKEN` authorizers for REST APIs. | 
 | authorizerResultTtlInSeconds | string |  The number of seconds during which authorizer result is cached. | 
 | providerARNs | An array of string | A list of the Amazon Cognito user pool ARNs for the `COGNITO_USER_POOLS`. | 
@@ -161,6 +160,59 @@ The following OpenAPI operation object snippet sets the `GET /http` to use the p
           },
           "httpMethod" : "GET",
           "uri" : "http://api.example.com"
+        }
+      }
+    }
+```
+
+The following OpenAPI 3.0 example specifies a JWT authorizer for a REST API. The authorizer validates tokens from one issuer, requires a custom claim, and uses the `Authorization` header to carry the token.
+
+```
+"securitySchemes" : {
+  "orders-jwt" : {
+    "type" : "apiKey",                            // Required and the value must be "apiKey" for an API Gateway API.
+    "name" : "Authorization",                     // The name of the header containing the authorization token.
+    "in" : "header",                              // Required and the value must be "header" for an API Gateway API.
+    "x-amazon-apigateway-authtype" : "jwt",       // Specifies the authorization mechanism for the client.
+    "x-amazon-apigateway-authorizer" : {          // An API Gateway JWT authorizer definition
+      "type" : "jwt",                             // Required property and the value must be "jwt".
+      "jwtConfiguration" : {
+        "issuers" : [ {
+          "issuer" : "https://identity.example.com",
+          "audiences" : [ "api://orders" ],
+          "additionalClaims" : [ {
+            "claimName" : "department",
+            "format" : "SINGLE_STRING",
+            "required" : true,
+            "expectedValues" : [ "eng" ]
+          } ]
+        } ],
+        "defaultAlgorithms" : [ "RS256", "ES256" ]
+      }
+    }
+  }
+}
+```
+
+The following OpenAPI operation object snippet sets `GET /orders` to use the preceding JWT authorizer and requires the `orders:read` scope. The scopes that you list in an operation's `security` entry become the method's `authorizationScopes`.
+
+```
+   "/orders" : {
+      "get" : {
+        "responses" : { },
+        "security" : [ {
+          "orders-jwt" : [ "orders:read" ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "mock",
+          "requestTemplates" : {
+            "application/json" : "{\"statusCode\": 200}"
+          },
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          }
         }
       }
     }

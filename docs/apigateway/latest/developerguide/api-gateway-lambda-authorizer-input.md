@@ -1,12 +1,11 @@
 
 
 # Input to an API Gateway Lambda authorizer
-<a name="api-gateway-lambda-authorizer-input"></a>
 
 The following section explains the format of the input from API Gateway to a Lambda authorizer.
 
 ## `TOKEN` input format
-<a name="w2aac15b9c23c25c19b5"></a>
+<a name="w2aac15b9c23c30c21b5"></a>
 
  For a Lambda authorizer (formerly known as a custom authorizer) of the `TOKEN` type, you must specify a custom header as the **Token Source** when you configure the authorizer for your API. The API client must pass the required authorization token in that header in the incoming request. Upon receiving the incoming method request, API Gateway extracts the token from the custom header. It then passes the token as the `authorizationToken` property of the `event` object of the Lambda function, in addition to the method ARN as the `methodArn` property: 
 
@@ -21,7 +20,7 @@ The following section explains the format of the input from API Gateway to a Lam
  In this example, the `type` property specifies the authorizer type, which is a `TOKEN` authorizer. The `{{{caller-supplied-token}}}` originates from the authorization header in a client request, and can be any string value. The `methodArn` is the ARN of the incoming method request and is populated by API Gateway in accordance with the Lambda authorizer configuration. 
 
 ## `REQUEST` input format
-<a name="w2aac15b9c23c25c19b7"></a>
+<a name="w2aac15b9c23c30c21b7"></a>
 
 For a Lambda authorizer of the `REQUEST` type, API Gateway passes request parameters to the authorizer Lambda function as part of the `event` object. The request parameters include headers, path parameters, query string parameters, stage variables, and some of request context variables. The API caller can set the path parameters, headers, and query string parameters. The API developer must set the stage variables during the API deployment and API Gateway provides the request context at run time. 
 
@@ -30,7 +29,7 @@ Path parameters can be passed as request parameters to the Lambda authorizer fun
 
  The following example shows an input to a `REQUEST` authorizer for an API method (`GET /request`) with a proxy integration: 
 
-```
+```json
 {
   "type": "REQUEST",
   "methodArn": "arn:aws:execute-api:us-east-1:123456789012:abcdef123/test/GET/request",

@@ -1,7 +1,6 @@
 
 
 # Configure logging for HTTP APIs in API Gateway
-<a name="http-api-logging"></a>
 
 You can turn on logging to write logs to CloudWatch Logs. You can use [logging variables](http-api-logging-variables.md) to customize the content of your logs.
 
@@ -23,7 +22,7 @@ To turn on logging for an API, your user must have the following permissions.
 **Example**    
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -113,12 +112,12 @@ Examples of some common access log formats are available in the API Gateway cons
   ```
 +  `JSON`: 
 
-  ```
+  ```json
   { "requestId":"$context.requestId", "ip": "$context.identity.sourceIp", "requestTime":"$context.requestTime", "httpMethod":"$context.httpMethod","routeKey":"$context.routeKey", "status":"$context.status","protocol":"$context.protocol", "responseLength":"$context.responseLength", "extendedRequestId": "$context.extendedRequestId" }
   ```
 + `XML`: 
 
-  ```
+  ```xml
   <request id="$context.requestId"> <ip>$context.identity.sourceIp</ip> <requestTime>$context.requestTime</requestTime> <httpMethod>$context.httpMethod</httpMethod> <routeKey>$context.routeKey</routeKey> <status>$context.status</status> <protocol>$context.protocol</protocol> <responseLength>$context.responseLength</responseLength> <extendedRequestId>$context.extendedRequestId</extendedRequestId> </request>
   ```
 + `CSV` (comma-separated values):

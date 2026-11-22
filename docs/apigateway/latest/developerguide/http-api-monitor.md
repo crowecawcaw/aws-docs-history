@@ -1,7 +1,6 @@
 
 
 # Monitor HTTP APIs in API Gateway
-<a name="http-api-monitor"></a>
 
 You can use CloudWatch metrics and CloudWatch Logs to monitor HTTP APIs. By combining logs and metrics, you can log errors and monitor your API's performance.
 

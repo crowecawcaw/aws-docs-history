@@ -1,7 +1,6 @@
 
 
 # Choose an AWS Lambda integration tutorial
-<a name="getting-started-with-lambda-integration"></a>
 
  To build an API with Lambda integrations, you can use Lambda proxy integration or Lambda non-proxy integration. 
 

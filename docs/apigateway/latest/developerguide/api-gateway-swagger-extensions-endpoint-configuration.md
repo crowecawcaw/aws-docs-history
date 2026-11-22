@@ -1,7 +1,6 @@
 
 
 # x-amazon-apigateway-endpoint-configuration object
-<a name="api-gateway-swagger-extensions-endpoint-configuration"></a>
 
 Specifies details of the endpoint configuration for an API. This extension is an extended property of the [OpenAPI Operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#operation-object) object. This object should be present in [top-level vendor extensions](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#specification-extensions) for Swagger 2.0. For OpenAPI 3.0, it should be present under the vendor extensions of the [Server object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#server-object).
 

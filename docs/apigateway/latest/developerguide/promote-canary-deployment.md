@@ -1,7 +1,6 @@
 
 
 # Promote a canary release
-<a name="promote-canary-deployment"></a>
 
 When you promote a canary release, the canary release replaces the current stage settings. Promoting a canary release does not disable the canary on the stage. To disable a canary, you must remove the canary settings on the stage. To promote a canary, do the following.
 + Reset the [deployment ID](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html#deploymentId) of the stage with the [deployment ID](https://docs.aws.amazon.com/apigateway/latest/api/API_Stage.html#canarySettings) settings of the canary. This updates the API snapshot of the stage with the snapshot of the canary, making the test version the production release as well.

@@ -1,7 +1,6 @@
 
 
 # Grant permissions for API Gateway to create a VPC link (legacy)
-<a name="grant-permissions-to-create-vpclink"></a>
 
 **Note**  
 The following implementation of private integrations uses VPC links V1. VPC links V1 are legacy resources. We recommend that you use [VPC links V2 for REST APIs](apigateway-vpc-links-v2.md).
@@ -17,7 +16,7 @@ For you or a user in your account to create and maintain a VPC link, you or the 
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

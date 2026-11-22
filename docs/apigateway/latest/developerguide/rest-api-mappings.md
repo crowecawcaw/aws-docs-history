@@ -1,7 +1,6 @@
 
 
 # Use API mappings to connect API stages to a custom domain name for REST APIs
-<a name="rest-api-mappings"></a>
 
 You use API mappings to connect API stages to a custom domain name. This sends traffic to your APIs through your custom domain name.
 
@@ -90,7 +89,7 @@ The following [create-api-mapping](https://docs.aws.amazon.com/cli/latest/refere
 **Note**  
 To create API mappings with multiple levels, you must use `apigatewayv2`.
 
-```
+```shell
 aws apigatewayv2 create-api-mapping \
     --domain-name api.example.com \
     --api-mapping-key v1/orders \
@@ -106,7 +105,7 @@ The following CloudFormation example creates an API mapping.
 **Note**  
 To create API mappings with multiple levels, you must use `AWS::ApiGatewayV2`.
 
-```
+```shell
 MyApiMapping:
   Type: 'AWS::ApiGatewayV2::ApiMapping'
   Properties:

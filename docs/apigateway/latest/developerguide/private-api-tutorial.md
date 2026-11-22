@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a private REST API
-<a name="private-api-tutorial"></a>
 
 In this tutorial, you create a private REST API. Clients can access the API only from within your Amazon VPC. The API is isolated from the public internet, which is a common security requirement.
 
@@ -116,7 +115,7 @@ You attach a [resource policy](apigateway-resource-policies.md) to your API that
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

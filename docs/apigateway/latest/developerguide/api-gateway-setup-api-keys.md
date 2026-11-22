@@ -1,7 +1,6 @@
 
 
 # Set up API keys for REST APIs in API Gateway
-<a name="api-gateway-setup-api-keys"></a>
 
 To set up API keys, do the following:
 + Configure API methods to require an API key.

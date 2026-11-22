@@ -1,7 +1,6 @@
 
 
 # Tutorial: Create a CRUD HTTP API with Lambda and DynamoDB
-<a name="http-api-dynamo-db"></a>
 
 In this tutorial, you create a serverless API that creates, reads, updates, and deletes items from a DynamoDB table. DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. This tutorial takes approximately 30 minutes to complete, and you can do it within the [AWS Free Tier](https://aws.amazon.com/free/).
 
@@ -362,21 +361,21 @@ To make sure that your API is working, you use [curl](https://curl.se).
 **To create or update an item**
 + Use the following command to create or update an item. The command includes a request body with the item's ID, price, and name.
 
-  ```
+  ```shell
   curl -X "PUT" -H "Content-Type: application/json" -d "{\"id\": \"123\", \"price\": 12345, \"name\": \"myitem\"}" https://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/items
   ```
 
 **To get all items**
 + Use the following command to list all items.
 
-  ```
+  ```shell
   curl https://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/items
   ```
 
 **To get an item**
 + Use the following command to get an item by its ID.
 
-  ```
+  ```shell
   curl https://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/items/{{123}}
   ```
 
@@ -384,13 +383,13 @@ To make sure that your API is working, you use [curl](https://curl.se).
 
 1. Use the following command to delete an item.
 
-   ```
+   ```shell
    curl -X "DELETE" https://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/items/{{123}}
    ```
 
 1. Get all items to verify that the item was deleted.
 
-   ```
+   ```shell
    curl https://{{abcdef123}}.execute-api.{{us-west-2}}.amazonaws.com/items
    ```
 

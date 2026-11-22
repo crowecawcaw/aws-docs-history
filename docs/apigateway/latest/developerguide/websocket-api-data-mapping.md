@@ -1,7 +1,6 @@
 
 
 # Set up data mapping for WebSocket APIs in API Gateway
-<a name="websocket-api-data-mapping"></a>
 
 *Data mapping* enables you to map data from a [route request](api-gateway-basic-concept.md#apigateway-definition-route-request) to a backend integration.
 
@@ -43,7 +42,7 @@ The following AWS CLI examples configure data mappings. For an example CloudForm
 
 The following [update-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-integration.html) command maps a client's `connectionId` to a `connectionId` header in the request to a backend integration:
 
-```
+```shell
 aws apigatewayv2 update-integration \
     --integration-id abc123 \
     --api-id a1b2c3d4 \ 
@@ -57,7 +56,7 @@ The following example maps an `authToken` query string parameter to an `authToke
 
 1. Use the following [update-route](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-route.html) command to add the `authToken` query string parameter to the route's request parameters.
 
-   ```
+   ```shell
    aws apigatewayv2 update-route --route-id 0abcdef \
        --api-id a1b2c3d4 \
        --request-parameters '{"route.request.querystring.authToken": {"Required": false}}'
@@ -65,7 +64,7 @@ The following example maps an `authToken` query string parameter to an `authToke
 
 1.  Use the following [update-integration](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/update-integration.html) command to map the query string parameter to the `authToken` header in the request to the backend integration.
 
-   ```
+   ```shell
    aws apigatewayv2 update-integration \
        --integration-id abc123 \
        --api-id a1b2c3d4 \
@@ -74,7 +73,7 @@ The following example maps an `authToken` query string parameter to an `authToke
 
 1. (Optional) If necessary, use the following [delete-route-request-parameter](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/delete-route-request-parameter.html) to delete the `authToken` query string parameter from the route's request parameters.
 
-   ```
+   ```shell
    aws apigatewayv2 delete-route-request-parameter \
        --route-id 0abcdef \
        --api-id a1b2c3d4 \

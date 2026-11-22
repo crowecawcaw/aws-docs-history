@@ -1,7 +1,6 @@
 
 
 # Set up route responses for WebSocket APIs in API Gateway
-<a name="apigateway-websocket-api-route-response"></a>
 
 WebSocket routes can be configured for two-way or one-way communication. API Gateway will not pass the backend response through to the route response, unless you set up a route response. 
 

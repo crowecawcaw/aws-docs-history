@@ -1,7 +1,6 @@
 
 
 # Maintain a usage plan for REST APIs in API Gateway
-<a name="api-gateway-usage-plan-manage-usage"></a>
 
 Maintaining a usage plan involves monitoring the used and remaining quotas over a given time period and, if needed, extending the remaining quotas by a specified amount. The following procedures describe how to monitor quotas.
 

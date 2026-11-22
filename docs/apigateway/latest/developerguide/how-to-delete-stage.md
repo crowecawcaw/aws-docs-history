@@ -1,7 +1,6 @@
 
 
 # Delete a stage
-<a name="how-to-delete-stage"></a>
 
 When you no longer need a stage, you can delete it to avoid paying for unused resources. The following steps show you how to use the API Gateway console to delete a stage.
 

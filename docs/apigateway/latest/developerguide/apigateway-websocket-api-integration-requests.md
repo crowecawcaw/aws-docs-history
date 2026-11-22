@@ -1,7 +1,6 @@
 
 
 # Set up a WebSocket API integration request in API Gateway
-<a name="apigateway-websocket-api-integration-requests"></a>
 
 Setting up an integration request involves the following:
 + Choosing a route key to integrate to the backend.
@@ -144,7 +143,7 @@ In Lambda proxy integration, API Gateway maps the entire client request to the i
 ------
 #### [ Input from the $connect route ]
 
-```
+```json
 {
     headers: {
       Host: 'abcd123.execute-api.us-east-1.amazonaws.com',
@@ -188,7 +187,7 @@ In Lambda proxy integration, API Gateway maps the entire client request to the i
 ------
 #### [ Input from the $disconnect route ]
 
-```
+```json
 {
     headers: {
       Host: 'abcd1234.execute-api.us-east-1.amazonaws.com',
