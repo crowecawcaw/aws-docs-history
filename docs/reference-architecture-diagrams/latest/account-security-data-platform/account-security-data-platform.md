@@ -1,7 +1,6 @@
 
 
 # Account and Security Strategy for the Serverless Data Platform
-<a name="account-security-data-platform"></a>
 
 Publication date: **December 21, 2020 ([Diagram history](#account-security-history))**
 
