@@ -1,7 +1,6 @@
 
 
 # Delete domain units in Amazon SageMaker Unified Studio
-<a name="delete-domain-unit"></a>
 
 **To delete a domain unit**
 

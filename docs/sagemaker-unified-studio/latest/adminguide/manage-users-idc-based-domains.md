@@ -1,7 +1,6 @@
 
 
 # Managing users for Identity Center-based domains
-<a name="manage-users-idc-based-domains"></a>
 
 Configure single sign-on (SSO) access to your Amazon SageMaker unified domain through IAM Identity Center or SAML federation. You can also manage root domain unit owners from this page.
 

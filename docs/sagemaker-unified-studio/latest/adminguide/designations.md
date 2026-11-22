@@ -1,7 +1,6 @@
 
 
 # Designations
-<a name="designations"></a>
 
 Designations are named permission sets that control which actions members can perform at the project level in Amazon SageMaker Unified Studio. The permissions in a designation are specific Amazon DataZone API actions that members can perform. You can use designations to define granular access controls for project members without modifying IAM policies. You can also optionally configure a layout customization for a designation to control which tools and pages appear in the left navigation pane of the Amazon SageMaker Unified Studio portal. Amazon SageMaker Unified Studio provides two types of designations:
 + **Managed designations** – AWS managed designations (Owner and Contributor) that you can't edit or delete. These designations provide baseline permission sets for common project roles.

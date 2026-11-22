@@ -1,7 +1,6 @@
 
 
 # AWS policy: SageMakerStudioFullAccess
-<a name="security-iam-awsmanpol-SageMakerStudioFullAccess"></a>
 
 This policy provides full access to Amazon SageMaker Unified Studio via the Amazon SageMaker management console.
 

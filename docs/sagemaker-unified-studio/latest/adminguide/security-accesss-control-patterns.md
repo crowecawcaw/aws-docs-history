@@ -1,7 +1,6 @@
 
 
 # Access control patterns Amazon SageMaker Unified Studio
-<a name="security-accesss-control-patterns"></a>
 
 Effective data management and governance are crucial to deriving value from data assets while maintaining compliance and security. In Amazon SageMaker Unified Studio, you can use projects to simplify development and collaboration. Projects contain one or more IAM roles, and there is at least one project role for each account in which the project has resources. You have access to all the tools, compute, data, and AIML assets this role has access to. When you access a project from Amazon SageMaker Unified Studio, it is equivalent to logging into an account in a specific region and assuming one of the project’s roles. There are two ways to manage what these roles have access to. First, you can simply add the IAM permissions directly to the project’s IAM role. Second, you can publish data and AI/ML assets to the Amazon SageMaker catalog and enable project members to subscribe to those assets. Both of these approaches are covered in this section.
 

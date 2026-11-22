@@ -1,7 +1,6 @@
 
 
 # Enable cross-account access for Amazon EMR on EKS using Amazon SageMaker Unified Studio associated domains
-<a name="enable-cross-account-access-using-associated-domains"></a>
 
  Amazon EMR on EKS virtual clusters require an Amazon EKS cluster residing in the same account. As an admin, you can make use of Amazon SageMaker Unified Studio associated domains to bring Amazon EKS clusters from any account and use with any Amazon SageMaker Unified Studio domain. 
 

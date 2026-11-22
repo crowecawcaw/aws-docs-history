@@ -1,7 +1,6 @@
 
 
 # Domains in Amazon SageMaker Unified Studio
-<a name="working-with-domains"></a>
 
 In Amazon SageMaker Unified Studio, a domain is the organizing entity for connecting together your assets, users, and their projects. With Amazon SageMaker unified domains, you have the flexibility to reflect the data and analytics needs of your organizational structure, whether it's creating a single Amazon SageMaker unified domain for your enterprise or multiple domains for different business units.
 

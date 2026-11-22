@@ -1,7 +1,6 @@
 
 
 # Default S3 storage
-<a name="configuring-s3-storage"></a>
 
 Every project in Amazon SageMaker Unified Studio includes S3 shared storage by default. No additional configuration is required to use this storage option.
 

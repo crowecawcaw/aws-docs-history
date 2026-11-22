@@ -1,7 +1,6 @@
 
 
 # Designation permissions
-<a name="designation-permissions"></a>
 
 Amazon SageMaker Unified Studio provides managed designations, and domain administrators can create custom designations. The following sections describe the permissions available for custom designations, including the underlying APIs that each permission grants, and the Cedar policies that define the managed designations.
 
@@ -54,6 +53,8 @@ The Notebooks and Querybooks category governs both notebooks and querybooks. The
 <a name="managed-designation-permissions"></a>
 
 AWS provides two managed designations, Owner and Contributor, that you cannot edit or delete. A Cedar policy defines each managed designation. The following sections show the Cedar policy for each designation.
+
+**Owner**
 
 ```
 @name("ProjectOwner-1")
@@ -420,6 +421,8 @@ permit (
     resource
 );
 ```
+
+**Contributor**
 
 ```
 @name("ProjectContributor-1")

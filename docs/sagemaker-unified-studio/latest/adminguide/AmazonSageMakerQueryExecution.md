@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerQueryExecution
-<a name="AmazonSageMakerQueryExecution"></a>
 
 This role is used while running a query execution. AWS LakeFormation assumes this role to vend credentials needed by Amazon Athena during query execution.
 
@@ -14,7 +13,7 @@ The default `AmazonSageMakerQueryExecution` role has the following trust policy 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -47,7 +46,7 @@ If you are using your own query execution role (instead of this default AmazonSa
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Configuring user background sessions for Amazon EMR on EKS
-<a name="configuring-user-background-sessions-for-emr-on-eks"></a>
 
 **Warning**  
  When user background sessions is enabled for Amazon EMR on EKS, Amazon SageMaker Unified Studio will not terminate interactive sessions. All interactive sessions will be only terminated once all queries are completed and the compute session has timed out. 

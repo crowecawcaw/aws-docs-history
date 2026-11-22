@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Unified Studio updates to AWS managed policies
-<a name="security-iam-awsmanpol-updates"></a>
 
  
 

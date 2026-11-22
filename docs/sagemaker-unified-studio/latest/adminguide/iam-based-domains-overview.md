@@ -1,7 +1,6 @@
 
 
 # Overview of IAM-based domains
-<a name="iam-based-domains-overview"></a>
 
 IAM-based domains provide the following capabilities:
 + Setup using existing IAM roles and resources

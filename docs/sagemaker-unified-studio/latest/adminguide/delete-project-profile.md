@@ -1,7 +1,6 @@
 
 
 # Delete project profiles
-<a name="delete-project-profile"></a>
 
  Complete the following procedure to delete a project profile for your domain.
 

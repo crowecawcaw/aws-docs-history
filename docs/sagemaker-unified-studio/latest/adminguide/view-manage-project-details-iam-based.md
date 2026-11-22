@@ -1,7 +1,6 @@
 
 
 # View and Manage Project Details
-<a name="view-manage-project-details-iam-based"></a>
 
 Project details include storage configuration, execution role assignments, member information, and networking settings that determine how resources within the project operate.
 

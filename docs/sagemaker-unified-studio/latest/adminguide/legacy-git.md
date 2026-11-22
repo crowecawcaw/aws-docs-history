@@ -1,7 +1,6 @@
 
 
 # Legacy experience and migration
-<a name="legacy-git"></a>
 
 This section is for administrators managing projects that use the previous storage and Git connection experience. If you are configuring a new domain or have already migrated, see [Git connections](git-connections.md) for the current documentation. Below you will find the documentation for the previous force-push experience.
 

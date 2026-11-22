@@ -1,7 +1,6 @@
 
 
 # Create an account pool
-<a name="account-pools-create"></a>
 
 To use the AWS CLI to create an account pool, you run the **create-account-pool** command and provide the source. 
 + **For Lambda handler sources**: Provide the Lambda function and an IAM role with permissions to invoke the lambda, and trusts the `datazone.amazonaws.com` service principal. 

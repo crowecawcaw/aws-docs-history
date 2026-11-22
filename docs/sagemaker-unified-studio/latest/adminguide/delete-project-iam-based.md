@@ -1,7 +1,6 @@
 
 
 # Delete a Project
-<a name="delete-project-iam-based"></a>
 
 Before deleting a project, ensure that all important data and resources have been backed up or migrated, as the deletion process removes all project content permanently.
 

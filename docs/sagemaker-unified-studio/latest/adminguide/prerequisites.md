@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="prerequisites"></a>
 
 To get started with a new Amazon SageMaker Unified Studio domain, choose an IAM role which will be used to administer the Amazon SageMaker Unified Studio domain. This is the role you will use to login and setup Amazon SageMaker Unified Studio as an administrator.
 

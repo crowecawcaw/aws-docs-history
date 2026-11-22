@@ -1,7 +1,6 @@
 
 
 # Setting up Amazon SageMaker Unified Studio
-<a name="setting-up"></a>
 
 To configure Amazon SageMaker Unified Studio with authentication through AWS IAM Identity Center, perform these steps.
 

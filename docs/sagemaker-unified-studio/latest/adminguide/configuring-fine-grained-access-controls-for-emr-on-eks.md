@@ -1,7 +1,6 @@
 
 
 # Configuring fine-grained access controls for Amazon EMR on EKS
-<a name="configuring-fine-grained-access-controls-for-emr-on-eks"></a>
 
  Amazon EMR on EKS requires additional IAM permissions to enable fine-grained access controls. You must attach the following inline IAM role policy to the IAM role created as the project user role. 
 

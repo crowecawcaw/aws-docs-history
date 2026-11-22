@@ -1,7 +1,6 @@
 
 
 # Assign authorization policies to users and groups within an Amazon SageMaker Unified Studio domain unit
-<a name="assign-authorization-policies-to-users-in-domain-unit"></a>
 
 In an Amazon SageMaker Unified Studio domain unit, you can assign the following authorization policies to your users and groups to grant them various authorization permissions within this domain unit:
 + Domain unit creation policy

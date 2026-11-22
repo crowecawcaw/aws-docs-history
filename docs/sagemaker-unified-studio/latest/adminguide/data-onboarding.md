@@ -1,7 +1,6 @@
 
 
 # Onboarding data in Amazon SageMaker Unified Studio
-<a name="data-onboarding"></a>
 
 Amazon SageMaker Unified Studio supports the following key capabilities for Amazon SageMaker Lakehouse data management and governance.
 + Automated onboarding of Amazon SageMaker Lakehouse: you can automatically ingest the metadata of all datasets in your Amazon SageMaker Lakehouse into the catalog. This removes the need for manually granting permissions, creating metadata ingestion jobs, or configuring scripts. By onboarding assets in a single step, administrators can immediately make this data discoverable and ready for governance, analysis, and collaboration within Amazon SageMaker Unified Studio.

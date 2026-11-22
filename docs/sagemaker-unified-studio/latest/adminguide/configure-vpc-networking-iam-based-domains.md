@@ -1,7 +1,6 @@
 
 
 # Network settings
-<a name="configure-vpc-networking-iam-based-domains"></a>
 
 When you configure VPC networking for your domain, all projects created after the configuration will automatically use the specified VPC. You can choose to update existing projects that do not have a VPC configured — see [Update VPC configuration and projects](update-individual-projects-vpc.md).
 

@@ -1,7 +1,6 @@
 
 
 # View the list of accounts in an account pool
-<a name="account-pools-list-accounts"></a>
 
 To use the AWS CLI to view the accounts in an account pool where the source is a list of static accounts, use the `list-accounts-in-account-pool` command. 
 + Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI to run the `list-accounts-in-account-pool` command with the following format, where the domain ID is a required argument.

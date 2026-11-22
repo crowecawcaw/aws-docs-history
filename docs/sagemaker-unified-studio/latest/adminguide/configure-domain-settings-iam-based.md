@@ -1,7 +1,6 @@
 
 
 # Configure Domain Settings
-<a name="configure-domain-settings-iam-based"></a>
 
 The Settings section in domain administration provides access to domain-level configuration options that apply across all projects in your Amazon SageMaker Unified Studio domain. Domain administrators can view domain details and configure networking settings.
 

@@ -1,7 +1,6 @@
 
 
 # Generative AI assistance in Amazon SageMaker Unified Studio
-<a name="amazonq"></a>
 
 Amazon SageMaker Unified Studio provides generative AI assistance through Amazon Q and the SageMaker Data Agent. Amazon Q provides conversational AI chat and command line tools in JupyterLab and Code Editor. The SageMaker Data Agent provides intelligent assistance for code generation, error diagnosis, and data analysis recommendations in Notebooks and Query Editor.
 
@@ -22,7 +21,7 @@ To disable Amazon Q in your domain, you must update your permissions to use deny
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

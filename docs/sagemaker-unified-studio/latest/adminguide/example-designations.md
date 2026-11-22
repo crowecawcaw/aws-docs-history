@@ -1,7 +1,6 @@
 
 
 # Example designations
-<a name="example-designations"></a>
 
 The following example designations show common permission sets that you can use as starting points when you create custom designations. Each example describes a persona, the purpose of that persona, and the permissions to select in the visual permission selector when you create the designation. These are examples only. Adjust the permissions to match your organization's access control requirements. When you create a designation, you can also start from a quick-start template (Steward, Consumer, or Viewer) that pre-selects a set of permissions that you can then customize. For the steps to create a designation, see [Create designations](create-designations.md).
 

@@ -1,7 +1,6 @@
 
 
 # Custom blueprints as Tooling
-<a name="tooling-custom-blueprints"></a>
 
 In Amazon SageMaker Unified Studio, the managed Tooling blueprint provisions a fixed set of resources for every project. When your organization requires a different foundation, you can use a custom blueprint as a project's Tooling environment instead. Assign the `TOOLING` category when you create a custom blueprint, or update an existing custom blueprint to comply with the minimum Tooling requirements in [Template requirements](#tooling-template-requirements). Amazon SageMaker Unified Studio accepts custom blueprints categorized as `TOOLING` as the first environment deployed in a project profile.
 
@@ -54,7 +53,7 @@ The `s3://` URI that other environments in the project resolve their own paths a
 
 Suffix each export name with the project ID and the scope name, which keeps the name unique within an AWS account and AWS Region and matches the name that other blueprints import. Declare `datazoneScopeName` with a default of `dev`.
 
-```
+```yaml
 Outputs:
   S3BucketArn:
     Value: !Sub '${ProjectBucket.Arn}/'
@@ -81,7 +80,7 @@ The `CreateEnvironmentBlueprint` API requires an Amazon S3 URL for the AWS Cloud
 
 Register the template as a blueprint with `CreateEnvironmentBlueprint`, passing `TOOLING` as the `blueprintCategory`. Optionally, you can declare additional CloudFormation parameters mapped to user parameters when you create a blueprint.
 
-```
+```bash
 aws datazone create-environment-blueprint \
   --domain-identifier {{domain-id}} \
   --name {{blueprint-name}} \
@@ -107,7 +106,7 @@ By default, the blueprint is disabled after it is created. To enable the bluepri
 **Note**  
 Amazon SageMaker Unified Studio deploys your template under the blueprint's provisioning role, so that role's trust policy must let Amazon SageMaker Unified Studio assume it with `sts:AssumeRole` and pass your user context with `sts:TagSession` for the `datazone.amazonaws.com` service principal. For the policy, see [Trust policy for the provisioning role](custom-blueprint.md#custom-blueprint-trust-policy).
 
-```
+```bash
 aws datazone put-environment-blueprint-configuration \
   --domain-identifier {{domain-id}} \
   --environment-blueprint-identifier {{blueprint-id}} \
@@ -123,7 +122,7 @@ aws datazone put-environment-blueprint-configuration \
 ------
 #### [ IAM-based domain ]
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 
 Parameters:
@@ -253,7 +252,7 @@ Outputs:
 ------
 #### [ Identity Center-based domain ]
 
-```
+```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 
 Parameters:
@@ -463,7 +462,7 @@ Give the Tooling environment a `deploymentMode` of `ON_CREATE` and a `deployment
 **Note**  
 A profile can target an account pool instead of a named account. For how account pools work and how to create one, see [Account pools in Amazon SageMaker Unified Studio](account-pools.md).
 
-```
+```bash
 aws datazone create-project-profile \
   --domain-identifier {{domain-id}} \
   --name {{profile-name}} \
@@ -499,7 +498,7 @@ Call `CreateProject` and reference the profile. Supply user parameter values und
 **Note**  
 You can create a project with a project profile that uses a custom Tooling blueprint only by using the API. You can't create this type of project through the SageMaker user interface.
 
-```
+```bash
 aws datazone create-project \
   --domain-identifier {{domain-id}} \
   --name {{project-name}} \
@@ -516,7 +515,7 @@ aws datazone create-project \
 
 In an IAM-based domain, also pass the role that becomes the project role. Your template receives this ARN through the reserved parameter `datazoneEnvironmentProjectExecutionRoleArn`. In an Identity Center-based domain, omit it, because your template creates the project role itself.
 
-```
+```bash
 aws datazone create-project \
   --domain-identifier {{domain-id}} \
   --name {{project-name}} \

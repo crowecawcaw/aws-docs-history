@@ -1,7 +1,6 @@
 
 
 # Disable or enable project profiles
-<a name="disable-enable-project-profile"></a>
 
  Complete the following procedure to disable or enable a project profile for your domain.
 

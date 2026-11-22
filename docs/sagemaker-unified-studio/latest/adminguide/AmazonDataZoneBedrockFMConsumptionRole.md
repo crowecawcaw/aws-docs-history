@@ -1,7 +1,6 @@
 
 
 # AmazonDataZoneBedrockFMConsumptionRole
-<a name="AmazonDataZoneBedrockFMConsumptionRole"></a>
 
 A consumption role is required for each Amazon Bedrock model that you want to enable in the playground for non-builders. Amazon SageMaker Unified Studio can create a consumption role per model by default or you have the option to configure a single existing consumption role for all models.
 
@@ -14,7 +13,7 @@ The default `AmazonDataZoneBedrockFMConsumptionRole` has the following inline po
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -47,7 +46,7 @@ The default `AmazonDataZoneBedrockFMConsumptionRole` has the following trust pol
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

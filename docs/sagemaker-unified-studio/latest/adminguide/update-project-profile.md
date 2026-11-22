@@ -1,7 +1,6 @@
 
 
 # Update project profiles
-<a name="update-project-profile"></a>
 
  Complete the following procedure to update a project profile for your domain.
 

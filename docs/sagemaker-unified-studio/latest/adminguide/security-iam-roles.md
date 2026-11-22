@@ -1,7 +1,6 @@
 
 
 # IAM roles for Amazon SageMaker Unified Studio
-<a name="security-iam-roles"></a>
 
 **Topics**
 + [AmazonSageMakerDomainExecution role](AmazonSageMakerDomainExecution.md)

@@ -1,7 +1,6 @@
 
 
 # KMS Permissions for resources provisioned by Amazon SageMaker Unified Studio
-<a name="sagemaker-unified-studio-provisioned-resources-key-permissions"></a>
 
 You can encrypt the resources provisioned by Amazon SageMaker Unified Studio with your customer managed AWS KMS keys. You can do this by adding to your default KMS key policy the permissions that you can find in the following policy for the Tooling blueprint config.
 
@@ -10,7 +9,7 @@ You can encrypt the resources provisioned by Amazon SageMaker Unified Studio wit
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Id": "key-policy-for-smus",

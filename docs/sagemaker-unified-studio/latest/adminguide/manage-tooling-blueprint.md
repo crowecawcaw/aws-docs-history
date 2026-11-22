@@ -1,7 +1,6 @@
 
 
 # Manage Tooling blueprint parameters
-<a name="manage-tooling-blueprint"></a>
 
 The Tooling blueprint provisions infrastructure for each project, including IAM roles, security groups, and an Amazon SageMaker Unified Studio domain. You can customize the blueprint's behavior by modifying its parameters, such as idle timeout settings, EBS volume sizes, network isolation, and permissions boundaries. Changes to blueprint parameters apply to all new projects created under the blueprint.
 
@@ -14,7 +13,7 @@ This topic covers the following tasks:
 ## Configure Tooling blueprint parameters
 <a name="configure-tooling-blueprint-parameters"></a>
 
-1. Navigate to the Amazon SageMaker management console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone) and use the region selector in the top navigation bar to choose the appropriate AWS Region.
+1. Navigate to the [Amazon SageMaker management console](https://console.aws.amazon.com/datazone), and use the region selector in the top navigation bar to choose the appropriate AWS Region.
 
 1. Choose **View domains** and choose the domain's name from the list. The name is a hyperlink.
 
@@ -65,7 +64,7 @@ Before you configure a permissions boundary, verify that you have the following:
 
 1. Retrieve your domain ID by running the following command:
 
-   ```
+   ```bash
    aws datazone list-domains \
        --region {{region}} \
        --query "items[?name=='{{domain-name}}'].id | [0]" \
@@ -74,7 +73,7 @@ Before you configure a permissions boundary, verify that you have the following:
 
 1. Retrieve the Tooling blueprint ID by running the following command:
 
-   ```
+   ```bash
    aws datazone list-environment-blueprints \
        --domain-identifier {{domain-id}} \
        --managed \
@@ -85,7 +84,7 @@ Before you configure a permissions boundary, verify that you have the following:
 
 1. Retrieve the current blueprint configuration by running the following command:
 
-   ```
+   ```bash
    aws datazone get-environment-blueprint-configuration \
        --domain-identifier {{domain-id}} \
        --environment-blueprint-identifier {{tooling-bp-id}} \
@@ -100,7 +99,7 @@ Before you configure a permissions boundary, verify that you have the following:
 
 1. Update the blueprint configuration to include `PermissionsBoundaryArn` in the regional parameters by running the following command:
 
-   ```
+   ```bash
    aws datazone put-environment-blueprint-configuration \
        --domain-identifier {{domain-id}} \
        --environment-blueprint-identifier {{tooling-bp-id}} \
@@ -123,7 +122,7 @@ The `put-environment-blueprint-configuration` API operates in overwrite mode. It
 
 1. Verify the configuration by running the following command:
 
-   ```
+   ```bash
    aws datazone get-environment-blueprint-configuration \
        --domain-identifier {{domain-id}} \
        --environment-blueprint-identifier {{tooling-bp-id}} \

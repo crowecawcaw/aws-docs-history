@@ -1,7 +1,6 @@
 
 
 # Authorization in Amazon SageMaker Unified Studio
-<a name="security-authorization"></a>
 
 Amazon SageMaker Unified Studio’s interface consists of a management console within AWS and an off-console web application.
 

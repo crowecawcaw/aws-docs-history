@@ -1,7 +1,6 @@
 
 
 # Manage blueprint authorization
-<a name="authorization-for-blueprints"></a>
 
 You can perform the following procedure to manage the authorization configuration of a blueprint. 
 

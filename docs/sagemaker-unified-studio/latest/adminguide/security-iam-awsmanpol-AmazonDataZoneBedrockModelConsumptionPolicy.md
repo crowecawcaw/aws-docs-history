@@ -1,7 +1,6 @@
 
 
 # AWS policy: AmazonDataZoneBedrockModelConsumptionPolicy
-<a name="security-iam-awsmanpol-AmazonDataZoneBedrockModelConsumptionPolicy"></a>
 
 Provides permissions to consume Amazon Bedrock models, including invoking Amazon Bedrock application inference profile created for particular Amazon DataZone domain.
 

@@ -1,7 +1,6 @@
 
 
 # Regions where Amazon SageMaker Unified Studio is supported
-<a name="supported-regions"></a>
 
 In the current release, Amazon SageMaker Unified Studio is supported in the following AWS regions:
 + Asia Pacific (Tokyo)

@@ -1,7 +1,6 @@
 
 
 # Cross-account and cross-region Git configurations
-<a name="cross-account-git"></a>
 
 If your Amazon SageMaker Unified Studio domain uses Git connections from a different AWS account, you must configure AWS Resource Access Manager (RAM) sharing and ensure that the appropriate IAM permissions are in place.
 

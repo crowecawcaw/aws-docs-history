@@ -1,7 +1,6 @@
 
 
 # AWS policy: SageMakerStudioAdminIAMDefaultExecutionPolicy
-<a name="security-iam-awsmanpol-SageMakerStudioAdminIAMDefaultExecutionPolicy"></a>
 
 This is the administrative execution policy for using IAM roles with Amazon SageMaker Unified Studio. This policy grants administrative access to provision, manage, and access resources in your account. This does not grant access to data resources.
 + Amazon DataZone permissions are required to manage Amazon DataZone resources such as Domain and Project.

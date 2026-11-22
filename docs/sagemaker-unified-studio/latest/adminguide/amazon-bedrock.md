@@ -1,7 +1,6 @@
 
 
 # Amazon Bedrock in SageMaker Unified Studio
-<a name="amazon-bedrock"></a>
 
 Amazon Bedrock in SageMaker Unified Studio enables you to easily build and scale generative AI applications. Amazon Bedrock in SageMaker Unified Studio provides a web interface that allow users to interact with [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) foundation models and use Amazon Bedrock tools, such as Agents, Guardrails, Prompts, Flows, Evaluation, and Functions in a seamless unified fashion. Users can interact with models in a generative AI playground or collaborate on developing generative AI applications in projects. 
 

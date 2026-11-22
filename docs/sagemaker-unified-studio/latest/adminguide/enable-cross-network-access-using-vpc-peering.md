@@ -1,7 +1,6 @@
 
 
 # Enable cross-network access for Amazon SageMaker Unified Studio using VPC peering connections
-<a name="enable-cross-network-access-using-vpc-peering"></a>
 
 **Note**  
  If your Amazon SageMaker Unified Studio domain and your Amazon EKS cluster are configured with the same Amazon VPC, you can skip the steps in this section. 

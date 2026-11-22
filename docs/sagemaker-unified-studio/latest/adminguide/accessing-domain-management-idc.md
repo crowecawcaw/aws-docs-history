@@ -1,7 +1,6 @@
 
 
 # Accessing domain management
-<a name="accessing-domain-management-idc"></a>
 
 Access to domain management requires an administration project named `admin-project-{{accountID}}` to be present in your domain. Amazon SageMaker Unified Studio creates this project automatically, and it controls who can access domain management.
 
@@ -39,7 +38,7 @@ If an administration project (for example, `admin-project-{{accountID}}`) alread
 <a name="setup-access-admin-project-not-exists"></a>
 
 If an administration project does not exist in your domain, take the following steps to create it and set up access to domain management:
-+ In the AWS SageMaker console on the domain details page, choose the **Domain management** button in the banner at the top. Choose **Set up** to create the administration project. This begins the process to create the `admin-project-{{accountID}}` project for your domain. A banner confirmation appears when domain management is successfully set up. You can now access domain management using the methods described in [Accessing domain management](#accessing-domain-management-idc).
-+ You can also set up access to domain management from the Tooling blueprint. On the **Provisioning** tab, choose **Create** to create the administration project. After the project is successfully created, you can access domain management using the methods described in [Accessing domain management](#accessing-domain-management-idc).  
++ In the AWS SageMaker console on the domain details page, choose the **Domain management** button in the banner at the top. Choose **Set up** to create the administration project. This begins the process to create the `admin-project-{{accountID}}` project for your domain. A banner confirmation appears when domain management is successfully set up. You can now access domain management using the methods described in [Accessing domain management](accessing-domain-management-idc.md).
++ You can also set up access to domain management from the Tooling blueprint. On the **Provisioning** tab, choose **Create** to create the administration project. After the project is successfully created, you can access domain management using the methods described in [Accessing domain management](accessing-domain-management-idc.md).  
 ![Create administration project option in the Tooling blueprint Provisioning tab](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/CreateProjectConsole.png)
 + From the Amazon SageMaker Unified Studio portal, a banner displays for root domain owners with an action button to domain management. If the administration project has not been created, a popup directs you to the AWS Management Console to create the project using the steps above.

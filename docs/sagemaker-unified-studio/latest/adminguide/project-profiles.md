@@ -1,7 +1,6 @@
 
 
 # Project profiles in Amazon SageMaker Unified Studio
-<a name="project-profiles"></a>
 
 In Amazon SageMaker Unified Studio, a project profile defines an uber template for projects in your Amazon SageMaker unified domains. A project profile is a collection of [blueprints](blueprints.md) which are configurations used to create projects. A project profile can define if a particular blueprint is enabled during the creation of the project, or available later for the project users to enable on-demand.
 

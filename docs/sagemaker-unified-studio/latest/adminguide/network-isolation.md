@@ -1,7 +1,6 @@
 
 
 # Network isolation in Amazon SageMaker Unified Studio
-<a name="network-isolation"></a>
 
 Amazon SageMaker Unified Studio can be configured to limit from where your data is accessed and exposure of that data over the public internet. You can interact with Amazon SageMaker Unified Studio, and dependent AWS services, directly through [interface endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in your Amazon VPC instead of connecting over the internet. When using Amazon VPC interface endpoints, communication between your Amazon VPC and Amazon SageMaker Unified Studio happens within the AWS network.
 
@@ -31,12 +30,14 @@ This level of network isolation means:
 **Important**  
 Amazon Athena for Apache Spark does not currently support Amazon VPC. If you require Amazon VPC connectivity for your Spark workloads, use Amazon EMR or AWS Glue instead.
 
+**Disable Amazon Athena Spark in Amazon VPC-enabled domains**
+
 If your organization requires all compute traffic to stay within the Amazon VPC, you can disable Amazon Athena Spark by using the following controls.
 + **Account or organization-level SCP** — Apply a service control policy (SCP) that denies `athena:StartSession`.
 
   The following IAM policy denies this action for all Amazon Athena workgroups.
 
-  ```
+  ```json
   {
       "Version": "2012-10-17", 		 	 	 
       "Statement": [
@@ -60,6 +61,8 @@ If your organization requires all compute traffic to stay within the Amazon VPC,
 
 If Amazon VPC endpoints are missing or misconfigured, network calls to Amazon SageMaker Unified Studio and other AWS services route over the public internet when that network path is available.
 
+**Step 1 - Deploy Amazon VPC endpoints**
+
 The Amazon SageMaker Unified Studio portal calls the following AWS services, each of which supports AWS PrivateLink Amazon VPC endpoints. The network traffic between the Amazon SageMaker Unified Studio portal and AWS services stays within the AWS network when the Amazon VPC endpoints are created in the Amazon VPC.
 
 Create the Amazon VPC endpoint for each required AWS service API and any optional AWS service APIs from the tables below. To create a Amazon VPC endpoint see, [Access an AWS service using an interface Amazon VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html).
@@ -69,6 +72,8 @@ For the list of AWS Services with support for AWS PrivateLink see, [AWS services
 Amazon VPC endpoint considerations:
 + For high availability it is recommended that Amazon VPC endpoints be deployed to multiple Availability Zones (AZ). The recommended minimum number of Availability Zones is two.
 + Refer to [AWS PrivateLink pricing](https://aws.amazon.com/privatelink/pricing/) to understand the costs associated with Amazon VPC endpoints across Availability Zones.
+
+**Required Amazon VPC endpoints**
 
 These Amazon VPC endpoints are required for Amazon SageMaker Unified Studio and supporting services to function correctly.
 
@@ -87,6 +92,8 @@ These Amazon VPC endpoints are required for Amazon SageMaker Unified Studio and 
 | AWS Security Token Service | com.amazonaws.<region>.sts<br />com.amazonaws.<region>.sts-fips | 
 | AWS Systems Manager | com.amazonaws.<region>.ssm<br />com.amazonaws.<region>.ssmmessages | 
 
+**Optional Amazon VPC endpoints**
+
 Create these Amazon VPC endpoints if you plan to deploy Amazon SageMaker Unified Studio projects that include blueprints using the services listed below.
 
 
@@ -104,13 +111,15 @@ Create these Amazon VPC endpoints if you plan to deploy Amazon SageMaker Unified
 | AWS CodeCommit | com.amazonaws.<region>.codecommit<br />com.amazonaws.<region>.git-codecommit<br />com.amazonaws.<region>.codecommit-fips<br />com.amazonaws.<region>.git-codecommit-fips | 
 | AWS CodeConnections | com.amazonaws.<region>.codeconnections.api<br />com.amazonaws.<region>.codestar-connections.api | 
 
+**Step 2: Create an IAM policy**
+
 Create an IAM policy that only allows the Amazon SageMaker Unified Studio Portal web client to call AWS service APIs through VPC endpoints deployed in an allowed VPC(s). The global context condition key [aws:SourceVpc](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcevpc) in the IAM policy can be used to enforce this access for AWS service callers ([Amazon SageMaker domain execution role](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/AmazonSageMakerDomainExecution.html), IAM user or role), and [AWS Organizations service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html).
 
 This policy denies the Amazon SageMaker Unified Studio portal's access to all AWS service APIs when the API calls do not originate from within an allowed Amazon VPC. The `Deny` policy is applied when all of the three policy `Conditions` evaluate to `true`. You will need to replace the example VPC ID with your VPC ID or VPC ID list.
 
 This policy may need to be modified if the domain execution role credentials are used in other contexts, or if this policy is applied to a role other than the domain execution role.
 
-```
+```json
 {
     "Version": "2012-10-17", 		 	 	 
     "Statement": [
@@ -139,7 +148,7 @@ This policy may need to be modified if the domain execution role credentials are
 
 The following are details about the policy conditions:
 
-```
+```json
 "StringNotEquals": {
     "aws:SourceVpc": [
         "vpc-1234567890abcdef0"
@@ -149,17 +158,19 @@ The following are details about the policy conditions:
 
 This condition evaluates to `true` when the API call originates from a network location other than a VPC endpoint deployed in one of the allowed source Amazon VPC IDs.
 
-```
+```json
 "StringLike": { "aws:userid": "*:user-*" }
 ```
 
 This condition evaluates to `true` for the domain execution role credentials issued to the Amazon SageMaker Unified Studio portal, so that the `Deny` policy is only applied for portal users. For example, the condition evaluates to `false` and the `Deny` policy is not applied when the Amazon SageMaker Unified Studio catalog service executes tasks that use the domain execution role.
 
-```
+```json
 "BoolIfExists": { "aws:ViaAWSService": "false" }
 ```
 
 This condition evaluates to `true` when the API caller is not an AWS service (`aws:ViaAWSService` is `false`), which is the case for the Amazon SageMaker Unified Studio portal. When an AWS service calls another AWS service on behalf of the original caller, `aws:ViaAWSService` is `true` and the condition evaluates to `false` - allowing the AWS service call to another AWS service to succeed.
+
+**Step 3: Attach the custom policy**
 
 Attach the new custom policy to the SageMaker AI domain execution role. If SageMaker AI created this role for you it will be called [AmazonSageMakerDomainExecution](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/AmazonSageMakerDomainExecution.html). The Amazon SageMaker Unified Studio portal uses the domain execution role for the Amazon SageMaker Unified Studio domain to call all AWS services. When a DENY by source Amazon VPC policy is added to the domain execution role, Amazon SageMaker Unified Studio portal calls to AWS service APIs from outside the allowed Amazon VPC will fail with `Access denied`. This policy can also be applied to an IAM user, IAM role or to an AWS Organizations service control policy.
 
@@ -167,6 +178,8 @@ Attach the new custom policy to the SageMaker AI domain execution role. If SageM
 <a name="public-internet-access"></a>
 
 Public internet access is required to load Amazon SageMaker Unified Studio clients and for client operations that do not handle customer data.
+
+**Public internet access for Amazon SageMaker Unified Studio portal**
 
 Running the Amazon SageMaker Unified Studio portal web client requires public internet access to download client assets (portal web application, plugins, and user interface components) and to call client management APIs. Customer data is not transmitted through these calls. These endpoints are used by the Amazon SageMaker Unified Studio portal.
 
@@ -176,12 +189,16 @@ Running the Amazon SageMaker Unified Studio portal web client requires public in
 | Portal asset delivery | https://<domain\_id>.sagemaker.<region>.on.aws The Amazon SageMaker Unified Studio portal URL for your domain. <br />https://\*.cdn.console.awsstatic.com<br />https://\*.cdn.uis.awsstatic.com<br />https://\*.shortbread.aws.dev<br />https://public.lotus.awt.aws.a2z.com | 
 | Portal client APIs (Cookie management, customer feedback, UI business and operational metrics, etc.) | https://\*.console.api.aws<br />https://\*.console.aws.a2z.com<br />https://\*.execute-api.<region>.amazonaws.com<br />https://\*.sagemaker.aws<br />https://\*.sagemaker.aws.dev<br />https://agent.datazone.<region>.api.aws<br />https://monitoring.<region>.amazonaws.com<br />https://sagemaker-unified-studio.<region>.api.aws | 
 
+**Public internet access for IAM Identity Center login to Amazon SageMaker Unified Studio portal**
+
 When the Amazon SageMaker Unified Studio portal web client logs into a domain using AWS Identity and Access Management Identity Center (IDC) Single Sign-On (IAM Identity Center), public internet access is required. These endpoints are used by the Amazon SageMaker Unified Studio portal.
 
 
 | Action | Endpoint | 
 | --- | --- | 
 | AWS Identity and Access Management Identity Center (IDC), Single Sign-On (IAM Identity Center) | https://assets.sso-portal.<region>.amazonaws.com<br />https://d35uxhjf90umnp.cloudfront.net<br />https://oidc.<region>.amazonaws.com<br />https://d-12345abcde.awsapps.com IDC IAM Identity Center application URL for the Amazon SageMaker Unified Studio domain <br />https://portal.sso.<region>.amazonaws.com<br />https://log.sso-portal.<region>.amazonaws.com<br />https://<region>.signin.aws | 
+
+**Public internet access for Amazon SageMaker Unified Studio on AWS console**
 
 Running the Amazon SageMaker Unified Studio console web client requires public internet access to download client assets (console web application, plugins, and user interface components) and to call AWS console platform APIs. Customer data is not transmitted through these calls. These endpoints are used by the AWS console.
 
@@ -196,6 +213,8 @@ Running the Amazon SageMaker Unified Studio console web client requires public i
 | Amazon Q for console | https://conversational-experience-worker.widget.console.aws.amazon.com | 
 | Console unified search | https://unifiedsearch.amazonaws.com/<br />https://\*.unifiedsearch.amazonaws.com | 
 | Console platform APIs | https://account.\*.api.aws<br />https://\*.console.api.aws<br />https://\*.console-api.aws.amazon.com<br />https://\*.console.aws.a2z.com<br />https://freetier.us-east-1.api.aws Endpoint is in us-east-1 only.  For regions in the [AWS Regions (partition)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)  | 
+
+**Public internet access for IAM login to Amazon SageMaker Unified Studio portal**
 
 Amazon SageMaker Unified Studio domains that use IAM login for the Portal web client require the Amazon SageMaker Unified Studio Console. See the public internet access requirements for the Amazon SageMaker Unified Studio on AWS console above.
 
@@ -221,6 +240,8 @@ A public subnet has a route to an internet gateway (IGW), which allows resources
 **Note**  
 Existing instances in the subnet retain their public IP addresses after you make this change. Any services that rely on inbound internet access stop working. To maintain outbound access for package installations and AWS API calls, set up a NAT gateway or Amazon VPC endpoints before converting the subnet.
 
+**To convert a public subnet to a private subnet**
+
 1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
 1. In the navigation pane, choose **Route tables**.
@@ -235,6 +256,8 @@ Existing instances in the subnet retain their public IP addresses after you make
 
 1. Choose **Save changes**.
 
+**To disable auto-assign public IP**
+
 1. In the navigation pane, choose **Subnets**.
 
 1. Select your subnet.
@@ -247,6 +270,8 @@ Existing instances in the subnet retain their public IP addresses after you make
 
 (Optional) If instances in the subnet need outbound internet access, add a NAT gateway route. For instructions, see [Add a NAT gateway to a private subnet](#vpc-troubleshoot-add-nat).
 
+**To verify the conversion**
+
 1. In the navigation pane, choose **Subnets**.
 
 1. Select your subnet and choose the **Route table** tab.
@@ -257,6 +282,8 @@ Existing instances in the subnet retain their public IP addresses after you make
 <a name="vpc-troubleshoot-add-nat"></a>
 
 A NAT gateway allows instances in a private subnet to connect to the internet for outbound traffic while preventing unsolicited inbound connections. You must have a public subnet with an internet gateway route before you create a NAT gateway.
+
+**To create a NAT gateway**
 
 1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
@@ -272,6 +299,8 @@ A NAT gateway allows instances in a private subnet to connect to the internet fo
 
 1. Choose **Create NAT gateway**.
 
+**To update the private subnet route table**
+
 1. In the navigation pane, choose **Route tables**.
 
 1. Select the route table associated with your private subnet.
@@ -283,6 +312,8 @@ A NAT gateway allows instances in a private subnet to connect to the internet fo
 1. Choose **Add route**. For **Destination**, enter `0.0.0.0/0`. For **Target**, select the NAT gateway that you created.
 
 1. Choose **Save changes**.
+
+**To verify the NAT gateway**
 
 1. In the navigation pane, choose **NAT gateways**.
 
@@ -307,6 +338,8 @@ The following are common endpoints to add for Amazon SageMaker Unified Studio no
 + Amazon CloudWatch Logs (interface)
 + AWS Systems Manager (interface)
 
+**To create a gateway endpoint**
+
 1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
 1. In the navigation pane, choose **Endpoints**.
@@ -322,6 +355,8 @@ The following are common endpoints to add for Amazon SageMaker Unified Studio no
 1. For **Route tables**, select the route tables associated with your private subnets.
 
 1. Choose **Create endpoint**.
+
+**To create an interface endpoint**
 
 1. Open the Amazon Virtual Private Cloud console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
@@ -342,6 +377,8 @@ The following are common endpoints to add for Amazon SageMaker Unified Studio no
 1. Select **Enable DNS name** to turn on private DNS for the endpoint.
 
 1. Choose **Create endpoint**.
+
+**To verify Amazon VPC endpoints**
 
 1. In the navigation pane, choose **Endpoints**.
 

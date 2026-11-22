@@ -1,7 +1,6 @@
 
 
 # Edit domain units in Amazon SageMaker Unified Studio
-<a name="edit-domain-unit"></a>
 
 **To edit a domain unit**
 

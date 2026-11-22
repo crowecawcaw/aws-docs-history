@@ -1,7 +1,6 @@
 
 
 # AWS policy: SageMakerStudioBedrockPromptUserRolePolicy
-<a name="security-iam-awsmanpol-SageMakerStudioBedrockPromptUserRolePolicy"></a>
 
 This policy provides access to an Amazon Bedrock prompt and its configuration in Amazon SageMaker Unified Studio.
 

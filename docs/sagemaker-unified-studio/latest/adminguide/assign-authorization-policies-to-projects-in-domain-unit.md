@@ -1,7 +1,6 @@
 
 
 # Assign authorization policies to projects within an Amazon SageMaker Unified Studio domain unit
-<a name="assign-authorization-policies-to-projects-in-domain-unit"></a>
 
 In an Amazon SageMaker Unified Studio domain unit, you can assign the following authorization policies to your projects to grant these entities various authorization permissions within this domain unit:
 + Glossary creation policy

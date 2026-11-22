@@ -1,7 +1,6 @@
 
 
 # Create domain units in Amazon SageMaker Unified Studio
-<a name="create-domain-unit"></a>
 
 **To create a domain unit**
 

@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerManageAccess-<region>-<domainId> role
-<a name="AmazonSageMakerManageAccess"></a>
 
 AmazonSageMakerManageAccess-<region>-<domainId> role grants Amazon SageMaker Unified Studio permissions to publish, grant access, and revoke access to Amazon SageMaker Lakehouse, AWS Glue Data Catalog and Amazon Redshift data. It also grants Amazon SageMaker Unified Studio access to publish and manage subscriptions on Amazon SageMaker Catalog data and AI assets.
 
@@ -17,7 +16,7 @@ The default `AmazonSageMakerManageAccess-<region>-<domainId>` role has the follo
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -45,7 +44,7 @@ The default `AmazonSageMakerManageAccess-<region>-<domainId>` role has the follo
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

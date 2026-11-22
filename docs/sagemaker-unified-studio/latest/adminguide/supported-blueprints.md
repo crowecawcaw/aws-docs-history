@@ -1,7 +1,6 @@
 
 
 # Supported blueprints
-<a name="supported-blueprints"></a>
 
 In the current release of Amazon SageMaker Unified Studio, the following default blueprints are supported:
 

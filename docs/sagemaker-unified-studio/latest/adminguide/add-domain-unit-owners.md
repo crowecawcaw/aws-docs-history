@@ -1,7 +1,6 @@
 
 
 # Manage domain unit owners in Amazon SageMaker Unified Studio
-<a name="add-domain-unit-owners"></a>
 
 To add owners to a domain unit in Amazon SageMaker Unified Studio, complete the following steps. 
 

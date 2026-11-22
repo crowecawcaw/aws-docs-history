@@ -1,7 +1,6 @@
 
 
 # Delete an account pool
-<a name="account-pools-delete"></a>
 
 To use the AWS CLI to delete an account pool, use the `delete-account-pool` command. 
 

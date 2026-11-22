@@ -1,7 +1,6 @@
 
 
 # Set up single sign-on for IAM-based domains
-<a name="setting-up-sso-iam-based"></a>
 
 Enable AWS IAM Identity Center single sign-on (SSO) for your IAM-based domain to onboard users from your corporate identity workforce. After you connect to IAM Identity Center, you can add SSO users and groups to projects, enabling them to collaborate on project data and resources.
 

@@ -1,7 +1,6 @@
 
 
 # Managing users for IAM-based domains
-<a name="manage-users-iam-based-domains"></a>
 
 As a domain administrator, you can use the domain user management page for IAM-based domains to view all users that are active in the domain. From this page, you can manage access, update permissions, and modify project membership from a single screen.
 

@@ -1,7 +1,6 @@
 
 
 # Delete designations
-<a name="delete-designations"></a>
 
 You can delete a designation only when **Allow delete** is selected for the designation. You can't delete managed designations (Owner and Contributor).
 
@@ -35,7 +34,7 @@ Before deleting a designation, verify that no project members are currently assi
 
 To delete a designation using the AWS CLI, run the `delete-designation` command.
 
-```
+```bash
 aws datazone delete-designation \
     --domain-identifier "dzd_example1234" \
     --identifier "dry7c1plpxl0k6"
@@ -43,7 +42,7 @@ aws datazone delete-designation \
 
 To delete a designation that has deletion protection turned on, you must first update the designation to turn off deletion protection. Run the following command to turn off deletion protection, and then run the `delete-designation` command.
 
-```
+```bash
 aws datazone update-designation \
     --domain-identifier "dzd_example1234" \
     --identifier "dry7c1plpxl0k6" \

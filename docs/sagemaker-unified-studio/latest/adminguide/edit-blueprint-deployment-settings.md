@@ -1,7 +1,6 @@
 
 
 # Edit blueprint deployment settings
-<a name="edit-blueprint-deployment-settings"></a>
 
 Blueprint deployment settings contain parameters used to create project profiles for Amazon SageMaker Unified Studio projects. Complete the following procedure to edit deployment settings for any of the supported blueprints.
 

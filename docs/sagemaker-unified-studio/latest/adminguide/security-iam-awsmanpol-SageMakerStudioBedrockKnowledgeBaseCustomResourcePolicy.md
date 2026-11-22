@@ -1,7 +1,6 @@
 
 
 # AWS policy: SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy
-<a name="security-iam-awsmanpol-SageMakerStudioBedrockKnowledgeBaseCustomResourcePolicy"></a>
 
 This policy provides access to configure vector stores and Amazon Bedrock knowledge bases in Amazon SageMaker Unified Studio.
 

@@ -1,7 +1,6 @@
 
 
 # Edit designations
-<a name="edit-designations"></a>
 
 When you update a designation's permissions, the change takes effect immediately for all members assigned that designation across all projects. You don't need to reassign the designation to members.
 
@@ -37,7 +36,7 @@ The following image shows the edit designation page, where you can change the de
 
 To update a designation using the AWS CLI, run the `update-designation` command.
 
-```
+```bash
 aws datazone update-designation \
     --domain-identifier "dzd_example1234" \
     --identifier "dry7c1plpxl0k6" \

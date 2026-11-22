@@ -1,7 +1,6 @@
 
 
 # Create a Amazon SageMaker Unified Studio domain - quick setup
-<a name="create-domain-sagemaker-unified-studio-quick"></a>
 
 Complete the following procedure to create an Amazon SageMaker unified domain with the Quick setup option.
 

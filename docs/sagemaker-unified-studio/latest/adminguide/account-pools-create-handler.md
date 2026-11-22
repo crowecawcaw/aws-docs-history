@@ -1,7 +1,6 @@
 
 
 # Create an account pool with a custom handler source
-<a name="account-pools-create-handler"></a>
 
 You can create an account pool where the account authentication is provided by a custom Lambda handler. Use these steps to create a sample custom handler and provide it when creating the account pool.
 

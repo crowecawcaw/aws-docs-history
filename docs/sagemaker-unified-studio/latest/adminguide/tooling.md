@@ -1,7 +1,6 @@
 
 
 # Tooling blueprints in Amazon SageMaker Unified Studio
-<a name="tooling"></a>
 
 Every Amazon SageMaker Unified Studio project deploys a Tooling environment first. Tooling provisions the project's Amazon S3 storage, the IAM role for project execution, and a collection of default Amazon DataZone connections. Tooling also provisions AWS resources commonly used within projects, such as Amazon Athena workgroups and AWS Lake Formation permissions.
 
@@ -41,4 +40,6 @@ Enable the managed Tooling blueprint for your domain on the Blueprints page. Too
 **Topics**
 + [Custom blueprints as Tooling](tooling-custom-blueprints.md)
 + [Tooling capabilities](tooling-capabilities.md)
++ [Enable Tooling blueprint](enable-tooling-blueprint.md)
++ [Manage Tooling blueprint parameters](manage-tooling-blueprint.md)
 + [Compatibility with managed blueprints](tooling-managed-compatibility.md)

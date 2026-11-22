@@ -1,7 +1,6 @@
 
 
 # Create designations
-<a name="create-designations"></a>
 
 You can create designations to define custom permission sets for project members in your Amazon SageMaker Unified Studio domain. After you create a designation, you can assign it to project members to control which actions they can perform within the project.
 
@@ -64,7 +63,7 @@ You can create a designation by duplicating an existing designation. Duplicating
 
 To create a designation using the AWS CLI, run the `create-designation` command.
 
-```
+```bash
 aws datazone create-designation \
     --domain-identifier "dzd_example1234" \
     --name "Data Engineer" \

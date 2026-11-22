@@ -1,7 +1,6 @@
 
 
 # IAM-based domains and projects
-<a name="iam-based-domains"></a>
 
 IAM-based domains in Amazon SageMaker Unified Studio provide another configuration option to setup and manage your data and AI development environment. IAM-based domains automate creation of a Amazon SageMaker Unified Studio domain using AWS Identity and Access Management (IAM) roles, and also use IAM roles to access data and resources for a project within an IAM-based domain.
 

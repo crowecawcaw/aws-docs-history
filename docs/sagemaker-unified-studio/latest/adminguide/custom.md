@@ -1,7 +1,6 @@
 
 
 # Custom project profile
-<a name="custom"></a>
 
 Complete the following procedure to create a custom project profile for your Amazon SageMaker unified domain. With the Custom creation option, you can create a project profile from scratch with your own profile settings and a selection of blueprints.
 

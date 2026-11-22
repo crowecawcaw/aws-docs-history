@@ -1,7 +1,6 @@
 
 
 # Domain administration for Identity Center-based domains
-<a name="access-domain-admin-portal-idc"></a>
 
 The domain administration page in Amazon SageMaker Unified Studio provides administrators with centralized management capabilities for domains, projects, designations, and settings. As a domain administrator, you can create and manage projects, create and manage designations that control project member permissions, configure domain-level settings including networking, and manage users and permissions.
 

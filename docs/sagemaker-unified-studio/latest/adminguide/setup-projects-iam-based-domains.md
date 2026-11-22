@@ -1,7 +1,6 @@
 
 
 # Set up projects within an IAM-based domain
-<a name="setup-projects-iam-based-domains"></a>
 
 To create a project within an IAM-based domain, you assign project members (IAM or single sign-on) and an Execution IAM role, configure execution permissions, and set up storage options. By default, projects can access resources within the domain's AWS account. You can configure the project execution IAM role to access data and resources across AWS accounts and Regions.
 

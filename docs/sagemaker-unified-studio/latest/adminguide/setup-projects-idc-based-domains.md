@@ -1,7 +1,6 @@
 
 
 # Set up projects within an Identity Center-based domain
-<a name="setup-projects-idc-based-domains"></a>
 
 Projects in IAM-based domains provide isolated environments for data analytics and AI/ML development work. Each project has one IAM role for accessing data and resources, IAM and SSO credentials for login, and storage configurations. These configurations determine what resources and data project members can access from within the project. All members of a project within an IAM-based domain have the same access to data and compute. This access is managed through the execution IAM role for the project.
 

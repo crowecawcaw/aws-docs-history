@@ -1,7 +1,6 @@
 
 
 # Assign designations
-<a name="assign-designations"></a>
 
 You assign project-level designations when you add members to a project or by editing existing project members. Each member has one designation through direct assignment. Members can also inherit designations through group membership. If you directly assign one designation to a user who also belongs to a group with a different designation, the user receives the union of both permission sets.
 
@@ -57,7 +56,7 @@ To assign a designation using the AWS CLI, run the `create-project-membership` c
 
 The `--designation` field accepts one of the following values: `PROJECT_OWNER`, `PROJECT_CONTRIBUTOR`, or `USER_CREATED_DESIGNATION`. When you specify `USER_CREATED_DESIGNATION`, you must also specify the `--user-created-designation-id` parameter, which is the ID of the custom designation to assign.
 
-```
+```bash
 aws datazone create-project-membership \
     --domain-identifier "dzd_example1234" \
     --project-identifier "proj_example5678" \

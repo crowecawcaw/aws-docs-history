@@ -1,7 +1,6 @@
 
 
 # Update VPC configuration and projects
-<a name="update-individual-projects-vpc"></a>
 
 Updating the VPC configuration for the domain will apply to new projects created after that point automatically. Projects that had been created when a VPC configuration did not exist will have the VPC configuration applied only after the project is updated.
 

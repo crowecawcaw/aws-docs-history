@@ -1,7 +1,6 @@
 
 
 # Source control and file storage in Amazon SageMaker Unified Studio
-<a name="smus-admin-storage-guide"></a>
 
 Every project in Amazon SageMaker Unified Studio includes S3 shared storage by default. S3 shared storage is active from the moment a project is created and requires no administrator configuration. All project members can immediately read, write, and share files.
 

@@ -1,7 +1,6 @@
 
 
 # Upgrade Amazon DataZone domains to Amazon SageMaker unified domains
-<a name="upgrade-domain"></a>
 
 ## Considerations before you upgrade your domain
 <a name="upgrade-domain-consider"></a>

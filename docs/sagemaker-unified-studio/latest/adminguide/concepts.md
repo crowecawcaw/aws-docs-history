@@ -1,7 +1,6 @@
 
 
 # Amazon SageMaker Unified Studio terminology and concepts
-<a name="concepts"></a>
 
 As you get started with Amazon SageMaker Unified Studio, it is important that you understand its key concepts, terminology, and components.
 

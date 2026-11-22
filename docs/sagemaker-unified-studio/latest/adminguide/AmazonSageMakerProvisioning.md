@@ -1,7 +1,6 @@
 
 
 # AmazonSageMakerProvisioning-<domainAccountId> role
-<a name="AmazonSageMakerProvisioning"></a>
 
  AmazonSageMakerProvisioning-<domainAccountId> role is used by Amazon SageMaker Unified Studio to provision and manage resources defined in the selected blueprints in your account.
 
@@ -14,7 +13,7 @@ The default `AmazonSageMakerProvisioning-<domainAccountId>` role has the followi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -41,7 +40,7 @@ If you are using your own query execution role (instead of the default [AmazonSa
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

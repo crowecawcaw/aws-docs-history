@@ -1,7 +1,6 @@
 
 
 # Create a Amazon SageMaker Unified Studio domain - manual setup
-<a name="create-domain-sagemaker-unified-studio-manual"></a>
 
 Complete the following procedure to create a Amazon SageMaker Unified Studio domain with the quick setup option. 
 

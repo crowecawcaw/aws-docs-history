@@ -1,7 +1,6 @@
 
 
 # Quotas and limits for Amazon SageMaker Unified Studio
-<a name="quotas"></a>
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Unless otherwise noted, each quota is account specific and region-specific.
 

@@ -1,7 +1,6 @@
 
 
 # Network Configuration for Remote Access
-<a name="network-config-remote-access"></a>
 
 ## Configuring Amazon SageMaker Unified Studio Project Profiles to allow Internet Access
 <a name="configuring-unified-studio-project-profiles-internet-access"></a>

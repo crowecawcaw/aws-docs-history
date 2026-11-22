@@ -1,7 +1,6 @@
 
 
 # Getting started with Amazon EMR on EKS in Amazon SageMaker Unified Studio
-<a name="getting-started-with-emr-on-eks"></a>
 
  Before you begin with Amazon EMR on EKS, you must have a compatible Amazon EKS cluster. If you do not have an existing Amazon EKS cluster, see [Get started with Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) for more information regarding cost, installation and management of an Amazon EKS cluster. 
 
@@ -11,7 +10,7 @@
 
 1.  Tag exactly one security group for each Amazon EC2 node ENI with `kubernetes.io/cluster/{{{eks-cluster-name}}}`. 
 
-   1.  Amazon EMR on EKS routes the connection from Amazon SageMaker Unified Studio notebooks to [Apache Livy](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-livy.html) on your Amazon EKS cluster through a Network Load Balancer, and the AWS Load Balancer Controller discovers the cluster security group by looking for a single security group that carries this tag on each node ENI. If the same ENI has more than one security group with this tag, the controller cannot reconcile the `TargetGroupBinding`, no targets register in the load balancer target group, and notebook connections fail (for example, with RemoteDisconnected errors). If you use Karpenter to provision nodes, confirm that your `securityGroupSelectorTerms` configuration does not attach multiple cluster-tagged security groups to a node ENI. 
+   1.  Amazon EMR on EKS routes the connection from Amazon SageMaker Unified Studio notebooks to [Apache Livy](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-livy.html) on your Amazon EKS cluster through a Network Load Balancer, and the AWS Load Balancer Controller discovers the cluster security group by looking for a single security group that carries this tag on each node ENI. If the same ENI has more than one security group with this tag, the controller cannot reconcile the `TargetGroupBinding`, no targets register in the load balancer target group, and notebook connections fail (for example, with `RemoteDisconnected` errors). If you use Karpenter to provision nodes, confirm that your `securityGroupSelectorTerms` configuration does not attach multiple cluster-tagged security groups to a node ENI. 
 
 1.  [ Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio ](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio.html) 
 

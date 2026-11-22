@@ -1,7 +1,6 @@
 
 
 # View and manage project details
-<a name="view-manage-project-details-idc"></a>
 
 Project details include storage configuration, execution role assignments, and member information that determine how resources within the project operate.
 

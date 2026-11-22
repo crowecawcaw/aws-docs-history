@@ -1,7 +1,6 @@
 
 
 # Trusted identity propagation
-<a name="trusted-identity-propagation"></a>
 
 Trusted identity propagation in IAM Identity Center enables administrators of AWS services to grant permissions based on user attributes, such as user ID or group associations. With trusted identity propagation, identity context is added to an IAM role to identify the user requesting access to AWS resources. This context is propagated to other AWS services. 
 

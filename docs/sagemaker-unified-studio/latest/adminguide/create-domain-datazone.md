@@ -1,7 +1,6 @@
 
 
 # Create an Amazon DataZone domain
-<a name="create-domain-datazone"></a>
 
 Complete the following procedure to create a Amazon SageMaker Unified Studio domain with the quick setup option. 
 

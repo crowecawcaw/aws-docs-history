@@ -1,7 +1,6 @@
 
 
 # Configuring monitoring with Spark History Server for Amazon EMR on EKS
-<a name="configuring-monitoring-with-spark-history-server-for-emr-on-eks"></a>
 
  Amazon EMR on EKS requires additional IAM permissions to enable monitoring with Spark History Server. You must attach the following inline IAM role policy to the IAM role created as the project user role. 
 

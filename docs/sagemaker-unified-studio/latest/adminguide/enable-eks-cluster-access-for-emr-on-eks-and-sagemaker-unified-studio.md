@@ -1,7 +1,6 @@
 
 
 # Enable Amazon EKS cluster access for Amazon EMR on EKS and Amazon SageMaker Unified Studio
-<a name="enable-eks-cluster-access-for-emr-on-eks-and-sagemaker-unified-studio"></a>
 
  Amazon EMR on EKS and Amazon SageMaker Unified Studio require access to the Kubernetes service running on the Amazon EKS cluster. 
 

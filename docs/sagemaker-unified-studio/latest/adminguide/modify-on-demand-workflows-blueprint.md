@@ -1,7 +1,6 @@
 
 
 # Modify the OnDemandWorkflows blueprint for creating workflow environments in a shared VPC
-<a name="modify-on-demand-workflows-blueprint"></a>
 
 In order to support creating workflow environments in a shared VPC setup, where the VPC is in one AWS account and the project and the Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment are in another AWS account, the domain administrator must complete the following procedure to modify the endpointManagement parameter of the OnDemand Workflows blueprint.
 

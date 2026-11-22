@@ -1,7 +1,6 @@
 
 
 # Compliance validation for Amazon SageMaker Unified Studio
-<a name="compliance-validation"></a>
 
 ## Compliance programs for Amazon SageMaker
 <a name="compliance-programs-sagemaker"></a>

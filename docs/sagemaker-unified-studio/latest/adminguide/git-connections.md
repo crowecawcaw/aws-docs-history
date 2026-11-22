@@ -1,7 +1,6 @@
 
 
 # Git connections
-<a name="git-connections"></a>
 
 Git connections enable project members to use Git repositories for source control in Amazon SageMaker Unified Studio. You can create connections to GitHub, GitHub Enterprise Server, GitLab, GitLab Self-Managed, and Bitbucket through the AWS CodeConnections service.
 

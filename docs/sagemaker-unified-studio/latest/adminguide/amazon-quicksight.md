@@ -1,7 +1,6 @@
 
 
 # Amazon Quicksight in SageMaker Unified Studio
-<a name="amazon-quicksight"></a>
 
 Enabling Amazon QuickSight integration in Amazon SageMaker Unified Studio allows data consumers to directly visualize and analyze data from the SageMaker Catalog using QuickSight. With QuickSight in Amazon SageMaker Unified Studio, users can access their data and employ the built-in business intelligence visualization capabilities reaching a seamless data analysis workflow. 
 

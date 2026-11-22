@@ -1,7 +1,6 @@
 
 
 # Set up IAM-based domains in Amazon SageMaker Unified Studio
-<a name="setup-iam-based-domains"></a>
 
 Setting up an IAM-based domain in Amazon SageMaker Unified Studio requires an IAM roles used for domain administration tasks. The setup process validates your IAM role configurations and guides you through any necessary policy attachments. You can choose to create new execution IAM role with default permissions or use existing roles that meet the service requirements.
 

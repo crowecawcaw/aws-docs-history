@@ -1,7 +1,6 @@
 
 
 # Access the Domain Administration Page
-<a name="access-domain-administration-page"></a>
 
 The domain administration page in Amazon SageMaker Unified Studio provides administrators with centralized management capabilities for domains, projects, designations, and settings. As a domain administrator, you can create and manage projects, create and manage designations that control project member permissions, configure domain-level settings including networking, and oversee the overall domain configuration.
 
