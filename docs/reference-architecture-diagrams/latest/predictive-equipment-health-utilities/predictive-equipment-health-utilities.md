@@ -1,7 +1,6 @@
 
 
 # Predictive Equipment Health for Utilities
-<a name="predictive-equipment-health-utilities"></a>
 
 Publication date: **August 3, 2021 ([Diagram history](#peh-history))**
 
