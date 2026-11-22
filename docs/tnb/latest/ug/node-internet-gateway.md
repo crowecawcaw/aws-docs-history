@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.InternetGateway
-<a name="node-internet-gateway"></a>
 
 Defines an AWS Internet Gateway Node.
 
 ## Syntax
 <a name="node-internet-gateway-syntax"></a>
 
-```
+```yaml
 tosca.nodes.AWS.Networking.InternetGateway:
   capabilities:
     routing:
@@ -67,7 +66,7 @@ Type: String
 ## Example
 <a name="node-internet-gateway-example"></a>
 
-```
+```yaml
 Free5GCIGW:
   type: tosca.nodes.AWS.Networking.InternetGateway
   properties:

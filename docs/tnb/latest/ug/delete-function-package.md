@@ -1,7 +1,6 @@
 
 
 # Delete a function package from AWS TNB
-<a name="delete-function-package"></a>
 
 Learn how to delete a function package from the AWS TNB network functions catalog. To delete a function package, the package must be in a disabled state.
 

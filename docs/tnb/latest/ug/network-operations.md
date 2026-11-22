@@ -1,7 +1,6 @@
 
 
 # Network operations for AWS TNB
-<a name="network-operations"></a>
 
 A network operation is any operation that is done to your network, such as network instance instantiation or termination.
 

@@ -1,7 +1,6 @@
 
 
 # Create a function package in AWS TNB
-<a name="create-function-package"></a>
 
 Learn how to create a function package in the AWS TNB network functions catalog. Creating a function package is the first step for creating a network in AWS TNB. After you've uploaded a function package, you can create a network package.
 

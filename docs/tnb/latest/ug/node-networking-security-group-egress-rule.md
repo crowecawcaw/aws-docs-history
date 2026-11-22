@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.SecurityGroupEgressRule
-<a name="node-networking-security-group-egress-rule"></a>
 
 AWS TNB supports security group egress rules to automate the provisioning of Amazon EC2 Security Group Egress Rules which can be attached to AWS.Networking.SecurityGroup. Note that you must provide a cidr\_ip/destination\_security\_group/destination\_prefix\_list as the destination for egress traffic.
 
 ## Syntax
 <a name="node-networking-security-group-egress-rule-syntax"></a>
 
-```
+```yaml
 AWS.Networking.SecurityGroupEgressRule
   properties:
     ip\_protocol: String
@@ -77,7 +76,7 @@ Type: String
 ## Example
 <a name="node-networking-security-group-egress-rule-example"></a>
 
-```
+```yaml
 SampleSecurityGroupEgressRule:
       type: tosca.nodes.AWS.Networking.SecurityGroupEgressRule
       properties:

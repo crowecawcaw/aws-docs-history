@@ -1,7 +1,6 @@
 
 
 # Update a network instance in AWS TNB
-<a name="update-network-instance"></a>
 
 After a network instance is instantiated, you might need to update the infrastructure or application. To do so, you update the network package and parameter values for the network instance and deploy the update operation to apply the changes.
 

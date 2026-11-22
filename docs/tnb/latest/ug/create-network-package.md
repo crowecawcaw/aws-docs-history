@@ -1,7 +1,6 @@
 
 
 # Create a network package in AWS TNB
-<a name="create-network-package"></a>
 
 A network package consists of a network service descriptor (NSD) file (required) and any additional files (optional), such as scripts specific to your needs. For example, if you have multiple function packages in your network package, you can use the NSD to define which network functions should run in certain VPCs, subnets, or Amazon EKS clusters.
 

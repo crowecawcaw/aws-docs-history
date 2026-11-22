@@ -1,7 +1,6 @@
 
 
 # Create a network instance using AWS TNB
-<a name="create-network-instance"></a>
 
 You create a network instance after creating a network package. After you create a network instance, instantiate it.
 

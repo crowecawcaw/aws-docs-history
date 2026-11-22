@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.SecurityGroupIngressRule
-<a name="node-networking-security-group-ingress-rule"></a>
 
 AWS TNB supports security group ingress rules to automate the provisioning of Amazon EC2 Security Group Ingress Rules which can be attached to AWS.Networking.SecurityGroup. Note that you must provide a cidr\_ip/source\_security\_group/source\_prefix\_list as the source for ingress traffic.
 
 ## Syntax
 <a name="node-networking-security-group-ingress-rule-syntax"></a>
 
-```
+```yaml
 AWS.Networking.SecurityGroupIngressRule
   properties:
     ip\_protocol: String
@@ -77,7 +76,7 @@ Type: String
 ## Example
 <a name="node-networking-security-group-ingress-rule-example"></a>
 
-```
+```yaml
 SampleSecurityGroupIngressRule:
       type: tosca.nodes.AWS.Networking.SecurityGroupIngressRule
       properties:

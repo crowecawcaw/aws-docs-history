@@ -1,7 +1,6 @@
 
 
 # View a network package in AWS TNB
-<a name="view-network-package"></a>
 
 Learn how to view the content of a network package.
 

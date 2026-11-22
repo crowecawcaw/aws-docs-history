@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.RouteTable
-<a name="node-route-table"></a>
 
 A route table contains a set of rules, called routes, that determine where network traffic from subnets within your VPC or gateway is directed. You must associate a route table with a VPC.
 
 ## Syntax
 <a name="node-route-table-syntax"></a>
 
-```
+```yaml
 tosca.nodes.AWS.Networking.RouteTable:
   properties:
     tags: List
@@ -35,7 +34,7 @@ Type: String
 ## Example
 <a name="node-route-table-example"></a>
 
-```
+```yaml
 SampleRouteTable:
   type: tosca.nodes.AWS.Networking.RouteTable
   properties: 

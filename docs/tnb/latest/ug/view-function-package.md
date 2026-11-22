@@ -1,7 +1,6 @@
 
 
 # View a function package in AWS TNB
-<a name="view-function-package"></a>
 
 Learn how to view the content of a function package.
 

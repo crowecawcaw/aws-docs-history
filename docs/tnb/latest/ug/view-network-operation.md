@@ -1,7 +1,6 @@
 
 
 # View a AWS TNB network operation
-<a name="view-network-operation"></a>
 
 View the details of a network operation, including the tasks involved in the network operation and the status of the tasks.
 

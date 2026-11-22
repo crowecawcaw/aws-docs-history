@@ -1,7 +1,6 @@
 
 
 # View a network instance in AWS TNB
-<a name="view-network-instance"></a>
 
 Learn how to view a network instance.
 

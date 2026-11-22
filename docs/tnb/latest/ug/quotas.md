@@ -1,7 +1,6 @@
 
 
 # Service quotas for AWS TNB
-<a name="quotas"></a>
 
 Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference*.
 

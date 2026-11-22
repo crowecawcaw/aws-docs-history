@@ -1,7 +1,6 @@
 
 
 # Getting started with AWS TNB
-<a name="getting-started"></a>
 
 This tutorial demonstrates how you use AWS TNB to deploy a network function, for example, the Centralized Unit (CU), Access and Mobility Management Function (AMF), or 5G User Plane Function (UPF).
 

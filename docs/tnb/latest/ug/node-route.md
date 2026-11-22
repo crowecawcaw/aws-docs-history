@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.Route
-<a name="node-route"></a>
 
 You can define a route node that associates the destination route to the NAT Gateway as the target resource, and adds the route to the associated route table.
 
 ## Syntax
 <a name="node-route-syntax"></a>
 
-```
+```yaml
 tosca.nodes.AWS.Networking.Route:
   properties:
     dest\_cidr\_blocks: List          
@@ -42,7 +41,7 @@ Type: String
 ## Example
 <a name="node-route-example"></a>
 
-```
+```yaml
 Free5GCRoute:
   type: tosca.nodes.AWS.Networking.Route
   properties: 

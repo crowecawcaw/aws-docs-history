@@ -1,7 +1,6 @@
 
 
 # AWS TNB concepts
-<a name="tnb-concepts"></a>
 
 This topic describes essential concepts to help you start using AWS TNB.
 
@@ -77,7 +76,7 @@ The CSAR is a package defined by the OASIS TOSCA standard and includes a network
 
 The following is an example virtual network function descriptor.
 
-```
+```yaml
 tosca_definitions_version: tnb_simple_yaml_1_0
 
 topology_template:
@@ -124,7 +123,7 @@ Your NSD file is divided into the following parts:
 
 1. **TOSCA definition version** – This is the first line of your NSD YAML file and contains the version information, shown in the following example.
 
-   ```
+   ```yaml
    tosca_definitions_version: tnb_simple_yaml_1_0
    ```
 
@@ -132,7 +131,7 @@ Your NSD file is divided into the following parts:
    + A unique ID for `descriptor_id`. The ID must match the ID in the network function CSAR package.
    + A unique name for `namespace`. The name must be associated with a unique ID to more easily reference throughout your NSD YAML file, shown in the following example.
 
-   ```
+   ```yaml
    vnfds:
      - descriptor_id: "61465757-cb8f-44d8-92c2-b69ca0de025b"
        namespace: "amf"
@@ -140,7 +139,7 @@ Your NSD file is divided into the following parts:
 
 1. **Topology template** – Defines the resources to be deployed, the network function deployment, and any customized scripts, such as lifecycle hooks. This is shown in the following example.
 
-   ```
+   ```yaml
    topology_template:
    
      node_templates:
@@ -155,7 +154,7 @@ Your NSD file is divided into the following parts:
 
 1. **Additional nodes** – Each modeled resource has sections for properties and requirements. The properties describe optional or mandatory attributes for a resource, such as the version. The requirements describe dependencies that must be provided as arguments. For example, to create an Amazon EKS Node Group Resource, it must be created within an Amazon EKS Cluster. This is shown in the following example.
 
-   ```
+   ```yaml
    SampleEKSNode:
      type: tosca.nodes.AWS.Compute.EKSManagedNode
      properties:
@@ -186,7 +185,7 @@ Your NSD file is divided into the following parts:
 
 The following is a snippet of an NSD showing how to model AWS services. The network function will be deployed on an Amazon EKS cluster with Kubernetes version 1.27. The subnets for the applications are Subnet01 and Subnet02. You can then define the NodeGroups for your applications with an Amazon Machine Image (AMI), instance type, and autoscaling configuration.
 
-```
+```yaml
 tosca_definitions_version: tnb_simple_yaml_1_0
 
 SampleNFEKS:

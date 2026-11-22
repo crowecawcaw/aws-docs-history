@@ -1,7 +1,6 @@
 
 
 # AWS.Compute.UserData
-<a name="node-compute-user-data"></a>
 
 AWS TNB supports launching Amazon EC2 instances with custom user data, through the UserData node in Network Service Descriptor (NSD). For more information about custom user data, see [User data and shell scripts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html#user-data-shell-scripts) in the *Amazon EC2 User Guide*.
 
@@ -16,7 +15,7 @@ Because AWS TNB uses CloudFormation to process and render the `multimime` user-d
 ## Syntax
 <a name="node-compute-user-data-syntax"></a>
 
-```
+```yaml
 tosca.nodes.AWS.Compute.UserData:
   properties:
     implementation: String
@@ -40,7 +39,7 @@ Possible values: `x-shellscript`
 ## Example
 <a name="node-compute-user-data-example"></a>
 
-```
+```yaml
 ExampleUserData:
   type: tosca.nodes.AWS.Compute.UserData
   properties:

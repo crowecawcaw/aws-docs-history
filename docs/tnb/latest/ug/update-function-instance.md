@@ -1,7 +1,6 @@
 
 
 # Update a function instance in AWS TNB
-<a name="update-function-instance"></a>
 
 After a network instance is instantiated, you can update a function package in the network instance.
 

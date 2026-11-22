@@ -1,14 +1,13 @@
 
 
 # AWS.Networking.NATGateway
-<a name="node-nat-gateway"></a>
 
 You can define a public or private NAT Gateway node over a subnet. For a public gateway, if you do not provide an Elastic IP allocation id, AWS TNB will allocate an Elastic IP for your account and associate that to the gateway.
 
 ## Syntax
 <a name="node-nat-gateway-syntax"></a>
 
-```
+```yaml
 tosca.nodes.AWS.Networking.NATGateway:
   requirements:
     subnet: String
@@ -54,7 +53,7 @@ Type: List
 ## Example
 <a name="node-nat-gateway-example"></a>
 
-```
+```yaml
 Free5GCNatGateway01:
   type: tosca.nodes.AWS.Networking.NATGateway
     requirements:

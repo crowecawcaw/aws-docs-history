@@ -1,7 +1,6 @@
 
 
 # Cancel a AWS TNB network operation
-<a name="cancel-network-operation"></a>
 
 Learn how to cancel a network operation.
 

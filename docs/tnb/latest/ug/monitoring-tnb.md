@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS TNB
-<a name="monitoring-tnb"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of AWS TNB and your other AWS solutions. AWS provides AWS CloudTrail to watch AWS TNB, report when something is wrong, and take automatic actions when appropriate.
 

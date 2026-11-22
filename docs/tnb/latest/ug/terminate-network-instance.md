@@ -1,7 +1,6 @@
 
 
 # Terminate and delete a network instance from AWS TNB
-<a name="terminate-network-instance"></a>
 
 To delete a network instance, the instance must be in a terminated state.
 

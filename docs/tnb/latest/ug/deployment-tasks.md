@@ -1,7 +1,6 @@
 
 
 # AWS TNB deployment tasks
-<a name="deployment-tasks"></a>
 
 Understand the deployment tasks to effectively monitor deployments and take action faster.
 

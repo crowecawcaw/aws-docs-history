@@ -1,7 +1,6 @@
 
 
 # Instantiate a network instance using AWS TNB
-<a name="instantiate-network-instance"></a>
 
 After you create a network instance, you must instantiate it. When you instantiate a network instance, AWS TNB provisions the necessary AWS infrastructure, deploys containerized network functions, and configures networking and access management to create a fully operational network service.
 

@@ -1,7 +1,6 @@
 
 
 # Setting up AWS TNB
-<a name="setting-up"></a>
 
 Set up AWS TNB by completing the tasks described in this topic.
 
