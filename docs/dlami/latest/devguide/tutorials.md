@@ -1,7 +1,6 @@
 
 
 # Tutorials
-<a name="tutorials"></a>
 
 The following are tutorials on how to use the Deep Learning AMI with Conda's software.
 

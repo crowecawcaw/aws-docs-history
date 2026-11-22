@@ -1,7 +1,6 @@
 
 
 # Monitor GPUs with CloudWatch
-<a name="tutorial-gpu-monitoring-gpumon"></a>
 
 When you use your DLAMI with a GPU you might find that you are looking for ways to track its usage during training or inference. This can be useful for optimizing your data pipeline, and tuning your deep learning network. 
 
@@ -36,7 +35,7 @@ Configure minimal GPU metrics using the `dlami-cloudwatch-agent@minimal` `system
 
 You can find the `systemd` service for minimal preconfigured GPU metrics in the following location:
 
-```
+```None
 /opt/aws/amazon-cloudwatch-agent/etc/dlami-amazon-cloudwatch-agent-minimal.json
 ```
 
@@ -59,7 +58,7 @@ Configure partial GPU metrics using the `dlami-cloudwatch-agent@partial` `system
 
 You can find the `systemd` service for partial preconfigured GPU metrics in the following location:
 
-```
+```None
 /opt/aws/amazon-cloudwatch-agent/etc/dlami-amazon-cloudwatch-agent-partial.json
 ```
 
@@ -94,7 +93,7 @@ Configure all available GPU metrics using the `dlami-cloudwatch-agent@all` `syst
 
 You can find the `systemd` service for all available preconfigured GPU metrics in the following location:
 
-```
+```None
 /opt/aws/amazon-cloudwatch-agent/etc/dlami-amazon-cloudwatch-agent-all.json
 ```
 
@@ -122,7 +121,7 @@ For this example, assume that the schema definition is located at `/opt/aws/amaz
 
 Run the following command to configure the CloudWatch agent according to your custom file:
 
-```
+```bash
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
 -a fetch-config -m ec2 -s -c \
 file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json
@@ -138,7 +137,7 @@ Newly released DLAMIs are configured with the latest available AWS CloudWatch ag
 
 Use `yum` to get the latest AWS CloudWatch agent security patches for an Amazon Linux 2 DLAMI.
 
-```
+```bash
  sudo yum update
 ```
 
@@ -147,7 +146,7 @@ Use `yum` to get the latest AWS CloudWatch agent security patches for an Amazon 
 
 To get the latest AWS CloudWatch security patches for a DLAMI with Ubuntu, it is necessary to reinstall the AWS CloudWatch agent using an Amazon S3 download link.
 
-```
+```bash
 wget https://s3.{{region}}.amazonaws.com/amazoncloudwatch-agent-{{region}}/ubuntu/arm64/latest/amazon-cloudwatch-agent.deb
 ```
 
@@ -169,7 +168,7 @@ A utility called gpumon.py is preinstalled on your DLAMI. It integrates with Clo
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -229,7 +228,7 @@ The following is an example CloudWatch chart reporting on a run of gpumon.py mon
 
 You might be interested in these other topics on GPU monitoring and optimization:
 + [Monitoring](tutorial-gpu-monitoring.md)
-  + [Monitor GPUs with CloudWatch](#tutorial-gpu-monitoring-gpumon)
+  + [Monitor GPUs with CloudWatch](tutorial-gpu-monitoring-gpumon.md)
 + [Optimization](tutorial-gpu-opt.md)
   + [Preprocessing](tutorial-gpu-opt-preprocessing.md)
   + [Training](tutorial-gpu-opt-training.md)

@@ -1,7 +1,6 @@
 
 
 # Software requirements for P6 instances
-<a name="p6-support-dlami"></a>
 
 Below are the detailed requirements for running DLAMI on P6 instances.
 
@@ -68,7 +67,7 @@ The following software is required to operate P6-B300 instances:
 
 1. Confirm the output from the Device Query Test. The following is example output for p6-B200. 
 
-   ```
+   ```bash
    /usr/local/cuda/extras/demo_suite/deviceQuery Starting...
    
     CUDA Device Query (Runtime API)
@@ -89,7 +88,7 @@ The following software is required to operate P6-B300 instances:
 
 1. Confirm the output from the System Management Interface. The following is example output for p6-B200.
 
-   ```
+   ```bash
    +-----------------------------------------------------------------------------------------+
    | NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
    |-----------------------------------------+------------------------+----------------------+

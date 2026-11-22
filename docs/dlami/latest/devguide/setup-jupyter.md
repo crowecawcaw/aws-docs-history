@@ -1,7 +1,6 @@
 
 
 # Setting up a Jupyter Notebook server on a DLAMI instance
-<a name="setup-jupyter"></a>
 
 With a Jupyter Notebook server, you can create and run Jupyter notebooks from your DLAMI instance. With Jupyter notebooks, you can conduct machine learning (ML) experiments for training and inference while using the AWS infrastructure and accessing packages built into the DLAMI. For more information about Jupyter notebooks, see [The Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) on the Jupyter User Documentation website.
 

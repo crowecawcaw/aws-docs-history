@@ -1,7 +1,6 @@
 
 
 # Recommended Trainium Instances
-<a name="trainium"></a>
 
 AWS Trainium instances are designed to provide high performance and cost efficiency for deep learning model inference workloads. Specifically, Trn1 instance types use AWS Trainium chips and the [AWS Neuron SDK](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/), which is integrated with popular machine learning frameworks such as TensorFlow and PyTorch.
 

@@ -1,7 +1,6 @@
 
 
 # Using TensorFlow-Neuron and the AWS Neuron Compiler
-<a name="tutorial-inferentia-tf-neuron"></a>
 
  This tutorial shows how to use the AWS Neuron compiler to compile the Keras ResNet-50 model and export it as a saved model in SavedModel format. This format is a typical TensorFlow model interchangeable format. You also learn how to run inference on an Inf1 instance with example input.  
 

@@ -1,7 +1,6 @@
 
 
 # Using the Deep Learning Base AMI
-<a name="tutorial-base"></a>
 
 ## Using the Deep Learning Base AMI
 <a name="tutorial-base-overview"></a>

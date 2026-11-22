@@ -1,7 +1,6 @@
 
 
 # Using MXNet-Neuron Model Serving
-<a name="tutorial-inferentia-mxnet-neuron-serving"></a>
 
 In this tutorial, you learn to use a pre-trained MXNet model to perform real-time image classification with Multi Model Server (MMS). MMS is a flexible and easy-to-use tool for serving deep learning models that are trained using any machine learning or deep learning framework. This tutorial includes a compilation step using AWS Neuron and an implementation of MMS using MXNet.
 

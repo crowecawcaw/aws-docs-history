@@ -1,7 +1,6 @@
 
 
 # Deep Learning Base AMI
-<a name="overview-base"></a>
 
 The Deep Learning Base AMI is like an empty canvas for deep learning. It comes with everything you need up until the point of the installation of a particular framework, and has your choice of CUDA versions. 
 

@@ -1,7 +1,6 @@
 
 
 # Deep Learning AMI with Conda
-<a name="overview-conda"></a>
 
 The Conda DLAMI uses `conda` virtual environments, they are present either multi-framework or single framework DLAMIs. These environments are configured to keep the different framework installations separate and streamline switching between frameworks. This is great for learning and experimenting with all of the frameworks the DLAMI has to offer. Most users find that the new Deep Learning AMI with Conda is perfect for them. 
 

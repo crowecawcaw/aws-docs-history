@@ -1,7 +1,6 @@
 
 
 # Using the DLAMI with AWS Neuron
-<a name="tutorial-inferentia-using"></a>
 
  A typical workflow with the AWS Neuron SDK is to compile a previously trained machine learning model on a compilation server. After this, distribute the artifacts to the Inf1 instances for execution. AWS Deep Learning AMIs (DLAMI) comes pre-installed with everything you need to compile and run inference in an Inf1 instance that uses Inferentia. 
 

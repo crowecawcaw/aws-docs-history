@@ -1,7 +1,6 @@
 
 
 # Launching a AWS Deep Learning AMIs Instance With EFA
-<a name="tutorial-efa-launching"></a>
 
 The latest Base DLAMI is ready to use with EFA and comes with the required drivers, kernel modules, libfabric, openmpi and the [NCCL OFI plugin](https://github.com/aws/aws-ofi-nccl/tree/aws) for GPU instances.
 

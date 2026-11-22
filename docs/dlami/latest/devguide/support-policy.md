@@ -1,7 +1,6 @@
 
 
 # DLAMI Support Policy
-<a name="support-policy"></a>
 
 Here you can find details of the support policy for AWS Deep Learning AMIs (DLAMI).
 
@@ -97,7 +96,7 @@ Automatic upgrades are scoped to general operating system packages:
 
 Workloads that run as regular user processes, such as a training script, a distributed launcher, or a Jupyter kernel, are not interrupted by these service restarts. However, if your workload is owned or supervised by a system service (for example, a cluster agent or a container runtime running as a daemon), a restart of that service can disrupt your workload. If your environment requires that no packages change or no services restart while a job is running, you can disable unattended upgrades on your instances:
 
-```
+```bash
 sudo systemctl disable --now apt-daily.timer apt-daily-upgrade.timer
 sudo sed -i 's/Unattended-Upgrade "1"/Unattended-Upgrade "0"/' /etc/apt/apt.conf.d/20auto-upgrades
 ```

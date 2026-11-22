@@ -1,7 +1,6 @@
 
 
 # Example DLAMI use cases
-<a name="use-cases"></a>
 
 The following are examples of some common use cases for AWS Deep Learning AMIs (DLAMI).
 

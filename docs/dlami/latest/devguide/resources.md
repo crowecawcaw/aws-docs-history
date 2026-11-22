@@ -1,7 +1,6 @@
 
 
 # Related information about DLAMI
-<a name="resources"></a>
 
 You can find other resources with related information about DLAMI outside of the AWS Deep Learning AMIs Developer Guide. On AWS re:Post, check out questions about DLAMI from other customers, or ask your own questions. On the AWS Machine Learning Blog and other AWS blogs, read official posts about DLAMI.
 

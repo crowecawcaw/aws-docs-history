@@ -1,7 +1,6 @@
 
 
 # Finding the ID of a DLAMI
-<a name="find-dlami-id"></a>
 
 Each DLAMI has a unique identifier (ID). When you launch a DLAMI instance using the Amazon EC2 console, you can optionally use the DLAMI ID to search for the DLAMI that you want to use. When you launch a DLAMI instance using the AWS Command Line Interface (AWS CLI), this ID is required.
 
@@ -17,14 +16,14 @@ In the following [**ssm get-parameter**](https://awscli.amazonaws.com/v2/documen
 To use this command, the AWS Identity and Access Management (IAM) principal that you use must have the `ssm:GetParameter` permission. For more information about IAM principals, see the [Additional resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_additional-resources) section of **IAM roles** in the *IAM User Guide*.
 + 
 
-  ```
+  ```bash
   aws ssm get-parameter --name {{/aws/service/deeplearning/ami/x86_64/base-oss-nvidia-driver-ubuntu-22.04/latest/ami-id}}  \
   --region {{us-east-1}} --query "Parameter.Value" --output text
   ```
 
   The output should look similar to the following:
 
-  ```
+  ```bash
   ami-09ee1a996ac214ce7
   ```
 **Tip**  
@@ -38,7 +37,7 @@ For some currently supported DLAMI frameworks, you can find more specific exampl
 In the following [**ec2 describe-images**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html) command, for the value of the filter `Name=name`, enter the DLAMI name. You can specify a release version for a given framework, or you can get the latest release by replacing the version number with a question mark (?).
 + 
 
-  ```
+  ```bash
   aws ec2 describe-images --region {{us-east-1}} --owners amazon \
   --filters 'Name=name,Values={{Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 22.04) ????????}}' 'Name=state,Values=available' \
   --query 'reverse(sort_by(Images, &amp;CreationDate))[:1].ImageId' --output text
@@ -46,7 +45,7 @@ In the following [**ec2 describe-images**](https://awscli.amazonaws.com/v2/docum
 
   The output should look similar to the following:
 
-  ```
+  ```bash
   ami-09ee1a996ac214ce7
   ```
 **Tip**  

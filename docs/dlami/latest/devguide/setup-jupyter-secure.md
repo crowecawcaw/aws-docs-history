@@ -1,7 +1,6 @@
 
 
 # Securing the Jupyter Notebook server on a DLAMI instance
-<a name="setup-jupyter-secure"></a>
 
 To keep your Jupyter Notebook server secure, we recommend setting up a password and creating an SSL certificate for the server. To configure a password and SSL, first [connect to your DLAMI instance](setup-connect.md), and then follow these instructions.
 

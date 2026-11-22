@@ -1,7 +1,6 @@
 
 
 # Using a DLAMI
-<a name="using"></a>
 
 **Topics**
 + [Using the Deep Learning AMI with Conda](tutorial-conda.md)

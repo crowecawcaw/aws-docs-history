@@ -1,7 +1,6 @@
 
 
 # Launching a DLAMI Instance with AWS Neuron
-<a name="tutorial-inferentia-launching"></a>
 
  The latest DLAMI is ready to use with AWS Inferentia and comes with the AWS Neuron API package. To launch a DLAMI instance, see [Launching and Configuring a DLAMI.](https://docs.aws.amazon.com/dlami/latest/devguide/launch-config.html) After you have a DLAMI, use the steps here to ensure that your AWS Inferentia chip and AWS Neuron resources are active.
 

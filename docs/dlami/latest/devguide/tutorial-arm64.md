@@ -1,7 +1,6 @@
 
 
 # The ARM64 DLAMI
-<a name="tutorial-arm64"></a>
 
 AWS ARM64 GPU DLAMIs are designed to provide high performance and cost efficiency for deep learning workloads. Specifically, the G5g instance type features the Arm64-based [AWS Graviton2 processor](https://aws.amazon.com/ec2/graviton/), which was built from the ground up by AWS and optimized for how customers run their workloads in the cloud. AWS ARM64 GPU DLAMIs are pre-configured with Docker, NVIDIA Docker, NVIDIA Driver, CUDA, CuDNN, NCCL, as well as popular machine learning frameworks such as TensorFlow and PyTorch.
 

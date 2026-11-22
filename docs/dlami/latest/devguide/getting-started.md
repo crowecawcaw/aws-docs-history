@@ -1,7 +1,6 @@
 
 
 # Getting started with DLAMI
-<a name="getting-started"></a>
 
 This guide includes tips about picking the DLAMI that's right for you, selecting an instance type that fits your use case and budget, and [Related information about DLAMI](resources.md) that describes custom setups that may be of interest.
 

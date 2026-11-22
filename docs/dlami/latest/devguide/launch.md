@@ -1,7 +1,6 @@
 
 
 # Launching a DLAMI instance
-<a name="launch"></a>
 
 After you [find the ID](find-dlami-id.md) of the DLAMI that you want to use to launch a DLAMI instance, you're ready to launch the instance. To launch it, you can use either the Amazon EC2 console or the AWS Command Line Interface (AWS CLI).
 

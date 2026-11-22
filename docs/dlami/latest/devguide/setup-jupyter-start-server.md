@@ -1,7 +1,6 @@
 
 
 # Starting the Jupyter Notebook server on a DLAMI instance
-<a name="setup-jupyter-start-server"></a>
 
 After you [secure your Jupyter Notebook server with a password and SSL](setup-jupyter-secure.md), you can start the server. Log in to your DLAMI instance and run the following command that uses the SSL certificate that you created previously.
 

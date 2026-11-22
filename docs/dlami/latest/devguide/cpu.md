@@ -1,7 +1,6 @@
 
 
 # Recommended CPU Instances
-<a name="cpu"></a>
 
 Whether you're on a budget, learning about deep learning, or just want to run a prediction service, you have many affordable options in the CPU category. Some frameworks take advantage of Intel's MKL DNN, which speeds up training and inference on C5 (not available in all Regions) CPU instance types. For information about CPU instance types, see [EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/) and select **Compute Optimized**.
 

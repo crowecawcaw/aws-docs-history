@@ -1,7 +1,6 @@
 
 
 # The AWS Inferentia Chip With DLAMI
-<a name="tutorial-inferentia"></a>
 
 AWS Inferentia is a custom machine learning chip designed by AWS that you can use for high-performance inference predictions. In order to use the chip, set up an Amazon Elastic Compute Cloud instance and use the AWS Neuron software development kit (SDK) to invoke the Inferentia chip. To provide customers with the best Inferentia experience, Neuron has been built into the AWS Deep Learning AMIs (DLAMI). 
 

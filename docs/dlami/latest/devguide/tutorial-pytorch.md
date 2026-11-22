@@ -1,7 +1,6 @@
 
 
 # PyTorch
-<a name="tutorial-pytorch"></a>
 
 ## Activating PyTorch
 <a name="tutorial-pytorch-overview"></a>

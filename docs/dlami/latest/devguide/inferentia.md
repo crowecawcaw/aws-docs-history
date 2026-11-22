@@ -1,7 +1,6 @@
 
 
 # Recommended Inferentia Instances
-<a name="inferentia"></a>
 
 AWS Inferentia instances are designed to provide high performance and cost efficiency for deep learning model inference workloads. Specifically, Inf2 instance types use AWS Inferentia chips and the [AWS Neuron SDK](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/), which is integrated with popular machine learning frameworks such as TensorFlow and PyTorch.
 

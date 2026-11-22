@@ -1,7 +1,6 @@
 
 
 # CUDA Installations and Framework Bindings
-<a name="overview-cuda"></a>
 
 While deep learning is all pretty cutting edge, each framework offers "stable" versions. These stable versions may not work with the latest CUDA or cuDNN implementation and features. Your use case and the features you require can help you choose a framework. If you are not sure, then use the latest Deep Learning AMI with Conda. It has official `pip` binaries for all frameworks with CUDA, using whichever most recent version is supported by each framework. If you want the latest versions, and to customize your deep learning environment, use the Deep Learning Base AMI.
 

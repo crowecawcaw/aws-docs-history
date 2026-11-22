@@ -1,7 +1,6 @@
 
 
 # DLAMI Operating System Options
-<a name="overview-os"></a>
 
 DLAMIs are offered in the following operating systems.
 + Amazon Linux 2

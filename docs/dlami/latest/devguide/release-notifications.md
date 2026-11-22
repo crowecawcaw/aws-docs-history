@@ -1,7 +1,6 @@
 
 
 # Receive Notifications on New Updates
-<a name="release-notifications"></a>
 
 **Note**  
  AWS Deep Learning AMIs have a weekly release cadence for security patches. Release notifications will be sent for these incremental security patches though they may not be included in official release notes.

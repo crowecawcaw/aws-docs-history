@@ -1,7 +1,6 @@
 
 
 # What is AWS Deep Learning AMIs?
-<a name="what-is-dlami"></a>
 
 AWS Deep Learning AMIs (DLAMI) provides customized machine images that you can use for deep learning in the cloud. The DLAMIs are available in most AWS Regions for a variety of Amazon Elastic Compute Cloud (Amazon EC2) instance types, from a small CPU-only instance to the latest high-powered multi-GPU instances. The DLAMIs come preconfigured with [NVIDIA CUDA](https://developer.nvidia.com/cuda-zone) and [NVIDIA cuDNN](https://developer.nvidia.com/cudnn) and the latest releases of the most popular deep learning frameworks.
 

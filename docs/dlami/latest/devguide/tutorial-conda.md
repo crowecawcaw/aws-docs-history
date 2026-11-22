@@ -1,7 +1,6 @@
 
 
 # Using the Deep Learning AMI with Conda
-<a name="tutorial-conda"></a>
 
 **Topics**
 + [Introduction to the Deep Learning AMI with Conda](#tutorial-conda-overview)

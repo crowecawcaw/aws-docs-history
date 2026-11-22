@@ -1,7 +1,6 @@
 
 
 # Using Deep Learning AMIs with EC2 Image Builder
-<a name="using-dlami-with-image-builder"></a>
 
 AWS Deep Learning AMIs (DLAMIs) are now available as Amazon-managed images on [EC2 Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html) service. This integration simplifies the usage of DLAMIs as Base Images and ensures the latest version is used at any given time.
 

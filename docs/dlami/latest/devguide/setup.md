@@ -1,7 +1,6 @@
 
 
 # Setting up a DLAMI instance
-<a name="setup"></a>
 
 After you [choose a DLAMI](choose-dlami.md) and [choose an Amazon Elastic Compute Cloud (Amazon EC2) instance type](instance-select.md) that you want to use, then you're ready to set up your new DLAMI instance.
 

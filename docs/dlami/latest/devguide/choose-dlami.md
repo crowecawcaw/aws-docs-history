@@ -1,7 +1,6 @@
 
 
 # Choosing a DLAMI
-<a name="choose-dlami"></a>
 
 We offer a range of DLAMI options as mentioned in the [GPU DLAMI release notes](https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html#appendix-ami-release-notes-gpu). To help you select the correct DLAMI for your use case, we group images by the hardware type or functionality for which they were developed. Our top level groupings are:
 + **DLAMI Type:** Base, Single-Framework, Multi-Framework (Conda DLAMI)

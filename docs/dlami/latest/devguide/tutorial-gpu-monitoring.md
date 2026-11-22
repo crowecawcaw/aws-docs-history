@@ -1,7 +1,6 @@
 
 
 # Monitoring
-<a name="tutorial-gpu-monitoring"></a>
 
 Your DLAMI comes preinstalled with several GPU monitoring tools. This guide also mentions tools that are available to download and install.
 + [Monitor GPUs with CloudWatch](tutorial-gpu-monitoring-gpumon.md) - a preinstalled utility that reports GPU usage statistics to Amazon CloudWatch.

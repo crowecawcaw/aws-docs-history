@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Deep Learning AMIs
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS Deep Learning AMIs as part of multiple AWS compliance programs. For information about the supported compliance programs, see [Compliance validation for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/compliance-validation.html).
 
