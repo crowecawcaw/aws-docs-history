@@ -1,7 +1,6 @@
 
 
 # Performance Indicators
-<a name="map-partner-performance-index"></a>
 
 Performance Indicators is a performance framework that shares with you the key criteria and attributes that AWS believes drive customer success with partner migration delivery. With Performance Indicators, you can see how you are delivering against the things that matter most for mutual customer success: win conversion, delivery speed, and migration execution quality. You get a clear view of where you stand, which enables a two-way dialogue about how you and AWS can work together to drive great outcomes for customers.
 

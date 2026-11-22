@@ -1,7 +1,6 @@
 
 
 # Logging AWS Partner Central API calls with AWS CloudTrail
-<a name="aws-cloudtrail-logging"></a>
 
 AWS Partner Central is integrated with [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), a service that provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures calls from the AWS Partner Central console and code calls to the AWS Partner Central API operations as events.
 

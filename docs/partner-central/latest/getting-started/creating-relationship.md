@@ -1,7 +1,6 @@
 
 
 # Creating a relationship
-<a name="creating-relationship"></a>
 
 When creating a new relationship, you'll need to provide specific information to properly configure the connection:
 

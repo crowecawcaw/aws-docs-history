@@ -1,7 +1,6 @@
 
 
 # Prerequisites
-<a name="linking-prerequisites"></a>
 
 The following topics list the prerequisites needed to link AWS Partner Central and AWS accounts. We recommend following the topics in the order listed.
 
@@ -83,7 +82,7 @@ If you're an alliance lead or cloud admin, and you already have an IAM user or r
 
 ****  
 
-   ```
+   ```json
    {
        "Version":"2012-10-17",		 	 	 
        "Statement": [

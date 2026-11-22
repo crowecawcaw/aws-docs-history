@@ -1,7 +1,6 @@
 
 
 # Build
-<a name="build-section"></a>
 + **Solutions:** Native in the AWS Console. [Create](https://docs.aws.amazon.com/partner-central/latest/builder-guide/creating-a-solution.html) and manage solutions. More information in the [AWS Partner Central Builder Guide](https://docs.aws.amazon.com/partner-central/latest/builder-guide/what-is-a-solution.html).
 + **AI agents & tools:** Redirects to AMMP. Manage your AI agents and tools listings on the AWS Marketplace. For more information, see [AI agent products](https://docs.aws.amazon.com/marketplace/latest/userguide/ai-agents-tools.html).
 + **SaaS products:** Redirects to AMMP. Manage your SaaS product listings on the AWS Marketplace. For more information, see [SaaS-based products in AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-products.html).

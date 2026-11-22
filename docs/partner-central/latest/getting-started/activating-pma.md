@@ -1,7 +1,6 @@
 
 
 # Activating a program management account
-<a name="activating-pma"></a>
 
 To activate a PMA, a channel handshake must be accepted by the AWS management account.
 

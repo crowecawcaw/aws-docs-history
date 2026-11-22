@@ -1,7 +1,6 @@
 
 
 # Accessing AWS Partner Central
-<a name="signing-in"></a>
 
 Users can sign in to AWS Partner Central from a browser. For the best experience, we recommend using a desktop computer.
 

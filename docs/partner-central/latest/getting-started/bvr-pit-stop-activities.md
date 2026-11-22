@@ -1,7 +1,6 @@
 
 
 # Pit stop activities
-<a name="bvr-pit-stop-activities"></a>
 
 Each pit stop contains activities that you complete to demonstrate progress. Activities are categorized as **Required** (must complete to advance) or **Optional** (support adoption but don't block progression).
 

@@ -1,7 +1,6 @@
 
 
 # Email notifications
-<a name="business-plan-email-notifications"></a>
 
 AWS Partner Central sends email notifications when a business plan is created for your AWS account and when the status of a plan changes to activated, canceled, or completed. For the notifications and what they contain, see [Identifying business plan emails](#business-plan-email-types).
 

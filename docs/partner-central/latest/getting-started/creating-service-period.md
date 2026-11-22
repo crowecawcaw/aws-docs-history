@@ -1,7 +1,6 @@
 
 
 # Creating a service period
-<a name="creating-service-period"></a>
 
 Service periods can be added to any channel relationship using Partner Central Channel Management.
 

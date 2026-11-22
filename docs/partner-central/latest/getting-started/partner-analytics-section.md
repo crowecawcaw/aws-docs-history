@@ -1,7 +1,6 @@
 
 
 # Partner analytics
-<a name="partner-analytics-section"></a>
 
 For more information, see [Tracking progress with Partner analytics and Marketplace insights](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics-and-seller-insights.html).
 + **At a Glance:** Key metrics and account status.

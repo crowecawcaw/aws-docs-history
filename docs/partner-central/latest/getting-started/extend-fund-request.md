@@ -1,7 +1,6 @@
 
 
 # Extending a fund request
-<a name="extend-fund-request"></a>
 
 The Extend function can be used when a Partner needs to modify the planned delivery end date of an approved Fund Request. AWS Partners can self-extend the planned delivery end date of an approved activity in the AWS Partner Funding Portal one time up to 90 days based on standard Funding Program policy. Once the dates are extended, the Funding Expiration Date will automatically update accordingly.
 

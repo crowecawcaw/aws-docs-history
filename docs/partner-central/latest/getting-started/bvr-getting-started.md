@@ -1,9 +1,10 @@
 
 
 # Getting started with the BVR motion
-<a name="bvr-getting-started"></a>
 
 To participate in the Business Value Realization (BVR) motion, submit an application through AWS Partner Central. Your eligibility is evaluated automatically when you apply.
+
+After you enroll, you can use the AWS Partner Central chat agent to answer BVR questions and draft your VRP. For more information, see [Drafting a VRP with the AWS Partner Central chat agent](bvr-drafting-vrp-chat-agent.md).
 
 ## Apply for the BVR motion
 <a name="bvr-apply"></a>

@@ -1,7 +1,6 @@
 
 
 # Nominating a customer
-<a name="bvr-nominating-customer"></a>
 
 After you are enrolled in the BVR motion, you can nominate customers. A nomination links a customer engagement to the motion and establishes the KPIs that will be tracked throughout the pit stops.
 
@@ -34,3 +33,5 @@ Confirm that:
 + Your Partner Success Specialist (PSS) reviews the nomination.
 + If approved, the initiative moves to its first pit stop and activities become available.
 + If changes are needed, you receive specific feedback and can edit and resubmit.
+
+After nomination approval, draft your VRP for this customer with the AWS Partner Central chat agent. For more information, see [Drafting a VRP with the AWS Partner Central chat agent](bvr-drafting-vrp-chat-agent.md).

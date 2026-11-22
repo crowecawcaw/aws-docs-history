@@ -1,7 +1,6 @@
 
 
 # Using custom policies to map users
-<a name="user-role-mapping"></a>
 
 The topics in this section explain how to map AWS Partner Central users to AWS IAM roles. Mapping enables single sign-on access for users across AWS Partner Central and AWS. plus other features such as product and offer linking.
 
@@ -21,7 +20,7 @@ Before mapping, you must complete the following prerequistites:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [
@@ -63,7 +62,7 @@ Complete the following before mapping users to AWS Marketplace IAM roles:
 
 ****  
 
-  ```
+  ```json
   {
       "Version":"2012-10-17",		 	 	 
       "Statement": [

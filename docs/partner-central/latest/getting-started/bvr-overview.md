@@ -1,7 +1,6 @@
 
 
 # Business Value Realization
-<a name="bvr-overview"></a>
 
 Business Value Realization (BVR) is a motion within AWS Partner Central that helps partners guide customers through adoption after deploying eligible AWS services. As you help your customer achieve measurable business outcomes, you progress through a series of pit stops and receive funding tied to demonstrated results.
 

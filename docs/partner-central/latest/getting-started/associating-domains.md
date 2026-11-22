@@ -1,7 +1,6 @@
 
 
 # Associating domains for AWS Training and Certification tracking
-<a name="associating-domains"></a>
 
 AWS uses Training and Certification achievements to validate technical expertise. These achievements are required for Tier progression and certain APN program eligibility.
 
@@ -24,7 +23,7 @@ Only users with specific permissions assigned in IAM can add or remove domains. 
 
 1. Enter in an e-mail address of the owned domain and choose **Send verification code**. Check for typos before sending.
 **Note**  
-A code should be delivered to the entered email address in less than 5 minutes. If you did not receive the code, you have up to 5 attempts to receive the code. Once the code has been sent, you have 48 hours to enter the code into the text box for verification. If you are unable to receive a code, please reach out to the [AWS Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support) team via the left-side navigation menu.
+AWS Partner Central sends the code to the email address that you entered, usually within 5 minutes. You can request the code up to 5 times. After you receive the code, you have 48 hours to enter it. If you can't receive a code, contact the AWS Partner Central support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 1. Enter the code and choose **Associate domain**. If successful, you will be re-directed to the previous page and the newly associated domain will appear in the list of associated domains.
 

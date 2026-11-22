@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Partner Central users
-<a name="managed-policies"></a>
 
 An AWS managed policy is a standalone policy created and administered by AWS. AWS managed policies provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
 
@@ -48,7 +47,7 @@ With this policy, you can access all AWS Partner Central features and related se
 + Access Partner Scorecard and Partner Analytics
 + Access Badge Manager, Guides, and the AWS assistant (Partner Assistant)
 + Create and manage program applications
-+ Access Partner Central and Marketplace support
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central or AWS Marketplace.
 
  To view the permissions for this policy, see [AWSPartnerCentralFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralFullAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -73,9 +72,11 @@ You can attach the `AWSPartnerCentralOpportunityManagement` policy to your IAM i
 With this policy, you can manage opportunities and leads in AWS Partner Central. This policy allows the following operations:
 + Create, edit, and submit opportunities
 + Accept and manage leads
++ Search leads and list lead groups
++ Map customer accounts to AWS customers, import them in bulk, and read their enrichment data
 + Accept and manage multi-partner opportunities
 + Access Partner Scorecard, Guides, and the AWS assistant (Partner Assistant)
-+ Access Partner Central support
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central.
 
  To view the permissions for this policy, see [AWSPartnerCentralOpportunityManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralOpportunityManagement.html) in the *AWS Managed Policy Reference*.
 
@@ -105,9 +106,10 @@ You can attach the `AWSPartnerCentralChannelManagement` policy to your IAM ident
 With this policy, you can manage channel programs and partner relationships in AWS Partner Central. This policy allows the following operations:
 + View and manage channel relationships
 + Manage channel handshakes
++ View and manage channel contracts
 + View and manage distribution engagement requests
 + Access Guides and the AWS assistant (Partner Assistant)
-+ Access Partner Central support
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central.
 
  To view the permissions for this policy, see [AWSPartnerCentralChannelManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.html) in the *AWS Managed Policy Reference*.
 
@@ -129,7 +131,7 @@ With this policy, you can manage marketing activities and promotional content in
 + Access and manage Marketing Central campaigns and content
 + Create and manage case studies
 + Access Badge Manager, Guides, and the AWS assistant (Partner Assistant)
-+ Access Partner Central support
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central.
 
  To view the permissions for this policy, see [AWSPartnerCentralMarketingManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralMarketingManagement.html) in the *AWS Managed Policy Reference*.
 
@@ -143,7 +145,7 @@ With this policy, you can manage incentive benefits, funding, and claims in AWS 
 + View historical fund requests
 + View funding wallets
 + Access Guides and the AWS assistant (Partner Assistant)
-+ Access Partner Central support
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central.
 + Create and manage program applications
 
  To view the permissions for this policy, see [PartnerCentralIncentiveBenefitManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.html) in the *AWS Managed Policy Reference*.
@@ -202,6 +204,7 @@ This policy grants access to the following capabilities:
 + Create, retrieve, update, and list Revenue Attribution resources and their allocations.
 + Create, retrieve, and list Marketplace Revenue Share resources and their allocations.
 + Tag and untag Revenue Attribution and Marketplace Revenue Share resources.
++ Create, view, search, reply to, and resolve Support cases, add attachments to them, and view them in the Support Center console. This access applies to every Support case in the account, not only cases about AWS Partner Central.
 
  To view the permissions for this policy, see [AWSPartnerCentralRevenueAttributionManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralRevenueAttributionManagement.html) in the *AWS Managed Policy Reference*.
 
@@ -260,6 +263,15 @@ View details about updates to AWS managed policies for AWS Partner Central since
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, list, and cancel channel contracts. A channel contract is an agreement between a partner and AWS under an AWS program. With these permissions, users can request, view, list, and cancel the channel contracts in their account. | November 20, 2026 | 
+| [AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, search, reply to, and resolve Support cases, add attachments to them, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central. | November 19, 2026 | 
+| [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, search, reply to, and resolve Support cases, add attachments to them, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central. | November 19, 2026 | 
+| [PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, search, reply to, and resolve Support cases, add attachments to them, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central. Updated the partnercentral:ListPartners permission so that users can list the partner account. | November 19, 2026 | 
+| [AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, search, reply to, and resolve Support cases, add attachments to them, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central. | November 19, 2026 | 
+| [AWSPartnerCentralRevenueAttributionManagement](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement) — Update to an existing policy | AWS Partner Central added permissions to create, view, search, reply to, and resolve Support cases, add attachments to them, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central. | November 19, 2026 | 
+| [AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess) — Update to an existing policy | AWS Partner Central added permissions to search Support cases, and to view them in the Support Center console. These permissions apply to every Support case in the account, not only cases about AWS Partner Central or AWS Marketplace. | November 19, 2026 | 
+| [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement) — Update to an existing policy | AWS Partner Central updated a policy to add customer account and customer account bulk job access, and tagging access for customer accounts. | November 18, 2026 | 
+| [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement) — Update to an existing policy | AWS Partner Central updated a policy to add search engagements and list engagement groups access. | November 18, 2026 | 
 | [AWSPartnerCentralBusinessPlanManagement](#security-iam-awsmanpol-AWSPartnerCentralBusinessPlanManagement)—New policy | AWS Partner Central added a new policy that provides full access to business plans, including the reporting data behind business plan metrics. | November 10, 2026 | 
 | [AWSPartnerCentralAccountManagementServiceRolePolicy](#security-iam-awsmanpol-AWSPartnerCentralAccountManagementServiceRolePolicy) — New policy | AWS Partner Central now includes a new policy for the AWSServiceRoleForPartnerCentralAccount service-linked role. After you turn on AWS collaboration, your AWS partner development team can create and update your business plans. | October 30, 2026 | 
 | [AWSPartnerCentralRevenueAttributionManagement](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement) — New policy | AWS Partner Central added a new policy to provide necessary access for revenue attribution management activities for partners. | June 30, 2026 | 

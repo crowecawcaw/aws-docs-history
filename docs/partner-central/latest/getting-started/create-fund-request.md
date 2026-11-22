@@ -1,7 +1,6 @@
 
 
 # Creating a fund request
-<a name="create-fund-request"></a>
 
 Users can create a new Fund Request from the Funding Dashboard page. To create a new Fund Request:
 

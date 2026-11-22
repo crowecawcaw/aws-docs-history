@@ -1,7 +1,6 @@
 
 
 # Early termination
-<a name="early-termination"></a>
 
 Partners can request early termination of service periods before their natural expiration, but both parties must mutually consent through another channel handshake process.
 

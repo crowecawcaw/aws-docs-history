@@ -1,7 +1,6 @@
 
 
 # Getting help and support
-<a name="ppi-support"></a>
 
 AWS provides several ways to get help with Performance Indicators. Use the following resources to open support cases, submit data correction requests, attend enablement sessions, and work with your Partner Development Manager (PDM).
 
@@ -10,13 +9,19 @@ AWS provides several ways to get help with Performance Indicators. Use the follo
 
 **To open a support case in AWS Partner Central**
 
-1. Sign in to AWS Partner Central.
+1. Open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
-1. Choose **Support**, and then choose **Contact Support**.
+1. Choose **Get support**.
 
-1. For **What type of support case would you like to open?**, choose **APN Funding**.
+1. In the support chat, describe your Migration Acceleration Program (MAP) question.
 
-1. For **Type of request**, choose **Migration Acceleration Program (MAP)**.
+1. Answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in.
+
+1. Review the case form, and update any fields that need changes.
+
+1. Choose **Submit**. The chat displays your case ID.
+
+For more information, see [Create a support case](getting-support.md#how-support-chat-works).
 
 ## Submitting data correction requests
 <a name="ppi-support-data-corrections"></a>

@@ -1,7 +1,6 @@
 
 
 # Navigation bar
-<a name="navigation-bar"></a>
 
 All AWS Partner Central and AWS Marketplace Management Portal (AMMP) features are accessible from the unified navigation bar. Features are organized into AWS Partner Network (APN) journey phases: Build, Market, Sell and Grow. The below describes where each menu item and corresponding feature:
 + **Partner scorecard:** View your Partner Scorecard to track progression in your AWS Partner path and tier requirements.

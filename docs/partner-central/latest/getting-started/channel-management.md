@@ -1,7 +1,6 @@
 
 
 # Channel Management
-<a name="channel-management"></a>
 
 AWS Partner Central Channel Management provides AWS Solution Providers, Distributors, and Distribution Sellers (Channel Partners) with capabilities to manage their AWS accounts participating in Channel Programs. AWS Partner Central Channel Management is used with [AWS Billing Transfer](https://aws.amazon.com/aws-cost-management/aws-billing-transfer) to enable channel partners to resell to end customers while customers retain root access to their own AWS management account.
 

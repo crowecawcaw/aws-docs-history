@@ -1,7 +1,6 @@
 
 
 # Complete the identity and business verification processes
-<a name="verification-process"></a>
 
 AWS Partner Central requires new partners to complete both identity verification and business verification processes during registration. To maintain the security and integrity of the AWS Partner Network for partners and AWS customers, the verification step is required. These verification steps validate individual identities and business credentials through government and public data sources.
 
@@ -68,3 +67,5 @@ After you complete identity and business verification, finish the [rest of the r
 
 **Important**  
 If you are unable to complete the registration process and require support, review the [Registration FAQ](https://docs.aws.amazon.com/partner-central/latest/getting-started/registration-faq.html) or contact the AWS Marketplace Catalog Operations team for [Business Verification issues on the AWS Marketplace support console page](https://aws.amazon.com/marketplace/management/contact-us/?category=partner_central&form=true&marketplace=commercial&subCategory=business_verification#) or [Identity Verification issues on the AWS Marketplace support console page](https://aws.amazon.com/marketplace/management/contact-us/?category=partner_central&form=true&marketplace=commercial&subCategory=identity_verification#).
+
+In addition to identity verification and business verification, AWS might apply additional checks during registration. Completing identity verification and business verification does not by itself guarantee eligibility, and an applicant might not be eligible to register. AWS does not provide the specific reasons why an applicant is or isn't eligible.

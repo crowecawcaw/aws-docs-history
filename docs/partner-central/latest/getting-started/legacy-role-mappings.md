@@ -1,7 +1,6 @@
 
 
 # Mapping legacy Partner Central roles to AWS IAM
-<a name="legacy-role-mappings"></a>
 
 If you are migrating to the new experience, use the following table to map your existing users to AWS IAM managed policies. These mappings are included by default in the user export available within the Migration tool in the legacy AWS Partner Central experience. For more information about each managed policy, see [AWS managed policies for AWS Partner Central users](https://docs.aws.amazon.com/partner-central/latest/getting-started/security-iam-awsmanpol.html).
 

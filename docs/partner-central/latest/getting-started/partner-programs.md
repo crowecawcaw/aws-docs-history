@@ -1,7 +1,6 @@
 
 
 # Applying to AWS Partner programs
-<a name="partner-programs"></a>
 
 AWS Partner programs provide resources through AWS Partner Central, including technical training, marketing funds, and solution architect support to help partners grow their business on AWS. You can apply to [AWS Partner programs](https://aws.amazon.com/partners/programs/) in AWS Partner Central.
 

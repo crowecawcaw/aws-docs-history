@@ -1,7 +1,6 @@
 
 
 # Export (Download) Data
-<a name="export-download-data"></a>
 
 The ability to export the data displayed in a visual to a downloadable CSV/Excel file is available.
 

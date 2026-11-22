@@ -1,7 +1,6 @@
 
 
 # Pit stop progression
-<a name="bvr-pit-stop-progression"></a>
 
 After your nomination is approved, the initiative progresses through multiple pit stops. Each pit stop drives adoption forward — from initial activation through scaled usage to long-term value retention.
 

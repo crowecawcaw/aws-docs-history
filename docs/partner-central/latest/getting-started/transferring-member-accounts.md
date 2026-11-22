@@ -1,7 +1,6 @@
 
 
 # Transferring member accounts
-<a name="transferring-member-accounts"></a>
 
 This migration path moves individual member accounts from your existing AWS Organization to a new customer-owned organization, while maintaining billing responsibility through billing transfer.
 

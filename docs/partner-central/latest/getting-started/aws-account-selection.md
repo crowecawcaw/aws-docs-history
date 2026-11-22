@@ -1,7 +1,6 @@
 
 
 # AWS account selection
-<a name="aws-account-selection"></a>
 
 To use AWS Partner Central, you need an AWS account. Whether you are migrating to AWS Partner Central or registering for the first time, review the following requirements before you choose which account to use.
 

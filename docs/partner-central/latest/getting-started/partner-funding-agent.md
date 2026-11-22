@@ -1,7 +1,6 @@
 
 
 # Using agents for funding recommendations and fund requests
-<a name="partner-funding-agent"></a>
 
 AWS Partner Central agents analyze your opportunities against available funding programs and can create fund requests directly from the opportunity details page.
 

@@ -1,7 +1,6 @@
 
 
 # Account linking FAQ
-<a name="account-linking-faq"></a>
 
 The following topics answer frequently asked questions about linking AWS Partner Central accounts with other AWS accounts.
 

@@ -1,7 +1,6 @@
 
 
 # Data Refresh and Denominations
-<a name="data-refresh-and-denominations"></a>
 
 The dashboard data refreshes on the following specified cadences:
 + **Daily**

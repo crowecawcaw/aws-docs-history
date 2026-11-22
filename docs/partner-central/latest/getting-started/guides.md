@@ -1,7 +1,6 @@
 
 
 # Finding guides in AWS Partner Central
-<a name="guides"></a>
 
 Use **Guides** in AWS Partner Central to find AWS Partner content in one place. The content covers topics such as AWS Partner Network programs, benefits, co-selling with AWS, AWS Marketplace, and AWS services. You can browse the content by category, search for it, read guides in the console, and download resources to use in your own work.
 
@@ -41,7 +40,7 @@ To use **Guides**, your IAM role must have permission to view AWS Partner Centra
 + Attach an AWS managed policy for AWS Partner Central that includes access to Guides, such as `AWSPartnerCentralFullAccess`, `AWSPartnerCentralOpportunityManagement`, `AWSPartnerCentralChannelManagement`, `AWSPartnerCentralMarketingManagement`, or `PartnerCentralIncentiveBenefitManagement`. For more information, see [AWS managed policies for AWS Partner Central users](https://docs.aws.amazon.com/partner-central/latest/getting-started/managed-policies.html).
 + Create a customer managed policy that grants access only to AWS Partner Central content. The following example policy grants permission to search, list, and view AWS Partner Central content.
 
-  ```
+  ```json
   {
     "Version": "2012-10-17",
     "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Opportunity pipeline analysis
-<a name="partner-analytics-opportunity-pipeline"></a>
 
 **Note**  
 Data is available for download from January 2021 onward.

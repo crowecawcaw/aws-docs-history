@@ -1,7 +1,6 @@
 
 
 # Unlinking AWS Partner Central and AWS accounts
-<a name="unlinking-apc-aws-marketplace"></a>
 
 When you link AWS Partner Central to an AWS account, AWS resources, such as APN Customer Engagement (ACE) opportunities, are created in the linked AWS account. If you unlink to that AWS account and then link to a different AWS account, you lose access to the AWS resources in the original account.
 

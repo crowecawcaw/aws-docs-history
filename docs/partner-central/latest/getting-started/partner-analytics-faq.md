@@ -1,7 +1,6 @@
 
 
 # Partner Analytics and Seller Insights Frequently Asked Questions (FAQs)
-<a name="partner-analytics-faq"></a>
 
 Review the below FAQs for answers to common questions.
 
@@ -16,7 +15,7 @@ Please select the reset button (circular arrow). Note, this is different from th
 ### I see there are data discrepancies? What do I do?
 <a name="data-discrepancies"></a>
 
-File a ticket with APN Support to resolve discrepancies. From the left navigation panel, choose [AWS Partner Central support](https://partnercentral.awspartner.com/partnercentral2/s/support) to file a ticket.
+To resolve discrepancies, contact the AWS Partner Central support team. In the left navigation pane, choose **Support** to open the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1). Start a support chat, and answer the chat's questions. If your issue needs a support case, the chat displays a case form with the details filled in. Review the form, and then choose **Submit**. For more information, see [Create a support case](getting-support.md#how-support-chat-works).
 
 ### Why doesn't the Partner Scorecard data match what is shown in Partner Analytics dashboard data?
 <a name="scorecard-data-mismatch"></a>

@@ -1,7 +1,6 @@
 
 
 # Disbursements
-<a name="bvr-disbursements"></a>
 
 The BVR motion provides funding that is disbursed automatically as you complete pit stop milestones. The total funding available for your initiative is determined by the size of the opportunity.
 

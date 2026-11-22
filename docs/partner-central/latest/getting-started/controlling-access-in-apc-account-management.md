@@ -1,7 +1,6 @@
 
 
 # Controlling access in AWS Partner Central account management
-<a name="controlling-access-in-apc-account-management"></a>
 
 [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) is an AWS service you can use at no additional charge that helps you control access to AWS resources. AWS Partner Central account management uses IAM for AWS Partner Central authentication and authorization. Administrators can use IAM roles to control who can sign in to AWS Partner Central and what AWS Partner Central permissions they have.
 

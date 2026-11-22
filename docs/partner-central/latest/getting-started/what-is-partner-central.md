@@ -1,7 +1,6 @@
 
 
 # What is AWS Partner Central?
-<a name="what-is-partner-central"></a>
 
 Amazon Web Services (AWS) AWS Partner Central is an AWS service available on the AWS Management Console where AWS Partners manage their engagement with AWS.
 

@@ -1,7 +1,6 @@
 
 
 # Creating case studies in AWS Partner Central
-<a name="create-case-study"></a>
 
 You submit case studies in AWS Partner Central to document a working relationship with a customer. Each case study describes an individual customer solution and its outcomes. Case studies can be public or private. Public case studies can be anonymized and still appear in [Partner Solution Finder](https://partners.amazonaws.com/).
 

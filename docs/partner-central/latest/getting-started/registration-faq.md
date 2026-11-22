@@ -1,7 +1,6 @@
 
 
 # Registration FAQs
-<a name="registration-faq"></a>
 
 ## Our organization has multiple AWS account IDs. How do I know which AWS account ID to use?
 <a name="faq-multiple-aws-accounts"></a>
@@ -36,7 +35,7 @@ The data is used to verify identity, establish partner credentials, and maintain
 ## What happens if I register the AWS Partner Central Account and then change roles or leave my company? What happens to my personal data?
 <a name="faq-role-change"></a>
 
-Your organization's account administrator can transfer account management to another person. Personal data acquired in registration can be updated or removed upon request through [AWS Partner Support](https://partnercentral.awspartner.com/partnercentral2/s/support).
+Your organization's account administrator can transfer account management to another person. To update or delete personal data that you provided during registration, contact the AWS Partner Central support team on the [AWS Partner Central and Marketplace Support page](https://us-east-1.console.aws.amazon.com/partnercentral/support?region=us-east-1) in the AWS Partner Central console.
 
 ## Are all international IDs valid?
 <a name="faq-international-ids"></a>
@@ -46,7 +45,7 @@ AWS accepts most government-issued IDs, but some restrictions may apply based on
 ## How do I cancel?
 <a name="faq-cancel"></a>
 
-Contact [Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support) to deactivate an existing account.
+To deactivate an existing account, contact the AWS Partner Central support team on the AWS Partner Central and Marketplace Support page.
 
 ## Why does my account summary on the dashboard of AWS Partner Central show "Not Registered" even though I've already registered with the APN?
 <a name="faq-not-registered"></a>

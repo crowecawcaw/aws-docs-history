@@ -1,9 +1,8 @@
 
 
 # Agents for partner onboarding
-<a name="partner-onboarding-agent"></a>
 
-AWS Partner Central uses AI-powered agents to guide you through partner onboarding — from completing your partner profile and setting up as a Marketplace seller, to achieving PRM (Partner Revenue Measurement) compliance.
+AWS Partner Central uses AI-powered agents to guide you through partner onboarding — from completing your partner profile and setting up as a Marketplace seller, to achieving AWS Revenue Measurement compliance.
 
 ## Prerequisites
 <a name="onboarding-agent-prerequisites"></a>
@@ -46,18 +45,18 @@ The agent guides partners through all steps they need to complete before they ar
 
 1. Follow the agent's guidance through each step. The agent explains what is required, provides links to the relevant forms or portals, and answers questions along the way.
 
-## PRM compliance guidance
-<a name="onboarding-agent-prm-compliance"></a>
+## AWS Revenue Measurement compliance guidance
+<a name="onboarding-agent-aws-revenue-measurement-compliance"></a>
 
-The agent assesses whether your account meets PRM (Partner Revenue Measurement) requirements for revenue attribution, and guides you through any remaining steps.
+The agent assesses whether your account meets AWS Revenue Measurement requirements for revenue attribution, and guides you through any remaining steps.
 
-**To check PRM compliance**
+**To check AWS Revenue Measurement compliance**
 
-1. Ask the agent about your PRM readiness (for example, "Tell me all the steps I need to perform to be PRM compliant").
+1. Ask the agent about your AWS Revenue Measurement readiness (for example, "Tell me all the steps I need to perform to be AWS Revenue Measurement compliant").
 
-1. The agent checks your account against PRM requirements.
+1. The agent checks your account against AWS Revenue Measurement requirements.
 
-1. If all requirements are met, the agent confirms your account is PRM-ready.
+1. If all requirements are met, the agent confirms that your account is ready for AWS Revenue Measurement.
 
 1. If gaps exist, the agent provides a step-by-step remediation plan and can help you complete each action.
 

@@ -1,7 +1,6 @@
 
 
 # Tracking progress with Partner analytics and Marketplace insights
-<a name="partner-analytics-and-seller-insights"></a>
 
 The Partner analytics and Marketplace insights dashboards provide AWS Partners and Marketplace Sellers with real-time insights into their product performance, including customer usage patterns, revenue trends, and subscription metrics through interactive visualizations and customizable reports. Marketplace Sellers can track key performance indicators like monthly recurring revenue, customer acquisition costs, conversion rates, and geographic distribution of customers, enabling data-driven decisions to optimize their AWS Marketplace strategy.
 
@@ -11,6 +10,7 @@ Partner analytics pages without sufficient data will not work as expected. Users
 For more information, see [Navigating AWS Partner Central](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/using-search.html). You can reference the [AWS managed policies for AWS Partner Central users](https://docs.aws.amazon.com/partner-central/latest/getting-started/managed-policies.html) documentation to review access policies for the dashboards.
 
 **Topics**
++ [Delivering partner data to your account with data subscriptions](data-subscriptions.md)
 + [Granting agents access to partner reporting data](agent-reporting-data-access.md)
 + [Partner Analytics Dashboard](partner-analytics.md)
 + [Seller Insights Dashboard](seller-insights.md)

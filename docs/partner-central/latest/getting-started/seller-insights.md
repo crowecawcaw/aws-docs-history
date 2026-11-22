@@ -1,7 +1,6 @@
 
 
 # Seller Insights Dashboard
-<a name="seller-insights"></a>
 
 AWS Marketplace provides dashboards powered by [Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you access and analyze financial, sales, and marketing data. For information about specific dashboards available, see [here](https://docs.aws.amazon.com/marketplace/latest/userguide/dashboards.html).
 

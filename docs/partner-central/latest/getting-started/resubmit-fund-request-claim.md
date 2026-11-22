@@ -1,7 +1,6 @@
 
 
 # Resubmitting a fund request or claim
-<a name="resubmit-fund-request-claim"></a>
 
 If a Fund Request or Claim has been rejected, it can be revised and resubmitted.
 

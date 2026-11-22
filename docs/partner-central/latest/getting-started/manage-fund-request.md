@@ -1,7 +1,6 @@
 
 
 # Managing fund requests
-<a name="manage-fund-request"></a>
 
 The Partner Funding Dashboard is the main place to review all of your Fund Requests and claims regardless of stage and/or status, in one place for all supported programs. There are two main sections, Funding Activities and AWS Partner Funding Benefits.
 

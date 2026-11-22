@@ -1,7 +1,6 @@
 
 
 # Managing your account settings
-<a name="manage-account"></a>
 
 From the navigation menu, partners have two settings: one for managing their AWS Partner Central account, and one for managing their Marketplace settings.
 

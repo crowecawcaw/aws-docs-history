@@ -1,7 +1,6 @@
 
 
 # Mapping IAM roles to a channel management user
-<a name="channel-management-user-mapping"></a>
 
 This section explains how to map AWS Partner Central AWS Identity and Access Management (IAM) roles to your channel management service users on AWS Partner Central. This IAM role mapping is required to enable Partner Central users to access Partner Central Channel Management features. Mapping enables Partner Central Channel Management users to perform actions on the AWS Partner Central AWS account. Selecting an IAM role to access AWS Partner Central Channel APIs by Partner Central users enables features such as Channel Program Management Account and Relationship management.
 

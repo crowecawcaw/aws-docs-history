@@ -1,7 +1,6 @@
 
 
 # Training and certifications
-<a name="partner-analytics-training-certifications"></a>
 
 The Training and Certifications dashboard incorporates dual filtering capabilities for analyzing employee achievements:
 

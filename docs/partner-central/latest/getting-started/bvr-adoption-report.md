@@ -1,7 +1,6 @@
 
 
 # Adoption report
-<a name="bvr-adoption-report"></a>
 
 The adoption report provides a weekly summary of your customer's AWS service usage, feature adoption, and engagement signals. It's available during the adoption-focused pit stops of your initiative.
 

@@ -1,7 +1,6 @@
 
 
 # User management
-<a name="user-roles"></a>
 
 User access to AWS Partner Central is managed through AWS Identity and Access Management (IAM). The below topics describe how to invite, onboard, manage and troubleshoot permissions for AWS Partner Central users.
 

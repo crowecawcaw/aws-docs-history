@@ -1,7 +1,6 @@
 
 
 # Managing an active service period
-<a name="managing-active-service-period"></a>
 
 Active service periods impact both parties Billing Transfer management experience in Billing and Cost Management console. Partners can view and manage active service periods through AWS Partner Central channel management.
 

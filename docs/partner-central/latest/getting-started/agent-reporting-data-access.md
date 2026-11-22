@@ -1,7 +1,6 @@
 
 
 # Granting agents access to partner reporting data
-<a name="agent-reporting-data-access"></a>
 
 You can give AI agents and tools — such as the AWS Partner Central agent, Amazon Q, or your own Model Context Protocol (MCP) client — programmatic access to your AWS Partner Central reporting data. An agent acts with the permissions of the IAM identity that it signs in with. To grant access, attach an AWS Identity and Access Management (IAM) policy that allows the `partnercentral:GetPartnerReportingData` action to that identity: the user's role for console or OAuth sign-in, or the agent's own role for a custom agent. You can scope access to specific datasets (recommended) or to all datasets.
 
@@ -44,7 +43,7 @@ Use this policy because it grants access only to the datasets that you specify. 
 
 In each dataset ARN, the final Dataset/ segment matches the dashboard name. Include the ARN for each dashboard whose data the agent needs.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +85,7 @@ The Attributed Revenue dataset currently returns no rows.
 
 This policy grants access to all current and future datasets by using a wildcard resource.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

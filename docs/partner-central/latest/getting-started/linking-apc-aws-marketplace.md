@@ -1,7 +1,6 @@
 
 
 # Linking AWS Partner Central and AWS accounts
-<a name="linking-apc-aws-marketplace"></a>
 
 The following steps explain how to use AWS Partner Central to link your accounts. You must be an alliance lead or cloud admin to complete these steps. Also, the IAM permissions policy listed earlier in this guide controls the linking and role mapping tasks you and other AWS Partner Central users can perform. For more information about those tasks, refer to [Granting IAM permissions](linking-prerequisites.md#grant-iam-permissions). Note: Linking an AWS account to your AWS Partner Central account is only available and applicable for partners who have not yet migrated to AWS Partner Central in the AWS Console. If you have already migrated to the new experience, or registered anew in the Console, you cannot link an AWS account.
 

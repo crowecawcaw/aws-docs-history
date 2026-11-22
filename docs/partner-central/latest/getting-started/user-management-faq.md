@@ -1,7 +1,6 @@
 
 
 # User Management FAQs
-<a name="user-management-faq"></a>
 
 ## Who in my organization is the IAM Administrator, and how do I contact them?
 <a name="iam-administrator-contact"></a>

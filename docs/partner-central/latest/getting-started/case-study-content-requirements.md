@@ -1,7 +1,6 @@
 
 
 # Case study content requirements
-<a name="case-study-content-requirements"></a>
 
 When you create a case study in AWS Partner Central, AWS automatically validates the content against AWS marketing guidelines within minutes of submission. If the content does not meet a requirement, the case study status changes to **Action required** and the validation feedback identifies what to fix.
 
