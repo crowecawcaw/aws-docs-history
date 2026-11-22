@@ -1,7 +1,6 @@
 
 
 # DimensionMapping
-<a name="API_DimensionMapping"></a>
 
 Maps source data to a dimension in the target Timestream for LiveAnalytics table.
 

@@ -1,7 +1,6 @@
 
 
 # MultiMeasureAttributeMapping
-<a name="API_MultiMeasureAttributeMapping"></a>
 
 A mapping of a source event data field to a measure in a Timestream for LiveAnalytics record.
 

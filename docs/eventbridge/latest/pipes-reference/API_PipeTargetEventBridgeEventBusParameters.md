@@ -1,7 +1,6 @@
 
 
 # PipeTargetEventBridgeEventBusParameters
-<a name="API_PipeTargetEventBridgeEventBusParameters"></a>
 
 The parameters for using an EventBridge event bus as a target.
 

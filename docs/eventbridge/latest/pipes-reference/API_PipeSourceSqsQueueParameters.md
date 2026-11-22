@@ -1,7 +1,6 @@
 
 
 # PipeSourceSqsQueueParameters
-<a name="API_PipeSourceSqsQueueParameters"></a>
 
 The parameters for using a Amazon SQS stream as a source.
 

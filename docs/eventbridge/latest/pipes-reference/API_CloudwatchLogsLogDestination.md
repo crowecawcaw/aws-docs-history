@@ -1,7 +1,6 @@
 
 
 # CloudwatchLogsLogDestination
-<a name="API_CloudwatchLogsLogDestination"></a>
 
 The Amazon CloudWatch Logs logging configuration settings for the pipe.
 

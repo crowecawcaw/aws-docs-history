@@ -1,7 +1,6 @@
 
 
 # PipeLogConfigurationParameters
-<a name="API_PipeLogConfigurationParameters"></a>
 
 Specifies the logging configuration settings for the pipe.
 

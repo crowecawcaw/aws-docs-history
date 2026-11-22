@@ -1,7 +1,6 @@
 
 
 # NetworkConfiguration
-<a name="API_NetworkConfiguration"></a>
 
 This structure specifies the network configuration for an Amazon ECS task.
 

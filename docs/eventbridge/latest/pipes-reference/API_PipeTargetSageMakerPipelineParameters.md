@@ -1,7 +1,6 @@
 
 
 # PipeTargetSageMakerPipelineParameters
-<a name="API_PipeTargetSageMakerPipelineParameters"></a>
 
 The parameters for using a SageMaker AI pipeline as a target.
 

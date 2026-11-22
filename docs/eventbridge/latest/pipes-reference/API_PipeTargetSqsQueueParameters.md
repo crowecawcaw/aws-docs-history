@@ -1,7 +1,6 @@
 
 
 # PipeTargetSqsQueueParameters
-<a name="API_PipeTargetSqsQueueParameters"></a>
 
 The parameters for using a Amazon SQS stream as a target.
 

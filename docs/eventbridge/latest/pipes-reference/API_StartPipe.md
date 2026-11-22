@@ -1,7 +1,6 @@
 
 
 # StartPipe
-<a name="API_StartPipe"></a>
 
 Start an existing pipe.
 

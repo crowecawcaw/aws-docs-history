@@ -1,7 +1,6 @@
 
 
 # PipeTargetHttpParameters
-<a name="API_PipeTargetHttpParameters"></a>
 
 These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations.
 

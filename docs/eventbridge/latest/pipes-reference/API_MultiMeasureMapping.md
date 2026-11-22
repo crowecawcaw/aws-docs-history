@@ -1,7 +1,6 @@
 
 
 # MultiMeasureMapping
-<a name="API_MultiMeasureMapping"></a>
 
 Maps multiple measures from the source event to the same Timestream for LiveAnalytics record.
 

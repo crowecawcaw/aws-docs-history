@@ -1,7 +1,6 @@
 
 
 # Filter
-<a name="API_Filter"></a>
 
 Filter events using an event pattern. For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide*.
 

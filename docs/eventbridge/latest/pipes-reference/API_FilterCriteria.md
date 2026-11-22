@@ -1,7 +1,6 @@
 
 
 # FilterCriteria
-<a name="API_FilterCriteria"></a>
 
 The collection of event patterns used to filter events.
 

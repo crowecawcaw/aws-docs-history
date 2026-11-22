@@ -1,7 +1,6 @@
 
 
 # UntagResource
-<a name="API_UntagResource"></a>
 
 Removes one or more tags from the specified pipes.
 

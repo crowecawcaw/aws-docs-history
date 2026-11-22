@@ -1,7 +1,6 @@
 
 
 # PipeSourceDynamoDBStreamParameters
-<a name="API_PipeSourceDynamoDBStreamParameters"></a>
 
 The parameters for using a DynamoDB stream as a source.
 

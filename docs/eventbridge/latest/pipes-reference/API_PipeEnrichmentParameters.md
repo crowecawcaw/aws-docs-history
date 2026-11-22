@@ -1,7 +1,6 @@
 
 
 # PipeEnrichmentParameters
-<a name="API_PipeEnrichmentParameters"></a>
 
 The parameters required to set up enrichment on your pipe.
 

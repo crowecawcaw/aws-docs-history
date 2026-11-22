@@ -1,7 +1,6 @@
 
 
 # FirehoseLogDestination
-<a name="API_FirehoseLogDestination"></a>
 
 The Amazon Data Firehose logging configuration settings for the pipe.
 

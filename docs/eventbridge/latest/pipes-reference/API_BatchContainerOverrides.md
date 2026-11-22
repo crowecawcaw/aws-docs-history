@@ -1,7 +1,6 @@
 
 
 # BatchContainerOverrides
-<a name="API_BatchContainerOverrides"></a>
 
 The overrides that are sent to a container.
 

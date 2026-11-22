@@ -1,7 +1,6 @@
 
 
 # DescribePipe
-<a name="API_DescribePipe"></a>
 
 Get the information about an existing pipe. For more information about pipes, see [Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html) in the Amazon EventBridge User Guide.
 

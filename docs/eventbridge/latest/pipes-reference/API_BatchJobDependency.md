@@ -1,7 +1,6 @@
 
 
 # BatchJobDependency
-<a name="API_BatchJobDependency"></a>
 
 An object that represents an AWS Batch job dependency.
 

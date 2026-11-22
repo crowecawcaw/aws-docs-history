@@ -1,7 +1,6 @@
 
 
 # Pipe
-<a name="API_Pipe"></a>
 
 An object that represents a pipe. Amazon EventBridgePipes connect event sources to targets and reduces the need for specialized knowledge and integration code.
 

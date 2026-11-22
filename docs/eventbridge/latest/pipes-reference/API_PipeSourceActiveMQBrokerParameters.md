@@ -1,7 +1,6 @@
 
 
 # PipeSourceActiveMQBrokerParameters
-<a name="API_PipeSourceActiveMQBrokerParameters"></a>
 
 The parameters for using an Active MQ broker as a source.
 

@@ -1,7 +1,6 @@
 
 
 # SageMakerPipelineParameter
-<a name="API_SageMakerPipelineParameter"></a>
 
 Name/Value pair of a parameter to start execution of a SageMaker AI Model Building Pipeline.
 

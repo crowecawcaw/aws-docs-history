@@ -1,7 +1,6 @@
 
 
 # MSKAccessCredentials
-<a name="API_MSKAccessCredentials"></a>
 
 The AWS Secrets Manager secret that stores your stream credentials.
 

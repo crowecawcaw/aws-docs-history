@@ -1,7 +1,6 @@
 
 
 # PipeSourceManagedStreamingKafkaParameters
-<a name="API_PipeSourceManagedStreamingKafkaParameters"></a>
 
 The parameters for using an MSK stream as a source.
 

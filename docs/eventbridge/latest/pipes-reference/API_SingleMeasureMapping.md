@@ -1,7 +1,6 @@
 
 
 # SingleMeasureMapping
-<a name="API_SingleMeasureMapping"></a>
 
 Maps a single source data field to a single record in the specified Timestream for LiveAnalytics table.
 

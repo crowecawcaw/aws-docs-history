@@ -1,7 +1,6 @@
 
 
 # UpdatePipeSourceSelfManagedKafkaParameters
-<a name="API_UpdatePipeSourceSelfManagedKafkaParameters"></a>
 
 The parameters for using a self-managed Apache Kafka stream as a source.
 

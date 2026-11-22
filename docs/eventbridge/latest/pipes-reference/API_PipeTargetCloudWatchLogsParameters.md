@@ -1,7 +1,6 @@
 
 
 # PipeTargetCloudWatchLogsParameters
-<a name="API_PipeTargetCloudWatchLogsParameters"></a>
 
 The parameters for using an CloudWatch Logs log stream as a target.
 

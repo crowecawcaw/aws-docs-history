@@ -1,7 +1,6 @@
 
 
 # EcsTaskOverride
-<a name="API_EcsTaskOverride"></a>
 
 The overrides that are associated with a task.
 

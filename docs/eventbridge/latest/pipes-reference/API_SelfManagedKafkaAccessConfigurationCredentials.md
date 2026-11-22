@@ -1,7 +1,6 @@
 
 
 # SelfManagedKafkaAccessConfigurationCredentials
-<a name="API_SelfManagedKafkaAccessConfigurationCredentials"></a>
 
 The AWS Secrets Manager secret that stores your stream credentials.
 

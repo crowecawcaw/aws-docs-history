@@ -1,7 +1,6 @@
 
 
 # ListTagsForResource
-<a name="API_ListTagsForResource"></a>
 
 Displays the tags associated with a pipe.
 

@@ -1,7 +1,6 @@
 
 
 # MQBrokerAccessCredentials
-<a name="API_MQBrokerAccessCredentials"></a>
 
 The AWS Secrets Manager secret that stores your broker credentials.
 

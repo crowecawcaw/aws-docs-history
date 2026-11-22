@@ -1,7 +1,6 @@
 
 
 # EcsEnvironmentFile
-<a name="API_EcsEnvironmentFile"></a>
 
 A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.docker.com/compose/env-file/).
 

@@ -1,7 +1,6 @@
 
 
 # StopPipe
-<a name="API_StopPipe"></a>
 
 Stop an existing pipe.
 

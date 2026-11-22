@@ -1,7 +1,6 @@
 
 
 # PipeTargetEcsTaskParameters
-<a name="API_PipeTargetEcsTaskParameters"></a>
 
 The parameters for using an Amazon ECS task as a target.
 

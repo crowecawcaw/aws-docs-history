@@ -1,7 +1,6 @@
 
 
 # Tag
-<a name="API_Tag"></a>
 
 A key-value pair associated with an AWS resource. In EventBridge, rules and event buses support tagging.
 

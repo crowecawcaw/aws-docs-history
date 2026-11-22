@@ -1,7 +1,6 @@
 
 
 # ValidationExceptionField
-<a name="API_ValidationExceptionField"></a>
 
 Indicates that an error has occurred while performing a validate operation.
 

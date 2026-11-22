@@ -1,7 +1,6 @@
 
 
 # PipeSourceParameters
-<a name="API_PipeSourceParameters"></a>
 
 The parameters required to set up a source for your pipe.
 

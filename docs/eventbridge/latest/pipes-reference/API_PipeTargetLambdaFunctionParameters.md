@@ -1,7 +1,6 @@
 
 
 # PipeTargetLambdaFunctionParameters
-<a name="API_PipeTargetLambdaFunctionParameters"></a>
 
 The parameters for using a Lambda function as a target.
 

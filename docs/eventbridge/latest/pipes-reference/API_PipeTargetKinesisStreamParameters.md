@@ -1,7 +1,6 @@
 
 
 # PipeTargetKinesisStreamParameters
-<a name="API_PipeTargetKinesisStreamParameters"></a>
 
 The parameters for using a Kinesis stream as a target.
 

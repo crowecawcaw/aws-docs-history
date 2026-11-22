@@ -1,7 +1,6 @@
 
 
 # CapacityProviderStrategyItem
-<a name="API_CapacityProviderStrategyItem"></a>
 
 The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
 

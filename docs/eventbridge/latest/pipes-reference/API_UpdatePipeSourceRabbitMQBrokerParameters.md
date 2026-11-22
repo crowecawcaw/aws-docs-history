@@ -1,7 +1,6 @@
 
 
 # UpdatePipeSourceRabbitMQBrokerParameters
-<a name="API_UpdatePipeSourceRabbitMQBrokerParameters"></a>
 
 The parameters for using a Rabbit MQ broker as a source.
 

@@ -1,7 +1,6 @@
 
 
 # PipeTargetRedshiftDataParameters
-<a name="API_PipeTargetRedshiftDataParameters"></a>
 
 These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement.
 

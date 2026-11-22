@@ -1,7 +1,6 @@
 
 
 # PipeTargetBatchJobParameters
-<a name="API_PipeTargetBatchJobParameters"></a>
 
 The parameters for using an AWS Batch job as a target.
 

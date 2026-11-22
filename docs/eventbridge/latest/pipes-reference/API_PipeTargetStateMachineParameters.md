@@ -1,7 +1,6 @@
 
 
 # PipeTargetStateMachineParameters
-<a name="API_PipeTargetStateMachineParameters"></a>
 
 The parameters for using a Step Functions state machine as a target.
 

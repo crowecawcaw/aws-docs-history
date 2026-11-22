@@ -1,7 +1,6 @@
 
 
 # S3LogDestinationParameters
-<a name="API_S3LogDestinationParameters"></a>
 
 The Amazon S3 logging configuration settings for the pipe.
 

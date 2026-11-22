@@ -1,7 +1,6 @@
 
 
 # DeadLetterConfig
-<a name="API_DeadLetterConfig"></a>
 
 A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
 

@@ -1,7 +1,6 @@
 
 
 # PipeTargetTimestreamParameters
-<a name="API_PipeTargetTimestreamParameters"></a>
 
 The parameters for using a Timestream for LiveAnalytics table as a target.
 

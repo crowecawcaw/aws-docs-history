@@ -1,7 +1,6 @@
 
 
 # PipeTargetParameters
-<a name="API_PipeTargetParameters"></a>
 
 The parameters required to set up a target for your pipe.
 

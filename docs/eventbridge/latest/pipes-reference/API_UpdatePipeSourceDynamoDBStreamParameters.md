@@ -1,7 +1,6 @@
 
 
 # UpdatePipeSourceDynamoDBStreamParameters
-<a name="API_UpdatePipeSourceDynamoDBStreamParameters"></a>
 
 The parameters for using a DynamoDB stream as a source.
 

@@ -1,7 +1,6 @@
 
 
 # UpdatePipeSourceKinesisStreamParameters
-<a name="API_UpdatePipeSourceKinesisStreamParameters"></a>
 
 The parameters for using a Kinesis stream as a source.
 
