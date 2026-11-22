@@ -1,7 +1,6 @@
 
 
 # CreateNetworkConnector
-<a name="API_CreateNetworkConnector"></a>
 
 Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.
 
@@ -149,6 +148,8 @@ For information about the errors that are common to all actions, see [Common Err
 
  ** InvalidParameterValueException **   
 One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.    
+ ** message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 400
@@ -162,19 +163,25 @@ The exception type.
 HTTP Status Code: 400
 
  ** ResourceConflictException **   
-The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in `ACTIVE` state.    
+The request could not be completed due to a conflict with the current state of the resource. For example, attempting to modify a resource that is not in a state that permits the operation.    
+ ** message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 409
 
  ** ServiceException **   
 An internal service error occurred. Retry the request with exponential backoff.    
+ ** Message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 500
 
  ** TooManyRequestsException **   
 The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.    
+ ** message **   
+The error message that describes the exception.  
  ** Reason **   
 The reason for the throttling.  
  ** retryAfterSeconds **   

@@ -1,7 +1,6 @@
 
 
 # NetworkConnectorVpcEgressConfiguration
-<a name="API_NetworkConnectorVpcEgressConfiguration"></a>
 
 Configuration for a VPC egress network connector. Specifies the VPC subnets, security groups, network protocol, and associated Lambda compute resource types.
 
@@ -13,6 +12,11 @@ The types of Lambda compute resources that can use this connector. Valid values 
 Type: Array of strings  
 Array Members: Fixed number of 1 item.  
 Valid Values: `MicroVm | WebFunction`   
+Required: No
+
+ ** ElasticIpConfiguration **   <a name="lambdacore-Type-NetworkConnectorVpcEgressConfiguration-ElasticIpConfiguration"></a>
+The Elastic IP configuration for the connector's ENIs. Specify `ServiceManaged` to have Lambda assign a service-managed Elastic IP address to each ENI. The operator role must allow `ec2:AllocateAddress` and `ec2:AssociateAddress`.  
+Type: [ElasticIpConfiguration](API_ElasticIpConfiguration.md) object  
 Required: No
 
  ** NetworkProtocol **   <a name="lambdacore-Type-NetworkConnectorVpcEgressConfiguration-NetworkProtocol"></a>

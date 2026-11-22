@@ -1,7 +1,6 @@
 
 
 # NetworkConnectorConfiguration
-<a name="API_NetworkConnectorConfiguration"></a>
 
 The network configuration for a network connector. Different connector types use different configuration shapes; specify the configuration that matches your connector type.
 

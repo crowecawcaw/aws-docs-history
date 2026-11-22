@@ -1,7 +1,6 @@
 
 
 # GetNetworkConnector
-<a name="API_GetNetworkConnector"></a>
 
 Retrieves the current configuration, state, and metadata of a network connector. The `Identifier` parameter accepts the connector ID, name, or full ARN. Use this operation to poll connector state after creation or update, or to inspect the current VPC configuration and any failure reasons.
 
@@ -95,7 +94,7 @@ Type: String
  ** [LastUpdateStatusReasonCode](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-LastUpdateStatusReasonCode"></a>
 A machine-readable code indicating the reason for the last update status. Use this for programmatic error handling.  
 Type: String  
-Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
+Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InternetGatewayNotAttached | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
 
  ** [LatestVersion](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-LatestVersion"></a>
 The version number of the connector's latest active version. Each configuration update creates a new immutable version; this attribute exposes the most recent one. This field is returned only on a standard (unqualified) request.  
@@ -132,7 +131,7 @@ Type: String
  ** [StateReasonCode](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-StateReasonCode"></a>
 A machine-readable code indicating the reason for the current state. Use this for programmatic error handling.  
 Type: String  
-Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
+Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InternetGatewayNotAttached | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
 
  ** [Version](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-Version"></a>
 The version number of the network connector. On a standard (unqualified) request, this is the connector's current version; each configuration update increments it. When you supply a version-qualified identifier, this is the specific version you requested.  
@@ -152,24 +151,32 @@ For information about the errors that are common to all actions, see [Common Err
 
  ** InvalidParameterValueException **   
 One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.    
+ ** message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
-The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.    
+The specified resource does not exist. Verify the identifier and Region.    
+ ** Message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 404
 
  ** ServiceException **   
 An internal service error occurred. Retry the request with exponential backoff.    
+ ** Message **   
+The error message that describes the exception.  
  ** Type **   
 The exception type.
 HTTP Status Code: 500
 
  ** TooManyRequestsException **   
 The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.    
+ ** message **   
+The error message that describes the exception.  
  ** Reason **   
 The reason for the throttling.  
  ** retryAfterSeconds **   

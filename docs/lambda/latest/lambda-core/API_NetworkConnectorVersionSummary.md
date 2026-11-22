@@ -1,7 +1,6 @@
 
 
 # NetworkConnectorVersionSummary
-<a name="API_NetworkConnectorVersionSummary"></a>
 
 Summary information about a single version of a network connector returned by `ListNetworkConnectorVersions`. Each configuration update creates a new immutable version; this shape describes one such version. To retrieve the full configuration of a version, call `GetNetworkConnector` with a version-qualified identifier.
 
@@ -60,7 +59,7 @@ Required: No
  ** StateReasonCode **   <a name="lambdacore-Type-NetworkConnectorVersionSummary-StateReasonCode"></a>
 A machine-readable code indicating the reason for the current state. Use this for programmatic error handling.  
 Type: String  
-Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses`   
+Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InternetGatewayNotAttached | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses`   
 Required: No
 
 ## See Also
