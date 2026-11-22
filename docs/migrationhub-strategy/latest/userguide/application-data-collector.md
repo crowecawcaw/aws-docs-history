@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Strategy Recommendations application data collector
-<a name="application-data-collector"></a>
 
 This section describes how to use the Strategy Recommendations application data collector.
 
@@ -91,18 +90,18 @@ The Migration Hub Strategy Recommendations application data collector upgrades a
 
 1. Use the following command to connect to the collector VM using an SSH client.
 
-   ```
+   ```bash,sh,zsh
    ssh ec2-user@{{CollectorIPAddress}}
    ```
 
 1. Change to the upgrade directory in the collector VM as shown in the following example.
 
-   ```
+   ```bash,sh,zsh
    cd  /home/ec2-user/collector/upgrades
    ```
 
 1. Use the following command to run the upgrade script. 
 
-   ```
+   ```bash,sh,zsh
    sudo bash application-data-collector-upgrade
    ```

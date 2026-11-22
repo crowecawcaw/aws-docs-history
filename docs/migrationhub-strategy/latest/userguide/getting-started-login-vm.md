@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 3: Sign in to the Strategy Recommendations collector
-<a name="getting-started-login-vm"></a>
 
 This section describes how to sign in to the deployed Migration Hub Strategy Recommendations application data collector. How you sign in to the collector depends on how you deployed it.
 +  [Sign in to the collector deployed in the vCenter based environment](#getting-started-login-vcenter)
@@ -16,7 +15,7 @@ This section describes how to sign in to the deployed Migration Hub Strategy Rec
 
 1. Use the following command to connect to the collector using an SSH client.
 
-   ```
+   ```bash,sh,zsh
    ssh ec2-user@CollectorIPAddress
    ```
 
@@ -28,7 +27,7 @@ This section describes how to sign in to the deployed Migration Hub Strategy Rec
 **To sign in to the Strategy Recommendations collector deployed as an Amazon EC2 instance**
 + Use the following command to connect to the collector using an SSH client.
 
-  ```
+  ```bash,sh,zsh
   ssh -i "{{Keyname.pem}}" ec2-user@CollectorIPAddress
   ```
 

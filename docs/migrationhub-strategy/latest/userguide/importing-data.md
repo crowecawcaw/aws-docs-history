@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Importing data into Strategy Recommendations
-<a name="importing-data"></a>
 
 As an alternative to using the application data collector, you can import information about the applications and servers for which you want migration and modernization recommendations. 
 
@@ -32,7 +31,7 @@ This section describes how to use the application import template to import data
 
 The import template that you download is a `.json` file as shown in the following example.
 
-```
+```json
 {
     "ImportFormatVersion": 1,
     "Resources": [

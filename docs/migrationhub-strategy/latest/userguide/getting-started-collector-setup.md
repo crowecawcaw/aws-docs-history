@@ -3,13 +3,12 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 4: Set up the Strategy Recommendations collector
-<a name="getting-started-collector-setup"></a>
 
 This section describes how to use the command line `collector setup` commands to configure the Migration Hub Strategy Recommendations application data collector. These configurations are stored locally.
 
 Before you can use `collector setup` commands, you must create a bash shell session in the collector Docker container using the following `docker exec` command.
 
-```
+```bash,sh,zsh
 docker exec -it application-data-collector bash
 ```
 
@@ -25,7 +24,7 @@ vCenter configuration setup is only available if the collector is hosted on vCen
 
 1. Enter the following command.
 
-   ```
+   ```bash,sh,zsh
    collector setup
    ```
 
@@ -348,7 +347,7 @@ Any WSMan Instance that has a HTTP listener is removed along with existing HTTPS
 
 1. Use the following command to check the version of PowerShell installed on your server.
 
-   ```
+   ```PowerShell
    $PSVersionTable
    ```
 
@@ -356,7 +355,7 @@ Any WSMan Instance that has a HTTP listener is removed along with existing HTTPS
 
 1. Use the following command in a new PowerShell window to ensure that PowerShell 5.1 is installed.
 
-   ```
+   ```PowerShell
    $PSVersionTable
    ```
 
@@ -374,7 +373,7 @@ Any WSMan Instance that has a HTTP listener is removed along with existing HTTPS
 
 1. To complete the setup, run the downloaded PowerShell script on all application servers.
 
-   ```
+   ```PowerShell
    .\WinRMSetup.ps1
    ```
 

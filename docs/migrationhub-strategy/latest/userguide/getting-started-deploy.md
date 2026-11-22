@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 2: Deploy the Strategy Recommendations collector
-<a name="getting-started-deploy"></a>
 
 This section describes how to deploy the Strategy Recommendations application data collector. An application data collector is an agentless data collector that identifies running applications on your servers, performs source code analysis, and analyzes your databases.
 

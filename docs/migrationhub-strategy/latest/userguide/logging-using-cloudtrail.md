@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Logging Strategy Recommendations API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Migration Hub Strategy Recommendations is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Strategy Recommendations. CloudTrail captures API calls for Strategy Recommendations as events. The calls captured include calls from the Strategy Recommendations console and code calls to the Strategy Recommendations API operations. 
 
@@ -56,7 +55,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the [GetServerDetails](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetServerDetails.html) action.
 
-```
+```json
 {
     "eventVersion": "1.08",
     "userIdentity": {

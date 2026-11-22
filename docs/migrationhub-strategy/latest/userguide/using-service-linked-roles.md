@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Using service-linked roles for Strategy Recommendations
-<a name="using-service-linked-roles"></a>
 
 Migration Hub Strategy Recommendations uses AWS Identity and Access Management (IAM)[ service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Strategy Recommendations. Service-linked roles are predefined by Strategy Recommendations and include all the permissions that the service requires to call other AWS services on your behalf. 
 

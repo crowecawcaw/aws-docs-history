@@ -3,7 +3,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Step 5: Use Strategy Recommendations in the Migration Hub console to get recommendations
-<a name="getting-started-get-recommendations"></a>
 
 This section describes how to use Strategy Recommendations in the Migration Hub console to get migration recommendations for the first time.
 
