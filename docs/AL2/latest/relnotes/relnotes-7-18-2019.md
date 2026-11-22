@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 07/18/2019 release notes
-<a name="relnotes-7-18-2019"></a>
 
 These are release notes for Amazon Linux 2.
 

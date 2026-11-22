@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 09/25/2018 release notes
-<a name="relnotes-9-25-2018"></a>
 
 These are release notes for Amazon Linux 2.
 

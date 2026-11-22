@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 release notes for 2025
-<a name="relnotes-al2-2025"></a>
 
 The following are the release notes for Amazon Linux 2 for 2025.
 

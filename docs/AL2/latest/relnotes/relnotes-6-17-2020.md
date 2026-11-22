@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 06/17/2020 release notes
-<a name="relnotes-6-17-2020"></a>
 
 These are release notes for Amazon Linux 2.
 

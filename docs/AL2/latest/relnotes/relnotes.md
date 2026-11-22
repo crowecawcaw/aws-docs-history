@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 release notes
-<a name="relnotes"></a>
 
 These are release notes for Amazon Linux 2.
 
@@ -19,19 +18,19 @@ The extras mechanism provides the latest application software on a stable base o
 
 The following is the Extras command to list the available topics.
 
-```
+```sh
 $ amazon-linux-extras
 ```
 
 The following is the Extras command to install a topic.
 
-```
+```sh
 $ sudo amazon-linux-extras install {{topic name}}
 ```
 
 In the following example, the Extras command installs the rust1 topic.
 
-```
+```sh
 $ sudo amazon-linux-extras install rust1
 ```
 
@@ -84,7 +83,7 @@ The minimum system requirement for running Amazon Linux 2 in a virtual machine i
 
 To upgrade from Amazon Linux 2 LTS Candidate 2 to the LTS version of Amazon Linux 2, run the following commands.
 
-```
+```sh
 $ sudo yum update system-release
 
 $ sudo yum update cloud-init

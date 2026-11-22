@@ -1,7 +1,6 @@
 
 
 # Amazon Linux 2 05/29/2020 release notes
-<a name="relnotes-5-29-2020"></a>
 
 These are release notes for Amazon Linux 2.
 
