@@ -1,7 +1,6 @@
 
 
 # Downloading lexicons on the console
-<a name="managing-lexicons-console-download"></a>
 
 The following process describes how to download one or more lexicons. You can add, remove, or modify lexicon entries in the file and then upload it again to keep your lexicon up-to-date. 
 

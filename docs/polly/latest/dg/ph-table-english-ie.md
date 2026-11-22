@@ -1,7 +1,6 @@
 
 
 # English (Ireland) (en-IE)
-<a name="ph-table-english-ie"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Irish English voices that are supported by Amazon Polly.
 

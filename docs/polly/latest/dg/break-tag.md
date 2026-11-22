@@ -1,7 +1,6 @@
 
 
 # Adding a pause
-<a name="break-tag"></a>
 
 *<break>*
 

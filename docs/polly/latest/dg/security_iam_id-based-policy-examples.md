@@ -1,7 +1,6 @@
 
 
 # Identity-based policy examples for Amazon Polly
-<a name="security_iam_id-based-policy-examples"></a>
 
 By default, users and roles don't have permission to create or modify Amazon Polly resources. To grant users permission to perform actions on the resources that they need, an IAM administrator can create IAM policies.
 
@@ -55,7 +54,7 @@ You can use conditions in your identity-based policy to control access to Amazon
 
 The following policy allows a user to create lexicons only when the request includes the `team` tag with the value `support`. It allows no other tag keys. A `PutLexicon` request with tags also requires `polly:TagResource`, so the policy grants both actions with the same conditions:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +85,7 @@ The following policy allows a user to view and delete only lexicons that have th
 
 `SynthesizeSpeech` is authorized against each lexicon in `LexiconNames`. A request without lexicons isn't associated with a lexicon resource, so a statement that allows `polly:SynthesizeSpeech` only on lexicon ARNs denies it. To allow synthesis with or without lexicons while restricting which lexicons can be applied, the policy allows `polly:SynthesizeSpeech` on all resources and denies it for lexicons that don't have the required tag:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -129,7 +128,7 @@ The following policy allows a user to view and delete only lexicons that have th
 
 The following policy allows a user to view, add, and remove tags only on lexicons that have the `team` tag with the value `support`. The user can't change or remove the `team` tag itself:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -171,7 +170,7 @@ The following policy allows a user to view, add, and remove tags only on lexicon
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
-```
+```json
 {
     "Version": "2012-10-17",		 	 	 
     "Statement": [
@@ -264,7 +263,7 @@ You might create a user who has permissions for all Amazon Polly actions. Think 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement": [{
@@ -295,7 +294,7 @@ The following permissions policy grants the user permissions to delete any lexic
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -321,7 +320,7 @@ The following permissions policy grants the user permissions to delete any lexic
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{
@@ -347,7 +346,7 @@ The following permissions policy grants the user permissions to delete a specifi
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [{

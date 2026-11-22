@@ -1,7 +1,6 @@
 
 
 # Use `StartSpeechSynthesisTask` with an AWS SDK or CLI
-<a name="example_polly_StartSpeechSynthesisTask_section"></a>
 
 The following code examples show how to use `StartSpeechSynthesisTask`.
 
@@ -66,7 +65,7 @@ For more information, see [Creating long audio files](https://docs.aws.amazon.co
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
-```
+```python
 class PollyWrapper:
     """Encapsulates Amazon Polly functions."""
 
@@ -167,7 +166,7 @@ class PollyWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
-```
+```sap-abap
     TRY.
         " Only pass optional parameters if they have values
         IF iv_lang_code IS NOT INITIAL AND iv_s3_key_prefix IS NOT INITIAL.

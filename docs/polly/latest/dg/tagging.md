@@ -1,7 +1,6 @@
 
 
 # Tagging Amazon Polly resources
-<a name="tagging"></a>
 
 A *tag* is a custom attribute label that you or AWS assigns to an AWS resource.
 
@@ -23,6 +22,7 @@ The following sections provide more information about tags for Amazon Polly.
 
 The following resources in Amazon Polly support tagging:
 + Lexicons – You can tag lexicons when you create them by using the [PutLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_PutLexicon.html) API, or when you upload them in the Amazon Polly console. You can add tags to existing lexicons by using the [TagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_TagResource.html) API. You can also view and manage the tags of a lexicon on its details page in the Amazon Polly console.
++ Custom voices – You can tag custom voices when you create them by using the [CreateVoice](https://docs.aws.amazon.com/polly/latest/APIReference/API_CreateVoice.html) API. You can add tags to existing custom voices by using the [TagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_TagResource.html) API.
 
 Lexicon ARNs have the following format:
 
@@ -30,22 +30,34 @@ Lexicon ARNs have the following format:
 arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}
 ```
 
+Custom voice ARNs have the following format. To get the ARN of a voice, use `GetVoice`.
+
+```
+arn:aws:polly:{{region}}:{{account-id}}:voice/{{voice-id}}
+```
+
 For information about adding and managing tags, see [Managing tags](#tagging-add-edit-delete).
 
-## Permissions for tagging lexicons on creation
+## Permissions for tagging resources on creation
 <a name="tagging-on-create"></a>
 
-When you include tags in a `PutLexicon` request, Amazon Polly checks that you have permission for both of the following actions on the lexicon:
-+ `polly:PutLexicon`
-+ `polly:TagResource`
+When you include tags in a request that creates a resource, Amazon Polly checks that you have permission for both the create action and `polly:TagResource` on the resource. The following table lists the permissions for each operation.
 
-If you don't have permission for `polly:TagResource`, the request fails with an access denied error and Amazon Polly doesn't create or update the lexicon. A `PutLexicon` request without tags only requires `polly:PutLexicon`.
 
-The `AmazonPollyFullAccess` managed policy includes both permissions. For more information about managed policies, see [AWS managed (predefined) policies for Amazon Polly](security_iam_id-based-policy-examples.md#access-policy-aws-managed-policies).
+| Operation | Permissions without tags | Permissions with tags | 
+| --- | --- | --- | 
+| PutLexicon | polly:PutLexicon | polly:PutLexicon and polly:TagResource | 
+| CreateVoice | polly:CreateVoice | polly:CreateVoice and polly:TagResource | 
 
-You can include tags in a `PutLexicon` request only when the request creates a lexicon. If a lexicon with the same name already exists, a `PutLexicon` request that includes tags fails with a `ValidationException`, and Amazon Polly doesn't change the lexicon or its tags. To add, change, or remove the tags of an existing lexicon, use `TagResource` and `UntagResource`.
+If you don't have permission for `polly:TagResource`, the request fails with an access denied error, and Amazon Polly doesn't create the resource.
 
-A `PutLexicon` request without tags that overwrites an existing lexicon replaces the lexicon content and keeps the tags that the lexicon already has. It doesn't remove them.
+The `AmazonPollyFullAccess` managed policy includes all of these permissions. For more information about managed policies, see [AWS managed (predefined) policies for Amazon Polly](security_iam_id-based-policy-examples.md#access-policy-aws-managed-policies).
+
+To add, change, or remove the tags of an existing lexicon or custom voice, use `TagResource` and `UntagResource`.
+
+`PutLexicon` can also overwrite an existing lexicon, so the following rules apply to lexicons only:
++ You can include tags in a `PutLexicon` request only when the request creates a lexicon. If a lexicon with the same name already exists, a request that includes tags fails with a `ValidationException`, and Amazon Polly doesn't change the lexicon or its tags.
++ A `PutLexicon` request without tags that overwrites an existing lexicon replaces the lexicon content and keeps the tags that the lexicon already has.
 
 ## Managing tags
 <a name="tagging-add-edit-delete"></a>
@@ -90,7 +102,7 @@ You can view, add, edit, and remove the tags of an existing lexicon on its detai
 
 The following AWS CLI command adds tags when you create a lexicon by using the `--tags` option of the `put-lexicon` command:
 
-```
+```bash
 aws polly put-lexicon \
 --name w3c \
 --content file://example.pls \
@@ -99,7 +111,7 @@ aws polly put-lexicon \
 
 To add or update tags on an existing lexicon, use the `tag-resource` command. If a tag that has the same key already exists, its value is replaced. In the following examples, replace {{111122223333}} with your AWS account ID.
 
-```
+```bash
 aws polly tag-resource \
 --resource-arn arn:aws:polly:us-east-2:{{111122223333}}:lexicon/w3c \
 --tags CostCenter=12345
@@ -107,14 +119,14 @@ aws polly tag-resource \
 
 To list the tags of a lexicon, use the `list-tags-for-resource` command.
 
-```
+```bash
 aws polly list-tags-for-resource \
 --resource-arn arn:aws:polly:us-east-2:{{111122223333}}:lexicon/w3c
 ```
 
 The command returns the tags as a map of keys to values.
 
-```
+```json
 {
     "Tags": {
         "CostCenter": "12345",
@@ -126,7 +138,7 @@ The command returns the tags as a map of keys to values.
 
 To remove tags from a lexicon, use the `untag-resource` command with one or more tag keys to remove.
 
-```
+```bash
 aws polly untag-resource \
 --resource-arn arn:aws:polly:us-east-2:{{111122223333}}:lexicon/w3c \
 --tag-keys CostCenter Environment

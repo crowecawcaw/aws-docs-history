@@ -1,7 +1,6 @@
 
 
 # iOS example
-<a name="examples-ios"></a>
 
 The following example uses the iOS SDK for Amazon Polly to read the specified text using a voice selected from a list of voices.
 

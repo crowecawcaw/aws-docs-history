@@ -1,7 +1,6 @@
 
 
 # Languages in Amazon Polly
-<a name="supported-languages"></a>
 
 The following languages are supported by Amazon Polly and can be used to synthesize speech. Each language has a unique language code. These language codes are [W3C language identification tags](https://www.w3.org/TR/ltli/#language-terminology) ({{ISO 639-3}} for the language name and {{ISO 3166}} for the country code). 
 

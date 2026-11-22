@@ -1,7 +1,6 @@
 
 
 # Uploading a lexicon
-<a name="managing-lexicons-console-upload"></a>
 
 The lexicons you use must conform to the Pronunciation Lexicon Specification (PLS) W3C recommendation. For more information, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/#S4.7) on the W3C website.
 

@@ -1,7 +1,6 @@
 
 
 # Changing a voice speed
-<a name="voice-speed-change-vip"></a>
 
 For certain applications, you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. For example, if your organization was making an application that reads books to immigrant audiences, you may want to vary the voice speed. Your audience may speak English, but their fluency is limited. Amazon Polly helps you slow down the rate of speech using the SSML <prosody> tag. 
 

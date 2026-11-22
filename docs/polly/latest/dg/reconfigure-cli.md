@@ -1,7 +1,6 @@
 
 
 # Reconfiguring the AWS CLI
-<a name="reconfigure-cli"></a>
 
 If you've previously downloaded and configured the AWS CLI, Amazon Polly might be unavailable unless you reconfigure the AWS CLI. The following procedure checks to see if this is necessary.
 

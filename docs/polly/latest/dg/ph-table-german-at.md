@@ -1,7 +1,6 @@
 
 
 # German (Austrian) (de-AT)
-<a name="ph-table-german-at"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Austrian German voices that are supported by Amazon Polly.
 

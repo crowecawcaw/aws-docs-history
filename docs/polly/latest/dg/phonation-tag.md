@@ -1,7 +1,6 @@
 
 
 # Speaking softly
-<a name="phonation-tag"></a>
 
 *<amazon:effect phonation="soft">*
 

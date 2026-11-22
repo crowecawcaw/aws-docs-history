@@ -1,7 +1,6 @@
 
 
 # Welsh (cy-GB)
-<a name="ph-table-welsh"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Welsh voice supported by Amazon Polly.
 

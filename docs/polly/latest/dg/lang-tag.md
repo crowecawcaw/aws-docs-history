@@ -1,7 +1,6 @@
 
 
 # Specifying another language for specific words
-<a name="lang-tag"></a>
 
 *<lang>*
 

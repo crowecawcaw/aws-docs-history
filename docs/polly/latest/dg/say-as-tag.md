@@ -1,7 +1,6 @@
 
 
 # Controlling how special types of words are spoken
-<a name="say-as-tag"></a>
 
 *<say-as>*
 

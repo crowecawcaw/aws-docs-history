@@ -1,7 +1,6 @@
 
 
 # Using SSML with the Synthesize-Speech command
-<a name="example-ssml-synthesize-speech-cli"></a>
 
 This example shows how to use the `synthesize-speech` command with an SSML string. When you use the `synthesize-speech` command, you typically provide the following:
 + The input text (required) 

@@ -1,7 +1,6 @@
 
 
 # Speech marks without SSML example
-<a name="sp-mks-example1"></a>
 
 The following example shows you what requested metadata looks like on your screen for the simple sentence: "Mary had a little lamb." For simplicity, we don't include SSML speech marks in this example.
 

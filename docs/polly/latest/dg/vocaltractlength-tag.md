@@ -1,7 +1,6 @@
 
 
 # Controlling timbre
-<a name="vocaltractlength-tag"></a>
 
 *<amazon:effect vocal-tract-length>*
 

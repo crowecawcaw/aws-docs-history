@@ -1,7 +1,6 @@
 
 
 # Newscaster speaking style
-<a name="newscaster-tag"></a>
 
 *<amazon:domain name="news">*
 

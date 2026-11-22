@@ -1,7 +1,6 @@
 
 
 # Norwegian (nb-NO)
-<a name="ph-table-norwegian"></a>
 
 The following chart lists the full set of International Phonetic Alphabet (IPA) phonemes and the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols as well as the corresponding visemes as supported by Amazon Polly for Norwegian language voices.
 

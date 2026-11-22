@@ -1,7 +1,6 @@
 
 
 # Adding a pause between paragraphs
-<a name="p-tag"></a>
 
 *<p>*
 

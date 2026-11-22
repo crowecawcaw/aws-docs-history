@@ -1,7 +1,6 @@
 
 
 # Adding a pause between sentences
-<a name="s-tag"></a>
 
 *<s>*
 

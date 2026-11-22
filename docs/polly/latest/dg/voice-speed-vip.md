@@ -1,7 +1,6 @@
 
 
 # Timing a voice speed
-<a name="voice-speed-vip"></a>
 
 Because of the natural variation between voices, each available voice speaks at slightly different speeds. For instance, with US English voices, Ivy and Joanna are slightly faster than Matthew, and considerably faster than Joey. Since there is so much variation between voices, there is no standard speed (words per minute) available for Amazon Polly voices. However, you can find how long it takes for your voice to say the selected text using [Speech Marks](using-speechmarks.md). 
 

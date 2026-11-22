@@ -1,11 +1,12 @@
 
 
 # Voices in Amazon Polly
-<a name="voices-in-polly"></a>
 
  Amazon Polly provides dozens of lifelike voices and support for a variety of languages. Each voice is created using native language speakers, so there are variations from voice to voice, even within the same language. You can also use the AWS Management Console to test each voice with text of your choice. For most languages, there will be at least one male and one female voice, and often more than one of each. A few languages only have a single voice. 
 
 The inventory of voices and the number of languages included is continually being updated to include additional choices. To suggest a new language or voice, provide feedback on this page. Unfortunately, we are not able to comment on plans for specific new languages before they are released. 
+
+You can also create your own voice from recordings of a speaker. This feature is in preview. For more information, see [Voice cloning in Amazon Polly](custom-voices.md).
 
 **Note**  
 To hear example Amazon Polly voices in your browser, see the [Amazon Polly product overview](https://aws.amazon.com/polly). 

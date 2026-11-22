@@ -1,7 +1,6 @@
 
 
 # Getting started with text-to-speech synthesis
-<a name="example_polly_GettingStarted_082_section"></a>
 
 The following code example shows how to:
 + Clean up resources
@@ -12,7 +11,7 @@ The following code example shows how to:
 **AWS CLI with Bash script**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/082-amazon-polly-gs) repository. 
 
-```
+```bash
 #!/bin/bash
 
 # Amazon Polly Getting Started Script

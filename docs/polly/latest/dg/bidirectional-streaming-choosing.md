@@ -1,7 +1,6 @@
 
 
 # SynthesizeSpeech and StartSpeechSynthesisStream compared
-<a name="bidirectional-streaming-choosing"></a>
 
 **[SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/APIReference/API_SynthesizeSpeech.html)** is a request-response operation. You provide the complete text in a single request and receive the full synthesized audio in a single response. It supports all engines (standard, neural, long-form, generative), all output formats including speech marks, and has a text limit of 6,000 total characters (of which no more than 3,000 can be billed characters) per request. The response streams audio back as soon as the first bytes are available. Use this operation when you have all the text available upfront.
 

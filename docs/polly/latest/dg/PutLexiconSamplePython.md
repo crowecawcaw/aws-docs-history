@@ -1,7 +1,6 @@
 
 
 # PutLexicon
-<a name="PutLexiconSamplePython"></a>
 
 The following code sample show how to use Python (boto3)-based applications to store a pronunciation lexicon in an AWS Region.
 
@@ -17,7 +16,7 @@ For more information on this operation, see the reference for the [`PutLexicon`]
 
 
 
-```
+```python
 from argparse import ArgumentParser
 
 from boto3 import Session

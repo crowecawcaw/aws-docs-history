@@ -1,7 +1,6 @@
 
 
 # Synthesizing speech with Amazon Polly example
-<a name="synthesize-example"></a>
 
 This page presents a short speech synthesis example performed in the console, the AWS CLI, and with Python. This example performs speech synthesis from plain text, not SSML.
 
@@ -74,7 +73,7 @@ The Python code in this example performs the following actions:
 
 Save the code to a file (example.py) and run it.
 
-```
+```python
 """Getting Started Example for Python 2.7+/3.3+"""
 from boto3 import Session
 from botocore.exceptions import BotoCoreError, ClientError

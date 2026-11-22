@@ -1,7 +1,6 @@
 
 
 # Polish (pl-PL)
-<a name="ph-table-polish"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Polish voices that are supported by Amazon Polly.
 

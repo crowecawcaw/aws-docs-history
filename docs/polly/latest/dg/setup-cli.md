@@ -1,7 +1,6 @@
 
 
 # Setting up the AWS CLI
-<a name="setup-cli"></a>
 
 Follow these steps to download and configure the AWS CLI to work with Amazon Polly.
 

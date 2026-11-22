@@ -1,7 +1,6 @@
 
 
 # Setting up the IAM policy for asynchronous synthesis
-<a name="asynchronous-iam"></a>
 
 In order to use the asynchronous synthesis functionality, you will need an IAM policy that allows the following: 
 + use of new Amazon Polly operations

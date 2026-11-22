@@ -1,7 +1,6 @@
 
 
 # Dutch (Belgian) (nl-BE)
-<a name="ph-table-dutch-belgian"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Belgian Dutch (Flemish) voices that are supported by Amazon Polly.
 

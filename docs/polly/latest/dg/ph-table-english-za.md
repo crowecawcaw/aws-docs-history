@@ -1,7 +1,6 @@
 
 
 # English (South African) (en-ZA)
-<a name="ph-table-english-za"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the South African English voices that are supported by Amazon Polly.
 

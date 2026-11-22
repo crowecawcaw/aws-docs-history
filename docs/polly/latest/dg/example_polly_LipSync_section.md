@@ -1,7 +1,6 @@
 
 
 # Create a lip-sync application with Amazon Polly using an AWS SDK
-<a name="example_polly_LipSync_section"></a>
 
 The following code example shows how to create a lip-sync application with Amazon Polly.
 

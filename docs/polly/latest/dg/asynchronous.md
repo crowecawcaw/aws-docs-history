@@ -1,7 +1,6 @@
 
 
 # Long audio files
-<a name="asynchronous"></a>
 
 To create TTS files for large passages of text, use Amazon Polly's *asynchronous synthesis* functionality. This uses the three `SpeechSynthesisTask` APIs: 
 + `StartSpeechSynthesisTask`: starts a new synthesis task.

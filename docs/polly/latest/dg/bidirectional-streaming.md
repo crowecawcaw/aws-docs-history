@@ -1,7 +1,6 @@
 
 
 # Synthesizing speech with bidirectional streaming
-<a name="bidirectional-streaming"></a>
 
 Amazon Polly provides a `StartSpeechSynthesisStream` operation that establishes an HTTP/2 connection with bidirectional communication between your application and the service. Text flows from your application to Amazon Polly while synthesized audio flows back. You send text as it becomes available, and Amazon Polly returns audio as it synthesizes, without either side waiting for the other to finish.
 

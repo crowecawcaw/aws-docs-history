@@ -1,7 +1,6 @@
 
 
 # Speech Marks
-<a name="SynthesizeSpeechMarksSample"></a>
 
 The following code sample shows how to use Java-based applications to synthesize speech marks for inputed text. This functionality uses the SynthesizeSpeech API.
 
@@ -12,7 +11,7 @@ For more information on the API, see the reference for [`SynthesizeSpeech`](http
 ## SDK v2
 <a name="synth-sdk-v2"></a>
 
-```
+```java
 /*
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    SPDX-License-Identifier: Apache-2.0
@@ -87,7 +86,7 @@ public class SpeechMarksSample {
 ## SDK v1
 <a name="synth-sdk-v1"></a>
 
-```
+```java
 package com.amazonaws.polly.samples;
  
 import com.amazonaws.services.polly.AmazonPolly;

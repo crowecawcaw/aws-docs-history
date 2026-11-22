@@ -1,7 +1,6 @@
 
 
 # Standard voices
-<a name="standard-voices"></a>
 
 Amazon Polly has a **standard** engine that use concatenative synthesis. The standard engine concatenates phonemes of recorded speech, producing very natural-sounding synthesized speech.
 

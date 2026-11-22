@@ -1,7 +1,6 @@
 
 
 # Integrating CloudWatch with Amazon Polly
-<a name="cloud-watch"></a>
 
 When you interact with Amazon Polly, it sends the following metrics and dimensions to CloudWatch every minute. You can use the following procedures to view the metrics for Amazon Polly.
 
@@ -27,7 +26,7 @@ aws cloudwatch list-metrics --namespace "AWS/Polly"
 
 The preceding command returns a list of Amazon Polly metrics similar to the following. The `MetricName` element identifies what the metric is.
 
-```
+```json
 {
     "Metrics": [
         {

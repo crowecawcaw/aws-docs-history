@@ -1,7 +1,6 @@
 
 
 # SynthesizeSpeech
-<a name="SynthesizeSpeechSample"></a>
 
 The following Java code sample show how to use Java-based applications to synthesize speech with shorter texts for near-real time processing. 
 

@@ -1,7 +1,6 @@
 
 
 # Speech marks with SSML example
-<a name="sp-mks-example2"></a>
 
 The process of generating speech marks from SSML-enhanced text is similar to the process when SSML is not present. Use the `synthesize-speech` command, and specify the SSML-enhanced text and the type of speech marks that you want, as shown in the following example. To make the example easier to read, we don't include viseme speech marks, but these could be included as well.
 

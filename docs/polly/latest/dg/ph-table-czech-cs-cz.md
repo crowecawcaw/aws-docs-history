@@ -1,7 +1,6 @@
 
 
 # Czech (cs-CZ)
-<a name="ph-table-czech-cs-cz"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Czech voice that is supported by Amazon Polly.
 

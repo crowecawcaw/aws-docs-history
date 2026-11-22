@@ -1,7 +1,6 @@
 
 
 # English (Indian) (en-IN)
-<a name="ph-table-english-in"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Indian English voice supported by Amazon Polly.
 

@@ -1,7 +1,6 @@
 
 
 # Filtering the lexicon list on the console
-<a name="managing-lexicons-console-filter"></a>
 
 The following procedure describes how to filter the lexicons list so that only lexicons of a chosen language are displayed.
 

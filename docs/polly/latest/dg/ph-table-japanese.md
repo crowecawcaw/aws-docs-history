@@ -1,7 +1,6 @@
 
 
 # Japanese (ja-JP)
-<a name="ph-table-japanese"></a>
 
 Amazon Polly supports the Pronunciation Kana and Yomigana alphabets for Japanese. To make Amazon Polly use phonetic pronunciation with these alphabets, use the phoneme `alphabet="x-amazon-{{phonetic standard used}}"` attribute.
 + `x-amazon-pron-kana` – indicates that Pronunciation Kana is used. Pronunciation Kana are special Katakana characters used for phonetic transcription and can encode pitch accent.

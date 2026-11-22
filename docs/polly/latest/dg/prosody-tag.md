@@ -1,7 +1,6 @@
 
 
 # Controlling volume, speaking rate, and pitch
-<a name="prosody-tag"></a>
 
 *<prosody>*
 

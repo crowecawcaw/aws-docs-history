@@ -1,7 +1,6 @@
 
 
 # Hindi (hi-IN)
-<a name="ph-table-hindi"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the phoneme's sound type for the Hindi voices that are supported by Amazon Polly.
 

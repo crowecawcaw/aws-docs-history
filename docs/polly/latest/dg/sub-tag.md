@@ -1,7 +1,6 @@
 
 
 # Pronouncing acronyms and abbreviations
-<a name="sub-tag"></a>
 
 *<sub>*
 

@@ -1,7 +1,6 @@
 
 
 # Available voices
-<a name="available-voices"></a>
 
 Amazon Polly provides a variety of lifelike voices in multiple languages for synthesizing speech from text. The following table shows all the voices that Amazon Polly offers.
 

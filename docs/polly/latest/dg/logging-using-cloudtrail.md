@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Polly API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Polly is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Polly. CloudTrail captures all API calls for Amazon Polly as events. The calls captured include calls from the Amazon Polly console and code calls to the Amazon Polly API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Polly. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Polly, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
@@ -19,10 +18,13 @@ For an ongoing record of events in your AWS account, including events for Amazon
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 Amazon Polly supports logging the following actions as events in CloudTrail log files:
++ [CreateVoice](https://docs.aws.amazon.com/polly/latest/APIReference/API_CreateVoice.html)
 + [DeleteLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_DeleteLexicon.html)
++ [DeleteVoice](https://docs.aws.amazon.com/polly/latest/APIReference/API_DeleteVoice.html)
 + [DescribeVoices](https://docs.aws.amazon.com/polly/latest/APIReference/API_DescribeVoices.html)
 + [GetLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetLexicon.html)
 + [GetSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetSpeechSynthesisTask.html)
++ [GetVoice](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetVoice.html)
 + [ListLexicons](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListLexicons.html)
 + [ListSpeechSynthesisTasks](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListSpeechSynthesisTasks.html)
 + [ListTagsForResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListTagsForResource.html)
@@ -46,7 +48,7 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 The following example shows a CloudTrail log entry that demonstrates the `SynthesizeSpeech`.
 
-```
+```json
 {
 "Records": [
         {

@@ -1,7 +1,6 @@
 
 
 # Identifying SSML-enhanced text
-<a name="speak-tag"></a>
 
 *<speak>*
 

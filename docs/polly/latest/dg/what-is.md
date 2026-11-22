@@ -1,7 +1,6 @@
 
 
 # What Is Amazon Polly?
-<a name="what-is"></a>
 
 Amazon Polly is a cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices. With Amazon Polly, you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers. Also, you only pay for the text you synthesize. You can also cache and replay Amazon Polly’s generated speech at no additional cost. 
 

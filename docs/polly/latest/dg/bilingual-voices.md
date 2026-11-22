@@ -1,7 +1,6 @@
 
 
 # Bilingual voices
-<a name="bilingual-voices"></a>
 
 Amazon Polly has two ways of producing bilingual voices:
 + [Accented bilingual voices](#accented-bilingual)

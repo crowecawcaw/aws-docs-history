@@ -1,7 +1,6 @@
 
 
 # GetLexicon
-<a name="GetLexiconSample"></a>
 
 The following Java code sample show how to use Java-based applications to produce the content of a specific pronunciation lexicon stored in a AWS Region. 
 
@@ -10,7 +9,7 @@ For more information on this operation, see the reference for the [`GetLexicon`]
 ## SDK v2
 <a name="get-sdk-v2"></a>
 
-```
+```java
 /*
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    SPDX-License-Identifier: Apache-2.0
@@ -67,7 +66,7 @@ public class GetLexiconSample {
 ## SDK v1
 <a name="get-sdk-v1"></a>
 
-```
+```java
 package com.amazonaws.polly.samples;
  
 import com.amazonaws.services.polly.AmazonPolly;

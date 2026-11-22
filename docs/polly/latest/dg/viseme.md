@@ -1,7 +1,6 @@
 
 
 # Visemes and Amazon Polly
-<a name="viseme"></a>
 
 A *viseme* represents the position of the face and mouth when saying a word. It is the visual equivalent of a phoneme, which is the basic acoustic unit from which a word is formed. Visemes are the basic visual building blocks of speech.
 

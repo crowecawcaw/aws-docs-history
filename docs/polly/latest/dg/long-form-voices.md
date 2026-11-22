@@ -1,7 +1,6 @@
 
 
 # Long-form voices
-<a name="long-form-voices"></a>
 
 Amazon Polly has a **Long-form engine** that produces human-like, highly expressive, and emotionally adept voices. Long-form voices are designed to captivate listeners’ attention for longer content, such as news articles, training materials, or marketing videos.
 

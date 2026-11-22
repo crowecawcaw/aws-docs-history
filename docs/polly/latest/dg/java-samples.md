@@ -1,7 +1,6 @@
 
 
 # Java samples
-<a name="java-samples"></a>
 
 The following code samples show how to use Java-based applications to accomplish various tasks with Amazon Polly. These samples are not full examples, but can be included in larger Java applications that use the [AWS SDK for Java](https://aws.amazon.com/documentation/sdk-for-java/).
 

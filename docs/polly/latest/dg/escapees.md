@@ -1,7 +1,6 @@
 
 
 # Reserved characters in SSML
-<a name="escapees"></a>
 
 There are five predefined characters that can't normally be used within an SSML statement. These entities are reserved by the language specification. These characters are as follows:
 

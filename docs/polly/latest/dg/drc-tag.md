@@ -1,7 +1,6 @@
 
 
 # Adding dynamic range compression
-<a name="drc-tag"></a>
 
 *<amazon:effect name="drc">*
 

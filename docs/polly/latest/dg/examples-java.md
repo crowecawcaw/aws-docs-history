@@ -1,7 +1,6 @@
 
 
 # Java example
-<a name="examples-java"></a>
 
 This example shows how to use Amazon Polly to stream speech from a Java-based application. The example uses the [AWS SDK for Java](https://aws.amazon.com/documentation/sdk-for-java/) to read the specified text using a voice selected from a list.
 

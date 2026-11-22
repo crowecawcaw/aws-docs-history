@@ -1,7 +1,6 @@
 
 
 # Benefits
-<a name="benefits"></a>
 
 Some of the benefits of using Amazon Polly include:
 + **High quality** – Amazon Polly offers highly-performant generative, long-form, neural, and high-quality text-to-speech (TTS) voices. These technologies synthesize natural speech with high pronunciation accuracy (including abbreviations, acronym expansions, date/time interpretations, and homograph disambiguation). 

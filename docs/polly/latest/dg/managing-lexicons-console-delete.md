@@ -1,7 +1,6 @@
 
 
 # Deleting a lexicon
-<a name="managing-lexicons-console-delete"></a>
 
 The following process describes how to delete a lexicon. After deleting the lexicon, you must add it back before you can use it again. You can delete one or more lexicons at the same time by selecting the check boxes next to individual lexicons.
 

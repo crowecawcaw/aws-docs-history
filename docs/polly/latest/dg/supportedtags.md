@@ -1,7 +1,6 @@
 
 
 # Supported SSML tags
-<a name="supportedtags"></a>
 
 All tags except for `<amazon:domain name="news">` are supported for Standard voices. Tag availability for other voices is provided in the following table.
 

@@ -1,7 +1,6 @@
 
 
 # Adding the sound of breathing
-<a name="breath-tag"></a>
 
 *<amazon:breath> and <amazon:auto-breaths>*
 

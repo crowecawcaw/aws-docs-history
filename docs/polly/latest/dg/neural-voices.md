@@ -1,7 +1,6 @@
 
 
 # Neural voices
-<a name="neural-voices"></a>
 
 Amazon Polly has a **Neural text-to-speech (NTTS) engine** that can produce even higher quality voices than its standard voices. Standard TTS voices use concatenative synthesis. The standard engine concatenates phonemes of recorded speech, producing very natural-sounding synthesized speech. However, the inevitable variations in speech and the techniques used to segment the waveforms limits the quality of speech. The Amazon Polly NTTS engine doesn't use standard concatenative synthesis to produce speech. It has two parts: 
 + A neural network — that converts a sequence of phonemes (the most basic units of language) into a sequence of *spectrograms*. (Spectograms are snapshots of the energy levels in different frequency bands.)

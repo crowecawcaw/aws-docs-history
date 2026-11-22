@@ -1,13 +1,12 @@
 
 
 # SynthesizeSpeech
-<a name="SynthesizeSpeechSamplePython"></a>
 
 The following Python code example uses the AWS SDK for Python (Boto) synthesize speech with shorter texts for near real-time processing. For more information, see the reference for the [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/APIReference/API_SynthesizeSpeech.html) operation. 
 
 This example uses a short string of plain text. You can use SSML text for more control over the output. For more information, see [Generating speech from SSML documents](ssml.md).
 
-```
+```python
 import boto3
 
 polly_client = boto3.Session(

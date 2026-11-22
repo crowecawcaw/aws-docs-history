@@ -1,7 +1,6 @@
 
 
 # Data Protection in Amazon Polly
-<a name="data-protection"></a>
 
 Amazon Polly conforms to the AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), which includes regulations and guidelines for data protection. AWS is responsible for protecting the global infrastructure that runs all the AWS services. AWS maintains control over data hosted on this infrastructure, including the security configuration controls for handling customer content and personal data. AWS customers and APN partners, acting either as data controllers or data processors, are responsible for any personal data that they put in the AWS Cloud. 
 
@@ -12,5 +11,7 @@ For data protection purposes, we recommend that you protect AWS account credenti
 + Use AWS encryption solutions, along with all default security controls within AWS services.
 
 We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into tags or free-form fields such as a **Name** field. This includes when you work with Amazon Polly or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into Amazon Polly or other services might get picked up for inclusion in diagnostic logs. When you provide a URL to an external server, don't include credentials information in the URL to validate your request to that server.
+
+If you create custom voices, the recordings that you provide contain the voice of a person, which can be personal data. Use only recordings that you have the right to use. For what Amazon Polly stores and how it protects that data, see [Data that Amazon Polly stores](custom-voices.md#custom-voices-data) and [Encryption at rest](encryption-at-rest.md).
 
 For more information about data protection, see the [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*.

@@ -1,7 +1,6 @@
 
 
 # Using phonetic pronunciation
-<a name="phoneme-tag"></a>
 
 *<phoneme>*
 

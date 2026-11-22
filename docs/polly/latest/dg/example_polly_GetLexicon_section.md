@@ -1,7 +1,6 @@
 
 
 # Use `GetLexicon` with an AWS SDK or CLI
-<a name="example_polly_GetLexicon_section"></a>
 
 The following code examples show how to use `GetLexicon`.
 
@@ -14,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **SDK for .NET**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Polly#code-examples). 
 
-```
+```csharp
     using System;
     using System.Threading.Tasks;
     using Amazon.Polly;
@@ -94,7 +93,7 @@ For more information, see [Managing lexicons](https://docs.aws.amazon.com/polly/
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/polly#code-examples). 
 
-```
+```python
 class PollyWrapper:
     """Encapsulates Amazon Polly functions."""
 
@@ -132,7 +131,7 @@ class PollyWrapper:
 **SDK for SAP ABAP**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ply#code-examples). 
 
-```
+```sap-abap
     TRY.
         oo_result = lo_ply->getlexicon( iv_name ).
         DATA(lo_lexicon) = oo_result->get_lexicon( ).

@@ -1,7 +1,6 @@
 
 
 # Swedish (sv-SE)
-<a name="ph-table-swedish"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Swedish voice supported by Amazon Polly.
 

@@ -1,7 +1,6 @@
 
 
 # English (Australian) (en-AU)
-<a name="ph-table-english-au"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Australian English voices that are supported by Amazon Polly.
 

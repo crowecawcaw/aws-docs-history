@@ -1,7 +1,6 @@
 
 
 # Arabic (arb)
-<a name="ph-table-arabic"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Arabic voice of Zeina that is supported by Amazon Polly.
 

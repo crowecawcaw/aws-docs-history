@@ -1,7 +1,6 @@
 
 
 # German (de-DE)
-<a name="ph-table-german"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the German voices that are supported by Amazon Polly.
 

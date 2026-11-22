@@ -1,7 +1,6 @@
 
 
 # Are you a first-time user?
-<a name="first-time-user"></a>
 
 If you're a first-time user of Amazon Polly, we recommend that you read the following sections in the listed order: 
 

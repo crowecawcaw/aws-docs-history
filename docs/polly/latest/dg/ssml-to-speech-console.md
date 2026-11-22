@@ -1,7 +1,6 @@
 
 
 # Using SSML on the console
-<a name="ssml-to-speech-console"></a>
 
 In the following example, you use an SSML tag to tell Amazon Polly to substitute "World Wide Web Consortium" for "W3C" when it speaks a short paragraph. You also use tags to introduce a pause and whisper a word. Compare the results of this exercise with that of [Applying lexicons (Synthesizing Speech)](managing-lexicons-console-synthesize-speech.md) .
 

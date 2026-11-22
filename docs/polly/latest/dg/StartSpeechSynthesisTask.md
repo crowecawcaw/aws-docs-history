@@ -1,7 +1,6 @@
 
 
 # StartSpeechSynthesisTask
-<a name="StartSpeechSynthesisTask"></a>
 
 The following Java code sample show how to use Java-based applications to synthesize a long speech (up to 100,000 billed characters) and store it directly in an Amazon S3 bucket. 
 
@@ -10,7 +9,7 @@ For more information, see the reference for [`StartSpeechSynthesisTask`](https:/
 ## SDK v2
 <a name="start-sdk-v2"></a>
 
-```
+```java
 /*
    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
    SPDX-License-Identifier: Apache-2.0
@@ -93,7 +92,7 @@ public class StartSpeechSynthesisTaskSample {
 ## SDK v1
 <a name="start-sdk-v1"></a>
 
-```
+```java
 package com.amazonaws.parrot.service.tests.speech.task;
 
 import com.amazonaws.parrot.service.tests.AbstractParrotServiceTest;

@@ -1,7 +1,6 @@
 
 
 # Generative voices
-<a name="generative-voices"></a>
 
 Amazon Polly's **generative** text-to-speech (TTS) engine offers the most human-like, emotionally engaged, and adaptive conversational voices available for the use via the Amazon Polly console.
 
@@ -11,6 +10,8 @@ The Generative engine creates synthetic speech which is emotionally engaged, ass
 
 **Note**  
 The state-of-the-art technology underlying these voices falls within the paradigm of generative AI for language and voice modelling. A side effect of the technology is that any updates to the training data and the model could result in slight variations to the way the voices sound, even in case when their overall quality improves with model updates. This could have an impact on use cases with different content parts synthesized over a long time period – for example, a season of podcasts.
+
+You can also create custom voices for the generative engine from your own recordings. This feature is in preview. For more information, see [Voice cloning in Amazon Polly](custom-voices.md).
 
 ## Available generative voices
 <a name="generative-voicelist"></a>

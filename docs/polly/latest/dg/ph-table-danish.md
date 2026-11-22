@@ -1,7 +1,6 @@
 
 
 # Danish (da-DK)
-<a name="ph-table-danish"></a>
 
 The following table lists the International Phonetic Alphabet (IPA) phonemes, the Extended Speech Assessment Methods Phonetic Alphabet (X-SAMPA) symbols, and the corresponding visemes for the Danish voices that are supported by Amazon Polly.
 

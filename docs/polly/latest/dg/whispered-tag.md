@@ -1,7 +1,6 @@
 
 
 # Whispering
-<a name="whispered-tag"></a>
 
 *<amazon:effect name="whispered">*
 

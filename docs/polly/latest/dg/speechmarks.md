@@ -1,7 +1,6 @@
 
 
 # Speech marks
-<a name="speechmarks"></a>
 
 *Speech marks* are metadata that describe the speech that you synthesize, such as where a sentence or word starts and ends in the audio stream. When you request speech marks for your text, Amazon Polly returns this metadata instead of synthesized speech. By using speech marks in conjunction with the synthesized speech audio stream, you can provide your applications with an enhanced visual experience. 
 

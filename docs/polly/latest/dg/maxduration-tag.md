@@ -1,7 +1,6 @@
 
 
 # Setting a maximum duration for synthesized speech
-<a name="maxduration-tag"></a>
 
 *<prosody amazon:max-duration>*
 

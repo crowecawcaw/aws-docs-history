@@ -1,7 +1,6 @@
 
 
 # Emphasizing words
-<a name="emphasis-tag"></a>
 
 *<emphasis>*
 

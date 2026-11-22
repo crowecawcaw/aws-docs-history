@@ -1,14 +1,13 @@
 
 
 # Code examples
-<a name="bidirectional-streaming-examples"></a>
 
 The following example demonstrates a complete bidirectional streaming session. The program creates an async Amazon Polly client, opens a stream configured with the generative engine and MP3 output, sends text as a series of `TextEvent` messages, accumulates the returned `AudioEvent` chunks into an output file, and closes the stream with a `CloseStreamEvent`. Because input and output happen concurrently, audio data begins arriving before all text has been sent.
 
 ------
 #### [ Java ]
 
-```
+```java
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.polly.PollyAsyncClient;
 import software.amazon.awssdk.services.polly.model.*;
@@ -119,7 +118,7 @@ public class BidirectionalStreamExample {
 ------
 #### [ JavaScript ]
 
-```
+```javascript
 import { PollyClient, StartSpeechSynthesisStreamCommand } from "@aws-sdk/client-polly";
 import { createWriteStream } from "fs";
 
@@ -185,7 +184,7 @@ synthesizeStream().catch(console.error);
 ------
 #### [ Go ]
 
-```
+```go
 package main
 
 import (
@@ -288,7 +287,7 @@ func main() {
 ------
 #### [ Rust ]
 
-```
+```rust
 use aws_sdk_polly::types::{
     CloseStreamEvent, Engine, OutputFormat,
     StartSpeechSynthesisStreamActionStream,

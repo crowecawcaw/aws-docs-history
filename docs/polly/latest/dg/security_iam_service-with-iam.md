@@ -1,7 +1,6 @@
 
 
 # How Amazon Polly works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to Amazon Polly, learn what IAM features are available to use with Amazon Polly.
 
@@ -137,12 +136,20 @@ If a service supports all three condition keys for every resource type, then the
 
 For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
-Amazon Polly supports ABAC for lexicons. You can use the following global condition keys in identity-based policies for Amazon Polly actions:
-+ `aws:ResourceTag/{{key-name}}` – Controls access based on the tags that are attached to the lexicon. Amazon Polly evaluates this key for `GetLexicon`, `DeleteLexicon`, `TagResource`, `UntagResource`, and `ListTagsForResource`. It also evaluates this key for `SynthesizeSpeech`, `StartSpeechSynthesisTask`, and `StartSpeechSynthesisStream` for each lexicon in `LexiconNames`. When you create a lexicon with `PutLexicon`, the key contains the tags in the request.
-+ `aws:RequestTag/{{key-name}}` – Controls which tags can be passed in a `PutLexicon` or `TagResource` request. `UntagResource` specifies tag keys rather than tags, so use `aws:TagKeys` to control it.
-+ `aws:TagKeys` – Controls which tag keys can be passed in a `PutLexicon`, `TagResource`, or `UntagResource` request.
+Amazon Polly supports ABAC for lexicons and custom voices. You can use the following global condition keys in identity-based policies for Amazon Polly actions:
++ `aws:ResourceTag/{{key-name}}` – Controls access based on the tags that are attached to the lexicon or custom voice. For the operations that evaluate this key, see the table after this list.
++ `aws:RequestTag/{{key-name}}` – Controls which tags can be passed in a `PutLexicon`, `CreateVoice`, or `TagResource` request. `UntagResource` specifies tag keys rather than tags, so use `aws:TagKeys` to control it.
++ `aws:TagKeys` – Controls which tag keys can be passed in a `PutLexicon`, `CreateVoice`, `TagResource`, or `UntagResource` request.
 
-When a `PutLexicon` request includes tags, Amazon Polly also checks that the caller has permission for `polly:TagResource`. For more information, see [Permissions for tagging lexicons on creation](tagging.md#tagging-on-create).
+Amazon Polly evaluates `aws:ResourceTag/{{key-name}}` for the following operations.
+
+
+| Resource | Operations on the resource | Synthesis operations | Create operation | 
+| --- | --- | --- | --- | 
+| Lexicon | GetLexicon, DeleteLexicon, TagResource, UntagResource, and ListTagsForResource | SynthesizeSpeech, StartSpeechSynthesisTask, and StartSpeechSynthesisStream, for each lexicon in LexiconNames | PutLexicon. The key contains the tags in the request. | 
+| Custom voice | GetVoice, DeleteVoice, TagResource, UntagResource, and ListTagsForResource | SynthesizeSpeech, StartSpeechSynthesisTask, and StartSpeechSynthesisStream, when VoiceId is a custom voice | CreateVoice. The key contains the tags in the request. | 
+
+When a `PutLexicon` or `CreateVoice` request includes tags, Amazon Polly also checks that the caller has permission for `polly:TagResource`. For more information, see [Permissions for tagging resources on creation](tagging.md#tagging-on-create).
 
 For more information about tagging Amazon Polly resources, see [Tagging Amazon Polly resources](tagging.md).
 

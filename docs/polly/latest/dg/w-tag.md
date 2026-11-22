@@ -1,7 +1,6 @@
 
 
 # Improving pronunciation by specifying parts of speech
-<a name="w-tag"></a>
 
 *<w>*
 

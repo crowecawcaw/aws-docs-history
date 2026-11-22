@@ -1,7 +1,6 @@
 
 
 # Placing a custom tag in your text
-<a name="custom-tag"></a>
 
 *<mark>*
 
