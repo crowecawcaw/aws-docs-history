@@ -1,7 +1,6 @@
 
 
 # AWS PrivateLink for AWS Systems Manager for SAP
-<a name="privatelink"></a>
 
 You can use AWS PrivateLink to establish a private connection between your VPC and AWS Systems Manager for SAP by creating an interface VPC endpoint. With interface endpoints, you can privately access Systems Manager for SAP APIs without needing an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
 

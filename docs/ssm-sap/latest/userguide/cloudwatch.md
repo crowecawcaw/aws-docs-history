@@ -1,7 +1,6 @@
 
 
 # AWS Systems Manager for SAP metrics with Amazon CloudWatch
-<a name="cloudwatch"></a>
 
 You can view CloudTrail metrics for AWS Systems Manager for SAP via AWS Management Console or AWS CLI.
 
@@ -15,7 +14,7 @@ Metrics are grouped first by the service namespace, and then by the various dime
 1. In namespace, select ** AWS/SSMForSAP**.
 Use the following command to view the metrics via AWS CLI.  
 
-```
+```shell
 aws cloudwatch list-metrics --namespace "AWS/SSMForSAP"
 ```
 

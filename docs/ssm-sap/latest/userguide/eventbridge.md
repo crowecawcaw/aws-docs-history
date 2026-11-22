@@ -1,7 +1,6 @@
 
 
 # Monitoring AWS Systems Manager for SAP events using EventBridge
-<a name="eventbridge"></a>
 
 **Topics**
 + [Monitor events using EventBridge](#monitoring-events-in-eventbridge)
@@ -31,7 +30,7 @@ Use these sample JSON payloads if you would like to use these events programmati
 
 The following is an event pattern example of Operation State Change event from AWS Systems Manager for SAP using the `RegisterApplication` API.
 
-```
+```json
 {
   "source": ["aws.ssm-sap"],
   "detail-type": ["SSM for SAP Operation State Change"],

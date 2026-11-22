@@ -1,7 +1,6 @@
 
 
 # Register your SAP ABAP application with AWS Systems Manager for SAP
-<a name="register-abap"></a>
 
 You can register a single node or multi node (distributed or high availability) setup for SAP ABAP application with Systems Manager for SAP. Ensure that you have completed the setup perquisites described in [Get started with Systems Manager for SAP](https://docs.aws.amazon.com/ssm-sap/latest/userguide/get-started.html). Follow along these steps to register your SAP ABAP application.
 
@@ -26,11 +25,11 @@ Note the `ApplicationId` of your registration.
 
 1. Use the following command to find the Amazon Resource Name (ARN) of the database.
 
-   ```
+   ```console
    aws ssm-sap list-databases --application-id <APPLICATION_ID>
    ```
 
-   ```
+   ```json
    {
        "Databases": [
            {
@@ -59,7 +58,7 @@ Note the `ApplicationId` of your registration.
 
     **Command template** 
 
-   ```
+   ```console
    aws ssm-sap register-application \
    --application-id <APPLICATION_ID> \
    --application-type SAP_ABAP \
@@ -78,7 +77,7 @@ Note the `ApplicationId` of your registration.
 
     **Example command with sample values** 
 
-   ```
+   ```console
    aws ssm-sap register-application
        --application-id "mySAPABAPApplication" \
        --application-type SAP_ABAP \
@@ -91,7 +90,7 @@ Note the `ApplicationId` of your registration.
 
     **Example JSON response** 
 
-   ```
+   ```json
    {
        "Application": {
            "Id": "mySAPABAPApplication",
@@ -112,7 +111,7 @@ Note the `ApplicationId` of your registration.
 
 The registration may take a few minutes to complete. Use the following command to check the status of your registration. Use the `OperationId` generated when registering your SAP ABAP application in the preceding step.
 
-```
+```console
 aws ssm-sap get-operation --operation-id <YOUR_OPERATION_ID> --region <REGION>
 ```
 
@@ -125,19 +124,19 @@ Verify the registration with [GetApplication](https://docs.aws.amazon.com/ssmsap
 
     **Command template** 
 
-   ```
+   ```console
    aws ssm-sap get-application --application-id <APPLICATION_ID> --region <REGION>
    ```
 
     **Example to get the summary of an application** 
 
-   ```
+   ```console
    aws ssm-sap get-application --application-id mySAPABAPApplication --region us-east-1
    ```
 
     **Example JSON Response** 
 
-   ```
+   ```json
    {
      "Application": {
        "Id": "mySAPABAPApplication",
@@ -164,13 +163,13 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
 1. Command template
 
-   ```
+   ```console
    aws ssm-sap get-component --application-id <APPLICATION_ID> --component-id <YOUR_COMPONENT_ID_FROM_LAST_STEP> --region <REGION>
    ```
 
 1. GetComponent API output for parent component ECD-ABAP
 
-   ```
+   ```console
    aws ssm-sap get-component \
       --application-id mySAPABAPApplication \
       --component-id ECD-ABAP \
@@ -179,7 +178,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
     **Sample JSON Output** 
 
-   ```
+   ```json
    {
        "Component": {
            "ComponentId": "ECD-ABAP",
@@ -207,7 +206,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
 1. GetComponent API output for parent component WD1-W14
 
-   ```
+   ```console
    aws ssm-sap get-component --component-id WD1-W14\
        --application-id mySAPABAPApplication \
        --region us-east-1
@@ -215,7 +214,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
     **Sample JSON Output** 
 
-   ```
+   ```json
    {
        "Component": {
            "ComponentId": "WD1-W14",
@@ -236,7 +235,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
 1. GetComponent API output for child component ECD-ASCS10-sapci
 
-   ```
+   ```console
    aws ssm-sap get-component \
        --component-id ECD-ASCS10-sapci --application-id mySAPABAPApplication \
        --region us-east-1
@@ -244,7 +243,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
     **Sample Output** 
 
-   ```
+   ```json
    {
        "Component": {
            "ComponentId": "ECD-ASCS10-sapci",
@@ -281,7 +280,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
 1. GetComponent API for Child Component WD1-W14-sapwd
 
-   ```
+   ```console
    aws ssm-sap get-component \
       --component-id WD1-W14-sapwd --application-id mySAPABAPApplication \
       --region us-east-1
@@ -289,7 +288,7 @@ Get the component summary with [GetComponent](https://docs.aws.amazon.com/ssmsap
 
     **Sample Output** 
 
-   ```
+   ```json
    {
        "Component": {
            "ComponentId": "WD1-W14-sapwd",

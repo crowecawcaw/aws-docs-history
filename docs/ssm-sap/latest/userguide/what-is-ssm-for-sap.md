@@ -1,7 +1,6 @@
 
 
 # What is AWS Systems Manager for SAP?
-<a name="what-is-ssm-for-sap"></a>
 
  AWS Systems Manager for SAP is an automation capability to manage and operate your SAP applications on AWS. It provides a seamless integration between AWS services and SAP applications running on AWS. Systems Manager for SAP is available to use with AWS APIs. For more information, see [Systems Manager for SAP API Reference Guide](https://docs.aws.amazon.com/ssmsap/latest/APIReference/Welcome.html).
 

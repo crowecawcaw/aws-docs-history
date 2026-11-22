@@ -1,7 +1,6 @@
 
 
 # AWS CLI
-<a name="cli"></a>
 
 Using AWS CLI, you can register SAP HANA or SAP ABAP applications, start, stop, refresh, and deregister SAP applications with Systems Manager for SAP.
 

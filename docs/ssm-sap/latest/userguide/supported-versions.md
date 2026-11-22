@@ -1,7 +1,6 @@
 
 
 # Supported versions for SAP deployments
-<a name="supported-versions"></a>
 
 The following section provides information about the versions of operating systems, databases, and applications supported by AWS Systems Manager for SAP.
 

@@ -1,7 +1,6 @@
 
 
 # Manage SAP applications
-<a name="manage-console"></a>
 
 From the AWS Console for SAP applications, you can view application details, start and stop applications, and monitor operations.
 

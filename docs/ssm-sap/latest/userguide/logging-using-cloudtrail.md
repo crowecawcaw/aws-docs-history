@@ -1,7 +1,6 @@
 
 
 # Logging AWS Systems Manager for SAP API calls using CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
  AWS Systems Manager for SAP is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures API calls for AWS Systems Manager for SAP as events. The calls captured include calls from the AWS Management Console and code calls to the AWS Systems Manager for SAP API operations. Using the information collected by CloudTrail, you can determine the request that was made to AWS Systems Manager for SAP, the IP address from which the request was made, when it was made, and additional details.
 

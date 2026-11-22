@@ -1,7 +1,6 @@
 
 
 # Run Configuration Checks
-<a name="configuration-checks-console"></a>
 
 Use the following steps to evaluate the SAP configuration of a Systems Manager for SAP application, which is either of type SAP HANA or SAP ABAP.
 
@@ -91,7 +90,7 @@ See also [support restrictions for Systems Manager for SAP](https://docs.aws.ama
 
    1. In the AWS IAM Console, Create a new role, using a “Custom trust Policy“, and the following trust relationship:
 
-      ```
+      ```json
       {
           "Version": "2012-10-17",		 	 	 
           "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Stop SAP application
-<a name="stop-sap-application"></a>
 
 You can perform a stop operation on a single node or HA (high availability) SAP HANA application or on a single node or distrubuted setup of SAP ABAP application that has been registered with AWS Systems Manager for SAP.
 
@@ -27,7 +26,7 @@ Register your SAP application, if you have not already done so. For more informa
 
 You can use the following AWS CLI command to stop your SAP application:
 
-```
+```console
 aws ssm-sap stop-application \
 --application-id <APPLICATION_ID> \
 --stop-connected-entity <ENTITY> \
@@ -46,12 +45,12 @@ The following are examples of the stop operation on a single node SAP ABAP setup
 **Example**  
  **Command template**   
 
-```
+```json
 aws ssm-sap stop-application --application-id <APPLICATION_ID> --stop-connected-entity <ENTITY> --include-ec2-instance-shutdown --region <REGION_ID>
 ```
  **Command example**   
 
-```
+```console
 aws ssm-sap stop-application \
 --application-id myABAPApplication \
 --stop-connected-entity DBMS \
@@ -60,19 +59,19 @@ aws ssm-sap stop-application \
 ```
  **Return example**   
 
-```
+```json
 {
     "OperationId": "a7h4j3k6-8463-836h-018h-7sh377h6hhd6"
 }
 ```
  **Command template**   
 
-```
+```json
 aws ssm-sap stop-application --application-id <APPLICATION_ID> --include-ec2-instance-shutdown --region <REGION_ID>
 ```
  **Command example**   
 
-```
+```console
 aws ssm-sap stop-application \
 --application-id myABAPApplication \
 --include-ec2-instance-shutdown \
@@ -80,7 +79,7 @@ aws ssm-sap stop-application \
 ```
  **Return Example**   
 
-```
+```json
 {
     "OperationId": "j3h5j4k5-8323-192j-102n-18h7hhh27h27"
 }
@@ -93,13 +92,13 @@ The stop operation can take up to five minutes to complete. During that time, yo
 
  **Command template** 
 
-```
+```json
 aws ssm-sap get-operation --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
  **Command example** 
 
-```
+```json
 aws ssm-sap get-operation \
 --operation-id b2bc3266-9369-4163-b935-6a586c80e76b \
 --region us-east-1
@@ -112,20 +111,20 @@ Verify the stop operation on the application through the event using the [ListOp
 
  **Command template** 
 
-```
+```json
 aws ssm-sap list-operation-events --operation-id <OPERATION_ID> --region <REGION_ID>
 ```
 
  **Command example** 
 
-```
+```console
 aws ssm-sap list-operation-events \
 --operation-id a1bc2345-6789-0123-d456-7e890f12g34h
 ```
 
  **Return example** 
 
-```
+```json
 {
     "OperationEvents": [
         {

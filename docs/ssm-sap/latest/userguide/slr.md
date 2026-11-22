@@ -1,7 +1,6 @@
 
 
 # Using service linked roles for AWS Systems Manager for SAP
-<a name="slr"></a>
 
  AWS Systems Manager for SAP uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role). A service-linked role is a unique type of IAM role that is linked directly to Systems Manager for SAP. Service-linked roles are predefined by Systems Manager for SAP and include all of the permissions that the service requires to call other AWS services, including Amazon EC2, Systems Manager, IAM, Amazon CloudWatch, Amazon EventBridge, AWS Resource Groups, and AWS Service Catalog.
 

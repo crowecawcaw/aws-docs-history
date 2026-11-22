@@ -1,7 +1,6 @@
 
 
 # Setting up Systems Manager for SAP
-<a name="setting-up"></a>
 
 When you sign up for AWS, your AWS account is automatically signed up for all services in AWS, including Systems Manager for SAP.
 
