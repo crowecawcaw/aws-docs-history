@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Troubleshooting connection problems with Snowball Edge
-<a name="connection-troubleshooting"></a>
 
 The following information can help you troubleshoot certain issues that you might have with connecting to your Snowball Edge: 
 + Routers and switches that work at a rate of 100 megabytes per second don't work with a Snowball Edge. We recommend that you use a switch that works at a rate of 1 GB per second (or faster). 

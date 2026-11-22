@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Return shipping for Snowball Edge
-<a name="mailing-storage"></a>
 
 The AWS Snowball Edge device is shipped from and delivered to an AWS data center. The prepaid shipping information on the E Ink screen on the device includes the address to return the AWS Snowball Edge device. The shipping speed for the return matches the original shipping speed when you received the device. You can track status changes using the AWS Snow Family Management Console, and track the package's progress through your region's carrier.
 

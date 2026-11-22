@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Customer Managed Policy Examples
-<a name="access-policy-examples-for-sdk-cli"></a>
 
 In this section, you can find example user policies that grant permissions for various AWS Snowball Edge job management actions. These policies work when you are using AWS SDKs or the AWS CLI. When you are using the console, you need to grant additional permissions specific to the console, which is discussed in [Permissions Required to Use the AWS Snowball Edge Console](access-control-managing-permissions.md#additional-console-required-permissions).
 
@@ -27,7 +26,7 @@ The following permissions policy is a necessary component of any policy that is 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -54,7 +53,7 @@ You use the following role trust policy for creating import jobs for Snowball Ed
 
 ****  
 
-```
+```json
                     {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -155,7 +154,7 @@ You use the following role trust policy for creating export jobs for Snowball Ed
 
 ****  
 
-```
+```json
                     {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -244,7 +243,7 @@ The following expected role trust policy is a necessary for an existing service 
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

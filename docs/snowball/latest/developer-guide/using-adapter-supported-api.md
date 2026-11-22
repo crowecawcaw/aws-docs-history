@@ -3,11 +3,10 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Supported Amazon S3 REST API actions on Snowball Edge for data transfer
-<a name="using-adapter-supported-api"></a>
 
 Following, you can find the list of Amazon S3 REST API actions that are supported for using the Amazon S3 adapter. The list includes links to information about how the API actions work with Amazon S3. The list also covers any differences in behavior between the Amazon S3 API action and the AWS Snowball Edge device counterpart. All responses coming back from an AWS Snowball Edge device declare `Server` as `AWSSnowball`, as in the following example.
 
-```
+```bash,zsh,sh
 HTTP/1.1 201 OK
 x-amz-id-2: JuKZqmXuiwFeDQxhD7M8KtsKobSzWA1QEjLbTMTagkKdBX2z7Il/jGhDeJ3j6s80
 x-amz-request-id: 32FE2CEB32F5EE25

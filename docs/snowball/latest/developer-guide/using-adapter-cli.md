@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Supported AWS CLI commands for data transfer to or from Snowball Edge
-<a name="using-adapter-cli"></a>
 
 Following, you can find information about how to specify the Amazon S3 adapter or Amazon S3 compatible storage on Snowball Edge as the endpoint for applicable AWS Command Line Interface (AWS CLI) commands. You can also find the list of AWS CLI commands for Amazon S3 that are supported for transferring data to the AWS Snowball Edge device with the adapter or Amazon S3 compatible storage on Snowball Edge.
 

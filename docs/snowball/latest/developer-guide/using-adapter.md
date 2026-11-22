@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Transferring files using the Amazon S3 adapter for data migration to or from Snowball Edge
-<a name="using-adapter"></a>
 
 Following is an overview of the Amazon S3 adapter, which you can use to transfer data programmatically to and from S3 buckets already on the AWS Snowball Edge device using Amazon S3 REST API actions. This Amazon S3 REST API support is limited to a subset of actions. You can use this subset of actions with one of the AWS SDKs to transfer data programmatically. You can also use the subset of supported AWS Command Line Interface (AWS CLI) commands for Amazon S3 to transfer data programmatically.
 
@@ -40,7 +39,7 @@ If you are using Amazon S3 compatible storage on Snowball Edge, you can use the 
 
 Run this chained command:
 
-```
+```bash,sh,zsh
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle-1.16.14.zip" -o "awscli-bundle.zip";unzip awscli-bundle.zip;sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws;/usr/local/bin/aws --version;
 ```
 
@@ -148,6 +147,6 @@ Using the Amazon S3 adapter, you can programmatically transfer data to and from 
 + [GET Bucket (List Objects) Version 2](https://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html) – This implementation of the GET action returns some or all (up to 1,000) of the objects in a bucket. Consider using the [GET Bucket (List Objects) Version 1](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGET.html) action or the [ls](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html) AWS CLI command.
 + [ListBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html) – The ListBuckets with the object endpoint is not supported. The following command does not work with Amazon S3 compatible storage on Snowball Edge:
 
-  ```
+  ```bash,sh,zsh
   aws s3 ls --endpoint {{https://192.0.2.0}} --profile {{profile}}                    
   ```

@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Working with S3 buckets with Amazon S3 compatible storage on Snowball Edge
-<a name="working-s3-snow-buckets"></a>
 
 With Amazon S3 compatible storage on Snowball Edge, you can create Amazon S3 buckets on your Snowball Edge devices to store and retrieve objects on premises for applications that require local data access, local data processing, and data residency. Amazon S3 compatible storage on Snowball Edge provides a new storage class, `SNOW`, which uses the Amazon S3 APIs, and is designed to store data durably and redundantly across multiple Snowball Edge devices. You can use the same APIs and features on Snowball Edge buckets that you do on Amazon S3, including bucket lifecycle policies, encryption, and tagging.
 
@@ -41,19 +40,19 @@ After you set up your operations, you can use the s3api SDK or s3control SDK to 
 
 **Example of accessing S3 bucket using the s3api SDK**  
 
-```
+```bash,sh,zsh
 aws s3api list-buckets --endpoint-url https://{{s3api-endpoint-ip}} --profile {{your-profile}}                    
 ```
 
 **Example of accessing S3 buckets using the s3control SDK**  
 
-```
+```bash,sh,zsh
 aws s3control list-regional-buckets --account-id {{bucket-owner}} --endpoint-url https://{{s3ctrlapi-endpoint-ip}} --profile {{your-profile}}                
 ```
 
 **Example of accessing S3 objects using the s3api SDK**  
 
-```
+```bash,sh,zsh
 aws s3api list-objects-v2 --endpoint-url https://{{s3api-endpoint-ip}} --profile {{your-profile}}
 ```
 

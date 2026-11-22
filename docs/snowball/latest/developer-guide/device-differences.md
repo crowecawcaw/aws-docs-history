@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # AWS Snowball Edge device hardware information
-<a name="device-differences"></a>
 
 All Snowball Edge devices share physical characteristics, like size and weight, but contain different types of hardware to suit their intended use. Devices designed for data transfer are configured with more storage and devices designed for compute are configured with more virtual CPUs and memory. This section provides information about the physical characteristics of Snowball Edge devices, and their compute and storage specifications.
 

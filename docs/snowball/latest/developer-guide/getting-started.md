@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Getting started with Snowball Edge
-<a name="getting-started"></a>
 
 With an AWS Snowball Edge device, you can access the storage and compute power of the AWS Cloud locally and cost effectively in places where connecting to the internet might not be an option. You can also transfer hundreds of terabytes or petabytes of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). 
 
@@ -139,7 +138,7 @@ This scenario requires IAM users with programmatic access and long-term credenti
 
 ****  
 
-   ```
+   ```json
    {
      "Version":"2012-10-17",		 	 	 
      "Statement": [
@@ -162,7 +161,7 @@ This scenario requires IAM users with programmatic access and long-term credenti
 
    Use the `attach-user-policy` to attach the s3-only-policy to a user.
 
-   ```
+   ```bash,sh,zsh
      aws iam attach-user-policy --endpoint {{endpointIPaddress}}:6078 --region snow --user-name {{UserName}} --policy-arn arn:aws:iam::{{AccountID}}:{{policy/POLICYNAME}} --profile {{ProfileID}}
    ```
 

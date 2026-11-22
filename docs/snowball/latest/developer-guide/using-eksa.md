@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using Amazon EKS Anywhere on AWS Snow
-<a name="using-eksa"></a>
 
 Amazon EKS Anywhere on AWS Snow helps you to create and operate Kubernetes clusters on Snowball Edge. Kubernetes is open-source software that's used for automating deployment, scaling, and management of containerized applications. You can use Amazon EKS Anywhere on a Snowball Edge device with or without an external network connection. To use Amazon EKS Anywhere on a device without an external network connection, provide a container registry to run on the Snowball Edge device. For general information about Amazon EKS Anywhere, see the [Amazon EKS Anywhere documentation](https://anywhere.eks.amazonaws.com/docs/).
 

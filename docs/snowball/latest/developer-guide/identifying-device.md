@@ -3,17 +3,16 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # How to identify a Snowball Edge
-<a name="identifying-device"></a>
 
 Use the `describe-device` command to find the device type, then look up the returned value of `DeviceType` in the table below to determine the configuration.
 
-```
+```bash,sh,zsh
   snowballEdge describe-device            
 ```
 
 **Example of `describe-device` output**  
 
-```
+```JSON
   {
   "DeviceId" : "JID-206843500001-35-92-20-211-23-06-02-18-24",
   "UnlockStatus" : {

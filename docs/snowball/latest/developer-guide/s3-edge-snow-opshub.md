@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Set up Amazon S3 compatible storage on Snowball Edge with AWS OpsHub
-<a name="s3-edge-snow-opshub"></a>
 
 The Amazon S3 compatible storage on Snowball Edge service is not active by default. To start the service on a device or cluster, you must create two virtual network interfaces (VNICs) on each device to attach to the `s3control` and `s3api` endpoints.
 

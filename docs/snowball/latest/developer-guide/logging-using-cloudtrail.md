@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Logging AWS Snowball Edge API calls with AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 The AWS Snowball or Snowball Edge service integrates with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or service. CloudTrail captures all API calls for AWS Snowball Edge service. The calls captured include calls from the AWS Snowball Edge Family console and code calls to the AWS Snowball Edge Family Job Management API. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS Snowball Edge Family API calls. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request made with AWS Snowball Edge Family API, the IP address of the request made, who made the request, when it was made, and additional details. 
 
@@ -38,7 +37,7 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The following example shows a CloudTrail log entry that demonstrates the [DescribeJob](https://docs.aws.amazon.com/snowball/latest/api-reference/API_DescribeJob.html) operation.
 
-```
+```json
       {"Records": [
     {
         "eventVersion": "1.05",

@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Getting an object from a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge
-<a name="objects-get-s3-snow"></a>
 
 The following example gets an object named {{sample-object.xml}} from an Amazon S3 compatible storage on Snowball Edge bucket using the AWS CLI. The SDK command is `s3-snow:GetObject`. To use this command, replace each user input placeholder with your own information.
 

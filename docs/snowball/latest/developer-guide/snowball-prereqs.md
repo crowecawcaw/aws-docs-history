@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Prerequisites for using Snowball Edge
-<a name="snowball-prereqs"></a>
 
 Before you get started with a Snowball Edge, you need to sign up for an AWS account if you don't have one. We also recommend learning how to configure your data and compute instances for use with Snowball Edge.
 

@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Managing Amazon S3 adapter storage with AWS OpsHub
-<a name="manage-s3"></a>
 
 You can use AWS OpsHub to create and manage Amazon Simple Storage Service (Amazon S3) storage on your Snowball Edge using the S3 adapter for import and export jobs.
 
@@ -36,7 +35,7 @@ If the device was ordered with the NFS transfer mechanism, the bucket name will 
 
 This video shows how to upload files to Amazon S3 storage using AWS OpsHub.
 
-[![AWS Videos](https://img.youtube.com/vi/Bw8rzQhT1nM?start=472/0.jpg)](https://www.youtube.com/watch?v=Bw8rzQhT1nM?start=472)
+[![AWS Videos](https://img.youtube.com/vi/Bw8rzQhT1nM/0.jpg)](https://www.youtube.com/watch?v=Bw8rzQhT1nM)
 
 
 **To upload a file**

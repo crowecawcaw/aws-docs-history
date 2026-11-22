@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Batching small files to improve data transfer performance to Snowball Edge
-<a name="batching-small-files"></a>
 
 Each copy operation has some overhead because of encryption. To speed up the process of transferring small files to your AWS Snowball Edge device, you can batch them together in a single archive. When you batch files together, they can be auto-extracted when they are imported into Amazon S3, if they were batched in one of the supported archive formats.
 
@@ -23,20 +22,20 @@ Any batches larger than 100 GB are not extracted when they are imported into Ama
 1. Batch your files on the command line as shown in the following examples.
    + For Linux, you can batch the files in the same command line used to transfer your files to the device. 
 
-     ```
+     ```bash,sh,zsh
      tar -cf - {{/Logs/April}} | aws s3 cp - {{s3://amzn-s3-demo-bucket/batch01.tar}} --metadata snowball-auto-extract=true --endpoint {{http://192.0.2.0:8080}}
      ```
 **Note**  
 Alternatively, you can use the archive utility of your choice to batch the files into one or more large archives. However, this approach requires extra local storage to save the archives before you transfer them to the Snowball Edge.
    + For Windows, use the following example command to batch the files when all files are in the same directory from which the command is run:
 
-     ```
+     ```powershell,ps
      7z a -tzip -so "test" | aws s3 cp - {{s3://amzn-s3-demo-bucket/batch01.zip}} --metadata snowball-auto-extract=true --endpoint {{http://192.0.2.0:8080}}
      ```
 
      To batch files from a different directory from which the command is run, use the following example command:
 
-     ```
+     ```powershell,ps
      7z a -tzip -so "test" "{{c:\temp}}" | aws s3 cp - {{s3://amzn-s3-demo-bucket/batch01.zip}} --metadata snowball-auto-extract=true --endpoint {{http://10.x.x.x:8080}}
      ```
 **Note**  

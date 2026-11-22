@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Ordering a Snowball Edge device for use with Amazon EKS Anywhere on AWS Snow
-<a name="order-sbe"></a>
 
 To order your Snowball Edge compute optimized, see [Creating a job to order a Snowball Edge device](create-job-common.md) in this guide and keep these items in mind during the ordering process:
 + In step 1, choose the **Local compute and storage only** job type.

@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Rebooting the Snowball Edge device
-<a name="reboot"></a>
 
 Before you reboot a Snowball Edge device, make sure that all data transfer to the device has stopped.
 
@@ -25,7 +24,7 @@ If the LCD screen is displaying the shutdown message when the device is not actu
 
 1. When all communication with the device has ended, use the `reboot-device` command to reboot it. When the device is ready, the LCD display shows a short video while the device is getting ready to start. After about 10 minutes, the device is ready to be unlocked.
 
-   ```
+   ```bash,sh,zsh
      snowballEdge reboot-device --profile profile-name        
    ```
 

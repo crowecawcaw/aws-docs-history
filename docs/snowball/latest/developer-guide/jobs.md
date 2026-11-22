@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Understanding Snowball Edge jobs
-<a name="jobs"></a>
 
 A *job* in AWS Snowball Edge is a discrete unit of work, defined when you create it in the console or the job management API. With the AWS Snowball Edge device, there are three different job types, all of which are capable of local storage and compute functionality. This functionality uses the NFS interface or the Amazon S3 interface to read and write data. It triggers Lambda functions based on Amazon S3 PUT object API actions running locally on the AWS Snowball Edge device.
 + [Jobs to import data into Amazon S3 using a Snowball Edge device](importtype.md) – The transfer of 210 TB or less of your local data copied onto a single device, and then moved into Amazon S3. For import jobs, Snowball devices and jobs have a one-to-one relationship. Each job has exactly one device associated with it. If you need to import more data, you can create new import jobs or clone existing ones. When you return a device of this job type, that data on it is imported into Amazon S3.

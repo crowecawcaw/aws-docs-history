@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Managing the NFS interface on Snowball Edge
-<a name="shared-using-nfs"></a>
 
 Use the Network File System (NFS) interface to upload files to the Snowball Edge as if the device is local storage to your operating system. This allows for a more user-friendly approach to transferring data because you can use features of your operating system, like copying files, dragging and dropping them, or other graphical user interface features. Each S3 bucket on the device is available as an NFS interface endpoint and can be mounted to copy data to. The NFS interface is available for import jobs.
 
@@ -36,13 +35,13 @@ The NFS interface is not running on the Snowball Edge device by default, so you 
 <a name="configure-snow-nfs"></a>
 + Use the `describe-service` command to determine if the NFS interface is active.
 
-  ```
+  ```bash,sh,zsh
   snowballEdge describe-service --service-id nfs
   ```
 
   The command will return the state of the NFS service, `ACTIVE` or `INACTIVE`.
 
-  ```
+  ```JSON
   {
     "ServiceId" : "nfs",
     "Status" : {
@@ -53,15 +52,15 @@ The NFS interface is not running on the Snowball Edge device by default, so you 
 
   If the value of the `State` name is `ACTIVE`, the NFS interface service is active and you can mount the Snowball Edge NFS volume. For more information, see [ Mounting NFS endpoints on client computers  After the NFS interface is started, mount the endpoint as local storage on client computers. The following are the default mount commands for Windows, Linux, and macOS operating systems.   Windows: 
 
-  ```
+  ```doc,bat,cmd,powershell,ps
   mount -o nolock rsize=128 wsize=128 mtype=hard nfs-interface-ip-address:/buckets/BucketName *
   ```     Linux: 
 
-  ```
+  ```bash,sh,zsh
   mount -t nfs nfs-interface-ip-address:/buckets/BucketName mount_point
   ```     macOS: 
 
-  ```
+  ```bash,sh,zsh
   mount -t nfs -o vers=3,rsize=131072,wsize=131072,nolocks,hard,retrans=2 nfs-interface-ip-address:/buckets/$bucketname mount_point
   ```   ](#mount-snow-nfs-volume.title). If the value is `INACTIVE`, you have to start the service.
 
@@ -72,13 +71,13 @@ Start a virtual network interface (VNI), if necessary, then start the NFS servic
 
 1. Use the `describe-virtual-network-interface` command to see the VNIs available on the Snowball Edge.
 
-   ```
+   ```bash,sh,zsh
    snowballEdge describe-virtual-network-interfaces
    ```
 
    If one or more VNIs are active on the Snowball Edge, the command returns the following.
 
-   ```
+   ```JSON
    snowballEdge describe-virtual-network-interfaces
    [
      {
@@ -107,19 +106,19 @@ Start a virtual network interface (VNI), if necessary, then start the NFS servic
 
 1. Use the `start-service` command to start the NFS service and associate it with the VNI. To restrict access to the NFS interface, include the `service-configuration` and `AllowedHosts` parameters in the command.
 
-   ```
+   ```bash,sh,zsh
    snowballEdge start-service --virtual-network-interface-arns arn-of-vni --service-id nfs --service-configuration AllowedHosts=CIDR-address-range
    ```
 
 1. Use the `describe-service` command to check the service status. It is running when the value of the `State` name is `ACTIVE`.
 
-   ```
+   ```bash,sh,zsh
    snowballEdge describe-service --service-id nfs
    ```
 
    The command returns the service state, as well as the IP address and port number of the NFS endpoint and the CIDR ranges allowed to access the endpoint.
 
-   ```
+   ```JSON
    {
     "ServiceId" : "nfs",
     "Status" : {
@@ -144,17 +143,17 @@ After the NFS interface is started, mount the endpoint as local storage on clien
 The following are the default mount commands for Windows, Linux, and macOS operating systems.
 + Windows:
 
-  ```
+  ```doc,bat,cmd,powershell,ps
   mount -o nolock rsize=128 wsize=128 mtype=hard nfs-interface-ip-address:/buckets/BucketName *
   ```
 + Linux:
 
-  ```
+  ```bash,sh,zsh
   mount -t nfs nfs-interface-ip-address:/buckets/BucketName mount_point
   ```
 + macOS:
 
-  ```
+  ```bash,sh,zsh
   mount -t nfs -o vers=3,rsize=131072,wsize=131072,nolocks,hard,retrans=2 nfs-interface-ip-address:/buckets/$bucketname mount_point
   ```
 
@@ -163,6 +162,6 @@ The following are the default mount commands for Windows, Linux, and macOS opera
 
 When you are finished transferring files through the NFS interface and before powering off the Snowball Edge, use the `stop-service` command to stop the NFS service.
 
-```
+```bash,sh,zsh
 snowballEdge stop-service --service-id nfs
 ```

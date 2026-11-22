@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Monitoring the import status from the Snowball Edge
-<a name="monitor-status"></a>
 
 To monitor the status of your import job in the console, sign in to the [AWS Snow Family Management Console](https://console.aws.amazon.com/snowfamily/home) in the AWS Region where the job was created. Choose the job you want to track from the table, or search for it by your chosen parameters in the search bar above the table. After you select the job, detailed information appears for that job within the table, including a bar that shows real-time status of your job.
 

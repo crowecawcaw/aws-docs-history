@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Troubleshooting boot‐up problems with Snowball Edge
-<a name="boot-troubleshoot"></a>
 
 The following information can help you troubleshoot certain issues you might have with booting‐up your Snowball Edge.
 + Allow 10 minutes for a device to boot up. Avoid moving or using the device during this time.

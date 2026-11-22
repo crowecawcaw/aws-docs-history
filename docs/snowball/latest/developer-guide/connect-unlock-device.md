@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Unlocking a Snowball Edge device with AWS OpsHub
-<a name="connect-unlock-device"></a>
 
 When your device arrives at your site, the first step is to connect and unlock it. AWS OpsHub lets you sign in, unlock, and manage devices using the following methods:
 + **Locally** – To sign in to a device locally, you must power on the device and connect it to your local network. Then provide an unlock code and a manifest file.
@@ -20,7 +19,7 @@ When your device arrives at your site, the first step is to connect and unlock i
 
 This video shows how to unlock a Snowball Edge device locally using AWS OpsHub.
 
-[![AWS Videos](https://img.youtube.com/vi/StMa2A7X2yA?start=36&end=70/0.jpg)](https://www.youtube.com/watch?v=StMa2A7X2yA?start=36&end=70)
+[![AWS Videos](https://img.youtube.com/vi/StMa2A7X2yA/0.jpg)](https://www.youtube.com/watch?v=StMa2A7X2yA)
 
 
 **To connect and unlock your device locally**

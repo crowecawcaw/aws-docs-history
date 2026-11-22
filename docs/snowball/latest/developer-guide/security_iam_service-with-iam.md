@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # How AWS Snow Family works with IAM
-<a name="security_iam_service-with-iam"></a>
 
 Before you use IAM to manage access to AWS Snow Family, learn what IAM features are available to use with AWS Snow Family.
 

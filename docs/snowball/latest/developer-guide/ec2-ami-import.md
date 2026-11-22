@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Importing an image as an Amazon EC2-compatible AMI with AWS OpsHub
-<a name="ec2-ami-import"></a>
 
 You can import a snapshot of your image into your Snowball Edge device and register it as an Amazon EC2-compatible Amazon Machine Image (AMI). A snapshot is basically a copy of your storage volume that you can use to create an AMI or another storage volume. By doing this, you can bring your own image from an external source onto your device and launch it as an Amazon EC2-compatible instance. 
 
@@ -41,7 +40,7 @@ When your snapshot is uploaded to Amazon S3, you can import it to your device. A
 
 This video shows how to import and register a snapshot as an Amazon EC2-compatible AMI, including creating a policy for an IAM user.
 
-[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg?start=192&end=348/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg?start=192&end=348)
+[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg)
 
 
 **To import the snapshot to your device**
@@ -67,7 +66,7 @@ This video shows how to import and register a snapshot as an Amazon EC2-compatib
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -93,7 +92,7 @@ This video shows how to import and register a snapshot as an Amazon EC2-compatib
 
 ****  
 
-   ```
+   ```json
    {
       "Version":"2012-10-17",		 	 	 
       "Statement":[
@@ -124,7 +123,7 @@ The process of creating an Amazon EC2-compatible AMI from an image imported as a
 
 This video shows how to register a snapshot as an Amazon EC2-compatible AMI.
 
-[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg?start=222&end=255/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg?start=222&end=255)
+[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg)
 
 
 **To register an image imported as a snapshot**

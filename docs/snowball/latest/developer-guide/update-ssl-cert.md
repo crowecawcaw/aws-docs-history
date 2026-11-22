@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Updating the SSL certificate on Snowball Edge devices
-<a name="update-ssl-cert"></a>
 
 If you plan to keep your Snowball Edge for more than 360 days, you will need to update the Secure Sockets Layer (SSL) certificate on the device to avoid interruption of your use of the device. If the certificate expires, you will not be able to use the device and will have to return it to AWS.
 
@@ -16,7 +15,7 @@ This topic explains how to determine when the certificate will expire and how to
 1. Use the `snowballEdge describe-device-software` command to determine when the certificate will expire. In the output of the command, the value of `CertificateExpiry` includes the date and time at which the certificate will expire.  
 **Example of `describe-device-software` output**  
 
-   ```
+   ```bash,sh,zsh
    Installed version: 101
    Installing version: 102
    Install State: Downloading

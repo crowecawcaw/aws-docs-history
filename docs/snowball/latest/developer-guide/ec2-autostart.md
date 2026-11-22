@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Autostarting EC2-compatible instances with launch templates on a Snowball Edge
-<a name="ec2-autostart"></a>
 
 You can automatically start your Amazon EC2-compatible instances on your AWS Snowball Edge device using launch templates and Snowball Edge client launch configuration commands. 
 

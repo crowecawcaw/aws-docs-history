@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Importing a virtual machine image to a Snowball Edge device
-<a name="ec2-ami-import-cli"></a>
 
 You can use the AWS CLI and the VM Import/Export service to import a virtual machine (VM) image to the Snowball Edge device as an Amazon Machine Image (AMI). After importing a VM image, register the image as an AMI and launch it as an Amazon EC2-compatible instance.
 
@@ -46,7 +45,7 @@ After preparing a VM image, upload it to an S3 bucket on the Snowball Edge devic
 **To upload the virtual machine image using the S3 adapter**
 + Use the `cp` command to copy the VM image file to a bucket on the device.
 
-  ```
+  ```bash,sh,zsh
   aws s3 cp {{image-path}} s3://{{S3-bucket-name}} --endpoint http://{{S3-object-API-endpoint:443}} --profile {{profile-name}}
   ```
 
@@ -55,7 +54,7 @@ After preparing a VM image, upload it to an S3 bucket on the Snowball Edge devic
 **To upload the VM image using Amazon S3 compatible storage on Snowball Edge**
 + Use the `put-object` command to copy the snapshot file to a bucket on the device.
 
-  ```
+  ```bash,sh,zsh
   aws s3api put-object --bucket {{bucket-name}} --key {{path-to-snapshot-file}} --body {{snapshot-file}} --endpoint-url {{s3api-endpoint-ip}} --profile {{your-profile}}       
   ```
 
@@ -83,7 +82,7 @@ Following is an example trust policy required to be attached to the role so that
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -110,7 +109,7 @@ aws iam create-role --role-name {{role-name}} --assume-role-policy-document file
 
 The following is an example output from the `create-role` command. 
 
-```
+```JSON
 {
    "Role":{
       "AssumeRolePolicyDocument":{
@@ -144,7 +143,7 @@ The following example policy has the minimum required permissions to access Amaz
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -174,7 +173,7 @@ aws iam create-policy --policy-name {{policy-name}} --policy-document file:///{{
 
 The following is an output example from the create-policy command.
 
-```
+```JSON
 {
    "Policy":{
       "PolicyName":"vmimport-resource-policy",
@@ -216,7 +215,7 @@ The following is an example policy that allows a user to perform the `get-role` 
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -250,7 +249,7 @@ aws iam create-policy --policy-name {{policy-name}} --policy-document file:///{{
 
 The following is an output example from the create-policy command.
 
-```
+```JSON
 {
    "Policy":{
       "PolicyName":"caller-policy",
@@ -282,7 +281,7 @@ To import a snapshot, the IAM user must have the `ec2:ImportSnapshot` permission
 
 ****  
 
-```
+```json
 {
    "Version":"2012-10-17",		 	 	 
    "Statement":[
@@ -314,7 +313,7 @@ aws iam create-policy --policy-name {{policy-name}} --policy-document file:///{{
 
 The following is an output example from the create-policy command.
 
-```
+```JSON
 { 
     "Policy": 
         {
@@ -342,7 +341,7 @@ aws iam attach-user-policy --user-name {{your-user-name}} --policy-arn arn:aws:i
 
 The next step is to import the VM image as a snapshot on the device. The value of the `S3Bucket` parameter is the name of the bucket which contains the VM image. The value of the `S3Key` parameter is the path to the VM image file in this bucket.
 
-```
+```bash,sh,zsh
 aws ec2 import-snapshot --disk-container "Format=RAW,UserBucket={S3Bucket={{bucket-name}},S3Key={{image-file}}}" --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
@@ -360,7 +359,7 @@ This command doesn't support the following switches.
 
 **Example output of `import-snapshot` command**  
 
-```
+```JSON
 {
    "ImportTaskId":"s.import-snap-1234567890abc",
    "SnapshotTaskDetail":{
@@ -379,7 +378,7 @@ This command doesn't support the following switches.
 ```
 Snowball Edge currently only allow one active import job to run at a time, per device. To start a new import task, either wait for the current task to finish, or choose another available node in a cluster. You can also choose to cancel the current import if you want. To prevent delays, don't reboot the Snowball Edge device while the import is in progress. If you reboot the device, the import will fail, and progress will be deleted when the device becomes accessible. To check the status of your snapshot import task status, use the following command:  
 
-```
+```bash,sh,zsh
 aws ec2 describe-import-snapshot-tasks --import-task-ids {{id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
@@ -395,7 +394,7 @@ For more information, see [register-image](https://awscli.amazonaws.com/v2/docum
 
 **Example of the `register-image` command**  
 
-```
+```bash,sh,zsh
 aws ec2 register-image \
 --name {{ami-01}} \
 --description {{my-ami-01}} \
@@ -408,7 +407,7 @@ aws ec2 register-image \
 
 Following is an example of block device mapping JSON. For more information, see the [block-device-mapping parameter of register-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/register-image.html) in the AWS CLI Command Reference.
 
-```
+```JSON
 [
     {
         "DeviceName": "/dev/sda",
@@ -438,11 +437,11 @@ To launch an instance, see [run-instances](https://awscli.amazonaws.com/v2/docum
 
 The value of the `image-id` parameter is the value of the `ImageId` name as the output of the `register-image` command.
 
-```
+```bash,sh,zsh
 aws ec2 run-instances --image-id {{image-id}} --instance-type {{instance-type}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
-```
+```JSON
 {
    "Instances":[
       {
@@ -489,13 +488,13 @@ To see the current state of the import progress, you can run the Amazon EC2 `des
 
 **Example of the `describe-import-snapshot-tasks` command**  
 
-```
+```bash,sh,zsh
 aws ec2 describe-import-snapshot-tasks --import-task-ids {{id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
 **Example of `describe-import-snapshot-tasks` command output**  
 
-```
+```JSON
 {
         "ImportSnapshotTasks": [
             {
@@ -533,13 +532,13 @@ To cancel an import task, run the `cancel-import-task` command.
 
 **Example of the `cancel-import-task` command**  
 
-```
+```bash,sh,zsh
 aws ec2 cancel-import-task --import-task-id {{import-task-id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
 **Example of `cancel-import-task` command output**  
 
-```
+```JSON
 {
         "ImportTaskId": "s.import-snap-8234ef2a01cc3b0c6",
         "PreviousState": "active",
@@ -559,13 +558,13 @@ After a snapshot is imported, you can use this command to describe it. To filter
 
 **Example of `describe-snapshots` command**  
 
-```
+```bash,sh,zsh
 aws ec2 describe-snapshots --snapshot-ids {{snapshot-id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
 **Example of `describe-snapshots` command output**  
 
-```
+```JSON
 {
     "Snapshots": [
         {
@@ -593,7 +592,7 @@ To remove snapshots that you own and you no longer need, you can use the `delete
 
 **Example of the `delete-snapshot` command**  
 
-```
+```bash,sh,zsh
 aws ec2 delete-snapshot --snapshot-id {{snapshot-id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 
@@ -611,7 +610,7 @@ To deregister AMIs that you no longer need, you can run the `deregister-image` c
 
 **Example of the `deregister-image` command**  
 
-```
+```bash,sh,zsh
 aws ec2 deregister-image --image-id {{image-id}} --endpoint http://{{snowball-ip}}:8008 --region snow --profile {{profile-name}}
 ```
 

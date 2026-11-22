@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Deleting a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge
-<a name="working-s3-snow-buckets-delete-bucket-s3-snow"></a>
 
 You can use the s3api SDK or s3control SDK to delete a bucket in Amazon S3 compatible storage on Snowball Edge.
 
@@ -16,12 +15,12 @@ The following examples delete an Amazon S3 compatible storage on Snowball Edge b
 
 **Example of deleting a bucket**  
 
-```
+```bash,sh,zsh
 aws s3api delete-bucket --bucket {{amzn-s3-demo-bucket}} --endpoint-url https://{{s3api-endpoint-ip}} --profile {{your-profile}}
 ```
 For more information about this command, see [delete-bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket.html) in the AWS CLI Command Reference.
 
-```
+```bash,sh,zsh
 aws s3control delete-bucket --account-id {{123456789012}} --bucket amzn-s3-demo-bucket --endpoint-url https://{{s3ctrlapi-endpoint-ip}} --profile {{your-profile}}
 ```
 For more information about this command, see [delete-bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/delete-bucket.html) in the AWS CLI Command Reference.

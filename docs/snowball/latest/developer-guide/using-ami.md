@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using an Amazon EC2-compatible AMI on Snowball Edge
-<a name="using-ami"></a>
 
 To use an Amazon Machine Image (AMI) on your AWS Snowball Edge device, you must first add it to the device. You can add an AMI in the following ways:
 + Upload the AMI when you order the device.
@@ -118,12 +117,12 @@ AMIs from AWS Marketplace include **aws-marketplace** in the **Source** column.
 Use the following procedure to determine the version of the Amazon Linux 2 AMI for Snowball Edge on the Snowball Edge. Install the latest version of the AWS CLI before continuing. For more information, see [Install or update to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the AWS Command Line Interface User Guide.
 + Use the `describe-images` AWS CLI command to see the description of the AMI. The version is contained in the description. Provide the public key certificate from the previous step. For more information, see [describe-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html) in the AWS CLI Command Reference.
 
-  ```
+  ```bash,sh,zsh
   aws ec2 describe-images --endpoint http://{{snow-device-ip}}:8008 --region snow                    
   ```  
 **Example of output of the `describe-images` command**  
 
-  ```
+  ```JSON
   {
       "Images": [
           {
@@ -264,7 +263,7 @@ To update your Amazon Linux 2 AMIs to the latest version, first export the lates
 
 1. Use the `ssm get-parameters` AWS CLI command to find the latest image ID of the Amazon Linux 2 AMI in the AWS Marketplace.
 
-   ```
+   ```bash,sh,zsh
      aws ssm get-parameters --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 --query 'Parameters[0].[Value]' --region your-region                
    ```
 

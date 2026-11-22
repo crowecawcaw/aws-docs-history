@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Setting up and starting Amazon S3 compatible storage on Snowball Edge
-<a name="s3-edge-snow-setting-up"></a>
 
 Install and configure software tools from AWS to your local environment to interact with the Snowball Edge device or cluster of devices and Amazon S3 compatible storage on Snowball Edge. Then, use these tools to set up the Snowball Edge device or cluster and start Amazon S3 compatible storage on Snowball Edge.
 
@@ -27,7 +26,7 @@ This section describes how to set up and configure the Snowball Edge Client and 
 
 1. If you are using SDK for .NET, set the `clientConfig.AuthenticationRegion` parameter value as follows:
 
-   ```
+   ```bash,sh,zsh
      clientConfig.AuthenticationRegion = "snow"                        
    ```
 
@@ -48,7 +47,7 @@ The following example allows full access to the Amazon S3 API:
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -76,24 +75,24 @@ If you prefer a more user-friendly experience, you can start the Amazon S3 compa
 1. Unlock your Snowball Edge device or cluster of devices by running the following command:
    + For a single device:
 
-     ```
+     ```bash,sh,zsh
        snowballEdge unlock-device --endpoint https://{{snow-device-ip}}
      ```
    + For a cluster:
 
-     ```
+     ```bash,sh,zsh
       snowballEdge unlock-cluster
      ```
 
 1. Run the following command and make sure that the Snowball Edge device or cluster of devices are unlocked:
    + For a single device:
 
-     ```
+     ```bash,sh,zsh
        snowballEdge describe-device --endpoint https://{{snow-device-ip}}
      ```
    + For a cluster:
 
-     ```
+     ```bash,zsh,sh
        snowballEdge describe-cluster --device-ip-addresses [{{snow-device-1-ip}}] [{{snow-device-2-ip}}] /
          [{{snow-device-3-ip}}] [{{snow-device-4-ip}}] [{{snow-device-5-ip}}] /
          [{{snow-device-6-ip}}]
@@ -103,13 +102,13 @@ If you prefer a more user-friendly experience, you can start the Amazon S3 compa
 
    1. Fetch the device's `PhysicalNetworkInterfaceId` by running the following `describe-device` command:
 
-      ```
+      ```bash,sh,zsh
         snowballEdge describe-device --endpoint https://{{snow-device-ip}}
       ```
 
    1. Run the following `create-virtual-network-interface` command twice to create the virtual network interfaces (VNIs) for the `s3control` (for bucket operations) and `s3api` (for object operations) endpoints.
 
-      ```
+      ```bash,zsh,sh
         snowballEdge create-virtual-network-interface --ip-address-assignment dhcp --manifest-file {{manifest}} --physical-network-interface-id "{{PhysicalNetworkInterfaceId}}" --unlock-code {{unlockcode}} --endpoint https://{{snow-device-ip}}
       ```
 
@@ -123,13 +122,13 @@ Starting Amazon S3 compatible storage on Snowball Edge consumes device resources
 
    To start the service on a single device:
 
-   ```
+   ```bash,sh,zsh
      snowballEdge start-service --service-id s3-snow --device-ip-addresses {{snow-device-1-ip}} --virtual-network-interface-arns {{vni-arn-1}} {{vni-arn-2}}
    ```
 
    To start the service on a cluster:
 
-   ```
+   ```bash,sh,zsh
      snowballEdge start-service --service-id s3-snow --device-ip-addresses {{snow-device-1-ip}} {{snow-device-2-ip}} {{snow-device-3-ip}} --virtual-network-interface-arns {{vni-arn-1}} {{vni-arn-2}} {{vni-arn-3}}  {{vni-arn-4}} {{vni-arn-5}} {{vni-arn-6}}
    ```
 
@@ -137,7 +136,7 @@ Starting Amazon S3 compatible storage on Snowball Edge consumes device resources
 
 1. Run the following `describe-service` command for a single device:
 
-   ```
+   ```bash,zsh,sh
      snowballEdge describe-service --service-id s3-snow
    ```
 
@@ -145,7 +144,7 @@ Starting Amazon S3 compatible storage on Snowball Edge consumes device resources
 
    Run the following `describe-service` command for a cluster:
 
-   ```
+   ```bash,sh,zsh
      snowballEdge describe-service --service-id s3-snow \ 
        --device-ip-addresses {{snow-device-1-ip}} {{snow-device-2-ip}} {{snow-device-3-ip}}
    ```
@@ -155,14 +154,14 @@ Starting Amazon S3 compatible storage on Snowball Edge consumes device resources
 
 When the Amazon S3 compatible storage on Snowball Edge service is running, you can use the `describe-service` Snowball Edge Client command to view the IP addresses associated with the s3control and s3api endpoints.
 
-```
+```bash,sh,zsh
 snowballEdge describe-service --service-id s3-snow --endpoint https://snow-device-ip-address --profile profile-name
 ```
 
 **Example output of `describe-service` command**  
 In this example, the IP address of the s3control endpoint is 192.168.1.222 and the IP address of the s3api endpoint is 192.168.1.152.  
 
-```
+```json
 {
   "ServiceId": "s3-snow",
   "Autostart": true,

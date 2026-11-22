@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Best practices for using a Snowball Edge device
-<a name="BestPractices"></a>
 
 To help get the maximum benefit and satisfaction with your AWS Snowball Edge device, we recommend that you follow these best practices.
 

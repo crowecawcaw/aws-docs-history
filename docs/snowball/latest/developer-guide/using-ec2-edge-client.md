@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Starting EC2-compatible instances automatically
-<a name="using-ec2-edge-client"></a>
 
 The Snowball Edge Client is a standalone command line interface (CLI) application that you can run in your environment. You can use it to perform some administrative tasks on your Snowball Edge device or cluster of devices. For more information about how to use the Snowball Edge client, including how to start and stop services with it, see [Configuring and using the Snowball Edge Client](using-client-commands.md).
 
@@ -18,7 +17,7 @@ To automatically start Amazon EC2-compatible compute instances on your AWS Snowb
 
 **Usage**
 
-```
+```json
 snowballEdge create-autostart-configuration --physical-connector-type [SFP_PLUS or RJ45 or QSFP] --ip-address-assignment [DHCP or STATIC] [--static-ip-address-configuration IpAddress=[IP address],NetMask=[Netmask]] --launch-template-id [--launch-template-version]
 ```
 
@@ -29,7 +28,7 @@ To update an existing launch configuration on your Snowball Edge, use the `snowb
 
 **Usage**
 
-```
+```json
 snowballEdge update-autostart-configuration --autostart-configuration-arn [--physical-connector-type [SFP_PLUS or RJ45 or QSFP]] [--ip-address-assignment [DHCP or STATIC]] [--static-ip-address-configuration IpAddress=[IP address],NetMask=[Netmask]][--launch-template-id] [--launch-template-version] [--enabled]
 ```
 
@@ -40,7 +39,7 @@ To delete a launch configuration that's no longer in use, use the `snowballEdge 
 
 **Usage**
 
-```
+```json
 snowballEdge delete-autostart-configuration --autostart-configuration-arn
 ```
 
@@ -51,7 +50,7 @@ To list the launch configurations that you have created on your Snowball Edge, u
 
 **Usage**
 
-```
+```json
 snowballEdge describe-autostart-configurations            
 ```
 

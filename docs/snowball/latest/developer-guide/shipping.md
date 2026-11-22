@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Shipping considerations for Snowball Edge
-<a name="shipping"></a>
 
 When you create a job to order a Snowball Edge device, you provide a shipping address and choose shipping speed. Note that the shipping speed doesn’t indicate how soon you can expect to receive the device from the day you created the job. Rather, it indicates the time that the device is in transit between AWS and your shipping address.
 

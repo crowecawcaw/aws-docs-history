@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Troubleshooting AWS Snowball Edge
-<a name="troubleshooting"></a>
 
 Keep the following general guidelines in mind when troubleshooting.
 + Objects in Amazon S3 have a maximum file size of 5 TB.

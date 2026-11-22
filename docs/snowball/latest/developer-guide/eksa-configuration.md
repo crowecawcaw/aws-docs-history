@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Configuring and running Amazon EKS Anywhere on Snowball Edge devices
-<a name="eksa-configuration"></a>
 
 Follow these procedures to configure and start Amazon EKS Anywhere on your Snowball Edge devices. Then, to configure Amazon EKS Anywhere to operate on disconnected devices, complete additional procedures before disconnecting those devices from the external network. For more information, see [Configuring Amazon EKS Anywhere on AWS Snow for disconnected operation](configure-disconnected.md).
 
@@ -57,7 +56,7 @@ Do this for each Snowball Edge device that you use.
 
 Use the `create-user` command to create the Amazon EKS Anywhere IAM user.
 
-```
+```bash,sh,zsh
 aws iam create-user --user-name {{user-name}} --endpoint http://{{snowball-ip}}:6078 --profile {{profile-name}}
     {
         "User": {
@@ -81,7 +80,7 @@ Create a policy document, use it to create an IAM policy, and attach that policy
 
 1. Use the `create-policy` command to create an IAM policy based on the policy document. The value of the `--policy-document` parameter should use the absolute path to the policy file. For example, `file:///home/user/policy-name.json`
 
-   ```
+   ```base,sh,zsh
    aws iam create-policy --policy-name {{policy-name}} --policy-document {{file:///home/user/policy-name.json}} --endpoint http://{{snowball-ip}}:6078 --profile {{profile-name}}
    {
        "Policy": {
@@ -100,7 +99,7 @@ Create a policy document, use it to create an IAM policy, and attach that policy
 
 1. Use the `attach-user-policy` command to attach the IAM policy to the Amazon EKS Anywhere local user.
 
-   ```
+   ```bash,sh,zsh
    aws iam attach-user-policy --policy-arn {{policy-arn}} --user-name {{user-name}} --endpoint http://{{snowball-ip}}:6078 --profile {{profile-name}}     
    ```
 
@@ -111,7 +110,7 @@ Create an access key for the Amazon EKS Anywhere IAM local user. Then, create a 
 
 1. Use the `create-access-key` command to create an access key for the Amazon EKS Anywhere local user.
 
-   ```
+   ```bash,sh,zsh
    aws iam create-access-key --user-name {{user-name}} --endpoint http://{{snowball-ip}}:6078 --profile {{profile-name}}
        {
            "AccessKey": {
@@ -144,7 +143,7 @@ The Amazon EKS Anywhere admin instance needs the certificates of the Snowball Ed
 
 1. Use the `list-certificates` command to get certificates for each Snowball Edge device that you plan to use.
 
-   ```
+   ```bash,sh,zsh
    {{PATH_TO_Snowball_Edge_CLIENT}}/bin/snowballEdge list-certificates --endpoint https://{{snowball-ip}} --manifest-file {{path-to-manifest-file}} --unlock-code {{unlock-code}}
    {
      "Certificates" : [ {
@@ -156,7 +155,7 @@ The Amazon EKS Anywhere admin instance needs the certificates of the Snowball Ed
 
 1. Use the value of `CertificateArn` as the value for the `--certificate-arn` parameter of the `get-certificate` command. 
 
-   ```
+   ```bash,sh,zsh
    {{PATH_TO_Snowball_Edge_CLIENT}}/bin/snowballEdge get-certificate --certificate-arn {{ARN}} --endpoint https://{{snowball-ip}} --manifest-file {{path-to-manifest-file}} --unlock-code {{unlock-code}}            
    ```
 
@@ -187,7 +186,7 @@ If you skip this procedure, Amazon EKS Anywhere will create and import an SSH ke
 
 1. Use the `ssh-keygen` command to generate a SSH key.
 
-   ```
+   ```bash,sh,zsh
    ssh-keygen -t rsa -C "{{key-name}}" -f {{path-to-key-file}}
    ```
 
@@ -195,7 +194,7 @@ If you skip this procedure, Amazon EKS Anywhere will create and import an SSH ke
 **Note**  
 The value of the `key-name` parameter must be the same when you import the key to all devices.
 
-   ```
+   ```bash,sh,zsh
    aws ec2 import-key-pair --key-name {{key-name}} --public-key-material fileb:///{{path/to/key-file}} --endpoint http://{{snowball-ip}}:8008 --profile {{profile-name}} 
    {
        "KeyFingerprint": "5b:0c:fd:e1:a0:69:05:4c:aa:43:f3:3b:3e:04:7f:51",
@@ -219,50 +218,50 @@ If you're using more than one Snowball Edge devices to provision the cluster, yo
 
 1. Use the `create-key-pair` command to create a SSH key for the Amazon EKS Anywhere admin instance. The command saves the key to `$PWD/key-file-name`.
 
-   ```
+   ```bash,sh,zsh
    aws ec2 create-key-pair --key-name {{key-name}} --query 'KeyMaterial' --output text --endpoint http://{{snowball ip}}:8008 > {{key-file-name}} --profile {{profile-name}}
    ```
 
 1. Use the `describe-images` command to find the image name that begins with `eks-anywhere-admin` from the output.
 
-   ```
+   ```bash,sh,zsh
    aws ec2 describe-images --endpoint http://{{snowball-ip}}:8008 --profile {{profile-name}}
    ```
 
 1. Use the `run-instance` command to start an eks-a admin instance with the Amazon EKS Anywhere admin image. 
 
-   ```
+   ```bash,sh,zsh
    aws ec2 run-instances --image-id {{eks-a-admin-image-id}} --key-name {{key-name}} --instance-type sbe-c.xlarge --endpoint http://{{snowball-ip}}:8008 --profile {{profile-name}}
    ```
 
 1. Use the `describe-instances` command to check the status of the Amazon EKS Anywhere instance. Wait until the command indicates the instances state is `running` before continuing.
 
-   ```
+   ```bash,sh,zsh
    aws ec2 describe-instances --instance-id {{instance-id}} --endpoint http://{{snowball-ip}}:8008 --profile {{profile-name}}
    ```
 
 1. From the output of the `describe-device` command, note the value of `PhysicalNetworkInterfaceId` for the physical network interface that is connected to your network. You will use this to create a VNI.
 
-   ```
+   ```bash,sh,zsh
     
    {{PATH_TO_Snowball_Edge_CLIENT}}/bin/snowballEdge describe-device --endpoint https://{{snowball-ip}} --manifest-file {{path-to-manifest-file}} --unlock-code {{unlock-code}}
    ```
 
 1. Create a VNI for the Amazon EKS Anywhere admin instance. Use the value of `PhysicalNetworkInterfaceId` as the value of the `physical-network-interface-id` parameter.
 
-   ```
+   ```bash,sh,zsh
    {{PATH_TO_Snowball_Edge_CLIENT}}/bin/snowballEdge create-virtual-network-interface --ip-address-assignment dhcp --physical-network-interface-id {{PNI}} --endpoint https://{{snowball-ip}} --manifest-file {{path-to-manifest-file}} --unlock-code {{unlock-code}}
    ```
 
 1. Use the value of `IpAddress` as the value of the `public-ip` parameter of the `associate-address` command to associate the public address to the Amazon EKS Anywhere admin instance.
 
-   ```
+   ```bash,zsh,sh
    aws ec2 associate-address --instance-id {{instance-id}} --public-ip {{VNI-IP}} --endpoint http://{{snowball-ip}}:8008 --profile {{profile-name}} 
    ```
 
 1. Connect to the Amazon EKS Anywhere admin instance by SSH.
 
-   ```
+   ```bash,sh,zsh
    ssh -i {{path-to-key}} ec2-user@{{VNI-IP}}      
    ```
 
@@ -271,7 +270,7 @@ If you're using more than one Snowball Edge devices to provision the cluster, yo
 
 After the Amazon EKS Anywhere admin instance is running, transfer the credentials and certificates of your Snowball Edge devices to the admin instance. Run the following command from the same directory where you saved the credentials and certificates files in [Create an access key and a credential file on the Snowball Edge](#create-eksa-iam-user-access-key) and [Create a certificates file for the admin instance on the Snowball Edge](#create-credentials-for-admin-instance).
 
-```
+```bash,sh,zsh
 scp -i {{path-to-key}} {{path-to-credentials-file}} {{path-to-certificates-file}} ec2-user@{{eks-admin-instance-ip}}:~        
 ```
 

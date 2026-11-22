@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # IMDS versions on a Snowball Edge
-<a name="imds-versions"></a>
 
 You can access instance metadata from a running instance using IMDS version 2 or IMDS version 1:
 + Instance Metadata Service version 2 (IMDSv2), a session‐oriented method
@@ -49,13 +48,13 @@ First, generate a token using the following command.
 **Note**  
 `X-aws-ec2-metadata-token-ttl-seconds` is a required header. If this header is not included, you will receive an **400 - Missing or Invalid Parameters** error code.
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ TOKEN=curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"
 ```
 
 Then, use the token to generate top‐level metadata items using the following command.
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
 ```
 
@@ -66,7 +65,7 @@ You can store the token and combine the commands. The following example combines
 
 **Example of combined commands**  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ TOKEN=curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" \
     && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
 ```
@@ -75,7 +74,7 @@ After you've created a token, you can reuse it until it expires. The following e
 
 **Example of reusing a token**  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/ami-id                        
 ```
 
@@ -84,7 +83,7 @@ After you've created a token, you can reuse it until it expires. The following e
 
 IMDSv1 uses the request‐response model. To request instance metadata, you send a `GET` request to the instance metadata service.
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/                   
 ```
 
@@ -92,7 +91,7 @@ Your instance metadata is available from your running instance, so you do not ne
 
 To view all categories of instance metadata from within a running instance, use the following IPv4 URI:
 
-```
+```bash,zsh,sh
     http://169.254.169.254/latest/meta-data/
 ```
 

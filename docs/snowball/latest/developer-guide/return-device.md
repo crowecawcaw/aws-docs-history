@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Returning the Snowball Edge device
-<a name="return-device"></a>
 
 After you are finished using the Snowball Edge and have powered it off, a shipping carrier will return it to AWS. The carrier automatically provides a tracking number for the shipment of the device. The tracking number appears in the AWS Snow Family Management Console. You can access the tracking number and a link to the carrier's tracking website by viewing the job's status details in the console. For more information, see [Return shipping for Snowball Edge devices](https://docs.aws.amazon.com/snowball/latest/developer-guide/mailing-storage.html).
 

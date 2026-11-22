@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Supported EC2-compatible instance metadata and user data on Snowball Edge
-<a name="edge-compute-instance-metadata"></a>
 
 *Instance metadata* is data about your instance that you can use to configure or manage the running instance. Snowball Edge supports a subset of instance metadata categories for your compute instances. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the Amazon EC2 User Guide.
 

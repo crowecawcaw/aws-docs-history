@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Examples of retrieving instance metadata using IMDSv1 and IMDSv2 on a Snowball Edge
-<a name="imds-code-examples"></a>
 
 The following examples provide commands that you can use on a Linux instance.
 
@@ -11,7 +10,7 @@ The following examples provide commands that you can use on a Linux instance.
 This example gets the available versions of the instance metadata. Each version refers to an instance metadata build when new instance metadata categories were released. The earlier versions are available to you in case you have scripts that rely on the structure and information present in a previous version.  
 IMDSv2  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/
     % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current  Dload  Upload   Total   Spent    Left  Speed
     100        56         100      56      0       0       3733     0    --:--:-- --:--:-- --:--:--  3733
@@ -60,7 +59,7 @@ IMDSv2
 ```
 IMDSv1  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl http://169.254.169.254/
     1.0
     2007-01-19
@@ -94,7 +93,7 @@ IMDSv1
 This example gets the top‐level metadata items. For information on top‐level metadata items, see [Supported Instance Metadata and User Data](https://docs.aws.amazon.com/snowball/latest/developer-guide/edge-compute-instance-metadata.html) in this guide.  
 IMDSv2  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/ 
     ami-id
     hostname
@@ -109,7 +108,7 @@ IMDSv2
 ```
 IMDSv1  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/ 
     ami-id
     hostname
@@ -127,32 +126,32 @@ IMDSv1
 The following examples get the values of some of the top‐level metadata items that were obtained in the preceding example. The IMDSv2 requests use the stored token that was created in the preceding example command, assuming it has not expired.  
 `ami‐id` IMDSv2  
 
-```
+```bash,zsh,sh
     curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/ami-id ami-0abcdef1234567890                    
 ```
 `ami-id` IMDSv1  
 
-```
+```bash,zsh,sh
     curl http://169.254.169.254/latest/meta-data/ami-id ami-0abcdef1234567890                    
 ```
 `reservation-id` IMDSv2  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/reservation-id r-0efghijk987654321
 ```
 `reservation-id` IMDSv1  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/reservation-id \
     r-0efghijk987654321
 ```
 `local-hostname` IMDSv2  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/local-hostname ip-00-000-00-00                    
 ```
 `local-hostname` IMDSv1  
 
-```
+```bash,zsh,sh
     [ec2-user ~]$ curl http://169.254.169.254/latest/meta-data/local-hostname ip-00-000-00-00
 ```

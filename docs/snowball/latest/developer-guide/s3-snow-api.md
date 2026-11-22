@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Supported REST API actions for Amazon S3 compatible storage on Snowball Edge
-<a name="s3-snow-api"></a>
 
 The following lists show the API operations that are supported by Amazon S3 compatible storage on Snowball Edge, including links to the related operations for Amazon S3 in AWS Regions.
 

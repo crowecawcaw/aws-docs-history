@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using IAM locally on a Snowball Edge
-<a name="using-local-iam"></a>
 
 AWS Identity and Access Management (IAM) helps you securely control access to AWS resources that run on your AWS Snowball Edge device. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources. 
 
@@ -150,7 +149,7 @@ Use the following policy to allow the GetUser call for a sample user through the
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -176,7 +175,7 @@ Use the following policy to allow full access to the Amazon S3 API.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -203,7 +202,7 @@ Use the following policy to allow full access to the Amazon S3 API.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -235,7 +234,7 @@ Use the following policy to allow List, Get, and Put Access to a specific S3 buc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -264,7 +263,7 @@ Use the following policy to allow List, Get, and Put Access to a specific S3 buc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -289,7 +288,7 @@ Use the following policy to allow List, Get, and Put Access to a specific S3 buc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -317,7 +316,7 @@ Use the following policy to allow List, Get, and Put Access to a specific S3 buc
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -378,7 +377,7 @@ The following is an example of a trust policy. For more information about trust 
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

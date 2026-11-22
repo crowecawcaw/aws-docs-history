@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Deleting a snapshot from a Snowball Edge with AWS OpsHub
-<a name="delete-snapshot"></a>
 
 If you no longer need a snapshot, you can delete it from your device. The image file in Amazon S3 is a .raw file that is imported to your device as a snapshot. If the snapshot that you are deleting is used by an image, it can't be deleted. After import is completed, you can also delete the .raw file that you uploaded to Amazon S3 on your device.
 

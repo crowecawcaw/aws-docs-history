@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Jobs to export data from Amazon S3 using a Snowball Edge device
-<a name="exporttype"></a>
 
 **Note**  
 Tags and metadata are NOT currently supported, in other words, all tags and metadata would be removed when exporting objects from S3 buckets.

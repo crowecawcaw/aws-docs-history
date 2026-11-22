@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using the Job Management API
-<a name="api-using"></a>
 
 The [ Job Management API for AWS Snowball Edge](https://docs.aws.amazon.com/snowball/latest/api-reference/Welcome.html) is a network protocol based on HTTP (RFC 2616). For more information on this RFC, see [HTTP (RFC 2616)](https://www.ietf.org/rfc/rfc2616.txt) on the IETF website. For each call to the job management API, you make an HTTP request to the region-specific job management API endpoint for the AWS Region where you want to manage jobs. The API uses JSON (RFC 4627) documents for HTTP request/response bodies.
 
@@ -60,7 +59,7 @@ Using the job management API to create jobs requires the following trust policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -95,7 +94,7 @@ Creating an import job requires the following role policy.
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [
@@ -142,7 +141,7 @@ Creating an export job requires the following role policy.
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -177,7 +176,7 @@ In some cases, the Amazon S3 buckets that you use with Snowball Edge have bucket
 **Example**    
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	"Statement": {
@@ -234,7 +233,7 @@ The preceding procedure creates an IAM role that has write permissions for the A
 
 ****  
 
-```
+```json
           {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -282,7 +281,7 @@ If you use server-side encryption with AWS KMS–managed keys (SSE-KMS) to encry
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [

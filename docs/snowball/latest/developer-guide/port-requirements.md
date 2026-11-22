@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Port requirements for AWS services on a Snowball Edge
-<a name="port-requirements"></a>
 
 For AWS services to work properly on a AWS Snowball Edge device, you must allow the network ports for the service.
 

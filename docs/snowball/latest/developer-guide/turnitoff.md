@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Powering off the Snowball Edge
-<a name="turnitoff"></a>
 
 When you've finished transferring data on to the AWS Snowball Edge device, prepare it for its return trip to AWS. Before you continue, make sure that all data transfer to the device has stopped. If you were using the NFS interface to transfer data, disable it before you power off the device. For more information, see [Managing the NFS interface](https://docs.aws.amazon.com/snowball/latest/developer-guide/shared-using-nfs.html).
 

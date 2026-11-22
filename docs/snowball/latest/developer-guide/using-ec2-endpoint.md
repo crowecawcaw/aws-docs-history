@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using the Amazon EC2-compatible endpoint on a Snowball Edge
-<a name="using-ec2-endpoint"></a>
 
 Following, you can find an overview of the Amazon EC2-compatible endpoint. Using this endpoint, you can manage your Amazon Machine Images (AMIs) and compute instances programmatically using Amazon EC2-compatible API operations.
 
@@ -85,7 +84,7 @@ Following, you can find a description of the subset of AWS CLI commands and opti
 
     JSON syntax:
 
-    ```
+    ```json
     {
         "ImageId":"string",
         "InstanceType":"sbe-c.large",
@@ -111,7 +110,7 @@ Following, you can find a description of the subset of AWS CLI commands and opti
 
     JSON syntax:
 
-    ```
+    ```json
     {
         "ImageId":"string",
         "InstanceType":"sbe-c.large",
@@ -190,7 +189,7 @@ Following, you can find a description of the subset of AWS CLI commands and opti
     + `system-status.status` – The system status of the instance (`ok` \| `impaired` \| `initializing` \| `insufficient-data` \| `not-applicable` ).
   + JSON Syntax:
 
-    ```
+    ```JSON
     [
       {
         "Name": "string",
@@ -294,7 +293,7 @@ It can take up to an hour and a half to launch a compute instance on a Snowball 
 
     The JSON syntax for this command is as follows.
 
-    ```
+    ```json
     {
        "DeviceName": "/dev/sdh",
        "Ebs": 
@@ -311,7 +310,7 @@ It can take up to an hour and a half to launch a compute instance on a Snowball 
   + --instance-type – The `sbe` instance type.
   + --launch-template `structure` – The launch template to use to launch the instances. Any parameters that you specify in the `run-instances` command override the same parameters in the launch template. You can specify either the name or ID of a launch template, but not both.
 
-    ```
+    ```json
     {
        "LaunchTemplateId": "string",
        "LaunchTemplateName": "string",

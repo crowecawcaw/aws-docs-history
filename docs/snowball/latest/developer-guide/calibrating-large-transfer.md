@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Calibrating a large transfer with Snowball Edge
-<a name="calibrating-large-transfer"></a>
 
 You can calibrate the transfer performance by transferring a representative set of your data partitions. Choose multiple partitions that you have defined and transfer them to a Snowball Edge device. Make a record of the transfer speed and total transfer time for each operation. If the calibration's results are less than the target transfer rate, you may be able to copy multiple parts of your data transfer at the same time. In this case, repeat the calibration with the additional partitions of your data set.
 

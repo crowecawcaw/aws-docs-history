@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Managing an Amazon EC2 cluster on Snowball Edge with AWS OpsHub
-<a name="manage-clusters"></a>
 
 An Amazon EC2 *cluster* is a group of devices that provision together as a cluster of devices. To use a cluster, the AWS services on your device must be running at your default endpoint. You also must choose the specific device in the cluster that you want to talk to. You use a cluster on a per-device basis.
 

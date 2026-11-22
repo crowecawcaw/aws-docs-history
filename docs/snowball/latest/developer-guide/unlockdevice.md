@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Unlocking the Snowball Edge
-<a name="unlockdevice"></a>
 
 This section describes unlocking the Snowball Edge device using the Snowball Edge Client. To unlock the device using AWS OpsHub, a graphical user interface (GUI) tool for Snowball Edge, see [Unlock a device](https://docs.aws.amazon.com/snowball/latest/developer-guide/connect-unlock-device.html).
 
@@ -20,13 +19,13 @@ Before unlocking a device, the device must be plugged in to power and network, t
 
 1. Use the `unlock-device` command to authenticate your access to the Snowball Edge with the IP address of the Snowball Edge and your credentials, as follows.
 
-   ```
+   ```bash,sh,zsh
      snowballEdge unlock-device --endpoint https://{{ip-address-of-device}} --manifest-file {{/Path/to/manifest/file.bin}} --unlock-code {{29-character-unlock-code}}
    ```
 
    The device indicates it was unlocked successfully with the following message.
 
-   ```
+   ```bash,sh,zsh
    Your Snowball Edge device is unlocking. You may determine the unlock state of your device using the describe-device command. Your Snowball Edge device will be available for use when it is in the UNLOCKED state.                        
    ```
 
@@ -35,7 +34,7 @@ Before unlocking a device, the device must be plugged in to power and network, t
 
    In this example, the IP address for the device is `192.0.2.0`, the manifest file name is `JID2EXAMPLE-0c40-49a7-9f53-916aEXAMPLE81-manifest.bin`, and the 29-character unlock code is `12345-abcde-12345-ABCDE-12345`.
 
-   ```
+   ```bash,sh,zsh
      snowballEdge unlock-device --endpoint https://192.0.2.0 --manifest-file /Downloads/JID2EXAMPLE-0c40-49a7-9f53-916aEXAMPLE81-manifest.bin /
        --unlock-code 12345-abcde-12345-ABCDE-12345
    ```
@@ -46,13 +45,13 @@ Before unlocking a device, the device must be plugged in to power and network, t
 
 1. Use the `snowballEdge unlock-cluster` command to authenticate your access to the cluster of AWS Snowball Edge device devices with the IP address of one of the devices in the cluster, your credentials, and the IP addresses of all devices in the cluster as follows.
 
-   ```
+   ```bash,sh,zsh
    snowballEdge unlock-cluster --endpoint https://{{ip-address-of-device}} --manifest-file {{Path/to/manifest/file.bin}} --unlock-code {{29-character-unlock-code}} --device-ip-addresses {{ip-address-of-cluster-device-1}} {{ip-address-of-cluster-device-2}} {{ip-address-of-cluster-device-3}}            
    ```
 
    The cluster of devices indicates it was unlocked successfully with the following message.
 
-   ```
+   ```bash,sh,zsh
    Your Snowball Edge Cluster is unlocking. You may determine the unlock state of your cluster using the describe-cluster command. Your Snowball Edge Cluster will be available for use when your Snowball Edge devices are in the UNLOCKED state.            
    ```
 
@@ -61,7 +60,7 @@ Before unlocking a device, the device must be plugged in to power and network, t
 
    In this example for a cluster of five devices, the IP address for one of the devices in the cluster is `192.0.2.0`, the manifest file name is `JID2EXAMPLE-0c40-49a7-9f53-916aEXAMPLE81-manifest.bin`, and the 29-character unlock code is `12345-abcde-12345-ABCDE-12345`.
 
-   ```
+   ```bash,sh,zsh
    snowballEdge unlock-cluster --endpoint https://192.0.2.0 --manifest-file /Downloads/JID2EXAMPLE-0c40-49a7-9f53-916aEXAMPLE81-manifest.bin /
    
      --unlock-code 12345-abcde-12345-ABCDE-12345 --device-ip-addresses 192.0.2.0 192.0.2.1 192.0.2.2 192.0.2.3 192.0.2.4

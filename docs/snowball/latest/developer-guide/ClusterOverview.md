@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using Amazon S3 compatible storage on Snowball Edge with a cluster of Snow devices
-<a name="ClusterOverview"></a>
 
 A cluster is a collection of three or more Snowball Edge devices used as a single logical unit for local storage and compute purposes. A cluster offers two primary benefits over a standalone Snowball Edge device for local storage and computing:
 + **Increased durability** – The S3 data stored in a cluster of Snowball Edge devices enjoys increased data durability over a single device. In addition, the data on the cluster remains safe and viable, despite possible hardware outages affecting the cluster. Clusters can withstand the loss of one device in clusters of 3 and 4 devices and up to two devices in clusters of 5 to 16 devices before the data is in danger. You can replace unhealthy nodes to maintain the durability and safety of data stored in the cluster.

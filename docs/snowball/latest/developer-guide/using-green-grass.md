@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using AWS IoT Greengrass to run pre-installed software on Amazon EC2-compatible instances on Snowball Edge
-<a name="using-green-grass"></a>
 
 AWS IoT Greengrass is an open source Internet of Things (IoT) edge runtime and cloud service that helps you build, deploy, and manage IoT applications on your devices. You can use AWS IoT Greengrass to build software that enables your devices to act locally on the data that they generate, run predictions based on machine learning models, and filter and aggregate device data. For detailed information about AWS IoT Greengrass, see [What is AWS IoT Greengrass?](https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html) in the *AWS IoT Greengrass Version 2 Developer Guide*.
 
@@ -48,7 +47,7 @@ Next, you set up your EC2-compatible instance as an AWS IoT Greengrass Core devi
 
 1. Grant the root user permission to run the AWS IoT Greengrass software and modify the root permission from `root ALL=(ALL) ALL` to `root ALL=(ALL:ALL) ALL` in the sudoers config file.
 
-   ```
+   ```bash,sh,zsh
    sudo sed -in 's/root\tALL=(ALL)/root\tALL=(ALL:ALL)/' /etc/sudoers
    ```
 
@@ -60,7 +59,7 @@ Next, you set up your EC2-compatible instance as an AWS IoT Greengrass Core devi
 
 1. Use the following commands to provide credentials to allow you to install AWS IoT Greengrass Core software. Replace the example values with your credentials:
 
-   ```
+   ```bash,sh,zsh
    export AWS_ACCESS_KEY_ID={{AKIAIOSFODNN7EXAMPLE}} 
    export AWS_SECRET_ACCESS_KEY={{wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}}
    ```
@@ -74,7 +73,7 @@ These are credentials from the IAM user in the AWS Region, not the Snowball Edge
    + `MyGreengrassCore`: The name of the AWS IoT thing for your AWS IoT Greengrass core device.
    + `MyGreengrassCoreGroup`: The name of the AWS IoT thing group for your AWS IoT Greengrass core device.
 
-   ```
+   ```bash,sh,zsh
    sudo -E java -Droot="/greengrass/v2" -Dlog.store=FILE \
        -jar ./GreengrassInstaller/lib/Greengrass.jar \
        --aws-region {{region}} \

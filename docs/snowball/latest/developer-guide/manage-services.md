@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Managing AWS services on the Snowball Edge with AWS OpsHub
-<a name="manage-services"></a>
 
 With AWS OpsHub, you can use and manage AWS services on your Snowball Edge. Currently, AWS OpsHub supports the following resources:
 + Amazon Elastic Compute Cloud (Amazon EC2) instances – Use Amazon EC2-compatible instances to run software installed on a virtual server without sending it to the AWS Cloud for processing.

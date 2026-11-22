@@ -3,13 +3,12 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Launching an Amazon EC2-compatible instance on a Snowball Edge with AWS OpsHub
-<a name="launch-instance"></a>
 
 Follow these steps to launch an Amazon EC2-compatible instance using AWS OpsHub.
 
 This video shows how to launch an Amazon EC2-compatible instance using AWS OpsHub.
 
-[![AWS Videos](https://img.youtube.com/vi/0Q7s7JiBCf0?start=88&end=97/0.jpg)](https://www.youtube.com/watch?v=0Q7s7JiBCf0?start=88&end=97)
+[![AWS Videos](https://img.youtube.com/vi/0Q7s7JiBCf0/0.jpg)](https://www.youtube.com/watch?v=0Q7s7JiBCf0)
 
 
 **To launch an Amazon EC2-compatible instance**

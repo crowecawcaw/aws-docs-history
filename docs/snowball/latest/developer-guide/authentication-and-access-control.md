@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Access Control for Snowball Edge Console and Creating Jobs
-<a name="authentication-and-access-control"></a>
 
 As with all AWS services, access to AWS Snowball Edge requires credentials that AWS can use to authenticate your requests. Those credentials must have permissions to access AWS resources, such an Amazon S3 bucket or an AWS Lambda function. AWS Snowball Edge differs in two ways:
 
@@ -138,7 +137,7 @@ The preceding procedure creates an IAM role that has write permissions for the A
 
 ****  
 
-```
+```json
           {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -170,7 +169,7 @@ The preceding procedure creates an IAM role that has write permissions for the A
 
 If you use server-side encryption with AWS KMS–managed keys (SSE-KMS) to encrypt the Amazon S3 buckets associated with your import job, you also need to add the following statement to your IAM role.
 
-```
+```JSON
 {
      "Effect": "Allow",
      "Action": [
@@ -184,7 +183,7 @@ If the object sizes are larger, the Amazon S3 client that is used for the import
 
 The following is an example of an IAM role needed for an import job that needs `kms:Decrypt` permission.
 
-```
+```JSON
 {
     "Effect": "Allow",
      "Action": [
@@ -202,7 +201,7 @@ The following is an example of an IAM role needed for an import job that needs `
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
   "Statement": [
@@ -224,7 +223,7 @@ The following is an example of an IAM role needed for an import job that needs `
 
 If you use server-side encryption with AWS KMS–managed keys to encrypt the Amazon S3 buckets associated with your export job, you also need to add the following statement to your IAM role.
 
-```
+```JSON
 {
      "Effect": "Allow",
      "Action": [

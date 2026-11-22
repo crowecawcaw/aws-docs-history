@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using AWS Snowball Edge Device Management to manage Snowball Edge
-<a name="aws-sdm"></a>
 
 AWS Snowball Edge Device Management allows you to manage your Snowball Edge and local AWS services remotely. All Snowball Edge support Snowball Edge Device Management, and it comes installed on new devices in most AWS Regions where Snowball Edge are available.
 
@@ -75,7 +74,7 @@ Before using this procedure, do the following:
 + Connect the Snowball Edge device to your local network. For more information, see [Connecting to Your Local Network](https://docs.aws.amazon.com/snowball/latest/developer-guide/getting-started-connect.html).
 + Unlock the Snowball Edge device. For more information, see [Unlocking the Snowball Edge](https://docs.aws.amazon.com/snowball/latest/developer-guide/unlockdevice.html).
 
-```
+```bash,sh,zsh
   snowballEdge set-features /
     --remote-management-state INSTALLED_AUTOSTART /
     --manifest-file {{JID1717d8cc-2dc9-4e68-aa46-63a3ad7927d2_manifest.bin}} /
@@ -85,7 +84,7 @@ Before using this procedure, do the following:
 
 The Snowball Edge client returns the following when the command is successful.
 
-```
+```JSON
   {
     "RemoteManagementState" : "INSTALLED_AUTOSTART"
   }
@@ -103,7 +102,7 @@ On the AWS account from which the device was ordered, create an AWS Identity and
 
 ****  
 
-```
+```json
 {
     "Version":"2012-10-17",		 	 	 
     "Statement": [

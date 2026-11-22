@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Using Amazon EC2-compatible compute instances on Snowball Edge
-<a name="using-ec2"></a>
 
 You can run Amazon EC2-compatible compute instances hosted on a Snowball Edge with the `sbe1`, `sbe-c`, and `sbe-g` instance types. The `sbe1` instance type works on devices with the Snowball Edge Storage Optimized option. The `sbe-c` instance type works on devices with the Snowball Edge Compute Optimized option. For a list of supported instance types, see [Quotas for compute instances on a Snowball Edge device](ec2-edge-limits.md).
 

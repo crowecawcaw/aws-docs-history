@@ -3,7 +3,6 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/) for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/) for secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/). 
 
 # Long-term pricing for Snowball Edge devices
-<a name="pricing"></a>
 
 When ordering a Snowball Edge device, you can choose the pricing option to best fit your use case. Pricing is available in two ways: on-demand for each day you have the device or prepaid, long-term pricing in monthly, one-, or three-year terms based on the device type. You may choose to automatically renew your long-term pricing option for one- or three-year terms so that a new prepaid period begins when the previous period ends to avoid interruption of your use of the device. The monthly long-term pricing option will automatically renew while the device is in your possession. For more information about ordering a device, see [Creating a job to order a Snowball Edge device](https://docs.aws.amazon.com/snowball/latest/developer-guide/create-job-common.html) in this guide.
 
