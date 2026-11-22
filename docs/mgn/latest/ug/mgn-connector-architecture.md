@@ -1,7 +1,6 @@
 
 
 # Architecture overview for MGN connector
-<a name="mgn-connector-architecture"></a>
 
 The following diagram describes the architecture overview when using AWS Transform MGN with MGN connector.
 

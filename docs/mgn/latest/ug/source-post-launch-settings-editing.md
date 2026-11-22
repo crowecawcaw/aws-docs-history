@@ -1,7 +1,6 @@
 
 
 # Editing the post-launch settings
-<a name="source-post-launch-settings-editing"></a>
 
 To edit the post-launch settings for a single source server, check the box to the left of the Hostname of each source server for which you want to edit the post-launch settings, open the **Replication** menu, and choose **Edit post-launch settings**. 
 

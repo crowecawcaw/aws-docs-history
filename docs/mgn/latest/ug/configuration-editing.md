@@ -1,7 +1,6 @@
 
 
 # Editing your configuration
-<a name="configuration-editing"></a>
 
 You can use the **Import and Export** feature to edit your server configuration, including bulk changes:
 
@@ -29,6 +28,11 @@ Using `[RESET_VALUE]` is available for these parameters:
 + mgn:launch:nic:0:subnet-id
 + mgn:launch:tag:instance:key1
 + mgn:launch:volume:/dev/sda:type
++ mgn:launch:default:ebs:delete-on-termination
++ mgn:launch:default:ebs:iops
++ mgn:launch:default:ebs:throughput
++ mgn:launch:default:ebs:volume-initialization-rate
++ mgn:launch:default:ebs:volume-type
 
 ## Deleting tags from the inventory file
 <a name="deleting-tags-inventory-file"></a>

@@ -1,7 +1,6 @@
 
 
 # Registering event rules
-<a name="eventbridge-event-rule"></a>
 
 You create CloudWatch Events event rules that capture events coming from your AWS Transform MGN resources. 
 
@@ -39,7 +38,7 @@ To create your CloudWatch Events rules:
 
    1. To catch all events relating to a given source server:
 
-      ```
+      ```json
       {
         "source": ["aws.mgn"],
         "resources": [

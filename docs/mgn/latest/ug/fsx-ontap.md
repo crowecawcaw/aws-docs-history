@@ -1,7 +1,6 @@
 
 
 # FSx for ONTAP configuration
-<a name="fsx-ontap"></a>
 
 ## Overview
 <a name="fsx-ontap-overview"></a>

@@ -1,7 +1,6 @@
 
 
 # AWS managed policies for AWS Transform MGN
-<a name="security-iam-awsmanpol"></a>
 
  
 
@@ -28,6 +27,7 @@ View details about updates to AWS managed policies for AWS Transform MGN since M
 | Change | Description | Date | 
 | --- | --- | --- | 
 | [AWSApplicationMigrationNetworkMigrationMultiAccount](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md#security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.title) – Updated policy | Added Elastic Load Balancing permissions to create, modify, and delete internal Application Load Balancers and Network Load Balancers, their listeners, and their target groups through CloudFormation in member accounts. Added `ec2:GetSecurityGroupsForVpc` permission, and `iam:CreateServiceLinkedRole` permission to create the `AWSServiceRoleForElasticLoadBalancing` service-linked role. | November 17, 2026 | 
+| [AWSApplicationMigrationFullAccess](security-iam-awsmanpol-AWSApplicationMigrationFullAccess.md#security-iam-awsmanpol-AWSApplicationMigrationFullAccess.title) – Updated policy | Added `s3-outposts:ListOutpostsWithS3` permission to find whether an Outpost has Amazon S3 on Outposts, which is required for storing snapshots on the Outpost. Added `cloudwatch:GetMetricData` permission, with the `aws:CalledVia` condition set to `mgn.amazonaws.com`, to check Outpost capacity before a launch. | November 9, 2026 | 
 | [AWSApplicationMigrationNetworkMigrationMultiAccount](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md#security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.title) – Updated policy | Added `iam:CreateServiceLinkedRole` permission to create the `AWSServiceRoleForVPCTransitGateway` service-linked role, required for creation of Transit Gateway VPC attachments. | September 16, 2026 | 
 | [AWSApplicationMigrationNetworkMigrationMultiAccount](security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.md#security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationMultiAccount.title) – Updated policy | Added `cloudformation:TagResource` and `cloudformation:UntagResource` permissions for CloudFormation stacks during create and update operations. | July 30, 2026 | 
 | [AWSApplicationMigrationReadOnlyAccess](security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.md#security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess.title) – Updated policy | Added `ssm:GetParameter` permission to allow exporting post launch actions in the export file. | July 02, 2026 | 

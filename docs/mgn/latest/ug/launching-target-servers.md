@@ -1,7 +1,6 @@
 
 
 # Launching test and cutover instances
-<a name="launching-target-servers"></a>
 
 AWS Transform MGN allows you to launch test and cutover instances in AWS. Before launching instances, you must configure your Launch settings. The following documentation explains how to configure Launch settings and how to launch Test and cutover instances using the configured settings.
 

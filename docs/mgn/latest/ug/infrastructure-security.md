@@ -1,7 +1,6 @@
 
 
 # Infrastructure security in AWS Transform MGN
-<a name="infrastructure-security"></a>
 
 As a managed service, AWS Transform MGN is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes ](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper. 
 
@@ -14,6 +13,8 @@ All requests must be signed using the [AWS Security Token Service](https://docs.
 AWS Transform MGN customers must ensure that they manually delete their access keys after installing the AWS Replication Agent and successful migration. AWS does not delete these keys automatically. AWS Transform MGN does delete the keys from source servers after they are disconnected from the service. If you want your keys to automatically stop working at a certain date after you have finished using them so that you do not have to worry about manually deleting them, you can do so through the [IAM permissions boundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) and the [aws:CurrentTime global context key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-currenttime). 
 
 AWS Transform MGN customers should use [Amazon EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html). 
+
+When you migrate to AWS Outposts, Amazon EBS encryption is required. For data residency, encryption, permissions, and network routing on an Outpost, see [Migrating to AWS Outposts](outposts.md).
 
 AWS Transform MGN customers should secure their replication servers by reducing their exposure to the public internet. This can be done through: 
 

@@ -1,7 +1,6 @@
 
 
 # Source servers
-<a name="wave-source-servers"></a>
 
 The **Source servers** tab shows migration metrics aggregating statuses as well as a list of all the wave's associated source servers. 
 

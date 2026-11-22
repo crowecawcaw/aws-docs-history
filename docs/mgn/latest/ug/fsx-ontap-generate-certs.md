@@ -1,7 +1,6 @@
 
 
 # Generating a self-signed certificate for FSx for ONTAP
-<a name="fsx-ontap-generate-certs"></a>
 
 To generate a self-signed CA and client certificate, save the following script as `generate-fsx-mgn-certs.sh` and run it:
 
@@ -10,7 +9,7 @@ To generate a self-signed CA and client certificate, save the following script a
 ./generate-fsx-mgn-certs.sh "{{YourOrg}}" "{{US}}"
 ```
 
-```
+```bash
 #!/bin/bash
 set -e
 ORG="${1:-YourOrg}"

@@ -1,7 +1,6 @@
 
 
 # Launch questions
-<a name="AWS-Related-FAQ"></a>
 
 This section contains answers to questions about launching test and cutover instances with AWS Transform MGN.
 

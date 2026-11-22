@@ -1,7 +1,6 @@
 
 
 # Initializing AWS Transform MGN with the API
-<a name="mgn-initialize-api"></a>
 
 In order to use AWS Transform MGN (MGN), the service must first be initialized for any AWS Region in which you plan to use MGN.
 

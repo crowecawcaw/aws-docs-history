@@ -1,7 +1,6 @@
 
 
 # Configuring AWS Transform MGN Settings
-<a name="settings"></a>
 
 AWS Transform MGN uses replication settings to determine how data is replicated from source servers to your AWS account and Region. Learn how to configure your initial replication template and how to set individual server replication settings. 
 
@@ -12,6 +11,7 @@ Once you have configured your Replication template, you can make changes to indi
 You can also configure optional post-launch settings that automate target instance deployment and prepare your migrated servers for disaster recovery with AWS Elastic Disaster Recovery. 
 
 **Topics**
++ [Source actions](source-actions.md)
 + [Replication template](replication-settings-template.md)
 + [Launch template](launch-template.md)
 + [Post-launch template](post-launch-settings.md)

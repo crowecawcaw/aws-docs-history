@@ -1,7 +1,6 @@
 
 
 # Manage applications
-<a name="application-actions-menu"></a>
 
 The **Actions** menu allows you to perform actions on selected applications. 
 

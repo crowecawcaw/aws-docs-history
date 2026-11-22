@@ -1,7 +1,6 @@
 
 
 # Compliance validation for AWS Transform MGN
-<a name="compliance-validation"></a>
 
 Third-party auditors assess the security and compliance of AWS Transform MGN as part of multiple AWS compliance programs. 
 

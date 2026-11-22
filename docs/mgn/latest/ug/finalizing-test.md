@@ -1,7 +1,6 @@
 
 
 # Marking as Ready for cutover
-<a name="finalizing-test"></a>
 
 If you are completely done with your testing and are ready for cutover, you can finalize the test. This changes your source servers' **Migration lifecycle** status to **Ready for cutover**, indicating that all testing is complete and that these servers are now ready for cutover. You also have the option to delete your Test instances for cost saving purposes.
 

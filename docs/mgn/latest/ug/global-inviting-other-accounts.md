@@ -1,7 +1,6 @@
 
 
 # Inviting an AWS account to join your organization
-<a name="global-inviting-other-accounts"></a>
 
 After you create an organization and verify the email address associated with the management account, you can invite existing AWS accounts to join your organization. Only management accounts can send an invitation to other accounts.
 

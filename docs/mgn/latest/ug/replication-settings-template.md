@@ -1,7 +1,6 @@
 
 
 # Replication template
-<a name="replication-settings-template"></a>
 
 The replication template determines how data is replicated from your source servers to AWS. Configure the replication template before adding source servers to AWS Transform MGN. You can modify the template at any time. Template settings are applied to each newly added server, but changes do not affect servers already in the MGN console.
 

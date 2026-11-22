@@ -1,7 +1,6 @@
 
 
 # Manage source server records
-<a name="add-server-server-page"></a>
 
 Use the **Source servers** page to add new source servers, edit the details of existing servers, and organize servers by using the **Actions** menu.
 

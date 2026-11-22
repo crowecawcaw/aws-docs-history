@@ -1,7 +1,6 @@
 
 
 # General questions
-<a name="General-Questions-FAQ"></a>
 
 This section contains answers to general questions about AWS Transform MGN.
 
@@ -14,6 +13,7 @@ This section contains answers to general questions about AWS Transform MGN.
 + [Does AWS Transform MGN support Windows License migration?](#Does-Windows-License-Migration)
 + [Can you perform an OS (Operating System) upgrade with AWS Transform MGN?](#Can-OS-Upgrade)
 + [Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc)
++ [Can I migrate to AWS Outposts?](#can-migrate-to-outpost)
 + [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs)
 + [Does AWS Transform MGN support migration to AWS Local Zones?](#can-migrate-to-local-zone)
 + [What are the AWS Transform MGN quota limits?](#MGN-service-limits-faq)
@@ -77,6 +77,11 @@ Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-lau
 <a name="vmc"></a>
 
  Yes, you can. For migrations of source servers from [VMC](https://aws.amazon.com/vmware/) to EC2 you have two options. You can install the agentless appliance in your VMC environment, and migrate your servers using [agentless replication](agentless-mgn.md), or install the [AWS replication agent](agent-installation.md) on each of your source servers, and use agent-based replication for your migration. 
+
+## Can I migrate to AWS Outposts?
+<a name="can-migrate-to-outpost"></a>
+
+Yes. You can use AWS Transform MGN to migrate source servers to an AWS Outpost. Select a subnet within the Outpost as your staging area and cutover target. You must have Amazon EBS storage available on the Outpost rack. To store snapshots locally on the Outpost, the Outpost must also have Amazon S3 on Outposts. On second-generation (Gen2) Outposts, snapshots must be stored in the AWS Region. Outpost-specific constraints and settings apply, such as supported instance types, supported Amazon EBS volume types, required encryption, and snapshot storage location. For more information, see [Migrating to AWS Outposts](outposts.md).
 
 ## When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?
 <a name="using-drs"></a>

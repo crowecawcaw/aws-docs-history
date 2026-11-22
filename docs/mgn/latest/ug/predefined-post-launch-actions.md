@@ -1,7 +1,6 @@
 
 
 # Predefined post-launch actions reference
-<a name="predefined-post-launch-actions"></a>
 
 AWS Transform MGN allows you to execute various predefined post-launch actions on your Amazon EC2 launch instance. Use these out-of-the-box actions to modernize your servers while you're migrating: Change existing license, upgrade your operating system, configure disaster recovery, and more.
 

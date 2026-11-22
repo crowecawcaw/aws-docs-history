@@ -1,7 +1,6 @@
 
 
 # Manage applications
-<a name="applications-list"></a>
 
 The **Applications** page lists all the applications that have been added to AWS Transform MGN. The **Applications** page allows you to manage your applications and perform a variety of commands for one or more applications (such as controlling replication and launching test and cutover instances). 
 

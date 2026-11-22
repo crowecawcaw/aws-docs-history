@@ -1,7 +1,6 @@
 
 
 # Troubleshooting communication errors
-<a name="Troubleshooting-Communication-Errors"></a>
 
 Use the information in this section to troubleshoot communication errors.
 

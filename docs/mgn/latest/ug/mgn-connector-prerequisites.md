@@ -1,7 +1,6 @@
 
 
 # Prerequisites for installing the MGN connector
-<a name="mgn-connector-prerequisites"></a>
 
 To use the MGN connector you must meet these prerequisites.
 
@@ -10,6 +9,7 @@ To use the MGN connector you must meet these prerequisites.
 + While the MGN connector can be deployed on the same server that hosts the MGN vCenter Client installer (agentless appliance), we recommend that the MGN connector be installed on a dedicated server.
 + The *openssl* library must be installed on the server.
 + You must have the required [permissions](mgn-connector-permissions.md).
++ We recommend that you provide the address that the MGN connector uses to reach each source server (**FQDN for Action Framework**) in the [`mgn:server:fqdn-for-action-framework`](import-parameters.md) field of the inventory file when you import the source servers. The address can be a DNS name or an IP address. If no address is set, MGN uses the source server's primary private IP address.
 
 **Note**  
 The MGN connector is not supported for IPv6.

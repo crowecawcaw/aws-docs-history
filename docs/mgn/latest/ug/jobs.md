@@ -1,7 +1,6 @@
 
 
 # Review launch history
-<a name="jobs"></a>
 
 The **Launch history** tab allows you to track and manage all of the operations performed in AWS Transform MGN. 
 
@@ -12,7 +11,7 @@ You can access the Launch History by choosing **Launch history** on the left-han
 
 The Launch History tab shows all of the operations (referred to as "Jobs") performed on your account. Each Job corresponds to a single operation (for example, Launch cutover instance, Launch test instance, etc.) Each Job is composed of one or more servers. The main Launch History view allows you to easily identify all key Job parameters, including:
 + ** Job ID** – The unique ID of the Job. 
-+ **Job type** – The type of Job (Launch or Terminate)
++ **Job type** – The type of Job (Launch, Terminate, or source action execution). [Learn more about source action execution jobs](source-actions-monitor.md#source-actions-monitor-jobs).
 + **Initiated by** – The command or action that initiated the job (for example, Launch cutover instances or Terminate launched instances)
 + **Status** – The status of the Job (Pending, Completed, or Started)
 + **Servers** – The number of servers that are included in the Job.

@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationNetworkMigrationCustomResource
-<a name="security-iam-awsmanpol-AWSApplicationMigrationNetworkMigrationCustomResource"></a>
 
 Allows modification of Transit Gateway resources created by MGN. You can attach the `AWSApplicationMigrationNetworkMigrationCustomResource` policy to your IAM identities.
 

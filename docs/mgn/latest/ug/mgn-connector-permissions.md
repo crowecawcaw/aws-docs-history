@@ -1,7 +1,6 @@
 
 
 # IAM roles needed for the MGN connector
-<a name="mgn-connector-permissions"></a>
 
 To use MGN connector you must have these required IAM roles for individual accounts and AWS Organizations networks:
 + **AWSApplicationMigrationConnectorManagementRole**

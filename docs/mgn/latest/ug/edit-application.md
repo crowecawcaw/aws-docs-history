@@ -1,7 +1,6 @@
 
 
 # Edit application
-<a name="edit-application"></a>
 
 To edit an application, choose **Edit**. When the **Edit application** prompt opens, edit the application name, description, and tags, as well as associate or disassociate source servers. 
 + **Application name** – Application name is mandatory, with a limit of up to 256 characters. The name must be unique per account per region. Uniqueness verification for application name in Migration Application Service is case-insensitive.

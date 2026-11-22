@@ -1,7 +1,6 @@
 
 
 # Starting a cutover
-<a name="starting-cutover"></a>
 
 To launch a cutover instance for a single source server or multiple source servers, go to the **Source servers** page and check the box to the left of each server you want to cutover. 
 

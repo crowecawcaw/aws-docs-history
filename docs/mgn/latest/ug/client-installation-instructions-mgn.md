@@ -1,7 +1,6 @@
 
 
 # MGN vCenter Client installation instructions
-<a name="client-installation-instructions-mgn"></a>
 
 **Important**  
 Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).

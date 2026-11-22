@@ -1,7 +1,6 @@
 
 
 # Replication template reference
-<a name="replication-server-settings"></a>
 
 Replication servers are lightweight Amazon EC2 instances that are used to replicate data between your source servers and AWS. Replication servers are automatically launched and terminated as needed. You can modify the behavior of the replication servers by modifying the settings for a single source server or multiple source servers. Alternatively, you can run MGN with the default replication settings.
 
@@ -16,6 +15,9 @@ The replication options, include:
 <a name="subnet"></a>
 
 Choose the **Staging area subnet** that you want to allocate as the staging area subnet for all of your replication servers. If you chose to use IPv6, you must choose a subnet that uses IPv6 CIDRs.
+
+**Note**  
+To use an AWS Outpost as your staging area, select a subnet within the Outpost. Outpost-specific settings and validation apply. For more information, see [Migrating to AWS Outposts](outposts.md).
 
 The best practice is to create a single dedicated, separate subnet for all of your migration waves using your AWS account. Learn more about creating subnets in [this AWS VPC article](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html).
 

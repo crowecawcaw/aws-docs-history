@@ -1,7 +1,6 @@
 
 
 # Does MGN work with...?
-<a name="does-mgn"></a>
 
 This section contains answers to questions about what AWS Transform MGN works with.
 

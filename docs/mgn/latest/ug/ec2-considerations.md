@@ -1,7 +1,6 @@
 
 
 # Launch template cleanup and fixing
-<a name="ec2-considerations"></a>
 
 AWS Transform MGN runs a mechanism every hour to ensure that the settings selected are correct. This mechanism can fix issues such as an incorrect instance type, but it cannot fix other settings and augmentations. Ensure that you follow the instructions in the following sections and do not change or edit any fields that should not be changed. 
 

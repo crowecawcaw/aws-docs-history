@@ -1,7 +1,6 @@
 
 
 # Initializing MGN with the console
-<a name="mgn-initialize-console"></a>
 
 In order to use AWS Transform MGN (MGN), the service must first be initialized for any AWS Region in which you plan to use MGN.
 

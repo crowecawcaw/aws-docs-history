@@ -1,7 +1,6 @@
 
 
 # Edit replication settings for a source server
-<a name="replication-settings"></a>
 
 The **Replication settings** tab allows you to edit the replication settings for an individual source server. 
 

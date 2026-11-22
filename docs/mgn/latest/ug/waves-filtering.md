@@ -1,7 +1,6 @@
 
 
 # Filtering migration waves
-<a name="waves-filtering"></a>
 
 Use filtering to easily filter your waves by one or multiple properties. 
 

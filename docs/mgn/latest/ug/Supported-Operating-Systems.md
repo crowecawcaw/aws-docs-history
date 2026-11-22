@@ -1,7 +1,6 @@
 
 
 # Operating systems supported by MGN
-<a name="Supported-Operating-Systems"></a>
 
 AWS Transform MGN supports replication of physical, virtual or cloud-based source servers for multiple versions of Windows and Linux operating systems. 
 

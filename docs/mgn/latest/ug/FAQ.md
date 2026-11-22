@@ -1,7 +1,6 @@
 
 
 # FAQ
-<a name="FAQ"></a>
 
 Use this section to find answers to many frequently asked questions.
 

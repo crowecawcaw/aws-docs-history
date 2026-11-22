@@ -1,7 +1,6 @@
 
 
 # Migration at scale using AWS Transform MGN
-<a name="migration_at_scale"></a>
 
 ## Choose your agent-based vs agentless migration approach
 <a name="agent-agentless"></a>

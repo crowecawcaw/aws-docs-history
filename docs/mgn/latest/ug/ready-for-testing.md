@@ -1,7 +1,6 @@
 
 
 # Review ready for testing indicators
-<a name="ready-for-testing"></a>
 
 Before launching a Test instance, ensure that your source servers are ready for testing by looking for the following indicators on the **Source servers** page:
 

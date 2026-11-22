@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationVCenterClientPolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationVCenterClientPolicy"></a>
 
  
 

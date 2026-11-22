@@ -1,7 +1,6 @@
 
 
 # Other troubleshooting topics
-<a name="Other-Troubleshooting-Topics"></a>
 
 Use the information in this section to help you with other troubleshooting.
 

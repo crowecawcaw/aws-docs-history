@@ -1,11 +1,12 @@
 
 
 # Monitor the server in the migration lifecycle
-<a name="migration-dashboard"></a>
 
 The **Migration dashboard** tab allows you to monitor the server in relation to the migration lifecycle. 
 
 Here, you can see the lifecycle state the source server is currently on, a detailed view of the data replication status, and any events that the source server has undergone (in AWS CloudTrail). You can use the Migration dashboard to monitor the status of your source server and to troubleshoot migration and data replication issues.
+
+The dashboard also includes a table of the source actions that ran on the server. [Learn more about viewing source actions on a source server](source-actions-monitor.md#source-actions-monitor-server).
 
 ## Understand lifecycle states
 <a name="lifecycle"></a>

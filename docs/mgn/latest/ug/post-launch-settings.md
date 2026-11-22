@@ -1,7 +1,6 @@
 
 
 # Post-launch template
-<a name="post-launch-settings"></a>
 
 The Post-launch template allows you to control and automate actions performed after the server has been launched in AWS. The server settings are created automatically based on the **Post-launch template**. 
 

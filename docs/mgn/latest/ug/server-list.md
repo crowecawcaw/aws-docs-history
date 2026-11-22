@@ -1,7 +1,6 @@
 
 
 # Manage source servers
-<a name="server-list"></a>
 
 The **Source servers** page lists all of the source servers that have been added to AWS Transform MGN (AWS MGN). The **Source servers** page allows you to manage your source servers and perform a variety of commands for one or more servers (such as controlling replication and launching test and cutover instances). The **Source servers** page is the main page of AWS MGN console and you will most likely interact with AWS Transform MGN predominantly through this page. 
 

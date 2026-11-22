@@ -1,7 +1,6 @@
 
 
 # Review migration wave details
-<a name="wave-details"></a>
 
 There are several ways you can access the **Wave details** view. 
 

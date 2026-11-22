@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationServiceEc2InstancePolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationServiceEc2InstancePolicy"></a>
 
  
 

@@ -1,7 +1,6 @@
 
 
 # Installing the AWS Replication Agent
-<a name="agent-installation"></a>
 
 You must install the AWS Replication Agent on each source server that you want to add to AWS Transform MGN. You need to reinstall the AWS Replication Agent after any major upgrade to the source server (see [Agent Related FAQ](Agent-Related-FAQ.md#When-Reinstall-Agent) for more info).
 

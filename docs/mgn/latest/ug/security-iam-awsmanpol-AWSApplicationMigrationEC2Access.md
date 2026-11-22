@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationEC2Access
-<a name="security-iam-awsmanpol-AWSApplicationMigrationEC2Access"></a>
 
  
 

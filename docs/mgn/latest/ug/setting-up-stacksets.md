@@ -1,7 +1,6 @@
 
 
 # Setting up CloudFormation StackSets
-<a name="setting-up-stacksets"></a>
 
 After you set up your organization, you need to configure CloudFormation StackSets to create the required role per management account: AWSApplicationMigrationSharingRole\_<MANAGEMENT\_ACCOUNT\_ID>.
 

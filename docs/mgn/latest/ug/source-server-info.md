@@ -1,7 +1,6 @@
 
 
 # Review source server information
-<a name="source-server-info"></a>
 
 The **Server info** tab displays general server information, hardware, and network information:
 + **General information**

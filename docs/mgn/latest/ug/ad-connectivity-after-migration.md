@@ -1,7 +1,6 @@
 
 
 # Target instance cannot connect to Active Directory after migration
-<a name="ad-connectivity-after-migration"></a>
 
 When you migrate domain-joined Windows servers, the target instance may fail to authenticate with Active Directory. This prevents login with domain credentials or access to domain resources.
 

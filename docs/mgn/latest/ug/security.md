@@ -1,7 +1,6 @@
 
 
 # Security in AWS Transform MGN
-<a name="security"></a>
 
 **Topics**
 + [Overview](#security-overview)
@@ -39,12 +38,14 @@ The customer is responsible for making sure that no misconfigurations are presen
 
 1. Enabling the Anti-DDOS protection (AWS Shield) in the customer's AWS Account to eliminate the risk of denial of service attacks on the replication servers as well as the migrated servers. 
 
+1. When you migrate to AWS Outposts, you can use private IP connectivity to make sure that your replication data goes directly to the Outpost. For more information, see [Migrating to AWS Outposts](outposts.md). 
+
 ## Policy structure
 <a name="iam-policy-structure"></a>
 
 An IAM policy is a JSON document that consists of one or more statements. Each statement is structured as follows. 
 
-```
+```json
 {
         "Statement": [
                 {

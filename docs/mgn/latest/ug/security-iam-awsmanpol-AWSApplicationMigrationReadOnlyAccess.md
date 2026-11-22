@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationReadOnlyAccess
-<a name="security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess"></a>
 
  
 

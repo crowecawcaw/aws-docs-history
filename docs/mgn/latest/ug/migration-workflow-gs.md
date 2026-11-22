@@ -1,7 +1,6 @@
 
 
 # Migration workflow
-<a name="migration-workflow-gs"></a>
 
 The general process is:
 

@@ -1,7 +1,6 @@
 
 
 # Review details about your MGN connectors
-<a name="connector-details"></a>
 
 Click the **MGN connector name** of any MGN connector to open its details page.
 

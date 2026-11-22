@@ -1,9 +1,8 @@
 
 
 # Launch settings
-<a name="launch-settings"></a>
 
-The launch settings include two sections: the general launch settings, and the EC2 launch template, which determine how a test or cutover instance is launched for each source server in AWS.
+The launch settings include three sections: the general launch settings, the storage settings defaults, and the EC2 launch template, which determine how a test or cutover instance is launched for each source server in AWS.
 
 Launch settings, including the EC2 launch template, are automatically created each time you add a source server to AWS Transform MGN. 
 
@@ -26,6 +25,7 @@ You can access the launch settings of a specific source server through the serve
 
 Within the individual server view, navigate to the **Launch settings** tab. 
 
-The **Launch settings** tab is divided into two sections: 
+The **Launch settings** tab is divided into three sections: 
 + General launch settings
++ Storage settings defaults
 + EC2 launch template

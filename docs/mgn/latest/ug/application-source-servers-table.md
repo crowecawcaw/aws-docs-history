@@ -1,7 +1,6 @@
 
 
 # Review application source servers
-<a name="application-source-servers-table"></a>
 
 The **Source servers** table lists all the servers that are associated with the application. 
 

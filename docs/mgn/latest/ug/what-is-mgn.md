@@ -1,11 +1,10 @@
 
 
 # What Is AWS Transform MGN?
-<a name="what-is-mgn"></a>
 
 AWS Transform MGN (MGN) automates the migration of physical, virtual, and cloud servers to AWS with minimal downtime, typically cutover windows of minutes. MGN performs continuous block-level replication of your source servers and converts them for launch on AWS, allowing you to migrate large numbers of servers without compatibility issues or performance disruption.
 
-MGN works across a broad range of operating systems including Windows Server and various Linux distributions, and supports both IPv4 and IPv6 network configurations. You can replicate into standard Availability Zones or AWS Local Zones. For more information about Local Zones, see [Replicating to AWS Local Zones](replication-server-settings.md#local-zone-snapshots).
+MGN works across a broad range of operating systems including Windows Server and various Linux distributions, and supports both IPv4 and IPv6 network configurations. You can migrate into Availability Zones in an AWS Region, AWS Local Zones, and AWS Outposts. For more information, see [Replicating to AWS Local Zones](replication-server-settings.md#local-zone-snapshots) and [Migrating to AWS Outposts](outposts.md).
 
 The service uses three configurable templates (replication, launch, and post-launch) to control how servers are replicated, launched, and configured after migration. Template settings are applied to each newly added server, and you can override settings for individual servers at any time.
 
@@ -68,7 +67,7 @@ The following AWS Regions are supported by AWS Transform MGN:
 
 Learn more about [AWS Regional services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
-AWS Transform MGN regional support includes [AWS Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) associated with the above supported regions.
+AWS Transform MGN regional support includes [AWS Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) and [AWS Outposts](outposts.md) associated with the above supported Regions.
 
 **Important**  
 MGN supports IPv6 in the regions where Amazon EC2 dual-stack endpoints are present. For the list of EC2 dual-stack endpoints, see [Dual-stack (IPv4 and IPv6) endpoints](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html#ipv6) in the *Amazon EC2 Developer Guide*.

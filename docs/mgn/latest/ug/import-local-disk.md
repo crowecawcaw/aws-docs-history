@@ -1,7 +1,6 @@
 
 
 # Importing your data inventory from a local disk
-<a name="import-local-disk"></a>
 
 To import your inventory from a local disk, take the following steps:
 

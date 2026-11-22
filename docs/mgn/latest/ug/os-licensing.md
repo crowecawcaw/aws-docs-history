@@ -1,7 +1,6 @@
 
 
 # Operating system licensing
-<a name="os-licensing"></a>
 
 Choose whether you want to Bring Your Own Licenses (BYOL) from the source server into the test or cutover instance. 
 

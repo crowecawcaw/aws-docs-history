@@ -1,7 +1,6 @@
 
 
 # Transfer server tags
-<a name="transfer-tags"></a>
 
 Choose whether you want AWS Transform MGN to transfer any user-configured custom tags from your source servers onto your test or cutover instance. 
 

@@ -1,7 +1,6 @@
 
 
 # Launch template
-<a name="launch-template"></a>
 
 The **Launch template** allows you to control the way MGN launches instances in AWS. The default configuration defined in the template is automatically applied to every newly added server. You can modify the template at any time. Template settings are applied to each newly added server, but changes do not affect servers already in the MGN console. You can change the settings for existing and newly added servers individually within the server details view.
 
@@ -46,7 +45,7 @@ If you selected FSx for ONTAP as the target storage in replication settings, cho
 +  **EBS volume type** – When using Amazon EBS as the target storage type, choose an Amazon EBS volume type for the test and cutover machines. The Amazon EBS volume type options are io1, io2, gp3, st1, and sc1. This setting does not apply when using FSx for ONTAP.
 
    If this setting is not chosen, the default volume type selected in the launch template is gp3 with 3,000 IOPS and 125 MiB/s throughput. If a volume type is selected in this option, and if the disk size does not match the limits of the volume type, MGN uses gp3 with 3,000 IOPS and 125 MiB/s throughput instead. 
-+  **IOPS** – General Purpose SSD (gp3) volumes support a baseline of 3,000 IOPS. Additionally, you can provision up to 500 IOPS per GiB, up to a maximum of 80,000 IOPS. The default value is 3,000 IOPS.
++  **IOPS** – General Purpose SSD (gp3) volumes support a baseline of 3,000 IOPS. Additionally, you can provision up to 500 IOPS per GiB, up to a maximum of 80,000 IOPS. For more information, see [General Purpose SSD volumes](https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html) in the *Amazon EBS User Guide*. The default value is 3,000 IOPS.
 +  **Throughput** – General Purpose SSD (gp3) volumes have a baseline performance of 125 MiB/s. You can provision additional throughput of 0.25 MiB/s per provisioned IOPS, up to a maximum of 2,000 MiB/s (at 8,000 IOPS or higher).
 +  **Volume initialization rate** – Specify the volume initialization rate, in MiB/s, at which the snapshot data is downloaded to the volume. Specifying an initialization rate ensures that volumes are fully initialized in a predictable amount of time. This option is supported only for volumes created from snapshots, and additional costs apply. For more information, see [Amazon EBS volume initialization rate](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate) in the *Amazon EBS User Guide*.
 +  **Delete on termination** – Indicates whether the volume should be automatically deleted when the instance is terminated. If you disable this feature, the volume persists independently from the running life of an Amazon EC2 instance. When you terminate the instance, the volume remains provisioned in your account. If you no longer need the volume after the instance has been terminated, you must delete it manually. You can also change the delete on termination behavior after the instance has been launched. For more information, see [How instance termination affects root and data volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html#how-instance-termination-affects-root-and-data-volumes) in the *Amazon EC2 User Guide*.

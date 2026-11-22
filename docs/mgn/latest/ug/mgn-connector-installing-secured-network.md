@@ -1,7 +1,6 @@
 
 
 # Installing the MGN connector on a secured network
-<a name="mgn-connector-installing-secured-network"></a>
 
  The MGN connector and the AWS Replication Agents that the MGN connector installs, require network access to various AWS endpoints. If your on-premises network is not open to AWS endpoints, then you can install the MGN connector and the AWS Replication Agents with the aid of PrivateLink. 
 
@@ -51,7 +50,7 @@
 
 1.  **`com.amazonaws.{{region}}.mgn`** – The endpoint for MGN. This endpoint is required by the MGN connector, the AWS Replication Agent, and their respective installers. If a VPCE Policy is used (to scope down access), add the following statement to your policy: 
 
-   ```
+   ```json
    {
        "Effect": "Allow",
        "Principal": "*",

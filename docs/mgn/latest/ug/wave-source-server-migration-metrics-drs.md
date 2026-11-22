@@ -1,7 +1,6 @@
 
 
 # Review data replication status of the servers in a wave
-<a name="wave-source-server-migration-metrics-drs"></a>
 
 The source server **Data replication status** metric provides an aggregated overview of the data replication status of the wave's associated servers. You can look up an individual source server's **Data replication status** in the **Source servers** table. 
 

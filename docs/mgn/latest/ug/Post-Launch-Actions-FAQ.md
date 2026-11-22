@@ -1,7 +1,6 @@
 
 
 # Post-launch actions questions
-<a name="Post-Launch-Actions-FAQ"></a>
 
 This section contains answers to questions about post-launch actions.
 

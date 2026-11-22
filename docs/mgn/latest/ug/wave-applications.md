@@ -1,7 +1,6 @@
 
 
 # Applications
-<a name="wave-applications"></a>
 
 The **Applications** tab shows migration metrics aggregating statuses as well as a list of all the wave associated applications. 
 

@@ -1,7 +1,6 @@
 
 
 # General launch settings
-<a name="launch-general-settings"></a>
 
 The **General launch settings** section allows you to control a variety of server-specific settings. Choose **Edit** to change the general settings.
 

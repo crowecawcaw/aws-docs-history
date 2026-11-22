@@ -1,7 +1,6 @@
 
 
 # Set up the MGN Connector
-<a name="mgn-connector-setup-instructions"></a>
 
 To add an MGN connector, click **Add MGN connector**, to open the Add MGN connector page. Set up your MGN connector by providing the following:
 
@@ -37,7 +36,9 @@ To add an MGN connector, click **Add MGN connector**, to open the Add MGN connec
 
 1. **Agent deployment** - Once credentials are configured and verified, select the source servers and go to **Actions**, then choose **Install replication agent**. You can keep track of the agent installation status in the **Agent installed** column in the console, or on the **Command history** page.
 
-   The deployment process for each server:
+1. **Source actions** - To create and execute custom scripts on your source servers during migration, see [Source actions](source-actions.md) for detailed instructions on creating and managing source actions.
+
+1. **Replication agent deployment process** - The deployment process for each server once the install replication agent action is initiated:
 
    1. MGN sends deployment commands to the connector via SSM.
 

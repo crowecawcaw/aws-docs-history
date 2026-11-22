@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationSSMAccess
-<a name="security-iam-awsmanpol-AWSApplicationMigrationSSMAccess"></a>
 
  
 

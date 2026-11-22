@@ -1,7 +1,6 @@
 
 
 # Reverting a test
-<a name="revert-finalize-test"></a>
 
 After you have launched your test instances, open the Amazon EC2 console and SSH or RDP into your test instances to ensure that they function correctly. Validate connectivity and perform acceptance tests for your application.
 

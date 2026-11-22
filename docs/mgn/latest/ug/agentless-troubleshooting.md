@@ -1,7 +1,6 @@
 
 
 # Troubleshooting agentless replication issues
-<a name="agentless-troubleshooting"></a>
 
 **Discovery** related troubleshooting
 + No machines are discovered - 

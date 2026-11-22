@@ -1,7 +1,6 @@
 
 
 # AWS Transform MGN service quota limits
-<a name="MGN-service-limits"></a>
 
 The following are the MGN service quota limits:
 

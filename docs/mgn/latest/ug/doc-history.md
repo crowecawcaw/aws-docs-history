@@ -1,7 +1,6 @@
 
 
 # Document history for user guide
-<a name="doc-history"></a>
 
 The following are the latest major policy updates for AWS Transform MGN. We also update the documentation frequently to address the feedback that you send us.
 
@@ -11,6 +10,7 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added support for migrating to AWS Outposts | You can now use AWS Transform MGN to migrate source servers to AWS Outposts. Added the Outposts replication and launch requirements, staging storage options, permissions, and disk limits. For more information, see [Migrating to AWS Outposts](outposts.md). | November 18, 2026 | 
 | Added support for source disks up to 64 TiB | MGN now supports source disks up to 64 TiB. Added the disk size each staging disk type supports and guidance on replicating large disks. Added troubleshooting for a staging disk type that is too small for the disk and for data replication that takes a long time. For more information, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size). | November 12, 2026 | 
 | Terminology glossary added | Added a glossary of core AWS Transform MGN terms, with a short definition and a link to more information for each term. For more information, see [Terminology](what-is-mgn.md#mgn-terminology). | November 10, 2026 | 
 | AWS Transform MGN now supports Ubuntu 26.04 LTS | Added Ubuntu 26.04 LTS to the list of supported Linux operating systems. | November 4, 2026 | 

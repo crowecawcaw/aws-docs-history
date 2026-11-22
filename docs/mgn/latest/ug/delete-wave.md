@@ -1,7 +1,6 @@
 
 
 # Delete wave
-<a name="delete-wave"></a>
 
 To delete a wave, choose the **Delete wave** button and the **Delete wave** prompt will open. You will need to verify that you want to delete the selected wave. 
 

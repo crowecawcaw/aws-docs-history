@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationAgentInstallationPolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationAgentInstallationPolicy"></a>
 
  
 

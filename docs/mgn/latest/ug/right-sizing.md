@@ -1,7 +1,6 @@
 
 
 # Instance type right-sizing
-<a name="right-sizing"></a>
 
 AWS Transform MGN launches a new instance type after every change of configuration on the source server, for example, added/removed disks, and added/removed RAM. When you use the instance type right-sizing feature MGN launches a test or cutover instance type that best matches the OS, CPU, and RAM of your source server. Set this feature to **On** to enable or to **None** to disable, in which case MGN launches the instance type as configured in your Amazon EC2 launch template. 
 

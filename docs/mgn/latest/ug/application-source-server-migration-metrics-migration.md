@@ -1,7 +1,6 @@
 
 
 # Review the application source server migration lifecycle
-<a name="application-source-server-migration-metrics-migration"></a>
 
 The source server **Migration lifecycle** metric shows an aggregated overview of the application associated servers migration lifecycle. You can look up an individual source server **Migration lifecycle** status at the **Source servers** table at the bottom of the page. 
 

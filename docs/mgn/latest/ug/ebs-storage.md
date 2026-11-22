@@ -1,7 +1,6 @@
 
 
 # Amazon EBS configuration
-<a name="ebs-storage"></a>
 
 Amazon Elastic Block Store (Amazon EBS) is the default target storage type for AWS Transform MGN. This guide covers how to configure Amazon EBS volume types, encryption settings, and per-server disk type customization.
 
@@ -69,7 +68,7 @@ To modify the existing key policy using the AWS Management Console *policy view*
 
 1. Choose **Edit** and add the following JSON statements to the **Statement** field.
 
-   ```
+   ```json
        {
          "Sid": "Allow AWS Services permission to describe a customer managed key for encryption purposes",
          "Effect": "Allow",
@@ -213,6 +212,9 @@ Each staging disk type supports disks up to a maximum size. MGN checks the size 
 | FSx for ONTAP | Up to 64 TiB (65,536 GiB) for each data disk, when the target storage type is FSx for ONTAP. The boot disk always stays on an Amazon EBS staging disk, AUTO by default, so the limit of its Amazon EBS type applies to it. | 
 
 If the staging disk type does not support the size of the disk, MGN refuses the setting with a message that names the disk size and the type, for example: `The 61440 GiB disk size is not supported by the GP2 staging disk type.` Choose a type that supports the size, such as gp3.
+
+**Note**  
+When the staging area subnet is on an Outpost, every staging disk can be at most 16 TiB, regardless of its type. A gp3 staging disk on an Outpost can have at most 16,000 IOPS and 1,000 MiB/s of throughput. MGN refuses larger settings when you save them, including for a disk on AUTO. When you move the staging area subnet to an Outpost, MGN checks every disk of the source server. For more information, see [Migrating to AWS Outposts](outposts.md).
 
 ## Replicating large disks
 <a name="large-disks"></a>

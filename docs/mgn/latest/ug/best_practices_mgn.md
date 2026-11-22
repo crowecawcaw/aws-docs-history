@@ -1,7 +1,6 @@
 
 
 # Best practices for AWS Transform MGN
-<a name="best_practices_mgn"></a>
 
 ## Planning
 <a name="planning"></a>

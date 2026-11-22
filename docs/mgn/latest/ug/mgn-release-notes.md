@@ -1,13 +1,15 @@
 
 
 # Release notes
-<a name="mgn-release-notes"></a>
 
 ## November 2026
 <a name="release-notes-nov-2026"></a>
 + MGN now supports source disks up to 64 TiB, up from 16 TiB. A disk larger than 16 TiB must use a General Purpose SSD (gp3) or Provisioned IOPS SSD (io2) staging disk. For more information, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size) and [Replicating large disks](ebs-storage.md#large-disks).
 + Added support for the following operating systems:
   + Ubuntu 26.04 LTS
++ You can now set default Amazon EBS storage settings, such as volume type, IOPS, and throughput, for each source server. Edit them on the source server's **Launch settings** tab, through the MGN API, or in bulk through the inventory file. For more information, see [Storage settings defaults](storage-settings-defaults.md).
++ You can now use source actions to run your own scripts on the machines in your on-premises environment during the migration. Source actions run scripts that are stored in SSM Parameter Store on Linux and Windows machines through the AWS Transform MGN connector, and you can monitor each execution from the MGN console. For more information, see [Source actions](source-actions.md).
++ You can now migrate source servers to AWS Outposts. You can select a subnet within an Outpost as your staging area and cutover target. For more information, see [Migrating to AWS Outposts](outposts.md).
 
 ## October 2026
 <a name="release-notes-oct-2026"></a>

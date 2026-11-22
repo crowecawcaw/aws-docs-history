@@ -1,7 +1,6 @@
 
 
 # Associate a Group of Servers with an Application
-<a name="applications"></a>
 
 Many customers have clusters of servers with dependencies between them. AWS Transform MGN provides the user with a way to represent a group of servers by associating them with an **Application**. 
 

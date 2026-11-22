@@ -1,7 +1,6 @@
 
 
 # Adding source servers
-<a name="adding-servers"></a>
 
 Add source servers to AWS Transform MGN by installing the AWS Replication Agent (also referred to as "the Agent") on them. The Agent can be installed on both Linux and Windows servers. You can add source servers from vCenter without installing an agent through the agentless replication feature. 
 

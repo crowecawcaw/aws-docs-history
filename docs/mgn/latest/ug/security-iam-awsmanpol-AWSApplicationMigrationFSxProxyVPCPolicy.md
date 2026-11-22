@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationFSxProxyVPCPolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationFSxProxyVPCPolicy"></a>
 
 This policy is attached to the AWS Transform MGN FSx proxy VPC service role. 
 

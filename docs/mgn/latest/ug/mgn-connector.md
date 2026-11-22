@@ -1,13 +1,12 @@
 
 
 # MGN Connectors
-<a name="mgn-connector"></a>
 
-MGN connectors enable you to run commands on multiple source servers. Use connectors for large-scale migrations with multiple operating system types and versions, which may be distributed across multiple data centers. A connector can help:
-+ Verify the prerequisites are met for installation of the MGN replication agent on the source servers.
-+ Install the MGN replication agents on the source servers.
+MGN connectors enable you to run commands on multiple source servers. The AWS Transform MGN Connector has two main roles in your migration environment:
++ **Automation server for source actions:** Acts as an automation server that connects to your on-premises environment machines and executes [source actions](source-actions.md) on them. Source actions are custom scripts you define to prepare machines during the migration lifecycle.
++ **Replication agent deployment:** Installs the MGN replication agents on your on-premises machines. The connector also verifies that the prerequisites are met for installation of the MGN replication agent on your source servers.
 
-This feature, combined with the post-launch action framework, offers automation across the entire deployment process.
+Use connectors for large-scale migrations with multiple operating system types and versions distributed across multiple data centers. This feature, combined with the post-launch action framework, offers automation across the entire deployment process.
 
 **Topics**
 + [Prerequisites for installing the MGN connector](mgn-connector-prerequisites.md)

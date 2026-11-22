@@ -1,7 +1,6 @@
 
 
 # Activate trusted access for AWS Transform MGN
-<a name="activate-trusted-access"></a>
 
 To use global view, you must activate trusted access to AWS Transform MGN for your organization.
 

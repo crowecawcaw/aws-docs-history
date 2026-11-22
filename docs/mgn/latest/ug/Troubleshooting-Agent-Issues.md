@@ -1,7 +1,6 @@
 
 
 # Troubleshooting agent issues
-<a name="Troubleshooting-Agent-Issues"></a>
 
 Use the information in this section to troubleshoot issues with installing the replication agent.
 

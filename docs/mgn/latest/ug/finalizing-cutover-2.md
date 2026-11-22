@@ -1,7 +1,6 @@
 
 
 # Finalizing a cutover
-<a name="finalizing-cutover-2"></a>
 
 If you are completely done with your migration and performed a successful cutover, you can finalize the cutover. This changes your source servers' **Migration lifecycle** status to **Cutover complete**, indicating that the cutover is complete and that the migration has been performed successfully. In addition, this stops data replication and causes all replicated data to be discarded. All AWS resources used for data replication are terminated. 
 

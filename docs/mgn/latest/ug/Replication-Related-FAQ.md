@@ -1,7 +1,6 @@
 
 
 # Replication questions
-<a name="Replication-Related-FAQ"></a>
 
 This section contains answers to questions about data replication.
 

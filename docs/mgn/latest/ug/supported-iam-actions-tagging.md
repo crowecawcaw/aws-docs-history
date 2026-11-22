@@ -1,7 +1,6 @@
 
 
 # Grant permission to tag resources during creation
-<a name="supported-iam-actions-tagging"></a>
 
 Some resource-creating Amazon MGN API actions enable you to specify tags when you create the resource. You can use resource tags to implement attribute-based control (ABAC). 
 
@@ -16,7 +15,7 @@ In the IAM policy definition for the `mgn:TagResource` action, use the Condition
 
 ****  
 
-```
+```json
 {
         "Version":"2012-10-17",		 	 	 
         "Statement": [

@@ -1,7 +1,6 @@
 
 
 # View import history
-<a name="import-history"></a>
 
 Select the **Import history** tab to view the files imported in the last 7 days, including their status and the task’s start and end time.
 

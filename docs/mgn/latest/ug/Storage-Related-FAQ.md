@@ -1,7 +1,6 @@
 
 
 # Storage questions
-<a name="Storage-Related-FAQ"></a>
 
 This section contains answers to frequently asked questions about storage options in AWS Transform MGN.
 

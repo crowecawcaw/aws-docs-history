@@ -1,7 +1,6 @@
 
 
 # Installation requirements
-<a name="installation-requirements"></a>
 
 Before installing the AWS Replication Agent on your source servers, ensure that they meet these requirements:
 
@@ -16,6 +15,7 @@ Before installing the AWS Replication Agent on your source servers, ensure that 
   If a newly installed server has the same identifier as a previously installed server, MGN treats it as the same source server and the second installation updates the first. Before installing the AWS Replication Agent on a cloned VM, ensure it has a unique identifier, so it can be recognized as a separate source server. 
 + AWS Transform MGN does not support fully paravirtualized source servers. Source servers with partial paravirtualization, such as VMWare's paravirtualization of I/O devices, are supported. 
 + The AWS Replication Agent installer supports multipath. 
++ Boot disks that span multiple physical disks are not supported.
 
 ### Source server requirements
 <a name="general-requirements2"></a>
@@ -29,6 +29,8 @@ These are universal requirements for both Linux and Windows source servers:
   For a disk larger than 16 TiB, you must use a General Purpose SSD (gp3) or Provisioned IOPS SSD (io2) staging disk. Throughput Optimized HDD (st1), the default for large disks, and General Purpose SSD (gp2) support disks up to 16 TiB. For the size that each type supports, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size). For how to speed up the initial sync of a large disk, see [Replicating large disks](ebs-storage.md#large-disks).
 
   When you launch a test or cutover instance into a subnet in a Local Zone, MGN creates the launched volumes as General Purpose SSD (gp2), which supports disks up to 16 TiB. A server with a disk larger than 16 TiB can't be launched into a Local Zone.
+
+  A disk larger than 16 TiB also can't be staged or launched on an Outpost, because every volume on an Outpost can be at most 16 TiB. For more information, see [Migrating to AWS Outposts](outposts.md).
 
 ## Linux installation requirements
 <a name="linux-requirements"></a>
@@ -51,7 +53,6 @@ Ensure that your Linux source server meets these installation requirements prior
 + Only servers using the GRUB bootloader (GRUB 1 or 2) are supported.
 + Machines that boot off a disk configured with GPT partitioning must have the package 'grub2-pc-modules' installed
 + Secure Boot is not supported in Linux.
-+ Boot disks that span multiple physical disks are not supported.
 + Ensure that */tmp* is mounted as read\+write. 
 + Ensure that */tmp* is mounted with the *exec* option. Verify that the */tmp* directory is mounted in a way that allows you to run scripts and applications from it.
 

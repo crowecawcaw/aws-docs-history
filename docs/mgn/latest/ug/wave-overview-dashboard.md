@@ -1,7 +1,6 @@
 
 
 # Review overall wave status
-<a name="wave-overview-dashboard"></a>
 
 The **Overview** dashboard provides an overview of the overall wave status, including: 
 +  **Description** – The description of the wave. 

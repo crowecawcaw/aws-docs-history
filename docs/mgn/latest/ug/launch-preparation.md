@@ -1,7 +1,6 @@
 
 
 # Preparing for test and cutover instance launch
-<a name="launch-preparation"></a>
 
 Before launching your instances, you must ensure that your environment is set up properly to ensure successful launches. Check the following before continuing:
 

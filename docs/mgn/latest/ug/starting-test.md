@@ -1,7 +1,6 @@
 
 
 # Starting a test
-<a name="starting-test"></a>
 
 To launch a test instance for a single source server or multiple source servers:
 

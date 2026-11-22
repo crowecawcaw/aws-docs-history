@@ -1,7 +1,6 @@
 
 
 # Launching test instances
-<a name="launching-test-servers"></a>
 
 After you have added all of your source servers and configured their launch settings, you are ready to launch a test instance. It is crucial to test the migration of your source servers to AWS before initiating a cutover to verify that your source servers function properly within the AWS environment. 
 

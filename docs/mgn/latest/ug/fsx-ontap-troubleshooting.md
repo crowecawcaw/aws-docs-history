@@ -1,7 +1,6 @@
 
 
 # Troubleshooting FSx for ONTAP issues
-<a name="fsx-ontap-troubleshooting"></a>
 
 This section covers common issues when using FSx for ONTAP as the target storage type with MGN.
 
@@ -104,7 +103,7 @@ After resolving the issue, replication recovers automatically. It may take up to
 
 **Cause:**
 
-After finalize cutover, MGN creates a FlexClone from the replication volume and initiates a split to make it independent. If FSx for ONTAP automatic backups (or a manual backup) were taken on the target volume (FlexClone) after finalize cutover, the backup creates a locked snapshot that blocks the FlexClone split operation. MGN cannot complete the split until the locked snapshot is removed.
+MGN creates a FlexClone from the replication volume when it launches a test or cutover instance. After finalize cutover, MGN initiates a split to make the FlexClone independent. If FSx for ONTAP automatic backups (or a manual backup) were taken on the target volume (FlexClone), the backup creates a locked snapshot that blocks the FlexClone split operation. MGN cannot complete the split until the locked snapshot is removed.
 
 **Resolution:**
 
@@ -114,7 +113,7 @@ After finalize cutover, MGN creates a FlexClone from the replication volume and 
 **Note**  
 Deleting the backup does not affect the target volume data. If you need to retain backup data, you can restore it to a separate volume before deleting.
 
-1. **Wait 24 hours for cleanup** – MGN will automatically complete the FlexClone split and delete the replication volume within 24 hours. No further manual action is needed.
+1. **Wait for cleanup** – MGN will automatically complete the FlexClone split and delete the replication volume. For a large disk, the split can take days. No further manual action is needed.
 
 1. **Re-enable automatic backups** – After the replication volume has been cleaned up, re-enable automatic backups on the FSx for ONTAP file system to resume regular backup protection.
 
@@ -177,7 +176,7 @@ Launch check failed: insufficient capacity on file system fs-0123456789abcdef0
 ```
 
 **Cause**  
-The FSx for ONTAP file system does not have enough free SSD storage capacity to create FlexClone volumes for all source servers in the launch job.
+The FSx for ONTAP file system does not have enough free SSD storage capacity for the FlexClone volumes of all source servers in the launch job. A FlexClone volume takes little space at launch. After finalize cutover, MGN splits it from the replication volume, and it grows to a full copy of the data.
 
 **Resolution**  
 Increase the SSD storage capacity of your FSx for ONTAP file system.

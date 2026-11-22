@@ -1,7 +1,6 @@
 
 
 # Common replication errors
-<a name="common-replication-errors"></a>
 
 This section describes common replication errors, possible explanations, and potential mitigations.
 

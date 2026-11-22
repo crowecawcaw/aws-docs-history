@@ -1,7 +1,6 @@
 
 
 # Manage source servers after migration
-<a name="server-post-migration"></a>
 
 After you launch cutover instances, use the following actions to complete the migration and clean up your source servers in AWS Transform MGN. We recommend that you perform them in this order:
 

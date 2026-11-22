@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationServiceRolePolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy"></a>
 
  
 

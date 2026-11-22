@@ -1,7 +1,6 @@
 
 
 # Access details for an application
-<a name="application-details"></a>
 
 There are several ways you can access the **Application details** view. 
 

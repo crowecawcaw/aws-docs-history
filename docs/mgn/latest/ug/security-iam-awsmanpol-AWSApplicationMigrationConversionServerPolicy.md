@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationConversionServerPolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationConversionServerPolicy"></a>
 
  
 

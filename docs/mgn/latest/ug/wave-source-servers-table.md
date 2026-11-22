@@ -1,7 +1,6 @@
 
 
 # Review the source servers in a wave
-<a name="wave-source-servers-table"></a>
 
 The **Source servers** table lists all the servers that are associated with the wave. 
 

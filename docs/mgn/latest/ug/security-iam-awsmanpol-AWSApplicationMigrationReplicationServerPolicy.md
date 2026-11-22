@@ -1,7 +1,6 @@
 
 
 # AWS managed policy: AWSApplicationMigrationReplicationServerPolicy
-<a name="security-iam-awsmanpol-AWSApplicationMigrationReplicationServerPolicy"></a>
 
  
 

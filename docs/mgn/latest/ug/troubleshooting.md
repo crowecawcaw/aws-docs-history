@@ -1,7 +1,6 @@
 
 
 # Troubleshooting
-<a name="troubleshooting"></a>
 
 This section provides help for common communication, credential, installation, and replication issues with AWS Transform MGN.
 

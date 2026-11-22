@@ -1,7 +1,6 @@
 
 
 # Filtering the Applications page
-<a name="applications-filtering"></a>
 
 You can customize the **Applications** page through filtering. Filtering allows you to easily filter your applications by one or multiple properties. 
 

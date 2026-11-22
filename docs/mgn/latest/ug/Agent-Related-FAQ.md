@@ -1,7 +1,6 @@
 
 
 # Agent questions
-<a name="Agent-Related-FAQ"></a>
 
 This section contains answers to questions about the AWS Replication Agent.
 

@@ -1,7 +1,6 @@
 
 
 # Installing the AWS Replication Agent on Windows servers
-<a name="windows-agent"></a>
 
 Complete these steps to install the AWS Replication Agent on Windows source servers.
 

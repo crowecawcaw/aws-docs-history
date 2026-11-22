@@ -1,7 +1,6 @@
 
 
 # Exporting your data inventory
-<a name="export-main"></a>
 
 The **Export** feature allows you to easily export your inventory of servers, applications, and waves to a CSV file that is saved in your local disk or an S3 bucket.
 
@@ -46,7 +45,7 @@ The following is an example of an Amazon S3 bucket policy in the target account:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
    "Statement": [
@@ -93,3 +92,9 @@ In addition, the exported file includes the following view-only parameters. Thes
 **Note**  
 If the bucket you're exporting to is encrypted with customer managed keys (KMS), that KMS key's policies must give MGN permission to use it. This permission is given through the user or role that initiates the export job.  
 If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS), the key must be in the same Region as the destination S3 bucket.
+
+**Note**  
+For each source server, the exported file includes:  
+The five `mgn:launch:default:ebs:*` fields, which contain the server's current [storage settings defaults](storage-settings-defaults.md).
+One `mgn:launch:volume:{{device-name}}:type` field for every device in the server's EC2 launch template, with the volume type that the template currently has. This includes devices whose type MGN set from the defaults.
+You can edit these values in the exported file and import it again to change the defaults or the existing volumes for many source servers at once.

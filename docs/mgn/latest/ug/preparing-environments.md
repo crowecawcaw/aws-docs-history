@@ -1,7 +1,6 @@
 
 
 # Network requirements for MGN
-<a name="preparing-environments"></a>
 
 Before you use MGN, make sure to prepare your environments. Preparation includes setting correct network settings, defining network requirements, and opening the correct ports.
 
@@ -71,6 +70,9 @@ To prepare your network for running AWS Transform MGN, configure the following c
 **Important**  
 SSL interception should not be applied for communication between replication servers and the MGN API endpoint, or between source servers and the MGN API endpoint.
 
+**Note**  
+When you migrate to an AWS Outpost, the AWS Replication Agent download requires connectivity to the parent AWS Region, and snapshots stored in the Region traverse the network to the Region. For more information, see [Migrating to AWS Outposts](outposts.md).
+
 **Topics**
 + [Endpoints and firewall allowlist](#TCP-443)
 + [Communication between source servers and AWS Transform MGN over TCP port 443](#Source-Manager-TCP-443)
@@ -126,7 +128,7 @@ If you use an Amazon S3 VPC Endpoint, you must provide sufficient permissions fo
 
 ****  
 
-```
+```json
 {
 	"Version":"2012-10-17",		 	 	 
 	 "Statement": [

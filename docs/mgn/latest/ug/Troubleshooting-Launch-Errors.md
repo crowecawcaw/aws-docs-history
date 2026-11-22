@@ -1,7 +1,6 @@
 
 
 # Troubleshooting launch errors
-<a name="Troubleshooting-Launch-Errors"></a>
 
 Use the information in this section to troubleshoot launch errors.
 

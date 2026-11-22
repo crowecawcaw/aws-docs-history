@@ -1,7 +1,6 @@
 
 
 # Register server credentials
-<a name="connector-register-server-credentials"></a>
 
 Once you have the MGN connector set up and ready to use, you can register source servers to the MGN connector. To do so click on the MGN connector name, then click "Register servers".
 
@@ -31,7 +30,7 @@ To perform actions on your source server, you must provide source server credent
   + **Tags** - Secret key-value pairs will be assigned to the new secret. Note that `AWSApplicationMigrationServiceManaged` tag will also be added with the value set to `True`.
   + Here is the structure of the secrets manager entry:
 
-    ```
+    ```json
     {
       "WinConnectionProtocol": "HTTPS",
       "WinUserName": "windows_username",

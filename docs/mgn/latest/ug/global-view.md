@@ -1,7 +1,6 @@
 
 
 # Manage large-scale migrations with global view
-<a name="global-view"></a>
 
 The AWS Transform MGN global view feature enables you to manage large-scale migrations across multiple accounts. Global view provides visibility, and the ability to perform actions on source servers, apps, and waves in different AWS accounts.
 

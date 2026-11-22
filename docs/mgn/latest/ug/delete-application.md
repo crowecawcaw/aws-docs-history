@@ -1,7 +1,6 @@
 
 
 # Delete application
-<a name="delete-application"></a>
 
 To delete an application, choose **Delete**. When the **Delete application** prompt opens, verify that you want to delete the selected application. 
 

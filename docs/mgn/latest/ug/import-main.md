@@ -1,7 +1,6 @@
 
 
 # Importing your data inventory
-<a name="import-main"></a>
 
 The **Import** feature allows you to easily import your inventory of servers, applications, and waves from a CSV file that is saved in your local disk or an S3 bucket.
 
@@ -49,7 +48,7 @@ The following is an example of an S3 bucket policy in the target account:
 
 ****  
 
-```
+```json
 {
   "Version":"2012-10-17",		 	 	 
    "Statement": [

@@ -1,7 +1,6 @@
 
 
 # Manage data replication
-<a name="server-replication-main"></a>
 
 You can manage data replication for the source server through these actions on the **Replication** drop-down menu:
 + **Start data replication** – Restarts data replication for a source server on which data replication has been stopped. If you are using agent-based replication you don't necessarily have to reinstall the agent. 

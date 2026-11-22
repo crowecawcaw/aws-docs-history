@@ -1,7 +1,6 @@
 
 
 # Quick start guide for AWS Transform MGN
-<a name="quick-start-guide-gs"></a>
 
 This quick start is a high-level checklist of the AWS Transform MGN migration flow. Each step links to the detailed instructions for that step. For a one-page overview of the migration flow, see [Migration workflow](migration-workflow-gs.md).
 

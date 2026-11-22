@@ -1,7 +1,6 @@
 
 
 # Exporting your data inventory to an S3 bucket
-<a name="export-s3"></a>
 
 To export your inventory to an S3 bucket, take the following steps:
 

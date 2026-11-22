@@ -1,7 +1,6 @@
 
 
 # Inventory Import parameters
-<a name="import-parameters"></a>
 
 The imported file can include multiple parameters, including:
 
@@ -16,6 +15,11 @@ The imported file can include multiple parameters, including:
 | mgn:app:tag:appkey1 | The value of the application tag key (in this example, the tag key is appkey1). | 
 | mgn:launch:boot-mode | The boot mode of the launch instance. Expected values: LEGACY\_BIOS, UEFI, or USE\_SOURCE. | 
 | mgn:launch:copy-private-ip | The option to copy the private IP of the source server to the launch instance (true or false). | 
+| mgn:launch:default:ebs:delete-on-termination | Whether the Amazon EBS volumes of the launch instance are deleted when the instance is terminated (ENABLED or DISABLED). Sets this value in the server's storage settings defaults. | 
+| mgn:launch:default:ebs:iops | The provisioned IOPS for the Amazon EBS volumes of the launch instance. The value must be within the range allowed for the volume type. Sets this value in the server's storage settings defaults. | 
+| mgn:launch:default:ebs:throughput | The provisioned throughput, in MiB/s, for the Amazon EBS volumes of the launch instance. Applies to gp3 volumes only. The value must be compatible with the IOPS value (at most 0.25 MiB/s per provisioned IOPS). Sets this value in the server's storage settings defaults. | 
+| mgn:launch:default:ebs:volume-initialization-rate | The volume initialization rate, in MiB/s, for the Amazon EBS volumes of the launch instance. Sets this value in the server's storage settings defaults. | 
+| mgn:launch:default:ebs:volume-type | The default Amazon EBS volume type for the volumes of the launch instance, for example gp2, gp3, io1, io2, st1, or sc1. Sets this value in the server's storage settings defaults. This value is stored in MGN as the server's default and doesn't change the EC2 launch template. To change the type of a volume that is already in the EC2 launch template, use mgn:launch:volume:<device-name>:type. | 
 | mgn:launch:iam-instance-profile:name | The name of the instance profile associated with the launch instance. | 
 | mgn:launch:instance-type | The EC2 instance type of the launch instance (for example, m4.large). | 
 | mgn:launch:map-tag-key | The key of the map migration tag applied by map auto tagging. Expected values: map-migrated or aws-apn-id. Values are case-sensitive. | 
@@ -38,7 +42,7 @@ The imported file can include multiple parameters, including:
 | mgn:launch:post-actions:<action-name>:parameters | The parameters passed to the SSM document of the post-launch action, as a JSON object with two optional members, parameters and externalParameters. No other members are allowed. parameters maps each document parameter name to an ordered list of {"value": "<literal>", "type": "String"} entries, where type is String (default) or StringList. externalParameters maps each document parameter name to a dynamic path string. For example: {"parameters":{"Region":[{"value":"us-east-1"}]},"externalParameters":{"InstanceId":"$.instanceId"}} | 
 | mgn:launch:start-instance | The option to automatically start the test or cutover instance after launch (true or false). If set to false, the instance is launched in a stopped state. | 
 | mgn:launch:tag:instance:key1 | The value of launch instance tag "key1" (in this example, the tag key is key1). | 
-| mgn:launch:volume:/dev/sda:type | The EBS volume type of the launch instance's volume whose device name is /dev/sda. The device name must match the name in the EC2 launch template's block device mappings (for example, /dev/sda1 or xvdf). | 
+| mgn:launch:volume:/dev/sda:type | The EBS volume type of the launch instance's volume whose device name is /dev/sda. This value changes that device's entry in the server's EC2 launch template. The device name must match the name in the EC2 launch template's block device mappings (for example, /dev/sda1 or xvdf).<br />For the value to apply:+ The server's EC2 launch template must exist. Otherwise, the import fails for that server with the error `ec2 launch template not found`.<br />+ The device must be one of the source server's disks. If you specify a device that the server doesn't have, the import adds an entry for it, but MGN removes the entry within about 10 minutes. This also applies to servers that don't have the AWS Replication Agent installed yet, because no disks are reported for them.<br />For example, if a server's EC2 launch template has /dev/sda and /dev/sdb, setting `mgn:launch:volume:/dev/sda:type` to io2 changes /dev/sda. Setting `mgn:launch:volume:/dev/sdc:type` adds a /dev/sdc entry, which MGN removes because the server has no such disk.<br />If the source disk later grows, MGN updates the size of the volume and applies the current [storage settings defaults](storage-settings-defaults.md) to it, replacing the type that you set with this field. | 
 | mgn:region | The AWS Region to which you are importing, which must be the Region of your MGN console. If left blank, defaults to the console Region.  | 
 | mgn:replication:associate-default-security-group | The option to associate the default MGN security group with the replication servers (true or false). | 
 | mgn:replication:bandwidth-throttling | The bandwidth throttling limit for data replication, in Mbps. A value of 0 means no throttling. | 
@@ -68,6 +72,8 @@ The imported file can include multiple parameters, including:
 | mgn:wave:name | The name of the imported wave. | 
 | mgn:wave:tag:wavekey1 | The value of the wave tag key (in this example, the tag key is wavekey1). | 
 | **mgn:launch:transfer-server-tags** | The option to transfer any user-configured custom tags from your source servers onto your test or cutover instance. | 
+
+The `mgn:launch:default:ebs:*` fields set the [storage settings defaults](storage-settings-defaults.md) for each source server. All of these fields are optional. When a field is empty, the import keeps the server's current value. To clear a value so that the MGN default applies, enter `[RESET_VALUE]`. To clear the volume type of a server that has IOPS or throughput set, clear those fields in the same row. Imported values apply to volumes that MGN creates after the import, and to a volume whose source disk grows. For details, see [Storage settings defaults](storage-settings-defaults.md). To change volumes that already exist in the server's EC2 launch template, use `mgn:launch:volume:{{device-name}}:type`. Importing these fields requires the `mgn:GetLaunchConfigurationDefaults` and `mgn:UpdateLaunchConfigurationDefaults` permissions. For details, see [Storage settings defaults](storage-settings-defaults.md). For the limits that apply to each volume type, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
 
 ## Additional considerations
 <a name="import-considerations"></a>

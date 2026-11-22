@@ -1,7 +1,6 @@
 
 
 # Import and Export a Data Inventory to Coordinate a Migration
-<a name="import-export"></a>
 
 The import and export feature allows you to easily plan and coordinate your migrations.
 

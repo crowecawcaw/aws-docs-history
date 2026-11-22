@@ -1,7 +1,6 @@
 
 
 # Manage selected waves
-<a name="wave-actions-menu"></a>
 
 The **Actions** menu allows you to perform actions on selected waves. 
 
