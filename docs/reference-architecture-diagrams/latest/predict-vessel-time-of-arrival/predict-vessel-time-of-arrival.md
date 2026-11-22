@@ -1,7 +1,6 @@
 
 
 # Predict Vessel Time of Arrival at Berth
-<a name="predict-vessel-time-of-arrival"></a>
 
 Publication date: **July 16, 2020 ([Diagram history](#vessel-history))**
 
