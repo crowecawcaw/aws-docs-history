@@ -1,7 +1,6 @@
 
 
 # Configure branding
-<a name="configure-branding"></a>
 
 Customize the candidate-facing experience with your company branding. You can configure your company name, logo, and brand color.
 

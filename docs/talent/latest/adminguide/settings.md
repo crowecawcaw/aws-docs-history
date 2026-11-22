@@ -1,7 +1,6 @@
 
 
 # Settings
-<a name="settings"></a>
 
 Use the Amazon Connect Talent settings to manage users and security profiles, configure instance settings such as knowledge bases, branding, and disclosures, and review your data governance policies.
 

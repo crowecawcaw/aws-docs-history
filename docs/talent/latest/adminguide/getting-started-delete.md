@@ -1,7 +1,6 @@
 
 
 # Delete your Amazon Connect Talent instance
-<a name="getting-started-delete"></a>
 
 When you no longer need an Amazon Connect Talent instance, delete it from the Amazon Connect Talent console. Deleting an instance stops new evaluations and removes the instance, but some resources that were provisioned with the instance remain in your account and continue to count against your service quotas. To fully clean up, delete the instance and then remove the resources that remain.
 

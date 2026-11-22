@@ -1,7 +1,6 @@
 
 
 # Logging Amazon Connect Talent API calls using AWS CloudTrail
-<a name="logging-using-cloudtrail"></a>
 
 Amazon Connect Talent is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Connect Talent. CloudTrail captures all API calls for Amazon Connect Talent as events. The calls captured include calls from the Amazon Connect Talent console and code calls to the Amazon Connect Talent API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Connect Talent. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Connect Talent, the IP address from which the request was made, who made the request, when it was made, and additional details.
 

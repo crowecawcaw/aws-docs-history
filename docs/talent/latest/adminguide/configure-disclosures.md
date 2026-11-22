@@ -1,7 +1,6 @@
 
 
 # Configure disclosures
-<a name="configure-disclosures"></a>
 
 Configure legal notices that candidates see before they start an evaluation. Use the rich text editor to format your disclosure content.
 

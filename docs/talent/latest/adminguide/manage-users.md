@@ -1,7 +1,6 @@
 
 
 # Manage users
-<a name="manage-users"></a>
 
 Add users to Amazon Connect Talent and configure them with information and permissions. Each user receives a [security profile](manage-security-profiles.md) that determines what they can access and do.
 

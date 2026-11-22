@@ -1,7 +1,6 @@
 
 
 # Add your ATS integration
-<a name="integrations"></a>
 
 **Note**  
 ATS integrations are not available at launch. Support for ATS integrations is coming soon.

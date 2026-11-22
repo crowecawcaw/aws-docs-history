@@ -1,7 +1,6 @@
 
 
 # Requesting custom data retention periods
-<a name="data-retention"></a>
 
 By default, Amazon Connect Talent deletes the following data one year after it is created:
 + Interview transcripts

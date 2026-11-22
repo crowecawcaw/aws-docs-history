@@ -1,7 +1,6 @@
 
 
 # Service quotas and endpoints for Amazon Connect Talent
-<a name="endpoints-quotas"></a>
 
 The following sections describe the service quotas and the service endpoints for Amazon Connect Talent.
 

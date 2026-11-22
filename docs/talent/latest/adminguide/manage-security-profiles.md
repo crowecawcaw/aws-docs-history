@@ -1,7 +1,6 @@
 
 
 # Manage security profiles and roles
-<a name="manage-security-profiles"></a>
 
 Security profiles control what users can see and do in Amazon Connect Talent. Each user must have a security profile assigned. Follow the principle of least privilege when you assign permissions.
 

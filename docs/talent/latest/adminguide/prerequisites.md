@@ -1,7 +1,6 @@
 
 
 # Prerequisites for Amazon Connect Talent
-<a name="prerequisites"></a>
 
 Before you set up Amazon Connect Talent, review the following requirements.
 

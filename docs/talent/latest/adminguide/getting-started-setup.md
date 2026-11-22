@@ -1,7 +1,6 @@
 
 
 # Set up your instance
-<a name="getting-started-setup"></a>
 
 After you create your Amazon Connect Talent instance, configure it for your recruiting team. Complete the following steps to get your instance ready for use.
 
